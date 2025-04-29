@@ -503,7 +503,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSetD2Ev.exit: ; preds = %_Z
   %23 = load i64, ptr %22, align 8, !tbaa !35
   %24 = xor i64 %23, -1136490970041655429
   %.not = icmp eq i64 %23, -1136490970041655429
-  br i1 %.not, label %47, label %25
+  br i1 %.not, label %46, label %25
 
 25:                                               ; preds = %19
   %26 = urem i64 %24, 262139
@@ -530,138 +530,137 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSetD2Ev.exit: ; preds = %_Z
   %34 = load ptr, ptr %33, align 8, !tbaa !20
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load i64, ptr %35, align 8, !tbaa !35
-  %37 = xor i64 %36, %24
-  %.not16.i = icmp eq i64 %37, -1136490970041655429
+  %.not16.i = icmp eq i64 %36, %23
   br i1 %.not16.i, label %_ZN4absl24synchronization_internal12_GLOBAL__N_110PointerMap4FindEPv.exit.loopexit, label %29
 
 _ZN4absl24synchronization_internal12_GLOBAL__N_110PointerMap4FindEPv.exit.loopexit: ; preds = %29, %31
   %.014.lcssa.i.ph = phi i32 [ %.01421.i, %31 ], [ -1, %29 ]
-  %38 = zext i32 %.014.lcssa.i.ph to i64
+  %37 = zext i32 %.014.lcssa.i.ph to i64
   br label %_ZN4absl24synchronization_internal12_GLOBAL__N_110PointerMap4FindEPv.exit
 
 _ZN4absl24synchronization_internal12_GLOBAL__N_110PointerMap4FindEPv.exit: ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_110PointerMap4FindEPv.exit.loopexit, %25
-  %.014.lcssa.i = phi i64 [ 4294967295, %25 ], [ %38, %_ZN4absl24synchronization_internal12_GLOBAL__N_110PointerMap4FindEPv.exit.loopexit ]
+  %.014.lcssa.i = phi i64 [ 4294967295, %25 ], [ %37, %_ZN4absl24synchronization_internal12_GLOBAL__N_110PointerMap4FindEPv.exit.loopexit ]
   %.not30 = icmp eq i64 %.014.lcssa.i, %indvars.iv89
-  br i1 %.not30, label %47, label %39
+  br i1 %.not30, label %46, label %38
 
-39:                                               ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_110PointerMap4FindEPv.exit
-  %40 = trunc nuw i64 %indvars.iv89 to i32
-  %41 = inttoptr i64 %24 to ptr
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 400, ptr noundef nonnull @.str.1, i32 noundef %40, ptr noundef nonnull %41)
-          to label %42 unwind label %45
+38:                                               ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_110PointerMap4FindEPv.exit
+  %39 = trunc nuw i64 %indvars.iv89 to i32
+  %40 = inttoptr i64 %24 to ptr
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 400, ptr noundef nonnull @.str.1, i32 noundef %39, ptr noundef nonnull %40)
+          to label %41 unwind label %44
 
-42:                                               ; preds = %39
+41:                                               ; preds = %38
   unreachable
 
-43:                                               ; preds = %56
-  %44 = landingpad { ptr, i32 }
+42:                                               ; preds = %55
+  %43 = landingpad { ptr, i32 }
           cleanup
-  br label %88
+  br label %87
 
-45:                                               ; preds = %39
-  %46 = landingpad { ptr, i32 }
+44:                                               ; preds = %38
+  %45 = landingpad { ptr, i32 }
           cleanup
-  br label %88
+  br label %87
 
-47:                                               ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_110PointerMap4FindEPv.exit, %19
-  %48 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %49 = load i8, ptr %48, align 4, !tbaa !39, !range !40, !noundef !41
-  %50 = trunc nuw i8 %49 to i1
-  br i1 %50, label %51, label %56
+46:                                               ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_110PointerMap4FindEPv.exit, %19
+  %47 = getelementptr inbounds nuw i8, ptr %21, i64 12
+  %48 = load i8, ptr %47, align 4, !tbaa !39, !range !40, !noundef !41
+  %49 = trunc nuw i8 %48 to i1
+  br i1 %49, label %50, label %55
 
-51:                                               ; preds = %47
-  %52 = trunc nuw i64 %indvars.iv89 to i32
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 403, ptr noundef nonnull @.str.2, i32 noundef %52)
-          to label %53 unwind label %54
+50:                                               ; preds = %46
+  %51 = trunc nuw i64 %indvars.iv89 to i32
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 403, ptr noundef nonnull @.str.2, i32 noundef %51)
+          to label %52 unwind label %53
 
-53:                                               ; preds = %51
+52:                                               ; preds = %50
   unreachable
 
-54:                                               ; preds = %51
-  %55 = landingpad { ptr, i32 }
+53:                                               ; preds = %50
+  %54 = landingpad { ptr, i32 }
           cleanup
-  br label %88
+  br label %87
 
-56:                                               ; preds = %47
-  %57 = load i32, ptr %21, align 8, !tbaa !42
-  %58 = invoke fastcc noundef zeroext i1 @_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet6insertEi(ptr noundef nonnull align 8 dereferenceable(52) %2, i32 noundef %57)
-          to label %59 unwind label %43
+55:                                               ; preds = %46
+  %56 = load i32, ptr %21, align 8, !tbaa !42
+  %57 = invoke fastcc noundef zeroext i1 @_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet6insertEi(ptr noundef nonnull align 8 dereferenceable(52) %2, i32 noundef %56)
+          to label %58 unwind label %42
 
-59:                                               ; preds = %56
-  br i1 %58, label %.preheader, label %62
+58:                                               ; preds = %55
+  br i1 %57, label %.preheader, label %61
 
-.preheader:                                       ; preds = %59
-  %60 = getelementptr inbounds nuw i8, ptr %21, i64 80
-  %61 = getelementptr inbounds nuw i8, ptr %21, i64 120
-  %.val10.i = load ptr, ptr %60, align 8
-  %.val.i35 = load i32, ptr %61, align 8, !tbaa !25
-  br label %67
+.preheader:                                       ; preds = %58
+  %59 = getelementptr inbounds nuw i8, ptr %21, i64 80
+  %60 = getelementptr inbounds nuw i8, ptr %21, i64 120
+  %.val10.i = load ptr, ptr %59, align 8
+  %.val.i35 = load i32, ptr %60, align 8, !tbaa !25
+  br label %66
 
-62:                                               ; preds = %59
-  %63 = load i32, ptr %21, align 8, !tbaa !42
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 406, ptr noundef nonnull @.str.3, i32 noundef %63)
-          to label %64 unwind label %65
+61:                                               ; preds = %58
+  %62 = load i32, ptr %21, align 8, !tbaa !42
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 406, ptr noundef nonnull @.str.3, i32 noundef %62)
+          to label %63 unwind label %64
 
-64:                                               ; preds = %62
+63:                                               ; preds = %61
   unreachable
 
-65:                                               ; preds = %62
-  %66 = landingpad { ptr, i32 }
+64:                                               ; preds = %61
+  %65 = landingpad { ptr, i32 }
           cleanup
-  br label %88
+  br label %87
 
-67:                                               ; preds = %.preheader, %76
-  %.038 = phi i32 [ %77, %76 ], [ 0, %.preheader ]
-  %68 = zext i32 %.038 to i64
+66:                                               ; preds = %.preheader, %75
+  %.038 = phi i32 [ %76, %75 ], [ 0, %.preheader ]
+  %67 = zext i32 %.038 to i64
   %umax = call i32 @llvm.umax.i32(i32 %.038, i32 %.val.i35)
   %wide.trip.count = zext i32 %umax to i64
-  br label %69
+  br label %68
 
-69:                                               ; preds = %70, %67
-  %indvars.iv = phi i64 [ %indvars.iv.next, %70 ], [ %68, %67 ]
+68:                                               ; preds = %69, %66
+  %indvars.iv = phi i64 [ %indvars.iv.next, %69 ], [ %67, %66 ]
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet4NextEPiS3_.exit, label %70
+  br i1 %exitcond.not, label %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet4NextEPiS3_.exit, label %69
 
-70:                                               ; preds = %69
-  %71 = getelementptr inbounds nuw i32, ptr %.val10.i, i64 %indvars.iv
-  %72 = load i32, ptr %71, align 4, !tbaa !31
+69:                                               ; preds = %68
+  %70 = getelementptr inbounds nuw i32, ptr %.val10.i, i64 %indvars.iv
+  %71 = load i32, ptr %70, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %73 = icmp sgt i32 %72, -1
-  br i1 %73, label %76, label %69
+  %72 = icmp sgt i32 %71, -1
+  br i1 %72, label %75, label %68
 
-_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet4NextEPiS3_.exit: ; preds = %69
+_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet4NextEPiS3_.exit: ; preds = %68
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %.val = load i32, ptr %12, align 8, !tbaa !10
-  %74 = zext i32 %.val to i64
-  %75 = icmp samesign ult i64 %indvars.iv.next90, %74
-  br i1 %75, label %19, label %._crit_edge, !llvm.loop !43
+  %73 = zext i32 %.val to i64
+  %74 = icmp samesign ult i64 %indvars.iv.next90, %73
+  br i1 %74, label %19, label %._crit_edge, !llvm.loop !43
 
-76:                                               ; preds = %70
-  %77 = trunc nuw i64 %indvars.iv.next to i32
+75:                                               ; preds = %69
+  %76 = trunc nuw i64 %indvars.iv.next to i32
   %.val33 = load ptr, ptr %3, align 8, !tbaa !19
-  %78 = zext nneg i32 %72 to i64
-  %79 = getelementptr inbounds nuw ptr, ptr %.val33, i64 %78
-  %80 = load ptr, ptr %79, align 8, !tbaa !20
-  %81 = load i32, ptr %21, align 8, !tbaa !42
-  %82 = load i32, ptr %80, align 8, !tbaa !42
-  %.not31 = icmp slt i32 %81, %82
-  br i1 %.not31, label %67, label %83, !llvm.loop !44
+  %77 = zext nneg i32 %71 to i64
+  %78 = getelementptr inbounds nuw ptr, ptr %.val33, i64 %77
+  %79 = load ptr, ptr %78, align 8, !tbaa !20
+  %80 = load i32, ptr %21, align 8, !tbaa !42
+  %81 = load i32, ptr %79, align 8, !tbaa !42
+  %.not31 = icmp slt i32 %80, %81
+  br i1 %.not31, label %66, label %82, !llvm.loop !44
 
-83:                                               ; preds = %76
-  %84 = trunc nuw i64 %indvars.iv89 to i32
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 414, ptr noundef nonnull @.str.4, i32 noundef %84, i32 noundef %72, i32 noundef %81, i32 noundef %82)
-          to label %85 unwind label %86
+82:                                               ; preds = %75
+  %83 = trunc nuw i64 %indvars.iv89 to i32
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 414, ptr noundef nonnull @.str.4, i32 noundef %83, i32 noundef %71, i32 noundef %80, i32 noundef %81)
+          to label %84 unwind label %85
 
-85:                                               ; preds = %83
+84:                                               ; preds = %82
   unreachable
 
-86:                                               ; preds = %83
-  %87 = landingpad { ptr, i32 }
+85:                                               ; preds = %82
+  %86 = landingpad { ptr, i32 }
           cleanup
-  br label %88
+  br label %87
 
-88:                                               ; preds = %86, %65, %54, %45, %43
-  %.pn = phi { ptr, i32 } [ %46, %45 ], [ %55, %54 ], [ %87, %86 ], [ %66, %65 ], [ %44, %43 ]
+87:                                               ; preds = %85, %64, %53, %44, %42
+  %.pn = phi { ptr, i32 } [ %45, %44 ], [ %54, %53 ], [ %86, %85 ], [ %65, %64 ], [ %43, %42 ]
   call fastcc void @_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSetD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %2) #17
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #17
   resume { ptr, i32 } %.pn

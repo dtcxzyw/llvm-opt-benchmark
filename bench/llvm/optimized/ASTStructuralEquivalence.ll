@@ -788,41 +788,41 @@ _ZNK5clang8QualType13getQualifiersEv.exit548:     ; preds = %_ZNK5clang8QualType
     i8 30, label %210
     i8 26, label %224
     i8 25, label %.thread918
-    i8 54, label %296
-    i8 8, label %302
-    i8 12, label %312
-    i8 9, label %316
-    i8 27, label %320
-    i8 39, label %345
-    i8 29, label %349
-    i8 55, label %353
-    i8 52, label %365
-    i8 50, label %377
-    i8 51, label %383
-    i8 53, label %387
-    i8 15, label %391
-    i8 16, label %397
-    i8 17, label %421
-    i8 47, label %429
-    i8 46, label %429
-    i8 49, label %434
-    i8 45, label %439
-    i8 44, label %470
-    i8 48, label %481
-    i8 24, label %495
-    i8 28, label %510
-    i8 20, label %514
-    i8 22, label %526
-    i8 37, label %548
-    i8 38, label %552
-    i8 35, label %564
-    i8 36, label %568
-    i8 34, label %591
-    i8 33, label %620
-    i8 7, label %624
-    i8 40, label %628
-    i8 10, label %632
-    i8 19, label %639
+    i8 54, label %292
+    i8 8, label %298
+    i8 12, label %308
+    i8 9, label %312
+    i8 27, label %316
+    i8 39, label %341
+    i8 29, label %345
+    i8 55, label %349
+    i8 52, label %361
+    i8 50, label %373
+    i8 51, label %379
+    i8 53, label %383
+    i8 15, label %387
+    i8 16, label %393
+    i8 17, label %417
+    i8 47, label %425
+    i8 46, label %425
+    i8 49, label %430
+    i8 45, label %435
+    i8 44, label %466
+    i8 48, label %477
+    i8 24, label %491
+    i8 28, label %506
+    i8 20, label %510
+    i8 22, label %522
+    i8 37, label %544
+    i8 38, label %548
+    i8 35, label %560
+    i8 36, label %564
+    i8 34, label %587
+    i8 33, label %616
+    i8 7, label %620
+    i8 40, label %624
+    i8 10, label %628
+    i8 19, label %635
   ]
 
 65:                                               ; preds = %64
@@ -1213,626 +1213,620 @@ _ZN4llvm5APIntD2Ev.exit582:                       ; preds = %_ZN4llvm5APIntD2Ev.
 285:                                              ; preds = %279
   %286 = lshr i16 %271, 8
   %287 = and i16 %286, 7
-  %.not.i.i973 = icmp eq i16 %287, 0
-  %288 = zext nneg i16 %287 to i32
-  %289 = add nsw i32 %288, -1
-  %.0.i.i = select i1 %.not.i.i973, i32 0, i32 %289
-  %290 = lshr i16 %276, 8
-  %291 = and i16 %290, 7
-  %.not.i6.i = icmp eq i16 %291, 0
-  %292 = zext nneg i16 %291 to i32
-  %293 = add nsw i32 %292, -1
-  %.0.i7.i = select i1 %.not.i6.i, i32 0, i32 %293
-  %.not2.i = icmp eq i32 %.0.i.i, %.0.i7.i
-  %294 = and i16 %277, 2240
-  %295 = icmp eq i16 %294, 0
-  %or.cond975 = and i1 %295, %.not2.i
-  br i1 %or.cond975, label %.critedge489, label %.critedge
+  %288 = lshr i16 %276, 8
+  %289 = and i16 %288, 7
+  %narrow.i = tail call i16 @llvm.umax.i16(i16 %287, i16 1)
+  %narrow12.i = tail call i16 @llvm.umax.i16(i16 %289, i16 1)
+  %.not2.i = icmp eq i16 %narrow.i, %narrow12.i
+  %290 = and i16 %277, 2240
+  %291 = icmp eq i16 %290, 0
+  %or.cond974 = and i1 %291, %.not2.i
+  br i1 %or.cond974, label %.critedge489, label %.critedge
 
-296:                                              ; preds = %64
-  %297 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %298 = load ptr, ptr %297, align 8, !tbaa !167
-  %299 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %300 = load ptr, ptr %299, align 8, !tbaa !167
-  %301 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %298, ptr noundef %300)
-  br i1 %301, label %.critedge489, label %.critedge
+292:                                              ; preds = %64
+  %293 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %294 = load ptr, ptr %293, align 8, !tbaa !167
+  %295 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %296 = load ptr, ptr %295, align 8, !tbaa !167
+  %297 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %294, ptr noundef %296)
+  br i1 %297, label %.critedge489, label %.critedge
 
-302:                                              ; preds = %64
-  %303 = getelementptr inbounds nuw i8, ptr %53, i64 40
-  %.sroa.0.0.copyload.i628 = load i64, ptr %303, align 8, !tbaa !82
-  %304 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %.sroa.0.0.copyload.i630 = load i64, ptr %304, align 8, !tbaa !82
-  %305 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i628, i64 %.sroa.0.0.copyload.i630)
-  br i1 %305, label %306, label %.critedge
+298:                                              ; preds = %64
+  %299 = getelementptr inbounds nuw i8, ptr %53, i64 40
+  %.sroa.0.0.copyload.i628 = load i64, ptr %299, align 8, !tbaa !82
+  %300 = getelementptr inbounds nuw i8, ptr %56, i64 40
+  %.sroa.0.0.copyload.i630 = load i64, ptr %300, align 8, !tbaa !82
+  %301 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i628, i64 %.sroa.0.0.copyload.i630)
+  br i1 %301, label %302, label %.critedge
 
-306:                                              ; preds = %302
-  %307 = load ptr, ptr %31, align 16, !tbaa !83
-  %308 = getelementptr inbounds nuw i8, ptr %307, i64 48
-  %.sroa.0.0.copyload.i632 = load i64, ptr %308, align 16, !tbaa !82
-  %309 = load ptr, ptr %42, align 16, !tbaa !83
-  %310 = getelementptr inbounds nuw i8, ptr %309, i64 48
-  %.sroa.0.0.copyload.i634 = load i64, ptr %310, align 16, !tbaa !82
-  %311 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i632, i64 %.sroa.0.0.copyload.i634)
+302:                                              ; preds = %298
+  %303 = load ptr, ptr %31, align 16, !tbaa !83
+  %304 = getelementptr inbounds nuw i8, ptr %303, i64 48
+  %.sroa.0.0.copyload.i632 = load i64, ptr %304, align 16, !tbaa !82
+  %305 = load ptr, ptr %42, align 16, !tbaa !83
+  %306 = getelementptr inbounds nuw i8, ptr %305, i64 48
+  %.sroa.0.0.copyload.i634 = load i64, ptr %306, align 16, !tbaa !82
+  %307 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i632, i64 %.sroa.0.0.copyload.i634)
+  br i1 %307, label %.critedge489, label %.critedge
+
+308:                                              ; preds = %64
+  %309 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  %.sroa.0.0.copyload.i636 = load i64, ptr %309, align 16, !tbaa !82
+  %310 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  %.sroa.0.0.copyload.i638 = load i64, ptr %310, align 16, !tbaa !82
+  %311 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i636, i64 %.sroa.0.0.copyload.i638)
   br i1 %311, label %.critedge489, label %.critedge
 
 312:                                              ; preds = %64
   %313 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %.sroa.0.0.copyload.i636 = load i64, ptr %313, align 16, !tbaa !82
+  %.sroa.0.0.copyload.i640 = load i64, ptr %313, align 16, !tbaa !82
   %314 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %.sroa.0.0.copyload.i638 = load i64, ptr %314, align 16, !tbaa !82
-  %315 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i636, i64 %.sroa.0.0.copyload.i638)
+  %.sroa.0.0.copyload.i642 = load i64, ptr %314, align 16, !tbaa !82
+  %315 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i640, i64 %.sroa.0.0.copyload.i642)
   br i1 %315, label %.critedge489, label %.critedge
 
 316:                                              ; preds = %64
   %317 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %.sroa.0.0.copyload.i640 = load i64, ptr %317, align 16, !tbaa !82
+  %.sroa.0.0.copyload.i644 = load i64, ptr %317, align 16, !tbaa !82
   %318 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %.sroa.0.0.copyload.i642 = load i64, ptr %318, align 16, !tbaa !82
-  %319 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i640, i64 %.sroa.0.0.copyload.i642)
-  br i1 %319, label %.critedge489, label %.critedge
+  %.sroa.0.0.copyload.i646 = load i64, ptr %318, align 16, !tbaa !82
+  %319 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i644, i64 %.sroa.0.0.copyload.i646)
+  br i1 %319, label %320, label %.critedge
 
-320:                                              ; preds = %64
-  %321 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %.sroa.0.0.copyload.i644 = load i64, ptr %321, align 16, !tbaa !82
-  %322 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %.sroa.0.0.copyload.i646 = load i64, ptr %322, align 16, !tbaa !82
-  %323 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i644, i64 %.sroa.0.0.copyload.i646)
-  br i1 %323, label %324, label %.critedge
+320:                                              ; preds = %316
+  %321 = load ptr, ptr %31, align 16, !tbaa !83
+  %322 = getelementptr inbounds nuw i8, ptr %321, i64 40
+  %.sroa.0.0.copyload.i648 = load i64, ptr %322, align 8, !tbaa !82
+  %323 = load ptr, ptr %42, align 16, !tbaa !83
+  %324 = getelementptr inbounds nuw i8, ptr %323, i64 40
+  %.sroa.0.0.copyload.i650 = load i64, ptr %324, align 8, !tbaa !82
+  %325 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i648, i64 %.sroa.0.0.copyload.i650)
+  br i1 %325, label %326, label %.critedge
 
-324:                                              ; preds = %320
-  %325 = load ptr, ptr %31, align 16, !tbaa !83
-  %326 = getelementptr inbounds nuw i8, ptr %325, i64 40
-  %.sroa.0.0.copyload.i648 = load i64, ptr %326, align 8, !tbaa !82
-  %327 = load ptr, ptr %42, align 16, !tbaa !83
-  %328 = getelementptr inbounds nuw i8, ptr %327, i64 40
-  %.sroa.0.0.copyload.i650 = load i64, ptr %328, align 8, !tbaa !82
-  %329 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i648, i64 %.sroa.0.0.copyload.i650)
-  br i1 %329, label %330, label %.critedge
-
-330:                                              ; preds = %324
-  %331 = load ptr, ptr %31, align 16, !tbaa !83
-  %332 = getelementptr inbounds nuw i8, ptr %331, i64 48
-  %333 = load ptr, ptr %42, align 16, !tbaa !83
-  %334 = getelementptr inbounds nuw i8, ptr %333, i64 48
-  %335 = getelementptr inbounds nuw i8, ptr %331, i64 49
-  %336 = load i8, ptr %335, align 1
-  %337 = getelementptr inbounds nuw i8, ptr %333, i64 49
-  %338 = load i8, ptr %337, align 1
-  %339 = load i8, ptr %332, align 1, !tbaa !170
-  %340 = load i8, ptr %334, align 1, !tbaa !170
-  %341 = icmp ne i8 %339, %340
-  %342 = xor i8 %338, %336
-  %343 = and i8 %342, 3
-  %344 = icmp ne i8 %343, 0
-  %or.cond = select i1 %341, i1 true, i1 %344
+326:                                              ; preds = %320
+  %327 = load ptr, ptr %31, align 16, !tbaa !83
+  %328 = getelementptr inbounds nuw i8, ptr %327, i64 48
+  %329 = load ptr, ptr %42, align 16, !tbaa !83
+  %330 = getelementptr inbounds nuw i8, ptr %329, i64 48
+  %331 = getelementptr inbounds nuw i8, ptr %327, i64 49
+  %332 = load i8, ptr %331, align 1
+  %333 = getelementptr inbounds nuw i8, ptr %329, i64 49
+  %334 = load i8, ptr %333, align 1
+  %335 = load i8, ptr %328, align 1, !tbaa !170
+  %336 = load i8, ptr %330, align 1, !tbaa !170
+  %337 = icmp ne i8 %335, %336
+  %338 = xor i8 %334, %332
+  %339 = and i8 %338, 3
+  %340 = icmp ne i8 %339, 0
+  %or.cond = select i1 %337, i1 true, i1 %340
   br i1 %or.cond, label %.critedge, label %.critedge489
 
+341:                                              ; preds = %64
+  %342 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  %.sroa.0.0.copyload.i654 = load i64, ptr %342, align 16, !tbaa !82
+  %343 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  %.sroa.0.0.copyload.i656 = load i64, ptr %343, align 16, !tbaa !82
+  %344 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i654, i64 %.sroa.0.0.copyload.i656)
+  br i1 %344, label %.critedge489, label %.critedge
+
 345:                                              ; preds = %64
-  %346 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %.sroa.0.0.copyload.i654 = load i64, ptr %346, align 16, !tbaa !82
-  %347 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %.sroa.0.0.copyload.i656 = load i64, ptr %347, align 16, !tbaa !82
-  %348 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i654, i64 %.sroa.0.0.copyload.i656)
+  %346 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %.sroa.0.0.copyload.i658 = load i64, ptr %346, align 8, !tbaa !82
+  %347 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %.sroa.0.0.copyload.i660 = load i64, ptr %347, align 8, !tbaa !82
+  %348 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i658, i64 %.sroa.0.0.copyload.i660)
   br i1 %348, label %.critedge489, label %.critedge
 
 349:                                              ; preds = %64
-  %350 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %.sroa.0.0.copyload.i658 = load i64, ptr %350, align 8, !tbaa !82
-  %351 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %.sroa.0.0.copyload.i660 = load i64, ptr %351, align 8, !tbaa !82
-  %352 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i658, i64 %.sroa.0.0.copyload.i660)
-  br i1 %352, label %.critedge489, label %.critedge
+  %350 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  %351 = load ptr, ptr %350, align 16, !tbaa !172
+  %352 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  %353 = load ptr, ptr %352, align 16, !tbaa !172
+  %354 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %351, ptr noundef %353)
+  br i1 %354, label %355, label %.critedge
 
-353:                                              ; preds = %64
-  %354 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %355 = load ptr, ptr %354, align 16, !tbaa !172
-  %356 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %357 = load ptr, ptr %356, align 16, !tbaa !172
-  %358 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %355, ptr noundef %357)
-  br i1 %358, label %359, label %.critedge
+355:                                              ; preds = %349
+  %356 = load ptr, ptr %31, align 16, !tbaa !83
+  %357 = tail call i64 @_ZNK5clang9UsingType17getUnderlyingTypeEv(ptr noundef nonnull align 16 dereferenceable(48) %356) #19
+  %358 = load ptr, ptr %42, align 16, !tbaa !83
+  %359 = tail call i64 @_ZNK5clang9UsingType17getUnderlyingTypeEv(ptr noundef nonnull align 16 dereferenceable(48) %358) #19
+  %360 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %357, i64 %359)
+  br i1 %360, label %.critedge489, label %.critedge
 
-359:                                              ; preds = %353
-  %360 = load ptr, ptr %31, align 16, !tbaa !83
-  %361 = tail call i64 @_ZNK5clang9UsingType17getUnderlyingTypeEv(ptr noundef nonnull align 16 dereferenceable(48) %360) #19
-  %362 = load ptr, ptr %42, align 16, !tbaa !83
-  %363 = tail call i64 @_ZNK5clang9UsingType17getUnderlyingTypeEv(ptr noundef nonnull align 16 dereferenceable(48) %362) #19
-  %364 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %361, i64 %363)
-  br i1 %364, label %.critedge489, label %.critedge
+361:                                              ; preds = %64
+  %362 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  %363 = load ptr, ptr %362, align 16, !tbaa !175
+  %364 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  %365 = load ptr, ptr %364, align 16, !tbaa !175
+  %366 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %363, ptr noundef %365)
+  br i1 %366, label %367, label %.critedge
 
-365:                                              ; preds = %64
-  %366 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %367 = load ptr, ptr %366, align 16, !tbaa !175
-  %368 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %369 = load ptr, ptr %368, align 16, !tbaa !175
-  %370 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %367, ptr noundef %369)
-  br i1 %370, label %371, label %.critedge
+367:                                              ; preds = %361
+  %368 = load ptr, ptr %31, align 16, !tbaa !83
+  %369 = tail call i64 @_ZNK5clang11TypedefType7desugarEv(ptr noundef nonnull align 16 dereferenceable(48) %368) #19
+  %370 = load ptr, ptr %42, align 16, !tbaa !83
+  %371 = tail call i64 @_ZNK5clang11TypedefType7desugarEv(ptr noundef nonnull align 16 dereferenceable(48) %370) #19
+  %372 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %369, i64 %371)
+  br i1 %372, label %.critedge489, label %.critedge
 
-371:                                              ; preds = %365
-  %372 = load ptr, ptr %31, align 16, !tbaa !83
-  %373 = tail call i64 @_ZNK5clang11TypedefType7desugarEv(ptr noundef nonnull align 16 dereferenceable(48) %372) #19
-  %374 = load ptr, ptr %42, align 16, !tbaa !83
-  %375 = tail call i64 @_ZNK5clang11TypedefType7desugarEv(ptr noundef nonnull align 16 dereferenceable(48) %374) #19
-  %376 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %373, i64 %375)
-  br i1 %376, label %.critedge489, label %.critedge
+373:                                              ; preds = %64
+  %374 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %375 = load ptr, ptr %374, align 8, !tbaa !178
+  %376 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %377 = load ptr, ptr %376, align 8, !tbaa !178
+  %378 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_4StmtES4_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %375, ptr noundef %377)
+  br i1 %378, label %.critedge489, label %.critedge
 
-377:                                              ; preds = %64
-  %378 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %379 = load ptr, ptr %378, align 8, !tbaa !178
-  %380 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %381 = load ptr, ptr %380, align 8, !tbaa !178
-  %382 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_4StmtES4_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %379, ptr noundef %381)
+379:                                              ; preds = %64
+  %380 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %.sroa.0.0.copyload.i672 = load i64, ptr %380, align 8, !tbaa !82
+  %381 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %.sroa.0.0.copyload.i674 = load i64, ptr %381, align 8, !tbaa !82
+  %382 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i672, i64 %.sroa.0.0.copyload.i674)
   br i1 %382, label %.critedge489, label %.critedge
 
 383:                                              ; preds = %64
-  %384 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %.sroa.0.0.copyload.i672 = load i64, ptr %384, align 8, !tbaa !82
-  %385 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %.sroa.0.0.copyload.i674 = load i64, ptr %385, align 8, !tbaa !82
-  %386 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i672, i64 %.sroa.0.0.copyload.i674)
+  %384 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  %.sroa.0.0.copyload.i676 = load i64, ptr %384, align 16, !tbaa !82
+  %385 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  %.sroa.0.0.copyload.i678 = load i64, ptr %385, align 16, !tbaa !82
+  %386 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i676, i64 %.sroa.0.0.copyload.i678)
   br i1 %386, label %.critedge489, label %.critedge
 
 387:                                              ; preds = %64
-  %388 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %.sroa.0.0.copyload.i676 = load i64, ptr %388, align 16, !tbaa !82
-  %389 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %.sroa.0.0.copyload.i678 = load i64, ptr %389, align 16, !tbaa !82
-  %390 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i676, i64 %.sroa.0.0.copyload.i678)
-  br i1 %390, label %.critedge489, label %.critedge
+  %388 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %389 = load ptr, ptr %388, align 8, !tbaa !180
+  %390 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %391 = load ptr, ptr %390, align 8, !tbaa !180
+  %392 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_4StmtES4_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %389, ptr noundef %391)
+  br i1 %392, label %.critedge489, label %.critedge
 
-391:                                              ; preds = %64
-  %392 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %393 = load ptr, ptr %392, align 8, !tbaa !180
-  %394 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %395 = load ptr, ptr %394, align 8, !tbaa !180
-  %396 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_4StmtES4_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %393, ptr noundef %395)
-  br i1 %396, label %.critedge489, label %.critedge
+393:                                              ; preds = %64
+  %394 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %.sroa.0.0.copyload.i683 = load i64, ptr %394, align 8, !tbaa !82
+  %395 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %.sroa.0.0.copyload.i684 = load i64, ptr %395, align 8, !tbaa !82
+  %396 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i683, i64 %.sroa.0.0.copyload.i684)
+  br i1 %396, label %397, label %.critedge
 
-397:                                              ; preds = %64
-  %398 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %.sroa.0.0.copyload.i683 = load i64, ptr %398, align 8, !tbaa !82
-  %399 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %.sroa.0.0.copyload.i684 = load i64, ptr %399, align 8, !tbaa !82
-  %400 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i683, i64 %.sroa.0.0.copyload.i684)
-  br i1 %400, label %401, label %.critedge
+397:                                              ; preds = %393
+  %398 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  %399 = load ptr, ptr %398, align 16, !tbaa !182
+  %400 = icmp ne ptr %399, null
+  %401 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  %402 = load ptr, ptr %401, align 16, !tbaa !182
+  %403 = icmp ne ptr %402, null
+  %404 = xor i1 %400, %403
+  br i1 %404, label %.critedge, label %405
 
-401:                                              ; preds = %397
-  %402 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %403 = load ptr, ptr %402, align 16, !tbaa !182
-  %404 = icmp ne ptr %403, null
-  %405 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %406 = load ptr, ptr %405, align 16, !tbaa !182
-  %407 = icmp ne ptr %406, null
-  %408 = xor i1 %404, %407
-  br i1 %408, label %.critedge, label %409
+405:                                              ; preds = %397
+  br i1 %400, label %406, label %.critedge489
 
-409:                                              ; preds = %401
-  br i1 %404, label %410, label %.critedge489
+406:                                              ; preds = %405
+  %.not452 = icmp eq ptr %399, %402
+  br i1 %.not452, label %407, label %.critedge
 
-410:                                              ; preds = %409
-  %.not452 = icmp eq ptr %403, %406
-  br i1 %.not452, label %411, label %.critedge
-
-411:                                              ; preds = %410
-  %412 = getelementptr inbounds nuw i8, ptr %53, i64 48
-  %413 = getelementptr inbounds nuw i8, ptr %53, i64 20
+407:                                              ; preds = %406
+  %408 = getelementptr inbounds nuw i8, ptr %53, i64 48
+  %409 = getelementptr inbounds nuw i8, ptr %53, i64 20
+  %410 = load i32, ptr %409, align 4, !tbaa !82
+  %411 = zext i32 %410 to i64
+  %412 = getelementptr inbounds nuw i8, ptr %56, i64 48
+  %413 = getelementptr inbounds nuw i8, ptr %56, i64 20
   %414 = load i32, ptr %413, align 4, !tbaa !82
   %415 = zext i32 %414 to i64
-  %416 = getelementptr inbounds nuw i8, ptr %56, i64 48
-  %417 = getelementptr inbounds nuw i8, ptr %56, i64 20
-  %418 = load i32, ptr %417, align 4, !tbaa !82
-  %419 = zext i32 %418 to i64
-  %420 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEN4llvm8ArrayRefINS_16TemplateArgumentEEES5_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr nonnull %412, i64 %415, ptr nonnull %416, i64 %419)
-  br i1 %420, label %.critedge489, label %.critedge
+  %416 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEN4llvm8ArrayRefINS_16TemplateArgumentEEES5_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr nonnull %408, i64 %411, ptr nonnull %412, i64 %415)
+  br i1 %416, label %.critedge489, label %.critedge
 
-421:                                              ; preds = %64
+417:                                              ; preds = %64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
-  %422 = getelementptr inbounds nuw i8, ptr %53, i64 40
-  %.sroa.0.0.copyload.i689 = load i64, ptr %422, align 8
+  %418 = getelementptr inbounds nuw i8, ptr %53, i64 40
+  %.sroa.0.0.copyload.i689 = load i64, ptr %418, align 8
   store i64 %.sroa.0.0.copyload.i689, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
-  %423 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %.sroa.0.0.copyload.i690 = load i64, ptr %423, align 8
+  %419 = getelementptr inbounds nuw i8, ptr %56, i64 40
+  %.sroa.0.0.copyload.i690 = load i64, ptr %419, align 8
   store i64 %.sroa.0.0.copyload.i690, ptr %7, align 8
-  %424 = call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextERKNS_12TemplateNameES4_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %420 = call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextERKNS_12TemplateNameES4_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
-  br i1 %424, label %425, label %.critedge
+  br i1 %420, label %421, label %.critedge
 
-425:                                              ; preds = %421
-  %426 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %.sroa.0.0.copyload.i691 = load i64, ptr %426, align 8, !tbaa !82
-  %427 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %.sroa.0.0.copyload.i692 = load i64, ptr %427, align 8, !tbaa !82
-  %428 = call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i691, i64 %.sroa.0.0.copyload.i692)
-  br i1 %428, label %.critedge489, label %.critedge
+421:                                              ; preds = %417
+  %422 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %.sroa.0.0.copyload.i691 = load i64, ptr %422, align 8, !tbaa !82
+  %423 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %.sroa.0.0.copyload.i692 = load i64, ptr %423, align 8, !tbaa !82
+  %424 = call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i691, i64 %.sroa.0.0.copyload.i692)
+  br i1 %424, label %.critedge489, label %.critedge
 
-429:                                              ; preds = %64, %64
-  %430 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %53) #19
-  %431 = load ptr, ptr %42, align 16, !tbaa !83
-  %432 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %431) #19
-  %433 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %430, ptr noundef %432)
-  br i1 %433, label %.critedge489, label %.critedge
+425:                                              ; preds = %64, %64
+  %426 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %53) #19
+  %427 = load ptr, ptr %42, align 16, !tbaa !83
+  %428 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %427) #19
+  %429 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %426, ptr noundef %428)
+  br i1 %429, label %.critedge489, label %.critedge
 
-434:                                              ; preds = %64
-  %435 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %436 = load i8, ptr %435, align 8, !tbaa !186, !range !26, !noundef !27
-  %437 = trunc nuw i8 %436 to i1
+430:                                              ; preds = %64
+  %431 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %432 = load i8, ptr %431, align 8, !tbaa !186, !range !26, !noundef !27
+  %433 = trunc nuw i8 %432 to i1
   %.pre = load i64, ptr %54, align 16
   %.pre956 = load i64, ptr %57, align 16
   %.pre961 = xor i64 %.pre956, %.pre
-  %438 = and i64 %.pre961, 140733193388032
-  %.not448 = icmp eq i64 %438, 0
-  %or.cond966 = select i1 %437, i1 true, i1 %.not448
+  %434 = and i64 %.pre961, 140733193388032
+  %.not448 = icmp eq i64 %434, 0
+  %or.cond966 = select i1 %433, i1 true, i1 %.not448
   %.not449 = icmp ult i64 %.pre961, 281474976710656
   %or.cond967 = select i1 %or.cond966, i1 %.not449, i1 false
   %.not925 = icmp samesign ult i64 %.pre961, 140737488355328
   %or.cond968 = select i1 %or.cond967, i1 %.not925, i1 false
   br i1 %or.cond968, label %.critedge489, label %.critedge
 
-439:                                              ; preds = %64
-  %440 = load i64, ptr %54, align 16
-  %441 = and i64 %440, 524288
-  %.not.i = icmp eq i64 %441, 0
+435:                                              ; preds = %64
+  %436 = load i64, ptr %54, align 16
+  %437 = and i64 %436, 524288
+  %.not.i = icmp eq i64 %437, 0
   %.sroa.0.0.in.v.i = select i1 %.not.i, i64 8, i64 48
   %.sroa.0.0.in.i = getelementptr inbounds nuw i8, ptr %53, i64 %.sroa.0.0.in.v.i
   %.sroa.0.0.i = load i64, ptr %.sroa.0.0.in.i, align 8, !tbaa !82
-  %442 = load i64, ptr %57, align 16
-  %443 = and i64 %442, 524288
-  %.not.i699 = icmp eq i64 %443, 0
+  %438 = load i64, ptr %57, align 16
+  %439 = and i64 %438, 524288
+  %.not.i699 = icmp eq i64 %439, 0
   %.sroa.0.0.in.v.i700 = select i1 %.not.i699, i64 8, i64 48
   %.sroa.0.0.in.i701 = getelementptr inbounds nuw i8, ptr %56, i64 %.sroa.0.0.in.v.i700
   %.sroa.0.0.i702 = load i64, ptr %.sroa.0.0.in.i701, align 8, !tbaa !82
-  %444 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.i, i64 %.sroa.0.0.i702)
-  br i1 %444, label %445, label %.critedge
+  %440 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.i, i64 %.sroa.0.0.i702)
+  br i1 %440, label %441, label %.critedge
 
-445:                                              ; preds = %439
-  %446 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %447 = load ptr, ptr %446, align 16, !tbaa !187
-  %448 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %449 = load ptr, ptr %448, align 16, !tbaa !187
-  %450 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %447, ptr noundef %449)
-  br i1 %450, label %451, label %.critedge
+441:                                              ; preds = %435
+  %442 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  %443 = load ptr, ptr %442, align 16, !tbaa !187
+  %444 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  %445 = load ptr, ptr %444, align 16, !tbaa !187
+  %446 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %443, ptr noundef %445)
+  br i1 %446, label %447, label %.critedge
 
-451:                                              ; preds = %445
-  %452 = load i64, ptr %54, align 16
-  %453 = load i64, ptr %57, align 16
-  %454 = xor i64 %453, %452
-  %455 = and i64 %454, 140733193388032
-  %.not447 = icmp eq i64 %455, 0
-  br i1 %.not447, label %456, label %.critedge
+447:                                              ; preds = %441
+  %448 = load i64, ptr %54, align 16
+  %449 = load i64, ptr %57, align 16
+  %450 = xor i64 %449, %448
+  %451 = and i64 %450, 140733193388032
+  %.not447 = icmp eq i64 %451, 0
+  br i1 %.not447, label %452, label %.critedge
 
-456:                                              ; preds = %451
-  %457 = and i64 %452, 9223231299366420480
-  %.not.i703 = icmp eq i64 %457, 0
-  %458 = lshr i64 %452, 47
-  %459 = and i64 %458, 65535
-  %460 = add nuw nsw i64 %459, 4294967295
-  %461 = or i64 %460, 4294967296
-  %.sroa.0.0.insert.insert.i = select i1 %.not.i703, i64 0, i64 %461
+452:                                              ; preds = %447
+  %453 = and i64 %448, 9223231299366420480
+  %.not.i703 = icmp eq i64 %453, 0
+  %454 = lshr i64 %448, 47
+  %455 = and i64 %454, 65535
+  %456 = add nuw nsw i64 %455, 4294967295
+  %457 = or i64 %456, 4294967296
+  %.sroa.0.0.insert.insert.i = select i1 %.not.i703, i64 0, i64 %457
   %.sroa.4768.0.extract.shift = lshr i64 %.sroa.0.0.insert.insert.i, 32
-  %462 = and i64 %453, 9223231299366420480
-  %.not.i704 = icmp eq i64 %462, 0
-  %463 = lshr i64 %453, 47
-  %464 = and i64 %463, 65535
-  %465 = add nuw nsw i64 %464, 4294967295
-  %466 = or i64 %465, 4294967296
-  %.sroa.0.0.insert.insert.i705 = select i1 %.not.i704, i64 0, i64 %466
+  %458 = and i64 %449, 9223231299366420480
+  %.not.i704 = icmp eq i64 %458, 0
+  %459 = lshr i64 %449, 47
+  %460 = and i64 %459, 65535
+  %461 = add nuw nsw i64 %460, 4294967295
+  %462 = or i64 %461, 4294967296
+  %.sroa.0.0.insert.insert.i705 = select i1 %.not.i704, i64 0, i64 %462
   %.sroa.4.0.extract.shift = lshr i64 %.sroa.0.0.insert.insert.i705, 32
-  %467 = trunc nuw i64 %.sroa.4768.0.extract.shift to i1
-  %468 = icmp eq i64 %.sroa.4768.0.extract.shift, %.sroa.4.0.extract.shift
-  %brmerge.i.not = and i1 %468, %467
-  br i1 %brmerge.i.not, label %469, label %_ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit
+  %463 = trunc nuw i64 %.sroa.4768.0.extract.shift to i1
+  %464 = icmp eq i64 %.sroa.4768.0.extract.shift, %.sroa.4.0.extract.shift
+  %brmerge.i.not = and i1 %464, %463
+  br i1 %brmerge.i.not, label %465, label %_ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit
 
-469:                                              ; preds = %456
+465:                                              ; preds = %452
   %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.insert.insert.i705 to i32
   %.sroa.0767.0.extract.trunc = trunc i64 %.sroa.0.0.insert.insert.i to i32
   %.not971 = icmp eq i32 %.sroa.0767.0.extract.trunc, %.sroa.0.0.extract.trunc
   br i1 %.not971, label %.critedge489, label %.critedge
 
-_ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit: ; preds = %456
-  br i1 %468, label %.critedge489, label %.critedge
+_ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit: ; preds = %452
+  br i1 %464, label %.critedge489, label %.critedge
 
-470:                                              ; preds = %64
-  %471 = tail call noundef ptr @_ZNK5clang29SubstTemplateTypeParmPackType17getAssociatedDeclEv(ptr noundef nonnull align 16 dereferenceable(48) %53) #19
-  %472 = tail call noundef ptr @_ZNK5clang29SubstTemplateTypeParmPackType17getAssociatedDeclEv(ptr noundef nonnull align 16 dereferenceable(48) %56) #19
-  %473 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %471, ptr noundef %472)
-  br i1 %473, label %474, label %.critedge
+466:                                              ; preds = %64
+  %467 = tail call noundef ptr @_ZNK5clang29SubstTemplateTypeParmPackType17getAssociatedDeclEv(ptr noundef nonnull align 16 dereferenceable(48) %53) #19
+  %468 = tail call noundef ptr @_ZNK5clang29SubstTemplateTypeParmPackType17getAssociatedDeclEv(ptr noundef nonnull align 16 dereferenceable(48) %56) #19
+  %469 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %467, ptr noundef %468)
+  br i1 %469, label %470, label %.critedge
 
-474:                                              ; preds = %470
-  %475 = load i64, ptr %54, align 16
-  %476 = load i64, ptr %57, align 16
-  %477 = xor i64 %476, %475
-  %478 = and i64 %477, 281470681743360
-  %.not446 = icmp eq i64 %478, 0
-  br i1 %.not446, label %479, label %.critedge
+470:                                              ; preds = %466
+  %471 = load i64, ptr %54, align 16
+  %472 = load i64, ptr %57, align 16
+  %473 = xor i64 %472, %471
+  %474 = and i64 %473, 281470681743360
+  %.not446 = icmp eq i64 %474, 0
+  br i1 %.not446, label %475, label %.critedge
 
-479:                                              ; preds = %474
+475:                                              ; preds = %470
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #19
   call void @_ZNK5clang29SubstTemplateTypeParmPackType15getArgumentPackEv(ptr dead_on_unwind nonnull writable sret(%"class.clang::TemplateArgument") align 8 %8, ptr noundef nonnull align 16 dereferenceable(48) %53) #19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #19
   call void @_ZNK5clang29SubstTemplateTypeParmPackType15getArgumentPackEv(ptr dead_on_unwind nonnull writable sret(%"class.clang::TemplateArgument") align 8 %9, ptr noundef nonnull align 16 dereferenceable(48) %56) #19
-  %480 = call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextERKNS_16TemplateArgumentES4_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  %476 = call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextERKNS_16TemplateArgumentES4_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #19
-  br i1 %480, label %.critedge489, label %.critedge
+  br i1 %476, label %.critedge489, label %.critedge
 
-481:                                              ; preds = %64
+477:                                              ; preds = %64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #19
-  %482 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %.sroa.0.0.copyload.i711 = load i64, ptr %482, align 16
+  %478 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  %.sroa.0.0.copyload.i711 = load i64, ptr %478, align 16
   store i64 %.sroa.0.0.copyload.i711, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #19
-  %483 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %.sroa.0.0.copyload.i712 = load i64, ptr %483, align 16
+  %479 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  %.sroa.0.0.copyload.i712 = load i64, ptr %479, align 16
   store i64 %.sroa.0.0.copyload.i712, ptr %11, align 8
-  %484 = call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextERKNS_12TemplateNameES4_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  %480 = call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextERKNS_12TemplateNameES4_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #19
-  br i1 %484, label %485, label %.critedge
+  br i1 %480, label %481, label %.critedge
 
-485:                                              ; preds = %481
-  %486 = getelementptr inbounds nuw i8, ptr %53, i64 48
-  %487 = getelementptr inbounds nuw i8, ptr %53, i64 20
+481:                                              ; preds = %477
+  %482 = getelementptr inbounds nuw i8, ptr %53, i64 48
+  %483 = getelementptr inbounds nuw i8, ptr %53, i64 20
+  %484 = load i32, ptr %483, align 4, !tbaa !82
+  %485 = zext i32 %484 to i64
+  %486 = getelementptr inbounds nuw i8, ptr %56, i64 48
+  %487 = getelementptr inbounds nuw i8, ptr %56, i64 20
   %488 = load i32, ptr %487, align 4, !tbaa !82
   %489 = zext i32 %488 to i64
-  %490 = getelementptr inbounds nuw i8, ptr %56, i64 48
-  %491 = getelementptr inbounds nuw i8, ptr %56, i64 20
-  %492 = load i32, ptr %491, align 4, !tbaa !82
-  %493 = zext i32 %492 to i64
-  %494 = call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEN4llvm8ArrayRefINS_16TemplateArgumentEEES5_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr nonnull %486, i64 %489, ptr nonnull %490, i64 %493)
-  br i1 %494, label %.critedge489, label %.critedge
+  %490 = call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEN4llvm8ArrayRefINS_16TemplateArgumentEEES5_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr nonnull %482, i64 %485, ptr nonnull %486, i64 %489)
+  br i1 %490, label %.critedge489, label %.critedge
 
-495:                                              ; preds = %64
-  %496 = load i32, ptr %54, align 16
-  %497 = load i32, ptr %57, align 16
-  %498 = xor i32 %497, %496
-  %499 = and i32 %498, 133693440
-  %.not445 = icmp eq i32 %499, 0
-  br i1 %.not445, label %500, label %.critedge
+491:                                              ; preds = %64
+  %492 = load i32, ptr %54, align 16
+  %493 = load i32, ptr %57, align 16
+  %494 = xor i32 %493, %492
+  %495 = and i32 %494, 133693440
+  %.not445 = icmp eq i32 %495, 0
+  br i1 %.not445, label %496, label %.critedge
 
-500:                                              ; preds = %495
-  %501 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %502 = load ptr, ptr %501, align 16, !tbaa !189
-  %503 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %504 = load ptr, ptr %503, align 16, !tbaa !189
-  %505 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_19NestedNameSpecifierES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %502, ptr noundef %504)
-  br i1 %505, label %506, label %.critedge
+496:                                              ; preds = %491
+  %497 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  %498 = load ptr, ptr %497, align 16, !tbaa !189
+  %499 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  %500 = load ptr, ptr %499, align 16, !tbaa !189
+  %501 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_19NestedNameSpecifierES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %498, ptr noundef %500)
+  br i1 %501, label %502, label %.critedge
 
-506:                                              ; preds = %500
-  %507 = getelementptr inbounds nuw i8, ptr %53, i64 40
-  %.sroa.0.0.copyload.i719 = load i64, ptr %507, align 8, !tbaa !82
-  %508 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %.sroa.0.0.copyload.i720 = load i64, ptr %508, align 8, !tbaa !82
-  %509 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i719, i64 %.sroa.0.0.copyload.i720)
+502:                                              ; preds = %496
+  %503 = getelementptr inbounds nuw i8, ptr %53, i64 40
+  %.sroa.0.0.copyload.i719 = load i64, ptr %503, align 8, !tbaa !82
+  %504 = getelementptr inbounds nuw i8, ptr %56, i64 40
+  %.sroa.0.0.copyload.i720 = load i64, ptr %504, align 8, !tbaa !82
+  %505 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i719, i64 %.sroa.0.0.copyload.i720)
+  br i1 %505, label %.critedge489, label %.critedge
+
+506:                                              ; preds = %64
+  %507 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  %.sroa.0.0.copyload.i723 = load i64, ptr %507, align 16, !tbaa !82
+  %508 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  %.sroa.0.0.copyload.i724 = load i64, ptr %508, align 16, !tbaa !82
+  %509 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i723, i64 %.sroa.0.0.copyload.i724)
   br i1 %509, label %.critedge489, label %.critedge
 
 510:                                              ; preds = %64
   %511 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %.sroa.0.0.copyload.i723 = load i64, ptr %511, align 16, !tbaa !82
-  %512 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %.sroa.0.0.copyload.i724 = load i64, ptr %512, align 16, !tbaa !82
-  %513 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i723, i64 %.sroa.0.0.copyload.i724)
-  br i1 %513, label %.critedge489, label %.critedge
+  %512 = load ptr, ptr %511, align 16, !tbaa !193
+  %513 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  %514 = load ptr, ptr %513, align 16, !tbaa !193
+  %515 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_19NestedNameSpecifierES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %512, ptr noundef %514)
+  br i1 %515, label %516, label %.critedge
 
-514:                                              ; preds = %64
-  %515 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %516 = load ptr, ptr %515, align 16, !tbaa !193
-  %517 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %518 = load ptr, ptr %517, align 16, !tbaa !193
-  %519 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_19NestedNameSpecifierES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %516, ptr noundef %518)
-  br i1 %519, label %520, label %.critedge
+516:                                              ; preds = %510
+  %517 = getelementptr inbounds nuw i8, ptr %53, i64 40
+  %518 = load ptr, ptr %517, align 8, !tbaa !196
+  %519 = getelementptr inbounds nuw i8, ptr %56, i64 40
+  %520 = load ptr, ptr %519, align 8, !tbaa !196
+  %521 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_(ptr noundef %518, ptr noundef %520)
+  br i1 %521, label %.critedge489, label %.critedge
 
-520:                                              ; preds = %514
-  %521 = getelementptr inbounds nuw i8, ptr %53, i64 40
-  %522 = load ptr, ptr %521, align 8, !tbaa !196
-  %523 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %524 = load ptr, ptr %523, align 8, !tbaa !196
-  %525 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_(ptr noundef %522, ptr noundef %524)
-  br i1 %525, label %.critedge489, label %.critedge
+522:                                              ; preds = %64
+  %523 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  %524 = load ptr, ptr %523, align 16, !tbaa !197
+  %525 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  %526 = load ptr, ptr %525, align 16, !tbaa !197
+  %527 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_19NestedNameSpecifierES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %524, ptr noundef %526)
+  br i1 %527, label %528, label %.critedge
 
-526:                                              ; preds = %64
-  %527 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %528 = load ptr, ptr %527, align 16, !tbaa !197
-  %529 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %530 = load ptr, ptr %529, align 16, !tbaa !197
-  %531 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_19NestedNameSpecifierES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %528, ptr noundef %530)
-  br i1 %531, label %532, label %.critedge
+528:                                              ; preds = %522
+  %529 = getelementptr inbounds nuw i8, ptr %53, i64 40
+  %530 = load ptr, ptr %529, align 8, !tbaa !199
+  %531 = getelementptr inbounds nuw i8, ptr %56, i64 40
+  %532 = load ptr, ptr %531, align 8, !tbaa !199
+  %533 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_(ptr noundef %530, ptr noundef %532)
+  br i1 %533, label %534, label %.critedge
 
-532:                                              ; preds = %526
-  %533 = getelementptr inbounds nuw i8, ptr %53, i64 40
-  %534 = load ptr, ptr %533, align 8, !tbaa !199
-  %535 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %536 = load ptr, ptr %535, align 8, !tbaa !199
-  %537 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_(ptr noundef %534, ptr noundef %536)
-  br i1 %537, label %538, label %.critedge
-
-538:                                              ; preds = %532
-  %539 = getelementptr inbounds nuw i8, ptr %53, i64 48
-  %540 = getelementptr inbounds nuw i8, ptr %53, i64 20
+534:                                              ; preds = %528
+  %535 = getelementptr inbounds nuw i8, ptr %53, i64 48
+  %536 = getelementptr inbounds nuw i8, ptr %53, i64 20
+  %537 = load i32, ptr %536, align 4, !tbaa !82
+  %538 = zext i32 %537 to i64
+  %539 = getelementptr inbounds nuw i8, ptr %56, i64 48
+  %540 = getelementptr inbounds nuw i8, ptr %56, i64 20
   %541 = load i32, ptr %540, align 4, !tbaa !82
   %542 = zext i32 %541 to i64
-  %543 = getelementptr inbounds nuw i8, ptr %56, i64 48
-  %544 = getelementptr inbounds nuw i8, ptr %56, i64 20
-  %545 = load i32, ptr %544, align 4, !tbaa !82
-  %546 = zext i32 %545 to i64
-  %547 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEN4llvm8ArrayRefINS_16TemplateArgumentEEES5_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr nonnull %539, i64 %542, ptr nonnull %543, i64 %546)
+  %543 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEN4llvm8ArrayRefINS_16TemplateArgumentEEES5_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr nonnull %535, i64 %538, ptr nonnull %539, i64 %542)
+  br i1 %543, label %.critedge489, label %.critedge
+
+544:                                              ; preds = %64
+  %545 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  %.sroa.0.0.copyload.i734 = load i64, ptr %545, align 16, !tbaa !82
+  %546 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  %.sroa.0.0.copyload.i736 = load i64, ptr %546, align 16, !tbaa !82
+  %547 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i734, i64 %.sroa.0.0.copyload.i736)
   br i1 %547, label %.critedge489, label %.critedge
 
 548:                                              ; preds = %64
-  %549 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %.sroa.0.0.copyload.i734 = load i64, ptr %549, align 16, !tbaa !82
-  %550 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %.sroa.0.0.copyload.i736 = load i64, ptr %550, align 16, !tbaa !82
-  %551 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i734, i64 %.sroa.0.0.copyload.i736)
-  br i1 %551, label %.critedge489, label %.critedge
+  %549 = getelementptr inbounds nuw i8, ptr %53, i64 40
+  %.sroa.0.0.copyload.i738 = load i64, ptr %549, align 8, !tbaa !82
+  %550 = getelementptr inbounds nuw i8, ptr %56, i64 40
+  %.sroa.0.0.copyload.i740 = load i64, ptr %550, align 8, !tbaa !82
+  %551 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i738, i64 %.sroa.0.0.copyload.i740)
+  br i1 %551, label %.critedge489, label %552
 
-552:                                              ; preds = %64
-  %553 = getelementptr inbounds nuw i8, ptr %53, i64 40
-  %.sroa.0.0.copyload.i738 = load i64, ptr %553, align 8, !tbaa !82
-  %554 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %.sroa.0.0.copyload.i740 = load i64, ptr %554, align 8, !tbaa !82
-  %555 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i738, i64 %.sroa.0.0.copyload.i740)
-  br i1 %555, label %.critedge489, label %556
+552:                                              ; preds = %548
+  %553 = load ptr, ptr %31, align 16, !tbaa !83
+  %554 = getelementptr inbounds nuw i8, ptr %553, i64 48
+  %555 = load ptr, ptr %554, align 16, !tbaa !200
+  %556 = load ptr, ptr %42, align 16, !tbaa !83
+  %557 = getelementptr inbounds nuw i8, ptr %556, i64 48
+  %558 = load ptr, ptr %557, align 16, !tbaa !200
+  %559 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_4StmtES4_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %555, ptr noundef %558)
+  br i1 %559, label %.critedge489, label %.critedge
 
-556:                                              ; preds = %552
-  %557 = load ptr, ptr %31, align 16, !tbaa !83
-  %558 = getelementptr inbounds nuw i8, ptr %557, i64 48
-  %559 = load ptr, ptr %558, align 16, !tbaa !200
-  %560 = load ptr, ptr %42, align 16, !tbaa !83
-  %561 = getelementptr inbounds nuw i8, ptr %560, i64 48
-  %562 = load ptr, ptr %561, align 16, !tbaa !200
-  %563 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_4StmtES4_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %559, ptr noundef %562)
+560:                                              ; preds = %64
+  %561 = tail call noundef ptr @_ZNK5clang17ObjCInterfaceType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(48) %53) #19
+  %562 = tail call noundef ptr @_ZNK5clang17ObjCInterfaceType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(48) %56) #19
+  %563 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %561, ptr noundef %562)
   br i1 %563, label %.critedge489, label %.critedge
 
 564:                                              ; preds = %64
-  %565 = tail call noundef ptr @_ZNK5clang17ObjCInterfaceType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(48) %53) #19
-  %566 = tail call noundef ptr @_ZNK5clang17ObjCInterfaceType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(48) %56) #19
-  %567 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %565, ptr noundef %566)
-  br i1 %567, label %.critedge489, label %.critedge
+  %565 = getelementptr inbounds nuw i8, ptr %53, i64 40
+  %566 = load ptr, ptr %565, align 8, !tbaa !202
+  %567 = getelementptr inbounds nuw i8, ptr %56, i64 40
+  %568 = load ptr, ptr %567, align 8, !tbaa !202
+  %569 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %566, ptr noundef %568)
+  br i1 %569, label %570, label %.critedge
 
-568:                                              ; preds = %64
-  %569 = getelementptr inbounds nuw i8, ptr %53, i64 40
-  %570 = load ptr, ptr %569, align 8, !tbaa !202
-  %571 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %572 = load ptr, ptr %571, align 8, !tbaa !202
-  %573 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %570, ptr noundef %572)
-  br i1 %573, label %574, label %.critedge
-
-574:                                              ; preds = %568
-  %575 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %576 = load i8, ptr %575, align 16
-  %577 = and i8 %576, 63
-  %578 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %579 = load i8, ptr %578, align 16
-  %580 = and i8 %579, 63
-  %.not443 = icmp eq i8 %577, %580
+570:                                              ; preds = %564
+  %571 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  %572 = load i8, ptr %571, align 16
+  %573 = and i8 %572, 63
+  %574 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  %575 = load i8, ptr %574, align 16
+  %576 = and i8 %575, 63
+  %.not443 = icmp eq i8 %573, %576
   br i1 %.not443, label %.preheader933, label %.critedge
 
-.preheader933:                                    ; preds = %574
-  %.not444940 = icmp eq i8 %577, 0
+.preheader933:                                    ; preds = %570
+  %.not444940 = icmp eq i8 %573, 0
   br i1 %.not444940, label %.critedge489, label %.lr.ph942
 
 .lr.ph942:                                        ; preds = %.preheader933
-  %581 = getelementptr inbounds nuw i8, ptr %53, i64 48
-  %582 = getelementptr inbounds nuw i8, ptr %56, i64 48
-  %583 = zext nneg i8 %577 to i64
-  br label %585
+  %577 = getelementptr inbounds nuw i8, ptr %53, i64 48
+  %578 = getelementptr inbounds nuw i8, ptr %56, i64 48
+  %579 = zext nneg i8 %573 to i64
+  br label %581
 
-584:                                              ; preds = %585
+580:                                              ; preds = %581
   %indvars.iv.next951 = add nuw nsw i64 %indvars.iv950, 1
-  %.not444 = icmp eq i64 %indvars.iv.next951, %583
-  br i1 %.not444, label %.critedge489, label %585, !llvm.loop !205
+  %.not444 = icmp eq i64 %indvars.iv.next951, %579
+  br i1 %.not444, label %.critedge489, label %581, !llvm.loop !205
 
-585:                                              ; preds = %.lr.ph942, %584
-  %indvars.iv950 = phi i64 [ 0, %.lr.ph942 ], [ %indvars.iv.next951, %584 ]
-  %586 = getelementptr inbounds nuw ptr, ptr %581, i64 %indvars.iv950
-  %587 = load ptr, ptr %586, align 8, !tbaa !206
-  %588 = getelementptr inbounds nuw ptr, ptr %582, i64 %indvars.iv950
-  %589 = load ptr, ptr %588, align 8, !tbaa !206
-  %590 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %587, ptr noundef %589)
-  br i1 %590, label %584, label %.critedge
+581:                                              ; preds = %.lr.ph942, %580
+  %indvars.iv950 = phi i64 [ 0, %.lr.ph942 ], [ %indvars.iv.next951, %580 ]
+  %582 = getelementptr inbounds nuw ptr, ptr %577, i64 %indvars.iv950
+  %583 = load ptr, ptr %582, align 8, !tbaa !206
+  %584 = getelementptr inbounds nuw ptr, ptr %578, i64 %indvars.iv950
+  %585 = load ptr, ptr %584, align 8, !tbaa !206
+  %586 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %583, ptr noundef %585)
+  br i1 %586, label %580, label %.critedge
 
-591:                                              ; preds = %64
-  %592 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %.sroa.0.0.copyload.i749 = load i64, ptr %592, align 8, !tbaa !82
-  %593 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %.sroa.0.0.copyload.i750 = load i64, ptr %593, align 8, !tbaa !82
-  %594 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i749, i64 %.sroa.0.0.copyload.i750)
-  br i1 %594, label %595, label %.critedge
+587:                                              ; preds = %64
+  %588 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %.sroa.0.0.copyload.i749 = load i64, ptr %588, align 8, !tbaa !82
+  %589 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %.sroa.0.0.copyload.i750 = load i64, ptr %589, align 8, !tbaa !82
+  %590 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i749, i64 %.sroa.0.0.copyload.i750)
+  br i1 %590, label %591, label %.critedge
 
-595:                                              ; preds = %591
-  %596 = load i32, ptr %54, align 16
-  %597 = lshr i32 %596, 26
-  %598 = load i32, ptr %57, align 16
-  %599 = lshr i32 %598, 26
-  %.not441 = icmp eq i32 %597, %599
+591:                                              ; preds = %587
+  %592 = load i32, ptr %54, align 16
+  %593 = lshr i32 %592, 26
+  %594 = load i32, ptr %57, align 16
+  %595 = lshr i32 %594, 26
+  %.not441 = icmp eq i32 %593, %595
   br i1 %.not441, label %.preheader935, label %.critedge
 
-.preheader935:                                    ; preds = %595
-  %.not442938 = icmp ult i32 %596, 67108864
+.preheader935:                                    ; preds = %591
+  %.not442938 = icmp ult i32 %592, 67108864
   br i1 %.not442938, label %.critedge489, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader935
-  %600 = getelementptr inbounds nuw i8, ptr %53, i64 48
-  %601 = getelementptr inbounds nuw i8, ptr %56, i64 48
-  %602 = zext nneg i32 %597 to i64
-  br label %604
+  %596 = getelementptr inbounds nuw i8, ptr %53, i64 48
+  %597 = getelementptr inbounds nuw i8, ptr %56, i64 48
+  %598 = zext nneg i32 %593 to i64
+  br label %600
 
-603:                                              ; preds = %604
+599:                                              ; preds = %600
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not442 = icmp eq i64 %indvars.iv.next, %602
-  br i1 %.not442, label %.critedge489, label %604, !llvm.loop !208
+  %.not442 = icmp eq i64 %indvars.iv.next, %598
+  br i1 %.not442, label %.critedge489, label %600, !llvm.loop !208
 
-604:                                              ; preds = %.lr.ph, %603
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %603 ]
-  %605 = load i32, ptr %54, align 16
-  %606 = lshr i32 %605, 19
-  %607 = and i32 %606, 127
-  %608 = zext nneg i32 %607 to i64
-  %609 = getelementptr inbounds nuw %"class.clang::QualType", ptr %600, i64 %608
-  %610 = getelementptr inbounds nuw ptr, ptr %609, i64 %indvars.iv
-  %611 = load ptr, ptr %610, align 8, !tbaa !206
-  %612 = load i32, ptr %57, align 16
-  %613 = lshr i32 %612, 19
-  %614 = and i32 %613, 127
-  %615 = zext nneg i32 %614 to i64
-  %616 = getelementptr inbounds nuw %"class.clang::QualType", ptr %601, i64 %615
-  %617 = getelementptr inbounds nuw ptr, ptr %616, i64 %indvars.iv
-  %618 = load ptr, ptr %617, align 8, !tbaa !206
-  %619 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %611, ptr noundef %618)
-  br i1 %619, label %603, label %.critedge
+600:                                              ; preds = %.lr.ph, %599
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %599 ]
+  %601 = load i32, ptr %54, align 16
+  %602 = lshr i32 %601, 19
+  %603 = and i32 %602, 127
+  %604 = zext nneg i32 %603 to i64
+  %605 = getelementptr inbounds nuw %"class.clang::QualType", ptr %596, i64 %604
+  %606 = getelementptr inbounds nuw ptr, ptr %605, i64 %indvars.iv
+  %607 = load ptr, ptr %606, align 8, !tbaa !206
+  %608 = load i32, ptr %57, align 16
+  %609 = lshr i32 %608, 19
+  %610 = and i32 %609, 127
+  %611 = zext nneg i32 %610 to i64
+  %612 = getelementptr inbounds nuw %"class.clang::QualType", ptr %597, i64 %611
+  %613 = getelementptr inbounds nuw ptr, ptr %612, i64 %indvars.iv
+  %614 = load ptr, ptr %613, align 8, !tbaa !206
+  %615 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %607, ptr noundef %614)
+  br i1 %615, label %599, label %.critedge
+
+616:                                              ; preds = %64
+  %617 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  %.sroa.0.0.copyload.i753 = load i64, ptr %617, align 16, !tbaa !82
+  %618 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  %.sroa.0.0.copyload.i754 = load i64, ptr %618, align 16, !tbaa !82
+  %619 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i753, i64 %.sroa.0.0.copyload.i754)
+  br i1 %619, label %.critedge489, label %.critedge
 
 620:                                              ; preds = %64
   %621 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %.sroa.0.0.copyload.i753 = load i64, ptr %621, align 16, !tbaa !82
+  %.sroa.0.0.copyload.i756 = load i64, ptr %621, align 16, !tbaa !82
   %622 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %.sroa.0.0.copyload.i754 = load i64, ptr %622, align 16, !tbaa !82
-  %623 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i753, i64 %.sroa.0.0.copyload.i754)
+  %.sroa.0.0.copyload.i758 = load i64, ptr %622, align 16, !tbaa !82
+  %623 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i756, i64 %.sroa.0.0.copyload.i758)
   br i1 %623, label %.critedge489, label %.critedge
 
 624:                                              ; preds = %64
   %625 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %.sroa.0.0.copyload.i756 = load i64, ptr %625, align 16, !tbaa !82
+  %.sroa.0.0.copyload.i760 = load i64, ptr %625, align 16, !tbaa !82
   %626 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %.sroa.0.0.copyload.i758 = load i64, ptr %626, align 16, !tbaa !82
-  %627 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i756, i64 %.sroa.0.0.copyload.i758)
+  %.sroa.0.0.copyload.i762 = load i64, ptr %626, align 16, !tbaa !82
+  %627 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i760, i64 %.sroa.0.0.copyload.i762)
   br i1 %627, label %.critedge489, label %.critedge
 
 628:                                              ; preds = %64
   %629 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %.sroa.0.0.copyload.i760 = load i64, ptr %629, align 16, !tbaa !82
-  %630 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %.sroa.0.0.copyload.i762 = load i64, ptr %630, align 16, !tbaa !82
-  %631 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i760, i64 %.sroa.0.0.copyload.i762)
-  br i1 %631, label %.critedge489, label %.critedge
-
-632:                                              ; preds = %64
-  %633 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %634 = load i32, ptr %633, align 16
-  %635 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %636 = load i32, ptr %635, align 16
-  %637 = xor i32 %636, %634
-  %638 = and i32 %637, 33554431
-  %or.cond969 = icmp eq i32 %638, 0
+  %630 = load i32, ptr %629, align 16
+  %631 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  %632 = load i32, ptr %631, align 16
+  %633 = xor i32 %632, %630
+  %634 = and i32 %633, 33554431
+  %or.cond969 = icmp eq i32 %634, 0
   br i1 %or.cond969, label %.critedge489, label %.critedge
 
-639:                                              ; preds = %64
-  %640 = tail call noundef zeroext i1 @_ZNK5clang19DependentBitIntType10isUnsignedEv(ptr noundef nonnull align 16 dereferenceable(48) %53) #19
-  %641 = tail call noundef zeroext i1 @_ZNK5clang19DependentBitIntType10isUnsignedEv(ptr noundef nonnull align 16 dereferenceable(48) %56) #19
-  %642 = xor i1 %640, %641
-  br i1 %642, label %.critedge, label %643
+635:                                              ; preds = %64
+  %636 = tail call noundef zeroext i1 @_ZNK5clang19DependentBitIntType10isUnsignedEv(ptr noundef nonnull align 16 dereferenceable(48) %53) #19
+  %637 = tail call noundef zeroext i1 @_ZNK5clang19DependentBitIntType10isUnsignedEv(ptr noundef nonnull align 16 dereferenceable(48) %56) #19
+  %638 = xor i1 %636, %637
+  br i1 %638, label %.critedge, label %639
 
-643:                                              ; preds = %639
-  %644 = tail call noundef ptr @_ZNK5clang19DependentBitIntType14getNumBitsExprEv(ptr noundef nonnull align 16 dereferenceable(48) %53) #19
-  %645 = tail call noundef ptr @_ZNK5clang19DependentBitIntType14getNumBitsExprEv(ptr noundef nonnull align 16 dereferenceable(48) %56) #19
-  %646 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_4StmtES4_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %644, ptr noundef %645)
-  br i1 %646, label %.critedge489, label %.critedge
+639:                                              ; preds = %635
+  %640 = tail call noundef ptr @_ZNK5clang19DependentBitIntType14getNumBitsExprEv(ptr noundef nonnull align 16 dereferenceable(48) %53) #19
+  %641 = tail call noundef ptr @_ZNK5clang19DependentBitIntType14getNumBitsExprEv(ptr noundef nonnull align 16 dereferenceable(48) %56) #19
+  %642 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_4StmtES4_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %640, ptr noundef %641)
+  br i1 %642, label %.critedge489, label %.critedge
 
-.critedge489:                                     ; preds = %603, %584, %285, %632, %434, %469, %.preheader935, %.preheader933, %330, %643, %409, %411, %219, %206, %628, %624, %552, %556, %548, %429, %391, %387, %383, %377, %371, %359, %349, %345, %316, %312, %306, %296, %127, %82, %78, %74, %70, %65, %91, %99, %125, %135, %143, %151, %161, %176, %189, %425, %_ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit, %479, %485, %506, %510, %520, %538, %564, %620, %64
+.critedge489:                                     ; preds = %599, %580, %285, %628, %430, %465, %.preheader935, %.preheader933, %326, %639, %405, %407, %219, %206, %624, %620, %548, %552, %544, %425, %387, %383, %379, %373, %367, %355, %345, %341, %312, %308, %302, %292, %127, %82, %78, %74, %70, %65, %91, %99, %125, %135, %143, %151, %161, %176, %189, %421, %_ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit, %475, %481, %502, %506, %516, %534, %560, %616, %64
   br label %.critedge
 
-.critedge:                                        ; preds = %604, %585, %237, %285, %279, %266, %3, %434, %469, %59, %330, %60, %_ZNK5clang8QualType13getQualifiersEv.exit548, %591, %595, %568, %574, %526, %532, %514, %495, %500, %481, %470, %474, %439, %445, %451, %421, %.thread918, %224, %.critedge493, %245, %180, %184, %165, %170, %155, %145, %137, %129, %_ZN4llvm5APIntD2Ev.exit582, %95, %86, %643, %639, %632, %628, %624, %556, %548, %429, %397, %401, %410, %411, %391, %387, %383, %377, %365, %371, %359, %353, %349, %345, %324, %320, %316, %312, %306, %302, %296, %219, %214, %210, %206, %200, %194, %127, %82, %78, %74, %70, %65, %62, %91, %99, %125, %135, %143, %151, %161, %176, %189, %248, %425, %_ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit, %479, %485, %506, %510, %520, %538, %564, %620, %.critedge489
-  %.0 = phi i1 [ false, %_ZNK5clang8QualType13getQualifiersEv.exit548 ], [ true, %.critedge489 ], [ false, %620 ], [ false, %564 ], [ false, %538 ], [ false, %520 ], [ false, %510 ], [ false, %506 ], [ false, %485 ], [ false, %479 ], [ false, %_ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit ], [ false, %425 ], [ false, %248 ], [ false, %189 ], [ false, %176 ], [ false, %161 ], [ false, %151 ], [ false, %143 ], [ false, %135 ], [ false, %125 ], [ false, %99 ], [ false, %91 ], [ false, %62 ], [ false, %65 ], [ false, %70 ], [ false, %74 ], [ false, %78 ], [ false, %82 ], [ false, %127 ], [ false, %194 ], [ false, %200 ], [ false, %206 ], [ false, %210 ], [ false, %214 ], [ false, %219 ], [ false, %296 ], [ false, %302 ], [ false, %306 ], [ false, %312 ], [ false, %316 ], [ false, %320 ], [ false, %324 ], [ false, %345 ], [ false, %349 ], [ false, %353 ], [ false, %359 ], [ false, %371 ], [ false, %365 ], [ false, %377 ], [ false, %383 ], [ false, %387 ], [ false, %391 ], [ false, %411 ], [ false, %410 ], [ false, %401 ], [ false, %397 ], [ false, %429 ], [ false, %548 ], [ false, %556 ], [ false, %624 ], [ false, %628 ], [ false, %632 ], [ false, %639 ], [ false, %643 ], [ false, %86 ], [ false, %95 ], [ false, %_ZN4llvm5APIntD2Ev.exit582 ], [ false, %129 ], [ false, %137 ], [ false, %145 ], [ false, %155 ], [ false, %170 ], [ false, %165 ], [ false, %184 ], [ false, %180 ], [ false, %245 ], [ false, %.critedge493 ], [ false, %224 ], [ false, %.thread918 ], [ false, %421 ], [ false, %451 ], [ false, %445 ], [ false, %439 ], [ false, %474 ], [ false, %470 ], [ false, %481 ], [ false, %500 ], [ false, %495 ], [ false, %514 ], [ false, %532 ], [ false, %526 ], [ false, %574 ], [ false, %568 ], [ false, %595 ], [ false, %591 ], [ false, %60 ], [ false, %330 ], [ false, %59 ], [ false, %469 ], [ %.not.i.i539.mux, %3 ], [ false, %434 ], [ false, %266 ], [ false, %279 ], [ false, %285 ], [ false, %237 ], [ false, %585 ], [ false, %604 ]
+.critedge:                                        ; preds = %600, %581, %237, %285, %279, %266, %3, %430, %465, %59, %326, %60, %_ZNK5clang8QualType13getQualifiersEv.exit548, %587, %591, %564, %570, %522, %528, %510, %491, %496, %477, %466, %470, %435, %441, %447, %417, %.thread918, %224, %.critedge493, %245, %180, %184, %165, %170, %155, %145, %137, %129, %_ZN4llvm5APIntD2Ev.exit582, %95, %86, %639, %635, %628, %624, %620, %552, %544, %425, %393, %397, %406, %407, %387, %383, %379, %373, %361, %367, %355, %349, %345, %341, %320, %316, %312, %308, %302, %298, %292, %219, %214, %210, %206, %200, %194, %127, %82, %78, %74, %70, %65, %62, %91, %99, %125, %135, %143, %151, %161, %176, %189, %248, %421, %_ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit, %475, %481, %502, %506, %516, %534, %560, %616, %.critedge489
+  %.0 = phi i1 [ false, %_ZNK5clang8QualType13getQualifiersEv.exit548 ], [ true, %.critedge489 ], [ false, %616 ], [ false, %560 ], [ false, %534 ], [ false, %516 ], [ false, %506 ], [ false, %502 ], [ false, %481 ], [ false, %475 ], [ false, %_ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit ], [ false, %421 ], [ false, %248 ], [ false, %189 ], [ false, %176 ], [ false, %161 ], [ false, %151 ], [ false, %143 ], [ false, %135 ], [ false, %125 ], [ false, %99 ], [ false, %91 ], [ false, %62 ], [ false, %65 ], [ false, %70 ], [ false, %74 ], [ false, %78 ], [ false, %82 ], [ false, %127 ], [ false, %194 ], [ false, %200 ], [ false, %206 ], [ false, %210 ], [ false, %214 ], [ false, %219 ], [ false, %292 ], [ false, %298 ], [ false, %302 ], [ false, %308 ], [ false, %312 ], [ false, %316 ], [ false, %320 ], [ false, %341 ], [ false, %345 ], [ false, %349 ], [ false, %355 ], [ false, %367 ], [ false, %361 ], [ false, %373 ], [ false, %379 ], [ false, %383 ], [ false, %387 ], [ false, %407 ], [ false, %406 ], [ false, %397 ], [ false, %393 ], [ false, %425 ], [ false, %544 ], [ false, %552 ], [ false, %620 ], [ false, %624 ], [ false, %628 ], [ false, %635 ], [ false, %639 ], [ false, %86 ], [ false, %95 ], [ false, %_ZN4llvm5APIntD2Ev.exit582 ], [ false, %129 ], [ false, %137 ], [ false, %145 ], [ false, %155 ], [ false, %170 ], [ false, %165 ], [ false, %184 ], [ false, %180 ], [ false, %245 ], [ false, %.critedge493 ], [ false, %224 ], [ false, %.thread918 ], [ false, %417 ], [ false, %447 ], [ false, %441 ], [ false, %435 ], [ false, %470 ], [ false, %466 ], [ false, %477 ], [ false, %496 ], [ false, %491 ], [ false, %510 ], [ false, %528 ], [ false, %522 ], [ false, %570 ], [ false, %564 ], [ false, %591 ], [ false, %587 ], [ false, %60 ], [ false, %326 ], [ false, %59 ], [ false, %465 ], [ %.not.i.i539.mux, %3 ], [ false, %430 ], [ false, %266 ], [ false, %279 ], [ false, %285 ], [ false, %237 ], [ false, %581 ], [ false, %600 ]
   ret i1 %.0
 }
 
@@ -21106,6 +21100,9 @@ declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umax.i16(i16, i16) #16
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
