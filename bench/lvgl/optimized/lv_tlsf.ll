@@ -925,10 +925,10 @@ define internal fastcc ptr @block_prepare_used(ptr noundef %0, ptr noundef %1, i
   %20 = and i64 %19, -8
   %21 = inttoptr i64 %20 to ptr
   %22 = icmp eq ptr %17, %21
-  br i1 %22, label %23, label %.preheader18.i.i
+  br i1 %22, label %23, label %.preheader19.i.i
 
-.preheader18.i.i:                                 ; preds = %11, %.preheader18.i.i
-  br label %.preheader18.i.i
+.preheader19.i.i:                                 ; preds = %11, %.preheader19.i.i
+  br label %.preheader19.i.i
 
 23:                                               ; preds = %11
   %reass.sub.i.i = sub i64 %9, %2
@@ -1180,10 +1180,10 @@ align_ptr.exit50:                                 ; preds = %align_ptr.exit
   %55 = and i64 %54, -8
   %56 = inttoptr i64 %55 to ptr
   %57 = icmp eq ptr %52, %56
-  br i1 %57, label %58, label %.preheader18.i.i
+  br i1 %57, label %58, label %.preheader19.i.i
 
-.preheader18.i.i:                                 ; preds = %47, %.preheader18.i.i
-  br label %.preheader18.i.i
+.preheader19.i.i:                                 ; preds = %47, %.preheader19.i.i
+  br label %.preheader19.i.i
 
 58:                                               ; preds = %47
   %reass.sub.i.i = sub i64 %45, %48
@@ -1835,10 +1835,10 @@ block_mark_as_used.exit:                          ; preds = %50
   %69 = and i64 %68, -8
   %70 = inttoptr i64 %69 to ptr
   %71 = icmp eq ptr %66, %70
-  br i1 %71, label %72, label %.preheader18.i.i
+  br i1 %71, label %72, label %.preheader19.i.i
 
-.preheader18.i.i:                                 ; preds = %63, %.preheader18.i.i
-  br label %.preheader18.i.i
+.preheader19.i.i:                                 ; preds = %63, %.preheader19.i.i
+  br label %.preheader19.i.i
 
 72:                                               ; preds = %63
   %reass.sub.i.i = sub i64 %61, %.0.i
