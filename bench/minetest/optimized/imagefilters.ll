@@ -779,11 +779,7 @@ for.body42.us.i:                                  ; preds = %for.cond38.preheade
   %shl.i272.us.i = shl nuw nsw i32 1, %conv.i.i271.us.i
   %and.i273.us.i = and i32 %shl.i272.us.i, %conv3.i270.us.i
   %tobool.i.not.us.i.not = icmp eq i32 %and.i273.us.i, 0
-  br i1 %tobool.i.not.us.i.not, label %for.body53.lr.ph.us.i, label %for.body42.us.i.for.inc119.us.i_crit_edge
-
-for.body42.us.i.for.inc119.us.i_crit_edge:        ; preds = %for.body42.us.i
-  %.pre = add nuw i32 %ctrx37.0465.us.i, 1
-  br label %for.inc119.us.i
+  br i1 %tobool.i.not.us.i.not, label %for.body53.lr.ph.us.i, label %for.inc119.us.i
 
 for.cond.cleanup52.us.i:                          ; preds = %for.cond60.for.cond.cleanup67_crit_edge.us.us.i
   %cmp101.not.us.i = icmp eq i32 %ss.2.us.us.i, 0
@@ -826,18 +822,15 @@ invoke.cont112.us.i:                              ; preds = %invoke.cont104.us.i
   store i8 %conv6.i320.us.i, ptr %add.ptr.i.i319.us.i, align 1, !tbaa !16
   br label %for.inc119.us.i
 
-for.inc119.us.i:                                  ; preds = %for.body53.lr.ph.us.i, %invoke.cont112.us.i, %for.cond.cleanup52.us.i, %for.body42.us.i.for.inc119.us.i_crit_edge
-  %inc120.us.i.pre-phi = phi i32 [ %.pre, %for.body42.us.i.for.inc119.us.i_crit_edge ], [ %add61.us.i, %for.body53.lr.ph.us.i ], [ %add61.us.i, %invoke.cont112.us.i ], [ %add61.us.i, %for.cond.cleanup52.us.i ]
+for.inc119.us.i:                                  ; preds = %for.body42.us.i, %for.body53.lr.ph.us.i, %invoke.cont112.us.i, %for.cond.cleanup52.us.i
+  %inc120.us.i.pre-phi = add nuw i32 %ctrx37.0465.us.i, 1
   %exitcond496.not.i = icmp eq i32 %inc120.us.i.pre-phi, %33
   br i1 %exitcond496.not.i, label %for.cond38.for.cond.cleanup41_crit_edge.us.i, label %for.body42.us.i, !llvm.loop !32
 
 for.body53.lr.ph.us.i:                            ; preds = %for.body42.us.i
   %cond59.us.i = call i32 @llvm.usub.sat.i32(i32 %ctrx37.0465.us.i, i32 1)
-  %add61.us.i = add nuw i32 %ctrx37.0465.us.i, 1
-  %cmp62438.us.i = icmp ule i32 %cond59.us.i, %add61.us.i
   %cmp65439.us.i = icmp ult i32 %cond59.us.i, %33
-  %48 = and i1 %cmp62438.us.i, %cmp65439.us.i
-  br i1 %48, label %for.body53.us.us.i, label %for.inc119.us.i
+  br i1 %cmp65439.us.i, label %for.body53.us.us.i, label %for.inc119.us.i
 
 for.body53.us.us.i:                               ; preds = %for.body53.lr.ph.us.i, %for.cond60.for.cond.cleanup67_crit_edge.us.us.i
   %sy.0454.us.us.i = phi i32 [ %inc98.us.us.i, %for.cond60.for.cond.cleanup67_crit_edge.us.us.i ], [ %cond.us.i47, %for.body53.lr.ph.us.i ]
@@ -858,8 +851,8 @@ for.body68.us.us.i:                               ; preds = %for.inc93.us.us.i, 
   %shr.i.i277.us.us.i = lshr i32 %add.i275.us.us.i, 3
   %conv.i278.us.us.i = zext nneg i32 %shr.i.i277.us.us.i to i64
   %add.ptr.i.i279.us.us.i = getelementptr inbounds nuw i8, ptr %bitmap.sroa.11.0481.i, i64 %conv.i278.us.us.i
-  %49 = load i8, ptr %add.ptr.i.i279.us.us.i, align 1, !tbaa !16
-  %conv3.i280.us.us.i = zext i8 %49 to i32
+  %48 = load i8, ptr %add.ptr.i.i279.us.us.i, align 1, !tbaa !16
+  %conv3.i280.us.us.i = zext i8 %48 to i32
   %conv.i.i281.us.us.i = and i32 %add.i275.us.us.i, 7
   %shl.i282.us.us.i = shl nuw nsw i32 1, %conv.i.i281.us.us.i
   %and.i283.us.us.i = and i32 %shl.i282.us.us.i, %conv3.i280.us.us.i
@@ -869,8 +862,8 @@ for.body68.us.us.i:                               ; preds = %for.inc93.us.us.i, 
 if.end71.us.us.i:                                 ; preds = %for.body68.us.us.i
   %vtable.i285.us.us.i = load ptr, ptr %src, align 8, !tbaa !28
   %vfn.i286.us.us.i = getelementptr inbounds nuw i8, ptr %vtable.i285.us.us.i, i64 16
-  %50 = load ptr, ptr %vfn.i286.us.us.i, align 8
-  %call.i287.us.us.i = invoke i32 %50(ptr noundef nonnull align 8 dereferenceable(50) %src, i32 noundef %sx.0444.us.us.i, i32 noundef %sy.0454.us.us.i)
+  %49 = load ptr, ptr %vfn.i286.us.us.i, align 8
+  %call.i287.us.us.i = invoke i32 %49(ptr noundef nonnull align 8 dereferenceable(50) %src, i32 noundef %sx.0444.us.us.i, i32 noundef %sy.0454.us.us.i)
           to label %invoke.cont73.us.us.i unwind label %lpad72.split.us.split.us.i
 
 invoke.cont73.us.us.i:                            ; preds = %if.end71.us.us.i
@@ -899,32 +892,32 @@ for.inc93.us.us.i:                                ; preds = %invoke.cont73.us.us
   %inc94.us.us.i = add nuw i32 %sx.0444.us.us.i, 1
   %cmp62.us.us.i = icmp ule i32 %sx.0444.us.us.i, %ctrx37.0465.us.i
   %cmp65.us.us.i = icmp ult i32 %inc94.us.us.i, %33
-  %51 = and i1 %cmp62.us.us.i, %cmp65.us.us.i
-  br i1 %51, label %for.body68.us.us.i, label %for.cond60.for.cond.cleanup67_crit_edge.us.us.i, !llvm.loop !33
+  %50 = and i1 %cmp62.us.us.i, %cmp65.us.us.i
+  br i1 %50, label %for.body68.us.us.i, label %for.cond60.for.cond.cleanup67_crit_edge.us.us.i, !llvm.loop !33
 
 for.cond60.for.cond.cleanup67_crit_edge.us.us.i:  ; preds = %for.inc93.us.us.i
   %inc98.us.us.i = add nuw i32 %sy.0454.us.us.i, 1
   %cmp49.us.us.i = icmp ule i32 %sy.0454.us.us.i, %ctry31.0467.us.i
   %cmp51.us.us.i = icmp ult i32 %inc98.us.us.i, %34
-  %52 = and i1 %cmp49.us.us.i, %cmp51.us.us.i
-  br i1 %52, label %for.body53.us.us.i, label %for.cond.cleanup52.us.i, !llvm.loop !34
+  %51 = and i1 %cmp49.us.us.i, %cmp51.us.us.i
+  br i1 %51, label %for.body53.us.us.i, label %for.cond.cleanup52.us.i, !llvm.loop !34
 
 for.cond38.for.cond.cleanup41_crit_edge.us.i:     ; preds = %for.inc119.us.i, %for.cond38.preheader.us.i
   %exitcond497.not.i = icmp eq i32 %add.us.i48, %34
   br i1 %exitcond497.not.i, label %for.cond.cleanup35.i, label %for.cond38.preheader.us.i, !llvm.loop !35
 
 lpad103.split.us.i:                               ; preds = %invoke.cont104.us.i, %if.then102.us.i
-  %53 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup134.i
 
 lpad72.split.us.split.us.i:                       ; preds = %if.end71.us.us.i
-  %54 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup134.i
 
 lpad20.i:                                         ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i.i41, %if.end.i.i.i.i.i.i.i.i81
-  %55 = landingpad { ptr, i32 }
+  %54 = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i.i.i.i334.i
 
@@ -940,8 +933,8 @@ for.cond8.preheader.i246.i:                       ; preds = %for.cond.i242.i, %f
   br i1 %cmp1244.i250.i, label %cleanup.i62, label %for.body14.lr.ph.i251.i
 
 for.body14.lr.ph.i251.i:                          ; preds = %for.cond8.preheader.i246.i
-  %56 = load i8, ptr %add.ptr.i.i.i252.i, align 1, !tbaa !16
-  %conv17.i253.i = zext i8 %56 to i32
+  %55 = load i8, ptr %add.ptr.i.i.i252.i, align 1, !tbaa !16
+  %conv17.i253.i = zext i8 %55 to i32
   %and.i257.i = and i32 %conv17.i253.i, 1
   %tobool.not.not.i258.i = icmp eq i32 %and.i257.i, 0
   br i1 %tobool.not.not.i258.i, label %if.end129.i, label %for.cond8.i259.i
@@ -949,8 +942,8 @@ for.body14.lr.ph.i251.i:                          ; preds = %for.cond8.preheader
 for.body.i236.i:                                  ; preds = %for.cond.cleanup35.i, %for.cond.i242.i
   %indvars.iv138 = phi i64 [ %indvars.iv.next139, %for.cond.i242.i ], [ 0, %for.cond.cleanup35.i ]
   %add.ptr.i.i239.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i400.i, i64 %indvars.iv138
-  %57 = load i8, ptr %add.ptr.i.i239.i, align 1, !tbaa !16
-  %cmp6.not.i240.i = icmp eq i8 %57, -1
+  %56 = load i8, ptr %add.ptr.i.i239.i, align 1, !tbaa !16
+  %cmp6.not.i240.i = icmp eq i8 %56, -1
   br i1 %cmp6.not.i240.i, label %for.cond.i242.i, label %if.end129.i
 
 for.cond8.i259.i:                                 ; preds = %for.body14.lr.ph.i251.i
@@ -1038,10 +1031,10 @@ _ZSt4copyIPhS0_ET0_T_S2_S1_.exit.i.i67:           ; preds = %if.else49.i.i65
   br label %if.then.i.i.i.i.i.i.i.i.i.i68
 
 if.then.i.i.i.i.i.i.i.i.i.i68:                    ; preds = %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit.i.i67, %if.else49.i.i65
-  %58 = phi ptr [ %bitmap.sroa.25.0480.i, %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit.i.i67 ], [ %bitmap.sroa.11.0481.i, %if.else49.i.i65 ]
+  %57 = phi ptr [ %bitmap.sroa.25.0480.i, %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit.i.i67 ], [ %bitmap.sroa.11.0481.i, %if.else49.i.i65 ]
   %add.ptr62.i.i69 = getelementptr inbounds i8, ptr %cond.i.i.i.i.i400.i, i64 %sub.ptr.sub.i96.i.i55
   %gepdiff = sub i64 %sub.ptr.sub.i.i.i.i37, %sub.ptr.sub.i96.i.i55
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %58, ptr align 1 %add.ptr62.i.i69, i64 %gepdiff, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %57, ptr align 1 %add.ptr62.i.i69, i64 %gepdiff, i1 false)
   br label %for.inc132.i
 
 for.inc132.i:                                     ; preds = %if.then.i.i.i.i.i.i.i.i.i.i68, %if.then.i.i.i.i.i.i.i58, %if.then27.i.i57, %if.then.i.i.i.i.i.i.i.i.i.i340.i
@@ -1067,7 +1060,7 @@ if.then.i.i.i.i.i64:                              ; preds = %for.cond8.i259.i, %
   br label %if.then.i.i.i.i330.i
 
 ehcleanup134.i:                                   ; preds = %lpad72.split.us.split.us.i, %lpad103.split.us.i
-  %.pn.pn.i = phi { ptr, i32 } [ %54, %lpad72.split.us.split.us.i ], [ %53, %lpad103.split.us.i ]
+  %.pn.pn.i = phi { ptr, i32 } [ %53, %lpad72.split.us.split.us.i ], [ %52, %lpad103.split.us.i ]
   %tobool.not.i.i.i.i325.i = icmp eq ptr %cond.i.i.i.i.i400.i, null
   br i1 %tobool.not.i.i.i.i325.i, label %if.then.i.i.i.i334.i, label %if.then.i.i.i.i326.i
 
@@ -1082,7 +1075,7 @@ if.then.i.i.i.i330.i:                             ; preds = %cleanup.i62, %if.th
   br label %if.end
 
 if.then.i.i.i.i334.i:                             ; preds = %ehcleanup134.i, %if.then.i.i.i.i326.i, %lpad20.i, %lpad.split.us.i
-  %.pn206.pn409.i = phi { ptr, i32 } [ %55, %lpad20.i ], [ %38, %lpad.split.us.i ], [ %.pn.pn.i10, %if.then.i.i.i.i326.i ], [ %.pn.pn.i, %ehcleanup134.i ]
+  %.pn206.pn409.i = phi { ptr, i32 } [ %54, %lpad20.i ], [ %38, %lpad.split.us.i ], [ %.pn.pn.i10, %if.then.i.i.i.i326.i ], [ %.pn.pn.i, %ehcleanup134.i ]
   %bitmap.sroa.11.4408.i = phi ptr [ %call5.i.i.i.i3.i.i5.i.i9, %lpad20.i ], [ %call5.i.i.i.i3.i.i5.i.i9, %lpad.split.us.i ], [ %bitmap.sroa.11.0481.i, %if.then.i.i.i.i326.i ], [ %bitmap.sroa.11.0481.i, %ehcleanup134.i ]
   call void @_ZdlPv(ptr noundef nonnull %bitmap.sroa.11.4408.i) #10
   br label %common.resume
