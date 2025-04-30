@@ -102566,13 +102566,13 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backEOS3_.exit: ; preds = %73, %_ZNSt6v
   %97 = ptrtoint ptr %.pre30 to i64
   %98 = sub i64 %96, %97
   %.not.i.i.i.i19 = icmp eq ptr %.pre, %.pre30
-  br i1 %.not.i.i.i.i19, label %.thread, label %99
+  br i1 %.not.i.i.i.i19, label %.thread, label %100
 
-99:                                               ; preds = %._crit_edge28
-  %100 = icmp ugt i64 %98, 9223372036854775800
-  br i1 %100, label %.noexc.i.i, label %101, !prof !267
+100:                                              ; preds = %._crit_edge28
+  %101 = icmp ugt i64 %98, 9223372036854775800
+  br i1 %101, label %.noexc.i.i, label %102, !prof !267
 
-.noexc.i.i:                                       ; preds = %99
+.noexc.i.i:                                       ; preds = %100
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #40
   unreachable
 
@@ -102580,37 +102580,37 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backEOS3_.exit: ; preds = %73, %_ZNSt6v
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EEC2ERKS5_.exit
 
-101:                                              ; preds = %99
-  %102 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %98) #39
+102:                                              ; preds = %100
+  %103 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %98) #39
   %.pre31 = load ptr, ptr %65, align 8, !tbaa !679
-  store ptr %102, ptr %0, align 8, !tbaa !242
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 %98
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %103, ptr %104, align 8, !tbaa !243
+  store ptr %103, ptr %0, align 8, !tbaa !242
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 %98
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %104, ptr %105, align 8, !tbaa !243
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pre31, %.pre30
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EEC2ERKS5_.exit, label %105
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EEC2ERKS5_.exit, label %106
 
-105:                                              ; preds = %101
+106:                                              ; preds = %102
   %.pre32 = ptrtoint ptr %.pre31 to i64
-  %106 = sub i64 %.pre32, %97
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %102, ptr align 8 %.pre30, i64 %106, i1 false)
+  %107 = sub i64 %.pre32, %97
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %103, ptr align 8 %.pre30, i64 %107, i1 false)
   br label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EEC2ERKS5_.exit
 
-_ZNSt6vectorIPKN4Luau4TypeESaIS3_EEC2ERKS5_.exit: ; preds = %.thread, %101, %105
-  %107 = phi i64 [ 0, %.thread ], [ 0, %101 ], [ %106, %105 ]
-  %108 = phi ptr [ null, %.thread ], [ %102, %101 ], [ %102, %105 ]
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %110 = getelementptr inbounds i8, ptr %108, i64 %107
-  store ptr %110, ptr %109, align 8, !tbaa !510
+_ZNSt6vectorIPKN4Luau4TypeESaIS3_EEC2ERKS5_.exit: ; preds = %.thread, %102, %106
+  %108 = phi i64 [ 0, %.thread ], [ 0, %101 ], [ %107, %105 ]
+  %109 = phi ptr [ null, %.thread ], [ %103, %101 ], [ %103, %105 ]
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %111 = getelementptr inbounds i8, ptr %109, i64 %108
+  store ptr %111, ptr %110, align 8, !tbaa !510
   ret void
 
 .lr.ph27:                                         ; preds = %_ZNSt6vectorIN4Luau9TypeErrorESaIS1_EE6resizeEm.exit, %.lr.ph27
-  %.sroa.020.026 = phi ptr [ %113, %.lr.ph27 ], [ %64, %_ZNSt6vectorIN4Luau9TypeErrorESaIS1_EE6resizeEm.exit ]
-  %111 = load ptr, ptr %.sroa.020.026, align 8, !tbaa !485
-  %112 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %111)
-  store ptr %112, ptr %.sroa.020.026, align 8, !tbaa !485
-  %113 = getelementptr inbounds nuw i8, ptr %.sroa.020.026, i64 8
-  %.not = icmp eq ptr %113, %66
+  %.sroa.020.026 = phi ptr [ %114, %.lr.ph27 ], [ %64, %_ZNSt6vectorIN4Luau9TypeErrorESaIS1_EE6resizeEm.exit ]
+  %112 = load ptr, ptr %.sroa.020.026, align 8, !tbaa !485
+  %113 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %112)
+  store ptr %113, ptr %.sroa.020.026, align 8, !tbaa !485
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.020.026, i64 8
+  %.not = icmp eq ptr %114, %66
   br i1 %.not, label %._crit_edge28, label %.lr.ph27
 }
 

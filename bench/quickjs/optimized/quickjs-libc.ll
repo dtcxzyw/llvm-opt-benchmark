@@ -5231,7 +5231,7 @@ define internal { i64, i64 } @js_worker_ctor(ptr noundef %0, i64 %1, i64 %2, i32
 
 js_new_message_pipe.exit.thread:                  ; preds = %41, %33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #30
-  br label %91
+  br label %.sink.split
 
 47:                                               ; preds = %39
   store i32 1, ptr %40, align 8, !tbaa !108
@@ -5271,7 +5271,7 @@ js_new_message_pipe.exit.thread:                  ; preds = %41, %33
 
 js_new_message_pipe.exit78.thread:                ; preds = %62, %47
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #30
-  br label %91
+  br label %.sink.split
 
 68:                                               ; preds = %60
   store i32 1, ptr %61, align 8, !tbaa !108
@@ -5316,11 +5316,11 @@ js_new_message_pipe.exit78.thread:                ; preds = %62, %47
   %.sroa.5.0.extract.shift59 = and i64 %80, -4294967296
   br label %JS_FreeValue.exit
 
-91:                                               ; preds = %js_new_message_pipe.exit78.thread, %js_new_message_pipe.exit.thread, %32
+.sink.split:                                      ; preds = %js_new_message_pipe.exit78.thread, %js_new_message_pipe.exit.thread, %32
   %92 = call { i64, i64 } @JS_ThrowOutOfMemory(ptr noundef %0) #30
   br label %93
 
-93:                                               ; preds = %68, %27, %25, %91, %88
+93:; preds = %68, %27, %25, %91, %88
   %.061 = phi ptr [ %31, %68 ], [ %31, %88 ], [ %31, %91 ], [ null, %27 ], [ null, %25 ]
   %.sroa.014.0 = phi i64 [ %80, %68 ], [ %80, %88 ], [ 0, %91 ], [ 0, %27 ], [ 0, %25 ]
   %.sroa.7.0 = phi i64 [ %81, %68 ], [ %81, %88 ], [ 3, %91 ], [ 3, %27 ], [ 3, %25 ]
@@ -5328,41 +5328,41 @@ js_new_message_pipe.exit78.thread:                ; preds = %62, %47
   call void @JS_FreeCString(ptr noundef %0, ptr noundef %26) #30
   call void @JS_FreeCString(ptr noundef %0, ptr noundef %.061) #30
   %.not74 = icmp eq ptr %.0, null
-  br i1 %.not74, label %102, label %94
+  br i1 %.not74, label %103, label %95
 
-94:                                               ; preds = %93
-  %95 = load ptr, ptr %.0, align 8, !tbaa !105
-  call void @free(ptr noundef %95) #30
-  %96 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %97 = load ptr, ptr %96, align 8, !tbaa !107
-  call void @free(ptr noundef %97) #30
-  %98 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %99 = load ptr, ptr %98, align 8, !tbaa !109
-  call fastcc void @js_free_message_pipe(ptr noundef %99)
-  %100 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %101 = load ptr, ptr %100, align 8, !tbaa !110
-  call fastcc void @js_free_message_pipe(ptr noundef %101)
+95:                                               ; preds = %93
+  %96 = load ptr, ptr %.0, align 8, !tbaa !105
+  call void @free(ptr noundef %96) #30
+  %97 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %98 = load ptr, ptr %97, align 8, !tbaa !107
+  call void @free(ptr noundef %98) #30
+  %99 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %100 = load ptr, ptr %99, align 8, !tbaa !109
+  call fastcc void @js_free_message_pipe(ptr noundef %100)
+  %101 = getelementptr inbounds nuw i8, ptr %.0, i64 24
+  %102 = load ptr, ptr %101, align 8, !tbaa !110
+  call fastcc void @js_free_message_pipe(ptr noundef %102)
   call void @free(ptr noundef nonnull %.0) #30
-  br label %102
+  br label %103
 
-102:                                              ; preds = %94, %93
-  %103 = trunc i64 %.sroa.7.0 to i32
-  %104 = icmp ugt i32 %103, -12
-  br i1 %104, label %105, label %JS_FreeValue.exit
+103:                                              ; preds = %95, %93
+  %104 = trunc i64 %.sroa.7.0 to i32
+  %105 = icmp ugt i32 %104, -12
+  br i1 %105, label %106, label %JS_FreeValue.exit
 
-105:                                              ; preds = %102
-  %106 = inttoptr i64 %.sroa.014.0 to ptr
-  %107 = load i32, ptr %106, align 4, !tbaa !14
-  %108 = add i32 %107, -1
-  store i32 %108, ptr %106, align 4, !tbaa !14
-  %109 = icmp slt i32 %108, 1
-  br i1 %109, label %110, label %JS_FreeValue.exit
+106:                                              ; preds = %103
+  %107 = inttoptr i64 %.sroa.014.0 to ptr
+  %108 = load i32, ptr %107, align 4, !tbaa !14
+  %109 = add i32 %108, -1
+  store i32 %109, ptr %107, align 4, !tbaa !14
+  %110 = icmp slt i32 %109, 1
+  br i1 %110, label %111, label %JS_FreeValue.exit
 
-110:                                              ; preds = %105
+111:                                              ; preds = %106
   call void @__JS_FreeValue(ptr noundef %0, i64 %.sroa.014.0, i64 %.sroa.7.0) #30
   br label %JS_FreeValue.exit
 
-JS_FreeValue.exit:                                ; preds = %110, %105, %102, %90, %21, %14
+JS_FreeValue.exit:                                ; preds = %111, %106, %103, %90, %21, %14
   %.sroa.054.0 = phi i64 [ %23, %21 ], [ %80, %90 ], [ %16, %14 ], [ 0, %102 ], [ 0, %105 ], [ 0, %110 ]
   %.sroa.5.0 = phi i64 [ %.sroa.5.0.extract.shift57, %21 ], [ %.sroa.5.0.extract.shift59, %90 ], [ %.sroa.5.0.extract.shift, %14 ], [ 0, %102 ], [ 0, %105 ], [ 0, %110 ]
   %.sroa.6.0 = phi i64 [ %24, %21 ], [ %81, %90 ], [ %17, %14 ], [ 6, %102 ], [ 6, %105 ], [ 6, %110 ]

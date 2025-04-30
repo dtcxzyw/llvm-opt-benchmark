@@ -909,8 +909,8 @@ _ZN5ZXing4OneDL23Code93ConvertToExtendedERKNSt7__cxx1112basic_stringIwSt11char_t
           to label %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit unwind label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit134
 
 _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %335
-  %343 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %344 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %342 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %343 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %345 = add nuw nsw i64 %336, 37
   %346 = lshr i64 %339, 6
   %347 = getelementptr inbounds nuw i64, ptr %342, i64 %346
@@ -921,8 +921,8 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %335
   %348 = getelementptr inbounds nuw i64, ptr %342, i64 %.zext137
   %349 = trunc nuw nsw i64 %345 to i32
   %350 = and i32 %349, 63
-  store ptr %348, ptr %344, align 8
-  store i32 %350, ptr %343, align 8
+  store ptr %348, ptr %343, align 8
+  store i32 %350, ptr %342, align 8
   %.idx.i = shl nuw nsw i64 %346, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %342, i8 0, i64 %.idx.i, i1 false)
   br label %352

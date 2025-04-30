@@ -9693,22 +9693,22 @@ define dso_local noundef ptr @fonsCreateInternal(ptr noundef readonly captures(n
 
 21:                                               ; preds = %._crit_edge, %14
   %22 = phi i32 [ %.pre49, %._crit_edge ], [ %18, %14 ]
-  %calloc.i = tail call dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
-  %cond.i = icmp eq ptr %calloc.i, null
+  %calloc24.i = tail call dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
+  %cond.i = icmp eq ptr %calloc24.i, null
   br i1 %cond.i, label %fons__allocAtlas.exit.thread, label %23
 
 23:                                               ; preds = %21
-  store i32 %.pre, ptr %calloc.i, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
+  store i32 %.pre, ptr %calloc24.i, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %calloc24.i, i64 4
   store i32 %22, ptr %24, align 4
-  %calloc24.i = tail call dereferenceable_or_null(1536) ptr @calloc(i64 1, i64 1536)
-  %25 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
-  store ptr %calloc24.i, ptr %25, align 8
-  %26 = icmp eq ptr %calloc24.i, null
+  %calloc.i = tail call dereferenceable_or_null(1536) ptr @calloc(i64 1, i64 1536)
+  %25 = getelementptr inbounds nuw i8, ptr %calloc24.i, i64 8
+  store ptr %calloc.i, ptr %25, align 8
+  %26 = icmp eq ptr %calloc.i, null
   br i1 %26, label %fons__deleteAtlas.exit.i, label %28
 
 fons__deleteAtlas.exit.i:                         ; preds = %23
-  tail call void @free(ptr noundef nonnull %calloc.i) #57
+  tail call void @free(ptr noundef nonnull %calloc24.i) #57
   br label %fons__allocAtlas.exit.thread
 
 fons__allocAtlas.exit.thread:                     ; preds = %21, %fons__deleteAtlas.exit.i
@@ -9717,19 +9717,19 @@ fons__allocAtlas.exit.thread:                     ; preds = %21, %fons__deleteAt
   br label %80
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
-  %30 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %calloc24.i, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %calloc24.i, i64 20
   store i32 256, ptr %30, align 4
   %31 = trunc i32 %.pre to i16
-  %32 = getelementptr inbounds nuw i8, ptr %calloc24.i, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
   store i16 %31, ptr %32, align 2
   store i32 1, ptr %29, align 8
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store ptr %calloc.i, ptr %33, align 8
-  %calloc = tail call dereferenceable_or_null(32) ptr @calloc(i64 1, i64 32)
+  store ptr %calloc24.i, ptr %33, align 8
+  %calloc50 = tail call dereferenceable_or_null(32) ptr @calloc(i64 1, i64 32)
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store ptr %calloc, ptr %34, align 8
-  %35 = icmp eq ptr %calloc, null
+  store ptr %calloc50, ptr %34, align 8
+  %35 = icmp eq ptr %calloc50, null
   br i1 %35, label %80, label %36
 
 36:                                               ; preds = %28
@@ -9747,10 +9747,10 @@ fons__allocAtlas.exit.thread:                     ; preds = %21, %fons__deleteAt
   store float %43, ptr %44, align 4
   %45 = mul nsw i32 %22, %.pre
   %46 = sext i32 %45 to i64
-  %calloc50 = tail call ptr @calloc(i64 1, i64 %46)
+  %calloc = tail call ptr @calloc(i64 1, i64 %46)
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr %calloc50, ptr %47, align 8
-  %48 = icmp eq ptr %calloc50, null
+  store ptr %calloc, ptr %47, align 8
+  %48 = icmp eq ptr %calloc, null
   br i1 %48, label %80, label %49
 
 49:                                               ; preds = %36
@@ -9764,7 +9764,7 @@ fons__allocAtlas.exit.thread:                     ; preds = %21, %fons__deleteAt
   store i32 0, ptr %53, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %54 = call fastcc i32 @fons__atlasAddRect(ptr noundef nonnull %calloc.i, i32 noundef 2, i32 noundef 2, ptr noundef %2, ptr noundef %3)
+  %54 = call fastcc i32 @fons__atlasAddRect(ptr noundef nonnull %calloc24.i, i32 noundef 2, i32 noundef 2, ptr noundef %2, ptr noundef %3)
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %fonsPushState.exit, label %56
 
@@ -9774,7 +9774,7 @@ fons__allocAtlas.exit.thread:                     ; preds = %21, %fons__deleteAt
   %59 = mul nsw i32 %58, %.pre
   %60 = add nsw i32 %59, %57
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i8, ptr %calloc50, i64 %61
+  %62 = getelementptr inbounds i8, ptr %calloc, i64 %61
   %63 = sext i32 %.pre to i64
   br label %.preheader.i
 

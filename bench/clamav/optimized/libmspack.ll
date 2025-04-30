@@ -427,7 +427,7 @@ define internal noalias noundef ptr @mspack_fmap_open(ptr noundef readonly captu
 
 4:                                                ; preds = %3
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.mspack_fmap_open, i32 noundef 62) #15
-  br label %26
+  br label %27
 
 5:                                                ; preds = %3
   %calloc = tail call dereferenceable_or_null(48) ptr @calloc(i64 1, i64 48)
@@ -436,12 +436,12 @@ define internal noalias noundef ptr @mspack_fmap_open(ptr noundef readonly captu
 
 6:                                                ; preds = %5
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.mspack_fmap_open, i32 noundef 67) #15
-  br label %26
+  br label %27
 
 7:                                                ; preds = %5
   switch i32 %2, label %16 [
     i32 0, label %8
-    i32 1, label %17
+    i32 1, label %18
     i32 2, label %14
     i32 3, label %15
   ]
@@ -457,41 +457,41 @@ define internal noalias noundef ptr @mspack_fmap_open(ptr noundef readonly captu
   store i64 %12, ptr %13, align 8, !tbaa !80
   br label %26
 
-14:                                               ; preds = %7
+14:; preds = %7
   br label %17
 
 15:                                               ; preds = %7
-  br label %17
+  br label %18
 
 16:                                               ; preds = %7
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.mspack_fmap_open) #15
-  br label %25
+  br label %26
 
-17:                                               ; preds = %7, %15, %14
+18:                                               ; preds = %7, %15, %14
   %.024 = phi ptr [ @.str.4, %15 ], [ @.str.3, %14 ], [ @.str.2, %7 ]
   store i32 2, ptr %calloc, align 8, !tbaa !76
-  %18 = tail call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull %.024)
-  %19 = getelementptr inbounds nuw i8, ptr %calloc, i64 32
-  store ptr %18, ptr %19, align 8, !tbaa !81
-  %.not28 = icmp eq ptr %18, null
-  br i1 %.not28, label %20, label %21
+  %19 = tail call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull %.024)
+  %20 = getelementptr inbounds nuw i8, ptr %calloc, i64 32
+  store ptr %19, ptr %20, align 8, !tbaa !81
+  %.not28 = icmp eq ptr %19, null
+  br i1 %.not28, label %21, label %22
 
-20:                                               ; preds = %17
+21:                                               ; preds = %18
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.mspack_fmap_open, i32 noundef 101) #15
-  br label %25
-
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %23 = load i64, ptr %22, align 8, !tbaa !60
-  %24 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
-  store i64 %23, ptr %24, align 8, !tbaa !82
   br label %26
 
-25:                                               ; preds = %20, %16
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %24 = load i64, ptr %23, align 8, !tbaa !60
+  %25 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
+  store i64 %24, ptr %25, align 8, !tbaa !82
+  br label %27
+
+26:                                               ; preds = %21, %16
   tail call void @free(ptr noundef nonnull %calloc) #15
-  br label %26
+  br label %27
 
-26:                                               ; preds = %25, %21, %8, %6, %4
+27:                                               ; preds = %26, %22, %8, %6, %4
   %.0 = phi ptr [ null, %25 ], [ %calloc, %21 ], [ %calloc, %8 ], [ null, %6 ], [ null, %4 ]
   ret ptr %.0
 }

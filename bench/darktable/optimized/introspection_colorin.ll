@@ -347,13 +347,13 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   ]
 
 7:                                                ; preds = %6
-  %calloc240 = tail call dereferenceable_or_null(1044) ptr @calloc(i64 1, i64 1044)
+  %calloc = tail call dereferenceable_or_null(1044) ptr @calloc(i64 1, i64 1044)
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.6) #25
   %.not212 = icmp eq i32 %8, 0
   br i1 %.not212, label %9, label %10
 
 9:                                                ; preds = %7
-  store i32 9, ptr %calloc240, align 4, !tbaa !28
+  store i32 9, ptr %calloc, align 4, !tbaa !28
   br label %51
 
 10:                                               ; preds = %7
@@ -362,7 +362,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %.not213, label %12, label %13
 
 12:                                               ; preds = %10
-  store i32 10, ptr %calloc240, align 4, !tbaa !28
+  store i32 10, ptr %calloc, align 4, !tbaa !28
   br label %51
 
 13:                                               ; preds = %10
@@ -371,7 +371,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %.not214, label %15, label %16
 
 15:                                               ; preds = %13
-  store i32 11, ptr %calloc240, align 4, !tbaa !28
+  store i32 11, ptr %calloc, align 4, !tbaa !28
   br label %51
 
 16:                                               ; preds = %13
@@ -380,7 +380,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %.not215, label %18, label %19
 
 18:                                               ; preds = %16
-  store i32 12, ptr %calloc240, align 4, !tbaa !28
+  store i32 12, ptr %calloc, align 4, !tbaa !28
   br label %51
 
 19:                                               ; preds = %16
@@ -389,7 +389,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %.not216, label %21, label %22
 
 21:                                               ; preds = %19
-  store i32 13, ptr %calloc240, align 4, !tbaa !28
+  store i32 13, ptr %calloc, align 4, !tbaa !28
   br label %51
 
 22:                                               ; preds = %19
@@ -398,7 +398,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %.not217, label %24, label %25
 
 24:                                               ; preds = %22
-  store i32 14, ptr %calloc240, align 4, !tbaa !28
+  store i32 14, ptr %calloc, align 4, !tbaa !28
   br label %51
 
 25:                                               ; preds = %22
@@ -407,7 +407,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %.not218, label %27, label %28
 
 27:                                               ; preds = %25
-  store i32 1, ptr %calloc240, align 4, !tbaa !28
+  store i32 1, ptr %calloc, align 4, !tbaa !28
   br label %51
 
 28:                                               ; preds = %25
@@ -416,7 +416,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %.not219, label %30, label %31
 
 30:                                               ; preds = %28
-  store i32 2, ptr %calloc240, align 4, !tbaa !28
+  store i32 2, ptr %calloc, align 4, !tbaa !28
   br label %51
 
 31:                                               ; preds = %28
@@ -430,7 +430,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %.not221, label %35, label %36
 
 35:                                               ; preds = %33, %31
-  store i32 3, ptr %calloc240, align 4, !tbaa !28
+  store i32 3, ptr %calloc, align 4, !tbaa !28
   br label %51
 
 36:                                               ; preds = %33
@@ -439,7 +439,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %.not222, label %38, label %39
 
 38:                                               ; preds = %36
-  store i32 4, ptr %calloc240, align 4, !tbaa !28
+  store i32 4, ptr %calloc, align 4, !tbaa !28
   br label %51
 
 39:                                               ; preds = %36
@@ -448,7 +448,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %.not223, label %41, label %42
 
 41:                                               ; preds = %39
-  store i32 7, ptr %calloc240, align 4, !tbaa !28
+  store i32 7, ptr %calloc, align 4, !tbaa !28
   br label %51
 
 42:                                               ; preds = %39
@@ -457,7 +457,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %.not224, label %44, label %45
 
 44:                                               ; preds = %42
-  store i32 5, ptr %calloc240, align 4, !tbaa !28
+  store i32 5, ptr %calloc, align 4, !tbaa !28
   br label %51
 
 45:                                               ; preds = %42
@@ -466,37 +466,37 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %.not225, label %47, label %48
 
 47:                                               ; preds = %45
-  store i32 6, ptr %calloc240, align 4, !tbaa !28
+  store i32 6, ptr %calloc, align 4, !tbaa !28
   br label %51
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds nuw i8, ptr %calloc240, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %calloc, i64 4
   %50 = tail call i64 @g_strlcpy(ptr noundef nonnull %49, ptr noundef nonnull %1, i64 noundef 512) #18
   br label %51
 
 51:                                               ; preds = %12, %18, %24, %30, %38, %44, %48, %47, %41, %35, %27, %21, %15, %9
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %53 = load i32, ptr %52, align 4, !tbaa !30
-  %54 = getelementptr inbounds nuw i8, ptr %calloc240, i64 516
+  %54 = getelementptr inbounds nuw i8, ptr %calloc, i64 516
   store i32 %53, ptr %54, align 4, !tbaa !32
-  %55 = getelementptr inbounds nuw i8, ptr %calloc240, i64 520
+  %55 = getelementptr inbounds nuw i8, ptr %calloc, i64 520
   store i32 0, ptr %55, align 4, !tbaa !33
-  %56 = getelementptr inbounds nuw i8, ptr %calloc240, i64 524
+  %56 = getelementptr inbounds nuw i8, ptr %calloc, i64 524
   store i32 1, ptr %56, align 4, !tbaa !34
-  %57 = getelementptr inbounds nuw i8, ptr %calloc240, i64 528
+  %57 = getelementptr inbounds nuw i8, ptr %calloc, i64 528
   store i32 3, ptr %57, align 4, !tbaa !35
-  %58 = getelementptr inbounds nuw i8, ptr %calloc240, i64 532
+  %58 = getelementptr inbounds nuw i8, ptr %calloc, i64 532
   store i8 0, ptr %58, align 4, !tbaa !36
   br label %.sink.split
 
 59:                                               ; preds = %6
-  %calloc239 = tail call dereferenceable_or_null(1044) ptr @calloc(i64 1, i64 1044)
+  %calloc237 = tail call dereferenceable_or_null(1044) ptr @calloc(i64 1, i64 1044)
   %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.6) #25
   %.not198 = icmp eq i32 %60, 0
   br i1 %.not198, label %61, label %62
 
 61:                                               ; preds = %59
-  store i32 9, ptr %calloc239, align 4, !tbaa !28
+  store i32 9, ptr %calloc237, align 4, !tbaa !28
   br label %103
 
 62:                                               ; preds = %59
@@ -505,7 +505,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %.not199, label %64, label %65
 
 64:                                               ; preds = %62
-  store i32 10, ptr %calloc239, align 4, !tbaa !28
+  store i32 10, ptr %calloc237, align 4, !tbaa !28
   br label %103
 
 65:                                               ; preds = %62
@@ -514,7 +514,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %.not200, label %67, label %68
 
 67:                                               ; preds = %65
-  store i32 11, ptr %calloc239, align 4, !tbaa !28
+  store i32 11, ptr %calloc237, align 4, !tbaa !28
   br label %103
 
 68:                                               ; preds = %65
@@ -523,7 +523,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %.not201, label %70, label %71
 
 70:                                               ; preds = %68
-  store i32 12, ptr %calloc239, align 4, !tbaa !28
+  store i32 12, ptr %calloc237, align 4, !tbaa !28
   br label %103
 
 71:                                               ; preds = %68
@@ -532,7 +532,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %.not202, label %73, label %74
 
 73:                                               ; preds = %71
-  store i32 13, ptr %calloc239, align 4, !tbaa !28
+  store i32 13, ptr %calloc237, align 4, !tbaa !28
   br label %103
 
 74:                                               ; preds = %71
@@ -541,7 +541,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %.not203, label %76, label %77
 
 76:                                               ; preds = %74
-  store i32 14, ptr %calloc239, align 4, !tbaa !28
+  store i32 14, ptr %calloc237, align 4, !tbaa !28
   br label %103
 
 77:                                               ; preds = %74
@@ -550,7 +550,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %.not204, label %79, label %80
 
 79:                                               ; preds = %77
-  store i32 1, ptr %calloc239, align 4, !tbaa !28
+  store i32 1, ptr %calloc237, align 4, !tbaa !28
   br label %103
 
 80:                                               ; preds = %77
@@ -559,7 +559,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %.not205, label %82, label %83
 
 82:                                               ; preds = %80
-  store i32 2, ptr %calloc239, align 4, !tbaa !28
+  store i32 2, ptr %calloc237, align 4, !tbaa !28
   br label %103
 
 83:                                               ; preds = %80
@@ -573,7 +573,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %.not207, label %87, label %88
 
 87:                                               ; preds = %85, %83
-  store i32 3, ptr %calloc239, align 4, !tbaa !28
+  store i32 3, ptr %calloc237, align 4, !tbaa !28
   br label %103
 
 88:                                               ; preds = %85
@@ -582,7 +582,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %.not208, label %90, label %91
 
 90:                                               ; preds = %88
-  store i32 4, ptr %calloc239, align 4, !tbaa !28
+  store i32 4, ptr %calloc237, align 4, !tbaa !28
   br label %103
 
 91:                                               ; preds = %88
@@ -591,7 +591,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %.not209, label %93, label %94
 
 93:                                               ; preds = %91
-  store i32 7, ptr %calloc239, align 4, !tbaa !28
+  store i32 7, ptr %calloc237, align 4, !tbaa !28
   br label %103
 
 94:                                               ; preds = %91
@@ -600,7 +600,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %.not210, label %96, label %97
 
 96:                                               ; preds = %94
-  store i32 5, ptr %calloc239, align 4, !tbaa !28
+  store i32 5, ptr %calloc237, align 4, !tbaa !28
   br label %103
 
 97:                                               ; preds = %94
@@ -609,28 +609,28 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %.not211, label %99, label %100
 
 99:                                               ; preds = %97
-  store i32 6, ptr %calloc239, align 4, !tbaa !28
+  store i32 6, ptr %calloc237, align 4, !tbaa !28
   br label %103
 
 100:                                              ; preds = %97
-  %101 = getelementptr inbounds nuw i8, ptr %calloc239, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %calloc237, i64 4
   %102 = tail call i64 @g_strlcpy(ptr noundef nonnull %101, ptr noundef nonnull %1, i64 noundef 512) #18
   br label %103
 
 103:                                              ; preds = %64, %70, %76, %82, %90, %96, %100, %99, %93, %87, %79, %73, %67, %61
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %105 = load i32, ptr %104, align 4, !tbaa !37
-  %106 = getelementptr inbounds nuw i8, ptr %calloc239, i64 516
+  %106 = getelementptr inbounds nuw i8, ptr %calloc237, i64 516
   store i32 %105, ptr %106, align 4, !tbaa !32
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %108 = load i32, ptr %107, align 4, !tbaa !39
-  %109 = getelementptr inbounds nuw i8, ptr %calloc239, i64 520
+  %109 = getelementptr inbounds nuw i8, ptr %calloc237, i64 520
   store i32 %108, ptr %109, align 4, !tbaa !33
-  %110 = getelementptr inbounds nuw i8, ptr %calloc239, i64 524
+  %110 = getelementptr inbounds nuw i8, ptr %calloc237, i64 524
   store i32 1, ptr %110, align 4, !tbaa !34
-  %111 = getelementptr inbounds nuw i8, ptr %calloc239, i64 528
+  %111 = getelementptr inbounds nuw i8, ptr %calloc237, i64 528
   store i32 3, ptr %111, align 4, !tbaa !35
-  %112 = getelementptr inbounds nuw i8, ptr %calloc239, i64 532
+  %112 = getelementptr inbounds nuw i8, ptr %calloc237, i64 532
   store i8 0, ptr %112, align 4, !tbaa !36
   br label %.sink.split
 
@@ -782,54 +782,54 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br label %.sink.split
 
 169:                                              ; preds = %6
-  %calloc237 = tail call dereferenceable_or_null(1044) ptr @calloc(i64 1, i64 1044)
+  %calloc239 = tail call dereferenceable_or_null(1044) ptr @calloc(i64 1, i64 1044)
   %170 = load i32, ptr %1, align 4, !tbaa !44
-  store i32 %170, ptr %calloc237, align 4, !tbaa !28
-  %171 = getelementptr inbounds nuw i8, ptr %calloc237, i64 4
+  store i32 %170, ptr %calloc239, align 4, !tbaa !28
+  %171 = getelementptr inbounds nuw i8, ptr %calloc239, i64 4
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %173 = tail call i64 @g_strlcpy(ptr noundef nonnull %171, ptr noundef nonnull %172, i64 noundef 512) #18
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %175 = load i32, ptr %174, align 4, !tbaa !46
-  %176 = getelementptr inbounds nuw i8, ptr %calloc237, i64 516
+  %176 = getelementptr inbounds nuw i8, ptr %calloc239, i64 516
   store i32 %175, ptr %176, align 4, !tbaa !32
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %178 = load i32, ptr %177, align 4, !tbaa !47
-  %179 = getelementptr inbounds nuw i8, ptr %calloc237, i64 520
+  %179 = getelementptr inbounds nuw i8, ptr %calloc239, i64 520
   store i32 %178, ptr %179, align 4, !tbaa !33
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %181 = load i32, ptr %180, align 4, !tbaa !48
-  %182 = getelementptr inbounds nuw i8, ptr %calloc237, i64 524
+  %182 = getelementptr inbounds nuw i8, ptr %calloc239, i64 524
   store i32 %181, ptr %182, align 4, !tbaa !34
-  %183 = getelementptr inbounds nuw i8, ptr %calloc237, i64 528
+  %183 = getelementptr inbounds nuw i8, ptr %calloc239, i64 528
   store i32 3, ptr %183, align 4, !tbaa !35
-  %184 = getelementptr inbounds nuw i8, ptr %calloc237, i64 532
+  %184 = getelementptr inbounds nuw i8, ptr %calloc239, i64 532
   store i8 0, ptr %184, align 4, !tbaa !36
   br label %.sink.split
 
 185:                                              ; preds = %6
-  %calloc = tail call dereferenceable_or_null(1044) ptr @calloc(i64 1, i64 1044)
+  %calloc240 = tail call dereferenceable_or_null(1044) ptr @calloc(i64 1, i64 1044)
   %186 = load i32, ptr %1, align 4, !tbaa !49
-  store i32 %186, ptr %calloc, align 4, !tbaa !28
-  %187 = getelementptr inbounds nuw i8, ptr %calloc, i64 4
+  store i32 %186, ptr %calloc240, align 4, !tbaa !28
+  %187 = getelementptr inbounds nuw i8, ptr %calloc240, i64 4
   %188 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %189 = tail call i64 @g_strlcpy(ptr noundef nonnull %187, ptr noundef nonnull %188, i64 noundef 512) #18
   %190 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %191 = load i32, ptr %190, align 4, !tbaa !51
-  %192 = getelementptr inbounds nuw i8, ptr %calloc, i64 516
+  %192 = getelementptr inbounds nuw i8, ptr %calloc240, i64 516
   store i32 %191, ptr %192, align 4, !tbaa !32
   %193 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %194 = load i32, ptr %193, align 4, !tbaa !52
-  %195 = getelementptr inbounds nuw i8, ptr %calloc, i64 520
+  %195 = getelementptr inbounds nuw i8, ptr %calloc240, i64 520
   store i32 %194, ptr %195, align 4, !tbaa !33
   %196 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %197 = load i32, ptr %196, align 4, !tbaa !53
-  %198 = getelementptr inbounds nuw i8, ptr %calloc, i64 524
+  %198 = getelementptr inbounds nuw i8, ptr %calloc240, i64 524
   store i32 %197, ptr %198, align 4, !tbaa !34
   %199 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %200 = load i32, ptr %199, align 4, !tbaa !54
-  %201 = getelementptr inbounds nuw i8, ptr %calloc, i64 528
+  %201 = getelementptr inbounds nuw i8, ptr %calloc240, i64 528
   store i32 %200, ptr %201, align 4, !tbaa !35
-  %202 = getelementptr inbounds nuw i8, ptr %calloc, i64 532
+  %202 = getelementptr inbounds nuw i8, ptr %calloc240, i64 532
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %204 = tail call i64 @g_strlcpy(ptr noundef nonnull %202, ptr noundef nonnull %203, i64 noundef 512) #18
   %205 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !55
@@ -924,7 +924,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br label %.sink.split
 
 .sink.split:                                      ; preds = %235, %234, %215, %214, %._crit_edge.i233, %._crit_edge.i, %51, %103, %157, %169
-  %.sink = phi ptr [ %calloc237, %169 ], [ %calloc238, %157 ], [ %calloc239, %103 ], [ %calloc240, %51 ], [ %calloc, %._crit_edge.i ], [ %222, %._crit_edge.i233 ], [ %calloc, %214 ], [ %calloc, %215 ], [ %222, %234 ], [ %222, %235 ]
+  %.sink = phi ptr [ %calloc239, %169 ], [ %calloc238, %157 ], [ %calloc237, %103 ], [ %calloc, %51 ], [ %calloc240, %._crit_edge.i ], [ %222, %._crit_edge.i233 ], [ %calloc240, %214 ], [ %calloc240, %215 ], [ %222, %234 ], [ %222, %235 ]
   store ptr %.sink, ptr %3, align 8, !tbaa !98
   store i32 1044, ptr %4, align 4, !tbaa !96
   store i32 7, ptr %5, align 4, !tbaa !96

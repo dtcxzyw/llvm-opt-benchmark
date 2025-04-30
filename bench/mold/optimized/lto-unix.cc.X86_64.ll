@@ -2890,35 +2890,35 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   %474 = ptrtoint ptr %472 to i64
   %475 = sub i64 %473, %474
   %.not.i.i.i.i = icmp eq ptr %471, %472
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIPN4mold10ObjectFileINS0_6X86_64EEESaIS4_EEC2EmRKS5_.exit.i.thread, label %476
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIPN4mold10ObjectFileINS0_6X86_64EEESaIS4_EEC2EmRKS5_.exit.i.thread, label %477
 
 _ZNSt12_Vector_baseIPN4mold10ObjectFileINS0_6X86_64EEESaIS4_EEC2EmRKS5_.exit.i.thread: ; preds = %470
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZNSt6vectorIPN4mold10ObjectFileINS0_6X86_64EEESaIS4_EEC2ERKS6_.exit
 
-476:                                              ; preds = %470
-  %477 = icmp ugt i64 %475, 9223372036854775800
-  br i1 %477, label %478, label %479, !prof !150
+477:                                              ; preds = %470
+  %478 = icmp ugt i64 %475, 9223372036854775800
+  br i1 %478, label %479, label %480, !prof !150
 
-478:                                              ; preds = %476
+479:                                              ; preds = %477
   call void @_ZSt28__throw_bad_array_new_lengthv() #27
   unreachable
 
-479:                                              ; preds = %476
-  %480 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %475) #28
-  store ptr %480, ptr %0, align 8, !tbaa !489
-  %481 = getelementptr inbounds nuw i8, ptr %480, i64 %475
-  %482 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %481, ptr %482, align 8, !tbaa !490
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %480, ptr align 8 %472, i64 %475, i1 false)
+480:                                              ; preds = %477
+  %481 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %475) #28
+  store ptr %481, ptr %0, align 8, !tbaa !489
+  %482 = getelementptr inbounds nuw i8, ptr %481, i64 %475
+  %483 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %482, ptr %483, align 8, !tbaa !490
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %481, ptr align 8 %472, i64 %475, i1 false)
   br label %_ZNSt6vectorIPN4mold10ObjectFileINS0_6X86_64EEESaIS4_EEC2ERKS6_.exit
 
-_ZNSt6vectorIPN4mold10ObjectFileINS0_6X86_64EEESaIS4_EEC2ERKS6_.exit: ; preds = %_ZNSt12_Vector_baseIPN4mold10ObjectFileINS0_6X86_64EEESaIS4_EEC2EmRKS5_.exit.i.thread, %479
-  %483 = phi ptr [ null, %_ZNSt12_Vector_baseIPN4mold10ObjectFileINS0_6X86_64EEESaIS4_EEC2EmRKS5_.exit.i.thread ], [ %481, %479 ]
-  %484 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %483, ptr %484, align 8, !tbaa !488
-  %485 = load ptr, ptr %12, align 8, !tbaa !491
-  call void @_ZN4mold11TimerRecord4stopEv(ptr noundef nonnull align 8 dereferenceable(145) %485) #19
+_ZNSt6vectorIPN4mold10ObjectFileINS0_6X86_64EEESaIS4_EEC2ERKS6_.exit: ; preds = %_ZNSt12_Vector_baseIPN4mold10ObjectFileINS0_6X86_64EEESaIS4_EEC2EmRKS5_.exit.i.thread, %480
+  %484 = phi ptr [ null, %_ZNSt12_Vector_baseIPN4mold10ObjectFileINS0_6X86_64EEESaIS4_EEC2EmRKS5_.exit.i.thread ], [ %482, %479 ]
+  %485 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %484, ptr %485, align 8, !tbaa !488
+  %486 = load ptr, ptr %12, align 8, !tbaa !491
+  call void @_ZN4mold11TimerRecord4stopEv(ptr noundef nonnull align 8 dereferenceable(145) %486) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #19
   ret void
 }

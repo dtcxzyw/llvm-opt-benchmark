@@ -2314,9 +2314,9 @@ hwloc_tma_malloc.exit.i.us:                       ; preds = %hwloc_tma_malloc.ex
   store i32 %84, ptr %85, align 4, !tbaa !31
   %86 = zext i32 %84 to i64
   %87 = shl nuw nsw i64 %86, 3
-  %calloc = tail call ptr @calloc(i64 1, i64 %87)
+  %calloc87 = tail call ptr @calloc(i64 1, i64 %87)
   %88 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv75
-  store ptr %calloc, ptr %88, align 8, !tbaa !49
+  store ptr %calloc87, ptr %88, align 8, !tbaa !49
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %89 = load i32, ptr %76, align 4, !tbaa !106
   %90 = zext i32 %89 to i64
@@ -2342,10 +2342,10 @@ hwloc_tma_malloc.exit.i.us:                       ; preds = %hwloc_tma_malloc.ex
 hwloc_tma_malloc.exit.i62.us:                     ; preds = %.preheader.split.us
   %98 = zext i32 %96 to i64
   %99 = shl nuw nsw i64 %98, 3
-  %calloc87 = tail call ptr @calloc(i64 1, i64 %99)
+  %calloc = tail call ptr @calloc(i64 1, i64 %99)
   %.idx.us = shl nuw nsw i64 %indvars.iv82, 5
   %100 = getelementptr i8, ptr %94, i64 %.idx.us
-  store ptr %calloc87, ptr %100, align 8, !tbaa !111
+  store ptr %calloc, ptr %100, align 8, !tbaa !111
   br label %101
 
 101:                                              ; preds = %hwloc_tma_malloc.exit.i62.us, %.preheader.split.us

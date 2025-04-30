@@ -3886,9 +3886,9 @@ sub_2215:                                         ; preds = %sub_1214
   %123 = load i8, ptr %122, align 1, !tbaa !26
   %124 = and i8 %123, 1
   %.not26.i134 = icmp eq i8 %124, 0
-  br i1 %.not26.i134, label %._crit_edge.i135, label %.lr.ph.i133, !llvm.loop !73
+  br i1 %.not26.i134, label %._crit_edge.i135.loopexit, label %.lr.ph.i133, !llvm.loop !73
 
-._crit_edge.i135:                                 ; preds = %.lr.ph.i133, %.preheader40.i131
+._crit_edge.i135.loopexit:                        ; preds = %.lr.ph.i133, %.preheader40.i131
   %.promoted44.i136 = phi ptr [ %75, %.preheader40.i131 ], [ %119, %.lr.ph.i133 ]
   %125 = phi i8 [ %113, %.preheader40.i131 ], [ %120, %.lr.ph.i133 ]
   switch i8 %125, label %.lr.ph46.i149 [

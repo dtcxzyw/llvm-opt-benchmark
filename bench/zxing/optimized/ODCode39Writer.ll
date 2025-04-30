@@ -1464,12 +1464,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93: ; preds = %_ZN
           to label %555 unwind label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit146
 
 _ZNSt13_Bvector_baseISaIbEED2Ev.exit146:          ; preds = %545
-  %554 = landingpad { ptr, i32 }
+  %553 = landingpad { ptr, i32 }
           cleanup
   br label %.body94
 
-555:                                              ; preds = %545
-  %556 = getelementptr inbounds nuw i8, ptr %16, i64 24
+554:                                              ; preds = %545
+  %555 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %557 = add nuw nsw i64 %546, 25
   %558 = lshr i64 %550, 6
   %559 = getelementptr inbounds nuw i64, ptr %553, i64 %558
@@ -1481,12 +1481,12 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit146:          ; preds = %545
   %562 = trunc nuw i64 %557 to i32
   %563 = and i32 %562, 63
   store ptr %561, ptr %548, align 8
-  store i32 %563, ptr %556, align 8
+  store i32 %563, ptr %555, align 8
   %.idx.i = shl nuw nsw i64 %558, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %553, i8 0, i64 %.idx.i, i1 false)
   br label %564
 
-564:                                              ; preds = %564, %555
+564:                                              ; preds = %564, %554
   %indvars.iv.i = phi i64 [ 0, %555 ], [ %indvars.iv.next.i, %564 ]
   %565 = trunc i64 %indvars.iv.i to i32
   %566 = sub i32 8, %565
@@ -1672,7 +1672,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111: ; preds = %_Z
   br label %.body94
 
 .body94:                                          ; preds = %635, %633, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit146
-  %.pn.pn.pn = phi { ptr, i32 } [ %554, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit146 ], [ %.pn.pn, %633 ], [ %.pn.pn, %635 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %553, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit146 ], [ %.pn.pn, %633 ], [ %.pn.pn, %635 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16) #16
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %15) #16
   br label %643

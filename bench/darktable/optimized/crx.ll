@@ -19344,45 +19344,45 @@ _ZN13libraw_memmgr6callocEmm.exit:                ; preds = %31
   %57 = getelementptr inbounds nuw i8, ptr %27, i64 65556
   %58 = load ptr, ptr %54, align 8, !tbaa !28
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 104
-  %60 = load ptr, ptr %59, align 8
+  %59 = load ptr, ptr %59, align 8
   %61 = tail call noundef i32 %60(ptr noundef nonnull align 8 dereferenceable(8) %54)
-  %62 = load ptr, ptr %55, align 8, !tbaa !27
+  %61 = load ptr, ptr %55, align 8, !tbaa !27
   %63 = load i64, ptr %52, align 8, !tbaa !26
-  %64 = load ptr, ptr %62, align 8, !tbaa !28
+  %63 = load ptr, ptr %62, align 8, !tbaa !28
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
-  %66 = load ptr, ptr %65, align 8
+  %65 = load ptr, ptr %65, align 8
   %67 = tail call noundef i32 %66(ptr noundef nonnull align 8 dereferenceable(8) %62, i64 noundef %63, i32 noundef 0)
-  %68 = load ptr, ptr %55, align 8, !tbaa !27
+  %67 = load ptr, ptr %55, align 8, !tbaa !27
   %69 = load i64, ptr %51, align 8, !tbaa !25
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %69, i64 65536)
   %70 = load ptr, ptr %68, align 8, !tbaa !28
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %72 = load ptr, ptr %71, align 8
+  %71 = load ptr, ptr %71, align 8
   %73 = tail call noundef i32 %72(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull %27, i64 noundef 1, i64 noundef %spec.select.i)
   store i32 %73, ptr %57, align 4, !tbaa !23
   %74 = load ptr, ptr %55, align 8, !tbaa !27
   %75 = load ptr, ptr %74, align 8, !tbaa !28
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 112
-  %77 = load ptr, ptr %76, align 8
+  %76 = load ptr, ptr %76, align 8
   tail call void %77(ptr noundef nonnull align 8 dereferenceable(8) %74)
   %78 = load i32, ptr %57, align 4, !tbaa !23
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %80, label %82
 
-80:                                               ; preds = %56
+80:; preds = %56
   %81 = tail call ptr @__cxa_allocate_exception(i64 4) #21
   store i32 4, ptr %81, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %81, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+  tail call void @__cxa_throw(ptr nonnull %81, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #21
   unreachable
 
-82:                                               ; preds = %56
-  %83 = zext i32 %78 to i64
-  %84 = load i64, ptr %51, align 8, !tbaa !25
-  %85 = sub i64 %84, %83
-  store i64 %85, ptr %51, align 8, !tbaa !25
+83:                                               ; preds = %56
+  %84 = zext i32 %78 to i64
+  %85 = load i64, ptr %51, align 8, !tbaa !25
+  %86 = sub i64 %85, %84
+  store i64 %86, ptr %51, align 8, !tbaa !25
   br label %_ZL13crxFillBufferP12CrxBitstream.exit
 
-_ZL13crxFillBufferP12CrxBitstream.exit:           ; preds = %8, %82, %_ZN13libraw_memmgr6callocEmm.exit
+_ZL13crxFillBufferP12CrxBitstream.exit:           ; preds = %8, %83, %_ZN13libraw_memmgr6callocEmm.exit
   %.0 = phi i32 [ 0, %_ZN13libraw_memmgr6callocEmm.exit ], [ 0, %82 ], [ -1, %8 ]
   ret i32 %.0
 }

@@ -3335,8 +3335,8 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %445 = shl nsw i64 %444, 3
   %446 = sext i32 %443 to i64
   %447 = mul i64 %445, %446
-  %calloc = call ptr @calloc(i64 1, i64 %447)
-  %448 = icmp eq ptr %calloc, null
+  %calloc1196 = call ptr @calloc(i64 1, i64 %447)
+  %448 = icmp eq ptr %calloc1196, null
   br i1 %448, label %449, label %454
 
 449:                                              ; preds = %439
@@ -3347,8 +3347,8 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   br label %.thread993
 
 454:                                              ; preds = %439
-  %calloc1196 = call ptr @calloc(i64 1, i64 %447)
-  %455 = icmp eq ptr %calloc1196, null
+  %calloc = call ptr @calloc(i64 1, i64 %447)
+  %455 = icmp eq ptr %calloc, null
   br i1 %455, label %456, label %461
 
 456:                                              ; preds = %454
@@ -3737,7 +3737,7 @@ switch.early.test:                                ; preds = %587
 
 .thread944.us:                                    ; preds = %647, %644, %633
   %650 = call ptr @tj3Alloc(i64 noundef %634) #23
-  %651 = getelementptr inbounds ptr, ptr %calloc, i64 %indvars.iv
+  %651 = getelementptr inbounds ptr, ptr %calloc1196, i64 %indvars.iv
   store ptr %650, ptr %651, align 8, !tbaa !10
   %652 = icmp eq ptr %650, null
   br i1 %652, label %.split1078.us, label %653
@@ -3813,11 +3813,11 @@ switch.early.test:                                ; preds = %587
   br i1 %brmerge1096, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %675
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %calloc1196, ptr align 8 %.2, i64 %666, i1 false), !tbaa !35
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %calloc, ptr align 8 %.2, i64 %666, i1 false), !tbaa !35
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.preheader, %675, %673
-  %682 = call i32 @tj3Transform(ptr noundef %63, ptr noundef %663, i64 noundef %664, i32 noundef %661, ptr noundef nonnull %calloc, ptr noundef nonnull %calloc1196, ptr noundef nonnull %577) #23
+  %682 = call i32 @tj3Transform(ptr noundef %63, ptr noundef %663, i64 noundef %664, i32 noundef %661, ptr noundef nonnull %calloc1196, ptr noundef nonnull %calloc, ptr noundef nonnull %577) #23
   %683 = icmp eq i32 %682, -1
   br i1 %683, label %684, label %.thread952
 
@@ -3891,7 +3891,7 @@ switch.early.test:                                ; preds = %587
 .lr.ph1088:                                       ; preds = %712, %.lr.ph1088
   %indvars.iv1160 = phi i64 [ %indvars.iv.next1161, %.lr.ph1088 ], [ 0, %712 ]
   %.06221087 = phi i64 [ %716, %.lr.ph1088 ], [ 0, %712 ]
-  %714 = getelementptr inbounds nuw i64, ptr %calloc1196, i64 %indvars.iv1160
+  %714 = getelementptr inbounds nuw i64, ptr %calloc, i64 %indvars.iv1160
   %715 = load i64, ptr %714, align 8, !tbaa !35
   %716 = add i64 %715, %.06221087
   %indvars.iv.next1161 = add nuw nsw i64 %indvars.iv1160, 1
@@ -3944,9 +3944,9 @@ switch.early.test:                                ; preds = %587
   br label %749
 
 749:                                              ; preds = %747, %744
-  %750 = load ptr, ptr %calloc, align 8, !tbaa !10
+  %750 = load ptr, ptr %calloc1196, align 8, !tbaa !10
   call void @tj3Free(ptr noundef %750) #23
-  store ptr null, ptr %calloc, align 8, !tbaa !10
+  store ptr null, ptr %calloc1196, align 8, !tbaa !10
   br label %751
 
 751:                                              ; preds = %718, %731, %749
@@ -3966,8 +3966,8 @@ switch.early.test:                                ; preds = %587
   %.2663 = select i1 %.not1004, i32 %.1662, i32 %.2657
   %spec.select862 = select i1 %.not1003, i32 %.1659, i32 %.2654
   %.not809 = icmp eq i32 %.1643, 0
-  %755 = select i1 %.not809, ptr %calloc, ptr %2
-  %756 = select i1 %.not809, ptr %calloc1196, ptr %3
+  %755 = select i1 %.not809, ptr %calloc1196, ptr %2
+  %756 = select i1 %.not809, ptr %calloc, ptr %3
   %757 = call fastcc i32 @decomp(ptr noundef %755, ptr noundef %756, ptr noundef null, i32 noundef %.2654, i32 noundef %.2657, i32 noundef %.0664, i32 noundef 0, ptr noundef nonnull %0, i32 noundef %spec.select862, i32 noundef %.2663)
   %758 = icmp eq i32 %757, -1
   br i1 %758, label %.thread948, label %763
@@ -3992,7 +3992,7 @@ switch.early.test:                                ; preds = %587
 
 .lr.ph1091:                                       ; preds = %.lr.ph1091.preheader, %.lr.ph1091
   %indvars.iv1164 = phi i64 [ 0, %.lr.ph1091.preheader ], [ %indvars.iv.next1165, %.lr.ph1091 ]
-  %766 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %indvars.iv1164
+  %766 = getelementptr inbounds nuw ptr, ptr %calloc1196, i64 %indvars.iv1164
   %767 = load ptr, ptr %766, align 8, !tbaa !10
   call void @tj3Free(ptr noundef %767) #23
   store ptr null, ptr %766, align 8, !tbaa !10
@@ -4029,7 +4029,7 @@ switch.early.test:                                ; preds = %587
 
 .lr.ph1094:                                       ; preds = %.lr.ph1094.preheader, %.lr.ph1094
   %indvars.iv1169 = phi i64 [ 0, %.lr.ph1094.preheader ], [ %indvars.iv.next1170, %.lr.ph1094 ]
-  %774 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %indvars.iv1169
+  %774 = getelementptr inbounds nuw ptr, ptr %calloc1196, i64 %indvars.iv1169
   %775 = load ptr, ptr %774, align 8, !tbaa !10
   call void @tj3Free(ptr noundef %775) #23
   %indvars.iv.next1170 = add nuw nsw i64 %indvars.iv1169, 1
@@ -4038,9 +4038,9 @@ switch.early.test:                                ; preds = %587
 
 .thread993:                                       ; preds = %._crit_edge1092, %.lr.ph1094, %.thread948, %18, %65, %86, %106, %126, %146, %166, %186, %206, %226, %246, %266, %285, %317, %337, %347, %373, %394, %420, %449, %.thread976
   %.0623971990 = phi ptr [ null, %.thread976 ], [ null, %18 ], [ null, %65 ], [ null, %86 ], [ null, %106 ], [ null, %126 ], [ null, %146 ], [ null, %166 ], [ null, %186 ], [ null, %206 ], [ null, %226 ], [ null, %246 ], [ null, %266 ], [ null, %285 ], [ null, %317 ], [ null, %337 ], [ null, %347 ], [ null, %373 ], [ null, %394 ], [ null, %420 ], [ null, %449 ], [ %.0623.ph, %.thread948 ], [ %.0623.ph, %.lr.ph1094 ], [ null, %._crit_edge1092 ]
-  %.0620972989 = phi ptr [ null, %.thread976 ], [ null, %18 ], [ null, %65 ], [ null, %86 ], [ null, %106 ], [ null, %126 ], [ null, %146 ], [ null, %166 ], [ null, %186 ], [ null, %206 ], [ null, %226 ], [ null, %246 ], [ null, %266 ], [ null, %285 ], [ null, %317 ], [ null, %337 ], [ null, %347 ], [ null, %373 ], [ null, %394 ], [ null, %420 ], [ null, %449 ], [ %calloc1196, %.thread948 ], [ %calloc1196, %.lr.ph1094 ], [ null, %._crit_edge1092 ]
+  %.0620972989 = phi ptr [ null, %.thread976 ], [ null, %18 ], [ null, %65 ], [ null, %86 ], [ null, %106 ], [ null, %126 ], [ null, %146 ], [ null, %166 ], [ null, %186 ], [ null, %206 ], [ null, %226 ], [ null, %246 ], [ null, %266 ], [ null, %285 ], [ null, %317 ], [ null, %337 ], [ null, %347 ], [ null, %373 ], [ null, %394 ], [ null, %420 ], [ null, %449 ], [ %calloc, %.thread948 ], [ %calloc, %.lr.ph1094 ], [ null, %._crit_edge1092 ]
   %.0619973988 = phi ptr [ null, %.thread976 ], [ null, %18 ], [ null, %65 ], [ null, %86 ], [ null, %106 ], [ null, %126 ], [ null, %146 ], [ null, %166 ], [ null, %186 ], [ null, %206 ], [ null, %226 ], [ null, %246 ], [ null, %266 ], [ null, %285 ], [ null, %317 ], [ null, %337 ], [ null, %347 ], [ null, %373 ], [ null, %394 ], [ null, %420 ], [ null, %449 ], [ %.0619.ph, %.thread948 ], [ %.0619.ph, %.lr.ph1094 ], [ null, %._crit_edge1092 ]
-  %.0618974987 = phi ptr [ null, %.thread976 ], [ null, %18 ], [ null, %65 ], [ null, %86 ], [ null, %106 ], [ null, %126 ], [ null, %146 ], [ null, %166 ], [ null, %186 ], [ null, %206 ], [ null, %226 ], [ null, %246 ], [ null, %266 ], [ null, %285 ], [ null, %317 ], [ null, %337 ], [ null, %347 ], [ null, %373 ], [ null, %394 ], [ null, %420 ], [ null, %449 ], [ %calloc, %.thread948 ], [ %calloc, %.lr.ph1094 ], [ null, %._crit_edge1092 ]
+  %.0618974987 = phi ptr [ null, %.thread976 ], [ null, %18 ], [ null, %65 ], [ null, %86 ], [ null, %106 ], [ null, %126 ], [ null, %146 ], [ null, %166 ], [ null, %186 ], [ null, %206 ], [ null, %226 ], [ null, %246 ], [ null, %266 ], [ null, %285 ], [ null, %317 ], [ null, %337 ], [ null, %347 ], [ null, %373 ], [ null, %394 ], [ null, %420 ], [ null, %449 ], [ %calloc1196, %.thread948 ], [ %calloc1196, %.lr.ph1094 ], [ null, %._crit_edge1092 ]
   %.0617975986 = phi ptr [ null, %.thread976 ], [ null, %18 ], [ null, %65 ], [ %63, %86 ], [ %63, %106 ], [ %63, %126 ], [ %63, %146 ], [ %63, %166 ], [ %63, %186 ], [ %63, %206 ], [ %63, %226 ], [ %63, %246 ], [ %63, %266 ], [ %63, %285 ], [ %63, %317 ], [ %63, %337 ], [ %63, %347 ], [ %63, %373 ], [ %63, %394 ], [ %63, %420 ], [ %63, %449 ], [ %63, %.thread948 ], [ %63, %.lr.ph1094 ], [ %63, %._crit_edge1092 ]
   call void @free(ptr noundef %.0618974987) #23
   call void @free(ptr noundef %.0619973988) #23
@@ -4154,8 +4154,8 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %67 = shl nsw i64 %66, 3
   %68 = sext i32 %65 to i64
   %69 = mul i64 %67, %68
-  %calloc = call ptr @calloc(i64 1, i64 %69)
-  %70 = icmp eq ptr %calloc, null
+  %calloc1514 = call ptr @calloc(i64 1, i64 %69)
+  %70 = icmp eq ptr %calloc1514, null
   br i1 %70, label %71, label %76
 
 71:                                               ; preds = %61
@@ -4166,8 +4166,8 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %.thread914.thread
 
 76:                                               ; preds = %61
-  %calloc1514 = call ptr @calloc(i64 1, i64 %69)
-  %77 = icmp eq ptr %calloc1514, null
+  %calloc = call ptr @calloc(i64 1, i64 %69)
+  %77 = icmp eq ptr %calloc, null
   br i1 %77, label %78, label %83
 
 78:                                               ; preds = %76
@@ -4215,7 +4215,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 
 99:                                               ; preds = %.lr.ph
   %100 = call ptr @tj3Alloc(i64 noundef %94) #23
-  %101 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw ptr, ptr %calloc1514, i64 %indvars.iv
   store ptr %100, ptr %101, align 8, !tbaa !10
   %102 = icmp eq ptr %100, null
   br i1 %102, label %103, label %108
@@ -4867,7 +4867,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 405:                                              ; preds = %402
   %406 = getelementptr inbounds i64, ptr %.2615, i64 %indvars.iv1490
   %407 = load i64, ptr %406, align 8, !tbaa !35
-  %408 = getelementptr inbounds i64, ptr %calloc1514, i64 %indvars.iv1490
+  %408 = getelementptr inbounds i64, ptr %calloc, i64 %indvars.iv1490
   store i64 %407, ptr %408, align 8, !tbaa !35
   br label %409
 
@@ -4883,8 +4883,8 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 413:                                              ; preds = %410
   %414 = icmp samesign ult i32 %411, 13
   %415 = load i32, ptr @pf, align 4, !tbaa !4
-  %416 = getelementptr inbounds ptr, ptr %calloc, i64 %indvars.iv1490
-  %417 = getelementptr inbounds i64, ptr %calloc1514, i64 %indvars.iv1490
+  %416 = getelementptr inbounds ptr, ptr %calloc1514, i64 %indvars.iv1490
+  %417 = getelementptr inbounds i64, ptr %calloc, i64 %indvars.iv1490
   br i1 %414, label %435, label %418
 
 418:                                              ; preds = %413
@@ -4957,8 +4957,8 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 
 452:                                              ; preds = %410
   %453 = load i32, ptr @pf, align 4, !tbaa !4
-  %454 = getelementptr inbounds ptr, ptr %calloc, i64 %indvars.iv1490
-  %455 = getelementptr inbounds i64, ptr %calloc1514, i64 %indvars.iv1490
+  %454 = getelementptr inbounds ptr, ptr %calloc1514, i64 %indvars.iv1490
+  %455 = getelementptr inbounds i64, ptr %calloc, i64 %indvars.iv1490
   %456 = call i32 @tj3Compress8(ptr noundef %0, ptr noundef %.05751203.us, i32 noundef %spec.select..us, i32 noundef %17, i32 noundef %400, i32 noundef %453, ptr noundef nonnull %454, ptr noundef nonnull %455) #23
   %457 = icmp eq i32 %456, -1
   br i1 %457, label %458, label %.thread872.us
@@ -5041,8 +5041,8 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 496:                                              ; preds = %492, %.thread868.us
   %.4.us = phi double [ %495, %492 ], [ %.25821202.us, %.thread868.us ]
   %497 = load i32, ptr @yuvAlign, align 4, !tbaa !4
-  %498 = getelementptr inbounds ptr, ptr %calloc, i64 %indvars.iv1490
-  %499 = getelementptr inbounds i64, ptr %calloc1514, i64 %indvars.iv1490
+  %498 = getelementptr inbounds ptr, ptr %calloc1514, i64 %indvars.iv1490
+  %499 = getelementptr inbounds i64, ptr %calloc, i64 %indvars.iv1490
   %500 = call i32 @tj3CompressFromYUV8(ptr noundef %0, ptr noundef %.2573, i32 noundef %spec.select..us, i32 noundef %497, i32 noundef %400, ptr noundef nonnull %498, ptr noundef nonnull %499) #23
   %501 = icmp eq i32 %500, -1
   br i1 %501, label %502, label %.thread872.us
@@ -5078,7 +5078,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 
 .thread872.us:                                    ; preds = %513, %510, %496, %469, %466, %452, %449, %446, %435, %432, %429, %418
   %.6.us = phi double [ %.25821202.us, %452 ], [ %.25821202.us, %435 ], [ %.25821202.us, %418 ], [ %.4.us, %496 ], [ %.4.us, %510 ], [ %.4.us, %513 ], [ %.25821202.us, %466 ], [ %.25821202.us, %469 ], [ %.25821202.us, %446 ], [ %.25821202.us, %449 ], [ %.25821202.us, %429 ], [ %.25821202.us, %432 ]
-  %516 = getelementptr inbounds i64, ptr %calloc1514, i64 %indvars.iv1490
+  %516 = getelementptr inbounds i64, ptr %calloc, i64 %indvars.iv1490
   %517 = load i64, ptr %516, align 8, !tbaa !35
   %518 = add i64 %517, %.16101199.us
   %519 = add nuw nsw i32 %.05851201.us, 1
@@ -5338,8 +5338,8 @@ sigfig.exit803:                                   ; preds = %598, %600
   br label %.thread914
 
 661:                                              ; preds = %650
-  %662 = load ptr, ptr %calloc, align 8, !tbaa !10
-  %663 = load i64, ptr %calloc1514, align 8, !tbaa !35
+  %662 = load ptr, ptr %calloc1514, align 8, !tbaa !10
+  %663 = load i64, ptr %calloc, align 8, !tbaa !35
   %664 = call i64 @fwrite(ptr noundef %662, i64 noundef %663, i64 noundef 1, ptr noundef nonnull %654)
   %.not759 = icmp eq i64 %664, 1
   br i1 %.not759, label %665, label %689
@@ -5359,7 +5359,7 @@ sigfig.exit803:                                   ; preds = %598, %600
   br i1 %.b686, label %674, label %671
 
 671:                                              ; preds = %670
-  %672 = call fastcc i32 @decomp(ptr noundef %calloc, ptr noundef %calloc1514, ptr noundef nonnull %26, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %spec.select, i32 noundef %.1596)
+  %672 = call fastcc i32 @decomp(ptr noundef %calloc1514, ptr noundef %calloc, ptr noundef nonnull %26, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %spec.select, i32 noundef %.1596)
   %673 = icmp eq i32 %672, -1
   br i1 %673, label %.thread914, label %678
 
@@ -5383,7 +5383,7 @@ sigfig.exit803:                                   ; preds = %598, %600
 
 .lr.ph1263:                                       ; preds = %.lr.ph1263.preheader, %.lr.ph1263
   %indvars.iv1495 = phi i64 [ 0, %.lr.ph1263.preheader ], [ %indvars.iv.next1496, %.lr.ph1263 ]
-  %681 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %indvars.iv1495
+  %681 = getelementptr inbounds nuw ptr, ptr %calloc1514, i64 %indvars.iv1495
   %682 = load ptr, ptr %681, align 8, !tbaa !10
   call void @tj3Free(ptr noundef %682) #23
   store ptr null, ptr %681, align 8, !tbaa !10
@@ -5434,7 +5434,7 @@ sigfig.exit803:                                   ; preds = %598, %600
 
 .lr.ph1265:                                       ; preds = %.lr.ph1265.preheader, %.lr.ph1265
   %indvars.iv1500 = phi i64 [ 0, %.lr.ph1265.preheader ], [ %indvars.iv.next1501, %.lr.ph1265 ]
-  %697 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %indvars.iv1500
+  %697 = getelementptr inbounds nuw ptr, ptr %calloc1514, i64 %indvars.iv1500
   %698 = load ptr, ptr %697, align 8, !tbaa !10
   call void @tj3Free(ptr noundef %698) #23
   %indvars.iv.next1501 = add nuw nsw i64 %indvars.iv1500, 1
@@ -5442,10 +5442,10 @@ sigfig.exit803:                                   ; preds = %598, %600
   br i1 %exitcond1504.not, label %.thread914.thread, label %.lr.ph1265, !llvm.loop !56
 
 .thread914.thread:                                ; preds = %684, %.lr.ph1265, %.thread914, %28, %71
-  %.0616926954 = phi ptr [ null, %71 ], [ null, %28 ], [ %calloc1514, %.thread914 ], [ %calloc1514, %.lr.ph1265 ], [ null, %684 ]
+  %.0616926954 = phi ptr [ null, %71 ], [ null, %28 ], [ %calloc, %.thread914 ], [ %calloc, %.lr.ph1265 ], [ null, %684 ]
   %.0613927953 = phi ptr [ null, %71 ], [ null, %28 ], [ %.0613927, %.thread914 ], [ %.0613927, %.lr.ph1265 ], [ null, %684 ]
   %.0571929951 = phi ptr [ %.1572, %71 ], [ null, %28 ], [ %.0571929, %.thread914 ], [ %.0571929, %.lr.ph1265 ], [ %.3, %684 ]
-  %.0570930950 = phi ptr [ null, %71 ], [ null, %28 ], [ %calloc, %.thread914 ], [ %calloc, %.lr.ph1265 ], [ null, %684 ]
+  %.0570930950 = phi ptr [ null, %71 ], [ null, %28 ], [ %calloc1514, %.thread914 ], [ %calloc1514, %.lr.ph1265 ], [ null, %684 ]
   call void @free(ptr noundef %.0570930950) #23
   call void @free(ptr noundef %.0571929951) #23
   call void @free(ptr noundef %.0613927953) #23

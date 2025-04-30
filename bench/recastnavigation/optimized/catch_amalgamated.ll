@@ -51969,68 +51969,68 @@ define dso_local void @_ZN5Catch8TextFlow7Columns8iteratorppEi(ptr dead_on_unwin
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %.not.i.i.i.i.i = icmp eq ptr %8, %9
-  br i1 %.not.i.i.i.i.i, label %.thread, label %13
+  br i1 %.not.i.i.i.i.i, label %.thread, label %14
 
 .thread:                                          ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   br label %_ZN5Catch8TextFlow7Columns8iteratorC2ERKS2_.exit
 
-13:                                               ; preds = %3
-  %14 = sdiv exact i64 %12, 40
-  %15 = icmp ugt i64 %14, 230584300921369395
-  br i1 %15, label %.noexc.i.i.i, label %16
+14:                                               ; preds = %3
+  %15 = sdiv exact i64 %12, 40
+  %16 = icmp ugt i64 %15, 230584300921369395
+  br i1 %16, label %.noexc.i.i.i, label %17
 
-.noexc.i.i.i:                                     ; preds = %13
+.noexc.i.i.i:                                     ; preds = %14
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #55
   unreachable
 
-16:                                               ; preds = %13
-  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #57
-  store ptr %17, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 %12
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %18, ptr %19, align 8
+17:                                               ; preds = %14
+  %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #57
+  store ptr %18, ptr %5, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 %12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %19, ptr %20, align 8
   br label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %16, %.lr.ph.i.i.i.i.i.i
-  %.09.i.i.i.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i.i.i.i ], [ %17, %16 ]
-  %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %20, %.lr.ph.i.i.i.i.i.i ], [ %9, %16 ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %17, %.lr.ph.i.i.i.i.i.i
+  %.09.i.i.i.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i.i.i.i ], [ %18, %16 ]
+  %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i.i.i.i ], [ %9, %16 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.09.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.04.08.i.i.i.i.i.i, i64 40, i1 false)
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 40
-  %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 40
-  %.not.i.i.i.i.i.i = icmp eq ptr %20, %8
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 40
+  %.not.i.i.i.i.i.i = icmp eq ptr %21, %8
   br i1 %.not.i.i.i.i.i.i, label %_ZN5Catch8TextFlow7Columns8iteratorC2ERKS2_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !856
 
 _ZN5Catch8TextFlow7Columns8iteratorC2ERKS2_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %.thread
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %.thread ], [ %21, %.lr.ph.i.i.i.i.i.i ]
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.0.lcssa.i.i.i.i.i.i, ptr %22, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %25 = load i64, ptr %24, align 8
-  store i64 %25, ptr %23, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %4, align 8
-  %.not.i = icmp eq ptr %27, %28
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %.thread ], [ %22, %.lr.ph.i.i.i.i.i.i ]
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.0.lcssa.i.i.i.i.i.i, ptr %23, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %26 = load i64, ptr %25, align 8
+  store i64 %26, ptr %24, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %4, align 8
+  %.not.i = icmp eq ptr %28, %29
   br i1 %.not.i, label %_ZN5Catch8TextFlow7Columns8iteratorppEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN5Catch8TextFlow7Columns8iteratorC2ERKS2_.exit, %43
-  %29 = phi ptr [ %48, %43 ], [ %28, %_ZN5Catch8TextFlow7Columns8iteratorC2ERKS2_.exit ]
+  %30 = phi ptr [ %48, %43 ], [ %29, %_ZN5Catch8TextFlow7Columns8iteratorC2ERKS2_.exit ]
   %.05.i = phi i64 [ %44, %43 ], [ 0, %_ZN5Catch8TextFlow7Columns8iteratorC2ERKS2_.exit ]
-  %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds %"class.Catch::TextFlow::Column::const_iterator", ptr %30, i64 %.05.i
-  %32 = getelementptr inbounds %"class.Catch::TextFlow::Column", ptr %29, i64 %.05.i
-  %33 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %32) #56, !noalias !857
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %35 = load i64, ptr %34, align 8
-  %36 = icmp ne i64 %35, %33
-  %37 = load ptr, ptr %31, align 8
-  %38 = icmp ne ptr %37, %32
-  %.not3.i.i = select i1 %36, i1 true, i1 %38
-  br i1 %.not3.i.i, label %39, label %43
+  %31 = load ptr, ptr %6, align 8
+  %32 = getelementptr inbounds %"class.Catch::TextFlow::Column::const_iterator", ptr %31, i64 %.05.i
+  %33 = getelementptr inbounds %"class.Catch::TextFlow::Column", ptr %30, i64 %.05.i
+  %34 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %33) #56, !noalias !857
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %36 = load i64, ptr %35, align 8
+  %37 = icmp ne i64 %36, %34
+  %38 = load ptr, ptr %32, align 8
+  %39 = icmp ne ptr %38, %33
+  %.not3.i.i = select i1 %37, i1 true, i1 %39
+  br i1 %.not3.i.i, label %44, label %43
 
-39:                                               ; preds = %.lr.ph.i
+44:                                               ; preds = %.lr.ph.i
   %40 = load ptr, ptr %6, align 8
   %41 = getelementptr inbounds %"class.Catch::TextFlow::Column::const_iterator", ptr %40, i64 %.05.i
   %42 = tail call noundef nonnull align 8 dereferenceable(33) ptr @_ZN5Catch8TextFlow6Column14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(33) %41)

@@ -254,7 +254,7 @@ _ZL15_PopulateVectormRSt6vectorIiSaIiEE.exit:     ; preds = %_ZNSt6vectorIiSaIiE
   %39 = ptrtoint ptr %.sroa.041.5 to i64
   %40 = sub i64 %38, %39
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.sroa.8.4, %.sroa.041.5
-  %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %.thread.i.us, label %.lr.ph.split
 
@@ -274,7 +274,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19WorkParallelReduceNISt5_BindIFPFimmiRKSt6
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.us, label %_ZNSt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES7_ILi2EES7_ILi3EES2_EED2Ev.exit.us, label %45
 
 45:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19WorkParallelReduceNISt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES9_ILi2EES9_ILi3EES4_EES1_IFPFiiiESA_SB_EEiEET1_RKSJ_mOT_OT0_.exit.us
-  %46 = load ptr, ptr %41, align 8
+  %46 = load ptr, ptr %42, align 8
   %47 = ptrtoint ptr %46 to i64
   %48 = ptrtoint ptr %44 to i64
   %49 = sub i64 %47, %48
@@ -329,7 +329,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19WorkParallelReduceNISt5_BindIFPFimmiRKSt6
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES7_ILi2EES7_ILi3EES2_EED2Ev.exit, label %57
 
 57:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19WorkParallelReduceNISt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES9_ILi2EES9_ILi3EES4_EES1_IFPFiiiESA_SB_EEiEET1_RKSJ_mOT_OT0_.exit
-  %58 = load ptr, ptr %41, align 8
+  %58 = load ptr, ptr %42, align 8
   %59 = ptrtoint ptr %58 to i64
   %60 = ptrtoint ptr %56 to i64
   %61 = sub i64 %59, %60
@@ -370,7 +370,7 @@ _ZNSt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES7_ILi2EES7_ILi3EES
   br i1 %.not.i.i.i.i.i.i.i.i.i.i20, label %_ZNSt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES7_ILi2EES7_ILi3EES2_EED2Ev.exit21, label %66
 
 66:                                               ; preds = %64
-  %67 = load ptr, ptr %41, align 8
+  %67 = load ptr, ptr %42, align 8
   %68 = ptrtoint ptr %67 to i64
   %69 = ptrtoint ptr %65 to i64
   %70 = sub i64 %68, %69

@@ -112929,41 +112929,41 @@ define linkonce_odr void @_ZN6duckdb18LogicalEmptyResult17GetColumnBindingsEv(pt
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %.not.i.i.i.i.i = icmp eq ptr %5, %6
-  br i1 %.not.i.i.i.i.i, label %.thread, label %10
+  br i1 %.not.i.i.i.i.i, label %.thread, label %11
 
 .thread:                                          ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZN6duckdb6vectorINS_13ColumnBindingELb1EEC2ERKS2_.exit
 
-10:                                               ; preds = %2
-  %11 = icmp ugt i64 %9, 9223372036854775792
-  br i1 %11, label %.noexc.i.i.i, label %12, !prof !127
+11:                                               ; preds = %2
+  %12 = icmp ugt i64 %9, 9223372036854775792
+  br i1 %12, label %.noexc.i.i.i, label %13, !prof !127
 
-.noexc.i.i.i:                                     ; preds = %10
+.noexc.i.i.i:                                     ; preds = %11
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #28
   unreachable
 
-12:                                               ; preds = %10
-  %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #27
-  store ptr %13, ptr %0, align 8, !tbaa !738
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %9
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %14, ptr %15, align 8, !tbaa !742
+13:                                               ; preds = %11
+  %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #27
+  store ptr %14, ptr %0, align 8, !tbaa !738
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %9
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %15, ptr %16, align 8, !tbaa !742
   br label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %12, %.lr.ph.i.i.i.i.i.i
-  %.09.i.i.i.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i.i.i.i ], [ %13, %12 ]
-  %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i.i.i.i ], [ %6, %12 ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %13, %.lr.ph.i.i.i.i.i.i
+  %.09.i.i.i.i.i.i = phi ptr [ %18, %.lr.ph.i.i.i.i.i.i ], [ %14, %12 ]
+  %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i.i.i.i ], [ %6, %12 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.09.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.08.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !2313
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 16
-  %17 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i.i = icmp eq ptr %16, %5
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i.i = icmp eq ptr %17, %5
   br i1 %.not.i.i.i.i.i.i, label %_ZN6duckdb6vectorINS_13ColumnBindingELb1EEC2ERKS2_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !2314
 
 _ZN6duckdb6vectorINS_13ColumnBindingELb1EEC2ERKS2_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %.thread
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %.thread ], [ %17, %.lr.ph.i.i.i.i.i.i ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.lcssa.i.i.i.i.i.i, ptr %18, align 8, !tbaa !741
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %.thread ], [ %18, %.lr.ph.i.i.i.i.i.i ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.lcssa.i.i.i.i.i.i, ptr %19, align 8, !tbaa !741
   ret void
 }
 

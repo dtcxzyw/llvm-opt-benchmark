@@ -79554,65 +79554,65 @@ _ZNK6duckdb8RowGroup18HasUnloadedDeletesEv.exit:  ; preds = %3
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %.not.i.i.i.i.i = icmp eq ptr %14, %15
-  br i1 %.not.i.i.i.i.i, label %.thread, label %19
+  br i1 %.not.i.i.i.i.i, label %.thread, label %20
 
 .thread:                                          ; preds = %13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZN6duckdb6vectorINS_16MetaBlockPointerELb1EEC2ERKS2_.exit
 
-19:                                               ; preds = %13
-  %20 = icmp ugt i64 %18, 9223372036854775792
-  br i1 %20, label %.noexc.i.i.i, label %21, !prof !61
+20:                                               ; preds = %13
+  %21 = icmp ugt i64 %18, 9223372036854775792
+  br i1 %21, label %.noexc.i.i.i, label %22, !prof !61
 
-.noexc.i.i.i:                                     ; preds = %19
+.noexc.i.i.i:                                     ; preds = %20
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #47
   unreachable
 
-21:                                               ; preds = %19
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #45
-  store ptr %22, ptr %0, align 8, !tbaa !1761
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %18
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %23, ptr %24, align 8, !tbaa !1762
+22:                                               ; preds = %20
+  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #45
+  store ptr %23, ptr %0, align 8, !tbaa !1761
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %18
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %24, ptr %25, align 8, !tbaa !1762
   br label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %21, %.lr.ph.i.i.i.i.i.i
-  %.09.i.i.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i.i.i ], [ %22, %21 ]
-  %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i.i ], [ %15, %21 ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %22, %.lr.ph.i.i.i.i.i.i
+  %.09.i.i.i.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i.i.i.i ], [ %23, %21 ]
+  %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i.i.i ], [ %15, %21 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.09.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.08.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !2083
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 16
-  %26 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i.i = icmp eq ptr %25, %14
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i.i = icmp eq ptr %26, %14
   br i1 %.not.i.i.i.i.i.i, label %_ZN6duckdb6vectorINS_16MetaBlockPointerELb1EEC2ERKS2_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !2105
 
 _ZN6duckdb6vectorINS_16MetaBlockPointerELb1EEC2ERKS2_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %.thread
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %.thread ], [ %26, %.lr.ph.i.i.i.i.i.i ]
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.lcssa.i.i.i.i.i.i, ptr %27, align 8, !tbaa !1760
-  br label %33
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %.thread ], [ %27, %.lr.ph.i.i.i.i.i.i ]
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.lcssa.i.i.i.i.i.i, ptr %28, align 8, !tbaa !1760
+  br label %34
 
 _ZNK6duckdb8RowGroup18HasUnloadedDeletesEv.exit.thread: ; preds = %3, %_ZNK6duckdb8RowGroup18HasUnloadedDeletesEv.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #44
-  %28 = tail call ptr @_ZN6duckdb8RowGroup14GetVersionInfoEv(ptr noundef nonnull align 8 dereferenceable(200) %1)
-  store ptr %28, ptr %4, align 8
-  %.not = icmp eq ptr %28, null
-  br i1 %.not, label %29, label %30
-
-29:                                               ; preds = %_ZNK6duckdb8RowGroup18HasUnloadedDeletesEv.exit.thread
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %32
+  %29 = tail call ptr @_ZN6duckdb8RowGroup14GetVersionInfoEv(ptr noundef nonnull align 8 dereferenceable(200) %1)
+  store ptr %29, ptr %4, align 8
+  %.not = icmp eq ptr %29, null
+  br i1 %.not, label %30, label %31
 
 30:                                               ; preds = %_ZNK6duckdb8RowGroup18HasUnloadedDeletesEv.exit.thread
-  call void @_ZNK6duckdb12optional_ptrINS_17RowVersionManagerELb1EE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %31 = load ptr, ptr %4, align 8, !tbaa !1801
-  call void @_ZN6duckdb17RowVersionManager10CheckpointERNS_15MetadataManagerE(ptr dead_on_unwind writable sret(%"class.duckdb::vector.59") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %31, ptr noundef nonnull align 8 dereferenceable(128) %2)
-  br label %32
-
-32:                                               ; preds = %30, %29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #44
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %33
 
-33:                                               ; preds = %32, %_ZN6duckdb6vectorINS_16MetaBlockPointerELb1EEC2ERKS2_.exit
+31:                                               ; preds = %_ZNK6duckdb8RowGroup18HasUnloadedDeletesEv.exit.thread
+  call void @_ZNK6duckdb12optional_ptrINS_17RowVersionManagerELb1EE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %32 = load ptr, ptr %4, align 8, !tbaa !1801
+  call void @_ZN6duckdb17RowVersionManager10CheckpointERNS_15MetadataManagerE(ptr dead_on_unwind writable sret(%"class.duckdb::vector.59") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %32, ptr noundef nonnull align 8 dereferenceable(128) %2)
+  br label %33
+
+33:                                               ; preds = %31, %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #44
+  br label %34
+
+34:                                               ; preds = %33, %_ZN6duckdb6vectorINS_16MetaBlockPointerELb1EEC2ERKS2_.exit
   ret void
 }
 

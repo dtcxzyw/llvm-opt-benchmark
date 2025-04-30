@@ -27714,33 +27714,33 @@ define void @_ZNK6casadi8Sparsity8compressEb(ptr dead_on_unwind noalias writable
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
   %.not.i.i.i.i = icmp eq ptr %24, %25
-  br i1 %.not.i.i.i.i, label %.thread, label %29
+  br i1 %.not.i.i.i.i, label %.thread, label %30
 
 .thread:                                          ; preds = %20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZNSt6vectorIxSaIxEEC2ERKS1_.exit
 
-29:                                               ; preds = %20
-  %30 = icmp ugt i64 %28, 9223372036854775800
-  br i1 %30, label %.noexc.i.i, label %31, !prof !332
+30:                                               ; preds = %20
+  %31 = icmp ugt i64 %28, 9223372036854775800
+  br i1 %31, label %.noexc.i.i, label %32, !prof !332
 
-.noexc.i.i:                                       ; preds = %29
+.noexc.i.i:                                       ; preds = %30
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #30
   unreachable
 
-31:                                               ; preds = %29
-  %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #33
-  store ptr %32, ptr %0, align 8, !tbaa !37
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %28
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %33, ptr %34, align 8, !tbaa !40
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %32, ptr align 8 %25, i64 %28, i1 false)
+32:                                               ; preds = %30
+  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #33
+  store ptr %33, ptr %0, align 8, !tbaa !37
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %28
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %34, ptr %35, align 8, !tbaa !40
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %33, ptr align 8 %25, i64 %28, i1 false)
   br label %_ZNSt6vectorIxSaIxEEC2ERKS1_.exit
 
-_ZNSt6vectorIxSaIxEEC2ERKS1_.exit:                ; preds = %31, %.thread, %7
-  %.sink = phi ptr [ %18, %7 ], [ null, %.thread ], [ %33, %31 ]
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %35, align 8, !tbaa !43
+_ZNSt6vectorIxSaIxEEC2ERKS1_.exit:                ; preds = %32, %.thread, %7
+  %.sink = phi ptr [ %18, %7 ], [ null, %.thread ], [ %34, %31 ]
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %36, align 8, !tbaa !43
   ret void
 }
 
@@ -45139,7 +45139,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %_ZN
 
 _ZNK6casadi8Sparsity8compressEb.exit:             ; preds = %.noexc28, %.noexc26
   %.sroa.0.0 = phi ptr [ %50, %.noexc28 ], [ null, %.noexc26 ]
-  %.sroa.12.0 = phi ptr [ %51, %.noexc28 ], [ null, %.noexc26 ]
+  %.sroa.13.0 = phi ptr [ %51, %.noexc28 ], [ null, %.noexc26 ]
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %53 = load i8, ptr %52, align 8, !tbaa !547, !range !551, !noundef !552
   %54 = trunc nuw i8 %53 to i1
@@ -45154,7 +45154,7 @@ _ZNK6casadi8Sparsity8compressEb.exit:             ; preds = %.noexc28, %.noexc26
           to label %.noexc34 unwind label %.loopexit.split-lp
 
 .noexc34:                                         ; preds = %.noexc33
-  %56 = ptrtoint ptr %.sroa.12.0 to i64
+  %56 = ptrtoint ptr %.sroa.13.0 to i64
   %57 = ptrtoint ptr %.sroa.0.0 to i64
   %58 = sub i64 %56, %57
   %59 = ashr exact i64 %58, 3
@@ -45162,7 +45162,7 @@ _ZNK6casadi8Sparsity8compressEb.exit:             ; preds = %.noexc28, %.noexc26
           to label %.noexc35 unwind label %.loopexit.split-lp
 
 .noexc35:                                         ; preds = %.noexc34
-  %.not9.i.i29 = icmp eq ptr %.sroa.0.0, %.sroa.12.0
+  %.not9.i.i29 = icmp eq ptr %.sroa.0.0, %.sroa.13.0
   br i1 %.not9.i.i29, label %_ZN6casadi17SerializingStream4packISt6vectorIxSaIxEEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit37, label %.lr.ph.i.i30
 
 .lr.ph.i.i30:                                     ; preds = %.noexc35, %.noexc36
@@ -45173,7 +45173,7 @@ _ZNK6casadi8Sparsity8compressEb.exit:             ; preds = %.noexc28, %.noexc26
 
 .noexc36:                                         ; preds = %.lr.ph.i.i30
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i.i31, i64 8
-  %.not.i.i32 = icmp eq ptr %61, %.sroa.12.0
+  %.not.i.i32 = icmp eq ptr %61, %.sroa.13.0
   br i1 %.not.i.i32, label %_ZN6casadi17SerializingStream4packISt6vectorIxSaIxEEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit37, label %.lr.ph.i.i30
 
 _ZN6casadi17SerializingStream4packISt6vectorIxSaIxEEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit37: ; preds = %.noexc36, %.noexc35
@@ -45231,7 +45231,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %_ZN
   br i1 %.not.i.i.i43, label %_ZNSt6vectorIxSaIxEED2Ev.exit44, label %74
 
 74:                                               ; preds = %73
-  %75 = ptrtoint ptr %.sroa.12.0 to i64
+  %75 = ptrtoint ptr %.sroa.13.0 to i64
   %76 = ptrtoint ptr %.sroa.0.0 to i64
   %77 = sub i64 %75, %76
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0, i64 noundef %77) #31
