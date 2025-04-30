@@ -1208,6 +1208,7 @@ _ZN3std2io4Read8read_buf17hb4f514663453a8f5E.exit56.i: ; preds = %"_ZN106_$LT$co
 
 .loopexit:                                        ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6a1f383bd0398e44E.exit.i.i.i"
   %.cast.i.i.i = ptrtoint ptr %25 to i64
+  %.0.sroa.speculated.i.i.i.i = call noundef i64 @llvm.umax.i64(i64 %.cast.i.i.i, i64 8192)
   %40 = load i64, ptr %8, align 8, !alias.scope !282, !noalias !280, !noundef !4
   %41 = sub i64 %40, %.cast.i.i.i
   store i64 %41, ptr %8, align 8, !alias.scope !282, !noalias !280
@@ -1219,7 +1220,7 @@ _ZN3std2io4Read8read_buf17hb4f514663453a8f5E.exit56.i: ; preds = %"_ZN106_$LT$co
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h815e98f9379c482dE.exit": ; preds = %.loopexit.thread124, %.loopexit
-  %.sroa.23.3.ph123 = phi i64 [ 8192, %.loopexit ], [ %.0.sroa.speculated.i59.i, %.loopexit.thread124 ]
+  %.sroa.23.3.ph123 = phi i64 [ %.0.sroa.speculated.i.i.i.i, %.loopexit ], [ %.0.sroa.speculated.i59.i, %.loopexit.thread124 ]
   %.sroa.14.3.ph122 = phi i64 [ %.cast.i.i.i, %.loopexit ], [ %.sroa.9.0707579.i, %.loopexit.thread124 ]
   %44 = icmp eq i64 %.sroa.14.3.ph122, 0
   br i1 %44, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h815e98f9379c482dE.exit.thread", label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h815e98f9379c482dE.exit22"

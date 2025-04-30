@@ -17555,10 +17555,11 @@ for.end2135:                                      ; preds = %for.body2131, %_ZNK
   br i1 %cmp2159.not6296, label %for.end2164, label %for.body2160
 
 for.body2160:                                     ; preds = %for.end2135, %for.body2160
-  %j.56298 = phi i64 [ %call.i3732, %for.body2160 ], [ %call.i3730, %for.end2135 ]
+  %j.56298 = phi i64 [ %call..i3733, %for.body2160 ], [ %call.i3730, %for.end2135 ]
   %i.56297 = phi i64 [ %inc2161, %for.body2160 ], [ 0, %for.end2135 ]
   %inc2161 = add i64 %i.56297, 1
   %call.i3732 = call noundef i64 @_ZNK5eastl10BitsetBaseILm2EmE10DoFindNextEm(ptr noundef nonnull align 8 dereferenceable(16) %b79, i64 noundef %j.56298)
+  %call..i3733 = call noundef i64 @llvm.umin.i64(i64 %call.i3732, i64 79)
   %cmp2159.not = icmp ugt i64 %call.i3732, 78
   br i1 %cmp2159.not, label %for.end2164.loopexit, label %for.body2160, !llvm.loop !149
 
@@ -17605,10 +17606,11 @@ for.end2164:                                      ; preds = %for.end2164.loopexi
   br i1 %cmp2192.not6299, label %for.end2197, label %for.body2193
 
 for.body2193:                                     ; preds = %for.end2164, %for.body2193
-  %j.66301 = phi i64 [ %call.i3760, %for.body2193 ], [ %call.i3758, %for.end2164 ]
+  %j.66301 = phi i64 [ %call..i3761, %for.body2193 ], [ %call.i3758, %for.end2164 ]
   %i.66300 = phi i64 [ %inc2194, %for.body2193 ], [ 0, %for.end2164 ]
   %inc2194 = add i64 %i.66300, 1
   %call.i3760 = call noundef i64 @_ZNK5eastl10BitsetBaseILm2EmE10DoFindNextEm(ptr noundef nonnull align 8 dereferenceable(16) %b128, i64 noundef %j.66301)
+  %call..i3761 = call noundef i64 @llvm.umin.i64(i64 %call.i3760, i64 128)
   %cmp2192.not = icmp ugt i64 %call.i3760, 127
   br i1 %cmp2192.not, label %for.end2197.loopexit, label %for.body2193, !llvm.loop !150
 
@@ -18556,10 +18558,11 @@ for.end2374:                                      ; preds = %for.body2370, %_ZNK
   br i1 %cmp2399.not6315, label %for.end2404, label %for.body2400
 
 for.body2400:                                     ; preds = %for.end2374, %for.body2400
-  %j2242.56317 = phi i64 [ %call.i5494, %for.body2400 ], [ %call.i5492, %for.end2374 ]
+  %j2242.56317 = phi i64 [ %call..i5495, %for.body2400 ], [ %call.i5492, %for.end2374 ]
   %i2241.56316 = phi i64 [ %inc2401, %for.body2400 ], [ 0, %for.end2374 ]
   %inc2401 = add i64 %i2241.56316, 1
   %call.i5494 = call noundef i64 @_ZNK5eastl10BitsetBaseILm2EmE10DoFindPrevEm(ptr noundef nonnull align 8 dereferenceable(16) %b792377, i64 noundef %j2242.56317)
+  %call..i5495 = call noundef i64 @llvm.umin.i64(i64 %call.i5494, i64 79)
   %cmp2399.not = icmp ugt i64 %call.i5494, 78
   br i1 %cmp2399.not, label %for.end2404.loopexit, label %for.body2400, !llvm.loop !158
 
@@ -18606,10 +18609,11 @@ for.end2404:                                      ; preds = %for.end2404.loopexi
   br i1 %cmp2433.not6319, label %for.end2438, label %for.body2434
 
 for.body2434:                                     ; preds = %for.end2404, %for.body2434
-  %j2242.66321 = phi i64 [ %call.i5522, %for.body2434 ], [ %call.i5520, %for.end2404 ]
+  %j2242.66321 = phi i64 [ %call..i5523, %for.body2434 ], [ %call.i5520, %for.end2404 ]
   %i2241.66320 = phi i64 [ %inc2435, %for.body2434 ], [ 0, %for.end2404 ]
   %inc2435 = add i64 %i2241.66320, 1
   %call.i5522 = call noundef i64 @_ZNK5eastl10BitsetBaseILm2EmE10DoFindPrevEm(ptr noundef nonnull align 8 dereferenceable(16) %b1282407, i64 noundef %j2242.66321)
+  %call..i5523 = call noundef i64 @llvm.umin.i64(i64 %call.i5522, i64 128)
   %cmp2433.not = icmp ugt i64 %call.i5522, 127
   br i1 %cmp2433.not, label %for.end2438.loopexit, label %for.body2434, !llvm.loop !159
 
