@@ -6811,11 +6811,6 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit739:          ; preds = %1209, %_ZN6casadi13
   %1226 = sub nsw i64 0, %1225
   %1227 = getelementptr inbounds i64, ptr %1221, i64 %1226
   call void @_ZdlPvm(ptr noundef %1227, i64 noundef %1224) #33
-  store ptr null, ptr %72, align 8
-  %.sroa.4.0..sroa_idx.i.i.i741 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 0, ptr %.sroa.4.0..sroa_idx.i.i.i741, align 8
-  %.sroa.51.0..sroa_idx.i.i.i742 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  store ptr null, ptr %.sroa.51.0..sroa_idx.i.i.i742, align 8
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit744
 
 _ZNSt13_Bvector_baseISaIbEED2Ev.exit744:          ; preds = %1219, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit739, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit730
@@ -7134,8 +7129,6 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit793:          ; preds = %_ZNSt6vectorIxSaIxE
   %1346 = sub nsw i64 0, %1345
   %1347 = getelementptr inbounds i64, ptr %1341, i64 %1346
   call void @_ZdlPvm(ptr noundef %1347, i64 noundef %1344) #33
-  store ptr null, ptr %37, align 8
-  store i32 0, ptr %507, align 8
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit798
 
 _ZNSt13_Bvector_baseISaIbEED2Ev.exit798:          ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit793, %1340
@@ -7519,7 +7512,6 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit853:          ; preds = %1464, %1462, %541
   call void @_ZdlPvm(ptr noundef %1481, i64 noundef %1478) #33
   store ptr null, ptr %37, align 8
   store i32 0, ptr %507, align 8
-  store ptr null, ptr %508, align 8
   br label %.body
 
 .body:                                            ; preds = %1474, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit853, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit864
@@ -10363,11 +10355,6 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit549:          ; preds = %943, %_ZN6casadi13G
   %960 = sub nsw i64 0, %959
   %961 = getelementptr inbounds i64, ptr %955, i64 %960
   call void @_ZdlPvm(ptr noundef %961, i64 noundef %958) #33
-  store ptr null, ptr %73, align 8
-  %.sroa.4.0..sroa_idx.i.i.i551 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  store i32 0, ptr %.sroa.4.0..sroa_idx.i.i.i551, align 8
-  %.sroa.51.0..sroa_idx.i.i.i552 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  store ptr null, ptr %.sroa.51.0..sroa_idx.i.i.i552, align 8
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit554
 
 _ZNSt13_Bvector_baseISaIbEED2Ev.exit554:          ; preds = %953, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit549, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit540
@@ -10599,8 +10586,6 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit584:          ; preds = %_ZNSt6vectorIxSaIxE
   %1048 = sub nsw i64 0, %1047
   %1049 = getelementptr inbounds i64, ptr %1043, i64 %1048
   call void @_ZdlPvm(ptr noundef %1049, i64 noundef %1046) #33
-  store ptr null, ptr %38, align 8
-  store i32 0, ptr %354, align 8
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit589
 
 _ZNSt13_Bvector_baseISaIbEED2Ev.exit589:          ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit584, %1042
@@ -10808,7 +10793,6 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit604:          ; preds = %1102, %1100, %388
   call void @_ZdlPvm(ptr noundef %1119, i64 noundef %1116) #33
   store ptr null, ptr %38, align 8
   store i32 0, ptr %354, align 8
-  store ptr null, ptr %355, align 8
   br label %.body
 
 .body:                                            ; preds = %1112, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit604, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit615

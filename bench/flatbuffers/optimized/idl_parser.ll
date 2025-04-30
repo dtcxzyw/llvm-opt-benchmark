@@ -38323,7 +38323,7 @@ _ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i:     ; preds = %_ZN11flatbuffers5Va
 .noexc474:                                        ; preds = %91
   %93 = load i8, ptr %9, align 1, !tbaa !163, !range !160, !alias.scope !986, !noundef !161
   %94 = trunc nuw i8 %93 to i1
-  br i1 %94, label %.loopexit786.thread.sink.split, label %105
+  br i1 %94, label %.loopexit786.thread, label %105
 
 95:                                               ; preds = %81
   %96 = landingpad { ptr, i32 }
@@ -38355,7 +38355,7 @@ _ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i.thread: ; preds = %_ZN11flatbuffers
 .noexc477:                                        ; preds = %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i.thread
   %103 = load i8, ptr %9, align 1, !tbaa !163, !range !160, !alias.scope !986, !noundef !161
   %104 = trunc nuw i8 %103 to i1
-  br i1 %104, label %.loopexit786.thread.sink.split, label %105
+  br i1 %104, label %.loopexit786.thread, label %105
 
 105:                                              ; preds = %.noexc477, %.noexc474
   store i8 0, ptr %9, align 1, !tbaa !163, !alias.scope !992
@@ -38378,7 +38378,7 @@ _ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i.thread: ; preds = %_ZN11flatbuffers
 .noexc471:                                        ; preds = %112
   %113 = load i8, ptr %9, align 1, !tbaa !163, !range !160, !alias.scope !995, !noundef !161
   %114 = trunc nuw i8 %113 to i1
-  br i1 %114, label %.loopexit786.thread.sink.split, label %.noexc294
+  br i1 %114, label %.loopexit786.thread, label %.noexc294
 
 .noexc294:                                        ; preds = %109, %.noexc471
   store i8 0, ptr %9, align 1, !tbaa !163, !alias.scope !998
@@ -38403,11 +38403,7 @@ _ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i.thread: ; preds = %_ZN11flatbuffers
   %120 = trunc nuw i8 %119 to i1
   br i1 %120, label %.loopexit786.thread, label %124
 
-.loopexit786.thread.sink.split:                   ; preds = %.noexc471, %.noexc474, %.noexc477
-  store i8 1, ptr %47, align 1, !tbaa !165
-  br label %.loopexit786.thread
-
-.loopexit786.thread:                              ; preds = %.loopexit786.thread.sink.split, %.noexc295, %.noexc
+.loopexit786.thread:                              ; preds = %.noexc471, %.noexc474, %.noexc477, %.noexc295, %.noexc
   store i8 1, ptr %0, align 1, !tbaa !163
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 1, ptr %121, align 1, !tbaa !165

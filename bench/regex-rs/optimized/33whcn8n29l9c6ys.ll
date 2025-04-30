@@ -1481,7 +1481,7 @@ _ZN14regex_automata4util8alphabet11ByteClasses10singletons17h8931bacc58382608E.e
   %95 = icmp ugt i64 %83, %.pre.i
   br i1 %95, label %96, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h91d6570a27a0c1fdE.llvm.3371294817895845771.exit.i1.i.i"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h91d6570a27a0c1fdE.llvm.3371294817895845771.exit.i1.i.i": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha595d3efd23d31c7E.exit.i.i", %93
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h91d6570a27a0c1fdE.llvm.3371294817895845771.exit.i1.i.i": ; preds = %93, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha595d3efd23d31c7E.exit.i.i"
   store i64 %83, ptr %.sroa.53.0..sroa_idx.i, align 8, !alias.scope !221, !noalias !205
   br label %102
 

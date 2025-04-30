@@ -2846,7 +2846,7 @@ define dso_local noundef i64 @pg_extension_config_dump(ptr noundef readonly capt
 46:                                               ; preds = %36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   store i64 0, ptr %7, align 8
-  store i64 281474976710656, ptr %8, align 8
+  store i64 72339069014638592, ptr %8, align 8
   %47 = and i64 %10, 4294967295
   store i64 %47, ptr %3, align 8
   %48 = getelementptr inbounds nuw i8, ptr %37, i64 64
@@ -3017,12 +3017,10 @@ define dso_local noundef i64 @pg_extension_config_dump(ptr noundef readonly capt
   %129 = ptrtoint ptr %.1 to i64
   %130 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 %129, ptr %130, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %8, i64 7
-  store i8 1, ptr %131, align 1
-  %132 = load ptr, ptr %48, align 8
-  %133 = call ptr @heap_modify_tuple(ptr noundef nonnull %41, ptr noundef %132, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #15
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 4
-  call void @CatalogTupleUpdate(ptr noundef nonnull %37, ptr noundef nonnull %134, ptr noundef %133) #15
+  %131 = load ptr, ptr %48, align 8
+  %132 = call ptr @heap_modify_tuple(ptr noundef nonnull %41, ptr noundef %131, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #15
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 4
+  call void @CatalogTupleUpdate(ptr noundef nonnull %37, ptr noundef nonnull %133, ptr noundef %132) #15
   call void @systable_endscan(ptr noundef %40) #15
   call void @table_close(ptr noundef nonnull %37, i32 noundef 3) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15

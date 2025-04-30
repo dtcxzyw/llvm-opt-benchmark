@@ -228,7 +228,6 @@ ir_gdbjit_strz.exit.i.i:
   store i64 27691700398420782, ptr %scevgep46, align 1, !tbaa !18
   %scevgep47 = getelementptr inbounds nuw i8, ptr %5, i64 811
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 440
-  store ptr %scevgep47, ptr %5, align 8, !tbaa !37
   store i32 35, ptr %36, align 8, !tbaa !31
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 444
   store i32 2, ptr %37, align 4, !tbaa !32
@@ -239,11 +238,11 @@ ir_gdbjit_strz.exit.i.i:
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 472
   store i64 72, ptr %40, align 8, !tbaa !36
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 480
-  store i32 4, ptr %41, align 8, !tbaa !38
+  store i32 4, ptr %41, align 8, !tbaa !37
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 496
-  store i64 24, ptr %42, align 8, !tbaa !39
+  store i64 24, ptr %42, align 8, !tbaa !38
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 484
-  store i32 2, ptr %43, align 4, !tbaa !40
+  store i32 2, ptr %43, align 4, !tbaa !39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %scevgep47, ptr noundef nonnull align 1 dereferenceable(12) @.str.10, i64 12, i1 false), !tbaa !18
   %scevgep48 = getelementptr inbounds nuw i8, ptr %5, i64 823
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 504
@@ -298,7 +297,7 @@ ir_gdbjit_strz.exit.i.i:
 
 ir_gdbjit_strz.exit.i35.i:                        ; preds = %64
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 720
-  store ptr %66, ptr %5, align 8, !tbaa !37
+  store ptr %66, ptr %5, align 8, !tbaa !40
   store i32 1, ptr %67, align 8, !tbaa !41
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 726
   store i16 -15, ptr %68, align 2, !tbaa !43
@@ -354,7 +353,7 @@ ir_gdbjit_symtab.exit.i:                          ; preds = %72
   store i8 8, ptr %96, align 1, !tbaa !18
   %98 = getelementptr inbounds nuw i8, ptr %.08.i15.i.i, i64 13
   store i8 1, ptr %97, align 1, !tbaa !18
-  store ptr %98, ptr %5, align 8, !tbaa !37
+  store ptr %98, ptr %5, align 8, !tbaa !40
   %99 = load ptr, ptr %11, align 8, !tbaa !26
   br label %100
 
@@ -449,7 +448,7 @@ ir_gdbjit_debuginfo.exit.i:                       ; preds = %100
   store i8 1, ptr %148, align 1, !tbaa !18
   %150 = getelementptr inbounds nuw i8, ptr %.08.i.i36.i, i64 54
   store i8 0, ptr %149, align 1, !tbaa !18
-  store ptr %150, ptr %5, align 8, !tbaa !37
+  store ptr %150, ptr %5, align 8, !tbaa !40
   %151 = load ptr, ptr %11, align 8, !tbaa !26
   br label %152
 
@@ -562,6 +561,7 @@ ir_gdbjit_debugline.exit.i:                       ; preds = %.lr.ph.i74.i.i, %18
   %207 = add i64 %199, 7
   %208 = and i64 %207, -8
   %209 = inttoptr i64 %208 to ptr
+  store ptr %209, ptr %5, align 8, !tbaa !40
   store ptr %209, ptr %16, align 8, !tbaa !28
   %210 = sub i64 %208, %51
   %211 = getelementptr inbounds nuw i8, ptr %5, i64 272
@@ -605,7 +605,6 @@ ir_gdbjit_strz.exit.i47.i:                        ; preds = %215
   store i8 -112, ptr %225, align 1, !tbaa !18
   %227 = getelementptr inbounds nuw i8, ptr %.08.i.i42.i, i64 11
   store i8 1, ptr %226, align 1, !tbaa !18
-  store ptr %227, ptr %5, align 8, !tbaa !37
   %228 = ptrtoint ptr %227 to i64
   %229 = and i64 %228, 7
   %.not90.i.i = icmp eq i64 %229, 0
@@ -713,7 +712,7 @@ ir_gdbjit_buildobj.exit:                          ; preds = %264, %.lr.ph96.preh
   %271 = trunc i64 %270 to i32
   %272 = add i32 %271, -4
   store i32 %272, ptr %.0.lcssa.i.i, align 1, !tbaa !48
-  store ptr %.2.lcssa.i.i, ptr %5, align 8, !tbaa !37
+  store ptr %.2.lcssa.i.i, ptr %5, align 8, !tbaa !40
   %273 = load ptr, ptr %16, align 8, !tbaa !28
   %274 = ptrtoint ptr %273 to i64
   %275 = sub i64 %.pre-phi.i, %274
@@ -831,10 +830,10 @@ attributes #13 = { nounwind allocsize(0) }
 !34 = !{!30, !15, i64 8}
 !35 = !{!30, !15, i64 16}
 !36 = !{!30, !15, i64 32}
-!37 = !{!20, !14, i64 0}
-!38 = !{!30, !6, i64 40}
-!39 = !{!30, !15, i64 56}
-!40 = !{!30, !6, i64 44}
+!37 = !{!30, !6, i64 40}
+!38 = !{!30, !15, i64 56}
+!39 = !{!30, !6, i64 44}
+!40 = !{!20, !14, i64 0}
 !41 = !{!42, !6, i64 0}
 !42 = !{!"ir_elf_symbol", !6, i64 0, !7, i64 4, !7, i64 5, !23, i64 6, !15, i64 8, !15, i64 16}
 !43 = !{!42, !23, i64 6}

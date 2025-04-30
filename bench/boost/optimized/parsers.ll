@@ -3466,7 +3466,6 @@ define linkonce_odr hidden void @_ZN5boost10function_nINSt7__cxx1112basic_string
   %5 = alloca %"class.boost::program_options::detail::prefix_name_mapper", align 8
   store ptr null, ptr %0, align 8, !tbaa !130
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %6, ptr %5, align 8, !tbaa !38
   %7 = load ptr, ptr %1, align 8, !tbaa !34
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = icmp eq ptr %7, %8
@@ -3476,7 +3475,7 @@ _ZN5boost15program_options6detail18prefix_name_mapperC2EOS2_.exit.thread: ; pred
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !31
   %12 = icmp ult i64 %11, 16
-  call void @llvm.assume(i1 %12)
+  tail call void @llvm.assume(i1 %12)
   %13 = add nuw nsw i64 %11, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(1) %8, i64 %13, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9304,7 +9303,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost6detail8function12basic
   %4 = alloca %"class.boost::program_options::detail::prefix_name_mapper", align 8
   %5 = alloca %"class.boost::program_options::detail::prefix_name_mapper", align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %6, ptr %5, align 8, !tbaa !38
   %7 = load ptr, ptr %1, align 8, !tbaa !34
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = icmp eq ptr %7, %8
@@ -9314,7 +9312,7 @@ _ZN5boost15program_options6detail18prefix_name_mapperC2EOS2_.exit.thread: ; pred
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !31
   %12 = icmp ult i64 %11, 16
-  call void @llvm.assume(i1 %12)
+  tail call void @llvm.assume(i1 %12)
   %13 = add nuw nsw i64 %11, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(1) %8, i64 %13, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8

@@ -439,12 +439,12 @@ land.rhs.i:                                       ; preds = %while.cond.i.prehea
   %25 = load i8, ptr %arrayidx93.i, align 1
   %cmp95.i = icmp slt i8 %25, 0
   %inc96.i = add i64 %inc96.i191194, 1
-  %sh_prom.i = zext nneg i32 %shift.i.0195 to i64
   br i1 %cmp95.i, label %while.body.i, label %if.end104.i
 
 while.body.i:                                     ; preds = %land.rhs.i
   %26 = and i8 %25, 127
   %and99.i = zext nneg i8 %26 to i64
+  %sh_prom.i = zext nneg i32 %shift.i.0195 to i64
   %shl100.i = shl i64 %and99.i, %sh_prom.i
   %or101.i = or i64 %shl100.i, %val.i.1196
   %add.i = add i32 %shift.i.0195, 7
@@ -452,15 +452,14 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp92.i.not, label %return, label %land.rhs.i, !llvm.loop !8
 
 if.end104.i:                                      ; preds = %land.rhs.i
-  store i64 %inc96.i, ptr %pos, align 8
   %conv107.i = zext nneg i8 %25 to i64
-  %shl109.i = shl i64 %conv107.i, %sh_prom.i
+  %sh_prom108.i = zext nneg i32 %shift.i.0195 to i64
+  %shl109.i = shl i64 %conv107.i, %sh_prom108.i
   %or110.i = or i64 %shl109.i, %val.i.1196
   br label %if.end5
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit: ; preds = %if.end73.i
   %inc83.i = add i64 %pos.promoted190, 10
-  store i64 %inc83.i, ptr %pos, align 8
   %arrayidx84.i = getelementptr inbounds i8, ptr %data, i64 %inc74.i
   %27 = load i8, ptr %arrayidx84.i, align 1
   %conv85.i = zext i8 %27 to i64

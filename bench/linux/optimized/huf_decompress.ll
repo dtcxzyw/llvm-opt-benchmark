@@ -822,7 +822,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 24, i1 false), !annotation !23
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false), !annotation !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 24, i1 false), !annotation !23
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false), !annotation !23
   %20 = load i16, ptr %2, align 1
@@ -3618,7 +3618,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 24, i1 false), !annotation !23
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false), !annotation !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 24, i1 false), !annotation !23
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false), !annotation !23
   %20 = load i16, ptr %2, align 1
@@ -3823,7 +3823,6 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %154 = zext i8 %153 to i64
   %155 = shl nuw nsw i64 %154, 48
   %156 = or disjoint i64 %155, %150
-  store i64 %156, ptr %8, align 8
   br label %157
 
 157:                                              ; preds = %151, %147
@@ -6983,7 +6982,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal_bmi2(ptr noun
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 24, i1 false), !annotation !23
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false), !annotation !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 24, i1 false), !annotation !23
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false), !annotation !23
   %15 = load i16, ptr %2, align 1
@@ -9169,7 +9168,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal_bmi2(ptr noun
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 24, i1 false), !annotation !23
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false), !annotation !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 24, i1 false), !annotation !23
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false), !annotation !23
   %15 = load i16, ptr %2, align 1

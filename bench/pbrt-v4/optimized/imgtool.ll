@@ -15149,8 +15149,6 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   %909 = sub nsw i64 0, %908
   %910 = getelementptr inbounds i64, ptr %904, i64 %909
   call void @_ZdlPvm(ptr noundef %910, i64 noundef %907) #39
-  store ptr null, ptr %21, align 8
-  store i32 0, ptr %135, align 8
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
 _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit.i, %903
@@ -60036,7 +60034,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136: ; preds = %_Z
   store i64 %202, ptr %14, align 8, !tbaa !244
   store ptr null, ptr %183, align 8, !tbaa !349
   %.not.i.i.i = icmp ugt i64 %200, 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %184, i8 0, i64 16, i1 false)
+  store i64 0, ptr %184, align 8
   br i1 %.not.i.i.i, label %203, label %_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i.i
 
 203:                                              ; preds = %199
@@ -111008,7 +111006,6 @@ _ZNKSt8functionIFN4pbrt5ImageEvEEclEv.exit:       ; preds = %_ZNSt12shared_mutex
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %94 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i64 0, ptr %91, align 8
   %95 = load i64, ptr %94, align 8, !tbaa !219
   store i64 %95, ptr %93, align 8, !tbaa !219
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 72
@@ -111025,7 +111022,6 @@ _ZNKSt8functionIFN4pbrt5ImageEvEEclEv.exit:       ; preds = %_ZNSt12shared_mutex
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %105 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  store i64 0, ptr %103, align 8
   %107 = load i64, ptr %106, align 8, !tbaa !212
   store i64 %107, ptr %105, align 8, !tbaa !212
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 104

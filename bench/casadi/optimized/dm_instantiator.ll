@@ -33336,7 +33336,6 @@ define weak_odr void @_ZN6casadi6MatrixIdE8sparsifyERKS1_d(ptr dead_on_unwind no
   %24 = tail call noundef ptr @_ZNK6casadi8Sparsity6colindEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
   %25 = tail call noundef ptr @_ZNK6casadi8Sparsity3rowEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #31
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %26 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -89601,36 +89600,34 @@ define weak_odr void @_ZNK6casadi6MatrixIdE12get_nonzerosEv(ptr dead_on_unwind n
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %10, align 8
   %.not.i.i.i.i = icmp eq ptr %5, %6
-  br i1 %.not.i.i.i.i, label %.thread, label %11
+  br i1 %.not.i.i.i.i, label %.thread, label %10
 
 .thread:                                          ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
 
-11:                                               ; preds = %2
-  %12 = icmp ugt i64 %9, 9223372036854775800
-  br i1 %12, label %.noexc.i.i, label %13, !prof !15
+10:                                               ; preds = %2
+  %11 = icmp ugt i64 %9, 9223372036854775800
+  br i1 %11, label %.noexc.i.i, label %12, !prof !15
 
-.noexc.i.i:                                       ; preds = %11
+.noexc.i.i:                                       ; preds = %10
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #27
   unreachable
 
-13:                                               ; preds = %11
-  %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #28
-  store ptr %14, ptr %0, align 8, !tbaa !14
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %9
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %15, ptr %16, align 8, !tbaa !16
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %14, ptr align 8 %6, i64 %9, i1 false)
+12:                                               ; preds = %10
+  %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #28
+  store ptr %13, ptr %0, align 8, !tbaa !14
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %9
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %14, ptr %15, align 8, !tbaa !16
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %13, ptr align 8 %6, i64 %9, i1 false)
   br label %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
 
-_ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %.thread, %13
-  %17 = phi ptr [ null, %.thread ], [ %15, %13 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %17, ptr %18, align 8, !tbaa !11
+_ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %.thread, %12
+  %16 = phi ptr [ null, %.thread ], [ %14, %12 ]
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %16, ptr %17, align 8, !tbaa !11
   ret void
 }
 

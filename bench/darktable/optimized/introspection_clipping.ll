@@ -2896,13 +2896,17 @@ define void @commit_params(ptr noundef %0, ptr noundef readonly captures(none) %
   br i1 %114, label %115, label %118
 
 115:                                              ; preds = %110
+  store float %89, ptr %19, align 4, !tbaa !120
   %116 = fmul reassoc nsz arcp contract afn float %95, %89
   %117 = fadd reassoc nsz arcp contract afn float %97, %116
+  store float %117, ptr %17, align 4, !tbaa !116
   br label %150
 
 118:                                              ; preds = %110
+  store float %91, ptr %20, align 4, !tbaa !119
   %119 = fmul reassoc nsz arcp contract afn float %100, %91
   %120 = fadd reassoc nsz arcp contract afn float %102, %119
+  store float %120, ptr %21, align 4, !tbaa !115
   br label %150
 
 121:                                              ; preds = %75
@@ -2941,13 +2945,17 @@ define void @commit_params(ptr noundef %0, ptr noundef readonly captures(none) %
   br i1 %143, label %144, label %147
 
 144:                                              ; preds = %139
+  store float %81, ptr %22, align 4, !tbaa !114
   %145 = fmul reassoc nsz arcp contract afn float %124, %81
   %146 = fadd reassoc nsz arcp contract afn float %126, %145
+  store float %146, ptr %15, align 4, !tbaa !118
   br label %150
 
 147:                                              ; preds = %139
+  store float %79, ptr %21, align 4, !tbaa !115
   %148 = fmul reassoc nsz arcp contract afn float %129, %79
   %149 = fadd reassoc nsz arcp contract afn float %131, %148
+  store float %149, ptr %20, align 4, !tbaa !119
   br label %150
 
 150:                                              ; preds = %144, %147, %75, %115, %118

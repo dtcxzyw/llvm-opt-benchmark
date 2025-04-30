@@ -32428,7 +32428,6 @@ define hidden void @"_ZN55_$LT$citationberg..Date$u20$as$u20$core..hash..Hash$GT
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %8 = load i64, ptr %7, align 8, !alias.scope !7132, !noundef !4
   %9 = add i64 %8, 8
-  store i64 %9, ptr %7, align 8, !alias.scope !7132
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %11 = load i64, ptr %10, align 8, !alias.scope !7132, !noundef !4
   %12 = shl i64 %11, 3
@@ -32472,7 +32471,6 @@ define hidden void @"_ZN55_$LT$citationberg..Date$u20$as$u20$core..hash..Hash$GT
   %43 = sub nsw i64 64, %12
   %44 = lshr i64 %6, %43
   %.0.i.i.i = select i1 %.not.i.i.i, i64 0, i64 %44
-  store i64 %.0.i.i.i, ptr %15, align 8, !alias.scope !7132
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit
 
 45:                                               ; preds = %2
@@ -32528,7 +32526,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %81 = sub nsw i64 64, %52
   %82 = lshr i64 %50, %81
   %.0.i.i.i23 = select i1 %.not.i.i.i22, i64 0, i64 %82
-  store i64 %.0.i.i.i23, ptr %15, align 8, !alias.scope !7142
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit24
 
 83:                                               ; preds = %49
@@ -32600,7 +32597,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
 128:                                              ; preds = %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit27
   %129 = zext nneg i8 %89 to i64
   %130 = add i64 %87, 16
-  store i64 %130, ptr %7, align 8, !alias.scope !7162
   %131 = shl i64 %127, 3
   %132 = and i64 %131, 56
   %133 = shl nuw nsw i64 %129, %132
@@ -32640,7 +32636,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %160 = sub nsw i64 64, %131
   %161 = lshr i64 %129, %160
   %.0.i.i.i29 = select i1 %.not.i.i.i28, i64 0, i64 %161
-  store i64 %.0.i.i.i29, ptr %15, align 8, !alias.scope !7162
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit30
 
 162:                                              ; preds = %128
@@ -32878,7 +32873,6 @@ _ZN4core4hash6Hasher19write_length_prefix17h6c42ac5ad87aa19cE.llvm.1697870981485
   %323 = sub nsw i64 64, %297
   %324 = lshr i64 %296, %323
   %.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i64 0, i64 %324
-  store i64 %.0.i.i.i.i.i, ptr %15, align 8, !alias.scope !7214, !noalias !7212
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit.i.i
 
 325:                                              ; preds = %289
@@ -33355,7 +33349,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   tail call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h181a8c71bccb2bcaE.llvm.16978709814855407318"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %638, i64 noundef %640)
   %641 = load i64, ptr %7, align 8, !alias.scope !7305, !noalias !7312, !noundef !4
   %642 = add i64 %641, 1
-  store i64 %642, ptr %7, align 8, !alias.scope !7305, !noalias !7312
   %643 = load i64, ptr %10, align 8, !alias.scope !7305, !noalias !7312, !noundef !4
   %644 = sub i64 8, %643
   %645 = shl i64 %643, 3
@@ -33397,7 +33390,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %675 = add i64 %643, -7
   %676 = shl nuw nsw i64 %644, 3
   %677 = lshr i64 255, %676
-  store i64 %677, ptr %15, align 8, !alias.scope !7305, !noalias !7312
   br label %_ZN4core4hash6Hasher9write_str17hb3d01cf47c41154bE.llvm.16978709814855407318.exit
 
 678:                                              ; preds = %636
@@ -34083,7 +34075,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
 302:                                              ; preds = %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit
   %303 = zext nneg i8 %260 to i64
   %304 = add i64 %263, 16
-  store i64 %304, ptr %6, align 8, !alias.scope !7435
   %305 = shl i64 %301, 3
   %306 = and i64 %305, 56
   %307 = shl nuw nsw i64 %303, %306
@@ -34123,12 +34114,10 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %334 = sub nsw i64 64, %305
   %335 = lshr i64 %303, %334
   %.0.i.i.i6 = select i1 %.not.i.i.i5, i64 0, i64 %335
-  store i64 %.0.i.i.i6, ptr %14, align 8, !alias.scope !7435
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit7
 
 336:                                              ; preds = %302
   %337 = add i64 %301, 8
-  store i64 %337, ptr %9, align 8, !alias.scope !7435
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit7
 
 _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit7: ; preds = %336, %310, %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit
@@ -34548,7 +34537,6 @@ _ZN4core4hash4Hash10hash_slice17h224b8ac91c06d15cE.exit: ; preds = %_ZN4core4has
   %90 = sub nsw i64 64, %61
   %91 = lshr i64 %59, %90
   %.0.i.i.i38 = select i1 %.not.i.i.i37, i64 0, i64 %91
-  store i64 %.0.i.i.i38, ptr %15, align 8, !alias.scope !7501
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit
 
 92:                                               ; preds = %_ZN4core4hash4Hash10hash_slice17h224b8ac91c06d15cE.exit
@@ -34565,7 +34553,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
 96:                                               ; preds = %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit
   %97 = zext nneg i8 %57 to i64
   %98 = add i64 %55, 16
-  store i64 %98, ptr %7, align 8, !alias.scope !7511
   %99 = shl i64 %95, 3
   %100 = and i64 %99, 56
   %101 = shl nuw nsw i64 %97, %100
@@ -34660,7 +34647,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %169 = sub nsw i64 64, %140
   %170 = lshr i64 %138, %169
   %.0.i.i.i43 = select i1 %.not.i.i.i42, i64 0, i64 %170
-  store i64 %.0.i.i.i43, ptr %15, align 8, !alias.scope !7521
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit44
 
 171:                                              ; preds = %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit41
@@ -34732,7 +34718,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %216 = icmp ne i8 %215, 3
   %217 = zext i1 %216 to i64
   %218 = add i64 %213, 8
-  store i64 %218, ptr %7, align 8, !alias.scope !7541
   %219 = shl i64 %212, 3
   %220 = and i64 %219, 56
   %221 = shl nuw nsw i64 %217, %220
@@ -34898,7 +34883,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
 333:                                              ; preds = %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit56
   %334 = zext nneg i8 %294 to i64
   %335 = add i64 %292, 16
-  store i64 %335, ptr %7, align 8, !alias.scope !7571
   %336 = shl i64 %332, 3
   %337 = and i64 %336, 56
   %338 = shl nuw nsw i64 %334, %337
@@ -34938,7 +34922,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %365 = sub nsw i64 64, %336
   %366 = lshr i64 %334, %365
   %.0.i.i.i58 = select i1 %.not.i.i.i57, i64 0, i64 %366
-  store i64 %.0.i.i.i58, ptr %15, align 8, !alias.scope !7571
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit59
 
 367:                                              ; preds = %333
@@ -35847,7 +35830,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   tail call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h181a8c71bccb2bcaE.llvm.16978709814855407318"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %186, i64 noundef %188), !noalias !7736
   %189 = load i64, ptr %7, align 8, !alias.scope !7748, !noalias !7755, !noundef !4
   %190 = add i64 %189, 1
-  store i64 %190, ptr %7, align 8, !alias.scope !7748, !noalias !7755
   %191 = load i64, ptr %10, align 8, !alias.scope !7748, !noalias !7755, !noundef !4
   %192 = sub i64 8, %191
   %193 = shl i64 %191, 3
@@ -35886,7 +35868,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %220 = add i64 %191, -7
   %221 = shl nuw nsw i64 %192, 3
   %222 = lshr i64 255, %221
-  store i64 %222, ptr %15, align 8, !alias.scope !7748, !noalias !7755
   br label %_ZN4core4hash6Hasher9write_str17hb3d01cf47c41154bE.llvm.16978709814855407318.exit.i.i
 
 223:                                              ; preds = %184
@@ -36539,7 +36520,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   tail call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h181a8c71bccb2bcaE.llvm.16978709814855407318"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %654, i64 noundef %656), !noalias !7839
   %657 = load i64, ptr %7, align 8, !alias.scope !7893, !noalias !7900, !noundef !4
   %658 = add i64 %657, 1
-  store i64 %658, ptr %7, align 8, !alias.scope !7893, !noalias !7900
   %659 = load i64, ptr %10, align 8, !alias.scope !7893, !noalias !7900, !noundef !4
   %660 = sub i64 8, %659
   %661 = shl i64 %659, 3
@@ -36687,7 +36667,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %764 = sub nsw i64 64, %738
   %765 = lshr i64 %736, %764
   %.0.i.i.i63.i.i.i = select i1 %.not.i.i.i62.i.i.i, i64 0, i64 %765
-  store i64 %.0.i.i.i63.i.i.i, ptr %15, align 8, !alias.scope !7915, !noalias !7839
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit64.i.i.i
 
 766:                                              ; preds = %735
@@ -36704,7 +36683,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %773 = icmp ne i8 %772, 4
   %774 = zext i1 %773 to i64
   %775 = add i64 %770, 8
-  store i64 %775, ptr %7, align 8, !alias.scope !7925, !noalias !7839
   %776 = shl i64 %769, 3
   %777 = and i64 %776, 56
   %778 = shl nuw nsw i64 %774, %777
@@ -36812,7 +36790,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %849 = and i64 %848, 56
   %850 = shl nuw nsw i64 %846, %849
   %851 = or i64 %850, %841
-  store i64 %851, ptr %15, align 8, !alias.scope !7945, !noalias !7839
   %852 = icmp ugt i64 %842, 8
   br i1 %852, label %876, label %853
 
@@ -36845,7 +36822,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %874 = sub nsw i64 64, %848
   %875 = lshr i64 %846, %874
   %.0.i.i.i72.i.i.i = select i1 %.not.i.i.i71.i.i.i, i64 0, i64 %875
-  store i64 %.0.i.i.i72.i.i.i, ptr %15, align 8, !alias.scope !7945, !noalias !7839
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit73.i.i.i
 
 876:                                              ; preds = %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit70.i.i.i
@@ -36864,7 +36840,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %882 = load i32, ptr %881, align 4, !alias.scope !7839, !noalias !7840, !noundef !4
   %883 = zext i32 %882 to i64
   %884 = add i64 %843, 12
-  store i64 %884, ptr %7, align 8, !alias.scope !7955, !noalias !7839
   %885 = sub i64 8, %879
   %886 = shl i64 %879, 3
   %887 = and i64 %886, 56
@@ -36901,7 +36876,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %912 = add i64 %879, -4
   %913 = shl nuw nsw i64 %885, 3
   %914 = lshr i64 %883, %913
-  store i64 %914, ptr %15, align 8, !alias.scope !7955, !noalias !7839
   br label %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u3217h42407c16f76e8816E.exit.i.i.i"
 
 915:                                              ; preds = %880
@@ -36976,7 +36950,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %960 = load i32, ptr %959, align 4, !alias.scope !7839, !noalias !7840, !noundef !4
   %961 = zext i32 %960 to i64
   %962 = add i64 %921, 12
-  store i64 %962, ptr %7, align 8, !alias.scope !7973, !noalias !7839
   %963 = sub i64 8, %957
   %964 = shl i64 %957, 3
   %965 = and i64 %964, 56
@@ -37013,7 +36986,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %990 = add i64 %957, -4
   %991 = shl nuw nsw i64 %963, 3
   %992 = lshr i64 %961, %991
-  store i64 %992, ptr %15, align 8, !alias.scope !7973, !noalias !7839
   br label %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u3217h42407c16f76e8816E.exit78.i.i.i"
 
 993:                                              ; preds = %958
@@ -37088,7 +37060,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %1038 = load i32, ptr %1037, align 4, !alias.scope !7839, !noalias !7840, !noundef !4
   %1039 = zext i32 %1038 to i64
   %1040 = add i64 %999, 12
-  store i64 %1040, ptr %7, align 8, !alias.scope !7991, !noalias !7839
   %1041 = sub i64 8, %1035
   %1042 = shl i64 %1035, 3
   %1043 = and i64 %1042, 56
@@ -37125,7 +37096,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %1068 = add i64 %1035, -4
   %1069 = shl nuw nsw i64 %1041, 3
   %1070 = lshr i64 %1039, %1069
-  store i64 %1070, ptr %15, align 8, !alias.scope !7991, !noalias !7839
   br label %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u3217h42407c16f76e8816E.exit83.i.i.i"
 
 1071:                                             ; preds = %1036
@@ -37200,7 +37170,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %1116 = load i32, ptr %1115, align 4, !alias.scope !7839, !noalias !7840, !noundef !4
   %1117 = zext i32 %1116 to i64
   %1118 = add i64 %1077, 12
-  store i64 %1118, ptr %7, align 8, !alias.scope !8009, !noalias !7839
   %1119 = sub i64 8, %1113
   %1120 = shl i64 %1113, 3
   %1121 = and i64 %1120, 56
@@ -37237,7 +37206,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %1146 = add i64 %1113, -4
   %1147 = shl nuw nsw i64 %1119, 3
   %1148 = lshr i64 %1117, %1147
-  store i64 %1148, ptr %15, align 8, !alias.scope !8009, !noalias !7839
   br label %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u3217h42407c16f76e8816E.exit88.i.i.i"
 
 1149:                                             ; preds = %1114
@@ -37311,7 +37279,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
 1193:                                             ; preds = %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit91.i.i.i
   %1194 = zext nneg i8 %1157 to i64
   %1195 = add i64 %1155, 9
-  store i64 %1195, ptr %7, align 8, !alias.scope !8027, !noalias !7839
   %1196 = sub i64 8, %1192
   %1197 = shl i64 %1192, 3
   %1198 = and i64 %1197, 56
@@ -37348,7 +37315,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %1223 = add i64 %1192, -7
   %1224 = shl nuw nsw i64 %1196, 3
   %1225 = lshr i64 %1194, %1224
-  store i64 %1225, ptr %15, align 8, !alias.scope !8027, !noalias !7839
   br label %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$8write_u817h4f94f6fa8ceb2883E.llvm.16978709814855407318.exit.i.i.i"
 
 1226:                                             ; preds = %1193
@@ -37422,7 +37388,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
 1270:                                             ; preds = %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit95.i.i.i
   %1271 = zext nneg i8 %1234 to i64
   %1272 = add i64 %1232, 16
-  store i64 %1272, ptr %7, align 8, !alias.scope !8045, !noalias !7839
   %1273 = shl i64 %1269, 3
   %1274 = and i64 %1273, 56
   %1275 = shl nuw nsw i64 %1271, %1274
@@ -37459,7 +37424,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %1299 = sub nsw i64 64, %1273
   %1300 = lshr i64 %1271, %1299
   %.0.i.i.i97.i.i.i = select i1 %.not.i.i.i96.i.i.i, i64 0, i64 %1300
-  store i64 %.0.i.i.i97.i.i.i, ptr %15, align 8, !alias.scope !8045, !noalias !7839
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit98.i.i.i
 
 1301:                                             ; preds = %1270
@@ -37645,7 +37609,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   tail call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h181a8c71bccb2bcaE.llvm.16978709814855407318"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %1422, i64 noundef %1424), !noalias !7839
   %1425 = load i64, ptr %7, align 8, !alias.scope !8083, !noalias !8090, !noundef !4
   %1426 = add i64 %1425, 1
-  store i64 %1426, ptr %7, align 8, !alias.scope !8083, !noalias !8090
   %1427 = load i64, ptr %10, align 8, !alias.scope !8083, !noalias !8090, !noundef !4
   %1428 = sub i64 8, %1427
   %1429 = shl i64 %1427, 3
@@ -37684,7 +37647,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %1456 = add i64 %1427, -7
   %1457 = shl nuw nsw i64 %1428, 3
   %1458 = lshr i64 255, %1457
-  store i64 %1458, ptr %15, align 8, !alias.scope !8083, !noalias !8090
   br label %_ZN4core4hash6Hasher9write_str17hb3d01cf47c41154bE.llvm.16978709814855407318.exit108.i.i.i
 
 1459:                                             ; preds = %1420
@@ -38136,7 +38098,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   tail call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h181a8c71bccb2bcaE.llvm.16978709814855407318"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %1741, i64 noundef %1743)
   %1744 = load i64, ptr %7, align 8, !alias.scope !8176, !noalias !8183, !noundef !4
   %1745 = add i64 %1744, 1
-  store i64 %1745, ptr %7, align 8, !alias.scope !8176, !noalias !8183
   %1746 = load i64, ptr %10, align 8, !alias.scope !8176, !noalias !8183, !noundef !4
   %1747 = sub i64 8, %1746
   %1748 = shl i64 %1746, 3
@@ -38178,7 +38139,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %1778 = add i64 %1746, -7
   %1779 = shl nuw nsw i64 %1747, 3
   %1780 = lshr i64 255, %1779
-  store i64 %1780, ptr %15, align 8, !alias.scope !8176, !noalias !8183
   br label %_ZN4core4hash6Hasher9write_str17hb3d01cf47c41154bE.llvm.16978709814855407318.exit
 
 1781:                                             ; preds = %1739
@@ -38255,7 +38215,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
 1828:                                             ; preds = %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit87
   %1829 = zext nneg i8 %1789 to i64
   %1830 = add i64 %1787, 16
-  store i64 %1830, ptr %7, align 8, !alias.scope !8198
   %1831 = shl i64 %1827, 3
   %1832 = and i64 %1831, 56
   %1833 = shl nuw nsw i64 %1829, %1832
@@ -38405,7 +38364,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %1939 = sub nsw i64 64, %1910
   %1940 = lshr i64 %1908, %1939
   %.0.i.i.i95 = select i1 %.not.i.i.i94, i64 0, i64 %1940
-  store i64 %.0.i.i.i95, ptr %15, align 8, !alias.scope !8218
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit96
 
 1941:                                             ; preds = %1907
@@ -38422,7 +38380,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %1948 = icmp ne i8 %1947, 4
   %1949 = zext i1 %1948 to i64
   %1950 = add i64 %1945, 8
-  store i64 %1950, ptr %7, align 8, !alias.scope !8228
   %1951 = shl i64 %1944, 3
   %1952 = and i64 %1951, 56
   %1953 = shl nuw nsw i64 %1949, %1952
@@ -38536,7 +38493,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %2030 = and i64 %2029, 56
   %2031 = shl nuw nsw i64 %2027, %2030
   %2032 = or i64 %2031, %2022
-  store i64 %2032, ptr %15, align 8, !alias.scope !8248
   %2033 = icmp ugt i64 %2023, 8
   br i1 %2033, label %2060, label %2034
 
@@ -38572,7 +38528,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %2058 = sub nsw i64 64, %2029
   %2059 = lshr i64 %2027, %2058
   %.0.i.i.i104 = select i1 %.not.i.i.i103, i64 0, i64 %2059
-  store i64 %.0.i.i.i104, ptr %15, align 8, !alias.scope !8248
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit105
 
 2060:                                             ; preds = %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit102
@@ -38591,7 +38546,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %2066 = load i32, ptr %2065, align 4, !noundef !4
   %2067 = zext i32 %2066 to i64
   %2068 = add i64 %2024, 12
-  store i64 %2068, ptr %7, align 8, !alias.scope !8258
   %2069 = sub i64 8, %2063
   %2070 = shl i64 %2063, 3
   %2071 = and i64 %2070, 56
@@ -38631,7 +38585,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %2099 = add i64 %2063, -4
   %2100 = shl nuw nsw i64 %2069, 3
   %2101 = lshr i64 %2067, %2100
-  store i64 %2101, ptr %15, align 8, !alias.scope !8258
   br label %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u3217h42407c16f76e8816E.exit"
 
 2102:                                             ; preds = %2064
@@ -38709,7 +38662,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %2150 = load i32, ptr %2149, align 4, !noundef !4
   %2151 = zext i32 %2150 to i64
   %2152 = add i64 %2108, 12
-  store i64 %2152, ptr %7, align 8, !alias.scope !8276
   %2153 = sub i64 8, %2147
   %2154 = shl i64 %2147, 3
   %2155 = and i64 %2154, 56
@@ -38749,7 +38701,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %2183 = add i64 %2147, -4
   %2184 = shl nuw nsw i64 %2153, 3
   %2185 = lshr i64 %2151, %2184
-  store i64 %2185, ptr %15, align 8, !alias.scope !8276
   br label %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u3217h42407c16f76e8816E.exit110"
 
 2186:                                             ; preds = %2148
@@ -38827,7 +38778,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %2234 = load i32, ptr %2233, align 4, !noundef !4
   %2235 = zext i32 %2234 to i64
   %2236 = add i64 %2192, 12
-  store i64 %2236, ptr %7, align 8, !alias.scope !8294
   %2237 = sub i64 8, %2231
   %2238 = shl i64 %2231, 3
   %2239 = and i64 %2238, 56
@@ -38867,7 +38817,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %2267 = add i64 %2231, -4
   %2268 = shl nuw nsw i64 %2237, 3
   %2269 = lshr i64 %2235, %2268
-  store i64 %2269, ptr %15, align 8, !alias.scope !8294
   br label %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u3217h42407c16f76e8816E.exit115"
 
 2270:                                             ; preds = %2232
@@ -38945,7 +38894,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %2318 = load i32, ptr %2317, align 4, !noundef !4
   %2319 = zext i32 %2318 to i64
   %2320 = add i64 %2276, 12
-  store i64 %2320, ptr %7, align 8, !alias.scope !8312
   %2321 = sub i64 8, %2315
   %2322 = shl i64 %2315, 3
   %2323 = and i64 %2322, 56
@@ -38985,7 +38933,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %2351 = add i64 %2315, -4
   %2352 = shl nuw nsw i64 %2321, 3
   %2353 = lshr i64 %2319, %2352
-  store i64 %2353, ptr %15, align 8, !alias.scope !8312
   br label %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u3217h42407c16f76e8816E.exit120"
 
 2354:                                             ; preds = %2316
@@ -39062,7 +39009,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
 2401:                                             ; preds = %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit123
   %2402 = zext nneg i8 %2362 to i64
   %2403 = add i64 %2360, 9
-  store i64 %2403, ptr %7, align 8, !alias.scope !8330
   %2404 = sub i64 8, %2400
   %2405 = shl i64 %2400, 3
   %2406 = and i64 %2405, 56
@@ -39102,7 +39048,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %2434 = add i64 %2400, -7
   %2435 = shl nuw nsw i64 %2404, 3
   %2436 = lshr i64 %2402, %2435
-  store i64 %2436, ptr %15, align 8, !alias.scope !8330
   br label %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$8write_u817h4f94f6fa8ceb2883E.llvm.16978709814855407318.exit"
 
 2437:                                             ; preds = %2401
@@ -39179,7 +39124,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
 2484:                                             ; preds = %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit127
   %2485 = zext nneg i8 %2445 to i64
   %2486 = add i64 %2443, 16
-  store i64 %2486, ptr %7, align 8, !alias.scope !8348
   %2487 = shl i64 %2483, 3
   %2488 = and i64 %2487, 56
   %2489 = shl nuw nsw i64 %2485, %2488
@@ -39219,7 +39163,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %2516 = sub nsw i64 64, %2487
   %2517 = lshr i64 %2485, %2516
   %.0.i.i.i129 = select i1 %.not.i.i.i128, i64 0, i64 %2517
-  store i64 %.0.i.i.i129, ptr %15, align 8, !alias.scope !8348
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit130
 
 2518:                                             ; preds = %2484
@@ -39414,7 +39357,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   tail call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h181a8c71bccb2bcaE.llvm.16978709814855407318"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %2648, i64 noundef %2650)
   %2651 = load i64, ptr %7, align 8, !alias.scope !8386, !noalias !8393, !noundef !4
   %2652 = add i64 %2651, 1
-  store i64 %2652, ptr %7, align 8, !alias.scope !8386, !noalias !8393
   %2653 = load i64, ptr %10, align 8, !alias.scope !8386, !noalias !8393, !noundef !4
   %2654 = sub i64 8, %2653
   %2655 = shl i64 %2653, 3
@@ -39456,7 +39398,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %2685 = add i64 %2653, -7
   %2686 = shl nuw nsw i64 %2654, 3
   %2687 = lshr i64 255, %2686
-  store i64 %2687, ptr %15, align 8, !alias.scope !8386, !noalias !8393
   br label %_ZN4core4hash6Hasher9write_str17hb3d01cf47c41154bE.llvm.16978709814855407318.exit140
 
 2688:                                             ; preds = %2646
@@ -39651,7 +39592,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   tail call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h181a8c71bccb2bcaE.llvm.16978709814855407318"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %2816, i64 noundef %2818)
   %2819 = load i64, ptr %7, align 8, !alias.scope !8428, !noalias !8435, !noundef !4
   %2820 = add i64 %2819, 1
-  store i64 %2820, ptr %7, align 8, !alias.scope !8428, !noalias !8435
   %2821 = load i64, ptr %10, align 8, !alias.scope !8428, !noalias !8435, !noundef !4
   %2822 = sub i64 8, %2821
   %2823 = shl i64 %2821, 3
@@ -39753,7 +39693,6 @@ _ZN4core4hash6Hasher9write_str17hb3d01cf47c41154bE.llvm.16978709814855407318.exi
   %2897 = sub nsw i64 64, %2868
   %2898 = lshr i64 %2866, %2897
   %.0.i.i.i153 = select i1 %.not.i.i.i152, i64 0, i64 %2898
-  store i64 %.0.i.i.i153, ptr %15, align 8, !alias.scope !8440
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit154
 
 2899:                                             ; preds = %2859
@@ -39770,7 +39709,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
 2903:                                             ; preds = %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit154
   %2904 = zext nneg i8 %2864 to i64
   %2905 = add i64 %2862, 16
-  store i64 %2905, ptr %7, align 8, !alias.scope !8450
   %2906 = shl i64 %2902, 3
   %2907 = and i64 %2906, 56
   %2908 = shl nuw nsw i64 %2904, %2907
@@ -39865,7 +39803,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %2976 = sub nsw i64 64, %2947
   %2977 = lshr i64 %2945, %2976
   %.0.i.i.i159 = select i1 %.not.i.i.i158, i64 0, i64 %2977
-  store i64 %.0.i.i.i159, ptr %15, align 8, !alias.scope !8460
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit160
 
 2978:                                             ; preds = %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit157
@@ -39937,7 +39874,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %3023 = icmp ne i8 %3022, 3
   %3024 = zext i1 %3023 to i64
   %3025 = add i64 %3020, 8
-  store i64 %3025, ptr %7, align 8, !alias.scope !8480
   %3026 = shl i64 %3019, 3
   %3027 = and i64 %3026, 56
   %3028 = shl nuw nsw i64 %3024, %3027
@@ -40103,7 +40039,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
 3140:                                             ; preds = %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit172
   %3141 = zext nneg i8 %3101 to i64
   %3142 = add i64 %3099, 16
-  store i64 %3142, ptr %7, align 8, !alias.scope !8510
   %3143 = shl i64 %3139, 3
   %3144 = and i64 %3143, 56
   %3145 = shl nuw nsw i64 %3141, %3144
@@ -40143,7 +40078,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %3172 = sub nsw i64 64, %3143
   %3173 = lshr i64 %3141, %3172
   %.0.i.i.i174 = select i1 %.not.i.i.i173, i64 0, i64 %3173
-  store i64 %.0.i.i.i174, ptr %15, align 8, !alias.scope !8510
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit175
 
 3174:                                             ; preds = %3140
@@ -41233,7 +41167,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   tail call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h181a8c71bccb2bcaE.llvm.16978709814855407318"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %51, i64 noundef %53)
   %54 = load i64, ptr %7, align 8, !alias.scope !8749, !noalias !8756, !noundef !4
   %55 = add i64 %54, 1
-  store i64 %55, ptr %7, align 8, !alias.scope !8749, !noalias !8756
   %56 = load i64, ptr %10, align 8, !alias.scope !8749, !noalias !8756, !noundef !4
   %57 = sub i64 8, %56
   %58 = shl i64 %56, 3
@@ -41910,7 +41843,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %526 = add i64 %494, -7
   %527 = shl nuw nsw i64 %495, 3
   %528 = lshr i64 255, %527
-  store i64 %528, ptr %15, align 8, !alias.scope !8869, !noalias !8876
   br label %_ZN4core4hash6Hasher9write_str17hb3d01cf47c41154bE.llvm.16978709814855407318.exit.i
 
 529:                                              ; preds = %487
@@ -42369,7 +42301,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   tail call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h181a8c71bccb2bcaE.llvm.16978709814855407318"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %832, i64 noundef %834), !noalias !8906
   %835 = load i64, ptr %7, align 8, !alias.scope !8967, !noalias !8974, !noundef !4
   %836 = add i64 %835, 1
-  store i64 %836, ptr %7, align 8, !alias.scope !8967, !noalias !8974
   %837 = load i64, ptr %10, align 8, !alias.scope !8967, !noalias !8974, !noundef !4
   %838 = sub i64 8, %837
   %839 = shl i64 %837, 3
@@ -42408,7 +42339,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %866 = add i64 %837, -7
   %867 = shl nuw nsw i64 %838, 3
   %868 = lshr i64 255, %867
-  store i64 %868, ptr %15, align 8, !alias.scope !8967, !noalias !8974
   br label %_ZN4core4hash6Hasher9write_str17hb3d01cf47c41154bE.llvm.16978709814855407318.exit35.i.i
 
 869:                                              ; preds = %830
@@ -42533,7 +42463,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
 946:                                              ; preds = %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit41.i.i
   %947 = zext nneg i8 %912 to i64
   %948 = add i64 %875, 24
-  store i64 %948, ptr %7, align 8, !alias.scope !8999, !noalias !8911
   %949 = shl i64 %945, 3
   %950 = and i64 %949, 56
   %951 = shl nuw nsw i64 %947, %950
@@ -42570,7 +42499,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %975 = sub nsw i64 64, %949
   %976 = lshr i64 %947, %975
   %.0.i.i.i43.i.i = select i1 %.not.i.i.i42.i.i, i64 0, i64 %976
-  store i64 %.0.i.i.i43.i.i, ptr %15, align 8, !alias.scope !8999, !noalias !8911
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit44.i.i
 
 977:                                              ; preds = %946
@@ -44679,7 +44607,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %128 = add i64 %96, -7
   %129 = shl nuw nsw i64 %97, 3
   %130 = lshr i64 255, %129
-  store i64 %130, ptr %14, align 8, !alias.scope !9308, !noalias !9315
   br label %_ZN4core4hash6Hasher9write_str17hb3d01cf47c41154bE.llvm.16978709814855407318.exit
 
 131:                                              ; preds = %90
@@ -44733,7 +44660,6 @@ _ZN4core4hash6Hasher9write_str17hb3d01cf47c41154bE.llvm.16978709814855407318.exi
   %167 = sub nsw i64 64, %138
   %168 = lshr i64 %136, %167
   %.0.i.i.i15 = select i1 %.not.i.i.i14, i64 0, i64 %168
-  store i64 %.0.i.i.i15, ptr %14, align 8, !alias.scope !9320
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit16
 
 169:                                              ; preds = %_ZN4core4hash6Hasher9write_str17hb3d01cf47c41154bE.llvm.16978709814855407318.exit
@@ -44755,7 +44681,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %175 = load i32, ptr %174, align 4, !noundef !4
   %176 = zext i32 %175 to i64
   %177 = add i64 %95, 13
-  store i64 %177, ptr %6, align 8, !alias.scope !9330
   %178 = sub i64 8, %172
   %179 = shl i64 %172, 3
   %180 = and i64 %179, 56
@@ -44795,7 +44720,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %208 = add i64 %172, -4
   %209 = shl nuw nsw i64 %178, 3
   %210 = lshr i64 %176, %209
-  store i64 %210, ptr %14, align 8, !alias.scope !9330
   br label %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u3217h42407c16f76e8816E.exit"
 
 211:                                              ; preds = %173
@@ -44873,7 +44797,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %259 = load i32, ptr %258, align 4, !noundef !4
   %260 = zext i32 %259 to i64
   %261 = add i64 %217, 12
-  store i64 %261, ptr %6, align 8, !alias.scope !9348
   %262 = sub i64 8, %256
   %263 = shl i64 %256, 3
   %264 = and i64 %263, 56
@@ -44913,7 +44836,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %292 = add i64 %256, -4
   %293 = shl nuw nsw i64 %262, 3
   %294 = lshr i64 %260, %293
-  store i64 %294, ptr %14, align 8, !alias.scope !9348
   br label %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u3217h42407c16f76e8816E.exit21"
 
 295:                                              ; preds = %257
@@ -47986,7 +47908,6 @@ define internal fastcc void @"_ZN61_$LT$citationberg..Formatting$u20$as$u20$core
   %42 = sub nsw i64 64, %11
   %43 = lshr i64 %5, %42
   %.0.i.i.i = select i1 %.not.i.i.i, i64 0, i64 %43
-  store i64 %.0.i.i.i, ptr %14, align 8, !alias.scope !10148
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit
 
 44:                                               ; preds = %2
@@ -48058,7 +47979,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %89 = icmp ne i8 %88, 2
   %90 = zext i1 %89 to i64
   %91 = add i64 %86, 8
-  store i64 %91, ptr %6, align 8, !alias.scope !10168
   %92 = shl i64 %85, 3
   %93 = and i64 %92, 56
   %94 = shl nuw nsw i64 %90, %93
@@ -48098,7 +48018,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %121 = sub nsw i64 64, %92
   %122 = lshr i64 %90, %121
   %.0.i.i.i18 = select i1 %.not.i.i.i17, i64 0, i64 %122
-  store i64 %.0.i.i.i18, ptr %14, align 8, !alias.scope !10168
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit19
 
 123:                                              ; preds = %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit16
@@ -48154,7 +48073,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %159 = sub nsw i64 64, %130
   %160 = lshr i64 %128, %159
   %.0.i.i.i21 = select i1 %.not.i.i.i20, i64 0, i64 %160
-  store i64 %.0.i.i.i21, ptr %14, align 8, !alias.scope !10178
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit22
 
 161:                                              ; preds = %127
@@ -48226,7 +48144,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
 206:                                              ; preds = %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit25
   %207 = zext nneg i8 %167 to i64
   %208 = add i64 %165, 16
-  store i64 %208, ptr %6, align 8, !alias.scope !10198
   %209 = shl i64 %205, 3
   %210 = and i64 %209, 56
   %211 = shl nuw nsw i64 %207, %210
@@ -48266,7 +48183,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %238 = sub nsw i64 64, %209
   %239 = lshr i64 %207, %238
   %.0.i.i.i27 = select i1 %.not.i.i.i26, i64 0, i64 %239
-  store i64 %.0.i.i.i27, ptr %14, align 8, !alias.scope !10198
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit28
 
 240:                                              ; preds = %206
@@ -48766,7 +48682,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
 49:                                               ; preds = %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit
   %50 = zext nneg i8 %4 to i64
   %51 = add i64 %8, 9
-  store i64 %51, ptr %7, align 8, !alias.scope !10258
   %52 = sub i64 8, %48
   %53 = shl i64 %48, 3
   %54 = and i64 %53, 56
@@ -48806,7 +48721,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   %82 = add i64 %48, -7
   %83 = shl nuw nsw i64 %52, 3
   %84 = lshr i64 %50, %83
-  store i64 %84, ptr %15, align 8, !alias.scope !10258
   br label %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$8write_u817h4f94f6fa8ceb2883E.llvm.16978709814855407318.exit"
 
 85:                                               ; preds = %49
@@ -52294,7 +52208,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
 
 122:                                              ; preds = %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit6
   %123 = add i64 %89, 8
-  store i64 %123, ptr %8, align 8, !alias.scope !10852
   br label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit9
 
 _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit9: ; preds = %96, %122
@@ -53683,6 +53596,7 @@ define internal fastcc void @"_ZN6comemo10constraint28ImmutableConstraint$LT$T$G
   %.sroa.614.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.715.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11097)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11100)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11102)
@@ -53757,6 +53671,7 @@ define internal fastcc void @"_ZN6comemo10constraint28ImmutableConstraint$LT$T$G
   store i64 %46, ptr %.sroa.412.0..sroa_idx.i, align 8, !alias.scope !11130, !noalias !11107
   %47 = xor i64 %40, %31
   store i64 %47, ptr %7, align 8, !alias.scope !11125, !noalias !11107
+  store i64 0, ptr %.sroa.10.0..sroa_idx.i, align 8, !alias.scope !11125, !noalias !11107
   br label %_ZN6comemo10constraint4hash17h9a410d83e4687265E.exit
 
 _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.exit4.i.i.i: ; preds = %3
@@ -53781,6 +53696,7 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.16978709814855407318.
   store i64 %62, ptr %.sroa.412.0..sroa_idx.i, align 8, !alias.scope !11140, !noalias !11107
   %63 = xor i64 %56, %8
   store i64 %63, ptr %7, align 8, !alias.scope !11133, !noalias !11107
+  store i64 0, ptr %.sroa.10.0..sroa_idx.i, align 8, !alias.scope !11133, !noalias !11107
   %.not.i.i.i = icmp eq i64 %8, 0
   br i1 %.not.i.i.i, label %_ZN6comemo10constraint4hash17h9a410d83e4687265E.exit, label %64
 
@@ -122276,6 +122192,7 @@ _ZN5typst4eval6tracer6Tracer9inspected17hbf88866871d5d757E.exit: ; preds = %17, 
   br i1 %.not.i.i, label %52, label %35
 
 35:                                               ; preds = %21
+  %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i64 16, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !23293
   %36 = xor i64 %30, %20
   %37 = add nsw i64 %34, %32
@@ -122297,6 +122214,7 @@ _ZN5typst4eval6tracer6Tracer9inspected17hbf88866871d5d757E.exit: ; preds = %17, 
   store i64 %50, ptr %.sroa.412.0..sroa_idx.i, align 8, !alias.scope !23300
   %51 = xor i64 %44, %20
   store i64 %51, ptr %4, align 8, !alias.scope !23293
+  store i64 0, ptr %.sroa.10.0..sroa_idx.i, align 8, !alias.scope !23293
   br label %52
 
 52:                                               ; preds = %35, %21

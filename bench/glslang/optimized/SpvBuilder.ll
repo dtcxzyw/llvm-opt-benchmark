@@ -25870,19 +25870,19 @@ define noundef i32 @_ZN3spv7Builder11createBinOpENS_2OpEjjj(ptr noundef nonnull 
   br i1 %11, label %_ZNSt6vectorIjSaIjEED2Ev.exit15, label %_ZN3spv11Instruction15reserveOperandsEm.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit15:                  ; preds = %5
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %13 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
-  store ptr %13, ptr %6, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store ptr %14, ptr %12, align 8
-  store i32 %3, ptr %13, align 4
-  store i32 %4, ptr %16, align 4
+  %12 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
+  store ptr %12, ptr %6, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %13, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %13, ptr %16, align 8
+  store i32 %3, ptr %12, align 4
+  store i32 %4, ptr %15, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %17 = call noundef i32 @_ZN3spv7Builder20createSpecConstantOpENS_2OpEjRKSt6vectorIjSaIjEES6_(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
-  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef 8) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef 8) #24
   br label %40
 
 _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %5
@@ -25951,21 +25951,21 @@ define noundef i32 @_ZN3spv7Builder11createTriOpENS_2OpEjjjj(ptr noundef nonnull
   br i1 %12, label %_ZNSt6vectorIjSaIjEED2Ev.exit18, label %_ZN3spv11Instruction15reserveOperandsEm.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit18:                  ; preds = %6
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %14 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
-  store ptr %14, ptr %7, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  store ptr %15, ptr %13, align 8
-  store i32 %3, ptr %14, align 4
-  store i32 %4, ptr %17, align 4
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %13 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
+  store ptr %13, ptr %7, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %14, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %14, ptr %17, align 8
+  store i32 %3, ptr %13, align 4
+  store i32 %4, ptr %16, align 4
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %5, ptr %18, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %19 = call noundef i32 @_ZN3spv7Builder20createSpecConstantOpENS_2OpEjRKSt6vectorIjSaIjEES6_(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
-  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef 12) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef 12) #24
   br label %42
 
 _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %6
@@ -26361,16 +26361,16 @@ define noundef i32 @_ZN3spv7Builder19createRvalueSwizzleENS_10DecorationEjjRKSt6
   br i1 %24, label %25, label %35
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %27 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
-  store ptr %27, ptr %6, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  store ptr %28, ptr %26, align 8
-  store i32 %3, ptr %30, align 4
-  store i32 %3, ptr %27, align 4
+  %26 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
+  store ptr %26, ptr %6, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %27, ptr %28, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %27, ptr %30, align 8
+  store i32 %3, ptr %29, align 4
+  store i32 %3, ptr %26, align 4
   %31 = call noundef i32 @_ZN3spv7Builder20createSpecConstantOpENS_2OpEjRKSt6vectorIjSaIjEES6_(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef 79, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %32 = icmp ne i32 %1, 2147483647
   %33 = icmp ne i32 %31, 0
@@ -26382,7 +26382,7 @@ define noundef i32 @_ZN3spv7Builder19createRvalueSwizzleENS_10DecorationEjjRKSt6
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %25, %34
-  tail call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef 8) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef 8) #24
   br label %_ZN3spv7Builder12setPrecisionEjNS_10DecorationE.exit
 
 35:                                               ; preds = %21
@@ -31287,7 +31287,6 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit170:       ; preds = %_ZNSt6vectorIjSaIjE
   store i32 %381, ptr %380, align 4
   %382 = getelementptr inbounds nuw i8, ptr %380, i64 4
   store ptr %380, ptr %9, align 8
-  store ptr %382, ptr %374, align 8
   store ptr %382, ptr %375, align 8
   br i1 %.not359, label %._crit_edge333.thread, label %.lr.ph332
 

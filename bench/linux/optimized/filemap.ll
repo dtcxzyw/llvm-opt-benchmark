@@ -957,6 +957,7 @@ define dso_local void @__filemap_remove_folio(ptr noundef %0, ptr noundef %1) lo
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i32 0, ptr %32, align 8
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
@@ -3226,13 +3227,15 @@ declare dso_local ptr @xas_store(ptr noundef, ptr noundef) local_unnamed_addr #0
 define dso_local i32 @__filemap_add_folio(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #1 align 16 {
   %6 = alloca %struct.xa_state, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #14
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 0, ptr %7, align 8, !annotation !14
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 17
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i32 0, ptr %10, align 8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -3283,7 +3286,6 @@ define dso_local i32 @__filemap_add_folio(ptr noundef %0, ptr noundef %1, i64 no
 .thread:                                          ; preds = %34, %30
   %.lhs.trunc = phi i8 [ 0, %30 ], [ %42, %34 ]
   %43 = phi i64 [ %2, %30 ], [ %spec.select, %34 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !14
   store i64 %43, ptr %9, align 8
   %44 = urem i8 %.lhs.trunc, 6
   %45 = sub nuw i8 %.lhs.trunc, %44

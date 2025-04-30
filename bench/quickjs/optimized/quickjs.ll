@@ -53542,8 +53542,8 @@ define dso_local { i64, i64 } @JS_ReadObject(ptr noundef %0, ptr noundef %1, i64
   %11 = trunc i64 %2 to i32
   %12 = add i32 %10, %11
   store i32 %12, ptr %9, align 4, !tbaa !285
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %13, i8 0, i64 56, i1 false)
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, i8 0, i64 40, i1 false)
   store ptr %0, ptr %5, align 8, !tbaa !556
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %14, align 8, !tbaa !559
@@ -53589,14 +53589,14 @@ bc_get_u8.exit.i:                                 ; preds = %4
 38:                                               ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %.not20.i.i.i.not = icmp eq i64 %2, 1
-  br i1 %.not20.i.i.i.not, label %get_leb128.exit.thread.i.i, label %.lr.ph.i.i.i, !prof !562
+  br i1 %.not20.i.i.i.not, label %bc_get_leb128.exit.i, label %.lr.ph.i.i.i, !prof !562
 
 40:                                               ; preds = %.lr.ph.i.i.i
   %41 = add nuw nsw i32 %.023.i.i.i, 1
   %42 = icmp samesign ult i32 %.023.i.i.i, 4
   %.not.i.i41.i = icmp ult ptr %43, %15
   %or.cond.i.i.i = select i1 %42, i1 %.not.i.i41.i, i1 false
-  br i1 %or.cond.i.i.i, label %.lr.ph.i.i.i, label %get_leb128.exit.thread.i.i, !prof !488, !llvm.loop !489
+  br i1 %or.cond.i.i.i, label %.lr.ph.i.i.i, label %bc_get_leb128.exit.i, !prof !488, !llvm.loop !489
 
 .lr.ph.i.i.i:                                     ; preds = %38, %40
   %.023.i.i.i = phi i32 [ %41, %40 ], [ 0, %38 ]
@@ -53612,10 +53612,6 @@ bc_get_u8.exit.i:                                 ; preds = %4
   %.not18.i.i.i = icmp sgt i8 %44, -1
   br i1 %.not18.i.i.i, label %get_leb128.exit.i.i, label %40
 
-get_leb128.exit.thread.i.i:                       ; preds = %40, %38
-  store i32 0, ptr %39, align 4, !tbaa !67
-  br label %bc_get_leb128.exit.i
-
 get_leb128.exit.i.i:                              ; preds = %.lr.ph.i.i.i
   store i32 %49, ptr %39, align 4, !tbaa !67
   %50 = ptrtoint ptr %43 to i64
@@ -53625,7 +53621,7 @@ get_leb128.exit.i.i:                              ; preds = %.lr.ph.i.i.i
   %.not.i.i = icmp eq i64 %53, 0
   br i1 %.not.i.i, label %55, label %bc_get_leb128.exit.i, !prof !563
 
-bc_get_leb128.exit.i:                             ; preds = %get_leb128.exit.i.i, %get_leb128.exit.thread.i.i
+bc_get_leb128.exit.i:                             ; preds = %40, %38, %get_leb128.exit.i.i
   %54 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef nonnull @.str.203)
   br label %JS_ReadObjectAtoms.exit.thread
 
@@ -121054,7 +121050,6 @@ check_function.exit:                              ; preds = %6, %18, %JS_IsFunct
   br i1 %.not, label %JS_FreeValue.exit307, label %40
 
 40:                                               ; preds = %32
-  store i32 0, ptr %9, align 8
   %.sroa.250.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.sroa.351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 4

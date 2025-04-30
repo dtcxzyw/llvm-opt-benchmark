@@ -5160,7 +5160,6 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %entry
-  %5 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %cmp.not.i.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i25, label %if.then.i.i.i.i.i
 
@@ -5181,16 +5180,18 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i
   br label %if.then.i.i.i.i.i15
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i25: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
+  %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %restConstraints_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %elementConstraints_, i8 0, i64 48, i1 false)
   br label %if.end.i
 
 if.then.i.i.i.i.i15:                              ; preds = %if.then.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %__first.addr.0.i.i.i.i.i.ph = phi ptr [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
-  store ptr %__first.addr.0.i.i.i.i.i.ph, ptr %5, align 8
-  %restConstraints_67 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %_M_finish.i.i7.i67 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  store ptr %__first.addr.0.i.i.i.i.i.ph, ptr %_M_finish.i.i7.i67, align 8
+  %restConstraints_68 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %call5.i.i.i.i.i.i16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.div.i) #18
-  store ptr %call5.i.i.i.i.i.i16, ptr %restConstraints_67, align 8
+  store ptr %call5.i.i.i.i.i.i16, ptr %restConstraints_68, align 8
   %add.ptr.i.i.i17 = getelementptr i8, ptr %call5.i.i.i.i.i.i16, i64 %sub.ptr.div.i
   %_M_end_of_storage.i.i.i18 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %add.ptr.i.i.i17, ptr %_M_end_of_storage.i.i.i18, align 8
@@ -5203,11 +5204,12 @@ if.then.i.i.i.i.i.i.i.i.i22:                      ; preds = %if.then.i.i.i.i.i15
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i.i.i.i.i.i.i.i22, %if.then.i.i.i.i.i15, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i25
-  %6 = phi ptr [ %__first.addr.0.i.i.i.i.i.ph, %if.then.i.i.i.i.i15 ], [ %__first.addr.0.i.i.i.i.i.ph, %if.then.i.i.i.i.i.i.i.i.i22 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i25 ]
-  %restConstraints_69 = phi ptr [ %restConstraints_67, %if.then.i.i.i.i.i15 ], [ %restConstraints_67, %if.then.i.i.i.i.i.i.i.i.i22 ], [ %restConstraints_, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i25 ]
+  %5 = phi ptr [ %__first.addr.0.i.i.i.i.i.ph, %if.then.i.i.i.i.i15 ], [ %__first.addr.0.i.i.i.i.i.ph, %if.then.i.i.i.i.i.i.i.i.i22 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i25 ]
+  %restConstraints_72 = phi ptr [ %restConstraints_68, %if.then.i.i.i.i.i15 ], [ %restConstraints_68, %if.then.i.i.i.i.i.i.i.i.i22 ], [ %restConstraints_, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i25 ]
+  %_M_finish.i.i7.i69 = phi ptr [ %_M_finish.i.i7.i67, %if.then.i.i.i.i.i15 ], [ %_M_finish.i.i7.i67, %if.then.i.i.i.i.i.i.i.i.i22 ], [ %_M_finish.i.i7.i, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i25 ]
   %__first.addr.0.i.i.i.i.i23 = phi ptr [ %incdec.ptr.i.i.i.i.i19, %if.then.i.i.i.i.i15 ], [ %add.ptr.i.i.i17, %if.then.i.i.i.i.i.i.i.i.i22 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i25 ]
-  %7 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr %__first.addr.0.i.i.i.i.i23, ptr %7, align 8
+  %_M_finish.i.i7.i24 = getelementptr inbounds nuw i8, ptr %this, i64 64
+  store ptr %__first.addr.0.i.i.i.i.i23, ptr %_M_finish.i.i7.i24, align 8
   %jumps_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %cmp3.i.not = icmp eq ptr %3, %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %jumps_, i8 0, i64 56, i1 false)
@@ -5226,87 +5228,87 @@ _ZNSt12_Vector_baseIN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS1_
 
 _ZNSt6vectorIN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS1_10Jump32InsnEEESaIS5_EE7reserveEm.exit: ; preds = %if.end.i, %_ZNSt12_Vector_baseIN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS1_10Jump32InsnEEESaIS5_EE13_M_deallocateEPS5_m.exit.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 -24
-  %8 = load ptr, ptr %add.ptr.i.i, align 8
+  %6 = load ptr, ptr %add.ptr.i.i, align 8
   %_M_finish.i.i36 = getelementptr inbounds i8, ptr %3, i64 -16
-  %9 = load ptr, ptr %_M_finish.i.i36, align 8
-  %cmp.i.not6.i = icmp eq ptr %8, %9
+  %7 = load ptr, ptr %_M_finish.i.i36, align 8
+  %cmp.i.not6.i = icmp eq ptr %6, %7
   br i1 %cmp.i.not6.i, label %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt6vectorIN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS1_10Jump32InsnEEESaIS5_EE7reserveEm.exit, %for.body.i
   %result.08.i = phi i8 [ %or3.i, %for.body.i ], [ 0, %_ZNSt6vectorIN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS1_10Jump32InsnEEESaIS5_EE7reserveEm.exit ]
-  %__begin2.sroa.0.07.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %8, %_ZNSt6vectorIN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS1_10Jump32InsnEEESaIS5_EE7reserveEm.exit ]
-  %10 = load ptr, ptr %__begin2.sroa.0.07.i, align 8
-  %vtable.i = load ptr, ptr %10, align 8
+  %__begin2.sroa.0.07.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %6, %_ZNSt6vectorIN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS1_10Jump32InsnEEESaIS5_EE7reserveEm.exit ]
+  %8 = load ptr, ptr %__begin2.sroa.0.07.i, align 8
+  %vtable.i = load ptr, ptr %8, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 32
-  %11 = load ptr, ptr %vfn.i, align 8
-  %call5.i = tail call noundef zeroext i8 %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #16
+  %9 = load ptr, ptr %vfn.i, align 8
+  %call5.i = tail call noundef zeroext i8 %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #16
   %or3.i = or i8 %call5.i, %result.08.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.07.i, i64 8
-  %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %9
+  %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %7
   br i1 %cmp.i.not.i, label %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit.loopexit, label %for.body.i
 
 _ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit.loopexit: ; preds = %for.body.i
-  %.pre = load ptr, ptr %5, align 8
+  %.pre = load ptr, ptr %_M_finish.i.i7.i69, align 8
   br label %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit
 
 _ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit: ; preds = %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit.loopexit, %_ZNSt6vectorIN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS1_10Jump32InsnEEESaIS5_EE7reserveEm.exit
-  %12 = phi ptr [ %6, %_ZNSt6vectorIN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS1_10Jump32InsnEEESaIS5_EE7reserveEm.exit ], [ %.pre, %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit.loopexit ]
+  %10 = phi ptr [ %5, %_ZNSt6vectorIN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS1_10Jump32InsnEEESaIS5_EE7reserveEm.exit ], [ %.pre, %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit.loopexit ]
   %result.0.lcssa.i = phi i8 [ 0, %_ZNSt6vectorIN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS1_10Jump32InsnEEESaIS5_EE7reserveEm.exit ], [ %or3.i, %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit.loopexit ]
-  %add.ptr.i.i38 = getelementptr inbounds i8, ptr %12, i64 -1
+  %add.ptr.i.i38 = getelementptr inbounds i8, ptr %10, i64 -1
   store i8 %result.0.lcssa.i, ptr %add.ptr.i.i38, align 1
-  %13 = load ptr, ptr %5, align 8
-  %add.ptr.i.i40 = getelementptr inbounds i8, ptr %13, i64 -1
-  %14 = load i8, ptr %add.ptr.i.i40, align 1
-  %15 = load ptr, ptr %7, align 8
-  %add.ptr.i.i42 = getelementptr inbounds i8, ptr %15, i64 -1
-  store i8 %14, ptr %add.ptr.i.i42, align 1
-  %16 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %17 = load ptr, ptr %alternatives_, align 8
-  %sub.ptr.lhs.cast.i44 = ptrtoint ptr %16 to i64
-  %sub.ptr.rhs.cast.i45 = ptrtoint ptr %17 to i64
+  %11 = load ptr, ptr %_M_finish.i.i7.i69, align 8
+  %add.ptr.i.i40 = getelementptr inbounds i8, ptr %11, i64 -1
+  %12 = load i8, ptr %add.ptr.i.i40, align 1
+  %13 = load ptr, ptr %_M_finish.i.i7.i24, align 8
+  %add.ptr.i.i42 = getelementptr inbounds i8, ptr %13, i64 -1
+  store i8 %12, ptr %add.ptr.i.i42, align 1
+  %14 = load ptr, ptr %_M_finish.i.i.i.i, align 8
+  %15 = load ptr, ptr %alternatives_, align 8
+  %sub.ptr.lhs.cast.i44 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i45 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i46 = sub i64 %sub.ptr.lhs.cast.i44, %sub.ptr.rhs.cast.i45
   %sub.ptr.div.i47 = sdiv exact i64 %sub.ptr.sub.i46, 24
   %sub = add nsw i64 %sub.ptr.div.i47, -1
-  %cmp.not70 = icmp eq i64 %sub, 0
-  br i1 %cmp.not70, label %for.end, label %for.body
+  %cmp.not73 = icmp eq i64 %sub, 0
+  br i1 %cmp.not73, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit, %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit61
-  %i.071 = phi i64 [ %dec, %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit61 ], [ %sub, %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit ]
-  %dec = add i64 %i.071, -1
-  %18 = load ptr, ptr %alternatives_, align 8
-  %add.ptr.i48 = getelementptr inbounds %"class.std::vector", ptr %18, i64 %dec
-  %19 = load ptr, ptr %add.ptr.i48, align 8
+  %i.074 = phi i64 [ %dec, %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit61 ], [ %sub, %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit ]
+  %dec = add i64 %i.074, -1
+  %16 = load ptr, ptr %alternatives_, align 8
+  %add.ptr.i48 = getelementptr inbounds %"class.std::vector", ptr %16, i64 %dec
+  %17 = load ptr, ptr %add.ptr.i48, align 8
   %_M_finish.i.i49 = getelementptr inbounds nuw i8, ptr %add.ptr.i48, i64 8
-  %20 = load ptr, ptr %_M_finish.i.i49, align 8
-  %cmp.i.not6.i50 = icmp eq ptr %19, %20
+  %18 = load ptr, ptr %_M_finish.i.i49, align 8
+  %cmp.i.not6.i50 = icmp eq ptr %17, %18
   br i1 %cmp.i.not6.i50, label %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit61, label %for.body.i51
 
 for.body.i51:                                     ; preds = %for.body, %for.body.i51
   %result.08.i52 = phi i8 [ %or3.i57, %for.body.i51 ], [ 0, %for.body ]
-  %__begin2.sroa.0.07.i53 = phi ptr [ %incdec.ptr.i.i58, %for.body.i51 ], [ %19, %for.body ]
-  %21 = load ptr, ptr %__begin2.sroa.0.07.i53, align 8
-  %vtable.i54 = load ptr, ptr %21, align 8
+  %__begin2.sroa.0.07.i53 = phi ptr [ %incdec.ptr.i.i58, %for.body.i51 ], [ %17, %for.body ]
+  %19 = load ptr, ptr %__begin2.sroa.0.07.i53, align 8
+  %vtable.i54 = load ptr, ptr %19, align 8
   %vfn.i55 = getelementptr inbounds nuw i8, ptr %vtable.i54, i64 32
-  %22 = load ptr, ptr %vfn.i55, align 8
-  %call5.i56 = tail call noundef zeroext i8 %22(ptr noundef nonnull align 8 dereferenceable(8) %21) #16
+  %20 = load ptr, ptr %vfn.i55, align 8
+  %call5.i56 = tail call noundef zeroext i8 %20(ptr noundef nonnull align 8 dereferenceable(8) %19) #16
   %or3.i57 = or i8 %call5.i56, %result.08.i52
   %incdec.ptr.i.i58 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.07.i53, i64 8
-  %cmp.i.not.i59 = icmp eq ptr %incdec.ptr.i.i58, %20
+  %cmp.i.not.i59 = icmp eq ptr %incdec.ptr.i.i58, %18
   br i1 %cmp.i.not.i59, label %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit61, label %for.body.i51
 
 _ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit61: ; preds = %for.body.i51, %for.body
   %result.0.lcssa.i60 = phi i8 [ 0, %for.body ], [ %or3.i57, %for.body.i51 ]
-  %23 = load ptr, ptr %elementConstraints_, align 8
-  %add.ptr.i62 = getelementptr inbounds i8, ptr %23, i64 %dec
+  %21 = load ptr, ptr %elementConstraints_, align 8
+  %add.ptr.i62 = getelementptr inbounds i8, ptr %21, i64 %dec
   store i8 %result.0.lcssa.i60, ptr %add.ptr.i62, align 1
-  %24 = load ptr, ptr %restConstraints_69, align 8
-  %add.ptr.i63 = getelementptr inbounds i8, ptr %24, i64 %i.071
-  %25 = load i8, ptr %add.ptr.i63, align 1
-  %26 = load ptr, ptr %elementConstraints_, align 8
-  %add.ptr.i64 = getelementptr inbounds i8, ptr %26, i64 %dec
-  %27 = load i8, ptr %add.ptr.i64, align 1
-  %and6 = and i8 %27, %25
-  %add.ptr.i65 = getelementptr inbounds i8, ptr %24, i64 %dec
+  %22 = load ptr, ptr %restConstraints_72, align 8
+  %add.ptr.i63 = getelementptr inbounds i8, ptr %22, i64 %i.074
+  %23 = load i8, ptr %add.ptr.i63, align 1
+  %24 = load ptr, ptr %elementConstraints_, align 8
+  %add.ptr.i64 = getelementptr inbounds i8, ptr %24, i64 %dec
+  %25 = load i8, ptr %add.ptr.i64, align 1
+  %and6 = and i8 %25, %23
+  %add.ptr.i65 = getelementptr inbounds i8, ptr %22, i64 %dec
   store i8 %and6, ptr %add.ptr.i65, align 1
   %cmp.not = icmp eq i64 %dec, 0
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !74

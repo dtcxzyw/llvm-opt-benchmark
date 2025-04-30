@@ -1455,39 +1455,39 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93: ; preds = %_ZN
   %546 = mul nuw nsw i64 %.1190, 13
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16) #16
   %547 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %548 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %549 = add nuw nsw i64 %546, 88
-  %550 = lshr i64 %549, 3
-  %551 = and i64 %550, 504
-  %552 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %551) #18
-          to label %554 unwind label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit146
+  %548 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %549 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %550 = add nuw nsw i64 %546, 88
+  %551 = lshr i64 %550, 3
+  %552 = and i64 %551, 504
+  %553 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %552) #18
+          to label %555 unwind label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit146
 
 _ZNSt13_Bvector_baseISaIbEED2Ev.exit146:          ; preds = %545
-  %553 = landingpad { ptr, i32 }
+  %554 = landingpad { ptr, i32 }
           cleanup
   br label %.body94
 
-554:                                              ; preds = %545
-  %555 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %556 = getelementptr inbounds nuw i8, ptr %16, i64 16
+555:                                              ; preds = %545
+  %556 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %557 = add nuw nsw i64 %546, 25
-  %558 = lshr i64 %549, 6
-  %559 = getelementptr inbounds nuw i64, ptr %552, i64 %558
-  store ptr %559, ptr %548, align 8, !tbaa !35
-  store ptr %552, ptr %16, align 8
+  %558 = lshr i64 %550, 6
+  %559 = getelementptr inbounds nuw i64, ptr %553, i64 %558
+  store ptr %559, ptr %549, align 8, !tbaa !35
+  store ptr %553, ptr %16, align 8
   store i32 0, ptr %547, align 8
   %560 = lshr i64 %557, 6
-  %561 = getelementptr inbounds nuw i64, ptr %552, i64 %560
+  %561 = getelementptr inbounds nuw i64, ptr %553, i64 %560
   %562 = trunc nuw i64 %557 to i32
   %563 = and i32 %562, 63
-  store ptr %561, ptr %556, align 8
-  store i32 %563, ptr %555, align 8
+  store ptr %561, ptr %548, align 8
+  store i32 %563, ptr %556, align 8
   %.idx.i = shl nuw nsw i64 %558, 3
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %552, i8 0, i64 %.idx.i, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %553, i8 0, i64 %.idx.i, i1 false)
   br label %564
 
-564:                                              ; preds = %564, %554
-  %indvars.iv.i = phi i64 [ 0, %554 ], [ %indvars.iv.next.i, %564 ]
+564:                                              ; preds = %564, %555
+  %indvars.iv.i = phi i64 [ 0, %555 ], [ %indvars.iv.next.i, %564 ]
   %565 = trunc i64 %indvars.iv.i to i32
   %566 = sub i32 8, %565
   %567 = shl nuw nsw i32 1, %566
@@ -1613,7 +1613,7 @@ _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm9EEEEiRSt6vectorIbSaIbEE
   br i1 %.not.i.i, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, label %618
 
 618:                                              ; preds = %616
-  %619 = load ptr, ptr %548, align 8, !tbaa !35
+  %619 = load ptr, ptr %549, align 8, !tbaa !35
   %620 = ptrtoint ptr %619 to i64
   %621 = ptrtoint ptr %617 to i64
   %622 = sub i64 %620, %621
@@ -1658,7 +1658,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111: ; preds = %_Z
   br i1 %.not.i.i112, label %.body94, label %635
 
 635:                                              ; preds = %633
-  %636 = load ptr, ptr %548, align 8, !tbaa !35
+  %636 = load ptr, ptr %549, align 8, !tbaa !35
   %637 = ptrtoint ptr %636 to i64
   %638 = ptrtoint ptr %634 to i64
   %639 = sub i64 %637, %638
@@ -1668,10 +1668,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111: ; preds = %_Z
   call void @_ZdlPvm(ptr noundef %642, i64 noundef %639) #19
   store ptr null, ptr %16, align 8
   store i32 0, ptr %547, align 8
+  store ptr null, ptr %548, align 8
   br label %.body94
 
 .body94:                                          ; preds = %635, %633, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit146
-  %.pn.pn.pn = phi { ptr, i32 } [ %553, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit146 ], [ %.pn.pn, %633 ], [ %.pn.pn, %635 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %554, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit146 ], [ %.pn.pn, %633 ], [ %.pn.pn, %635 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16) #16
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %15) #16
   br label %643

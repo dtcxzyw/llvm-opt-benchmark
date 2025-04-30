@@ -20088,6 +20088,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit67:           ; preds = %_ZNSt6vectorIbSaIbE
   %266 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %118, i64 noundef 8) #24
+  store ptr null, ptr %10, align 8
   br label %.body36
 
 .body36:                                          ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit72, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit67
@@ -20738,6 +20739,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit67:           ; preds = %_ZNSt6vectorIbSaIbE
   %266 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %118, i64 noundef 8) #24
+  store ptr null, ptr %10, align 8
   br label %.body36
 
 .body36:                                          ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit72, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit67
@@ -21402,6 +21404,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit99:           ; preds = %_ZNSt6vectorIbSaIbE
   %279 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %131, i64 noundef 8) #24
+  store ptr null, ptr %11, align 8
   br label %.body68
 
 .body68:                                          ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit197, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit99
@@ -22030,6 +22033,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit192:          ; preds = %_ZNSt6vectorIbSaIbE
   %536 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %388, i64 noundef 8) #24
+  store ptr null, ptr %19, align 8
   br label %.body133
 
 .body133:                                         ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit202, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit192
@@ -23522,6 +23526,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit189:          ; preds = %_ZNSt6vectorIbSaIbE
   %626 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %478, i64 noundef 8) #24
+  store ptr null, ptr %21, align 8
   br label %.body135
 
 .body135:                                         ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit194, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit189
@@ -24201,6 +24206,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit151:          ; preds = %_ZNSt6vectorIbSaIbE
   %289 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %141, i64 noundef 8) #24
+  store ptr null, ptr %11, align 8
   br label %.body120
 
 .body120:                                         ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit435, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit151
@@ -24830,6 +24836,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit244:          ; preds = %_ZNSt6vectorIbSaIbE
   %543 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %395, i64 noundef 8) #24
+  store ptr null, ptr %19, align 8
   br label %.body185
 
 .body185:                                         ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit440, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit244
@@ -25458,6 +25465,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit337:          ; preds = %_ZNSt6vectorIbSaIbE
   %797 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %649, i64 noundef 8) #24
+  store ptr null, ptr %27, align 8
   br label %.body278
 
 .body278:                                         ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit445, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit337
@@ -26081,6 +26089,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit430:          ; preds = %_ZNSt6vectorIbSaIbE
   %1049 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %901, i64 noundef 8) #24
+  store ptr null, ptr %35, align 8
   br label %.body371
 
 .body371:                                         ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit450, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit430

@@ -8474,39 +8474,37 @@ declare i32 @arkPredict_Bootstrap(ptr noundef, double noundef, double noundef, i
 ; Function Attrs: nounwind uwtable
 define range(i32 -22, 1) i32 @MRIStepInnerStepper_Create(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %14, label %3
+  br i1 %.not, label %13, label %3
 
 3:                                                ; preds = %2
-  %calloc15 = tail call dereferenceable_or_null(112) ptr @calloc(i64 1, i64 112)
-  store ptr %calloc15, ptr %1, align 8, !tbaa !240
-  %4 = icmp eq ptr %calloc15, null
+  %calloc = tail call dereferenceable_or_null(112) ptr @calloc(i64 1, i64 112)
+  store ptr %calloc, ptr %1, align 8, !tbaa !240
+  %4 = icmp eq ptr %calloc, null
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -20, i32 noundef 4266, ptr noundef nonnull @__func__.MRIStepInnerStepper_Create, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #14
-  br label %14
+  br label %13
 
 6:                                                ; preds = %3
-  %calloc = tail call dereferenceable_or_null(48) ptr @calloc(i64 1, i64 48)
-  %7 = getelementptr inbounds nuw i8, ptr %calloc15, i64 8
-  store ptr %calloc, ptr %7, align 8, !tbaa !103
-  %8 = icmp eq ptr %calloc, null
+  %calloc15 = tail call dereferenceable_or_null(48) ptr @calloc(i64 1, i64 48)
+  %7 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
+  store ptr %calloc15, ptr %7, align 8, !tbaa !103
+  %8 = icmp eq ptr %calloc15, null
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -20, i32 noundef 4275, ptr noundef nonnull @__func__.MRIStepInnerStepper_Create, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #14
   %10 = load ptr, ptr %1, align 8, !tbaa !240
   tail call void @free(ptr noundef %10) #14
-  br label %14
+  br label %13
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds nuw i8, ptr %calloc15, i64 40
-  store i32 0, ptr %12, align 8, !tbaa !166
-  %13 = getelementptr inbounds nuw i8, ptr %calloc15, i64 16
-  store ptr %0, ptr %13, align 8, !tbaa !241
-  br label %14
+  %12 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
+  store ptr %0, ptr %12, align 8, !tbaa !241
+  br label %13
 
-14:                                               ; preds = %2, %11, %9, %5
+13:                                               ; preds = %2, %11, %9, %5
   %.0 = phi i32 [ -20, %5 ], [ -20, %9 ], [ 0, %11 ], [ -22, %2 ]
   ret i32 %.0
 }
@@ -8518,39 +8516,44 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define range(i32 -22, 1) i32 @MRIStepInnerStepper_CreateFromSUNStepper(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !242
-  %5 = tail call i32 @MRIStepInnerStepper_Create(ptr noundef %4, ptr noundef %1)
-  %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %MRIStepInnerStepper_SetEvolveFn.exit.thread
+  %.not.i = icmp eq ptr %4, null
+  br i1 %.not.i, label %MRIStepInnerStepper_Create.exit.thread, label %5
 
-6:                                                ; preds = %2
-  %7 = load ptr, ptr %1, align 8, !tbaa !240
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %MRIStepInnerStepper_SetContent.exit, label %9
+5:                                                ; preds = %2
+  %calloc.i = tail call dereferenceable_or_null(112) ptr @calloc(i64 1, i64 112)
+  store ptr %calloc.i, ptr %1, align 8, !tbaa !240
+  %6 = icmp eq ptr %calloc.i, null
+  br i1 %6, label %7, label %8
 
-MRIStepInnerStepper_SetContent.exit:              ; preds = %6
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 4334, ptr noundef nonnull @__func__.MRIStepInnerStepper_SetContent, ptr noundef nonnull @.str, ptr noundef nonnull @.str.96) #14
-  br label %MRIStepInnerStepper_SetEvolveFn.exit.thread
+7:                                                ; preds = %5
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -20, i32 noundef 4266, ptr noundef nonnull @__func__.MRIStepInnerStepper_Create, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #14
+  br label %MRIStepInnerStepper_Create.exit.thread
 
-9:                                                ; preds = %6
-  store ptr %0, ptr %7, align 8, !tbaa !245
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !103
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %14
+8:                                                ; preds = %5
+  %calloc15.i = tail call dereferenceable_or_null(48) ptr @calloc(i64 1, i64 48)
+  %9 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
+  store ptr %calloc15.i, ptr %9, align 8, !tbaa !103
+  %10 = icmp eq ptr %calloc15.i, null
+  br i1 %10, label %11, label %13
 
-13:                                               ; preds = %9
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 4368, ptr noundef nonnull @__func__.MRIStepInnerStepper_SetEvolveFn, ptr noundef nonnull @.str, ptr noundef nonnull @.str.97) #14
-  br label %MRIStepInnerStepper_SetEvolveFn.exit.thread
+11:                                               ; preds = %8
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -20, i32 noundef 4275, ptr noundef nonnull @__func__.MRIStepInnerStepper_Create, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #14
+  %12 = load ptr, ptr %1, align 8, !tbaa !240
+  tail call void @free(ptr noundef %12) #14
+  br label %MRIStepInnerStepper_Create.exit.thread
 
-14:                                               ; preds = %9
-  store ptr @mriStepInnerStepper_EvolveSUNStepper, ptr %11, align 8, !tbaa !106
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
+  store ptr %4, ptr %14, align 8, !tbaa !241
+  store ptr %0, ptr %calloc.i, align 8, !tbaa !245
+  store ptr @mriStepInnerStepper_EvolveSUNStepper, ptr %calloc15.i, align 8, !tbaa !106
+  %15 = getelementptr inbounds nuw i8, ptr %calloc15.i, i64 8
   store ptr @mriStepInnerStepper_FullRhsSUNStepper, ptr %15, align 8, !tbaa !165
-  %16 = tail call i32 @MRIStepInnerStepper_SetResetFn(ptr noundef nonnull %7, ptr noundef nonnull @mriStepInnerStepper_ResetSUNStepper)
-  br label %MRIStepInnerStepper_SetEvolveFn.exit.thread
+  %16 = tail call i32 @MRIStepInnerStepper_SetResetFn(ptr noundef nonnull %calloc.i, ptr noundef nonnull @mriStepInnerStepper_ResetSUNStepper)
+  br label %MRIStepInnerStepper_Create.exit.thread
 
-MRIStepInnerStepper_SetEvolveFn.exit.thread:      ; preds = %13, %MRIStepInnerStepper_SetContent.exit, %14, %2
-  %.0 = phi i32 [ %5, %2 ], [ -22, %MRIStepInnerStepper_SetContent.exit ], [ %16, %14 ], [ -22, %13 ]
+MRIStepInnerStepper_Create.exit.thread:           ; preds = %2, %11, %7, %13
+  %.0 = phi i32 [ %16, %13 ], [ -22, %2 ], [ -20, %11 ], [ -20, %7 ]
   ret i32 %.0
 }
 

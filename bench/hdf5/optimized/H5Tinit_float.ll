@@ -139,8 +139,6 @@ define range(i32 -1, 1) i32 @H5T__init_native_float_types() local_unnamed_addr #
   br i1 %exitcond.not, label %51, label %.preheader341, !llvm.loop !19
 
 51:                                               ; preds = %50
-  store float 0.000000e+00, ptr %3, align 4, !tbaa !20
-  store float 1.000000e+00, ptr %4, align 4, !tbaa !20
   %52 = load i8, ptr @H5T_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %53 = trunc nuw i8 %52 to i1
   %54 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -186,7 +184,7 @@ define range(i32 -1, 1) i32 @H5T__init_native_float_types() local_unnamed_addr #
 72:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %H5T__byte_cmp.exit.thread, label %.preheader.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %H5T__byte_cmp.exit.thread, label %.preheader.i, !llvm.loop !20
 
 H5T__byte_cmp.exit:                               ; preds = %.preheader.i
   %73 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -199,12 +197,12 @@ H5T__byte_cmp.exit.thread:                        ; preds = %72, %H5T__byte_cmp.
   %.1211 = phi i32 [ %75, %H5T__byte_cmp.exit ], [ %.0210359.ph, %72 ]
   %indvars.iv.next414 = add nuw nsw i64 %indvars.iv413, 1
   %exitcond416.not = icmp eq i64 %indvars.iv.next414, 4
-  br i1 %exitcond416.not, label %77, label %.outer459, !llvm.loop !23
+  br i1 %exitcond416.not, label %77, label %.outer459, !llvm.loop !21
 
 H5T__byte_cmp.exit.thread.thread:                 ; preds = %59
   %indvars.iv.next414443 = add nuw nsw i64 %indvars.iv413, 1
   %exitcond416.not444 = icmp eq i64 %indvars.iv.next414443, 4
-  br i1 %exitcond416.not444, label %.thread, label %59, !llvm.loop !23
+  br i1 %exitcond416.not444, label %.thread, label %59, !llvm.loop !21
 
 .thread:                                          ; preds = %H5T__byte_cmp.exit.thread.thread
   store float %62, ptr %5, align 4
@@ -247,7 +245,7 @@ H5T__byte_cmp.exit.thread.thread:                 ; preds = %59
   store i32 %96, ptr %95, align 4, !tbaa !10
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
   %exitcond71.not.i = icmp eq i64 %indvars.iv.next68.i, 4
-  br i1 %exitcond71.not.i, label %.loopexit338, label %94, !llvm.loop !24
+  br i1 %exitcond71.not.i, label %.loopexit338, label %94, !llvm.loop !22
 
 97:                                               ; preds = %89, %80
   %98 = icmp sgt i32 %83, %85
@@ -275,7 +273,7 @@ H5T__byte_cmp.exit.thread.thread:                 ; preds = %59
   store i32 %108, ptr %109, align 4, !tbaa !10
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
   %exitcond.not.i244 = icmp eq i64 %indvars.iv.next65.i, 4
-  br i1 %exitcond.not.i244, label %.loopexit338, label %106, !llvm.loop !25
+  br i1 %exitcond.not.i244, label %.loopexit338, label %106, !llvm.loop !23
 
 .loopexit338.loopexit501.critedge:                ; preds = %101, %97
   store i32 2, ptr %78, align 4, !tbaa !10
@@ -296,8 +294,8 @@ H5T__byte_cmp.exit.thread.thread:                 ; preds = %59
 
 .loopexit338:                                     ; preds = %106, %94, %.loopexit338.loopexit501.critedge, %.thread
   %117 = phi ptr [ %76, %.thread ], [ %78, %.loopexit338.loopexit501.critedge ], [ %78, %94 ], [ %78, %106 ]
-  store float 5.000000e-01, ptr %3, align 4, !tbaa !20
-  store float 1.000000e+00, ptr %4, align 4, !tbaa !20
+  store float 5.000000e-01, ptr %3, align 4, !tbaa !24
+  store float 1.000000e+00, ptr %4, align 4, !tbaa !24
   %118 = getelementptr inbounds nuw i8, ptr %2, i64 156
   %119 = call fastcc i32 @H5T__imp_bit(i32 noundef 4, ptr noundef %58, ptr noundef %3, ptr noundef %4, ptr noundef %7, ptr noundef %118)
   %120 = icmp slt i32 %119, 0
@@ -309,8 +307,8 @@ H5T__byte_cmp.exit.thread.thread:                 ; preds = %59
   %123 = select i1 %.not224, i32 2, i32 0
   %124 = getelementptr inbounds nuw i8, ptr %2, i64 160
   store i32 %123, ptr %124, align 8, !tbaa !27
-  store float 1.000000e+00, ptr %3, align 4, !tbaa !20
-  store float -1.000000e+00, ptr %4, align 4, !tbaa !20
+  store float 1.000000e+00, ptr %3, align 4, !tbaa !24
+  store float -1.000000e+00, ptr %4, align 4, !tbaa !24
   %125 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %126 = load i8, ptr @H5T_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %127 = trunc nuw i8 %126 to i1
@@ -323,7 +321,7 @@ H5T__byte_cmp.exit.thread.thread:                 ; preds = %59
 H5T__bit_cmp.exit.thread:                         ; preds = %121
   %132 = getelementptr inbounds nuw i8, ptr %2, i64 148
   store i32 0, ptr %132, align 4, !tbaa !28
-  store float 1.500000e+00, ptr %4, align 4, !tbaa !20
+  store float 1.500000e+00, ptr %4, align 4, !tbaa !24
   %133 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %.pre439 = load i32, ptr %133, align 8, !tbaa !29
   br label %H5T__bit_cmp.exit262
@@ -392,8 +390,8 @@ H5T__bit_cmp.exit:                                ; preds = %.preheader.i247
   store i32 %164, ptr %125, align 8, !tbaa !10
   %165 = getelementptr inbounds nuw i8, ptr %2, i64 148
   store i32 0, ptr %165, align 4, !tbaa !28
-  store float 1.000000e+00, ptr %3, align 4, !tbaa !20
-  store float 1.500000e+00, ptr %4, align 4, !tbaa !20
+  store float 1.000000e+00, ptr %3, align 4, !tbaa !24
+  store float 1.500000e+00, ptr %4, align 4, !tbaa !24
   %166 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store i32 0, ptr %166, align 8, !tbaa !10
   br label %167
@@ -471,7 +469,7 @@ H5T__bit_cmp.exit262:                             ; preds = %H5T__bit_cmp.exit.t
   %205 = sub i32 %204, %202
   %206 = getelementptr inbounds nuw i8, ptr %2, i64 168
   store i32 %205, ptr %206, align 8, !tbaa !34
-  store float 1.000000e+00, ptr %3, align 4, !tbaa !20
+  store float 1.000000e+00, ptr %3, align 4, !tbaa !24
   %207 = icmp ne i32 %205, 0
   %or.cond.i = and i1 %207, %131
   br i1 %or.cond.i, label %.preheader.i263, label %H5T__find_bias.exit, !prof !35
@@ -679,8 +677,6 @@ H5T__find_bias.exit:                              ; preds = %H5T__find_bias.exit
   br i1 %exitcond420.not, label %318, label %.preheader337, !llvm.loop !57
 
 318:                                              ; preds = %317
-  store double 0.000000e+00, ptr %8, align 8, !tbaa !58
-  store double 1.000000e+00, ptr %9, align 8, !tbaa !58
   %319 = load i8, ptr @H5T_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %320 = trunc nuw i8 %319 to i1
   %321 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -725,7 +721,7 @@ H5T__find_bias.exit:                              ; preds = %H5T__find_bias.exit
 338:                                              ; preds = %.preheader.i266
   %indvars.iv.next.i270 = add nuw nsw i64 %indvars.iv.i267, 1
   %exitcond.not.i271 = icmp eq i64 %indvars.iv.next.i270, 8
-  br i1 %exitcond.not.i271, label %H5T__byte_cmp.exit272.thread, label %.preheader.i266, !llvm.loop !22
+  br i1 %exitcond.not.i271, label %H5T__byte_cmp.exit272.thread, label %.preheader.i266, !llvm.loop !20
 
 H5T__byte_cmp.exit272:                            ; preds = %.preheader.i266
   %339 = trunc nuw nsw i64 %indvars.iv.i267 to i32
@@ -738,12 +734,12 @@ H5T__byte_cmp.exit272.thread:                     ; preds = %338, %H5T__byte_cmp
   %.1204 = phi i32 [ %341, %H5T__byte_cmp.exit272 ], [ %.0203369.ph, %338 ]
   %indvars.iv.next422 = add nuw nsw i64 %indvars.iv421, 1
   %exitcond424.not = icmp eq i64 %indvars.iv.next422, 8
-  br i1 %exitcond424.not, label %342, label %.outer, !llvm.loop !60
+  br i1 %exitcond424.not, label %342, label %.outer, !llvm.loop !58
 
 H5T__byte_cmp.exit272.thread.thread:              ; preds = %325
   %indvars.iv.next422448 = add nuw nsw i64 %indvars.iv421, 1
   %exitcond424.not449 = icmp eq i64 %indvars.iv.next422448, 8
-  br i1 %exitcond424.not449, label %.thread451, label %325, !llvm.loop !60
+  br i1 %exitcond424.not449, label %.thread451, label %325, !llvm.loop !58
 
 .thread451:                                       ; preds = %H5T__byte_cmp.exit272.thread.thread
   store double %328, ptr %10, align 8
@@ -784,7 +780,7 @@ H5T__byte_cmp.exit272.thread.thread:              ; preds = %325
   store i32 %360, ptr %359, align 4, !tbaa !10
   %indvars.iv.next68.i280 = add nuw nsw i64 %indvars.iv67.i279, 1
   %exitcond71.not.i281 = icmp eq i64 %indvars.iv.next68.i280, 8
-  br i1 %exitcond71.not.i281, label %.loopexit, label %358, !llvm.loop !24
+  br i1 %exitcond71.not.i281, label %.loopexit, label %358, !llvm.loop !22
 
 361:                                              ; preds = %353, %344
   %362 = icmp sgt i32 %347, %349
@@ -812,7 +808,7 @@ H5T__byte_cmp.exit272.thread.thread:              ; preds = %325
   store i32 %372, ptr %373, align 4, !tbaa !10
   %indvars.iv.next65.i277 = add nuw nsw i64 %indvars.iv64.i276, 1
   %exitcond.not.i278 = icmp eq i64 %indvars.iv.next65.i277, 8
-  br i1 %exitcond.not.i278, label %.loopexit, label %370, !llvm.loop !25
+  br i1 %exitcond.not.i278, label %.loopexit, label %370, !llvm.loop !23
 
 374:                                              ; preds = %365, %361
   store i32 2, ptr %117, align 4, !tbaa !10
@@ -829,7 +825,7 @@ H5T__byte_cmp.exit272.thread.thread:              ; preds = %325
   store i32 %379, ptr %380, align 8, !tbaa !10
   %indvars.iv.next.i275 = add nuw nsw i64 %indvars.iv.i274, 2
   %381 = icmp samesign ult i64 %indvars.iv.i274, 6
-  br i1 %381, label %375, label %.loopexit, !llvm.loop !61
+  br i1 %381, label %375, label %.loopexit, !llvm.loop !59
 
 382:                                              ; preds = %342
   %383 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !12
@@ -838,8 +834,8 @@ H5T__byte_cmp.exit272.thread.thread:              ; preds = %325
   br label %417
 
 .loopexit:                                        ; preds = %375, %370, %358, %.thread451
-  store double 5.000000e-01, ptr %8, align 8, !tbaa !58
-  store double 1.000000e+00, ptr %9, align 8, !tbaa !58
+  store double 5.000000e-01, ptr %8, align 8, !tbaa !60
+  store double 1.000000e+00, ptr %9, align 8, !tbaa !60
   %386 = call fastcc i32 @H5T__imp_bit(i32 noundef 8, ptr noundef %58, ptr noundef %8, ptr noundef %9, ptr noundef %12, ptr noundef %118)
   %387 = icmp slt i32 %386, 0
   br i1 %387, label %417, label %388
@@ -849,16 +845,16 @@ H5T__byte_cmp.exit272.thread.thread:              ; preds = %325
   %.not226 = icmp eq i32 %389, 0
   %390 = select i1 %.not226, i32 2, i32 0
   store i32 %390, ptr %124, align 8, !tbaa !27
-  store double 1.000000e+00, ptr %8, align 8, !tbaa !58
-  store double -1.000000e+00, ptr %9, align 8, !tbaa !58
+  store double 1.000000e+00, ptr %8, align 8, !tbaa !60
+  store double -1.000000e+00, ptr %9, align 8, !tbaa !60
   %391 = call fastcc i32 @H5T__bit_cmp(i32 noundef 8, ptr noundef %58, ptr noundef %8, ptr noundef %9, ptr noundef %12, ptr noundef %125)
   %392 = icmp slt i32 %391, 0
   br i1 %392, label %417, label %393
 
 393:                                              ; preds = %388
   store i32 0, ptr %199, align 4, !tbaa !28
-  store double 1.000000e+00, ptr %8, align 8, !tbaa !58
-  store double 1.500000e+00, ptr %9, align 8, !tbaa !58
+  store double 1.000000e+00, ptr %8, align 8, !tbaa !60
+  store double 1.500000e+00, ptr %9, align 8, !tbaa !60
   %394 = call fastcc i32 @H5T__bit_cmp(i32 noundef 8, ptr noundef %58, ptr noundef %8, ptr noundef %9, ptr noundef %12, ptr noundef %198)
   %395 = icmp slt i32 %394, 0
   br i1 %395, label %417, label %396
@@ -877,7 +873,7 @@ H5T__byte_cmp.exit272.thread.thread:              ; preds = %325
   %404 = load i32, ptr %125, align 8, !tbaa !33
   %405 = sub i32 %404, %403
   store i32 %405, ptr %206, align 8, !tbaa !34
-  store double 1.000000e+00, ptr %8, align 8, !tbaa !58
+  store double 1.000000e+00, ptr %8, align 8, !tbaa !60
   %406 = call fastcc i32 @H5T__find_bias(i32 noundef %403, i32 noundef %405, ptr noundef %58, ptr noundef %8) #11
   %407 = zext i32 %406 to i64
   store i64 %407, ptr %228, align 8, !tbaa !36
@@ -1090,7 +1086,7 @@ H5T__byte_cmp.exit272.thread.thread:              ; preds = %325
 519:                                              ; preds = %.preheader.i288
   %indvars.iv.next.i292 = add nuw nsw i64 %indvars.iv.i289, 1
   %exitcond.not.i293 = icmp eq i64 %indvars.iv.next.i292, 16
-  br i1 %exitcond.not.i293, label %H5T__byte_cmp.exit294.thread, label %.preheader.i288, !llvm.loop !22
+  br i1 %exitcond.not.i293, label %H5T__byte_cmp.exit294.thread, label %.preheader.i288, !llvm.loop !20
 
 H5T__byte_cmp.exit294:                            ; preds = %.preheader.i288
   %520 = trunc nuw nsw i64 %indvars.iv.i289 to i32
@@ -1291,7 +1287,6 @@ H5T__byte_cmp.exit294.thread:                     ; preds = %519, %506, %H5T__by
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %2, i8 0, i64 192, i1 false)
   store i32 2, ptr %2, align 8, !tbaa !14
   store i16 0, ptr %22, align 2
-  store half 0xH4400, ptr %18, align 2, !tbaa !67
   store i16 17408, ptr %20, align 2
   br label %.preheader333
 
@@ -1320,10 +1315,10 @@ H5T__byte_cmp.exit294.thread:                     ; preds = %519, %506, %H5T__by
   store i8 %.pre441, ptr %indvars.iv433.sroa.phi556, align 1, !tbaa !16
   %638 = shl i8 %.0192379, 1
   %.not232 = icmp eq i8 %638, 0
-  br i1 %.not232, label %639, label %630, !llvm.loop !69
+  br i1 %.not232, label %639, label %630, !llvm.loop !67
 
 639:                                              ; preds = %637
-  br i1 %629, label %.preheader333, label %640, !llvm.loop !70
+  br i1 %629, label %.preheader333, label %640, !llvm.loop !68
 
 640:                                              ; preds = %639
   %641 = load i8, ptr @H5T_init_g, align 1, !tbaa !3, !range !7, !noundef !8
@@ -1362,7 +1357,7 @@ H5T__byte_cmp.exit294.thread:                     ; preds = %519, %506, %H5T__by
 661:                                              ; preds = %.preheader.i300
   %indvars.iv.next.i304 = add nuw nsw i64 %indvars.iv.i301, 1
   %exitcond.not.i305 = icmp eq i64 %indvars.iv.next.i304, 2
-  br i1 %exitcond.not.i305, label %H5T__byte_cmp.exit306.thread, label %.preheader.i300, !llvm.loop !22
+  br i1 %exitcond.not.i305, label %H5T__byte_cmp.exit306.thread, label %.preheader.i300, !llvm.loop !20
 
 H5T__byte_cmp.exit306:                            ; preds = %.preheader.i300
   %662 = trunc nuw nsw i64 %indvars.iv.i301 to i32
@@ -1373,7 +1368,7 @@ H5T__byte_cmp.exit306:                            ; preds = %.preheader.i300
 
 H5T__byte_cmp.exit306.thread:                     ; preds = %661, %647, %H5T__byte_cmp.exit306
   %.1 = phi i32 [ %664, %H5T__byte_cmp.exit306 ], [ %.0187386, %647 ], [ %.0187386, %661 ]
-  br i1 %648, label %647, label %665, !llvm.loop !71
+  br i1 %648, label %647, label %665, !llvm.loop !69
 
 665:                                              ; preds = %H5T__byte_cmp.exit306.thread
   %666 = call fastcc i32 @H5T__fix_order(i32 noundef 2, i32 noundef %.1, ptr noundef %58, ptr noundef %117)
@@ -1381,8 +1376,8 @@ H5T__byte_cmp.exit306.thread:                     ; preds = %661, %647, %H5T__by
   br i1 %667, label %700, label %668
 
 668:                                              ; preds = %665
-  store half 0xH3800, ptr %18, align 2, !tbaa !67
-  store half 0xH3C00, ptr %19, align 2, !tbaa !67
+  store half 0xH3800, ptr %18, align 2, !tbaa !70
+  store half 0xH3C00, ptr %19, align 2, !tbaa !70
   %669 = call fastcc i32 @H5T__imp_bit(i32 noundef 2, ptr noundef %58, ptr noundef %18, ptr noundef %19, ptr noundef %22, ptr noundef %118)
   %670 = icmp slt i32 %669, 0
   br i1 %670, label %700, label %671
@@ -1392,16 +1387,16 @@ H5T__byte_cmp.exit306.thread:                     ; preds = %661, %647, %H5T__by
   %.not230 = icmp eq i32 %672, 0
   %673 = select i1 %.not230, i32 2, i32 0
   store i32 %673, ptr %124, align 8, !tbaa !27
-  store half 0xH3C00, ptr %18, align 2, !tbaa !67
-  store half 0xHBC00, ptr %19, align 2, !tbaa !67
+  store half 0xH3C00, ptr %18, align 2, !tbaa !70
+  store half 0xHBC00, ptr %19, align 2, !tbaa !70
   %674 = call fastcc i32 @H5T__bit_cmp(i32 noundef 2, ptr noundef %58, ptr noundef %18, ptr noundef %19, ptr noundef %22, ptr noundef %125)
   %675 = icmp slt i32 %674, 0
   br i1 %675, label %700, label %676
 
 676:                                              ; preds = %671
   store i32 0, ptr %199, align 4, !tbaa !28
-  store half 0xH3C00, ptr %18, align 2, !tbaa !67
-  store half 0xH3E00, ptr %19, align 2, !tbaa !67
+  store half 0xH3C00, ptr %18, align 2, !tbaa !70
+  store half 0xH3E00, ptr %19, align 2, !tbaa !70
   %677 = call fastcc i32 @H5T__bit_cmp(i32 noundef 2, ptr noundef %58, ptr noundef %18, ptr noundef %19, ptr noundef %22, ptr noundef %198)
   %678 = icmp slt i32 %677, 0
   br i1 %678, label %700, label %679
@@ -1420,7 +1415,7 @@ H5T__byte_cmp.exit306.thread:                     ; preds = %661, %647, %H5T__by
   %687 = load i32, ptr %125, align 8, !tbaa !33
   %688 = sub i32 %687, %686
   store i32 %688, ptr %206, align 8, !tbaa !34
-  store half 0xH3C00, ptr %18, align 2, !tbaa !67
+  store half 0xH3C00, ptr %18, align 2, !tbaa !70
   %689 = call fastcc i32 @H5T__find_bias(i32 noundef %686, i32 noundef %688, ptr noundef %58, ptr noundef %18) #11
   %690 = zext i32 %689 to i64
   store i64 %690, ptr %228, align 8, !tbaa !36
@@ -1686,7 +1681,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__fix_order(i32 noundef range(i3
   store i32 %33, ptr %32, align 4, !tbaa !10
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
-  br i1 %exitcond71.not, label %.loopexit, label %31, !llvm.loop !24
+  br i1 %exitcond71.not, label %.loopexit, label %31, !llvm.loop !22
 
 34:                                               ; preds = %26, %17
   %35 = icmp sgt i32 %20, %22
@@ -1716,7 +1711,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__fix_order(i32 noundef range(i3
   store i32 %46, ptr %47, align 4, !tbaa !10
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !23
 
 48:                                               ; preds = %38, %34
   %49 = and i32 %0, 1
@@ -1748,7 +1743,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__fix_order(i32 noundef range(i3
   store i32 %63, ptr %64, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %65 = icmp samesign ult i64 %indvars.iv.next, %56
-  br i1 %65, label %57, label %.loopexit, !llvm.loop !61
+  br i1 %65, label %57, label %.loopexit, !llvm.loop !59
 
 .loopexit:                                        ; preds = %57, %43, %31, %13, %50, %4
   %.051 = phi i32 [ -1, %13 ], [ -1, %50 ], [ 0, %4 ], [ 0, %31 ], [ 0, %43 ], [ 0, %57 ]
@@ -2028,12 +2023,12 @@ attributes #11 = { nounwind willreturn memory(read) }
 !17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
 !19 = distinct !{!19, !18}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"float", !5, i64 0}
+!20 = distinct !{!20, !18}
+!21 = distinct !{!21, !18}
 !22 = distinct !{!22, !18}
 !23 = distinct !{!23, !18}
-!24 = distinct !{!24, !18}
-!25 = distinct !{!25, !18}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"float", !5, i64 0}
 !26 = !{!15, !11, i64 156}
 !27 = !{!15, !11, i64 160}
 !28 = !{!15, !11, i64 148}
@@ -2066,17 +2061,17 @@ attributes #11 = { nounwind willreturn memory(read) }
 !55 = !{!15, !11, i64 140}
 !56 = distinct !{!56, !18}
 !57 = distinct !{!57, !18}
-!58 = !{!59, !59, i64 0}
-!59 = !{!"double", !5, i64 0}
-!60 = distinct !{!60, !18}
-!61 = distinct !{!61, !18}
+!58 = distinct !{!58, !18}
+!59 = distinct !{!59, !18}
+!60 = !{!61, !61, i64 0}
+!61 = !{!"double", !5, i64 0}
 !62 = !{!63, !63, i64 0}
 !63 = !{!"long double", !5, i64 0}
 !64 = distinct !{!64, !18}
 !65 = distinct !{!65, !18}
 !66 = distinct !{!66, !18}
-!67 = !{!68, !68, i64 0}
-!68 = !{!"_Float16", !5, i64 0}
+!67 = distinct !{!67, !18}
+!68 = distinct !{!68, !18}
 !69 = distinct !{!69, !18}
-!70 = distinct !{!70, !18}
-!71 = distinct !{!71, !18}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"_Float16", !5, i64 0}

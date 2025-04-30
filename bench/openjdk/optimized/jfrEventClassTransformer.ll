@@ -4256,7 +4256,6 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18
 1171:                                             ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i140.i.i
   store i8 -79, ptr %.pre367398.i, align 1
   %1172 = getelementptr inbounds nuw i8, ptr %.pre367398.i, i64 1
-  store ptr %1172, ptr %121, align 8
   %.pr41.i.pre.i = load ptr, ptr %122, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeIhEEvT_.exit143.i.i
 
@@ -4395,7 +4394,6 @@ _ZN20BigEndianEncoderImpl6encodeItEEmT_Ph.exit.i.thread.i.i.i.i.i133.i.i.i: ; pr
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeItEEPhPKT_mSA_.exit.i.i.i134.i.i.i: ; preds = %_ZN20BigEndianEncoderImpl6encodeItEEmT_Ph.exit.i.thread.i.i.i.i.i133.i.i.i, %_ZN20BigEndianEncoderImpl6encodeItEEmT_Ph.exit.i.i.i.i.i.i137.i.i.i
   %1223 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i131.i.i.i, i64 2
-  store ptr %1223, ptr %121, align 8
   %.pre.i135.i.i.i = load ptr, ptr %122, align 8
   %.pre365.pre.i = load ptr, ptr %10, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeItEEvT_.exit.i136.i.i.i
@@ -7020,7 +7018,6 @@ _ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i.i.i.i.i120.i.i.i: ; 
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSA_.exit.i.i.i.i121.i.i.i: ; preds = %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i.i.i.i.i120.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i.i.i.i.i125.i.i.i
   %2257 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i119.i.i.i, i64 4
-  store ptr %2257, ptr %121, align 8
   %.pre.i.i122.i.i.i = load ptr, ptr %122, align 8
   %.pre364.pre.i = load ptr, ptr %10, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeIjEEvT_.exit.i.i123.i.i.i
@@ -7105,7 +7102,6 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18
 
 2284:                                             ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeItEEvT_.exit.i136.i184.i.i
   %2285 = getelementptr inbounds i8, ptr %.pre362.i, i64 %2266
-  store ptr %2285, ptr %121, align 8
   br label %2286
 
 2286:                                             ; preds = %2284, %1225

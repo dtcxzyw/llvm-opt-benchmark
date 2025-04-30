@@ -3681,7 +3681,7 @@ _ZN5folly23MuxIOThreadPoolExecutor12pickEvbStateEv.exit: ; preds = %15, %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly23MuxIOThreadPoolExecutor16getAllEventBasesEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.22") align 8 captures(none) initializes((8, 16)) %0, ptr noundef nonnull readonly align 64 captures(none) dereferenceable(1024) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly23MuxIOThreadPoolExecutor16getAllEventBasesEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.22") align 8 captures(none) %0, ptr noundef nonnull readonly align 64 captures(none) dereferenceable(1024) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 576
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 584
   %5 = load ptr, ptr %4, align 8, !tbaa !291
@@ -3689,66 +3689,64 @@ define void @_ZN5folly23MuxIOThreadPoolExecutor16getAllEventBasesEv(ptr dead_on_
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %10, align 8
   %.not.i.i.i.i = icmp eq ptr %5, %6
-  br i1 %.not.i.i.i.i, label %.thread, label %11
+  br i1 %.not.i.i.i.i, label %.thread, label %10
 
 .thread:                                          ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZNSt6vectorIN5folly8Executor9KeepAliveINS0_9EventBaseEEESaIS4_EEC2ERKS6_.exit
 
-11:                                               ; preds = %2
-  %12 = icmp ugt i64 %9, 9223372036854775800
-  br i1 %12, label %.noexc.i.i, label %13, !prof !93
+10:                                               ; preds = %2
+  %11 = icmp ugt i64 %9, 9223372036854775800
+  br i1 %11, label %.noexc.i.i, label %12, !prof !93
 
-.noexc.i.i:                                       ; preds = %11
+.noexc.i.i:                                       ; preds = %10
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #43
   unreachable
 
-13:                                               ; preds = %11
-  %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #41
-  store ptr %14, ptr %0, align 8, !tbaa !120
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %9
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %15, ptr %16, align 8, !tbaa !292
+12:                                               ; preds = %10
+  %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #41
+  store ptr %13, ptr %0, align 8, !tbaa !120
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %9
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %14, ptr %15, align 8, !tbaa !292
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %13, %_ZSt10_ConstructIN5folly8Executor9KeepAliveINS0_9EventBaseEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i
-  %.09.i.i.i.i.i = phi ptr [ %31, %_ZSt10_ConstructIN5folly8Executor9KeepAliveINS0_9EventBaseEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %14, %13 ]
-  %.sroa.04.08.i.i.i.i.i = phi ptr [ %30, %_ZSt10_ConstructIN5folly8Executor9KeepAliveINS0_9EventBaseEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %6, %13 ]
-  %17 = load i64, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !123
-  %18 = and i64 %17, -4
-  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %18, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN5folly8Executor9KeepAliveINS0_9EventBaseEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i, label %19
+.lr.ph.i.i.i.i.i:                                 ; preds = %12, %_ZSt10_ConstructIN5folly8Executor9KeepAliveINS0_9EventBaseEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i
+  %.09.i.i.i.i.i = phi ptr [ %30, %_ZSt10_ConstructIN5folly8Executor9KeepAliveINS0_9EventBaseEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %13, %12 ]
+  %.sroa.04.08.i.i.i.i.i = phi ptr [ %29, %_ZSt10_ConstructIN5folly8Executor9KeepAliveINS0_9EventBaseEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %6, %12 ]
+  %16 = load i64, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !123
+  %17 = and i64 %16, -4
+  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %17, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN5folly8Executor9KeepAliveINS0_9EventBaseEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i, label %18
 
-19:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %20 = inttoptr i64 %18 to ptr
-  %21 = load ptr, ptr %20, align 16, !tbaa !25, !noalias !293
-  %22 = getelementptr i8, ptr %21, i64 -24
-  %23 = load i64, ptr %22, align 8, !noalias !293
-  %24 = getelementptr inbounds i8, ptr %20, i64 %23
-  %25 = load ptr, ptr %24, align 8, !tbaa !25, !noalias !293
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  %27 = load ptr, ptr %26, align 8, !noalias !293
-  %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(8) %24) #30, !noalias !293
-  %not..i.i.i.i.i.i.i.i = xor i1 %28, true
-  %29 = zext i1 %not..i.i.i.i.i.i.i.i to i64
-  %spec.select.i.i.i.i.i.i.i.i = or disjoint i64 %18, %29
+18:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %19 = inttoptr i64 %17 to ptr
+  %20 = load ptr, ptr %19, align 16, !tbaa !25, !noalias !293
+  %21 = getelementptr i8, ptr %20, i64 -24
+  %22 = load i64, ptr %21, align 8, !noalias !293
+  %23 = getelementptr inbounds i8, ptr %19, i64 %22
+  %24 = load ptr, ptr %23, align 8, !tbaa !25, !noalias !293
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %26 = load ptr, ptr %25, align 8, !noalias !293
+  %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(8) %23) #30, !noalias !293
+  %not..i.i.i.i.i.i.i.i = xor i1 %27, true
+  %28 = zext i1 %not..i.i.i.i.i.i.i.i to i64
+  %spec.select.i.i.i.i.i.i.i.i = or disjoint i64 %17, %28
   br label %_ZSt10_ConstructIN5folly8Executor9KeepAliveINS0_9EventBaseEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i
 
-_ZSt10_ConstructIN5folly8Executor9KeepAliveINS0_9EventBaseEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %19, %.lr.ph.i.i.i.i.i
-  %.sink.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i, %19 ]
+_ZSt10_ConstructIN5folly8Executor9KeepAliveINS0_9EventBaseEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %18, %.lr.ph.i.i.i.i.i
+  %.sink.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i, %18 ]
   store i64 %.sink.i.i.i.i.i.i.i.i, ptr %.09.i.i.i.i.i, align 8, !tbaa !123
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 8
-  %31 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i = icmp eq ptr %30, %5
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i = icmp eq ptr %29, %5
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN5folly8Executor9KeepAliveINS0_9EventBaseEEESaIS4_EEC2ERKS6_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !296
 
 _ZNSt6vectorIN5folly8Executor9KeepAliveINS0_9EventBaseEEESaIS4_EEC2ERKS6_.exit: ; preds = %_ZSt10_ConstructIN5folly8Executor9KeepAliveINS0_9EventBaseEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i, %.thread
-  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %.thread ], [ %31, %_ZSt10_ConstructIN5folly8Executor9KeepAliveINS0_9EventBaseEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ]
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.lcssa.i.i.i.i.i, ptr %32, align 8, !tbaa !291
+  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %.thread ], [ %30, %_ZSt10_ConstructIN5folly8Executor9KeepAliveINS0_9EventBaseEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.lcssa.i.i.i.i.i, ptr %31, align 8, !tbaa !291
   ret void
 }
 

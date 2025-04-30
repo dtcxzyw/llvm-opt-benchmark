@@ -704,10 +704,12 @@ define hidden void @_Py_PreInitializeFromPyArgv(ptr dead_on_unwind noalias writa
 
 16:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #23
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !188)
   %.b.i = load i1, ptr @runtime_initialized, align 4, !noalias !188
   br i1 %.b.i, label %_PyRuntime_Initialize.exit.thread, label %_PyRuntime_Initialize.exit
 
 _PyRuntime_Initialize.exit.thread:                ; preds = %16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !alias.scope !188
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23
   br label %18
 

@@ -24,7 +24,6 @@ $_ZNSt5dequeIiSaIiEE17_M_reallocate_mapEmb = comdat any
 
 $_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ = comdat any
 
-@__const._ZN7msdfgen19edgeColoringInkTrapERNS_5ShapeEdy.colors = private unnamed_addr constant [3 x i32] [i32 7, i32 7, i32 0], align 4
 @__const._ZN7msdfgen22edgeColoringByDistanceERNS_5ShapeEdy.colors = private unnamed_addr constant [3 x i32] [i32 3, i32 6, i32 5], align 4
 @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start = internal unnamed_addr constant [3 x i32] [i32 6, i32 5, i32 3], align 4
 @_ZZN7msdfgenL10tryAddEdgeEPiPKS0_iiiS0_E20FIRST_POSSIBLE_COLOR = internal unnamed_addr constant [8 x i32] [i32 -1, i32 0, i32 1, i32 0, i32 2, i32 2, i32 1, i32 0], align 16
@@ -36,7 +35,7 @@ $_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN7msdfgen18edgeColoringSimpleERNS_5ShapeEdy(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %shape, double noundef %angleThreshold, i64 noundef %seed) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %colors = alloca [3 x i32], align 4
+  %colors = alloca [3 x i32], align 8
   %parts = alloca [7 x ptr], align 16
   %ref.tmp198 = alloca %"class.msdfgen::EdgeHolder", align 8
   %call = tail call double @sin(double noundef %angleThreshold) #18
@@ -281,11 +280,11 @@ if.else:                                          ; preds = %if.end54
   br i1 %cmp, label %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit, label %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit118
 
 _ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit: ; preds = %if.else
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %colors, ptr noundef nonnull align 4 dereferenceable(12) @__const._ZN7msdfgen19edgeColoringInkTrapERNS_5ShapeEdy.colors, i64 12, i1 false)
+  store i64 30064771079, ptr %colors, align 8
   %rem.i = urem i64 %seed.addr.0259, 3
   %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 0, i64 %rem.i
   %22 = load i32, ptr %arrayidx.i, align 4
-  store i32 %22, ptr %colors, align 4
+  store i32 %22, ptr %colors, align 8
   %div.i52 = udiv i64 %seed.addr.0259, 3
   switch i32 %22, label %if.end8.i58 [
     i32 0, label %if.then7.i54
@@ -296,7 +295,7 @@ if.then7.i54:                                     ; preds = %_ZN7msdfgenL11switc
   %rem.i55 = urem i64 %div.i52, 3
   %arrayidx.i56 = getelementptr inbounds nuw [3 x i32], ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 0, i64 %rem.i55
   %23 = load i32, ptr %arrayidx.i56, align 4
-  store i32 %23, ptr %arrayidx80, align 4
+  store i32 %23, ptr %arrayidx80, align 8
   %div.i57 = udiv i64 %seed.addr.0259, 9
   br label %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit65
 
@@ -308,7 +307,7 @@ if.end8.i58:                                      ; preds = %_ZN7msdfgenL11switc
   %shr.i61 = lshr i32 %shl.i60, 3
   %or.i62 = or i32 %shr.i61, %shl.i60
   %and10.i63 = and i32 %or.i62, 7
-  store i32 %and10.i63, ptr %arrayidx80, align 4
+  store i32 %and10.i63, ptr %arrayidx80, align 8
   %shr11.i64 = lshr i64 %div.i52, 1
   br label %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit65
 
@@ -660,7 +659,7 @@ declare void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenc
 define dso_local void @_ZN7msdfgen19edgeColoringInkTrapERNS_5ShapeEdy(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %shape, double noundef %angleThreshold, i64 noundef %seed) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %corner.sroa.5 = alloca [3 x i8], align 1
-  %colors = alloca [3 x i32], align 4
+  %colors = alloca [3 x i32], align 8
   %parts = alloca [7 x ptr], align 16
   %ref.tmp208 = alloca %"class.msdfgen::EdgeHolder", align 8
   %call = tail call double @sin(double noundef %angleThreshold) #18
@@ -971,11 +970,11 @@ if.else:                                          ; preds = %if.end60
   br i1 %cmp, label %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit, label %if.else219
 
 _ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit: ; preds = %if.else
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %colors, ptr noundef nonnull align 4 dereferenceable(12) @__const._ZN7msdfgen19edgeColoringInkTrapERNS_5ShapeEdy.colors, i64 12, i1 false)
+  store i64 30064771079, ptr %colors, align 8
   %rem.i = urem i64 %seed.addr.0330, 3
   %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 0, i64 %rem.i
   %29 = load i32, ptr %arrayidx.i, align 4
-  store i32 %29, ptr %colors, align 4
+  store i32 %29, ptr %colors, align 8
   %div.i83 = udiv i64 %seed.addr.0330, 3
   switch i32 %29, label %if.end8.i89 [
     i32 0, label %if.then7.i85
@@ -986,7 +985,7 @@ if.then7.i85:                                     ; preds = %_ZN7msdfgenL11switc
   %rem.i86 = urem i64 %div.i83, 3
   %arrayidx.i87 = getelementptr inbounds nuw [3 x i32], ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 0, i64 %rem.i86
   %30 = load i32, ptr %arrayidx.i87, align 4
-  store i32 %30, ptr %arrayidx87, align 4
+  store i32 %30, ptr %arrayidx87, align 8
   %div.i88 = udiv i64 %seed.addr.0330, 9
   br label %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit96
 
@@ -998,7 +997,7 @@ if.end8.i89:                                      ; preds = %_ZN7msdfgenL11switc
   %shr.i92 = lshr i32 %shl.i91, 3
   %or.i93 = or i32 %shr.i92, %shl.i91
   %and10.i94 = and i32 %or.i93, 7
-  store i32 %and10.i94, ptr %arrayidx87, align 4
+  store i32 %and10.i94, ptr %arrayidx87, align 8
   %shr11.i95 = lshr i64 %div.i83, 1
   br label %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit96
 

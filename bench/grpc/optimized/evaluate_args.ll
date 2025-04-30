@@ -1744,7 +1744,7 @@ define { i64, ptr } @_ZNK9grpc_core12EvaluateArgs11GetSpiffeIdEv(ptr noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core12EvaluateArgs10GetUriSansEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) initializes((8, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core12EvaluateArgs10GetUriSansEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !52
   %5 = icmp eq ptr %4, null
@@ -1752,7 +1752,7 @@ define void @_ZNK9grpc_core12EvaluateArgs10GetUriSansEv(ptr dead_on_unwind noali
 
 6:                                                ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %24
+  br label %23
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1762,52 +1762,50 @@ define void @_ZNK9grpc_core12EvaluateArgs10GetUriSansEv(ptr dead_on_unwind noali
   %12 = ptrtoint ptr %10 to i64
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %15, align 8
   %.not.i.i.i.i = icmp eq ptr %10, %11
-  br i1 %.not.i.i.i.i, label %.thread, label %16
+  br i1 %.not.i.i.i.i, label %.thread, label %15
 
 .thread:                                          ; preds = %7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EEC2ERKS5_.exit
 
-16:                                               ; preds = %7
-  %17 = icmp ugt i64 %14, 9223372036854775792
-  br i1 %17, label %.noexc.i.i, label %.lr.ph.i.i.i.i.i.preheader, !prof !32
+15:                                               ; preds = %7
+  %16 = icmp ugt i64 %14, 9223372036854775792
+  br i1 %16, label %.noexc.i.i, label %.lr.ph.i.i.i.i.i.preheader, !prof !32
 
-.noexc.i.i:                                       ; preds = %16
+.noexc.i.i:                                       ; preds = %15
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #33
   unreachable
 
-.lr.ph.i.i.i.i.i.preheader:                       ; preds = %16
-  %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #35
-  store ptr %18, ptr %0, align 8, !tbaa !19
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %14
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %19, ptr %20, align 8, !tbaa !22
+.lr.ph.i.i.i.i.i.preheader:                       ; preds = %15
+  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #35
+  store ptr %17, ptr %0, align 8, !tbaa !19
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %14
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %18, ptr %19, align 8, !tbaa !22
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
-  %.09.i.i.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i.i.i ], [ %18, %.lr.ph.i.i.i.i.i.preheader ]
-  %.sroa.04.08.i.i.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i.i.i ], [ %11, %.lr.ph.i.i.i.i.i.preheader ]
+  %.09.i.i.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i.i.i ], [ %17, %.lr.ph.i.i.i.i.i.preheader ]
+  %.sroa.04.08.i.i.i.i.i = phi ptr [ %20, %.lr.ph.i.i.i.i.i ], [ %11, %.lr.ph.i.i.i.i.i.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.09.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.08.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !60
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
-  %22 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %21, %10
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %20, %10
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EEC2ERKS5_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !61
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EEC2ERKS5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.thread
-  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %.thread ], [ %22, %.lr.ph.i.i.i.i.i ]
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.lcssa.i.i.i.i.i, ptr %23, align 8, !tbaa !23
-  br label %24
+  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %.thread ], [ %21, %.lr.ph.i.i.i.i.i ]
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.lcssa.i.i.i.i.i, ptr %22, align 8, !tbaa !23
+  br label %23
 
-24:                                               ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EEC2ERKS5_.exit, %6
+23:                                               ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EEC2ERKS5_.exit, %6
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core12EvaluateArgs10GetDnsSansEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) initializes((8, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core12EvaluateArgs10GetDnsSansEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !52
   %5 = icmp eq ptr %4, null
@@ -1815,7 +1813,7 @@ define void @_ZNK9grpc_core12EvaluateArgs10GetDnsSansEv(ptr dead_on_unwind noali
 
 6:                                                ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %24
+  br label %23
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -1825,47 +1823,45 @@ define void @_ZNK9grpc_core12EvaluateArgs10GetDnsSansEv(ptr dead_on_unwind noali
   %12 = ptrtoint ptr %10 to i64
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %15, align 8
   %.not.i.i.i.i = icmp eq ptr %10, %11
-  br i1 %.not.i.i.i.i, label %.thread, label %16
+  br i1 %.not.i.i.i.i, label %.thread, label %15
 
 .thread:                                          ; preds = %7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EEC2ERKS5_.exit
 
-16:                                               ; preds = %7
-  %17 = icmp ugt i64 %14, 9223372036854775792
-  br i1 %17, label %.noexc.i.i, label %.lr.ph.i.i.i.i.i.preheader, !prof !32
+15:                                               ; preds = %7
+  %16 = icmp ugt i64 %14, 9223372036854775792
+  br i1 %16, label %.noexc.i.i, label %.lr.ph.i.i.i.i.i.preheader, !prof !32
 
-.noexc.i.i:                                       ; preds = %16
+.noexc.i.i:                                       ; preds = %15
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #33
   unreachable
 
-.lr.ph.i.i.i.i.i.preheader:                       ; preds = %16
-  %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #35
-  store ptr %18, ptr %0, align 8, !tbaa !19
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %14
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %19, ptr %20, align 8, !tbaa !22
+.lr.ph.i.i.i.i.i.preheader:                       ; preds = %15
+  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #35
+  store ptr %17, ptr %0, align 8, !tbaa !19
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %14
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %18, ptr %19, align 8, !tbaa !22
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
-  %.09.i.i.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i.i.i ], [ %18, %.lr.ph.i.i.i.i.i.preheader ]
-  %.sroa.04.08.i.i.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i.i.i ], [ %11, %.lr.ph.i.i.i.i.i.preheader ]
+  %.09.i.i.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i.i.i ], [ %17, %.lr.ph.i.i.i.i.i.preheader ]
+  %.sroa.04.08.i.i.i.i.i = phi ptr [ %20, %.lr.ph.i.i.i.i.i ], [ %11, %.lr.ph.i.i.i.i.i.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.09.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.08.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !60
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
-  %22 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %21, %10
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %20, %10
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EEC2ERKS5_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !61
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EEC2ERKS5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.thread
-  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %.thread ], [ %22, %.lr.ph.i.i.i.i.i ]
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.lcssa.i.i.i.i.i, ptr %23, align 8, !tbaa !23
-  br label %24
+  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %.thread ], [ %21, %.lr.ph.i.i.i.i.i ]
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.lcssa.i.i.i.i.i, ptr %22, align 8, !tbaa !23
+  br label %23
 
-24:                                               ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EEC2ERKS5_.exit, %6
+23:                                               ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EEC2ERKS5_.exit, %6
   ret void
 }
 

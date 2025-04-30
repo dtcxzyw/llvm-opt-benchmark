@@ -8939,11 +8939,12 @@ define linkonce_odr void @_ZN7xgboost10collective4Comm10ResetStateEv(ptr noundef
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 1800, ptr %5, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #14
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !38
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i8 0, ptr %7, align 8, !tbaa !41
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 -1, ptr %9, align 8, !tbaa !42
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 36

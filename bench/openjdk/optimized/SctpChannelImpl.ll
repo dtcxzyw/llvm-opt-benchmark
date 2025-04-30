@@ -1011,7 +1011,7 @@ define i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_send0(ptr noundef %0, ptr nound
 18:                                               ; preds = %11
   %19 = call i32 @NET_InetAddressToSockaddr(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %6, ptr noundef nonnull %12, ptr noundef nonnull %13, i8 noundef zeroext 1) #12
   %.not19 = icmp eq i32 %19, 0
-  br i1 %.not19, label %._crit_edge, label %58
+  br i1 %.not19, label %._crit_edge, label %59
 
 ._crit_edge:                                      ; preds = %18
   %.pre = load i32, ptr %13, align 4
@@ -1038,81 +1038,83 @@ define i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_send0(ptr noundef %0, ptr nound
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %16, ptr %28, align 16
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %30 = trunc i32 %8 to i16
-  %31 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i32 132, ptr %31, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  store i32 1, ptr %32, align 4
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  store i32 0, ptr %30, align 16
+  %31 = trunc i32 %8 to i16
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i32 132, ptr %32, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  store i32 1, ptr %33, align 4
   store i64 48, ptr %16, align 16
-  %33 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %33, i8 0, i64 32, i1 false)
-  %.not.i = icmp eq i16 %30, 0
-  br i1 %.not.i, label %35, label %34
+  %34 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %34, i8 0, i64 32, i1 false)
+  %.not.i = icmp eq i16 %31, 0
+  br i1 %.not.i, label %36, label %35
 
-34:                                               ; preds = %21
-  store i16 %30, ptr %33, align 16
-  br label %35
+35:                                               ; preds = %21
+  store i16 %31, ptr %34, align 16
+  br label %36
 
-35:                                               ; preds = %34, %21
-  %36 = icmp sgt i32 %7, 0
-  br i1 %36, label %37, label %39
+36:                                               ; preds = %35, %21
+  %37 = icmp sgt i32 %7, 0
+  br i1 %37, label %38, label %40
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw i8, ptr %16, i64 44
-  store i32 %7, ptr %38, align 4
-  br label %39
+38:                                               ; preds = %36
+  %39 = getelementptr inbounds nuw i8, ptr %16, i64 44
+  store i32 %7, ptr %39, align 4
+  br label %40
 
-39:                                               ; preds = %37, %35
-  %40 = icmp eq i8 %9, 1
-  br i1 %40, label %41, label %43
+40:                                               ; preds = %38, %36
+  %41 = icmp eq i8 %9, 1
+  br i1 %41, label %42, label %44
 
-41:                                               ; preds = %39
-  %42 = getelementptr inbounds nuw i8, ptr %16, i64 20
-  store i16 1, ptr %42, align 4
-  br label %43
+42:                                               ; preds = %40
+  %43 = getelementptr inbounds nuw i8, ptr %16, i64 20
+  store i16 1, ptr %43, align 4
+  br label %44
 
-43:                                               ; preds = %41, %39
+44:                                               ; preds = %42, %40
   %.not22.i = icmp eq i32 %10, 0
-  br i1 %.not22.i, label %setControlData.exit, label %44
+  br i1 %.not22.i, label %setControlData.exit, label %45
 
-44:                                               ; preds = %43
-  %45 = call i32 @htonl(i32 noundef %10) #13
-  %46 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store i32 %45, ptr %46, align 8
+45:                                               ; preds = %44
+  %46 = call i32 @htonl(i32 noundef %10) #13
+  %47 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  store i32 %46, ptr %47, align 8
   br label %setControlData.exit
 
-setControlData.exit:                              ; preds = %43, %44
+setControlData.exit:                              ; preds = %44, %45
   store i64 48, ptr %29, align 8
-  %47 = call i64 @sendmsg(i32 noundef %2, ptr noundef nonnull %15, i32 noundef 0) #12
-  %48 = icmp slt i64 %47, 0
-  br i1 %48, label %49, label %56
+  %48 = call i64 @sendmsg(i32 noundef %2, ptr noundef nonnull %15, i32 noundef 0) #12
+  %49 = icmp slt i64 %48, 0
+  br i1 %49, label %50, label %57
 
-49:                                               ; preds = %setControlData.exit
-  %50 = tail call ptr @__errno_location() #13
-  %51 = load i32, ptr %50, align 4
-  switch i32 %51, label %54 [
-    i32 11, label %58
-    i32 4, label %52
-    i32 32, label %53
+50:                                               ; preds = %setControlData.exit
+  %51 = tail call ptr @__errno_location() #13
+  %52 = load i32, ptr %51, align 4
+  switch i32 %52, label %55 [
+    i32 11, label %59
+    i32 4, label %53
+    i32 32, label %54
   ]
 
-52:                                               ; preds = %49
-  br label %58
+53:                                               ; preds = %50
+  br label %59
 
-53:                                               ; preds = %49
+54:                                               ; preds = %50
   call void @JNU_ThrowByName(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19) #12
-  br label %56
+  br label %57
 
-54:                                               ; preds = %49
-  %55 = call i32 @sctpHandleSocketError(ptr noundef %0, i32 noundef %51) #12
-  br label %58
+55:                                               ; preds = %50
+  %56 = call i32 @sctpHandleSocketError(ptr noundef %0, i32 noundef %52) #12
+  br label %59
 
-56:                                               ; preds = %53, %setControlData.exit
-  %57 = trunc i64 %47 to i32
-  br label %58
+57:                                               ; preds = %54, %setControlData.exit
+  %58 = trunc i64 %48 to i32
+  br label %59
 
-58:                                               ; preds = %49, %18, %56, %54, %52
-  %.0 = phi i32 [ -3, %52 ], [ %57, %56 ], [ 0, %54 ], [ -5, %18 ], [ -2, %49 ]
+59:                                               ; preds = %50, %18, %57, %55, %53
+  %.0 = phi i32 [ -3, %53 ], [ %58, %57 ], [ 0, %55 ], [ -5, %18 ], [ -2, %50 ]
   ret i32 %.0
 }
 

@@ -57344,6 +57344,7 @@ define internal fastcc void @"_ZN6comemo10constraint28ImmutableConstraint$LT$T$G
   %.sroa.614.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.715.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15269)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15272)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15274)
@@ -57418,6 +57419,7 @@ define internal fastcc void @"_ZN6comemo10constraint28ImmutableConstraint$LT$T$G
   store i64 %46, ptr %.sroa.412.0..sroa_idx.i, align 8, !alias.scope !15302, !noalias !15279
   %47 = xor i64 %40, %31
   store i64 %47, ptr %7, align 8, !alias.scope !15297, !noalias !15279
+  store i64 0, ptr %.sroa.10.0..sroa_idx.i, align 8, !alias.scope !15297, !noalias !15279
   br label %_ZN6comemo10constraint4hash17h9a410d83e4687265E.exit
 
 _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.exit4.i.i.i: ; preds = %3
@@ -57442,6 +57444,7 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.exit4.i.i.i: ; preds = %3
   store i64 %62, ptr %.sroa.412.0..sroa_idx.i, align 8, !alias.scope !15312, !noalias !15279
   %63 = xor i64 %56, %8
   store i64 %63, ptr %7, align 8, !alias.scope !15305, !noalias !15279
+  store i64 0, ptr %.sroa.10.0..sroa_idx.i, align 8, !alias.scope !15305, !noalias !15279
   %.not.i.i.i = icmp eq i64 %8, 0
   br i1 %.not.i.i.i, label %_ZN6comemo10constraint4hash17h9a410d83e4687265E.exit, label %64
 

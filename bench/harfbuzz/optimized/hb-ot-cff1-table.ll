@@ -1959,6 +1959,7 @@ _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit26: ; preds = %_ZN3CFF11cff_st
   br i1 %.not.i27, label %28, label %25, !prof !199
 
 25:                                               ; preds = %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit26
+  store i8 1, ptr %5, align 8, !tbaa !198
   %26 = load i64, ptr @_hb_NullPool, align 16
   store i64 %26, ptr @_hb_CrapPool, align 16
   %27 = bitcast i64 %26 to double
@@ -2854,7 +2855,6 @@ _ZN3CFF15cff1_cs_opset_tI23cff1_cs_opset_extents_t20cff1_extents_param_t25cff1_p
 _ZN3CFF12interp_env_tINS_8number_tEE7pop_argEv.exit.i: ; preds = %_ZN3CFF15cff1_cs_opset_tI23cff1_cs_opset_extents_t20cff1_extents_param_t25cff1_path_procs_extents_tE11check_widthEjRNS_20cff1_cs_interp_env_tERS2_.exit163
   %275 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %276 = add i32 %.pre191, -1
-  store i32 %276, ptr %274, align 4, !tbaa !105
   %277 = zext i32 %276 to i64
   %278 = getelementptr inbounds nuw [513 x %"struct.CFF::number_t"], ptr %275, i64 0, i64 %277
   %.not.i.i7.i = icmp eq i32 %276, 0
@@ -7321,6 +7321,7 @@ _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit29: ; preds = %_ZN3CFF11cff_st
   br i1 %.not.i30, label %61, label %58, !prof !199
 
 58:                                               ; preds = %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit29
+  store i8 1, ptr %39, align 8, !tbaa !198
   %59 = load i64, ptr @_hb_NullPool, align 16
   store i64 %59, ptr @_hb_CrapPool, align 16
   %60 = bitcast i64 %59 to double

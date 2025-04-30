@@ -53253,11 +53253,11 @@ define void @_ZN5ImGui9FocusItemEv() local_unnamed_addr #12 {
   %20 = load i32, ptr %4, align 4, !tbaa !244
   %21 = and i32 %20, 4
   %.not12 = icmp eq i32 %21, 0
-  br i1 %.not12, label %123, label %22
+  br i1 %.not12, label %116, label %22
 
 22:                                               ; preds = %19
   tail call void (ptr, ...) @_ZN5ImGui8DebugLogEPKcz(ptr noundef nonnull @.str.100)
-  br label %123
+  br label %116
 
 23:                                               ; preds = %16
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 209
@@ -53268,7 +53268,7 @@ define void @_ZN5ImGui9FocusItemEv() local_unnamed_addr #12 {
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 7904
   %30 = load ptr, ptr %29, align 8, !tbaa !396
   %.not.i = icmp eq ptr %30, %3
-  br i1 %.not.i, label %40, label %31
+  br i1 %.not.i, label %_ZN5ImGui12SetNavWindowEP11ImGuiWindow.exit, label %31
 
 31:                                               ; preds = %23
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 9964
@@ -53289,164 +53289,152 @@ define void @_ZN5ImGui9FocusItemEv() local_unnamed_addr #12 {
   store ptr %3, ptr %29, align 8, !tbaa !396
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 7976
   store i64 -1, ptr %39, align 8, !tbaa !612
-  br label %40
-
-40:                                               ; preds = %38, %23
-  %41 = phi ptr [ %.pre.i, %38 ], [ %28, %23 ]
-  %42 = getelementptr inbounds nuw i8, ptr %28, i64 8049
-  store i8 0, ptr %42, align 1, !tbaa !395
-  %43 = getelementptr inbounds nuw i8, ptr %28, i64 8048
-  store i8 0, ptr %43, align 8, !tbaa !613
-  %44 = getelementptr inbounds nuw i8, ptr %28, i64 7986
-  store i8 0, ptr %44, align 2, !tbaa !811
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 8049
-  %46 = load i8, ptr %45, align 1, !tbaa !395, !range !95, !noundef !225
-  %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %_ZN5ImGui12SetNavWindowEP11ImGuiWindow.exit, label %48
-
-48:                                               ; preds = %40
-  %49 = getelementptr inbounds nuw i8, ptr %41, i64 7986
-  %50 = load i8, ptr %49, align 2, !tbaa !811, !range !95, !noundef !225
   br label %_ZN5ImGui12SetNavWindowEP11ImGuiWindow.exit
 
-_ZN5ImGui12SetNavWindowEP11ImGuiWindow.exit:      ; preds = %40, %48
-  %51 = phi i8 [ 1, %40 ], [ %50, %48 ]
-  %52 = getelementptr inbounds nuw i8, ptr %41, i64 7985
-  store i8 %51, ptr %52, align 1, !tbaa !812
-  %53 = getelementptr inbounds nuw i8, ptr %41, i64 8048
-  store i8 1, ptr %53, align 8, !tbaa !613
-  %54 = getelementptr inbounds nuw i8, ptr %41, i64 8064
-  store i32 -1, ptr %54, align 8, !tbaa !618
-  %55 = getelementptr inbounds nuw i8, ptr %41, i64 8068
-  store i32 -1, ptr %55, align 4, !tbaa !617
-  %56 = getelementptr inbounds nuw i8, ptr %41, i64 8072
-  store i32 2, ptr %56, align 8, !tbaa !412
-  %57 = getelementptr inbounds nuw i8, ptr %41, i64 8052
-  store i32 26128, ptr %57, align 4, !tbaa !400
-  %58 = getelementptr inbounds nuw i8, ptr %41, i64 8056
-  store i32 %27, ptr %58, align 8, !tbaa !615
-  %59 = getelementptr inbounds nuw i8, ptr %41, i64 8050
-  store i8 0, ptr %59, align 2, !tbaa !614
-  %60 = getelementptr inbounds nuw i8, ptr %41, i64 8060
-  store i32 0, ptr %60, align 4, !tbaa !616
-  %61 = getelementptr inbounds nuw i8, ptr %41, i64 8120
-  %62 = getelementptr inbounds nuw i8, ptr %41, i64 8152
-  store i32 0, ptr %62, align 8, !tbaa !982
-  %63 = getelementptr inbounds nuw i8, ptr %41, i64 8168
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %61, i8 0, i64 16, i1 false)
-  store i64 -1, ptr %63, align 8, !tbaa !578
-  %64 = getelementptr inbounds nuw i8, ptr %41, i64 8164
-  store float 0x47EFFFFFE0000000, ptr %64, align 4, !tbaa !579
-  %65 = getelementptr inbounds nuw i8, ptr %41, i64 8160
-  store float 0x47EFFFFFE0000000, ptr %65, align 8, !tbaa !580
-  %66 = getelementptr inbounds nuw i8, ptr %41, i64 8156
-  store float 0x47EFFFFFE0000000, ptr %66, align 4, !tbaa !581
-  %67 = getelementptr inbounds nuw i8, ptr %41, i64 8176
-  %68 = getelementptr inbounds nuw i8, ptr %41, i64 8208
-  store i32 0, ptr %68, align 8, !tbaa !982
-  %69 = getelementptr inbounds nuw i8, ptr %41, i64 8224
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %67, i8 0, i64 16, i1 false)
-  store i64 -1, ptr %69, align 8, !tbaa !578
-  %70 = getelementptr inbounds nuw i8, ptr %41, i64 8220
-  store float 0x47EFFFFFE0000000, ptr %70, align 4, !tbaa !579
-  %71 = getelementptr inbounds nuw i8, ptr %41, i64 8216
-  store float 0x47EFFFFFE0000000, ptr %71, align 8, !tbaa !580
-  %72 = getelementptr inbounds nuw i8, ptr %41, i64 8212
-  store float 0x47EFFFFFE0000000, ptr %72, align 4, !tbaa !581
-  %73 = getelementptr inbounds nuw i8, ptr %41, i64 8232
-  %74 = getelementptr inbounds nuw i8, ptr %41, i64 8264
+_ZN5ImGui12SetNavWindowEP11ImGuiWindow.exit:      ; preds = %38, %23
+  %40 = phi ptr [ %.pre.i, %38 ], [ %28, %23 ]
+  %41 = getelementptr inbounds nuw i8, ptr %28, i64 8049
+  store i8 0, ptr %41, align 1, !tbaa !395
+  %42 = getelementptr inbounds nuw i8, ptr %28, i64 8048
+  store i8 0, ptr %42, align 8, !tbaa !613
+  %43 = getelementptr inbounds nuw i8, ptr %28, i64 7986
+  store i8 0, ptr %43, align 2, !tbaa !811
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 8049
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 7985
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 8048
+  store i8 1, ptr %46, align 8, !tbaa !613
+  %47 = getelementptr inbounds nuw i8, ptr %40, i64 8064
+  store i32 -1, ptr %47, align 8, !tbaa !618
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 8068
+  store i32 -1, ptr %48, align 4, !tbaa !617
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 8072
+  store i32 2, ptr %49, align 8, !tbaa !412
+  %50 = getelementptr inbounds nuw i8, ptr %40, i64 8052
+  store i32 26128, ptr %50, align 4, !tbaa !400
+  %51 = getelementptr inbounds nuw i8, ptr %40, i64 8056
+  store i32 %27, ptr %51, align 8, !tbaa !615
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 8050
+  store i8 0, ptr %52, align 2, !tbaa !614
+  %53 = getelementptr inbounds nuw i8, ptr %40, i64 8060
+  store i32 0, ptr %53, align 4, !tbaa !616
+  %54 = getelementptr inbounds nuw i8, ptr %40, i64 8120
+  %55 = getelementptr inbounds nuw i8, ptr %40, i64 8152
+  store i32 0, ptr %55, align 8, !tbaa !982
+  %56 = getelementptr inbounds nuw i8, ptr %40, i64 8168
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %54, i8 0, i64 16, i1 false)
+  store i64 -1, ptr %56, align 8, !tbaa !578
+  %57 = getelementptr inbounds nuw i8, ptr %40, i64 8164
+  store float 0x47EFFFFFE0000000, ptr %57, align 4, !tbaa !579
+  %58 = getelementptr inbounds nuw i8, ptr %40, i64 8160
+  store float 0x47EFFFFFE0000000, ptr %58, align 8, !tbaa !580
+  %59 = getelementptr inbounds nuw i8, ptr %40, i64 8156
+  store float 0x47EFFFFFE0000000, ptr %59, align 4, !tbaa !581
+  %60 = getelementptr inbounds nuw i8, ptr %40, i64 8176
+  %61 = getelementptr inbounds nuw i8, ptr %40, i64 8208
+  store i32 0, ptr %61, align 8, !tbaa !982
+  %62 = getelementptr inbounds nuw i8, ptr %40, i64 8224
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %60, i8 0, i64 16, i1 false)
+  store i64 -1, ptr %62, align 8, !tbaa !578
+  %63 = getelementptr inbounds nuw i8, ptr %40, i64 8220
+  store float 0x47EFFFFFE0000000, ptr %63, align 4, !tbaa !579
+  %64 = getelementptr inbounds nuw i8, ptr %40, i64 8216
+  store float 0x47EFFFFFE0000000, ptr %64, align 8, !tbaa !580
+  %65 = getelementptr inbounds nuw i8, ptr %40, i64 8212
+  store float 0x47EFFFFFE0000000, ptr %65, align 4, !tbaa !581
+  %66 = getelementptr inbounds nuw i8, ptr %40, i64 8232
+  %67 = getelementptr inbounds nuw i8, ptr %40, i64 8264
+  store i32 0, ptr %67, align 8, !tbaa !982
+  %68 = getelementptr inbounds nuw i8, ptr %40, i64 8280
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %66, i8 0, i64 16, i1 false)
+  store i64 -1, ptr %68, align 8, !tbaa !578
+  %69 = getelementptr inbounds nuw i8, ptr %40, i64 8276
+  store float 0x47EFFFFFE0000000, ptr %69, align 4, !tbaa !579
+  %70 = getelementptr inbounds nuw i8, ptr %40, i64 8272
+  store float 0x47EFFFFFE0000000, ptr %70, align 8, !tbaa !580
+  %71 = getelementptr inbounds nuw i8, ptr %40, i64 8268
+  store float 0x47EFFFFFE0000000, ptr %71, align 4, !tbaa !581
+  %72 = getelementptr inbounds nuw i8, ptr %40, i64 8116
+  store i32 0, ptr %72, align 4, !tbaa !620
+  %73 = getelementptr inbounds nuw i8, ptr %40, i64 8288
+  %74 = getelementptr inbounds nuw i8, ptr %40, i64 8320
   store i32 0, ptr %74, align 8, !tbaa !982
-  %75 = getelementptr inbounds nuw i8, ptr %41, i64 8280
+  %75 = getelementptr inbounds nuw i8, ptr %40, i64 8336
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %73, i8 0, i64 16, i1 false)
   store i64 -1, ptr %75, align 8, !tbaa !578
-  %76 = getelementptr inbounds nuw i8, ptr %41, i64 8276
+  %76 = getelementptr inbounds nuw i8, ptr %40, i64 8332
   store float 0x47EFFFFFE0000000, ptr %76, align 4, !tbaa !579
-  %77 = getelementptr inbounds nuw i8, ptr %41, i64 8272
+  %77 = getelementptr inbounds nuw i8, ptr %40, i64 8328
   store float 0x47EFFFFFE0000000, ptr %77, align 8, !tbaa !580
-  %78 = getelementptr inbounds nuw i8, ptr %41, i64 8268
+  %78 = getelementptr inbounds nuw i8, ptr %40, i64 8324
   store float 0x47EFFFFFE0000000, ptr %78, align 4, !tbaa !581
-  %79 = getelementptr inbounds nuw i8, ptr %41, i64 8116
-  store i32 0, ptr %79, align 4, !tbaa !620
-  %80 = getelementptr inbounds nuw i8, ptr %41, i64 8288
-  %81 = getelementptr inbounds nuw i8, ptr %41, i64 8320
-  store i32 0, ptr %81, align 8, !tbaa !982
-  %82 = getelementptr inbounds nuw i8, ptr %41, i64 8336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %80, i8 0, i64 16, i1 false)
-  store i64 -1, ptr %82, align 8, !tbaa !578
-  %83 = getelementptr inbounds nuw i8, ptr %41, i64 8332
-  store float 0x47EFFFFFE0000000, ptr %83, align 4, !tbaa !579
-  %84 = getelementptr inbounds nuw i8, ptr %41, i64 8328
-  store float 0x47EFFFFFE0000000, ptr %84, align 8, !tbaa !580
-  %85 = getelementptr inbounds nuw i8, ptr %41, i64 8324
-  store float 0x47EFFFFFE0000000, ptr %85, align 4, !tbaa !581
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 8120
-  store i8 0, ptr %45, align 1, !tbaa !395
-  %87 = getelementptr inbounds nuw i8, ptr %41, i64 5016
-  %88 = load ptr, ptr %87, align 8, !tbaa !313
-  store ptr %88, ptr %86, align 8, !tbaa !1239
-  %89 = getelementptr inbounds nuw i8, ptr %41, i64 7528
-  %90 = load i32, ptr %89, align 8, !tbaa !473
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 8128
-  store i32 %90, ptr %91, align 8, !tbaa !1240
-  %92 = getelementptr inbounds nuw i8, ptr %41, i64 7460
-  %93 = load i32, ptr %92, align 4, !tbaa !608
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 8132
-  store i32 %93, ptr %94, align 4, !tbaa !1241
-  %95 = getelementptr inbounds nuw i8, ptr %41, i64 7532
-  %96 = load i32, ptr %95, align 4, !tbaa !474
-  %97 = getelementptr inbounds nuw i8, ptr %1, i64 8152
-  store i32 %96, ptr %97, align 8, !tbaa !982
-  %98 = getelementptr inbounds nuw i8, ptr %41, i64 7556
-  %99 = getelementptr inbounds nuw i8, ptr %88, i64 296
-  %.sroa.0.0.copyload.i.i.i = load float, ptr %99, align 8, !tbaa !87
-  %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %88, i64 300
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8120
+  store i8 0, ptr %44, align 1, !tbaa !395
+  %80 = getelementptr inbounds nuw i8, ptr %40, i64 5016
+  %81 = load ptr, ptr %80, align 8, !tbaa !313
+  store ptr %81, ptr %79, align 8, !tbaa !1239
+  %82 = getelementptr inbounds nuw i8, ptr %40, i64 7528
+  %83 = load i32, ptr %82, align 8, !tbaa !473
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 8128
+  store i32 %83, ptr %84, align 8, !tbaa !1240
+  %85 = getelementptr inbounds nuw i8, ptr %40, i64 7460
+  %86 = load i32, ptr %85, align 4, !tbaa !608
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 8132
+  store i32 %86, ptr %87, align 4, !tbaa !1241
+  %88 = getelementptr inbounds nuw i8, ptr %40, i64 7532
+  %89 = load i32, ptr %88, align 4, !tbaa !474
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 8152
+  store i32 %89, ptr %90, align 8, !tbaa !982
+  %91 = getelementptr inbounds nuw i8, ptr %40, i64 7556
+  %92 = getelementptr inbounds nuw i8, ptr %81, i64 296
+  %.sroa.0.0.copyload.i.i.i = load float, ptr %92, align 8, !tbaa !87
+  %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %81, i64 300
   %.sroa.5.0.copyload.i.i.i = load float, ptr %.sroa.5.0..sroa_idx.i.i.i, align 4, !tbaa !87
-  %100 = load float, ptr %98, align 4, !tbaa !477
-  %101 = fsub float %100, %.sroa.0.0.copyload.i.i.i
-  %102 = getelementptr inbounds nuw i8, ptr %41, i64 7560
-  %103 = load float, ptr %102, align 4, !tbaa !402
-  %104 = fsub float %103, %.sroa.5.0.copyload.i.i.i
-  %105 = getelementptr inbounds nuw i8, ptr %41, i64 7564
-  %106 = load float, ptr %105, align 4, !tbaa !478
-  %107 = fsub float %106, %.sroa.0.0.copyload.i.i.i
-  %108 = getelementptr inbounds nuw i8, ptr %41, i64 7568
-  %109 = load float, ptr %108, align 4, !tbaa !403
-  %110 = fsub float %109, %.sroa.5.0.copyload.i.i.i
-  %.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %101, i64 0
-  %.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i.i, float %104, i64 1
-  %.sroa.3.8.vec.insert.i.i.i = insertelement <2 x float> poison, float %107, i64 0
-  %.sroa.3.12.vec.insert.i.i.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i.i.i, float %110, i64 1
-  %111 = getelementptr inbounds nuw i8, ptr %1, i64 8136
-  store <2 x float> %.sroa.0.4.vec.insert.i.i.i, ptr %111, align 8
+  %93 = load float, ptr %91, align 4, !tbaa !477
+  %94 = fsub float %93, %.sroa.0.0.copyload.i.i.i
+  %95 = getelementptr inbounds nuw i8, ptr %40, i64 7560
+  %96 = load float, ptr %95, align 4, !tbaa !402
+  %97 = fsub float %96, %.sroa.5.0.copyload.i.i.i
+  %98 = getelementptr inbounds nuw i8, ptr %40, i64 7564
+  %99 = load float, ptr %98, align 4, !tbaa !478
+  %100 = fsub float %99, %.sroa.0.0.copyload.i.i.i
+  %101 = getelementptr inbounds nuw i8, ptr %40, i64 7568
+  %102 = load float, ptr %101, align 4, !tbaa !403
+  %103 = fsub float %102, %.sroa.5.0.copyload.i.i.i
+  %.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %94, i64 0
+  %.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i.i, float %97, i64 1
+  %.sroa.3.8.vec.insert.i.i.i = insertelement <2 x float> poison, float %100, i64 0
+  %.sroa.3.12.vec.insert.i.i.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i.i.i, float %103, i64 1
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 8136
+  store <2 x float> %.sroa.0.4.vec.insert.i.i.i, ptr %104, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8144
   store <2 x float> %.sroa.3.12.vec.insert.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8
-  %112 = and i32 %96, 2097152
-  %.not.i.i = icmp eq i32 %112, 0
-  br i1 %.not.i.i, label %_ZN5ImGuiL20NavApplyItemToResultEP16ImGuiNavItemData.exit.i, label %113
+  %105 = and i32 %89, 2097152
+  %.not.i.i = icmp eq i32 %105, 0
+  br i1 %.not.i.i, label %_ZN5ImGuiL20NavApplyItemToResultEP16ImGuiNavItemData.exit.i, label %106
 
-113:                                              ; preds = %_ZN5ImGui12SetNavWindowEP11ImGuiWindow.exit
-  %114 = getelementptr inbounds nuw i8, ptr %41, i64 7488
-  %115 = load i64, ptr %114, align 8, !tbaa !1242
-  %116 = getelementptr inbounds nuw i8, ptr %1, i64 8168
-  store i64 %115, ptr %116, align 8, !tbaa !578
+106:                                              ; preds = %_ZN5ImGui12SetNavWindowEP11ImGuiWindow.exit
+  %107 = getelementptr inbounds nuw i8, ptr %40, i64 7488
+  %108 = load i64, ptr %107, align 8, !tbaa !1242
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 8168
+  store i64 %108, ptr %109, align 8, !tbaa !578
   br label %_ZN5ImGuiL20NavApplyItemToResultEP16ImGuiNavItemData.exit.i
 
-_ZN5ImGuiL20NavApplyItemToResultEP16ImGuiNavItemData.exit.i: ; preds = %113, %_ZN5ImGui12SetNavWindowEP11ImGuiWindow.exit
-  %117 = load i8, ptr %45, align 1, !tbaa !395, !range !95, !noundef !225
-  %118 = trunc nuw i8 %117 to i1
-  br i1 %118, label %_ZN5ImGui33NavMoveRequestResolveWithLastItemEP16ImGuiNavItemData.exit, label %119
+_ZN5ImGuiL20NavApplyItemToResultEP16ImGuiNavItemData.exit.i: ; preds = %106, %_ZN5ImGui12SetNavWindowEP11ImGuiWindow.exit
+  %110 = load i8, ptr %44, align 1, !tbaa !395, !range !95, !noundef !225
+  %111 = trunc nuw i8 %110 to i1
+  br i1 %111, label %_ZN5ImGui33NavMoveRequestResolveWithLastItemEP16ImGuiNavItemData.exit, label %112
 
-119:                                              ; preds = %_ZN5ImGuiL20NavApplyItemToResultEP16ImGuiNavItemData.exit.i
-  %120 = getelementptr inbounds nuw i8, ptr %41, i64 7986
-  %121 = load i8, ptr %120, align 2, !tbaa !811, !range !95, !noundef !225
+112:                                              ; preds = %_ZN5ImGuiL20NavApplyItemToResultEP16ImGuiNavItemData.exit.i
+  %113 = getelementptr inbounds nuw i8, ptr %40, i64 7986
+  %114 = load i8, ptr %113, align 2, !tbaa !811, !range !95, !noundef !225
   br label %_ZN5ImGui33NavMoveRequestResolveWithLastItemEP16ImGuiNavItemData.exit
 
-_ZN5ImGui33NavMoveRequestResolveWithLastItemEP16ImGuiNavItemData.exit: ; preds = %_ZN5ImGuiL20NavApplyItemToResultEP16ImGuiNavItemData.exit.i, %119
-  %122 = phi i8 [ 1, %_ZN5ImGuiL20NavApplyItemToResultEP16ImGuiNavItemData.exit.i ], [ %121, %119 ]
-  store i8 %122, ptr %52, align 1, !tbaa !812
-  br label %123
+_ZN5ImGui33NavMoveRequestResolveWithLastItemEP16ImGuiNavItemData.exit: ; preds = %_ZN5ImGuiL20NavApplyItemToResultEP16ImGuiNavItemData.exit.i, %112
+  %115 = phi i8 [ 1, %_ZN5ImGuiL20NavApplyItemToResultEP16ImGuiNavItemData.exit.i ], [ %114, %112 ]
+  store i8 %115, ptr %45, align 1, !tbaa !812
+  br label %116
 
-123:                                              ; preds = %19, %22, %_ZN5ImGui33NavMoveRequestResolveWithLastItemEP16ImGuiNavItemData.exit
+116:                                              ; preds = %19, %22, %_ZN5ImGui33NavMoveRequestResolveWithLastItemEP16ImGuiNavItemData.exit
   ret void
 }
 

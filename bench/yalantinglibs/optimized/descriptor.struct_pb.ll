@@ -14920,12 +14920,12 @@ land.rhs.i236:                                    ; preds = %while.cond.i213.pre
   %58 = load i8, ptr %arrayidx93.i237, align 1
   %cmp95.i239 = icmp slt i8 %58, 0
   %inc96.i228 = add i64 %inc96.i228363366, 1
-  %sh_prom.i232 = zext nneg i32 %shift.i207.0367 to i64
   br i1 %cmp95.i239, label %while.body.i227, label %if.end104.i218
 
 while.body.i227:                                  ; preds = %land.rhs.i236
   %59 = and i8 %58, 127
   %and99.i231 = zext nneg i8 %59 to i64
+  %sh_prom.i232 = zext nneg i32 %shift.i207.0367 to i64
   %shl100.i233 = shl i64 %and99.i231, %sh_prom.i232
   %or101.i234 = or i64 %shl100.i233, %val.i205.1368
   %add.i235 = add i32 %shift.i207.0367, 7
@@ -14933,15 +14933,14 @@ while.body.i227:                                  ; preds = %land.rhs.i236
   br i1 %cmp92.i214.not, label %return, label %land.rhs.i236, !llvm.loop !8
 
 if.end104.i218:                                   ; preds = %land.rhs.i236
-  store i64 %inc96.i228, ptr %pos, align 8
   %conv107.i221 = zext nneg i8 %58 to i64
-  %shl109.i223 = shl i64 %conv107.i221, %sh_prom.i232
+  %sh_prom108.i222 = zext nneg i32 %shift.i207.0367 to i64
+  %shl109.i223 = shl i64 %conv107.i221, %sh_prom108.i222
   %or110.i224 = or i64 %shl109.i223, %val.i205.1368
   br label %if.end25
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit339: ; preds = %if.end73.i302
   %inc83.i311 = add i64 %pos.promoted380, 10
-  store i64 %inc83.i311, ptr %pos, align 8
   %arrayidx84.i312 = getelementptr inbounds i8, ptr %data, i64 %inc74.i303
   %60 = load i8, ptr %arrayidx84.i312, align 1
   %conv85.i313 = zext i8 %60 to i64
@@ -24432,7 +24431,6 @@ if.end19.i:                                       ; preds = %if.end12.i
 
 if.end28.i:                                       ; preds = %if.end19.i
   %inc29.i = add i64 %pos.promoted317, 4
-  store i64 %inc29.i, ptr %pos, align 8
   %arrayidx30.i = getelementptr inbounds i8, ptr %data, i64 %inc20.i
   %24 = load i8, ptr %arrayidx30.i, align 1
   %conv31.i = sext i8 %24 to i64
@@ -24675,7 +24673,6 @@ if.then5.i102:                                    ; preds = %if.end.i71
 
 if.end12.i108:                                    ; preds = %if.then5.i102
   %inc13.i109 = add i64 %pos.promoted317, 2
-  store i64 %inc13.i109, ptr %pos, align 8
   %arrayidx14.i110 = getelementptr inbounds i8, ptr %data, i64 %inc6.i103
   %47 = load i8, ptr %arrayidx14.i110, align 1
   %conv15.i111 = sext i8 %47 to i64
@@ -28529,12 +28526,12 @@ land.rhs.i:                                       ; preds = %while.cond.i.prehea
   %30 = load i8, ptr %arrayidx93.i, align 1
   %cmp95.i = icmp slt i8 %30, 0
   %inc96.i = add i64 %inc96.i410413, 1
-  %sh_prom.i = zext nneg i32 %shift.i.0414 to i64
   br i1 %cmp95.i, label %while.body.i, label %if.end104.i
 
 while.body.i:                                     ; preds = %land.rhs.i
   %31 = and i8 %30, 127
   %and99.i = zext nneg i8 %31 to i64
+  %sh_prom.i = zext nneg i32 %shift.i.0414 to i64
   %shl100.i = shl i64 %and99.i, %sh_prom.i
   %or101.i = or i64 %shl100.i, %val.i.1415
   %add.i = add i32 %shift.i.0414, 7
@@ -28542,15 +28539,14 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp92.i.not, label %return, label %land.rhs.i, !llvm.loop !8
 
 if.end104.i:                                      ; preds = %land.rhs.i
-  store i64 %inc96.i, ptr %pos, align 8
   %conv107.i = zext nneg i8 %30 to i64
-  %shl109.i = shl i64 %conv107.i, %sh_prom.i
+  %sh_prom108.i = zext nneg i32 %shift.i.0414 to i64
+  %shl109.i = shl i64 %conv107.i, %sh_prom108.i
   %or110.i = or i64 %shl109.i, %val.i.1415
   br label %if.end10
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit: ; preds = %if.end73.i
   %inc83.i = add i64 %pos.promoted409, 10
-  store i64 %inc83.i, ptr %pos, align 8
   %arrayidx84.i = getelementptr inbounds i8, ptr %data, i64 %inc74.i
   %32 = load i8, ptr %arrayidx84.i, align 1
   %conv85.i = zext i8 %32 to i64
@@ -28959,12 +28955,12 @@ land.rhs.i252:                                    ; preds = %while.cond.i229.pre
   %71 = load i8, ptr %arrayidx93.i253, align 1
   %cmp95.i255 = icmp slt i8 %71, 0
   %inc96.i244 = add i64 %inc96.i244392395, 1
-  %sh_prom.i248 = zext nneg i32 %shift.i223.0396 to i64
   br i1 %cmp95.i255, label %while.body.i243, label %if.end104.i234
 
 while.body.i243:                                  ; preds = %land.rhs.i252
   %72 = and i8 %71, 127
   %and99.i247 = zext nneg i8 %72 to i64
+  %sh_prom.i248 = zext nneg i32 %shift.i223.0396 to i64
   %shl100.i249 = shl i64 %and99.i247, %sh_prom.i248
   %or101.i250 = or i64 %shl100.i249, %val.i221.1397
   %add.i251 = add i32 %shift.i223.0396, 7
@@ -28972,15 +28968,14 @@ while.body.i243:                                  ; preds = %land.rhs.i252
   br i1 %cmp92.i230.not, label %return, label %land.rhs.i252, !llvm.loop !8
 
 if.end104.i234:                                   ; preds = %land.rhs.i252
-  store i64 %inc96.i244, ptr %pos, align 8
   %conv107.i237 = zext nneg i8 %71 to i64
-  %shl109.i239 = shl i64 %conv107.i237, %sh_prom.i248
+  %sh_prom108.i238 = zext nneg i32 %shift.i223.0396 to i64
+  %shl109.i239 = shl i64 %conv107.i237, %sh_prom108.i238
   %or110.i240 = or i64 %shl109.i239, %val.i221.1397
   br label %if.end39
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit355: ; preds = %if.end73.i318
   %inc83.i327 = add i64 %pos.promoted409, 10
-  store i64 %inc83.i327, ptr %pos, align 8
   %arrayidx84.i328 = getelementptr inbounds i8, ptr %data, i64 %inc74.i319
   %73 = load i8, ptr %arrayidx84.i328, align 1
   %conv85.i329 = zext i8 %73 to i64
@@ -30204,12 +30199,12 @@ land.rhs.i:                                       ; preds = %while.cond.i.prehea
   %30 = load i8, ptr %arrayidx93.i, align 1
   %cmp95.i = icmp slt i8 %30, 0
   %inc96.i = add i64 %inc96.i437440, 1
-  %sh_prom.i = zext nneg i32 %shift.i.0441 to i64
   br i1 %cmp95.i, label %while.body.i, label %if.end104.i
 
 while.body.i:                                     ; preds = %land.rhs.i
   %31 = and i8 %30, 127
   %and99.i = zext nneg i8 %31 to i64
+  %sh_prom.i = zext nneg i32 %shift.i.0441 to i64
   %shl100.i = shl i64 %and99.i, %sh_prom.i
   %or101.i = or i64 %shl100.i, %val.i.1442
   %add.i = add i32 %shift.i.0441, 7
@@ -30217,15 +30212,14 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp92.i.not, label %return, label %land.rhs.i, !llvm.loop !8
 
 if.end104.i:                                      ; preds = %land.rhs.i
-  store i64 %inc96.i, ptr %pos, align 8
   %conv107.i = zext nneg i8 %30 to i64
-  %shl109.i = shl i64 %conv107.i, %sh_prom.i
+  %sh_prom108.i = zext nneg i32 %shift.i.0441 to i64
+  %shl109.i = shl i64 %conv107.i, %sh_prom108.i
   %or110.i = or i64 %shl109.i, %val.i.1442
   br label %if.end10
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit: ; preds = %if.end73.i
   %inc83.i = add i64 %pos.promoted436, 10
-  store i64 %inc83.i, ptr %pos, align 8
   %arrayidx84.i = getelementptr inbounds i8, ptr %data, i64 %inc74.i
   %32 = load i8, ptr %arrayidx84.i, align 1
   %conv85.i = zext i8 %32 to i64
@@ -30707,12 +30701,12 @@ land.rhs.i263:                                    ; preds = %while.cond.i240.pre
   %79 = load i8, ptr %arrayidx93.i264, align 1
   %cmp95.i266 = icmp slt i8 %79, 0
   %inc96.i255 = add i64 %inc96.i255419422, 1
-  %sh_prom.i259 = zext nneg i32 %shift.i234.0423 to i64
   br i1 %cmp95.i266, label %while.body.i254, label %if.end104.i245
 
 while.body.i254:                                  ; preds = %land.rhs.i263
   %80 = and i8 %79, 127
   %and99.i258 = zext nneg i8 %80 to i64
+  %sh_prom.i259 = zext nneg i32 %shift.i234.0423 to i64
   %shl100.i260 = shl i64 %and99.i258, %sh_prom.i259
   %or101.i261 = or i64 %shl100.i260, %val.i232.1424
   %add.i262 = add i32 %shift.i234.0423, 7
@@ -30720,15 +30714,14 @@ while.body.i254:                                  ; preds = %land.rhs.i263
   br i1 %cmp92.i241.not, label %return, label %land.rhs.i263, !llvm.loop !8
 
 if.end104.i245:                                   ; preds = %land.rhs.i263
-  store i64 %inc96.i255, ptr %pos, align 8
   %conv107.i248 = zext nneg i8 %79 to i64
-  %shl109.i250 = shl i64 %conv107.i248, %sh_prom.i259
+  %sh_prom108.i249 = zext nneg i32 %shift.i234.0423 to i64
+  %shl109.i250 = shl i64 %conv107.i248, %sh_prom108.i249
   %or110.i251 = or i64 %shl109.i250, %val.i232.1424
   br label %if.end50
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit366: ; preds = %if.end73.i329
   %inc83.i338 = add i64 %pos.promoted436, 10
-  store i64 %inc83.i338, ptr %pos, align 8
   %arrayidx84.i339 = getelementptr inbounds i8, ptr %data, i64 %inc74.i330
   %81 = load i8, ptr %arrayidx84.i339, align 1
   %conv85.i340 = zext i8 %81 to i64
@@ -44895,12 +44888,12 @@ land.rhs.i:                                       ; preds = %while.cond.i.prehea
   %30 = load i8, ptr %arrayidx93.i, align 1
   %cmp95.i = icmp slt i8 %30, 0
   %inc96.i = add i64 %inc96.i305308, 1
-  %sh_prom.i = zext nneg i32 %shift.i.0309 to i64
   br i1 %cmp95.i, label %while.body.i, label %if.end104.i
 
 while.body.i:                                     ; preds = %land.rhs.i
   %31 = and i8 %30, 127
   %and99.i = zext nneg i8 %31 to i64
+  %sh_prom.i = zext nneg i32 %shift.i.0309 to i64
   %shl100.i = shl i64 %and99.i, %sh_prom.i
   %or101.i = or i64 %shl100.i, %val.i.1310
   %add.i = add i32 %shift.i.0309, 7
@@ -44908,15 +44901,14 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp92.i.not, label %return, label %land.rhs.i, !llvm.loop !8
 
 if.end104.i:                                      ; preds = %land.rhs.i
-  store i64 %inc96.i, ptr %pos, align 8
   %conv107.i = zext nneg i8 %30 to i64
-  %shl109.i = shl i64 %conv107.i, %sh_prom.i
+  %sh_prom108.i = zext nneg i32 %shift.i.0309 to i64
+  %shl109.i = shl i64 %conv107.i, %sh_prom108.i
   %or110.i = or i64 %shl109.i, %val.i.1310
   br label %if.end10
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit: ; preds = %if.end73.i
   %inc83.i = add i64 %pos.promoted304, 10
-  store i64 %inc83.i, ptr %pos, align 8
   %arrayidx84.i = getelementptr inbounds i8, ptr %data, i64 %inc74.i
   %32 = load i8, ptr %arrayidx84.i, align 1
   %conv85.i = zext i8 %32 to i64

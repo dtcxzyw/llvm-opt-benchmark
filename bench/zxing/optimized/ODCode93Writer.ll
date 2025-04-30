@@ -900,31 +900,31 @@ _ZN5ZXing4OneDL23Code93ConvertToExtendedERKNSt7__cxx1112basic_stringIwSt11char_t
 335:                                              ; preds = %328
   %336 = mul nuw nsw i64 %.pre, 9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #16
-  %337 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %338 = add nuw nsw i64 %336, 100
-  %339 = lshr i64 %338, 3
-  %340 = and i64 %339, 504
-  %341 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %340) #18
+  %337 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %338 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %339 = add nuw nsw i64 %336, 100
+  %340 = lshr i64 %339, 3
+  %341 = and i64 %340, 504
+  %342 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %341) #18
           to label %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit unwind label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit134
 
 _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %335
-  %342 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %343 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %344 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %343 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %344 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %345 = add nuw nsw i64 %336, 37
-  %346 = lshr i64 %338, 6
-  %347 = getelementptr inbounds nuw i64, ptr %341, i64 %346
-  store ptr %347, ptr %337, align 8, !tbaa !26
-  store ptr %341, ptr %10, align 8
-  store i32 0, ptr %344, align 8
+  %346 = lshr i64 %339, 6
+  %347 = getelementptr inbounds nuw i64, ptr %342, i64 %346
+  store ptr %347, ptr %338, align 8, !tbaa !26
+  store ptr %342, ptr %10, align 8
+  store i32 0, ptr %337, align 8
   %.zext137 = lshr i64 %345, 6
-  %348 = getelementptr inbounds nuw i64, ptr %341, i64 %.zext137
+  %348 = getelementptr inbounds nuw i64, ptr %342, i64 %.zext137
   %349 = trunc nuw nsw i64 %345 to i32
   %350 = and i32 %349, 63
-  store ptr %348, ptr %343, align 8
-  store i32 %350, ptr %342, align 8
+  store ptr %348, ptr %344, align 8
+  store i32 %350, ptr %343, align 8
   %.idx.i = shl nuw nsw i64 %346, 3
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %341, i8 0, i64 %.idx.i, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %342, i8 0, i64 %.idx.i, i1 false)
   br label %352
 
 _ZNSt13_Bvector_baseISaIbEED2Ev.exit134:          ; preds = %335
@@ -941,7 +941,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit134:          ; preds = %335
   %.not.i49 = icmp eq i32 %356, 0
   %357 = sdiv i32 %353, 64
   %.sext.i = sext i32 %357 to i64
-  %358 = getelementptr inbounds i64, ptr %341, i64 %.sext.i
+  %358 = getelementptr inbounds i64, ptr %342, i64 %.sext.i
   %359 = shl nuw i64 1, %indvars.iv.i
   br i1 %.not.i49, label %363, label %360
 
@@ -1021,7 +1021,7 @@ _ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit.preheader: ; preds = %_
   %397 = trunc nsw i64 %396 to i32
   %398 = sdiv i32 %397, 64
   %.sext.i59 = sext i32 %398 to i64
-  %399 = getelementptr inbounds i64, ptr %341, i64 %.sext.i59
+  %399 = getelementptr inbounds i64, ptr %342, i64 %.sext.i59
   %400 = and i64 %396, 63
   %401 = shl nuw i64 1, %400
   br i1 %.not.i58, label %405, label %402
@@ -1069,7 +1069,7 @@ _ZN5ZXing4OneDL20ComputeChecksumIndexERKNSt7__cxx1112basic_stringIcSt11char_trai
   %421 = trunc nsw i64 %420 to i32
   %422 = sdiv i32 %421, 64
   %.sext.i69 = sext i32 %422 to i64
-  %423 = getelementptr inbounds i64, ptr %341, i64 %.sext.i69
+  %423 = getelementptr inbounds i64, ptr %342, i64 %.sext.i69
   %424 = and i64 %420, 63
   %425 = shl nuw i64 1, %424
   br i1 %.not.i68, label %429, label %426
@@ -1182,7 +1182,7 @@ _ZN5ZXing4OneDL20ComputeChecksumIndexERKNSt7__cxx1112basic_stringIcSt11char_trai
   %473 = trunc nsw i64 %472 to i32
   %474 = sdiv i32 %473, 64
   %.sext.i94 = sext i32 %474 to i64
-  %475 = getelementptr inbounds i64, ptr %341, i64 %.sext.i94
+  %475 = getelementptr inbounds i64, ptr %342, i64 %.sext.i94
   %476 = and i64 %472, 63
   %477 = shl nuw i64 1, %476
   br i1 %.not.i93, label %481, label %478
@@ -1221,7 +1221,7 @@ _ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit101: ; preds = %_ZNSt14_
   %493 = trunc nsw i64 %492 to i32
   %494 = sdiv i32 %493, 64
   %.sext.i104 = sext i32 %494 to i64
-  %495 = getelementptr inbounds i64, ptr %341, i64 %.sext.i104
+  %495 = getelementptr inbounds i64, ptr %342, i64 %.sext.i104
   %496 = and i64 %492, 63
   %497 = shl nuw i64 1, %496
   br i1 %.not.i103, label %501, label %498
@@ -1248,7 +1248,7 @@ _ZNSt14_Bit_referenceaSEb.exit.i107:              ; preds = %501, %498
   %506 = add nuw nsw i32 %368, 36
   %507 = lshr i32 %506, 6
   %.zext = zext nneg i32 %507 to i64
-  %508 = getelementptr inbounds nuw i64, ptr %341, i64 %.zext
+  %508 = getelementptr inbounds nuw i64, ptr %342, i64 %.zext
   %509 = and i32 %506, 63
   %510 = zext nneg i32 %509 to i64
   %511 = shl nuw i64 1, %510
@@ -1267,7 +1267,7 @@ _ZNSt14_Bit_referenceaSEb.exit.i107:              ; preds = %501, %498
   br i1 %.not.i.i114, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, label %518
 
 518:                                              ; preds = %516
-  %519 = load ptr, ptr %337, align 8, !tbaa !26
+  %519 = load ptr, ptr %338, align 8, !tbaa !26
   %520 = ptrtoint ptr %519 to i64
   %521 = ptrtoint ptr %517 to i64
   %522 = sub i64 %520, %521
@@ -1313,8 +1313,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 535:                                              ; preds = %.thread, %533
   %.pn36153 = phi { ptr, i32 } [ %532, %.thread ], [ %534, %533 ]
-  %536 = phi ptr [ %341, %.thread ], [ %.pre150, %533 ]
-  %537 = load ptr, ptr %337, align 8, !tbaa !26
+  %536 = phi ptr [ %342, %.thread ], [ %.pre150, %533 ]
+  %537 = load ptr, ptr %338, align 8, !tbaa !26
   %538 = ptrtoint ptr %537 to i64
   %539 = ptrtoint ptr %536 to i64
   %540 = sub i64 %538, %539
@@ -1322,6 +1322,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %542 = sub nsw i64 0, %541
   %543 = getelementptr inbounds i64, ptr %537, i64 %542
   call void @_ZdlPvm(ptr noundef %543, i64 noundef %540) #19
+  store ptr null, ptr %10, align 8
+  store i32 0, ptr %337, align 8
   br label %.body
 
 .body:                                            ; preds = %535, %533, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit134

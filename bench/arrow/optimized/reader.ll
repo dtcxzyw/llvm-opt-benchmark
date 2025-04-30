@@ -19589,47 +19589,47 @@ _ZNK5arrow3ipc21StreamDecoderInternal8listenerEv.exit: ; preds = %2, %16, %19
   %28 = ptrtoint ptr %26 to i64
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.not.i.i.i.i.i.i = icmp eq ptr %26, %27
-  br i1 %.not.i.i.i.i.i.i, label %.thread.i, label %32
+  br i1 %.not.i.i.i.i.i.i, label %.thread.i, label %31
 
 .thread.i:                                        ; preds = %_ZNK5arrow3ipc21StreamDecoderInternal8listenerEv.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false), !alias.scope !718
-  br label %38
+  br label %37
 
-32:                                               ; preds = %_ZNK5arrow3ipc21StreamDecoderInternal8listenerEv.exit
-  %33 = icmp ugt i64 %30, 9223372036854775804
-  br i1 %33, label %.noexc.i.i.i.i, label %34, !prof !87
+31:                                               ; preds = %_ZNK5arrow3ipc21StreamDecoderInternal8listenerEv.exit
+  %32 = icmp ugt i64 %30, 9223372036854775804
+  br i1 %32, label %.noexc.i.i.i.i, label %33, !prof !87
 
-.noexc.i.i.i.i:                                   ; preds = %32
+.noexc.i.i.i.i:                                   ; preds = %31
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #38
           to label %.noexc unwind label %80
 
 .noexc:                                           ; preds = %.noexc.i.i.i.i
   unreachable
 
-34:                                               ; preds = %32
-  %35 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #39
+33:                                               ; preds = %31
+  %34 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #39
           to label %.noexc4 unwind label %80
 
-.noexc4:                                          ; preds = %34
-  store ptr %35, ptr %23, align 8, !tbaa !99, !alias.scope !718
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %30
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %36, ptr %37, align 8, !tbaa !475, !alias.scope !718
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %35, ptr align 4 %27, i64 %30, i1 false), !noalias !718
-  br label %38
+.noexc4:                                          ; preds = %33
+  store ptr %34, ptr %23, align 8, !tbaa !99, !alias.scope !718
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %30
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr %35, ptr %36, align 8, !tbaa !475, !alias.scope !718
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %34, ptr align 4 %27, i64 %30, i1 false), !noalias !718
+  br label %37
 
-38:                                               ; preds = %.noexc4, %.thread.i
-  %39 = phi ptr [ null, %.thread.i ], [ %36, %.noexc4 ]
-  store ptr %39, ptr %31, align 8, !tbaa !97, !alias.scope !718
+37:                                               ; preds = %.noexc4, %.thread.i
+  %38 = phi ptr [ null, %.thread.i ], [ %35, %.noexc4 ]
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store ptr %38, ptr %39, align 8, !tbaa !97, !alias.scope !718
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %41 = getelementptr inbounds nuw i8, ptr %21, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %41, i64 40, i1 false)
   invoke void @_ZSt11make_uniqueIN5arrow3ipc13StreamDecoder17StreamDecoderImplEJSt10shared_ptrINS1_8ListenerEENS1_14IpcReadOptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.197") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(80) %5)
           to label %42 unwind label %82
 
-42:                                               ; preds = %38
+42:                                               ; preds = %37
   %43 = load ptr, ptr %3, align 8, !tbaa !661
   store ptr null, ptr %3, align 8, !tbaa !661
   %44 = load ptr, ptr %6, align 8, !tbaa !661
@@ -19724,12 +19724,12 @@ _ZNSt12__shared_ptrIN5arrow3ipc8ListenerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   store ptr null, ptr %0, align 8, !tbaa !54, !alias.scope !721
   ret void
 
-80:                                               ; preds = %34, %.noexc.i.i.i.i
+80:                                               ; preds = %33, %.noexc.i.i.i.i
   %81 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5arrow3ipc14IpcReadOptionsD2Ev.exit8
 
-82:                                               ; preds = %38
+82:                                               ; preds = %37
   %83 = landingpad { ptr, i32 }
           cleanup
   %84 = load ptr, ptr %23, align 8, !tbaa !99
@@ -75152,20 +75152,20 @@ _ZNK3org6apache5arrow7flatbuf15BodyCompression6methodEv.exit.i.i: ; preds = %_ZN
 
 153:                                              ; preds = %_ZNK3org6apache5arrow7flatbuf11RecordBatch11compressionEv.exit.i.i
   %154 = icmp samesign ugt i16 %145, 4
-  br i1 %154, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i.i, label %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.i.i
+  br i1 %154, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i.i, label %_ZN5arrow6StatusD2Ev.exit.thread.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i.i: ; preds = %153, %_ZNK3org6apache5arrow7flatbuf15BodyCompression6methodEv.exit.i.i, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i60
   %155 = getelementptr inbounds nuw i8, ptr %144, i64 4
   %156 = load i16, ptr %155, align 2, !tbaa !146, !noalias !2534
   %.not.i.i10.i.i = icmp eq i16 %156, 0
-  br i1 %.not.i.i10.i.i, label %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.i.i, label %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.i.i
+  br i1 %.not.i.i10.i.i, label %_ZN5arrow6StatusD2Ev.exit.thread.i, label %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.i.i
 
 _ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.i.i: ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i.i
   %157 = zext i16 %156 to i64
   %158 = getelementptr inbounds nuw i8, ptr %140, i64 %157
   %159 = load i8, ptr %158, align 1, !tbaa !80, !noalias !2534
   switch i8 %159, label %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit13.thread.i.i [
-    i8 0, label %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.i.i
+    i8 0, label %_ZN5arrow6StatusD2Ev.exit.thread.i
     i8 1, label %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.fold.split.i.i
   ]
 
@@ -75174,15 +75174,10 @@ _ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit13.thread.i.i: ; pred
           to label %_ZN5arrow6StatusD2Ev.exit.i59 unwind label %215
 
 _ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.fold.split.i.i: ; preds = %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.i.i
-  br label %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.i.i
-
-_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.i.i: ; preds = %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.fold.split.i.i, %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.i.i, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i.i, %153
-  %storemerge.i.i = phi i32 [ 6, %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.i.i ], [ 6, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i.i ], [ 6, %153 ], [ 4, %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.fold.split.i.i ]
-  store i32 %storemerge.i.i, ptr %8, align 4, !tbaa !147, !noalias !2534
   br label %_ZN5arrow6StatusD2Ev.exit.thread.i
 
-_ZN5arrow6StatusD2Ev.exit.thread.i:               ; preds = %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.i.i, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i.i57, %122
-  %160 = phi i32 [ 0, %122 ], [ 0, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i.i57 ], [ %storemerge.i.i, %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.i.i ]
+_ZN5arrow6StatusD2Ev.exit.thread.i:               ; preds = %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.fold.split.i.i, %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.i.i, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i.i, %153, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i.i57, %122
+  %160 = phi i32 [ 0, %122 ], [ 0, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i.i57 ], [ 6, %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.i.i ], [ 6, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i.i ], [ 6, %153 ], [ 4, %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.thread.fold.split.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #36, !noalias !2531
   br label %169
 

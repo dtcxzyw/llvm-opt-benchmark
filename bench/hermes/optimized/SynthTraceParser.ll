@@ -10018,8 +10018,6 @@ entry:
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %3 = getelementptr inbounds nuw i8, ptr %call, i64 48
-  store i64 0, ptr %3, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EEC2EmRKS5_.exit.i.i.i.thread, label %cond.true.i.i.i.i.i.i
 
@@ -10058,23 +10056,23 @@ _ZN8facebook6hermes7tracing10SynthTrace20CallFromNativeRecordCI2NS2_10CallRecord
   store ptr %__cur.0.lcssa.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i10, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace20CallFromNativeRecordE, i64 16), ptr %call, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %4 = load ptr, ptr %_M_finish.i, align 8
+  %3 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %5 = load ptr, ptr %_M_end_of_storage.i, align 8
-  %cmp.not.i = icmp eq ptr %4, %5
+  %4 = load ptr, ptr %_M_end_of_storage.i, align 8
+  %cmp.not.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN8facebook6hermes7tracing10SynthTrace20CallFromNativeRecordCI2NS2_10CallRecordEENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmNS2_10TraceValueERKSt6vectorIS9_SaIS9_EE.exit
-  store ptr %call, ptr %4, align 8
-  %6 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %call, ptr %3, align 8
+  %5 = load ptr, ptr %_M_finish.i, align 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_20CallFromNativeRecordEEEERS8_DpOT_.exit
 
 if.else.i:                                        ; preds = %_ZN8facebook6hermes7tracing10SynthTrace20CallFromNativeRecordCI2NS2_10CallRecordEENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmNS2_10TraceValueERKSt6vectorIS9_SaIS9_EE.exit
-  %7 = load ptr, ptr %records_, align 8
-  %sub.ptr.lhs.cast.i.i.i.i2 = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast.i.i.i.i3 = ptrtoint ptr %7 to i64
+  %6 = load ptr, ptr %records_, align 8
+  %sub.ptr.lhs.cast.i.i.i.i2 = ptrtoint ptr %3 to i64
+  %sub.ptr.rhs.cast.i.i.i.i3 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i.i.i4 = sub i64 %sub.ptr.lhs.cast.i.i.i.i2, %sub.ptr.rhs.cast.i.i.i.i3
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i4, 9223372036854775800
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i.i
@@ -10088,38 +10086,38 @@ _ZNKSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14de
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %8 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %8
+  %7 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %7
   %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
   tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #16
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i4
   store ptr %call, ptr %add.ptr.i.i, align 8
-  %cmp.not5.i.i.i.i.i = icmp eq ptr %7, %4
+  %cmp.not5.i.i.i.i.i = icmp eq ptr %6, %3
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i.i, %for.body.i.i.i.i.i
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call5.i.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i.i ]
-  %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %7, %_ZNKSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i.i ]
+  %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %6, %_ZNKSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !191)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !194)
-  %9 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !194, !noalias !191
-  store i64 %9, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !191, !noalias !194
+  %8 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !194, !noalias !191
+  store i64 %8, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !191, !noalias !194
   store ptr null, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !194, !noalias !191
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i.i.i, i64 8
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i, i64 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %4
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i, label %for.body.i.i.i.i.i, !llvm.loop !89
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
-  %tobool.not.i.i.i = icmp eq ptr %7, null
+  %tobool.not.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_20CallFromNativeRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i, label %if.then.i20.i.i
 
 if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #19
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_20CallFromNativeRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_20CallFromNativeRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i
@@ -10297,8 +10295,6 @@ entry:
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %3 = getelementptr inbounds nuw i8, ptr %call, i64 48
-  store i64 0, ptr %3, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EEC2EmRKS5_.exit.i.i.i.i.thread, label %cond.true.i.i.i.i.i.i.i
 
@@ -10337,23 +10333,23 @@ _ZN8facebook6hermes7tracing10SynthTrace25ConstructFromNativeRecordCI2NS2_10CallR
   store ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i7, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace25ConstructFromNativeRecordE, i64 16), ptr %call, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %4 = load ptr, ptr %_M_finish.i, align 8
+  %3 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %5 = load ptr, ptr %_M_end_of_storage.i, align 8
-  %cmp.not.i = icmp eq ptr %4, %5
+  %4 = load ptr, ptr %_M_end_of_storage.i, align 8
+  %cmp.not.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN8facebook6hermes7tracing10SynthTrace25ConstructFromNativeRecordCI2NS2_10CallRecordEENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmNS2_10TraceValueERKSt6vectorIS9_SaIS9_EE.exit
-  store ptr %call, ptr %4, align 8
-  %6 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %call, ptr %3, align 8
+  %5 = load ptr, ptr %_M_finish.i, align 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_25ConstructFromNativeRecordEEEERS8_DpOT_.exit
 
 if.else.i:                                        ; preds = %_ZN8facebook6hermes7tracing10SynthTrace25ConstructFromNativeRecordCI2NS2_10CallRecordEENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmNS2_10TraceValueERKSt6vectorIS9_SaIS9_EE.exit
-  %7 = load ptr, ptr %records_, align 8
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %7 to i64
+  %6 = load ptr, ptr %records_, align 8
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %3 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i.i
@@ -10367,38 +10363,38 @@ _ZNKSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14de
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %8 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %8
+  %7 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %7
   %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
   tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #16
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
   store ptr %call, ptr %add.ptr.i.i, align 8
-  %cmp.not5.i.i.i.i.i = icmp eq ptr %7, %4
+  %cmp.not5.i.i.i.i.i = icmp eq ptr %6, %3
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i.i, %for.body.i.i.i.i.i
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call5.i.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i.i ]
-  %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %7, %_ZNKSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i.i ]
+  %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %6, %_ZNKSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !202)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !205)
-  %9 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !205, !noalias !202
-  store i64 %9, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !202, !noalias !205
+  %8 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !205, !noalias !202
+  store i64 %8, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !202, !noalias !205
   store ptr null, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !205, !noalias !202
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i.i.i, i64 8
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i, i64 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %4
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i, label %for.body.i.i.i.i.i, !llvm.loop !89
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
-  %tobool.not.i.i.i = icmp eq ptr %7, null
+  %tobool.not.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_25ConstructFromNativeRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i, label %if.then.i20.i.i
 
 if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #19
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_25ConstructFromNativeRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_25ConstructFromNativeRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i
@@ -10625,8 +10621,6 @@ entry:
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %3 = getelementptr inbounds nuw i8, ptr %call, i64 48
-  store i64 0, ptr %3, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EEC2EmRKS5_.exit.i.i.i.thread, label %cond.true.i.i.i.i.i.i
 
@@ -10665,23 +10659,23 @@ _ZN8facebook6hermes7tracing10SynthTrace18CallToNativeRecordCI2NS2_10CallRecordEE
   store ptr %__cur.0.lcssa.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i10, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CallToNativeRecordE, i64 16), ptr %call, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %4 = load ptr, ptr %_M_finish.i, align 8
+  %3 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %5 = load ptr, ptr %_M_end_of_storage.i, align 8
-  %cmp.not.i = icmp eq ptr %4, %5
+  %4 = load ptr, ptr %_M_end_of_storage.i, align 8
+  %cmp.not.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN8facebook6hermes7tracing10SynthTrace18CallToNativeRecordCI2NS2_10CallRecordEENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmNS2_10TraceValueERKSt6vectorIS9_SaIS9_EE.exit
-  store ptr %call, ptr %4, align 8
-  %6 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %call, ptr %3, align 8
+  %5 = load ptr, ptr %_M_finish.i, align 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_18CallToNativeRecordEEEERS8_DpOT_.exit
 
 if.else.i:                                        ; preds = %_ZN8facebook6hermes7tracing10SynthTrace18CallToNativeRecordCI2NS2_10CallRecordEENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmNS2_10TraceValueERKSt6vectorIS9_SaIS9_EE.exit
-  %7 = load ptr, ptr %records_, align 8
-  %sub.ptr.lhs.cast.i.i.i.i2 = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast.i.i.i.i3 = ptrtoint ptr %7 to i64
+  %6 = load ptr, ptr %records_, align 8
+  %sub.ptr.lhs.cast.i.i.i.i2 = ptrtoint ptr %3 to i64
+  %sub.ptr.rhs.cast.i.i.i.i3 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i.i.i4 = sub i64 %sub.ptr.lhs.cast.i.i.i.i2, %sub.ptr.rhs.cast.i.i.i.i3
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i4, 9223372036854775800
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i.i
@@ -10695,38 +10689,38 @@ _ZNKSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14de
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %8 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %8
+  %7 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %7
   %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
   tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #16
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i4
   store ptr %call, ptr %add.ptr.i.i, align 8
-  %cmp.not5.i.i.i.i.i = icmp eq ptr %7, %4
+  %cmp.not5.i.i.i.i.i = icmp eq ptr %6, %3
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i.i, %for.body.i.i.i.i.i
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call5.i.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i.i ]
-  %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %7, %_ZNKSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i.i ]
+  %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %6, %_ZNKSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !217)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !220)
-  %9 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !220, !noalias !217
-  store i64 %9, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !217, !noalias !220
+  %8 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !220, !noalias !217
+  store i64 %8, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !217, !noalias !220
   store ptr null, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !220, !noalias !217
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i.i.i, i64 8
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i, i64 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %4
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i, label %for.body.i.i.i.i.i, !llvm.loop !89
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
-  %tobool.not.i.i.i = icmp eq ptr %7, null
+  %tobool.not.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_18CallToNativeRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i, label %if.then.i20.i.i
 
 if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #19
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_18CallToNativeRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_18CallToNativeRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i

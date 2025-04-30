@@ -5736,8 +5736,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit145: ; preds = %_Z
 136:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit145
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %14) #34
   %137 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %138 = getelementptr inbounds nuw i8, ptr %14, i64 13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1015) %138, i8 0, i64 1015, i1 false)
+  %138 = getelementptr inbounds nuw i8, ptr %14, i64 14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1014) %138, i8 0, i64 1014, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %137, ptr noundef nonnull align 1 dereferenceable(9) @.str.48, i64 9, i1 false)
   %139 = load i32, ptr %135, align 8
   %.not14.not.i.i.i153 = icmp eq i32 %139, 0
@@ -5827,8 +5827,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170: ; preds = %_Z
 170:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %13) #34
   %171 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %172 = getelementptr inbounds nuw i8, ptr %13, i64 17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1011) %172, i8 0, i64 1011, i1 false)
+  %172 = getelementptr inbounds nuw i8, ptr %13, i64 18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1010) %172, i8 0, i64 1010, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %171, ptr noundef nonnull align 1 dereferenceable(13) @.str.49, i64 13, i1 false)
   %173 = load i32, ptr %169, align 8
   %.not14.not.i.i.i178 = icmp eq i32 %173, 0
@@ -5918,8 +5918,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit195: ; preds = %_Z
 204:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit195
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %12) #34
   %205 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %206 = getelementptr inbounds nuw i8, ptr %12, i64 13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1015) %206, i8 0, i64 1015, i1 false)
+  %206 = getelementptr inbounds nuw i8, ptr %12, i64 14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1014) %206, i8 0, i64 1014, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %205, ptr noundef nonnull align 1 dereferenceable(9) @.str.50, i64 9, i1 false)
   %207 = load i32, ptr %203, align 8
   %.not14.not.i.i.i203 = icmp eq i32 %207, 0
@@ -6009,8 +6009,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit220: ; preds = %_Z
 238:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit220
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %11) #34
   %239 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %240 = getelementptr inbounds nuw i8, ptr %11, i64 17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1011) %240, i8 0, i64 1011, i1 false)
+  %240 = getelementptr inbounds nuw i8, ptr %11, i64 18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1010) %240, i8 0, i64 1010, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %239, ptr noundef nonnull align 1 dereferenceable(13) @.str.51, i64 13, i1 false)
   %241 = load i32, ptr %237, align 8
   %.not14.not.i.i.i228 = icmp eq i32 %241, 0
@@ -6663,8 +6663,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit379: ; preds = %_Z
 478:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit379
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %3) #34
   %479 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %480 = getelementptr inbounds nuw i8, ptr %3, i64 19
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1009) %480, i8 0, i64 1009, i1 false)
+  %480 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1008) %480, i8 0, i64 1008, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(15) %479, ptr noundef nonnull align 1 dereferenceable(15) @.str.61, i64 15, i1 false)
   %481 = load i32, ptr %477, align 8
   %.not14.not.i.i.i387 = icmp eq i32 %481, 0

@@ -4892,13 +4892,9 @@ define internal fastcc void @point_add(ptr noundef nonnull captures(none) %0, pt
   %650 = add i128 %641, 40564819207303340845695479316992
   %651 = add i128 %643, 40564819207303340845695479316992
   %652 = sub i128 %648, %644
-  store i128 %652, ptr %16, align 16, !tbaa !6
   %653 = sub i128 %649, %645
-  store i128 %653, ptr %602, align 16, !tbaa !6
   %654 = sub i128 %650, %646
-  store i128 %654, ptr %603, align 16, !tbaa !6
   %655 = sub i128 %651, %647
-  store i128 %655, ptr %604, align 16, !tbaa !6
   call fastcc void @smallfelem_mul(ptr noundef %21, ptr noundef %24, ptr noundef %9)
   %656 = load i128, ptr %21, align 16, !tbaa !6
   %657 = add i128 %656, 1267650600228229401427983728624
@@ -5440,7 +5436,6 @@ define internal fastcc void @point_add(ptr noundef nonnull captures(none) %0, pt
   %1148 = add nsw i128 %1140, %.neg151
   %1149 = shl nuw nsw i128 %1133, 33
   %1150 = add nuw nsw i128 %1144, %1149
-  store i128 %1150, ptr %223, align 16, !tbaa !6
   %1151 = shl nuw nsw i128 %1133, 1
   %1152 = add nuw nsw i128 %1146, %1151
   %1153 = add i128 %1137, %1143
@@ -5448,13 +5443,10 @@ define internal fastcc void @point_add(ptr noundef nonnull captures(none) %0, pt
   %1155 = sub i128 %1153, %1154
   %.neg152 = mul nsw i128 %1131, -4294967297
   %1156 = add nsw i128 %1148, %.neg152
-  store i128 %1156, ptr %12, align 16, !tbaa !6
   %1157 = shl nuw nsw i128 %1131, 33
   %1158 = add nuw nsw i128 %1152, %1157
-  store i128 %1158, ptr %225, align 16, !tbaa !6
   %1159 = mul nuw nsw i128 %1131, 3
   %1160 = add nuw nsw i128 %1155, %1159
-  store i128 %1160, ptr %227, align 16, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #9
   %1161 = add nuw nsw i128 %1160, 18446744069414584320
   %1162 = lshr i128 %1158, 64

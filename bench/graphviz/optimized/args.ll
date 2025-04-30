@@ -20,11 +20,7 @@ define i32 @gvParseArgs(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_un
   %8 = alloca ptr, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = icmp sgt i32 %1, 1
-  br i1 %10, label %.lr.ph.preheader.i, label %.thread
-
-.thread:                                          ; preds = %3
-  store ptr null, ptr %9, align 8, !tbaa !3
-  br label %config_extra_args.exit.thread
+  br i1 %10, label %.lr.ph.preheader.i, label %config_extra_args.exit.thread
 
 .lr.ph.preheader.i:                               ; preds = %3
   %wide.trip.count.i = zext nneg i32 %1 to i64
@@ -398,7 +394,7 @@ fdp_extra_args.exit:                              ; preds = %setFDPAttr.exit.thr
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, %wide.trip.count.i35
   br i1 %exitcond.not.i40, label %config_extra_args.exit, label %116, !llvm.loop !44
 
-config_extra_args.exit.thread:                    ; preds = %45, %.thread, %111
+config_extra_args.exit.thread:                    ; preds = %45, %3, %111
   store ptr null, ptr %9, align 8, !tbaa !3
   br label %151
 

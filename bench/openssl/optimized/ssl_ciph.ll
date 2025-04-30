@@ -1487,7 +1487,7 @@ check_suiteb_cipher_list.exit:                    ; preds = %33
   %53 = load ptr, ptr %52, align 8, !tbaa !136
   %54 = tail call i32 %53() #13
   %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %56, label %ssl_cipher_apply_rule.exit319.thread
+  br i1 %55, label %56, label %ssl_cipher_apply_rule.exit340
 
 56:                                               ; preds = %43
   %57 = zext nneg i32 %54 to i64
@@ -1581,7 +1581,7 @@ check_suiteb_cipher_list.exit:                    ; preds = %33
 
 ._crit_edge.i:                                    ; preds = %104
   %106 = icmp sgt i32 %.156.i, 0
-  br i1 %106, label %107, label %ssl_cipher_apply_rule.exit319.thread
+  br i1 %106, label %107, label %ssl_cipher_apply_rule.exit340
 
 107:                                              ; preds = %._crit_edge.i
   %108 = getelementptr inbounds nuw i8, ptr %59, i64 24
@@ -1623,20 +1623,12 @@ check_suiteb_cipher_list.exit:                    ; preds = %33
   store ptr %121, ptr %122, align 8, !tbaa !147
   br label %ssl_cipher_collect_ciphers.exit
 
-ssl_cipher_apply_rule.exit319.thread:             ; preds = %43, %._crit_edge.i
-  %.092460.ph = phi ptr [ null, %43 ], [ %59, %._crit_edge.i ]
-  store ptr null, ptr %8, align 8, !tbaa !150
-  store ptr null, ptr %7, align 8, !tbaa !150
-  br label %ssl_cipher_apply_rule.exit340
-
 ssl_cipher_collect_ciphers.exit:                  ; preds = %107, %._crit_edge70.i
   %.pre-phi.i = phi i64 [ %119, %._crit_edge70.i ], [ 1, %107 ]
   %123 = getelementptr %struct.cipher_order_st, ptr %59, i64 %.pre-phi.i
   %124 = getelementptr i8, ptr %123, i64 -32
   %125 = getelementptr i8, ptr %123, i64 -16
   store ptr null, ptr %125, align 8, !tbaa !148
-  store ptr %59, ptr %7, align 8, !tbaa !150
-  store ptr %124, ptr %8, align 8, !tbaa !150
   %126 = icmp eq ptr %124, null
   br i1 %126, label %ssl_cipher_apply_rule.exit, label %.lr.ph.i115
 
@@ -1864,8 +1856,6 @@ ll_append_head.exit.i:                            ; preds = %200, %190
 ssl_cipher_apply_rule.exit153:                    ; preds = %.backedge.i146, %ssl_cipher_apply_rule.exit139
   %.0163.lcssa.i151 = phi ptr [ %.0163.lcssa.i129, %ssl_cipher_apply_rule.exit139 ], [ %.0163.be.i147, %.backedge.i146 ]
   %.0161.lcssa.i152 = phi ptr [ %.0161.lcssa.i130, %ssl_cipher_apply_rule.exit139 ], [ %.0161.be.i148, %.backedge.i146 ]
-  store ptr %.0163.lcssa.i151, ptr %7, align 8, !tbaa !150
-  store ptr %.0161.lcssa.i152, ptr %8, align 8, !tbaa !150
   %204 = icmp eq ptr %.0161.lcssa.i152, null
   %205 = icmp eq ptr %.0163.lcssa.i151, null
   %or.cond174.i154 = select i1 %204, i1 true, i1 %205
@@ -2088,8 +2078,6 @@ ll_append_tail.exit.i218:                         ; preds = %275, %265
 ssl_cipher_apply_rule.exit221:                    ; preds = %.backedge.i206, %ssl_cipher_apply_rule.exit198
   %.0163.lcssa.i211 = phi ptr [ %.0163.lcssa.i188, %ssl_cipher_apply_rule.exit198 ], [ %.0163.be.i207, %.backedge.i206 ]
   %.0161.lcssa.i212 = phi ptr [ %.0161.lcssa.i189, %ssl_cipher_apply_rule.exit198 ], [ %.0161.be.i208, %.backedge.i206 ]
-  store ptr %.0163.lcssa.i211, ptr %7, align 8, !tbaa !150
-  store ptr %.0161.lcssa.i212, ptr %8, align 8, !tbaa !150
   %279 = icmp eq ptr %.0161.lcssa.i212, null
   %280 = icmp eq ptr %.0163.lcssa.i211, null
   %or.cond174.i222 = select i1 %279, i1 true, i1 %280
@@ -2288,8 +2276,6 @@ ssl_cipher_apply_rule.exit256:                    ; preds = %.backedge.i249, %ss
 ssl_cipher_apply_rule.exit277:                    ; preds = %.backedge.i270, %ssl_cipher_apply_rule.exit256
   %.0163.lcssa.i275 = phi ptr [ %.0163.lcssa.i254, %ssl_cipher_apply_rule.exit256 ], [ %.0163.be.i271, %.backedge.i270 ]
   %.0161.lcssa.i276 = phi ptr [ %.0161.lcssa.i255, %ssl_cipher_apply_rule.exit256 ], [ %.0161.be.i272, %.backedge.i270 ]
-  store ptr %.0163.lcssa.i275, ptr %7, align 8, !tbaa !150
-  store ptr %.0161.lcssa.i276, ptr %8, align 8, !tbaa !150
   %347 = icmp eq ptr %.0161.lcssa.i276, null
   %348 = icmp eq ptr %.0163.lcssa.i275, null
   %or.cond174.i278 = select i1 %347, i1 true, i1 %348
@@ -2485,10 +2471,10 @@ ssl_cipher_apply_rule.exit319:                    ; preds = %.backedge.i312, %ss
   %or.cond.i336 = select i1 %417, i1 true, i1 %418
   br i1 %or.cond.i336, label %ssl_cipher_apply_rule.exit340, label %.lr.ph.i321
 
-ssl_cipher_apply_rule.exit340:                    ; preds = %.backedge.i333, %ssl_cipher_apply_rule.exit319.thread, %ssl_cipher_apply_rule.exit319
-  %.092460481486491496501506511516521526531536 = phi ptr [ %59, %ssl_cipher_apply_rule.exit319 ], [ %.092460.ph, %ssl_cipher_apply_rule.exit319.thread ], [ %59, %.backedge.i333 ]
-  %.0163.lcssa.i338 = phi ptr [ %.0163.lcssa.i317, %ssl_cipher_apply_rule.exit319 ], [ null, %ssl_cipher_apply_rule.exit319.thread ], [ %.0163.be.i334, %.backedge.i333 ]
-  %.0161.lcssa.i339 = phi ptr [ %.0161.lcssa.i318, %ssl_cipher_apply_rule.exit319 ], [ null, %ssl_cipher_apply_rule.exit319.thread ], [ %.0161.be.i335, %.backedge.i333 ]
+ssl_cipher_apply_rule.exit340:                    ; preds = %.backedge.i333, %._crit_edge.i, %43, %ssl_cipher_apply_rule.exit319
+  %.092460481486491496501506511516521526531536 = phi ptr [ %59, %ssl_cipher_apply_rule.exit319 ], [ null, %43 ], [ %59, %._crit_edge.i ], [ %59, %.backedge.i333 ]
+  %.0163.lcssa.i338 = phi ptr [ %.0163.lcssa.i317, %ssl_cipher_apply_rule.exit319 ], [ null, %43 ], [ null, %._crit_edge.i ], [ %.0163.be.i334, %.backedge.i333 ]
+  %.0161.lcssa.i339 = phi ptr [ %.0161.lcssa.i318, %ssl_cipher_apply_rule.exit319 ], [ null, %43 ], [ null, %._crit_edge.i ], [ %.0161.be.i335, %.backedge.i333 ]
   store ptr %.0163.lcssa.i338, ptr %7, align 8, !tbaa !150
   store ptr %.0161.lcssa.i339, ptr %8, align 8, !tbaa !150
   %419 = call fastcc i32 @ssl_cipher_strength_sort(ptr noundef %7, ptr noundef %8)
@@ -2633,8 +2619,6 @@ ssl_cipher_apply_rule.exit353:                    ; preds = %.backedge.i346, %42
 ssl_cipher_apply_rule.exit374:                    ; preds = %.backedge.i367, %ssl_cipher_apply_rule.exit353
   %.0163.lcssa.i372 = phi ptr [ %.0163.lcssa.i351, %ssl_cipher_apply_rule.exit353 ], [ %.0163.be.i368, %.backedge.i367 ]
   %.0161.lcssa.i373 = phi ptr [ %.0161.lcssa.i352, %ssl_cipher_apply_rule.exit353 ], [ %.0161.be.i369, %.backedge.i367 ]
-  store ptr %.0163.lcssa.i372, ptr %7, align 8, !tbaa !150
-  store ptr %.0161.lcssa.i373, ptr %8, align 8, !tbaa !150
   %471 = icmp eq ptr %.0163.lcssa.i372, null
   %472 = icmp eq ptr %.0161.lcssa.i373, null
   %or.cond174.i375 = select i1 %471, i1 true, i1 %472

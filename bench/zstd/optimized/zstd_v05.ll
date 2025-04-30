@@ -7920,7 +7920,7 @@ ZSTDv05_decodeFrameHeader_Part2.exit.thread67:    ; preds = %28, %ZSTDv05_copyRa
 define noalias noundef ptr @ZBUFFv05_createDCtx() local_unnamed_addr #16 {
   %calloc = tail call dereferenceable_or_null(128) ptr @calloc(i64 1, i64 128)
   %1 = icmp eq ptr %calloc, null
-  br i1 %1, label %12, label %2
+  br i1 %1, label %11, label %2
 
 2:                                                ; preds = %0
   %3 = tail call noalias dereferenceable_or_null(157848) ptr @malloc(i64 noundef 157848) #26
@@ -7942,11 +7942,9 @@ define noalias noundef ptr @ZBUFFv05_createDCtx() local_unnamed_addr #16 {
 
 ZSTDv05_createDCtx.exit:                          ; preds = %2, %5
   store ptr %3, ptr %calloc, align 8, !tbaa !89
-  %11 = getelementptr inbounds nuw i8, ptr %calloc, i64 112
-  store i32 0, ptr %11, align 8, !tbaa !92
-  br label %12
+  br label %11
 
-12:                                               ; preds = %0, %ZSTDv05_createDCtx.exit
+11:                                               ; preds = %0, %ZSTDv05_createDCtx.exit
   ret ptr %calloc
 }
 
@@ -7959,10 +7957,10 @@ define noundef i64 @ZBUFFv05_freeDCtx(ptr noundef captures(address_is_null) %0) 
   %4 = load ptr, ptr %0, align 8, !tbaa !89
   tail call void @free(ptr noundef %4) #27
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !93
+  %6 = load ptr, ptr %5, align 8, !tbaa !92
   tail call void @free(ptr noundef %6) #27
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %8 = load ptr, ptr %7, align 8, !tbaa !94
+  %8 = load ptr, ptr %7, align 8, !tbaa !93
   tail call void @free(ptr noundef %8) #27
   tail call void @free(ptr noundef nonnull %0) #27
   br label %9
@@ -7974,7 +7972,7 @@ define noundef i64 @ZBUFFv05_freeDCtx(ptr noundef captures(address_is_null) %0) 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define range(i64 -30, 1) i64 @ZBUFFv05_decompressInitDictionary(ptr noundef captures(none) initializes((64, 72), (88, 116)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #20 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 1, ptr %4, align 8, !tbaa !92
+  store i32 1, ptr %4, align 8, !tbaa !94
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 0, ptr %6, align 8, !tbaa !95
@@ -7987,7 +7985,7 @@ define range(i64 -30, 1) i64 @ZBUFFv05_decompressInitDictionary(ptr noundef capt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef range(i64 -30, 1) i64 @ZBUFFv05_decompressInit(ptr noundef captures(none) initializes((64, 72), (88, 116)) %0) local_unnamed_addr #21 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 1, ptr %2, align 8, !tbaa !92
+  store i32 1, ptr %2, align 8, !tbaa !94
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 0, ptr %4, align 8, !tbaa !95
@@ -8040,7 +8038,7 @@ define i64 @ZBUFFv05_decompressContinue(ptr noundef captures(none) %0, ptr nound
   br label %.thread260
 
 .thread260:                                       ; preds = %.thread260.outer, %41
-  %26 = load i32, ptr %10, align 8, !tbaa !92
+  %26 = load i32, ptr %10, align 8, !tbaa !94
   switch i32 %26, label %.thread238 [
     i32 0, label %.thread238.loopexit
     i32 1, label %27
@@ -8095,13 +8093,13 @@ ZSTDv05_getFrameParams.exit:                      ; preds = %30
   %38 = add i64 %37, %35
   store i64 %38, ptr %12, align 8, !tbaa !99
   store i64 0, ptr %2, align 8, !tbaa !28
-  store i32 2, ptr %10, align 8, !tbaa !92
+  store i32 2, ptr %10, align 8, !tbaa !94
   %39 = load i64, ptr %12, align 8, !tbaa !99
   %40 = sub i64 5, %39
   br label %.thread238
 
 41:                                               ; preds = %ZSTDv05_getFrameParams.exit
-  store i32 3, ptr %10, align 8, !tbaa !92
+  store i32 3, ptr %10, align 8, !tbaa !94
   br label %.thread260, !llvm.loop !100
 
 42:                                               ; preds = %.thread260
@@ -8155,11 +8153,11 @@ ZSTDv05_getFrameParams.exit224:                   ; preds = %52
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %58
-  %65 = load ptr, ptr %17, align 8, !tbaa !93
+  %65 = load ptr, ptr %17, align 8, !tbaa !92
   tail call void @free(ptr noundef %65) #27
   store i64 131072, ptr %16, align 8, !tbaa !101
   %66 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #26
-  store ptr %66, ptr %17, align 8, !tbaa !93
+  store ptr %66, ptr %17, align 8, !tbaa !92
   %67 = icmp eq ptr %66, null
   br i1 %67, label %.thread238, label %68
 
@@ -8169,11 +8167,11 @@ ZSTDv05_getFrameParams.exit224:                   ; preds = %52
   br i1 %70, label %71, label %75
 
 71:                                               ; preds = %68
-  %72 = load ptr, ptr %19, align 8, !tbaa !94
+  %72 = load ptr, ptr %19, align 8, !tbaa !93
   tail call void @free(ptr noundef %72) #27
   store i64 %61, ptr %18, align 8, !tbaa !102
   %73 = tail call noalias ptr @malloc(i64 noundef %61) #26
-  store ptr %73, ptr %19, align 8, !tbaa !94
+  store ptr %73, ptr %19, align 8, !tbaa !93
   %74 = icmp eq ptr %73, null
   br i1 %74, label %.thread238, label %75
 
@@ -8183,12 +8181,12 @@ ZSTDv05_getFrameParams.exit224:                   ; preds = %52
   br i1 %.not209, label %80, label %77
 
 77:                                               ; preds = %75
-  %78 = load ptr, ptr %17, align 8, !tbaa !93
+  %78 = load ptr, ptr %17, align 8, !tbaa !92
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %78, ptr nonnull align 4 %11, i64 %76, i1 false)
   %79 = load i64, ptr %12, align 8, !tbaa !99
   store i64 %79, ptr %20, align 8, !tbaa !95
   store i64 0, ptr %12, align 8, !tbaa !99
-  store i32 5, ptr %10, align 8, !tbaa !92
+  store i32 5, ptr %10, align 8, !tbaa !94
   br label %.thread260.outer.backedge
 
 .thread260.outer.backedge:                        ; preds = %77, %99, %97, %134
@@ -8196,7 +8194,7 @@ ZSTDv05_getFrameParams.exit224:                   ; preds = %52
   br label %.thread260.outer, !llvm.loop !100
 
 80:                                               ; preds = %75
-  store i32 4, ptr %10, align 8, !tbaa !92
+  store i32 4, ptr %10, align 8, !tbaa !94
   br label %.loopexit340
 
 .loopexit340:                                     ; preds = %.thread260, %80
@@ -8208,7 +8206,7 @@ ZSTDv05_getFrameParams.exit224:                   ; preds = %52
   br i1 %84, label %85, label %86
 
 85:                                               ; preds = %.loopexit340
-  store i32 0, ptr %10, align 8, !tbaa !92
+  store i32 0, ptr %10, align 8, !tbaa !94
   br label %.loopexit
 
 86:                                               ; preds = %.loopexit340
@@ -8218,7 +8216,7 @@ ZSTDv05_getFrameParams.exit224:                   ; preds = %52
   br i1 %.not210, label %102, label %89
 
 89:                                               ; preds = %86
-  %90 = load ptr, ptr %19, align 8, !tbaa !94
+  %90 = load ptr, ptr %19, align 8, !tbaa !93
   %91 = load i64, ptr %22, align 8, !tbaa !97
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 %91
   %93 = load i64, ptr %18, align 8, !tbaa !102
@@ -8236,7 +8234,7 @@ ZSTDv05_getFrameParams.exit224:                   ; preds = %52
   %100 = load i64, ptr %22, align 8, !tbaa !97
   %101 = add i64 %100, %95
   store i64 %101, ptr %23, align 8, !tbaa !96
-  store i32 6, ptr %10, align 8, !tbaa !92
+  store i32 6, ptr %10, align 8, !tbaa !94
   br label %.thread260.outer.backedge
 
 102:                                              ; preds = %86
@@ -8244,7 +8242,7 @@ ZSTDv05_getFrameParams.exit224:                   ; preds = %52
   br i1 %103, label %.loopexit, label %104
 
 104:                                              ; preds = %102
-  store i32 5, ptr %10, align 8, !tbaa !92
+  store i32 5, ptr %10, align 8, !tbaa !94
   br label %105
 
 105:                                              ; preds = %._crit_edge316, %104
@@ -8265,7 +8263,7 @@ ZSTDv05_getFrameParams.exit224:                   ; preds = %52
   br i1 %.not.i225, label %ZBUFFv05_limitCopy.exit226, label %116
 
 116:                                              ; preds = %112
-  %117 = load ptr, ptr %17, align 8, !tbaa !93
+  %117 = load ptr, ptr %17, align 8, !tbaa !92
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 %107
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %118, ptr readonly align 1 %.3174, i64 %115, i1 false)
   %.pre319 = load i64, ptr %20, align 8, !tbaa !95
@@ -8281,12 +8279,12 @@ ZBUFFv05_limitCopy.exit226:                       ; preds = %112, %116
 
 123:                                              ; preds = %ZBUFFv05_limitCopy.exit226
   %124 = load ptr, ptr %0, align 8, !tbaa !89
-  %125 = load ptr, ptr %19, align 8, !tbaa !94
+  %125 = load ptr, ptr %19, align 8, !tbaa !93
   %126 = load i64, ptr %22, align 8, !tbaa !97
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 %126
   %128 = load i64, ptr %18, align 8, !tbaa !102
   %129 = sub i64 %128, %126
-  %130 = load ptr, ptr %17, align 8, !tbaa !93
+  %130 = load ptr, ptr %17, align 8, !tbaa !92
   %131 = tail call i64 @ZSTDv05_decompressContinue(ptr noundef %124, ptr noundef %127, i64 noundef %129, ptr noundef %130, i64 noundef %106)
   %132 = icmp ult i64 %131, -119
   br i1 %132, label %133, label %.thread238
@@ -8297,14 +8295,14 @@ ZBUFFv05_limitCopy.exit226:                       ; preds = %112, %116
   br i1 %.not214, label %134, label %135
 
 134:                                              ; preds = %133
-  store i32 4, ptr %10, align 8, !tbaa !92
+  store i32 4, ptr %10, align 8, !tbaa !94
   br label %.thread260.outer.backedge
 
 135:                                              ; preds = %133
   %136 = load i64, ptr %22, align 8, !tbaa !97
   %137 = add i64 %136, %131
   store i64 %137, ptr %23, align 8, !tbaa !96
-  store i32 6, ptr %10, align 8, !tbaa !92
+  store i32 6, ptr %10, align 8, !tbaa !94
   br label %138
 
 138:                                              ; preds = %._crit_edge320, %135
@@ -8319,7 +8317,7 @@ ZBUFFv05_limitCopy.exit226:                       ; preds = %112, %116
   br i1 %.not.i227, label %ZBUFFv05_limitCopy.exit228, label %145
 
 145:                                              ; preds = %138
-  %146 = load ptr, ptr %19, align 8, !tbaa !94
+  %146 = load ptr, ptr %19, align 8, !tbaa !93
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 %139
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0180313.ph.ph, ptr readonly align 1 %147, i64 %144, i1 false)
   %.pre323 = load i64, ptr %22, align 8, !tbaa !97
@@ -8334,7 +8332,7 @@ ZBUFFv05_limitCopy.exit228:                       ; preds = %138, %145
   br i1 %.not282, label %.loopexit, label %151
 
 151:                                              ; preds = %ZBUFFv05_limitCopy.exit228
-  store i32 4, ptr %10, align 8, !tbaa !92
+  store i32 4, ptr %10, align 8, !tbaa !94
   %152 = add i64 %150, 131072
   %153 = load i64, ptr %18, align 8, !tbaa !102
   %154 = icmp ugt i64 %152, %153
@@ -8552,9 +8550,9 @@ attributes #27 = { nounwind }
 !89 = !{!90, !91, i64 0}
 !90 = !{!"ZBUFFv05_DCtx_s", !91, i64 0, !72, i64 8, !38, i64 48, !29, i64 56, !29, i64 64, !38, i64 72, !29, i64 80, !29, i64 88, !29, i64 96, !29, i64 104, !18, i64 112, !5, i64 116}
 !91 = !{!"p1 _ZTS14ZSTDv05_DCtx_s", !39, i64 0}
-!92 = !{!90, !18, i64 112}
-!93 = !{!90, !38, i64 48}
-!94 = !{!90, !38, i64 72}
+!92 = !{!90, !38, i64 48}
+!93 = !{!90, !38, i64 72}
+!94 = !{!90, !18, i64 112}
 !95 = !{!90, !29, i64 64}
 !96 = !{!90, !29, i64 96}
 !97 = !{!90, !29, i64 88}

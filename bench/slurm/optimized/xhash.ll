@@ -629,10 +629,10 @@ define dso_local ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr no
 
 167:                                              ; preds = %124
   %168 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %calloc357 = call dereferenceable_or_null(64) ptr @calloc(i64 1, i64 64)
+  %calloc = call dereferenceable_or_null(64) ptr @calloc(i64 1, i64 64)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %168, i8 0, i64 16, i1 false)
-  store ptr %calloc357, ptr %161, align 8
-  %.not284 = icmp eq ptr %calloc357, null
+  store ptr %calloc, ptr %161, align 8
+  %.not284 = icmp eq ptr %calloc, null
   br i1 %.not284, label %169, label %170
 
 169:                                              ; preds = %167
@@ -640,17 +640,17 @@ define dso_local ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr no
   unreachable
 
 170:                                              ; preds = %167
-  %171 = getelementptr inbounds nuw i8, ptr %calloc357, i64 24
+  %171 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
   store ptr %161, ptr %171, align 8
-  %172 = getelementptr inbounds nuw i8, ptr %calloc357, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   store i32 32, ptr %172, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %calloc357, i64 12
+  %173 = getelementptr inbounds nuw i8, ptr %calloc, i64 12
   store i32 5, ptr %173, align 4
-  %174 = getelementptr inbounds nuw i8, ptr %calloc357, i64 32
+  %174 = getelementptr inbounds nuw i8, ptr %calloc, i64 32
   store i64 8, ptr %174, align 8
   %calloc356 = call dereferenceable_or_null(512) ptr @calloc(i64 1, i64 512)
-  store ptr %calloc356, ptr %calloc357, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %calloc357, i64 56
+  store ptr %calloc356, ptr %calloc, align 8
+  %175 = getelementptr inbounds nuw i8, ptr %calloc, i64 56
   store i32 -1609490463, ptr %175, align 8
   %.not285 = icmp eq ptr %calloc356, null
   br i1 %.not285, label %176, label %177
@@ -753,8 +753,8 @@ define dso_local ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr no
   %240 = load i32, ptr %239, align 8
   %241 = zext i32 %240 to i64
   %242 = shl nuw nsw i64 %241, 5
-  %calloc = call ptr @calloc(i64 1, i64 %242)
-  %.not289 = icmp eq ptr %calloc, null
+  %calloc357 = call ptr @calloc(i64 1, i64 %242)
+  %.not289 = icmp eq ptr %calloc357, null
   br i1 %.not289, label %243, label %244
 
 243:                                              ; preds = %238
@@ -807,7 +807,7 @@ define dso_local ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr no
   %274 = add i32 %273, -1
   %275 = and i32 %274, %269
   %276 = zext i32 %275 to i64
-  %277 = getelementptr inbounds nuw %struct.UT_hash_bucket, ptr %calloc, i64 %276
+  %277 = getelementptr inbounds nuw %struct.UT_hash_bucket, ptr %calloc357, i64 %276
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 8
   %279 = load i32, ptr %278, align 8
   %280 = add i32 %279, 1
@@ -882,7 +882,7 @@ define dso_local ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr no
   %316 = add i32 %315, 1
   store i32 %316, ptr %314, align 4
   %317 = load ptr, ptr %161, align 8
-  store ptr %calloc, ptr %317, align 8
+  store ptr %calloc357, ptr %317, align 8
   %318 = load ptr, ptr %161, align 8
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 44
   %320 = load i32, ptr %319, align 4

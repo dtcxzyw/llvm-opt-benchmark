@@ -144605,42 +144605,41 @@ _ZSt8__copy_nIPN8WasmEdge7ValTypeEjS2_ET1_T_T0_S3_St26random_access_iterator_tag
   %68 = ptrtoint ptr %66 to i64
   %69 = ptrtoint ptr %67 to i64
   %70 = sub i64 %68, %69
-  %71 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  store i64 0, ptr %71, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %66, %67
-  br i1 %.not.i.i.i.i.i.i, label %.noexc13.thread.i, label %72
+  br i1 %.not.i.i.i.i.i.i, label %.noexc13.thread.i, label %71
 
 .noexc13.thread.i:                                ; preds = %61
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, i8 0, i64 24, i1 false)
-  br label %79
+  br label %78
 
-72:                                               ; preds = %61
-  %73 = sdiv exact i64 %70, 28
-  %74 = icmp ugt i64 %73, 329406144173384850
-  br i1 %74, label %.noexc.i.i.i.i, label %_ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8allocateERS4_m.exit.i.i.i.i.i.i
+71:                                               ; preds = %61
+  %72 = sdiv exact i64 %70, 28
+  %73 = icmp ugt i64 %72, 329406144173384850
+  br i1 %73, label %.noexc.i.i.i.i, label %_ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8allocateERS4_m.exit.i.i.i.i.i.i
 
-.noexc.i.i.i.i:                                   ; preds = %72
+.noexc.i.i.i.i:                                   ; preds = %71
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #29
           to label %.noexc.i unwind label %.loopexit.split-lp
 
 .noexc.i:                                         ; preds = %.noexc.i.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8allocateERS4_m.exit.i.i.i.i.i.i: ; preds = %72
-  %75 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %70) #26
-          to label %76 unwind label %.loopexit
+_ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8allocateERS4_m.exit.i.i.i.i.i.i: ; preds = %71
+  %74 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %70) #26
+          to label %75 unwind label %.loopexit
 
-76:                                               ; preds = %_ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8allocateERS4_m.exit.i.i.i.i.i.i
-  store ptr %75, ptr %63, align 8
-  %77 = getelementptr inbounds i8, ptr %75, i64 %70
-  %78 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  store ptr %77, ptr %78, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %75, ptr align 4 %67, i64 %70, i1 false)
-  br label %79
+75:                                               ; preds = %_ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8allocateERS4_m.exit.i.i.i.i.i.i
+  store ptr %74, ptr %63, align 8
+  %76 = getelementptr inbounds i8, ptr %74, i64 %70
+  %77 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  store ptr %76, ptr %77, align 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %74, ptr align 4 %67, i64 %70, i1 false)
+  br label %78
 
-79:                                               ; preds = %76, %.noexc13.thread.i
-  %80 = phi ptr [ null, %.noexc13.thread.i ], [ %77, %76 ]
-  store ptr %80, ptr %71, align 8
+78:                                               ; preds = %75, %.noexc13.thread.i
+  %79 = phi ptr [ null, %.noexc13.thread.i ], [ %76, %75 ]
+  %80 = getelementptr inbounds nuw i8, ptr %60, i64 24
+  store ptr %79, ptr %80, align 8
   store ptr %60, ptr %.09.i.i.i.i.i.i.i.i.i, align 16
   br label %_ZN8WasmEdge3AST11InstructionC2ERKS1_.exit
 
@@ -144660,7 +144659,7 @@ _ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8alloc
   tail call void @__clang_call_terminate(ptr %82) #28
   unreachable
 
-_ZN8WasmEdge3AST11InstructionC2ERKS1_.exit:       ; preds = %34, %_ZSt8__copy_nIPN8WasmEdge3AST11Instruction14JumpDescriptorEjS4_ET1_T_T0_S5_St26random_access_iterator_tag.exit.i.i, %46, %_ZSt8__copy_nIPN8WasmEdge7ValTypeEjS2_ET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i, %55, %57, %79
+_ZN8WasmEdge3AST11InstructionC2ERKS1_.exit:       ; preds = %34, %_ZSt8__copy_nIPN8WasmEdge3AST11Instruction14JumpDescriptorEjS4_ET1_T_T0_S5_St26random_access_iterator_tag.exit.i.i, %46, %_ZSt8__copy_nIPN8WasmEdge7ValTypeEjS2_ET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i, %55, %57, %78
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i.i.i, i64 32
   %84 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %83, %18
@@ -144745,7 +144744,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge3AST11InstructionC2ERKS1_(ptr nound
   %15 = zext i32 %14 to i64
   %16 = shl nuw nsw i64 %15, 4
   %17 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %16) #26
-          to label %18 unwind label %66
+          to label %18 unwind label %65
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -144769,7 +144768,7 @@ _ZSt8__copy_nIPN8WasmEdge3AST11Instruction14JumpDescriptorEjS4_ET1_T_T0_S5_St26r
   %27 = zext i32 %26 to i64
   %28 = shl nuw nsw i64 %27, 3
   %29 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %28) #26
-          to label %30 unwind label %66
+          to label %30 unwind label %65
 
 30:                                               ; preds = %25
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -144790,7 +144789,7 @@ _ZSt8__copy_nIPN8WasmEdge7ValTypeEjS2_ET1_T_T0_S3_St26random_access_iterator_tag
 
 37:                                               ; preds = %35
   %38 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26
-          to label %39 unwind label %66
+          to label %39 unwind label %65
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %1, align 16
@@ -144805,7 +144804,7 @@ _ZSt8__copy_nIPN8WasmEdge7ValTypeEjS2_ET1_T_T0_S3_St26random_access_iterator_tag
 
 43:                                               ; preds = %41
   %44 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
-          to label %45 unwind label %66
+          to label %45 unwind label %65
 
 45:                                               ; preds = %43
   %46 = load ptr, ptr %1, align 16
@@ -144818,54 +144817,52 @@ _ZSt8__copy_nIPN8WasmEdge7ValTypeEjS2_ET1_T_T0_S3_St26random_access_iterator_tag
   %52 = ptrtoint ptr %50 to i64
   %53 = ptrtoint ptr %51 to i64
   %54 = sub i64 %52, %53
-  %55 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  store i64 0, ptr %55, align 8
   %.not.i.i.i.i.i = icmp eq ptr %50, %51
-  br i1 %.not.i.i.i.i.i, label %.noexc13.thread, label %56
+  br i1 %.not.i.i.i.i.i, label %.noexc13.thread, label %55
 
 .noexc13.thread:                                  ; preds = %45
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false)
-  br label %63
+  br label %62
 
-56:                                               ; preds = %45
-  %57 = sdiv exact i64 %54, 28
-  %58 = icmp ugt i64 %57, 329406144173384850
-  br i1 %58, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8allocateERS4_m.exit.i.i.i.i.i
+55:                                               ; preds = %45
+  %56 = sdiv exact i64 %54, 28
+  %57 = icmp ugt i64 %56, 329406144173384850
+  br i1 %57, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8allocateERS4_m.exit.i.i.i.i.i
 
-.noexc.i.i.i:                                     ; preds = %56
+.noexc.i.i.i:                                     ; preds = %55
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #29
-          to label %.noexc unwind label %66
+          to label %.noexc unwind label %65
 
 .noexc:                                           ; preds = %.noexc.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8allocateERS4_m.exit.i.i.i.i.i: ; preds = %56
-  %59 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %54) #26
-          to label %60 unwind label %66
+_ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8allocateERS4_m.exit.i.i.i.i.i: ; preds = %55
+  %58 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %54) #26
+          to label %59 unwind label %65
 
-60:                                               ; preds = %_ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8allocateERS4_m.exit.i.i.i.i.i
-  store ptr %59, ptr %47, align 8
-  %61 = getelementptr inbounds i8, ptr %59, i64 %54
-  %62 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  store ptr %61, ptr %62, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %59, ptr align 4 %51, i64 %54, i1 false)
-  br label %63
+59:                                               ; preds = %_ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8allocateERS4_m.exit.i.i.i.i.i
+  store ptr %58, ptr %47, align 8
+  %60 = getelementptr inbounds i8, ptr %58, i64 %54
+  %61 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  store ptr %60, ptr %61, align 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %58, ptr align 4 %51, i64 %54, i1 false)
+  br label %62
 
-63:                                               ; preds = %.noexc13.thread, %60
-  %64 = phi ptr [ null, %.noexc13.thread ], [ %61, %60 ]
-  %65 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  store ptr %64, ptr %65, align 8
+62:                                               ; preds = %.noexc13.thread, %59
+  %63 = phi ptr [ null, %.noexc13.thread ], [ %60, %59 ]
+  %64 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  store ptr %63, ptr %64, align 8
   store ptr %44, ptr %0, align 16
   br label %_ZSt6copy_nIPN8WasmEdge3AST11Instruction14JumpDescriptorEjS4_ET1_T_T0_S5_.exit
 
-_ZSt6copy_nIPN8WasmEdge3AST11Instruction14JumpDescriptorEjS4_ET1_T_T0_S5_.exit: ; preds = %_ZSt8__copy_nIPN8WasmEdge7ValTypeEjS2_ET1_T_T0_S3_St26random_access_iterator_tag.exit.i, %30, %_ZSt8__copy_nIPN8WasmEdge3AST11Instruction14JumpDescriptorEjS4_ET1_T_T0_S5_St26random_access_iterator_tag.exit.i, %18, %41, %63, %39
+_ZSt6copy_nIPN8WasmEdge3AST11Instruction14JumpDescriptorEjS4_ET1_T_T0_S5_.exit: ; preds = %_ZSt8__copy_nIPN8WasmEdge7ValTypeEjS2_ET1_T_T0_S3_St26random_access_iterator_tag.exit.i, %30, %_ZSt8__copy_nIPN8WasmEdge3AST11Instruction14JumpDescriptorEjS4_ET1_T_T0_S5_St26random_access_iterator_tag.exit.i, %18, %41, %62, %39
   ret void
 
-66:                                               ; preds = %_ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8allocateERS4_m.exit.i.i.i.i.i, %.noexc.i.i.i, %43, %37, %25, %13
-  %67 = landingpad { ptr, i32 }
+65:                                               ; preds = %_ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8allocateERS4_m.exit.i.i.i.i.i, %.noexc.i.i.i, %43, %37, %25, %13
+  %66 = landingpad { ptr, i32 }
           catch ptr null
-  %68 = extractvalue { ptr, i32 } %67, 0
-  tail call void @__clang_call_terminate(ptr %68) #28
+  %67 = extractvalue { ptr, i32 } %66, 0
+  tail call void @__clang_call_terminate(ptr %67) #28
   unreachable
 }
 
@@ -145015,42 +145012,41 @@ _ZSt8__copy_nIPN8WasmEdge7ValTypeEjS2_ET1_T_T0_S3_St26random_access_iterator_tag
   %68 = ptrtoint ptr %66 to i64
   %69 = ptrtoint ptr %67 to i64
   %70 = sub i64 %68, %69
-  %71 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  store i64 0, ptr %71, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %66, %67
-  br i1 %.not.i.i.i.i.i.i, label %.noexc13.thread.i, label %72
+  br i1 %.not.i.i.i.i.i.i, label %.noexc13.thread.i, label %71
 
 .noexc13.thread.i:                                ; preds = %61
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, i8 0, i64 24, i1 false)
-  br label %79
+  br label %78
 
-72:                                               ; preds = %61
-  %73 = sdiv exact i64 %70, 28
-  %74 = icmp ugt i64 %73, 329406144173384850
-  br i1 %74, label %.noexc.i.i.i.i, label %_ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8allocateERS4_m.exit.i.i.i.i.i.i
+71:                                               ; preds = %61
+  %72 = sdiv exact i64 %70, 28
+  %73 = icmp ugt i64 %72, 329406144173384850
+  br i1 %73, label %.noexc.i.i.i.i, label %_ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8allocateERS4_m.exit.i.i.i.i.i.i
 
-.noexc.i.i.i.i:                                   ; preds = %72
+.noexc.i.i.i.i:                                   ; preds = %71
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #29
           to label %.noexc.i unwind label %.loopexit.split-lp
 
 .noexc.i:                                         ; preds = %.noexc.i.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8allocateERS4_m.exit.i.i.i.i.i.i: ; preds = %72
-  %75 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %70) #26
-          to label %76 unwind label %.loopexit
+_ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8allocateERS4_m.exit.i.i.i.i.i.i: ; preds = %71
+  %74 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %70) #26
+          to label %75 unwind label %.loopexit
 
-76:                                               ; preds = %_ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8allocateERS4_m.exit.i.i.i.i.i.i
-  store ptr %75, ptr %63, align 8
-  %77 = getelementptr inbounds i8, ptr %75, i64 %70
-  %78 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  store ptr %77, ptr %78, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %75, ptr align 4 %67, i64 %70, i1 false)
-  br label %79
+75:                                               ; preds = %_ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8allocateERS4_m.exit.i.i.i.i.i.i
+  store ptr %74, ptr %63, align 8
+  %76 = getelementptr inbounds i8, ptr %74, i64 %70
+  %77 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  store ptr %76, ptr %77, align 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %74, ptr align 4 %67, i64 %70, i1 false)
+  br label %78
 
-79:                                               ; preds = %76, %.noexc13.thread.i
-  %80 = phi ptr [ null, %.noexc13.thread.i ], [ %77, %76 ]
-  store ptr %80, ptr %71, align 8
+78:                                               ; preds = %75, %.noexc13.thread.i
+  %79 = phi ptr [ null, %.noexc13.thread.i ], [ %76, %75 ]
+  %80 = getelementptr inbounds nuw i8, ptr %60, i64 24
+  store ptr %79, ptr %80, align 8
   store ptr %60, ptr %.09.i.i.i.i.i.i.i.i.i, align 16
   br label %_ZN8WasmEdge3AST11InstructionC2ERKS1_.exit
 
@@ -145070,7 +145066,7 @@ _ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8alloc
   tail call void @__clang_call_terminate(ptr %82) #28
   unreachable
 
-_ZN8WasmEdge3AST11InstructionC2ERKS1_.exit:       ; preds = %34, %_ZSt8__copy_nIPN8WasmEdge3AST11Instruction14JumpDescriptorEjS4_ET1_T_T0_S5_St26random_access_iterator_tag.exit.i.i, %46, %_ZSt8__copy_nIPN8WasmEdge7ValTypeEjS2_ET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i, %55, %57, %79
+_ZN8WasmEdge3AST11InstructionC2ERKS1_.exit:       ; preds = %34, %_ZSt8__copy_nIPN8WasmEdge3AST11Instruction14JumpDescriptorEjS4_ET1_T_T0_S5_St26random_access_iterator_tag.exit.i.i, %46, %_ZSt8__copy_nIPN8WasmEdge7ValTypeEjS2_ET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i, %55, %57, %78
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i.i.i, i64 32
   %84 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %83, %18
@@ -145620,42 +145616,41 @@ _ZSt8__copy_nIPN8WasmEdge7ValTypeEjS2_ET1_T_T0_S3_St26random_access_iterator_tag
   %68 = ptrtoint ptr %66 to i64
   %69 = ptrtoint ptr %67 to i64
   %70 = sub i64 %68, %69
-  %71 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  store i64 0, ptr %71, align 8
   %.not.i.i.i.i.i.i10 = icmp eq ptr %66, %67
-  br i1 %.not.i.i.i.i.i.i10, label %.noexc13.thread.i, label %72
+  br i1 %.not.i.i.i.i.i.i10, label %.noexc13.thread.i, label %71
 
 .noexc13.thread.i:                                ; preds = %61
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, i8 0, i64 24, i1 false)
-  br label %79
+  br label %78
 
-72:                                               ; preds = %61
-  %73 = sdiv exact i64 %70, 28
-  %74 = icmp ugt i64 %73, 329406144173384850
-  br i1 %74, label %.noexc.i.i.i.i11, label %_ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8allocateERS4_m.exit.i.i.i.i.i.i
+71:                                               ; preds = %61
+  %72 = sdiv exact i64 %70, 28
+  %73 = icmp ugt i64 %72, 329406144173384850
+  br i1 %73, label %.noexc.i.i.i.i11, label %_ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8allocateERS4_m.exit.i.i.i.i.i.i
 
-.noexc.i.i.i.i11:                                 ; preds = %72
+.noexc.i.i.i.i11:                                 ; preds = %71
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #29
           to label %.noexc.i unwind label %.loopexit.split-lp
 
 .noexc.i:                                         ; preds = %.noexc.i.i.i.i11
   unreachable
 
-_ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8allocateERS4_m.exit.i.i.i.i.i.i: ; preds = %72
-  %75 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %70) #26
-          to label %76 unwind label %.loopexit
+_ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8allocateERS4_m.exit.i.i.i.i.i.i: ; preds = %71
+  %74 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %70) #26
+          to label %75 unwind label %.loopexit
 
-76:                                               ; preds = %_ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8allocateERS4_m.exit.i.i.i.i.i.i
-  store ptr %75, ptr %63, align 8
-  %77 = getelementptr inbounds i8, ptr %75, i64 %70
-  %78 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  store ptr %77, ptr %78, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %75, ptr align 4 %67, i64 %70, i1 false)
-  br label %79
+75:                                               ; preds = %_ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8allocateERS4_m.exit.i.i.i.i.i.i
+  store ptr %74, ptr %63, align 8
+  %76 = getelementptr inbounds i8, ptr %74, i64 %70
+  %77 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  store ptr %76, ptr %77, align 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %74, ptr align 4 %67, i64 %70, i1 false)
+  br label %78
 
-79:                                               ; preds = %76, %.noexc13.thread.i
-  %80 = phi ptr [ null, %.noexc13.thread.i ], [ %77, %76 ]
-  store ptr %80, ptr %71, align 8
+78:                                               ; preds = %75, %.noexc13.thread.i
+  %79 = phi ptr [ null, %.noexc13.thread.i ], [ %76, %75 ]
+  %80 = getelementptr inbounds nuw i8, ptr %60, i64 24
+  store ptr %79, ptr %80, align 8
   store ptr %60, ptr %.09.i.i.i.i.i.i.i, align 16
   br label %_ZN8WasmEdge3AST11InstructionC2ERKS1_.exit
 
@@ -145675,7 +145670,7 @@ _ZNSt16allocator_traitsISaIN8WasmEdge3AST11Instruction15CatchDescriptorEEE8alloc
   tail call void @__clang_call_terminate(ptr %82) #28
   unreachable
 
-_ZN8WasmEdge3AST11InstructionC2ERKS1_.exit:       ; preds = %34, %_ZSt8__copy_nIPN8WasmEdge3AST11Instruction14JumpDescriptorEjS4_ET1_T_T0_S5_St26random_access_iterator_tag.exit.i.i, %46, %_ZSt8__copy_nIPN8WasmEdge7ValTypeEjS2_ET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i, %55, %57, %79
+_ZN8WasmEdge3AST11InstructionC2ERKS1_.exit:       ; preds = %34, %_ZSt8__copy_nIPN8WasmEdge3AST11Instruction14JumpDescriptorEjS4_ET1_T_T0_S5_St26random_access_iterator_tag.exit.i.i, %46, %_ZSt8__copy_nIPN8WasmEdge7ValTypeEjS2_ET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i, %55, %57, %78
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i, i64 32
   %84 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i.i = icmp eq ptr %83, %18

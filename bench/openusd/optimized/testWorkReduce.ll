@@ -253,9 +253,9 @@ _ZL15_PopulateVectormRSt6vectorIiSaIiEE.exit:     ; preds = %_ZNSt6vectorIiSaIiE
   %38 = ptrtoint ptr %.sroa.8.4 to i64
   %39 = ptrtoint ptr %.sroa.041.5 to i64
   %40 = sub i64 %38, %39
-  %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.sroa.8.4, %.sroa.041.5
-  %42 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %.thread.i.us, label %.lr.ph.split
 
 .thread.i.us:                                     ; preds = %.lr.ph, %_ZNSt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES7_ILi2EES7_ILi3EES2_EED2Ev.exit.us
@@ -274,7 +274,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19WorkParallelReduceNISt5_BindIFPFimmiRKSt6
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.us, label %_ZNSt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES7_ILi2EES7_ILi3EES2_EED2Ev.exit.us, label %45
 
 45:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19WorkParallelReduceNISt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES9_ILi2EES9_ILi3EES4_EES1_IFPFiiiESA_SB_EEiEET1_RKSJ_mOT_OT0_.exit.us
-  %46 = load ptr, ptr %42, align 8
+  %46 = load ptr, ptr %41, align 8
   %47 = ptrtoint ptr %46 to i64
   %48 = ptrtoint ptr %44 to i64
   %49 = sub i64 %47, %48
@@ -299,7 +299,6 @@ _ZNSt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES7_ILi2EES7_ILi3EES
   store i32 0, ptr %5, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   store ptr @_ZL3summmiRKSt6vectorIiSaIiEE, ptr %6, align 8, !alias.scope !8
-  store i64 0, ptr %41, align 8, !alias.scope !8
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #22
           to label %.noexc17 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -308,7 +307,6 @@ _ZNSt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES7_ILi2EES7_ILi3EES
   store i32 0, ptr %5, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
   store ptr @_ZL3summmiRKSt6vectorIiSaIiEE, ptr %6, align 8, !alias.scope !8
-  store i64 0, ptr %41, align 8, !alias.scope !8
   %53 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #23
           to label %.noexc18 unwind label %.loopexit
 
@@ -318,9 +316,9 @@ _ZNSt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES7_ILi2EES7_ILi3EES
 .noexc18:                                         ; preds = %.lr.ph.split.split
   store ptr %53, ptr %37, align 8, !alias.scope !8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 %40
-  store ptr %54, ptr %42, align 8, !alias.scope !8
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %53, ptr align 4 %.sroa.041.5, i64 %40, i1 false), !noalias !8
   store ptr %54, ptr %41, align 8, !alias.scope !8
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %53, ptr align 4 %.sroa.041.5, i64 %40, i1 false), !noalias !8
+  store ptr %54, ptr %42, align 8, !alias.scope !8
   store ptr @_ZL4plusii, ptr %7, align 8, !alias.scope !11
   %55 = invoke noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__19WorkParallelReduceNIRSt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES9_ILi2EES9_ILi3EES4_EERS1_IFPFiiiESA_SB_EEiEET1_RKSL_mOT_OT0_m(ptr noundef nonnull align 4 dereferenceable(4) %5, i64 noundef %8, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(9) %7, i64 noundef 1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__19WorkParallelReduceNISt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES9_ILi2EES9_ILi3EES4_EES1_IFPFiiiESA_SB_EEiEET1_RKSJ_mOT_OT0_.exit unwind label %.split
@@ -331,7 +329,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19WorkParallelReduceNISt5_BindIFPFimmiRKSt6
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES7_ILi2EES7_ILi3EES2_EED2Ev.exit, label %57
 
 57:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19WorkParallelReduceNISt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES9_ILi2EES9_ILi3EES4_EES1_IFPFiiiESA_SB_EEiEET1_RKSJ_mOT_OT0_.exit
-  %58 = load ptr, ptr %42, align 8
+  %58 = load ptr, ptr %41, align 8
   %59 = ptrtoint ptr %58 to i64
   %60 = ptrtoint ptr %56 to i64
   %61 = sub i64 %59, %60
@@ -372,7 +370,7 @@ _ZNSt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES7_ILi2EES7_ILi3EES
   br i1 %.not.i.i.i.i.i.i.i.i.i.i20, label %_ZNSt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES7_ILi2EES7_ILi3EES2_EED2Ev.exit21, label %66
 
 66:                                               ; preds = %64
-  %67 = load ptr, ptr %42, align 8
+  %67 = load ptr, ptr %41, align 8
   %68 = ptrtoint ptr %67 to i64
   %69 = ptrtoint ptr %65 to i64
   %70 = sub i64 %68, %69

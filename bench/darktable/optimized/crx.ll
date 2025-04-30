@@ -19342,50 +19342,48 @@ _ZN13libraw_memmgr6callocEmm.exit:                ; preds = %31
 
 56:                                               ; preds = %_ZN13libraw_memmgr6callocEmm.exit
   %57 = getelementptr inbounds nuw i8, ptr %27, i64 65556
-  %58 = getelementptr inbounds nuw i8, ptr %27, i64 65552
-  store i32 0, ptr %58, align 8, !tbaa !24
-  %59 = load ptr, ptr %54, align 8, !tbaa !28
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 104
-  %61 = load ptr, ptr %60, align 8
-  %62 = tail call noundef i32 %61(ptr noundef nonnull align 8 dereferenceable(8) %54)
-  %63 = load ptr, ptr %55, align 8, !tbaa !27
-  %64 = load i64, ptr %52, align 8, !tbaa !26
-  %65 = load ptr, ptr %63, align 8, !tbaa !28
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
-  %67 = load ptr, ptr %66, align 8
-  %68 = tail call noundef i32 %67(ptr noundef nonnull align 8 dereferenceable(8) %63, i64 noundef %64, i32 noundef 0)
-  %69 = load ptr, ptr %55, align 8, !tbaa !27
-  %70 = load i64, ptr %51, align 8, !tbaa !25
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %70, i64 65536)
-  %71 = load ptr, ptr %69, align 8, !tbaa !28
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  %73 = load ptr, ptr %72, align 8
-  %74 = tail call noundef i32 %73(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef nonnull %27, i64 noundef 1, i64 noundef %spec.select.i)
-  store i32 %74, ptr %57, align 4, !tbaa !23
-  %75 = load ptr, ptr %55, align 8, !tbaa !27
-  %76 = load ptr, ptr %75, align 8, !tbaa !28
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 112
-  %78 = load ptr, ptr %77, align 8
-  tail call void %78(ptr noundef nonnull align 8 dereferenceable(8) %75)
-  %79 = load i32, ptr %57, align 4, !tbaa !23
-  %80 = icmp eq i32 %79, 0
-  br i1 %80, label %81, label %83
+  %58 = load ptr, ptr %54, align 8, !tbaa !28
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 104
+  %60 = load ptr, ptr %59, align 8
+  %61 = tail call noundef i32 %60(ptr noundef nonnull align 8 dereferenceable(8) %54)
+  %62 = load ptr, ptr %55, align 8, !tbaa !27
+  %63 = load i64, ptr %52, align 8, !tbaa !26
+  %64 = load ptr, ptr %62, align 8, !tbaa !28
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
+  %66 = load ptr, ptr %65, align 8
+  %67 = tail call noundef i32 %66(ptr noundef nonnull align 8 dereferenceable(8) %62, i64 noundef %63, i32 noundef 0)
+  %68 = load ptr, ptr %55, align 8, !tbaa !27
+  %69 = load i64, ptr %51, align 8, !tbaa !25
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %69, i64 65536)
+  %70 = load ptr, ptr %68, align 8, !tbaa !28
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
+  %72 = load ptr, ptr %71, align 8
+  %73 = tail call noundef i32 %72(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull %27, i64 noundef 1, i64 noundef %spec.select.i)
+  store i32 %73, ptr %57, align 4, !tbaa !23
+  %74 = load ptr, ptr %55, align 8, !tbaa !27
+  %75 = load ptr, ptr %74, align 8, !tbaa !28
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 112
+  %77 = load ptr, ptr %76, align 8
+  tail call void %77(ptr noundef nonnull align 8 dereferenceable(8) %74)
+  %78 = load i32, ptr %57, align 4, !tbaa !23
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %80, label %82
 
-81:                                               ; preds = %56
-  %82 = tail call ptr @__cxa_allocate_exception(i64 4) #21
-  store i32 4, ptr %82, align 16, !tbaa !30
-  tail call void @__cxa_throw(ptr nonnull %82, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
+80:                                               ; preds = %56
+  %81 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  store i32 4, ptr %81, align 16, !tbaa !30
+  tail call void @__cxa_throw(ptr nonnull %81, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #22
   unreachable
 
-83:                                               ; preds = %56
-  %84 = zext i32 %79 to i64
-  %85 = load i64, ptr %51, align 8, !tbaa !25
-  %86 = sub i64 %85, %84
-  store i64 %86, ptr %51, align 8, !tbaa !25
+82:                                               ; preds = %56
+  %83 = zext i32 %78 to i64
+  %84 = load i64, ptr %51, align 8, !tbaa !25
+  %85 = sub i64 %84, %83
+  store i64 %85, ptr %51, align 8, !tbaa !25
   br label %_ZL13crxFillBufferP12CrxBitstream.exit
 
-_ZL13crxFillBufferP12CrxBitstream.exit:           ; preds = %8, %83, %_ZN13libraw_memmgr6callocEmm.exit
-  %.0 = phi i32 [ 0, %_ZN13libraw_memmgr6callocEmm.exit ], [ 0, %83 ], [ -1, %8 ]
+_ZL13crxFillBufferP12CrxBitstream.exit:           ; preds = %8, %82, %_ZN13libraw_memmgr6callocEmm.exit
+  %.0 = phi i32 [ 0, %_ZN13libraw_memmgr6callocEmm.exit ], [ 0, %82 ], [ -1, %8 ]
   ret i32 %.0
 }
 
@@ -22004,7 +22002,6 @@ _ZN13libraw_memmgr6callocEmm.exit:                ; preds = %38
 .loopexit365:                                     ; preds = %.loopexit364, %16
   %134 = phi ptr [ %18, %16 ], [ %34, %.loopexit364 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #21
-  store i32 %3, ptr %5, align 4, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #21
   store ptr %2, ptr %6, align 8, !tbaa !194
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 9

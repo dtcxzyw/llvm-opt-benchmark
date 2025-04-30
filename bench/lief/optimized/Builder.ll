@@ -1817,36 +1817,34 @@ _ZN4LIEF5MachO7Builder5buildEv.exit:              ; preds = %32, %34
   %40 = ptrtoint ptr %38 to i64
   %41 = ptrtoint ptr %39 to i64
   %42 = sub i64 %40, %41
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %43, align 8
   %.not.i.i.i.i = icmp eq ptr %38, %39
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.thread, label %44
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.thread, label %43
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.thread: ; preds = %_ZN4LIEF5MachO7Builder5buildEv.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZNSt6vectorIhSaIhEEC2ERKS1_.exit
 
-44:                                               ; preds = %_ZN4LIEF5MachO7Builder5buildEv.exit
-  %45 = icmp slt i64 %42, 0
-  br i1 %45, label %46, label %47, !prof !148
+43:                                               ; preds = %_ZN4LIEF5MachO7Builder5buildEv.exit
+  %44 = icmp slt i64 %42, 0
+  br i1 %44, label %45, label %46, !prof !148
 
-46:                                               ; preds = %44
+45:                                               ; preds = %43
   call void @_ZSt17__throw_bad_allocv() #25
   unreachable
 
-47:                                               ; preds = %44
-  %48 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #26
-  store ptr %48, ptr %0, align 8, !tbaa !3
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %42
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %49, ptr %50, align 8, !tbaa !9
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %48, ptr align 1 %39, i64 %42, i1 false)
+46:                                               ; preds = %43
+  %47 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #26
+  store ptr %47, ptr %0, align 8, !tbaa !3
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %42
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %48, ptr %49, align 8, !tbaa !9
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %47, ptr align 1 %39, i64 %42, i1 false)
   br label %_ZNSt6vectorIhSaIhEEC2ERKS1_.exit
 
-_ZNSt6vectorIhSaIhEEC2ERKS1_.exit:                ; preds = %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.thread, %47
-  %51 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.thread ], [ %49, %47 ]
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %51, ptr %52, align 8, !tbaa !67
+_ZNSt6vectorIhSaIhEEC2ERKS1_.exit:                ; preds = %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.thread, %46
+  %50 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.thread ], [ %48, %46 ]
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %50, ptr %51, align 8, !tbaa !67
   call void @_ZN4LIEF5MachO7BuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(201) %4) #27
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #27
   ret void
@@ -44831,7 +44829,6 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %.08 = phi i64 [ %13, %11 ], [ %43, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #27
   %19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.08
-  store ptr %14, ptr %4, align 8, !tbaa !274
   %20 = load ptr, ptr %19, align 8, !tbaa !250
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %22 = icmp eq ptr %20, %21
@@ -46905,7 +46902,6 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %.07 = phi i64 [ %13, %11 ], [ %43, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #27
   %19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.07
-  store ptr %14, ptr %4, align 8, !tbaa !274
   %20 = load ptr, ptr %19, align 8, !tbaa !250
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %22 = icmp eq ptr %20, %21
@@ -50444,7 +50440,6 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %.08 = phi i64 [ %13, %11 ], [ %43, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #27
   %19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.08
-  store ptr %14, ptr %4, align 8, !tbaa !274
   %20 = load ptr, ptr %19, align 8, !tbaa !250
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %22 = icmp eq ptr %20, %21

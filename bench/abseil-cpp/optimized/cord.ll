@@ -15948,6 +15948,7 @@ _ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i20: ; preds = %163, %
 166:                                              ; preds = %_ZNK4absl4Cord11chunk_beginEv.exit
   %167 = sext i8 %93 to i64
   %168 = lshr i64 %167, 1
+  store i64 %168, ptr %90, align 8, !tbaa !101, !alias.scope !468
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %spec.select.i.i.i48 = select i1 %.not.i.i.i12, ptr %169, ptr null
   br label %_ZNK4absl4Cord11chunk_beginEv.exit50
