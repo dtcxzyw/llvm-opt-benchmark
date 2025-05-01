@@ -773,8 +773,6 @@ _ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpINS_7uint128EEE
   br i1 %.not.i44.i.i, label %._crit_edge.i.i.i, label %326
 
 326:                                              ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpINS_7uint128EEEbT_mh.exit.i.i.i, %314
-  %.sroa.01.0.insert.ext.i.i.i.i.i = zext i64 %.sink59.off0 to i128
-  %.sroa.01.0.insert.insert.i.i.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i, %.sroa.01.0.insert.ext.i.i.i.i.i
   %327 = icmp samesign ugt i64 %301, 31
   %328 = zext nneg i32 %305 to i128
   %329 = shl nuw nsw i128 1, %328
@@ -783,6 +781,8 @@ _ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpINS_7uint128EEE
   %.sroa.2.0.extract.trunc.i16.i.i.i.i = trunc nuw nsw i128 %.sroa.2.0.extract.shift.i15.i.i.i.i to i64
   %.sroa.029.0.i.i.i.i = select i1 %327, i64 0, i64 %.sroa.0.0.extract.trunc.i14.i.i.i.i
   %.sroa.3.0.i.i.i.i = select i1 %327, i64 0, i64 %.sroa.2.0.extract.trunc.i16.i.i.i.i
+  %.sroa.01.0.insert.ext.i.i.i.i.i = zext i64 %.sink59.off0 to i128
+  %.sroa.01.0.insert.insert.i.i.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i, %.sroa.01.0.insert.ext.i.i.i.i.i
   %.sroa.01.0.insert.ext.i.i.i20.i.i.i = zext nneg i64 %.sroa.029.0.i.i.i.i to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i = add i128 %.sroa.01.0.insert.insert.i.i.i.i.i, %.sroa.01.0.insert.ext.i.i.i20.i.i.i
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i = trunc i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i to i64
@@ -857,51 +857,46 @@ _ZN4absl19str_format_internal12_GLOBAL__N_112FormatARoundINS_7uint128EEEvbRKNS1_
   br i1 %or.cond.i.i, label %348, label %354
 
 348:                                              ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_112FormatARoundINS_7uint128EEEvbRKNS1_11FormatStateEPhPT_Pi.exit.i.i
-  br i1 %282, label %349, label %350
+  %349 = or i64 %.sroa.082.4.i.i, %.sroa.16.4.i.i
+  %.not104.i.i = icmp ne i64 %349, 0
+  %or.cond108.not.i.i = select i1 %282, i1 %.not104.i.i, i1 false
+  br i1 %or.cond108.not.i.i, label %354, label %350
 
-349:                                              ; preds = %348
-  %.sroa.2.0.insert.ext.i.i.i.i = zext i64 %.sroa.16.4.i.i to i128
-  %.sroa.2.0.insert.shift.i.i.i.i = shl nuw i128 %.sroa.2.0.insert.ext.i.i.i.i, 64
-  %.sroa.0.0.insert.ext.i.i.i.i = zext i64 %.sroa.082.4.i.i to i128
-  %.sroa.0.0.insert.insert.i.i.i.i = or disjoint i128 %.sroa.2.0.insert.shift.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i
-  %.not104.i.i = icmp eq i128 %.sroa.0.0.insert.insert.i.i.i.i, 0
-  br i1 %.not104.i.i, label %350, label %354
-
-350:                                              ; preds = %349, %348
+350:                                              ; preds = %348
   %351 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %352 = load i8, ptr %351, align 1, !tbaa !4
   %353 = and i8 %352, 8
   %.not105.i.i = icmp eq i8 %353, 0
   br i1 %.not105.i.i, label %356, label %354
 
-354:                                              ; preds = %350, %349, %_ZN4absl19str_format_internal12_GLOBAL__N_112FormatARoundINS_7uint128EEEvbRKNS1_11FormatStateEPhPT_Pi.exit.i.i
+354:                                              ; preds = %350, %348, %_ZN4absl19str_format_internal12_GLOBAL__N_112FormatARoundINS_7uint128EEEvbRKNS1_11FormatStateEPhPT_Pi.exit.i.i
   %355 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 46, ptr %347, align 1, !tbaa !12
   br label %356
 
 356:                                              ; preds = %354, %350
   %.0.i75.i = phi ptr [ %355, %354 ], [ %347, %350 ]
-  %.sroa.2.0.insert.ext.i.i53109.i.i = zext i64 %.sroa.16.4.i.i to i128
-  %.sroa.2.0.insert.shift.i.i54110.i.i = shl nuw i128 %.sroa.2.0.insert.ext.i.i53109.i.i, 64
-  %.sroa.0.0.insert.ext.i.i55111.i.i = zext i64 %.sroa.082.4.i.i to i128
-  %.sroa.0.0.insert.insert.i.i56112.i.i = or disjoint i128 %.sroa.2.0.insert.shift.i.i54110.i.i, %.sroa.0.0.insert.ext.i.i55111.i.i
-  %.not106113.i.i = icmp eq i128 %.sroa.0.0.insert.insert.i.i56112.i.i, 0
-  br i1 %.not106113.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_17FormatAINS_7uint128EEEvNS1_18HexFloatTypeParamsET_ibRKNS1_11FormatStateE.exit.i, label %.lr.ph.i.i
+  %.sroa.2.0.insert.ext.i.i53111.i.i = zext i64 %.sroa.16.4.i.i to i128
+  %.sroa.2.0.insert.shift.i.i54112.i.i = shl nuw i128 %.sroa.2.0.insert.ext.i.i53111.i.i, 64
+  %.sroa.0.0.insert.ext.i.i55113.i.i = zext i64 %.sroa.082.4.i.i to i128
+  %.sroa.0.0.insert.insert.i.i56114.i.i = or disjoint i128 %.sroa.2.0.insert.shift.i.i54112.i.i, %.sroa.0.0.insert.ext.i.i55113.i.i
+  %.not106115.i.i = icmp eq i128 %.sroa.0.0.insert.insert.i.i56114.i.i, 0
+  br i1 %.not106115.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_17FormatAINS_7uint128EEEvNS1_18HexFloatTypeParamsET_ibRKNS1_11FormatStateE.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %356, %.lr.ph.i.i
-  %.sroa.0.0.insert.insert.i.i56117.i.i = phi i128 [ %361, %.lr.ph.i.i ], [ %.sroa.0.0.insert.insert.i.i56112.i.i, %356 ]
-  %.1116.i.i = phi ptr [ %360, %.lr.ph.i.i ], [ %.0.i75.i, %356 ]
-  %.034115.i.i = phi i64 [ %362, %.lr.ph.i.i ], [ 0, %356 ]
-  %.sroa.16.0114.i.i = phi i64 [ %.sroa.2.0.extract.trunc.i.i.i76.i, %.lr.ph.i.i ], [ %.sroa.16.4.i.i, %356 ]
-  %357 = lshr i64 %.sroa.16.0114.i.i, 60
+  %.sroa.0.0.insert.insert.i.i56119.i.i = phi i128 [ %361, %.lr.ph.i.i ], [ %.sroa.0.0.insert.insert.i.i56114.i.i, %356 ]
+  %.1118.i.i = phi ptr [ %360, %.lr.ph.i.i ], [ %.0.i75.i, %356 ]
+  %.034117.i.i = phi i64 [ %362, %.lr.ph.i.i ], [ 0, %356 ]
+  %.sroa.16.0116.i.i = phi i64 [ %.sroa.2.0.extract.trunc.i.i.i76.i, %.lr.ph.i.i ], [ %.sroa.16.4.i.i, %356 ]
+  %357 = lshr i64 %.sroa.16.0116.i.i, 60
   %358 = getelementptr inbounds nuw i8, ptr %340, i64 %357
   %359 = load i8, ptr %358, align 1, !tbaa !12
-  %360 = getelementptr inbounds nuw i8, ptr %.1116.i.i, i64 1
-  store i8 %359, ptr %.1116.i.i, align 1, !tbaa !12
-  %361 = shl i128 %.sroa.0.0.insert.insert.i.i56117.i.i, 4
+  %360 = getelementptr inbounds nuw i8, ptr %.1118.i.i, i64 1
+  store i8 %359, ptr %.1118.i.i, align 1, !tbaa !12
+  %361 = shl i128 %.sroa.0.0.insert.insert.i.i56119.i.i, 4
   %.sroa.2.0.extract.shift.i.i69.i.i = lshr i128 %361, 64
   %.sroa.2.0.extract.trunc.i.i.i76.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i69.i.i to i64
-  %362 = add nuw nsw i64 %.034115.i.i, 1
+  %362 = add nuw nsw i64 %.034117.i.i, 1
   %.not106.i.i = icmp eq i128 %361, 0
   br i1 %.not106.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_17FormatAINS_7uint128EEEvNS1_18HexFloatTypeParamsET_ibRKNS1_11FormatStateE.exit.i, label %.lr.ph.i.i, !llvm.loop !45
 

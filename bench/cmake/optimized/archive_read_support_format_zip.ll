@@ -6472,45 +6472,51 @@ declare i64 @__archive_read_seek(ptr noundef, i64 noundef, i32 noundef) local_un
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc range(i32 0, 33) i32 @read_eocd(ptr noundef writeonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i64 noundef range(i64 1, -9223372036854775808) %2) unnamed_addr #16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.val25 = load i16, ptr %4, align 1
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %6 = load i32, ptr %5, align 1
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i32, ptr %7, align 1
-  %.not = icmp eq i16 %.val25, 0
-  br i1 %.not, label %9, label %23
+  %.val25 = load i8, ptr %4, align 1, !tbaa !36
+  %5 = getelementptr i8, ptr %1, i64 5
+  %.val26 = load i8, ptr %5, align 1, !tbaa !36
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %7 = load i32, ptr %6, align 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %9 = load i32, ptr %8, align 1
+  %10 = or i8 %.val26, %.val25
+  %.not = icmp eq i8 %10, 0
+  br i1 %.not, label %11, label %27
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %.val23 = load i16, ptr %10, align 1
-  %.not18 = icmp eq i16 %.val23, 0
-  br i1 %.not18, label %11, label %23
+11:                                               ; preds = %3
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  %.val23 = load i8, ptr %12, align 1, !tbaa !36
+  %13 = getelementptr i8, ptr %1, i64 7
+  %.val24 = load i8, ptr %13, align 1, !tbaa !36
+  %14 = or i8 %.val24, %.val23
+  %.not18 = icmp eq i8 %14, 0
+  br i1 %.not18, label %15, label %27
 
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %.val21 = load i16, ptr %12, align 1
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val = load i16, ptr %13, align 1
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %.val21 = load i16, ptr %16, align 1
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val = load i16, ptr %17, align 1
   %.not19 = icmp eq i16 %.val21, %.val
-  br i1 %.not19, label %14, label %23
+  br i1 %.not19, label %18, label %27
 
-14:                                               ; preds = %11
-  %15 = zext i32 %8 to i64
-  %16 = zext i32 %6 to i64
-  %17 = add nuw nsw i64 %15, %16
-  %18 = icmp samesign ugt i64 %17, %2
-  br i1 %18, label %23, label %19
+18:                                               ; preds = %15
+  %19 = zext i32 %9 to i64
+  %20 = zext i32 %7 to i64
+  %21 = add nuw nsw i64 %19, %20
+  %22 = icmp samesign ugt i64 %21, %2
+  br i1 %22, label %27, label %23
 
-19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %15, ptr %20, align 8, !tbaa !114
-  %21 = sub nuw nsw i64 %2, %16
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %21, ptr %22, align 8, !tbaa !112
-  br label %23
+23:                                               ; preds = %18
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %19, ptr %24, align 8, !tbaa !114
+  %25 = sub nuw nsw i64 %2, %20
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %25, ptr %26, align 8, !tbaa !112
+  br label %27
 
-23:                                               ; preds = %14, %11, %9, %3, %19
-  %.0 = phi i32 [ 32, %19 ], [ 0, %3 ], [ 0, %9 ], [ 0, %11 ], [ 0, %14 ]
+27:                                               ; preds = %18, %15, %11, %3, %23
+  %.0 = phi i32 [ 32, %23 ], [ 0, %3 ], [ 0, %11 ], [ 0, %15 ], [ 0, %18 ]
   ret i32 %.0
 }
 

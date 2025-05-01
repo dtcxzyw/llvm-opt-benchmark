@@ -40,7 +40,7 @@ define range(i32 -10, 2147483647) i32 @fdt_ro_probe_(ptr noundef readonly captur
   %34 = load i8, ptr %33, align 1, !tbaa !3
   %35 = zext i8 %34 to i32
   %36 = or disjoint i32 %32, %35
-  switch i32 %36, label %99 [
+  switch i32 %36, label %92 [
     i32 -804389139, label %37
     i32 804389138, label %77
   ]
@@ -65,7 +65,7 @@ define range(i32 -10, 2147483647) i32 @fdt_ro_probe_(ptr noundef readonly captur
   %54 = zext i8 %53 to i32
   %55 = or disjoint i32 %51, %54
   %56 = icmp ult i32 %55, 2
-  br i1 %56, label %99, label %57
+  br i1 %56, label %92, label %57
 
 57:                                               ; preds = %37
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -87,37 +87,30 @@ define range(i32 -10, 2147483647) i32 @fdt_ro_probe_(ptr noundef readonly captur
   %74 = zext i8 %73 to i32
   %75 = or disjoint i32 %71, %74
   %76 = icmp ugt i32 %75, 17
-  br i1 %76, label %99, label %97
+  br i1 %76, label %92, label %90
 
 77:                                               ; preds = %1
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %79 = load i8, ptr %78, align 1, !tbaa !3
-  %80 = zext i8 %79 to i32
-  %81 = shl nuw i32 %80, 24
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 37
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 37
+  %81 = load i8, ptr %80, align 1, !tbaa !3
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 38
   %83 = load i8, ptr %82, align 1, !tbaa !3
-  %84 = zext i8 %83 to i32
-  %85 = shl nuw nsw i32 %84, 16
-  %86 = or disjoint i32 %85, %81
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 38
-  %88 = load i8, ptr %87, align 1, !tbaa !3
-  %89 = zext i8 %88 to i32
-  %90 = shl nuw nsw i32 %89, 8
-  %91 = or disjoint i32 %86, %90
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 39
-  %93 = load i8, ptr %92, align 1, !tbaa !3
-  %94 = zext i8 %93 to i32
-  %95 = or disjoint i32 %91, %94
-  %96 = icmp eq i32 %95, 0
-  br i1 %96, label %99, label %97
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 39
+  %85 = load i8, ptr %84, align 1, !tbaa !3
+  %86 = or i8 %81, %79
+  %87 = or i8 %86, %83
+  %88 = or i8 %87, %85
+  %89 = icmp eq i8 %88, 0
+  br i1 %89, label %92, label %90
 
-97:                                               ; preds = %77, %57
-  %98 = icmp ult i32 %19, 2147483647
-  %. = select i1 %98, i32 %19, i32 -8
-  br label %99
+90:                                               ; preds = %77, %57
+  %91 = icmp ult i32 %19, 2147483647
+  %. = select i1 %91, i32 %19, i32 -8
+  br label %92
 
-99:                                               ; preds = %1, %97, %77, %57, %37
-  %.0 = phi i32 [ -10, %37 ], [ -10, %57 ], [ -7, %77 ], [ %., %97 ], [ -9, %1 ]
+92:                                               ; preds = %1, %90, %77, %57, %37
+  %.0 = phi i32 [ -10, %37 ], [ -10, %57 ], [ -7, %77 ], [ %., %90 ], [ -9, %1 ]
   ret i32 %.0
 }
 

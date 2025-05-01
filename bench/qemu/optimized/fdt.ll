@@ -26,7 +26,7 @@ define dso_local range(i32 -19, 2147483647) i32 @fdt_ro_probe_(ptr noundef %0) l
   %20 = ptrtoint ptr %0 to i64
   %21 = and i64 %20, 7
   %.not = icmp eq i64 %21, 0
-  br i1 %.not, label %22, label %102
+  br i1 %.not, label %22, label %95
 
 22:                                               ; preds = %1
   %23 = load i8, ptr %0, align 1
@@ -46,7 +46,7 @@ define dso_local range(i32 -19, 2147483647) i32 @fdt_ro_probe_(ptr noundef %0) l
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %39 = or disjoint i32 %35, %38
-  switch i32 %39, label %102 [
+  switch i32 %39, label %95 [
     i32 -804389139, label %40
     i32 804389138, label %80
   ]
@@ -71,7 +71,7 @@ define dso_local range(i32 -19, 2147483647) i32 @fdt_ro_probe_(ptr noundef %0) l
   %57 = zext i8 %56 to i32
   %58 = or disjoint i32 %54, %57
   %59 = icmp ult i32 %58, 2
-  br i1 %59, label %102, label %60
+  br i1 %59, label %95, label %60
 
 60:                                               ; preds = %40
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -93,37 +93,30 @@ define dso_local range(i32 -19, 2147483647) i32 @fdt_ro_probe_(ptr noundef %0) l
   %77 = zext i8 %76 to i32
   %78 = or disjoint i32 %74, %77
   %79 = icmp ugt i32 %78, 17
-  br i1 %79, label %102, label %100
+  br i1 %79, label %95, label %93
 
 80:                                               ; preds = %22
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %82 = load i8, ptr %81, align 1
-  %83 = zext i8 %82 to i32
-  %84 = shl nuw i32 %83, 24
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 37
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 37
+  %84 = load i8, ptr %83, align 1
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 38
   %86 = load i8, ptr %85, align 1
-  %87 = zext i8 %86 to i32
-  %88 = shl nuw nsw i32 %87, 16
-  %89 = or disjoint i32 %88, %84
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 38
-  %91 = load i8, ptr %90, align 1
-  %92 = zext i8 %91 to i32
-  %93 = shl nuw nsw i32 %92, 8
-  %94 = or disjoint i32 %89, %93
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 39
-  %96 = load i8, ptr %95, align 1
-  %97 = zext i8 %96 to i32
-  %98 = or disjoint i32 %94, %97
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %102, label %100
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 39
+  %88 = load i8, ptr %87, align 1
+  %89 = or i8 %84, %82
+  %90 = or i8 %89, %86
+  %91 = or i8 %90, %88
+  %92 = icmp eq i8 %91, 0
+  br i1 %92, label %95, label %93
 
-100:                                              ; preds = %80, %60
-  %101 = icmp ult i32 %19, 2147483647
-  %. = select i1 %101, i32 %19, i32 -8
-  br label %102
+93:                                               ; preds = %80, %60
+  %94 = icmp ult i32 %19, 2147483647
+  %. = select i1 %94, i32 %19, i32 -8
+  br label %95
 
-102:                                              ; preds = %22, %100, %80, %60, %40, %1
-  %.0 = phi i32 [ -19, %1 ], [ -10, %40 ], [ -10, %60 ], [ -7, %80 ], [ %., %100 ], [ -9, %22 ]
+95:                                               ; preds = %22, %93, %80, %60, %40, %1
+  %.0 = phi i32 [ -19, %1 ], [ -10, %40 ], [ -10, %60 ], [ -7, %80 ], [ %., %93 ], [ -9, %22 ]
   ret i32 %.0
 }
 

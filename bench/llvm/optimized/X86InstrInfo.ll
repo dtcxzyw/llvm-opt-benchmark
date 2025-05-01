@@ -12043,36 +12043,35 @@ define dso_local noundef ptr @_ZN4llvm3X8619getConstantFromPoolERKNS_12MachineIn
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %23 = load i32, ptr %22, align 8, !tbaa !240
   %24 = sext i32 %23 to i64
-  %25 = shl nsw i64 %24, 32
-  %26 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %27 = load i32, ptr %26, align 4, !tbaa !240
-  %28 = zext i32 %27 to i64
-  %29 = or disjoint i64 %25, %28
-  %.not = icmp eq i64 %29, 0
-  br i1 %.not, label %30, label %.critedge
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %26 = load i32, ptr %25, align 4, !tbaa !240
+  %27 = zext i32 %26 to i64
+  %28 = or i64 %27, %24
+  %.not = icmp eq i64 %28, 0
+  br i1 %.not, label %29, label %.critedge
 
-30:                                               ; preds = %21
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !243
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  %34 = load ptr, ptr %33, align 8, !tbaa !244
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 56
-  %36 = load ptr, ptr %35, align 8, !tbaa !647
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !648
-  %39 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %40 = load i32, ptr %39, align 8, !tbaa !240
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds nuw %"class.llvm::MachineConstantPoolEntry", ptr %38, i64 %41
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 9
-  %44 = load i8, ptr %43, align 1, !tbaa !651, !range !68, !noundef !69
-  %45 = trunc nuw i8 %44 to i1
-  %46 = load ptr, ptr %42, align 8
-  %.2 = select i1 %45, ptr null, ptr %46
+29:                                               ; preds = %21
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %31 = load ptr, ptr %30, align 8, !tbaa !243
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  %33 = load ptr, ptr %32, align 8, !tbaa !244
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
+  %35 = load ptr, ptr %34, align 8, !tbaa !647
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !648
+  %38 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %39 = load i32, ptr %38, align 8, !tbaa !240
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds nuw %"class.llvm::MachineConstantPoolEntry", ptr %37, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 9
+  %43 = load i8, ptr %42, align 1, !tbaa !651, !range !68, !noundef !69
+  %44 = trunc nuw i8 %43 to i1
+  %45 = load ptr, ptr %41, align 8
+  %.2 = select i1 %44, ptr null, ptr %45
   br label %.critedge
 
-.critedge:                                        ; preds = %2, %30, %21, %14, %11
-  %.0 = phi ptr [ null, %11 ], [ %.2, %30 ], [ null, %21 ], [ null, %14 ], [ null, %2 ]
+.critedge:                                        ; preds = %2, %29, %21, %14, %11
+  %.0 = phi ptr [ null, %11 ], [ %.2, %29 ], [ null, %21 ], [ null, %14 ], [ null, %2 ]
   ret ptr %.0
 }
 

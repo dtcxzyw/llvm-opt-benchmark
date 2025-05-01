@@ -2921,9 +2921,9 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit:     ; preds = %3
   br i1 %.not225.not, label %.critedge243, label %.preheader
 
 .preheader:                                       ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit
-  %131 = or disjoint i64 %123, %119
-  %132 = or disjoint i64 %131, %127
-  %133 = or disjoint i64 %132, %130
+  %131 = or i64 %118, %122
+  %132 = or i64 %131, %126
+  %133 = or i64 %132, %130
   %.not411 = icmp eq i64 %133, 0
   br i1 %.not411, label %.critedge243, label %.lr.ph402
 

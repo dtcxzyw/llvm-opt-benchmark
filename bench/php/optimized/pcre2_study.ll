@@ -485,7 +485,7 @@ thread-pre-split:                                 ; preds = %5
 29:                                               ; preds = %thread-pre-split, %.thread470
   %30 = phi i8 [ %.pr, %thread-pre-split ], [ 121, %.thread470 ]
   %.0301 = phi i32 [ 1, %thread-pre-split ], [ %.2303558, %.thread470 ]
-  %.0269 = phi ptr [ %1, %thread-pre-split ], [ %748, %.thread470 ]
+  %.0269 = phi ptr [ %1, %thread-pre-split ], [ %745, %.thread470 ]
   %31 = getelementptr inbounds nuw i8, ptr %.0269, i64 1
   %32 = getelementptr inbounds nuw i8, ptr %.0269, i64 3
   switch i8 %30, label %.backedge.preheader [
@@ -2067,30 +2067,27 @@ study_char_list.exit:                             ; preds = %.loopexit83.i, %559
 732:                                              ; preds = %.loopexit494, %.loopexit494, %.loopexit494
   %733 = getelementptr inbounds nuw i8, ptr %.11461, i64 1
   %734 = load i8, ptr %733, align 1, !tbaa !17
-  %735 = zext i8 %734 to i32
-  %736 = shl nuw nsw i32 %735, 8
-  %737 = getelementptr inbounds nuw i8, ptr %.11461, i64 2
-  %738 = load i8, ptr %737, align 1, !tbaa !17
-  %739 = zext i8 %738 to i32
-  %740 = or disjoint i32 %736, %739
-  %.not595 = icmp eq i32 %740, 0
+  %735 = getelementptr inbounds nuw i8, ptr %.11461, i64 2
+  %736 = load i8, ptr %735, align 1, !tbaa !17
+  %737 = or i8 %736, %734
+  %.not595 = icmp eq i8 %737, 0
   %spec.select322.idx = select i1 %.not595, i64 5, i64 0
   %spec.select322 = getelementptr inbounds nuw i8, ptr %.11461, i64 %spec.select322.idx
   br i1 %.not595, label %.backedge.backedge, label %.thread470
 
 .thread470:                                       ; preds = %.loopexit494, %.backedge, %143, %732, %377, %338, %299, %68, %43, %356, %.preheader.i360, %348, %317, %.preheader.i337, %309, %278, %.preheader.i, %270, %254, %259, %243, %248, %.loopexit567, %.loopexit568
   %.2303558 = phi i32 [ %.0301, %43 ], [ %.0301, %356 ], [ %.0301, %.preheader.i360 ], [ %.0301, %348 ], [ %.0301, %317 ], [ %.0301, %.preheader.i337 ], [ %.0301, %309 ], [ %.0301, %278 ], [ %.0301, %.preheader.i ], [ %.0301, %270 ], [ %.0301, %254 ], [ %.0301, %259 ], [ %.0301, %243 ], [ %.0301, %248 ], [ %.0301, %.loopexit567 ], [ %.0301, %.loopexit568 ], [ %.0301, %68 ], [ %.0301, %299 ], [ %.0301, %338 ], [ %.0301, %377 ], [ %.0301, %143 ], [ 2, %.backedge ], [ %.0301, %.loopexit494 ], [ %.0301, %732 ]
-  %741 = load i8, ptr %31, align 1, !tbaa !17
-  %742 = zext i8 %741 to i64
-  %743 = shl nuw nsw i64 %742, 8
-  %744 = getelementptr inbounds nuw i8, ptr %.0269, i64 2
-  %745 = load i8, ptr %744, align 1, !tbaa !17
-  %746 = zext i8 %745 to i64
-  %747 = getelementptr inbounds nuw i8, ptr %.0269, i64 %743
-  %748 = getelementptr inbounds nuw i8, ptr %747, i64 %746
-  %749 = load i8, ptr %748, align 1, !tbaa !17
-  %750 = icmp eq i8 %749, 121
-  br i1 %750, label %29, label %.thread479
+  %738 = load i8, ptr %31, align 1, !tbaa !17
+  %739 = zext i8 %738 to i64
+  %740 = shl nuw nsw i64 %739, 8
+  %741 = getelementptr inbounds nuw i8, ptr %.0269, i64 2
+  %742 = load i8, ptr %741, align 1, !tbaa !17
+  %743 = zext i8 %742 to i64
+  %744 = getelementptr inbounds nuw i8, ptr %.0269, i64 %740
+  %745 = getelementptr inbounds nuw i8, ptr %744, i64 %743
+  %746 = load i8, ptr %745, align 1, !tbaa !17
+  %747 = icmp eq i8 %746, 121
+  br i1 %747, label %29, label %.thread479
 
 .thread479.loopexit602:                           ; preds = %530, %385, %186, %186, %186, %143, %.backedge
   %.0.ph = phi i32 [ 3, %.backedge ], [ %144, %143 ], [ %188, %186 ], [ %188, %186 ], [ %188, %186 ], [ 0, %385 ], [ 0, %530 ]
