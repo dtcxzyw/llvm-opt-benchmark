@@ -2737,7 +2737,13 @@ if.then.i.i.i:                                    ; preds = %_ZNKSt7__cxx1112bas
 
 _ZNSt6vectorIN3irr5video6SColorESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6substrEmm.exit
   %cmp.not.i.i.i = icmp eq i64 %len.addr.0, 0
-  br i1 %cmp.not.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.preheader.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN3irr5video6SColorESaIS2_EE11_M_allocateEm.exit.thread.i.i, label %for.body.i.i.i.i.preheader.i.i
+
+_ZNSt12_Vector_baseIN3irr5video6SColorESaIS2_EE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
+  %add.ptr26.i.i = getelementptr inbounds nuw i8, ptr null, i64 %add.ptr.i77.idx
+  %_M_end_of_storage27.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 16
+  store ptr %add.ptr26.i.i, ptr %_M_end_of_storage27.i.i, align 8, !tbaa !29
+  br label %invoke.cont
 
 for.body.i.i.i.i.preheader.i.i:                   ; preds = %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
   %call5.i.i.i.i8.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.ptr.i77.idx) #26
@@ -2756,8 +2762,8 @@ lpad.i:                                           ; preds = %for.body.i.i.i.i.pr
           cleanup
   br label %ehcleanup
 
-invoke.cont:                                      ; preds = %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i, %call5.i.i.i.i.noexc.i
-  %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i78, %call5.i.i.i.i.noexc.i ], [ null, %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ]
+invoke.cont:                                      ; preds = %call5.i.i.i.i.noexc.i, %_ZNSt12_Vector_baseIN3irr5video6SColorESaIS2_EE11_M_allocateEm.exit.thread.i.i
+  %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i78, %call5.i.i.i.i.noexc.i ], [ null, %_ZNSt12_Vector_baseIN3irr5video6SColorESaIS2_EE11_M_allocateEm.exit.thread.i.i ]
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 8
   store ptr %__cur.0.lcssa.i.i.i.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16

@@ -722,9 +722,9 @@ entry:
   %agg.tmp7 = alloca %"class.std::unique_ptr.51", align 8
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %return, label %_ZN4node9inspector8protocol11NodeTracing25DataCollectedNotification32DataCollectedNotificationBuilderILi0EED2Ev.exit
+  br i1 %tobool.not, label %return, label %if.end
 
-_ZN4node9inspector8protocol11NodeTracing25DataCollectedNotification32DataCollectedNotificationBuilderILi0EED2Ev.exit: ; preds = %entry
+if.end:                                           ; preds = %entry
   %call.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14, !noalias !50
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9inspector8protocol11NodeTracing25DataCollectedNotificationE, i64 16), ptr %call.i.i, align 8, !noalias !50
   %m_value.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
@@ -750,14 +750,14 @@ _ZN4node9inspector8protocol11NodeTracing25DataCollectedNotification32DataCollect
   %cmp.not.i3 = icmp eq ptr %6, null
   br i1 %cmp.not.i3, label %_ZNSt10unique_ptrIN4node9inspector8protocol12SerializableESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i
 
-_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i: ; preds = %_ZN4node9inspector8protocol11NodeTracing25DataCollectedNotification32DataCollectedNotificationBuilderILi0EED2Ev.exit
+_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i: ; preds = %if.end
   %vtable.i.i = load ptr, ptr %6, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 24
   %7 = load ptr, ptr %vfn.i.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
   br label %_ZNSt10unique_ptrIN4node9inspector8protocol12SerializableESt14default_deleteIS3_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4node9inspector8protocol12SerializableESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZN4node9inspector8protocol11NodeTracing25DataCollectedNotification32DataCollectedNotificationBuilderILi0EED2Ev.exit, %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i
+_ZNSt10unique_ptrIN4node9inspector8protocol12SerializableESt14default_deleteIS3_EED2Ev.exit: ; preds = %if.end, %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i
   store ptr null, ptr %agg.tmp3, align 8
   %8 = load ptr, ptr %ref.tmp4, align 8
   %cmp.not.i4 = icmp eq ptr %8, null

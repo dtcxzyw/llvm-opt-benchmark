@@ -581,7 +581,7 @@ declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr n
 declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv4gapi3oak14OAKRMatAdapter4descEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::GMatDesc") align 8 captures(none) initializes((0, 17), (32, 40)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv4gapi3oak14OAKRMatAdapter4descEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::GMatDesc") align 8 captures(none) initializes((0, 17), (24, 48)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 17, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -592,36 +592,38 @@ define void @_ZNK2cv4gapi3oak14OAKRMatAdapter4descEv(ptr dead_on_unwind noalias 
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %12, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq ptr %7, %8
-  br i1 %.not.i.i.i.i.i, label %.thread, label %13
+  br i1 %.not.i.i.i.i.i, label %.thread, label %14
 
 .thread:                                          ; preds = %2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  %12 = getelementptr inbounds i8, ptr null, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  store ptr %12, ptr %13, align 8, !tbaa !67
   br label %_ZN2cv8GMatDescC2ERKS0_.exit
 
-13:                                               ; preds = %2
-  %14 = icmp ugt i64 %11, 9223372036854775804
-  br i1 %14, label %.noexc.i.i.i, label %15, !prof !21
+14:                                               ; preds = %2
+  %15 = icmp ugt i64 %11, 9223372036854775804
+  br i1 %15, label %.noexc.i.i.i, label %16, !prof !21
 
-.noexc.i.i.i:                                     ; preds = %13
+.noexc.i.i.i:                                     ; preds = %14
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #14
   unreachable
 
-15:                                               ; preds = %13
-  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #15
-  store ptr %16, ptr %4, align 8, !tbaa !65
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %11
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %17, ptr %18, align 8, !tbaa !67
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %16, ptr align 4 %8, i64 %11, i1 false)
+16:                                               ; preds = %14
+  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #15
+  store ptr %17, ptr %4, align 8, !tbaa !65
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %11
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %18, ptr %19, align 8, !tbaa !67
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %17, ptr align 4 %8, i64 %11, i1 false)
   br label %_ZN2cv8GMatDescC2ERKS0_.exit
 
-_ZN2cv8GMatDescC2ERKS0_.exit:                     ; preds = %.thread, %15
-  %19 = phi ptr [ null, %.thread ], [ %17, %15 ]
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %19, ptr %20, align 8, !tbaa !66
+_ZN2cv8GMatDescC2ERKS0_.exit:                     ; preds = %.thread, %16
+  %20 = phi ptr [ %12, %.thread ], [ %18, %16 ]
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %20, ptr %21, align 8, !tbaa !66
   ret void
 }
 

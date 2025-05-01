@@ -866,58 +866,63 @@ define linkonce_odr hidden void @_ZN5zxing9Binarizer15createBinarizerENS_3RefINS
   %4 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #13
   %5 = load ptr, ptr %2, align 8, !tbaa !10
   %.not.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i, label %_ZN5zxing3RefINS_15LuminanceSourceEEC2ERKS2_.exit.thread, label %6
+  br i1 %.not.i.i, label %_ZN5zxing3RefINS_15LuminanceSourceEEC2ERKS2_.exit.thread, label %7
 
 _ZN5zxing3RefINS_15LuminanceSourceEEC2ERKS2_.exit.thread: ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 0, ptr %6, align 8, !tbaa !3
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5zxing9BinarizerE, i64 16), ptr %4, align 8, !tbaa !8
-  br label %10
+  %.pre = load i32, ptr inttoptr (i64 8 to ptr), align 8, !tbaa !3
+  br label %12
 
-6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !3
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %9 = load i32, ptr %8, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5zxing9BinarizerE, i64 16), ptr %4, align 8, !tbaa !8
-  %9 = add i32 %8, 1
-  br label %10
+  %11 = add i32 %9, 2
+  br label %12
 
-10:                                               ; preds = %6, %_ZN5zxing3RefINS_15LuminanceSourceEEC2ERKS2_.exit.thread
-  %11 = phi i32 [ undef, %_ZN5zxing3RefINS_15LuminanceSourceEEC2ERKS2_.exit.thread ], [ %9, %6 ]
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %5, ptr %13, align 8, !tbaa !10
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %16 = load i32, ptr %15, align 4, !tbaa !14
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  store i32 %16, ptr %17, align 4, !tbaa !16
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %19 = load i32, ptr %18, align 8, !tbaa !21
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i32 %19, ptr %20, align 8, !tbaa !22
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  store i32 %16, ptr %21, align 4, !tbaa !23
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 %19, ptr %22, align 8, !tbaa !24
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i8 0, ptr %23, align 8, !tbaa !25
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  store i8 0, ptr %24, align 1, !tbaa !26
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  store i32 1, ptr %12, align 8, !tbaa !3
+12:                                               ; preds = %7, %_ZN5zxing3RefINS_15LuminanceSourceEEC2ERKS2_.exit.thread
+  %13 = phi i32 [ %.pre, %_ZN5zxing3RefINS_15LuminanceSourceEEC2ERKS2_.exit.thread ], [ %11, %7 ]
+  %14 = phi ptr [ %6, %_ZN5zxing3RefINS_15LuminanceSourceEEC2ERKS2_.exit.thread ], [ %10, %7 ]
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %5, ptr %15, align 8, !tbaa !10
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %18 = load i32, ptr %17, align 4, !tbaa !14
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  store i32 %18, ptr %19, align 4, !tbaa !16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %21 = load i32, ptr %20, align 8, !tbaa !21
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i32 %21, ptr %22, align 8, !tbaa !22
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 36
+  store i32 %18, ptr %23, align 4, !tbaa !23
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store i32 %21, ptr %24, align 8, !tbaa !24
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i8 0, ptr %25, align 8, !tbaa !25
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 25
+  store i8 0, ptr %26, align 1, !tbaa !26
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
+  store i32 1, ptr %14, align 8, !tbaa !3
   store ptr %4, ptr %0, align 8, !tbaa !45
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %11, ptr %25, align 8, !tbaa !3
-  %26 = icmp eq i32 %11, 0
-  br i1 %26, label %27, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %28 = add i32 %13, -1
+  store i32 %28, ptr %27, align 8, !tbaa !3
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit
 
-27:                                               ; preds = %10
-  store i32 -559026175, ptr %25, align 8, !tbaa !3
-  %28 = load ptr, ptr %5, align 8, !tbaa !8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load ptr, ptr %29, align 8
-  tail call void %30(ptr noundef nonnull align 8 dereferenceable(12) %5) #11
+30:                                               ; preds = %12
+  store i32 -559026175, ptr %27, align 8, !tbaa !3
+  %31 = load ptr, ptr %5, align 8, !tbaa !8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %33 = load ptr, ptr %32, align 8
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(12) %5) #11
   br label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit
 
-_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit:    ; preds = %10, %27
+_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit:    ; preds = %12, %30
   ret void
 }
 

@@ -5660,30 +5660,30 @@ _ZNSt6vectorIN2cv8ximgproc3BoxESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx
 
 ._crit_edge212:                                   ; preds = %.thread
   %.pre = load ptr, ptr %15, align 8, !tbaa !165
-  %.pre243 = load ptr, ptr %1, align 8, !tbaa !167
-  %.pre244 = ptrtoint ptr %.pre to i64
-  %.pre245 = ptrtoint ptr %.pre243 to i64
-  %.pre247 = sub i64 %.pre244, %.pre245
-  %.pre249 = sdiv exact i64 %.pre247, 20
+  %.pre242 = load ptr, ptr %1, align 8, !tbaa !167
+  %.pre243 = ptrtoint ptr %.pre to i64
+  %.pre244 = ptrtoint ptr %.pre242 to i64
+  %.pre246 = sub i64 %.pre243, %.pre244
+  %.pre248 = sdiv exact i64 %.pre246, 20
   %219 = sext i32 %.167191 to i64
-  %220 = icmp ult i64 %.pre249, %219
+  %220 = icmp ult i64 %.pre248, %219
   br i1 %220, label %221, label %._crit_edge212.thread
 
 221:                                              ; preds = %._crit_edge212
-  %222 = sub nuw nsw i64 %219, %.pre249
+  %222 = sub nuw nsw i64 %219, %.pre248
   invoke void @_ZNSt6vectorIN2cv8ximgproc3BoxESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %222)
           to label %.preheader.preheader unwind label %254
 
 ._crit_edge212.thread:                            ; preds = %_ZNSt6vectorIS_IN2cv8ximgproc3BoxESaIS2_EESaIS4_EE6resizeEm.exit, %._crit_edge212
-  %.066.lcssa255 = phi i64 [ %219, %._crit_edge212 ], [ 0, %_ZNSt6vectorIS_IN2cv8ximgproc3BoxESaIS2_EESaIS4_EE6resizeEm.exit ]
+  %.066.lcssa254 = phi i64 [ %219, %._crit_edge212 ], [ 0, %_ZNSt6vectorIS_IN2cv8ximgproc3BoxESaIS2_EESaIS4_EE6resizeEm.exit ]
   %223 = phi ptr [ %.pre, %._crit_edge212 ], [ %90, %_ZNSt6vectorIS_IN2cv8ximgproc3BoxESaIS2_EESaIS4_EE6resizeEm.exit ]
-  %224 = phi ptr [ %.pre243, %._crit_edge212 ], [ %91, %_ZNSt6vectorIS_IN2cv8ximgproc3BoxESaIS2_EESaIS4_EE6resizeEm.exit ]
-  %.pre-phi250254 = phi i64 [ %.pre249, %._crit_edge212 ], [ %95, %_ZNSt6vectorIS_IN2cv8ximgproc3BoxESaIS2_EESaIS4_EE6resizeEm.exit ]
-  %225 = icmp ugt i64 %.pre-phi250254, %.066.lcssa255
+  %224 = phi ptr [ %.pre242, %._crit_edge212 ], [ %91, %_ZNSt6vectorIS_IN2cv8ximgproc3BoxESaIS2_EESaIS4_EE6resizeEm.exit ]
+  %.pre-phi249253 = phi i64 [ %.pre248, %._crit_edge212 ], [ %95, %_ZNSt6vectorIS_IN2cv8ximgproc3BoxESaIS2_EESaIS4_EE6resizeEm.exit ]
+  %225 = icmp ugt i64 %.pre-phi249253, %.066.lcssa254
   br i1 %225, label %226, label %.preheader.preheader
 
 226:                                              ; preds = %._crit_edge212.thread
-  %227 = getelementptr inbounds nuw %"struct.cv::ximgproc::Box", ptr %224, i64 %.066.lcssa255
+  %227 = getelementptr inbounds nuw %"struct.cv::ximgproc::Box", ptr %224, i64 %.066.lcssa254
   %.not.i.i89 = icmp eq ptr %223, %227
   br i1 %.not.i.i89, label %.preheader.preheader, label %228
 

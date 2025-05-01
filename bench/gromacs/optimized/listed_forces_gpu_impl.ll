@@ -501,8 +501,8 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL27someInteractionsCanRunOnGpu
   %8 = alloca %class.anon, align 8
   br label %9
 
-9:                                                ; preds = %27, %1
-  %10 = phi i64 [ 0, %1 ], [ %30, %27 ]
+9:                                                ; preds = %29, %1
+  %10 = phi i64 [ 0, %1 ], [ %32, %29 ]
   %11 = getelementptr inbounds nuw %struct.InteractionList, ptr %8, i64 %10
   %12 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %0, i64 0, i64 %10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -513,566 +513,566 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL27someInteractionsCanRunOnGpu
   %18 = sub i64 %16, %17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i = icmp eq ptr %14, %15
-  br i1 %.not.i.i.i.i.i.i, label %.noexc4.i.thread, label %20
+  br i1 %.not.i.i.i.i.i.i, label %.noexc4.i.thread, label %22
 
 .noexc4.i.thread:                                 ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  br label %27
+  %20 = getelementptr inbounds i8, ptr null, i64 %18
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  store ptr %20, ptr %21, align 8, !tbaa !121
+  br label %29
 
-20:                                               ; preds = %9
-  %21 = icmp ugt i64 %18, 9223372036854775804
-  br i1 %21, label %.noexc.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i, !prof !13
+22:                                               ; preds = %9
+  %23 = icmp ugt i64 %18, 9223372036854775804
+  br i1 %23, label %.noexc.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i, !prof !13
 
-.noexc.i.i.i.i:                                   ; preds = %20
+.noexc.i.i.i.i:                                   ; preds = %22
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #17
           to label %.noexc.i unwind label %.loopexit.split-lp.i
 
 .noexc.i:                                         ; preds = %.noexc.i.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %20
-  %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #18
-          to label %23 unwind label %.loopexit5.i
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %22
+  %24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #18
+          to label %25 unwind label %.loopexit5.i
 
-23:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i
-  store ptr %22, ptr %11, align 8, !tbaa !120
-  %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %22, ptr %24, align 8, !tbaa !118
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 %18
-  %26 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %25, ptr %26, align 8, !tbaa !121
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %22, ptr align 4 %15, i64 %18, i1 false)
-  br label %27
+25:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i
+  store ptr %24, ptr %11, align 8, !tbaa !120
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %24, ptr %26, align 8, !tbaa !118
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %18
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr %27, ptr %28, align 8, !tbaa !121
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %24, ptr align 4 %15, i64 %18, i1 false)
+  br label %29
 
-27:                                               ; preds = %.noexc4.i.thread, %23
-  %28 = phi ptr [ null, %.noexc4.i.thread ], [ %25, %23 ]
-  %29 = phi ptr [ %19, %.noexc4.i.thread ], [ %24, %23 ]
-  store ptr %28, ptr %29, align 8, !tbaa !118
-  %30 = add nuw nsw i64 %10, 1
-  %31 = icmp eq i64 %30, 95
-  br i1 %31, label %_ZNSt5arrayI15InteractionListLm95EEC2ERKS1_.exit, label %9
+29:                                               ; preds = %.noexc4.i.thread, %25
+  %30 = phi ptr [ %20, %.noexc4.i.thread ], [ %27, %25 ]
+  %31 = phi ptr [ %19, %.noexc4.i.thread ], [ %26, %25 ]
+  store ptr %30, ptr %31, align 8, !tbaa !118
+  %32 = add nuw nsw i64 %10, 1
+  %33 = icmp eq i64 %32, 95
+  br i1 %33, label %_ZNSt5arrayI15InteractionListLm95EEC2ERKS1_.exit, label %9
 
 .loopexit5.i:                                     ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
-  br label %32
+  br label %34
 
 .loopexit.split-lp.i:                             ; preds = %.noexc.i.i.i.i
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
-  br label %32
+  br label %34
 
-32:                                               ; preds = %.loopexit.split-lp.i, %.loopexit5.i
+34:                                               ; preds = %.loopexit.split-lp.i, %.loopexit5.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit5.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
-  %33 = icmp eq i64 %10, 0
-  br i1 %33, label %common.resume, label %.preheader.i
+  %35 = icmp eq i64 %10, 0
+  br i1 %35, label %common.resume, label %.preheader.i
 
-.preheader.i:                                     ; preds = %32, %_ZN15InteractionListD2Ev.exit.i
-  %34 = phi ptr [ %35, %_ZN15InteractionListD2Ev.exit.i ], [ %11, %32 ]
-  %35 = getelementptr inbounds i8, ptr %34, i64 -24
-  %36 = load ptr, ptr %35, align 8, !tbaa !120
-  %.not.i.i.i.i.i = icmp eq ptr %36, null
-  br i1 %.not.i.i.i.i.i, label %_ZN15InteractionListD2Ev.exit.i, label %37
+.preheader.i:                                     ; preds = %34, %_ZN15InteractionListD2Ev.exit.i
+  %36 = phi ptr [ %37, %_ZN15InteractionListD2Ev.exit.i ], [ %11, %34 ]
+  %37 = getelementptr inbounds i8, ptr %36, i64 -24
+  %38 = load ptr, ptr %37, align 8, !tbaa !120
+  %.not.i.i.i.i.i = icmp eq ptr %38, null
+  br i1 %.not.i.i.i.i.i, label %_ZN15InteractionListD2Ev.exit.i, label %39
 
-37:                                               ; preds = %.preheader.i
-  %38 = getelementptr inbounds i8, ptr %34, i64 -8
-  %39 = load ptr, ptr %38, align 8, !tbaa !121
-  %40 = ptrtoint ptr %39 to i64
-  %41 = ptrtoint ptr %36 to i64
-  %42 = sub i64 %40, %41
-  call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef %42) #16
+39:                                               ; preds = %.preheader.i
+  %40 = getelementptr inbounds i8, ptr %36, i64 -8
+  %41 = load ptr, ptr %40, align 8, !tbaa !121
+  %42 = ptrtoint ptr %41 to i64
+  %43 = ptrtoint ptr %38 to i64
+  %44 = sub i64 %42, %43
+  call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef %44) #16
   br label %_ZN15InteractionListD2Ev.exit.i
 
-_ZN15InteractionListD2Ev.exit.i:                  ; preds = %37, %.preheader.i
-  %43 = icmp eq ptr %35, %8
-  br i1 %43, label %common.resume, label %.preheader.i
+_ZN15InteractionListD2Ev.exit.i:                  ; preds = %39, %.preheader.i
+  %45 = icmp eq ptr %37, %8
+  br i1 %45, label %common.resume, label %.preheader.i
 
-common.resume:                                    ; preds = %_ZN15InteractionListD2Ev.exit.i, %_ZN15InteractionListD2Ev.exit.i.i7, %32
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %32 ], [ %eh.lpad-body, %_ZN15InteractionListD2Ev.exit.i.i7 ], [ %lpad.phi.i, %_ZN15InteractionListD2Ev.exit.i ]
+common.resume:                                    ; preds = %_ZN15InteractionListD2Ev.exit.i, %_ZN15InteractionListD2Ev.exit.i.i7, %34
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %34 ], [ %eh.lpad-body, %_ZN15InteractionListD2Ev.exit.i.i7 ], [ %lpad.phi.i, %_ZN15InteractionListD2Ev.exit.i ]
   resume { ptr, i32 } %common.resume.op
 
-_ZNSt5arrayI15InteractionListLm95EEC2ERKS1_.exit: ; preds = %27
+_ZNSt5arrayI15InteractionListLm95EEC2ERKS1_.exit: ; preds = %29
   call void @llvm.lifetime.start.p0(i64 2280, ptr nonnull %7)
-  br label %44
+  br label %46
 
-44:                                               ; preds = %62, %_ZNSt5arrayI15InteractionListLm95EEC2ERKS1_.exit
-  %45 = phi i64 [ 0, %_ZNSt5arrayI15InteractionListLm95EEC2ERKS1_.exit ], [ %65, %62 ]
-  %46 = getelementptr inbounds nuw %struct.InteractionList, ptr %7, i64 %45
-  %47 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %8, i64 0, i64 %45
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !118
-  %50 = load ptr, ptr %47, align 8, !tbaa !120
-  %51 = ptrtoint ptr %49 to i64
-  %52 = ptrtoint ptr %50 to i64
-  %53 = sub i64 %51, %52
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %49, %50
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.noexc4.i.i.thread.i, label %55
+46:                                               ; preds = %66, %_ZNSt5arrayI15InteractionListLm95EEC2ERKS1_.exit
+  %47 = phi i64 [ 0, %_ZNSt5arrayI15InteractionListLm95EEC2ERKS1_.exit ], [ %69, %66 ]
+  %48 = getelementptr inbounds nuw %struct.InteractionList, ptr %7, i64 %47
+  %49 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %8, i64 0, i64 %47
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %51 = load ptr, ptr %50, align 8, !tbaa !118
+  %52 = load ptr, ptr %49, align 8, !tbaa !120
+  %53 = ptrtoint ptr %51 to i64
+  %54 = ptrtoint ptr %52 to i64
+  %55 = sub i64 %53, %54
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %51, %52
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.noexc4.i.i.thread.i, label %59
 
-.noexc4.i.i.thread.i:                             ; preds = %44
-  %54 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  br label %62
+.noexc4.i.i.thread.i:                             ; preds = %46
+  %56 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %57 = getelementptr inbounds i8, ptr null, i64 %55
+  %58 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
+  store ptr %57, ptr %58, align 8, !tbaa !121
+  br label %66
 
-55:                                               ; preds = %44
-  %56 = icmp ugt i64 %53, 9223372036854775804
-  br i1 %56, label %.noexc.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i, !prof !13
+59:                                               ; preds = %46
+  %60 = icmp ugt i64 %55, 9223372036854775804
+  br i1 %60, label %.noexc.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i, !prof !13
 
-.noexc.i.i.i.i.i.i:                               ; preds = %55
+.noexc.i.i.i.i.i.i:                               ; preds = %59
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #17
           to label %.noexc.i.i.i unwind label %.loopexit.split-lp.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %.noexc.i.i.i.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i: ; preds = %55
-  %57 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %53) #18
-          to label %58 unwind label %.loopexit5.i.i.i
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i: ; preds = %59
+  %61 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %55) #18
+          to label %62 unwind label %.loopexit5.i.i.i
 
-58:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i
-  store ptr %57, ptr %46, align 8, !tbaa !120
-  %59 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store ptr %57, ptr %59, align 8, !tbaa !118
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 %53
-  %61 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  store ptr %60, ptr %61, align 8, !tbaa !121
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %57, ptr align 4 %50, i64 %53, i1 false)
-  br label %62
+62:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i
+  store ptr %61, ptr %48, align 8, !tbaa !120
+  %63 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store ptr %61, ptr %63, align 8, !tbaa !118
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 %55
+  %65 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  store ptr %64, ptr %65, align 8, !tbaa !121
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %61, ptr align 4 %52, i64 %55, i1 false)
+  br label %66
 
-62:                                               ; preds = %58, %.noexc4.i.i.thread.i
-  %63 = phi ptr [ null, %.noexc4.i.i.thread.i ], [ %60, %58 ]
-  %64 = phi ptr [ %54, %.noexc4.i.i.thread.i ], [ %59, %58 ]
-  store ptr %63, ptr %64, align 8, !tbaa !118
-  %65 = add nuw nsw i64 %45, 1
-  %66 = icmp eq i64 %65, 95
-  br i1 %66, label %"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2ERKS5_.exit.i", label %44
+66:                                               ; preds = %62, %.noexc4.i.i.thread.i
+  %67 = phi ptr [ %57, %.noexc4.i.i.thread.i ], [ %64, %62 ]
+  %68 = phi ptr [ %56, %.noexc4.i.i.thread.i ], [ %63, %62 ]
+  store ptr %67, ptr %68, align 8, !tbaa !118
+  %69 = add nuw nsw i64 %47, 1
+  %70 = icmp eq i64 %69, 95
+  br i1 %70, label %"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2ERKS5_.exit.i", label %46
 
 .loopexit5.i.i.i:                                 ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i
   %lpad.loopexit.i.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %67
+  br label %71
 
 .loopexit.split-lp.i.i.i:                         ; preds = %.noexc.i.i.i.i.i.i
   %lpad.loopexit.split-lp.i.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %67
+  br label %71
 
-67:                                               ; preds = %.loopexit.split-lp.i.i.i, %.loopexit5.i.i.i
+71:                                               ; preds = %.loopexit.split-lp.i.i.i, %.loopexit5.i.i.i
   %lpad.phi.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i, %.loopexit5.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
-  %68 = icmp eq i64 %45, 0
-  br i1 %68, label %.body, label %.preheader.i.i.i
+  %72 = icmp eq i64 %47, 0
+  br i1 %72, label %.body, label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %67, %_ZN15InteractionListD2Ev.exit.i.i.i
-  %69 = phi ptr [ %70, %_ZN15InteractionListD2Ev.exit.i.i.i ], [ %46, %67 ]
-  %70 = getelementptr inbounds i8, ptr %69, i64 -24
-  %71 = load ptr, ptr %70, align 8, !tbaa !120
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %71, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN15InteractionListD2Ev.exit.i.i.i, label %72
+.preheader.i.i.i:                                 ; preds = %71, %_ZN15InteractionListD2Ev.exit.i.i.i
+  %73 = phi ptr [ %74, %_ZN15InteractionListD2Ev.exit.i.i.i ], [ %48, %71 ]
+  %74 = getelementptr inbounds i8, ptr %73, i64 -24
+  %75 = load ptr, ptr %74, align 8, !tbaa !120
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %75, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN15InteractionListD2Ev.exit.i.i.i, label %76
 
-72:                                               ; preds = %.preheader.i.i.i
-  %73 = getelementptr inbounds i8, ptr %69, i64 -8
-  %74 = load ptr, ptr %73, align 8, !tbaa !121
-  %75 = ptrtoint ptr %74 to i64
-  %76 = ptrtoint ptr %71 to i64
-  %77 = sub i64 %75, %76
-  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %77) #16
+76:                                               ; preds = %.preheader.i.i.i
+  %77 = getelementptr inbounds i8, ptr %73, i64 -8
+  %78 = load ptr, ptr %77, align 8, !tbaa !121
+  %79 = ptrtoint ptr %78 to i64
+  %80 = ptrtoint ptr %75 to i64
+  %81 = sub i64 %79, %80
+  call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef %81) #16
   br label %_ZN15InteractionListD2Ev.exit.i.i.i
 
-_ZN15InteractionListD2Ev.exit.i.i.i:              ; preds = %72, %.preheader.i.i.i
-  %78 = icmp eq ptr %70, %7
-  br i1 %78, label %.body, label %.preheader.i.i.i
+_ZN15InteractionListD2Ev.exit.i.i.i:              ; preds = %76, %.preheader.i.i.i
+  %82 = icmp eq ptr %74, %7
+  br i1 %82, label %.body, label %.preheader.i.i.i
 
-"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2ERKS5_.exit.i": ; preds = %62
+"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2ERKS5_.exit.i": ; preds = %66
   call void @llvm.lifetime.start.p0(i64 2280, ptr nonnull %6)
-  br label %79
+  br label %83
 
-79:                                               ; preds = %97, %"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2ERKS5_.exit.i"
-  %80 = phi i64 [ 0, %"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2ERKS5_.exit.i" ], [ %100, %97 ]
-  %81 = getelementptr inbounds nuw %struct.InteractionList, ptr %6, i64 %80
-  %82 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %7, i64 0, i64 %80
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %84 = load ptr, ptr %83, align 8, !tbaa !118
-  %85 = load ptr, ptr %82, align 8, !tbaa !120
-  %86 = ptrtoint ptr %84 to i64
-  %87 = ptrtoint ptr %85 to i64
-  %88 = sub i64 %86, %87
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %84, %85
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %.noexc4.i.i.thread.i.i, label %90
+83:                                               ; preds = %103, %"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2ERKS5_.exit.i"
+  %84 = phi i64 [ 0, %"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2ERKS5_.exit.i" ], [ %106, %103 ]
+  %85 = getelementptr inbounds nuw %struct.InteractionList, ptr %6, i64 %84
+  %86 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %7, i64 0, i64 %84
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %88 = load ptr, ptr %87, align 8, !tbaa !118
+  %89 = load ptr, ptr %86, align 8, !tbaa !120
+  %90 = ptrtoint ptr %88 to i64
+  %91 = ptrtoint ptr %89 to i64
+  %92 = sub i64 %90, %91
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %85, i8 0, i64 24, i1 false)
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %88, %89
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %.noexc4.i.i.thread.i.i, label %96
 
-.noexc4.i.i.thread.i.i:                           ; preds = %79
-  %89 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  br label %97
+.noexc4.i.i.thread.i.i:                           ; preds = %83
+  %93 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %94 = getelementptr inbounds i8, ptr null, i64 %92
+  %95 = getelementptr inbounds nuw i8, ptr %85, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, i8 0, i64 16, i1 false)
+  store ptr %94, ptr %95, align 8, !tbaa !121
+  br label %103
 
-90:                                               ; preds = %79
-  %91 = icmp ugt i64 %88, 9223372036854775804
-  br i1 %91, label %.noexc.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i, !prof !13
+96:                                               ; preds = %83
+  %97 = icmp ugt i64 %92, 9223372036854775804
+  br i1 %97, label %.noexc.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i, !prof !13
 
-.noexc.i.i.i.i.i.i.i:                             ; preds = %90
+.noexc.i.i.i.i.i.i.i:                             ; preds = %96
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #17
           to label %.noexc.i.i.i.i4 unwind label %.loopexit.split-lp.i.i.i.i
 
 .noexc.i.i.i.i4:                                  ; preds = %.noexc.i.i.i.i.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %90
-  %92 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %88) #18
-          to label %93 unwind label %.loopexit5.i.i.i.i
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %96
+  %98 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %92) #18
+          to label %99 unwind label %.loopexit5.i.i.i.i
 
-93:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i
-  store ptr %92, ptr %81, align 8, !tbaa !120
-  %94 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  store ptr %92, ptr %94, align 8, !tbaa !118
-  %95 = getelementptr inbounds nuw i8, ptr %92, i64 %88
-  %96 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  store ptr %95, ptr %96, align 8, !tbaa !121
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %92, ptr align 4 %85, i64 %88, i1 false)
-  br label %97
+99:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i
+  store ptr %98, ptr %85, align 8, !tbaa !120
+  %100 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  store ptr %98, ptr %100, align 8, !tbaa !118
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 %92
+  %102 = getelementptr inbounds nuw i8, ptr %85, i64 16
+  store ptr %101, ptr %102, align 8, !tbaa !121
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %98, ptr align 4 %89, i64 %92, i1 false)
+  br label %103
 
-97:                                               ; preds = %93, %.noexc4.i.i.thread.i.i
-  %98 = phi ptr [ null, %.noexc4.i.i.thread.i.i ], [ %95, %93 ]
-  %99 = phi ptr [ %89, %.noexc4.i.i.thread.i.i ], [ %94, %93 ]
-  store ptr %98, ptr %99, align 8, !tbaa !118
-  %100 = add nuw nsw i64 %80, 1
-  %101 = icmp eq i64 %100, 95
-  br i1 %101, label %"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2ERKS5_.exit.i.i", label %79
+103:                                              ; preds = %99, %.noexc4.i.i.thread.i.i
+  %104 = phi ptr [ %94, %.noexc4.i.i.thread.i.i ], [ %101, %99 ]
+  %105 = phi ptr [ %93, %.noexc4.i.i.thread.i.i ], [ %100, %99 ]
+  store ptr %104, ptr %105, align 8, !tbaa !118
+  %106 = add nuw nsw i64 %84, 1
+  %107 = icmp eq i64 %106, 95
+  br i1 %107, label %"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2ERKS5_.exit.i.i", label %83
 
 .loopexit5.i.i.i.i:                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i
   %lpad.loopexit.i.i.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %102
+  br label %108
 
 .loopexit.split-lp.i.i.i.i:                       ; preds = %.noexc.i.i.i.i.i.i.i
   %lpad.loopexit.split-lp.i.i.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %102
+  br label %108
 
-102:                                              ; preds = %.loopexit.split-lp.i.i.i.i, %.loopexit5.i.i.i.i
+108:                                              ; preds = %.loopexit.split-lp.i.i.i.i, %.loopexit5.i.i.i.i
   %lpad.phi.i.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i.i, %.loopexit5.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %.loopexit.split-lp.i.i.i.i ]
-  %103 = icmp eq i64 %80, 0
-  br i1 %103, label %.body.i, label %.preheader.i.i.i.i
+  %109 = icmp eq i64 %84, 0
+  br i1 %109, label %.body.i, label %.preheader.i.i.i.i
 
-.preheader.i.i.i.i:                               ; preds = %102, %_ZN15InteractionListD2Ev.exit.i.i.i.i
-  %104 = phi ptr [ %105, %_ZN15InteractionListD2Ev.exit.i.i.i.i ], [ %81, %102 ]
-  %105 = getelementptr inbounds i8, ptr %104, i64 -24
-  %106 = load ptr, ptr %105, align 8, !tbaa !120
-  %.not.i.i.i.i.i.i.i3.i = icmp eq ptr %106, null
-  br i1 %.not.i.i.i.i.i.i.i3.i, label %_ZN15InteractionListD2Ev.exit.i.i.i.i, label %107
+.preheader.i.i.i.i:                               ; preds = %108, %_ZN15InteractionListD2Ev.exit.i.i.i.i
+  %110 = phi ptr [ %111, %_ZN15InteractionListD2Ev.exit.i.i.i.i ], [ %85, %108 ]
+  %111 = getelementptr inbounds i8, ptr %110, i64 -24
+  %112 = load ptr, ptr %111, align 8, !tbaa !120
+  %.not.i.i.i.i.i.i.i3.i = icmp eq ptr %112, null
+  br i1 %.not.i.i.i.i.i.i.i3.i, label %_ZN15InteractionListD2Ev.exit.i.i.i.i, label %113
 
-107:                                              ; preds = %.preheader.i.i.i.i
-  %108 = getelementptr inbounds i8, ptr %104, i64 -8
-  %109 = load ptr, ptr %108, align 8, !tbaa !121
-  %110 = ptrtoint ptr %109 to i64
-  %111 = ptrtoint ptr %106 to i64
-  %112 = sub i64 %110, %111
-  call void @_ZdlPvm(ptr noundef nonnull %106, i64 noundef %112) #16
+113:                                              ; preds = %.preheader.i.i.i.i
+  %114 = getelementptr inbounds i8, ptr %110, i64 -8
+  %115 = load ptr, ptr %114, align 8, !tbaa !121
+  %116 = ptrtoint ptr %115 to i64
+  %117 = ptrtoint ptr %112 to i64
+  %118 = sub i64 %116, %117
+  call void @_ZdlPvm(ptr noundef nonnull %112, i64 noundef %118) #16
   br label %_ZN15InteractionListD2Ev.exit.i.i.i.i
 
-_ZN15InteractionListD2Ev.exit.i.i.i.i:            ; preds = %107, %.preheader.i.i.i.i
-  %113 = icmp eq ptr %105, %6
-  br i1 %113, label %.body.i, label %.preheader.i.i.i.i
+_ZN15InteractionListD2Ev.exit.i.i.i.i:            ; preds = %113, %.preheader.i.i.i.i
+  %119 = icmp eq ptr %111, %6
+  br i1 %119, label %.body.i, label %.preheader.i.i.i.i
 
-"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2ERKS5_.exit.i.i": ; preds = %97
+"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2ERKS5_.exit.i.i": ; preds = %103
   call void @llvm.lifetime.start.p0(i64 2280, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 2280, ptr nonnull %5)
-  br label %114
+  br label %120
 
-114:                                              ; preds = %132, %"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2ERKS5_.exit.i.i"
-  %115 = phi i64 [ 0, %"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2ERKS5_.exit.i.i" ], [ %135, %132 ]
-  %116 = getelementptr inbounds nuw %struct.InteractionList, ptr %5, i64 %115
-  %117 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %6, i64 0, i64 %115
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  %119 = load ptr, ptr %118, align 8, !tbaa !118
-  %120 = load ptr, ptr %117, align 8, !tbaa !120
-  %121 = ptrtoint ptr %119 to i64
-  %122 = ptrtoint ptr %120 to i64
-  %123 = sub i64 %121, %122
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %116, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %119, %120
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %.noexc4.i.i.thread.i.i.i, label %125
+120:                                              ; preds = %140, %"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2ERKS5_.exit.i.i"
+  %121 = phi i64 [ 0, %"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2ERKS5_.exit.i.i" ], [ %143, %140 ]
+  %122 = getelementptr inbounds nuw %struct.InteractionList, ptr %5, i64 %121
+  %123 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %6, i64 0, i64 %121
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  %125 = load ptr, ptr %124, align 8, !tbaa !118
+  %126 = load ptr, ptr %123, align 8, !tbaa !120
+  %127 = ptrtoint ptr %125 to i64
+  %128 = ptrtoint ptr %126 to i64
+  %129 = sub i64 %127, %128
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %122, i8 0, i64 24, i1 false)
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %125, %126
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %.noexc4.i.i.thread.i.i.i, label %133
 
-.noexc4.i.i.thread.i.i.i:                         ; preds = %114
-  %124 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  br label %132
+.noexc4.i.i.thread.i.i.i:                         ; preds = %120
+  %130 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %131 = getelementptr inbounds i8, ptr null, i64 %129
+  %132 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %122, i8 0, i64 16, i1 false)
+  store ptr %131, ptr %132, align 8, !tbaa !121
+  br label %140
 
-125:                                              ; preds = %114
-  %126 = icmp ugt i64 %123, 9223372036854775804
-  br i1 %126, label %.noexc.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i, !prof !13
+133:                                              ; preds = %120
+  %134 = icmp ugt i64 %129, 9223372036854775804
+  br i1 %134, label %.noexc.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i, !prof !13
 
-.noexc.i.i.i.i.i.i.i.i:                           ; preds = %125
+.noexc.i.i.i.i.i.i.i.i:                           ; preds = %133
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #17
           to label %.noexc.i.i.i.i.i unwind label %.loopexit.split-lp.i.i.i.i.i
 
 .noexc.i.i.i.i.i:                                 ; preds = %.noexc.i.i.i.i.i.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %125
-  %127 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %123) #18
-          to label %128 unwind label %.loopexit5.i.i.i.i.i
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %133
+  %135 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %129) #18
+          to label %136 unwind label %.loopexit5.i.i.i.i.i
 
-128:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i
-  store ptr %127, ptr %116, align 8, !tbaa !120
-  %129 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  store ptr %127, ptr %129, align 8, !tbaa !118
-  %130 = getelementptr inbounds nuw i8, ptr %127, i64 %123
-  %131 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  store ptr %130, ptr %131, align 8, !tbaa !121
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %127, ptr align 4 %120, i64 %123, i1 false)
-  br label %132
+136:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i
+  store ptr %135, ptr %122, align 8, !tbaa !120
+  %137 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  store ptr %135, ptr %137, align 8, !tbaa !118
+  %138 = getelementptr inbounds nuw i8, ptr %135, i64 %129
+  %139 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  store ptr %138, ptr %139, align 8, !tbaa !121
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %135, ptr align 4 %126, i64 %129, i1 false)
+  br label %140
 
-132:                                              ; preds = %128, %.noexc4.i.i.thread.i.i.i
-  %133 = phi ptr [ null, %.noexc4.i.i.thread.i.i.i ], [ %130, %128 ]
-  %134 = phi ptr [ %124, %.noexc4.i.i.thread.i.i.i ], [ %129, %128 ]
-  store ptr %133, ptr %134, align 8, !tbaa !118
-  %135 = add nuw nsw i64 %115, 1
-  %136 = icmp eq i64 %135, 95
-  br i1 %136, label %"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2ERKS5_.exit.i.i.i", label %114
+140:                                              ; preds = %136, %.noexc4.i.i.thread.i.i.i
+  %141 = phi ptr [ %131, %.noexc4.i.i.thread.i.i.i ], [ %138, %136 ]
+  %142 = phi ptr [ %130, %.noexc4.i.i.thread.i.i.i ], [ %137, %136 ]
+  store ptr %141, ptr %142, align 8, !tbaa !118
+  %143 = add nuw nsw i64 %121, 1
+  %144 = icmp eq i64 %143, 95
+  br i1 %144, label %"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2ERKS5_.exit.i.i.i", label %120
 
 .loopexit5.i.i.i.i.i:                             ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i
   %lpad.loopexit.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %137
+  br label %145
 
 .loopexit.split-lp.i.i.i.i.i:                     ; preds = %.noexc.i.i.i.i.i.i.i.i
   %lpad.loopexit.split-lp.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %137
+  br label %145
 
-137:                                              ; preds = %.loopexit.split-lp.i.i.i.i.i, %.loopexit5.i.i.i.i.i
+145:                                              ; preds = %.loopexit.split-lp.i.i.i.i.i, %.loopexit5.i.i.i.i.i
   %lpad.phi.i.i.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i.i.i, %.loopexit5.i.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i.i, %.loopexit.split-lp.i.i.i.i.i ]
-  %138 = icmp eq i64 %115, 0
-  br i1 %138, label %.body.i.i, label %.preheader.i.i.i.i.i
+  %146 = icmp eq i64 %121, 0
+  br i1 %146, label %.body.i.i, label %.preheader.i.i.i.i.i
 
-.preheader.i.i.i.i.i:                             ; preds = %137, %_ZN15InteractionListD2Ev.exit.i.i.i.i.i
-  %139 = phi ptr [ %140, %_ZN15InteractionListD2Ev.exit.i.i.i.i.i ], [ %116, %137 ]
-  %140 = getelementptr inbounds i8, ptr %139, i64 -24
-  %141 = load ptr, ptr %140, align 8, !tbaa !120
-  %.not.i.i.i.i.i.i.i4.i.i = icmp eq ptr %141, null
-  br i1 %.not.i.i.i.i.i.i.i4.i.i, label %_ZN15InteractionListD2Ev.exit.i.i.i.i.i, label %142
+.preheader.i.i.i.i.i:                             ; preds = %145, %_ZN15InteractionListD2Ev.exit.i.i.i.i.i
+  %147 = phi ptr [ %148, %_ZN15InteractionListD2Ev.exit.i.i.i.i.i ], [ %122, %145 ]
+  %148 = getelementptr inbounds i8, ptr %147, i64 -24
+  %149 = load ptr, ptr %148, align 8, !tbaa !120
+  %.not.i.i.i.i.i.i.i4.i.i = icmp eq ptr %149, null
+  br i1 %.not.i.i.i.i.i.i.i4.i.i, label %_ZN15InteractionListD2Ev.exit.i.i.i.i.i, label %150
 
-142:                                              ; preds = %.preheader.i.i.i.i.i
-  %143 = getelementptr inbounds i8, ptr %139, i64 -8
-  %144 = load ptr, ptr %143, align 8, !tbaa !121
-  %145 = ptrtoint ptr %144 to i64
-  %146 = ptrtoint ptr %141 to i64
-  %147 = sub i64 %145, %146
-  call void @_ZdlPvm(ptr noundef nonnull %141, i64 noundef %147) #16
+150:                                              ; preds = %.preheader.i.i.i.i.i
+  %151 = getelementptr inbounds i8, ptr %147, i64 -8
+  %152 = load ptr, ptr %151, align 8, !tbaa !121
+  %153 = ptrtoint ptr %152 to i64
+  %154 = ptrtoint ptr %149 to i64
+  %155 = sub i64 %153, %154
+  call void @_ZdlPvm(ptr noundef nonnull %149, i64 noundef %155) #16
   br label %_ZN15InteractionListD2Ev.exit.i.i.i.i.i
 
-_ZN15InteractionListD2Ev.exit.i.i.i.i.i:          ; preds = %142, %.preheader.i.i.i.i.i
-  %148 = icmp eq ptr %140, %5
-  br i1 %148, label %.body.i.i, label %.preheader.i.i.i.i.i
+_ZN15InteractionListD2Ev.exit.i.i.i.i.i:          ; preds = %150, %.preheader.i.i.i.i.i
+  %156 = icmp eq ptr %148, %5
+  br i1 %156, label %.body.i.i, label %.preheader.i.i.i.i.i
 
-"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2ERKS5_.exit.i.i.i": ; preds = %132
+"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2ERKS5_.exit.i.i.i": ; preds = %140
   tail call void @llvm.experimental.noalias.scope.decl(metadata !122)
   call void @llvm.lifetime.start.p0(i64 2280, ptr nonnull %3)
-  br label %149
+  br label %157
 
-149:                                              ; preds = %167, %"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2ERKS5_.exit.i.i.i"
-  %150 = phi i64 [ 0, %"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2ERKS5_.exit.i.i.i" ], [ %170, %167 ]
-  %151 = getelementptr inbounds nuw %struct.InteractionList, ptr %3, i64 %150
-  %152 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %5, i64 0, i64 %150
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  %154 = load ptr, ptr %153, align 8, !tbaa !118, !noalias !122
-  %155 = load ptr, ptr %152, align 8, !tbaa !120, !noalias !122
-  %156 = ptrtoint ptr %154 to i64
-  %157 = ptrtoint ptr %155 to i64
-  %158 = sub i64 %156, %157
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %151, i8 0, i64 24, i1 false), !noalias !122
-  %.not.i.i.i.i.i.i.i.i.i.i.i2 = icmp eq ptr %154, %155
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i2, label %.noexc4.i.i.thread.i.i.i.i, label %160
+157:                                              ; preds = %177, %"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2ERKS5_.exit.i.i.i"
+  %158 = phi i64 [ 0, %"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2ERKS5_.exit.i.i.i" ], [ %180, %177 ]
+  %159 = getelementptr inbounds nuw %struct.InteractionList, ptr %3, i64 %158
+  %160 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %5, i64 0, i64 %158
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
+  %162 = load ptr, ptr %161, align 8, !tbaa !118, !noalias !122
+  %163 = load ptr, ptr %160, align 8, !tbaa !120, !noalias !122
+  %164 = ptrtoint ptr %162 to i64
+  %165 = ptrtoint ptr %163 to i64
+  %166 = sub i64 %164, %165
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %159, i8 0, i64 24, i1 false), !noalias !122
+  %.not.i.i.i.i.i.i.i.i.i.i.i2 = icmp eq ptr %162, %163
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i2, label %.noexc4.i.i.thread.i.i.i.i, label %170
 
-.noexc4.i.i.thread.i.i.i.i:                       ; preds = %149
-  %159 = getelementptr inbounds nuw i8, ptr %151, i64 8
-  br label %167
+.noexc4.i.i.thread.i.i.i.i:                       ; preds = %157
+  %167 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  %168 = getelementptr inbounds i8, ptr null, i64 %166
+  %169 = getelementptr inbounds nuw i8, ptr %159, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %159, i8 0, i64 16, i1 false), !noalias !122
+  store ptr %168, ptr %169, align 8, !tbaa !121, !noalias !122
+  br label %177
 
-160:                                              ; preds = %149
-  %161 = icmp ugt i64 %158, 9223372036854775804
-  br i1 %161, label %.noexc.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i, !prof !13
+170:                                              ; preds = %157
+  %171 = icmp ugt i64 %166, 9223372036854775804
+  br i1 %171, label %.noexc.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i, !prof !13
 
-.noexc.i.i.i.i.i.i.i.i.i:                         ; preds = %160
+.noexc.i.i.i.i.i.i.i.i.i:                         ; preds = %170
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #17
           to label %.noexc.i.i.i.i.i4.i unwind label %.loopexit.split-lp.i.i.i.i.i.i, !noalias !122
 
 .noexc.i.i.i.i.i4.i:                              ; preds = %.noexc.i.i.i.i.i.i.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %160
-  %162 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %158) #18
-          to label %163 unwind label %.loopexit5.i.i.i.i.i.i, !noalias !122
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %170
+  %172 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %166) #18
+          to label %173 unwind label %.loopexit5.i.i.i.i.i.i, !noalias !122
 
-163:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %162, ptr %151, align 8, !tbaa !120, !noalias !122
-  %164 = getelementptr inbounds nuw i8, ptr %151, i64 8
-  store ptr %162, ptr %164, align 8, !tbaa !118, !noalias !122
-  %165 = getelementptr inbounds nuw i8, ptr %162, i64 %158
-  %166 = getelementptr inbounds nuw i8, ptr %151, i64 16
-  store ptr %165, ptr %166, align 8, !tbaa !121, !noalias !122
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %162, ptr align 4 %155, i64 %158, i1 false), !noalias !122
-  br label %167
+173:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i
+  store ptr %172, ptr %159, align 8, !tbaa !120, !noalias !122
+  %174 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  store ptr %172, ptr %174, align 8, !tbaa !118, !noalias !122
+  %175 = getelementptr inbounds nuw i8, ptr %172, i64 %166
+  %176 = getelementptr inbounds nuw i8, ptr %159, i64 16
+  store ptr %175, ptr %176, align 8, !tbaa !121, !noalias !122
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %172, ptr align 4 %163, i64 %166, i1 false), !noalias !122
+  br label %177
 
-167:                                              ; preds = %163, %.noexc4.i.i.thread.i.i.i.i
-  %168 = phi ptr [ null, %.noexc4.i.i.thread.i.i.i.i ], [ %165, %163 ]
-  %169 = phi ptr [ %159, %.noexc4.i.i.thread.i.i.i.i ], [ %164, %163 ]
-  store ptr %168, ptr %169, align 8, !tbaa !118, !noalias !122
-  %170 = add nuw nsw i64 %150, 1
-  %171 = icmp eq i64 %170, 95
-  br i1 %171, label %"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2EOS5_.exit.i.i.i.i", label %149
+177:                                              ; preds = %173, %.noexc4.i.i.thread.i.i.i.i
+  %178 = phi ptr [ %168, %.noexc4.i.i.thread.i.i.i.i ], [ %175, %173 ]
+  %179 = phi ptr [ %167, %.noexc4.i.i.thread.i.i.i.i ], [ %174, %173 ]
+  store ptr %178, ptr %179, align 8, !tbaa !118, !noalias !122
+  %180 = add nuw nsw i64 %158, 1
+  %181 = icmp eq i64 %180, 95
+  br i1 %181, label %"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2EOS5_.exit.i.i.i.i", label %157
 
 .loopexit5.i.i.i.i.i.i:                           ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i
   %lpad.loopexit.i.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %172
+  br label %182
 
 .loopexit.split-lp.i.i.i.i.i.i:                   ; preds = %.noexc.i.i.i.i.i.i.i.i.i
   %lpad.loopexit.split-lp.i.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %172
+  br label %182
 
-172:                                              ; preds = %.loopexit.split-lp.i.i.i.i.i.i, %.loopexit5.i.i.i.i.i.i
+182:                                              ; preds = %.loopexit.split-lp.i.i.i.i.i.i, %.loopexit5.i.i.i.i.i.i
   %lpad.phi.i.i.i.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i.i.i.i, %.loopexit5.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i, %.loopexit.split-lp.i.i.i.i.i.i ]
-  %173 = icmp eq i64 %150, 0
-  br i1 %173, label %.body.i.i.i, label %.preheader.i.i.i.i.i.i
-
-.preheader.i.i.i.i.i.i:                           ; preds = %172, %_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i
-  %174 = phi ptr [ %175, %_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i ], [ %151, %172 ]
-  %175 = getelementptr inbounds i8, ptr %174, i64 -24
-  %176 = load ptr, ptr %175, align 8, !tbaa !120, !noalias !122
-  %.not.i.i.i.i.i.i.i5.i.i.i = icmp eq ptr %176, null
-  br i1 %.not.i.i.i.i.i.i.i5.i.i.i, label %_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i, label %177
-
-177:                                              ; preds = %.preheader.i.i.i.i.i.i
-  %178 = getelementptr inbounds i8, ptr %174, i64 -8
-  %179 = load ptr, ptr %178, align 8, !tbaa !121, !noalias !122
-  %180 = ptrtoint ptr %179 to i64
-  %181 = ptrtoint ptr %176 to i64
-  %182 = sub i64 %180, %181
-  call void @_ZdlPvm(ptr noundef nonnull %176, i64 noundef %182) #16, !noalias !122
-  br label %_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i
-
-_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i:        ; preds = %177, %.preheader.i.i.i.i.i.i
-  %183 = icmp eq ptr %175, %3
+  %183 = icmp eq i64 %158, 0
   br i1 %183, label %.body.i.i.i, label %.preheader.i.i.i.i.i.i
 
-"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2EOS5_.exit.i.i.i.i": ; preds = %167, %201
-  %184 = phi i64 [ %204, %201 ], [ 0, %167 ]
-  %185 = getelementptr inbounds nuw %struct.InteractionList, ptr %4, i64 %184
-  %186 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %3, i64 0, i64 %184
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %188 = load ptr, ptr %187, align 8, !tbaa !118, !noalias !122
-  %189 = load ptr, ptr %186, align 8, !tbaa !120, !noalias !122
-  %190 = ptrtoint ptr %188 to i64
-  %191 = ptrtoint ptr %189 to i64
+.preheader.i.i.i.i.i.i:                           ; preds = %182, %_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i
+  %184 = phi ptr [ %185, %_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i ], [ %159, %182 ]
+  %185 = getelementptr inbounds i8, ptr %184, i64 -24
+  %186 = load ptr, ptr %185, align 8, !tbaa !120, !noalias !122
+  %.not.i.i.i.i.i.i.i5.i.i.i = icmp eq ptr %186, null
+  br i1 %.not.i.i.i.i.i.i.i5.i.i.i, label %_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i, label %187
+
+187:                                              ; preds = %.preheader.i.i.i.i.i.i
+  %188 = getelementptr inbounds i8, ptr %184, i64 -8
+  %189 = load ptr, ptr %188, align 8, !tbaa !121, !noalias !122
+  %190 = ptrtoint ptr %189 to i64
+  %191 = ptrtoint ptr %186 to i64
   %192 = sub i64 %190, %191
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %185, i8 0, i64 24, i1 false), !alias.scope !122
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %188, %189
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %.noexc4.i.i.i.thread.i.i.i.i, label %194
+  call void @_ZdlPvm(ptr noundef nonnull %186, i64 noundef %192) #16, !noalias !122
+  br label %_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i
+
+_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i:        ; preds = %187, %.preheader.i.i.i.i.i.i
+  %193 = icmp eq ptr %185, %3
+  br i1 %193, label %.body.i.i.i, label %.preheader.i.i.i.i.i.i
+
+"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2EOS5_.exit.i.i.i.i": ; preds = %177, %213
+  %194 = phi i64 [ %216, %213 ], [ 0, %177 ]
+  %195 = getelementptr inbounds nuw %struct.InteractionList, ptr %4, i64 %194
+  %196 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %3, i64 0, i64 %194
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
+  %198 = load ptr, ptr %197, align 8, !tbaa !118, !noalias !122
+  %199 = load ptr, ptr %196, align 8, !tbaa !120, !noalias !122
+  %200 = ptrtoint ptr %198 to i64
+  %201 = ptrtoint ptr %199 to i64
+  %202 = sub i64 %200, %201
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %195, i8 0, i64 24, i1 false), !alias.scope !122
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %198, %199
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %.noexc4.i.i.i.thread.i.i.i.i, label %206
 
 .noexc4.i.i.i.thread.i.i.i.i:                     ; preds = %"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2EOS5_.exit.i.i.i.i"
-  %193 = getelementptr inbounds nuw i8, ptr %185, i64 8
-  br label %201
+  %203 = getelementptr inbounds nuw i8, ptr %195, i64 8
+  %204 = getelementptr inbounds i8, ptr null, i64 %202
+  %205 = getelementptr inbounds nuw i8, ptr %195, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %195, i8 0, i64 16, i1 false), !alias.scope !122
+  store ptr %204, ptr %205, align 8, !tbaa !121, !alias.scope !122
+  br label %213
 
-194:                                              ; preds = %"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2EOS5_.exit.i.i.i.i"
-  %195 = icmp ugt i64 %192, 9223372036854775804
-  br i1 %195, label %.noexc.i.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i.i, !prof !13
+206:                                              ; preds = %"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2EOS5_.exit.i.i.i.i"
+  %207 = icmp ugt i64 %202, 9223372036854775804
+  br i1 %207, label %.noexc.i.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i.i, !prof !13
 
-.noexc.i.i.i.i.i.i.i.i.i.i:                       ; preds = %194
+.noexc.i.i.i.i.i.i.i.i.i.i:                       ; preds = %206
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #17
           to label %.noexc.i.i.i.i.i5.i.i unwind label %.loopexit.split-lp.i.i.i.i.i.i.i, !noalias !122
 
 .noexc.i.i.i.i.i5.i.i:                            ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %194
-  %196 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %192) #18
-          to label %197 unwind label %.loopexit5.i.i.i.i.i.i.i, !noalias !122
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %206
+  %208 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %202) #18
+          to label %209 unwind label %.loopexit5.i.i.i.i.i.i.i, !noalias !122
 
-197:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %196, ptr %185, align 8, !tbaa !120, !alias.scope !122
-  %198 = getelementptr inbounds nuw i8, ptr %185, i64 8
-  store ptr %196, ptr %198, align 8, !tbaa !118, !alias.scope !122
-  %199 = getelementptr inbounds nuw i8, ptr %196, i64 %192
-  %200 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  store ptr %199, ptr %200, align 8, !tbaa !121, !alias.scope !122
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %196, ptr align 4 %189, i64 %192, i1 false), !noalias !122
-  br label %201
+209:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  store ptr %208, ptr %195, align 8, !tbaa !120, !alias.scope !122
+  %210 = getelementptr inbounds nuw i8, ptr %195, i64 8
+  store ptr %208, ptr %210, align 8, !tbaa !118, !alias.scope !122
+  %211 = getelementptr inbounds nuw i8, ptr %208, i64 %202
+  %212 = getelementptr inbounds nuw i8, ptr %195, i64 16
+  store ptr %211, ptr %212, align 8, !tbaa !121, !alias.scope !122
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %208, ptr align 4 %199, i64 %202, i1 false), !noalias !122
+  br label %213
 
-201:                                              ; preds = %197, %.noexc4.i.i.i.thread.i.i.i.i
-  %202 = phi ptr [ null, %.noexc4.i.i.i.thread.i.i.i.i ], [ %199, %197 ]
-  %203 = phi ptr [ %193, %.noexc4.i.i.i.thread.i.i.i.i ], [ %198, %197 ]
-  store ptr %202, ptr %203, align 8, !tbaa !118, !alias.scope !122
-  %204 = add nuw nsw i64 %184, 1
-  %205 = icmp eq i64 %204, 95
-  br i1 %205, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EC2ES8_.exit.i.i.i.i", label %"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2EOS5_.exit.i.i.i.i"
+213:                                              ; preds = %209, %.noexc4.i.i.i.thread.i.i.i.i
+  %214 = phi ptr [ %204, %.noexc4.i.i.i.thread.i.i.i.i ], [ %211, %209 ]
+  %215 = phi ptr [ %203, %.noexc4.i.i.i.thread.i.i.i.i ], [ %210, %209 ]
+  store ptr %214, ptr %215, align 8, !tbaa !118, !alias.scope !122
+  %216 = add nuw nsw i64 %194, 1
+  %217 = icmp eq i64 %216, 95
+  br i1 %217, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EC2ES8_.exit.i.i.i.i", label %"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0C2EOS5_.exit.i.i.i.i"
 
 .loopexit5.i.i.i.i.i.i.i:                         ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i.i
   %lpad.loopexit.i.i.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %206
+  br label %218
 
 .loopexit.split-lp.i.i.i.i.i.i.i:                 ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i
   %lpad.loopexit.split-lp.i.i.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %206
+  br label %218
 
-206:                                              ; preds = %.loopexit.split-lp.i.i.i.i.i.i.i, %.loopexit5.i.i.i.i.i.i.i
+218:                                              ; preds = %.loopexit.split-lp.i.i.i.i.i.i.i, %.loopexit5.i.i.i.i.i.i.i
   %lpad.phi.i.i.i.i.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i.i.i.i.i, %.loopexit5.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i, %.loopexit.split-lp.i.i.i.i.i.i.i ]
-  %207 = icmp eq i64 %184, 0
-  br i1 %207, label %.body.i.i.i.i, label %.preheader.i.i.i.i.i.i.i
+  %219 = icmp eq i64 %194, 0
+  br i1 %219, label %.body.i.i.i.i, label %.preheader.i.i.i.i.i.i.i
 
-.preheader.i.i.i.i.i.i.i:                         ; preds = %206, %_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i.i
-  %208 = phi ptr [ %209, %_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i.i ], [ %185, %206 ]
-  %209 = getelementptr inbounds i8, ptr %208, i64 -24
-  %210 = load ptr, ptr %209, align 8, !tbaa !120, !alias.scope !122
-  %.not.i.i.i.i.i.i.i1.i.i.i.i = icmp eq ptr %210, null
-  br i1 %.not.i.i.i.i.i.i.i1.i.i.i.i, label %_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i.i, label %211
-
-211:                                              ; preds = %.preheader.i.i.i.i.i.i.i
-  %212 = getelementptr inbounds i8, ptr %208, i64 -8
-  %213 = load ptr, ptr %212, align 8, !tbaa !121, !alias.scope !122
-  %214 = ptrtoint ptr %213 to i64
-  %215 = ptrtoint ptr %210 to i64
-  %216 = sub i64 %214, %215
-  call void @_ZdlPvm(ptr noundef nonnull %210, i64 noundef %216) #16
-  br label %_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i.i
-
-_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i.i:      ; preds = %211, %.preheader.i.i.i.i.i.i.i
-  %217 = icmp eq ptr %209, %4
-  br i1 %217, label %.body.i.i.i.i, label %.preheader.i.i.i.i.i.i.i
-
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EC2ES8_.exit.i.i.i.i": ; preds = %201
-  %218 = getelementptr inbounds nuw i8, ptr %3, i64 2280
-  br label %219
-
-219:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i3.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EC2ES8_.exit.i.i.i.i"
-  %220 = phi ptr [ %218, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EC2ES8_.exit.i.i.i.i" ], [ %221, %_ZN15InteractionListD2Ev.exit.i.i3.i.i.i.i ]
+.preheader.i.i.i.i.i.i.i:                         ; preds = %218, %_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i.i
+  %220 = phi ptr [ %221, %_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i.i ], [ %195, %218 ]
   %221 = getelementptr inbounds i8, ptr %220, i64 -24
-  %222 = load ptr, ptr %221, align 8, !tbaa !120, !noalias !122
-  %.not.i.i.i.i.i.i2.i.i.i.i = icmp eq ptr %222, null
-  br i1 %.not.i.i.i.i.i.i2.i.i.i.i, label %_ZN15InteractionListD2Ev.exit.i.i3.i.i.i.i, label %223
+  %222 = load ptr, ptr %221, align 8, !tbaa !120, !alias.scope !122
+  %.not.i.i.i.i.i.i.i1.i.i.i.i = icmp eq ptr %222, null
+  br i1 %.not.i.i.i.i.i.i.i1.i.i.i.i, label %_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i.i, label %223
 
-223:                                              ; preds = %219
+223:                                              ; preds = %.preheader.i.i.i.i.i.i.i
   %224 = getelementptr inbounds i8, ptr %220, i64 -8
-  %225 = load ptr, ptr %224, align 8, !tbaa !121, !noalias !122
+  %225 = load ptr, ptr %224, align 8, !tbaa !121, !alias.scope !122
   %226 = ptrtoint ptr %225 to i64
   %227 = ptrtoint ptr %222 to i64
   %228 = sub i64 %226, %227
-  call void @_ZdlPvm(ptr noundef nonnull %222, i64 noundef %228) #16, !noalias !122
-  br label %_ZN15InteractionListD2Ev.exit.i.i3.i.i.i.i
+  call void @_ZdlPvm(ptr noundef nonnull %222, i64 noundef %228) #16
+  br label %_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i.i
 
-_ZN15InteractionListD2Ev.exit.i.i3.i.i.i.i:       ; preds = %223, %219
-  %229 = icmp eq ptr %221, %3
-  br i1 %229, label %242, label %219
+_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i.i:      ; preds = %223, %.preheader.i.i.i.i.i.i.i
+  %229 = icmp eq ptr %221, %4
+  br i1 %229, label %.body.i.i.i.i, label %.preheader.i.i.i.i.i.i.i
 
-.body.i.i.i.i:                                    ; preds = %_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i.i, %206
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EC2ES8_.exit.i.i.i.i": ; preds = %213
   %230 = getelementptr inbounds nuw i8, ptr %3, i64 2280
   br label %231
 
-231:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i5.i.i.i.i, %.body.i.i.i.i
-  %232 = phi ptr [ %230, %.body.i.i.i.i ], [ %233, %_ZN15InteractionListD2Ev.exit.i.i5.i.i.i.i ]
+231:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i3.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EC2ES8_.exit.i.i.i.i"
+  %232 = phi ptr [ %230, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EC2ES8_.exit.i.i.i.i" ], [ %233, %_ZN15InteractionListD2Ev.exit.i.i3.i.i.i.i ]
   %233 = getelementptr inbounds i8, ptr %232, i64 -24
   %234 = load ptr, ptr %233, align 8, !tbaa !120, !noalias !122
-  %.not.i.i.i.i.i.i4.i.i.i.i = icmp eq ptr %234, null
-  br i1 %.not.i.i.i.i.i.i4.i.i.i.i, label %_ZN15InteractionListD2Ev.exit.i.i5.i.i.i.i, label %235
+  %.not.i.i.i.i.i.i2.i.i.i.i = icmp eq ptr %234, null
+  br i1 %.not.i.i.i.i.i.i2.i.i.i.i, label %_ZN15InteractionListD2Ev.exit.i.i3.i.i.i.i, label %235
 
 235:                                              ; preds = %231
   %236 = getelementptr inbounds i8, ptr %232, i64 -8
@@ -1080,444 +1080,472 @@ _ZN15InteractionListD2Ev.exit.i.i3.i.i.i.i:       ; preds = %223, %219
   %238 = ptrtoint ptr %237 to i64
   %239 = ptrtoint ptr %234 to i64
   %240 = sub i64 %238, %239
-  call void @_ZdlPvm(ptr noundef nonnull %234, i64 noundef %240) #16
-  br label %_ZN15InteractionListD2Ev.exit.i.i5.i.i.i.i
+  call void @_ZdlPvm(ptr noundef nonnull %234, i64 noundef %240) #16, !noalias !122
+  br label %_ZN15InteractionListD2Ev.exit.i.i3.i.i.i.i
 
-_ZN15InteractionListD2Ev.exit.i.i5.i.i.i.i:       ; preds = %235, %231
+_ZN15InteractionListD2Ev.exit.i.i3.i.i.i.i:       ; preds = %235, %231
   %241 = icmp eq ptr %233, %3
-  br i1 %241, label %.body.i.i.i, label %231
+  br i1 %241, label %254, label %231
 
-242:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i3.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 2280, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 2280, ptr nonnull %2)
+.body.i.i.i.i:                                    ; preds = %_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i.i, %218
+  %242 = getelementptr inbounds nuw i8, ptr %3, i64 2280
   br label %243
 
-243:                                              ; preds = %261, %242
-  %244 = phi i64 [ 0, %242 ], [ %264, %261 ]
-  %245 = getelementptr inbounds nuw %struct.InteractionList, ptr %2, i64 %244
-  %246 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %4, i64 0, i64 %244
-  %247 = getelementptr inbounds nuw i8, ptr %246, i64 8
-  %248 = load ptr, ptr %247, align 8, !tbaa !118
-  %249 = load ptr, ptr %246, align 8, !tbaa !120
-  %250 = ptrtoint ptr %248 to i64
-  %251 = ptrtoint ptr %249 to i64
+243:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i5.i.i.i.i, %.body.i.i.i.i
+  %244 = phi ptr [ %242, %.body.i.i.i.i ], [ %245, %_ZN15InteractionListD2Ev.exit.i.i5.i.i.i.i ]
+  %245 = getelementptr inbounds i8, ptr %244, i64 -24
+  %246 = load ptr, ptr %245, align 8, !tbaa !120, !noalias !122
+  %.not.i.i.i.i.i.i4.i.i.i.i = icmp eq ptr %246, null
+  br i1 %.not.i.i.i.i.i.i4.i.i.i.i, label %_ZN15InteractionListD2Ev.exit.i.i5.i.i.i.i, label %247
+
+247:                                              ; preds = %243
+  %248 = getelementptr inbounds i8, ptr %244, i64 -8
+  %249 = load ptr, ptr %248, align 8, !tbaa !121, !noalias !122
+  %250 = ptrtoint ptr %249 to i64
+  %251 = ptrtoint ptr %246 to i64
   %252 = sub i64 %250, %251
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %245, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i.i.i.i.i.i6.i.i.i = icmp eq ptr %248, %249
-  br i1 %.not.i.i.i.i.i.i.i.i.i6.i.i.i, label %.noexc4.i.i.i.thread.i18.i.i.i, label %254
+  call void @_ZdlPvm(ptr noundef nonnull %246, i64 noundef %252) #16
+  br label %_ZN15InteractionListD2Ev.exit.i.i5.i.i.i.i
 
-.noexc4.i.i.i.thread.i18.i.i.i:                   ; preds = %243
-  %253 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  br label %261
+_ZN15InteractionListD2Ev.exit.i.i5.i.i.i.i:       ; preds = %247, %243
+  %253 = icmp eq ptr %245, %3
+  br i1 %253, label %.body.i.i.i, label %243
 
-254:                                              ; preds = %243
-  %255 = icmp ugt i64 %252, 9223372036854775804
-  br i1 %255, label %.noexc.i.i.i.i.i.i.i14.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i7.i.i.i, !prof !13
+254:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i3.i.i.i.i
+  call void @llvm.lifetime.end.p0(i64 2280, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 2280, ptr nonnull %2)
+  br label %255
 
-.noexc.i.i.i.i.i.i.i14.i.i.i:                     ; preds = %254
+255:                                              ; preds = %275, %254
+  %256 = phi i64 [ 0, %254 ], [ %278, %275 ]
+  %257 = getelementptr inbounds nuw %struct.InteractionList, ptr %2, i64 %256
+  %258 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %4, i64 0, i64 %256
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 8
+  %260 = load ptr, ptr %259, align 8, !tbaa !118
+  %261 = load ptr, ptr %258, align 8, !tbaa !120
+  %262 = ptrtoint ptr %260 to i64
+  %263 = ptrtoint ptr %261 to i64
+  %264 = sub i64 %262, %263
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %257, i8 0, i64 24, i1 false)
+  %.not.i.i.i.i.i.i.i.i.i6.i.i.i = icmp eq ptr %260, %261
+  br i1 %.not.i.i.i.i.i.i.i.i.i6.i.i.i, label %.noexc4.i.i.i.thread.i18.i.i.i, label %268
+
+.noexc4.i.i.i.thread.i18.i.i.i:                   ; preds = %255
+  %265 = getelementptr inbounds nuw i8, ptr %257, i64 8
+  %266 = getelementptr inbounds i8, ptr null, i64 %264
+  %267 = getelementptr inbounds nuw i8, ptr %257, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %257, i8 0, i64 16, i1 false)
+  store ptr %266, ptr %267, align 8, !tbaa !121
+  br label %275
+
+268:                                              ; preds = %255
+  %269 = icmp ugt i64 %264, 9223372036854775804
+  br i1 %269, label %.noexc.i.i.i.i.i.i.i14.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i7.i.i.i, !prof !13
+
+.noexc.i.i.i.i.i.i.i14.i.i.i:                     ; preds = %268
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #17
           to label %.noexc.i.i.i.i17.i.i.i unwind label %.loopexit.split-lp.i.i.i.i15.i.i.i
 
 .noexc.i.i.i.i17.i.i.i:                           ; preds = %.noexc.i.i.i.i.i.i.i14.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i7.i.i.i: ; preds = %254
-  %256 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %252) #18
-          to label %257 unwind label %.loopexit5.i.i.i.i8.i.i.i
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i7.i.i.i: ; preds = %268
+  %270 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %264) #18
+          to label %271 unwind label %.loopexit5.i.i.i.i8.i.i.i
 
-257:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i7.i.i.i
-  store ptr %256, ptr %245, align 8, !tbaa !120
-  %258 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  store ptr %256, ptr %258, align 8, !tbaa !118
-  %259 = getelementptr inbounds nuw i8, ptr %256, i64 %252
-  %260 = getelementptr inbounds nuw i8, ptr %245, i64 16
-  store ptr %259, ptr %260, align 8, !tbaa !121
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %256, ptr align 4 %249, i64 %252, i1 false)
-  br label %261
+271:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i7.i.i.i
+  store ptr %270, ptr %257, align 8, !tbaa !120
+  %272 = getelementptr inbounds nuw i8, ptr %257, i64 8
+  store ptr %270, ptr %272, align 8, !tbaa !118
+  %273 = getelementptr inbounds nuw i8, ptr %270, i64 %264
+  %274 = getelementptr inbounds nuw i8, ptr %257, i64 16
+  store ptr %273, ptr %274, align 8, !tbaa !121
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %270, ptr align 4 %261, i64 %264, i1 false)
+  br label %275
 
-261:                                              ; preds = %257, %.noexc4.i.i.i.thread.i18.i.i.i
-  %262 = phi ptr [ null, %.noexc4.i.i.i.thread.i18.i.i.i ], [ %259, %257 ]
-  %263 = phi ptr [ %253, %.noexc4.i.i.i.thread.i18.i.i.i ], [ %258, %257 ]
-  store ptr %262, ptr %263, align 8, !tbaa !118
-  %264 = add nuw nsw i64 %244, 1
-  %265 = icmp eq i64 %264, 95
-  br i1 %265, label %.lr.ph.i.i.i.i.i, label %243
+275:                                              ; preds = %271, %.noexc4.i.i.i.thread.i18.i.i.i
+  %276 = phi ptr [ %266, %.noexc4.i.i.i.thread.i18.i.i.i ], [ %273, %271 ]
+  %277 = phi ptr [ %265, %.noexc4.i.i.i.thread.i18.i.i.i ], [ %272, %271 ]
+  store ptr %276, ptr %277, align 8, !tbaa !118
+  %278 = add nuw nsw i64 %256, 1
+  %279 = icmp eq i64 %278, 95
+  br i1 %279, label %.lr.ph.i.i.i.i.i, label %255
 
 .loopexit5.i.i.i.i8.i.i.i:                        ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i7.i.i.i
   %lpad.loopexit.i.i.i.i9.i.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %266
+  br label %280
 
 .loopexit.split-lp.i.i.i.i15.i.i.i:               ; preds = %.noexc.i.i.i.i.i.i.i14.i.i.i
   %lpad.loopexit.split-lp.i.i.i.i16.i.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %266
+  br label %280
 
-266:                                              ; preds = %.loopexit.split-lp.i.i.i.i15.i.i.i, %.loopexit5.i.i.i.i8.i.i.i
+280:                                              ; preds = %.loopexit.split-lp.i.i.i.i15.i.i.i, %.loopexit5.i.i.i.i8.i.i.i
   %lpad.phi.i.i.i.i10.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i.i9.i.i.i, %.loopexit5.i.i.i.i8.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i16.i.i.i, %.loopexit.split-lp.i.i.i.i15.i.i.i ]
-  %267 = icmp eq i64 %244, 0
-  br i1 %267, label %.body19.i.i.i, label %.preheader.i.i.i.i11.i.i.i
+  %281 = icmp eq i64 %256, 0
+  br i1 %281, label %.body19.i.i.i, label %.preheader.i.i.i.i11.i.i.i
 
-.preheader.i.i.i.i11.i.i.i:                       ; preds = %266, %_ZN15InteractionListD2Ev.exit.i.i.i.i13.i.i.i
-  %268 = phi ptr [ %269, %_ZN15InteractionListD2Ev.exit.i.i.i.i13.i.i.i ], [ %245, %266 ]
-  %269 = getelementptr inbounds i8, ptr %268, i64 -24
-  %270 = load ptr, ptr %269, align 8, !tbaa !120
-  %.not.i.i.i.i.i.i.i.i12.i.i.i = icmp eq ptr %270, null
-  br i1 %.not.i.i.i.i.i.i.i.i12.i.i.i, label %_ZN15InteractionListD2Ev.exit.i.i.i.i13.i.i.i, label %271
+.preheader.i.i.i.i11.i.i.i:                       ; preds = %280, %_ZN15InteractionListD2Ev.exit.i.i.i.i13.i.i.i
+  %282 = phi ptr [ %283, %_ZN15InteractionListD2Ev.exit.i.i.i.i13.i.i.i ], [ %257, %280 ]
+  %283 = getelementptr inbounds i8, ptr %282, i64 -24
+  %284 = load ptr, ptr %283, align 8, !tbaa !120
+  %.not.i.i.i.i.i.i.i.i12.i.i.i = icmp eq ptr %284, null
+  br i1 %.not.i.i.i.i.i.i.i.i12.i.i.i, label %_ZN15InteractionListD2Ev.exit.i.i.i.i13.i.i.i, label %285
 
-271:                                              ; preds = %.preheader.i.i.i.i11.i.i.i
-  %272 = getelementptr inbounds i8, ptr %268, i64 -8
-  %273 = load ptr, ptr %272, align 8, !tbaa !121
-  %274 = ptrtoint ptr %273 to i64
-  %275 = ptrtoint ptr %270 to i64
-  %276 = sub i64 %274, %275
-  call void @_ZdlPvm(ptr noundef nonnull %270, i64 noundef %276) #16
+285:                                              ; preds = %.preheader.i.i.i.i11.i.i.i
+  %286 = getelementptr inbounds i8, ptr %282, i64 -8
+  %287 = load ptr, ptr %286, align 8, !tbaa !121
+  %288 = ptrtoint ptr %287 to i64
+  %289 = ptrtoint ptr %284 to i64
+  %290 = sub i64 %288, %289
+  call void @_ZdlPvm(ptr noundef nonnull %284, i64 noundef %290) #16
   br label %_ZN15InteractionListD2Ev.exit.i.i.i.i13.i.i.i
 
-_ZN15InteractionListD2Ev.exit.i.i.i.i13.i.i.i:    ; preds = %271, %.preheader.i.i.i.i11.i.i.i
-  %277 = icmp eq ptr %269, %2
-  br i1 %277, label %.body19.i.i.i, label %.preheader.i.i.i.i11.i.i.i
+_ZN15InteractionListD2Ev.exit.i.i.i.i13.i.i.i:    ; preds = %285, %.preheader.i.i.i.i11.i.i.i
+  %291 = icmp eq ptr %283, %2
+  br i1 %291, label %.body19.i.i.i, label %.preheader.i.i.i.i11.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %261, %304
-  %.050.i.i.i.i.i = phi i64 [ %306, %304 ], [ 2, %261 ]
-  %.02949.i.i.i.i.i = phi ptr [ %305, %304 ], [ @_ZN3gmxL11fTypesOnGpuE, %261 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %275, %318
+  %.050.i.i.i.i.i = phi i64 [ %320, %318 ], [ 2, %275 ]
+  %.02949.i.i.i.i.i = phi ptr [ %319, %318 ], [ @_ZN3gmxL11fTypesOnGpuE, %275 ]
   %.029.val.i.i.i.i.i = load i32, ptr %.02949.i.i.i.i.i, align 4, !tbaa !125
-  %278 = sext i32 %.029.val.i.i.i.i.i to i64
-  %279 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %2, i64 0, i64 %278
-  %280 = load ptr, ptr %279, align 8, !tbaa !126
-  %281 = getelementptr inbounds nuw i8, ptr %279, i64 8
-  %282 = load ptr, ptr %281, align 8, !tbaa !126
-  %.not35.i.i.i.i.i = icmp eq ptr %280, %282
-  br i1 %.not35.i.i.i.i.i, label %283, label %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i"
-
-283:                                              ; preds = %.lr.ph.i.i.i.i.i
-  %284 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 4
-  %.val.i.i.i.i.i = load i32, ptr %284, align 4, !tbaa !125
-  %285 = sext i32 %.val.i.i.i.i.i to i64
-  %286 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %2, i64 0, i64 %285
-  %287 = load ptr, ptr %286, align 8, !tbaa !126
-  %288 = getelementptr inbounds nuw i8, ptr %286, i64 8
-  %289 = load ptr, ptr %288, align 8, !tbaa !126
-  %.not36.i.i.i.i.i = icmp eq ptr %287, %289
-  br i1 %.not36.i.i.i.i.i, label %290, label %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i.split.loop.exit169"
-
-290:                                              ; preds = %283
-  %291 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 8
-  %.val30.i.i.i.i.i = load i32, ptr %291, align 4, !tbaa !125
-  %292 = sext i32 %.val30.i.i.i.i.i to i64
+  %292 = sext i32 %.029.val.i.i.i.i.i to i64
   %293 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %2, i64 0, i64 %292
   %294 = load ptr, ptr %293, align 8, !tbaa !126
   %295 = getelementptr inbounds nuw i8, ptr %293, i64 8
   %296 = load ptr, ptr %295, align 8, !tbaa !126
-  %.not37.i.i.i.i.i = icmp eq ptr %294, %296
-  br i1 %.not37.i.i.i.i.i, label %297, label %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i.split.loop.exit167"
+  %.not35.i.i.i.i.i = icmp eq ptr %294, %296
+  br i1 %.not35.i.i.i.i.i, label %297, label %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i"
 
-297:                                              ; preds = %290
-  %298 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 12
-  %.val31.i.i.i.i.i = load i32, ptr %298, align 4, !tbaa !125
-  %299 = sext i32 %.val31.i.i.i.i.i to i64
+297:                                              ; preds = %.lr.ph.i.i.i.i.i
+  %298 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 4
+  %.val.i.i.i.i.i = load i32, ptr %298, align 4, !tbaa !125
+  %299 = sext i32 %.val.i.i.i.i.i to i64
   %300 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %2, i64 0, i64 %299
   %301 = load ptr, ptr %300, align 8, !tbaa !126
   %302 = getelementptr inbounds nuw i8, ptr %300, i64 8
   %303 = load ptr, ptr %302, align 8, !tbaa !126
-  %.not38.i.i.i.i.i = icmp eq ptr %301, %303
-  br i1 %.not38.i.i.i.i.i, label %304, label %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i.split.loop.exit165"
+  %.not36.i.i.i.i.i = icmp eq ptr %301, %303
+  br i1 %.not36.i.i.i.i.i, label %304, label %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i.split.loop.exit169"
 
 304:                                              ; preds = %297
-  %305 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 16
-  %306 = add nsw i64 %.050.i.i.i.i.i, -1
-  %307 = icmp ugt i64 %.050.i.i.i.i.i, 1
-  br i1 %307, label %.lr.ph.i.i.i.i.i, label %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i", !llvm.loop !127
+  %305 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 8
+  %.val30.i.i.i.i.i = load i32, ptr %305, align 4, !tbaa !125
+  %306 = sext i32 %.val30.i.i.i.i.i to i64
+  %307 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %2, i64 0, i64 %306
+  %308 = load ptr, ptr %307, align 8, !tbaa !126
+  %309 = getelementptr inbounds nuw i8, ptr %307, i64 8
+  %310 = load ptr, ptr %309, align 8, !tbaa !126
+  %.not37.i.i.i.i.i = icmp eq ptr %308, %310
+  br i1 %.not37.i.i.i.i.i, label %311, label %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i.split.loop.exit167"
 
-"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i.split.loop.exit165": ; preds = %297
-  %308 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 12
+311:                                              ; preds = %304
+  %312 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 12
+  %.val31.i.i.i.i.i = load i32, ptr %312, align 4, !tbaa !125
+  %313 = sext i32 %.val31.i.i.i.i.i to i64
+  %314 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %2, i64 0, i64 %313
+  %315 = load ptr, ptr %314, align 8, !tbaa !126
+  %316 = getelementptr inbounds nuw i8, ptr %314, i64 8
+  %317 = load ptr, ptr %316, align 8, !tbaa !126
+  %.not38.i.i.i.i.i = icmp eq ptr %315, %317
+  br i1 %.not38.i.i.i.i.i, label %318, label %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i.split.loop.exit165"
+
+318:                                              ; preds = %311
+  %319 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 16
+  %320 = add nsw i64 %.050.i.i.i.i.i, -1
+  %321 = icmp ugt i64 %.050.i.i.i.i.i, 1
+  br i1 %321, label %.lr.ph.i.i.i.i.i, label %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i", !llvm.loop !127
+
+"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i.split.loop.exit165": ; preds = %311
+  %322 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 12
   br label %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i"
 
-"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i.split.loop.exit167": ; preds = %290
-  %309 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 8
+"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i.split.loop.exit167": ; preds = %304
+  %323 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 8
   br label %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i"
 
-"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i.split.loop.exit169": ; preds = %283
-  %310 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 4
+"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i.split.loop.exit169": ; preds = %297
+  %324 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 4
   br label %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i"
 
-"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i": ; preds = %304, %.lr.ph.i.i.i.i.i, %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i.split.loop.exit169", %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i.split.loop.exit167", %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i.split.loop.exit165"
-  %.028.i.i.i.i.i = phi ptr [ %308, %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i.split.loop.exit165" ], [ %309, %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i.split.loop.exit167" ], [ %310, %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i.split.loop.exit169" ], [ %.02949.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN3gmxL11fTypesOnGpuE, i64 32), %304 ]
-  %311 = getelementptr inbounds nuw i8, ptr %2, i64 2280
-  br label %312
+"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i": ; preds = %318, %.lr.ph.i.i.i.i.i, %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i.split.loop.exit169", %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i.split.loop.exit167", %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i.split.loop.exit165"
+  %.028.i.i.i.i.i = phi ptr [ %322, %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i.split.loop.exit165" ], [ %323, %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i.split.loop.exit167" ], [ %324, %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i.split.loop.exit169" ], [ %.02949.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN3gmxL11fTypesOnGpuE, i64 32), %318 ]
+  %325 = getelementptr inbounds nuw i8, ptr %2, i64 2280
+  br label %326
 
-312:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i.i3.i.i.i.i, %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i"
-  %313 = phi ptr [ %311, %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i" ], [ %314, %_ZN15InteractionListD2Ev.exit.i.i.i3.i.i.i.i ]
-  %314 = getelementptr inbounds i8, ptr %313, i64 -24
-  %315 = load ptr, ptr %314, align 8, !tbaa !120
-  %.not.i.i.i.i.i.i.i2.i.i.i.i = icmp eq ptr %315, null
-  br i1 %.not.i.i.i.i.i.i.i2.i.i.i.i, label %_ZN15InteractionListD2Ev.exit.i.i.i3.i.i.i.i, label %316
+326:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i.i3.i.i.i.i, %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i"
+  %327 = phi ptr [ %325, %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i" ], [ %328, %_ZN15InteractionListD2Ev.exit.i.i.i3.i.i.i.i ]
+  %328 = getelementptr inbounds i8, ptr %327, i64 -24
+  %329 = load ptr, ptr %328, align 8, !tbaa !120
+  %.not.i.i.i.i.i.i.i2.i.i.i.i = icmp eq ptr %329, null
+  br i1 %.not.i.i.i.i.i.i.i2.i.i.i.i, label %_ZN15InteractionListD2Ev.exit.i.i.i3.i.i.i.i, label %330
 
-316:                                              ; preds = %312
-  %317 = getelementptr inbounds i8, ptr %313, i64 -8
-  %318 = load ptr, ptr %317, align 8, !tbaa !121
-  %319 = ptrtoint ptr %318 to i64
-  %320 = ptrtoint ptr %315 to i64
-  %321 = sub i64 %319, %320
-  call void @_ZdlPvm(ptr noundef nonnull %315, i64 noundef %321) #16
+330:                                              ; preds = %326
+  %331 = getelementptr inbounds i8, ptr %327, i64 -8
+  %332 = load ptr, ptr %331, align 8, !tbaa !121
+  %333 = ptrtoint ptr %332 to i64
+  %334 = ptrtoint ptr %329 to i64
+  %335 = sub i64 %333, %334
+  call void @_ZdlPvm(ptr noundef nonnull %329, i64 noundef %335) #16
   br label %_ZN15InteractionListD2Ev.exit.i.i.i3.i.i.i.i
 
-_ZN15InteractionListD2Ev.exit.i.i.i3.i.i.i.i:     ; preds = %316, %312
-  %322 = icmp eq ptr %314, %2
-  br i1 %322, label %323, label %312
+_ZN15InteractionListD2Ev.exit.i.i.i3.i.i.i.i:     ; preds = %330, %326
+  %336 = icmp eq ptr %328, %2
+  br i1 %336, label %337, label %326
 
-323:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i.i3.i.i.i.i
+337:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i.i3.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 2280, ptr nonnull %2)
-  %324 = getelementptr inbounds nuw i8, ptr %4, i64 2280
-  br label %325
+  %338 = getelementptr inbounds nuw i8, ptr %4, i64 2280
+  br label %339
 
-325:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i.i22.i.i.i, %323
-  %326 = phi ptr [ %324, %323 ], [ %327, %_ZN15InteractionListD2Ev.exit.i.i.i22.i.i.i ]
-  %327 = getelementptr inbounds i8, ptr %326, i64 -24
-  %328 = load ptr, ptr %327, align 8, !tbaa !120
-  %.not.i.i.i.i.i.i.i21.i.i.i = icmp eq ptr %328, null
-  br i1 %.not.i.i.i.i.i.i.i21.i.i.i, label %_ZN15InteractionListD2Ev.exit.i.i.i22.i.i.i, label %329
+339:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i.i22.i.i.i, %337
+  %340 = phi ptr [ %338, %337 ], [ %341, %_ZN15InteractionListD2Ev.exit.i.i.i22.i.i.i ]
+  %341 = getelementptr inbounds i8, ptr %340, i64 -24
+  %342 = load ptr, ptr %341, align 8, !tbaa !120
+  %.not.i.i.i.i.i.i.i21.i.i.i = icmp eq ptr %342, null
+  br i1 %.not.i.i.i.i.i.i.i21.i.i.i, label %_ZN15InteractionListD2Ev.exit.i.i.i22.i.i.i, label %343
 
-329:                                              ; preds = %325
-  %330 = getelementptr inbounds i8, ptr %326, i64 -8
-  %331 = load ptr, ptr %330, align 8, !tbaa !121
-  %332 = ptrtoint ptr %331 to i64
-  %333 = ptrtoint ptr %328 to i64
-  %334 = sub i64 %332, %333
-  call void @_ZdlPvm(ptr noundef nonnull %328, i64 noundef %334) #16
+343:                                              ; preds = %339
+  %344 = getelementptr inbounds i8, ptr %340, i64 -8
+  %345 = load ptr, ptr %344, align 8, !tbaa !121
+  %346 = ptrtoint ptr %345 to i64
+  %347 = ptrtoint ptr %342 to i64
+  %348 = sub i64 %346, %347
+  call void @_ZdlPvm(ptr noundef nonnull %342, i64 noundef %348) #16
   br label %_ZN15InteractionListD2Ev.exit.i.i.i22.i.i.i
 
-_ZN15InteractionListD2Ev.exit.i.i.i22.i.i.i:      ; preds = %329, %325
-  %335 = icmp eq ptr %327, %4
-  br i1 %335, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0ED2Ev.exit.i.i.i", label %325
+_ZN15InteractionListD2Ev.exit.i.i.i22.i.i.i:      ; preds = %343, %339
+  %349 = icmp eq ptr %341, %4
+  br i1 %349, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0ED2Ev.exit.i.i.i", label %339
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0ED2Ev.exit.i.i.i": ; preds = %_ZN15InteractionListD2Ev.exit.i.i.i22.i.i.i
-  %336 = getelementptr inbounds nuw i8, ptr %5, i64 2280
-  br label %337
+  %350 = getelementptr inbounds nuw i8, ptr %5, i64 2280
+  br label %351
 
-337:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i24.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0ED2Ev.exit.i.i.i"
-  %338 = phi ptr [ %336, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0ED2Ev.exit.i.i.i" ], [ %339, %_ZN15InteractionListD2Ev.exit.i.i24.i.i.i ]
-  %339 = getelementptr inbounds i8, ptr %338, i64 -24
-  %340 = load ptr, ptr %339, align 8, !tbaa !120
-  %.not.i.i.i.i.i.i23.i.i.i = icmp eq ptr %340, null
-  br i1 %.not.i.i.i.i.i.i23.i.i.i, label %_ZN15InteractionListD2Ev.exit.i.i24.i.i.i, label %341
+351:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i24.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0ED2Ev.exit.i.i.i"
+  %352 = phi ptr [ %350, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0ED2Ev.exit.i.i.i" ], [ %353, %_ZN15InteractionListD2Ev.exit.i.i24.i.i.i ]
+  %353 = getelementptr inbounds i8, ptr %352, i64 -24
+  %354 = load ptr, ptr %353, align 8, !tbaa !120
+  %.not.i.i.i.i.i.i23.i.i.i = icmp eq ptr %354, null
+  br i1 %.not.i.i.i.i.i.i23.i.i.i, label %_ZN15InteractionListD2Ev.exit.i.i24.i.i.i, label %355
 
-341:                                              ; preds = %337
-  %342 = getelementptr inbounds i8, ptr %338, i64 -8
-  %343 = load ptr, ptr %342, align 8, !tbaa !121
-  %344 = ptrtoint ptr %343 to i64
-  %345 = ptrtoint ptr %340 to i64
-  %346 = sub i64 %344, %345
-  call void @_ZdlPvm(ptr noundef nonnull %340, i64 noundef %346) #16
+355:                                              ; preds = %351
+  %356 = getelementptr inbounds i8, ptr %352, i64 -8
+  %357 = load ptr, ptr %356, align 8, !tbaa !121
+  %358 = ptrtoint ptr %357 to i64
+  %359 = ptrtoint ptr %354 to i64
+  %360 = sub i64 %358, %359
+  call void @_ZdlPvm(ptr noundef nonnull %354, i64 noundef %360) #16
   br label %_ZN15InteractionListD2Ev.exit.i.i24.i.i.i
 
-_ZN15InteractionListD2Ev.exit.i.i24.i.i.i:        ; preds = %341, %337
-  %347 = icmp eq ptr %339, %5
-  br i1 %347, label %372, label %337
+_ZN15InteractionListD2Ev.exit.i.i24.i.i.i:        ; preds = %355, %351
+  %361 = icmp eq ptr %353, %5
+  br i1 %361, label %386, label %351
 
-.body19.i.i.i:                                    ; preds = %_ZN15InteractionListD2Ev.exit.i.i.i.i13.i.i.i, %266
-  %348 = getelementptr inbounds nuw i8, ptr %4, i64 2280
-  br label %349
+.body19.i.i.i:                                    ; preds = %_ZN15InteractionListD2Ev.exit.i.i.i.i13.i.i.i, %280
+  %362 = getelementptr inbounds nuw i8, ptr %4, i64 2280
+  br label %363
 
-349:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i.i26.i.i.i, %.body19.i.i.i
-  %350 = phi ptr [ %348, %.body19.i.i.i ], [ %351, %_ZN15InteractionListD2Ev.exit.i.i.i26.i.i.i ]
-  %351 = getelementptr inbounds i8, ptr %350, i64 -24
-  %352 = load ptr, ptr %351, align 8, !tbaa !120
-  %.not.i.i.i.i.i.i.i25.i.i.i = icmp eq ptr %352, null
-  br i1 %.not.i.i.i.i.i.i.i25.i.i.i, label %_ZN15InteractionListD2Ev.exit.i.i.i26.i.i.i, label %353
+363:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i.i26.i.i.i, %.body19.i.i.i
+  %364 = phi ptr [ %362, %.body19.i.i.i ], [ %365, %_ZN15InteractionListD2Ev.exit.i.i.i26.i.i.i ]
+  %365 = getelementptr inbounds i8, ptr %364, i64 -24
+  %366 = load ptr, ptr %365, align 8, !tbaa !120
+  %.not.i.i.i.i.i.i.i25.i.i.i = icmp eq ptr %366, null
+  br i1 %.not.i.i.i.i.i.i.i25.i.i.i, label %_ZN15InteractionListD2Ev.exit.i.i.i26.i.i.i, label %367
 
-353:                                              ; preds = %349
-  %354 = getelementptr inbounds i8, ptr %350, i64 -8
-  %355 = load ptr, ptr %354, align 8, !tbaa !121
-  %356 = ptrtoint ptr %355 to i64
-  %357 = ptrtoint ptr %352 to i64
-  %358 = sub i64 %356, %357
-  call void @_ZdlPvm(ptr noundef nonnull %352, i64 noundef %358) #16
+367:                                              ; preds = %363
+  %368 = getelementptr inbounds i8, ptr %364, i64 -8
+  %369 = load ptr, ptr %368, align 8, !tbaa !121
+  %370 = ptrtoint ptr %369 to i64
+  %371 = ptrtoint ptr %366 to i64
+  %372 = sub i64 %370, %371
+  call void @_ZdlPvm(ptr noundef nonnull %366, i64 noundef %372) #16
   br label %_ZN15InteractionListD2Ev.exit.i.i.i26.i.i.i
 
-_ZN15InteractionListD2Ev.exit.i.i.i26.i.i.i:      ; preds = %353, %349
-  %359 = icmp eq ptr %351, %4
-  br i1 %359, label %.body.i.i.i, label %349
+_ZN15InteractionListD2Ev.exit.i.i.i26.i.i.i:      ; preds = %367, %363
+  %373 = icmp eq ptr %365, %4
+  br i1 %373, label %.body.i.i.i, label %363
 
-.body.i.i.i:                                      ; preds = %_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i5.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i.i26.i.i.i, %172
-  %.pn.i.i.i = phi { ptr, i32 } [ %lpad.phi.i.i.i.i.i.i, %172 ], [ %lpad.phi.i.i.i.i10.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i.i26.i.i.i ], [ %lpad.phi.i.i.i.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i5.i.i.i.i ], [ %lpad.phi.i.i.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i ]
-  %360 = getelementptr inbounds nuw i8, ptr %5, i64 2280
-  br label %361
+.body.i.i.i:                                      ; preds = %_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i5.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i.i26.i.i.i, %182
+  %.pn.i.i.i = phi { ptr, i32 } [ %lpad.phi.i.i.i.i.i.i, %182 ], [ %lpad.phi.i.i.i.i10.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i.i26.i.i.i ], [ %lpad.phi.i.i.i.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i5.i.i.i.i ], [ %lpad.phi.i.i.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i ]
+  %374 = getelementptr inbounds nuw i8, ptr %5, i64 2280
+  br label %375
 
-361:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i29.i.i.i, %.body.i.i.i
-  %362 = phi ptr [ %360, %.body.i.i.i ], [ %363, %_ZN15InteractionListD2Ev.exit.i.i29.i.i.i ]
-  %363 = getelementptr inbounds i8, ptr %362, i64 -24
-  %364 = load ptr, ptr %363, align 8, !tbaa !120
-  %.not.i.i.i.i.i.i28.i.i.i = icmp eq ptr %364, null
-  br i1 %.not.i.i.i.i.i.i28.i.i.i, label %_ZN15InteractionListD2Ev.exit.i.i29.i.i.i, label %365
+375:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i29.i.i.i, %.body.i.i.i
+  %376 = phi ptr [ %374, %.body.i.i.i ], [ %377, %_ZN15InteractionListD2Ev.exit.i.i29.i.i.i ]
+  %377 = getelementptr inbounds i8, ptr %376, i64 -24
+  %378 = load ptr, ptr %377, align 8, !tbaa !120
+  %.not.i.i.i.i.i.i28.i.i.i = icmp eq ptr %378, null
+  br i1 %.not.i.i.i.i.i.i28.i.i.i, label %_ZN15InteractionListD2Ev.exit.i.i29.i.i.i, label %379
 
-365:                                              ; preds = %361
-  %366 = getelementptr inbounds i8, ptr %362, i64 -8
-  %367 = load ptr, ptr %366, align 8, !tbaa !121
-  %368 = ptrtoint ptr %367 to i64
-  %369 = ptrtoint ptr %364 to i64
-  %370 = sub i64 %368, %369
-  call void @_ZdlPvm(ptr noundef nonnull %364, i64 noundef %370) #16
+379:                                              ; preds = %375
+  %380 = getelementptr inbounds i8, ptr %376, i64 -8
+  %381 = load ptr, ptr %380, align 8, !tbaa !121
+  %382 = ptrtoint ptr %381 to i64
+  %383 = ptrtoint ptr %378 to i64
+  %384 = sub i64 %382, %383
+  call void @_ZdlPvm(ptr noundef nonnull %378, i64 noundef %384) #16
   br label %_ZN15InteractionListD2Ev.exit.i.i29.i.i.i
 
-_ZN15InteractionListD2Ev.exit.i.i29.i.i.i:        ; preds = %365, %361
-  %371 = icmp eq ptr %363, %5
-  br i1 %371, label %.body.i.i, label %361
+_ZN15InteractionListD2Ev.exit.i.i29.i.i.i:        ; preds = %379, %375
+  %385 = icmp eq ptr %377, %5
+  br i1 %385, label %.body.i.i, label %375
 
-372:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i24.i.i.i
+386:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i24.i.i.i
   call void @llvm.lifetime.end.p0(i64 2280, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 2280, ptr nonnull %5)
-  %373 = getelementptr inbounds nuw i8, ptr %6, i64 2280
-  br label %374
+  %387 = getelementptr inbounds nuw i8, ptr %6, i64 2280
+  br label %388
 
-374:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i7.i.i, %372
-  %375 = phi ptr [ %373, %372 ], [ %376, %_ZN15InteractionListD2Ev.exit.i.i7.i.i ]
-  %376 = getelementptr inbounds i8, ptr %375, i64 -24
-  %377 = load ptr, ptr %376, align 8, !tbaa !120
-  %.not.i.i.i.i.i.i6.i.i = icmp eq ptr %377, null
-  br i1 %.not.i.i.i.i.i.i6.i.i, label %_ZN15InteractionListD2Ev.exit.i.i7.i.i, label %378
+388:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i7.i.i, %386
+  %389 = phi ptr [ %387, %386 ], [ %390, %_ZN15InteractionListD2Ev.exit.i.i7.i.i ]
+  %390 = getelementptr inbounds i8, ptr %389, i64 -24
+  %391 = load ptr, ptr %390, align 8, !tbaa !120
+  %.not.i.i.i.i.i.i6.i.i = icmp eq ptr %391, null
+  br i1 %.not.i.i.i.i.i.i6.i.i, label %_ZN15InteractionListD2Ev.exit.i.i7.i.i, label %392
 
-378:                                              ; preds = %374
-  %379 = getelementptr inbounds i8, ptr %375, i64 -8
-  %380 = load ptr, ptr %379, align 8, !tbaa !121
-  %381 = ptrtoint ptr %380 to i64
-  %382 = ptrtoint ptr %377 to i64
-  %383 = sub i64 %381, %382
-  call void @_ZdlPvm(ptr noundef nonnull %377, i64 noundef %383) #16
+392:                                              ; preds = %388
+  %393 = getelementptr inbounds i8, ptr %389, i64 -8
+  %394 = load ptr, ptr %393, align 8, !tbaa !121
+  %395 = ptrtoint ptr %394 to i64
+  %396 = ptrtoint ptr %391 to i64
+  %397 = sub i64 %395, %396
+  call void @_ZdlPvm(ptr noundef nonnull %391, i64 noundef %397) #16
   br label %_ZN15InteractionListD2Ev.exit.i.i7.i.i
 
-_ZN15InteractionListD2Ev.exit.i.i7.i.i:           ; preds = %378, %374
-  %384 = icmp eq ptr %376, %6
-  br i1 %384, label %397, label %374
+_ZN15InteractionListD2Ev.exit.i.i7.i.i:           ; preds = %392, %388
+  %398 = icmp eq ptr %390, %6
+  br i1 %398, label %411, label %388
 
-.body.i.i:                                        ; preds = %_ZN15InteractionListD2Ev.exit.i.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i29.i.i.i, %137
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %lpad.phi.i.i.i.i.i, %137 ], [ %.pn.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i29.i.i.i ], [ %lpad.phi.i.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i.i.i.i ]
-  %385 = getelementptr inbounds nuw i8, ptr %6, i64 2280
-  br label %386
+.body.i.i:                                        ; preds = %_ZN15InteractionListD2Ev.exit.i.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i29.i.i.i, %145
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %lpad.phi.i.i.i.i.i, %145 ], [ %.pn.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i29.i.i.i ], [ %lpad.phi.i.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i.i.i.i ]
+  %399 = getelementptr inbounds nuw i8, ptr %6, i64 2280
+  br label %400
 
-386:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i9.i.i, %.body.i.i
-  %387 = phi ptr [ %385, %.body.i.i ], [ %388, %_ZN15InteractionListD2Ev.exit.i.i9.i.i ]
-  %388 = getelementptr inbounds i8, ptr %387, i64 -24
-  %389 = load ptr, ptr %388, align 8, !tbaa !120
-  %.not.i.i.i.i.i.i8.i.i = icmp eq ptr %389, null
-  br i1 %.not.i.i.i.i.i.i8.i.i, label %_ZN15InteractionListD2Ev.exit.i.i9.i.i, label %390
+400:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i9.i.i, %.body.i.i
+  %401 = phi ptr [ %399, %.body.i.i ], [ %402, %_ZN15InteractionListD2Ev.exit.i.i9.i.i ]
+  %402 = getelementptr inbounds i8, ptr %401, i64 -24
+  %403 = load ptr, ptr %402, align 8, !tbaa !120
+  %.not.i.i.i.i.i.i8.i.i = icmp eq ptr %403, null
+  br i1 %.not.i.i.i.i.i.i8.i.i, label %_ZN15InteractionListD2Ev.exit.i.i9.i.i, label %404
 
-390:                                              ; preds = %386
-  %391 = getelementptr inbounds i8, ptr %387, i64 -8
-  %392 = load ptr, ptr %391, align 8, !tbaa !121
-  %393 = ptrtoint ptr %392 to i64
-  %394 = ptrtoint ptr %389 to i64
-  %395 = sub i64 %393, %394
-  call void @_ZdlPvm(ptr noundef nonnull %389, i64 noundef %395) #16
+404:                                              ; preds = %400
+  %405 = getelementptr inbounds i8, ptr %401, i64 -8
+  %406 = load ptr, ptr %405, align 8, !tbaa !121
+  %407 = ptrtoint ptr %406 to i64
+  %408 = ptrtoint ptr %403 to i64
+  %409 = sub i64 %407, %408
+  call void @_ZdlPvm(ptr noundef nonnull %403, i64 noundef %409) #16
   br label %_ZN15InteractionListD2Ev.exit.i.i9.i.i
 
-_ZN15InteractionListD2Ev.exit.i.i9.i.i:           ; preds = %390, %386
-  %396 = icmp eq ptr %388, %6
-  br i1 %396, label %.body.i, label %386
+_ZN15InteractionListD2Ev.exit.i.i9.i.i:           ; preds = %404, %400
+  %410 = icmp eq ptr %402, %6
+  br i1 %410, label %.body.i, label %400
 
-397:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i7.i.i
+411:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i7.i.i
   call void @llvm.lifetime.end.p0(i64 2280, ptr nonnull %6)
-  %398 = getelementptr inbounds nuw i8, ptr %7, i64 2280
-  br label %399
+  %412 = getelementptr inbounds nuw i8, ptr %7, i64 2280
+  br label %413
 
-399:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i6.i, %397
-  %400 = phi ptr [ %398, %397 ], [ %401, %_ZN15InteractionListD2Ev.exit.i.i6.i ]
-  %401 = getelementptr inbounds i8, ptr %400, i64 -24
-  %402 = load ptr, ptr %401, align 8, !tbaa !120
-  %.not.i.i.i.i.i.i5.i = icmp eq ptr %402, null
-  br i1 %.not.i.i.i.i.i.i5.i, label %_ZN15InteractionListD2Ev.exit.i.i6.i, label %403
+413:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i6.i, %411
+  %414 = phi ptr [ %412, %411 ], [ %415, %_ZN15InteractionListD2Ev.exit.i.i6.i ]
+  %415 = getelementptr inbounds i8, ptr %414, i64 -24
+  %416 = load ptr, ptr %415, align 8, !tbaa !120
+  %.not.i.i.i.i.i.i5.i = icmp eq ptr %416, null
+  br i1 %.not.i.i.i.i.i.i5.i, label %_ZN15InteractionListD2Ev.exit.i.i6.i, label %417
 
-403:                                              ; preds = %399
-  %404 = getelementptr inbounds i8, ptr %400, i64 -8
-  %405 = load ptr, ptr %404, align 8, !tbaa !121
-  %406 = ptrtoint ptr %405 to i64
-  %407 = ptrtoint ptr %402 to i64
-  %408 = sub i64 %406, %407
-  call void @_ZdlPvm(ptr noundef nonnull %402, i64 noundef %408) #16
+417:                                              ; preds = %413
+  %418 = getelementptr inbounds i8, ptr %414, i64 -8
+  %419 = load ptr, ptr %418, align 8, !tbaa !121
+  %420 = ptrtoint ptr %419 to i64
+  %421 = ptrtoint ptr %416 to i64
+  %422 = sub i64 %420, %421
+  call void @_ZdlPvm(ptr noundef nonnull %416, i64 noundef %422) #16
   br label %_ZN15InteractionListD2Ev.exit.i.i6.i
 
-_ZN15InteractionListD2Ev.exit.i.i6.i:             ; preds = %403, %399
-  %409 = icmp eq ptr %401, %7
-  br i1 %409, label %422, label %399
+_ZN15InteractionListD2Ev.exit.i.i6.i:             ; preds = %417, %413
+  %423 = icmp eq ptr %415, %7
+  br i1 %423, label %436, label %413
 
-.body.i:                                          ; preds = %_ZN15InteractionListD2Ev.exit.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i9.i.i, %102
-  %eh.lpad-body.i = phi { ptr, i32 } [ %lpad.phi.i.i.i.i, %102 ], [ %eh.lpad-body.i.i, %_ZN15InteractionListD2Ev.exit.i.i9.i.i ], [ %lpad.phi.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i.i.i ]
-  %410 = getelementptr inbounds nuw i8, ptr %7, i64 2280
-  br label %411
+.body.i:                                          ; preds = %_ZN15InteractionListD2Ev.exit.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i9.i.i, %108
+  %eh.lpad-body.i = phi { ptr, i32 } [ %lpad.phi.i.i.i.i, %108 ], [ %eh.lpad-body.i.i, %_ZN15InteractionListD2Ev.exit.i.i9.i.i ], [ %lpad.phi.i.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i.i.i ]
+  %424 = getelementptr inbounds nuw i8, ptr %7, i64 2280
+  br label %425
 
-411:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i8.i, %.body.i
-  %412 = phi ptr [ %410, %.body.i ], [ %413, %_ZN15InteractionListD2Ev.exit.i.i8.i ]
-  %413 = getelementptr inbounds i8, ptr %412, i64 -24
-  %414 = load ptr, ptr %413, align 8, !tbaa !120
-  %.not.i.i.i.i.i.i7.i = icmp eq ptr %414, null
-  br i1 %.not.i.i.i.i.i.i7.i, label %_ZN15InteractionListD2Ev.exit.i.i8.i, label %415
+425:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i8.i, %.body.i
+  %426 = phi ptr [ %424, %.body.i ], [ %427, %_ZN15InteractionListD2Ev.exit.i.i8.i ]
+  %427 = getelementptr inbounds i8, ptr %426, i64 -24
+  %428 = load ptr, ptr %427, align 8, !tbaa !120
+  %.not.i.i.i.i.i.i7.i = icmp eq ptr %428, null
+  br i1 %.not.i.i.i.i.i.i7.i, label %_ZN15InteractionListD2Ev.exit.i.i8.i, label %429
 
-415:                                              ; preds = %411
-  %416 = getelementptr inbounds i8, ptr %412, i64 -8
-  %417 = load ptr, ptr %416, align 8, !tbaa !121
-  %418 = ptrtoint ptr %417 to i64
-  %419 = ptrtoint ptr %414 to i64
-  %420 = sub i64 %418, %419
-  call void @_ZdlPvm(ptr noundef nonnull %414, i64 noundef %420) #16
+429:                                              ; preds = %425
+  %430 = getelementptr inbounds i8, ptr %426, i64 -8
+  %431 = load ptr, ptr %430, align 8, !tbaa !121
+  %432 = ptrtoint ptr %431 to i64
+  %433 = ptrtoint ptr %428 to i64
+  %434 = sub i64 %432, %433
+  call void @_ZdlPvm(ptr noundef nonnull %428, i64 noundef %434) #16
   br label %_ZN15InteractionListD2Ev.exit.i.i8.i
 
-_ZN15InteractionListD2Ev.exit.i.i8.i:             ; preds = %415, %411
-  %421 = icmp eq ptr %413, %7
-  br i1 %421, label %.body, label %411
+_ZN15InteractionListD2Ev.exit.i.i8.i:             ; preds = %429, %425
+  %435 = icmp eq ptr %427, %7
+  br i1 %435, label %.body, label %425
 
-422:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i6.i
+436:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i6.i
   call void @llvm.lifetime.end.p0(i64 2280, ptr nonnull %7)
-  %423 = getelementptr inbounds nuw i8, ptr %8, i64 2280
-  br label %424
+  %437 = getelementptr inbounds nuw i8, ptr %8, i64 2280
+  br label %438
 
-424:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i, %422
-  %425 = phi ptr [ %423, %422 ], [ %426, %_ZN15InteractionListD2Ev.exit.i.i ]
-  %426 = getelementptr inbounds i8, ptr %425, i64 -24
-  %427 = load ptr, ptr %426, align 8, !tbaa !120
-  %.not.i.i.i.i.i.i5 = icmp eq ptr %427, null
-  br i1 %.not.i.i.i.i.i.i5, label %_ZN15InteractionListD2Ev.exit.i.i, label %428
+438:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i, %436
+  %439 = phi ptr [ %437, %436 ], [ %440, %_ZN15InteractionListD2Ev.exit.i.i ]
+  %440 = getelementptr inbounds i8, ptr %439, i64 -24
+  %441 = load ptr, ptr %440, align 8, !tbaa !120
+  %.not.i.i.i.i.i.i5 = icmp eq ptr %441, null
+  br i1 %.not.i.i.i.i.i.i5, label %_ZN15InteractionListD2Ev.exit.i.i, label %442
 
-428:                                              ; preds = %424
-  %429 = getelementptr inbounds i8, ptr %425, i64 -8
-  %430 = load ptr, ptr %429, align 8, !tbaa !121
-  %431 = ptrtoint ptr %430 to i64
-  %432 = ptrtoint ptr %427 to i64
-  %433 = sub i64 %431, %432
-  call void @_ZdlPvm(ptr noundef nonnull %427, i64 noundef %433) #16
+442:                                              ; preds = %438
+  %443 = getelementptr inbounds i8, ptr %439, i64 -8
+  %444 = load ptr, ptr %443, align 8, !tbaa !121
+  %445 = ptrtoint ptr %444 to i64
+  %446 = ptrtoint ptr %441 to i64
+  %447 = sub i64 %445, %446
+  call void @_ZdlPvm(ptr noundef nonnull %441, i64 noundef %447) #16
   br label %_ZN15InteractionListD2Ev.exit.i.i
 
-_ZN15InteractionListD2Ev.exit.i.i:                ; preds = %428, %424
-  %434 = icmp eq ptr %426, %8
-  br i1 %434, label %"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0D2Ev.exit", label %424
+_ZN15InteractionListD2Ev.exit.i.i:                ; preds = %442, %438
+  %448 = icmp eq ptr %440, %8
+  br i1 %448, label %"_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0D2Ev.exit", label %438
 
 "_ZZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEEN3$_0D2Ev.exit": ; preds = %_ZN15InteractionListD2Ev.exit.i.i
-  %435 = icmp ne ptr %.028.i.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZN3gmxL11fTypesOnGpuE, i64 32)
-  ret i1 %435
+  %449 = icmp ne ptr %.028.i.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZN3gmxL11fTypesOnGpuE, i64 32)
+  ret i1 %449
 
-.body:                                            ; preds = %_ZN15InteractionListD2Ev.exit.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i8.i, %67
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i.i.i, %67 ], [ %eh.lpad-body.i, %_ZN15InteractionListD2Ev.exit.i.i8.i ], [ %lpad.phi.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i.i ]
-  %436 = getelementptr inbounds nuw i8, ptr %8, i64 2280
-  br label %437
+.body:                                            ; preds = %_ZN15InteractionListD2Ev.exit.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i8.i, %71
+  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i.i.i, %71 ], [ %eh.lpad-body.i, %_ZN15InteractionListD2Ev.exit.i.i8.i ], [ %lpad.phi.i.i.i, %_ZN15InteractionListD2Ev.exit.i.i.i ]
+  %450 = getelementptr inbounds nuw i8, ptr %8, i64 2280
+  br label %451
 
-437:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i7, %.body
-  %438 = phi ptr [ %436, %.body ], [ %439, %_ZN15InteractionListD2Ev.exit.i.i7 ]
-  %439 = getelementptr inbounds i8, ptr %438, i64 -24
-  %440 = load ptr, ptr %439, align 8, !tbaa !120
-  %.not.i.i.i.i.i.i6 = icmp eq ptr %440, null
-  br i1 %.not.i.i.i.i.i.i6, label %_ZN15InteractionListD2Ev.exit.i.i7, label %441
+451:                                              ; preds = %_ZN15InteractionListD2Ev.exit.i.i7, %.body
+  %452 = phi ptr [ %450, %.body ], [ %453, %_ZN15InteractionListD2Ev.exit.i.i7 ]
+  %453 = getelementptr inbounds i8, ptr %452, i64 -24
+  %454 = load ptr, ptr %453, align 8, !tbaa !120
+  %.not.i.i.i.i.i.i6 = icmp eq ptr %454, null
+  br i1 %.not.i.i.i.i.i.i6, label %_ZN15InteractionListD2Ev.exit.i.i7, label %455
 
-441:                                              ; preds = %437
-  %442 = getelementptr inbounds i8, ptr %438, i64 -8
-  %443 = load ptr, ptr %442, align 8, !tbaa !121
-  %444 = ptrtoint ptr %443 to i64
-  %445 = ptrtoint ptr %440 to i64
-  %446 = sub i64 %444, %445
-  call void @_ZdlPvm(ptr noundef nonnull %440, i64 noundef %446) #16
+455:                                              ; preds = %451
+  %456 = getelementptr inbounds i8, ptr %452, i64 -8
+  %457 = load ptr, ptr %456, align 8, !tbaa !121
+  %458 = ptrtoint ptr %457 to i64
+  %459 = ptrtoint ptr %454 to i64
+  %460 = sub i64 %458, %459
+  call void @_ZdlPvm(ptr noundef nonnull %454, i64 noundef %460) #16
   br label %_ZN15InteractionListD2Ev.exit.i.i7
 
-_ZN15InteractionListD2Ev.exit.i.i7:               ; preds = %441, %437
-  %447 = icmp eq ptr %439, %8
-  br i1 %447, label %common.resume, label %437
+_ZN15InteractionListD2Ev.exit.i.i7:               ; preds = %455, %451
+  %461 = icmp eq ptr %453, %8
+  br i1 %461, label %common.resume, label %451
 }
 
 ; Function Attrs: noreturn

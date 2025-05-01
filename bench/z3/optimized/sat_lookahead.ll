@@ -1121,7 +1121,12 @@ _ZN6vectorIjLb0EjE4backEv.exit35:                 ; preds = %_ZN6vectorIjLb0EjE6
   %212 = getelementptr inbounds nuw %class.svector.1, ptr %99, i64 %211
   %213 = load ptr, ptr %212, align 8, !tbaa !86
   %214 = icmp eq ptr %213, null
-  br i1 %214, label %_ZN3sat9lookahead10del_binaryEj.exit, label %215
+  br i1 %214, label %._ZN6vectorIN3sat7literalELb0EjE4backEv.exit_crit_edge.i, label %215
+
+._ZN6vectorIN3sat7literalELb0EjE4backEv.exit_crit_edge.i: ; preds = %207
+  %.pre.i = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !87
+  %.pre4.i = add i32 %.pre.i, -1
+  br label %_ZN3sat9lookahead10del_binaryEj.exit
 
 215:                                              ; preds = %207
   %216 = getelementptr inbounds i8, ptr %213, i64 -4
@@ -1130,9 +1135,9 @@ _ZN6vectorIjLb0EjE4backEv.exit35:                 ; preds = %_ZN6vectorIjLb0EjE6
   %219 = zext i32 %218 to i64
   br label %_ZN3sat9lookahead10del_binaryEj.exit
 
-_ZN3sat9lookahead10del_binaryEj.exit:             ; preds = %207, %215
-  %.pre-phi.i = phi i32 [ %218, %215 ], [ undef, %207 ]
-  %.0.i.i.i = phi i64 [ %219, %215 ], [ 4294967295, %207 ]
+_ZN3sat9lookahead10del_binaryEj.exit:             ; preds = %._ZN6vectorIN3sat7literalELb0EjE4backEv.exit_crit_edge.i, %215
+  %.pre-phi.i = phi i32 [ %.pre4.i, %._ZN6vectorIN3sat7literalELb0EjE4backEv.exit_crit_edge.i ], [ %218, %215 ]
+  %.0.i.i.i = phi i64 [ 4294967295, %._ZN6vectorIN3sat7literalELb0EjE4backEv.exit_crit_edge.i ], [ %219, %215 ]
   %220 = getelementptr inbounds nuw %"class.sat::literal", ptr %213, i64 %.0.i.i.i
   %.sroa.01.0.copyload.i = load i32, ptr %220, align 4, !tbaa !87
   %221 = getelementptr inbounds i8, ptr %213, i64 -4
@@ -1580,7 +1585,12 @@ define hidden void @_ZN3sat9lookahead10del_binaryEj(ptr noundef nonnull align 8 
   %6 = getelementptr inbounds nuw %class.svector.1, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !86
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %_ZN6vectorIN3sat7literalELb0EjE4backEv.exit, label %9
+  br i1 %8, label %._ZN6vectorIN3sat7literalELb0EjE4backEv.exit_crit_edge, label %9
+
+._ZN6vectorIN3sat7literalELb0EjE4backEv.exit_crit_edge: ; preds = %2
+  %.pre = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !87
+  %.pre4 = add i32 %.pre, -1
+  br label %_ZN6vectorIN3sat7literalELb0EjE4backEv.exit
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %7, i64 -4
@@ -1589,9 +1599,9 @@ define hidden void @_ZN3sat9lookahead10del_binaryEj(ptr noundef nonnull align 8 
   %13 = zext i32 %12 to i64
   br label %_ZN6vectorIN3sat7literalELb0EjE4backEv.exit
 
-_ZN6vectorIN3sat7literalELb0EjE4backEv.exit:      ; preds = %2, %9
-  %.pre-phi = phi i32 [ %12, %9 ], [ undef, %2 ]
-  %.0.i.i = phi i64 [ %13, %9 ], [ 4294967295, %2 ]
+_ZN6vectorIN3sat7literalELb0EjE4backEv.exit:      ; preds = %._ZN6vectorIN3sat7literalELb0EjE4backEv.exit_crit_edge, %9
+  %.pre-phi = phi i32 [ %.pre4, %._ZN6vectorIN3sat7literalELb0EjE4backEv.exit_crit_edge ], [ %12, %9 ]
+  %.0.i.i = phi i64 [ 4294967295, %._ZN6vectorIN3sat7literalELb0EjE4backEv.exit_crit_edge ], [ %13, %9 ]
   %14 = getelementptr inbounds nuw %"class.sat::literal", ptr %7, i64 %.0.i.i
   %.sroa.01.0.copyload = load i32, ptr %14, align 4, !tbaa !87
   %15 = getelementptr inbounds i8, ptr %7, i64 -4
@@ -17112,7 +17122,13 @@ _ZN6vectorIbLb0EjE4backEv.exit:                   ; preds = %15, %18
   tail call void @_ZN3sat9lookahead3popEv(ptr noundef nonnull align 8 dereferenceable(1160) %0)
   %27 = load ptr, ptr %1, align 8, !tbaa !86
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %_ZN6vectorIN3sat7literalELb0EjE4backEv.exit11, label %29
+  br i1 %28, label %._ZN6vectorIN3sat7literalELb0EjE4backEv.exit11_crit_edge, label %29
+
+._ZN6vectorIN3sat7literalELb0EjE4backEv.exit11_crit_edge: ; preds = %26
+  %.pre = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !87
+  %.pre18 = add i32 %.pre, -1
+  %.pre19 = zext i32 %.pre18 to i64
+  br label %_ZN6vectorIN3sat7literalELb0EjE4backEv.exit11
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %27, i64 -4
@@ -17121,9 +17137,9 @@ _ZN6vectorIbLb0EjE4backEv.exit:                   ; preds = %15, %18
   %33 = zext i32 %32 to i64
   br label %_ZN6vectorIN3sat7literalELb0EjE4backEv.exit11
 
-_ZN6vectorIN3sat7literalELb0EjE4backEv.exit11:    ; preds = %26, %29
-  %.pre-phi20 = phi i64 [ %33, %29 ], [ 0, %26 ]
-  %.0.i.i9 = phi i64 [ %33, %29 ], [ 4294967295, %26 ]
+_ZN6vectorIN3sat7literalELb0EjE4backEv.exit11:    ; preds = %._ZN6vectorIN3sat7literalELb0EjE4backEv.exit11_crit_edge, %29
+  %.pre-phi20 = phi i64 [ %.pre19, %._ZN6vectorIN3sat7literalELb0EjE4backEv.exit11_crit_edge ], [ %33, %29 ]
+  %.0.i.i9 = phi i64 [ 4294967295, %._ZN6vectorIN3sat7literalELb0EjE4backEv.exit11_crit_edge ], [ %33, %29 ]
   %34 = getelementptr inbounds nuw %"class.sat::literal", ptr %27, i64 %.0.i.i9
   %35 = load i32, ptr %34, align 4, !tbaa !103
   %36 = xor i32 %35, 1

@@ -4400,7 +4400,7 @@ if.then.i.i.i137:                                 ; preds = %cond.true.i
 cond.false.i138:                                  ; preds = %dynamic_cast.end3.i, %for.body
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %coupon, i8 0, i64 16, i1 false), !alias.scope !124
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.5, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib10IborCouponEEptEv, ptr noundef nonnull @.str.6, i64 noundef 784)
-          to label %cond.false.i142 unwind label %lpad42.loopexit.split-lp
+          to label %cond.false.i142 unwind label %lpad42
 
 invoke.cont43:                                    ; preds = %cond.true.i, %if.then.i.i.i137
   %accrualStartDate_.i = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -4408,136 +4408,141 @@ invoke.cont43:                                    ; preds = %cond.true.i, %if.th
   %add.ptr.i140 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %29, i64 %i.0212
   %30 = load i64, ptr %accrualStartDate_.i, align 8, !tbaa !36
   store i64 %30, ptr %add.ptr.i140, align 8, !tbaa !36
-  %vtable = load ptr, ptr %26, align 8, !tbaa !32
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
-  %31 = load ptr, ptr %vfn, align 8
-  %call54 = invoke i64 %31(ptr noundef nonnull align 8 dereferenceable(88) %26)
-          to label %invoke.cont58 unwind label %lpad50
+  br label %invoke.cont51
 
 cond.false.i142:                                  ; preds = %cond.false.i138
-  unreachable
+  %31 = load ptr, ptr %floatingResetDates, align 8, !tbaa !52
+  %add.ptr.i140231 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %31, i64 %i.0212
+  %32 = load i64, ptr inttoptr (i64 40 to ptr), align 8, !tbaa !36
+  store i64 %32, ptr %add.ptr.i140231, align 8, !tbaa !36
+  invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.5, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib10IborCouponEEptEv, ptr noundef nonnull @.str.6, i64 noundef 784)
+          to label %invoke.cont51 unwind label %lpad50
 
-invoke.cont58:                                    ; preds = %invoke.cont43
-  %32 = load ptr, ptr %floatingPayDates, align 8, !tbaa !52
-  %add.ptr.i146 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %32, i64 %i.0212
+invoke.cont51:                                    ; preds = %cond.false.i142, %invoke.cont43
+  %33 = phi ptr [ %27, %invoke.cont43 ], [ null, %cond.false.i142 ]
+  %34 = phi ptr [ %26, %invoke.cont43 ], [ null, %cond.false.i142 ]
+  %vtable = load ptr, ptr %34, align 8, !tbaa !32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
+  %35 = load ptr, ptr %vfn, align 8
+  %call54 = invoke i64 %35(ptr noundef nonnull align 8 dereferenceable(88) %34)
+          to label %invoke.cont58 unwind label %lpad50
+
+invoke.cont58:                                    ; preds = %invoke.cont51
+  %36 = load ptr, ptr %floatingPayDates, align 8, !tbaa !52
+  %add.ptr.i146 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %36, i64 %i.0212
   store i64 %call54, ptr %add.ptr.i146, align 8, !tbaa !36
-  %vtable60.pre = load ptr, ptr %26, align 8, !tbaa !32
+  %vtable60.pre = load ptr, ptr %34, align 8, !tbaa !32
   %vfn61.phi.trans.insert = getelementptr inbounds nuw i8, ptr %vtable60.pre, i64 64
   %.pre = load ptr, ptr %vfn61.phi.trans.insert, align 8
-  %call63 = invoke noundef double %.pre(ptr noundef nonnull align 8 dereferenceable(88) %26)
-          to label %invoke.cont68 unwind label %lpad42.loopexit
+  %call63 = invoke noundef double %.pre(ptr noundef nonnull align 8 dereferenceable(88) %34)
+          to label %invoke.cont68 unwind label %lpad42
 
 invoke.cont68:                                    ; preds = %invoke.cont58
-  %33 = load ptr, ptr %floatingNominals, align 8, !tbaa !43
-  %add.ptr.i152 = getelementptr inbounds nuw double, ptr %33, i64 %i.0212
+  %37 = load ptr, ptr %floatingNominals, align 8, !tbaa !43
+  %add.ptr.i152 = getelementptr inbounds nuw double, ptr %37, i64 %i.0212
   store double %call63, ptr %add.ptr.i152, align 8, !tbaa !123
-  %vtable70.pre = load ptr, ptr %26, align 8, !tbaa !32
+  %vtable70.pre = load ptr, ptr %34, align 8, !tbaa !32
   %vfn71.phi.trans.insert = getelementptr inbounds nuw i8, ptr %vtable70.pre, i64 96
   %.pre220 = load ptr, ptr %vfn71.phi.trans.insert, align 8
-  %call73 = invoke i64 %.pre220(ptr noundef nonnull align 8 dereferenceable(248) %26)
+  %call73 = invoke i64 %.pre220(ptr noundef nonnull align 8 dereferenceable(248) %34)
           to label %invoke.cont78 unwind label %lpad67
 
 invoke.cont78:                                    ; preds = %invoke.cont68
-  %34 = load ptr, ptr %floatingFixingDates, align 8, !tbaa !52
-  %add.ptr.i158 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %34, i64 %i.0212
+  %38 = load ptr, ptr %floatingFixingDates, align 8, !tbaa !52
+  %add.ptr.i158 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %38, i64 %i.0212
   store i64 %call73, ptr %add.ptr.i158, align 8, !tbaa !36
-  %call81 = invoke noundef double @_ZNK8QuantLib6Coupon13accrualPeriodEv(ptr noundef nonnull align 8 dereferenceable(88) %26)
-          to label %invoke.cont91 unwind label %lpad42.loopexit
+  %call81 = invoke noundef double @_ZNK8QuantLib6Coupon13accrualPeriodEv(ptr noundef nonnull align 8 dereferenceable(88) %34)
+          to label %invoke.cont91 unwind label %lpad42
 
 invoke.cont91:                                    ; preds = %invoke.cont78
-  %35 = load ptr, ptr %floatingAccrualTimes, align 8, !tbaa !43
-  %add.ptr.i164 = getelementptr inbounds nuw double, ptr %35, i64 %i.0212
+  %39 = load ptr, ptr %floatingAccrualTimes, align 8, !tbaa !43
+  %add.ptr.i164 = getelementptr inbounds nuw double, ptr %39, i64 %i.0212
   store double %call81, ptr %add.ptr.i164, align 8, !tbaa !123
-  %spread_.i207 = getelementptr inbounds nuw i8, ptr %26, i64 136
-  %36 = load double, ptr %spread_.i207, align 8, !tbaa !129
-  %37 = load ptr, ptr %floatingSpreads, align 8, !tbaa !43
-  %add.ptr.i170208 = getelementptr inbounds nuw double, ptr %37, i64 %i.0212
-  store double %36, ptr %add.ptr.i170208, align 8, !tbaa !123
-  %vtable93.pre = load ptr, ptr %26, align 8, !tbaa !32
+  %spread_.i207 = getelementptr inbounds nuw i8, ptr %34, i64 136
+  %40 = load double, ptr %spread_.i207, align 8, !tbaa !129
+  %41 = load ptr, ptr %floatingSpreads, align 8, !tbaa !43
+  %add.ptr.i170208 = getelementptr inbounds nuw double, ptr %41, i64 %i.0212
+  store double %40, ptr %add.ptr.i170208, align 8, !tbaa !123
+  %vtable93.pre = load ptr, ptr %34, align 8, !tbaa !32
   %vfn94.phi.trans.insert = getelementptr inbounds nuw i8, ptr %vtable93.pre, i64 48
   %.pre225 = load ptr, ptr %vfn94.phi.trans.insert, align 8
-  %call96 = invoke noundef double %.pre225(ptr noundef nonnull align 8 dereferenceable(176) %26)
+  %call96 = invoke noundef double %.pre225(ptr noundef nonnull align 8 dereferenceable(176) %34)
           to label %invoke.cont95 unwind label %lpad90
 
 invoke.cont95:                                    ; preds = %invoke.cont91
-  %38 = load ptr, ptr %floatingCoupons33, align 8, !tbaa !43
-  %add.ptr.i176 = getelementptr inbounds nuw double, ptr %38, i64 %i.0212
+  %42 = load ptr, ptr %floatingCoupons33, align 8, !tbaa !43
+  %add.ptr.i176 = getelementptr inbounds nuw double, ptr %42, i64 %i.0212
   store double %call96, ptr %add.ptr.i176, align 8, !tbaa !123
   br label %try.cont
 
-lpad42.loopexit:                                  ; preds = %invoke.cont58, %invoke.cont78
-  %lpad.loopexit = landingpad { ptr, i32 }
+lpad42:                                           ; preds = %cond.false.i138, %invoke.cont78, %invoke.cont58
+  %43 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup111
 
-lpad42.loopexit.split-lp:                         ; preds = %cond.false.i138
-  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup111
-
-lpad50:                                           ; preds = %invoke.cont43
-  %39 = landingpad { ptr, i32 }
+lpad50:                                           ; preds = %cond.false.i142, %invoke.cont51
+  %44 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup111
 
 lpad67:                                           ; preds = %invoke.cont68
-  %40 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup111
 
 lpad90:                                           ; preds = %invoke.cont91
-  %41 = landingpad { ptr, i32 }
+  %46 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN8QuantLib5ErrorE
-  %42 = extractvalue { ptr, i32 } %41, 1
-  %43 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8QuantLib5ErrorE) #28
-  %matches = icmp eq i32 %42, %43
+  %47 = extractvalue { ptr, i32 } %46, 1
+  %48 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8QuantLib5ErrorE) #28
+  %matches = icmp eq i32 %47, %48
   br i1 %matches, label %invoke.cont101, label %ehcleanup111
 
 invoke.cont101:                                   ; preds = %lpad90
-  %44 = extractvalue { ptr, i32 } %41, 0
-  %45 = call ptr @__cxa_begin_catch(ptr %44) #28
-  %46 = load ptr, ptr %floatingCoupons33, align 8, !tbaa !43
-  %add.ptr.i177 = getelementptr inbounds nuw double, ptr %46, i64 %i.0212
+  %49 = extractvalue { ptr, i32 } %46, 0
+  %50 = call ptr @__cxa_begin_catch(ptr %49) #28
+  %51 = load ptr, ptr %floatingCoupons33, align 8, !tbaa !43
+  %add.ptr.i177 = getelementptr inbounds nuw double, ptr %51, i64 %i.0212
   store double 0x47EFFFFFE0000000, ptr %add.ptr.i177, align 8, !tbaa !123
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad106
 
 try.cont:                                         ; preds = %invoke.cont101, %invoke.cont95
-  %cmp.not.i.i = icmp eq ptr %27, null
+  %cmp.not.i.i = icmp eq ptr %33, null
   br i1 %cmp.not.i.i, label %_ZN5boost10shared_ptrIN8QuantLib10IborCouponEED2Ev.exit, label %if.then.i.i178
 
 if.then.i.i178:                                   ; preds = %try.cont
-  %use_count_.i.i.i = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %47 = atomicrmw sub ptr %use_count_.i.i.i, i32 1 acq_rel, align 4
-  %cmp.i.i.i = icmp eq i32 %47, 1
+  %use_count_.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %52 = atomicrmw sub ptr %use_count_.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i = icmp eq i32 %52, 1
   br i1 %cmp.i.i.i, label %if.then.i.i.i179, label %_ZN5boost10shared_ptrIN8QuantLib10IborCouponEED2Ev.exit
 
 if.then.i.i.i179:                                 ; preds = %if.then.i.i178
-  %vtable.i.i.i = load ptr, ptr %27, align 8, !tbaa !32
+  %vtable.i.i.i = load ptr, ptr %33, align 8, !tbaa !32
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
-  %48 = load ptr, ptr %vfn.i.i.i, align 8
-  invoke void %48(ptr noundef nonnull align 8 dereferenceable(16) %27)
+  %53 = load ptr, ptr %vfn.i.i.i, align 8
+  invoke void %53(ptr noundef nonnull align 8 dereferenceable(16) %33)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
 
 .noexc.i.i:                                       ; preds = %if.then.i.i.i179
-  %weak_count_.i.i.i.i = getelementptr inbounds nuw i8, ptr %27, i64 12
-  %49 = atomicrmw sub ptr %weak_count_.i.i.i.i, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i = icmp eq i32 %49, 1
+  %weak_count_.i.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 12
+  %54 = atomicrmw sub ptr %weak_count_.i.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i = icmp eq i32 %54, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN5boost10shared_ptrIN8QuantLib10IborCouponEED2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
-  %vtable.i.i.i.i = load ptr, ptr %27, align 8, !tbaa !32
+  %vtable.i.i.i.i = load ptr, ptr %33, align 8, !tbaa !32
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
-  %50 = load ptr, ptr %vfn.i.i.i.i, align 8
-  invoke void %50(ptr noundef nonnull align 8 dereferenceable(16) %27)
+  %55 = load ptr, ptr %vfn.i.i.i.i, align 8
+  invoke void %55(ptr noundef nonnull align 8 dereferenceable(16) %33)
           to label %_ZN5boost10shared_ptrIN8QuantLib10IborCouponEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i, %if.then.i.i.i179
-  %51 = landingpad { ptr, i32 }
+  %56 = landingpad { ptr, i32 }
           catch ptr null
-  %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #29
+  %57 = extractvalue { ptr, i32 } %56, 0
+  call void @__clang_call_terminate(ptr %57) #29
   unreachable
 
 _ZN5boost10shared_ptrIN8QuantLib10IborCouponEED2Ev.exit: ; preds = %try.cont, %if.then.i.i178, %.noexc.i.i, %if.then.i.i.i.i
@@ -4547,12 +4552,12 @@ _ZN5boost10shared_ptrIN8QuantLib10IborCouponEED2Ev.exit: ; preds = %try.cont, %i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !136
 
 lpad106:                                          ; preds = %invoke.cont101
-  %53 = landingpad { ptr, i32 }
+  %58 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup111
 
-ehcleanup111:                                     ; preds = %lpad90, %lpad42.loopexit, %lpad42.loopexit.split-lp, %lpad106, %lpad67, %lpad50
-  %.merged = phi { ptr, i32 } [ %40, %lpad67 ], [ %39, %lpad50 ], [ %53, %lpad106 ], [ %lpad.loopexit, %lpad42.loopexit ], [ %lpad.loopexit.split-lp, %lpad42.loopexit.split-lp ], [ %41, %lpad90 ]
+ehcleanup111:                                     ; preds = %lpad90, %lpad106, %lpad67, %lpad50, %lpad42
+  %.merged = phi { ptr, i32 } [ %43, %lpad42 ], [ %45, %lpad67 ], [ %44, %lpad50 ], [ %58, %lpad106 ], [ %46, %lpad90 ]
   call void @_ZN5boost10shared_ptrIN8QuantLib10IborCouponEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %coupon) #28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %coupon) #28
   br label %ehcleanup114

@@ -63,18 +63,21 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.cont.i.thread, label %cond.true.i.i.i.i
 
 invoke.cont.i.thread:                             ; preds = %entry
   %_M_finish.i.i.i8 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
+  %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i.i10 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i9, ptr %_M_end_of_storage.i.i.i10, align 8, !tbaa !11
   br label %_ZNSt6vectorIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EEC2ERKS5_.exit
 
 cond.true.i.i.i.i:                                ; preds = %entry
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775792
-  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %invoke.cont.i, !prof !11
+  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %invoke.cont.i, !prof !12
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #11
@@ -87,7 +90,7 @@ invoke.cont.i:                                    ; preds = %cond.true.i.i.i.i
   store ptr %call5.i.i.i.i2.i6.i, ptr %_M_finish.i.i.i, align 8, !tbaa !6
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i6.i, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
-  store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !12
+  store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !11
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i, %_ZSt10_ConstructIN8QuantLib6HandleINS0_5QuoteEEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i
@@ -183,7 +186,7 @@ invoke.cont.i2:                                   ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i2
-  %16 = load ptr, ptr %_M_end_of_storage.i.i.i12, align 8, !tbaa !12
+  %16 = load ptr, ptr %_M_end_of_storage.i.i.i12, align 8, !tbaa !11
   %sub.ptr.lhs.cast.i.i3 = ptrtoint ptr %16 to i64
   %sub.ptr.rhs.cast.i.i4 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i5 = sub i64 %sub.ptr.lhs.cast.i.i3, %sub.ptr.rhs.cast.i.i4
@@ -282,7 +285,7 @@ invoke.cont:                                      ; preds = %invoke.contthread-p
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %10 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !12
+  %10 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !11
   %sub.ptr.lhs.cast.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -303,18 +306,21 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.cont.i.thread, label %cond.true.i.i.i.i
 
 invoke.cont.i.thread:                             ; preds = %entry
   %_M_finish.i.i.i8 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
+  %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i.i10 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i9, ptr %_M_end_of_storage.i.i.i10, align 8, !tbaa !11
   br label %_ZNSt6vectorIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EEC2ERKS5_.exit
 
 cond.true.i.i.i.i:                                ; preds = %entry
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775792
-  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %invoke.cont.i, !prof !11
+  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %invoke.cont.i, !prof !12
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #11
@@ -327,7 +333,7 @@ invoke.cont.i:                                    ; preds = %cond.true.i.i.i.i
   store ptr %call5.i.i.i.i2.i6.i, ptr %_M_finish.i.i.i, align 8, !tbaa !6
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i6.i, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
-  store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !12
+  store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !11
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i, %_ZSt10_ConstructIN8QuantLib6HandleINS0_5QuoteEEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i
@@ -423,7 +429,7 @@ invoke.cont.i2:                                   ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i2
-  %16 = load ptr, ptr %_M_end_of_storage.i.i.i12, align 8, !tbaa !12
+  %16 = load ptr, ptr %_M_end_of_storage.i.i.i12, align 8, !tbaa !11
   %sub.ptr.lhs.cast.i.i3 = ptrtoint ptr %16 to i64
   %sub.ptr.rhs.cast.i.i4 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i5 = sub i64 %sub.ptr.lhs.cast.i.i3, %sub.ptr.rhs.cast.i.i4
@@ -497,8 +503,8 @@ attributes #13 = { builtin nounwind }
 !8 = !{!"any pointer", !9, i64 0}
 !9 = !{!"omnipotent char", !5, i64 0}
 !10 = !{!7, !8, i64 0}
-!11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!12 = !{!7, !8, i64 16}
+!11 = !{!7, !8, i64 16}
+!12 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !13 = !{!14, !8, i64 0}
 !14 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib6HandleINS1_5QuoteEE4LinkEEE", !8, i64 0, !15, i64 8}
 !15 = !{!"_ZTSN5boost6detail12shared_countE", !8, i64 0}

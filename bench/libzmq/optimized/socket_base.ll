@@ -450,7 +450,7 @@ define noundef ptr @_ZN3zmq13socket_base_t6createEiPNS_5ctx_tEji(i32 noundef %0,
 9:                                                ; preds = %8
   %10 = landingpad { ptr, i32 }
           cleanup
-  br label %147
+  br label %149
 
 11:                                               ; preds = %4
   %12 = tail call noalias noundef dereferenceable_or_null(2360) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 2360, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #41
@@ -464,7 +464,7 @@ define noundef ptr @_ZN3zmq13socket_base_t6createEiPNS_5ctx_tEji(i32 noundef %0,
 15:                                               ; preds = %14
   %16 = landingpad { ptr, i32 }
           cleanup
-  br label %147
+  br label %149
 
 17:                                               ; preds = %4
   %18 = tail call noalias noundef dereferenceable_or_null(2032) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 2032, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #41
@@ -478,7 +478,7 @@ define noundef ptr @_ZN3zmq13socket_base_t6createEiPNS_5ctx_tEji(i32 noundef %0,
 21:                                               ; preds = %20
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %147
+  br label %149
 
 23:                                               ; preds = %4
   %24 = tail call noalias noundef dereferenceable_or_null(1960) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1960, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #41
@@ -492,7 +492,7 @@ define noundef ptr @_ZN3zmq13socket_base_t6createEiPNS_5ctx_tEji(i32 noundef %0,
 27:                                               ; preds = %26
   %28 = landingpad { ptr, i32 }
           cleanup
-  br label %147
+  br label %149
 
 29:                                               ; preds = %4
   %30 = tail call noalias noundef dereferenceable_or_null(2184) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 2184, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #41
@@ -506,7 +506,7 @@ define noundef ptr @_ZN3zmq13socket_base_t6createEiPNS_5ctx_tEji(i32 noundef %0,
 33:                                               ; preds = %32
   %34 = landingpad { ptr, i32 }
           cleanup
-  br label %147
+  br label %149
 
 35:                                               ; preds = %4
   %36 = tail call noalias noundef dereferenceable_or_null(1936) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1936, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #41
@@ -520,7 +520,7 @@ define noundef ptr @_ZN3zmq13socket_base_t6createEiPNS_5ctx_tEji(i32 noundef %0,
 39:                                               ; preds = %38
   %40 = landingpad { ptr, i32 }
           cleanup
-  br label %147
+  br label %149
 
 41:                                               ; preds = %4
   %42 = tail call noalias noundef dereferenceable_or_null(2184) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 2184, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #41
@@ -534,7 +534,7 @@ define noundef ptr @_ZN3zmq13socket_base_t6createEiPNS_5ctx_tEji(i32 noundef %0,
 45:                                               ; preds = %44
   %46 = landingpad { ptr, i32 }
           cleanup
-  br label %147
+  br label %149
 
 47:                                               ; preds = %4
   %48 = tail call noalias noundef dereferenceable_or_null(1880) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1880, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #41
@@ -548,7 +548,7 @@ define noundef ptr @_ZN3zmq13socket_base_t6createEiPNS_5ctx_tEji(i32 noundef %0,
 51:                                               ; preds = %50
   %52 = landingpad { ptr, i32 }
           cleanup
-  br label %147
+  br label %149
 
 53:                                               ; preds = %4
   %54 = tail call noalias noundef dereferenceable_or_null(1880) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1880, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #41
@@ -562,7 +562,7 @@ define noundef ptr @_ZN3zmq13socket_base_t6createEiPNS_5ctx_tEji(i32 noundef %0,
 57:                                               ; preds = %56
   %58 = landingpad { ptr, i32 }
           cleanup
-  br label %147
+  br label %149
 
 59:                                               ; preds = %4
   %60 = tail call noalias noundef dereferenceable_or_null(2360) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 2360, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #41
@@ -576,7 +576,7 @@ define noundef ptr @_ZN3zmq13socket_base_t6createEiPNS_5ctx_tEji(i32 noundef %0,
 63:                                               ; preds = %62
   %64 = landingpad { ptr, i32 }
           cleanup
-  br label %147
+  br label %149
 
 65:                                               ; preds = %4
   %66 = tail call noalias noundef dereferenceable_or_null(2032) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 2032, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #41
@@ -590,7 +590,7 @@ define noundef ptr @_ZN3zmq13socket_base_t6createEiPNS_5ctx_tEji(i32 noundef %0,
 69:                                               ; preds = %68
   %70 = landingpad { ptr, i32 }
           cleanup
-  br label %147
+  br label %149
 
 71:                                               ; preds = %4
   %72 = tail call noalias noundef dereferenceable_or_null(2112) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 2112, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #41
@@ -604,7 +604,7 @@ define noundef ptr @_ZN3zmq13socket_base_t6createEiPNS_5ctx_tEji(i32 noundef %0,
 75:                                               ; preds = %74
   %76 = landingpad { ptr, i32 }
           cleanup
-  br label %147
+  br label %149
 
 77:                                               ; preds = %4
   %78 = tail call noalias noundef dereferenceable_or_null(1936) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1936, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #41
@@ -618,7 +618,7 @@ define noundef ptr @_ZN3zmq13socket_base_t6createEiPNS_5ctx_tEji(i32 noundef %0,
 81:                                               ; preds = %80
   %82 = landingpad { ptr, i32 }
           cleanup
-  br label %147
+  br label %149
 
 83:                                               ; preds = %4
   %84 = tail call noalias noundef dereferenceable_or_null(1928) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1928, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #41
@@ -632,7 +632,7 @@ define noundef ptr @_ZN3zmq13socket_base_t6createEiPNS_5ctx_tEji(i32 noundef %0,
 87:                                               ; preds = %86
   %88 = landingpad { ptr, i32 }
           cleanup
-  br label %147
+  br label %149
 
 89:                                               ; preds = %4
   %90 = tail call noalias noundef dereferenceable_or_null(1968) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1968, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #41
@@ -646,7 +646,7 @@ define noundef ptr @_ZN3zmq13socket_base_t6createEiPNS_5ctx_tEji(i32 noundef %0,
 93:                                               ; preds = %92
   %94 = landingpad { ptr, i32 }
           cleanup
-  br label %147
+  br label %149
 
 95:                                               ; preds = %4
   %96 = tail call noalias noundef dereferenceable_or_null(2056) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 2056, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #41
@@ -660,7 +660,7 @@ define noundef ptr @_ZN3zmq13socket_base_t6createEiPNS_5ctx_tEji(i32 noundef %0,
 99:                                               ; preds = %98
   %100 = landingpad { ptr, i32 }
           cleanup
-  br label %147
+  br label %149
 
 101:                                              ; preds = %4
   %102 = tail call noalias noundef dereferenceable_or_null(1880) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1880, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #41
@@ -674,7 +674,7 @@ define noundef ptr @_ZN3zmq13socket_base_t6createEiPNS_5ctx_tEji(i32 noundef %0,
 105:                                              ; preds = %104
   %106 = landingpad { ptr, i32 }
           cleanup
-  br label %147
+  br label %149
 
 107:                                              ; preds = %4
   %108 = tail call noalias noundef dereferenceable_or_null(1880) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1880, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #41
@@ -688,7 +688,7 @@ define noundef ptr @_ZN3zmq13socket_base_t6createEiPNS_5ctx_tEji(i32 noundef %0,
 111:                                              ; preds = %110
   %112 = landingpad { ptr, i32 }
           cleanup
-  br label %147
+  br label %149
 
 113:                                              ; preds = %4
   %114 = tail call noalias noundef dereferenceable_or_null(1848) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1848, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #41
@@ -702,7 +702,7 @@ define noundef ptr @_ZN3zmq13socket_base_t6createEiPNS_5ctx_tEji(i32 noundef %0,
 117:                                              ; preds = %116
   %118 = landingpad { ptr, i32 }
           cleanup
-  br label %147
+  br label %149
 
 119:                                              ; preds = %4
   %120 = tail call noalias noundef dereferenceable_or_null(1936) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1936, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #41
@@ -716,7 +716,7 @@ define noundef ptr @_ZN3zmq13socket_base_t6createEiPNS_5ctx_tEji(i32 noundef %0,
 123:                                              ; preds = %122
   %124 = landingpad { ptr, i32 }
           cleanup
-  br label %147
+  br label %149
 
 125:                                              ; preds = %4
   %126 = tail call noalias noundef dereferenceable_or_null(1840) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1840, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #41
@@ -730,19 +730,19 @@ define noundef ptr @_ZN3zmq13socket_base_t6createEiPNS_5ctx_tEji(i32 noundef %0,
 129:                                              ; preds = %128
   %130 = landingpad { ptr, i32 }
           cleanup
-  br label %147
+  br label %149
 
 131:                                              ; preds = %4
   %132 = tail call ptr @__errno_location() #39
   store i32 22, ptr %132, align 4, !tbaa !17
-  br label %146
+  br label %148
 
 133:                                              ; preds = %8, %14, %20, %26, %32, %38, %44, %50, %56, %62, %68, %74, %80, %86, %92, %98, %104, %110, %116, %122, %128
   %.0113140 = phi ptr [ %6, %8 ], [ %12, %14 ], [ %18, %20 ], [ %24, %26 ], [ %30, %32 ], [ %36, %38 ], [ %42, %44 ], [ %48, %50 ], [ %54, %56 ], [ %60, %62 ], [ %66, %68 ], [ %72, %74 ], [ %78, %80 ], [ %84, %86 ], [ %90, %92 ], [ %96, %98 ], [ %102, %104 ], [ %108, %110 ], [ %114, %116 ], [ %120, %122 ], [ %126, %128 ]
   %134 = getelementptr inbounds nuw i8, ptr %.0113140, i64 1632
   %135 = load ptr, ptr %134, align 8, !tbaa !99
   %136 = icmp eq ptr %135, null
-  br i1 %136, label %141, label %146
+  br i1 %136, label %143, label %148
 
 .thread144:                                       ; preds = %125, %119, %113, %107, %101, %95, %89, %83, %77, %71, %65, %59, %53, %47, %41, %35, %29, %23, %17, %11, %5
   %137 = load ptr, ptr @stderr, align 8, !tbaa !100
@@ -750,22 +750,28 @@ define noundef ptr @_ZN3zmq13socket_base_t6createEiPNS_5ctx_tEji(i32 noundef %0,
   %139 = load ptr, ptr @stderr, align 8, !tbaa !100
   %140 = tail call i32 @fflush(ptr noundef %139)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.2)
-  unreachable
+  %141 = load ptr, ptr inttoptr (i64 1632 to ptr), align 32, !tbaa !99
+  %142 = icmp eq ptr %141, null
+  br i1 %142, label %.thread149, label %148
 
-141:                                              ; preds = %133
-  %142 = getelementptr inbounds nuw i8, ptr %.0113140, i64 1629
-  store i8 1, ptr %142, align 1, !tbaa !102
-  %143 = load ptr, ptr %.0113140, align 8, !tbaa !103
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  %145 = load ptr, ptr %144, align 8
-  tail call void %145(ptr noundef nonnull align 8 dereferenceable(1825) %.0113140) #36
-  br label %146
+.thread149:                                       ; preds = %.thread144
+  store i8 1, ptr inttoptr (i64 1629 to ptr), align 1, !tbaa !102
+  br label %148
 
-146:                                              ; preds = %133, %141, %131
-  %.0 = phi ptr [ null, %131 ], [ null, %141 ], [ %.0113140, %133 ]
+143:                                              ; preds = %133
+  %144 = getelementptr inbounds nuw i8, ptr %.0113140, i64 1629
+  store i8 1, ptr %144, align 1, !tbaa !102
+  %145 = load ptr, ptr %.0113140, align 8, !tbaa !103
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
+  %147 = load ptr, ptr %146, align 8
+  tail call void %147(ptr noundef nonnull align 8 dereferenceable(1825) %.0113140) #36
+  br label %148
+
+148:                                              ; preds = %.thread149, %.thread144, %133, %143, %131
+  %.0 = phi ptr [ null, %131 ], [ null, %143 ], [ %.0113140, %133 ], [ null, %.thread144 ], [ null, %.thread149 ]
   ret ptr %.0
 
-147:                                              ; preds = %129, %123, %117, %111, %105, %99, %93, %87, %81, %75, %69, %63, %57, %51, %45, %39, %33, %27, %21, %15, %9
+149:                                              ; preds = %129, %123, %117, %111, %105, %99, %93, %87, %81, %75, %69, %63, %57, %51, %45, %39, %33, %27, %21, %15, %9
   %.sink = phi ptr [ %126, %129 ], [ %120, %123 ], [ %114, %117 ], [ %108, %111 ], [ %102, %105 ], [ %96, %99 ], [ %90, %93 ], [ %84, %87 ], [ %78, %81 ], [ %72, %75 ], [ %66, %69 ], [ %60, %63 ], [ %54, %57 ], [ %48, %51 ], [ %42, %45 ], [ %36, %39 ], [ %30, %33 ], [ %24, %27 ], [ %18, %21 ], [ %12, %15 ], [ %6, %9 ]
   %.pn = phi { ptr, i32 } [ %130, %129 ], [ %124, %123 ], [ %118, %117 ], [ %112, %111 ], [ %106, %105 ], [ %100, %99 ], [ %94, %93 ], [ %88, %87 ], [ %82, %81 ], [ %76, %75 ], [ %70, %69 ], [ %64, %63 ], [ %58, %57 ], [ %52, %51 ], [ %46, %45 ], [ %40, %39 ], [ %34, %33 ], [ %28, %27 ], [ %22, %21 ], [ %16, %15 ], [ %10, %9 ]
   tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %.sink, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #38

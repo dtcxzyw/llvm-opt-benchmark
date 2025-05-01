@@ -958,7 +958,12 @@ define hidden void @_ZN3euf12arith_plugin4undoEv(ptr noundef nonnull align 8 der
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !79
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %_ZN6vectorIN3euf12arith_plugin6undo_tELb0EjE4backEv.exit, label %5
+  br i1 %4, label %._ZN6vectorIN3euf12arith_plugin6undo_tELb0EjE4backEv.exit_crit_edge, label %5
+
+._ZN6vectorIN3euf12arith_plugin6undo_tELb0EjE4backEv.exit_crit_edge: ; preds = %1
+  %.pre = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !123
+  %.pre1 = add i32 %.pre, -1
+  br label %_ZN6vectorIN3euf12arith_plugin6undo_tELb0EjE4backEv.exit
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 -4
@@ -967,9 +972,9 @@ define hidden void @_ZN3euf12arith_plugin4undoEv(ptr noundef nonnull align 8 der
   %9 = zext i32 %8 to i64
   br label %_ZN6vectorIN3euf12arith_plugin6undo_tELb0EjE4backEv.exit
 
-_ZN6vectorIN3euf12arith_plugin6undo_tELb0EjE4backEv.exit: ; preds = %1, %5
-  %.pre-phi = phi i32 [ %8, %5 ], [ undef, %1 ]
-  %.0.i.i = phi i64 [ %9, %5 ], [ 4294967295, %1 ]
+_ZN6vectorIN3euf12arith_plugin6undo_tELb0EjE4backEv.exit: ; preds = %._ZN6vectorIN3euf12arith_plugin6undo_tELb0EjE4backEv.exit_crit_edge, %5
+  %.pre-phi = phi i32 [ %.pre1, %._ZN6vectorIN3euf12arith_plugin6undo_tELb0EjE4backEv.exit_crit_edge ], [ %8, %5 ]
+  %.0.i.i = phi i64 [ 4294967295, %._ZN6vectorIN3euf12arith_plugin6undo_tELb0EjE4backEv.exit_crit_edge ], [ %9, %5 ]
   %10 = getelementptr inbounds nuw i32, ptr %3, i64 %.0.i.i
   %11 = load i32, ptr %10, align 4, !tbaa !129
   %12 = getelementptr inbounds i8, ptr %3, i64 -4

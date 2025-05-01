@@ -7079,8 +7079,8 @@ _ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i: ; preds = %_ZN1
   %49 = add i64 %41, %48
   %50 = icmp ugt i64 %49, %4
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 %48
-  %or.cond407 = select i1 %47, i1 true, i1 %50
-  br i1 %or.cond407, label %_ZNSt6vectorItSaItEED2Ev.exit, label %_ZN11OpenImageIO6v3_1_03pvt8dataspanItEENS0_4spanIKhLm18446744073709551615EEERK12TIFFDirEntryS5_im.exit.thread346
+  %or.cond409 = select i1 %47, i1 true, i1 %50
+  br i1 %or.cond409, label %_ZNSt6vectorItSaItEED2Ev.exit, label %_ZN11OpenImageIO6v3_1_03pvt8dataspanItEENS0_4spanIKhLm18446744073709551615EEERK12TIFFDirEntryS5_im.exit.thread346
 
 _ZN11OpenImageIO6v3_1_03pvt8dataspanItEENS0_4spanIKhLm18446744073709551615EEERK12TIFFDirEntryS5_im.exit: ; preds = %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i
   %52 = icmp eq i64 %41, 0
@@ -7181,8 +7181,8 @@ _ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i149: ; preds = %_
   %86 = add i64 %78, %85
   %87 = icmp ugt i64 %86, %4
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 %85
-  %or.cond411 = select i1 %84, i1 true, i1 %87
-  br i1 %or.cond411, label %_ZNSt6vectorItSaItEED2Ev.exit, label %_ZN11OpenImageIO6v3_1_03pvt8dataspanIjEENS0_4spanIKhLm18446744073709551615EEERK12TIFFDirEntryS5_im.exit.thread358
+  %or.cond413 = select i1 %84, i1 true, i1 %87
+  br i1 %or.cond413, label %_ZNSt6vectorItSaItEED2Ev.exit, label %_ZN11OpenImageIO6v3_1_03pvt8dataspanIjEENS0_4spanIKhLm18446744073709551615EEERK12TIFFDirEntryS5_im.exit.thread358
 
 _ZN11OpenImageIO6v3_1_03pvt8dataspanIjEENS0_4spanIKhLm18446744073709551615EEERK12TIFFDirEntryS5_im.exit: ; preds = %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i149
   %89 = icmp eq i64 %78, 0
@@ -7278,17 +7278,17 @@ _ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i179: ; preds = %_
   %119 = add nuw nsw i64 %114, %118
   %120 = icmp ugt i64 %119, %4
   %121 = getelementptr inbounds nuw i8, ptr %3, i64 %118
-  %or.cond415 = select i1 %117, i1 true, i1 %120
-  br i1 %or.cond415, label %_ZNSt6vectorItSaItEED2Ev.exit, label %.lr.ph432
+  %or.cond417 = select i1 %117, i1 true, i1 %120
+  br i1 %or.cond417, label %_ZNSt6vectorItSaItEED2Ev.exit, label %.lr.ph434
 
-.lr.ph432:                                        ; preds = %112
+.lr.ph434:                                        ; preds = %112
   %122 = shl nuw nsw i64 %36, 2
   %123 = alloca i8, i64 %122, align 16
-  br i1 %5, label %.lr.ph432.split.us, label %.lr.ph432.split
+  br i1 %5, label %.lr.ph434.split.us, label %.lr.ph434.split
 
-.lr.ph432.split.us:                               ; preds = %.lr.ph432, %.lr.ph432.split.us
-  %.0122430.us = phi i64 [ %134, %.lr.ph432.split.us ], [ 0, %.lr.ph432 ]
-  %124 = shl i64 %.0122430.us, 3
+.lr.ph434.split.us:                               ; preds = %.lr.ph434, %.lr.ph434.split.us
+  %.0122432.us = phi i64 [ %134, %.lr.ph434.split.us ], [ 0, %.lr.ph434 ]
+  %124 = shl i64 %.0122432.us, 3
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 %124
   %.0.copyload22.us = load i32, ptr %125, align 1
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
@@ -7299,18 +7299,18 @@ _ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i179: ; preds = %_
   %130 = uitofp i32 %128 to double
   %131 = fdiv double %129, %130
   %132 = fptrunc double %131 to float
-  %133 = getelementptr inbounds nuw float, ptr %123, i64 %.0122430.us
+  %133 = getelementptr inbounds nuw float, ptr %123, i64 %.0122432.us
   store float %132, ptr %133, align 4, !tbaa !146
-  %134 = add nuw nsw i64 %.0122430.us, 1
-  %exitcond440.not = icmp eq i64 %134, %36
-  br i1 %exitcond440.not, label %._crit_edge433, label %.lr.ph432.split.us, !llvm.loop !191
+  %134 = add nuw nsw i64 %.0122432.us, 1
+  %exitcond442.not = icmp eq i64 %134, %36
+  br i1 %exitcond442.not, label %._crit_edge435, label %.lr.ph434.split.us, !llvm.loop !191
 
-._crit_edge433:                                   ; preds = %.lr.ph432.split, %.lr.ph432.split.us
+._crit_edge435:                                   ; preds = %.lr.ph434.split, %.lr.ph434.split.us
   br i1 %30, label %144, label %150
 
-.lr.ph432.split:                                  ; preds = %.lr.ph432, %.lr.ph432.split
-  %.0122430 = phi i64 [ %143, %.lr.ph432.split ], [ 0, %.lr.ph432 ]
-  %135 = shl i64 %.0122430, 3
+.lr.ph434.split:                                  ; preds = %.lr.ph434, %.lr.ph434.split
+  %.0122432 = phi i64 [ %143, %.lr.ph434.split ], [ 0, %.lr.ph434 ]
+  %135 = shl i64 %.0122432, 3
   %136 = getelementptr inbounds nuw i8, ptr %121, i64 %135
   %.0.copyload22 = load i32, ptr %136, align 1
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 4
@@ -7319,13 +7319,13 @@ _ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i179: ; preds = %_
   %139 = uitofp i32 %.0.copyload19 to double
   %140 = fdiv double %138, %139
   %141 = fptrunc double %140 to float
-  %142 = getelementptr inbounds nuw float, ptr %123, i64 %.0122430
+  %142 = getelementptr inbounds nuw float, ptr %123, i64 %.0122432
   store float %141, ptr %142, align 4, !tbaa !146
-  %143 = add nuw nsw i64 %.0122430, 1
-  %exitcond439.not = icmp eq i64 %143, %36
-  br i1 %exitcond439.not, label %._crit_edge433, label %.lr.ph432.split, !llvm.loop !191
+  %143 = add nuw nsw i64 %.0122432, 1
+  %exitcond441.not = icmp eq i64 %143, %36
+  br i1 %exitcond441.not, label %._crit_edge435, label %.lr.ph434.split, !llvm.loop !191
 
-144:                                              ; preds = %._crit_edge433
+144:                                              ; preds = %._crit_edge435
   %.not.i188 = icmp eq ptr %1, null
   br i1 %.not.i188, label %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit189, label %145
 
@@ -7347,7 +7347,7 @@ _ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit189: ;
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
-150:                                              ; preds = %._crit_edge433
+150:                                              ; preds = %._crit_edge435
   store ptr %1, ptr %20, align 8, !tbaa !3
   %.not.i190 = icmp eq ptr %1, null
   br i1 %.not.i190, label %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit191, label %151
@@ -7379,8 +7379,8 @@ _ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i193: ; preds = %_
   %163 = add nuw nsw i64 %158, %162
   %164 = icmp ugt i64 %163, %4
   %165 = getelementptr inbounds nuw i8, ptr %3, i64 %162
-  %or.cond419 = select i1 %161, i1 true, i1 %164
-  br i1 %or.cond419, label %_ZNSt6vectorItSaItEED2Ev.exit, label %.lr.ph
+  %or.cond421 = select i1 %161, i1 true, i1 %164
+  br i1 %or.cond421, label %_ZNSt6vectorItSaItEED2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %156
   %166 = shl nuw nsw i64 %36, 2
@@ -7388,8 +7388,8 @@ _ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i193: ; preds = %_
   br i1 %5, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.0125429.us = phi i64 [ %178, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %168 = shl i64 %.0125429.us, 3
+  %.0125431.us = phi i64 [ %178, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %168 = shl i64 %.0125431.us, 3
   %169 = getelementptr inbounds nuw i8, ptr %165, i64 %168
   %.0.copyload7.us = load i32, ptr %169, align 1
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 4
@@ -7400,18 +7400,18 @@ _ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i193: ; preds = %_
   %174 = sitofp i32 %172 to double
   %175 = fdiv double %173, %174
   %176 = fptrunc double %175 to float
-  %177 = getelementptr inbounds nuw float, ptr %167, i64 %.0125429.us
+  %177 = getelementptr inbounds nuw float, ptr %167, i64 %.0125431.us
   store float %176, ptr %177, align 4, !tbaa !146
-  %178 = add nuw nsw i64 %.0125429.us, 1
-  %exitcond438.not = icmp eq i64 %178, %36
-  br i1 %exitcond438.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !192
+  %178 = add nuw nsw i64 %.0125431.us, 1
+  %exitcond440.not = icmp eq i64 %178, %36
+  br i1 %exitcond440.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !192
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us
   br i1 %30, label %188, label %194
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.0125429 = phi i64 [ %187, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %179 = shl i64 %.0125429, 3
+  %.0125431 = phi i64 [ %187, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %179 = shl i64 %.0125431, 3
   %180 = getelementptr inbounds nuw i8, ptr %165, i64 %179
   %.0.copyload7 = load i32, ptr %180, align 1
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 4
@@ -7420,9 +7420,9 @@ _ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i193: ; preds = %_
   %183 = sitofp i32 %.0.copyload to double
   %184 = fdiv double %182, %183
   %185 = fptrunc double %184 to float
-  %186 = getelementptr inbounds nuw float, ptr %167, i64 %.0125429
+  %186 = getelementptr inbounds nuw float, ptr %167, i64 %.0125431
   store float %185, ptr %186, align 4, !tbaa !146
-  %187 = add nuw nsw i64 %.0125429, 1
+  %187 = add nuw nsw i64 %.0125431, 1
   %exitcond.not = icmp eq i64 %187, %36
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !192
 
@@ -7484,40 +7484,40 @@ _ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i206: ; preds = %_
   %211 = add i64 %203, %210
   %212 = icmp ugt i64 %211, %4
   %213 = getelementptr inbounds nuw i8, ptr %3, i64 %210
-  %or.cond423 = select i1 %209, i1 true, i1 %212
-  br i1 %or.cond423, label %_ZNSt6vectorItSaItEED2Ev.exit, label %.preheader
+  %or.cond425 = select i1 %209, i1 true, i1 %212
+  br i1 %or.cond425, label %_ZNSt6vectorItSaItEED2Ev.exit, label %.preheader
 
 _ZN11OpenImageIO6v3_1_03pvt8dataspanIcEENS0_4spanIKhLm18446744073709551615EEERK12TIFFDirEntryS5_im.exit: ; preds = %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i206
   %214 = icmp eq i64 %203, 0
   br i1 %214, label %_ZNSt6vectorItSaItEED2Ev.exit, label %.preheader
 
 .preheader:                                       ; preds = %206, %_ZN11OpenImageIO6v3_1_03pvt8dataspanIcEENS0_4spanIKhLm18446744073709551615EEERK12TIFFDirEntryS5_im.exit
-  %.sroa.011.0.i211442 = phi ptr [ %205, %_ZN11OpenImageIO6v3_1_03pvt8dataspanIcEENS0_4spanIKhLm18446744073709551615EEERK12TIFFDirEntryS5_im.exit ], [ %213, %206 ]
-  %invariant.gep = getelementptr i8, ptr %.sroa.011.0.i211442, i64 -1
+  %.sroa.011.0.i211444 = phi ptr [ %205, %_ZN11OpenImageIO6v3_1_03pvt8dataspanIcEENS0_4spanIKhLm18446744073709551615EEERK12TIFFDirEntryS5_im.exit ], [ %213, %206 ]
+  %invariant.gep = getelementptr i8, ptr %.sroa.011.0.i211444, i64 -1
   br label %215
 
 215:                                              ; preds = %.preheader, %218
-  %.sroa.9.0428 = phi i64 [ %203, %.preheader ], [ %219, %218 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.sroa.9.0428
+  %.sroa.9.0430 = phi i64 [ %203, %.preheader ], [ %219, %218 ]
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.sroa.9.0430
   %216 = load i8, ptr %gep, align 1, !tbaa !55
   %217 = icmp eq i8 %216, 0
   br i1 %217, label %218, label %.critedge
 
 218:                                              ; preds = %215
-  %219 = add i64 %.sroa.9.0428, -1
+  %219 = add i64 %.sroa.9.0430, -1
   %.not = icmp eq i64 %219, 0
   br i1 %.not, label %._crit_edge.i.i, label %215, !llvm.loop !193
 
 .critedge:                                        ; preds = %215
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22) #34
-  %220 = getelementptr inbounds nuw i8, ptr %.sroa.011.0.i211442, i64 %.sroa.9.0428
+  %220 = getelementptr inbounds nuw i8, ptr %.sroa.011.0.i211444, i64 %.sroa.9.0430
   %221 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %221, ptr %22, align 8, !tbaa !50
   %222 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 0, ptr %222, align 8, !tbaa !56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #34
-  store i64 %.sroa.9.0428, ptr %11, align 8, !tbaa !52
-  %223 = icmp ugt i64 %.sroa.9.0428, 15
+  store i64 %.sroa.9.0430, ptr %11, align 8, !tbaa !52
+  %223 = icmp ugt i64 %.sroa.9.0430, 15
   br i1 %223, label %.noexc.i217, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %.noexc, %.critedge
@@ -7545,7 +7545,7 @@ _ZN11OpenImageIO6v3_1_03pvt8dataspanIcEENS0_4spanIKhLm18446744073709551615EEERK1
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %230, %.lr.ph.i.i.i ], [ %.09.i.i.i.ph, %.lr.ph.i.i.i.preheader ]
-  %.068.i.i.i = phi ptr [ %229, %.lr.ph.i.i.i ], [ %.sroa.011.0.i211442, %.lr.ph.i.i.i.preheader ]
+  %.068.i.i.i = phi ptr [ %229, %.lr.ph.i.i.i ], [ %.sroa.011.0.i211444, %.lr.ph.i.i.i.preheader ]
   %228 = load i8, ptr %.068.i.i.i, align 1, !tbaa !55
   store i8 %228, ptr %.09.i.i.i, align 1, !tbaa !55
   %229 = getelementptr inbounds nuw i8, ptr %.068.i.i.i, i64 1

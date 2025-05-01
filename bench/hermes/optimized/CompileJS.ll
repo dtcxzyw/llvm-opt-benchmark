@@ -788,7 +788,7 @@ _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ranges, i8 0, i64 24, i1 false), !alias.scope !23
+  store i64 0, ptr %ranges, align 8, !alias.scope !23
   %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt6vectorISt4pairIjjESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i
 
@@ -798,30 +798,35 @@ if.then.i.i.i.i:                                  ; preds = %_ZNK4llvh9StringRef
 
 _ZNSt6vectorISt4pairIjjESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i: ; preds = %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
   %cmp.not.i.i.i.i = icmp eq ptr %4, %3
-  br i1 %cmp.not.i.i.i.i, label %_ZNK4llvh8ArrayRefISt4pairIjjEEcvSt6vectorIS2_SaIS2_EEEv.exit, label %for.body.i.i.i.i.preheader.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseISt4pairIjjESaIS1_EE11_M_allocateEm.exit.thread.i.i.i, label %for.body.i.i.i.i.preheader.i.i.i
+
+_ZNSt12_Vector_baseISt4pairIjjESaIS1_EE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6vectorISt4pairIjjESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i
+  %add.ptr5.i.i.i = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i.i
+  br label %_ZNK4llvh8ArrayRefISt4pairIjjEEcvSt6vectorIS2_SaIS2_EEEv.exit
 
 for.body.i.i.i.i.preheader.i.i.i:                 ; preds = %_ZNSt6vectorISt4pairIjjESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i
   %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i) #13, !noalias !23
   store ptr %call5.i.i.i.i.i.i, ptr %ranges, align 8, !alias.scope !23
   %add.ptr.i.i.i = getelementptr i8, ptr %call5.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 64
-  store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !23
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i.i.i, ptr align 4 %3, i64 %sub.ptr.sub.i.i.i, i1 false), !noalias !23
   br label %_ZNK4llvh8ArrayRefISt4pairIjjEEcvSt6vectorIS2_SaIS2_EEEv.exit
 
-_ZNK4llvh8ArrayRefISt4pairIjjEEcvSt6vectorIS2_SaIS2_EEEv.exit: ; preds = %_ZNSt6vectorISt4pairIjjESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i, %for.body.i.i.i.i.preheader.i.i.i
-  %__cur.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i, %for.body.i.i.i.i.preheader.i.i.i ], [ null, %_ZNSt6vectorISt4pairIjjESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i ]
+_ZNK4llvh8ArrayRefISt4pairIjjEEcvSt6vectorIS2_SaIS2_EEEv.exit: ; preds = %_ZNSt12_Vector_baseISt4pairIjjESaIS1_EE11_M_allocateEm.exit.thread.i.i.i, %for.body.i.i.i.i.preheader.i.i.i
+  %add.ptr.i.i.sink.i = phi ptr [ %add.ptr5.i.i.i, %_ZNSt12_Vector_baseISt4pairIjjESaIS1_EE11_M_allocateEm.exit.thread.i.i.i ], [ %add.ptr.i.i.i, %for.body.i.i.i.i.preheader.i.i.i ]
+  %__cur.0.lcssa.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIjjESaIS1_EE11_M_allocateEm.exit.thread.i.i.i ], [ %add.ptr.i.i.i, %for.body.i.i.i.i.preheader.i.i.i ]
+  %5 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 64
+  store ptr %add.ptr.i.i.sink.i, ptr %5, align 8, !alias.scope !23
   %_M_finish.i.i.i9 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 56
   store ptr %__cur.0.lcssa.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i9, align 8, !alias.scope !23
   %vtable = load ptr, ptr %context, align 8
-  %5 = load ptr, ptr %vtable, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(8) %context, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp) #12
-  %6 = load ptr, ptr %ranges, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %6, null
+  %6 = load ptr, ptr %vtable, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(8) %context, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp) #12
+  %7 = load ptr, ptr %ranges, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i.i, label %_ZN6hermes17DiagnosticHandler10DiagnosticD2Ev.exit, label %if.then.i.i.i.i10
 
 if.then.i.i.i.i10:                                ; preds = %_ZNK4llvh8ArrayRefISt4pairIjjEEcvSt6vectorIS2_SaIS2_EEEv.exit
-  call void @_ZdlPv(ptr noundef nonnull %6) #14
+  call void @_ZdlPv(ptr noundef nonnull %7) #14
   br label %_ZN6hermes17DiagnosticHandler10DiagnosticD2Ev.exit
 
 _ZN6hermes17DiagnosticHandler10DiagnosticD2Ev.exit: ; preds = %_ZNK4llvh8ArrayRefISt4pairIjjEEcvSt6vectorIS2_SaIS2_EEEv.exit, %if.then.i.i.i.i10

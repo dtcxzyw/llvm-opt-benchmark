@@ -12180,7 +12180,10 @@ entry:
 
 invoke.cont.i.thread:                             ; preds = %entry
   %_M_finish.i.i.i63 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
+  %add.ptr.i.i.i64 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i.i65 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i64, ptr %_M_end_of_storage.i.i.i65, align 8, !tbaa !197
   br label %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %entry
@@ -12247,7 +12250,10 @@ invoke.cont:                                      ; preds = %_ZSt10_ConstructIN5
 
 invoke.cont.i15.thread:                           ; preds = %invoke.cont
   %_M_finish.i.i.i1769 = getelementptr inbounds nuw i8, ptr %agg.tmp2, i64 8
+  %add.ptr.i.i.i1870 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i11
   %_M_end_of_storage.i.i.i1971 = getelementptr inbounds nuw i8, ptr %agg.tmp2, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i1870, ptr %_M_end_of_storage.i.i.i1971, align 8, !tbaa !111
   br label %invoke.cont4
 
 cond.true.i.i.i.i13:                              ; preds = %invoke.cont
@@ -12277,7 +12283,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_tr
 
 invoke.cont4:                                     ; preds = %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont.i15.thread
   %_M_end_of_storage.i.i.i1974 = phi ptr [ %_M_end_of_storage.i.i.i1971, %invoke.cont.i15.thread ], [ %_M_end_of_storage.i.i.i19, %if.then.i.i.i.i.i.i.i.i.i ]
-  %add.ptr.i.i.i1873 = phi ptr [ null, %invoke.cont.i15.thread ], [ %add.ptr.i.i.i18, %if.then.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i1873 = phi ptr [ %add.ptr.i.i.i1870, %invoke.cont.i15.thread ], [ %add.ptr.i.i.i18, %if.then.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i1772 = phi ptr [ %_M_finish.i.i.i1769, %invoke.cont.i15.thread ], [ %_M_finish.i.i.i17, %if.then.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i1873, ptr %_M_finish.i.i.i1772, align 8, !tbaa !175
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp5, i8 0, i64 24, i1 false)

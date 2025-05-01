@@ -3052,76 +3052,77 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDe
 
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemESaIS1_EE11_M_allocateEm.exit.thread: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemESaIS1_EE17_S_check_init_lenEmRKS2_.exit
   store ptr null, ptr %0, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %10, align 8
+  %10 = getelementptr inbounds i8, ptr null, i64 %6
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %10, ptr %11, align 8
   br label %_ZSt22__uninitialized_copy_aIPKN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemESaIS1_EE17_S_check_init_lenEmRKS2_.exit
-  %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #22
-  store ptr %11, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 %6
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %12, ptr %13, align 8
+  %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #22
+  store ptr %12, ptr %0, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 %6
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %13, ptr %14, align 8
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %17, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %11, %.lr.ph.i.i.i.i.preheader ]
-  %.01215.i.i.i.i = phi ptr [ %16, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %1, %.lr.ph.i.i.i.i.preheader ]
+  %.016.i.i.i.i = phi ptr [ %18, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %12, %.lr.ph.i.i.i.i.preheader ]
+  %.01215.i.i.i.i = phi ptr [ %17, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %1, %.lr.ph.i.i.i.i.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.016.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %.01215.i.i.i.i, i64 40, i1 false)
-  %14 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
-  %15 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i, i64 40
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15)
-          to label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i unwind label %18
+  %15 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i, i64 40
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
+          to label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i unwind label %19
 
 _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %16 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i, i64 72
-  %17 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 72
-  %.not.i.i.i.i = icmp eq ptr %16, %2
+  %17 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 72
+  %.not.i.i.i.i = icmp eq ptr %17, %2
   br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !36
 
-18:                                               ; preds = %.lr.ph.i.i.i.i
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %.lr.ph.i.i.i.i
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #14
-  %.not4.i.i.i.i.i.i = icmp eq ptr %11, %.016.i.i.i.i
+  %21 = extractvalue { ptr, i32 } %20, 0
+  %22 = tail call ptr @__cxa_begin_catch(ptr %21) #14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %12, %.016.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %18, %.lr.ph.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i.i.i ], [ %11, %18 ]
-  %22 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 40
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #14
-  %23 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 72
-  %.not.i.i.i.i.i.i = icmp eq ptr %23, %.016.i.i.i.i
+.lr.ph.i.i.i.i.i.i:                               ; preds = %19, %.lr.ph.i.i.i.i.i.i
+  %.05.i.i.i.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i.i.i.i ], [ %12, %19 ]
+  %23 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 40
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #14
+  %24 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 72
+  %.not.i.i.i.i.i.i = icmp eq ptr %24, %.016.i.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !25
 
-_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEEvT_S3_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %18
+_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEEvT_S3_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %19
   invoke void @__cxa_rethrow() #21
-          to label %30 unwind label %24
+          to label %31 unwind label %25
 
-24:                                               ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEEvT_S3_.exit.i.i.i.i
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEEvT_S3_.exit.i.i.i.i
+  %26 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %26 unwind label %27
+          to label %27 unwind label %28
 
-26:                                               ; preds = %24
-  resume { ptr, i32 } %25
+27:                                               ; preds = %25
+  resume { ptr, i32 } %26
 
-27:                                               ; preds = %24
-  %28 = landingpad { ptr, i32 }
+28:                                               ; preds = %25
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  tail call void @__clang_call_terminate(ptr %29) #20
+  %30 = extractvalue { ptr, i32 } %29, 0
+  tail call void @__clang_call_terminate(ptr %30) #20
   unreachable
 
-30:                                               ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEEvT_S3_.exit.i.i.i.i
+31:                                               ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEEvT_S3_.exit.i.i.i.i
   unreachable
 
 _ZSt22__uninitialized_copy_aIPKN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemESaIS1_EE11_M_allocateEm.exit.thread
-  %.0.lcssa.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemESaIS1_EE11_M_allocateEm.exit.thread ], [ %17, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ]
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.lcssa.i.i.i.i, ptr %31, align 8
+  %.0.lcssa.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemESaIS1_EE11_M_allocateEm.exit.thread ], [ %18, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ]
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.lcssa.i.i.i.i, ptr %32, align 8
   ret void
 }
 

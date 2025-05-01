@@ -3526,54 +3526,57 @@ define linkonce_odr hidden void @_ZNK4LIEF5MachO17DyldChainedFixups5cloneEv(ptr 
   %11 = sub i64 %9, %10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i = icmp eq ptr %7, %8
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.thread, label %13
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.thread, label %15
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.thread: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  %13 = getelementptr inbounds i8, ptr null, i64 %11
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  store ptr %13, ptr %14, align 8, !tbaa !38
   br label %_ZNSt10unique_ptrIN4LIEF5MachO17DyldChainedFixupsESt14default_deleteIS2_EED2Ev.exit
 
-13:                                               ; preds = %2
-  %14 = icmp slt i64 %11, 0
-  br i1 %14, label %15, label %16, !prof !65
+15:                                               ; preds = %2
+  %16 = icmp slt i64 %11, 0
+  br i1 %16, label %17, label %18, !prof !65
 
-15:                                               ; preds = %13
+17:                                               ; preds = %15
   tail call void @_ZSt17__throw_bad_allocv() #24
   unreachable
 
-16:                                               ; preds = %13
-  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #25
-  store ptr %17, ptr %4, align 8, !tbaa !35
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %17, ptr %18, align 8, !tbaa !64
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %11
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %19, ptr %20, align 8, !tbaa !38
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %8, i64 %11, i1 false)
+18:                                               ; preds = %15
+  %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #25
+  store ptr %19, ptr %4, align 8, !tbaa !35
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %19, ptr %20, align 8, !tbaa !64
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %11
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %21, ptr %22, align 8, !tbaa !38
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %19, ptr align 1 %8, i64 %11, i1 false)
   br label %_ZNSt10unique_ptrIN4LIEF5MachO17DyldChainedFixupsESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4LIEF5MachO17DyldChainedFixupsESt14default_deleteIS2_EED2Ev.exit: ; preds = %16, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.thread
-  %21 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.thread ], [ %19, %16 ]
-  %22 = phi ptr [ %12, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.thread ], [ %18, %16 ]
-  store ptr %21, ptr %22, align 8, !tbaa !64
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
+_ZNSt10unique_ptrIN4LIEF5MachO17DyldChainedFixupsESt14default_deleteIS2_EED2Ev.exit: ; preds = %18, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.thread
+  %23 = phi ptr [ %13, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.thread ], [ %21, %18 ]
+  %24 = phi ptr [ %12, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.thread ], [ %20, %18 ]
+  store ptr %23, ptr %24, align 8, !tbaa !64
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4LIEF5MachO17DyldChainedFixupsE, i64 16), ptr %3, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %27 = load i32, ptr %26, align 8, !tbaa !62
-  store i32 %27, ptr %25, align 8, !tbaa !62
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 60
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %30 = load i32, ptr %29, align 4, !tbaa !63
-  store i32 %30, ptr %28, align 4, !tbaa !63
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %31, i8 0, i64 40, i1 false)
-  store i32 1, ptr %32, align 8, !tbaa !48
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, i8 0, i64 72, i1 false)
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %29 = load i32, ptr %28, align 8, !tbaa !62
+  store i32 %29, ptr %27, align 8, !tbaa !62
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 60
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %32 = load i32, ptr %31, align 4, !tbaa !63
+  store i32 %32, ptr %30, align 4, !tbaa !63
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %33, i8 0, i64 40, i1 false)
+  store i32 1, ptr %34, align 8, !tbaa !48
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %35, i8 0, i64 72, i1 false)
   store ptr %3, ptr %0, align 8, !tbaa !362
   ret void
 }

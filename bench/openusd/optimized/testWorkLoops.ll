@@ -202,8 +202,8 @@ define dso_local noundef double @_Z10_DoTBBTestbmm(i1 noundef zeroext %0, i64 no
   %6 = alloca %"class.std::_Bind", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %_ZL15_PopulateVectormPSt6vectorIiSaIiEE.exit, label %8
+  %.not26 = icmp eq i64 %1, 0
+  br i1 %.not26, label %_ZL15_PopulateVectormPSt6vectorIiSaIiEE.exit, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -252,8 +252,8 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %_ZSt6fill_nIPimiET_
 _ZL15_PopulateVectormPSt6vectorIiSaIiEE.exit:     ; preds = %.lr.ph.i.i, %3
   fence syncscope("singlethread") seq_cst
   %20 = tail call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !7
-  %.not24 = icmp eq i64 %2, 0
-  br i1 %.not24, label %._crit_edge.thread, label %.lr.ph
+  %.not = icmp eq i64 %2, 0
+  br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZL15_PopulateVectormPSt6vectorIiSaIiEE.exit
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8

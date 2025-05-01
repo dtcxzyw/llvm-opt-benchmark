@@ -1385,7 +1385,12 @@ _ZN7datalog19get_bound_arg_countEP3appRK8uint_set.exit.thread: ; preds = %12, %_
 
 99:                                               ; preds = %91
   %100 = icmp eq ptr %.pre, null
-  br i1 %100, label %_ZN6vectorIjLb0EjE4backEv.exit, label %101
+  br i1 %100, label %._ZN6vectorIjLb0EjE4backEv.exit_crit_edge, label %101
+
+._ZN6vectorIjLb0EjE4backEv.exit_crit_edge:        ; preds = %99
+  %.pre53 = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !263
+  %.pre54 = add i32 %.pre53, -1
+  br label %_ZN6vectorIjLb0EjE4backEv.exit
 
 101:                                              ; preds = %.thread, %99
   %102 = getelementptr inbounds i8, ptr %.pre, i64 -4
@@ -1394,9 +1399,9 @@ _ZN7datalog19get_bound_arg_countEP3appRK8uint_set.exit.thread: ; preds = %12, %_
   %105 = zext i32 %104 to i64
   br label %_ZN6vectorIjLb0EjE4backEv.exit
 
-_ZN6vectorIjLb0EjE4backEv.exit:                   ; preds = %99, %101
-  %.pre-phi = phi i32 [ %104, %101 ], [ undef, %99 ]
-  %.0.i.i = phi i64 [ %105, %101 ], [ 4294967295, %99 ]
+_ZN6vectorIjLb0EjE4backEv.exit:                   ; preds = %._ZN6vectorIjLb0EjE4backEv.exit_crit_edge, %101
+  %.pre-phi = phi i32 [ %.pre54, %._ZN6vectorIjLb0EjE4backEv.exit_crit_edge ], [ %104, %101 ]
+  %.0.i.i = phi i64 [ 4294967295, %._ZN6vectorIjLb0EjE4backEv.exit_crit_edge ], [ %105, %101 ]
   %106 = getelementptr inbounds nuw i32, ptr %.pre, i64 %.0.i.i
   %107 = load i32, ptr %106, align 4, !tbaa !263
   %108 = getelementptr inbounds i8, ptr %.pre, i64 -4
@@ -3467,7 +3472,12 @@ _ZNK6vectorIjLb0EjE5emptyEv.exit:                 ; preds = %199
 _ZNK6vectorIjLb0EjE5emptyEv.exit.thread:          ; preds = %199, %_ZNK6vectorIjLb0EjE5emptyEv.exit
   %209 = load ptr, ptr %11, align 8, !tbaa !282
   %210 = icmp eq ptr %209, null
-  br i1 %210, label %.thread188, label %211
+  br i1 %210, label %_ZNK6vectorIjLb0EjE5emptyEv.exit.thread..thread188_crit_edge, label %211
+
+_ZNK6vectorIjLb0EjE5emptyEv.exit.thread..thread188_crit_edge: ; preds = %_ZNK6vectorIjLb0EjE5emptyEv.exit.thread
+  %.pre = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !263
+  %.pre224 = add i32 %.pre, -1
+  br label %.thread188
 
 211:                                              ; preds = %_ZNK6vectorIjLb0EjE5emptyEv.exit.thread
   %212 = getelementptr inbounds i8, ptr %209, i64 -4
@@ -3476,9 +3486,9 @@ _ZNK6vectorIjLb0EjE5emptyEv.exit.thread:          ; preds = %199, %_ZNK6vectorIj
   %215 = zext i32 %214 to i64
   br label %.thread188
 
-.thread188:                                       ; preds = %_ZNK6vectorIjLb0EjE5emptyEv.exit.thread, %211
-  %.pre-phi = phi i32 [ %214, %211 ], [ undef, %_ZNK6vectorIjLb0EjE5emptyEv.exit.thread ]
-  %.0.i.i96 = phi i64 [ %215, %211 ], [ 4294967295, %_ZNK6vectorIjLb0EjE5emptyEv.exit.thread ]
+.thread188:                                       ; preds = %_ZNK6vectorIjLb0EjE5emptyEv.exit.thread..thread188_crit_edge, %211
+  %.pre-phi = phi i32 [ %.pre224, %_ZNK6vectorIjLb0EjE5emptyEv.exit.thread..thread188_crit_edge ], [ %214, %211 ]
+  %.0.i.i96 = phi i64 [ 4294967295, %_ZNK6vectorIjLb0EjE5emptyEv.exit.thread..thread188_crit_edge ], [ %215, %211 ]
   %216 = getelementptr inbounds nuw i32, ptr %209, i64 %.0.i.i96
   %217 = load i32, ptr %216, align 4, !tbaa !263
   %218 = getelementptr inbounds i8, ptr %209, i64 -4

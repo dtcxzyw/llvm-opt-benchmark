@@ -427,7 +427,7 @@ _ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EED2Ev.exit: ; preds = %_ZSt8
 define linkonce_odr void @_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::vector<gmx::CorrelationTensor>::_Temporary_value", align 8
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %225, label %6
+  br i1 %.not, label %228, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -601,7 +601,7 @@ _ZSt13move_backwardIPN3gmx17CorrelationTensorES2_ET0_T_S4_S3_.exit: ; preds = %_
   %eh.lpad-body = phi { ptr, i32 } [ %89, %88 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE16_Temporary_valueD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
-  br label %226
+  br label %229
 
 79:                                               ; preds = %15
   %80 = sub nuw i64 %2, %21
@@ -757,7 +757,7 @@ _ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i: ; 
 
 _ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE16_Temporary_valueD2Ev.exit: ; preds = %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i, %130
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
-  br label %225
+  br label %228
 
 136:                                              ; preds = %6
   %137 = load ptr, ptr %0, align 8, !tbaa !33
@@ -969,41 +969,45 @@ _ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE13_M_deallocateEPS1_m.exit:
   store ptr %.0.lcssa.i.i.i.i.i103, ptr %9, align 8, !tbaa !32
   %219 = getelementptr inbounds nuw %"class.gmx::CorrelationTensor", ptr %153, i64 %147
   store ptr %219, ptr %7, align 8, !tbaa !35
-  br label %225
+  br label %228
 
 .body89:                                          ; preds = %162
   %220 = extractvalue { ptr, i32 } %163, 0
   %221 = tail call ptr @__cxa_begin_catch(ptr %220) #15
-  invoke void @_ZSt8_DestroyIPN3gmx17CorrelationTensorES1_EvT_S3_RSaIT0_E(ptr noundef nonnull %153, ptr noundef nonnull %153, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %.thread unwind label %222
+  %.not66 = icmp eq ptr %153, null
+  %222 = getelementptr inbounds nuw %"class.gmx::CorrelationTensor", ptr %154, i64 %2
+  %223 = select i1 %.not66, ptr %154, ptr %153
+  %224 = select i1 %.not66, ptr %222, ptr %153
+  invoke void @_ZSt8_DestroyIPN3gmx17CorrelationTensorES1_EvT_S3_RSaIT0_E(ptr noundef nonnull %223, ptr noundef nonnull %224, ptr noundef nonnull align 1 dereferenceable(1) %0)
+          to label %.thread unwind label %225
 
-222:                                              ; preds = %.body89, %.thread
-  %223 = landingpad { ptr, i32 }
+225:                                              ; preds = %.body89, %.thread
+  %226 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %226 unwind label %227
+          to label %229 unwind label %230
 
 .thread:                                          ; preds = %.body89
-  %224 = mul nuw nsw i64 %147, 24
-  tail call void @_ZdlPvm(ptr noundef nonnull %153, i64 noundef %224) #16
+  %227 = mul nuw nsw i64 %147, 24
+  tail call void @_ZdlPvm(ptr noundef nonnull %153, i64 noundef %227) #16
   invoke void @__cxa_rethrow() #17
-          to label %230 unwind label %222
+          to label %233 unwind label %225
 
-225:                                              ; preds = %_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE16_Temporary_valueD2Ev.exit, %_ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE13_M_deallocateEPS1_m.exit, %4
+228:                                              ; preds = %_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE16_Temporary_valueD2Ev.exit, %_ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE13_M_deallocateEPS1_m.exit, %4
   ret void
 
-226:                                              ; preds = %222, %.body
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %223, %222 ]
+229:                                              ; preds = %225, %.body
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %226, %225 ]
   resume { ptr, i32 } %.pn
 
-227:                                              ; preds = %222
-  %228 = landingpad { ptr, i32 }
+230:                                              ; preds = %225
+  %231 = landingpad { ptr, i32 }
           catch ptr null
-  %229 = extractvalue { ptr, i32 } %228, 0
-  tail call void @__clang_call_terminate(ptr %229) #18
+  %232 = extractvalue { ptr, i32 } %231, 0
+  tail call void @__clang_call_terminate(ptr %232) #18
   unreachable
 
-230:                                              ; preds = %.thread
+233:                                              ; preds = %.thread
   unreachable
 }
 

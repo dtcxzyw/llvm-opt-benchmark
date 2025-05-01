@@ -1373,14 +1373,14 @@ _ZSt9make_pairIRN4llvm9StringRefERSt6vectorINS0_7support6detail31packed_endian_s
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !26
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %11 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #18, !noalias !88
-  store ptr %11, ptr %9, align 8, !tbaa !92, !alias.scope !88
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %12, ptr %13, align 8, !tbaa !95, !alias.scope !88
-  store i32 %3, ptr %11, align 1, !noalias !88
-  store ptr %12, ptr %10, align 8, !tbaa !96, !alias.scope !88
+  %10 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #18, !noalias !88
+  store ptr %10, ptr %9, align 8, !tbaa !92, !alias.scope !88
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr %11, ptr %12, align 8, !tbaa !95, !alias.scope !88
+  store i32 %3, ptr %10, align 1, !noalias !88
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %11, ptr %13, align 8, !tbaa !96, !alias.scope !88
   %14 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %1, i64 %2) #17
   %15 = call { ptr, i8 } @_ZN4llvm9StringMapISt6vectorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEESaIS6_EENS_15MallocAllocatorEE21try_emplace_with_hashIJS8_EEESt4pairINS_17StringMapIteratorIS8_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr %1, i64 %2, i32 noundef %14, ptr noundef nonnull align 8 dereferenceable(24) %9)
   %.fca.0.extract = extractvalue { ptr, i8 } %15, 0
@@ -1390,7 +1390,7 @@ _ZSt9make_pairIRN4llvm9StringRefERSt6vectorINS0_7support6detail31packed_endian_s
   br i1 %.not.i.i.i.i, label %_ZNSt4pairIN4llvm9StringRefESt6vectorINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS7_EEED2Ev.exit, label %17
 
 17:                                               ; preds = %_ZSt9make_pairIRN4llvm9StringRefERSt6vectorINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS8_EEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSD_INSE_IT0_E4typeEE6__typeEEOSF_OSK_.exit
-  %18 = load ptr, ptr %13, align 8, !tbaa !95
+  %18 = load ptr, ptr %12, align 8, !tbaa !95
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %16 to i64
   %21 = sub i64 %19, %20

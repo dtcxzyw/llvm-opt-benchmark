@@ -16605,7 +16605,7 @@ list_length.exit125.thread.i.i:                   ; preds = %2586
   br i1 %2620, label %.lr.ph23.i.i, label %.critedge.i.i92
 
 .critedge.i.i92:                                  ; preds = %.lr.ph23.i.i, %.lr.ph.i.i91, %list_length.exit125.thread.i.i
-  %2621 = phi ptr [ null, %list_length.exit125.thread.i.i ], [ %2599, %.lr.ph.i.i91 ], [ %2599, %.lr.ph23.i.i ]
+  %2621 = phi ptr [ inttoptr (i64 4 to ptr), %list_length.exit125.thread.i.i ], [ %2599, %.lr.ph.i.i91 ], [ %2599, %.lr.ph23.i.i ]
   %2622 = phi ptr [ %2598, %list_length.exit125.thread.i.i ], [ %2607, %.lr.ph.i.i91 ], [ %2607, %.lr.ph23.i.i ]
   %2623 = phi ptr [ %2597, %list_length.exit125.thread.i.i ], [ %2603, %.lr.ph.i.i91 ], [ %2603, %.lr.ph23.i.i ]
   %2624 = load ptr, ptr %2441, align 8

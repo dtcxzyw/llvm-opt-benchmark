@@ -5405,7 +5405,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__det
   %19 = load i64, ptr %15, align 8
   %20 = icmp eq i64 %4, %19
   %21 = select i1 %18, i1 %20, i1 false
-  br i1 %21, label %_ZNKSt10_HashtableImSt4pairIKmNSt7__cxx114listISt8functionIFvvEESaIS6_EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toImEN32pxrInternal_v0_24__pxrReserved__6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit, label %.lr.ph.i.i
+  br i1 %21, label %_ZNSt10_HashtableImSt4pairIKmNSt7__cxx114listISt8functionIFvvEESaIS6_EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toImEN32pxrInternal_v0_24__pxrReserved__6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit, label %.lr.ph.i.i
 
 22:                                               ; preds = %29
   %23 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -5413,7 +5413,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__det
   %25 = load i64, ptr %23, align 8
   %26 = icmp eq i64 %4, %25
   %27 = select i1 %24, i1 %26, i1 false
-  br i1 %27, label %_ZNKSt10_HashtableImSt4pairIKmNSt7__cxx114listISt8functionIFvvEESaIS6_EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toImEN32pxrInternal_v0_24__pxrReserved__6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit, label %.lr.ph.i.i, !llvm.loop !17
+  br i1 %27, label %_ZNSt10_HashtableImSt4pairIKmNSt7__cxx114listISt8functionIFvvEESaIS6_EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toImEN32pxrInternal_v0_24__pxrReserved__6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit, label %.lr.ph.i.i, !llvm.loop !17
 
 .lr.ph.i.i:                                       ; preds = %13, %22
   %.018.i.i = phi ptr [ %28, %22 ], [ %14, %13 ]
@@ -5446,7 +5446,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__det
   store i64 0, ptr %38, align 8
   store ptr %34, ptr %33, align 8
   %39 = invoke ptr @_ZNSt10_HashtableImSt4pairIKmNSt7__cxx114listISt8functionIFvvEESaIS6_EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toImEN32pxrInternal_v0_24__pxrReserved__6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSB_10_Hash_nodeIS9_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %9, i64 noundef %6, ptr noundef nonnull %34, i64 noundef 1)
-          to label %_ZNKSt10_HashtableImSt4pairIKmNSt7__cxx114listISt8functionIFvvEESaIS6_EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toImEN32pxrInternal_v0_24__pxrReserved__6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit unwind label %40
+          to label %_ZNSt10_HashtableImSt4pairIKmNSt7__cxx114listISt8functionIFvvEESaIS6_EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toImEN32pxrInternal_v0_24__pxrReserved__6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %40
 
 40:                                               ; preds = %.loopexit
   %41 = landingpad { ptr, i32 }
@@ -5454,7 +5454,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__det
   call void @_ZNSt10_HashtableImSt4pairIKmNSt7__cxx114listISt8functionIFvvEESaIS6_EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toImEN32pxrInternal_v0_24__pxrReserved__6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   resume { ptr, i32 } %41
 
-_ZNKSt10_HashtableImSt4pairIKmNSt7__cxx114listISt8functionIFvvEESaIS6_EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toImEN32pxrInternal_v0_24__pxrReserved__6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %22, %.loopexit, %13
+_ZNSt10_HashtableImSt4pairIKmNSt7__cxx114listISt8functionIFvvEESaIS6_EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toImEN32pxrInternal_v0_24__pxrReserved__6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %22, %.loopexit, %13
   %.0.i.pn = phi ptr [ %14, %13 ], [ %39, %.loopexit ], [ %28, %22 ]
   %.0 = getelementptr inbounds nuw i8, ptr %.0.i.pn, i64 16
   ret ptr %.0

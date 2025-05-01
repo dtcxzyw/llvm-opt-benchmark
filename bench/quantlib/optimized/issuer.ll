@@ -2128,7 +2128,10 @@ _ZNKSt6vectorISt4pairIN8QuantLib14DefaultProbKeyENS1_6HandleINS1_31DefaultProbab
 
 invoke.cont.i.i.i.i.i.thread:                     ; preds = %_ZNKSt6vectorISt4pairIN8QuantLib14DefaultProbKeyENS1_6HandleINS1_31DefaultProbabilityTermStructureEEEESaIS6_EE12_M_check_lenEmPKc.exit
   %_M_finish.i.i.i.i.i.i.i54 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr, i8 0, i64 24, i1 false)
+  %add.ptr.i.i.i.i.i.i.i55 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i.i
+  %_M_end_of_storage.i.i.i.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i.i.i.i.i55, ptr %_M_end_of_storage.i.i.i.i.i.i.i56, align 8, !tbaa !41
   br label %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESaIS4_EEC2ERKS6_.exit.i.i.i.i
 
 cond.true.i.i.i.i.i.i.i.i:                        ; preds = %_ZNKSt6vectorISt4pairIN8QuantLib14DefaultProbKeyENS1_6HandleINS1_31DefaultProbabilityTermStructureEEEESaIS6_EE12_M_check_lenEmPKc.exit

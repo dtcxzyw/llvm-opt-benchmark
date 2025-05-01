@@ -3205,11 +3205,11 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
 15:                                               ; preds = %thread-pre-split, %zend_parse_arg_str_ex.exit.thread
   %16 = phi ptr [ %.pr, %thread-pre-split ], [ %13, %zend_parse_arg_str_ex.exit.thread ]
   %.not.i = icmp eq ptr %16, null
-  br i1 %.not.i, label %.critedge.thread, label %17
+  br i1 %.not.i, label %..critedge_crit_edge, label %17
 
-.critedge.thread:                                 ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
-  br label %25
+..critedge_crit_edge:                             ; preds = %15
+  %.pre = load i64, ptr inttoptr (i64 16 to ptr), align 16, !tbaa !80
+  br label %.critedge
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -3231,63 +3231,64 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
   call void @zend_wrong_parameter_error(i32 noundef %.038.ph, i32 noundef %.0.ph, ptr noundef null, i32 noundef %.040.ph, ptr noundef %.039.ph) #12
   br label %xml_writer_create_static.exit
 
-.critedge:                                        ; preds = %17
+.critedge:                                        ; preds = %..critedge_crit_edge, %17
+  %24 = phi i64 [ %.pre, %..critedge_crit_edge ], [ %20, %17 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
-  %24 = icmp eq i64 %20, 0
-  br i1 %24, label %25, label %28
+  %25 = icmp eq i64 %24, 0
+  br i1 %25, label %26, label %29
 
-25:                                               ; preds = %.critedge.thread, %.critedge
+26:                                               ; preds = %.critedge
   call void @zend_argument_must_not_be_empty_error(i32 noundef 1) #12
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %27 = icmp ne ptr %26, null
-  call void @llvm.assume(i1 %27)
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
+  %28 = icmp ne ptr %27, null
+  call void @llvm.assume(i1 %28)
   br label %xml_writer_create_static.exit
 
-28:                                               ; preds = %.critedge
-  %29 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %30 = call fastcc ptr @_xmlwriter_get_valid_file_path(ptr noundef nonnull %29, ptr noundef %4)
-  %.not45 = icmp eq ptr %30, null
-  br i1 %.not45, label %31, label %34
+29:                                               ; preds = %.critedge
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %31 = call fastcc ptr @_xmlwriter_get_valid_file_path(ptr noundef nonnull %30, ptr noundef %4)
+  %.not45 = icmp eq ptr %31, null
+  br i1 %.not45, label %32, label %35
 
-31:                                               ; preds = %28
+32:                                               ; preds = %29
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.22) #12
-  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %33 = icmp ne ptr %32, null
-  call void @llvm.assume(i1 %33)
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
+  %34 = icmp ne ptr %33, null
+  call void @llvm.assume(i1 %34)
   br label %xml_writer_create_static.exit
 
-34:                                               ; preds = %28
-  %35 = call ptr @xmlNewTextWriterFilename(ptr noundef nonnull %30, i32 noundef 0) #12
-  %.not46 = icmp eq ptr %35, null
-  br i1 %.not46, label %36, label %39
+35:                                               ; preds = %29
+  %36 = call ptr @xmlNewTextWriterFilename(ptr noundef nonnull %31, i32 noundef 0) #12
+  %.not46 = icmp eq ptr %36, null
+  br i1 %.not46, label %37, label %40
 
-36:                                               ; preds = %34
+37:                                               ; preds = %35
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.23) #12
-  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %38 = icmp ne ptr %37, null
-  call void @llvm.assume(i1 %38)
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
+  %39 = icmp ne ptr %38, null
+  call void @llvm.assume(i1 %39)
   br label %xml_writer_create_static.exit
 
-39:                                               ; preds = %34
-  %40 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %40, align 8, !tbaa !32
-  %41 = call i32 @object_init_with_constructor(ptr noundef %1, ptr noundef %.val, i32 noundef 0, ptr noundef null, ptr noundef null) #12
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %47
+40:                                               ; preds = %35
+  %41 = getelementptr i8, ptr %0, i64 32
+  %.val = load ptr, ptr %41, align 8, !tbaa !32
+  %42 = call i32 @object_init_with_constructor(ptr noundef %1, ptr noundef %.val, i32 noundef 0, ptr noundef null, ptr noundef null) #12
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %44, label %48
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr %1, align 8, !tbaa !32
-  %45 = getelementptr inbounds i8, ptr %44, i64 -16
-  store ptr %35, ptr %45, align 8, !tbaa !63
-  %46 = getelementptr inbounds i8, ptr %44, i64 -8
-  store ptr null, ptr %46, align 8, !tbaa !72
+44:                                               ; preds = %40
+  %45 = load ptr, ptr %1, align 8, !tbaa !32
+  %46 = getelementptr inbounds i8, ptr %45, i64 -16
+  store ptr %36, ptr %46, align 8, !tbaa !63
+  %47 = getelementptr inbounds i8, ptr %45, i64 -8
+  store ptr null, ptr %47, align 8, !tbaa !72
   br label %xml_writer_create_static.exit
 
-47:                                               ; preds = %39
-  call void @xmlFreeTextWriter(ptr noundef nonnull %35) #12
+48:                                               ; preds = %40
+  call void @xmlFreeTextWriter(ptr noundef nonnull %36) #12
   br label %xml_writer_create_static.exit
 
-xml_writer_create_static.exit:                    ; preds = %47, %43, %23, %31, %36, %25
+xml_writer_create_static.exit:                    ; preds = %48, %44, %23, %32, %37, %26
   call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %4) #12
   ret void
 }

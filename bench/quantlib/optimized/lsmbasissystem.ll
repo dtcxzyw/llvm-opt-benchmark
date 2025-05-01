@@ -1477,6 +1477,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorImSaImE
   %cmp.i.i.i.i.i.i238 = icmp ugt i64 %sub.ptr.sub.i.i48, 9223372036854775776
   %_M_finish.i.i.i242 = getelementptr inbounds nuw i8, ptr %agg.tmp80, i64 8
   %_M_end_of_storage.i.i.i244 = getelementptr inbounds nuw i8, ptr %agg.tmp80, i64 16
+  %add.ptr.i.i.i243468 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i48
   %_M_finish.i.i270 = getelementptr inbounds nuw i8, ptr %ref.tmp79, i64 8
   %_M_end_of_storage.i.i.i287 = getelementptr inbounds nuw i8, ptr %ref.tmp79, i64 16
   %umax = call i64 @llvm.umax.i64(i64 %dim, i64 1)
@@ -2403,6 +2404,10 @@ call5.i.i.i.i.i.i.i.noexc.i:                      ; preds = %_ZNSt8_Rb_treeISt6v
 
 invoke.cont.i.i.i.i.thread:                       ; preds = %call5.i.i.i.i.i.i.i.noexc.i
   %_M_finish.i.i.i.i.i.i461 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i49.i, i64 40
+  %add.ptr.i.i.i.i.i.i462 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i27.i
+  %_M_end_of_storage.i.i.i.i.i.i463 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i49.i, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i.i.i.i462, ptr %_M_end_of_storage.i.i.i.i.i.i463, align 8, !tbaa !55, !noalias !58
   br label %.noexc50.i
 
 cond.true.i.i.i.i.i.i.i:                          ; preds = %call5.i.i.i.i.i.i.i.noexc.i
@@ -2465,7 +2470,7 @@ unreachable.i:                                    ; preds = %lpad.i406
   unreachable
 
 .noexc50.i:                                       ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.thread
-  %add.ptr.i.i.i.i.i.i465 = phi ptr [ null, %invoke.cont.i.i.i.i.thread ], [ %add.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i.i.i.i465 = phi ptr [ %add.ptr.i.i.i.i.i.i462, %invoke.cont.i.i.i.i.thread ], [ %add.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i.i.i464 = phi ptr [ %_M_finish.i.i.i.i.i.i461, %invoke.cont.i.i.i.i.thread ], [ %_M_finish.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i.i.i.i465, ptr %_M_finish.i.i.i.i.i.i464, align 8, !tbaa !56, !noalias !58
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %130, ptr noundef nonnull %call5.i.i.i.i.i.i.i49.i, ptr noundef nonnull %retval.sroa.4.0.i82.i, ptr noundef nonnull align 8 dereferenceable(32) %41) #24, !noalias !58
@@ -2593,7 +2598,12 @@ lpad56:                                           ; preds = %if.then40.i.i, %if.
 for.cond.cleanup70:                               ; preds = %for.inc
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp79) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp80, i8 0, i64 24, i1 false)
-  br i1 %cmp.not.i.i.i.i49, label %invoke.cont82, label %cond.true.i.i.i.i237
+  br i1 %cmp.not.i.i.i.i49, label %invoke.cont.i240.thread, label %cond.true.i.i.i.i237
+
+invoke.cont.i240.thread:                          ; preds = %for.cond.cleanup70
+  store i64 0, ptr %agg.tmp80, align 8
+  store ptr %add.ptr.i.i.i243468, ptr %_M_end_of_storage.i.i.i244, align 8, !tbaa !8
+  br label %invoke.cont82
 
 cond.true.i.i.i.i237:                             ; preds = %for.cond.cleanup70
   br i1 %cmp.i.i.i.i.i.i238, label %if.then3.i.i.i.i.i.i253, label %_ZNSt16allocator_traitsISaISt8functionIFddEEEE8allocateERS3_m.exit.i.i.i.i239, !prof !52
@@ -2781,8 +2791,8 @@ for.inc:                                          ; preds = %if.then.i4.i, %_ZNS
   %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.cond.cleanup70, label %for.body71, !llvm.loop !79
 
-invoke.cont82:                                    ; preds = %for.inc.i, %for.cond.cleanup70
-  %__cur.0.lcssa.i = phi ptr [ null, %for.cond.cleanup70 ], [ %incdec.ptr.i420, %for.inc.i ]
+invoke.cont82:                                    ; preds = %for.inc.i, %invoke.cont.i240.thread
+  %__cur.0.lcssa.i = phi ptr [ null, %invoke.cont.i240.thread ], [ %incdec.ptr.i420, %for.inc.i ]
   store ptr %__cur.0.lcssa.i, ptr %_M_finish.i.i.i242, align 8, !tbaa !9
   invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_111MultiDimFctC2ESt6vectorISt8functionIFddEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp79, ptr noundef %agg.tmp80)
           to label %invoke.cont84 unwind label %lpad83

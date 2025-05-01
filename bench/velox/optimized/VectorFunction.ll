@@ -280,12 +280,7 @@ _ZN8facebook5velox4exec23vectorFunctionFactoriesB5cxx11Ev.exit: ; preds = %entry
 
 call.i.i.noexc.i:                                 ; preds = %.noexc
   %cmp.i.i.i = icmp eq ptr %call.i.i1.i, null
-  br i1 %cmp.i.i.i, label %invoke.cont2.thread.i, label %cond.false.i.i
-
-invoke.cont2.thread.i:                            ; preds = %call.i.i.noexc.i
-  %_M_engaged.i.i.i.i.i2.i4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
-  store i8 0, ptr %_M_engaged.i.i.i.i.i2.i4.i, align 8, !alias.scope !16
-  br label %if.then.i.i.i
+  br i1 %cmp.i.i.i, label %if.then.i.i.sink.split.i, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %call.i.i.noexc.i
   %second.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 40
@@ -300,9 +295,12 @@ cond.false.i.i:                                   ; preds = %call.i.i.noexc.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont2.thread5.i, label %cond.true.i.i.i.i.i.i.i.i.i.i.i.i
 
 invoke.cont2.thread5.i:                           ; preds = %cond.false.i.i
-  %_M_engaged.i.i.i.i.i2.i9.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
-  store i8 1, ptr %_M_engaged.i.i.i.i.i2.i9.i, align 8, !alias.scope !16
-  br label %if.then.i.i.i
+  %_M_finish.i.i.i.i.i.i.i.i.i3.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %add.ptr.i.i.i.i.i.i.i.i.i4.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i5.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  store ptr %add.ptr.i.i.i.i.i.i.i.i.i4.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i5.i.i, align 8, !alias.scope !16
+  store ptr null, ptr %_M_finish.i.i.i.i.i.i.i.i.i3.i.i, align 8, !alias.scope !16
+  br label %if.then.i.i.sink.split.i
 
 cond.true.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %cond.false.i.i
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i, 9223372036854775792
@@ -374,8 +372,14 @@ invoke.cont2.i.if.then.i.i.i_crit_edge:           ; preds = %invoke.cont2.i
   %.pre = load ptr, ptr %ref.tmp.i, align 8, !noalias !7
   br label %if.then.i.i.i
 
-if.then.i.i.i:                                    ; preds = %invoke.cont2.i.if.then.i.i.i_crit_edge, %invoke.cont2.thread5.i, %invoke.cont2.thread.i
-  %11 = phi ptr [ %.pre, %invoke.cont2.i.if.then.i.i.i_crit_edge ], [ getelementptr inbounds nuw (i8, ptr @_ZZN8facebook5velox4exec23vectorFunctionFactoriesB5cxx11EvE9factoriesB5cxx11, i64 56), %invoke.cont2.thread5.i ], [ getelementptr inbounds nuw (i8, ptr @_ZZN8facebook5velox4exec23vectorFunctionFactoriesB5cxx11EvE9factoriesB5cxx11, i64 56), %invoke.cont2.thread.i ]
+if.then.i.i.sink.split.i:                         ; preds = %invoke.cont2.thread5.i, %call.i.i.noexc.i
+  %.sink.i = phi i8 [ 1, %invoke.cont2.thread5.i ], [ 0, %call.i.i.noexc.i ]
+  %_M_engaged.i.i.i.i.i2.i9.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
+  store i8 %.sink.i, ptr %_M_engaged.i.i.i.i.i2.i9.i, align 8, !alias.scope !16
+  br label %if.then.i.i.i
+
+if.then.i.i.i:                                    ; preds = %invoke.cont2.i.if.then.i.i.i_crit_edge, %if.then.i.i.sink.split.i
+  %11 = phi ptr [ %.pre, %invoke.cont2.i.if.then.i.i.i_crit_edge ], [ getelementptr inbounds nuw (i8, ptr @_ZZN8facebook5velox4exec23vectorFunctionFactoriesB5cxx11EvE9factoriesB5cxx11, i64 56), %if.then.i.i.sink.split.i ]
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13unlock_sharedEv(ptr noundef nonnull align 4 dereferenceable(4) %11)
           to label %invoke.cont unwind label %terminate.lpad.i.i.i, !noalias !7
 
@@ -2025,6 +2029,10 @@ _ZNSt10shared_ptrIN8facebook5velox4exec14VectorFunctionEEC2ERKS4_.exit: ; preds 
 
 invoke.cont.i.thread:                             ; preds = %_ZNSt10shared_ptrIN8facebook5velox4exec14VectorFunctionEEC2ERKS4_.exit
   %_M_finish.i.i.i33 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
+  %add.ptr.i.i.i34 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
+  %_M_end_of_storage.i.i.i35 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i34, ptr %_M_end_of_storage.i.i.i35, align 8
   br label %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %_ZNSt10shared_ptrIN8facebook5velox4exec14VectorFunctionEEC2ERKS4_.exit

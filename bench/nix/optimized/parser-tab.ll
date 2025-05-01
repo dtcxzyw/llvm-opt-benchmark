@@ -19132,46 +19132,52 @@ define linkonce_odr void @_ZNSt6vectorIPN3nix4ExprESaIS2_EEC2ESt16initializer_li
 
 6:                                                ; preds = %4
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #39
-          to label %.noexc unwind label %13
+          to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %6
   unreachable
 
 _ZNSt6vectorIPN3nix4ExprESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds = %4
   %.not.i.i = icmp eq i64 %2, 0
-  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIPN3nix4ExprESaIS2_EE11_M_allocateEm.exit.thread.i, label %7
+  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIPN3nix4ExprESaIS2_EE11_M_allocateEm.exit.thread.i, label %9
 
-7:                                                ; preds = %_ZNSt6vectorIPN3nix4ExprESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
-  %8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #42
-          to label %.noexc3 unwind label %13
+_ZNSt12_Vector_baseIPN3nix4ExprESaIS2_EE11_M_allocateEm.exit.thread.i: ; preds = %_ZNSt6vectorIPN3nix4ExprESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
+  %7 = getelementptr inbounds nuw i8, ptr null, i64 %.idx
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %7, ptr %8, align 8
+  br label %13
 
-.noexc3:                                          ; preds = %7
-  store ptr %8, ptr %0, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %9, ptr %10, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %8, ptr align 8 %1, i64 %.idx, i1 false)
-  br label %_ZNSt12_Vector_baseIPN3nix4ExprESaIS2_EE11_M_allocateEm.exit.thread.i
+9:                                                ; preds = %_ZNSt6vectorIPN3nix4ExprESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
+  %10 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #42
+          to label %.noexc3 unwind label %16
 
-_ZNSt12_Vector_baseIPN3nix4ExprESaIS2_EE11_M_allocateEm.exit.thread.i: ; preds = %_ZNSt6vectorIPN3nix4ExprESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i, %.noexc3
-  %11 = phi ptr [ %9, %.noexc3 ], [ null, %_ZNSt6vectorIPN3nix4ExprESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ]
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+.noexc3:                                          ; preds = %9
+  store ptr %10, ptr %0, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %12, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr align 8 %1, i64 %.idx, i1 false)
+  br label %13
+
+13:                                               ; preds = %.noexc3, %_ZNSt12_Vector_baseIPN3nix4ExprESaIS2_EE11_M_allocateEm.exit.thread.i
+  %14 = phi ptr [ %7, %_ZNSt12_Vector_baseIPN3nix4ExprESaIS2_EE11_M_allocateEm.exit.thread.i ], [ %11, %.noexc3 ]
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %14, ptr %15, align 8
   ret void
 
-13:                                               ; preds = %7, %6
-  %14 = landingpad { ptr, i32 }
+16:                                               ; preds = %9, %6
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %15 = load ptr, ptr %0, align 8
-  %.not.i.i4 = icmp eq ptr %15, null
-  br i1 %.not.i.i4, label %_ZNSt12_Vector_baseIPN3nix4ExprESaIS2_EED2Ev.exit, label %16
+  %18 = load ptr, ptr %0, align 8
+  %.not.i.i4 = icmp eq ptr %18, null
+  br i1 %.not.i.i4, label %_ZNSt12_Vector_baseIPN3nix4ExprESaIS2_EED2Ev.exit, label %19
 
-16:                                               ; preds = %13
-  tail call void @_ZdlPv(ptr noundef nonnull %15) #41
+19:                                               ; preds = %16
+  tail call void @_ZdlPv(ptr noundef nonnull %18) #41
   br label %_ZNSt12_Vector_baseIPN3nix4ExprESaIS2_EED2Ev.exit
 
-_ZNSt12_Vector_baseIPN3nix4ExprESaIS2_EED2Ev.exit: ; preds = %13, %16
-  resume { ptr, i32 } %14
+_ZNSt12_Vector_baseIPN3nix4ExprESaIS2_EED2Ev.exit: ; preds = %16, %19
+  resume { ptr, i32 } %17
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -19244,7 +19250,7 @@ define linkonce_odr void @_ZNSt6vectorISt4pairIN3nix6PosIdxEPNS1_4ExprEESaIS5_EE
 
 6:                                                ; preds = %4
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #39
-          to label %.noexc unwind label %11
+          to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %6
   unreachable
@@ -19253,37 +19259,43 @@ _ZNSt6vectorISt4pairIN3nix6PosIdxEPNS1_4ExprEESaIS5_EE17_S_check_init_lenEmRKS6_
   %.not.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseISt4pairIN3nix6PosIdxEPNS1_4ExprEESaIS5_EE11_M_allocateEm.exit.thread.i, label %.lr.ph.i.i.i.i.preheader.i
 
+_ZNSt12_Vector_baseISt4pairIN3nix6PosIdxEPNS1_4ExprEESaIS5_EE11_M_allocateEm.exit.thread.i: ; preds = %_ZNSt6vectorISt4pairIN3nix6PosIdxEPNS1_4ExprEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i
+  %7 = getelementptr inbounds nuw i8, ptr null, i64 %.idx
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %7, ptr %8, align 8
+  br label %12
+
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZNSt6vectorISt4pairIN3nix6PosIdxEPNS1_4ExprEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i
-  %7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #42
-          to label %.noexc3 unwind label %11
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #42
+          to label %.noexc3 unwind label %14
 
 .noexc3:                                          ; preds = %.lr.ph.i.i.i.i.preheader.i
-  store ptr %7, ptr %0, align 8
-  %8 = getelementptr i8, ptr %7, i64 %.idx
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %8, ptr %9, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %7, ptr align 8 %1, i64 %.idx, i1 false)
-  br label %_ZNSt12_Vector_baseISt4pairIN3nix6PosIdxEPNS1_4ExprEESaIS5_EE11_M_allocateEm.exit.thread.i
+  store ptr %9, ptr %0, align 8
+  %10 = getelementptr i8, ptr %9, i64 %.idx
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %10, ptr %11, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr align 8 %1, i64 %.idx, i1 false)
+  br label %12
 
-_ZNSt12_Vector_baseISt4pairIN3nix6PosIdxEPNS1_4ExprEESaIS5_EE11_M_allocateEm.exit.thread.i: ; preds = %_ZNSt6vectorISt4pairIN3nix6PosIdxEPNS1_4ExprEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i, %.noexc3
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %8, %.noexc3 ], [ null, %_ZNSt6vectorISt4pairIN3nix6PosIdxEPNS1_4ExprEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i ]
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.lcssa.i.i.i.i.i, ptr %10, align 8
+12:                                               ; preds = %.noexc3, %_ZNSt12_Vector_baseISt4pairIN3nix6PosIdxEPNS1_4ExprEESaIS5_EE11_M_allocateEm.exit.thread.i
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %10, %.noexc3 ], [ null, %_ZNSt12_Vector_baseISt4pairIN3nix6PosIdxEPNS1_4ExprEESaIS5_EE11_M_allocateEm.exit.thread.i ]
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.lcssa.i.i.i.i.i, ptr %13, align 8
   ret void
 
-11:                                               ; preds = %.lr.ph.i.i.i.i.preheader.i, %6
-  %12 = landingpad { ptr, i32 }
+14:                                               ; preds = %.lr.ph.i.i.i.i.preheader.i, %6
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %13 = load ptr, ptr %0, align 8
-  %.not.i.i4 = icmp eq ptr %13, null
-  br i1 %.not.i.i4, label %_ZNSt12_Vector_baseISt4pairIN3nix6PosIdxEPNS1_4ExprEESaIS5_EED2Ev.exit, label %14
+  %16 = load ptr, ptr %0, align 8
+  %.not.i.i4 = icmp eq ptr %16, null
+  br i1 %.not.i.i4, label %_ZNSt12_Vector_baseISt4pairIN3nix6PosIdxEPNS1_4ExprEESaIS5_EED2Ev.exit, label %17
 
-14:                                               ; preds = %11
-  tail call void @_ZdlPv(ptr noundef nonnull %13) #41
+17:                                               ; preds = %14
+  tail call void @_ZdlPv(ptr noundef nonnull %16) #41
   br label %_ZNSt12_Vector_baseISt4pairIN3nix6PosIdxEPNS1_4ExprEESaIS5_EED2Ev.exit
 
-_ZNSt12_Vector_baseISt4pairIN3nix6PosIdxEPNS1_4ExprEESaIS5_EED2Ev.exit: ; preds = %11, %14
-  resume { ptr, i32 } %12
+_ZNSt12_Vector_baseISt4pairIN3nix6PosIdxEPNS1_4ExprEESaIS5_EED2Ev.exit: ; preds = %14, %17
+  resume { ptr, i32 } %15
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)

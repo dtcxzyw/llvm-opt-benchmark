@@ -1041,7 +1041,13 @@ invoke.cont9:                                     ; preds = %invoke.cont
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %add.ptr.i.idx = shl nuw nsw i64 %14, 3
   %cmp.not.i.i.i = icmp eq i64 %14, 0
-  br i1 %cmp.not.i.i.i, label %invoke.cont16, label %if.then.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.thread.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
+
+_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.thread.i.i: ; preds = %invoke.cont9
+  %add.ptr5.i.i = getelementptr inbounds nuw i8, ptr null, i64 %add.ptr.i.idx
+  %_M_end_of_storage6.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  store ptr %add.ptr5.i.i, ptr %_M_end_of_storage6.i.i, align 8, !tbaa !29
+  br label %invoke.cont16
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %invoke.cont9
   %call5.i.i.i.i1.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.ptr.i.idx) #22
@@ -1055,8 +1061,8 @@ call5.i.i.i.i.noexc.i:                            ; preds = %if.then.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i1.i, ptr align 8 %13, i64 %add.ptr.i.idx, i1 false)
   br label %invoke.cont16
 
-invoke.cont16:                                    ; preds = %call5.i.i.i.i.noexc.i, %invoke.cont9
-  %add.ptr7.i.i = phi ptr [ %add.ptr.i.i5, %call5.i.i.i.i.noexc.i ], [ null, %invoke.cont9 ]
+invoke.cont16:                                    ; preds = %call5.i.i.i.i.noexc.i, %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.thread.i.i
+  %add.ptr7.i.i = phi ptr [ %add.ptr5.i.i, %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.thread.i.i ], [ %add.ptr.i.i5, %call5.i.i.i.i.noexc.i ]
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %add.ptr7.i.i, ptr %_M_finish.i.i, align 8, !tbaa !30
   %cmp.not.i.i = icmp eq ptr %13, null
@@ -1495,7 +1501,13 @@ _ZN8QuantLib6MatrixD2Ev.exit:                     ; preds = %invoke.cont11, %_ZN
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %add.ptr.i.idx = shl nuw nsw i64 %15, 3
   %cmp.not.i.i.i = icmp eq i64 %15, 0
-  br i1 %cmp.not.i.i.i, label %invoke.cont19, label %if.then.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.thread.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
+
+_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZN8QuantLib6MatrixD2Ev.exit
+  %add.ptr5.i.i = getelementptr inbounds nuw i8, ptr null, i64 %add.ptr.i.idx
+  %_M_end_of_storage6.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  store ptr %add.ptr5.i.i, ptr %_M_end_of_storage6.i.i, align 8, !tbaa !29
+  br label %invoke.cont19
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZN8QuantLib6MatrixD2Ev.exit
   %call5.i.i.i.i1.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.ptr.i.idx) #22
@@ -1509,8 +1521,8 @@ call5.i.i.i.i.noexc.i:                            ; preds = %if.then.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i1.i, ptr align 8 %14, i64 %add.ptr.i.idx, i1 false)
   br label %invoke.cont19
 
-invoke.cont19:                                    ; preds = %call5.i.i.i.i.noexc.i, %_ZN8QuantLib6MatrixD2Ev.exit
-  %add.ptr7.i.i = phi ptr [ %add.ptr.i.i8, %call5.i.i.i.i.noexc.i ], [ null, %_ZN8QuantLib6MatrixD2Ev.exit ]
+invoke.cont19:                                    ; preds = %call5.i.i.i.i.noexc.i, %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.thread.i.i
+  %add.ptr7.i.i = phi ptr [ %add.ptr5.i.i, %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.thread.i.i ], [ %add.ptr.i.i8, %call5.i.i.i.i.noexc.i ]
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %add.ptr7.i.i, ptr %_M_finish.i.i, align 8, !tbaa !30
   %cmp.not.i.i9 = icmp eq ptr %14, null

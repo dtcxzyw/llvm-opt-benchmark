@@ -6075,6 +6075,10 @@ invoke.cont27.i:                                  ; preds = %call.i.noexc125.i
 
 invoke.cont.i.i.thread.i:                         ; preds = %invoke.cont27.i
   %_M_finish.i.i.i.i4.i = getelementptr inbounds nuw i8, ptr %remainingRows.i, i64 8
+  %add.ptr.i.i.i.i1295.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i
+  %_M_end_of_storage.i.i.i.i6.i = getelementptr inbounds nuw i8, ptr %remainingRows.i, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remainingRows.i, i8 0, i64 16, i1 false), !noalias !60
+  store ptr %add.ptr.i.i.i.i1295.i, ptr %_M_end_of_storage.i.i.i.i6.i, align 8, !noalias !60
   br label %invoke.cont29.i
 
 cond.true.i.i.i.i.i.i:                            ; preds = %invoke.cont27.i
@@ -6103,7 +6107,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZNSt16allocator_tr
   br label %invoke.cont29.i
 
 invoke.cont29.i:                                  ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.thread.i
-  %add.ptr.i.i.i.i1298.i = phi ptr [ null, %invoke.cont.i.i.thread.i ], [ %add.ptr.i.i.i.i129.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i.i1298.i = phi ptr [ %add.ptr.i.i.i.i1295.i, %invoke.cont.i.i.thread.i ], [ %add.ptr.i.i.i.i129.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i7.i = phi ptr [ %_M_finish.i.i.i.i4.i, %invoke.cont.i.i.thread.i ], [ %_M_finish.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i.i1298.i, ptr %_M_finish.i.i.i.i7.i, align 8, !noalias !60
   %size_.i.i = getelementptr inbounds nuw i8, ptr %remainingRows.i, i64 24

@@ -353,12 +353,12 @@ define noundef i32 @_Z13gmx_potentialiPPc(i32 noundef %0, ptr noundef %1) local_
   br label %.body
 
 .loopexit.split-lp.loopexit:                      ; preds = %.noexc27, %.noexc26, %.lr.ph.i
-  %lpad.loopexit116 = landingpad { ptr, i32 }
+  %lpad.loopexit115 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %._crit_edge72.i, %.noexc36, %445, %.split.us.i, %273, %._crit_edge.i, %.noexc24, %.noexc23, %234, %217, %186, %_ZL13gmx_snew_implIPiEvPKcS2_iRPT_m.exit, %_ZL13gmx_snew_implIPcEvPKcS2_iRPT_m.exit, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %184, %176, %172, %167, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit, %2
-  %lpad.loopexit.split-lp117 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp116 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -2331,7 +2331,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   ret i32 0
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %279, %587, %.body62, %182
-  %.pn18.pn = phi { ptr, i32 } [ %.pn18, %.body62 ], [ %.pn, %182 ], [ %280, %279 ], [ %.pn.i, %587 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit116, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp117, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn18.pn = phi { ptr, i32 } [ %.pn18, %.body62 ], [ %.pn, %182 ], [ %280, %279 ], [ %.pn.i, %587 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit115, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp116, %.loopexit.split-lp.loopexit.split-lp ]
   %945 = getelementptr inbounds nuw i8, ptr %42, i64 336
   br label %946
 

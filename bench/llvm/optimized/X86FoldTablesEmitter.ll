@@ -4183,127 +4183,133 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIhSt4pairIKhSt6vectorIPKN4llvm18C
   %14 = ptrtoint ptr %12 to i64
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, %13
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIPKN4llvm18CodeGenInstructionESaIS3_EEC2EmRKS4_.exit.i.i.i.i.i.thread.i.i.i, label %17
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIPKN4llvm18CodeGenInstructionESaIS3_EEC2EmRKS4_.exit.i.i.i.i.i.thread.i.i.i, label %19
 
 _ZNSt12_Vector_baseIPKN4llvm18CodeGenInstructionESaIS3_EEC2EmRKS4_.exit.i.i.i.i.i.thread.i.i.i: ; preds = %4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  %17 = getelementptr inbounds i8, ptr null, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  store ptr %17, ptr %18, align 8, !tbaa !135
   br label %_ZNSt8_Rb_treeIhSt4pairIKhSt6vectorIPKN4llvm18CodeGenInstructionESaIS6_EEESt10_Select1stIS9_ESt4lessIhESaIS9_EE13_M_clone_nodeILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_RT0_.exit
 
-17:                                               ; preds = %4
-  %18 = icmp ugt i64 %16, 9223372036854775800
-  br i1 %18, label %19, label %20, !prof !253
+19:                                               ; preds = %4
+  %20 = icmp ugt i64 %16, 9223372036854775800
+  br i1 %20, label %21, label %22, !prof !253
 
-19:                                               ; preds = %17
+21:                                               ; preds = %19
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
-20:                                               ; preds = %17
-  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #20
-  store ptr %21, ptr %9, align 8, !tbaa !30
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %16
-  %23 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store ptr %22, ptr %23, align 8, !tbaa !135
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %21, ptr align 8 %13, i64 %16, i1 false)
+22:                                               ; preds = %19
+  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #20
+  store ptr %23, ptr %9, align 8, !tbaa !30
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %16
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  store ptr %24, ptr %25, align 8, !tbaa !135
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %23, ptr align 8 %13, i64 %16, i1 false)
   br label %_ZNSt8_Rb_treeIhSt4pairIKhSt6vectorIPKN4llvm18CodeGenInstructionESaIS6_EEESt10_Select1stIS9_ESt4lessIhESaIS9_EE13_M_clone_nodeILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_RT0_.exit
 
-_ZNSt8_Rb_treeIhSt4pairIKhSt6vectorIPKN4llvm18CodeGenInstructionESaIS6_EEESt10_Select1stIS9_ESt4lessIhESaIS9_EE13_M_clone_nodeILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_RT0_.exit: ; preds = %_ZNSt12_Vector_baseIPKN4llvm18CodeGenInstructionESaIS3_EEC2EmRKS4_.exit.i.i.i.i.i.thread.i.i.i, %20
-  %24 = phi ptr [ null, %_ZNSt12_Vector_baseIPKN4llvm18CodeGenInstructionESaIS3_EEC2EmRKS4_.exit.i.i.i.i.i.thread.i.i.i ], [ %22, %20 ]
-  %25 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store ptr %24, ptr %25, align 8, !tbaa !32
-  %26 = load i32, ptr %1, align 8, !tbaa !254
-  store i32 %26, ptr %6, align 8, !tbaa !254
-  %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
-  %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %2, ptr %28, align 8, !tbaa !255
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !12
-  %.not = icmp eq ptr %30, null
-  br i1 %.not, label %34, label %31
+_ZNSt8_Rb_treeIhSt4pairIKhSt6vectorIPKN4llvm18CodeGenInstructionESaIS6_EEESt10_Select1stIS9_ESt4lessIhESaIS9_EE13_M_clone_nodeILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_RT0_.exit: ; preds = %_ZNSt12_Vector_baseIPKN4llvm18CodeGenInstructionESaIS3_EEC2EmRKS4_.exit.i.i.i.i.i.thread.i.i.i, %22
+  %26 = phi ptr [ %17, %_ZNSt12_Vector_baseIPKN4llvm18CodeGenInstructionESaIS3_EEC2EmRKS4_.exit.i.i.i.i.i.thread.i.i.i ], [ %24, %22 ]
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store ptr %26, ptr %27, align 8, !tbaa !32
+  %28 = load i32, ptr %1, align 8, !tbaa !254
+  store i32 %28, ptr %6, align 8, !tbaa !254
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %2, ptr %30, align 8, !tbaa !255
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %32 = load ptr, ptr %31, align 8, !tbaa !12
+  %.not = icmp eq ptr %32, null
+  br i1 %.not, label %36, label %33
 
-31:                                               ; preds = %_ZNSt8_Rb_treeIhSt4pairIKhSt6vectorIPKN4llvm18CodeGenInstructionESaIS6_EEESt10_Select1stIS9_ESt4lessIhESaIS9_EE13_M_clone_nodeILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_RT0_.exit
-  %32 = tail call noundef ptr @_ZNSt8_Rb_treeIhSt4pairIKhSt6vectorIPKN4llvm18CodeGenInstructionESaIS6_EEESt10_Select1stIS9_ESt4lessIhESaIS9_EE7_M_copyILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %30, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %32, ptr %33, align 8, !tbaa !12
-  br label %34
+33:                                               ; preds = %_ZNSt8_Rb_treeIhSt4pairIKhSt6vectorIPKN4llvm18CodeGenInstructionESaIS6_EEESt10_Select1stIS9_ESt4lessIhESaIS9_EE13_M_clone_nodeILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_RT0_.exit
+  %34 = tail call noundef ptr @_ZNSt8_Rb_treeIhSt4pairIKhSt6vectorIPKN4llvm18CodeGenInstructionESaIS6_EEESt10_Select1stIS9_ESt4lessIhESaIS9_EE7_M_copyILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %32, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr %34, ptr %35, align 8, !tbaa !12
+  br label %36
 
-34:                                               ; preds = %31, %_ZNSt8_Rb_treeIhSt4pairIKhSt6vectorIPKN4llvm18CodeGenInstructionESaIS6_EEESt10_Select1stIS9_ESt4lessIhESaIS9_EE13_M_clone_nodeILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_RT0_.exit
+36:                                               ; preds = %33, %_ZNSt8_Rb_treeIhSt4pairIKhSt6vectorIPKN4llvm18CodeGenInstructionESaIS6_EEESt10_Select1stIS9_ESt4lessIhESaIS9_EE13_M_clone_nodeILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_RT0_.exit
   %.0.in33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.034 = load ptr, ptr %.0.in33, align 8, !tbaa !13
   %.not2835 = icmp eq ptr %.034, null
   br i1 %.not2835, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %34, %65
-  %.037 = phi ptr [ %.0, %65 ], [ %.034, %34 ]
-  %.02736 = phi ptr [ %36, %65 ], [ %6, %34 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.037, i64 32
-  %36 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #20
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %38 = load i8, ptr %35, align 8, !tbaa !250
-  store i8 %38, ptr %37, align 8, !tbaa !250
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  %40 = getelementptr inbounds nuw i8, ptr %.037, i64 40
-  %41 = getelementptr inbounds nuw i8, ptr %.037, i64 48
-  %42 = load ptr, ptr %41, align 8, !tbaa !32
-  %43 = load ptr, ptr %40, align 8, !tbaa !30
-  %44 = ptrtoint ptr %42 to i64
-  %45 = ptrtoint ptr %43 to i64
-  %46 = sub i64 %44, %45
-  %.not.i.i.i.i.i.i.i.i.i.i.i30 = icmp eq ptr %42, %43
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i30, label %_ZNSt12_Vector_baseIPKN4llvm18CodeGenInstructionESaIS3_EEC2EmRKS4_.exit.i.i.i.i.i.thread.i.i.i31, label %47
+.lr.ph:                                           ; preds = %36, %69
+  %.037 = phi ptr [ %.0, %69 ], [ %.034, %36 ]
+  %.02736 = phi ptr [ %38, %69 ], [ %6, %36 ]
+  %37 = getelementptr inbounds nuw i8, ptr %.037, i64 32
+  %38 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #20
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %40 = load i8, ptr %37, align 8, !tbaa !250
+  store i8 %40, ptr %39, align 8, !tbaa !250
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %.037, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %.037, i64 48
+  %44 = load ptr, ptr %43, align 8, !tbaa !32
+  %45 = load ptr, ptr %42, align 8, !tbaa !30
+  %46 = ptrtoint ptr %44 to i64
+  %47 = ptrtoint ptr %45 to i64
+  %48 = sub i64 %46, %47
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
+  %.not.i.i.i.i.i.i.i.i.i.i.i30 = icmp eq ptr %44, %45
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i30, label %_ZNSt12_Vector_baseIPKN4llvm18CodeGenInstructionESaIS3_EEC2EmRKS4_.exit.i.i.i.i.i.thread.i.i.i31, label %51
 
 _ZNSt12_Vector_baseIPKN4llvm18CodeGenInstructionESaIS3_EEC2EmRKS4_.exit.i.i.i.i.i.thread.i.i.i31: ; preds = %.lr.ph
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
+  %49 = getelementptr inbounds i8, ptr null, i64 %48
+  %50 = getelementptr inbounds nuw i8, ptr %38, i64 56
+  store ptr %49, ptr %50, align 8, !tbaa !135
   br label %_ZNSt8_Rb_treeIhSt4pairIKhSt6vectorIPKN4llvm18CodeGenInstructionESaIS6_EEESt10_Select1stIS9_ESt4lessIhESaIS9_EE13_M_clone_nodeILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_RT0_.exit32
 
-47:                                               ; preds = %.lr.ph
-  %48 = icmp ugt i64 %46, 9223372036854775800
-  br i1 %48, label %49, label %50, !prof !253
+51:                                               ; preds = %.lr.ph
+  %52 = icmp ugt i64 %48, 9223372036854775800
+  br i1 %52, label %53, label %54, !prof !253
 
-49:                                               ; preds = %47
+53:                                               ; preds = %51
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
-50:                                               ; preds = %47
-  %51 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %46) #20
-  store ptr %51, ptr %39, align 8, !tbaa !30
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %46
-  %53 = getelementptr inbounds nuw i8, ptr %36, i64 56
-  store ptr %52, ptr %53, align 8, !tbaa !135
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %51, ptr align 8 %43, i64 %46, i1 false)
+54:                                               ; preds = %51
+  %55 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %48) #20
+  store ptr %55, ptr %41, align 8, !tbaa !30
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %48
+  %57 = getelementptr inbounds nuw i8, ptr %38, i64 56
+  store ptr %56, ptr %57, align 8, !tbaa !135
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %55, ptr align 8 %45, i64 %48, i1 false)
   br label %_ZNSt8_Rb_treeIhSt4pairIKhSt6vectorIPKN4llvm18CodeGenInstructionESaIS6_EEESt10_Select1stIS9_ESt4lessIhESaIS9_EE13_M_clone_nodeILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_RT0_.exit32
 
-_ZNSt8_Rb_treeIhSt4pairIKhSt6vectorIPKN4llvm18CodeGenInstructionESaIS6_EEESt10_Select1stIS9_ESt4lessIhESaIS9_EE13_M_clone_nodeILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_RT0_.exit32: ; preds = %_ZNSt12_Vector_baseIPKN4llvm18CodeGenInstructionESaIS3_EEC2EmRKS4_.exit.i.i.i.i.i.thread.i.i.i31, %50
-  %54 = phi ptr [ null, %_ZNSt12_Vector_baseIPKN4llvm18CodeGenInstructionESaIS3_EEC2EmRKS4_.exit.i.i.i.i.i.thread.i.i.i31 ], [ %52, %50 ]
-  %55 = getelementptr inbounds nuw i8, ptr %36, i64 48
-  store ptr %54, ptr %55, align 8, !tbaa !32
-  %56 = load i32, ptr %.037, align 8, !tbaa !254
-  store i32 %56, ptr %36, align 8, !tbaa !254
-  %57 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
-  %58 = getelementptr inbounds nuw i8, ptr %.02736, i64 16
-  store ptr %36, ptr %58, align 8, !tbaa !13
-  %59 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store ptr %.02736, ptr %59, align 8, !tbaa !255
-  %60 = getelementptr inbounds nuw i8, ptr %.037, i64 24
-  %61 = load ptr, ptr %60, align 8, !tbaa !12
-  %.not29 = icmp eq ptr %61, null
-  br i1 %.not29, label %65, label %62
+_ZNSt8_Rb_treeIhSt4pairIKhSt6vectorIPKN4llvm18CodeGenInstructionESaIS6_EEESt10_Select1stIS9_ESt4lessIhESaIS9_EE13_M_clone_nodeILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_RT0_.exit32: ; preds = %_ZNSt12_Vector_baseIPKN4llvm18CodeGenInstructionESaIS3_EEC2EmRKS4_.exit.i.i.i.i.i.thread.i.i.i31, %54
+  %58 = phi ptr [ %49, %_ZNSt12_Vector_baseIPKN4llvm18CodeGenInstructionESaIS3_EEC2EmRKS4_.exit.i.i.i.i.i.thread.i.i.i31 ], [ %56, %54 ]
+  %59 = getelementptr inbounds nuw i8, ptr %38, i64 48
+  store ptr %58, ptr %59, align 8, !tbaa !32
+  %60 = load i32, ptr %.037, align 8, !tbaa !254
+  store i32 %60, ptr %38, align 8, !tbaa !254
+  %61 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
+  %62 = getelementptr inbounds nuw i8, ptr %.02736, i64 16
+  store ptr %38, ptr %62, align 8, !tbaa !13
+  %63 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store ptr %.02736, ptr %63, align 8, !tbaa !255
+  %64 = getelementptr inbounds nuw i8, ptr %.037, i64 24
+  %65 = load ptr, ptr %64, align 8, !tbaa !12
+  %.not29 = icmp eq ptr %65, null
+  br i1 %.not29, label %69, label %66
 
-62:                                               ; preds = %_ZNSt8_Rb_treeIhSt4pairIKhSt6vectorIPKN4llvm18CodeGenInstructionESaIS6_EEESt10_Select1stIS9_ESt4lessIhESaIS9_EE13_M_clone_nodeILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_RT0_.exit32
-  %63 = tail call noundef ptr @_ZNSt8_Rb_treeIhSt4pairIKhSt6vectorIPKN4llvm18CodeGenInstructionESaIS6_EEESt10_Select1stIS9_ESt4lessIhESaIS9_EE7_M_copyILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %61, ptr noundef nonnull %36, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %64 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store ptr %63, ptr %64, align 8, !tbaa !12
-  br label %65
+66:                                               ; preds = %_ZNSt8_Rb_treeIhSt4pairIKhSt6vectorIPKN4llvm18CodeGenInstructionESaIS6_EEESt10_Select1stIS9_ESt4lessIhESaIS9_EE13_M_clone_nodeILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_RT0_.exit32
+  %67 = tail call noundef ptr @_ZNSt8_Rb_treeIhSt4pairIKhSt6vectorIPKN4llvm18CodeGenInstructionESaIS6_EEESt10_Select1stIS9_ESt4lessIhESaIS9_EE7_M_copyILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %65, ptr noundef nonnull %38, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %68 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  store ptr %67, ptr %68, align 8, !tbaa !12
+  br label %69
 
-65:                                               ; preds = %62, %_ZNSt8_Rb_treeIhSt4pairIKhSt6vectorIPKN4llvm18CodeGenInstructionESaIS6_EEESt10_Select1stIS9_ESt4lessIhESaIS9_EE13_M_clone_nodeILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_RT0_.exit32
+69:                                               ; preds = %66, %_ZNSt8_Rb_treeIhSt4pairIKhSt6vectorIPKN4llvm18CodeGenInstructionESaIS6_EEESt10_Select1stIS9_ESt4lessIhESaIS9_EE13_M_clone_nodeILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_RT0_.exit32
   %.0.in = getelementptr inbounds nuw i8, ptr %.037, i64 16
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !13
   %.not28 = icmp eq ptr %.0, null
   br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !256
 
-._crit_edge:                                      ; preds = %65, %34
+._crit_edge:                                      ; preds = %69, %36
   ret ptr %6
 }
 

@@ -3696,7 +3696,7 @@ _ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit108.thread: ; preds = %55, %.lr.ph.preh
 
 .lr.ph240:                                        ; preds = %4, %.preheader
   %invariant.gep235376 = phi ptr [ %invariant.gep235, %.preheader ], [ inttoptr (i64 8 to ptr), %4 ]
-  %125 = phi ptr [ %124, %.preheader ], [ null, %4 ]
+  %125 = phi ptr [ %124, %.preheader ], [ inttoptr (i64 -8 to ptr), %4 ]
   %.sroa.0152.0178184275292301373 = phi ptr [ %49, %.preheader ], [ null, %4 ]
   %.0.i.i.i.i.i179182278290302372 = phi ptr [ %.0.i.i.i.i.i179183, %.preheader ], [ null, %4 ]
   %.sroa.0140.0279288303368 = phi ptr [ %57, %.preheader ], [ null, %4 ]

@@ -1997,12 +1997,8 @@ _ZN15ref_vector_coreI3ast19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.e
   %.not.not.i.i.i = icmp eq i32 %.0.i369, 0
   br i1 %.not.not.i.i.i, label %_ZN7datalog13relation_factC2ER11ast_managerj.exit, label %.preheader.i195
 
-thread-pre-split.i.i.i:                           ; preds = %_ZNK6vectorIP3appLb0EjE8capacityEv.exit.thread.i.i.i
-  %.pr.pre.i.i.i = load ptr, ptr %693, align 8, !tbaa !255
-  br label %.preheader.i195
-
-.preheader.i195:                                  ; preds = %683, %thread-pre-split.i.i.i
-  %694 = phi ptr [ %.pr.pre.i.i.i, %thread-pre-split.i.i.i ], [ null, %683 ]
+.preheader.i195:                                  ; preds = %683, %.noexc4.i
+  %694 = phi ptr [ %.pr.pre.i.i.i, %.noexc4.i ], [ null, %683 ]
   %695 = icmp eq ptr %694, null
   br i1 %695, label %_ZNK6vectorIP3appLb0EjE8capacityEv.exit.thread.i.i.i, label %_ZNK6vectorIP3appLb0EjE8capacityEv.exit.i.i.i
 
@@ -2014,7 +2010,11 @@ _ZNK6vectorIP3appLb0EjE8capacityEv.exit.i.i.i:    ; preds = %.preheader.i195
 
 _ZNK6vectorIP3appLb0EjE8capacityEv.exit.thread.i.i.i: ; preds = %_ZNK6vectorIP3appLb0EjE8capacityEv.exit.i.i.i, %.preheader.i195
   invoke void @_ZN6vectorIP3appLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %693)
-          to label %thread-pre-split.i.i.i unwind label %701
+          to label %.noexc4.i unwind label %701
+
+.noexc4.i:                                        ; preds = %_ZNK6vectorIP3appLb0EjE8capacityEv.exit.thread.i.i.i
+  %.pr.pre.i.i.i = load ptr, ptr %693, align 8, !tbaa !255
+  br label %.preheader.i195
 
 .lr.ph.preheader.i.i.i196:                        ; preds = %_ZNK6vectorIP3appLb0EjE8capacityEv.exit.i.i.i
   %699 = getelementptr inbounds i8, ptr %694, i64 -4

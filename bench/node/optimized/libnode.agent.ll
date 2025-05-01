@@ -1423,36 +1423,39 @@ declare i64 @uv_hrtime() local_unnamed_addr #0
 define internal void @"_ZZN4node7tracing5AgentC1EvEN3$_08__invokeEP10uv_async_s"(ptr noundef %async) #3 align 2 {
 entry:
   %head.i.i = alloca ptr, align 8
+  %0 = ptrtoint ptr %async to i64
+  %sub.i.i.i = add i64 %0, -1072
+  %1 = inttoptr i64 %sub.i.i.i to ptr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %head.i.i)
-  %initialize_writer_mutex_.i.i = getelementptr inbounds nuw i8, ptr %async, i64 984
+  %initialize_writer_mutex_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 984
   tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %initialize_writer_mutex_.i.i) #14
-  %_M_node_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %async, i64 1240
-  %0 = load i64, ptr %_M_node_count.i.i.i.i, align 8
-  %cmp.i.i1.i.i = icmp eq i64 %0, 0
+  %_M_node_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 1240
+  %2 = load i64, ptr %_M_node_count.i.i.i.i, align 8
+  %cmp.i.i1.i.i = icmp eq i64 %2, 0
   br i1 %cmp.i.i1.i.i, label %"_ZZN4node7tracing5AgentC1EvENK3$_0clEP10uv_async_s.exit", label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %entry
-  %to_be_initialized_.i.i = getelementptr inbounds nuw i8, ptr %async, i64 1200
-  %_M_left.i.i.i.i = getelementptr inbounds nuw i8, ptr %async, i64 1224
-  %tracing_loop_.i.i = getelementptr inbounds nuw i8, ptr %async, i64 8
+  %to_be_initialized_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 1200
+  %_M_left.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 1224
+  %tracing_loop_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %while.body.lr.ph.i.i
-  %1 = load ptr, ptr %_M_left.i.i.i.i, align 8
-  %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %2 = load ptr, ptr %_M_storage.i.i.i.i, align 8
-  store ptr %2, ptr %head.i.i, align 8
-  %vtable.i.i = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %_M_left.i.i.i.i, align 8
+  %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %4 = load ptr, ptr %_M_storage.i.i.i.i, align 8
+  store ptr %4, ptr %head.i.i, align 8
+  %vtable.i.i = load ptr, ptr %4, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 32
-  %3 = load ptr, ptr %vfn.i.i, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %tracing_loop_.i.i) #14
+  %5 = load ptr, ptr %vfn.i.i, align 8
+  call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %tracing_loop_.i.i) #14
   %call.i.i.i = call noundef i64 @_ZNSt8_Rb_treeIPN4node7tracing16AsyncTraceWriterES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %to_be_initialized_.i.i, ptr noundef nonnull align 8 dereferenceable(8) %head.i.i)
-  %4 = load i64, ptr %_M_node_count.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq i64 %4, 0
+  %6 = load i64, ptr %_M_node_count.i.i.i.i, align 8
+  %cmp.i.i.i.i = icmp eq i64 %6, 0
   br i1 %cmp.i.i.i.i, label %"_ZZN4node7tracing5AgentC1EvENK3$_0clEP10uv_async_s.exit", label %while.body.i.i, !llvm.loop !5
 
 "_ZZN4node7tracing5AgentC1EvENK3$_0clEP10uv_async_s.exit": ; preds = %while.body.i.i, %entry
-  %initialize_writer_condvar_.i.i = getelementptr inbounds nuw i8, ptr %async, i64 1024
+  %initialize_writer_condvar_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 1024
   call void @uv_cond_broadcast(ptr noundef nonnull align 8 dereferenceable(48) %initialize_writer_condvar_.i.i) #14
   call void @uv_mutex_unlock(ptr noundef nonnull %initialize_writer_mutex_.i.i) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %head.i.i)

@@ -1698,7 +1698,10 @@ entry:
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread: ; preds = %entry
   %_M_finish.i.i.i.i3 = getelementptr inbounds nuw i8, ptr %call, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_serializedBinary.i, i8 0, i64 24, i1 false)
+  %add.ptr.i.i.i.i4 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i
+  %_M_end_of_storage.i.i.i.i5 = getelementptr inbounds nuw i8, ptr %call, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_serializedBinary.i, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i.i4, ptr %_M_end_of_storage.i.i.i.i5, align 8
   br label %_ZNSt10unique_ptrIN4node9inspector8protocol15SerializedValueESt14default_deleteIS3_EED2Ev.exit
 
 cond.true.i.i.i.i.i:                              ; preds = %entry
@@ -1721,7 +1724,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %cond.true.i.i.i.i.i
   br label %_ZNSt10unique_ptrIN4node9inspector8protocol15SerializedValueESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node9inspector8protocol15SerializedValueESt14default_deleteIS3_EED2Ev.exit: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread
-  %add.ptr.i.i.i.i7 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread ], [ %add.ptr.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i.i7 = phi ptr [ %add.ptr.i.i.i.i4, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread ], [ %add.ptr.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i6 = phi ptr [ %_M_finish.i.i.i.i3, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread ], [ %_M_finish.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i.i7, ptr %_M_finish.i.i.i.i6, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -7382,13 +7385,12 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %if.end
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %ii.0101) #30
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 %ii.0101
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i.i, ptr nonnull align 1 %latin1.coerce0, i64 %ii.0101, i1 false)
   br label %_ZNSt6vectorIhSaIhEEC2IPKhvEET_S5_RKS0_.exit
 
 _ZNSt6vectorIhSaIhEEC2IPKhvEET_S5_RKS0_.exit:     ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
-  %utf8.sroa.24.2 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %add.ptr.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
-  %utf8.sroa.0.2 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %call5.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
+  %utf8.sroa.0.2 = phi ptr [ %call5.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
+  %utf8.sroa.24.2 = getelementptr inbounds nuw i8, ptr %utf8.sroa.0.2, i64 %ii.0101
   %cmp7102 = icmp ult i64 %ii.0101, %latin1.coerce1
   br i1 %cmp7102, label %for.body8, label %for.end
 
@@ -7667,13 +7669,12 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %if.end
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %ii.095) #30
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 %ii.095
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i.i, ptr nonnull align 1 %latin1.coerce0, i64 %ii.095, i1 false)
   br label %_ZNSt6vectorIhSaIhEEC2IPKhvEET_S5_RKS0_.exit
 
 _ZNSt6vectorIhSaIhEEC2IPKhvEET_S5_RKS0_.exit:     ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
-  %utf8.sroa.24.2 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %add.ptr.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
-  %utf8.sroa.0.2 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %call5.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
+  %utf8.sroa.0.2 = phi ptr [ %call5.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
+  %utf8.sroa.24.2 = getelementptr inbounds nuw i8, ptr %utf8.sroa.0.2, i64 %ii.095
   %cmp796 = icmp ult i64 %ii.095, %latin1.coerce1
   br i1 %cmp796, label %for.body8, label %for.end
 

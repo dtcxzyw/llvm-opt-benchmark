@@ -3844,7 +3844,7 @@ define void @_ZNK10open_spiel5chess10ChessState12LegalActionsEv(ptr dead_on_unwi
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 216
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr dead_on_unwind writable sret(%"class.std::vector.28") align 8 %0, ptr noundef nonnull align 8 dereferenceable(60) %1)
-  br label %38
+  br label %39
 
 11:                                               ; preds = %2
   tail call void @_ZNK10open_spiel5chess10ChessState25MaybeGenerateLegalActionsEv(ptr noundef nonnull align 8 dereferenceable(528) %1)
@@ -3856,7 +3856,7 @@ define void @_ZNK10open_spiel5chess10ChessState12LegalActionsEv(ptr dead_on_unwi
 
 16:                                               ; preds = %11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %38
+  br label %39
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 496
@@ -3876,39 +3876,41 @@ _ZNR4absl7debian28optionalISt6vectorIlSaIlEEEdeEv.exit: ; preds = %17
   %26 = ptrtoint ptr %24 to i64
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %29, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %24, %25
-  br i1 %.not.i.i.i.i, label %.thread, label %30
+  br i1 %.not.i.i.i.i, label %.thread, label %31
 
 .thread:                                          ; preds = %_ZNR4absl7debian28optionalISt6vectorIlSaIlEEEdeEv.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  %29 = getelementptr inbounds i8, ptr null, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  store ptr %29, ptr %30, align 8
   br label %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit
 
-30:                                               ; preds = %_ZNR4absl7debian28optionalISt6vectorIlSaIlEEEdeEv.exit
-  %31 = icmp ugt i64 %28, 9223372036854775800
-  br i1 %31, label %.noexc.i.i, label %32
+31:                                               ; preds = %_ZNR4absl7debian28optionalISt6vectorIlSaIlEEEdeEv.exit
+  %32 = icmp ugt i64 %28, 9223372036854775800
+  br i1 %32, label %.noexc.i.i, label %33
 
-.noexc.i.i:                                       ; preds = %30
+.noexc.i.i:                                       ; preds = %31
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #31
   unreachable
 
-32:                                               ; preds = %30
-  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #33
-  store ptr %33, ptr %0, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %28
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %34, ptr %35, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %33, ptr align 8 %25, i64 %28, i1 false)
+33:                                               ; preds = %31
+  %34 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #33
+  store ptr %34, ptr %0, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %28
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %35, ptr %36, align 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr align 8 %25, i64 %28, i1 false)
   br label %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit
 
-_ZNSt6vectorIlSaIlEEC2ERKS1_.exit:                ; preds = %.thread, %32
-  %36 = phi ptr [ null, %.thread ], [ %34, %32 ]
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %36, ptr %37, align 8
-  br label %38
+_ZNSt6vectorIlSaIlEEC2ERKS1_.exit:                ; preds = %.thread, %33
+  %37 = phi ptr [ %29, %.thread ], [ %35, %33 ]
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %37, ptr %38, align 8
+  br label %39
 
-38:                                               ; preds = %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit, %16, %7
+39:                                               ; preds = %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit, %16, %7
   ret void
 }
 
@@ -5184,7 +5186,7 @@ define void @_ZNK10open_spiel5chess10ChessState7ReturnsEv(ptr dead_on_unwind noa
   call void @_ZNK10open_spiel5chess10ChessState17MaybeFinalReturnsEv(ptr dead_on_unwind nonnull writable sret(%"class.absl::debian2::optional.69") align 8 %3, ptr noundef nonnull align 8 dereferenceable(528) %1)
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
-  br i1 %5, label %6, label %23
+  br i1 %5, label %6, label %25
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5196,84 +5198,87 @@ define void @_ZNK10open_spiel5chess10ChessState7ReturnsEv(ptr dead_on_unwind noa
   %13 = sub i64 %11, %12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %9, %10
-  br i1 %.not.i.i.i.i, label %.noexc4.thread, label %15
+  br i1 %.not.i.i.i.i, label %.noexc4.thread, label %17
 
 .noexc4.thread:                                   ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %28
+  %15 = getelementptr inbounds i8, ptr null, i64 %13
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  store ptr %15, ptr %16, align 8
+  br label %30
 
-15:                                               ; preds = %6
-  %16 = icmp ugt i64 %13, 9223372036854775800
-  br i1 %16, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
+17:                                               ; preds = %6
+  %18 = icmp ugt i64 %13, 9223372036854775800
+  br i1 %18, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
 
-.noexc.i.i:                                       ; preds = %15
+.noexc.i.i:                                       ; preds = %17
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #31
           to label %.noexc unwind label %.body.thread10
 
 .noexc:                                           ; preds = %.noexc.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %15
-  %17 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #33
-          to label %18 unwind label %.body.thread10
+_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %17
+  %19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #33
+          to label %20 unwind label %.body.thread10
 
-18:                                               ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
-  store ptr %17, ptr %0, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %17, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %13
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %20, ptr %21, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %17, ptr align 8 %10, i64 %13, i1 false)
-  br label %28
+20:                                               ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
+  store ptr %19, ptr %0, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %19, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %13
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %22, ptr %23, align 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %19, ptr align 8 %10, i64 %13, i1 false)
+  br label %30
 
 .body.thread10:                                   ; preds = %.noexc.i.i, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
-  %22 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i.i.i.i.i.i5 = icmp eq ptr %10, null
-  br i1 %.not.i.i.i.i.i.i.i.i5, label %_ZN4absl7debian28optionalISt6vectorIdSaIdEEED2Ev.exit7, label %36
+  br i1 %.not.i.i.i.i.i.i.i.i5, label %_ZN4absl7debian28optionalISt6vectorIdSaIdEEED2Ev.exit7, label %38
 
-23:                                               ; preds = %2
+25:                                               ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %24 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #33
-  store ptr %24, ptr %0, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  store ptr %25, ptr %27, align 8
+  %26 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #33
+  store ptr %26, ptr %0, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %27, ptr %28, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
+  store ptr %27, ptr %29, align 8
   br label %_ZN4absl7debian28optionalISt6vectorIdSaIdEEED2Ev.exit
 
-28:                                               ; preds = %18, %.noexc4.thread
-  %29 = phi ptr [ null, %.noexc4.thread ], [ %20, %18 ]
-  %30 = phi ptr [ %14, %.noexc4.thread ], [ %19, %18 ]
-  store ptr %29, ptr %30, align 8
+30:                                               ; preds = %20, %.noexc4.thread
+  %31 = phi ptr [ %15, %.noexc4.thread ], [ %22, %20 ]
+  %32 = phi ptr [ %14, %.noexc4.thread ], [ %21, %20 ]
+  store ptr %31, ptr %32, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4absl7debian28optionalISt6vectorIdSaIdEEED2Ev.exit, label %31
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4absl7debian28optionalISt6vectorIdSaIdEEED2Ev.exit, label %33
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %33 = load ptr, ptr %32, align 8
-  %34 = ptrtoint ptr %33 to i64
-  %35 = sub i64 %34, %12
-  tail call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef %35) #34
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %35 = load ptr, ptr %34, align 8
+  %36 = ptrtoint ptr %35 to i64
+  %37 = sub i64 %36, %12
+  tail call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef %37) #34
   br label %_ZN4absl7debian28optionalISt6vectorIdSaIdEEED2Ev.exit
 
-_ZN4absl7debian28optionalISt6vectorIdSaIdEEED2Ev.exit: ; preds = %28, %31, %23
+_ZN4absl7debian28optionalISt6vectorIdSaIdEEED2Ev.exit: ; preds = %30, %33, %25
   ret void
 
-36:                                               ; preds = %.body.thread10
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %38 = load ptr, ptr %37, align 8
-  %39 = ptrtoint ptr %38 to i64
-  %40 = sub i64 %39, %12
-  tail call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef %40) #34
+38:                                               ; preds = %.body.thread10
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %40 = load ptr, ptr %39, align 8
+  %41 = ptrtoint ptr %40 to i64
+  %42 = sub i64 %41, %12
+  tail call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef %42) #34
   br label %_ZN4absl7debian28optionalISt6vectorIdSaIdEEED2Ev.exit7
 
-_ZN4absl7debian28optionalISt6vectorIdSaIdEEED2Ev.exit7: ; preds = %.body.thread10, %36
-  resume { ptr, i32 } %22
+_ZN4absl7debian28optionalISt6vectorIdSaIdEEED2Ev.exit7: ; preds = %.body.thread10, %38
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10644,37 +10649,41 @@ _ZN10open_spiel5chess22ObservationTensorShapeEv.exit: ; preds = %2, %7, %12
   %18 = ptrtoint ptr %16 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %16, %17
-  br i1 %.not.i.i.i.i, label %.thread, label %22
+  br i1 %.not.i.i.i.i, label %.thread, label %24
 
 .thread:                                          ; preds = %_ZN10open_spiel5chess22ObservationTensorShapeEv.exit
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  %22 = getelementptr inbounds i8, ptr null, i64 %20
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  store ptr %22, ptr %23, align 8
   br label %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
 
-22:                                               ; preds = %_ZN10open_spiel5chess22ObservationTensorShapeEv.exit
-  %23 = icmp ugt i64 %20, 9223372036854775804
-  br i1 %23, label %.noexc.i.i, label %24
+24:                                               ; preds = %_ZN10open_spiel5chess22ObservationTensorShapeEv.exit
+  %25 = icmp ugt i64 %20, 9223372036854775804
+  br i1 %25, label %.noexc.i.i, label %26
 
-.noexc.i.i:                                       ; preds = %22
+.noexc.i.i:                                       ; preds = %24
   call void @_ZSt28__throw_bad_array_new_lengthv() #31
   unreachable
 
-24:                                               ; preds = %22
-  %25 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #33
-  store ptr %25, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %20
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+26:                                               ; preds = %24
+  %27 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #33
+  store ptr %27, ptr %0, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %27, ptr %28, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %25, ptr align 4 %17, i64 %20, i1 false)
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 %20
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %29, ptr %30, align 8
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %27, ptr align 4 %17, i64 %20, i1 false)
   br label %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
 
-_ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %.thread, %24
-  %29 = phi ptr [ null, %.thread ], [ %27, %24 ]
-  %30 = phi ptr [ %21, %.thread ], [ %26, %24 ]
-  store ptr %29, ptr %30, align 8
+_ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %.thread, %26
+  %31 = phi ptr [ %22, %.thread ], [ %29, %26 ]
+  %32 = phi ptr [ %21, %.thread ], [ %28, %26 ]
+  store ptr %31, ptr %32, align 8
   ret void
 }
 
@@ -12791,51 +12800,57 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEEC2ESt16initializer_listIiERKS0_(pt
 
 6:                                                ; preds = %4
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.81) #31
-          to label %.noexc unwind label %13
+          to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %6
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
   %.not.i.i = icmp eq i64 %2, 0
-  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i, label %7
+  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i, label %9
 
-7:                                                ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #33
-          to label %.noexc3 unwind label %13
+_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i: ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
+  %7 = getelementptr inbounds nuw i8, ptr null, i64 %.idx
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %7, ptr %8, align 8
+  br label %13
 
-.noexc3:                                          ; preds = %7
-  store ptr %8, ptr %0, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %9, ptr %10, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %8, ptr align 4 %1, i64 %.idx, i1 false)
-  br label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i
+9:                                                ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
+  %10 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #33
+          to label %.noexc3 unwind label %16
 
-_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i: ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %.noexc3
-  %11 = phi ptr [ %9, %.noexc3 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+.noexc3:                                          ; preds = %9
+  store ptr %10, ptr %0, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %12, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %10, ptr align 4 %1, i64 %.idx, i1 false)
+  br label %13
+
+13:                                               ; preds = %.noexc3, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i
+  %14 = phi ptr [ %7, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i ], [ %11, %.noexc3 ]
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %14, ptr %15, align 8
   ret void
 
-13:                                               ; preds = %7, %6
-  %14 = landingpad { ptr, i32 }
+16:                                               ; preds = %9, %6
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %15 = load ptr, ptr %0, align 8
-  %.not.i.i4 = icmp eq ptr %15, null
-  br i1 %.not.i.i4, label %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit, label %16
+  %18 = load ptr, ptr %0, align 8
+  %.not.i.i4 = icmp eq ptr %18, null
+  br i1 %.not.i.i4, label %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit, label %19
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load ptr, ptr %17, align 8
-  %19 = ptrtoint ptr %18 to i64
-  %20 = ptrtoint ptr %15 to i64
-  %21 = sub i64 %19, %20
-  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef %21) #34
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %22 = ptrtoint ptr %21 to i64
+  %23 = ptrtoint ptr %18 to i64
+  %24 = sub i64 %22, %23
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #34
   br label %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit
 
-_ZNSt12_Vector_baseIiSaIiEED2Ev.exit:             ; preds = %13, %16
-  resume { ptr, i32 } %14
+_ZNSt12_Vector_baseIiSaIiEED2Ev.exit:             ; preds = %16, %19
+  resume { ptr, i32 } %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

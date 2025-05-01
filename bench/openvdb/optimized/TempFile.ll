@@ -774,8 +774,9 @@ _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %invoke.cont
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i
   store ptr null, ptr %fnbuf, align 8
+  %add.ptr3.i.i = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i
   %_M_end_of_storage4.i.i = getelementptr inbounds nuw i8, ptr %fnbuf, i64 16
-  store ptr null, ptr %_M_end_of_storage4.i.i, align 8
+  store ptr %add.ptr3.i.i, ptr %_M_end_of_storage4.i.i, align 8
   br label %invoke.cont9
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i
@@ -798,7 +799,7 @@ lpad.i:                                           ; preds = %if.then.i.i.i.i.i.i
   br label %eh.resume
 
 invoke.cont9:                                     ; preds = %call5.i.i.i.i.noexc.i, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i
-  %add.ptr5.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i ], [ %add.ptr.i.i, %call5.i.i.i.i.noexc.i ]
+  %add.ptr5.i.i = phi ptr [ %add.ptr3.i.i, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i ], [ %add.ptr.i.i, %call5.i.i.i.i.noexc.i ]
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %fnbuf, i64 8
   store ptr %add.ptr5.i.i, ptr %_M_finish.i.i, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #27

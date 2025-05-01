@@ -95,8 +95,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn29Yolov3DetectionOutput_x
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %28 = load i32, ptr %18, align 4, !tbaa !11
   %29 = sext i32 %28 to i64
-  %.not184 = icmp eq i32 %28, 0
-  br i1 %.not184, label %_ZNSt6vectorIS_IN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EESaIS4_EE6resizeEm.exit, label %30
+  %.not183 = icmp eq i32 %28, 0
+  br i1 %.not183, label %_ZNSt6vectorIS_IN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EESaIS4_EE6resizeEm.exit, label %30
 
 30:                                               ; preds = %26
   %31 = icmp slt i32 %28, 0
@@ -429,8 +429,8 @@ _ZSt8_DestroyIPSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS3_EES5_EvT_S
   %150 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %151 = load ptr, ptr %150, align 8, !tbaa !58
   %152 = load ptr, ptr %13, align 8, !tbaa !61
-  %.not167 = icmp eq ptr %151, %152
-  br i1 %.not167, label %._crit_edge161, label %.lr.ph160
+  %.not166 = icmp eq ptr %151, %152
+  br i1 %.not166, label %._crit_edge161, label %.lr.ph160
 
 ._crit_edge161.loopexit:                          ; preds = %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE9push_backERKS2_.exit
   %153 = ptrtoint ptr %.sroa.10.1 to i64
@@ -458,8 +458,8 @@ _ZSt8_DestroyIPSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS3_EES5_EvT_S
   br label %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EED2Ev.exit97
 
 .lr.ph160:                                        ; preds = %.preheader126, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE9push_backERKS2_.exit
-  %.pre177181 = phi ptr [ %.pre177182, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE9push_backERKS2_.exit ], [ %152, %.preheader126 ]
-  %.pre176178 = phi ptr [ %.pre176179, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE9push_backERKS2_.exit ], [ %151, %.preheader126 ]
+  %.pre176180 = phi ptr [ %.pre176181, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE9push_backERKS2_.exit ], [ %152, %.preheader126 ]
+  %.pre175177 = phi ptr [ %.pre175178, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE9push_backERKS2_.exit ], [ %151, %.preheader126 ]
   %163 = phi ptr [ %188, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE9push_backERKS2_.exit ], [ %152, %.preheader126 ]
   %164 = phi ptr [ %189, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE9push_backERKS2_.exit ], [ %151, %.preheader126 ]
   %.069159 = phi i64 [ %190, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE9push_backERKS2_.exit ], [ 0, %.preheader126 ]
@@ -520,21 +520,21 @@ _ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE11_S_relocateEPS2_S5
 
 186:                                              ; preds = %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0156, i64 noundef %173) #18
-  %.pre176.pre = load ptr, ptr %150, align 8, !tbaa !58
-  %.pre177.pre = load ptr, ptr %13, align 8, !tbaa !61
+  %.pre175.pre = load ptr, ptr %150, align 8, !tbaa !58
+  %.pre176.pre = load ptr, ptr %13, align 8, !tbaa !61
   br label %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %186, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  %.pre177 = phi ptr [ %.pre177.pre, %186 ], [ %.pre177181, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i ]
-  %.pre176 = phi ptr [ %.pre176.pre, %186 ], [ %.pre176178, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i ]
+  %.pre176 = phi ptr [ %.pre176.pre, %186 ], [ %.pre176180, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i ]
+  %.pre175 = phi ptr [ %.pre175.pre, %186 ], [ %.pre175177, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i ]
   %187 = getelementptr inbounds nuw %"struct.ncnn::Yolov3DetectionOutput::BBoxRect", ptr %182, i64 %180
   br label %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %169
-  %.pre177182 = phi ptr [ %.pre177, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.pre177181, %169 ]
-  %.pre176179 = phi ptr [ %.pre176, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.pre176178, %169 ]
-  %188 = phi ptr [ %.pre177, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %163, %169 ]
-  %189 = phi ptr [ %.pre176, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %164, %169 ]
+  %.pre176181 = phi ptr [ %.pre176, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.pre176180, %169 ]
+  %.pre175178 = phi ptr [ %.pre175, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.pre175177, %169 ]
+  %188 = phi ptr [ %.pre176, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %163, %169 ]
+  %189 = phi ptr [ %.pre175, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %164, %169 ]
   %.sroa.0.1 = phi ptr [ %182, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.0.0156, %169 ]
   %.pn125 = phi ptr [ %183, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.10.0157, %169 ]
   %.sroa.15.1 = phi ptr [ %187, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.15.0158, %169 ]
@@ -599,10 +599,10 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %200
   br label %248
 
 218:                                              ; preds = %.lr.ph165, %218
-  %indvars.iv173 = phi i64 [ 0, %.lr.ph165 ], [ %indvars.iv.next174, %218 ]
-  %219 = getelementptr inbounds nuw %"struct.ncnn::Yolov3DetectionOutput::BBoxRect", ptr %.sroa.0.0.lcssa, i64 %indvars.iv173
+  %indvars.iv172 = phi i64 [ 0, %.lr.ph165 ], [ %indvars.iv.next173, %218 ]
+  %219 = getelementptr inbounds nuw %"struct.ncnn::Yolov3DetectionOutput::BBoxRect", ptr %.sroa.0.0.lcssa, i64 %indvars.iv172
   %220 = load float, ptr %219, align 4, !tbaa !67
-  %.reass = mul i64 %factor.op.mul, %indvars.iv173
+  %.reass = mul i64 %factor.op.mul, %indvars.iv172
   %221 = getelementptr inbounds nuw i8, ptr %201, i64 %.reass
   %222 = getelementptr inbounds nuw i8, ptr %219, i64 24
   %223 = load i32, ptr %222, align 4, !tbaa !69
@@ -627,8 +627,8 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %200
   %237 = load float, ptr %236, align 4, !tbaa !73
   %238 = getelementptr inbounds nuw i8, ptr %221, i64 20
   store float %237, ptr %238, align 4, !tbaa !44
-  %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count
+  %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next173, %wide.trip.count
   br i1 %exitcond.not, label %_ZNK4ncnn3Mat5emptyEv.exit.thread.thread, label %218, !llvm.loop !74
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %.preheader, %200, %_ZNK4ncnn3Mat5emptyEv.exit, %._crit_edge161
@@ -637,14 +637,14 @@ _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %.preheader, %200, %
   br i1 %.not.i.i.i94, label %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EED2Ev.exit, label %_ZNK4ncnn3Mat5emptyEv.exit.thread.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread.thread:         ; preds = %218, %_ZNK4ncnn3Mat5emptyEv.exit.thread
-  %.4187 = phi i32 [ %.4, %_ZNK4ncnn3Mat5emptyEv.exit.thread ], [ 0, %218 ]
+  %.4186 = phi i32 [ %.4, %_ZNK4ncnn3Mat5emptyEv.exit.thread ], [ 0, %218 ]
   %239 = ptrtoint ptr %.sroa.15.0.lcssa to i64
   %240 = sub i64 %239, %154
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0.lcssa, i64 noundef %240) #18
   br label %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EED2Ev.exit: ; preds = %_ZNK4ncnn3Mat5emptyEv.exit.thread, %_ZNK4ncnn3Mat5emptyEv.exit.thread.thread
-  %.4188 = phi i32 [ %.4, %_ZNK4ncnn3Mat5emptyEv.exit.thread ], [ %.4187, %_ZNK4ncnn3Mat5emptyEv.exit.thread.thread ]
+  %.4187 = phi i32 [ %.4, %_ZNK4ncnn3Mat5emptyEv.exit.thread ], [ %.4186, %_ZNK4ncnn3Mat5emptyEv.exit.thread.thread ]
   %241 = load ptr, ptr %13, align 8, !tbaa !61
   %.not.i.i.i95 = icmp eq ptr %241, null
   br i1 %.not.i.i.i95, label %_ZNSt6vectorImSaImEED2Ev.exit, label %242
@@ -696,7 +696,7 @@ _ZNSt6vectorImSaImEED2Ev.exit99:                  ; preds = %_ZNSt6vectorIN4ncnn
   br label %268
 
 260:                                              ; preds = %146, %_ZNSt6vectorImSaImEED2Ev.exit
-  %.3 = phi i32 [ %.4188, %_ZNSt6vectorImSaImEED2Ev.exit ], [ -1, %146 ]
+  %.3 = phi i32 [ %.4187, %_ZNSt6vectorImSaImEED2Ev.exit ], [ -1, %146 ]
   %261 = load ptr, ptr %5, align 8, !tbaa !49
   %.not.i.i.i100 = icmp eq ptr %261, null
   br i1 %.not.i.i.i100, label %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EED2Ev.exit101, label %262

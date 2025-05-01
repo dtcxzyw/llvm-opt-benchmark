@@ -483,36 +483,38 @@ define void @_ZN10open_spiel14colored_trails17ChipComboIterator4NextEv(ptr dead_
   %29 = ptrtoint ptr %27 to i64
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %32, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %27, %28
-  br i1 %.not.i.i.i.i, label %.thread, label %33
+  br i1 %.not.i.i.i.i, label %.thread, label %34
 
 .thread:                                          ; preds = %.loopexit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  %32 = getelementptr inbounds i8, ptr null, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  store ptr %32, ptr %33, align 8
   br label %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
 
-33:                                               ; preds = %.loopexit
-  %34 = icmp ugt i64 %31, 9223372036854775804
-  br i1 %34, label %.noexc.i.i, label %35
+34:                                               ; preds = %.loopexit
+  %35 = icmp ugt i64 %31, 9223372036854775804
+  br i1 %35, label %.noexc.i.i, label %36
 
-.noexc.i.i:                                       ; preds = %33
+.noexc.i.i:                                       ; preds = %34
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #23
   unreachable
 
-35:                                               ; preds = %33
-  %36 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #24
-  store ptr %36, ptr %0, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %31
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %37, ptr %38, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %36, ptr align 4 %28, i64 %31, i1 false)
+36:                                               ; preds = %34
+  %37 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #24
+  store ptr %37, ptr %0, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %31
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %38, ptr %39, align 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %37, ptr align 4 %28, i64 %31, i1 false)
   br label %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
 
-_ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %.thread, %35
-  %39 = phi ptr [ null, %.thread ], [ %37, %35 ]
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %39, ptr %40, align 8
+_ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %.thread, %36
+  %40 = phi ptr [ %32, %.thread ], [ %38, %36 ]
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %40, ptr %41, align 8
   ret void
 }
 

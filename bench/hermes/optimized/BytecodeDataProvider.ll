@@ -2158,14 +2158,14 @@ _ZN6hermes3hbc12_GLOBAL__N_112castArrayRefIhEEN4llvh8ArrayRefIT_EERPKhmS8_.exit:
   store i32 1, ptr %Capacity2.i.i.i.i.i, align 4
   %fileRegionCount = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %5 = load i32, ptr %fileRegionCount, align 1
-  %cmp60.not = icmp eq i32 %5, 0
-  br i1 %cmp60.not, label %for.end, label %for.body
+  %cmp52.not = icmp eq i32 %5, 0
+  br i1 %cmp52.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefIhEEN4llvh8ArrayRefIT_EERPKhmS8_.exit, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE9push_backERKS3_.exit
   %6 = phi i32 [ %add.i, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE9push_backERKS3_.exit ], [ 0, %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefIhEEN4llvh8ArrayRefIT_EERPKhmS8_.exit ]
-  %i.062 = phi i32 [ %inc, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE9push_backERKS3_.exit ], [ 0, %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefIhEEN4llvh8ArrayRefIT_EERPKhmS8_.exit ]
-  %buf.061 = phi ptr [ %add.ptr.i18, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE9push_backERKS3_.exit ], [ %add.ptr.i14, %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefIhEEN4llvh8ArrayRefIT_EERPKhmS8_.exit ]
-  %add.ptr.i18 = getelementptr inbounds nuw i8, ptr %buf.061, i64 12
+  %i.054 = phi i32 [ %inc, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE9push_backERKS3_.exit ], [ 0, %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefIhEEN4llvh8ArrayRefIT_EERPKhmS8_.exit ]
+  %buf.053 = phi ptr [ %add.ptr.i18, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE9push_backERKS3_.exit ], [ %add.ptr.i14, %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefIhEEN4llvh8ArrayRefIT_EERPKhmS8_.exit ]
+  %add.ptr.i18 = getelementptr inbounds nuw i8, ptr %buf.053, i64 12
   %7 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
   %cmp.not.i = icmp ult i32 %6, %7
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE9push_backERKS3_.exit, label %if.then.i19
@@ -2180,11 +2180,11 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE9push_backE
   %9 = load ptr, ptr %files, align 8
   %conv.i3.i = zext i32 %8 to i64
   %add.ptr.i.i = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %9, i64 %conv.i3.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %add.ptr.i.i, ptr noundef nonnull align 1 dereferenceable(12) %buf.061, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %add.ptr.i.i, ptr noundef nonnull align 1 dereferenceable(12) %buf.053, i64 12, i1 false)
   %10 = load i32, ptr %Size.i.i.i.i.i, align 8
   %add.i = add i32 %10, 1
   store i32 %add.i, ptr %Size.i.i.i.i.i, align 8
-  %inc = add nuw i32 %i.062, 1
+  %inc = add nuw i32 %i.054, 1
   %11 = load i32, ptr %fileRegionCount, align 1
   %cmp = icmp ult i32 %inc, %11
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
@@ -2198,25 +2198,24 @@ for.end:                                          ; preds = %_ZN4llvh23SmallVect
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %for.end
   %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i) #21, !noalias !12
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 %mul.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i.i.i, ptr nonnull align 4 %add.ptr.i, i64 %mul.i, i1 false), !noalias !12
   br label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %for.end
-  %ref.tmp.sroa.7.0 = phi ptr [ null, %for.end ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
   %ref.tmp.sroa.0.0 = phi ptr [ null, %for.end ], [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.sink.i = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0.0, i64 %mul.i
   %cmp.not.i.i.i.i22 = icmp eq i32 %4, 0
   br i1 %cmp.not.i.i.i.i22, label %_ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i23
 
 if.then.i.i.i.i.i.i.i.i.i.i.i23:                  ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   %call5.i.i.i.i.i.i24 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %conv3) #21, !noalias !15
-  %add.ptr.i.i.i25 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i24, i64 %conv3
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i24, i64 %conv3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i.i.i24, ptr nonnull align 1 %add.ptr.i8, i64 %conv3, i1 false), !noalias !15
   br label %_ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit
 
 _ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit:  ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i23
   %ref.tmp8.sroa.0.0 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %call5.i.i.i.i.i.i24, %if.then.i.i.i.i.i.i.i.i.i.i.i23 ]
-  %ref.tmp8.sroa.7.0 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %add.ptr.i.i.i25, %if.then.i.i.i.i.i.i.i.i.i.i.i23 ]
+  %add.ptr.i.i.sink.i25 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i23 ]
   %scopeDescDataOffset = getelementptr inbounds nuw i8, ptr %add.ptr, i64 12
   %13 = load i32, ptr %scopeDescDataOffset, align 1
   %textifiedCalleeOffset = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
@@ -2228,15 +2227,15 @@ _ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit:  ; preds = %_ZNSt6vectorIhSaIhE
   %conv10 = zext i32 %16 to i64
   store ptr %ref.tmp.sroa.0.0, ptr %call7, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call7, i64 8
-  store ptr %ref.tmp.sroa.7.0, ptr %_M_finish.i.i.i.i.i, align 8
+  store ptr %add.ptr.i.i.sink.i, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call7, i64 16
-  store ptr %ref.tmp.sroa.7.0, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %add.ptr.i.i.sink.i, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %filenameStorage_.i = getelementptr inbounds nuw i8, ptr %call7, i64 24
   store ptr %ref.tmp8.sroa.0.0, ptr %filenameStorage_.i, align 8
   %_M_finish.i.i.i.i1.i = getelementptr inbounds nuw i8, ptr %call7, i64 32
-  store ptr %ref.tmp8.sroa.7.0, ptr %_M_finish.i.i.i.i1.i, align 8
+  store ptr %add.ptr.i.i.sink.i25, ptr %_M_finish.i.i.i.i1.i, align 8
   %_M_end_of_storage.i.i.i.i3.i = getelementptr inbounds nuw i8, ptr %call7, i64 40
-  store ptr %ref.tmp8.sroa.7.0, ptr %_M_end_of_storage.i.i.i.i3.i, align 8
+  store ptr %add.ptr.i.i.sink.i25, ptr %_M_end_of_storage.i.i.i.i3.i, align 8
   %files_.i = getelementptr inbounds nuw i8, ptr %call7, i64 48
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call7, i64 64
   store ptr %add.ptr.i.i.i.i.i.i, ptr %files_.i, align 8
@@ -2245,15 +2244,15 @@ _ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit:  ; preds = %_ZNSt6vectorIhSaIhE
   %Capacity2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call7, i64 60
   store i32 1, ptr %Capacity2.i.i.i.i.i.i, align 4
   %tobool.not.i.i.i = icmp eq i32 %12, 0
-  %.pre64 = load ptr, ptr %files, align 8
+  %.pre56 = load ptr, ptr %files, align 8
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit
-  %cmp.i.i = icmp eq ptr %.pre64, %add.ptr.i.i.i.i.i
+  %cmp.i.i = icmp eq ptr %.pre56, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i, label %if.end24.i, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then.i.i
-  store ptr %.pre64, ptr %files_.i, align 8
+  store ptr %.pre56, ptr %files_.i, align 8
   store i32 %12, ptr %Size.i.i.i.i.i.i, align 8
   %17 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
   store i32 %17, ptr %Capacity2.i.i.i.i.i.i, align 4
@@ -2263,38 +2262,38 @@ if.end8.i:                                        ; preds = %if.then.i.i
 
 if.end24.i:                                       ; preds = %if.then.i.i
   %cmp26.i.not = icmp eq i32 %12, 1
-  br i1 %cmp26.i.not, label %if.then.i.i.i42, label %if.end37.i
+  br i1 %cmp26.i.not, label %if.then.i.i.i40, label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.end24.i
   %conv.i30.i = zext i32 %12 to i64
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(28) %files_.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i30.i, i64 noundef 12) #19
   %.pre = load i32, ptr %Size.i.i.i.i.i, align 8
-  %.pre63.pre65.pre = load ptr, ptr %files, align 8
-  %.pre68 = zext i32 %.pre to i64
+  %.pre55.pre57.pre = load ptr, ptr %files, align 8
+  %.pre60 = zext i32 %.pre to i64
   %cmp.not.i.i.i = icmp eq i32 %.pre, 0
-  br i1 %cmp.not.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i, label %if.then.i.i.i42
+  br i1 %cmp.not.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i, label %if.then.i.i.i40
 
-if.then.i.i.i42:                                  ; preds = %if.end24.i, %if.end37.i
-  %.pre63.pre6573 = phi ptr [ %.pre63.pre65.pre, %if.end37.i ], [ %.pre64, %if.end24.i ]
-  %conv.i51.i.pre-phi72 = phi i64 [ %.pre68, %if.end37.i ], [ 1, %if.end24.i ]
+if.then.i.i.i40:                                  ; preds = %if.end24.i, %if.end37.i
+  %.pre55.pre5765 = phi ptr [ %.pre55.pre57.pre, %if.end37.i ], [ %.pre56, %if.end24.i ]
+  %conv.i51.i.pre-phi64 = phi i64 [ %.pre60, %if.end37.i ], [ 1, %if.end24.i ]
   %18 = load ptr, ptr %files_.i, align 8
-  %gepdiff.i = mul nuw nsw i64 %conv.i51.i.pre-phi72, 12
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %.pre63.pre6573, i64 %gepdiff.i, i1 false)
-  %.pre63.pre = load ptr, ptr %files, align 8
+  %gepdiff.i = mul nuw nsw i64 %conv.i51.i.pre-phi64, 12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %.pre55.pre5765, i64 %gepdiff.i, i1 false)
+  %.pre55.pre = load ptr, ptr %files, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i
 
-_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i: ; preds = %if.then.i.i.i42, %if.end37.i
-  %.pre63 = phi ptr [ %.pre63.pre, %if.then.i.i.i42 ], [ %.pre63.pre65.pre, %if.end37.i ]
+_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i: ; preds = %if.then.i.i.i40, %if.end37.i
+  %.pre55 = phi ptr [ %.pre55.pre, %if.then.i.i.i40 ], [ %.pre55.pre57.pre, %if.end37.i ]
   store i32 %12, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit.sink.split
 
 _ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit.sink.split: ; preds = %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i, %if.end8.i
-  %.ph = phi ptr [ %.pre63, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i ], [ %add.ptr.i.i.i.i.i, %if.end8.i ]
+  %.ph = phi ptr [ %.pre55, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i ], [ %add.ptr.i.i.i.i.i, %if.end8.i ]
   store i32 0, ptr %Size.i.i.i.i.i, align 8
   br label %_ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit.sink.split, %_ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit
-  %19 = phi ptr [ %.pre64, %_ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit ], [ %.ph, %_ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit.sink.split ]
+  %19 = phi ptr [ %.pre56, %_ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit ], [ %.ph, %_ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit.sink.split ]
   %scopeDescDataOffset_.i = getelementptr inbounds nuw i8, ptr %call7, i64 80
   store i32 %13, ptr %scopeDescDataOffset_.i, align 8
   %textifiedCalleeOffset_.i = getelementptr inbounds nuw i8, ptr %call7, i64 84
@@ -2302,21 +2301,21 @@ _ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit: ; preds = %_ZNSt6vect
   %stringTableOffset_.i = getelementptr inbounds nuw i8, ptr %call7, i64 88
   store i32 %15, ptr %stringTableOffset_.i, align 8
   %data_.i = getelementptr inbounds nuw i8, ptr %call7, i64 96
-  %ref_.i.i30 = getelementptr inbounds nuw i8, ptr %call7, i64 120
+  %ref_.i.i28 = getelementptr inbounds nuw i8, ptr %call7, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i, i8 0, i64 24, i1 false)
-  store ptr %buf.0.lcssa, ptr %ref_.i.i30, align 8
-  %ref.tmp9.sroa.8.24.ref_.i.i30.sroa_idx = getelementptr inbounds nuw i8, ptr %call7, i64 128
-  store i64 %conv10, ptr %ref.tmp9.sroa.8.24.ref_.i.i30.sroa_idx, align 8
+  store ptr %buf.0.lcssa, ptr %ref_.i.i28, align 8
+  %ref.tmp9.sroa.8.24.ref_.i.i28.sroa_idx = getelementptr inbounds nuw i8, ptr %call7, i64 128
+  store i64 %conv10, ptr %ref.tmp9.sroa.8.24.ref_.i.i28.sroa_idx, align 8
   %debugInfo_ = getelementptr inbounds nuw i8, ptr %this, i64 240
   store ptr %call7, ptr %debugInfo_, align 8
   %cmp.i.i.i = icmp eq ptr %19, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIN6hermes3hbc15DebugFileRegionELj1EED2Ev.exit, label %if.then.i.i36
+  br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIN6hermes3hbc15DebugFileRegionELj1EED2Ev.exit, label %if.then.i.i34
 
-if.then.i.i36:                                    ; preds = %_ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit
+if.then.i.i34:                                    ; preds = %_ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit
   call void @free(ptr noundef %19) #19
   br label %_ZN4llvh11SmallVectorIN6hermes3hbc15DebugFileRegionELj1EED2Ev.exit
 
-_ZN4llvh11SmallVectorIN6hermes3hbc15DebugFileRegionELj1EED2Ev.exit: ; preds = %_ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit, %if.then.i.i36
+_ZN4llvh11SmallVectorIN6hermes3hbc15DebugFileRegionELj1EED2Ev.exit: ; preds = %_ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit, %if.then.i.i34
   ret void
 }
 

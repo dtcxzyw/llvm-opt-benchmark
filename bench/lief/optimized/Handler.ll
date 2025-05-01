@@ -668,8 +668,8 @@ _ZNSt6vectorIhSaIhEEaSEOS1_.exit:                 ; preds = %2
   store ptr %17, ptr %12, align 8, !tbaa !22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.pre52 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !23
-  %.pre53 = load ptr, ptr %1, align 8, !tbaa !3
+  %.pre49 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !23
+  %.pre50 = load ptr, ptr %1, align 8, !tbaa !3
   %18 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21, !noalias !24
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 0, ptr %19, align 8, !tbaa !23, !noalias !24
@@ -681,21 +681,21 @@ _ZNSt6vectorIhSaIhEEaSEOS1_.exit:                 ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %5, ptr %22, align 8, !tbaa !30, !noalias !24
   store ptr %18, ptr %1, align 8, !tbaa !3
-  %.not.i.i.i = icmp eq ptr %.pre53, null
+  %.not.i.i.i = icmp eq ptr %.pre50, null
   br i1 %.not.i.i.i, label %_ZNSt10unique_ptrIN4LIEF3ELF11DataHandler17DataHandlerStreamESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN4LIEF12BinaryStreamEEclEPS1_.exit.i.i.i
 
 _ZNKSt14default_deleteIN4LIEF12BinaryStreamEEclEPS1_.exit.i.i.i: ; preds = %_ZNSt6vectorIhSaIhEEaSEOS1_.exit
-  %23 = load ptr, ptr %.pre53, align 8, !tbaa !28
+  %23 = load ptr, ptr %.pre50, align 8, !tbaa !28
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(24) %.pre53) #22
-  %.pre54 = load ptr, ptr %1, align 8, !tbaa !3
+  tail call void %25(ptr noundef nonnull align 8 dereferenceable(24) %.pre50) #22
+  %.pre51 = load ptr, ptr %1, align 8, !tbaa !3
   br label %_ZNSt10unique_ptrIN4LIEF3ELF11DataHandler17DataHandlerStreamESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4LIEF3ELF11DataHandler17DataHandlerStreamESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4LIEF12BinaryStreamEEclEPS1_.exit.i.i.i, %_ZNSt6vectorIhSaIhEEaSEOS1_.exit
-  %26 = phi ptr [ %.pre54, %_ZNKSt14default_deleteIN4LIEF12BinaryStreamEEclEPS1_.exit.i.i.i ], [ %18, %_ZNSt6vectorIhSaIhEEaSEOS1_.exit ]
+  %26 = phi ptr [ %.pre51, %_ZNKSt14default_deleteIN4LIEF12BinaryStreamEEclEPS1_.exit.i.i.i ], [ %18, %_ZNSt6vectorIhSaIhEEaSEOS1_.exit ]
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i64 %.pre52, ptr %27, align 8, !tbaa !23
+  store i64 %.pre49, ptr %27, align 8, !tbaa !23
   %28 = ptrtoint ptr %5 to i64
   store i64 %28, ptr %0, align 8, !tbaa !32
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -726,12 +726,12 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %30
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %37, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   %.sroa.034.0 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %38, %37 ]
-  %.sroa.9.0 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %39, %37 ]
+  %.sink.i = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %39, %37 ]
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %.sroa.034.0, ptr %5, align 8, !tbaa !20
-  store ptr %.sroa.9.0, ptr %40, align 8, !tbaa !21
-  store ptr %.sroa.9.0, ptr %41, align 8, !tbaa !22
+  store ptr %.sink.i, ptr %40, align 8, !tbaa !21
+  store ptr %.sink.i, ptr %41, align 8, !tbaa !22
   %42 = ptrtoint ptr %5 to i64
   store i64 %42, ptr %0, align 8, !tbaa !32
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -827,16 +827,16 @@ _ZSt8_DestroyIPSt10unique_ptrIN4LIEF3ELF11DataHandler4NodeESt14default_deleteIS4
   store i32 4, ptr %0, align 8, !tbaa !46
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %81, align 8, !tbaa !34
-  %.phi.trans.insert55 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.pre56 = load ptr, ptr %.phi.trans.insert55, align 8, !tbaa !54
-  %.phi.trans.insert57 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.pre58 = load ptr, ptr %.phi.trans.insert57, align 8, !tbaa !57
+  %.phi.trans.insert52 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.pre53 = load ptr, ptr %.phi.trans.insert52, align 8, !tbaa !54
+  %.phi.trans.insert54 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.pre55 = load ptr, ptr %.phi.trans.insert54, align 8, !tbaa !57
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.pre56, %.pre58
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.pre53, %.pre55
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN4LIEF3ELF11DataHandler4NodeESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %78, %_ZSt8_DestroyISt10unique_ptrIN4LIEF3ELF11DataHandler4NodeESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i.i = phi ptr [ %84, %_ZSt8_DestroyISt10unique_ptrIN4LIEF3ELF11DataHandler4NodeESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i.i ], [ %.pre56, %78 ]
+  %.05.i.i.i.i.i.i.i = phi ptr [ %84, %_ZSt8_DestroyISt10unique_ptrIN4LIEF3ELF11DataHandler4NodeESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i.i ], [ %.pre53, %78 ]
   %83 = load ptr, ptr %.05.i.i.i.i.i.i.i, align 8, !tbaa !58
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %83, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN4LIEF3ELF11DataHandler4NodeESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4LIEF3ELF11DataHandler4NodeEEclEPS3_.exit.i.i.i.i.i.i.i.i.i
@@ -848,7 +848,7 @@ _ZNKSt14default_deleteIN4LIEF3ELF11DataHandler4NodeEEclEPS3_.exit.i.i.i.i.i.i.i.
 _ZSt8_DestroyISt10unique_ptrIN4LIEF3ELF11DataHandler4NodeESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4LIEF3ELF11DataHandler4NodeEEclEPS3_.exit.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   store ptr null, ptr %.05.i.i.i.i.i.i.i, align 8, !tbaa !58
   %84 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %84, %.pre58
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %84, %.pre55
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN4LIEF3ELF11DataHandler4NodeESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !60
 
 _ZSt8_DestroyIPSt10unique_ptrIN4LIEF3ELF11DataHandler4NodeESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN4LIEF3ELF11DataHandler4NodeESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i.i
@@ -856,7 +856,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4LIEF3ELF11DataHandler4NodeESt14default_deleteIS4
   br label %_ZSt8_DestroyIPSt10unique_ptrIN4LIEF3ELF11DataHandler4NodeESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i.i.i.i
 
 _ZSt8_DestroyIPSt10unique_ptrIN4LIEF3ELF11DataHandler4NodeESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4LIEF3ELF11DataHandler4NodeESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i.i.i, %78
-  %85 = phi ptr [ %.pr.i.i.i.i, %_ZSt8_DestroyIPSt10unique_ptrIN4LIEF3ELF11DataHandler4NodeESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i.i.i ], [ %.pre56, %78 ]
+  %85 = phi ptr [ %.pr.i.i.i.i, %_ZSt8_DestroyIPSt10unique_ptrIN4LIEF3ELF11DataHandler4NodeESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i.i.i ], [ %.pre53, %78 ]
   %.not.i.i.i.i.i.i = icmp eq ptr %85, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF11DataHandler4NodeESt14default_deleteIS4_EESaIS7_EED2Ev.exit.i.i.i, label %86
 

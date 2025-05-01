@@ -1550,7 +1550,7 @@ _ZN8QuantLib16DiscretizedAsset12adjustValuesEv.exit: ; preds = %_ZN8QuantLib16Di
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib19DiscretizedCapFloor14mandatoryTimesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(392) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib19DiscretizedCapFloor14mandatoryTimesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(392) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %startTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 344
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 352
@@ -1559,13 +1559,16 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.cont.i.thread, label %cond.true.i.i.i.i
 
 invoke.cont.i.thread:                             ; preds = %entry
   %_M_finish.i.i.i9 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %add.ptr.i.i.i10 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i.i11 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i10, ptr %_M_end_of_storage.i.i.i11, align 8, !tbaa !40
   br label %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %entry
@@ -1590,7 +1593,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %cond.true.i.i.i.i
 invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont.i.thread
   %agg.result.promoted = phi ptr [ null, %invoke.cont.i.thread ], [ %call5.i.i.i.i2.i6.i, %if.then.i.i.i.i.i.i.i.i.i ]
   %_M_end_of_storage.i.i.i14 = phi ptr [ %_M_end_of_storage.i.i.i11, %invoke.cont.i.thread ], [ %_M_end_of_storage.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
-  %add.ptr.i.i.i13 = phi ptr [ null, %invoke.cont.i.thread ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i13 = phi ptr [ %add.ptr.i.i.i10, %invoke.cont.i.thread ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i12 = phi ptr [ %_M_finish.i.i.i9, %invoke.cont.i.thread ], [ %_M_finish.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i13, ptr %_M_finish.i.i.i12, align 8, !tbaa !33
   %endTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 368

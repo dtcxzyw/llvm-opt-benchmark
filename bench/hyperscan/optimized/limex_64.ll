@@ -6390,69 +6390,74 @@ define hidden noundef signext i8 @nfaExecLimEx64_B_Reverse(ptr noundef %0, i64 n
   br i1 %.not19.i, label %repeatHasMatch.exit.thread46, label %50
 
 50:                                               ; preds = %38
-  %51 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %52 = load i8, ptr %51, align 4
-  switch i8 %52, label %repeatHasMatch.exit.thread [
-    i8 0, label %53
+  %51 = getelementptr inbounds nuw %union.RepeatControl, ptr null, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 12
+  %53 = load i32, ptr %52, align 4
+  %54 = zext i32 %53 to i64
+  %55 = getelementptr inbounds nuw i8, ptr null, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %57 = load i8, ptr %56, align 4
+  switch i8 %57, label %repeatHasMatch.exit.thread [
+    i8 0, label %58
     i8 7, label %repeatHasMatch.exit.thread46
-    i8 6, label %61
-    i8 3, label %55
-    i8 4, label %57
-    i8 5, label %59
+    i8 6, label %66
+    i8 3, label %60
+    i8 4, label %62
+    i8 5, label %64
   ]
 
-53:                                               ; preds = %50
-  %54 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %51, ptr noundef null, ptr noundef null, i64 noundef 1) #8
+58:                                               ; preds = %50
+  %59 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %56, ptr noundef %51, ptr noundef %55, i64 noundef 1) #8
   br label %repeatHasMatch.exit
 
-55:                                               ; preds = %50
-  %56 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %51, ptr noundef null, ptr noundef null, i64 noundef 1) #8
+60:                                               ; preds = %50
+  %61 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %56, ptr noundef %51, ptr noundef %55, i64 noundef 1) #8
   br label %repeatHasMatch.exit
 
-57:                                               ; preds = %50
-  %58 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %51, ptr noundef null, i64 noundef 1) #8
+62:                                               ; preds = %50
+  %63 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %56, ptr noundef %51, i64 noundef 1) #8
   br label %repeatHasMatch.exit
 
-59:                                               ; preds = %50
-  %60 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %51, ptr noundef null, ptr noundef null, i64 noundef 1) #8
+64:                                               ; preds = %50
+  %65 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %56, ptr noundef %51, ptr noundef %55, i64 noundef 1) #8
   br label %repeatHasMatch.exit
 
-61:                                               ; preds = %50
-  %62 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %51, ptr noundef null, i64 noundef 1) #8
+66:                                               ; preds = %50
+  %67 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %56, ptr noundef %51, i64 noundef 1) #8
   br label %repeatHasMatch.exit
 
-repeatHasMatch.exit:                              ; preds = %53, %55, %57, %59, %61
-  %.0.i31 = phi i32 [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ]
+repeatHasMatch.exit:                              ; preds = %58, %60, %62, %64, %66
+  %.0.i31 = phi i32 [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ]
   %.not20.i = icmp eq i32 %.0.i31, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread46, label %repeatHasMatch.exit.thread
 
 repeatHasMatch.exit.thread:                       ; preds = %50, %repeatHasMatch.exit
-  %63 = xor i64 %48, -1
-  %64 = and i64 %.04049, %63
+  %68 = xor i64 %48, -1
+  %69 = and i64 %.04049, %68
   br label %repeatHasMatch.exit.thread46
 
 repeatHasMatch.exit.thread46:                     ; preds = %50, %repeatHasMatch.exit.thread, %repeatHasMatch.exit, %38
-  %.141 = phi i64 [ %.04049, %38 ], [ %.04049, %repeatHasMatch.exit ], [ %64, %repeatHasMatch.exit.thread ], [ %.04049, %50 ]
+  %.141 = phi i64 [ %.04049, %38 ], [ %.04049, %repeatHasMatch.exit ], [ %69, %repeatHasMatch.exit.thread ], [ %.04049, %50 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %65 = load i32, ptr %35, align 4
-  %66 = zext i32 %65 to i64
-  %67 = icmp samesign ult i64 %indvars.iv.next, %66
-  br i1 %67, label %38, label %lazyTug64.exit
+  %70 = load i32, ptr %35, align 4
+  %71 = zext i32 %70 to i64
+  %72 = icmp samesign ult i64 %indvars.iv.next, %71
+  br i1 %72, label %38, label %lazyTug64.exit
 
 lazyTug64.exit:                                   ; preds = %repeatHasMatch.exit.thread46, %31
   %.2 = phi i64 [ %34, %31 ], [ %.141, %repeatHasMatch.exit.thread46 ]
   %.not16.i = icmp eq i64 %.2, 0
-  br i1 %.not16.i, label %moNfaTestEod64.exit, label %68, !prof !5
+  br i1 %.not16.i, label %moNfaTestEod64.exit, label %73, !prof !5
 
-68:                                               ; preds = %lazyTug64.exit
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %70 = load i32, ptr %69, align 32
-  %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw i8, ptr %15, i64 %71
-  %73 = tail call fastcc signext i8 @moProcessAcceptsNoSquash64(ptr noundef nonnull %15, i64 %.2, i64 %33, ptr noundef nonnull %72, i64 noundef 0, ptr noundef %6, ptr noundef %7)
+73:                                               ; preds = %lazyTug64.exit
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %75 = load i32, ptr %74, align 32
+  %76 = zext i32 %75 to i64
+  %77 = getelementptr inbounds nuw i8, ptr %15, i64 %76
+  %78 = tail call fastcc signext i8 @moProcessAcceptsNoSquash64(ptr noundef nonnull %15, i64 %.2, i64 %33, ptr noundef nonnull %77, i64 noundef 0, ptr noundef %6, ptr noundef %7)
   br label %moNfaTestEod64.exit
 
-moNfaTestEod64.exit:                              ; preds = %68, %lazyTug64.exit, %25, %23
+moNfaTestEod64.exit:                              ; preds = %73, %lazyTug64.exit, %25, %23
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #8
   ret i8 0
 }

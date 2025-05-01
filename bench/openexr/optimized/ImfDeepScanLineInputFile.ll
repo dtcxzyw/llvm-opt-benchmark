@@ -1207,15 +1207,15 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit59: ; preds = %31
   %41 = extractvalue { i64, i64 } %18, 1
   %42 = extractvalue { i64, i64 } %18, 0
   %spec.select = call i32 @llvm.smin.i32(i32 %3, i32 %2)
-  %spec.select92 = call i32 @llvm.smax.i32(i32 %3, i32 %2)
+  %spec.select91 = call i32 @llvm.smax.i32(i32 %3, i32 %2)
   %.sroa.0.4.extract.shift = lshr i64 %42, 32
   %.sroa.0.4.extract.trunc = trunc nuw i64 %.sroa.0.4.extract.shift to i32
   %43 = icmp slt i32 %spec.select, %.sroa.0.4.extract.trunc
   %.sroa.6.12.extract.shift = lshr i64 %41, 32
   %.sroa.6.12.extract.trunc = trunc nuw i64 %.sroa.6.12.extract.shift to i32
-  %44 = icmp sgt i32 %spec.select92, %.sroa.6.12.extract.trunc
-  %or.cond93 = select i1 %43, i1 true, i1 %44
-  br i1 %or.cond93, label %45, label %66
+  %44 = icmp sgt i32 %spec.select91, %.sroa.6.12.extract.trunc
+  %or.cond92 = select i1 %43, i1 true, i1 %44
+  br i1 %or.cond92, label %45, label %66
 
 45:                                               ; preds = %40
   call void @_Z13iex_debugTrapv()
@@ -1234,7 +1234,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit60: ; preds = %45
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit61 unwind label %61
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit61: ; preds = %49
-  %51 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %48, i32 noundef %spec.select92)
+  %51 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %48, i32 noundef %spec.select91)
           to label %52 unwind label %61
 
 52:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit61
@@ -1280,7 +1280,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit63: ; preds = %55
   br label %372
 
 66:                                               ; preds = %40
-  %67 = sext i32 %spec.select92 to i64
+  %67 = sext i32 %spec.select91 to i64
   %68 = sext i32 %spec.select to i64
   %69 = sub nsw i64 %67, %68
   %70 = load i32, ptr %8, align 4, !tbaa !14
@@ -1369,8 +1369,8 @@ _ZN13IlmThread_3_412ProcessGroupIN7Imf_3_412_GLOBAL__N_115ScanLineProcessELb1EEC
   %101 = load atomic i64, ptr %100 seq_cst, align 8
   %.0.i.i.i = inttoptr i64 %101 to ptr
   store atomic i64 0, ptr %100 seq_cst, align 8
-  %.not.i64 = icmp eq i64 %101, 0
-  br i1 %.not.i64, label %_ZN13IlmThread_3_412ProcessGroupIN7Imf_3_412_GLOBAL__N_115ScanLineProcessELb1EE16throw_on_failureEv.exit, label %102
+  %.not.i = icmp eq i64 %101, 0
+  br i1 %.not.i, label %_ZN13IlmThread_3_412ProcessGroupIN7Imf_3_412_GLOBAL__N_115ScanLineProcessELb1EE16throw_on_failureEv.exit, label %102
 
 102:                                              ; preds = %99
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #28
@@ -1450,12 +1450,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i: ; preds = %_
   br label %187
 
 129:                                              ; preds = %.preheader, %180
-  %.031114 = phi i32 [ %spec.select, %.preheader ], [ %183, %180 ]
+  %.031113 = phi i32 [ %spec.select, %.preheader ], [ %183, %180 ]
   %130 = load ptr, ptr %0, align 8, !tbaa !28
   %131 = load ptr, ptr %130, align 8, !tbaa !3
   %132 = load ptr, ptr %131, align 8, !tbaa !102
   %133 = load i32, ptr %16, align 8, !tbaa !58
-  %134 = invoke i32 @exr_read_scanline_chunk_info(ptr noundef %132, i32 noundef %133, i32 noundef %.031114, ptr noundef nonnull %7)
+  %134 = invoke i32 @exr_read_scanline_chunk_info(ptr noundef %132, i32 noundef %133, i32 noundef %.031113, ptr noundef nonnull %7)
           to label %135 unwind label %.loopexit
 
 135:                                              ; preds = %129
@@ -1493,22 +1493,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i: ; preds = %_
 
 143:                                              ; preds = %141
   invoke void @_ZN13IlmThread_3_44TaskC2EPNS_9TaskGroupE(ptr noundef nonnull align 8 dereferenceable(56) %142, ptr noundef nonnull %12)
-          to label %.noexc65 unwind label %184
+          to label %.noexc64 unwind label %184
 
-.noexc65:                                         ; preds = %143
+.noexc64:                                         ; preds = %143
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Imf_3_421DeepScanLineInputFile4Data14LineBufferTaskE, i64 16), ptr %142, align 8, !tbaa !25
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 16
   store ptr %1, ptr %144, align 8, !tbaa !124
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 24
   store ptr %0, ptr %145, align 8, !tbaa !130
   %146 = getelementptr inbounds nuw i8, ptr %142, i64 32
-  store i32 %.031114, ptr %146, align 8, !tbaa !131
+  store i32 %.031113, ptr %146, align 8, !tbaa !131
   %147 = getelementptr inbounds nuw i8, ptr %142, i64 36
-  store i32 %spec.select92, ptr %147, align 4, !tbaa !132
+  store i32 %spec.select91, ptr %147, align 4, !tbaa !132
   invoke void @_ZN13IlmThread_3_49Semaphore4waitEv(ptr noundef nonnull align 8 dereferenceable(80) %11)
           to label %.noexc.i unwind label %.loopexit.split-lp.i.loopexit
 
-.noexc.i:                                         ; preds = %.noexc65
+.noexc.i:                                         ; preds = %.noexc64
   %148 = load atomic i64, ptr %96 acquire, align 8
   br label %149
 
@@ -1586,20 +1586,20 @@ _ZNSt6atomicIPN7Imf_3_412_GLOBAL__N_115ScanLineProcessEE21compare_exchange_weakE
           cleanup
   br label %.loopexit.split-lp.i
 
-.loopexit.split-lp.i.loopexit:                    ; preds = %.noexc65
-  %lpad.loopexit94 = landingpad { ptr, i32 }
+.loopexit.split-lp.i.loopexit:                    ; preds = %.noexc64
+  %lpad.loopexit93 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.i.loopexit.split-lp:           ; preds = %156
-  %lpad.loopexit.split-lp95 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp94 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.i:                             ; preds = %.loopexit.split-lp.i.loopexit, %.loopexit.split-lp.i.loopexit.split-lp, %.loopexit.i
-  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit94, %.loopexit.split-lp.i.loopexit ], [ %lpad.loopexit.split-lp95, %.loopexit.split-lp.i.loopexit.split-lp ]
+  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit93, %.loopexit.split-lp.i.loopexit ], [ %lpad.loopexit.split-lp94, %.loopexit.split-lp.i.loopexit.split-lp ]
   call void @_ZN13IlmThread_3_44TaskD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %142) #28
-  br label %.body66
+  br label %.body65
 
 175:                                              ; preds = %.noexc16.i
   %176 = getelementptr inbounds nuw i8, ptr %142, i64 40
@@ -1617,21 +1617,21 @@ _ZNSt6atomicIPN7Imf_3_412_GLOBAL__N_115ScanLineProcessEE21compare_exchange_weakE
   %181 = load i32, ptr %8, align 4, !tbaa !14
   %182 = load i32, ptr %98, align 8, !tbaa !157
   %183 = add i32 %182, %181
-  %.not47 = icmp sgt i32 %183, %spec.select92
+  %.not47 = icmp sgt i32 %183, %spec.select91
   br i1 %.not47, label %99, label %129, !llvm.loop !158
 
 184:                                              ; preds = %143
   %185 = landingpad { ptr, i32 }
           cleanup
-  br label %.body66
+  br label %.body65
 
-.body66:                                          ; preds = %.loopexit.split-lp.i, %184
-  %eh.lpad-body67 = phi { ptr, i32 } [ %185, %184 ], [ %lpad.phi.i, %.loopexit.split-lp.i ]
+.body65:                                          ; preds = %.loopexit.split-lp.i, %184
+  %eh.lpad-body66 = phi { ptr, i32 } [ %185, %184 ], [ %lpad.phi.i, %.loopexit.split-lp.i ]
   call void @_ZdlPvm(ptr noundef nonnull %142, i64 noundef 56) #27
   br label %186
 
-186:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.body66, %139
-  %.pn49 = phi { ptr, i32 } [ %140, %139 ], [ %eh.lpad-body67, %.body66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+186:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.body65, %139
+  %.pn49 = phi { ptr, i32 } [ %140, %139 ], [ %eh.lpad-body66, %.body65 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN13IlmThread_3_49TaskGroupD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #28
   br label %187
 
@@ -1704,14 +1704,14 @@ _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcessD2Ev.exit: ; preds = %209, %212
   br label %371
 
 219:                                              ; preds = %190, %_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess10run_unpackEPK19_priv_exr_context_tiPKNS_15DeepFrameBufferEiiRKSt6vectorINS_9DeepSliceESaIS9_EE.exit
-  %.0113 = phi i32 [ %spec.select, %190 ], [ %370, %_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess10run_unpackEPK19_priv_exr_context_tiPKNS_15DeepFrameBufferEiiRKSt6vectorINS_9DeepSliceESaIS9_EE.exit ]
-  %.030112 = phi i1 [ true, %190 ], [ false, %_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess10run_unpackEPK19_priv_exr_context_tiPKNS_15DeepFrameBufferEiiRKSt6vectorINS_9DeepSliceESaIS9_EE.exit ]
+  %.0112 = phi i32 [ %spec.select, %190 ], [ %370, %_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess10run_unpackEPK19_priv_exr_context_tiPKNS_15DeepFrameBufferEiiRKSt6vectorINS_9DeepSliceESaIS9_EE.exit ]
+  %.030111 = phi i1 [ true, %190 ], [ false, %_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess10run_unpackEPK19_priv_exr_context_tiPKNS_15DeepFrameBufferEiiRKSt6vectorINS_9DeepSliceESaIS9_EE.exit ]
   %220 = load ptr, ptr %0, align 8, !tbaa !28
   %221 = load ptr, ptr %220, align 8, !tbaa !3
   %222 = load ptr, ptr %221, align 8, !tbaa !102
   %223 = load i32, ptr %16, align 8, !tbaa !58
-  %224 = invoke i32 @exr_read_scanline_chunk_info(ptr noundef %222, i32 noundef %223, i32 noundef %.0113, ptr noundef nonnull %7)
-          to label %225 unwind label %.loopexit.split-lp99.loopexit
+  %224 = invoke i32 @exr_read_scanline_chunk_info(ptr noundef %222, i32 noundef %223, i32 noundef %.0112, ptr noundef nonnull %7)
+          to label %225 unwind label %.loopexit.split-lp98.loopexit
 
 225:                                              ; preds = %219
   %.not45 = icmp eq i32 %224, 0
@@ -1722,29 +1722,29 @@ _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcessD2Ev.exit: ; preds = %209, %212
   invoke void @_ZN7Iex_3_48InputExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %227, ptr noundef nonnull @.str.13)
           to label %.invoke unwind label %228
 
-.loopexit98:                                      ; preds = %255
-  %lpad.loopexit100 = landingpad { ptr, i32 }
+.loopexit97:                                      ; preds = %255
+  %lpad.loopexit99 = landingpad { ptr, i32 }
           cleanup
-  br label %.body73
+  br label %.body72
 
-.loopexit.split-lp99.loopexit:                    ; preds = %362, %353, %_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess15update_pointersEPKNS_15DeepFrameBufferEii.exit.i, %363, %219
-  %lpad.loopexit103 = landingpad { ptr, i32 }
+.loopexit.split-lp98.loopexit:                    ; preds = %362, %353, %_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess15update_pointersEPKNS_15DeepFrameBufferEii.exit.i, %363, %219
+  %lpad.loopexit102 = landingpad { ptr, i32 }
           cleanup
-  br label %.body73
+  br label %.body72
 
-.loopexit.split-lp99.loopexit.split-lp:           ; preds = %.invoke
-  %lpad.loopexit.split-lp104 = landingpad { ptr, i32 }
+.loopexit.split-lp98.loopexit.split-lp:           ; preds = %.invoke
+  %lpad.loopexit.split-lp103 = landingpad { ptr, i32 }
           cleanup
-  br label %.body73
+  br label %.body72
 
 228:                                              ; preds = %226
   %229 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr nonnull %227) #28
-  br label %.body73
+  br label %.body72
 
 230:                                              ; preds = %225
-  br i1 %.030112, label %363, label %231
+  br i1 %.030111, label %363, label %231
 
 231:                                              ; preds = %230
   %232 = load i32, ptr %193, align 8, !tbaa !160
@@ -1757,7 +1757,7 @@ _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcessD2Ev.exit: ; preds = %209, %212
 
 237:                                              ; preds = %231
   %238 = load i32, ptr %195, align 8, !tbaa !162
-  %239 = sub nsw i32 %.0113, %238
+  %239 = sub nsw i32 %.0112, %238
   store i32 %239, ptr %196, align 8, !tbaa !163
   store i32 0, ptr %197, align 4, !tbaa !164
   %240 = sext i32 %238 to i64
@@ -1770,7 +1770,7 @@ _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcessD2Ev.exit: ; preds = %209, %212
 
 246:                                              ; preds = %237
   %247 = trunc i64 %244 to i32
-  %248 = sub i32 %247, %spec.select92
+  %248 = sub i32 %247, %spec.select91
   store i32 %248, ptr %197, align 4, !tbaa !164
   br label %249
 
@@ -1779,11 +1779,11 @@ _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcessD2Ev.exit: ; preds = %209, %212
   %251 = trunc nuw i8 %250 to i1
   %252 = load i16, ptr %199, align 8
   %253 = icmp slt i16 %252, 1
-  %or.cond117.not = select i1 %251, i1 true, i1 %253
-  br i1 %or.cond117.not, label %_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess15update_pointersEPKNS_15DeepFrameBufferEii.exit.i, label %.lr.ph.i.i
+  %or.cond116.not = select i1 %251, i1 true, i1 %253
+  br i1 %or.cond116.not, label %_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess15update_pointersEPKNS_15DeepFrameBufferEii.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %249
-  %254 = sext i32 %.0113 to i64
+  %254 = sext i32 %.0112 to i64
   br label %255
 
 255:                                              ; preds = %286, %.lr.ph.i.i
@@ -1792,9 +1792,9 @@ _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcessD2Ev.exit: ; preds = %209, %212
   %257 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %256, i64 %indvars.iv.i.i
   %258 = load ptr, ptr %257, align 8, !tbaa !167
   %259 = invoke noundef ptr @_ZNK7Imf_3_415DeepFrameBuffer9findSliceEPKc(ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef %258)
-          to label %.noexc69 unwind label %.loopexit98
+          to label %.noexc68 unwind label %.loopexit97
 
-.noexc69:                                         ; preds = %255
+.noexc68:                                         ; preds = %255
   %260 = getelementptr inbounds nuw i8, ptr %257, i64 8
   %261 = load i32, ptr %260, align 8, !tbaa !169
   %262 = icmp ne i32 %261, 0
@@ -1802,7 +1802,7 @@ _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcessD2Ev.exit: ; preds = %209, %212
   %or.cond.i.i = and i1 %263, %262
   br i1 %or.cond.i.i, label %264, label %286
 
-264:                                              ; preds = %.noexc69
+264:                                              ; preds = %.noexc68
   %265 = getelementptr inbounds nuw i8, ptr %259, i64 52
   %266 = load i32, ptr %265, align 4, !tbaa !170
   %267 = trunc i32 %266 to i16
@@ -1828,10 +1828,10 @@ _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcessD2Ev.exit: ; preds = %209, %212
   %285 = getelementptr inbounds i8, ptr %283, i64 %284
   br label %286
 
-286:                                              ; preds = %264, %.noexc69
-  %.sink38.i.i = phi i32 [ %274, %264 ], [ 0, %.noexc69 ]
-  %.sink37.i.i = phi i32 [ %277, %264 ], [ 0, %.noexc69 ]
-  %.sink.i.i = phi ptr [ %285, %264 ], [ null, %.noexc69 ]
+286:                                              ; preds = %264, %.noexc68
+  %.sink38.i.i = phi i32 [ %274, %264 ], [ 0, %.noexc68 ]
+  %.sink37.i.i = phi i32 [ %277, %264 ], [ 0, %.noexc68 ]
+  %.sink.i.i = phi ptr [ %285, %264 ], [ null, %.noexc68 ]
   %287 = getelementptr inbounds nuw i8, ptr %257, i64 32
   store i32 %.sink38.i.i, ptr %287, align 8, !tbaa !178
   %288 = getelementptr inbounds nuw i8, ptr %257, i64 36
@@ -1846,9 +1846,9 @@ _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcessD2Ev.exit: ; preds = %209, %212
 
 _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess15update_pointersEPKNS_15DeepFrameBufferEii.exit.i: ; preds = %286, %249
   %293 = invoke noundef nonnull align 8 dereferenceable(50) ptr @_ZNK7Imf_3_415DeepFrameBuffer19getSampleCountSliceEv(ptr noundef nonnull align 8 dereferenceable(104) %1)
-          to label %.noexc70 unwind label %.loopexit.split-lp99.loopexit
+          to label %.noexc69 unwind label %.loopexit.split-lp98.loopexit
 
-.noexc70:                                         ; preds = %_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess15update_pointersEPKNS_15DeepFrameBufferEii.exit.i
+.noexc69:                                         ; preds = %_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess15update_pointersEPKNS_15DeepFrameBufferEii.exit.i
   %294 = load i32, ptr %198, align 4, !tbaa !165
   %295 = load i32, ptr %197, align 4, !tbaa !164
   %296 = sub nsw i32 %294, %295
@@ -1860,9 +1860,9 @@ _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess15update_pointersEPKNS_15DeepFrameBuff
   %302 = icmp slt i32 %301, %296
   br i1 %302, label %.lr.ph30.i.i, label %_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess17copy_sample_countEPKNS_15DeepFrameBufferEi.exit.i
 
-.lr.ph30.i.i:                                     ; preds = %.noexc70
+.lr.ph30.i.i:                                     ; preds = %.noexc69
   %303 = getelementptr inbounds nuw i8, ptr %293, i64 8
-  %304 = sext i32 %.0113 to i64
+  %304 = sext i32 %.0112 to i64
   %305 = icmp eq i64 %298, 4
   br i1 %305, label %.lr.ph30.split.us.preheader.i.i, label %.lr.ph30.split.i.i
 
@@ -1942,15 +1942,15 @@ _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess15update_pointersEPKNS_15DeepFrameBuff
   %346 = icmp slt i64 %indvars.iv.next36.i.i, %326
   br i1 %346, label %.preheader.i13.i, label %_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess17copy_sample_countEPKNS_15DeepFrameBufferEi.exit.i, !llvm.loop !186
 
-_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess17copy_sample_countEPKNS_15DeepFrameBufferEi.exit.i: ; preds = %.loopexit.i.i, %.lr.ph30.split.us.i.i, %.lr.ph30.split.i.i, %.noexc70
+_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess17copy_sample_countEPKNS_15DeepFrameBufferEi.exit.i: ; preds = %.loopexit.i.i, %.lr.ph30.split.us.i.i, %.lr.ph30.split.i.i, %.noexc69
   %347 = load i8, ptr %192, align 1, !tbaa !156, !range !75, !noundef !76
   %348 = trunc nuw i8 %347 to i1
   br i1 %348, label %_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess10run_unpackEPK19_priv_exr_context_tiPKNS_15DeepFrameBufferEiiRKSt6vectorINS_9DeepSliceESaIS9_EE.exit, label %349
 
 349:                                              ; preds = %_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess17copy_sample_countEPKNS_15DeepFrameBufferEi.exit.i
   %350 = load i64, ptr %205, align 8, !tbaa !188
-  %.not.i68 = icmp eq i64 %350, 0
-  br i1 %.not.i68, label %362, label %351
+  %.not.i67 = icmp eq i64 %350, 0
+  br i1 %.not.i67, label %362, label %351
 
 351:                                              ; preds = %349
   %352 = load ptr, ptr %206, align 8, !tbaa !189
@@ -1959,14 +1959,14 @@ _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess17copy_sample_countEPKNS_15DeepFrameBu
 
 353:                                              ; preds = %351
   %354 = invoke noundef i32 %352(ptr noundef nonnull %204)
-          to label %.noexc71 unwind label %.loopexit.split-lp99.loopexit
+          to label %.noexc70 unwind label %.loopexit.split-lp98.loopexit
 
-.noexc71:                                         ; preds = %353
+.noexc70:                                         ; preds = %353
   store i32 %354, ptr %13, align 8, !tbaa !105
   %.not11.i = icmp eq i32 %354, 0
   br i1 %.not11.i, label %362, label %355
 
-355:                                              ; preds = %.noexc71
+355:                                              ; preds = %.noexc70
   %356 = call ptr @__cxa_allocate_exception(i64 72) #28
   invoke void @_ZN7Iex_3_45IoExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %356, ptr noundef nonnull @.str.27)
           to label %.invoke unwind label %360
@@ -1976,7 +1976,7 @@ _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess17copy_sample_countEPKNS_15DeepFrameBu
   %358 = phi ptr [ @_ZTIN7Iex_3_45IoExcE, %355 ], [ @_ZTIN7Iex_3_48InputExcE, %226 ]
   %359 = phi ptr [ @_ZN7Iex_3_45IoExcD1Ev, %355 ], [ @_ZN7Iex_3_48InputExcD1Ev, %226 ]
   invoke void @__cxa_throw(ptr nonnull %357, ptr nonnull %358, ptr nonnull %359) #29
-          to label %.cont unwind label %.loopexit.split-lp99.loopexit.split-lp
+          to label %.cont unwind label %.loopexit.split-lp98.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -1985,13 +1985,13 @@ _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess17copy_sample_countEPKNS_15DeepFrameBu
   %361 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr nonnull %356) #28
-  br label %.body73
+  br label %.body72
 
-362:                                              ; preds = %.noexc71, %351, %349
+362:                                              ; preds = %.noexc70, %351, %349
   %.val.i = load ptr, ptr %194, align 8, !tbaa !190
   %.val12.i = load ptr, ptr %207, align 8, !tbaa !190
-  invoke fastcc void @_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess8run_fillEPKNS_15DeepFrameBufferEiRKSt6vectorINS_9DeepSliceESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(584) %13, i32 noundef %.0113, ptr %.val.i, ptr %.val12.i)
-          to label %_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess10run_unpackEPK19_priv_exr_context_tiPKNS_15DeepFrameBufferEiiRKSt6vectorINS_9DeepSliceESaIS9_EE.exit unwind label %.loopexit.split-lp99.loopexit
+  invoke fastcc void @_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess8run_fillEPKNS_15DeepFrameBufferEiRKSt6vectorINS_9DeepSliceESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(584) %13, i32 noundef %.0112, ptr %.val.i, ptr %.val12.i)
+          to label %_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess10run_unpackEPK19_priv_exr_context_tiPKNS_15DeepFrameBufferEiiRKSt6vectorINS_9DeepSliceESaIS9_EE.exit unwind label %.loopexit.split-lp98.loopexit
 
 363:                                              ; preds = %231, %230
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %193, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false), !tbaa.struct !155
@@ -1999,18 +1999,18 @@ _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess17copy_sample_countEPKNS_15DeepFrameBu
   %365 = load ptr, ptr %364, align 8, !tbaa !3
   %366 = load ptr, ptr %365, align 8, !tbaa !102
   %367 = load i32, ptr %16, align 8, !tbaa !58
-  invoke fastcc void @_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess10run_decodeEPK19_priv_exr_context_tiPKNS_15DeepFrameBufferEiiRKSt6vectorINS_9DeepSliceESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(584) %13, ptr noundef %366, i32 noundef %367, ptr noundef nonnull %1, i32 noundef %.0113, i32 noundef %spec.select92, ptr noundef nonnull align 8 dereferenceable(24) %194)
-          to label %_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess10run_unpackEPK19_priv_exr_context_tiPKNS_15DeepFrameBufferEiiRKSt6vectorINS_9DeepSliceESaIS9_EE.exit unwind label %.loopexit.split-lp99.loopexit
+  invoke fastcc void @_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess10run_decodeEPK19_priv_exr_context_tiPKNS_15DeepFrameBufferEiiRKSt6vectorINS_9DeepSliceESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(584) %13, ptr noundef %366, i32 noundef %367, ptr noundef nonnull %1, i32 noundef %.0112, i32 noundef %spec.select91, ptr noundef nonnull align 8 dereferenceable(24) %194)
+          to label %_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess10run_unpackEPK19_priv_exr_context_tiPKNS_15DeepFrameBufferEiiRKSt6vectorINS_9DeepSliceESaIS9_EE.exit unwind label %.loopexit.split-lp98.loopexit
 
 _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess10run_unpackEPK19_priv_exr_context_tiPKNS_15DeepFrameBufferEiiRKSt6vectorINS_9DeepSliceESaIS9_EE.exit: ; preds = %_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess17copy_sample_countEPKNS_15DeepFrameBufferEi.exit.i, %362, %363
   %368 = load i32, ptr %8, align 4, !tbaa !14
   %369 = load i32, ptr %208, align 8, !tbaa !157
   %370 = add i32 %369, %368
-  %.not44 = icmp sgt i32 %370, %spec.select92
+  %.not44 = icmp sgt i32 %370, %spec.select91
   br i1 %.not44, label %209, label %219, !llvm.loop !191
 
-.body73:                                          ; preds = %.loopexit98, %.loopexit.split-lp99.loopexit.split-lp, %.loopexit.split-lp99.loopexit, %360, %228
-  %.pn = phi { ptr, i32 } [ %229, %228 ], [ %361, %360 ], [ %lpad.loopexit100, %.loopexit98 ], [ %lpad.loopexit103, %.loopexit.split-lp99.loopexit ], [ %lpad.loopexit.split-lp104, %.loopexit.split-lp99.loopexit.split-lp ]
+.body72:                                          ; preds = %.loopexit97, %.loopexit.split-lp98.loopexit.split-lp, %.loopexit.split-lp98.loopexit, %360, %228
+  %.pn = phi { ptr, i32 } [ %229, %228 ], [ %361, %360 ], [ %lpad.loopexit99, %.loopexit97 ], [ %lpad.loopexit102, %.loopexit.split-lp98.loopexit ], [ %lpad.loopexit.split-lp103, %.loopexit.split-lp98.loopexit.split-lp ]
   call fastcc void @_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %13) #28
   call void @llvm.lifetime.end.p0(i64 584, ptr nonnull %13) #28
   br label %372
@@ -2020,8 +2020,8 @@ _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess10run_unpackEPK19_priv_exr_context_tiP
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #28
   ret void
 
-372:                                              ; preds = %.body, %.body73, %65, %39
-  %.pn56.pn = phi { ptr, i32 } [ %.pn56, %39 ], [ %.pn54, %65 ], [ %.pn49.pn.pn, %.body ], [ %.pn, %.body73 ]
+372:                                              ; preds = %.body, %.body72, %65, %39
+  %.pn56.pn = phi { ptr, i32 } [ %.pn56, %39 ], [ %.pn54, %65 ], [ %.pn49.pn.pn, %.body ], [ %.pn, %.body72 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #28
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #28
   br label %common.resume

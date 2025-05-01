@@ -186,7 +186,11 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
 15:                                               ; preds = %thread-pre-split, %zend_parse_arg_str_ex.exit.thread
   %16 = phi ptr [ %.pr, %thread-pre-split ], [ %13, %zend_parse_arg_str_ex.exit.thread ]
   %.not.i = icmp eq ptr %16, null
-  br i1 %.not.i, label %.critedge, label %17
+  br i1 %.not.i, label %..critedge_crit_edge, label %17
+
+..critedge_crit_edge:                             ; preds = %15
+  %.pre = load i64, ptr inttoptr (i64 16 to ptr), align 16, !tbaa !12
+  br label %.critedge
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -208,8 +212,8 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
   call void @zend_wrong_parameter_error(i32 noundef %.045.ph, i32 noundef %.0.ph, ptr noundef null, i32 noundef %.047.ph, ptr noundef %.046.ph) #10
   br label %42
 
-.critedge:                                        ; preds = %15, %17
-  %24 = phi i64 [ %20, %17 ], [ undef, %15 ]
+.critedge:                                        ; preds = %..critedge_crit_edge, %17
+  %24 = phi i64 [ %.pre, %..critedge_crit_edge ], [ %20, %17 ]
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
   %26 = call noalias ptr @_estrndup(ptr noundef nonnull %25, i64 noundef %24) #10

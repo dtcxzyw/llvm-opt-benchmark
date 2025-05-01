@@ -8522,8 +8522,9 @@ _ZNSt6vectorIN6google8protobuf2io7Printer3SubESaIS4_EE17_S_check_init_lenEmRKS5_
 
 _ZNSt12_Vector_baseIN6google8protobuf2io7Printer3SubESaIS4_EE11_M_allocateEm.exit.thread: ; preds = %_ZNSt6vectorIN6google8protobuf2io7Printer3SubESaIS4_EE17_S_check_init_lenEmRKS5_.exit
   store ptr null, ptr %this, align 8
+  %add.ptr7 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage8 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr null, ptr %_M_end_of_storage8, align 8
+  store ptr %add.ptr7, ptr %_M_end_of_storage8, align 8
   br label %_ZSt22__uninitialized_copy_aIPKN6google8protobuf2io7Printer3SubEPS4_S4_ET0_T_S9_S8_RSaIT1_E.exit
 
 for.body.i.i.i.i.preheader:                       ; preds = %_ZNSt6vectorIN6google8protobuf2io7Printer3SubESaIS4_EE17_S_check_init_lenEmRKS5_.exit

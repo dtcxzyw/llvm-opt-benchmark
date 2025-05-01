@@ -750,7 +750,7 @@ define internal fastcc void @test4() unnamed_addr #5 {
   %6 = tail call i32 @fflush(ptr noundef %5)
   %7 = load ptr, ptr @stderr, align 8, !tbaa !4
   %8 = tail call i32 @fflush(ptr noundef %7)
-  store volatile i32 0, ptr null, align 4294967296, !tbaa !13
+  store volatile i32 0, ptr inttoptr (i64 4 to ptr), align 4, !tbaa !13
   %9 = load ptr, ptr @stdout, align 8, !tbaa !4
   %10 = tail call i64 @fwrite(ptr nonnull @.str.34, i64 46, i64 1, ptr %9)
   %11 = load ptr, ptr @stderr, align 8, !tbaa !4

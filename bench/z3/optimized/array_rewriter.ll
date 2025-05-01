@@ -12558,7 +12558,11 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit61:    ; preds = %218, %209, %211
   %228 = getelementptr i8, ptr %226, i64 24
   %.val = load ptr, ptr %228, align 8, !tbaa !109
   %229 = icmp eq ptr %.val, null
-  br i1 %229, label %.lr.ph.i, label %230
+  br i1 %229, label %..lr.ph.i_crit_edge, label %230
+
+..lr.ph.i_crit_edge:                              ; preds = %227
+  %.pre195 = load ptr, ptr inttoptr (i64 8 to ptr), align 8, !tbaa !210
+  br label %.lr.ph.i
 
 230:                                              ; preds = %227
   %231 = getelementptr inbounds nuw i8, ptr %.val, i64 8
@@ -12573,9 +12577,9 @@ _Z15get_array_arityPK4sort.exit.i:                ; preds = %230
   %.not5.not.i = icmp eq i32 %236, 0
   br i1 %.not5.not.i, label %"_ZZN14array_rewriter10mk_eq_coreEP4exprS1_R7obj_refIS0_11ast_managerEENK3$_0clEP4sortj.exit", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %227, %_Z15get_array_arityPK4sort.exit.i, %230
-  %237 = phi ptr [ %232, %_Z15get_array_arityPK4sort.exit.i ], [ null, %230 ], [ undef, %227 ]
-  %238 = phi i32 [ %236, %_Z15get_array_arityPK4sort.exit.i ], [ -1, %230 ], [ -1, %227 ]
+.lr.ph.i:                                         ; preds = %..lr.ph.i_crit_edge, %_Z15get_array_arityPK4sort.exit.i, %230
+  %237 = phi ptr [ %232, %_Z15get_array_arityPK4sort.exit.i ], [ %.pre195, %..lr.ph.i_crit_edge ], [ null, %230 ]
+  %238 = phi i32 [ %236, %_Z15get_array_arityPK4sort.exit.i ], [ -1, %..lr.ph.i_crit_edge ], [ -1, %230 ]
   %239 = zext i32 %.sroa.speculated to i64
   %wide.trip.count.i = zext i32 %238 to i64
   br label %241

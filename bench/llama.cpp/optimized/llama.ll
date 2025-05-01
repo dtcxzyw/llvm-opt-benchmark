@@ -8418,8 +8418,8 @@ define noundef i32 @llama_chat_apply_template(ptr noundef readonly captures(addr
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %._crit_edge, label %28
+  %.not49 = icmp eq i64 %2, 0
+  br i1 %.not49, label %._crit_edge, label %28
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -8472,11 +8472,11 @@ _ZSt6fill_nIPPK18llama_chat_messagemS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i30.i: ;
   br label %_ZNSt6vectorIPK18llama_chat_messageSaIS2_EED2Ev.exit42
 
 42:                                               ; preds = %.lr.ph, %42
-  %.02449 = phi i64 [ 0, %.lr.ph ], [ %45, %42 ]
-  %43 = getelementptr inbounds nuw %struct.llama_chat_message, ptr %1, i64 %.02449
-  %44 = getelementptr inbounds nuw ptr, ptr %33, i64 %.02449
+  %.02448 = phi i64 [ 0, %.lr.ph ], [ %45, %42 ]
+  %43 = getelementptr inbounds nuw %struct.llama_chat_message, ptr %1, i64 %.02448
+  %44 = getelementptr inbounds nuw ptr, ptr %33, i64 %.02448
   store ptr %43, ptr %44, align 8, !tbaa !523
-  %45 = add nuw i64 %.02449, 1
+  %45 = add nuw i64 %.02448, 1
   %exitcond.not = icmp eq i64 %45, %2
   br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !530
 
@@ -8603,7 +8603,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38
   br label %_ZNSt6vectorIPK18llama_chat_messageSaIS2_EED2Ev.exit42
 
 _ZNSt6vectorIPK18llama_chat_messageSaIS2_EED2Ev.exit42: ; preds = %.thread, %90, %91
-  %.pn.pn54 = phi { ptr, i32 } [ %41, %.thread ], [ %.pn, %90 ], [ %.pn, %91 ]
+  %.pn.pn53 = phi { ptr, i32 } [ %41, %.thread ], [ %.pn, %90 ], [ %.pn, %91 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #33
   %97 = load ptr, ptr %8, align 8, !tbaa !145
   %98 = icmp eq ptr %97, %13
@@ -8623,7 +8623,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i43
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i44
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #33
-  resume { ptr, i32 } %.pn.pn54
+  resume { ptr, i32 } %.pn.pn53
 }
 
 declare noundef i32 @_Z24llm_chat_detect_templateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4

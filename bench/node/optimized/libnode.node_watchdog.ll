@@ -272,12 +272,15 @@ declare i32 @uv_timer_start(ptr noundef, ptr noundef, i64 noundef, i64 noundef) 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node8Watchdog5TimerEP10uv_timer_s(ptr noundef %timer) #3 align 2 {
 entry:
-  %timed_out_ = getelementptr inbounds nuw i8, ptr %timer, i64 1144
-  %0 = load ptr, ptr %timed_out_, align 8
-  store i8 1, ptr %0, align 1
-  %1 = load ptr, ptr %timer, align 8
-  tail call void @_ZN2v87Isolate18TerminateExecutionEv(ptr noundef nonnull align 1 dereferenceable(1) %1) #16
-  %loop_ = getelementptr inbounds nuw i8, ptr %timer, i64 16
+  %0 = ptrtoint ptr %timer to i64
+  %sub.i.i = add i64 %0, -992
+  %1 = inttoptr i64 %sub.i.i to ptr
+  %timed_out_ = getelementptr inbounds nuw i8, ptr %1, i64 1144
+  %2 = load ptr, ptr %timed_out_, align 8
+  store i8 1, ptr %2, align 1
+  %3 = load ptr, ptr %1, align 8
+  tail call void @_ZN2v87Isolate18TerminateExecutionEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #16
+  %loop_ = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @uv_stop(ptr noundef nonnull %loop_) #16
   ret void
 }
@@ -1524,7 +1527,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZZN4node8WatchdogC1EPN2v87IsolateEmPbEN3$_08__invokeEP10uv_async_s"(ptr noundef %signal) #3 align 2 {
 entry:
-  %loop_.i = getelementptr inbounds nuw i8, ptr %signal, i64 16
+  %0 = ptrtoint ptr %signal to i64
+  %sub.i.i.i = add i64 %0, -864
+  %1 = inttoptr i64 %sub.i.i.i to ptr
+  %loop_.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @uv_stop(ptr noundef nonnull %loop_.i) #16
   ret void
 }
@@ -1539,11 +1545,14 @@ declare noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef
 declare noundef ptr @_ZN2v86Object38SlowGetAlignedPointerFromInternalFieldEi(ptr noundef nonnull align 1 dereferenceable(1), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZZN4node19TraceSigintWatchdogC1EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEEN3$_08__invokeEP10uv_async_s"(ptr noundef nonnull captures(address) initializes((232, 236)) %handle) #3 align 2 {
+define internal void @"_ZZN4node19TraceSigintWatchdogC1EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEEN3$_08__invokeEP10uv_async_s"(ptr noundef %handle) #3 align 2 {
 entry:
-  %signal_flag_.i = getelementptr inbounds nuw i8, ptr %handle, i64 232
+  %0 = ptrtoint ptr %handle to i64
+  %sub.i.i.i = add i64 %0, -104
+  %1 = inttoptr i64 %sub.i.i.i to ptr
+  %signal_flag_.i = getelementptr inbounds nuw i8, ptr %1, i64 232
   store i32 1, ptr %signal_flag_.i, align 8
-  tail call void @_ZN4node19TraceSigintWatchdog15HandleInterruptEv(ptr noundef nonnull align 8 dereferenceable(236) %handle)
+  tail call void @_ZN4node19TraceSigintWatchdog15HandleInterruptEv(ptr noundef nonnull align 8 dereferenceable(236) %1)
   ret void
 }
 

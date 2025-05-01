@@ -3180,8 +3180,8 @@ _ZN8QuantLib12_GLOBAL__N_114DecoratedHedge5clearEv.exit: ; preds = %_ZNK5boost10
   tail call void @_ZN8QuantLib25CallSpecifiedMultiProduct18disableCallabilityEv(ptr noundef nonnull align 8 dereferenceable(281) %0)
   %numberOfSteps_ = getelementptr inbounds nuw i8, ptr %this, i64 416
   %9 = load i64, ptr %numberOfSteps_, align 8, !tbaa !129
-  %cmp235.not = icmp eq i64 %9, 0
-  br i1 %cmp235.not, label %for.cond.cleanup, label %for.body.lr.ph
+  %cmp234.not = icmp eq i64 %9, 0
+  br i1 %cmp234.not, label %for.cond.cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN8QuantLib12_GLOBAL__N_114DecoratedHedge5clearEv.exit
   %numberCashFlowsThisStep_ = getelementptr inbounds nuw i8, ptr %this, i64 440
@@ -3211,21 +3211,21 @@ for.cond.cleanup:                                 ; preds = %if.end133, %_ZN8Qua
   %numerairesHeld.0.lcssa = phi double [ 0.000000e+00, %_ZN8QuantLib12_GLOBAL__N_114DecoratedHedge5clearEv.exit ], [ %numerairesHeld.1, %if.end133 ]
   %weight.0.lcssa = phi double [ %call5, %_ZN8QuantLib12_GLOBAL__N_114DecoratedHedge5clearEv.exit ], [ %mul, %if.end133 ]
   %cmp.i = fcmp olt double %maximumValue.0.lcssa, %numerairesHeld.0.lcssa
-  %.sroa.speculated167 = select i1 %cmp.i, double %numerairesHeld.0.lcssa, double %maximumValue.0.lcssa
+  %.sroa.speculated169 = select i1 %cmp.i, double %numerairesHeld.0.lcssa, double %maximumValue.0.lcssa
   %initialNumeraireValue_ = getelementptr inbounds nuw i8, ptr %this, i64 336
   %10 = load double, ptr %initialNumeraireValue_, align 8, !tbaa !17
-  %mul141 = fmul double %.sroa.speculated167, %10
+  %mul141 = fmul double %.sroa.speculated169, %10
   %.fca.0.insert.i = insertvalue { double, double } poison, double %mul141, 0
   %.fca.1.insert.i = insertvalue { double, double } %.fca.0.insert.i, double %weight.0.lcssa, 1
   ret { double, double } %.fca.1.insert.i
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end133
-  %principalInNumerairePortfolio.0241 = phi double [ 1.000000e+00, %for.body.lr.ph ], [ %principalInNumerairePortfolio.1, %if.end133 ]
-  %exercise.0240 = phi i64 [ 0, %for.body.lr.ph ], [ %exercise.1, %if.end133 ]
-  %k.0239 = phi i64 [ 0, %for.body.lr.ph ], [ %inc138, %if.end133 ]
-  %weight.0238 = phi double [ %call5, %for.body.lr.ph ], [ %mul, %if.end133 ]
-  %numerairesHeld.0237 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %numerairesHeld.1, %if.end133 ]
-  %maximumValue.0236 = phi double [ 0xFFEFFFFFFFFFFFFF, %for.body.lr.ph ], [ %maximumValue.1, %if.end133 ]
+  %principalInNumerairePortfolio.0240 = phi double [ 1.000000e+00, %for.body.lr.ph ], [ %principalInNumerairePortfolio.1, %if.end133 ]
+  %exercise.0239 = phi i64 [ 0, %for.body.lr.ph ], [ %exercise.1, %if.end133 ]
+  %k.0238 = phi i64 [ 0, %for.body.lr.ph ], [ %inc138, %if.end133 ]
+  %weight.0237 = phi double [ %call5, %for.body.lr.ph ], [ %mul, %if.end133 ]
+  %numerairesHeld.0236 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %numerairesHeld.1, %if.end133 ]
+  %maximumValue.0235 = phi double [ 0xFFEFFFFFFFFFFFFF, %for.body.lr.ph ], [ %maximumValue.1, %if.end133 ]
   %11 = load ptr, ptr %this, align 8, !tbaa !9
   %cmp.not.i36 = icmp eq ptr %11, null
   br i1 %cmp.not.i36, label %cond.false.i37, label %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit39, !prof !157
@@ -3241,7 +3241,7 @@ _ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit39: ; preds = %f
   %vfn10 = getelementptr inbounds nuw i8, ptr %vtable9, i64 32
   %13 = load ptr, ptr %vfn10, align 8
   %call11 = call noundef double %13(ptr noundef nonnull align 8 dereferenceable(8) %12)
-  %mul = fmul double %weight.0238, %call11
+  %mul = fmul double %weight.0237, %call11
   %14 = load ptr, ptr %this, align 8, !tbaa !9
   %cmp.not.i40 = icmp eq ptr %14, null
   br i1 %cmp.not.i40, label %cond.false.i41, label %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit43, !prof !157
@@ -3261,23 +3261,23 @@ _ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit43: ; preds = %_
   %17 = load i64, ptr %underlyingOffset_, align 8, !tbaa !119
   %18 = load i64, ptr %underlyingSize_, align 8, !tbaa !120
   %add = add i64 %18, %17
-  %call20 = call noundef double @_ZNK8QuantLib16UpperBoundEngine16collectCashFlowsEmdmm(ptr noundef nonnull align 8 dereferenceable(512) %this, i64 noundef %k.0239, double noundef %principalInNumerairePortfolio.0241, i64 noundef %17, i64 noundef %add)
+  %call20 = call noundef double @_ZNK8QuantLib16UpperBoundEngine16collectCashFlowsEmdmm(ptr noundef nonnull align 8 dereferenceable(512) %this, i64 noundef %k.0238, double noundef %principalInNumerairePortfolio.0240, i64 noundef %17, i64 noundef %add)
   %19 = load i64, ptr %hedgeOffset_, align 8, !tbaa !123
   %20 = load i64, ptr %hedgeSize_, align 8, !tbaa !124
   %add22 = add i64 %20, %19
-  %call23 = call noundef double @_ZNK8QuantLib16UpperBoundEngine16collectCashFlowsEmdmm(ptr noundef nonnull align 8 dereferenceable(512) %this, i64 noundef %k.0239, double noundef %principalInNumerairePortfolio.0241, i64 noundef %19, i64 noundef %add22)
+  %call23 = call noundef double @_ZNK8QuantLib16UpperBoundEngine16collectCashFlowsEmdmm(ptr noundef nonnull align 8 dereferenceable(512) %this, i64 noundef %k.0238, double noundef %principalInNumerairePortfolio.0240, i64 noundef %19, i64 noundef %add22)
   %21 = load i64, ptr %rebateOffset_, align 8, !tbaa !121
   %22 = load i64, ptr %rebateSize_, align 8, !tbaa !122
   %add25 = add i64 %22, %21
-  %call26 = call noundef double @_ZNK8QuantLib16UpperBoundEngine16collectCashFlowsEmdmm(ptr noundef nonnull align 8 dereferenceable(512) %this, i64 noundef %k.0239, double noundef %principalInNumerairePortfolio.0241, i64 noundef %21, i64 noundef %add25)
+  %call26 = call noundef double @_ZNK8QuantLib16UpperBoundEngine16collectCashFlowsEmdmm(ptr noundef nonnull align 8 dereferenceable(512) %this, i64 noundef %k.0238, double noundef %principalInNumerairePortfolio.0240, i64 noundef %21, i64 noundef %add25)
   %23 = load i64, ptr %hedgeRebateOffset_, align 8, !tbaa !125
   %24 = load i64, ptr %hedgeRebateSize_, align 8, !tbaa !126
   %add28 = add i64 %24, %23
-  %call29 = call noundef double @_ZNK8QuantLib16UpperBoundEngine16collectCashFlowsEmdmm(ptr noundef nonnull align 8 dereferenceable(512) %this, i64 noundef %k.0239, double noundef %principalInNumerairePortfolio.0241, i64 noundef %23, i64 noundef %add28)
+  %call29 = call noundef double @_ZNK8QuantLib16UpperBoundEngine16collectCashFlowsEmdmm(ptr noundef nonnull align 8 dereferenceable(512) %this, i64 noundef %k.0238, double noundef %principalInNumerairePortfolio.0240, i64 noundef %23, i64 noundef %add28)
   %sub = fsub double %call20, %call23
-  %add30 = fadd double %numerairesHeld.0237, %sub
+  %add30 = fadd double %numerairesHeld.0236, %sub
   %25 = load ptr, ptr %_M_data.i, align 8, !tbaa !62
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %25, i64 %k.0239
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %25, i64 %k.0238
   %26 = load i8, ptr %arrayidx.i, align 1, !tbaa !131, !range !158, !noundef !159
   %loadedv = trunc nuw i8 %26 to i1
   br i1 %loadedv, label %if.then, label %if.end106
@@ -3285,14 +3285,14 @@ _ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit43: ; preds = %_
 if.then:                                          ; preds = %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit43
   %27 = load i64, ptr %numberOfSteps_, align 8, !tbaa !129
   %sub33 = add i64 %27, -1
-  %cmp34.not = icmp eq i64 %k.0239, %sub33
+  %cmp34.not = icmp eq i64 %k.0238, %sub33
   br i1 %cmp34.not, label %if.end, label %if.then35
 
 if.then35:                                        ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %currentEvolver) #21
-  %inc = add i64 %exercise.0240, 1
+  %inc = add i64 %exercise.0239, 1
   %28 = load ptr, ptr %innerEvolvers_, align 8, !tbaa !13
-  %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr", ptr %28, i64 %exercise.0240
+  %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr", ptr %28, i64 %exercise.0239
   %29 = load ptr, ptr %add.ptr.i, align 8, !tbaa !9
   store ptr %29, ptr %currentEvolver, align 8, !tbaa !9
   %pn3.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
@@ -3518,7 +3518,7 @@ if.then3.i.i.i.i.i.i.i:                           ; preds = %cond.true.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %cond.true.i.i.i.i.i
   %call5.i.i.i.i2.i6.i.i80 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i77) #24
-          to label %invoke.cont66 unwind label %lpad65.loopexit.split-lp.loopexit
+          to label %for.body.i82.preheader unwind label %lpad65.loopexit.split-lp.loopexit
 
 for.body.i:                                       ; preds = %invoke.cont63, %call2.i.noexc
   %i.012.i = phi i64 [ %inc.i, %call2.i.noexc ], [ 0, %invoke.cont63 ]
@@ -3536,118 +3536,111 @@ call2.i.noexc:                                    ; preds = %for.body.i
   %cmp.i73 = icmp ult i64 %inc.i, %62
   br i1 %cmp.i73, label %for.body.i, label %for.cond.cleanup.i, !llvm.loop !178
 
-invoke.cont66:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i6.i.i80, i64 %sub.ptr.sub.i.i.i77
+for.body.i82.preheader:                           ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i6.i.i80, ptr align 8 %58, i64 %sub.ptr.sub.i.i.i77, i1 false), !noalias !175
+  %ref.tmp64.sroa.11.3 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i6.i.i80, i64 %sub.ptr.sub.i.i.i77
   br label %for.body.i82
 
-for.body.i82:                                     ; preds = %invoke.cont66, %for.body.i82
-  %__init.addr.06.i = phi double [ %add.i, %for.body.i82 ], [ 0.000000e+00, %invoke.cont66 ]
-  %__first.sroa.0.05.i = phi ptr [ %incdec.ptr.i.i, %for.body.i82 ], [ %call5.i.i.i.i2.i6.i.i80, %invoke.cont66 ]
+for.body.i82:                                     ; preds = %for.body.i82.preheader, %for.body.i82
+  %__init.addr.06.i = phi double [ %add.i, %for.body.i82 ], [ 0.000000e+00, %for.body.i82.preheader ]
+  %__first.sroa.0.05.i = phi ptr [ %incdec.ptr.i.i, %for.body.i82 ], [ %call5.i.i.i.i2.i6.i.i80, %for.body.i82.preheader ]
   %63 = load double, ptr %__first.sroa.0.05.i, align 8, !tbaa !137
   %add.i = fadd double %__init.addr.06.i, %63
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.05.i, i64 8
-  %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i.i
-  br i1 %cmp.i.not.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit.loopexit, label %for.body.i82, !llvm.loop !179
+  %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %ref.tmp64.sroa.11.3
+  br i1 %cmp.i.not.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit, label %for.body.i82, !llvm.loop !179
 
-_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit.loopexit: ; preds = %for.body.i82
-  %64 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  br label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit
-
-_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit: ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit.loopexit, %for.cond.cleanup.i
-  %ref.tmp64.sroa.11.3175 = phi i64 [ 0, %for.cond.cleanup.i ], [ %64, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit.loopexit ]
-  %ref.tmp64.sroa.0.3174 = phi ptr [ null, %for.cond.cleanup.i ], [ %call5.i.i.i.i2.i6.i.i80, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit.loopexit ]
-  %__init.addr.0.lcssa.i = phi double [ 0.000000e+00, %for.cond.cleanup.i ], [ %add.i, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit.loopexit ]
+_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit: ; preds = %for.body.i82, %for.cond.cleanup.i
+  %ref.tmp64.sroa.0.3261 = phi ptr [ null, %for.cond.cleanup.i ], [ %call5.i.i.i.i2.i6.i.i80, %for.body.i82 ]
+  %__init.addr.0.lcssa.i = phi double [ 0.000000e+00, %for.cond.cleanup.i ], [ %add.i, %for.body.i82 ]
   invoke void @_ZN8QuantLib25CallSpecifiedMultiProduct18disableCallabilityEv(ptr noundef nonnull align 8 dereferenceable(281) %0)
           to label %invoke.cont77 unwind label %lpad74
 
 invoke.cont77:                                    ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit
-  %div = fdiv double %__init.addr.0.lcssa.i, %principalInNumerairePortfolio.0241
+  %div = fdiv double %__init.addr.0.lcssa.i, %principalInNumerairePortfolio.0240
   store i8 1, ptr %recording_.i, align 8, !tbaa !118
-  %tobool.not.i.i.i84 = icmp eq ptr %ref.tmp64.sroa.0.3174, null
+  %tobool.not.i.i.i84 = icmp eq ptr %ref.tmp64.sroa.0.3261, null
   br i1 %tobool.not.i.i.i84, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %if.then.i.i.i85
 
 if.then.i.i.i85:                                  ; preds = %invoke.cont77
-  %sub.ptr.rhs.cast.i.i87 = ptrtoint ptr %ref.tmp64.sroa.0.3174 to i64
-  %sub.ptr.sub.i.i88 = sub i64 %ref.tmp64.sroa.11.3175, %sub.ptr.rhs.cast.i.i87
-  call void @_ZdlPvm(ptr noundef nonnull %ref.tmp64.sroa.0.3174, i64 noundef %sub.ptr.sub.i.i88) #22
+  call void @_ZdlPvm(ptr noundef nonnull %ref.tmp64.sroa.0.3261, i64 noundef %sub.ptr.sub.i.i.i77) #22
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont77, %if.then.i.i.i85
-  %65 = load ptr, ptr %quadraticSum_.i, align 8, !tbaa !3
-  %cmp.not.i.i.i90 = icmp eq ptr %65, null
+  %64 = load ptr, ptr %quadraticSum_.i, align 8, !tbaa !3
+  %cmp.not.i.i.i90 = icmp eq ptr %64, null
   br i1 %cmp.not.i.i.i90, label %_ZN8QuantLib6MatrixD2Ev.exit.i92, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i91
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i91: ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %65) #22
+  call void @_ZdaPv(ptr noundef nonnull %64) #22
   br label %_ZN8QuantLib6MatrixD2Ev.exit.i92
 
 _ZN8QuantLib6MatrixD2Ev.exit.i92:                 ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i91, %_ZNSt6vectorIdSaIdEED2Ev.exit
   store ptr null, ptr %quadraticSum_.i, align 8, !tbaa !3
-  %66 = load ptr, ptr %results_.i, align 8, !tbaa !65
-  %tobool.not.i.i.i.i94 = icmp eq ptr %66, null
+  %65 = load ptr, ptr %results_.i, align 8, !tbaa !65
+  %tobool.not.i.i.i.i94 = icmp eq ptr %65, null
   br i1 %tobool.not.i.i.i.i94, label %_ZNSt6vectorIdSaIdEED2Ev.exit.i100, label %if.then.i.i.i.i95
 
 if.then.i.i.i.i95:                                ; preds = %_ZN8QuantLib6MatrixD2Ev.exit.i92
-  %67 = load ptr, ptr %_M_end_of_storage.i.i.i96, align 8, !tbaa !66
-  %sub.ptr.lhs.cast.i.i.i97 = ptrtoint ptr %67 to i64
-  %sub.ptr.rhs.cast.i.i.i98 = ptrtoint ptr %66 to i64
+  %66 = load ptr, ptr %_M_end_of_storage.i.i.i96, align 8, !tbaa !66
+  %sub.ptr.lhs.cast.i.i.i97 = ptrtoint ptr %66 to i64
+  %sub.ptr.rhs.cast.i.i.i98 = ptrtoint ptr %65 to i64
   %sub.ptr.sub.i.i.i99 = sub i64 %sub.ptr.lhs.cast.i.i.i97, %sub.ptr.rhs.cast.i.i.i98
-  call void @_ZdlPvm(ptr noundef nonnull %66, i64 noundef %sub.ptr.sub.i.i.i99) #22
+  call void @_ZdlPvm(ptr noundef nonnull %65, i64 noundef %sub.ptr.sub.i.i.i99) #22
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i100
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i100:               ; preds = %if.then.i.i.i.i95, %_ZN8QuantLib6MatrixD2Ev.exit.i92
-  %68 = load ptr, ptr %stats_.i, align 8, !tbaa !160
-  %tobool.not.i.i.i1.i102 = icmp eq ptr %68, null
+  %67 = load ptr, ptr %stats_.i, align 8, !tbaa !160
+  %tobool.not.i.i.i1.i102 = icmp eq ptr %67, null
   br i1 %tobool.not.i.i.i1.i102, label %_ZN8QuantLib25GenericSequenceStatisticsINS_21IncrementalStatisticsEED2Ev.exit, label %if.then.i.i.i2.i103
 
 if.then.i.i.i2.i103:                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i100
-  %69 = load ptr, ptr %_M_end_of_storage.i.i3.i104, align 8, !tbaa !162
-  %sub.ptr.lhs.cast.i.i4.i105 = ptrtoint ptr %69 to i64
-  %sub.ptr.rhs.cast.i.i5.i106 = ptrtoint ptr %68 to i64
+  %68 = load ptr, ptr %_M_end_of_storage.i.i3.i104, align 8, !tbaa !162
+  %sub.ptr.lhs.cast.i.i4.i105 = ptrtoint ptr %68 to i64
+  %sub.ptr.rhs.cast.i.i5.i106 = ptrtoint ptr %67 to i64
   %sub.ptr.sub.i.i6.i107 = sub i64 %sub.ptr.lhs.cast.i.i4.i105, %sub.ptr.rhs.cast.i.i5.i106
-  call void @_ZdlPvm(ptr noundef nonnull %68, i64 noundef %sub.ptr.sub.i.i6.i107) #22
+  call void @_ZdlPvm(ptr noundef nonnull %67, i64 noundef %sub.ptr.sub.i.i6.i107) #22
   br label %_ZN8QuantLib25GenericSequenceStatisticsINS_21IncrementalStatisticsEED2Ev.exit
 
 _ZN8QuantLib25GenericSequenceStatisticsINS_21IncrementalStatisticsEED2Ev.exit: ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i100, %if.then.i.i.i2.i103
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %innerStats) #21
   call void @_ZN8QuantLib16AccountingEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %engine) #21
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %engine) #21
-  %70 = load ptr, ptr %pn.i, align 8, !tbaa !12
-  %cmp.not.i.i110 = icmp eq ptr %70, null
+  %69 = load ptr, ptr %pn.i, align 8, !tbaa !12
+  %cmp.not.i.i110 = icmp eq ptr %69, null
   br i1 %cmp.not.i.i110, label %_ZN5boost10shared_ptrIN8QuantLib18MarketModelEvolverEED2Ev.exit124, label %if.then.i.i111
 
 if.then.i.i111:                                   ; preds = %_ZN8QuantLib25GenericSequenceStatisticsINS_21IncrementalStatisticsEED2Ev.exit
-  %use_count_.i.i.i112 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %71 = atomicrmw sub ptr %use_count_.i.i.i112, i32 1 acq_rel, align 4
-  %cmp.i.i.i113 = icmp eq i32 %71, 1
+  %use_count_.i.i.i112 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %70 = atomicrmw sub ptr %use_count_.i.i.i112, i32 1 acq_rel, align 4
+  %cmp.i.i.i113 = icmp eq i32 %70, 1
   br i1 %cmp.i.i.i113, label %if.then.i.i.i114, label %_ZN5boost10shared_ptrIN8QuantLib18MarketModelEvolverEED2Ev.exit124
 
 if.then.i.i.i114:                                 ; preds = %if.then.i.i111
-  %vtable.i.i.i115 = load ptr, ptr %70, align 8, !tbaa !7
+  %vtable.i.i.i115 = load ptr, ptr %69, align 8, !tbaa !7
   %vfn.i.i.i116 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i115, i64 16
-  %72 = load ptr, ptr %vfn.i.i.i116, align 8
-  invoke void %72(ptr noundef nonnull align 8 dereferenceable(16) %70)
+  %71 = load ptr, ptr %vfn.i.i.i116, align 8
+  invoke void %71(ptr noundef nonnull align 8 dereferenceable(16) %69)
           to label %.noexc.i.i118 unwind label %terminate.lpad.i.i117
 
 .noexc.i.i118:                                    ; preds = %if.then.i.i.i114
-  %weak_count_.i.i.i.i119 = getelementptr inbounds nuw i8, ptr %70, i64 12
-  %73 = atomicrmw sub ptr %weak_count_.i.i.i.i119, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i120 = icmp eq i32 %73, 1
+  %weak_count_.i.i.i.i119 = getelementptr inbounds nuw i8, ptr %69, i64 12
+  %72 = atomicrmw sub ptr %weak_count_.i.i.i.i119, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i120 = icmp eq i32 %72, 1
   br i1 %cmp.i.i.i.i120, label %if.then.i.i.i.i121, label %_ZN5boost10shared_ptrIN8QuantLib18MarketModelEvolverEED2Ev.exit124
 
 if.then.i.i.i.i121:                               ; preds = %.noexc.i.i118
-  %vtable.i.i.i.i122 = load ptr, ptr %70, align 8, !tbaa !7
+  %vtable.i.i.i.i122 = load ptr, ptr %69, align 8, !tbaa !7
   %vfn.i.i.i.i123 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i122, i64 24
-  %74 = load ptr, ptr %vfn.i.i.i.i123, align 8
-  invoke void %74(ptr noundef nonnull align 8 dereferenceable(16) %70)
+  %73 = load ptr, ptr %vfn.i.i.i.i123, align 8
+  invoke void %73(ptr noundef nonnull align 8 dereferenceable(16) %69)
           to label %_ZN5boost10shared_ptrIN8QuantLib18MarketModelEvolverEED2Ev.exit124 unwind label %terminate.lpad.i.i117
 
 terminate.lpad.i.i117:                            ; preds = %if.then.i.i.i.i121, %if.then.i.i.i114
-  %75 = landingpad { ptr, i32 }
+  %74 = landingpad { ptr, i32 }
           catch ptr null
-  %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  %75 = extractvalue { ptr, i32 } %74, 0
+  call void @__clang_call_terminate(ptr %75) #26
   unreachable
 
 _ZN5boost10shared_ptrIN8QuantLib18MarketModelEvolverEED2Ev.exit124: ; preds = %_ZN8QuantLib25GenericSequenceStatisticsINS_21IncrementalStatisticsEED2Ev.exit, %if.then.i.i111, %.noexc.i.i118, %if.then.i.i.i.i121
@@ -3655,42 +3648,42 @@ _ZN5boost10shared_ptrIN8QuantLib18MarketModelEvolverEED2Ev.exit124: ; preds = %_
   br label %if.end
 
 lpad:                                             ; preds = %cond.false.i49, %cond.false.i45, %invoke.cont47, %invoke.cont43, %invoke.cont39
-  %77 = landingpad { ptr, i32 }
+  %76 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup86
 
 lpad51:                                           ; preds = %_ZN5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEC2ERKS3_.exit61
-  %78 = landingpad { ptr, i32 }
+  %77 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad53:                                           ; preds = %invoke.cont52
-  %79 = landingpad { ptr, i32 }
+  %78 = landingpad { ptr, i32 }
           cleanup
-  %80 = load ptr, ptr %ref.tmp, align 8, !tbaa !3
-  %cmp.not.i.i125 = icmp eq ptr %80, null
+  %79 = load ptr, ptr %ref.tmp, align 8, !tbaa !3
+  %cmp.not.i.i125 = icmp eq ptr %79, null
   br i1 %cmp.not.i.i125, label %ehcleanup, label %_ZNKSt14default_deleteIN8QuantLib23MarketModelMultiProductEEclEPS1_.exit.i.i126
 
 _ZNKSt14default_deleteIN8QuantLib23MarketModelMultiProductEEclEPS1_.exit.i.i126: ; preds = %lpad53
-  %vtable.i.i.i127 = load ptr, ptr %80, align 8, !tbaa !7
+  %vtable.i.i.i127 = load ptr, ptr %79, align 8, !tbaa !7
   %vfn.i.i.i128 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i127, i64 8
-  %81 = load ptr, ptr %vfn.i.i.i128, align 8
-  call void %81(ptr noundef nonnull align 8 dereferenceable(8) %80) #21
+  %80 = load ptr, ptr %vfn.i.i.i128, align 8
+  call void %80(ptr noundef nonnull align 8 dereferenceable(8) %79) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %_ZNKSt14default_deleteIN8QuantLib23MarketModelMultiProductEEclEPS1_.exit.i.i126, %lpad53, %lpad51
-  %.pn = phi { ptr, i32 } [ %78, %lpad51 ], [ %79, %lpad53 ], [ %79, %_ZNKSt14default_deleteIN8QuantLib23MarketModelMultiProductEEclEPS1_.exit.i.i126 ]
+  %.pn = phi { ptr, i32 } [ %77, %lpad51 ], [ %78, %lpad53 ], [ %78, %_ZNKSt14default_deleteIN8QuantLib23MarketModelMultiProductEEclEPS1_.exit.i.i126 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #21
   call void @_ZN5boost10shared_ptrIN8QuantLib18MarketModelEvolverEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #21
   br label %ehcleanup85
 
 lpad58:                                           ; preds = %_ZN5boost10shared_ptrIN8QuantLib18MarketModelEvolverEED2Ev.exit
-  %82 = landingpad { ptr, i32 }
+  %81 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup83
 
 lpad62:                                           ; preds = %invoke.cont61
-  %83 = landingpad { ptr, i32 }
+  %82 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup82
 
@@ -3700,34 +3693,32 @@ lpad65.loopexit:                                  ; preds = %for.body.i
   br label %ehcleanup82
 
 lpad65.loopexit.split-lp.loopexit:                ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
-  %lpad.loopexit176 = landingpad { ptr, i32 }
+  %lpad.loopexit173 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup82
 
 lpad65.loopexit.split-lp.loopexit.split-lp:       ; preds = %if.then3.i.i.i.i.i.i.i
-  %lpad.loopexit.split-lp177 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp174 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup82
 
 lpad74:                                           ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit
-  %84 = landingpad { ptr, i32 }
+  %83 = landingpad { ptr, i32 }
           cleanup
-  %tobool.not.i.i.i130 = icmp eq ptr %ref.tmp64.sroa.0.3174, null
+  %tobool.not.i.i.i130 = icmp eq ptr %ref.tmp64.sroa.0.3261, null
   br i1 %tobool.not.i.i.i130, label %ehcleanup82, label %if.then.i.i.i131
 
 if.then.i.i.i131:                                 ; preds = %lpad74
-  %sub.ptr.rhs.cast.i.i134 = ptrtoint ptr %ref.tmp64.sroa.0.3174 to i64
-  %sub.ptr.sub.i.i135 = sub i64 %ref.tmp64.sroa.11.3175, %sub.ptr.rhs.cast.i.i134
-  call void @_ZdlPvm(ptr noundef nonnull %ref.tmp64.sroa.0.3174, i64 noundef %sub.ptr.sub.i.i135) #22
+  call void @_ZdlPvm(ptr noundef nonnull %ref.tmp64.sroa.0.3261, i64 noundef %sub.ptr.sub.i.i.i77) #22
   br label %ehcleanup82
 
 ehcleanup82:                                      ; preds = %lpad65.loopexit, %lpad65.loopexit.split-lp.loopexit.split-lp, %lpad65.loopexit.split-lp.loopexit, %if.then.i.i.i131, %lpad74, %lpad62
-  %.pn30.pn = phi { ptr, i32 } [ %83, %lpad62 ], [ %84, %lpad74 ], [ %84, %if.then.i.i.i131 ], [ %lpad.loopexit, %lpad65.loopexit ], [ %lpad.loopexit176, %lpad65.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp177, %lpad65.loopexit.split-lp.loopexit.split-lp ]
+  %.pn30.pn = phi { ptr, i32 } [ %82, %lpad62 ], [ %83, %lpad74 ], [ %83, %if.then.i.i.i131 ], [ %lpad.loopexit, %lpad65.loopexit ], [ %lpad.loopexit173, %lpad65.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp174, %lpad65.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN8QuantLib25GenericSequenceStatisticsINS_21IncrementalStatisticsEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %innerStats) #21
   br label %ehcleanup83
 
 ehcleanup83:                                      ; preds = %lpad58, %if.then.i.i.i2.i, %_ZNSt6vectorIdSaIdEED2Ev.exit.i, %ehcleanup82
-  %.pn30.pn.pn = phi { ptr, i32 } [ %.pn30.pn, %ehcleanup82 ], [ %82, %lpad58 ], [ %51, %if.then.i.i.i2.i ], [ %51, %_ZNSt6vectorIdSaIdEED2Ev.exit.i ]
+  %.pn30.pn.pn = phi { ptr, i32 } [ %.pn30.pn, %ehcleanup82 ], [ %81, %lpad58 ], [ %51, %if.then.i.i.i2.i ], [ %51, %_ZNSt6vectorIdSaIdEED2Ev.exit.i ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %innerStats) #21
   call void @_ZN8QuantLib16AccountingEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %engine) #21
   br label %ehcleanup85
@@ -3738,16 +3729,16 @@ ehcleanup85:                                      ; preds = %ehcleanup83, %ehcle
   br label %ehcleanup86
 
 ehcleanup86:                                      ; preds = %ehcleanup85, %lpad
-  %.pn30.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn30.pn.pn.pn, %ehcleanup85 ], [ %77, %lpad ]
+  %.pn30.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn30.pn.pn.pn, %ehcleanup85 ], [ %76, %lpad ]
   call void @_ZN5boost10shared_ptrIN8QuantLib18MarketModelEvolverEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %currentEvolver) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %currentEvolver) #21
   resume { ptr, i32 } %.pn30.pn.pn.pn.pn
 
 if.end:                                           ; preds = %_ZN5boost10shared_ptrIN8QuantLib18MarketModelEvolverEED2Ev.exit124, %if.then
   %unexercisedHedgeValue.0 = phi double [ %div, %_ZN5boost10shared_ptrIN8QuantLib18MarketModelEvolverEED2Ev.exit124 ], [ 0.000000e+00, %if.then ]
-  %exercise.2 = phi i64 [ %inc, %_ZN5boost10shared_ptrIN8QuantLib18MarketModelEvolverEED2Ev.exit124 ], [ %exercise.0240, %if.then ]
-  %85 = load ptr, ptr %this, align 8, !tbaa !9
-  %cmp.not.i137 = icmp eq ptr %85, null
+  %exercise.2 = phi i64 [ %inc, %_ZN5boost10shared_ptrIN8QuantLib18MarketModelEvolverEED2Ev.exit124 ], [ %exercise.0239, %if.then ]
+  %84 = load ptr, ptr %this, align 8, !tbaa !9
+  %cmp.not.i137 = icmp eq ptr %84, null
   br i1 %cmp.not.i137, label %cond.false.i138, label %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit140, !prof !157
 
 cond.false.i138:                                  ; preds = %if.end
@@ -3756,37 +3747,37 @@ cond.false.i138:                                  ; preds = %if.end
   br label %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit140
 
 _ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit140: ; preds = %if.end, %cond.false.i138
-  %86 = phi ptr [ %85, %if.end ], [ %.pre.i139, %cond.false.i138 ]
-  %vtable90 = load ptr, ptr %86, align 8, !tbaa !7
+  %85 = phi ptr [ %84, %if.end ], [ %.pre.i139, %cond.false.i138 ]
+  %vtable90 = load ptr, ptr %85, align 8, !tbaa !7
   %vfn91 = getelementptr inbounds nuw i8, ptr %vtable90, i64 48
-  %87 = load ptr, ptr %vfn91, align 8
-  %call92 = call noundef nonnull align 8 dereferenceable(64) ptr %87(ptr noundef nonnull align 8 dereferenceable(8) %86)
+  %86 = load ptr, ptr %vfn91, align 8
+  %call92 = call noundef nonnull align 8 dereferenceable(64) ptr %86(ptr noundef nonnull align 8 dereferenceable(8) %85)
   %vtable93 = load ptr, ptr %call2, align 8, !tbaa !7
   %vfn94 = getelementptr inbounds nuw i8, ptr %vtable93, i64 40
-  %88 = load ptr, ptr %vfn94, align 8
-  %call95 = call noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(8) %call2, ptr noundef nonnull align 8 dereferenceable(64) %call92)
+  %87 = load ptr, ptr %vfn94, align 8
+  %call95 = call noundef zeroext i1 %87(ptr noundef nonnull align 8 dereferenceable(8) %call2, ptr noundef nonnull align 8 dereferenceable(64) %call92)
   %sub99 = fsub double %unexercisedHedgeValue.0, %call29
   %add100 = fadd double %add30, %sub99
   %numerairesHeld.2 = select i1 %call95, double %add100, double %add30
   %call29.pn = select i1 %call95, double %call29, double %unexercisedHedgeValue.0
   %sub97.pn = fsub double %call26, %call29.pn
   %portfolioValue.0 = fadd double %add30, %sub97.pn
-  %cmp.i141 = fcmp olt double %maximumValue.0236, %portfolioValue.0
-  %.sroa.speculated = select i1 %cmp.i141, double %portfolioValue.0, double %maximumValue.0236
+  %cmp.i141 = fcmp olt double %maximumValue.0235, %portfolioValue.0
+  %.sroa.speculated = select i1 %cmp.i141, double %portfolioValue.0, double %maximumValue.0235
   br label %if.end106
 
 if.end106:                                        ; preds = %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit140, %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit43
-  %maximumValue.1 = phi double [ %.sroa.speculated, %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit140 ], [ %maximumValue.0236, %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit43 ]
+  %maximumValue.1 = phi double [ %.sroa.speculated, %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit140 ], [ %maximumValue.0235, %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit43 ]
   %numerairesHeld.1 = phi double [ %numerairesHeld.2, %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit140 ], [ %add30, %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit43 ]
-  %exercise.1 = phi i64 [ %exercise.2, %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit140 ], [ %exercise.0240, %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit43 ]
-  %89 = load i64, ptr %numberOfSteps_, align 8, !tbaa !129
-  %sub108 = add i64 %89, -1
-  %cmp109 = icmp ult i64 %k.0239, %sub108
+  %exercise.1 = phi i64 [ %exercise.2, %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit140 ], [ %exercise.0239, %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit43 ]
+  %88 = load i64, ptr %numberOfSteps_, align 8, !tbaa !129
+  %sub108 = add i64 %88, -1
+  %cmp109 = icmp ult i64 %k.0238, %sub108
   br i1 %cmp109, label %if.then110, label %if.end133
 
 if.then110:                                       ; preds = %if.end106
-  %90 = load ptr, ptr %this, align 8, !tbaa !9
-  %cmp.not.i143 = icmp eq ptr %90, null
+  %89 = load ptr, ptr %this, align 8, !tbaa !9
+  %cmp.not.i143 = icmp eq ptr %89, null
   br i1 %cmp.not.i143, label %cond.false.i144, label %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit146, !prof !157
 
 cond.false.i144:                                  ; preds = %if.then110
@@ -3795,16 +3786,16 @@ cond.false.i144:                                  ; preds = %if.then110
   br label %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit146
 
 _ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit146: ; preds = %if.then110, %cond.false.i144
-  %91 = phi ptr [ %90, %if.then110 ], [ %.pre.i145, %cond.false.i144 ]
-  %vtable113 = load ptr, ptr %91, align 8, !tbaa !7
+  %90 = phi ptr [ %89, %if.then110 ], [ %.pre.i145, %cond.false.i144 ]
+  %vtable113 = load ptr, ptr %90, align 8, !tbaa !7
   %vfn114 = getelementptr inbounds nuw i8, ptr %vtable113, i64 16
-  %92 = load ptr, ptr %vfn114, align 8
-  %call115 = call noundef nonnull align 8 dereferenceable(24) ptr %92(ptr noundef nonnull align 8 dereferenceable(8) %91)
-  %93 = load ptr, ptr %call115, align 8, !tbaa !63
-  %add.ptr.i147 = getelementptr inbounds nuw i64, ptr %93, i64 %k.0239
-  %94 = load i64, ptr %add.ptr.i147, align 8, !tbaa !81
-  %95 = load ptr, ptr %this, align 8, !tbaa !9
-  %cmp.not.i148 = icmp eq ptr %95, null
+  %91 = load ptr, ptr %vfn114, align 8
+  %call115 = call noundef nonnull align 8 dereferenceable(24) ptr %91(ptr noundef nonnull align 8 dereferenceable(8) %90)
+  %92 = load ptr, ptr %call115, align 8, !tbaa !63
+  %add.ptr.i147 = getelementptr inbounds nuw i64, ptr %92, i64 %k.0238
+  %93 = load i64, ptr %add.ptr.i147, align 8, !tbaa !81
+  %94 = load ptr, ptr %this, align 8, !tbaa !9
+  %cmp.not.i148 = icmp eq ptr %94, null
   br i1 %cmp.not.i148, label %cond.false.i149, label %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit151, !prof !157
 
 cond.false.i149:                                  ; preds = %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit146
@@ -3813,17 +3804,17 @@ cond.false.i149:                                  ; preds = %_ZNK5boost10shared_
   br label %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit151
 
 _ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit151: ; preds = %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit146, %cond.false.i149
-  %96 = phi ptr [ %95, %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit146 ], [ %.pre.i150, %cond.false.i149 ]
-  %vtable119 = load ptr, ptr %96, align 8, !tbaa !7
+  %95 = phi ptr [ %94, %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit146 ], [ %.pre.i150, %cond.false.i149 ]
+  %vtable119 = load ptr, ptr %95, align 8, !tbaa !7
   %vfn120 = getelementptr inbounds nuw i8, ptr %vtable119, i64 16
-  %97 = load ptr, ptr %vfn120, align 8
-  %call121 = call noundef nonnull align 8 dereferenceable(24) ptr %97(ptr noundef nonnull align 8 dereferenceable(8) %96)
-  %98 = load ptr, ptr %call121, align 8, !tbaa !63
-  %99 = getelementptr inbounds nuw i64, ptr %98, i64 %k.0239
-  %add.ptr.i152 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %100 = load i64, ptr %add.ptr.i152, align 8, !tbaa !81
-  %101 = load ptr, ptr %this, align 8, !tbaa !9
-  %cmp.not.i153 = icmp eq ptr %101, null
+  %96 = load ptr, ptr %vfn120, align 8
+  %call121 = call noundef nonnull align 8 dereferenceable(24) ptr %96(ptr noundef nonnull align 8 dereferenceable(8) %95)
+  %97 = load ptr, ptr %call121, align 8, !tbaa !63
+  %98 = getelementptr inbounds nuw i64, ptr %97, i64 %k.0238
+  %add.ptr.i152 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %99 = load i64, ptr %add.ptr.i152, align 8, !tbaa !81
+  %100 = load ptr, ptr %this, align 8, !tbaa !9
+  %cmp.not.i153 = icmp eq ptr %100, null
   br i1 %cmp.not.i153, label %cond.false.i154, label %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit156, !prof !157
 
 cond.false.i154:                                  ; preds = %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit151
@@ -3832,24 +3823,24 @@ cond.false.i154:                                  ; preds = %_ZNK5boost10shared_
   br label %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit156
 
 _ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit156: ; preds = %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit151, %cond.false.i154
-  %102 = phi ptr [ %101, %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit151 ], [ %.pre.i155, %cond.false.i154 ]
-  %vtable126 = load ptr, ptr %102, align 8, !tbaa !7
+  %101 = phi ptr [ %100, %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit151 ], [ %.pre.i155, %cond.false.i154 ]
+  %vtable126 = load ptr, ptr %101, align 8, !tbaa !7
   %vfn127 = getelementptr inbounds nuw i8, ptr %vtable126, i64 48
-  %103 = load ptr, ptr %vfn127, align 8
-  %call128 = call noundef nonnull align 8 dereferenceable(64) ptr %103(ptr noundef nonnull align 8 dereferenceable(8) %102)
+  %102 = load ptr, ptr %vfn127, align 8
+  %call128 = call noundef nonnull align 8 dereferenceable(64) ptr %102(ptr noundef nonnull align 8 dereferenceable(8) %101)
   %vtable129 = load ptr, ptr %call128, align 8, !tbaa !7
   %vfn130 = getelementptr inbounds nuw i8, ptr %vtable129, i64 16
-  %104 = load ptr, ptr %vfn130, align 8
-  %call131 = call noundef double %104(ptr noundef nonnull align 8 dereferenceable(64) %call128, i64 noundef %94, i64 noundef %100)
-  %mul132 = fmul double %principalInNumerairePortfolio.0241, %call131
+  %103 = load ptr, ptr %vfn130, align 8
+  %call131 = call noundef double %103(ptr noundef nonnull align 8 dereferenceable(64) %call128, i64 noundef %93, i64 noundef %99)
+  %mul132 = fmul double %principalInNumerairePortfolio.0240, %call131
   %.pre = load i64, ptr %numberOfSteps_, align 8, !tbaa !129
   br label %if.end133
 
 if.end133:                                        ; preds = %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit156, %if.end106
-  %105 = phi i64 [ %.pre, %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit156 ], [ %89, %if.end106 ]
-  %principalInNumerairePortfolio.1 = phi double [ %mul132, %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit156 ], [ %principalInNumerairePortfolio.0241, %if.end106 ]
-  %inc138 = add nuw i64 %k.0239, 1
-  %cmp = icmp ult i64 %inc138, %105
+  %104 = phi i64 [ %.pre, %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit156 ], [ %88, %if.end106 ]
+  %principalInNumerairePortfolio.1 = phi double [ %mul132, %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit156 ], [ %principalInNumerairePortfolio.0240, %if.end106 ]
+  %inc138 = add nuw i64 %k.0238, 1
+  %cmp = icmp ult i64 %inc138, %104
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !180
 }
 
@@ -5278,8 +5269,10 @@ invoke.cont.i:                                    ; preds = %.noexc
 
 invoke.cont.i.i.thread:                           ; preds = %invoke.cont.i
   %_M_finish.i.i.i.i3 = getelementptr inbounds nuw i8, ptr %call, i64 336
+  %add.ptr.i.i.i.i4 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i
   %_M_end_of_storage.i.i.i.i5 = getelementptr inbounds nuw i8, ptr %call, i64 344
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %numberCashFlowsThisStep_.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %numberCashFlowsThisStep_.i, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i.i4, ptr %_M_end_of_storage.i.i.i.i5, align 8, !tbaa !64
   br label %invoke.cont6.i
 
 cond.true.i.i.i.i.i:                              ; preds = %invoke.cont.i
@@ -5309,7 +5302,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNSt16allocator_tr
 
 invoke.cont6.i:                                   ; preds = %invoke.cont.i.i.thread, %if.then.i.i.i.i.i.i.i.i.i.i
   %_M_end_of_storage.i.i.i.i8 = phi ptr [ %_M_end_of_storage.i.i.i.i5, %invoke.cont.i.i.thread ], [ %_M_end_of_storage.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
-  %add.ptr.i.i.i.i7 = phi ptr [ null, %invoke.cont.i.i.thread ], [ %add.ptr.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i.i7 = phi ptr [ %add.ptr.i.i.i.i4, %invoke.cont.i.i.thread ], [ %add.ptr.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i6 = phi ptr [ %_M_finish.i.i.i.i3, %invoke.cont.i.i.thread ], [ %_M_finish.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i.i7, ptr %_M_finish.i.i.i.i6, align 8, !tbaa !80
   %cashFlowsGenerated_.i = getelementptr inbounds nuw i8, ptr %call, i64 352

@@ -819,20 +819,20 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev26FixedFunctionTransformImpl9getPar
 
 10:                                               ; preds = %2
   %11 = icmp ugt i64 %9, 9223372036854775800
-  br i1 %11, label %.noexc.i.i, label %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit, !prof !61
+  br i1 %11, label %.noexc.i.i, label %12, !prof !61
 
 .noexc.i.i:                                       ; preds = %10
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
-_ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %10
-  %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #20
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %12, ptr align 8 %6, i64 %9, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1, ptr nonnull align 8 %12, i64 %9, i1 false)
-  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %9) #24
+12:                                               ; preds = %10
+  %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #20
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %13, ptr align 8 %6, i64 %9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1, ptr nonnull align 8 %13, i64 %9, i1 false)
+  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %9) #24
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
-_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %2, %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
+_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %2, %12
   ret void
 }
 

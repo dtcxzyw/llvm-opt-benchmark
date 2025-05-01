@@ -226,7 +226,10 @@ declare i32 @uv_async_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node7tracing15NodeTraceWriter12ExitSignalCbEP10uv_async_s(ptr noundef %signal) #0 align 2 {
 entry:
-  %flush_signal_ = getelementptr inbounds nuw i8, ptr %signal, i64 16
+  %0 = ptrtoint ptr %signal to i64
+  %sub.i.i = add i64 %0, -144
+  %1 = inttoptr i64 %sub.i.i to ptr
+  %flush_signal_ = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @uv_close(ptr noundef nonnull %flush_signal_, ptr noundef nonnull @"_ZZN4node7tracing15NodeTraceWriter12ExitSignalCbEP10uv_async_sEN3$_08__invokeEP11uv_handle_s") #12
   ret void
 }
@@ -1072,9 +1075,12 @@ declare void @uv_close(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZZN4node7tracing15NodeTraceWriter18InitializeOnThreadEP9uv_loop_sEN3$_08__invokeEP10uv_async_s"(ptr noundef nonnull %signal) #0 align 2 {
+define internal void @"_ZZN4node7tracing15NodeTraceWriter18InitializeOnThreadEP9uv_loop_sEN3$_08__invokeEP10uv_async_s"(ptr noundef %signal) #0 align 2 {
 entry:
-  tail call void @_ZN4node7tracing15NodeTraceWriter12FlushPrivateEv(ptr noundef nonnull align 8 dereferenceable(1409) %signal)
+  %0 = ptrtoint ptr %signal to i64
+  %sub.i.i.i = add i64 %0, -16
+  %1 = inttoptr i64 %sub.i.i.i to ptr
+  tail call void @_ZN4node7tracing15NodeTraceWriter12FlushPrivateEv(ptr noundef nonnull align 8 dereferenceable(1409) %1)
   ret void
 }
 
@@ -1406,16 +1412,22 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #7
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZZN4node7tracing15NodeTraceWriter10StartWriteE8uv_buf_tEN3$_08__invokeEP7uv_fs_s"(ptr noundef nonnull %req) #0 align 2 {
+define internal void @"_ZZN4node7tracing15NodeTraceWriter10StartWriteE8uv_buf_tEN3$_08__invokeEP7uv_fs_s"(ptr noundef %req) #0 align 2 {
 entry:
-  tail call void @_ZN4node7tracing15NodeTraceWriter10AfterWriteEv(ptr noundef nonnull align 8 dereferenceable(1409) %req)
+  %0 = ptrtoint ptr %req to i64
+  %sub.i.i.i = add i64 %0, -456
+  %1 = inttoptr i64 %sub.i.i.i to ptr
+  tail call void @_ZN4node7tracing15NodeTraceWriter10AfterWriteEv(ptr noundef nonnull align 8 dereferenceable(1409) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZZN4node7tracing15NodeTraceWriter12ExitSignalCbEP10uv_async_sEN3$_08__invokeEP11uv_handle_s"(ptr noundef %signal) #0 align 2 {
 entry:
-  %exit_signal_.i = getelementptr inbounds nuw i8, ptr %signal, i64 144
+  %0 = ptrtoint ptr %signal to i64
+  %sub.i.i.i = add i64 %0, -16
+  %1 = inttoptr i64 %sub.i.i.i to ptr
+  %exit_signal_.i = getelementptr inbounds nuw i8, ptr %1, i64 144
   tail call void @uv_close(ptr noundef nonnull %exit_signal_.i, ptr noundef nonnull @"_ZZZN4node7tracing15NodeTraceWriter12ExitSignalCbEP10uv_async_sENK3$_0clEP11uv_handle_sENUlS6_E_8__invokeES6_") #12
   ret void
 }
@@ -1423,11 +1435,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZZZN4node7tracing15NodeTraceWriter12ExitSignalCbEP10uv_async_sENK3$_0clEP11uv_handle_sENUlS6_E_8__invokeES6_"(ptr noundef %signal) #0 align 2 {
 entry:
-  %request_mutex_.i = getelementptr inbounds nuw i8, ptr %signal, i64 312
+  %0 = ptrtoint ptr %signal to i64
+  %sub.i.i.i = add i64 %0, -144
+  %1 = inttoptr i64 %sub.i.i.i to ptr
+  %request_mutex_.i = getelementptr inbounds nuw i8, ptr %1, i64 312
   tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %request_mutex_.i) #12
-  %exited_.i = getelementptr inbounds nuw i8, ptr %signal, i64 1408
+  %exited_.i = getelementptr inbounds nuw i8, ptr %1, i64 1408
   store i8 1, ptr %exited_.i, align 8
-  %exit_cond_.i = getelementptr inbounds nuw i8, ptr %signal, i64 400
+  %exit_cond_.i = getelementptr inbounds nuw i8, ptr %1, i64 400
   tail call void @uv_cond_signal(ptr noundef nonnull align 8 dereferenceable(48) %exit_cond_.i) #12
   tail call void @uv_mutex_unlock(ptr noundef nonnull %request_mutex_.i) #12
   ret void

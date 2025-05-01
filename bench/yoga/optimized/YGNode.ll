@@ -929,392 +929,403 @@ define void @YGNodeSetChildren(ptr noundef %0, ptr noundef readonly captures(non
   %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"struct.facebook::yoga::LayoutResults", align 4
   %8 = icmp eq ptr %0, null
-  br i1 %8, label %154, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
+  br i1 %8, label %161, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
 
 _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i: ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %.not.i.i.i = icmp eq i64 %2, 0
-  br i1 %.not.i.i.i, label %.thread, label %9
-
-9:                                                ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
   %.idx = shl nuw nsw i64 %2, 3
-  %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #15
-  store ptr %10, ptr %4, align 8, !tbaa !65
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %11, ptr %12, align 8, !tbaa !67
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr align 8 %1, i64 %.idx, i1 false)
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %11, ptr %13, align 8, !tbaa !64
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %16 = load ptr, ptr %15, align 8, !tbaa !64
-  %17 = load ptr, ptr %14, align 8, !tbaa !65
-  %.not = icmp eq ptr %16, %17
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  %.not.i.i.i = icmp eq i64 %2, 0
+  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.thread.i.i, label %.noexc4.i
 
-.thread:                                          ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %20 = load ptr, ptr %19, align 8, !tbaa !64
-  %21 = load ptr, ptr %18, align 8, !tbaa !65
-  %.not29 = icmp eq ptr %20, %21
-  br i1 %.not29, label %146, label %.lr.ph80
+_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
+  %9 = getelementptr inbounds nuw i8, ptr null, i64 %.idx
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %9, ptr %10, align 8, !tbaa !67
+  br label %14
 
-.lr.ph80:                                         ; preds = %.thread
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 216
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 220
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 224
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 228
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 232
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 236
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 240
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 244
-  %33 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 252
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 256
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 260
-  br label %40
+.noexc4.i:                                        ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
+  %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #15
+  store ptr %11, ptr %4, align 8, !tbaa !65
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %12, ptr %13, align 8, !tbaa !67
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %11, ptr align 8 %1, i64 %.idx, i1 false)
+  br label %14
+
+14:                                               ; preds = %.noexc4.i, %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.thread.i.i
+  %15 = phi ptr [ null, %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.thread.i.i ], [ %11, %.noexc4.i ]
+  %16 = phi ptr [ %9, %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.thread.i.i ], [ %12, %.noexc4.i ]
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %16, ptr %17, align 8, !tbaa !64
+  %18 = icmp eq ptr %15, %16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %21 = load ptr, ptr %20, align 8, !tbaa !64
+  %22 = load ptr, ptr %19, align 8, !tbaa !65
+  %.not29 = icmp eq ptr %21, %22
+  br i1 %18, label %23, label %73
+
+23:                                               ; preds = %14
+  br i1 %.not29, label %153, label %.lr.ph80
+
+.lr.ph80:                                         ; preds = %23
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 216
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 220
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 224
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 228
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 232
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 236
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 240
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 244
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 248
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 252
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 256
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 260
+  br label %42
 
 ._crit_edge81:                                    ; preds = %_ZN8facebook4yoga13LayoutResultsC2Ev.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  %37 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %6)
-          to label %_ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit unwind label %62
+  %39 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %6)
+          to label %_ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit unwind label %64
 
-38:                                               ; preds = %.loopexit, %._crit_edge, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit
-  %39 = landingpad { ptr, i32 }
+40:                                               ; preds = %.loopexit, %._crit_edge, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit
+  %41 = landingpad { ptr, i32 }
           cleanup
   %.pre = load ptr, ptr %4, align 8, !tbaa !65
-  br label %155
+  br label %162
 
-40:                                               ; preds = %.lr.ph80, %_ZN8facebook4yoga13LayoutResultsC2Ev.exit
-  %.sroa.061.078 = phi ptr [ %21, %.lr.ph80 ], [ %53, %_ZN8facebook4yoga13LayoutResultsC2Ev.exit ]
-  %41 = load ptr, ptr %.sroa.061.078, align 8, !tbaa !69
+42:                                               ; preds = %.lr.ph80, %_ZN8facebook4yoga13LayoutResultsC2Ev.exit
+  %.sroa.061.078 = phi ptr [ %22, %.lr.ph80 ], [ %55, %_ZN8facebook4yoga13LayoutResultsC2Ev.exit ]
+  %43 = load ptr, ptr %.sroa.061.078, align 8, !tbaa !69
   call void @llvm.lifetime.start.p0(i64 324, ptr nonnull %5) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(324) %5, i8 0, i64 324, i1 false)
-  store float 0x7FF8000000000000, ptr %22, align 4, !tbaa !85
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %23, i8 0, i64 9, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(196) %24, i8 0, i64 196, i1 false)
-  br label %42
+  store float 0x7FF8000000000000, ptr %24, align 4, !tbaa !85
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %25, i8 0, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(196) %26, i8 0, i64 196, i1 false)
+  br label %44
 
-42:                                               ; preds = %42, %40
-  %.idx.i = phi i64 [ 24, %40 ], [ %.add.i, %42 ]
+44:                                               ; preds = %44, %42
+  %.idx.i = phi i64 [ 24, %42 ], [ %.add.i, %44 ]
   %.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
   store float -1.000000e+00, ptr %.ptr.i, align 4, !tbaa !86
-  %43 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 4
-  store float -1.000000e+00, ptr %43, align 4, !tbaa !87
-  %44 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 8
-  store i32 1, ptr %44, align 4, !tbaa !88
-  %45 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 12
-  store i32 1, ptr %45, align 4, !tbaa !89
-  %46 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 16
-  store float -1.000000e+00, ptr %46, align 4, !tbaa !90
-  %47 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 20
-  store float -1.000000e+00, ptr %47, align 4, !tbaa !91
+  %45 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 4
+  store float -1.000000e+00, ptr %45, align 4, !tbaa !87
+  %46 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 8
+  store i32 1, ptr %46, align 4, !tbaa !88
+  %47 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 12
+  store i32 1, ptr %47, align 4, !tbaa !89
+  %48 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 16
+  store float -1.000000e+00, ptr %48, align 4, !tbaa !90
+  %49 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 20
+  store float -1.000000e+00, ptr %49, align 4, !tbaa !91
   %.add.i = add nuw nsw i64 %.idx.i, 24
-  %48 = icmp eq i64 %.add.i, 216
-  br i1 %48, label %_ZN8facebook4yoga13LayoutResultsC2Ev.exit, label %42
+  %50 = icmp eq i64 %.add.i, 216
+  br i1 %50, label %_ZN8facebook4yoga13LayoutResultsC2Ev.exit, label %44
 
-_ZN8facebook4yoga13LayoutResultsC2Ev.exit:        ; preds = %42
-  store float -1.000000e+00, ptr %25, align 4, !tbaa !86
-  store float -1.000000e+00, ptr %26, align 4, !tbaa !87
-  store i32 1, ptr %27, align 4, !tbaa !88
-  store i32 1, ptr %28, align 4, !tbaa !89
-  store float -1.000000e+00, ptr %29, align 4, !tbaa !90
-  store float -1.000000e+00, ptr %30, align 4, !tbaa !91
-  %49 = load i8, ptr %31, align 4
-  %50 = and i8 %49, -8
-  store i8 %50, ptr %31, align 4
-  store float 0x7FF8000000000000, ptr %32, align 4, !tbaa !92
-  store float 0x7FF8000000000000, ptr %33, align 4, !tbaa !92
+_ZN8facebook4yoga13LayoutResultsC2Ev.exit:        ; preds = %44
+  store float -1.000000e+00, ptr %27, align 4, !tbaa !86
+  store float -1.000000e+00, ptr %28, align 4, !tbaa !87
+  store i32 1, ptr %29, align 4, !tbaa !88
+  store i32 1, ptr %30, align 4, !tbaa !89
+  store float -1.000000e+00, ptr %31, align 4, !tbaa !90
+  store float -1.000000e+00, ptr %32, align 4, !tbaa !91
+  %51 = load i8, ptr %33, align 4
+  %52 = and i8 %51, -8
+  store i8 %52, ptr %33, align 4
   store float 0x7FF8000000000000, ptr %34, align 4, !tbaa !92
   store float 0x7FF8000000000000, ptr %35, align 4, !tbaa !92
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %36, i8 0, i64 64, i1 false)
-  %51 = getelementptr inbounds nuw i8, ptr %41, i64 184
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(324) %51, ptr noundef nonnull align 4 dereferenceable(324) %5, i64 324, i1 false), !tbaa.struct !93
+  store float 0x7FF8000000000000, ptr %36, align 4, !tbaa !92
+  store float 0x7FF8000000000000, ptr %37, align 4, !tbaa !92
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %38, i8 0, i64 64, i1 false)
+  %53 = getelementptr inbounds nuw i8, ptr %43, i64 184
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(324) %53, ptr noundef nonnull align 4 dereferenceable(324) %5, i64 324, i1 false), !tbaa.struct !93
   call void @llvm.lifetime.end.p0(i64 324, ptr nonnull %5) #17
-  %52 = getelementptr inbounds nuw i8, ptr %41, i64 528
-  store ptr null, ptr %52, align 8, !tbaa !62
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.061.078, i64 8
-  %54 = icmp eq ptr %53, %20
-  br i1 %54, label %._crit_edge81, label %40
+  %54 = getelementptr inbounds nuw i8, ptr %43, i64 528
+  store ptr null, ptr %54, align 8, !tbaa !62
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.061.078, i64 8
+  %56 = icmp eq ptr %55, %21
+  br i1 %56, label %._crit_edge81, label %42
 
 _ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit: ; preds = %._crit_edge81
-  %55 = load ptr, ptr %6, align 8, !tbaa !65
-  %.not.i.i.i32 = icmp eq ptr %55, null
-  br i1 %.not.i.i.i32, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit, label %56
+  %57 = load ptr, ptr %6, align 8, !tbaa !65
+  %.not.i.i.i32 = icmp eq ptr %57, null
+  br i1 %.not.i.i.i32, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit, label %58
 
-56:                                               ; preds = %_ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit
-  %57 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %58 = load ptr, ptr %57, align 8, !tbaa !67
-  %59 = ptrtoint ptr %58 to i64
-  %60 = ptrtoint ptr %55 to i64
-  %61 = sub i64 %59, %60
-  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #16
+58:                                               ; preds = %_ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %60 = load ptr, ptr %59, align 8, !tbaa !67
+  %61 = ptrtoint ptr %60 to i64
+  %62 = ptrtoint ptr %57 to i64
+  %63 = sub i64 %61, %62
+  call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef %63) #16
   br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit
 
-_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit: ; preds = %_ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit, %56
+_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit: ; preds = %_ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit, %58
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17
   invoke void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
-          to label %146 unwind label %38
+          to label %153 unwind label %40
 
-62:                                               ; preds = %._crit_edge81
-  %63 = landingpad { ptr, i32 }
+64:                                               ; preds = %._crit_edge81
+  %65 = landingpad { ptr, i32 }
           cleanup
-  %64 = load ptr, ptr %6, align 8, !tbaa !65
-  %.not.i.i.i34 = icmp eq ptr %64, null
-  br i1 %.not.i.i.i34, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit36, label %65
+  %66 = load ptr, ptr %6, align 8, !tbaa !65
+  %.not.i.i.i34 = icmp eq ptr %66, null
+  br i1 %.not.i.i.i34, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit36, label %67
 
-65:                                               ; preds = %62
-  %66 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %67 = load ptr, ptr %66, align 8, !tbaa !67
-  %68 = ptrtoint ptr %67 to i64
-  %69 = ptrtoint ptr %64 to i64
-  %70 = sub i64 %68, %69
-  call void @_ZdlPvm(ptr noundef nonnull %64, i64 noundef %70) #16
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %69 = load ptr, ptr %68, align 8, !tbaa !67
+  %70 = ptrtoint ptr %69 to i64
+  %71 = ptrtoint ptr %66 to i64
+  %72 = sub i64 %70, %71
+  call void @_ZdlPvm(ptr noundef nonnull %66, i64 noundef %72) #16
   br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit36
 
-_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit36: ; preds = %62, %65
+_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit36: ; preds = %64, %67
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17
-  br label %155
+  br label %162
 
-.lr.ph:                                           ; preds = %9
-  %71 = lshr i64 %2, 2
-  %.not95 = icmp ult i64 %2, 4
-  %72 = and i64 %.idx, 9223372036854775776
-  %scevgep.i.i.i = getelementptr i8, ptr %10, i64 %72
-  %73 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %74 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %75 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %76 = getelementptr inbounds nuw i8, ptr %7, i64 216
-  %77 = getelementptr inbounds nuw i8, ptr %7, i64 220
-  %78 = getelementptr inbounds nuw i8, ptr %7, i64 224
-  %79 = getelementptr inbounds nuw i8, ptr %7, i64 228
-  %80 = getelementptr inbounds nuw i8, ptr %7, i64 232
-  %81 = getelementptr inbounds nuw i8, ptr %7, i64 236
-  %82 = getelementptr inbounds nuw i8, ptr %7, i64 240
-  %83 = getelementptr inbounds nuw i8, ptr %7, i64 244
-  %84 = getelementptr inbounds nuw i8, ptr %7, i64 248
-  %85 = getelementptr inbounds nuw i8, ptr %7, i64 252
-  %86 = getelementptr inbounds nuw i8, ptr %7, i64 256
-  %87 = getelementptr inbounds nuw i8, ptr %7, i64 260
-  %88 = and i64 %2, 3
-  br label %89
+73:                                               ; preds = %14
+  br i1 %.not29, label %.loopexit, label %.lr.ph
 
-89:                                               ; preds = %.lr.ph, %135
-  %.sroa.057.075 = phi ptr [ %17, %.lr.ph ], [ %136, %135 ]
-  %90 = load ptr, ptr %.sroa.057.075, align 8, !tbaa !69
-  br i1 %.not95, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+.lr.ph:                                           ; preds = %73
+  %74 = ptrtoint ptr %16 to i64
+  %75 = ptrtoint ptr %15 to i64
+  %76 = sub i64 %74, %75
+  %77 = ashr i64 %76, 5
+  %78 = icmp sgt i64 %77, 0
+  %79 = and i64 %76, -32
+  %scevgep.i.i.i = getelementptr i8, ptr %15, i64 %79
+  %.pre59.i.i.i = ptrtoint ptr %scevgep.i.i.i to i64
+  %.pre60.i.i.i = sub i64 %74, %.pre59.i.i.i
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 216
+  %84 = getelementptr inbounds nuw i8, ptr %7, i64 220
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 224
+  %86 = getelementptr inbounds nuw i8, ptr %7, i64 228
+  %87 = getelementptr inbounds nuw i8, ptr %7, i64 232
+  %88 = getelementptr inbounds nuw i8, ptr %7, i64 236
+  %89 = getelementptr inbounds nuw i8, ptr %7, i64 240
+  %90 = getelementptr inbounds nuw i8, ptr %7, i64 244
+  %91 = getelementptr inbounds nuw i8, ptr %7, i64 248
+  %92 = getelementptr inbounds nuw i8, ptr %7, i64 252
+  %93 = getelementptr inbounds nuw i8, ptr %7, i64 256
+  %94 = getelementptr inbounds nuw i8, ptr %7, i64 260
+  br label %95
 
-.lr.ph.i.i.i:                                     ; preds = %89, %105
-  %.052.i.i.i = phi i64 [ %107, %105 ], [ %71, %89 ]
-  %.sroa.032.051.i.i.i = phi ptr [ %106, %105 ], [ %10, %89 ]
-  %91 = load ptr, ptr %.sroa.032.051.i.i.i, align 8, !tbaa !69
-  %92 = icmp eq ptr %91, %90
-  br i1 %92, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit, label %93
+95:                                               ; preds = %.lr.ph, %142
+  %.sroa.057.075 = phi ptr [ %22, %.lr.ph ], [ %143, %142 ]
+  %96 = load ptr, ptr %.sroa.057.075, align 8, !tbaa !69
+  br i1 %78, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
-93:                                               ; preds = %.lr.ph.i.i.i
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 8
-  %95 = load ptr, ptr %94, align 8, !tbaa !69
-  %96 = icmp eq ptr %95, %90
-  br i1 %96, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit89, label %97
+.lr.ph.i.i.i:                                     ; preds = %95, %111
+  %.052.i.i.i = phi i64 [ %113, %111 ], [ %77, %95 ]
+  %.sroa.032.051.i.i.i = phi ptr [ %112, %111 ], [ %15, %95 ]
+  %97 = load ptr, ptr %.sroa.032.051.i.i.i, align 8, !tbaa !69
+  %98 = icmp eq ptr %97, %96
+  br i1 %98, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit, label %99
 
-97:                                               ; preds = %93
-  %98 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 16
-  %99 = load ptr, ptr %98, align 8, !tbaa !69
-  %100 = icmp eq ptr %99, %90
-  br i1 %100, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit87, label %101
+99:                                               ; preds = %.lr.ph.i.i.i
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 8
+  %101 = load ptr, ptr %100, align 8, !tbaa !69
+  %102 = icmp eq ptr %101, %96
+  br i1 %102, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit89, label %103
 
-101:                                              ; preds = %97
-  %102 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 24
-  %103 = load ptr, ptr %102, align 8, !tbaa !69
-  %104 = icmp eq ptr %103, %90
-  br i1 %104, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit, label %105
+103:                                              ; preds = %99
+  %104 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 16
+  %105 = load ptr, ptr %104, align 8, !tbaa !69
+  %106 = icmp eq ptr %105, %96
+  br i1 %106, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit87, label %107
 
-105:                                              ; preds = %101
-  %106 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 32
-  %107 = add nsw i64 %.052.i.i.i, -1
-  %108 = icmp sgt i64 %.052.i.i.i, 1
-  br i1 %108, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !102
+107:                                              ; preds = %103
+  %108 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 24
+  %109 = load ptr, ptr %108, align 8, !tbaa !69
+  %110 = icmp eq ptr %109, %96
+  br i1 %110, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit, label %111
 
-._crit_edge.i.i.i:                                ; preds = %105, %89
-  %.pre-phi61.i.i.i = phi i64 [ %2, %89 ], [ %88, %105 ]
-  %.sroa.032.0.lcssa.i.i.i = phi ptr [ %10, %89 ], [ %scevgep.i.i.i, %105 ]
-  switch i64 %.pre-phi61.i.i.i, label %._crit_edge.i.i.i.unreachabledefault [
-    i64 3, label %109
+111:                                              ; preds = %107
+  %112 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 32
+  %113 = add nsw i64 %.052.i.i.i, -1
+  %114 = icmp sgt i64 %.052.i.i.i, 1
+  br i1 %114, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !102
+
+._crit_edge.i.i.i:                                ; preds = %111, %95
+  %.pre-phi61.i.i.i = phi i64 [ %76, %95 ], [ %.pre60.i.i.i, %111 ]
+  %.sroa.032.0.lcssa.i.i.i = phi ptr [ %15, %95 ], [ %scevgep.i.i.i, %111 ]
+  %115 = ashr exact i64 %.pre-phi61.i.i.i, 3
+  switch i64 %115, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.thread [
+    i64 3, label %116
     i64 2, label %._crit_edge._crit_edge.i.i.i
     i64 1, label %._crit_edge._crit_edge57.i.i.i
-    i64 0, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.thread
   ]
 
-109:                                              ; preds = %._crit_edge.i.i.i
-  %110 = load ptr, ptr %.sroa.032.0.lcssa.i.i.i, align 8, !tbaa !69
-  %111 = icmp eq ptr %110, %90
-  br i1 %111, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit, label %112
+116:                                              ; preds = %._crit_edge.i.i.i
+  %117 = load ptr, ptr %.sroa.032.0.lcssa.i.i.i, align 8, !tbaa !69
+  %118 = icmp eq ptr %117, %96
+  br i1 %118, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit, label %119
 
-112:                                              ; preds = %109
-  %113 = getelementptr inbounds nuw i8, ptr %.sroa.032.0.lcssa.i.i.i, i64 8
+119:                                              ; preds = %116
+  %120 = getelementptr inbounds nuw i8, ptr %.sroa.032.0.lcssa.i.i.i, i64 8
   br label %._crit_edge._crit_edge.i.i.i
 
-._crit_edge._crit_edge.i.i.i:                     ; preds = %._crit_edge.i.i.i, %112
-  %.sroa.032.1.i.i.i = phi ptr [ %113, %112 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %114 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !69
-  %115 = icmp eq ptr %114, %90
-  br i1 %115, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit, label %116
+._crit_edge._crit_edge.i.i.i:                     ; preds = %._crit_edge.i.i.i, %119
+  %.sroa.032.1.i.i.i = phi ptr [ %120, %119 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
+  %121 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !69
+  %122 = icmp eq ptr %121, %96
+  br i1 %122, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit, label %123
 
-116:                                              ; preds = %._crit_edge._crit_edge.i.i.i
-  %117 = getelementptr inbounds nuw i8, ptr %.sroa.032.1.i.i.i, i64 8
+123:                                              ; preds = %._crit_edge._crit_edge.i.i.i
+  %124 = getelementptr inbounds nuw i8, ptr %.sroa.032.1.i.i.i, i64 8
   br label %._crit_edge._crit_edge57.i.i.i
 
-._crit_edge._crit_edge57.i.i.i:                   ; preds = %._crit_edge.i.i.i, %116
-  %.sroa.032.2.i.i.i = phi ptr [ %117, %116 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %118 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !69
-  %119 = icmp eq ptr %118, %90
-  %spec.select.i.i.i = select i1 %119, ptr %.sroa.032.2.i.i.i, ptr %11
+._crit_edge._crit_edge57.i.i.i:                   ; preds = %._crit_edge.i.i.i, %123
+  %.sroa.032.2.i.i.i = phi ptr [ %124, %123 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
+  %125 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !69
+  %126 = icmp eq ptr %125, %96
+  %spec.select.i.i.i = select i1 %126, ptr %.sroa.032.2.i.i.i, ptr %16
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit: ; preds = %101
-  %120 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 24
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit: ; preds = %107
+  %127 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 24
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit87: ; preds = %97
-  %121 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 16
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit87: ; preds = %103
+  %128 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 16
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit89: ; preds = %93
-  %122 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 8
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit89: ; preds = %99
+  %129 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 8
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit: ; preds = %.lr.ph.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit87, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit89, %._crit_edge._crit_edge57.i.i.i, %._crit_edge._crit_edge.i.i.i, %109
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %109 ], [ %.sroa.032.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %120, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit ], [ %121, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit87 ], [ %122, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit89 ], [ %.sroa.032.051.i.i.i, %.lr.ph.i.i.i ]
-  %123 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %11
-  br i1 %123, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.thread, label %135
-
-._crit_edge.i.i.i.unreachabledefault:             ; preds = %._crit_edge.i.i.i
-  unreachable
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit: ; preds = %.lr.ph.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit87, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit89, %._crit_edge._crit_edge57.i.i.i, %._crit_edge._crit_edge.i.i.i, %116
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %116 ], [ %.sroa.032.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %127, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit ], [ %128, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit87 ], [ %129, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit89 ], [ %.sroa.032.051.i.i.i, %.lr.ph.i.i.i ]
+  %130 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %16
+  br i1 %130, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.thread, label %142
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.thread: ; preds = %._crit_edge.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit
   call void @llvm.lifetime.start.p0(i64 324, ptr nonnull %7) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(324) %7, i8 0, i64 324, i1 false)
-  store float 0x7FF8000000000000, ptr %73, align 4, !tbaa !85
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %74, i8 0, i64 9, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(196) %75, i8 0, i64 196, i1 false)
-  br label %124
+  store float 0x7FF8000000000000, ptr %80, align 4, !tbaa !85
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %81, i8 0, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(196) %82, i8 0, i64 196, i1 false)
+  br label %131
 
-124:                                              ; preds = %124, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.thread
-  %.idx.i37 = phi i64 [ 24, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.thread ], [ %.add.i39, %124 ]
+131:                                              ; preds = %131, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.thread
+  %.idx.i37 = phi i64 [ 24, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.thread ], [ %.add.i39, %131 ]
   %.ptr.i38 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i37
   store float -1.000000e+00, ptr %.ptr.i38, align 4, !tbaa !86
-  %125 = getelementptr inbounds nuw i8, ptr %.ptr.i38, i64 4
-  store float -1.000000e+00, ptr %125, align 4, !tbaa !87
-  %126 = getelementptr inbounds nuw i8, ptr %.ptr.i38, i64 8
-  store i32 1, ptr %126, align 4, !tbaa !88
-  %127 = getelementptr inbounds nuw i8, ptr %.ptr.i38, i64 12
-  store i32 1, ptr %127, align 4, !tbaa !89
-  %128 = getelementptr inbounds nuw i8, ptr %.ptr.i38, i64 16
-  store float -1.000000e+00, ptr %128, align 4, !tbaa !90
-  %129 = getelementptr inbounds nuw i8, ptr %.ptr.i38, i64 20
-  store float -1.000000e+00, ptr %129, align 4, !tbaa !91
+  %132 = getelementptr inbounds nuw i8, ptr %.ptr.i38, i64 4
+  store float -1.000000e+00, ptr %132, align 4, !tbaa !87
+  %133 = getelementptr inbounds nuw i8, ptr %.ptr.i38, i64 8
+  store i32 1, ptr %133, align 4, !tbaa !88
+  %134 = getelementptr inbounds nuw i8, ptr %.ptr.i38, i64 12
+  store i32 1, ptr %134, align 4, !tbaa !89
+  %135 = getelementptr inbounds nuw i8, ptr %.ptr.i38, i64 16
+  store float -1.000000e+00, ptr %135, align 4, !tbaa !90
+  %136 = getelementptr inbounds nuw i8, ptr %.ptr.i38, i64 20
+  store float -1.000000e+00, ptr %136, align 4, !tbaa !91
   %.add.i39 = add nuw nsw i64 %.idx.i37, 24
-  %130 = icmp eq i64 %.add.i39, 216
-  br i1 %130, label %_ZN8facebook4yoga13LayoutResultsC2Ev.exit40, label %124
+  %137 = icmp eq i64 %.add.i39, 216
+  br i1 %137, label %_ZN8facebook4yoga13LayoutResultsC2Ev.exit40, label %131
 
-_ZN8facebook4yoga13LayoutResultsC2Ev.exit40:      ; preds = %124
-  store float -1.000000e+00, ptr %76, align 4, !tbaa !86
-  store float -1.000000e+00, ptr %77, align 4, !tbaa !87
-  store i32 1, ptr %78, align 4, !tbaa !88
-  store i32 1, ptr %79, align 4, !tbaa !89
-  store float -1.000000e+00, ptr %80, align 4, !tbaa !90
-  store float -1.000000e+00, ptr %81, align 4, !tbaa !91
-  %131 = load i8, ptr %82, align 4
-  %132 = and i8 %131, -8
-  store i8 %132, ptr %82, align 4
-  store float 0x7FF8000000000000, ptr %83, align 4, !tbaa !92
-  store float 0x7FF8000000000000, ptr %84, align 4, !tbaa !92
-  store float 0x7FF8000000000000, ptr %85, align 4, !tbaa !92
-  store float 0x7FF8000000000000, ptr %86, align 4, !tbaa !92
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %87, i8 0, i64 64, i1 false)
-  %133 = getelementptr inbounds nuw i8, ptr %90, i64 184
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(324) %133, ptr noundef nonnull align 4 dereferenceable(324) %7, i64 324, i1 false), !tbaa.struct !93
+_ZN8facebook4yoga13LayoutResultsC2Ev.exit40:      ; preds = %131
+  store float -1.000000e+00, ptr %83, align 4, !tbaa !86
+  store float -1.000000e+00, ptr %84, align 4, !tbaa !87
+  store i32 1, ptr %85, align 4, !tbaa !88
+  store i32 1, ptr %86, align 4, !tbaa !89
+  store float -1.000000e+00, ptr %87, align 4, !tbaa !90
+  store float -1.000000e+00, ptr %88, align 4, !tbaa !91
+  %138 = load i8, ptr %89, align 4
+  %139 = and i8 %138, -8
+  store i8 %139, ptr %89, align 4
+  store float 0x7FF8000000000000, ptr %90, align 4, !tbaa !92
+  store float 0x7FF8000000000000, ptr %91, align 4, !tbaa !92
+  store float 0x7FF8000000000000, ptr %92, align 4, !tbaa !92
+  store float 0x7FF8000000000000, ptr %93, align 4, !tbaa !92
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %94, i8 0, i64 64, i1 false)
+  %140 = getelementptr inbounds nuw i8, ptr %96, i64 184
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(324) %140, ptr noundef nonnull align 4 dereferenceable(324) %7, i64 324, i1 false), !tbaa.struct !93
   call void @llvm.lifetime.end.p0(i64 324, ptr nonnull %7) #17
-  %134 = getelementptr inbounds nuw i8, ptr %90, i64 528
-  store ptr null, ptr %134, align 8, !tbaa !62
-  br label %135
+  %141 = getelementptr inbounds nuw i8, ptr %96, i64 528
+  store ptr null, ptr %141, align 8, !tbaa !62
+  br label %142
 
-135:                                              ; preds = %_ZN8facebook4yoga13LayoutResultsC2Ev.exit40, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit
-  %136 = getelementptr inbounds nuw i8, ptr %.sroa.057.075, i64 8
-  %137 = icmp eq ptr %136, %16
-  br i1 %137, label %.loopexit, label %89
+142:                                              ; preds = %_ZN8facebook4yoga13LayoutResultsC2Ev.exit40, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit
+  %143 = getelementptr inbounds nuw i8, ptr %.sroa.057.075, i64 8
+  %144 = icmp eq ptr %143, %21
+  br i1 %144, label %.loopexit, label %95
 
-.loopexit:                                        ; preds = %135, %9
-  %138 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %4)
-          to label %_ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit41 unwind label %38
+.loopexit:                                        ; preds = %142, %73
+  %145 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %_ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit41 unwind label %40
 
 _ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit41: ; preds = %.loopexit
-  %139 = load ptr, ptr %4, align 8, !tbaa !68
-  %140 = load ptr, ptr %13, align 8, !tbaa !68
-  %141 = icmp eq ptr %139, %140
-  br i1 %141, label %._crit_edge, label %.lr.ph77
+  %146 = load ptr, ptr %4, align 8, !tbaa !68
+  %147 = load ptr, ptr %17, align 8, !tbaa !68
+  %148 = icmp eq ptr %146, %147
+  br i1 %148, label %._crit_edge, label %.lr.ph77
 
 ._crit_edge:                                      ; preds = %.lr.ph77, %_ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit41
   invoke void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
-          to label %._crit_edge._crit_edge unwind label %38
+          to label %._crit_edge._crit_edge unwind label %40
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
   %.pre86 = load ptr, ptr %4, align 8, !tbaa !65
-  br label %146
+  br label %153
 
 .lr.ph77:                                         ; preds = %_ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit41, %.lr.ph77
-  %.sroa.048.076 = phi ptr [ %144, %.lr.ph77 ], [ %139, %_ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit41 ]
-  %142 = load ptr, ptr %.sroa.048.076, align 8, !tbaa !69
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 528
-  store ptr %0, ptr %143, align 8, !tbaa !62
-  %144 = getelementptr inbounds nuw i8, ptr %.sroa.048.076, i64 8
-  %145 = icmp eq ptr %144, %140
-  br i1 %145, label %._crit_edge, label %.lr.ph77
+  %.sroa.048.076 = phi ptr [ %151, %.lr.ph77 ], [ %146, %_ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit41 ]
+  %149 = load ptr, ptr %.sroa.048.076, align 8, !tbaa !69
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 528
+  store ptr %0, ptr %150, align 8, !tbaa !62
+  %151 = getelementptr inbounds nuw i8, ptr %.sroa.048.076, i64 8
+  %152 = icmp eq ptr %151, %147
+  br i1 %152, label %._crit_edge, label %.lr.ph77
 
-146:                                              ; preds = %._crit_edge._crit_edge, %.thread, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit
-  %147 = phi ptr [ %.pre86, %._crit_edge._crit_edge ], [ null, %.thread ], [ null, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit ]
-  %.not.i.i.i42 = icmp eq ptr %147, null
-  br i1 %.not.i.i.i42, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit44, label %148
+153:                                              ; preds = %._crit_edge._crit_edge, %23, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit
+  %154 = phi ptr [ %.pre86, %._crit_edge._crit_edge ], [ %15, %23 ], [ %15, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit ]
+  %.not.i.i.i42 = icmp eq ptr %154, null
+  br i1 %.not.i.i.i42, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit44, label %155
 
-148:                                              ; preds = %146
-  %149 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %150 = load ptr, ptr %149, align 8, !tbaa !67
-  %151 = ptrtoint ptr %150 to i64
-  %152 = ptrtoint ptr %147 to i64
-  %153 = sub i64 %151, %152
-  call void @_ZdlPvm(ptr noundef nonnull %147, i64 noundef %153) #16
+155:                                              ; preds = %153
+  %156 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %157 = load ptr, ptr %156, align 8, !tbaa !67
+  %158 = ptrtoint ptr %157 to i64
+  %159 = ptrtoint ptr %154 to i64
+  %160 = sub i64 %158, %159
+  call void @_ZdlPvm(ptr noundef nonnull %154, i64 noundef %160) #16
   br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit44
 
-_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit44: ; preds = %146, %148
+_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit44: ; preds = %153, %155
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
-  br label %154
+  br label %161
 
-154:                                              ; preds = %3, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit44
+161:                                              ; preds = %3, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit44
   ret void
 
-155:                                              ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit36, %38
-  %156 = phi ptr [ %.pre, %38 ], [ null, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit36 ]
-  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %63, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit36 ]
-  %.not.i.i.i45 = icmp eq ptr %156, null
-  br i1 %.not.i.i.i45, label %.body, label %157
+162:                                              ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit36, %40
+  %163 = phi ptr [ %.pre, %40 ], [ %15, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit36 ]
+  %.pn = phi { ptr, i32 } [ %41, %40 ], [ %65, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit36 ]
+  %.not.i.i.i45 = icmp eq ptr %163, null
+  br i1 %.not.i.i.i45, label %.body, label %164
 
-157:                                              ; preds = %155
-  %158 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %159 = load ptr, ptr %158, align 8, !tbaa !67
-  %160 = ptrtoint ptr %159 to i64
-  %161 = ptrtoint ptr %156 to i64
-  %162 = sub i64 %160, %161
-  call void @_ZdlPvm(ptr noundef nonnull %156, i64 noundef %162) #16
+164:                                              ; preds = %162
+  %165 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %166 = load ptr, ptr %165, align 8, !tbaa !67
+  %167 = ptrtoint ptr %166 to i64
+  %168 = ptrtoint ptr %163 to i64
+  %169 = sub i64 %167, %168
+  call void @_ZdlPvm(ptr noundef nonnull %163, i64 noundef %169) #16
   br label %.body
 
-.body:                                            ; preds = %157, %155
+.body:                                            ; preds = %164, %162
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
   resume { ptr, i32 } %.pn
 }
@@ -1634,123 +1645,126 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN8
   %18 = sub i64 %16, %17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, i8 0, i64 24, i1 false), !noalias !106
   %.not.i.i.i.i.i.i = icmp eq ptr %14, %15
-  br i1 %.not.i.i.i.i.i.i, label %.noexc2.thread.i, label %21
+  br i1 %.not.i.i.i.i.i.i, label %.noexc2.thread.i, label %22
 
 .noexc2.thread.i:                                 ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %20 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %20 = getelementptr inbounds i8, ptr null, i64 %18
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false), !noalias !106
+  store ptr %20, ptr %21, align 8, !tbaa !84, !noalias !106
   br label %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit.i.i
 
-21:                                               ; preds = %11
-  %22 = icmp ugt i64 %18, 9223372036854775804
-  br i1 %22, label %.noexc.i.i.i.i, label %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i.i, !prof !66
+22:                                               ; preds = %11
+  %23 = icmp ugt i64 %18, 9223372036854775804
+  br i1 %23, label %.noexc.i.i.i.i, label %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i.i, !prof !66
 
-.noexc.i.i.i.i:                                   ; preds = %21
+.noexc.i.i.i.i:                                   ; preds = %22
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #18
-          to label %.noexc.i unwind label %41, !noalias !106
+          to label %.noexc.i unwind label %42, !noalias !106
 
 .noexc.i:                                         ; preds = %.noexc.i.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %21
-  %23 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #15
-          to label %24 unwind label %41, !noalias !106
+_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %22
+  %24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #15
+          to label %25 unwind label %42, !noalias !106
 
-24:                                               ; preds = %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i.i
-  store ptr %23, ptr %12, align 8, !tbaa !81, !noalias !106
-  %25 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %23, ptr %25, align 8, !tbaa !109, !noalias !106
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %18
-  %27 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %26, ptr %27, align 8, !tbaa !84, !noalias !106
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %23, ptr align 4 %15, i64 %18, i1 false), !noalias !106
+25:                                               ; preds = %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i.i
+  store ptr %24, ptr %12, align 8, !tbaa !81, !noalias !106
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %24, ptr %26, align 8, !tbaa !109, !noalias !106
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %18
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr %27, ptr %28, align 8, !tbaa !84, !noalias !106
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %24, ptr align 4 %15, i64 %18, i1 false), !noalias !106
   br label %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit.i.i
 
-_ZNSt6vectorIjSaIjEEC2ERKS1_.exit.i.i:            ; preds = %24, %.noexc2.thread.i
-  %28 = phi ptr [ %20, %.noexc2.thread.i ], [ %27, %24 ]
-  %29 = phi ptr [ null, %.noexc2.thread.i ], [ %26, %24 ]
-  %30 = phi ptr [ %19, %.noexc2.thread.i ], [ %25, %24 ]
-  store ptr %29, ptr %30, align 8, !tbaa !109, !noalias !106
-  %31 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %32 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  invoke void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(40) %32)
-          to label %_ZSt11make_uniqueIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEJRS4_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %33, !noalias !106
+_ZNSt6vectorIjSaIjEEC2ERKS1_.exit.i.i:            ; preds = %25, %.noexc2.thread.i
+  %29 = phi ptr [ %21, %.noexc2.thread.i ], [ %28, %25 ]
+  %30 = phi ptr [ %20, %.noexc2.thread.i ], [ %27, %25 ]
+  %31 = phi ptr [ %19, %.noexc2.thread.i ], [ %26, %25 ]
+  store ptr %30, ptr %31, align 8, !tbaa !109, !noalias !106
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  invoke void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %33)
+          to label %_ZSt11make_uniqueIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEJRS4_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %34, !noalias !106
 
-33:                                               ; preds = %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit.i.i
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit.i.i
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %35 = load ptr, ptr %12, align 8, !tbaa !81, !noalias !106
-  %.not.i.i.i.i.i = icmp eq ptr %35, null
-  br i1 %.not.i.i.i.i.i, label %.body.i, label %36
+  %36 = load ptr, ptr %12, align 8, !tbaa !81, !noalias !106
+  %.not.i.i.i.i.i = icmp eq ptr %36, null
+  br i1 %.not.i.i.i.i.i, label %.body.i, label %37
 
-36:                                               ; preds = %33
-  %37 = load ptr, ptr %28, align 8, !tbaa !84, !noalias !106
-  %38 = ptrtoint ptr %37 to i64
-  %39 = ptrtoint ptr %35 to i64
-  %40 = sub i64 %38, %39
-  tail call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %40) #16, !noalias !106
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %29, align 8, !tbaa !84, !noalias !106
+  %39 = ptrtoint ptr %38 to i64
+  %40 = ptrtoint ptr %36 to i64
+  %41 = sub i64 %39, %40
+  tail call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef %41) #16, !noalias !106
   br label %.body.i
 
-41:                                               ; preds = %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i.i, %.noexc.i.i.i.i
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i.i, %.noexc.i.i.i.i
+  %43 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
-.body.i:                                          ; preds = %41, %36, %33
-  %eh.lpad-body.i = phi { ptr, i32 } [ %42, %41 ], [ %34, %36 ], [ %34, %33 ]
+.body.i:                                          ; preds = %42, %37, %34
+  %eh.lpad-body.i = phi { ptr, i32 } [ %43, %42 ], [ %35, %37 ], [ %35, %34 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef 64) #16, !noalias !106
   resume { ptr, i32 } %eh.lpad-body.i
 
 _ZSt11make_uniqueIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEJRS4_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %2, %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit.i.i
   %.sroa.0.0 = phi ptr [ %12, %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit.i.i ], [ null, %2 ]
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %44 = load ptr, ptr %43, align 8, !tbaa !74
-  store ptr %.sroa.0.0, ptr %43, align 8, !tbaa !74
-  %.not.i.i.i.i = icmp eq ptr %44, null
-  br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN8facebook4yoga16SmallValueBufferILm4EE8OverflowESt14default_deleteIS4_EED2Ev.exit, label %45
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %45 = load ptr, ptr %44, align 8, !tbaa !74
+  store ptr %.sroa.0.0, ptr %44, align 8, !tbaa !74
+  %.not.i.i.i.i = icmp eq ptr %45, null
+  br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN8facebook4yoga16SmallValueBufferILm4EE8OverflowESt14default_deleteIS4_EED2Ev.exit, label %46
 
-45:                                               ; preds = %_ZSt11make_uniqueIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEJRS4_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %47 = load ptr, ptr %46, align 8, !tbaa !75
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %47, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i.i.i.i.i, label %48
+46:                                               ; preds = %_ZSt11make_uniqueIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEJRS4_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %48 = load ptr, ptr %47, align 8, !tbaa !75
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %48, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i.i.i.i.i, label %49
 
-48:                                               ; preds = %45
-  %49 = getelementptr inbounds nuw i8, ptr %44, i64 56
-  %50 = load ptr, ptr %49, align 8, !tbaa !78
-  %51 = ptrtoint ptr %50 to i64
-  %52 = ptrtoint ptr %47 to i64
-  %53 = sub i64 %51, %52
-  %54 = ashr exact i64 %53, 3
-  %55 = sub nsw i64 0, %54
-  %56 = getelementptr inbounds i64, ptr %50, i64 %55
-  tail call void @_ZdlPvm(ptr noundef %56, i64 noundef %53) #16
-  store ptr null, ptr %46, align 8
-  %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 32
+49:                                               ; preds = %46
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 56
+  %51 = load ptr, ptr %50, align 8, !tbaa !78
+  %52 = ptrtoint ptr %51 to i64
+  %53 = ptrtoint ptr %48 to i64
+  %54 = sub i64 %52, %53
+  %55 = ashr exact i64 %54, 3
+  %56 = sub nsw i64 0, %55
+  %57 = getelementptr inbounds i64, ptr %51, i64 %56
+  tail call void @_ZdlPvm(ptr noundef %57, i64 noundef %54) #16
+  store ptr null, ptr %47, align 8
+  %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %45, i64 32
   store i32 0, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i.i, align 8
-  %.sroa.51.0..sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 40
+  %.sroa.51.0..sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %45, i64 40
   store ptr null, ptr %.sroa.51.0..sroa_idx.i.i.i.i.i.i.i.i.i, align 8
-  %.sroa.6.0..sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 48
+  %.sroa.6.0..sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %45, i64 48
   store i32 0, ptr %.sroa.6.0..sroa_idx.i.i.i.i.i.i.i.i.i, align 8
-  store ptr null, ptr %49, align 8
+  store ptr null, ptr %50, align 8
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i.i.i.i.i
 
-_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i.i.i.i.i: ; preds = %48, %45
-  %57 = load ptr, ptr %44, align 8, !tbaa !81
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %57, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEEclEPS4_.exit.i.i.i.i, label %58
+_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i.i.i.i.i: ; preds = %49, %46
+  %58 = load ptr, ptr %45, align 8, !tbaa !81
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %58, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEEclEPS4_.exit.i.i.i.i, label %59
 
-58:                                               ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i.i.i.i.i
-  %59 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %60 = load ptr, ptr %59, align 8, !tbaa !84
-  %61 = ptrtoint ptr %60 to i64
-  %62 = ptrtoint ptr %57 to i64
-  %63 = sub i64 %61, %62
-  tail call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef %63) #16
+59:                                               ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i.i.i.i.i
+  %60 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %61 = load ptr, ptr %60, align 8, !tbaa !84
+  %62 = ptrtoint ptr %61 to i64
+  %63 = ptrtoint ptr %58 to i64
+  %64 = sub i64 %62, %63
+  tail call void @_ZdlPvm(ptr noundef nonnull %58, i64 noundef %64) #16
   br label %_ZNKSt14default_deleteIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEEclEPS4_.exit.i.i.i.i
 
-_ZNKSt14default_deleteIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEEclEPS4_.exit.i.i.i.i: ; preds = %58, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef 64) #16
+_ZNKSt14default_deleteIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEEclEPS4_.exit.i.i.i.i: ; preds = %59, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i.i.i.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef 64) #16
   br label %_ZNSt10unique_ptrIN8facebook4yoga16SmallValueBufferILm4EE8OverflowESt14default_deleteIS4_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8facebook4yoga16SmallValueBufferILm4EE8OverflowESt14default_deleteIS4_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEEclEPS4_.exit.i.i.i.i, %_ZSt11make_uniqueIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEJRS4_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit

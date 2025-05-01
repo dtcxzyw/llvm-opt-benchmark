@@ -9229,7 +9229,10 @@ entry:
   br i1 %cmp.not.i.i.i.i, label %invoke.cont.i.thread, label %cond.true.i.i.i.i
 
 invoke.cont.i.thread:                             ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
+  %add.ptr.i.i.i3 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
+  %_M_end_of_storage.i.i.i4 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i3, ptr %_M_end_of_storage.i.i.i4, align 8
   br label %_ZNSt6vectorIN4fizz15SignatureSchemeESaIS1_EEC2ERKS3_.exit
 
 cond.true.i.i.i.i:                                ; preds = %entry
@@ -9250,7 +9253,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %cond.true.i.i.i.i
   br label %_ZNSt6vectorIN4fizz15SignatureSchemeESaIS1_EEC2ERKS3_.exit
 
 _ZNSt6vectorIN4fizz15SignatureSchemeESaIS1_EEC2ERKS3_.exit: ; preds = %invoke.cont.i.thread, %if.then.i.i.i.i.i.i.i.i.i
-  %add.ptr.i.i.i6 = phi ptr [ null, %invoke.cont.i.thread ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i6 = phi ptr [ %add.ptr.i.i.i3, %invoke.cont.i.thread ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i5 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i.i.i6, ptr %_M_finish.i.i.i5, align 8
   ret void

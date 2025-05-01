@@ -471,34 +471,40 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i:
   %14 = load i32, ptr %13, align 8, !tbaa !23
   %15 = icmp sgt i32 %14, -1
   tail call void @llvm.assume(i1 %15)
+  %16 = zext nneg i32 %14 to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %.not.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i.i.i, label %20, label %.noexc4.i
+  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i, label %.noexc4.i
+
+_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
+  %17 = getelementptr inbounds nuw i8, ptr null, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %17, ptr %18, align 8, !tbaa !37
+  br label %22
 
 .noexc4.i:                                        ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %16 = zext nneg i32 %14 to i64
-  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #24
-  store ptr %17, ptr %11, align 8, !tbaa !37
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %16
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %18, ptr %19, align 8, !tbaa !39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 1 %12, i64 %16, i1 false)
-  br label %20
+  %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #24
+  store ptr %19, ptr %11, align 8, !tbaa !39
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %20, ptr %21, align 8, !tbaa !37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull align 1 %12, i64 %16, i1 false)
+  br label %22
 
-20:                                               ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i, %.noexc4.i
-  %21 = phi ptr [ %17, %.noexc4.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %22 = phi ptr [ %18, %.noexc4.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %22, ptr %23, align 8, !tbaa !40
-  %24 = ptrtoint ptr %22 to i64
-  %25 = ptrtoint ptr %21 to i64
-  %26 = sub i64 %24, %25
-  %27 = and i64 %26, 2147483648
-  %28 = icmp eq i64 %27, 0
-  tail call void @llvm.assume(i1 %28)
-  %.sroa.212.8.insert.ext = and i64 %26, 2147483647
+22:                                               ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i, %.noexc4.i
+  %23 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i ], [ %19, %.noexc4.i ]
+  %24 = phi ptr [ %17, %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i ], [ %20, %.noexc4.i ]
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %24, ptr %25, align 8, !tbaa !40
+  %26 = ptrtoint ptr %24 to i64
+  %27 = ptrtoint ptr %23 to i64
+  %28 = sub i64 %26, %27
+  %29 = and i64 %28, 2147483648
+  %30 = icmp eq i64 %29, 0
+  tail call void @llvm.assume(i1 %30)
+  %.sroa.212.8.insert.ext = and i64 %28, 2147483647
   %.sroa.212.8.insert.insert = or disjoint i64 %.sroa.212.8.insert.ext, 244834610708480
-  store ptr %21, ptr %7, align 8
+  store ptr %23, ptr %7, align 8
   store i64 %.sroa.212.8.insert.insert, ptr %.sroa.423.0..sroa_idx, align 8
   store i32 0, ptr %.sroa.7.0..sroa_idx, align 8
   store i32 %4, ptr %10, align 4, !tbaa !29
@@ -1358,13 +1364,13 @@ define hidden { ptr, i64 } @_ZNK8rawspeed9TiffEntry14getRootIfdDataEv(ptr nounde
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed17TiffEntryWithDataD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load ptr, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8, !tbaa !39
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %6 = load ptr, ptr %5, align 8, !tbaa !39
+  %6 = load ptr, ptr %5, align 8, !tbaa !37
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
@@ -1378,13 +1384,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed17TiffEntryWithDataD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load ptr, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8, !tbaa !39
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN8rawspeed17TiffEntryWithDataD2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %6 = load ptr, ptr %5, align 8, !tbaa !39
+  %6 = load ptr, ptr %5, align 8, !tbaa !37
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
@@ -1587,9 +1593,9 @@ attributes #26 = { cold }
 !34 = !{!35}
 !35 = distinct !{!35, !36, !"_ZNK8rawspeed10ByteStream12getSubStreamEjj: argument 0"}
 !36 = distinct !{!36, !"_ZNK8rawspeed10ByteStream12getSubStreamEjj"}
-!37 = !{!38, !17, i64 0}
+!37 = !{!38, !17, i64 16}
 !38 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !17, i64 0, !17, i64 8, !17, i64 16}
-!39 = !{!38, !17, i64 16}
+!39 = !{!38, !17, i64 0}
 !40 = !{!38, !17, i64 8}
 !41 = !{!13, !13, i64 0}
 !42 = distinct !{!42, !43}

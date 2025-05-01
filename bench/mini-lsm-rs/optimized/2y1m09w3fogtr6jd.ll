@@ -1421,29 +1421,33 @@ define hidden { ptr, ptr } @"_ZN18crossbeam_skiplist4base29RefRange$LT$Q$C$R$C$K
   %16 = icmp eq ptr %15, null
   br i1 %16, label %_ZN18crossbeam_skiplist4base12try_pin_loop17hfb92f92a956bd15fE.exit, label %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h196a71525120806aE.exit._crit_edge"
 
+"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h196a71525120806aE.exit._crit_edge": ; preds = %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h196a71525120806aE.exit"
+  %.pre = load ptr, ptr inttoptr (i64 16 to ptr), align 16, !noalias !452
+  br label %22
+
 "_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h196a71525120806aE.exit.thread": ; preds = %7
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %18 = load ptr, ptr %17, align 8, !noundef !4
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %_ZN18crossbeam_skiplist4base12try_pin_loop17hfb92f92a956bd15fE.exit, label %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h196a71525120806aE.exit._crit_edge"
+  br i1 %19, label %_ZN18crossbeam_skiplist4base12try_pin_loop17hfb92f92a956bd15fE.exit, label %22
 
 _ZN18crossbeam_skiplist4base12try_pin_loop17hfb92f92a956bd15fE.exit: ; preds = %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h196a71525120806aE.exit.thread", %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h196a71525120806aE.exit"
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 272
-  %21 = load atomic i64, ptr %20 monotonic, align 16, !noalias !452
+  %21 = load atomic i64, ptr %20 monotonic, align 16, !noalias !455
   %.not.i.i.i.i = icmp eq i64 %21, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i)
   ret { ptr, ptr } { ptr null, ptr undef }
 
-"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h196a71525120806aE.exit._crit_edge": ; preds = %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h196a71525120806aE.exit", %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h196a71525120806aE.exit.thread"
-  %22 = phi ptr [ %10, %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h196a71525120806aE.exit.thread" ], [ undef, %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h196a71525120806aE.exit" ]
-  %23 = phi ptr [ %18, %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h196a71525120806aE.exit.thread" ], [ %15, %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h196a71525120806aE.exit" ]
-  %24 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %24)
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 384
-  %26 = load ptr, ptr %25, align 8, !noalias !461, !nonnull !4, !noundef !4
-  %27 = icmp ne ptr %22, %26
-  tail call void @llvm.assume(i1 %27)
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.28b81fa457b9681daf2579a13b3b0720.12.llvm.17312374178852649393, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.28b81fa457b9681daf2579a13b3b0720.13.llvm.17312374178852649393) #47, !noalias !461
+22:                                               ; preds = %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h196a71525120806aE.exit._crit_edge", %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h196a71525120806aE.exit.thread"
+  %23 = phi ptr [ %10, %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h196a71525120806aE.exit.thread" ], [ %.pre, %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h196a71525120806aE.exit._crit_edge" ]
+  %24 = phi ptr [ %18, %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h196a71525120806aE.exit.thread" ], [ %15, %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h196a71525120806aE.exit._crit_edge" ]
+  %25 = icmp ne ptr %5, null
+  tail call void @llvm.assume(i1 %25)
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 384
+  %27 = load ptr, ptr %26, align 8, !noalias !452, !nonnull !4, !noundef !4
+  %28 = icmp ne ptr %23, %27
+  tail call void @llvm.assume(i1 %28)
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.28b81fa457b9681daf2579a13b3b0720.12.llvm.17312374178852649393, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.28b81fa457b9681daf2579a13b3b0720.13.llvm.17312374178852649393) #47, !noalias !452
   unreachable
 }
 
@@ -9166,18 +9170,18 @@ attributes #50 = { cold }
 !449 = !{!450, !447}
 !450 = distinct !{!450, !451, !"_ZN15crossbeam_epoch5guard5Guard9collector17hfed7c0a8c0fc27b8E.llvm.17312374178852649393: argument 0"}
 !451 = distinct !{!451, !"_ZN15crossbeam_epoch5guard5Guard9collector17hfed7c0a8c0fc27b8E.llvm.17312374178852649393"}
-!452 = !{!453, !455, !456, !458, !460}
-!453 = distinct !{!453, !454, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11lower_bound17h9d850a261c02a93dE: argument 0"}
-!454 = distinct !{!454, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11lower_bound17h9d850a261c02a93dE"}
-!455 = distinct !{!455, !454, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11lower_bound17h9d850a261c02a93dE: argument 1"}
-!456 = distinct !{!456, !457, !"_ZN18crossbeam_skiplist4base29RefRange$LT$Q$C$R$C$K$C$V$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hf1472626e97ff09eE: argument 0"}
-!457 = distinct !{!457, !"_ZN18crossbeam_skiplist4base29RefRange$LT$Q$C$R$C$K$C$V$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hf1472626e97ff09eE"}
-!458 = distinct !{!458, !459, !"_ZN18crossbeam_skiplist4base12try_pin_loop17hfb92f92a956bd15fE: argument 0"}
-!459 = distinct !{!459, !"_ZN18crossbeam_skiplist4base12try_pin_loop17hfb92f92a956bd15fE"}
-!460 = distinct !{!460, !459, !"_ZN18crossbeam_skiplist4base12try_pin_loop17hfb92f92a956bd15fE: argument 1"}
-!461 = !{!462}
-!462 = distinct !{!462, !463, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h196a71525120806aE: argument 0"}
-!463 = distinct !{!463, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h196a71525120806aE"}
+!452 = !{!453}
+!453 = distinct !{!453, !454, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h196a71525120806aE: argument 0"}
+!454 = distinct !{!454, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h196a71525120806aE"}
+!455 = !{!456, !458, !459, !461, !463}
+!456 = distinct !{!456, !457, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11lower_bound17h9d850a261c02a93dE: argument 0"}
+!457 = distinct !{!457, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11lower_bound17h9d850a261c02a93dE"}
+!458 = distinct !{!458, !457, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11lower_bound17h9d850a261c02a93dE: argument 1"}
+!459 = distinct !{!459, !460, !"_ZN18crossbeam_skiplist4base29RefRange$LT$Q$C$R$C$K$C$V$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hf1472626e97ff09eE: argument 0"}
+!460 = distinct !{!460, !"_ZN18crossbeam_skiplist4base29RefRange$LT$Q$C$R$C$K$C$V$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hf1472626e97ff09eE"}
+!461 = distinct !{!461, !462, !"_ZN18crossbeam_skiplist4base12try_pin_loop17hfb92f92a956bd15fE: argument 0"}
+!462 = distinct !{!462, !"_ZN18crossbeam_skiplist4base12try_pin_loop17hfb92f92a956bd15fE"}
+!463 = distinct !{!463, !462, !"_ZN18crossbeam_skiplist4base12try_pin_loop17hfb92f92a956bd15fE: argument 1"}
 !464 = !{!465}
 !465 = distinct !{!465, !466, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h196a71525120806aE: argument 0"}
 !466 = distinct !{!466, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h196a71525120806aE"}

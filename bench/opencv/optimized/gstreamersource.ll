@@ -2314,12 +2314,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN2cv4gapi3wip3gst15GStreamerSource4Priv8descr_ofEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.cv::util::variant.37") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(304) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN2cv4gapi3wip3gst15GStreamerSource4Priv16prepareVideoMetaEv(ptr noundef nonnull align 8 dereferenceable(304) %1)
-          to label %3 unwind label %31
+          to label %3 unwind label %32
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %5 = load i32, ptr %4, align 8, !tbaa !29
-  switch i32 %5, label %29 [
+  switch i32 %5, label %30 [
     i32 0, label %6
     i32 1, label %9
   ]
@@ -2329,7 +2329,7 @@ define void @_ZN2cv4gapi3wip3gst15GStreamerSource4Priv8descr_ofEv(ptr dead_on_un
   store i64 5, ptr %0, align 8, !tbaa !128
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(12) %7, i64 12, i1 false), !tbaa.struct !130
-  br label %30
+  br label %31
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 224
@@ -2344,56 +2344,58 @@ define void @_ZN2cv4gapi3wip3gst15GStreamerSource4Priv8descr_ofEv(ptr dead_on_un
   %17 = ptrtoint ptr %15 to i64
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 0, ptr %20, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i.i = icmp eq ptr %15, %16
-  br i1 %.not.i.i.i.i.i.i.i, label %.noexc1.thread, label %21
+  br i1 %.not.i.i.i.i.i.i.i, label %.noexc1.thread, label %22
 
 .noexc1.thread:                                   ; preds = %9
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  %20 = getelementptr inbounds i8, ptr null, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  store ptr %20, ptr %21, align 8, !tbaa !133
   br label %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEC2IRS3_vEEOT_.exit
 
-21:                                               ; preds = %9
-  %22 = icmp ugt i64 %19, 9223372036854775804
-  br i1 %22, label %.noexc.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i, !prof !89
+22:                                               ; preds = %9
+  %23 = icmp ugt i64 %19, 9223372036854775804
+  br i1 %23, label %.noexc.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i, !prof !89
 
-.noexc.i.i.i.i.i:                                 ; preds = %21
+.noexc.i.i.i.i.i:                                 ; preds = %22
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #27
-          to label %.noexc unwind label %31
+          to label %.noexc unwind label %32
 
 .noexc:                                           ; preds = %.noexc.i.i.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %21
-  %23 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #24
-          to label %24 unwind label %31
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %22
+  %24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #24
+          to label %25 unwind label %32
 
-24:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i
-  store ptr %23, ptr %12, align 8, !tbaa !86
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %19
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %25, ptr %26, align 8, !tbaa !133
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %23, ptr align 4 %16, i64 %19, i1 false)
+25:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i
+  store ptr %24, ptr %12, align 8, !tbaa !86
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 %19
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %26, ptr %27, align 8, !tbaa !133
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %24, ptr align 4 %16, i64 %19, i1 false)
   br label %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEC2IRS3_vEEOT_.exit
 
-_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEC2IRS3_vEEOT_.exit: ; preds = %.noexc1.thread, %24
-  %27 = phi ptr [ null, %.noexc1.thread ], [ %25, %24 ]
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %27, ptr %28, align 8, !tbaa !132
-  br label %30
+_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEC2IRS3_vEEOT_.exit: ; preds = %.noexc1.thread, %25
+  %28 = phi ptr [ %20, %.noexc1.thread ], [ %26, %25 ]
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %28, ptr %29, align 8, !tbaa !132
+  br label %31
 
-29:                                               ; preds = %3
+30:                                               ; preds = %3
   store i64 0, ptr %0, align 8, !tbaa !128
-  br label %30
+  br label %31
 
-30:                                               ; preds = %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEC2IRS3_vEEOT_.exit, %6, %29
+31:                                               ; preds = %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEC2IRS3_vEEOT_.exit, %6, %30
   ret void
 
-31:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i, %2
-  %32 = landingpad { ptr, i32 }
+32:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i, %2
+  %33 = landingpad { ptr, i32 }
           catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  tail call void @__clang_call_terminate(ptr %33) #28
+  %34 = extractvalue { ptr, i32 } %33, 0
+  tail call void @__clang_call_terminate(ptr %34) #28
   unreachable
 }
 
@@ -3367,12 +3369,12 @@ define void @_ZNK2cv4gapi3wip3gst15GStreamerSource8descr_ofEv(ptr dead_on_unwind
   %4 = load ptr, ptr %3, align 8, !tbaa !145
   tail call void @llvm.experimental.noalias.scope.decl(metadata !147)
   invoke void @_ZN2cv4gapi3wip3gst15GStreamerSource4Priv16prepareVideoMetaEv(ptr noundef nonnull align 8 dereferenceable(304) %4)
-          to label %5 unwind label %31, !noalias !147
+          to label %5 unwind label %33, !noalias !147
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 216
   %7 = load i32, ptr %6, align 8, !tbaa !29, !noalias !147
-  switch i32 %7, label %30 [
+  switch i32 %7, label %32 [
     i32 0, label %8
     i32 1, label %11
   ]
@@ -3397,54 +3399,58 @@ define void @_ZNK2cv4gapi3wip3gst15GStreamerSource8descr_ofEv(ptr dead_on_unwind
   %19 = ptrtoint ptr %17 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false), !alias.scope !147
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %17, %18
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.noexc1.thread.i, label %23
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.noexc1.thread.i, label %24
 
 .noexc1.thread.i:                                 ; preds = %11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false), !alias.scope !147
+  %22 = getelementptr inbounds i8, ptr null, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 0, ptr %14, align 8
+  store ptr %22, ptr %23, align 8, !tbaa !133, !alias.scope !147
   br label %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEC2IRS3_vEEOT_.exit.i
 
-23:                                               ; preds = %11
-  %24 = icmp ugt i64 %21, 9223372036854775804
-  br i1 %24, label %.noexc.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i, !prof !89
+24:                                               ; preds = %11
+  %25 = icmp ugt i64 %21, 9223372036854775804
+  br i1 %25, label %.noexc.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i, !prof !89
 
-.noexc.i.i.i.i.i.i:                               ; preds = %23
+.noexc.i.i.i.i.i.i:                               ; preds = %24
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #27
-          to label %.noexc.i unwind label %31, !noalias !147
+          to label %.noexc.i unwind label %33, !noalias !147
 
 .noexc.i:                                         ; preds = %.noexc.i.i.i.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i: ; preds = %23
-  %25 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #24
-          to label %26 unwind label %31, !noalias !147
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i: ; preds = %24
+  %26 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #24
+          to label %27 unwind label %33, !noalias !147
 
-26:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i
-  store ptr %25, ptr %14, align 8, !tbaa !86, !alias.scope !147
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %21
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %27, ptr %28, align 8, !tbaa !133, !alias.scope !147
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %25, ptr align 4 %18, i64 %21, i1 false), !noalias !147
+27:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i
+  store ptr %26, ptr %14, align 8, !tbaa !86, !alias.scope !147
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 %21
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %28, ptr %29, align 8, !tbaa !133, !alias.scope !147
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %26, ptr align 4 %18, i64 %21, i1 false), !noalias !147
   br label %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEC2IRS3_vEEOT_.exit.i
 
-_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEC2IRS3_vEEOT_.exit.i: ; preds = %26, %.noexc1.thread.i
-  %29 = phi ptr [ null, %.noexc1.thread.i ], [ %27, %26 ]
-  store ptr %29, ptr %22, align 8, !tbaa !132, !alias.scope !147
+_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEC2IRS3_vEEOT_.exit.i: ; preds = %27, %.noexc1.thread.i
+  %30 = phi ptr [ %22, %.noexc1.thread.i ], [ %28, %27 ]
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %30, ptr %31, align 8, !tbaa !132, !alias.scope !147
   br label %_ZN2cv4gapi3wip3gst15GStreamerSource4Priv8descr_ofEv.exit
 
-30:                                               ; preds = %5
+32:                                               ; preds = %5
   store i64 0, ptr %0, align 8, !tbaa !128, !alias.scope !147
   br label %_ZN2cv4gapi3wip3gst15GStreamerSource4Priv8descr_ofEv.exit
 
-31:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i, %2
-  %32 = landingpad { ptr, i32 }
+33:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i, %2
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  tail call void @__clang_call_terminate(ptr %33) #28, !noalias !147
+  %35 = extractvalue { ptr, i32 } %34, 0
+  tail call void @__clang_call_terminate(ptr %35) #28, !noalias !147
   unreachable
 
-_ZN2cv4gapi3wip3gst15GStreamerSource4Priv8descr_ofEv.exit: ; preds = %8, %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEC2IRS3_vEEOT_.exit.i, %30
+_ZN2cv4gapi3wip3gst15GStreamerSource4Priv8descr_ofEv.exit: ; preds = %8, %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEC2IRS3_vEEOT_.exit.i, %32
   ret void
 }
 

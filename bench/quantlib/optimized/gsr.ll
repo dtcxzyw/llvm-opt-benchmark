@@ -11858,13 +11858,12 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %cond.true
           to label %if.then.i.i.i.i.i.i.i.i.i unwind label %cleanup.action
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i6.i4, i64 %sub.ptr.sub.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i6.i4, ptr align 8 %1, i64 %sub.ptr.sub.i, i1 false)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry, %if.then.i.i.i.i.i.i.i.i.i
-  %add.ptr.i.i.i61 = phi ptr [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ], [ null, %entry ]
   %cond.i.i.i.i60 = phi ptr [ %call5.i.i.i.i2.i6.i4, %if.then.i.i.i.i.i.i.i.i.i ], [ null, %entry ]
+  %add.ptr.i.i.i61 = getelementptr inbounds i8, ptr %cond.i.i.i.i60, i64 %sub.ptr.sub.i
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib26PiecewiseConstantParameter4ImplE, i64 16), ptr %call2, align 8, !tbaa !14
   %times_.i = getelementptr inbounds nuw i8, ptr %call2, i64 8
   store ptr %cond.i.i.i.i60, ptr %times_.i, align 8, !tbaa !61

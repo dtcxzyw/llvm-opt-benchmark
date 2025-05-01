@@ -813,7 +813,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %16
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %31, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   %.sroa.0.0 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %34, %31 ]
-  %.sroa.7.0 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %35, %31 ]
+  %.sink.i = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %35, %31 ]
   %36 = add i64 %30, %15
   store i64 %.sroa.01.0.copyload, ptr %0, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -823,9 +823,9 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %31, %_ZNSt6vectorIh
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sroa.0.0, ptr %39, align 8, !tbaa !50
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.sroa.7.0, ptr %40, align 8, !tbaa !51
+  store ptr %.sink.i, ptr %40, align 8, !tbaa !51
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.sroa.7.0, ptr %41, align 8, !tbaa !52
+  store ptr %.sink.i, ptr %41, align 8, !tbaa !52
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
   ret void
 }

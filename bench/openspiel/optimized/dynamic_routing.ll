@@ -9727,7 +9727,7 @@ define void @_ZNK10open_spiel15dynamic_routing25MeanFieldRoutingGameState14Chanc
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  br label %56
+  br label %58
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 164
@@ -9753,7 +9753,7 @@ define void @_ZNK10open_spiel15dynamic_routing25MeanFieldRoutingGameState14Chanc
 27:                                               ; preds = %25
   %28 = landingpad { ptr, i32 }
           cleanup
-  br label %56
+  br label %58
 
 29:                                               ; preds = %23
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -9773,7 +9773,7 @@ define void @_ZNK10open_spiel15dynamic_routing25MeanFieldRoutingGameState14Chanc
 35:                                               ; preds = %33
   %36 = landingpad { ptr, i32 }
           cleanup
-  br label %56
+  br label %58
 
 37:                                               ; preds = %29, %19
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 192
@@ -9783,48 +9783,52 @@ define void @_ZNK10open_spiel15dynamic_routing25MeanFieldRoutingGameState14Chanc
   %42 = ptrtoint ptr %40 to i64
   %43 = ptrtoint ptr %41 to i64
   %44 = sub i64 %42, %43
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %40, %41
-  br i1 %.not.i.i.i.i, label %.thread, label %46
+  br i1 %.not.i.i.i.i, label %.thread, label %48
 
 .thread:                                          ; preds = %37
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  %46 = getelementptr inbounds i8, ptr null, i64 %44
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  store ptr %46, ptr %47, align 8
   br label %_ZNSt6vectorISt4pairIldESaIS1_EEC2ERKS3_.exit
 
-46:                                               ; preds = %37
-  %47 = icmp ugt i64 %44, 9223372036854775792
-  br i1 %47, label %.noexc.i.i, label %48
+48:                                               ; preds = %37
+  %49 = icmp ugt i64 %44, 9223372036854775792
+  br i1 %49, label %.noexc.i.i, label %50
 
-.noexc.i.i:                                       ; preds = %46
+.noexc.i.i:                                       ; preds = %48
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #25
   unreachable
 
-48:                                               ; preds = %46
-  %49 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %44) #28
-  store ptr %49, ptr %0, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %49, ptr %50, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 %44
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
+50:                                               ; preds = %48
+  %51 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %44) #28
+  store ptr %51, ptr %0, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %51, ptr %52, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 %44
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %53, ptr %54, align 8
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %48, %.lr.ph.i.i.i.i.i
-  %.09.i.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i.i ], [ %49, %48 ]
-  %.sroa.04.08.i.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i.i ], [ %41, %48 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %50, %.lr.ph.i.i.i.i.i
+  %.09.i.i.i.i.i = phi ptr [ %56, %.lr.ph.i.i.i.i.i ], [ %51, %50 ]
+  %.sroa.04.08.i.i.i.i.i = phi ptr [ %55, %.lr.ph.i.i.i.i.i ], [ %41, %50 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.09.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.08.i.i.i.i.i, i64 16, i1 false)
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
-  %54 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %53, %40
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %55, %40
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt4pairIldESaIS1_EEC2ERKS3_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !41
 
 _ZNSt6vectorISt4pairIldESaIS1_EEC2ERKS3_.exit:    ; preds = %.lr.ph.i.i.i.i.i, %.thread
-  %55 = phi ptr [ %45, %.thread ], [ %50, %.lr.ph.i.i.i.i.i ]
-  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %.thread ], [ %54, %.lr.ph.i.i.i.i.i ]
-  store ptr %.0.lcssa.i.i.i.i.i, ptr %55, align 8
+  %57 = phi ptr [ %45, %.thread ], [ %52, %.lr.ph.i.i.i.i.i ]
+  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %.thread ], [ %56, %.lr.ph.i.i.i.i.i ]
+  store ptr %.0.lcssa.i.i.i.i.i, ptr %57, align 8
   ret void
 
-56:                                               ; preds = %35, %27, %17
+58:                                               ; preds = %35, %27, %17
   %.sink = phi ptr [ %11, %35 ], [ %9, %27 ], [ %5, %17 ]
   %.pn = phi { ptr, i32 } [ %36, %35 ], [ %28, %27 ], [ %18, %17 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #26

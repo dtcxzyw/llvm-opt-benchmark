@@ -9457,75 +9457,78 @@ define linkonce_odr hidden noundef ptr @_ZSt12construct_atIN8rawspeed16CameraSen
   %15 = ptrtoint ptr %13 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %13, %14
-  br i1 %.not.i.i.i.i, label %.thread, label %20
+  br i1 %.not.i.i.i.i, label %.thread, label %21
 
 .thread:                                          ; preds = %6
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  %19 = getelementptr inbounds i8, ptr null, i64 %17
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  store ptr %19, ptr %20, align 8, !tbaa !80
   br label %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
 
-20:                                               ; preds = %6
-  %21 = icmp ugt i64 %17, 9223372036854775804
-  br i1 %21, label %.noexc.i.i, label %22, !prof !28
+21:                                               ; preds = %6
+  %22 = icmp ugt i64 %17, 9223372036854775804
+  br i1 %22, label %.noexc.i.i, label %23, !prof !28
 
-.noexc.i.i:                                       ; preds = %20
+.noexc.i.i:                                       ; preds = %21
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #29
   unreachable
 
-22:                                               ; preds = %20
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #31
-  store ptr %23, ptr %7, align 8, !tbaa !77
-  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %23, ptr %24, align 8, !tbaa !125
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %17
-  %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %25, ptr %26, align 8, !tbaa !80
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %23, ptr align 4 %14, i64 %17, i1 false)
+23:                                               ; preds = %21
+  %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #31
+  store ptr %24, ptr %7, align 8, !tbaa !77
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %24, ptr %25, align 8, !tbaa !125
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 %17
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %26, ptr %27, align 8, !tbaa !80
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %24, ptr align 4 %14, i64 %17, i1 false)
   br label %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
 
-_ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %.thread, %22
-  %27 = phi ptr [ %19, %.thread ], [ %26, %22 ]
-  %28 = phi ptr [ null, %.thread ], [ %25, %22 ]
-  %29 = phi ptr [ %18, %.thread ], [ %24, %22 ]
-  store ptr %28, ptr %29, align 8, !tbaa !125
+_ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %.thread, %23
+  %28 = phi ptr [ %20, %.thread ], [ %27, %23 ]
+  %29 = phi ptr [ %19, %.thread ], [ %26, %23 ]
+  %30 = phi ptr [ %18, %.thread ], [ %25, %23 ]
+  store ptr %29, ptr %30, align 8, !tbaa !125
   invoke void @_ZN8rawspeed16CameraSensorInfoC1EiiiiSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef nonnull %7)
-          to label %30 unwind label %37
+          to label %31 unwind label %38
 
-30:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
-  %31 = load ptr, ptr %7, align 8, !tbaa !77
-  %.not.i.i.i = icmp eq ptr %31, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %32
+31:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
+  %32 = load ptr, ptr %7, align 8, !tbaa !77
+  %.not.i.i.i = icmp eq ptr %32, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %33
 
-32:                                               ; preds = %30
-  %33 = load ptr, ptr %27, align 8, !tbaa !80
-  %34 = ptrtoint ptr %33 to i64
-  %35 = ptrtoint ptr %31 to i64
-  %36 = sub i64 %34, %35
-  call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef %36) #30
+33:                                               ; preds = %31
+  %34 = load ptr, ptr %28, align 8, !tbaa !80
+  %35 = ptrtoint ptr %34 to i64
+  %36 = ptrtoint ptr %32 to i64
+  %37 = sub i64 %35, %36
+  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %37) #30
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %30, %32
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %31, %33
   ret ptr %0
 
-37:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
-  %38 = landingpad { ptr, i32 }
+38:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %39 = load ptr, ptr %7, align 8, !tbaa !77
-  %.not.i.i.i7 = icmp eq ptr %39, null
-  br i1 %.not.i.i.i7, label %_ZNSt6vectorIiSaIiEED2Ev.exit8, label %40
+  %40 = load ptr, ptr %7, align 8, !tbaa !77
+  %.not.i.i.i7 = icmp eq ptr %40, null
+  br i1 %.not.i.i.i7, label %_ZNSt6vectorIiSaIiEED2Ev.exit8, label %41
 
-40:                                               ; preds = %37
-  %41 = load ptr, ptr %27, align 8, !tbaa !80
-  %42 = ptrtoint ptr %41 to i64
-  %43 = ptrtoint ptr %39 to i64
-  %44 = sub i64 %42, %43
-  call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %44) #30
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %28, align 8, !tbaa !80
+  %43 = ptrtoint ptr %42 to i64
+  %44 = ptrtoint ptr %40 to i64
+  %45 = sub i64 %43, %44
+  call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %45) #30
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit8
 
-_ZNSt6vectorIiSaIiEED2Ev.exit8:                   ; preds = %37, %40
-  resume { ptr, i32 } %38
+_ZNSt6vectorIiSaIiEED2Ev.exit8:                   ; preds = %38, %41
+  resume { ptr, i32 } %39
 }
 
 declare void @_ZN8rawspeed16CameraSensorInfoC1EiiiiSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) unnamed_addr #2

@@ -683,7 +683,7 @@ define noundef ptr @_ZN9grpc_core16GrpcXdsBootstrap8GrpcNode8Locality10JsonLoade
   %.sroa.1023.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, ptr %.sroa.1023.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i16 0, ptr %.sroa.11.0..sroa_idx, align 8
+  store i16 32, ptr %.sroa.11.0..sroa_idx, align 8
   %.sroa.1224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 50
   store i8 1, ptr %.sroa.1224.0..sroa_idx, align 2
   %.sroa.1426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -693,7 +693,7 @@ define noundef ptr @_ZN9grpc_core16GrpcXdsBootstrap8GrpcNode8Locality10JsonLoade
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 72
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, ptr %.sroa.16.0..sroa_idx, align 8
   %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i16 0, ptr %.sroa.17.0..sroa_idx, align 8
+  store i16 64, ptr %.sroa.17.0..sroa_idx, align 8
   %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 82
   store i8 1, ptr %.sroa.18.0..sroa_idx, align 2
   %.sroa.1928.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 88
@@ -752,7 +752,7 @@ define noundef ptr @_ZN9grpc_core16GrpcXdsBootstrap8GrpcNode10JsonLoaderERKNS_8J
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, ptr %9, align 8
   %.sroa.534.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i16 0, ptr %.sroa.534.0..sroa_idx, align 8
+  store i16 8, ptr %.sroa.534.0..sroa_idx, align 8
   %.sroa.635.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 18
   store i8 1, ptr %.sroa.635.0..sroa_idx, align 2
   %.sroa.837.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -762,7 +762,7 @@ define noundef ptr @_ZN9grpc_core16GrpcXdsBootstrap8GrpcNode10JsonLoaderERKNS_8J
   %.sroa.1039.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, ptr %.sroa.1039.0..sroa_idx, align 8
   %.sroa.1140.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i16 0, ptr %.sroa.1140.0..sroa_idx, align 8
+  store i16 40, ptr %.sroa.1140.0..sroa_idx, align 8
   %.sroa.1241.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 50
   store i8 1, ptr %.sroa.1241.0..sroa_idx, align 2
   %.sroa.1443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -772,7 +772,7 @@ define noundef ptr @_ZN9grpc_core16GrpcXdsBootstrap8GrpcNode10JsonLoaderERKNS_8J
   %.sroa.1645.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 72
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_16GrpcXdsBootstrap8GrpcNode8LocalityEEEE6value_E, ptr %.sroa.1645.0..sroa_idx, align 8
   %.sroa.1746.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i16 0, ptr %.sroa.1746.0..sroa_idx, align 8
+  store i16 72, ptr %.sroa.1746.0..sroa_idx, align 8
   %.sroa.1847.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 82
   store i8 1, ptr %.sroa.1847.0..sroa_idx, align 2
   %.sroa.2049.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 88
@@ -782,7 +782,7 @@ define noundef ptr @_ZN9grpc_core16GrpcXdsBootstrap8GrpcNode10JsonLoaderERKNS_8J
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 104
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessIS9_ESaISt4pairIKS9_SB_EEEEEE6value_E, ptr %.sroa.22.0..sroa_idx, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 112
-  store i16 0, ptr %.sroa.23.0..sroa_idx, align 8
+  store i16 168, ptr %.sroa.23.0..sroa_idx, align 8
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 114
   store i8 1, ptr %.sroa.24.0..sroa_idx, align 2
   %.sroa.2550.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 120
@@ -824,7 +824,7 @@ define noundef ptr @_ZN9grpc_core16GrpcXdsBootstrap13GrpcAuthority10JsonLoaderER
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, ptr %9, align 8
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i16 0, ptr %.sroa.58.0..sroa_idx, align 8
+  store i16 32, ptr %.sroa.58.0..sroa_idx, align 8
   %.sroa.69.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 18
   store i8 1, ptr %.sroa.69.0..sroa_idx, align 2
   %.sroa.811.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -834,7 +834,7 @@ define noundef ptr @_ZN9grpc_core16GrpcXdsBootstrap13GrpcAuthority10JsonLoaderER
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt6vectorINS_13GrpcXdsServerESaIS4_EEEEE6value_E, ptr %.sroa.10.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i16 0, ptr %.sroa.11.0..sroa_idx, align 8
+  store i16 8, ptr %.sroa.11.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 50
   store i8 1, ptr %.sroa.12.0..sroa_idx, align 2
   %.sroa.1312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -1533,7 +1533,7 @@ define noundef ptr @_ZN9grpc_core16GrpcXdsBootstrap10JsonLoaderERKNS_8JsonArgsE(
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt6vectorINS_13GrpcXdsServerESaIS4_EEEEE6value_E, ptr %9, align 8
   %.sroa.584.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i16 0, ptr %.sroa.584.0..sroa_idx, align 8
+  store i16 8, ptr %.sroa.584.0..sroa_idx, align 8
   %.sroa.685.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 18
   store i8 0, ptr %.sroa.685.0..sroa_idx, align 2
   %.sroa.887.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -1543,7 +1543,7 @@ define noundef ptr @_ZN9grpc_core16GrpcXdsBootstrap10JsonLoaderERKNS_8JsonArgsE(
   %.sroa.1089.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt8optionalINS_16GrpcXdsBootstrap8GrpcNodeEEEEE6value_E, ptr %.sroa.1089.0..sroa_idx, align 8
   %.sroa.1190.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i16 0, ptr %.sroa.1190.0..sroa_idx, align 8
+  store i16 32, ptr %.sroa.1190.0..sroa_idx, align 8
   %.sroa.1291.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 50
   store i8 1, ptr %.sroa.1291.0..sroa_idx, align 2
   %.sroa.1493.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -1553,7 +1553,7 @@ define noundef ptr @_ZN9grpc_core16GrpcXdsBootstrap10JsonLoaderERKNS_8JsonArgsE(
   %.sroa.1695.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 72
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_24CertificateProviderStore16PluginDefinitionESt4lessIS9_ESaISt4pairIKS9_SB_EEEEEE6value_E, ptr %.sroa.1695.0..sroa_idx, align 8
   %.sroa.1796.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i16 0, ptr %.sroa.1796.0..sroa_idx, align 8
+  store i16 368, ptr %.sroa.1796.0..sroa_idx, align 8
   %.sroa.1897.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 82
   store i8 1, ptr %.sroa.1897.0..sroa_idx, align 2
   %.sroa.2099.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 88
@@ -1563,7 +1563,7 @@ define noundef ptr @_ZN9grpc_core16GrpcXdsBootstrap10JsonLoaderERKNS_8JsonArgsE(
   %.sroa.22101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 104
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, ptr %.sroa.22101.0..sroa_idx, align 8
   %.sroa.23102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 112
-  store i16 0, ptr %.sroa.23102.0..sroa_idx, align 8
+  store i16 288, ptr %.sroa.23102.0..sroa_idx, align 8
   %.sroa.24103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 114
   store i8 1, ptr %.sroa.24103.0..sroa_idx, align 2
   %.sroa.26105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 120
@@ -1573,7 +1573,7 @@ define noundef ptr @_ZN9grpc_core16GrpcXdsBootstrap10JsonLoaderERKNS_8JsonArgsE(
   %.sroa.28107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 136
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16GrpcXdsBootstrap13GrpcAuthorityESt4lessIS9_ESaISt4pairIKS9_SB_EEEEEE6value_E, ptr %.sroa.28107.0..sroa_idx, align 8
   %.sroa.29108.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 144
-  store i16 0, ptr %.sroa.29108.0..sroa_idx, align 8
+  store i16 320, ptr %.sroa.29108.0..sroa_idx, align 8
   %.sroa.30109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 146
   store i8 1, ptr %.sroa.30109.0..sroa_idx, align 2
   %.sroa.32111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 152
@@ -1583,7 +1583,7 @@ define noundef ptr @_ZN9grpc_core16GrpcXdsBootstrap10JsonLoaderERKNS_8JsonArgsE(
   %.sroa.34.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 168
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, ptr %.sroa.34.0..sroa_idx, align 8
   %.sroa.35.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 176
-  store i16 0, ptr %.sroa.35.0..sroa_idx, align 8
+  store i16 256, ptr %.sroa.35.0..sroa_idx, align 8
   %.sroa.36.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 178
   store i8 1, ptr %.sroa.36.0..sroa_idx, align 2
   %.sroa.37112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 184
@@ -7456,7 +7456,7 @@ define linkonce_odr void @_ZNK9grpc_core11json_detail10AutoLoaderINS_16GrpcXdsBo
   %.sroa.1023.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, ptr %.sroa.1023.0..sroa_idx.i, align 8
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store i16 0, ptr %.sroa.11.0..sroa_idx.i, align 8
+  store i16 32, ptr %.sroa.11.0..sroa_idx.i, align 8
   %.sroa.1224.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 50
   store i8 1, ptr %.sroa.1224.0..sroa_idx.i, align 2
   %.sroa.1426.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 56
@@ -7466,7 +7466,7 @@ define linkonce_odr void @_ZNK9grpc_core11json_detail10AutoLoaderINS_16GrpcXdsBo
   %.sroa.16.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 72
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, ptr %.sroa.16.0..sroa_idx.i, align 8
   %.sroa.17.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 80
-  store i16 0, ptr %.sroa.17.0..sroa_idx.i, align 8
+  store i16 64, ptr %.sroa.17.0..sroa_idx.i, align 8
   %.sroa.18.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 82
   store i8 1, ptr %.sroa.18.0..sroa_idx.i, align 2
   %.sroa.1928.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 88
@@ -9635,7 +9635,7 @@ define linkonce_odr void @_ZNK9grpc_core11json_detail10AutoLoaderINS_16GrpcXdsBo
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, ptr %13, align 8
   %.sroa.58.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i16 0, ptr %.sroa.58.0..sroa_idx.i, align 8
+  store i16 32, ptr %.sroa.58.0..sroa_idx.i, align 8
   %.sroa.69.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 18
   store i8 1, ptr %.sroa.69.0..sroa_idx.i, align 2
   %.sroa.811.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -9645,7 +9645,7 @@ define linkonce_odr void @_ZNK9grpc_core11json_detail10AutoLoaderINS_16GrpcXdsBo
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt6vectorINS_13GrpcXdsServerESaIS4_EEEEE6value_E, ptr %.sroa.10.0..sroa_idx.i, align 8
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store i16 0, ptr %.sroa.11.0..sroa_idx.i, align 8
+  store i16 8, ptr %.sroa.11.0..sroa_idx.i, align 8
   %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 50
   store i8 1, ptr %.sroa.12.0..sroa_idx.i, align 2
   %.sroa.1312.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 56

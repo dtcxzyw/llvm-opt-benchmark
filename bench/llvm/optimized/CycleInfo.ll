@@ -2740,7 +2740,7 @@ define weak_odr void @_ZNK4llvm16GenericCycleInfoINS_17GenericSSAContextINS_8Fun
   ret void
 
 43:                                               ; preds = %.lr.ph54, %_ZN4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEED2Ev.exit
-  %.sroa.031.053 = phi ptr [ %16, %.lr.ph54 ], [ %142, %_ZN4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEED2Ev.exit ]
+  %.sroa.031.053 = phi ptr [ %16, %.lr.ph54 ], [ %144, %_ZN4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
   %44 = load ptr, ptr %.sroa.031.053, align 8, !tbaa !31
   store ptr %44, ptr %7, align 8, !tbaa !31
@@ -2756,477 +2756,487 @@ define weak_odr void @_ZNK4llvm16GenericCycleInfoINS_17GenericSSAContextINS_8Fun
   %49 = sub i64 %47, %48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false), !alias.scope !125
   %.not.i.i.i.i.i.i = icmp eq ptr %45, %46
-  br i1 %.not.i.i.i.i.i.i, label %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEE5beginEv.exit, label %50
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EEC2EmRKSD_.exit.i.i.thread.i, label %51
 
-50:                                               ; preds = %43
-  %51 = sdiv exact i64 %49, 24
-  %52 = icmp ugt i64 %51, 384307168202282325
-  br i1 %52, label %53, label %_ZNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EEC2EmRKSD_.exit.i.i.i, !prof !132
+_ZNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EEC2EmRKSD_.exit.i.i.thread.i: ; preds = %43
+  %50 = getelementptr inbounds nuw i8, ptr null, i64 %49
+  store ptr %50, ptr %23, align 8, !tbaa !132, !alias.scope !125
+  br label %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEE5beginEv.exit
 
-53:                                               ; preds = %50
+51:                                               ; preds = %43
+  %52 = sdiv exact i64 %49, 24
+  %53 = icmp ugt i64 %52, 384307168202282325
+  br i1 %53, label %54, label %_ZNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EEC2EmRKSD_.exit.i.i.i, !prof !133
+
+54:                                               ; preds = %51
   call void @_ZSt28__throw_bad_array_new_lengthv() #17
   unreachable
 
-_ZNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EEC2EmRKSD_.exit.i.i.i: ; preds = %50
-  %54 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #16
-  store ptr %54, ptr %19, align 8, !tbaa !131, !alias.scope !125
-  store ptr %54, ptr %22, align 8, !tbaa !128, !alias.scope !125
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %49
-  store ptr %55, ptr %23, align 8, !tbaa !133, !alias.scope !125
+_ZNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EEC2EmRKSD_.exit.i.i.i: ; preds = %51
+  %55 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #16
+  store ptr %55, ptr %19, align 8, !tbaa !131, !alias.scope !125
+  store ptr %55, ptr %22, align 8, !tbaa !128, !alias.scope !125
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %49
+  store ptr %56, ptr %23, align 8, !tbaa !132, !alias.scope !125
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EEC2EmRKSD_.exit.i.i.i
-  %.09.i.i.i.i.i.i.i = phi ptr [ %57, %.lr.ph.i.i.i.i.i.i.i ], [ %54, %_ZNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EEC2EmRKSD_.exit.i.i.i ]
-  %.sroa.04.08.i.i.i.i.i.i.i = phi ptr [ %56, %.lr.ph.i.i.i.i.i.i.i ], [ %46, %_ZNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EEC2EmRKSD_.exit.i.i.i ]
+  %.09.i.i.i.i.i.i.i = phi ptr [ %58, %.lr.ph.i.i.i.i.i.i.i ], [ %55, %_ZNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EEC2EmRKSD_.exit.i.i.i ]
+  %.sroa.04.08.i.i.i.i.i.i.i = phi ptr [ %57, %.lr.ph.i.i.i.i.i.i.i ], [ %46, %_ZNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EEC2EmRKSD_.exit.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.09.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.04.08.i.i.i.i.i.i.i, i64 24, i1 false)
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i, i64 24
-  %57 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %56, %45
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %57, %45
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEE5beginEv.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !134
 
-_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEE5beginEv.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %43
-  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ null, %43 ], [ %57, %.lr.ph.i.i.i.i.i.i.i ]
+_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEE5beginEv.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EEC2EmRKSD_.exit.i.i.thread.i
+  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EEC2EmRKSD_.exit.i.i.thread.i ], [ %58, %.lr.ph.i.i.i.i.i.i.i ]
   store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %22, align 8, !tbaa !128, !alias.scope !125
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %10) #15
   call void @llvm.experimental.noalias.scope.decl(metadata !135)
   call void @_ZN4llvm19SmallPtrSetImplBaseC2EPPKvRKS0_(ptr noundef nonnull align 8 dereferenceable(112) %10, ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(112) %24) #15
-  %58 = load ptr, ptr %28, align 8, !tbaa !128, !noalias !135
-  %59 = load ptr, ptr %27, align 8, !tbaa !131, !noalias !135
-  %60 = ptrtoint ptr %58 to i64
+  %59 = load ptr, ptr %28, align 8, !tbaa !128, !noalias !135
+  %60 = load ptr, ptr %27, align 8, !tbaa !131, !noalias !135
   %61 = ptrtoint ptr %59 to i64
-  %62 = sub i64 %60, %61
+  %62 = ptrtoint ptr %60 to i64
+  %63 = sub i64 %61, %62
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false), !alias.scope !135
-  %.not.i.i.i.i.i.i11 = icmp eq ptr %58, %59
-  br i1 %.not.i.i.i.i.i.i11, label %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEE3endEv.exit, label %63
+  %.not.i.i.i.i.i.i11 = icmp eq ptr %59, %60
+  br i1 %.not.i.i.i.i.i.i11, label %_ZNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EEC2EmRKSD_.exit.i.i.thread.i18, label %65
 
-63:                                               ; preds = %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEE5beginEv.exit
-  %64 = sdiv exact i64 %62, 24
-  %65 = icmp ugt i64 %64, 384307168202282325
-  br i1 %65, label %66, label %_ZNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EEC2EmRKSD_.exit.i.i.i12, !prof !132
+_ZNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EEC2EmRKSD_.exit.i.i.thread.i18: ; preds = %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEE5beginEv.exit
+  %64 = getelementptr inbounds nuw i8, ptr null, i64 %63
+  store ptr %64, ptr %30, align 8, !tbaa !132, !alias.scope !135
+  br label %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEE3endEv.exit
 
-66:                                               ; preds = %63
+65:                                               ; preds = %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEE5beginEv.exit
+  %66 = sdiv exact i64 %63, 24
+  %67 = icmp ugt i64 %66, 384307168202282325
+  br i1 %67, label %68, label %_ZNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EEC2EmRKSD_.exit.i.i.i12, !prof !133
+
+68:                                               ; preds = %65
   call void @_ZSt28__throw_bad_array_new_lengthv() #17
   unreachable
 
-_ZNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EEC2EmRKSD_.exit.i.i.i12: ; preds = %63
-  %67 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %62) #16
-  store ptr %67, ptr %26, align 8, !tbaa !131, !alias.scope !135
-  store ptr %67, ptr %29, align 8, !tbaa !128, !alias.scope !135
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 %62
-  store ptr %68, ptr %30, align 8, !tbaa !133, !alias.scope !135
+_ZNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EEC2EmRKSD_.exit.i.i.i12: ; preds = %65
+  %69 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %63) #16
+  store ptr %69, ptr %26, align 8, !tbaa !131, !alias.scope !135
+  store ptr %69, ptr %29, align 8, !tbaa !128, !alias.scope !135
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 %63
+  store ptr %70, ptr %30, align 8, !tbaa !132, !alias.scope !135
   br label %.lr.ph.i.i.i.i.i.i.i13
 
 .lr.ph.i.i.i.i.i.i.i13:                           ; preds = %.lr.ph.i.i.i.i.i.i.i13, %_ZNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EEC2EmRKSD_.exit.i.i.i12
-  %.09.i.i.i.i.i.i.i14 = phi ptr [ %70, %.lr.ph.i.i.i.i.i.i.i13 ], [ %67, %_ZNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EEC2EmRKSD_.exit.i.i.i12 ]
-  %.sroa.04.08.i.i.i.i.i.i.i15 = phi ptr [ %69, %.lr.ph.i.i.i.i.i.i.i13 ], [ %59, %_ZNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EEC2EmRKSD_.exit.i.i.i12 ]
+  %.09.i.i.i.i.i.i.i14 = phi ptr [ %72, %.lr.ph.i.i.i.i.i.i.i13 ], [ %69, %_ZNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EEC2EmRKSD_.exit.i.i.i12 ]
+  %.sroa.04.08.i.i.i.i.i.i.i15 = phi ptr [ %71, %.lr.ph.i.i.i.i.i.i.i13 ], [ %60, %_ZNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EEC2EmRKSD_.exit.i.i.i12 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.09.i.i.i.i.i.i.i14, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.04.08.i.i.i.i.i.i.i15, i64 24, i1 false)
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i15, i64 24
-  %70 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i14, i64 24
-  %.not.i.i.i.i.i.i.i16 = icmp eq ptr %69, %58
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i15, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i14, i64 24
+  %.not.i.i.i.i.i.i.i16 = icmp eq ptr %71, %59
   br i1 %.not.i.i.i.i.i.i.i16, label %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEE3endEv.exit, label %.lr.ph.i.i.i.i.i.i.i13, !llvm.loop !134
 
-_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEE3endEv.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i13, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEE5beginEv.exit
-  %71 = phi ptr [ null, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEE5beginEv.exit ], [ %67, %.lr.ph.i.i.i.i.i.i.i13 ]
-  %.0.lcssa.i.i.i.i.i.i.i17 = phi ptr [ null, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEE5beginEv.exit ], [ %70, %.lr.ph.i.i.i.i.i.i.i13 ]
+_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEE3endEv.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i13, %_ZNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EEC2EmRKSD_.exit.i.i.thread.i18
+  %73 = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EEC2EmRKSD_.exit.i.i.thread.i18 ], [ %69, %.lr.ph.i.i.i.i.i.i.i13 ]
+  %.0.lcssa.i.i.i.i.i.i.i17 = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EEC2EmRKSD_.exit.i.i.thread.i18 ], [ %72, %.lr.ph.i.i.i.i.i.i.i13 ]
   store ptr %.0.lcssa.i.i.i.i.i.i.i17, ptr %29, align 8, !tbaa !128, !alias.scope !135
   %.pre = load ptr, ptr %22, align 8, !tbaa !128
-  br label %72
+  br label %74
 
-72:                                               ; preds = %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEE6toNextEv.exit, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEE3endEv.exit
-  %73 = phi ptr [ %.pre71, %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEE6toNextEv.exit ], [ %71, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEE3endEv.exit ]
-  %74 = phi ptr [ %.pre70, %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEE6toNextEv.exit ], [ %.0.lcssa.i.i.i.i.i.i.i17, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEE3endEv.exit ]
-  %75 = phi ptr [ %223, %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEE6toNextEv.exit ], [ %.pre, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEE3endEv.exit ]
-  %76 = load ptr, ptr %19, align 8, !tbaa !131
-  %77 = ptrtoint ptr %75 to i64
-  %78 = ptrtoint ptr %76 to i64
-  %79 = sub i64 %77, %78
-  %80 = ptrtoint ptr %74 to i64
-  %81 = ptrtoint ptr %73 to i64
-  %82 = sub i64 %80, %81
-  %83 = icmp eq i64 %79, %82
-  br i1 %83, label %84, label %.loopexit35
+74:                                               ; preds = %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEE6toNextEv.exit, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEE3endEv.exit
+  %75 = phi ptr [ %.pre71, %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEE6toNextEv.exit ], [ %73, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEE3endEv.exit ]
+  %76 = phi ptr [ %.pre70, %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEE6toNextEv.exit ], [ %.0.lcssa.i.i.i.i.i.i.i17, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEE3endEv.exit ]
+  %77 = phi ptr [ %225, %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEE6toNextEv.exit ], [ %.pre, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEE3endEv.exit ]
+  %78 = load ptr, ptr %19, align 8, !tbaa !131
+  %79 = ptrtoint ptr %77 to i64
+  %80 = ptrtoint ptr %78 to i64
+  %81 = sub i64 %79, %80
+  %82 = ptrtoint ptr %76 to i64
+  %83 = ptrtoint ptr %75 to i64
+  %84 = sub i64 %82, %83
+  %85 = icmp eq i64 %81, %84
+  br i1 %85, label %86, label %.loopexit35
 
-84:                                               ; preds = %72
-  %.not9.i.i.i.i.i.i.i = icmp eq ptr %76, %75
+86:                                               ; preds = %74
+  %.not9.i.i.i.i.i.i.i = icmp eq ptr %78, %77
   br i1 %.not9.i.i.i.i.i.i.i, label %_ZNK4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEneERKSC_.exit, label %.lr.ph.i.i.i.i.i.i.i19
 
-.lr.ph.i.i.i.i.i.i.i19:                           ; preds = %84, %101
-  %.011.i.i.i.i.i.i.i = phi ptr [ %103, %101 ], [ %73, %84 ]
-  %.0810.i.i.i.i.i.i.i = phi ptr [ %102, %101 ], [ %76, %84 ]
-  %85 = load ptr, ptr %.0810.i.i.i.i.i.i.i, align 8, !tbaa !138
-  %86 = load ptr, ptr %.011.i.i.i.i.i.i.i, align 8, !tbaa !138
-  %87 = icmp eq ptr %85, %86
-  br i1 %87, label %88, label %.loopexit35
+.lr.ph.i.i.i.i.i.i.i19:                           ; preds = %86, %103
+  %.011.i.i.i.i.i.i.i = phi ptr [ %105, %103 ], [ %75, %86 ]
+  %.0810.i.i.i.i.i.i.i = phi ptr [ %104, %103 ], [ %78, %86 ]
+  %87 = load ptr, ptr %.0810.i.i.i.i.i.i.i, align 8, !tbaa !138
+  %88 = load ptr, ptr %.011.i.i.i.i.i.i.i, align 8, !tbaa !138
+  %89 = icmp eq ptr %87, %88
+  br i1 %89, label %90, label %.loopexit35
 
-88:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i19
-  %89 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i, i64 16
-  %90 = load i8, ptr %89, align 8, !tbaa !144, !range !145, !noundef !146
-  %91 = trunc nuw i8 %90 to i1
-  %92 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 16
-  %93 = load i8, ptr %92, align 8, !tbaa !144, !range !145, !noundef !146
-  %94 = icmp eq i8 %90, %93
-  %brmerge.not.i.i.i.i.i.i.i.i.i = and i1 %94, %91
-  br i1 %brmerge.not.i.i.i.i.i.i.i.i.i, label %95, label %_ZSteqIPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEESt8optionalINS5_20const_child_iteratorEEEbRKSt4pairIT_T0_ESG_.exit.i.i.i.i.i.i.i
+90:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i19
+  %91 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i, i64 16
+  %92 = load i8, ptr %91, align 8, !tbaa !144, !range !145, !noundef !146
+  %93 = trunc nuw i8 %92 to i1
+  %94 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 16
+  %95 = load i8, ptr %94, align 8, !tbaa !144, !range !145, !noundef !146
+  %96 = icmp eq i8 %92, %95
+  %brmerge.not.i.i.i.i.i.i.i.i.i = and i1 %96, %93
+  br i1 %brmerge.not.i.i.i.i.i.i.i.i.i, label %97, label %_ZSteqIPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEESt8optionalINS5_20const_child_iteratorEEEbRKSt4pairIT_T0_ESG_.exit.i.i.i.i.i.i.i
 
-95:                                               ; preds = %88
-  %96 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 8
-  %97 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i, i64 8
-  %98 = load ptr, ptr %97, align 8, !tbaa !30
-  %99 = load ptr, ptr %96, align 8, !tbaa !30
-  %100 = icmp eq ptr %98, %99
-  br i1 %100, label %101, label %.loopexit35
+97:                                               ; preds = %90
+  %98 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i, i64 8
+  %100 = load ptr, ptr %99, align 8, !tbaa !30
+  %101 = load ptr, ptr %98, align 8, !tbaa !30
+  %102 = icmp eq ptr %100, %101
+  br i1 %102, label %103, label %.loopexit35
 
-_ZSteqIPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEESt8optionalINS5_20const_child_iteratorEEEbRKSt4pairIT_T0_ESG_.exit.i.i.i.i.i.i.i: ; preds = %88
-  br i1 %94, label %101, label %.loopexit35
+_ZSteqIPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEESt8optionalINS5_20const_child_iteratorEEEbRKSt4pairIT_T0_ESG_.exit.i.i.i.i.i.i.i: ; preds = %90
+  br i1 %96, label %103, label %.loopexit35
 
-101:                                              ; preds = %_ZSteqIPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEESt8optionalINS5_20const_child_iteratorEEEbRKSt4pairIT_T0_ESG_.exit.i.i.i.i.i.i.i, %95
-  %102 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i, i64 24
-  %103 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i.i.i20 = icmp eq ptr %102, %75
+103:                                              ; preds = %_ZSteqIPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEESt8optionalINS5_20const_child_iteratorEEEbRKSt4pairIT_T0_ESG_.exit.i.i.i.i.i.i.i, %97
+  %104 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i.i.i20 = icmp eq ptr %104, %77
   br i1 %.not.i.i.i.i.i.i.i20, label %_ZNK4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEneERKSC_.exit, label %.lr.ph.i.i.i.i.i.i.i19, !llvm.loop !147
 
-_ZNK4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEneERKSC_.exit: ; preds = %84, %101
-  %.not.i.i.i.i = icmp eq ptr %73, null
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i, label %104
+_ZNK4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEneERKSC_.exit: ; preds = %86, %103
+  %.not.i.i.i.i = icmp eq ptr %75, null
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i, label %106
 
-104:                                              ; preds = %_ZNK4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEneERKSC_.exit
-  %105 = load ptr, ptr %30, align 8, !tbaa !133
-  %106 = ptrtoint ptr %105 to i64
-  %107 = sub i64 %106, %81
-  call void @_ZdlPvm(ptr noundef nonnull %73, i64 noundef %107) #18
+106:                                              ; preds = %_ZNK4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEneERKSC_.exit
+  %107 = load ptr, ptr %30, align 8, !tbaa !132
+  %108 = ptrtoint ptr %107 to i64
+  %109 = sub i64 %108, %83
+  call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef %109) #18
   br label %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i
 
-_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i: ; preds = %104, %_ZNK4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEneERKSC_.exit
-  %108 = load i8, ptr %38, align 4, !tbaa !148, !range !145, !noundef !146
-  %109 = trunc nuw i8 %108 to i1
-  br i1 %109, label %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit, label %110
+_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i: ; preds = %106, %_ZNK4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEneERKSC_.exit
+  %110 = load i8, ptr %38, align 4, !tbaa !148, !range !145, !noundef !146
+  %111 = trunc nuw i8 %110 to i1
+  br i1 %111, label %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit, label %112
 
-110:                                              ; preds = %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i
-  %111 = load ptr, ptr %10, align 8, !tbaa !150
-  call void @free(ptr noundef %111) #15
+112:                                              ; preds = %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i
+  %113 = load ptr, ptr %10, align 8, !tbaa !150
+  call void @free(ptr noundef %113) #15
   br label %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit
 
-_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit: ; preds = %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i, %110
+_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit: ; preds = %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i, %112
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %10) #15
-  %112 = load ptr, ptr %19, align 8, !tbaa !131
-  %.not.i.i.i.i21 = icmp eq ptr %112, null
-  br i1 %.not.i.i.i.i21, label %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i22, label %113
+  %114 = load ptr, ptr %19, align 8, !tbaa !131
+  %.not.i.i.i.i21 = icmp eq ptr %114, null
+  br i1 %.not.i.i.i.i21, label %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i22, label %115
 
-113:                                              ; preds = %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit
-  %114 = load ptr, ptr %23, align 8, !tbaa !133
-  %115 = ptrtoint ptr %114 to i64
-  %116 = ptrtoint ptr %112 to i64
-  %117 = sub i64 %115, %116
-  call void @_ZdlPvm(ptr noundef nonnull %112, i64 noundef %117) #18
+115:                                              ; preds = %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit
+  %116 = load ptr, ptr %23, align 8, !tbaa !132
+  %117 = ptrtoint ptr %116 to i64
+  %118 = ptrtoint ptr %114 to i64
+  %119 = sub i64 %117, %118
+  call void @_ZdlPvm(ptr noundef nonnull %114, i64 noundef %119) #18
   br label %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i22
 
-_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i22: ; preds = %113, %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit
-  %118 = load i8, ptr %35, align 4, !tbaa !148, !range !145, !noundef !146
-  %119 = trunc nuw i8 %118 to i1
-  br i1 %119, label %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit23, label %120
+_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i22: ; preds = %115, %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit
+  %120 = load i8, ptr %35, align 4, !tbaa !148, !range !145, !noundef !146
+  %121 = trunc nuw i8 %120 to i1
+  br i1 %121, label %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit23, label %122
 
-120:                                              ; preds = %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i22
-  %121 = load ptr, ptr %9, align 8, !tbaa !150
-  call void @free(ptr noundef %121) #15
+122:                                              ; preds = %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i22
+  %123 = load ptr, ptr %9, align 8, !tbaa !150
+  call void @free(ptr noundef %123) #15
   br label %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit23
 
-_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit23: ; preds = %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i22, %120
+_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit23: ; preds = %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i22, %122
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %9) #15
-  %122 = load ptr, ptr %27, align 8, !tbaa !131
-  %.not.i.i.i.i.i = icmp eq ptr %122, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i.i, label %123
+  %124 = load ptr, ptr %27, align 8, !tbaa !131
+  %.not.i.i.i.i.i = icmp eq ptr %124, null
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i.i, label %125
 
-123:                                              ; preds = %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit23
-  %124 = load ptr, ptr %39, align 8, !tbaa !133
-  %125 = ptrtoint ptr %124 to i64
-  %126 = ptrtoint ptr %122 to i64
-  %127 = sub i64 %125, %126
-  call void @_ZdlPvm(ptr noundef nonnull %122, i64 noundef %127) #18
+125:                                              ; preds = %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit23
+  %126 = load ptr, ptr %39, align 8, !tbaa !132
+  %127 = ptrtoint ptr %126 to i64
+  %128 = ptrtoint ptr %124 to i64
+  %129 = sub i64 %127, %128
+  call void @_ZdlPvm(ptr noundef nonnull %124, i64 noundef %129) #18
   br label %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i.i
 
-_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i.i: ; preds = %123, %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit23
-  %128 = load i8, ptr %40, align 4, !tbaa !148, !range !145, !noundef !146
-  %129 = trunc nuw i8 %128 to i1
-  br i1 %129, label %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit.i, label %130
+_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i.i: ; preds = %125, %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit23
+  %130 = load i8, ptr %40, align 4, !tbaa !148, !range !145, !noundef !146
+  %131 = trunc nuw i8 %130 to i1
+  br i1 %131, label %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit.i, label %132
 
-130:                                              ; preds = %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i.i
-  %131 = load ptr, ptr %24, align 8, !tbaa !150
-  call void @free(ptr noundef %131) #15
+132:                                              ; preds = %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i.i
+  %133 = load ptr, ptr %24, align 8, !tbaa !150
+  call void @free(ptr noundef %133) #15
   br label %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit.i
 
-_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit.i: ; preds = %130, %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i.i
-  %132 = load ptr, ptr %20, align 8, !tbaa !131
-  %.not.i.i.i.i1.i = icmp eq ptr %132, null
-  br i1 %.not.i.i.i.i1.i, label %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i2.i, label %133
+_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit.i: ; preds = %132, %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i.i
+  %134 = load ptr, ptr %20, align 8, !tbaa !131
+  %.not.i.i.i.i1.i = icmp eq ptr %134, null
+  br i1 %.not.i.i.i.i1.i, label %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i2.i, label %135
 
-133:                                              ; preds = %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit.i
-  %134 = load ptr, ptr %41, align 8, !tbaa !133
-  %135 = ptrtoint ptr %134 to i64
-  %136 = ptrtoint ptr %132 to i64
-  %137 = sub i64 %135, %136
-  call void @_ZdlPvm(ptr noundef nonnull %132, i64 noundef %137) #18
+135:                                              ; preds = %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit.i
+  %136 = load ptr, ptr %41, align 8, !tbaa !132
+  %137 = ptrtoint ptr %136 to i64
+  %138 = ptrtoint ptr %134 to i64
+  %139 = sub i64 %137, %138
+  call void @_ZdlPvm(ptr noundef nonnull %134, i64 noundef %139) #18
   br label %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i2.i
 
-_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i2.i: ; preds = %133, %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit.i
-  %138 = load i8, ptr %42, align 4, !tbaa !148, !range !145, !noundef !146
-  %139 = trunc nuw i8 %138 to i1
-  br i1 %139, label %_ZN4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEED2Ev.exit, label %140
+_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i2.i: ; preds = %135, %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit.i
+  %140 = load i8, ptr %42, align 4, !tbaa !148, !range !145, !noundef !146
+  %141 = trunc nuw i8 %140 to i1
+  br i1 %141, label %_ZN4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEED2Ev.exit, label %142
 
-140:                                              ; preds = %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i2.i
-  %141 = load ptr, ptr %8, align 8, !tbaa !150
-  call void @free(ptr noundef %141) #15
+142:                                              ; preds = %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i2.i
+  %143 = load ptr, ptr %8, align 8, !tbaa !150
+  call void @free(ptr noundef %143) #15
   br label %_ZN4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEED2Ev.exit
 
-_ZN4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEED2Ev.exit: ; preds = %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i2.i, %140
+_ZN4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEED2Ev.exit: ; preds = %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i2.i, %142
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %8) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
-  %142 = getelementptr inbounds nuw i8, ptr %.sroa.031.053, i64 8
-  %.not = icmp eq ptr %142, %17
+  %144 = getelementptr inbounds nuw i8, ptr %.sroa.031.053, i64 8
+  %.not = icmp eq ptr %144, %17
   br i1 %.not, label %._crit_edge, label %43
 
-.loopexit35:                                      ; preds = %.lr.ph.i.i.i.i.i.i.i19, %95, %_ZSteqIPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEESt8optionalINS5_20const_child_iteratorEEEbRKSt4pairIT_T0_ESG_.exit.i.i.i.i.i.i.i, %72
-  %143 = getelementptr inbounds i8, ptr %75, i64 -24
-  %144 = load ptr, ptr %143, align 8, !tbaa !31
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 160
-  %146 = load i32, ptr %145, align 8, !tbaa !113
-  %.not55 = icmp eq i32 %146, 0
+.loopexit35:                                      ; preds = %.lr.ph.i.i.i.i.i.i.i19, %97, %_ZSteqIPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEESt8optionalINS5_20const_child_iteratorEEEbRKSt4pairIT_T0_ESG_.exit.i.i.i.i.i.i.i, %74
+  %145 = getelementptr inbounds i8, ptr %77, i64 -24
+  %146 = load ptr, ptr %145, align 8, !tbaa !31
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 160
+  %148 = load i32, ptr %147, align 8, !tbaa !113
+  %.not55 = icmp eq i32 %148, 0
   br i1 %.not55, label %_ZN4llvmlsERNS_11raw_ostreamERKNS_9PrintableE.exit, label %.lr.ph
 
 _ZN4llvmlsERNS_11raw_ostreamERKNS_9PrintableE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit, %.loopexit35
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #15
   store ptr @_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNKS0_12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEE5printERKS7_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %33, align 8, !tbaa !151, !alias.scope !154
-  store ptr %144, ptr %11, align 8, !alias.scope !154
+  store ptr %146, ptr %11, align 8, !alias.scope !154
   store ptr %0, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !157, !alias.scope !154
   store ptr @_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNKS0_12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEE5printERKS7_EUlS2_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, ptr %34, align 8, !tbaa !158, !alias.scope !154
   call void @_ZZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE5printERKS3_ENKUlRNS_11raw_ostreamEE_clES8_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(48) %1)
-  %147 = load ptr, ptr %32, align 8, !tbaa !159
-  %148 = load ptr, ptr %31, align 8, !tbaa !164
-  %.not.i = icmp ult ptr %147, %148
-  br i1 %.not.i, label %151, label %149
-
-149:                                              ; preds = %_ZN4llvmlsERNS_11raw_ostreamERKNS_9PrintableE.exit
-  %150 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 noundef zeroext 10) #15
-  br label %_ZN4llvm11raw_ostreamlsEc.exit
+  %149 = load ptr, ptr %32, align 8, !tbaa !159
+  %150 = load ptr, ptr %31, align 8, !tbaa !164
+  %.not.i = icmp ult ptr %149, %150
+  br i1 %.not.i, label %153, label %151
 
 151:                                              ; preds = %_ZN4llvmlsERNS_11raw_ostreamERKNS_9PrintableE.exit
-  %152 = getelementptr inbounds nuw i8, ptr %147, i64 1
-  store ptr %152, ptr %32, align 8, !tbaa !159
-  store i8 10, ptr %147, align 1, !tbaa !157
+  %152 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 noundef zeroext 10) #15
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
-_ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %149, %151
-  %153 = load ptr, ptr %34, align 8, !tbaa !158
-  %.not.i.i = icmp eq ptr %153, null
-  br i1 %.not.i.i, label %_ZN4llvm9PrintableD2Ev.exit, label %154
+153:                                              ; preds = %_ZN4llvmlsERNS_11raw_ostreamERKNS_9PrintableE.exit
+  %154 = getelementptr inbounds nuw i8, ptr %149, i64 1
+  store ptr %154, ptr %32, align 8, !tbaa !159
+  store i8 10, ptr %149, align 1, !tbaa !157
+  br label %_ZN4llvm11raw_ostreamlsEc.exit
 
-154:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
-  %155 = call noundef zeroext i1 %153(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3) #15
+_ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %151, %153
+  %155 = load ptr, ptr %34, align 8, !tbaa !158
+  %.not.i.i = icmp eq ptr %155, null
+  br i1 %.not.i.i, label %_ZN4llvm9PrintableD2Ev.exit, label %156
+
+156:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
+  %157 = call noundef zeroext i1 %155(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3) #15
   br label %_ZN4llvm9PrintableD2Ev.exit
 
-_ZN4llvm9PrintableD2Ev.exit:                      ; preds = %_ZN4llvm11raw_ostreamlsEc.exit, %154
+_ZN4llvm9PrintableD2Ev.exit:                      ; preds = %_ZN4llvm11raw_ostreamlsEc.exit, %156
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #15
   %.pre.i = load ptr, ptr %22, align 8, !tbaa !165
-  br label %156
+  br label %158
 
-156:                                              ; preds = %.thread.i, %_ZN4llvm9PrintableD2Ev.exit
-  %157 = phi ptr [ %220, %.thread.i ], [ %.pre.i, %_ZN4llvm9PrintableD2Ev.exit ]
-  %158 = getelementptr inbounds i8, ptr %157, i64 -24
-  %159 = load ptr, ptr %158, align 8, !tbaa !138
-  %160 = getelementptr inbounds i8, ptr %157, i64 -16
-  %161 = getelementptr inbounds i8, ptr %157, i64 -8
-  %162 = load i8, ptr %161, align 8, !tbaa !144, !range !145, !noundef !146
-  %163 = trunc nuw i8 %162 to i1
-  br i1 %163, label %168, label %_ZNSt8optionalIN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEE20const_child_iteratorEE7emplaceIJS6_EEENSt9enable_ifIX18is_constructible_vIS6_DpT_EERS6_E4typeEDpOSA_.exit.i
+158:                                              ; preds = %.thread.i, %_ZN4llvm9PrintableD2Ev.exit
+  %159 = phi ptr [ %222, %.thread.i ], [ %.pre.i, %_ZN4llvm9PrintableD2Ev.exit ]
+  %160 = getelementptr inbounds i8, ptr %159, i64 -24
+  %161 = load ptr, ptr %160, align 8, !tbaa !138
+  %162 = getelementptr inbounds i8, ptr %159, i64 -16
+  %163 = getelementptr inbounds i8, ptr %159, i64 -8
+  %164 = load i8, ptr %163, align 8, !tbaa !144, !range !145, !noundef !146
+  %165 = trunc nuw i8 %164 to i1
+  br i1 %165, label %170, label %_ZNSt8optionalIN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEE20const_child_iteratorEE7emplaceIJS6_EEENSt9enable_ifIX18is_constructible_vIS6_DpT_EERS6_E4typeEDpOSA_.exit.i
 
-_ZNSt8optionalIN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEE20const_child_iteratorEE7emplaceIJS6_EEENSt9enable_ifIX18is_constructible_vIS6_DpT_EERS6_E4typeEDpOSA_.exit.i: ; preds = %156
+_ZNSt8optionalIN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEE20const_child_iteratorEE7emplaceIJS6_EEENSt9enable_ifIX18is_constructible_vIS6_DpT_EERS6_E4typeEDpOSA_.exit.i: ; preds = %158
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %164 = getelementptr inbounds nuw i8, ptr %159, i64 32
-  %165 = load ptr, ptr %164, align 8, !tbaa !30
-  call void @_ZN4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE20const_child_iteratorC1EN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIS4_St14default_deleteIS4_EESt6vectorISB_SaISB_EEEE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr %165) #15
-  %166 = load ptr, ptr %4, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %161, i64 32
+  %167 = load ptr, ptr %166, align 8, !tbaa !30
+  call void @_ZN4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE20const_child_iteratorC1EN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIS4_St14default_deleteIS4_EESt6vectorISB_SaISB_EEEE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr %167) #15
+  %168 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %167 = ptrtoint ptr %166 to i64
-  store i64 %167, ptr %160, align 8
-  store i8 1, ptr %161, align 8, !tbaa !144
-  br label %168
+  %169 = ptrtoint ptr %168 to i64
+  store i64 %169, ptr %162, align 8
+  store i8 1, ptr %163, align 8, !tbaa !144
+  br label %170
 
-168:                                              ; preds = %_ZNSt8optionalIN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEE20const_child_iteratorEE7emplaceIJS6_EEENSt9enable_ifIX18is_constructible_vIS6_DpT_EERS6_E4typeEDpOSA_.exit.i, %156
-  %169 = getelementptr inbounds nuw i8, ptr %159, i64 40
+170:                                              ; preds = %_ZNSt8optionalIN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEE20const_child_iteratorEE7emplaceIJS6_EEENSt9enable_ifIX18is_constructible_vIS6_DpT_EERS6_E4typeEDpOSA_.exit.i, %158
+  %171 = getelementptr inbounds nuw i8, ptr %161, i64 40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %170 = load ptr, ptr %169, align 8, !tbaa !30
-  call void @_ZN4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE20const_child_iteratorC1EN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIS4_St14default_deleteIS4_EESt6vectorISB_SaISB_EEEE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %170) #15
-  %171 = load ptr, ptr %3, align 8
+  %172 = load ptr, ptr %171, align 8, !tbaa !30
+  call void @_ZN4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE20const_child_iteratorC1EN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIS4_St14default_deleteIS4_EESt6vectorISB_SaISB_EEEE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %172) #15
+  %173 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %172 = load ptr, ptr %160, align 8, !tbaa !30
-  %.not.i2450 = icmp eq ptr %172, %171
+  %174 = load ptr, ptr %162, align 8, !tbaa !30
+  %.not.i2450 = icmp eq ptr %174, %173
   br i1 %.not.i2450, label %.thread.i, label %.lr.ph51
 
-.lr.ph51:                                         ; preds = %168, %.critedge.i.backedge
-  %173 = phi ptr [ %193, %.critedge.i.backedge ], [ %172, %168 ]
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  store ptr %174, ptr %160, align 8, !tbaa !166
-  %175 = load ptr, ptr %173, align 8, !tbaa !31
-  %176 = load i8, ptr %35, align 4, !tbaa !148, !range !145, !noalias !168, !noundef !146
-  %177 = trunc nuw i8 %176 to i1
-  br i1 %177, label %178, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i
+.lr.ph51:                                         ; preds = %170, %.critedge.i.backedge
+  %175 = phi ptr [ %195, %.critedge.i.backedge ], [ %174, %170 ]
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  store ptr %176, ptr %162, align 8, !tbaa !166
+  %177 = load ptr, ptr %175, align 8, !tbaa !31
+  %178 = load i8, ptr %35, align 4, !tbaa !148, !range !145, !noalias !168, !noundef !146
+  %179 = trunc nuw i8 %178 to i1
+  br i1 %179, label %180, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i
 
-178:                                              ; preds = %.lr.ph51
-  %179 = load ptr, ptr %9, align 8, !tbaa !150, !noalias !168
-  %180 = load i32, ptr %36, align 4, !tbaa !173, !noalias !168
-  %181 = zext i32 %180 to i64
-  %182 = getelementptr inbounds nuw ptr, ptr %179, i64 %181
-  %.not36.i.i.i.i = icmp eq i32 %180, 0
+180:                                              ; preds = %.lr.ph51
+  %181 = load ptr, ptr %9, align 8, !tbaa !150, !noalias !168
+  %182 = load i32, ptr %36, align 4, !tbaa !173, !noalias !168
+  %183 = zext i32 %182 to i64
+  %184 = getelementptr inbounds nuw ptr, ptr %181, i64 %183
+  %.not36.i.i.i.i = icmp eq i32 %182, 0
   br i1 %.not36.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %178, %.critedge.i.i.i.i
-  %.02937.i.i.i.i = phi ptr [ %184, %.critedge.i.i.i.i ], [ %179, %178 ]
-  %183 = load ptr, ptr %.02937.i.i.i.i, align 8, !tbaa !174, !noalias !168
-  %.not17.i.i.i.i = icmp eq ptr %183, %175
+.lr.ph.i.i.i.i:                                   ; preds = %180, %.critedge.i.i.i.i
+  %.02937.i.i.i.i = phi ptr [ %186, %.critedge.i.i.i.i ], [ %181, %180 ]
+  %185 = load ptr, ptr %.02937.i.i.i.i, align 8, !tbaa !174, !noalias !168
+  %.not17.i.i.i.i = icmp eq ptr %185, %177
   br i1 %.not17.i.i.i.i, label %.critedge.i.backedge, label %.critedge.i.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i
-  %184 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i.i, i64 8
-  %.not.i.i.i.i30 = icmp eq ptr %184, %182
+  %186 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i.i, i64 8
+  %.not.i.i.i.i30 = icmp eq ptr %186, %184
   br i1 %.not.i.i.i.i30, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !175
 
-._crit_edge.i.i.i.i:                              ; preds = %.critedge.i.i.i.i, %178
-  %185 = load i32, ptr %37, align 8, !tbaa !176, !noalias !168
-  %186 = icmp ult i32 %180, %185
-  br i1 %186, label %.critedge32.i, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i
+._crit_edge.i.i.i.i:                              ; preds = %.critedge.i.i.i.i, %180
+  %187 = load i32, ptr %37, align 8, !tbaa !176, !noalias !168
+  %188 = icmp ult i32 %182, %187
+  br i1 %188, label %.critedge32.i, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i
 
 .critedge32.i:                                    ; preds = %._crit_edge.i.i.i.i
-  %187 = add nuw i32 %180, 1
-  store i32 %187, ptr %36, align 4, !tbaa !173, !noalias !168
-  store ptr %175, ptr %182, align 8, !tbaa !174, !noalias !168
+  %189 = add nuw i32 %182, 1
+  store i32 %189, ptr %36, align 4, !tbaa !173, !noalias !168
+  store ptr %177, ptr %184, align 8, !tbaa !174, !noalias !168
   br label %.loopexit
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i: ; preds = %._crit_edge.i.i.i.i, %.lr.ph51
-  %188 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(112) %9, ptr noundef %175) #15, !noalias !168
-  %189 = extractvalue { ptr, i8 } %188, 1
-  %190 = trunc nuw i8 %189 to i1
-  br i1 %190, label %.loopexit, label %.critedge.i.backedge
+  %190 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(112) %9, ptr noundef %177) #15, !noalias !168
+  %191 = extractvalue { ptr, i8 } %190, 1
+  %192 = trunc nuw i8 %191 to i1
+  br i1 %192, label %.loopexit, label %.critedge.i.backedge
 
 .critedge.i.backedge:                             ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %191 = load ptr, ptr %169, align 8, !tbaa !30
-  call void @_ZN4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE20const_child_iteratorC1EN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIS4_St14default_deleteIS4_EESt6vectorISB_SaISB_EEEE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %191) #15
-  %192 = load ptr, ptr %3, align 8
+  %193 = load ptr, ptr %171, align 8, !tbaa !30
+  call void @_ZN4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE20const_child_iteratorC1EN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIS4_St14default_deleteIS4_EESt6vectorISB_SaISB_EEEE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %193) #15
+  %194 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %193 = load ptr, ptr %160, align 8, !tbaa !30
-  %.not.i24 = icmp eq ptr %193, %192
+  %195 = load ptr, ptr %162, align 8, !tbaa !30
+  %.not.i24 = icmp eq ptr %195, %194
   br i1 %.not.i24, label %.thread.i, label %.lr.ph51
 
 .loopexit:                                        ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i, %.critedge32.i
-  %194 = load ptr, ptr %22, align 8, !tbaa !128
-  %195 = load ptr, ptr %23, align 8, !tbaa !133
-  %.not.i.i.i25 = icmp eq ptr %194, %195
-  br i1 %.not.i.i.i25, label %199, label %196
+  %196 = load ptr, ptr %22, align 8, !tbaa !128
+  %197 = load ptr, ptr %23, align 8, !tbaa !132
+  %.not.i.i.i25 = icmp eq ptr %196, %197
+  br i1 %.not.i.i.i25, label %201, label %198
 
-196:                                              ; preds = %.loopexit
-  store ptr %175, ptr %194, align 8
-  %.sroa.512.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %194, i64 16
+198:                                              ; preds = %.loopexit
+  store ptr %177, ptr %196, align 8
+  %.sroa.512.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %196, i64 16
   store i8 0, ptr %.sroa.512.0..sroa_idx.i, align 8
-  %197 = load ptr, ptr %22, align 8, !tbaa !128
-  %198 = getelementptr inbounds nuw i8, ptr %197, i64 24
-  store ptr %198, ptr %22, align 8, !tbaa !128
+  %199 = load ptr, ptr %22, align 8, !tbaa !128
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 24
+  store ptr %200, ptr %22, align 8, !tbaa !128
   br label %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEE6toNextEv.exit
 
-199:                                              ; preds = %.loopexit
-  %200 = load ptr, ptr %19, align 8, !tbaa !131
-  %201 = ptrtoint ptr %194 to i64
-  %202 = ptrtoint ptr %200 to i64
-  %203 = sub i64 %201, %202
-  %204 = icmp eq i64 %203, 9223372036854775800
-  br i1 %204, label %205, label %_ZNKSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE12_M_check_lenEmPKc.exit.i.i.i.i
+201:                                              ; preds = %.loopexit
+  %202 = load ptr, ptr %19, align 8, !tbaa !131
+  %203 = ptrtoint ptr %196 to i64
+  %204 = ptrtoint ptr %202 to i64
+  %205 = sub i64 %203, %204
+  %206 = icmp eq i64 %205, 9223372036854775800
+  br i1 %206, label %207, label %_ZNKSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE12_M_check_lenEmPKc.exit.i.i.i.i
 
-205:                                              ; preds = %199
+207:                                              ; preds = %201
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #17
   unreachable
 
-_ZNKSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %199
-  %206 = sdiv exact i64 %203, 24
-  %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %206, i64 1)
-  %207 = add nsw i64 %.sroa.speculated.i.i.i.i.i, %206
-  %208 = icmp ult i64 %207, %206
-  %209 = call i64 @llvm.umin.i64(i64 %207, i64 384307168202282325)
-  %210 = select i1 %208, i64 384307168202282325, i64 %209
-  %.not.i.i.i.i.i26 = icmp ne i64 %210, 0
+_ZNKSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %201
+  %208 = sdiv exact i64 %205, 24
+  %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %208, i64 1)
+  %209 = add nsw i64 %.sroa.speculated.i.i.i.i.i, %208
+  %210 = icmp ult i64 %209, %208
+  %211 = call i64 @llvm.umin.i64(i64 %209, i64 384307168202282325)
+  %212 = select i1 %210, i64 384307168202282325, i64 %211
+  %.not.i.i.i.i.i26 = icmp ne i64 %212, 0
   call void @llvm.assume(i1 %.not.i.i.i.i.i26)
-  %211 = mul nuw nsw i64 %210, 24
-  %212 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %211) #16
-  %213 = getelementptr inbounds nuw i8, ptr %212, i64 %203
-  store ptr %175, ptr %213, align 8
-  %.sroa.512.0..sroa_idx13.i = getelementptr inbounds nuw i8, ptr %213, i64 16
+  %213 = mul nuw nsw i64 %212, 24
+  %214 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %213) #16
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 %205
+  store ptr %177, ptr %215, align 8
+  %.sroa.512.0..sroa_idx13.i = getelementptr inbounds nuw i8, ptr %215, i64 16
   store i8 0, ptr %.sroa.512.0..sroa_idx13.i, align 8
-  %.not10.i.i.i.i.i.i.i = icmp eq ptr %200, %194
+  %.not10.i.i.i.i.i.i.i = icmp eq ptr %202, %196
   br i1 %.not10.i.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit22.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i27
 
 .lr.ph.i.i.i.i.i.i.i27:                           ; preds = %_ZNKSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE12_M_check_lenEmPKc.exit.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i27
-  %.012.i.i.i.i.i.i.i = phi ptr [ %215, %.lr.ph.i.i.i.i.i.i.i27 ], [ %212, %_ZNKSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
-  %.0911.i.i.i.i.i.i.i = phi ptr [ %214, %.lr.ph.i.i.i.i.i.i.i27 ], [ %200, %_ZNKSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
+  %.012.i.i.i.i.i.i.i = phi ptr [ %217, %.lr.ph.i.i.i.i.i.i.i27 ], [ %214, %_ZNKSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
+  %.0911.i.i.i.i.i.i.i = phi ptr [ %216, %.lr.ph.i.i.i.i.i.i.i27 ], [ %202, %_ZNKSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i.i.i.i, i64 24, i1 false), !alias.scope !177
-  %214 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i, i64 24
-  %215 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i.i.i28 = icmp eq ptr %214, %194
+  %216 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i, i64 24
+  %217 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i.i.i28 = icmp eq ptr %216, %196
   br i1 %.not.i.i.i.i.i.i.i28, label %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit22.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i27, !llvm.loop !181
 
 _ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit22.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i27, %_ZNKSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE12_M_check_lenEmPKc.exit.i.i.i.i
-  %.0.lcssa.i.i.i.i.i.i.i29 = phi ptr [ %212, %_ZNKSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %215, %.lr.ph.i.i.i.i.i.i.i27 ]
-  %216 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.i29, i64 24
-  %.not.i23.i.i.i.i = icmp eq ptr %200, null
-  br i1 %.not.i23.i.i.i.i, label %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i.i, label %217
+  %.0.lcssa.i.i.i.i.i.i.i29 = phi ptr [ %214, %_ZNKSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %217, %.lr.ph.i.i.i.i.i.i.i27 ]
+  %218 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.i29, i64 24
+  %.not.i23.i.i.i.i = icmp eq ptr %202, null
+  br i1 %.not.i23.i.i.i.i, label %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i.i, label %219
 
-217:                                              ; preds = %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit22.i.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %200, i64 noundef %203) #18
+219:                                              ; preds = %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit22.i.i.i.i
+  call void @_ZdlPvm(ptr noundef nonnull %202, i64 noundef %205) #18
   br label %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i.i
 
-_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i.i: ; preds = %217, %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit22.i.i.i.i
-  store ptr %212, ptr %19, align 8, !tbaa !131
-  store ptr %216, ptr %22, align 8, !tbaa !128
-  %218 = getelementptr inbounds nuw %"struct.std::pair.105", ptr %212, i64 %210
-  store ptr %218, ptr %23, align 8, !tbaa !133
+_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i.i: ; preds = %219, %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit22.i.i.i.i
+  store ptr %214, ptr %19, align 8, !tbaa !131
+  store ptr %218, ptr %22, align 8, !tbaa !128
+  %220 = getelementptr inbounds nuw %"struct.std::pair.105", ptr %214, i64 %212
+  store ptr %220, ptr %23, align 8, !tbaa !132
   br label %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEE6toNextEv.exit
 
-.thread.i:                                        ; preds = %.critedge.i.backedge, %168
-  %219 = load ptr, ptr %22, align 8, !tbaa !128
-  %220 = getelementptr inbounds i8, ptr %219, i64 -24
-  store ptr %220, ptr %22, align 8, !tbaa !128
-  %221 = load ptr, ptr %19, align 8, !tbaa !165
-  %222 = icmp eq ptr %221, %220
-  br i1 %222, label %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEE6toNextEv.exit, label %156, !llvm.loop !182
+.thread.i:                                        ; preds = %.critedge.i.backedge, %170
+  %221 = load ptr, ptr %22, align 8, !tbaa !128
+  %222 = getelementptr inbounds i8, ptr %221, i64 -24
+  store ptr %222, ptr %22, align 8, !tbaa !128
+  %223 = load ptr, ptr %19, align 8, !tbaa !165
+  %224 = icmp eq ptr %223, %222
+  br i1 %224, label %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEE6toNextEv.exit, label %158, !llvm.loop !182
 
-_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEE6toNextEv.exit: ; preds = %.thread.i, %196, %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i.i
-  %223 = phi ptr [ %198, %196 ], [ %216, %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i.i ], [ %220, %.thread.i ]
+_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEE6toNextEv.exit: ; preds = %.thread.i, %198, %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i.i
+  %225 = phi ptr [ %200, %198 ], [ %218, %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i.i ], [ %222, %.thread.i ]
   %.pre70 = load ptr, ptr %29, align 8, !tbaa !128
   %.pre71 = load ptr, ptr %26, align 8, !tbaa !131
-  br label %72
+  br label %74
 
 .lr.ph:                                           ; preds = %.loopexit35, %_ZN4llvm11raw_ostreamlsEPKc.exit
-  %.049 = phi i32 [ %235, %_ZN4llvm11raw_ostreamlsEPKc.exit ], [ 0, %.loopexit35 ]
-  %224 = load ptr, ptr %31, align 8, !tbaa !164
-  %225 = load ptr, ptr %32, align 8, !tbaa !159
-  %226 = ptrtoint ptr %224 to i64
-  %227 = ptrtoint ptr %225 to i64
-  %228 = sub i64 %226, %227
-  %229 = icmp ult i64 %228, 4
-  br i1 %229, label %230, label %232
-
-230:                                              ; preds = %.lr.ph
-  %231 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str, i64 noundef 4) #15
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit
+  %.049 = phi i32 [ %237, %_ZN4llvm11raw_ostreamlsEPKc.exit ], [ 0, %.loopexit35 ]
+  %226 = load ptr, ptr %31, align 8, !tbaa !164
+  %227 = load ptr, ptr %32, align 8, !tbaa !159
+  %228 = ptrtoint ptr %226 to i64
+  %229 = ptrtoint ptr %227 to i64
+  %230 = sub i64 %228, %229
+  %231 = icmp ult i64 %230, 4
+  br i1 %231, label %232, label %234
 
 232:                                              ; preds = %.lr.ph
-  store i32 538976288, ptr %225, align 1
-  %233 = load ptr, ptr %32, align 8, !tbaa !159
-  %234 = getelementptr inbounds nuw i8, ptr %233, i64 4
-  store ptr %234, ptr %32, align 8, !tbaa !159
+  %233 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str, i64 noundef 4) #15
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-_ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %230, %232
-  %235 = add nuw i32 %.049, 1
-  %236 = load i32, ptr %145, align 8, !tbaa !113
-  %237 = icmp ult i32 %235, %236
-  br i1 %237, label %.lr.ph, label %_ZN4llvmlsERNS_11raw_ostreamERKNS_9PrintableE.exit, !llvm.loop !183
+234:                                              ; preds = %.lr.ph
+  store i32 538976288, ptr %227, align 1
+  %235 = load ptr, ptr %32, align 8, !tbaa !159
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 4
+  store ptr %236, ptr %32, align 8, !tbaa !159
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit
+
+_ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %232, %234
+  %237 = add nuw i32 %.049, 1
+  %238 = load i32, ptr %147, align 8, !tbaa !113
+  %239 = icmp ult i32 %237, %238
+  br i1 %239, label %.lr.ph, label %_ZN4llvmlsERNS_11raw_ostreamERKNS_9PrintableE.exit, !llvm.loop !183
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3281,7 +3291,7 @@ define linkonce_odr void @_ZN4llvm11depth_firstIPKNS_12GenericCycleINS_17Generic
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %13, ptr %10, align 8, !tbaa !131, !alias.scope !190
   store ptr %14, ptr %11, align 8, !tbaa !128, !alias.scope !190
-  store ptr %14, ptr %12, align 8, !tbaa !133, !alias.scope !190
+  store ptr %14, ptr %12, align 8, !tbaa !132, !alias.scope !190
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, i8 0, i64 72, i1 false), !alias.scope !197
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -3301,7 +3311,7 @@ define linkonce_odr void @_ZN4llvm11depth_firstIPKNS_12GenericCycleINS_17Generic
 
 22:                                               ; preds = %2
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %24 = load ptr, ptr %23, align 8, !tbaa !133
+  %24 = load ptr, ptr %23, align 8, !tbaa !132
   %25 = ptrtoint ptr %24 to i64
   %26 = ptrtoint ptr %21 to i64
   %27 = sub i64 %25, %26
@@ -3324,7 +3334,7 @@ _ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEE
   br i1 %.not.i.i.i.i2, label %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i3, label %33
 
 33:                                               ; preds = %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit
-  %34 = load ptr, ptr %12, align 8, !tbaa !133
+  %34 = load ptr, ptr %12, align 8, !tbaa !132
   %35 = ptrtoint ptr %34 to i64
   %36 = ptrtoint ptr %32 to i64
   %37 = sub i64 %35, %36
@@ -3887,7 +3897,7 @@ define weak_odr void @_ZN4llvm12GenericCycleINS_17GenericSSAContextINS_8Function
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4, !tbaa !55
   %.not.i.i.not.i.not = icmp eq i32 %6, 0
-  br i1 %.not.i.i.not.i.not, label %7, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit, !prof !132
+  br i1 %.not.i.i.not.i.not, label %7, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit, !prof !133
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6071,280 +6081,288 @@ define linkonce_odr void @_ZN4llvm23GenericCycleInfoComputeINS_17GenericSSAConte
   %14 = sub i64 %12, %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !alias.scope !262
   %.not.i.i.i.i.i.i = icmp eq ptr %10, %11
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.thread.i, label %16
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.thread.i, label %18
 
 _ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.thread.i: ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr null, i64 %14
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !alias.scope !262
+  store ptr %16, ptr %17, align 8, !tbaa !269, !alias.scope !262
   br label %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEEE5beginEv.exit
 
-16:                                               ; preds = %1
-  %17 = sdiv exact i64 %14, 24
-  %18 = icmp ugt i64 %17, 384307168202282325
-  br i1 %18, label %19, label %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.i, !prof !132
+18:                                               ; preds = %1
+  %19 = sdiv exact i64 %14, 24
+  %20 = icmp ugt i64 %19, 384307168202282325
+  br i1 %20, label %21, label %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.i, !prof !133
 
-19:                                               ; preds = %16
+21:                                               ; preds = %18
   call void @_ZSt28__throw_bad_array_new_lengthv() #17
   unreachable
 
-_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.i: ; preds = %16
-  %20 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #16
-  store ptr %20, ptr %7, align 8, !tbaa !268, !alias.scope !262
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store ptr %20, ptr %21, align 8, !tbaa !265, !alias.scope !262
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %14
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store ptr %22, ptr %23, align 8, !tbaa !269, !alias.scope !262
+_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.i: ; preds = %18
+  %22 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #16
+  store ptr %22, ptr %7, align 8, !tbaa !268, !alias.scope !262
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  store ptr %22, ptr %23, align 8, !tbaa !265, !alias.scope !262
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %14
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  store ptr %24, ptr %25, align 8, !tbaa !269, !alias.scope !262
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.i
-  %.09.i.i.i.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i.i.i ], [ %20, %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.i ]
-  %.sroa.04.08.i.i.i.i.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i.i.i.i.i ], [ %11, %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.i ]
+  %.09.i.i.i.i.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i.i.i.i.i ], [ %22, %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.i ]
+  %.sroa.04.08.i.i.i.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i.i.i.i ], [ %11, %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.09.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.04.08.i.i.i.i.i.i.i, i64 24, i1 false)
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i, i64 24
-  %25 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %24, %10
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %26, %10
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEEE5beginEv.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !270
 
 _ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEEE5beginEv.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.thread.i
-  %26 = phi ptr [ %15, %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.thread.i ], [ %21, %.lr.ph.i.i.i.i.i.i.i ]
-  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.thread.i ], [ %25, %.lr.ph.i.i.i.i.i.i.i ]
-  store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %26, align 8, !tbaa !265, !alias.scope !262
+  %28 = phi ptr [ %15, %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.thread.i ], [ %23, %.lr.ph.i.i.i.i.i.i.i ]
+  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.thread.i ], [ %27, %.lr.ph.i.i.i.i.i.i.i ]
+  store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %28, align 8, !tbaa !265, !alias.scope !262
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #15
   call void @llvm.experimental.noalias.scope.decl(metadata !271)
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @_ZN4llvm19SmallPtrSetImplBaseC2EPPKvRKS0_(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull %28, ptr noundef nonnull align 8 dereferenceable(112) %27) #15
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 200
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 208
-  %32 = load ptr, ptr %31, align 8, !tbaa !265, !noalias !271
-  %33 = load ptr, ptr %30, align 8, !tbaa !268, !noalias !271
-  %34 = ptrtoint ptr %32 to i64
-  %35 = ptrtoint ptr %33 to i64
-  %36 = sub i64 %34, %35
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false), !alias.scope !271
-  %.not.i.i.i.i.i.i5 = icmp eq ptr %32, %33
-  br i1 %.not.i.i.i.i.i.i5, label %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.thread.i12, label %38
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  call void @_ZN4llvm19SmallPtrSetImplBaseC2EPPKvRKS0_(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull %30, ptr noundef nonnull align 8 dereferenceable(112) %29) #15
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 200
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 208
+  %34 = load ptr, ptr %33, align 8, !tbaa !265, !noalias !271
+  %35 = load ptr, ptr %32, align 8, !tbaa !268, !noalias !271
+  %36 = ptrtoint ptr %34 to i64
+  %37 = ptrtoint ptr %35 to i64
+  %38 = sub i64 %36, %37
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false), !alias.scope !271
+  %.not.i.i.i.i.i.i5 = icmp eq ptr %34, %35
+  br i1 %.not.i.i.i.i.i.i5, label %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.thread.i12, label %42
 
 _ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.thread.i12: ; preds = %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEEE5beginEv.exit
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr null, i64 %38
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false), !alias.scope !271
+  store ptr %40, ptr %41, align 8, !tbaa !269, !alias.scope !271
   br label %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEEE3endEv.exit
 
-38:                                               ; preds = %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEEE5beginEv.exit
-  %39 = sdiv exact i64 %36, 24
-  %40 = icmp ugt i64 %39, 384307168202282325
-  br i1 %40, label %41, label %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.i6, !prof !132
+42:                                               ; preds = %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEEE5beginEv.exit
+  %43 = sdiv exact i64 %38, 24
+  %44 = icmp ugt i64 %43, 384307168202282325
+  br i1 %44, label %45, label %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.i6, !prof !133
 
-41:                                               ; preds = %38
+45:                                               ; preds = %42
   call void @_ZSt28__throw_bad_array_new_lengthv() #17
   unreachable
 
-_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.i6: ; preds = %38
-  %42 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %36) #16
-  store ptr %42, ptr %29, align 8, !tbaa !268, !alias.scope !271
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  store ptr %42, ptr %43, align 8, !tbaa !265, !alias.scope !271
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 %36
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store ptr %44, ptr %45, align 8, !tbaa !269, !alias.scope !271
+_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.i6: ; preds = %42
+  %46 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %38) #16
+  store ptr %46, ptr %31, align 8, !tbaa !268, !alias.scope !271
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  store ptr %46, ptr %47, align 8, !tbaa !265, !alias.scope !271
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 %38
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  store ptr %48, ptr %49, align 8, !tbaa !269, !alias.scope !271
   br label %.lr.ph.i.i.i.i.i.i.i7
 
 .lr.ph.i.i.i.i.i.i.i7:                            ; preds = %.lr.ph.i.i.i.i.i.i.i7, %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.i6
-  %.09.i.i.i.i.i.i.i8 = phi ptr [ %47, %.lr.ph.i.i.i.i.i.i.i7 ], [ %42, %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.i6 ]
-  %.sroa.04.08.i.i.i.i.i.i.i9 = phi ptr [ %46, %.lr.ph.i.i.i.i.i.i.i7 ], [ %33, %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.i6 ]
+  %.09.i.i.i.i.i.i.i8 = phi ptr [ %51, %.lr.ph.i.i.i.i.i.i.i7 ], [ %46, %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.i6 ]
+  %.sroa.04.08.i.i.i.i.i.i.i9 = phi ptr [ %50, %.lr.ph.i.i.i.i.i.i.i7 ], [ %35, %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.i6 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.09.i.i.i.i.i.i.i8, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.04.08.i.i.i.i.i.i.i9, i64 24, i1 false)
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i9, i64 24
-  %47 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i8, i64 24
-  %.not.i.i.i.i.i.i.i10 = icmp eq ptr %46, %32
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i9, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i8, i64 24
+  %.not.i.i.i.i.i.i.i10 = icmp eq ptr %50, %34
   br i1 %.not.i.i.i.i.i.i.i10, label %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEEE3endEv.exit, label %.lr.ph.i.i.i.i.i.i.i7, !llvm.loop !270
 
 _ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEEE3endEv.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i7, %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.thread.i12
-  %48 = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.thread.i12 ], [ %42, %.lr.ph.i.i.i.i.i.i.i7 ]
-  %49 = phi ptr [ %37, %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.thread.i12 ], [ %43, %.lr.ph.i.i.i.i.i.i.i7 ]
-  %.0.lcssa.i.i.i.i.i.i.i11 = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.thread.i12 ], [ %47, %.lr.ph.i.i.i.i.i.i.i7 ]
-  store ptr %.0.lcssa.i.i.i.i.i.i.i11, ptr %49, align 8, !tbaa !265, !alias.scope !271
-  %50 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  br label %52
+  %52 = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.thread.i12 ], [ %46, %.lr.ph.i.i.i.i.i.i.i7 ]
+  %53 = phi ptr [ %39, %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.thread.i12 ], [ %47, %.lr.ph.i.i.i.i.i.i.i7 ]
+  %.0.lcssa.i.i.i.i.i.i.i11 = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EEC2EmRKSC_.exit.i.i.thread.i12 ], [ %51, %.lr.ph.i.i.i.i.i.i.i7 ]
+  store ptr %.0.lcssa.i.i.i.i.i.i.i11, ptr %53, align 8, !tbaa !265, !alias.scope !271
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  br label %56
 
-52:                                               ; preds = %137, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEEE3endEv.exit
-  %53 = phi ptr [ %.pre30, %137 ], [ %48, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEEE3endEv.exit ]
-  %54 = phi ptr [ %.pre, %137 ], [ %.0.lcssa.i.i.i.i.i.i.i11, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEEE3endEv.exit ]
-  %55 = load ptr, ptr %50, align 8, !tbaa !265
-  %56 = load ptr, ptr %7, align 8, !tbaa !268
-  %57 = ptrtoint ptr %55 to i64
-  %58 = ptrtoint ptr %56 to i64
-  %59 = sub i64 %57, %58
-  %60 = ptrtoint ptr %54 to i64
-  %61 = ptrtoint ptr %53 to i64
-  %62 = sub i64 %60, %61
-  %63 = icmp eq i64 %59, %62
-  br i1 %63, label %64, label %.loopexit
-
-64:                                               ; preds = %52
-  %.not9.i.i.i.i.i.i.i = icmp eq ptr %56, %55
-  br i1 %.not9.i.i.i.i.i.i.i, label %_ZNK4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEEneERKSB_.exit, label %.lr.ph.i.i.i.i.i.i.i13
-
-.lr.ph.i.i.i.i.i.i.i13:                           ; preds = %64, %81
-  %.011.i.i.i.i.i.i.i = phi ptr [ %83, %81 ], [ %53, %64 ]
-  %.0810.i.i.i.i.i.i.i = phi ptr [ %82, %81 ], [ %56, %64 ]
-  %65 = load ptr, ptr %.0810.i.i.i.i.i.i.i, align 8, !tbaa !274
-  %66 = load ptr, ptr %.011.i.i.i.i.i.i.i, align 8, !tbaa !274
-  %67 = icmp eq ptr %65, %66
+56:                                               ; preds = %141, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEEE3endEv.exit
+  %57 = phi ptr [ %.pre30, %141 ], [ %52, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEEE3endEv.exit ]
+  %58 = phi ptr [ %.pre, %141 ], [ %.0.lcssa.i.i.i.i.i.i.i11, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEEE3endEv.exit ]
+  %59 = load ptr, ptr %54, align 8, !tbaa !265
+  %60 = load ptr, ptr %7, align 8, !tbaa !268
+  %61 = ptrtoint ptr %59 to i64
+  %62 = ptrtoint ptr %60 to i64
+  %63 = sub i64 %61, %62
+  %64 = ptrtoint ptr %58 to i64
+  %65 = ptrtoint ptr %57 to i64
+  %66 = sub i64 %64, %65
+  %67 = icmp eq i64 %63, %66
   br i1 %67, label %68, label %.loopexit
 
-68:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i13
-  %69 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i, i64 16
-  %70 = load i8, ptr %69, align 8, !tbaa !144, !range !145, !noundef !146
-  %71 = trunc nuw i8 %70 to i1
-  %72 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 16
-  %73 = load i8, ptr %72, align 8, !tbaa !144, !range !145, !noundef !146
-  %74 = icmp eq i8 %70, %73
-  %brmerge.not.i.i.i.i.i.i.i.i.i = and i1 %74, %71
-  br i1 %brmerge.not.i.i.i.i.i.i.i.i.i, label %75, label %_ZSteqIPN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEESt8optionalINS5_20const_child_iteratorEEEbRKSt4pairIT_T0_ESF_.exit.i.i.i.i.i.i.i
+68:                                               ; preds = %56
+  %.not9.i.i.i.i.i.i.i = icmp eq ptr %60, %59
+  br i1 %.not9.i.i.i.i.i.i.i, label %_ZNK4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEEneERKSB_.exit, label %.lr.ph.i.i.i.i.i.i.i13
 
-75:                                               ; preds = %68
-  %76 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 8
-  %77 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i, i64 8
-  %78 = load ptr, ptr %77, align 8, !tbaa !30
-  %79 = load ptr, ptr %76, align 8, !tbaa !30
-  %80 = icmp eq ptr %78, %79
-  br i1 %80, label %81, label %.loopexit
+.lr.ph.i.i.i.i.i.i.i13:                           ; preds = %68, %85
+  %.011.i.i.i.i.i.i.i = phi ptr [ %87, %85 ], [ %57, %68 ]
+  %.0810.i.i.i.i.i.i.i = phi ptr [ %86, %85 ], [ %60, %68 ]
+  %69 = load ptr, ptr %.0810.i.i.i.i.i.i.i, align 8, !tbaa !274
+  %70 = load ptr, ptr %.011.i.i.i.i.i.i.i, align 8, !tbaa !274
+  %71 = icmp eq ptr %69, %70
+  br i1 %71, label %72, label %.loopexit
 
-_ZSteqIPN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEESt8optionalINS5_20const_child_iteratorEEEbRKSt4pairIT_T0_ESF_.exit.i.i.i.i.i.i.i: ; preds = %68
-  br i1 %74, label %81, label %.loopexit
+72:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i13
+  %73 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i, i64 16
+  %74 = load i8, ptr %73, align 8, !tbaa !144, !range !145, !noundef !146
+  %75 = trunc nuw i8 %74 to i1
+  %76 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 16
+  %77 = load i8, ptr %76, align 8, !tbaa !144, !range !145, !noundef !146
+  %78 = icmp eq i8 %74, %77
+  %brmerge.not.i.i.i.i.i.i.i.i.i = and i1 %78, %75
+  br i1 %brmerge.not.i.i.i.i.i.i.i.i.i, label %79, label %_ZSteqIPN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEESt8optionalINS5_20const_child_iteratorEEEbRKSt4pairIT_T0_ESF_.exit.i.i.i.i.i.i.i
 
-81:                                               ; preds = %_ZSteqIPN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEESt8optionalINS5_20const_child_iteratorEEEbRKSt4pairIT_T0_ESF_.exit.i.i.i.i.i.i.i, %75
-  %82 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i, i64 24
-  %83 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i.i.i14 = icmp eq ptr %82, %55
+79:                                               ; preds = %72
+  %80 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i, i64 8
+  %82 = load ptr, ptr %81, align 8, !tbaa !30
+  %83 = load ptr, ptr %80, align 8, !tbaa !30
+  %84 = icmp eq ptr %82, %83
+  br i1 %84, label %85, label %.loopexit
+
+_ZSteqIPN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEESt8optionalINS5_20const_child_iteratorEEEbRKSt4pairIT_T0_ESF_.exit.i.i.i.i.i.i.i: ; preds = %72
+  br i1 %78, label %85, label %.loopexit
+
+85:                                               ; preds = %_ZSteqIPN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEESt8optionalINS5_20const_child_iteratorEEEbRKSt4pairIT_T0_ESF_.exit.i.i.i.i.i.i.i, %79
+  %86 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i.i.i14 = icmp eq ptr %86, %59
   br i1 %.not.i.i.i.i.i.i.i14, label %_ZNK4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEEneERKSB_.exit, label %.lr.ph.i.i.i.i.i.i.i13, !llvm.loop !276
 
-_ZNK4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEEneERKSB_.exit: ; preds = %64, %81
-  %.not.i.i.i.i = icmp eq ptr %53, null
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i, label %84
+_ZNK4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEEneERKSB_.exit: ; preds = %68, %85
+  %.not.i.i.i.i = icmp eq ptr %57, null
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i, label %88
 
-84:                                               ; preds = %_ZNK4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEEneERKSB_.exit
-  %85 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %86 = load ptr, ptr %85, align 8, !tbaa !269
-  %87 = ptrtoint ptr %86 to i64
-  %88 = sub i64 %87, %61
-  call void @_ZdlPvm(ptr noundef nonnull %53, i64 noundef %88) #18
+88:                                               ; preds = %_ZNK4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEEneERKSB_.exit
+  %89 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  %90 = load ptr, ptr %89, align 8, !tbaa !269
+  %91 = ptrtoint ptr %90 to i64
+  %92 = sub i64 %91, %65
+  call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef %92) #18
   br label %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i
 
-_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i: ; preds = %84, %_ZNK4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEEneERKSB_.exit
-  %89 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %90 = load i8, ptr %89, align 4, !tbaa !148, !range !145, !noundef !146
-  %91 = trunc nuw i8 %90 to i1
-  br i1 %91, label %_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEED2Ev.exit, label %92
+_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i: ; preds = %88, %_ZNK4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEEneERKSB_.exit
+  %93 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %94 = load i8, ptr %93, align 4, !tbaa !148, !range !145, !noundef !146
+  %95 = trunc nuw i8 %94 to i1
+  br i1 %95, label %_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEED2Ev.exit, label %96
 
-92:                                               ; preds = %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i
-  %93 = load ptr, ptr %5, align 8, !tbaa !150
-  call void @free(ptr noundef %93) #15
+96:                                               ; preds = %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i
+  %97 = load ptr, ptr %5, align 8, !tbaa !150
+  call void @free(ptr noundef %97) #15
   br label %_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEED2Ev.exit
 
-_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEED2Ev.exit: ; preds = %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i, %92
+_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEED2Ev.exit: ; preds = %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i, %96
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #15
-  %94 = load ptr, ptr %7, align 8, !tbaa !268
-  %.not.i.i.i.i15 = icmp eq ptr %94, null
-  br i1 %.not.i.i.i.i15, label %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i16, label %95
+  %98 = load ptr, ptr %7, align 8, !tbaa !268
+  %.not.i.i.i.i15 = icmp eq ptr %98, null
+  br i1 %.not.i.i.i.i15, label %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i16, label %99
 
-95:                                               ; preds = %_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEED2Ev.exit
-  %96 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %97 = load ptr, ptr %96, align 8, !tbaa !269
-  %98 = ptrtoint ptr %97 to i64
-  %99 = ptrtoint ptr %94 to i64
-  %100 = sub i64 %98, %99
-  call void @_ZdlPvm(ptr noundef nonnull %94, i64 noundef %100) #18
+99:                                               ; preds = %_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEED2Ev.exit
+  %100 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  %101 = load ptr, ptr %100, align 8, !tbaa !269
+  %102 = ptrtoint ptr %101 to i64
+  %103 = ptrtoint ptr %98 to i64
+  %104 = sub i64 %102, %103
+  call void @_ZdlPvm(ptr noundef nonnull %98, i64 noundef %104) #18
   br label %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i16
 
-_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i16: ; preds = %95, %_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEED2Ev.exit
-  %101 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %102 = load i8, ptr %101, align 4, !tbaa !148, !range !145, !noundef !146
-  %103 = trunc nuw i8 %102 to i1
-  br i1 %103, label %_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEED2Ev.exit17, label %104
+_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i16: ; preds = %99, %_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEED2Ev.exit
+  %105 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %106 = load i8, ptr %105, align 4, !tbaa !148, !range !145, !noundef !146
+  %107 = trunc nuw i8 %106 to i1
+  br i1 %107, label %_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEED2Ev.exit17, label %108
 
-104:                                              ; preds = %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i16
-  %105 = load ptr, ptr %4, align 8, !tbaa !150
-  call void @free(ptr noundef %105) #15
+108:                                              ; preds = %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i16
+  %109 = load ptr, ptr %4, align 8, !tbaa !150
+  call void @free(ptr noundef %109) #15
   br label %_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEED2Ev.exit17
 
-_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEED2Ev.exit17: ; preds = %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i16, %104
+_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEED2Ev.exit17: ; preds = %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i16, %108
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #15
-  %106 = load ptr, ptr %30, align 8, !tbaa !268
-  %.not.i.i.i.i.i = icmp eq ptr %106, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i.i, label %107
+  %110 = load ptr, ptr %32, align 8, !tbaa !268
+  %.not.i.i.i.i.i = icmp eq ptr %110, null
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i.i, label %111
 
-107:                                              ; preds = %_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEED2Ev.exit17
-  %108 = getelementptr inbounds nuw i8, ptr %3, i64 216
-  %109 = load ptr, ptr %108, align 8, !tbaa !269
-  %110 = ptrtoint ptr %109 to i64
-  %111 = ptrtoint ptr %106 to i64
-  %112 = sub i64 %110, %111
-  call void @_ZdlPvm(ptr noundef nonnull %106, i64 noundef %112) #18
+111:                                              ; preds = %_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEED2Ev.exit17
+  %112 = getelementptr inbounds nuw i8, ptr %3, i64 216
+  %113 = load ptr, ptr %112, align 8, !tbaa !269
+  %114 = ptrtoint ptr %113 to i64
+  %115 = ptrtoint ptr %110 to i64
+  %116 = sub i64 %114, %115
+  call void @_ZdlPvm(ptr noundef nonnull %110, i64 noundef %116) #18
   br label %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i.i
 
-_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i.i: ; preds = %107, %_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEED2Ev.exit17
-  %113 = getelementptr inbounds nuw i8, ptr %3, i64 132
-  %114 = load i8, ptr %113, align 4, !tbaa !148, !range !145, !noundef !146
-  %115 = trunc nuw i8 %114 to i1
-  br i1 %115, label %_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEED2Ev.exit.i, label %116
+_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i.i: ; preds = %111, %_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEED2Ev.exit17
+  %117 = getelementptr inbounds nuw i8, ptr %3, i64 132
+  %118 = load i8, ptr %117, align 4, !tbaa !148, !range !145, !noundef !146
+  %119 = trunc nuw i8 %118 to i1
+  br i1 %119, label %_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEED2Ev.exit.i, label %120
 
-116:                                              ; preds = %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i.i
-  %117 = load ptr, ptr %27, align 8, !tbaa !150
-  call void @free(ptr noundef %117) #15
+120:                                              ; preds = %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i.i
+  %121 = load ptr, ptr %29, align 8, !tbaa !150
+  call void @free(ptr noundef %121) #15
   br label %_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEED2Ev.exit.i
 
-_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEED2Ev.exit.i: ; preds = %116, %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i.i
-  %118 = load ptr, ptr %8, align 8, !tbaa !268
-  %.not.i.i.i.i1.i = icmp eq ptr %118, null
-  br i1 %.not.i.i.i.i1.i, label %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i2.i, label %119
+_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEED2Ev.exit.i: ; preds = %120, %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i.i
+  %122 = load ptr, ptr %8, align 8, !tbaa !268
+  %.not.i.i.i.i1.i = icmp eq ptr %122, null
+  br i1 %.not.i.i.i.i1.i, label %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i2.i, label %123
 
-119:                                              ; preds = %_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEED2Ev.exit.i
-  %120 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %121 = load ptr, ptr %120, align 8, !tbaa !269
-  %122 = ptrtoint ptr %121 to i64
-  %123 = ptrtoint ptr %118 to i64
-  %124 = sub i64 %122, %123
-  call void @_ZdlPvm(ptr noundef nonnull %118, i64 noundef %124) #18
+123:                                              ; preds = %_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEED2Ev.exit.i
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %125 = load ptr, ptr %124, align 8, !tbaa !269
+  %126 = ptrtoint ptr %125 to i64
+  %127 = ptrtoint ptr %122 to i64
+  %128 = sub i64 %126, %127
+  call void @_ZdlPvm(ptr noundef nonnull %122, i64 noundef %128) #18
   br label %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i2.i
 
-_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i2.i: ; preds = %119, %_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEED2Ev.exit.i
-  %125 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %126 = load i8, ptr %125, align 4, !tbaa !148, !range !145, !noundef !146
-  %127 = trunc nuw i8 %126 to i1
-  br i1 %127, label %_ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEEED2Ev.exit, label %128
+_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i2.i: ; preds = %123, %_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEED2Ev.exit.i
+  %129 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %130 = load i8, ptr %129, align 4, !tbaa !148, !range !145, !noundef !146
+  %131 = trunc nuw i8 %130 to i1
+  br i1 %131, label %_ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEEED2Ev.exit, label %132
 
-128:                                              ; preds = %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i2.i
-  %129 = load ptr, ptr %3, align 8, !tbaa !150
-  call void @free(ptr noundef %129) #15
+132:                                              ; preds = %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i2.i
+  %133 = load ptr, ptr %3, align 8, !tbaa !150
+  call void @free(ptr noundef %133) #15
   br label %_ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEEED2Ev.exit
 
-_ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEEED2Ev.exit: ; preds = %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i2.i, %128
+_ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEEEED2Ev.exit: ; preds = %_ZNSt6vectorISt4pairIPN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISB_EED2Ev.exit.i2.i, %132
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %3) #15
   ret void
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i13, %75, %_ZSteqIPN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEESt8optionalINS5_20const_child_iteratorEEEbRKSt4pairIT_T0_ESF_.exit.i.i.i.i.i.i.i, %52
-  %130 = getelementptr inbounds i8, ptr %55, i64 -24
-  %131 = load ptr, ptr %130, align 8, !tbaa !31
-  %132 = load ptr, ptr %131, align 8, !tbaa !3
-  %.not = icmp eq ptr %132, null
-  br i1 %.not, label %137, label %133
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i13, %79, %_ZSteqIPN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEESt8optionalINS5_20const_child_iteratorEEEbRKSt4pairIT_T0_ESF_.exit.i.i.i.i.i.i.i, %56
+  %134 = getelementptr inbounds i8, ptr %59, i64 -24
+  %135 = load ptr, ptr %134, align 8, !tbaa !31
+  %136 = load ptr, ptr %135, align 8, !tbaa !3
+  %.not = icmp eq ptr %136, null
+  br i1 %.not, label %141, label %137
 
-133:                                              ; preds = %.loopexit
-  %134 = getelementptr inbounds nuw i8, ptr %132, i64 160
-  %135 = load i32, ptr %134, align 8, !tbaa !113
-  %136 = add i32 %135, 1
-  br label %137
+137:                                              ; preds = %.loopexit
+  %138 = getelementptr inbounds nuw i8, ptr %136, i64 160
+  %139 = load i32, ptr %138, align 8, !tbaa !113
+  %140 = add i32 %139, 1
+  br label %141
 
-137:                                              ; preds = %.loopexit, %133
-  %138 = phi i32 [ %136, %133 ], [ 1, %.loopexit ]
-  %139 = getelementptr inbounds nuw i8, ptr %131, i64 160
-  store i32 %138, ptr %139, align 8, !tbaa !113
+141:                                              ; preds = %.loopexit, %137
+  %142 = phi i32 [ %140, %137 ], [ 1, %.loopexit ]
+  %143 = getelementptr inbounds nuw i8, ptr %135, i64 160
+  store i32 %142, ptr %143, align 8, !tbaa !113
   call void @_ZN4llvm11df_iteratorIPNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS6_Lj8EEELb0ENS_11GraphTraitsIS6_EEE6toNextEv(ptr noundef nonnull align 8 dereferenceable(112) %4)
-  %.pre = load ptr, ptr %51, align 8, !tbaa !265
-  %.pre30 = load ptr, ptr %29, align 8, !tbaa !268
-  br label %52
+  %.pre = load ptr, ptr %55, align 8, !tbaa !265
+  %.pre30 = load ptr, ptr %31, align 8, !tbaa !268
+  br label %56
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7528,8 +7546,8 @@ _ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8Functio
   store ptr %12, ptr %10, align 8, !tbaa !128
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %15 = load ptr, ptr %14, align 8, !tbaa !133
-  store ptr %15, ptr %13, align 8, !tbaa !133
+  %15 = load ptr, ptr %14, align 8, !tbaa !132
+  store ptr %15, ptr %13, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -7544,8 +7562,8 @@ _ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8Functio
   store ptr %23, ptr %21, align 8, !tbaa !128
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %26 = load ptr, ptr %25, align 8, !tbaa !133
-  store ptr %26, ptr %24, align 8, !tbaa !133
+  %26 = load ptr, ptr %25, align 8, !tbaa !132
+  store ptr %26, ptr %24, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @_ZN4llvm19SmallPtrSetImplBaseC2EPPKvjS3_OS0_(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull %27, i32 noundef 8, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(112) %3) #15
@@ -7556,8 +7574,8 @@ _ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8Functio
   %31 = load ptr, ptr %10, align 8, !tbaa !128
   store ptr %31, ptr %30, align 8, !tbaa !128
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %33 = load ptr, ptr %13, align 8, !tbaa !133
-  store ptr %33, ptr %32, align 8, !tbaa !133
+  %33 = load ptr, ptr %13, align 8, !tbaa !132
+  store ptr %33, ptr %32, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -7569,8 +7587,8 @@ _ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8Functio
   %39 = load ptr, ptr %21, align 8, !tbaa !128
   store ptr %39, ptr %38, align 8, !tbaa !128
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %41 = load ptr, ptr %24, align 8, !tbaa !133
-  store ptr %41, ptr %40, align 8, !tbaa !133
+  %41 = load ptr, ptr %24, align 8, !tbaa !132
+  store ptr %41, ptr %40, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %43 = load i8, ptr %42, align 4, !tbaa !148, !range !145, !noundef !146
@@ -7588,7 +7606,7 @@ _ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEE
   br i1 %.not.i.i.i.i1, label %_ZNSt6vectorISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EED2Ev.exit.i2, label %48
 
 48:                                               ; preds = %_ZN4llvm11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS7_Lj8EEELb0ENS_11GraphTraitsIS7_EEED2Ev.exit
-  %49 = load ptr, ptr %13, align 8, !tbaa !133
+  %49 = load ptr, ptr %13, align 8, !tbaa !132
   %50 = ptrtoint ptr %49 to i64
   %51 = ptrtoint ptr %47 to i64
   %52 = sub i64 %50, %51
@@ -8680,8 +8698,8 @@ attributes #19 = { nounwind willreturn memory(read) }
 !129 = !{!"_ZTSNSt12_Vector_baseISt4pairIPKN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt8optionalINS6_20const_child_iteratorEEESaISC_EE17_Vector_impl_dataE", !130, i64 0, !130, i64 8, !130, i64 16}
 !130 = !{!"p1 _ZTSSt4pairIPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEESt8optionalINS5_20const_child_iteratorEEE", !6, i64 0}
 !131 = !{!129, !130, i64 0}
-!132 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!133 = !{!129, !130, i64 16}
+!132 = !{!129, !130, i64 16}
+!133 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !134 = distinct !{!134, !33}
 !135 = !{!136}
 !136 = distinct !{!136, !137, !"_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEEENS_23df_iterator_default_setIS8_Lj8EEELb0ENS_11GraphTraitsIS8_EEEEE3endEv: argument 0"}

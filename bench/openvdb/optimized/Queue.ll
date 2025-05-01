@@ -981,6 +981,10 @@ entry:
 
 invoke.cont.i.i.thread:                           ; preds = %entry
   %_M_finish.i.i.i.i11 = getelementptr inbounds nuw i8, ptr %task, i64 56
+  %add.ptr.i.i.i.i12 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i
+  %_M_end_of_storage.i.i.i.i13 = getelementptr inbounds nuw i8, ptr %task, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrids.i, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i.i12, ptr %_M_end_of_storage.i.i.i.i13, align 8
   br label %invoke.cont.i
 
 cond.true.i.i.i.i.i:                              ; preds = %entry

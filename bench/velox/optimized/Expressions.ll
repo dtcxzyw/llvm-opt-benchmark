@@ -19331,12 +19331,16 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i.i.i.i, label %invoke.cont.i.thread, label %cond.true.i.i.i.i
 
 invoke.cont.i.thread:                             ; preds = %entry
   %_M_finish.i.i.i61 = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2, i8 0, i64 24, i1 false)
+  %add.ptr.i.i.i62 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
+  %_M_end_of_storage.i.i.i63 = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i62, ptr %_M_end_of_storage.i.i.i63, align 8
   br label %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EEC2ERKS7_.exit
 
 cond.true.i.i.i.i:                                ; preds = %entry
@@ -20087,16 +20091,12 @@ _ZSt10_ConstructISt10shared_ptrIKN8facebook5velox4core10ITypedExprEEJRKS6_EEvPT_
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 16
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i, i64 16
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %5
-  br i1 %cmp.i.not.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4core10ITypedExprEESaIS6_EED2Ev.exit.loopexit, label %for.body.i.i.i.i.i, !llvm.loop !295
+  br i1 %cmp.i.not.i.i.i.i.i, label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit, label %for.body.i.i.i.i.i, !llvm.loop !295
 
-_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4core10ITypedExprEESaIS6_EED2Ev.exit.loopexit: ; preds = %_ZSt10_ConstructISt10shared_ptrIKN8facebook5velox4core10ITypedExprEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i6.i2, i64 %sub.ptr.sub.i.i
-  br label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit
-
-_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit, %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4core10ITypedExprEESaIS6_EED2Ev.exit.loopexit
-  %add.ptr.i.i.i24 = phi ptr [ null, %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit ], [ %add.ptr.i.i.i, %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4core10ITypedExprEESaIS6_EED2Ev.exit.loopexit ]
-  %cond.i.i.i.i23 = phi ptr [ null, %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit ], [ %call5.i.i.i.i2.i6.i2, %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4core10ITypedExprEESaIS6_EED2Ev.exit.loopexit ]
-  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit ], [ %incdec.ptr.i.i.i.i.i, %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4core10ITypedExprEESaIS6_EED2Ev.exit.loopexit ]
+_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit: ; preds = %_ZSt10_ConstructISt10shared_ptrIKN8facebook5velox4core10ITypedExprEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit
+  %cond.i.i.i.i23 = phi ptr [ null, %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit ], [ %call5.i.i.i.i2.i6.i2, %_ZSt10_ConstructISt10shared_ptrIKN8facebook5velox4core10ITypedExprEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i ]
+  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit ], [ %incdec.ptr.i.i.i.i.i, %_ZSt10_ConstructISt10shared_ptrIKN8facebook5velox4core10ITypedExprEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i ]
+  %add.ptr.i.i.i24 = getelementptr inbounds i8, ptr %cond.i.i.i.i23, i64 %sub.ptr.sub.i.i
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %agg.tmp, align 8
   store ptr %12, ptr %type_.i, align 8
@@ -20358,16 +20358,12 @@ _ZSt10_ConstructISt10shared_ptrIKN8facebook5velox4core10ITypedExprEEJRKS6_EEvPT_
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 16
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i, i64 16
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %0
-  br i1 %cmp.i.not.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4core10ITypedExprEESaIS6_EED2Ev.exit.loopexit, label %for.body.i.i.i.i.i, !llvm.loop !295
+  br i1 %cmp.i.not.i.i.i.i.i, label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit, label %for.body.i.i.i.i.i, !llvm.loop !295
 
-_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4core10ITypedExprEESaIS6_EED2Ev.exit.loopexit: ; preds = %_ZSt10_ConstructISt10shared_ptrIKN8facebook5velox4core10ITypedExprEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i6.i2, i64 %sub.ptr.sub.i.i
-  br label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit
-
-_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit: ; preds = %entry, %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4core10ITypedExprEESaIS6_EED2Ev.exit.loopexit
-  %add.ptr.i.i.i16 = phi ptr [ null, %entry ], [ %add.ptr.i.i.i, %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4core10ITypedExprEESaIS6_EED2Ev.exit.loopexit ]
-  %cond.i.i.i.i15 = phi ptr [ null, %entry ], [ %call5.i.i.i.i2.i6.i2, %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4core10ITypedExprEESaIS6_EED2Ev.exit.loopexit ]
-  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %entry ], [ %incdec.ptr.i.i.i.i.i, %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4core10ITypedExprEESaIS6_EED2Ev.exit.loopexit ]
+_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit: ; preds = %_ZSt10_ConstructISt10shared_ptrIKN8facebook5velox4core10ITypedExprEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i, %entry
+  %cond.i.i.i.i15 = phi ptr [ null, %entry ], [ %call5.i.i.i.i2.i6.i2, %_ZSt10_ConstructISt10shared_ptrIKN8facebook5velox4core10ITypedExprEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i ]
+  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %entry ], [ %incdec.ptr.i.i.i.i.i, %_ZSt10_ConstructISt10shared_ptrIKN8facebook5velox4core10ITypedExprEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i ]
+  %add.ptr.i.i.i16 = getelementptr inbounds i8, ptr %cond.i.i.i.i15, i64 %sub.ptr.sub.i.i
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %7 = load ptr, ptr %agg.tmp, align 8
   store ptr %7, ptr %type_.i, align 8

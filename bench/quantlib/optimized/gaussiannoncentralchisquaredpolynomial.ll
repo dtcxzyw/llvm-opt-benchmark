@@ -10406,20 +10406,22 @@ if.then4:                                         ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__tmp) #35
   store ptr %this, ptr %__tmp, align 8, !tbaa !61
   %_M_storage.i = getelementptr inbounds nuw i8, ptr %__tmp, i64 8
-  store i8 0, ptr %_M_storage.i, align 8, !tbaa !44
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x, i64 8
   %2 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !56
   %3 = load ptr, ptr %__x, align 8, !tbaa !37
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_M_storage.i, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.thread, label %cond.true.i.i.i.i.i.i.i
 
 invoke.cont.i.i.i.i.thread:                       ; preds = %if.then4
   %_M_finish.i.i.i.i.i.i162 = getelementptr inbounds nuw i8, ptr %__tmp, i64 16
+  %add.ptr.i.i.i.i.i.i163 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i
   %_M_end_of_storage.i.i.i.i.i.i164 = getelementptr inbounds nuw i8, ptr %__tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_M_storage.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i.i.i.i163, ptr %_M_end_of_storage.i.i.i.i.i.i164, align 8, !tbaa !38
   br label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE16_Temporary_valueC2IJRKS1_EEEPS3_DpOT_.exit
 
 cond.true.i.i.i.i.i.i.i:                          ; preds = %if.then4
@@ -10443,7 +10445,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %cond.true.i.i.i.i.i
 
 _ZNSt6vectorIS_IdSaIdEESaIS1_EE16_Temporary_valueC2IJRKS1_EEEPS3_DpOT_.exit: ; preds = %invoke.cont.i.i.i.i.thread, %if.then.i.i.i.i.i.i.i.i.i.i.i.i
   %_M_end_of_storage.i.i.i.i.i.i167 = phi ptr [ %_M_end_of_storage.i.i.i.i.i.i164, %invoke.cont.i.i.i.i.thread ], [ %_M_end_of_storage.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %add.ptr.i.i.i.i.i.i166 = phi ptr [ null, %invoke.cont.i.i.i.i.thread ], [ %add.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i.i.i.i166 = phi ptr [ %add.ptr.i.i.i.i.i.i163, %invoke.cont.i.i.i.i.thread ], [ %add.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i.i.i165 = phi ptr [ %_M_finish.i.i.i.i.i.i162, %invoke.cont.i.i.i.i.thread ], [ %_M_finish.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i.i.i.i166, ptr %_M_finish.i.i.i.i.i.i165, align 8, !tbaa !56
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__position.coerce to i64

@@ -1856,21 +1856,21 @@ _ZNK3opt9totalizer4node4sizeEv.exit:              ; preds = %229, %.lr.ph
   %232 = getelementptr inbounds nuw i8, ptr %223, i64 24
   %233 = load ptr, ptr %232, align 8, !tbaa !3
   %234 = icmp eq ptr %233, null
-  br i1 %234, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i, label %235
+  br i1 %234, label %_ZNK3opt9totalizer4node4sizeEv.exit44, label %235
 
 235:                                              ; preds = %_ZNK3opt9totalizer4node4sizeEv.exit
   %236 = getelementptr inbounds i8, ptr %233, i64 -4
   %237 = load i32, ptr %236, align 4, !tbaa !10
-  br label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i
+  br label %_ZNK3opt9totalizer4node4sizeEv.exit44
 
-_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i:         ; preds = %_ZNK3opt9totalizer4node4sizeEv.exit, %235
+_ZNK3opt9totalizer4node4sizeEv.exit44:            ; preds = %235, %_ZNK3opt9totalizer4node4sizeEv.exit
   %.0.i.i.i43 = phi i32 [ %237, %235 ], [ 0, %_ZNK3opt9totalizer4node4sizeEv.exit ]
   %238 = add i32 %.0.i.i.i43, %.0.i.i.i42
   %.not.not.i.i = icmp eq i32 %238, 0
   br i1 %.not.not.i.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE6resizeEj.exit, label %.preheader
 
-.preheader:                                       ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i, %.preheader.backedge
-  %239 = phi ptr [ %.be, %.preheader.backedge ], [ null, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i ]
+.preheader:                                       ; preds = %_ZNK3opt9totalizer4node4sizeEv.exit44, %.preheader.backedge
+  %239 = phi ptr [ %.be, %.preheader.backedge ], [ null, %_ZNK3opt9totalizer4node4sizeEv.exit44 ]
   %240 = icmp eq ptr %239, null
   br i1 %240, label %244, label %_ZNK6vectorIP4exprLb0EjE8capacityEv.exit.i.i
 
@@ -1891,10 +1891,6 @@ _ZNK6vectorIP4exprLb0EjE8capacityEv.exit.i.i:     ; preds = %.preheader
   %247 = getelementptr inbounds nuw i8, ptr %245, i64 8
   store ptr %247, ptr %61, align 8, !tbaa !3
   br label %.preheader.backedge
-
-.preheader.backedge:                              ; preds = %.noexc99, %.noexc102
-  %.be = phi ptr [ %247, %.noexc99 ], [ %288, %.noexc102 ]
-  br label %.preheader
 
 _ZNK6vectorIP4exprLb0EjE8capacityEv.exit.thread.i.i: ; preds = %_ZNK6vectorIP4exprLb0EjE8capacityEv.exit.i.i
   %248 = getelementptr inbounds i8, ptr %239, i64 -8
@@ -2001,6 +1997,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i96: ; pre
   store i32 %252, ptr %287, align 4, !tbaa !10
   br label %.preheader.backedge
 
+.preheader.backedge:                              ; preds = %.noexc102, %.noexc99
+  %.be = phi ptr [ %288, %.noexc102 ], [ %247, %.noexc99 ]
+  br label %.preheader
+
 289:                                              ; preds = %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i94
   unreachable
 
@@ -2012,8 +2012,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i96: ; pre
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %239, i8 0, i64 %292, i1 false), !tbaa !29
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE6resizeEj.exit
 
-_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE6resizeEj.exit: ; preds = %.lr.ph.preheader.i.i, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i
-  %.pre.i78 = phi ptr [ %239, %.lr.ph.preheader.i.i ], [ null, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i ]
+_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE6resizeEj.exit: ; preds = %.lr.ph.preheader.i.i, %_ZNK3opt9totalizer4node4sizeEv.exit44
+  %.pre.i78 = phi ptr [ %239, %.lr.ph.preheader.i.i ], [ null, %_ZNK3opt9totalizer4node4sizeEv.exit44 ]
   %293 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
           to label %294 unwind label %422
 

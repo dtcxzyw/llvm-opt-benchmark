@@ -24786,79 +24786,86 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %.critedge, %41, %4
 61:                                               ; preds = %58
   %62 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %62, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %63
+  %.pre59 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %63
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %61
+  %.pre61 = zext i32 %.pre59 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 63:                                               ; preds = %61
-  %64 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %64, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %65, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre59, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %64, !prof !64
 
 .thread.i.i:                                      ; preds = %63
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-65:                                               ; preds = %63
+64:                                               ; preds = %63
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %68 [
+  switch i32 %.pre.i.i, label %67 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %66
+    i32 3, label %65
   ]
 
-66:                                               ; preds = %65
-  %67 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+65:                                               ; preds = %64
+  %66 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre58 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %67, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %66, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %66
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %65
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %68
+  br label %67
 
-68:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %65
-  %69 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %64, %65 ]
-  %70 = zext i32 %69 to i64
-  %71 = tail call noalias ptr @malloc(i64 noundef %70) #64
-  %.not7.not.i.i = icmp eq ptr %71, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %72, !prof !64
+67:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %64
+  %68 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre59, %64 ]
+  %69 = zext i32 %68 to i64
+  %70 = tail call noalias ptr @malloc(i64 noundef %69) #64
+  %.not7.not.i.i = icmp eq ptr %70, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %71, !prof !64
 
-72:                                               ; preds = %68
-  %.not.i.i.i = icmp eq i32 %69, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %73, !prof !64
+71:                                               ; preds = %67
+  %.not.i.i.i = icmp eq i32 %68, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %72, !prof !64
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr readonly align 1 %74, i64 %70, i1 false), !alias.scope !765
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr readonly align 1 %73, i64 %69, i1 false), !alias.scope !765
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %73, %72
-  %75 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %75, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %76
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %72, %71
+  %74 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %74, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %75
 
-76:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %77 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %75(ptr noundef %77) #61
+75:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %76 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %74(ptr noundef %76) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %76, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %76 ], [ %69, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %75, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %75 ], [ %68, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %71, ptr %19, align 8, !tbaa !69
-  store ptr %71, ptr %21, align 8, !tbaa !86
+  store ptr %70, ptr %19, align 8, !tbaa !69
+  store ptr %70, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %68, %61
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %67, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre61, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %69, %67 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %77 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %77, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %66, %65, %.thread.i.i
-  %.ph = phi i32 [ %.pre58, %66 ], [ %64, %65 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %65, %64, %.thread.i.i
+  %.ph = phi i32 [ %.pre58, %65 ], [ %.pre59, %64 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %71, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %70, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %79 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %78, ptr %10, align 8, !tbaa !80
   %80 = zext i32 %79 to i64
@@ -126721,79 +126728,86 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %.critedge, %41, %4
 61:                                               ; preds = %58
   %62 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %62, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %63
+  %.pre59 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %63
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %61
+  %.pre61 = zext i32 %.pre59 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 63:                                               ; preds = %61
-  %64 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %64, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %65, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre59, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %64, !prof !64
 
 .thread.i.i:                                      ; preds = %63
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-65:                                               ; preds = %63
+64:                                               ; preds = %63
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %68 [
+  switch i32 %.pre.i.i, label %67 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %66
+    i32 3, label %65
   ]
 
-66:                                               ; preds = %65
-  %67 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+65:                                               ; preds = %64
+  %66 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre58 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %67, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %66, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %66
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %65
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %68
+  br label %67
 
-68:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %65
-  %69 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %64, %65 ]
-  %70 = zext i32 %69 to i64
-  %71 = tail call noalias ptr @malloc(i64 noundef %70) #64
-  %.not7.not.i.i = icmp eq ptr %71, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %72, !prof !64
+67:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %64
+  %68 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre59, %64 ]
+  %69 = zext i32 %68 to i64
+  %70 = tail call noalias ptr @malloc(i64 noundef %69) #64
+  %.not7.not.i.i = icmp eq ptr %70, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %71, !prof !64
 
-72:                                               ; preds = %68
-  %.not.i.i.i = icmp eq i32 %69, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %73, !prof !64
+71:                                               ; preds = %67
+  %.not.i.i.i = icmp eq i32 %68, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %72, !prof !64
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr readonly align 1 %74, i64 %70, i1 false), !alias.scope !2457
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr readonly align 1 %73, i64 %69, i1 false), !alias.scope !2457
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %73, %72
-  %75 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %75, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %76
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %72, %71
+  %74 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %74, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %75
 
-76:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %77 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %75(ptr noundef %77) #61
+75:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %76 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %74(ptr noundef %76) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %76, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %76 ], [ %69, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %75, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %75 ], [ %68, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %71, ptr %19, align 8, !tbaa !69
-  store ptr %71, ptr %21, align 8, !tbaa !86
+  store ptr %70, ptr %19, align 8, !tbaa !69
+  store ptr %70, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %68, %61
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %67, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre61, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %69, %67 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %77 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %77, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %66, %65, %.thread.i.i
-  %.ph = phi i32 [ %.pre58, %66 ], [ %64, %65 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %65, %64, %.thread.i.i
+  %.ph = phi i32 [ %.pre58, %65 ], [ %.pre59, %64 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %71, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %70, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %79 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %78, ptr %10, align 8, !tbaa !80
   %80 = zext i32 %79 to i64
@@ -127913,79 +127927,86 @@ _ZNK2OT4maxp8sanitizeEP21hb_sanitize_context_t.exit.thread: ; preds = %34, %33, 
 96:                                               ; preds = %_ZNK2OT4maxp8sanitizeEP21hb_sanitize_context_t.exit.thread
   %97 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %97, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %98
+  %.pre75 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %98
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %96
+  %.pre77 = zext i32 %.pre75 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 98:                                               ; preds = %96
-  %99 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %99, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %100, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre75, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %99, !prof !64
 
 .thread.i.i:                                      ; preds = %98
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-100:                                              ; preds = %98
+99:                                               ; preds = %98
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %103 [
+  switch i32 %.pre.i.i, label %102 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %101
+    i32 3, label %100
   ]
 
-101:                                              ; preds = %100
-  %102 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+100:                                              ; preds = %99
+  %101 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre74 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %102, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %101, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %101
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %100
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %103
+  br label %102
 
-103:                                              ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %100
-  %104 = phi i32 [ %.pre74, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %99, %100 ]
-  %105 = zext i32 %104 to i64
-  %106 = tail call noalias ptr @malloc(i64 noundef %105) #64
-  %.not7.not.i.i = icmp eq ptr %106, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %107, !prof !64
+102:                                              ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %99
+  %103 = phi i32 [ %.pre74, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre75, %99 ]
+  %104 = zext i32 %103 to i64
+  %105 = tail call noalias ptr @malloc(i64 noundef %104) #64
+  %.not7.not.i.i = icmp eq ptr %105, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %106, !prof !64
 
-107:                                              ; preds = %103
-  %.not.i.i.i = icmp eq i32 %104, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %108, !prof !64
+106:                                              ; preds = %102
+  %.not.i.i.i = icmp eq i32 %103, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %107, !prof !64
 
-108:                                              ; preds = %107
-  %109 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %106, ptr readonly align 1 %109, i64 %105, i1 false), !alias.scope !2462
+107:                                              ; preds = %106
+  %108 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %105, ptr readonly align 1 %108, i64 %104, i1 false), !alias.scope !2462
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %108, %107
-  %110 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %110, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %111
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %107, %106
+  %109 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %109, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %110
 
-111:                                              ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %112 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %110(ptr noundef %112) #61
+110:                                              ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %111 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %109(ptr noundef %111) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %111, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %111 ], [ %104, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %110, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %110 ], [ %103, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %106, ptr %19, align 8, !tbaa !69
-  store ptr %106, ptr %21, align 8, !tbaa !86
+  store ptr %105, ptr %19, align 8, !tbaa !69
+  store ptr %105, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %103, %96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %102, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre77, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %104, %102 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %112 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %112, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %101, %100, %.thread.i.i
-  %.ph = phi i32 [ %.pre74, %101 ], [ %99, %100 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %100, %99, %.thread.i.i
+  %.ph = phi i32 [ %.pre74, %100 ], [ %.pre75, %99 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %113 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %106, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %113 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %105, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %114 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %113, ptr %10, align 8, !tbaa !80
   %115 = zext i32 %114 to i64
@@ -129876,86 +129897,93 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %.critedge, %83, %8
   br i1 %or.cond, label %.loopexit, label %.thread.thread
 
 .thread:                                          ; preds = %52
-  %.pre82 = trunc nuw i8 %.old.pre to i1
-  br i1 %.pre82, label %.loopexit, label %.thread.thread
+  %.pre84 = trunc nuw i8 %.old.pre to i1
+  br i1 %.pre84, label %.loopexit, label %.thread.thread
 
 .thread.thread:                                   ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %100, %.thread
   %103 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %103, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %104
+  %.pre81 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %104
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %.thread.thread
+  %.pre83 = zext i32 %.pre81 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 104:                                              ; preds = %.thread.thread
-  %105 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %105, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %106, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre81, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %105, !prof !64
 
 .thread.i.i:                                      ; preds = %104
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-106:                                              ; preds = %104
+105:                                              ; preds = %104
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %109 [
+  switch i32 %.pre.i.i, label %108 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %107
+    i32 3, label %106
   ]
 
-107:                                              ; preds = %106
-  %108 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+106:                                              ; preds = %105
+  %107 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre80 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %108, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %107, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %107
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %106
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %109
+  br label %108
 
-109:                                              ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %106
-  %110 = phi i32 [ %.pre80, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %105, %106 ]
-  %111 = zext i32 %110 to i64
-  %112 = tail call noalias ptr @malloc(i64 noundef %111) #64
-  %.not7.not.i.i = icmp eq ptr %112, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %113, !prof !64
+108:                                              ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %105
+  %109 = phi i32 [ %.pre80, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre81, %105 ]
+  %110 = zext i32 %109 to i64
+  %111 = tail call noalias ptr @malloc(i64 noundef %110) #64
+  %.not7.not.i.i = icmp eq ptr %111, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %112, !prof !64
 
-113:                                              ; preds = %109
-  %.not.i.i.i = icmp eq i32 %110, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %114, !prof !64
+112:                                              ; preds = %108
+  %.not.i.i.i = icmp eq i32 %109, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %113, !prof !64
 
-114:                                              ; preds = %113
-  %115 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %112, ptr readonly align 1 %115, i64 %111, i1 false), !alias.scope !2477
+113:                                              ; preds = %112
+  %114 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %111, ptr readonly align 1 %114, i64 %110, i1 false), !alias.scope !2477
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %114, %113
-  %116 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %116, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %117
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %113, %112
+  %115 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %115, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %116
 
-117:                                              ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %118 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %116(ptr noundef %118) #61
+116:                                              ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %117 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %115(ptr noundef %117) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %117, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %117 ], [ %110, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %116, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %116 ], [ %109, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %112, ptr %19, align 8, !tbaa !69
-  store ptr %112, ptr %21, align 8, !tbaa !86
+  store ptr %111, ptr %19, align 8, !tbaa !69
+  store ptr %111, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %109, %.thread.thread
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %108, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre83, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %110, %108 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %118 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %118, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %107, %106, %.thread.i.i
-  %.ph84 = phi i32 [ %.pre80, %107 ], [ %105, %106 ], [ 0, %.thread.i.i ]
-  %.pr85 = load ptr, ptr %19, align 8, !tbaa !69
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %106, %105, %.thread.i.i
+  %.ph86 = phi i32 [ %.pre80, %106 ], [ %.pre81, %105 ], [ 0, %.thread.i.i ]
+  %.pr87 = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %119 = phi ptr [ %.pr85, %hb_blob_get_data_writable.exitthread-pre-split ], [ %112, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
-  %120 = phi i32 [ %.ph84, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %119 = phi ptr [ %.pr87, %hb_blob_get_data_writable.exitthread-pre-split ], [ %111, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %120 = phi i32 [ %.ph86, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %119, ptr %10, align 8, !tbaa !80
   %121 = zext i32 %120 to i64
   %122 = getelementptr inbounds nuw i8, ptr %119, i64 %121
@@ -130847,79 +130875,86 @@ _ZNK2OT4VORG8sanitizeEP21hb_sanitize_context_t.exit.thread: ; preds = %45, %56, 
 117:                                              ; preds = %_ZNK2OT4VORG8sanitizeEP21hb_sanitize_context_t.exit.thread
   %118 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i30 = icmp eq i32 %118, 0
-  br i1 %.not.i.i30, label %hb_blob_get_data_writable.exit.thread, label %119
+  %.pre81 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i30, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %119
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %117
+  %.pre83 = zext i32 %.pre81 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 119:                                              ; preds = %117
-  %120 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %120, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %121, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre81, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %120, !prof !64
 
 .thread.i.i:                                      ; preds = %119
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-121:                                              ; preds = %119
+120:                                              ; preds = %119
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %124 [
+  switch i32 %.pre.i.i, label %123 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %122
+    i32 3, label %121
   ]
 
-122:                                              ; preds = %121
-  %123 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+121:                                              ; preds = %120
+  %122 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre80 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %123, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %122, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %122
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %121
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %124
+  br label %123
 
-124:                                              ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %121
-  %125 = phi i32 [ %.pre80, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %120, %121 ]
-  %126 = zext i32 %125 to i64
-  %127 = tail call noalias ptr @malloc(i64 noundef %126) #64
-  %.not7.not.i.i = icmp eq ptr %127, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %128, !prof !64
+123:                                              ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %120
+  %124 = phi i32 [ %.pre80, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre81, %120 ]
+  %125 = zext i32 %124 to i64
+  %126 = tail call noalias ptr @malloc(i64 noundef %125) #64
+  %.not7.not.i.i = icmp eq ptr %126, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %127, !prof !64
 
-128:                                              ; preds = %124
-  %.not.i.i.i = icmp eq i32 %125, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %129, !prof !64
+127:                                              ; preds = %123
+  %.not.i.i.i = icmp eq i32 %124, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %128, !prof !64
 
-129:                                              ; preds = %128
-  %130 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %127, ptr readonly align 1 %130, i64 %126, i1 false), !alias.scope !2484
+128:                                              ; preds = %127
+  %129 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %126, ptr readonly align 1 %129, i64 %125, i1 false), !alias.scope !2484
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %129, %128
-  %131 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %131, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %132
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %128, %127
+  %130 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %130, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %131
 
-132:                                              ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %133 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %131(ptr noundef %133) #61
+131:                                              ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %132 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %130(ptr noundef %132) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %132, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %132 ], [ %125, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %131, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %131 ], [ %124, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %127, ptr %19, align 8, !tbaa !69
-  store ptr %127, ptr %21, align 8, !tbaa !86
+  store ptr %126, ptr %19, align 8, !tbaa !69
+  store ptr %126, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %124, %117
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %123, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre83, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %125, %123 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %133 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %133, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %122, %121, %.thread.i.i
-  %.ph = phi i32 [ %.pre80, %122 ], [ %120, %121 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %121, %120, %.thread.i.i
+  %.ph = phi i32 [ %.pre80, %121 ], [ %.pre81, %120 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %134 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %127, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %134 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %126, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %135 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %134, ptr %10, align 8, !tbaa !80
   %136 = zext i32 %135 to i64
@@ -140666,79 +140701,86 @@ _ZNK2OT4cff28sanitizeEP21hb_sanitize_context_t.exit.thread: ; preds = %_ZNK2OT4c
 68:                                               ; preds = %_ZNK2OT4cff28sanitizeEP21hb_sanitize_context_t.exit.thread
   %69 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %69, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %70
+  %.pre72 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %70
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %68
+  %.pre74 = zext i32 %.pre72 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 70:                                               ; preds = %68
-  %71 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %71, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %72, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre72, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %71, !prof !64
 
 .thread.i.i:                                      ; preds = %70
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-72:                                               ; preds = %70
+71:                                               ; preds = %70
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %75 [
+  switch i32 %.pre.i.i, label %74 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %73
+    i32 3, label %72
   ]
 
-73:                                               ; preds = %72
-  %74 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+72:                                               ; preds = %71
+  %73 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre71 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %74, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %73, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %73
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %72
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %75
+  br label %74
 
-75:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %72
-  %76 = phi i32 [ %.pre71, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %71, %72 ]
-  %77 = zext i32 %76 to i64
-  %78 = tail call noalias ptr @malloc(i64 noundef %77) #64
-  %.not7.not.i.i = icmp eq ptr %78, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %79, !prof !64
+74:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %71
+  %75 = phi i32 [ %.pre71, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre72, %71 ]
+  %76 = zext i32 %75 to i64
+  %77 = tail call noalias ptr @malloc(i64 noundef %76) #64
+  %.not7.not.i.i = icmp eq ptr %77, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %78, !prof !64
 
-79:                                               ; preds = %75
-  %.not.i.i.i = icmp eq i32 %76, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %80, !prof !64
+78:                                               ; preds = %74
+  %.not.i.i.i = icmp eq i32 %75, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %79, !prof !64
 
-80:                                               ; preds = %79
-  %81 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr readonly align 1 %81, i64 %77, i1 false), !alias.scope !2649
+79:                                               ; preds = %78
+  %80 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr readonly align 1 %80, i64 %76, i1 false), !alias.scope !2649
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %80, %79
-  %82 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %82, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %83
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %79, %78
+  %81 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %81, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %82
 
-83:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %84 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %82(ptr noundef %84) #61
+82:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %83 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %81(ptr noundef %83) #61
   %.pre70.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %83, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre70 = phi i32 [ %.pre70.pre, %83 ], [ %76, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %82, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre70 = phi i32 [ %.pre70.pre, %82 ], [ %75, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %78, ptr %19, align 8, !tbaa !69
-  store ptr %78, ptr %21, align 8, !tbaa !86
+  store ptr %77, ptr %19, align 8, !tbaa !69
+  store ptr %77, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %75, %68
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %74, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre74, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %76, %74 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %84 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %84, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %73, %72, %.thread.i.i
-  %.ph = phi i32 [ %.pre71, %73 ], [ %71, %72 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %72, %71, %.thread.i.i
+  %.ph = phi i32 [ %.pre71, %72 ], [ %.pre72, %71 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %85 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %78, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %85 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %77, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %86 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre70, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %85, ptr %10, align 8, !tbaa !80
   %87 = zext i32 %86 to i64
@@ -144916,79 +144958,86 @@ _ZNK2OT4cff18sanitizeEP21hb_sanitize_context_t.exit.thread: ; preds = %_ZNK2OT4c
 68:                                               ; preds = %_ZNK2OT4cff18sanitizeEP21hb_sanitize_context_t.exit.thread
   %69 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %69, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %70
+  %.pre72 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %70
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %68
+  %.pre74 = zext i32 %.pre72 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 70:                                               ; preds = %68
-  %71 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %71, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %72, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre72, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %71, !prof !64
 
 .thread.i.i:                                      ; preds = %70
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-72:                                               ; preds = %70
+71:                                               ; preds = %70
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %75 [
+  switch i32 %.pre.i.i, label %74 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %73
+    i32 3, label %72
   ]
 
-73:                                               ; preds = %72
-  %74 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+72:                                               ; preds = %71
+  %73 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre71 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %74, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %73, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %73
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %72
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %75
+  br label %74
 
-75:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %72
-  %76 = phi i32 [ %.pre71, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %71, %72 ]
-  %77 = zext i32 %76 to i64
-  %78 = tail call noalias ptr @malloc(i64 noundef %77) #64
-  %.not7.not.i.i = icmp eq ptr %78, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %79, !prof !64
+74:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %71
+  %75 = phi i32 [ %.pre71, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre72, %71 ]
+  %76 = zext i32 %75 to i64
+  %77 = tail call noalias ptr @malloc(i64 noundef %76) #64
+  %.not7.not.i.i = icmp eq ptr %77, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %78, !prof !64
 
-79:                                               ; preds = %75
-  %.not.i.i.i = icmp eq i32 %76, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %80, !prof !64
+78:                                               ; preds = %74
+  %.not.i.i.i = icmp eq i32 %75, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %79, !prof !64
 
-80:                                               ; preds = %79
-  %81 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr readonly align 1 %81, i64 %77, i1 false), !alias.scope !2719
+79:                                               ; preds = %78
+  %80 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr readonly align 1 %80, i64 %76, i1 false), !alias.scope !2719
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %80, %79
-  %82 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %82, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %83
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %79, %78
+  %81 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %81, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %82
 
-83:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %84 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %82(ptr noundef %84) #61
+82:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %83 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %81(ptr noundef %83) #61
   %.pre70.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %83, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre70 = phi i32 [ %.pre70.pre, %83 ], [ %76, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %82, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre70 = phi i32 [ %.pre70.pre, %82 ], [ %75, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %78, ptr %19, align 8, !tbaa !69
-  store ptr %78, ptr %21, align 8, !tbaa !86
+  store ptr %77, ptr %19, align 8, !tbaa !69
+  store ptr %77, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %75, %68
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %74, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre74, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %76, %74 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %84 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %84, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %73, %72, %.thread.i.i
-  %.ph = phi i32 [ %.pre71, %73 ], [ %71, %72 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %72, %71, %.thread.i.i
+  %.ph = phi i32 [ %.pre71, %72 ], [ %.pre72, %71 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %85 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %78, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %85 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %77, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %86 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre70, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %85, ptr %10, align 8, !tbaa !80
   %87 = zext i32 %86 to i64
@@ -161494,79 +161543,86 @@ _ZNK2OT4GDEF8sanitizeEP21hb_sanitize_context_t.exit.thread42: ; preds = %_ZNK2OT
 71:                                               ; preds = %_ZNK2OT4GDEF8sanitizeEP21hb_sanitize_context_t.exit.thread42
   %72 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %72, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %73
+  %.pre79 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %73
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %71
+  %.pre81 = zext i32 %.pre79 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 73:                                               ; preds = %71
-  %74 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %74, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %75, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre79, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %74, !prof !64
 
 .thread.i.i:                                      ; preds = %73
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-75:                                               ; preds = %73
+74:                                               ; preds = %73
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %78 [
+  switch i32 %.pre.i.i, label %77 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %76
+    i32 3, label %75
   ]
 
-76:                                               ; preds = %75
-  %77 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+75:                                               ; preds = %74
+  %76 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre78 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %77, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %76, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %76
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %75
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %78
+  br label %77
 
-78:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %75
-  %79 = phi i32 [ %.pre78, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %74, %75 ]
-  %80 = zext i32 %79 to i64
-  %81 = tail call noalias ptr @malloc(i64 noundef %80) #64
-  %.not7.not.i.i = icmp eq ptr %81, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %82, !prof !64
+77:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %74
+  %78 = phi i32 [ %.pre78, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre79, %74 ]
+  %79 = zext i32 %78 to i64
+  %80 = tail call noalias ptr @malloc(i64 noundef %79) #64
+  %.not7.not.i.i = icmp eq ptr %80, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %81, !prof !64
 
-82:                                               ; preds = %78
-  %.not.i.i.i = icmp eq i32 %79, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %83, !prof !64
+81:                                               ; preds = %77
+  %.not.i.i.i = icmp eq i32 %78, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %82, !prof !64
 
-83:                                               ; preds = %82
-  %84 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %81, ptr readonly align 1 %84, i64 %80, i1 false), !alias.scope !2922
+82:                                               ; preds = %81
+  %83 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %80, ptr readonly align 1 %83, i64 %79, i1 false), !alias.scope !2922
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %83, %82
-  %85 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %85, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %86
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %82, %81
+  %84 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %84, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %85
 
-86:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %87 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %85(ptr noundef %87) #61
+85:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %86 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %84(ptr noundef %86) #61
   %.pre77.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %86, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre77 = phi i32 [ %.pre77.pre, %86 ], [ %79, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %85, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre77 = phi i32 [ %.pre77.pre, %85 ], [ %78, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %81, ptr %19, align 8, !tbaa !69
-  store ptr %81, ptr %21, align 8, !tbaa !86
+  store ptr %80, ptr %19, align 8, !tbaa !69
+  store ptr %80, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %78, %71
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %77, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre81, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %79, %77 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %87 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %87, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %76, %75, %.thread.i.i
-  %.ph = phi i32 [ %.pre78, %76 ], [ %74, %75 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %75, %74, %.thread.i.i
+  %.ph = phi i32 [ %.pre78, %75 ], [ %.pre79, %74 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %88 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %81, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %88 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %80, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %89 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre77, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %88, ptr %10, align 8, !tbaa !80
   %90 = zext i32 %89 to i64
@@ -198507,79 +198563,86 @@ _ZNK2OT6Layout4GSUB8sanitizeEP21hb_sanitize_context_t.exit.thread42: ; preds = %
 71:                                               ; preds = %_ZNK2OT6Layout4GSUB8sanitizeEP21hb_sanitize_context_t.exit.thread42
   %72 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i27 = icmp eq i32 %72, 0
-  br i1 %.not.i.i27, label %hb_blob_get_data_writable.exit.thread, label %73
+  %.pre79 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i27, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %73
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %71
+  %.pre81 = zext i32 %.pre79 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 73:                                               ; preds = %71
-  %74 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %74, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %75, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre79, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %74, !prof !64
 
 .thread.i.i:                                      ; preds = %73
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-75:                                               ; preds = %73
+74:                                               ; preds = %73
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %78 [
+  switch i32 %.pre.i.i, label %77 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %76
+    i32 3, label %75
   ]
 
-76:                                               ; preds = %75
-  %77 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+75:                                               ; preds = %74
+  %76 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre78 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %77, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %76, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %76
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %75
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %78
+  br label %77
 
-78:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %75
-  %79 = phi i32 [ %.pre78, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %74, %75 ]
-  %80 = zext i32 %79 to i64
-  %81 = tail call noalias ptr @malloc(i64 noundef %80) #64
-  %.not7.not.i.i = icmp eq ptr %81, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %82, !prof !64
+77:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %74
+  %78 = phi i32 [ %.pre78, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre79, %74 ]
+  %79 = zext i32 %78 to i64
+  %80 = tail call noalias ptr @malloc(i64 noundef %79) #64
+  %.not7.not.i.i = icmp eq ptr %80, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %81, !prof !64
 
-82:                                               ; preds = %78
-  %.not.i.i.i = icmp eq i32 %79, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %83, !prof !64
+81:                                               ; preds = %77
+  %.not.i.i.i = icmp eq i32 %78, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %82, !prof !64
 
-83:                                               ; preds = %82
-  %84 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %81, ptr readonly align 1 %84, i64 %80, i1 false), !alias.scope !3326
+82:                                               ; preds = %81
+  %83 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %80, ptr readonly align 1 %83, i64 %79, i1 false), !alias.scope !3326
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %83, %82
-  %85 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %85, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %86
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %82, %81
+  %84 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %84, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %85
 
-86:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %87 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %85(ptr noundef %87) #61
+85:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %86 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %84(ptr noundef %86) #61
   %.pre77.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %86, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre77 = phi i32 [ %.pre77.pre, %86 ], [ %79, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %85, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre77 = phi i32 [ %.pre77.pre, %85 ], [ %78, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %81, ptr %19, align 8, !tbaa !69
-  store ptr %81, ptr %21, align 8, !tbaa !86
+  store ptr %80, ptr %19, align 8, !tbaa !69
+  store ptr %80, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %78, %71
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %77, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre81, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %79, %77 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %87 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %87, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %76, %75, %.thread.i.i
-  %.ph = phi i32 [ %.pre78, %76 ], [ %74, %75 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %75, %74, %.thread.i.i
+  %.ph = phi i32 [ %.pre78, %75 ], [ %.pre79, %74 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %88 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %81, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %88 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %80, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %89 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre77, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %88, ptr %10, align 8, !tbaa !80
   %90 = zext i32 %89 to i64
@@ -206210,79 +206273,86 @@ _ZNK2OT6Layout4GPOS8sanitizeEP21hb_sanitize_context_t.exit.thread42: ; preds = %
 71:                                               ; preds = %_ZNK2OT6Layout4GPOS8sanitizeEP21hb_sanitize_context_t.exit.thread42
   %72 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i27 = icmp eq i32 %72, 0
-  br i1 %.not.i.i27, label %hb_blob_get_data_writable.exit.thread, label %73
+  %.pre79 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i27, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %73
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %71
+  %.pre81 = zext i32 %.pre79 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 73:                                               ; preds = %71
-  %74 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %74, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %75, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre79, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %74, !prof !64
 
 .thread.i.i:                                      ; preds = %73
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-75:                                               ; preds = %73
+74:                                               ; preds = %73
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %78 [
+  switch i32 %.pre.i.i, label %77 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %76
+    i32 3, label %75
   ]
 
-76:                                               ; preds = %75
-  %77 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+75:                                               ; preds = %74
+  %76 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre78 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %77, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %76, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %76
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %75
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %78
+  br label %77
 
-78:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %75
-  %79 = phi i32 [ %.pre78, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %74, %75 ]
-  %80 = zext i32 %79 to i64
-  %81 = tail call noalias ptr @malloc(i64 noundef %80) #64
-  %.not7.not.i.i = icmp eq ptr %81, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %82, !prof !64
+77:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %74
+  %78 = phi i32 [ %.pre78, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre79, %74 ]
+  %79 = zext i32 %78 to i64
+  %80 = tail call noalias ptr @malloc(i64 noundef %79) #64
+  %.not7.not.i.i = icmp eq ptr %80, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %81, !prof !64
 
-82:                                               ; preds = %78
-  %.not.i.i.i = icmp eq i32 %79, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %83, !prof !64
+81:                                               ; preds = %77
+  %.not.i.i.i = icmp eq i32 %78, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %82, !prof !64
 
-83:                                               ; preds = %82
-  %84 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %81, ptr readonly align 1 %84, i64 %80, i1 false), !alias.scope !3369
+82:                                               ; preds = %81
+  %83 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %80, ptr readonly align 1 %83, i64 %79, i1 false), !alias.scope !3369
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %83, %82
-  %85 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %85, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %86
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %82, %81
+  %84 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %84, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %85
 
-86:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %87 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %85(ptr noundef %87) #61
+85:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %86 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %84(ptr noundef %86) #61
   %.pre77.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %86, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre77 = phi i32 [ %.pre77.pre, %86 ], [ %79, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %85, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre77 = phi i32 [ %.pre77.pre, %85 ], [ %78, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %81, ptr %19, align 8, !tbaa !69
-  store ptr %81, ptr %21, align 8, !tbaa !86
+  store ptr %80, ptr %19, align 8, !tbaa !69
+  store ptr %80, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %78, %71
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %77, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre81, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %79, %77 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %87 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %87, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %76, %75, %.thread.i.i
-  %.ph = phi i32 [ %.pre78, %76 ], [ %74, %75 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %75, %74, %.thread.i.i
+  %.ph = phi i32 [ %.pre78, %75 ], [ %.pre79, %74 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %88 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %81, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %88 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %80, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %89 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre77, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %88, ptr %10, align 8, !tbaa !80
   %90 = zext i32 %89 to i64
@@ -243644,79 +243714,86 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %.critedge, %92, %9
 112:                                              ; preds = %.loopexit
   %113 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %113, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %114
+  %.pre92 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %114
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %112
+  %.pre94 = zext i32 %.pre92 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 114:                                              ; preds = %112
-  %115 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %115, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %116, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre92, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %115, !prof !64
 
 .thread.i.i:                                      ; preds = %114
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-116:                                              ; preds = %114
+115:                                              ; preds = %114
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %119 [
+  switch i32 %.pre.i.i, label %118 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %117
+    i32 3, label %116
   ]
 
-117:                                              ; preds = %116
-  %118 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+116:                                              ; preds = %115
+  %117 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre91 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %118, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %117, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %117
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %116
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %119
+  br label %118
 
-119:                                              ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %116
-  %120 = phi i32 [ %.pre91, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %115, %116 ]
-  %121 = zext i32 %120 to i64
-  %122 = tail call noalias ptr @malloc(i64 noundef %121) #64
-  %.not7.not.i.i = icmp eq ptr %122, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %123, !prof !64
+118:                                              ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %115
+  %119 = phi i32 [ %.pre91, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre92, %115 ]
+  %120 = zext i32 %119 to i64
+  %121 = tail call noalias ptr @malloc(i64 noundef %120) #64
+  %.not7.not.i.i = icmp eq ptr %121, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %122, !prof !64
 
-123:                                              ; preds = %119
-  %.not.i.i.i = icmp eq i32 %120, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %124, !prof !64
+122:                                              ; preds = %118
+  %.not.i.i.i = icmp eq i32 %119, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %123, !prof !64
 
-124:                                              ; preds = %123
-  %125 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %122, ptr readonly align 1 %125, i64 %121, i1 false), !alias.scope !4438
+123:                                              ; preds = %122
+  %124 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %121, ptr readonly align 1 %124, i64 %120, i1 false), !alias.scope !4438
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %124, %123
-  %126 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %126, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %127
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %123, %122
+  %125 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %125, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %126
 
-127:                                              ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %128 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %126(ptr noundef %128) #61
+126:                                              ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %127 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %125(ptr noundef %127) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %127, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %127 ], [ %120, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %126, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %126 ], [ %119, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %122, ptr %19, align 8, !tbaa !69
-  store ptr %122, ptr %21, align 8, !tbaa !86
+  store ptr %121, ptr %19, align 8, !tbaa !69
+  store ptr %121, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %119, %112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %118, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre94, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %120, %118 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %128 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %128, ptr %11, align 8, !tbaa !81
   br label %.loopexit55
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %117, %116, %.thread.i.i
-  %.ph = phi i32 [ %.pre91, %117 ], [ %115, %116 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %116, %115, %.thread.i.i
+  %.ph = phi i32 [ %.pre91, %116 ], [ %.pre92, %115 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %129 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %122, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %129 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %121, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %130 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %129, ptr %10, align 8, !tbaa !80
   %131 = zext i32 %130 to i64
@@ -246994,79 +247071,86 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %.critedge, %41, %4
 61:                                               ; preds = %58
   %62 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %62, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %63
+  %.pre59 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %63
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %61
+  %.pre61 = zext i32 %.pre59 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 63:                                               ; preds = %61
-  %64 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %64, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %65, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre59, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %64, !prof !64
 
 .thread.i.i:                                      ; preds = %63
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-65:                                               ; preds = %63
+64:                                               ; preds = %63
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %68 [
+  switch i32 %.pre.i.i, label %67 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %66
+    i32 3, label %65
   ]
 
-66:                                               ; preds = %65
-  %67 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+65:                                               ; preds = %64
+  %66 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre58 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %67, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %66, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %66
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %65
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %68
+  br label %67
 
-68:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %65
-  %69 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %64, %65 ]
-  %70 = zext i32 %69 to i64
-  %71 = tail call noalias ptr @malloc(i64 noundef %70) #64
-  %.not7.not.i.i = icmp eq ptr %71, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %72, !prof !64
+67:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %64
+  %68 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre59, %64 ]
+  %69 = zext i32 %68 to i64
+  %70 = tail call noalias ptr @malloc(i64 noundef %69) #64
+  %.not7.not.i.i = icmp eq ptr %70, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %71, !prof !64
 
-72:                                               ; preds = %68
-  %.not.i.i.i = icmp eq i32 %69, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %73, !prof !64
+71:                                               ; preds = %67
+  %.not.i.i.i = icmp eq i32 %68, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %72, !prof !64
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr readonly align 1 %74, i64 %70, i1 false), !alias.scope !4473
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr readonly align 1 %73, i64 %69, i1 false), !alias.scope !4473
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %73, %72
-  %75 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %75, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %76
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %72, %71
+  %74 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %74, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %75
 
-76:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %77 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %75(ptr noundef %77) #61
+75:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %76 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %74(ptr noundef %76) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %76, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %76 ], [ %69, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %75, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %75 ], [ %68, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %71, ptr %19, align 8, !tbaa !69
-  store ptr %71, ptr %21, align 8, !tbaa !86
+  store ptr %70, ptr %19, align 8, !tbaa !69
+  store ptr %70, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %68, %61
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %67, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre61, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %69, %67 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %77 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %77, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %66, %65, %.thread.i.i
-  %.ph = phi i32 [ %.pre58, %66 ], [ %64, %65 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %65, %64, %.thread.i.i
+  %.ph = phi i32 [ %.pre58, %65 ], [ %.pre59, %64 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %71, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %70, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %79 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %78, ptr %10, align 8, !tbaa !80
   %80 = zext i32 %79 to i64
@@ -247790,79 +247874,86 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %.critedge, %92, %9
 112:                                              ; preds = %.loopexit
   %113 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %113, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %114
+  %.pre92 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %114
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %112
+  %.pre94 = zext i32 %.pre92 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 114:                                              ; preds = %112
-  %115 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %115, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %116, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre92, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %115, !prof !64
 
 .thread.i.i:                                      ; preds = %114
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-116:                                              ; preds = %114
+115:                                              ; preds = %114
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %119 [
+  switch i32 %.pre.i.i, label %118 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %117
+    i32 3, label %116
   ]
 
-117:                                              ; preds = %116
-  %118 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+116:                                              ; preds = %115
+  %117 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre91 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %118, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %117, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %117
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %116
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %119
+  br label %118
 
-119:                                              ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %116
-  %120 = phi i32 [ %.pre91, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %115, %116 ]
-  %121 = zext i32 %120 to i64
-  %122 = tail call noalias ptr @malloc(i64 noundef %121) #64
-  %.not7.not.i.i = icmp eq ptr %122, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %123, !prof !64
+118:                                              ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %115
+  %119 = phi i32 [ %.pre91, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre92, %115 ]
+  %120 = zext i32 %119 to i64
+  %121 = tail call noalias ptr @malloc(i64 noundef %120) #64
+  %.not7.not.i.i = icmp eq ptr %121, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %122, !prof !64
 
-123:                                              ; preds = %119
-  %.not.i.i.i = icmp eq i32 %120, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %124, !prof !64
+122:                                              ; preds = %118
+  %.not.i.i.i = icmp eq i32 %119, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %123, !prof !64
 
-124:                                              ; preds = %123
-  %125 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %122, ptr readonly align 1 %125, i64 %121, i1 false), !alias.scope !4479
+123:                                              ; preds = %122
+  %124 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %121, ptr readonly align 1 %124, i64 %120, i1 false), !alias.scope !4479
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %124, %123
-  %126 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %126, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %127
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %123, %122
+  %125 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %125, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %126
 
-127:                                              ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %128 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %126(ptr noundef %128) #61
+126:                                              ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %127 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %125(ptr noundef %127) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %127, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %127 ], [ %120, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %126, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %126 ], [ %119, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %122, ptr %19, align 8, !tbaa !69
-  store ptr %122, ptr %21, align 8, !tbaa !86
+  store ptr %121, ptr %19, align 8, !tbaa !69
+  store ptr %121, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %119, %112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %118, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre94, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %120, %118 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %128 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %128, ptr %11, align 8, !tbaa !81
   br label %.loopexit55
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %117, %116, %.thread.i.i
-  %.ph = phi i32 [ %.pre91, %117 ], [ %115, %116 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %116, %115, %.thread.i.i
+  %.ph = phi i32 [ %.pre91, %116 ], [ %.pre92, %115 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %129 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %122, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %129 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %121, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %130 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %129, ptr %10, align 8, !tbaa !80
   %131 = zext i32 %130 to i64
@@ -262892,79 +262983,86 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %.critedge, %41, %4
 61:                                               ; preds = %58
   %62 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %62, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %63
+  %.pre59 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %63
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %61
+  %.pre61 = zext i32 %.pre59 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 63:                                               ; preds = %61
-  %64 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %64, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %65, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre59, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %64, !prof !64
 
 .thread.i.i:                                      ; preds = %63
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-65:                                               ; preds = %63
+64:                                               ; preds = %63
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %68 [
+  switch i32 %.pre.i.i, label %67 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %66
+    i32 3, label %65
   ]
 
-66:                                               ; preds = %65
-  %67 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+65:                                               ; preds = %64
+  %66 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre58 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %67, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %66, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %66
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %65
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %68
+  br label %67
 
-68:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %65
-  %69 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %64, %65 ]
-  %70 = zext i32 %69 to i64
-  %71 = tail call noalias ptr @malloc(i64 noundef %70) #64
-  %.not7.not.i.i = icmp eq ptr %71, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %72, !prof !64
+67:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %64
+  %68 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre59, %64 ]
+  %69 = zext i32 %68 to i64
+  %70 = tail call noalias ptr @malloc(i64 noundef %69) #64
+  %.not7.not.i.i = icmp eq ptr %70, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %71, !prof !64
 
-72:                                               ; preds = %68
-  %.not.i.i.i = icmp eq i32 %69, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %73, !prof !64
+71:                                               ; preds = %67
+  %.not.i.i.i = icmp eq i32 %68, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %72, !prof !64
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr readonly align 1 %74, i64 %70, i1 false), !alias.scope !4842
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr readonly align 1 %73, i64 %69, i1 false), !alias.scope !4842
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %73, %72
-  %75 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %75, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %76
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %72, %71
+  %74 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %74, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %75
 
-76:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %77 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %75(ptr noundef %77) #61
+75:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %76 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %74(ptr noundef %76) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %76, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %76 ], [ %69, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %75, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %75 ], [ %68, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %71, ptr %19, align 8, !tbaa !69
-  store ptr %71, ptr %21, align 8, !tbaa !86
+  store ptr %70, ptr %19, align 8, !tbaa !69
+  store ptr %70, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %68, %61
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %67, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre61, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %69, %67 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %77 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %77, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %66, %65, %.thread.i.i
-  %.ph = phi i32 [ %.pre58, %66 ], [ %64, %65 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %65, %64, %.thread.i.i
+  %.ph = phi i32 [ %.pre58, %65 ], [ %.pre59, %64 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %71, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %70, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %79 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %78, ptr %10, align 8, !tbaa !80
   %80 = zext i32 %79 to i64
@@ -266608,86 +266706,93 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %.critedge, %122, %
   br i1 %or.cond, label %.loopexit, label %.thread.thread
 
 .thread:                                          ; preds = %69
-  %.pre107 = trunc nuw i8 %.old.pre to i1
-  br i1 %.pre107, label %.loopexit, label %.thread.thread
+  %.pre109 = trunc nuw i8 %.old.pre to i1
+  br i1 %.pre109, label %.loopexit, label %.thread.thread
 
 .thread.thread:                                   ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %139, %.thread
   %142 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i30 = icmp eq i32 %142, 0
-  br i1 %.not.i.i30, label %hb_blob_get_data_writable.exit.thread, label %143
+  %.pre106 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i30, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %143
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %.thread.thread
+  %.pre108 = zext i32 %.pre106 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 143:                                              ; preds = %.thread.thread
-  %144 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %144, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %145, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre106, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %144, !prof !64
 
 .thread.i.i:                                      ; preds = %143
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-145:                                              ; preds = %143
+144:                                              ; preds = %143
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %148 [
+  switch i32 %.pre.i.i, label %147 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %146
+    i32 3, label %145
   ]
 
-146:                                              ; preds = %145
-  %147 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+145:                                              ; preds = %144
+  %146 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre105 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %147, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %146, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %146
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %145
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %148
+  br label %147
 
-148:                                              ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %145
-  %149 = phi i32 [ %.pre105, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %144, %145 ]
-  %150 = zext i32 %149 to i64
-  %151 = tail call noalias ptr @malloc(i64 noundef %150) #64
-  %.not7.not.i.i = icmp eq ptr %151, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %152, !prof !64
+147:                                              ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %144
+  %148 = phi i32 [ %.pre105, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre106, %144 ]
+  %149 = zext i32 %148 to i64
+  %150 = tail call noalias ptr @malloc(i64 noundef %149) #64
+  %.not7.not.i.i = icmp eq ptr %150, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %151, !prof !64
 
-152:                                              ; preds = %148
-  %.not.i.i.i = icmp eq i32 %149, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %153, !prof !64
+151:                                              ; preds = %147
+  %.not.i.i.i = icmp eq i32 %148, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %152, !prof !64
 
-153:                                              ; preds = %152
-  %154 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %151, ptr readonly align 1 %154, i64 %150, i1 false), !alias.scope !4865
+152:                                              ; preds = %151
+  %153 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %150, ptr readonly align 1 %153, i64 %149, i1 false), !alias.scope !4865
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %153, %152
-  %155 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %155, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %156
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %152, %151
+  %154 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %154, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %155
 
-156:                                              ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %157 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %155(ptr noundef %157) #61
+155:                                              ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %156 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %154(ptr noundef %156) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %156, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %156 ], [ %149, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %155, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %155 ], [ %148, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %151, ptr %19, align 8, !tbaa !69
-  store ptr %151, ptr %21, align 8, !tbaa !86
+  store ptr %150, ptr %19, align 8, !tbaa !69
+  store ptr %150, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %148, %.thread.thread
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %147, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre108, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %149, %147 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %157 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %157, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %146, %145, %.thread.i.i
-  %.ph109 = phi i32 [ %.pre105, %146 ], [ %144, %145 ], [ 0, %.thread.i.i ]
-  %.pr110 = load ptr, ptr %19, align 8, !tbaa !69
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %145, %144, %.thread.i.i
+  %.ph111 = phi i32 [ %.pre105, %145 ], [ %.pre106, %144 ], [ 0, %.thread.i.i ]
+  %.pr112 = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %158 = phi ptr [ %.pr110, %hb_blob_get_data_writable.exitthread-pre-split ], [ %151, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
-  %159 = phi i32 [ %.ph109, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %158 = phi ptr [ %.pr112, %hb_blob_get_data_writable.exitthread-pre-split ], [ %150, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %159 = phi i32 [ %.ph111, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %158, ptr %10, align 8, !tbaa !80
   %160 = zext i32 %159 to i64
   %161 = getelementptr inbounds nuw i8, ptr %158, i64 %160
@@ -273814,79 +273919,86 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %.critedge, %41, %4
 61:                                               ; preds = %58
   %62 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %62, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %63
+  %.pre59 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %63
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %61
+  %.pre61 = zext i32 %.pre59 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 63:                                               ; preds = %61
-  %64 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %64, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %65, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre59, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %64, !prof !64
 
 .thread.i.i:                                      ; preds = %63
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-65:                                               ; preds = %63
+64:                                               ; preds = %63
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %68 [
+  switch i32 %.pre.i.i, label %67 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %66
+    i32 3, label %65
   ]
 
-66:                                               ; preds = %65
-  %67 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+65:                                               ; preds = %64
+  %66 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre58 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %67, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %66, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %66
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %65
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %68
+  br label %67
 
-68:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %65
-  %69 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %64, %65 ]
-  %70 = zext i32 %69 to i64
-  %71 = tail call noalias ptr @malloc(i64 noundef %70) #64
-  %.not7.not.i.i = icmp eq ptr %71, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %72, !prof !64
+67:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %64
+  %68 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre59, %64 ]
+  %69 = zext i32 %68 to i64
+  %70 = tail call noalias ptr @malloc(i64 noundef %69) #64
+  %.not7.not.i.i = icmp eq ptr %70, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %71, !prof !64
 
-72:                                               ; preds = %68
-  %.not.i.i.i = icmp eq i32 %69, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %73, !prof !64
+71:                                               ; preds = %67
+  %.not.i.i.i = icmp eq i32 %68, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %72, !prof !64
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr readonly align 1 %74, i64 %70, i1 false), !alias.scope !4959
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr readonly align 1 %73, i64 %69, i1 false), !alias.scope !4959
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %73, %72
-  %75 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %75, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %76
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %72, %71
+  %74 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %74, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %75
 
-76:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %77 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %75(ptr noundef %77) #61
+75:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %76 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %74(ptr noundef %76) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %76, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %76 ], [ %69, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %75, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %75 ], [ %68, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %71, ptr %19, align 8, !tbaa !69
-  store ptr %71, ptr %21, align 8, !tbaa !86
+  store ptr %70, ptr %19, align 8, !tbaa !69
+  store ptr %70, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %68, %61
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %67, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre61, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %69, %67 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %77 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %77, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %66, %65, %.thread.i.i
-  %.ph = phi i32 [ %.pre58, %66 ], [ %64, %65 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %65, %64, %.thread.i.i
+  %.ph = phi i32 [ %.pre58, %65 ], [ %.pre59, %64 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %71, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %70, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %79 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %78, ptr %10, align 8, !tbaa !80
   %80 = zext i32 %79 to i64
@@ -274572,79 +274684,86 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %.critedge, %41, %4
 61:                                               ; preds = %58
   %62 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %62, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %63
+  %.pre59 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %63
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %61
+  %.pre61 = zext i32 %.pre59 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 63:                                               ; preds = %61
-  %64 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %64, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %65, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre59, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %64, !prof !64
 
 .thread.i.i:                                      ; preds = %63
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-65:                                               ; preds = %63
+64:                                               ; preds = %63
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %68 [
+  switch i32 %.pre.i.i, label %67 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %66
+    i32 3, label %65
   ]
 
-66:                                               ; preds = %65
-  %67 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+65:                                               ; preds = %64
+  %66 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre58 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %67, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %66, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %66
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %65
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %68
+  br label %67
 
-68:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %65
-  %69 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %64, %65 ]
-  %70 = zext i32 %69 to i64
-  %71 = tail call noalias ptr @malloc(i64 noundef %70) #64
-  %.not7.not.i.i = icmp eq ptr %71, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %72, !prof !64
+67:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %64
+  %68 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre59, %64 ]
+  %69 = zext i32 %68 to i64
+  %70 = tail call noalias ptr @malloc(i64 noundef %69) #64
+  %.not7.not.i.i = icmp eq ptr %70, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %71, !prof !64
 
-72:                                               ; preds = %68
-  %.not.i.i.i = icmp eq i32 %69, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %73, !prof !64
+71:                                               ; preds = %67
+  %.not.i.i.i = icmp eq i32 %68, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %72, !prof !64
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr readonly align 1 %74, i64 %70, i1 false), !alias.scope !4964
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr readonly align 1 %73, i64 %69, i1 false), !alias.scope !4964
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %73, %72
-  %75 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %75, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %76
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %72, %71
+  %74 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %74, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %75
 
-76:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %77 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %75(ptr noundef %77) #61
+75:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %76 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %74(ptr noundef %76) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %76, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %76 ], [ %69, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %75, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %75 ], [ %68, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %71, ptr %19, align 8, !tbaa !69
-  store ptr %71, ptr %21, align 8, !tbaa !86
+  store ptr %70, ptr %19, align 8, !tbaa !69
+  store ptr %70, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %68, %61
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %67, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre61, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %69, %67 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %77 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %77, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %66, %65, %.thread.i.i
-  %.ph = phi i32 [ %.pre58, %66 ], [ %64, %65 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %65, %64, %.thread.i.i
+  %.ph = phi i32 [ %.pre58, %65 ], [ %.pre59, %64 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %71, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %70, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %79 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %78, ptr %10, align 8, !tbaa !80
   %80 = zext i32 %79 to i64
@@ -276104,79 +276223,86 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %.critedge, %85, %8
 106:                                              ; preds = %102
   %107 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %107, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %108
+  %.pre81 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %108
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %106
+  %.pre83 = zext i32 %.pre81 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 108:                                              ; preds = %106
-  %109 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %109, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %110, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre81, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %109, !prof !64
 
 .thread.i.i:                                      ; preds = %108
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-110:                                              ; preds = %108
+109:                                              ; preds = %108
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %113 [
+  switch i32 %.pre.i.i, label %112 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %111
+    i32 3, label %110
   ]
 
-111:                                              ; preds = %110
-  %112 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+110:                                              ; preds = %109
+  %111 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre80 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %112, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %111, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %111
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %110
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %113
+  br label %112
 
-113:                                              ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %110
-  %114 = phi i32 [ %.pre80, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %109, %110 ]
-  %115 = zext i32 %114 to i64
-  %116 = tail call noalias ptr @malloc(i64 noundef %115) #64
-  %.not7.not.i.i = icmp eq ptr %116, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %117, !prof !64
+112:                                              ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %109
+  %113 = phi i32 [ %.pre80, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre81, %109 ]
+  %114 = zext i32 %113 to i64
+  %115 = tail call noalias ptr @malloc(i64 noundef %114) #64
+  %.not7.not.i.i = icmp eq ptr %115, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %116, !prof !64
 
-117:                                              ; preds = %113
-  %.not.i.i.i = icmp eq i32 %114, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %118, !prof !64
+116:                                              ; preds = %112
+  %.not.i.i.i = icmp eq i32 %113, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %117, !prof !64
 
-118:                                              ; preds = %117
-  %119 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %116, ptr readonly align 1 %119, i64 %115, i1 false), !alias.scope !4983
+117:                                              ; preds = %116
+  %118 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %115, ptr readonly align 1 %118, i64 %114, i1 false), !alias.scope !4983
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %118, %117
-  %120 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %120, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %121
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %117, %116
+  %119 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %119, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %120
 
-121:                                              ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %122 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %120(ptr noundef %122) #61
+120:                                              ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %121 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %119(ptr noundef %121) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %121, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %121 ], [ %114, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %120, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %120 ], [ %113, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %116, ptr %19, align 8, !tbaa !69
-  store ptr %116, ptr %21, align 8, !tbaa !86
+  store ptr %115, ptr %19, align 8, !tbaa !69
+  store ptr %115, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %113, %106
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %112, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre83, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %114, %112 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %122 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %122, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %111, %110, %.thread.i.i
-  %.ph = phi i32 [ %.pre80, %111 ], [ %109, %110 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %110, %109, %.thread.i.i
+  %.ph = phi i32 [ %.pre80, %110 ], [ %.pre81, %109 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %123 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %116, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %123 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %115, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %124 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %123, ptr %10, align 8, !tbaa !80
   %125 = zext i32 %124 to i64
@@ -278143,79 +278269,86 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %.critedge, %41, %4
 61:                                               ; preds = %58
   %62 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %62, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %63
+  %.pre59 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %63
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %61
+  %.pre61 = zext i32 %.pre59 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 63:                                               ; preds = %61
-  %64 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %64, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %65, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre59, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %64, !prof !64
 
 .thread.i.i:                                      ; preds = %63
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-65:                                               ; preds = %63
+64:                                               ; preds = %63
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %68 [
+  switch i32 %.pre.i.i, label %67 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %66
+    i32 3, label %65
   ]
 
-66:                                               ; preds = %65
-  %67 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+65:                                               ; preds = %64
+  %66 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre58 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %67, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %66, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %66
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %65
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %68
+  br label %67
 
-68:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %65
-  %69 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %64, %65 ]
-  %70 = zext i32 %69 to i64
-  %71 = tail call noalias ptr @malloc(i64 noundef %70) #64
-  %.not7.not.i.i = icmp eq ptr %71, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %72, !prof !64
+67:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %64
+  %68 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre59, %64 ]
+  %69 = zext i32 %68 to i64
+  %70 = tail call noalias ptr @malloc(i64 noundef %69) #64
+  %.not7.not.i.i = icmp eq ptr %70, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %71, !prof !64
 
-72:                                               ; preds = %68
-  %.not.i.i.i = icmp eq i32 %69, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %73, !prof !64
+71:                                               ; preds = %67
+  %.not.i.i.i = icmp eq i32 %68, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %72, !prof !64
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr readonly align 1 %74, i64 %70, i1 false), !alias.scope !4997
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr readonly align 1 %73, i64 %69, i1 false), !alias.scope !4997
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %73, %72
-  %75 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %75, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %76
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %72, %71
+  %74 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %74, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %75
 
-76:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %77 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %75(ptr noundef %77) #61
+75:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %76 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %74(ptr noundef %76) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %76, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %76 ], [ %69, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %75, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %75 ], [ %68, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %71, ptr %19, align 8, !tbaa !69
-  store ptr %71, ptr %21, align 8, !tbaa !86
+  store ptr %70, ptr %19, align 8, !tbaa !69
+  store ptr %70, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %68, %61
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %67, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre61, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %69, %67 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %77 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %77, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %66, %65, %.thread.i.i
-  %.ph = phi i32 [ %.pre58, %66 ], [ %64, %65 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %65, %64, %.thread.i.i
+  %.ph = phi i32 [ %.pre58, %65 ], [ %.pre59, %64 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %71, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %70, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %79 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %78, ptr %10, align 8, !tbaa !80
   %80 = zext i32 %79 to i64
@@ -279955,79 +280088,86 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %.critedge, %41, %4
 61:                                               ; preds = %58
   %62 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %62, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %63
+  %.pre59 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %63
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %61
+  %.pre61 = zext i32 %.pre59 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 63:                                               ; preds = %61
-  %64 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %64, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %65, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre59, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %64, !prof !64
 
 .thread.i.i:                                      ; preds = %63
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-65:                                               ; preds = %63
+64:                                               ; preds = %63
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %68 [
+  switch i32 %.pre.i.i, label %67 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %66
+    i32 3, label %65
   ]
 
-66:                                               ; preds = %65
-  %67 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+65:                                               ; preds = %64
+  %66 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre58 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %67, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %66, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %66
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %65
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %68
+  br label %67
 
-68:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %65
-  %69 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %64, %65 ]
-  %70 = zext i32 %69 to i64
-  %71 = tail call noalias ptr @malloc(i64 noundef %70) #64
-  %.not7.not.i.i = icmp eq ptr %71, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %72, !prof !64
+67:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %64
+  %68 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre59, %64 ]
+  %69 = zext i32 %68 to i64
+  %70 = tail call noalias ptr @malloc(i64 noundef %69) #64
+  %.not7.not.i.i = icmp eq ptr %70, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %71, !prof !64
 
-72:                                               ; preds = %68
-  %.not.i.i.i = icmp eq i32 %69, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %73, !prof !64
+71:                                               ; preds = %67
+  %.not.i.i.i = icmp eq i32 %68, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %72, !prof !64
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr readonly align 1 %74, i64 %70, i1 false), !alias.scope !5004
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr readonly align 1 %73, i64 %69, i1 false), !alias.scope !5004
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %73, %72
-  %75 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %75, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %76
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %72, %71
+  %74 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %74, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %75
 
-76:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %77 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %75(ptr noundef %77) #61
+75:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %76 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %74(ptr noundef %76) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %76, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %76 ], [ %69, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %75, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %75 ], [ %68, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %71, ptr %19, align 8, !tbaa !69
-  store ptr %71, ptr %21, align 8, !tbaa !86
+  store ptr %70, ptr %19, align 8, !tbaa !69
+  store ptr %70, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %68, %61
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %67, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre61, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %69, %67 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %77 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %77, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %66, %65, %.thread.i.i
-  %.ph = phi i32 [ %.pre58, %66 ], [ %64, %65 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %65, %64, %.thread.i.i
+  %.ph = phi i32 [ %.pre58, %65 ], [ %.pre59, %64 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %71, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %70, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %79 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %78, ptr %10, align 8, !tbaa !80
   %80 = zext i32 %79 to i64
@@ -280549,79 +280689,86 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %.critedge, %41, %4
 61:                                               ; preds = %58
   %62 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %62, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %63
+  %.pre59 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %63
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %61
+  %.pre61 = zext i32 %.pre59 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 63:                                               ; preds = %61
-  %64 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %64, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %65, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre59, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %64, !prof !64
 
 .thread.i.i:                                      ; preds = %63
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-65:                                               ; preds = %63
+64:                                               ; preds = %63
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %68 [
+  switch i32 %.pre.i.i, label %67 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %66
+    i32 3, label %65
   ]
 
-66:                                               ; preds = %65
-  %67 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+65:                                               ; preds = %64
+  %66 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre58 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %67, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %66, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %66
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %65
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %68
+  br label %67
 
-68:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %65
-  %69 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %64, %65 ]
-  %70 = zext i32 %69 to i64
-  %71 = tail call noalias ptr @malloc(i64 noundef %70) #64
-  %.not7.not.i.i = icmp eq ptr %71, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %72, !prof !64
+67:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %64
+  %68 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre59, %64 ]
+  %69 = zext i32 %68 to i64
+  %70 = tail call noalias ptr @malloc(i64 noundef %69) #64
+  %.not7.not.i.i = icmp eq ptr %70, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %71, !prof !64
 
-72:                                               ; preds = %68
-  %.not.i.i.i = icmp eq i32 %69, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %73, !prof !64
+71:                                               ; preds = %67
+  %.not.i.i.i = icmp eq i32 %68, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %72, !prof !64
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr readonly align 1 %74, i64 %70, i1 false), !alias.scope !5008
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr readonly align 1 %73, i64 %69, i1 false), !alias.scope !5008
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %73, %72
-  %75 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %75, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %76
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %72, %71
+  %74 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %74, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %75
 
-76:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %77 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %75(ptr noundef %77) #61
+75:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %76 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %74(ptr noundef %76) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %76, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %76 ], [ %69, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %75, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %75 ], [ %68, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %71, ptr %19, align 8, !tbaa !69
-  store ptr %71, ptr %21, align 8, !tbaa !86
+  store ptr %70, ptr %19, align 8, !tbaa !69
+  store ptr %70, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %68, %61
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %67, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre61, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %69, %67 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %77 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %77, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %66, %65, %.thread.i.i
-  %.ph = phi i32 [ %.pre58, %66 ], [ %64, %65 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %65, %64, %.thread.i.i
+  %.ph = phi i32 [ %.pre58, %65 ], [ %.pre59, %64 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %71, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %70, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %79 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %78, ptr %10, align 8, !tbaa !80
   %80 = zext i32 %79 to i64
@@ -290921,79 +291068,86 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %.critedge, %41, %4
 61:                                               ; preds = %58
   %62 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %62, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %63
+  %.pre59 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %63
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %61
+  %.pre61 = zext i32 %.pre59 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 63:                                               ; preds = %61
-  %64 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %64, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %65, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre59, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %64, !prof !64
 
 .thread.i.i:                                      ; preds = %63
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-65:                                               ; preds = %63
+64:                                               ; preds = %63
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %68 [
+  switch i32 %.pre.i.i, label %67 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %66
+    i32 3, label %65
   ]
 
-66:                                               ; preds = %65
-  %67 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+65:                                               ; preds = %64
+  %66 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre58 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %67, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %66, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %66
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %65
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %68
+  br label %67
 
-68:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %65
-  %69 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %64, %65 ]
-  %70 = zext i32 %69 to i64
-  %71 = tail call noalias ptr @malloc(i64 noundef %70) #64
-  %.not7.not.i.i = icmp eq ptr %71, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %72, !prof !64
+67:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %64
+  %68 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre59, %64 ]
+  %69 = zext i32 %68 to i64
+  %70 = tail call noalias ptr @malloc(i64 noundef %69) #64
+  %.not7.not.i.i = icmp eq ptr %70, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %71, !prof !64
 
-72:                                               ; preds = %68
-  %.not.i.i.i = icmp eq i32 %69, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %73, !prof !64
+71:                                               ; preds = %67
+  %.not.i.i.i = icmp eq i32 %68, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %72, !prof !64
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr readonly align 1 %74, i64 %70, i1 false), !alias.scope !5047
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr readonly align 1 %73, i64 %69, i1 false), !alias.scope !5047
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %73, %72
-  %75 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %75, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %76
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %72, %71
+  %74 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %74, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %75
 
-76:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %77 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %75(ptr noundef %77) #61
+75:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %76 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %74(ptr noundef %76) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %76, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %76 ], [ %69, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %75, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %75 ], [ %68, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %71, ptr %19, align 8, !tbaa !69
-  store ptr %71, ptr %21, align 8, !tbaa !86
+  store ptr %70, ptr %19, align 8, !tbaa !69
+  store ptr %70, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %68, %61
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %67, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre61, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %69, %67 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %77 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %77, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %66, %65, %.thread.i.i
-  %.ph = phi i32 [ %.pre58, %66 ], [ %64, %65 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %65, %64, %.thread.i.i
+  %.ph = phi i32 [ %.pre58, %65 ], [ %.pre59, %64 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %71, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %70, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %79 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %78, ptr %10, align 8, !tbaa !80
   %80 = zext i32 %79 to i64
@@ -291626,79 +291780,86 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %.critedge, %41, %4
 61:                                               ; preds = %58
   %62 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %62, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %63
+  %.pre59 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %63
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %61
+  %.pre61 = zext i32 %.pre59 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 63:                                               ; preds = %61
-  %64 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %64, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %65, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre59, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %64, !prof !64
 
 .thread.i.i:                                      ; preds = %63
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-65:                                               ; preds = %63
+64:                                               ; preds = %63
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %68 [
+  switch i32 %.pre.i.i, label %67 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %66
+    i32 3, label %65
   ]
 
-66:                                               ; preds = %65
-  %67 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+65:                                               ; preds = %64
+  %66 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre58 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %67, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %66, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %66
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %65
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %68
+  br label %67
 
-68:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %65
-  %69 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %64, %65 ]
-  %70 = zext i32 %69 to i64
-  %71 = tail call noalias ptr @malloc(i64 noundef %70) #64
-  %.not7.not.i.i = icmp eq ptr %71, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %72, !prof !64
+67:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %64
+  %68 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre59, %64 ]
+  %69 = zext i32 %68 to i64
+  %70 = tail call noalias ptr @malloc(i64 noundef %69) #64
+  %.not7.not.i.i = icmp eq ptr %70, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %71, !prof !64
 
-72:                                               ; preds = %68
-  %.not.i.i.i = icmp eq i32 %69, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %73, !prof !64
+71:                                               ; preds = %67
+  %.not.i.i.i = icmp eq i32 %68, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %72, !prof !64
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr readonly align 1 %74, i64 %70, i1 false), !alias.scope !5051
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr readonly align 1 %73, i64 %69, i1 false), !alias.scope !5051
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %73, %72
-  %75 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %75, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %76
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %72, %71
+  %74 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %74, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %75
 
-76:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %77 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %75(ptr noundef %77) #61
+75:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %76 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %74(ptr noundef %76) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %76, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %76 ], [ %69, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %75, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %75 ], [ %68, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %71, ptr %19, align 8, !tbaa !69
-  store ptr %71, ptr %21, align 8, !tbaa !86
+  store ptr %70, ptr %19, align 8, !tbaa !69
+  store ptr %70, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %68, %61
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %67, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre61, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %69, %67 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %77 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %77, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %66, %65, %.thread.i.i
-  %.ph = phi i32 [ %.pre58, %66 ], [ %64, %65 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %65, %64, %.thread.i.i
+  %.ph = phi i32 [ %.pre58, %65 ], [ %.pre59, %64 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %71, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %70, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %79 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %78, ptr %10, align 8, !tbaa !80
   %80 = zext i32 %79 to i64
@@ -295239,80 +295400,87 @@ _ZNK2OT3SVG8sanitizeEP21hb_sanitize_context_t.exit.thread: ; preds = %45, %55, %
 119:                                              ; preds = %_ZNK2OT3SVG8sanitizeEP21hb_sanitize_context_t.exit.thread
   %120 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i30 = icmp eq i32 %120, 0
-  br i1 %.not.i.i30, label %hb_blob_get_data_writable.exit.thread, label %121
+  %.pre79 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i30, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %121
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %119
+  %.pre81 = zext i32 %.pre79 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 121:                                              ; preds = %119
-  %122 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %122, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %123, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre79, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %122, !prof !64
 
 .thread.i.i:                                      ; preds = %121
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-123:                                              ; preds = %121
+122:                                              ; preds = %121
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %126 [
+  switch i32 %.pre.i.i, label %125 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %124
+    i32 3, label %123
   ]
 
-124:                                              ; preds = %123
-  %125 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+123:                                              ; preds = %122
+  %124 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre78 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %125, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %124, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %124
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %123
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %126
+  br label %125
 
-126:                                              ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %123
-  %127 = phi i32 [ %.pre78, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %122, %123 ]
-  %128 = zext i32 %127 to i64
-  %129 = tail call noalias ptr @malloc(i64 noundef %128) #64
-  %.not7.not.i.i = icmp eq ptr %129, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %130, !prof !64
+125:                                              ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %122
+  %126 = phi i32 [ %.pre78, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre79, %122 ]
+  %127 = zext i32 %126 to i64
+  %128 = tail call noalias ptr @malloc(i64 noundef %127) #64
+  %.not7.not.i.i = icmp eq ptr %128, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %129, !prof !64
 
-130:                                              ; preds = %126
-  %.not.i.i.i = icmp eq i32 %127, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %131, !prof !64
+129:                                              ; preds = %125
+  %.not.i.i.i = icmp eq i32 %126, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %130, !prof !64
 
-131:                                              ; preds = %130
-  %132 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %129, ptr readonly align 1 %132, i64 %128, i1 false), !alias.scope !5058
+130:                                              ; preds = %129
+  %131 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %128, ptr readonly align 1 %131, i64 %127, i1 false), !alias.scope !5058
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %131, %130
-  %133 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %133, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %134
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %130, %129
+  %132 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %132, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %133
 
-134:                                              ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %135 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %133(ptr noundef %135) #61
+133:                                              ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %134 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %132(ptr noundef %134) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %134, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %134 ], [ %127, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %133, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %133 ], [ %126, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %129, ptr %19, align 8, !tbaa !69
-  store ptr %129, ptr %21, align 8, !tbaa !86
+  store ptr %128, ptr %19, align 8, !tbaa !69
+  store ptr %128, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %126, %119
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %125, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre81, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %127, %125 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %135 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %135, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %124, %123, %.thread.i.i
-  %.ph81 = phi i32 [ %.pre78, %124 ], [ %122, %123 ], [ 0, %.thread.i.i ]
-  %.pr82 = load ptr, ptr %19, align 8, !tbaa !69
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %123, %122, %.thread.i.i
+  %.ph83 = phi i32 [ %.pre78, %123 ], [ %.pre79, %122 ], [ 0, %.thread.i.i ]
+  %.pr84 = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %136 = phi ptr [ %.pr82, %hb_blob_get_data_writable.exitthread-pre-split ], [ %129, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
-  %137 = phi i32 [ %.ph81, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %136 = phi ptr [ %.pr84, %hb_blob_get_data_writable.exitthread-pre-split ], [ %128, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %137 = phi i32 [ %.ph83, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %136, ptr %10, align 8, !tbaa !80
   %138 = zext i32 %137 to i64
   %139 = getelementptr inbounds nuw i8, ptr %136, i64 %138
@@ -295874,79 +296042,86 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %.critedge, %41, %4
 61:                                               ; preds = %58
   %62 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %62, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %63
+  %.pre59 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %63
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %61
+  %.pre61 = zext i32 %.pre59 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 63:                                               ; preds = %61
-  %64 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %64, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %65, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre59, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %64, !prof !64
 
 .thread.i.i:                                      ; preds = %63
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-65:                                               ; preds = %63
+64:                                               ; preds = %63
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %68 [
+  switch i32 %.pre.i.i, label %67 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %66
+    i32 3, label %65
   ]
 
-66:                                               ; preds = %65
-  %67 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+65:                                               ; preds = %64
+  %66 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre58 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %67, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %66, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %66
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %65
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %68
+  br label %67
 
-68:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %65
-  %69 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %64, %65 ]
-  %70 = zext i32 %69 to i64
-  %71 = tail call noalias ptr @malloc(i64 noundef %70) #64
-  %.not7.not.i.i = icmp eq ptr %71, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %72, !prof !64
+67:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %64
+  %68 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre59, %64 ]
+  %69 = zext i32 %68 to i64
+  %70 = tail call noalias ptr @malloc(i64 noundef %69) #64
+  %.not7.not.i.i = icmp eq ptr %70, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %71, !prof !64
 
-72:                                               ; preds = %68
-  %.not.i.i.i = icmp eq i32 %69, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %73, !prof !64
+71:                                               ; preds = %67
+  %.not.i.i.i = icmp eq i32 %68, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %72, !prof !64
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr readonly align 1 %74, i64 %70, i1 false), !alias.scope !5062
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr readonly align 1 %73, i64 %69, i1 false), !alias.scope !5062
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %73, %72
-  %75 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %75, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %76
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %72, %71
+  %74 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %74, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %75
 
-76:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %77 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %75(ptr noundef %77) #61
+75:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %76 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %74(ptr noundef %76) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %76, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %76 ], [ %69, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %75, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %75 ], [ %68, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %71, ptr %19, align 8, !tbaa !69
-  store ptr %71, ptr %21, align 8, !tbaa !86
+  store ptr %70, ptr %19, align 8, !tbaa !69
+  store ptr %70, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %68, %61
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %67, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre61, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %69, %67 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %77 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %77, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %66, %65, %.thread.i.i
-  %.ph = phi i32 [ %.pre58, %66 ], [ %64, %65 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %65, %64, %.thread.i.i
+  %.ph = phi i32 [ %.pre58, %65 ], [ %.pre59, %64 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %71, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %70, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %79 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %78, ptr %10, align 8, !tbaa !80
   %80 = zext i32 %79 to i64
@@ -296549,79 +296724,86 @@ _ZNK2OT4CBDT8sanitizeEP21hb_sanitize_context_t.exit.thread: ; preds = %_ZNK2OT4C
 68:                                               ; preds = %_ZNK2OT4CBDT8sanitizeEP21hb_sanitize_context_t.exit.thread
   %69 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %69, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %70
+  %.pre73 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %70
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %68
+  %.pre75 = zext i32 %.pre73 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 70:                                               ; preds = %68
-  %71 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %71, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %72, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre73, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %71, !prof !64
 
 .thread.i.i:                                      ; preds = %70
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-72:                                               ; preds = %70
+71:                                               ; preds = %70
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %75 [
+  switch i32 %.pre.i.i, label %74 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %73
+    i32 3, label %72
   ]
 
-73:                                               ; preds = %72
-  %74 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+72:                                               ; preds = %71
+  %73 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre72 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %74, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %73, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %73
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %72
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %75
+  br label %74
 
-75:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %72
-  %76 = phi i32 [ %.pre72, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %71, %72 ]
-  %77 = zext i32 %76 to i64
-  %78 = tail call noalias ptr @malloc(i64 noundef %77) #64
-  %.not7.not.i.i = icmp eq ptr %78, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %79, !prof !64
+74:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %71
+  %75 = phi i32 [ %.pre72, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre73, %71 ]
+  %76 = zext i32 %75 to i64
+  %77 = tail call noalias ptr @malloc(i64 noundef %76) #64
+  %.not7.not.i.i = icmp eq ptr %77, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %78, !prof !64
 
-79:                                               ; preds = %75
-  %.not.i.i.i = icmp eq i32 %76, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %80, !prof !64
+78:                                               ; preds = %74
+  %.not.i.i.i = icmp eq i32 %75, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %79, !prof !64
 
-80:                                               ; preds = %79
-  %81 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr readonly align 1 %81, i64 %77, i1 false), !alias.scope !5069
+79:                                               ; preds = %78
+  %80 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr readonly align 1 %80, i64 %76, i1 false), !alias.scope !5069
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %80, %79
-  %82 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %82, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %83
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %79, %78
+  %81 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %81, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %82
 
-83:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %84 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %82(ptr noundef %84) #61
+82:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %83 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %81(ptr noundef %83) #61
   %.pre71.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %83, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre71 = phi i32 [ %.pre71.pre, %83 ], [ %76, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %82, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre71 = phi i32 [ %.pre71.pre, %82 ], [ %75, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %78, ptr %19, align 8, !tbaa !69
-  store ptr %78, ptr %21, align 8, !tbaa !86
+  store ptr %77, ptr %19, align 8, !tbaa !69
+  store ptr %77, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %75, %68
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %74, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre75, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %76, %74 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %84 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %84, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %73, %72, %.thread.i.i
-  %.ph = phi i32 [ %.pre72, %73 ], [ %71, %72 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %72, %71, %.thread.i.i
+  %.ph = phi i32 [ %.pre72, %72 ], [ %.pre73, %71 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %85 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %78, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %85 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %77, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %86 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre71, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %85, ptr %10, align 8, !tbaa !80
   %87 = zext i32 %86 to i64
@@ -297122,79 +297304,86 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %.critedge, %41, %4
 61:                                               ; preds = %58
   %62 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %62, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %63
+  %.pre59 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %63
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %61
+  %.pre61 = zext i32 %.pre59 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 63:                                               ; preds = %61
-  %64 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %64, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %65, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre59, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %64, !prof !64
 
 .thread.i.i:                                      ; preds = %63
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-65:                                               ; preds = %63
+64:                                               ; preds = %63
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %68 [
+  switch i32 %.pre.i.i, label %67 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %66
+    i32 3, label %65
   ]
 
-66:                                               ; preds = %65
-  %67 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+65:                                               ; preds = %64
+  %66 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre58 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %67, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %66, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %66
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %65
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %68
+  br label %67
 
-68:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %65
-  %69 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %64, %65 ]
-  %70 = zext i32 %69 to i64
-  %71 = tail call noalias ptr @malloc(i64 noundef %70) #64
-  %.not7.not.i.i = icmp eq ptr %71, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %72, !prof !64
+67:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %64
+  %68 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre59, %64 ]
+  %69 = zext i32 %68 to i64
+  %70 = tail call noalias ptr @malloc(i64 noundef %69) #64
+  %.not7.not.i.i = icmp eq ptr %70, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %71, !prof !64
 
-72:                                               ; preds = %68
-  %.not.i.i.i = icmp eq i32 %69, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %73, !prof !64
+71:                                               ; preds = %67
+  %.not.i.i.i = icmp eq i32 %68, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %72, !prof !64
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr readonly align 1 %74, i64 %70, i1 false), !alias.scope !5073
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr readonly align 1 %73, i64 %69, i1 false), !alias.scope !5073
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %73, %72
-  %75 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %75, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %76
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %72, %71
+  %74 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %74, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %75
 
-76:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %77 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %75(ptr noundef %77) #61
+75:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %76 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %74(ptr noundef %76) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %76, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %76 ], [ %69, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %75, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %75 ], [ %68, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %71, ptr %19, align 8, !tbaa !69
-  store ptr %71, ptr %21, align 8, !tbaa !86
+  store ptr %70, ptr %19, align 8, !tbaa !69
+  store ptr %70, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %68, %61
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %67, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre61, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %69, %67 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %77 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %77, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %66, %65, %.thread.i.i
-  %.ph = phi i32 [ %.pre58, %66 ], [ %64, %65 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %65, %64, %.thread.i.i
+  %.ph = phi i32 [ %.pre58, %65 ], [ %.pre59, %64 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %71, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %70, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %79 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %78, ptr %10, align 8, !tbaa !80
   %80 = zext i32 %79 to i64
@@ -298647,79 +298836,86 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %.critedge, %41, %4
 61:                                               ; preds = %58
   %62 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %62, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %63
+  %.pre59 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %63
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %61
+  %.pre61 = zext i32 %.pre59 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 63:                                               ; preds = %61
-  %64 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %64, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %65, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre59, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %64, !prof !64
 
 .thread.i.i:                                      ; preds = %63
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-65:                                               ; preds = %63
+64:                                               ; preds = %63
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %68 [
+  switch i32 %.pre.i.i, label %67 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %66
+    i32 3, label %65
   ]
 
-66:                                               ; preds = %65
-  %67 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+65:                                               ; preds = %64
+  %66 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre58 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %67, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %66, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %66
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %65
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %68
+  br label %67
 
-68:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %65
-  %69 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %64, %65 ]
-  %70 = zext i32 %69 to i64
-  %71 = tail call noalias ptr @malloc(i64 noundef %70) #64
-  %.not7.not.i.i = icmp eq ptr %71, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %72, !prof !64
+67:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %64
+  %68 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre59, %64 ]
+  %69 = zext i32 %68 to i64
+  %70 = tail call noalias ptr @malloc(i64 noundef %69) #64
+  %.not7.not.i.i = icmp eq ptr %70, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %71, !prof !64
 
-72:                                               ; preds = %68
-  %.not.i.i.i = icmp eq i32 %69, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %73, !prof !64
+71:                                               ; preds = %67
+  %.not.i.i.i = icmp eq i32 %68, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %72, !prof !64
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr readonly align 1 %74, i64 %70, i1 false), !alias.scope !5081
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr readonly align 1 %73, i64 %69, i1 false), !alias.scope !5081
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %73, %72
-  %75 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %75, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %76
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %72, %71
+  %74 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %74, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %75
 
-76:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %77 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %75(ptr noundef %77) #61
+75:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %76 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %74(ptr noundef %76) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %76, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %76 ], [ %69, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %75, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %75 ], [ %68, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %71, ptr %19, align 8, !tbaa !69
-  store ptr %71, ptr %21, align 8, !tbaa !86
+  store ptr %70, ptr %19, align 8, !tbaa !69
+  store ptr %70, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %68, %61
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %67, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre61, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %69, %67 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %77 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %77, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %66, %65, %.thread.i.i
-  %.ph = phi i32 [ %.pre58, %66 ], [ %64, %65 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %65, %64, %.thread.i.i
+  %.ph = phi i32 [ %.pre58, %65 ], [ %.pre59, %64 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %71, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %70, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %79 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %78, ptr %10, align 8, !tbaa !80
   %80 = zext i32 %79 to i64
@@ -299828,79 +300024,86 @@ _ZNK2OT4head8sanitizeEP21hb_sanitize_context_t.exit.thread: ; preds = %._ZNK2OT4
 79:                                               ; preds = %_ZNK2OT4head8sanitizeEP21hb_sanitize_context_t.exit.thread
   %80 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %80, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %81
+  %.pre71 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %81
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %79
+  %.pre73 = zext i32 %.pre71 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 81:                                               ; preds = %79
-  %82 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %82, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %83, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre71, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %82, !prof !64
 
 .thread.i.i:                                      ; preds = %81
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-83:                                               ; preds = %81
+82:                                               ; preds = %81
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %86 [
+  switch i32 %.pre.i.i, label %85 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %84
+    i32 3, label %83
   ]
 
-84:                                               ; preds = %83
-  %85 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+83:                                               ; preds = %82
+  %84 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre70 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %85, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %84, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %84
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %83
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %86
+  br label %85
 
-86:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %83
-  %87 = phi i32 [ %.pre70, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %82, %83 ]
-  %88 = zext i32 %87 to i64
-  %89 = tail call noalias ptr @malloc(i64 noundef %88) #64
-  %.not7.not.i.i = icmp eq ptr %89, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %90, !prof !64
+85:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %82
+  %86 = phi i32 [ %.pre70, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre71, %82 ]
+  %87 = zext i32 %86 to i64
+  %88 = tail call noalias ptr @malloc(i64 noundef %87) #64
+  %.not7.not.i.i = icmp eq ptr %88, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %89, !prof !64
 
-90:                                               ; preds = %86
-  %.not.i.i.i = icmp eq i32 %87, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %91, !prof !64
+89:                                               ; preds = %85
+  %.not.i.i.i = icmp eq i32 %86, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %90, !prof !64
 
-91:                                               ; preds = %90
-  %92 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %89, ptr readonly align 1 %92, i64 %88, i1 false), !alias.scope !5088
+90:                                               ; preds = %89
+  %91 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %88, ptr readonly align 1 %91, i64 %87, i1 false), !alias.scope !5088
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %91, %90
-  %93 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %93, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %94
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %90, %89
+  %92 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %92, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %93
 
-94:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %95 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %93(ptr noundef %95) #61
+93:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %94 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %92(ptr noundef %94) #61
   %.pre69.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %94, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre69 = phi i32 [ %.pre69.pre, %94 ], [ %87, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %93, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre69 = phi i32 [ %.pre69.pre, %93 ], [ %86, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %89, ptr %19, align 8, !tbaa !69
-  store ptr %89, ptr %21, align 8, !tbaa !86
+  store ptr %88, ptr %19, align 8, !tbaa !69
+  store ptr %88, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %86, %79
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %85, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre73, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %87, %85 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %95 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %95, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %84, %83, %.thread.i.i
-  %.ph = phi i32 [ %.pre70, %84 ], [ %82, %83 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %83, %82, %.thread.i.i
+  %.ph = phi i32 [ %.pre70, %83 ], [ %.pre71, %82 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %96 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %89, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %96 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %88, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %97 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre69, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %96, ptr %10, align 8, !tbaa !80
   %98 = zext i32 %97 to i64
@@ -300786,79 +300989,86 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %.critedge, %41, %4
 61:                                               ; preds = %58
   %62 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %62, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %63
+  %.pre59 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %63
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %61
+  %.pre61 = zext i32 %.pre59 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 63:                                               ; preds = %61
-  %64 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %64, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %65, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre59, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %64, !prof !64
 
 .thread.i.i:                                      ; preds = %63
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-65:                                               ; preds = %63
+64:                                               ; preds = %63
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %68 [
+  switch i32 %.pre.i.i, label %67 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %66
+    i32 3, label %65
   ]
 
-66:                                               ; preds = %65
-  %67 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+65:                                               ; preds = %64
+  %66 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre58 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %67, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %66, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %66
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %65
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %68
+  br label %67
 
-68:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %65
-  %69 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %64, %65 ]
-  %70 = zext i32 %69 to i64
-  %71 = tail call noalias ptr @malloc(i64 noundef %70) #64
-  %.not7.not.i.i = icmp eq ptr %71, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %72, !prof !64
+67:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %64
+  %68 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre59, %64 ]
+  %69 = zext i32 %68 to i64
+  %70 = tail call noalias ptr @malloc(i64 noundef %69) #64
+  %.not7.not.i.i = icmp eq ptr %70, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %71, !prof !64
 
-72:                                               ; preds = %68
-  %.not.i.i.i = icmp eq i32 %69, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %73, !prof !64
+71:                                               ; preds = %67
+  %.not.i.i.i = icmp eq i32 %68, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %72, !prof !64
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr readonly align 1 %74, i64 %70, i1 false), !alias.scope !5096
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr readonly align 1 %73, i64 %69, i1 false), !alias.scope !5096
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %73, %72
-  %75 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %75, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %76
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %72, %71
+  %74 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %74, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %75
 
-76:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %77 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %75(ptr noundef %77) #61
+75:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %76 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %74(ptr noundef %76) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %76, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %76 ], [ %69, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %75, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %75 ], [ %68, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %71, ptr %19, align 8, !tbaa !69
-  store ptr %71, ptr %21, align 8, !tbaa !86
+  store ptr %70, ptr %19, align 8, !tbaa !69
+  store ptr %70, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %68, %61
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %67, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre61, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %69, %67 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %77 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %77, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %66, %65, %.thread.i.i
-  %.ph = phi i32 [ %.pre58, %66 ], [ %64, %65 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %65, %64, %.thread.i.i
+  %.ph = phi i32 [ %.pre58, %65 ], [ %.pre59, %64 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %71, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %70, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %79 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %78, ptr %10, align 8, !tbaa !80
   %80 = zext i32 %79 to i64
@@ -301687,79 +301897,86 @@ _ZNK2OT4post8sanitizeEP21hb_sanitize_context_t.exit.thread44: ; preds = %_ZNK2OT
 127:                                              ; preds = %_ZNK2OT4post8sanitizeEP21hb_sanitize_context_t.exit.thread44
   %128 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %128, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %129
+  %.pre88 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %129
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %127
+  %.pre90 = zext i32 %.pre88 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 129:                                              ; preds = %127
-  %130 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %130, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %131, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre88, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %130, !prof !64
 
 .thread.i.i:                                      ; preds = %129
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-131:                                              ; preds = %129
+130:                                              ; preds = %129
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %134 [
+  switch i32 %.pre.i.i, label %133 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %132
+    i32 3, label %131
   ]
 
-132:                                              ; preds = %131
-  %133 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+131:                                              ; preds = %130
+  %132 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre87 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %133, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %132, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %132
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %131
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %134
+  br label %133
 
-134:                                              ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %131
-  %135 = phi i32 [ %.pre87, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %130, %131 ]
-  %136 = zext i32 %135 to i64
-  %137 = tail call noalias ptr @malloc(i64 noundef %136) #64
-  %.not7.not.i.i = icmp eq ptr %137, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %138, !prof !64
+133:                                              ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %130
+  %134 = phi i32 [ %.pre87, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre88, %130 ]
+  %135 = zext i32 %134 to i64
+  %136 = tail call noalias ptr @malloc(i64 noundef %135) #64
+  %.not7.not.i.i = icmp eq ptr %136, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %137, !prof !64
 
-138:                                              ; preds = %134
-  %.not.i.i.i31 = icmp eq i32 %135, 0
-  br i1 %.not.i.i.i31, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %139, !prof !64
+137:                                              ; preds = %133
+  %.not.i.i.i31 = icmp eq i32 %134, 0
+  br i1 %.not.i.i.i31, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %138, !prof !64
 
-139:                                              ; preds = %138
-  %140 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %137, ptr readonly align 1 %140, i64 %136, i1 false), !alias.scope !5101
+138:                                              ; preds = %137
+  %139 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %136, ptr readonly align 1 %139, i64 %135, i1 false), !alias.scope !5101
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %139, %138
-  %141 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %141, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %142
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %138, %137
+  %140 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %140, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %141
 
-142:                                              ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %143 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %141(ptr noundef %143) #61
+141:                                              ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %142 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %140(ptr noundef %142) #61
   %.pre86.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %142, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre86 = phi i32 [ %.pre86.pre, %142 ], [ %135, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %141, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre86 = phi i32 [ %.pre86.pre, %141 ], [ %134, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %137, ptr %19, align 8, !tbaa !69
-  store ptr %137, ptr %21, align 8, !tbaa !86
+  store ptr %136, ptr %19, align 8, !tbaa !69
+  store ptr %136, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %134, %127
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %133, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre90, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %135, %133 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %143 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %143, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %132, %131, %.thread.i.i
-  %.ph = phi i32 [ %.pre87, %132 ], [ %130, %131 ], [ 0, %.thread.i.i ]
-  %.pr91 = load ptr, ptr %19, align 8, !tbaa !69
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %131, %130, %.thread.i.i
+  %.ph = phi i32 [ %.pre87, %131 ], [ %.pre88, %130 ], [ 0, %.thread.i.i ]
+  %.pr93 = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %144 = phi ptr [ %.pr91, %hb_blob_get_data_writable.exitthread-pre-split ], [ %137, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %144 = phi ptr [ %.pr93, %hb_blob_get_data_writable.exitthread-pre-split ], [ %136, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %145 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre86, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %144, ptr %10, align 8, !tbaa !80
   %146 = zext i32 %145 to i64
@@ -302262,79 +302479,86 @@ _ZNK2OT4kern8sanitizeEP21hb_sanitize_context_t.exit.thread41: ; preds = %33, %37
 78:                                               ; preds = %_ZNK2OT4kern8sanitizeEP21hb_sanitize_context_t.exit.thread41
   %79 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %79, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %80
+  %.pre76 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %80
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %78
+  %.pre78 = zext i32 %.pre76 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 80:                                               ; preds = %78
-  %81 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %81, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %82, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre76, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %81, !prof !64
 
 .thread.i.i:                                      ; preds = %80
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-82:                                               ; preds = %80
+81:                                               ; preds = %80
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %85 [
+  switch i32 %.pre.i.i, label %84 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %83
+    i32 3, label %82
   ]
 
-83:                                               ; preds = %82
-  %84 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+82:                                               ; preds = %81
+  %83 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre75 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %84, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %83, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %83
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %82
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %85
+  br label %84
 
-85:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %82
-  %86 = phi i32 [ %.pre75, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %81, %82 ]
-  %87 = zext i32 %86 to i64
-  %88 = tail call noalias ptr @malloc(i64 noundef %87) #64
-  %.not7.not.i.i = icmp eq ptr %88, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %89, !prof !64
+84:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %81
+  %85 = phi i32 [ %.pre75, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre76, %81 ]
+  %86 = zext i32 %85 to i64
+  %87 = tail call noalias ptr @malloc(i64 noundef %86) #64
+  %.not7.not.i.i = icmp eq ptr %87, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %88, !prof !64
 
-89:                                               ; preds = %85
-  %.not.i.i.i = icmp eq i32 %86, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %90, !prof !64
+88:                                               ; preds = %84
+  %.not.i.i.i = icmp eq i32 %85, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %89, !prof !64
 
-90:                                               ; preds = %89
-  %91 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %88, ptr readonly align 1 %91, i64 %87, i1 false), !alias.scope !5108
+89:                                               ; preds = %88
+  %90 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr readonly align 1 %90, i64 %86, i1 false), !alias.scope !5108
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %90, %89
-  %92 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %92, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %93
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %89, %88
+  %91 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %91, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %92
 
-93:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %94 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %92(ptr noundef %94) #61
+92:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %93 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %91(ptr noundef %93) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %93, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %93 ], [ %86, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %92, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %92 ], [ %85, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %88, ptr %19, align 8, !tbaa !69
-  store ptr %88, ptr %21, align 8, !tbaa !86
+  store ptr %87, ptr %19, align 8, !tbaa !69
+  store ptr %87, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %85, %78
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %84, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre78, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %86, %84 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %94 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %94, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %83, %82, %.thread.i.i
-  %.ph = phi i32 [ %.pre75, %83 ], [ %81, %82 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %82, %81, %.thread.i.i
+  %.ph = phi i32 [ %.pre75, %82 ], [ %.pre76, %81 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %95 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %88, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %95 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %87, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %96 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %95, ptr %10, align 8, !tbaa !80
   %97 = zext i32 %96 to i64
@@ -311612,79 +311836,86 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %.critedge, %41, %4
 61:                                               ; preds = %58
   %62 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %62, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %63
+  %.pre59 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %63
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %61
+  %.pre61 = zext i32 %.pre59 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 63:                                               ; preds = %61
-  %64 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %64, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %65, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre59, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %64, !prof !64
 
 .thread.i.i:                                      ; preds = %63
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-65:                                               ; preds = %63
+64:                                               ; preds = %63
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %68 [
+  switch i32 %.pre.i.i, label %67 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %66
+    i32 3, label %65
   ]
 
-66:                                               ; preds = %65
-  %67 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+65:                                               ; preds = %64
+  %66 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre58 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %67, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %66, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %66
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %65
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %68
+  br label %67
 
-68:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %65
-  %69 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %64, %65 ]
-  %70 = zext i32 %69 to i64
-  %71 = tail call noalias ptr @malloc(i64 noundef %70) #64
-  %.not7.not.i.i = icmp eq ptr %71, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %72, !prof !64
+67:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %64
+  %68 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre59, %64 ]
+  %69 = zext i32 %68 to i64
+  %70 = tail call noalias ptr @malloc(i64 noundef %69) #64
+  %.not7.not.i.i = icmp eq ptr %70, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %71, !prof !64
 
-72:                                               ; preds = %68
-  %.not.i.i.i = icmp eq i32 %69, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %73, !prof !64
+71:                                               ; preds = %67
+  %.not.i.i.i = icmp eq i32 %68, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %72, !prof !64
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr readonly align 1 %74, i64 %70, i1 false), !alias.scope !5133
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr readonly align 1 %73, i64 %69, i1 false), !alias.scope !5133
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %73, %72
-  %75 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %75, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %76
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %72, %71
+  %74 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %74, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %75
 
-76:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %77 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %75(ptr noundef %77) #61
+75:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %76 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %74(ptr noundef %76) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %76, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %76 ], [ %69, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %75, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %75 ], [ %68, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %71, ptr %19, align 8, !tbaa !69
-  store ptr %71, ptr %21, align 8, !tbaa !86
+  store ptr %70, ptr %19, align 8, !tbaa !69
+  store ptr %70, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %68, %61
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %67, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre61, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %69, %67 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %77 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %77, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %66, %65, %.thread.i.i
-  %.ph = phi i32 [ %.pre58, %66 ], [ %64, %65 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %65, %64, %.thread.i.i
+  %.ph = phi i32 [ %.pre58, %65 ], [ %.pre59, %64 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %71, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %70, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %79 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %78, ptr %10, align 8, !tbaa !80
   %80 = zext i32 %79 to i64
@@ -313705,79 +313936,86 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %.critedge, %41, %4
 61:                                               ; preds = %58
   %62 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %62, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %63
+  %.pre59 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %63
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %61
+  %.pre61 = zext i32 %.pre59 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 63:                                               ; preds = %61
-  %64 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %64, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %65, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre59, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %64, !prof !64
 
 .thread.i.i:                                      ; preds = %63
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-65:                                               ; preds = %63
+64:                                               ; preds = %63
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %68 [
+  switch i32 %.pre.i.i, label %67 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %66
+    i32 3, label %65
   ]
 
-66:                                               ; preds = %65
-  %67 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+65:                                               ; preds = %64
+  %66 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre58 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %67, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %66, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %66
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %65
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %68
+  br label %67
 
-68:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %65
-  %69 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %64, %65 ]
-  %70 = zext i32 %69 to i64
-  %71 = tail call noalias ptr @malloc(i64 noundef %70) #64
-  %.not7.not.i.i = icmp eq ptr %71, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %72, !prof !64
+67:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %64
+  %68 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre59, %64 ]
+  %69 = zext i32 %68 to i64
+  %70 = tail call noalias ptr @malloc(i64 noundef %69) #64
+  %.not7.not.i.i = icmp eq ptr %70, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %71, !prof !64
 
-72:                                               ; preds = %68
-  %.not.i.i.i = icmp eq i32 %69, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %73, !prof !64
+71:                                               ; preds = %67
+  %.not.i.i.i = icmp eq i32 %68, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %72, !prof !64
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr readonly align 1 %74, i64 %70, i1 false), !alias.scope !5143
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr readonly align 1 %73, i64 %69, i1 false), !alias.scope !5143
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %73, %72
-  %75 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %75, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %76
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %72, %71
+  %74 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %74, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %75
 
-76:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %77 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %75(ptr noundef %77) #61
+75:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %76 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %74(ptr noundef %76) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %76, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %76 ], [ %69, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %75, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %75 ], [ %68, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %71, ptr %19, align 8, !tbaa !69
-  store ptr %71, ptr %21, align 8, !tbaa !86
+  store ptr %70, ptr %19, align 8, !tbaa !69
+  store ptr %70, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %68, %61
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %67, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre61, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %69, %67 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %77 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %77, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %66, %65, %.thread.i.i
-  %.ph = phi i32 [ %.pre58, %66 ], [ %64, %65 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %65, %64, %.thread.i.i
+  %.ph = phi i32 [ %.pre58, %65 ], [ %.pre59, %64 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %71, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %70, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %79 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %78, ptr %10, align 8, !tbaa !80
   %80 = zext i32 %79 to i64
@@ -316414,79 +316652,86 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %.critedge, %41, %4
 61:                                               ; preds = %58
   %62 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %62, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %63
+  %.pre59 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %63
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %61
+  %.pre61 = zext i32 %.pre59 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 63:                                               ; preds = %61
-  %64 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %64, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %65, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre59, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %64, !prof !64
 
 .thread.i.i:                                      ; preds = %63
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-65:                                               ; preds = %63
+64:                                               ; preds = %63
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %68 [
+  switch i32 %.pre.i.i, label %67 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %66
+    i32 3, label %65
   ]
 
-66:                                               ; preds = %65
-  %67 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+65:                                               ; preds = %64
+  %66 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre58 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %67, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %66, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %66
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %65
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %68
+  br label %67
 
-68:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %65
-  %69 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %64, %65 ]
-  %70 = zext i32 %69 to i64
-  %71 = tail call noalias ptr @malloc(i64 noundef %70) #64
-  %.not7.not.i.i = icmp eq ptr %71, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %72, !prof !64
+67:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %64
+  %68 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre59, %64 ]
+  %69 = zext i32 %68 to i64
+  %70 = tail call noalias ptr @malloc(i64 noundef %69) #64
+  %.not7.not.i.i = icmp eq ptr %70, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %71, !prof !64
 
-72:                                               ; preds = %68
-  %.not.i.i.i = icmp eq i32 %69, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %73, !prof !64
+71:                                               ; preds = %67
+  %.not.i.i.i = icmp eq i32 %68, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %72, !prof !64
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr readonly align 1 %74, i64 %70, i1 false), !alias.scope !5154
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr readonly align 1 %73, i64 %69, i1 false), !alias.scope !5154
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %73, %72
-  %75 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %75, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %76
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %72, %71
+  %74 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %74, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %75
 
-76:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %77 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %75(ptr noundef %77) #61
+75:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %76 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %74(ptr noundef %76) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %76, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %76 ], [ %69, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %75, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %75 ], [ %68, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %71, ptr %19, align 8, !tbaa !69
-  store ptr %71, ptr %21, align 8, !tbaa !86
+  store ptr %70, ptr %19, align 8, !tbaa !69
+  store ptr %70, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %68, %61
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %67, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre61, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %69, %67 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %77 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %77, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %66, %65, %.thread.i.i
-  %.ph = phi i32 [ %.pre58, %66 ], [ %64, %65 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %65, %64, %.thread.i.i
+  %.ph = phi i32 [ %.pre58, %65 ], [ %.pre59, %64 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %71, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %70, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %79 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %78, ptr %10, align 8, !tbaa !80
   %80 = zext i32 %79 to i64
@@ -316988,79 +317233,86 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %.critedge, %41, %4
 61:                                               ; preds = %58
   %62 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %62, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %63
+  %.pre59 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %63
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %61
+  %.pre61 = zext i32 %.pre59 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 63:                                               ; preds = %61
-  %64 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %64, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %65, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre59, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %64, !prof !64
 
 .thread.i.i:                                      ; preds = %63
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-65:                                               ; preds = %63
+64:                                               ; preds = %63
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %68 [
+  switch i32 %.pre.i.i, label %67 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %66
+    i32 3, label %65
   ]
 
-66:                                               ; preds = %65
-  %67 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+65:                                               ; preds = %64
+  %66 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre58 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %67, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %66, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %66
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %65
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %68
+  br label %67
 
-68:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %65
-  %69 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %64, %65 ]
-  %70 = zext i32 %69 to i64
-  %71 = tail call noalias ptr @malloc(i64 noundef %70) #64
-  %.not7.not.i.i = icmp eq ptr %71, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %72, !prof !64
+67:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %64
+  %68 = phi i32 [ %.pre58, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre59, %64 ]
+  %69 = zext i32 %68 to i64
+  %70 = tail call noalias ptr @malloc(i64 noundef %69) #64
+  %.not7.not.i.i = icmp eq ptr %70, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %71, !prof !64
 
-72:                                               ; preds = %68
-  %.not.i.i.i = icmp eq i32 %69, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %73, !prof !64
+71:                                               ; preds = %67
+  %.not.i.i.i = icmp eq i32 %68, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %72, !prof !64
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr readonly align 1 %74, i64 %70, i1 false), !alias.scope !5159
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr readonly align 1 %73, i64 %69, i1 false), !alias.scope !5159
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %73, %72
-  %75 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %75, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %76
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %72, %71
+  %74 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %74, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %75
 
-76:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %77 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %75(ptr noundef %77) #61
+75:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %76 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %74(ptr noundef %76) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %76, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %76 ], [ %69, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %75, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %75 ], [ %68, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %71, ptr %19, align 8, !tbaa !69
-  store ptr %71, ptr %21, align 8, !tbaa !86
+  store ptr %70, ptr %19, align 8, !tbaa !69
+  store ptr %70, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %68, %61
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %67, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre61, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %69, %67 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %77 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %77, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %66, %65, %.thread.i.i
-  %.ph = phi i32 [ %.pre58, %66 ], [ %64, %65 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %65, %64, %.thread.i.i
+  %.ph = phi i32 [ %.pre58, %65 ], [ %.pre59, %64 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %71, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %78 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %70, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %79 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %78, ptr %10, align 8, !tbaa !80
   %80 = zext i32 %79 to i64
@@ -317554,79 +317806,86 @@ _ZNK2OT4_heaINS_4hheaEE8sanitizeEP21hb_sanitize_context_t.exit.thread: ; preds =
 68:                                               ; preds = %_ZNK2OT4_heaINS_4hheaEE8sanitizeEP21hb_sanitize_context_t.exit.thread
   %69 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %69, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %70
+  %.pre72 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %70
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %68
+  %.pre74 = zext i32 %.pre72 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 70:                                               ; preds = %68
-  %71 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %71, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %72, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre72, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %71, !prof !64
 
 .thread.i.i:                                      ; preds = %70
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-72:                                               ; preds = %70
+71:                                               ; preds = %70
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %75 [
+  switch i32 %.pre.i.i, label %74 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %73
+    i32 3, label %72
   ]
 
-73:                                               ; preds = %72
-  %74 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+72:                                               ; preds = %71
+  %73 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre71 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %74, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %73, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %73
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %72
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %75
+  br label %74
 
-75:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %72
-  %76 = phi i32 [ %.pre71, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %71, %72 ]
-  %77 = zext i32 %76 to i64
-  %78 = tail call noalias ptr @malloc(i64 noundef %77) #64
-  %.not7.not.i.i = icmp eq ptr %78, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %79, !prof !64
+74:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %71
+  %75 = phi i32 [ %.pre71, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre72, %71 ]
+  %76 = zext i32 %75 to i64
+  %77 = tail call noalias ptr @malloc(i64 noundef %76) #64
+  %.not7.not.i.i = icmp eq ptr %77, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %78, !prof !64
 
-79:                                               ; preds = %75
-  %.not.i.i.i = icmp eq i32 %76, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %80, !prof !64
+78:                                               ; preds = %74
+  %.not.i.i.i = icmp eq i32 %75, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %79, !prof !64
 
-80:                                               ; preds = %79
-  %81 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr readonly align 1 %81, i64 %77, i1 false), !alias.scope !5163
+79:                                               ; preds = %78
+  %80 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr readonly align 1 %80, i64 %76, i1 false), !alias.scope !5163
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %80, %79
-  %82 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %82, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %83
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %79, %78
+  %81 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %81, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %82
 
-83:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %84 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %82(ptr noundef %84) #61
+82:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %83 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %81(ptr noundef %83) #61
   %.pre70.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %83, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre70 = phi i32 [ %.pre70.pre, %83 ], [ %76, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %82, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre70 = phi i32 [ %.pre70.pre, %82 ], [ %75, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %78, ptr %19, align 8, !tbaa !69
-  store ptr %78, ptr %21, align 8, !tbaa !86
+  store ptr %77, ptr %19, align 8, !tbaa !69
+  store ptr %77, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %75, %68
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %74, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre74, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %76, %74 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %84 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %84, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %73, %72, %.thread.i.i
-  %.ph = phi i32 [ %.pre71, %73 ], [ %71, %72 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %72, %71, %.thread.i.i
+  %.ph = phi i32 [ %.pre71, %72 ], [ %.pre72, %71 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %85 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %78, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %85 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %77, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %86 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre70, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %85, ptr %10, align 8, !tbaa !80
   %87 = zext i32 %86 to i64
@@ -318000,79 +318259,86 @@ _ZNK2OT4_heaINS_4vheaEE8sanitizeEP21hb_sanitize_context_t.exit.thread: ; preds =
 68:                                               ; preds = %_ZNK2OT4_heaINS_4vheaEE8sanitizeEP21hb_sanitize_context_t.exit.thread
   %69 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i = icmp eq i32 %69, 0
-  br i1 %.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %70
+  %.pre72 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %70
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %68
+  %.pre74 = zext i32 %.pre72 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 70:                                               ; preds = %68
-  %71 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %71, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %72, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre72, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %71, !prof !64
 
 .thread.i.i:                                      ; preds = %70
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-72:                                               ; preds = %70
+71:                                               ; preds = %70
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %75 [
+  switch i32 %.pre.i.i, label %74 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %73
+    i32 3, label %72
   ]
 
-73:                                               ; preds = %72
-  %74 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+72:                                               ; preds = %71
+  %73 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre71 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %74, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %73, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %73
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %72
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %75
+  br label %74
 
-75:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %72
-  %76 = phi i32 [ %.pre71, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %71, %72 ]
-  %77 = zext i32 %76 to i64
-  %78 = tail call noalias ptr @malloc(i64 noundef %77) #64
-  %.not7.not.i.i = icmp eq ptr %78, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %79, !prof !64
+74:                                               ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %71
+  %75 = phi i32 [ %.pre71, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre72, %71 ]
+  %76 = zext i32 %75 to i64
+  %77 = tail call noalias ptr @malloc(i64 noundef %76) #64
+  %.not7.not.i.i = icmp eq ptr %77, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %78, !prof !64
 
-79:                                               ; preds = %75
-  %.not.i.i.i = icmp eq i32 %76, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %80, !prof !64
+78:                                               ; preds = %74
+  %.not.i.i.i = icmp eq i32 %75, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %79, !prof !64
 
-80:                                               ; preds = %79
-  %81 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr readonly align 1 %81, i64 %77, i1 false), !alias.scope !5167
+79:                                               ; preds = %78
+  %80 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr readonly align 1 %80, i64 %76, i1 false), !alias.scope !5167
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %80, %79
-  %82 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %82, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %83
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %79, %78
+  %81 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %81, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %82
 
-83:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %84 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %82(ptr noundef %84) #61
+82:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %83 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %81(ptr noundef %83) #61
   %.pre70.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %83, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre70 = phi i32 [ %.pre70.pre, %83 ], [ %76, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %82, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre70 = phi i32 [ %.pre70.pre, %82 ], [ %75, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %78, ptr %19, align 8, !tbaa !69
-  store ptr %78, ptr %21, align 8, !tbaa !86
+  store ptr %77, ptr %19, align 8, !tbaa !69
+  store ptr %77, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %75, %68
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %74, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre74, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %76, %74 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %84 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %84, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %73, %72, %.thread.i.i
-  %.ph = phi i32 [ %.pre71, %73 ], [ %71, %72 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %72, %71, %.thread.i.i
+  %.ph = phi i32 [ %.pre71, %72 ], [ %.pre72, %71 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %85 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %78, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %85 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %77, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %86 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre70, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %85, ptr %10, align 8, !tbaa !80
   %87 = zext i32 %86 to i64
@@ -319301,79 +319567,86 @@ _ZNK2OT4name8sanitizeEP21hb_sanitize_context_t.exit.thread: ; preds = %37, %58, 
 133:                                              ; preds = %_ZNK2OT4name8sanitizeEP21hb_sanitize_context_t.exit.thread
   %134 = load atomic i32, ptr %16 monotonic, align 4
   %.not.i.i35 = icmp eq i32 %134, 0
-  br i1 %.not.i.i35, label %hb_blob_get_data_writable.exit.thread, label %135
+  %.pre92 = load i32, ptr %17, align 8, !tbaa !72
+  br i1 %.not.i.i35, label %.hb_blob_get_data_writable.exit.thread_crit_edge, label %135
+
+.hb_blob_get_data_writable.exit.thread_crit_edge: ; preds = %133
+  %.pre94 = zext i32 %.pre92 to i64
+  br label %hb_blob_get_data_writable.exit.thread
 
 135:                                              ; preds = %133
-  %136 = load i32, ptr %17, align 8, !tbaa !72
-  %.not.i11.i = icmp eq i32 %136, 0
-  br i1 %.not.i11.i, label %.thread.i.i, label %137, !prof !64
+  %.not.i11.i = icmp eq i32 %.pre92, 0
+  br i1 %.not.i11.i, label %.thread.i.i, label %136, !prof !64
 
 .thread.i.i:                                      ; preds = %135
   store i32 2, ptr %18, align 4, !tbaa !226
   br label %hb_blob_get_data_writable.exitthread-pre-split
 
-137:                                              ; preds = %135
+136:                                              ; preds = %135
   %.pre.i.i = load i32, ptr %18, align 4, !tbaa !226
-  switch i32 %.pre.i.i, label %140 [
+  switch i32 %.pre.i.i, label %139 [
     i32 2, label %hb_blob_get_data_writable.exitthread-pre-split
-    i32 3, label %138
+    i32 3, label %137
   ]
 
-138:                                              ; preds = %137
-  %139 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+137:                                              ; preds = %136
+  %138 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %.pre91 = load i32, ptr %17, align 8, !tbaa !72
-  br i1 %139, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
+  br i1 %138, label %hb_blob_get_data_writable.exitthread-pre-split, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i
 
-_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %138
+_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i: ; preds = %137
   store i32 1, ptr %18, align 4, !tbaa !226
-  br label %140
+  br label %139
 
-140:                                              ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %137
-  %141 = phi i32 [ %.pre91, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %136, %137 ]
-  %142 = zext i32 %141 to i64
-  %143 = tail call noalias ptr @malloc(i64 noundef %142) #64
-  %.not7.not.i.i = icmp eq ptr %143, null
-  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %144, !prof !64
+139:                                              ; preds = %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i, %136
+  %140 = phi i32 [ %.pre91, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i.i ], [ %.pre92, %136 ]
+  %141 = zext i32 %140 to i64
+  %142 = tail call noalias ptr @malloc(i64 noundef %141) #64
+  %.not7.not.i.i = icmp eq ptr %142, null
+  br i1 %.not7.not.i.i, label %hb_blob_get_data_writable.exit.thread, label %143, !prof !64
 
-144:                                              ; preds = %140
-  %.not.i.i.i = icmp eq i32 %141, 0
-  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %145, !prof !64
+143:                                              ; preds = %139
+  %.not.i.i.i = icmp eq i32 %140, 0
+  br i1 %.not.i.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i.i, label %144, !prof !64
 
-145:                                              ; preds = %144
-  %146 = load ptr, ptr %19, align 8, !tbaa !69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %143, ptr readonly align 1 %146, i64 %142, i1 false), !alias.scope !5182
+144:                                              ; preds = %143
+  %145 = load ptr, ptr %19, align 8, !tbaa !69
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %142, ptr readonly align 1 %145, i64 %141, i1 false), !alias.scope !5182
   br label %_ZL9hb_memcpyPvPKvm.exit.i.i
 
-_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %145, %144
-  %147 = load ptr, ptr %20, align 8, !tbaa !85
-  %.not.i9.i.i = icmp eq ptr %147, null
-  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %148
+_ZL9hb_memcpyPvPKvm.exit.i.i:                     ; preds = %144, %143
+  %146 = load ptr, ptr %20, align 8, !tbaa !85
+  %.not.i9.i.i = icmp eq ptr %146, null
+  br i1 %.not.i9.i.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i, label %147
 
-148:                                              ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %149 = load ptr, ptr %21, align 8, !tbaa !86
-  tail call void %147(ptr noundef %149) #61
+147:                                              ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %148 = load ptr, ptr %21, align 8, !tbaa !86
+  tail call void %146(ptr noundef %148) #61
   %.pre.pre = load i32, ptr %17, align 8, !tbaa !72
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %148, %_ZL9hb_memcpyPvPKvm.exit.i.i
-  %.pre = phi i32 [ %.pre.pre, %148 ], [ %141, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i:      ; preds = %147, %_ZL9hb_memcpyPvPKvm.exit.i.i
+  %.pre = phi i32 [ %.pre.pre, %147 ], [ %140, %_ZL9hb_memcpyPvPKvm.exit.i.i ]
   store i32 2, ptr %18, align 4, !tbaa !226
-  store ptr %143, ptr %19, align 8, !tbaa !69
-  store ptr %143, ptr %21, align 8, !tbaa !86
+  store ptr %142, ptr %19, align 8, !tbaa !69
+  store ptr %142, ptr %21, align 8, !tbaa !86
   store ptr @free, ptr %20, align 8, !tbaa !85
   br label %hb_blob_get_data_writable.exit
 
-hb_blob_get_data_writable.exit.thread:            ; preds = %140, %133
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+hb_blob_get_data_writable.exit.thread:            ; preds = %139, %.hb_blob_get_data_writable.exit.thread_crit_edge
+  %.pre-phi = phi i64 [ %.pre94, %.hb_blob_get_data_writable.exit.thread_crit_edge ], [ %141, %139 ]
+  store ptr null, ptr %10, align 8, !tbaa !80
+  %149 = getelementptr inbounds nuw i8, ptr null, i64 %.pre-phi
+  store ptr %149, ptr %11, align 8, !tbaa !81
   br label %.loopexit
 
-hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %138, %137, %.thread.i.i
-  %.ph = phi i32 [ %.pre91, %138 ], [ %136, %137 ], [ 0, %.thread.i.i ]
+hb_blob_get_data_writable.exitthread-pre-split:   ; preds = %137, %136, %.thread.i.i
+  %.ph = phi i32 [ %.pre91, %137 ], [ %.pre92, %136 ], [ 0, %.thread.i.i ]
   %.pr = load ptr, ptr %19, align 8, !tbaa !69
   br label %hb_blob_get_data_writable.exit
 
 hb_blob_get_data_writable.exit:                   ; preds = %hb_blob_get_data_writable.exitthread-pre-split, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i
-  %150 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %143, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
+  %150 = phi ptr [ %.pr, %hb_blob_get_data_writable.exitthread-pre-split ], [ %142, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   %151 = phi i32 [ %.ph, %hb_blob_get_data_writable.exitthread-pre-split ], [ %.pre, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i.i ]
   store ptr %150, ptr %10, align 8, !tbaa !80
   %152 = zext i32 %151 to i64

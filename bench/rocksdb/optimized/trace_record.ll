@@ -1616,7 +1616,7 @@ define void @_ZN7rocksdb24MultiGetQueryTraceRecordD0Ev(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb24MultiGetQueryTraceRecord18GetColumnFamilyIDsEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.10") align 8 captures(none) initializes((8, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb24MultiGetQueryTraceRecord18GetColumnFamilyIDsEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.10") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !41
@@ -1624,36 +1624,38 @@ define void @_ZNK7rocksdb24MultiGetQueryTraceRecord18GetColumnFamilyIDsEv(ptr de
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %10, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %5, %6
-  br i1 %.not.i.i.i.i, label %.thread, label %11
+  br i1 %.not.i.i.i.i, label %.thread, label %12
 
 .thread:                                          ; preds = %2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  %10 = getelementptr inbounds i8, ptr null, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  store ptr %10, ptr %11, align 8, !tbaa !46
   br label %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit
 
-11:                                               ; preds = %2
-  %12 = icmp ugt i64 %9, 9223372036854775804
-  br i1 %12, label %.noexc.i.i, label %13, !prof !45
+12:                                               ; preds = %2
+  %13 = icmp ugt i64 %9, 9223372036854775804
+  br i1 %13, label %.noexc.i.i, label %14, !prof !45
 
-.noexc.i.i:                                       ; preds = %11
+.noexc.i.i:                                       ; preds = %12
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #24
   unreachable
 
-13:                                               ; preds = %11
-  %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #20
-  store ptr %14, ptr %0, align 8, !tbaa !44
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %9
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %15, ptr %16, align 8, !tbaa !46
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %14, ptr align 4 %6, i64 %9, i1 false)
+14:                                               ; preds = %12
+  %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #20
+  store ptr %15, ptr %0, align 8, !tbaa !44
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %9
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %16, ptr %17, align 8, !tbaa !46
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %15, ptr align 4 %6, i64 %9, i1 false)
   br label %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit
 
-_ZNSt6vectorIjSaIjEEC2ERKS1_.exit:                ; preds = %.thread, %13
-  %17 = phi ptr [ null, %.thread ], [ %15, %13 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %17, ptr %18, align 8, !tbaa !41
+_ZNSt6vectorIjSaIjEEC2ERKS1_.exit:                ; preds = %.thread, %14
+  %18 = phi ptr [ %10, %.thread ], [ %16, %14 ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %18, ptr %19, align 8, !tbaa !41
   ret void
 }
 
@@ -1677,30 +1679,36 @@ define void @_ZNK7rocksdb24MultiGetQueryTraceRecord7GetKeysEv(ptr dead_on_unwind
 
 _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i: ; preds = %2
   %.not.i.i.i = icmp eq ptr %6, %4
-  br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.preheader.i.i
+  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE11_M_allocateEm.exit.thread.i.i, label %.lr.ph.i.i.i.i.preheader.i.i
+
+_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
+  %12 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr null, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %12, ptr %13, align 8, !tbaa !60
+  br label %.loopexit
 
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
-  %12 = shl nuw nsw i64 %10, 4
-  %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #20
-  store ptr %13, ptr %0, align 8, !tbaa !60
-  %14 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %13, i64 %10
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %14, ptr %15, align 8, !tbaa !63
+  %14 = shl nuw nsw i64 %10, 4
+  %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #20
+  store ptr %15, ptr %0, align 8, !tbaa !63
+  %16 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %15, i64 %10
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %16, ptr %17, align 8, !tbaa !60
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i
-  %.09.i.i.i.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i.i.i.i ], [ %13, %.lr.ph.i.i.i.i.preheader.i.i ]
-  %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i.i.i.i ], [ %4, %.lr.ph.i.i.i.i.preheader.i.i ]
+  %.09.i.i.i.i.i.i = phi ptr [ %19, %.lr.ph.i.i.i.i.i.i ], [ %15, %.lr.ph.i.i.i.i.preheader.i.i ]
+  %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %18, %.lr.ph.i.i.i.i.i.i ], [ %4, %.lr.ph.i.i.i.i.preheader.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.09.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(89) %.sroa.04.08.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !64
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 96
-  %17 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i.i = icmp eq ptr %16, %6
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i.i = icmp eq ptr %18, %6
   br i1 %.not.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !65
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ], [ %17, %.lr.ph.i.i.i.i.i.i ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.lcssa.i.i.i.i.i.i, ptr %18, align 8, !tbaa !66
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE11_M_allocateEm.exit.thread.i.i
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE11_M_allocateEm.exit.thread.i.i ], [ %19, %.lr.ph.i.i.i.i.i.i ]
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.lcssa.i.i.i.i.i.i, ptr %20, align 8, !tbaa !66
   ret void
 }
 
@@ -2312,10 +2320,10 @@ attributes #24 = { noreturn }
 !57 = distinct !{!57, !58}
 !58 = !{!"llvm.loop.mustprogress"}
 !59 = !{!50, !50, i64 0}
-!60 = !{!61, !62, i64 0}
+!60 = !{!61, !62, i64 16}
 !61 = !{!"_ZTSNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE17_Vector_impl_dataE", !62, i64 0, !62, i64 8, !62, i64 16}
 !62 = !{!"p1 _ZTSN7rocksdb5SliceE", !14, i64 0}
-!63 = !{!61, !62, i64 16}
+!63 = !{!61, !62, i64 0}
 !64 = !{i64 0, i64 8, !30, i64 8, i64 8, !31}
 !65 = distinct !{!65, !58}
 !66 = !{!61, !62, i64 8}

@@ -13051,72 +13051,75 @@ _ZNSt6vectorIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12Enco
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryESaIS4_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS4_S6_EEEvEET_SE_RKS5_.exit.thread, label %.lr.ph.i.i.i.i.preheader.i.i
 
 _ZNSt6vectorIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryESaIS4_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS4_S6_EEEvEET_SE_RKS5_.exit.thread: ; preds = %_ZNSt6vectorIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  %.sroa.14.019 = getelementptr inbounds nuw i8, ptr null, i64 %7
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  store ptr %.sroa.14.019, ptr %11, align 8, !tbaa !89
   br label %_ZSt8_DestroyIPN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryES4_EvT_S6_RSaIT0_E.exit.i
 
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %_ZNSt6vectorIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i.i
-  %11 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #28
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #28
           to label %.lr.ph.i.i.i.i.i.i unwind label %_ZNSt12_Vector_baseIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryESaIS4_EED2Ev.exit.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.preheader.i.i, %_ZSt10_ConstructIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryEJS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i = phi ptr [ %28, %_ZSt10_ConstructIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryEJS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %11, %.lr.ph.i.i.i.i.preheader.i.i ]
-  %.sroa.08.011.i.i.i.i.i.i = phi ptr [ %27, %_ZSt10_ConstructIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryEJS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %2, %.lr.ph.i.i.i.i.preheader.i.i ]
+  %.012.i.i.i.i.i.i = phi ptr [ %29, %_ZSt10_ConstructIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryEJS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %12, %.lr.ph.i.i.i.i.preheader.i.i ]
+  %.sroa.08.011.i.i.i.i.i.i = phi ptr [ %28, %_ZSt10_ConstructIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryEJS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %2, %.lr.ph.i.i.i.i.preheader.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.012.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.08.011.i.i.i.i.i.i, i64 12, i1 false)
-  %12 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 16
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i.i.i.i, i64 16
-  %14 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 32
-  store ptr %14, ptr %12, align 8, !tbaa !54
-  %15 = load ptr, ptr %13, align 8, !tbaa !25
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i.i.i.i, i64 32
-  %17 = icmp eq ptr %15, %16
-  br i1 %17, label %18, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i
+  %13 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i.i.i.i, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 32
+  store ptr %15, ptr %13, align 8, !tbaa !54
+  %16 = load ptr, ptr %14, align 8, !tbaa !25
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i.i.i.i, i64 32
+  %18 = icmp eq ptr %16, %17
+  br i1 %18, label %19, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i
 
-18:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i.i.i.i, i64 24
-  %20 = load i64, ptr %19, align 8, !tbaa !29
-  %21 = icmp ult i64 %20, 16
-  tail call void @llvm.assume(i1 %21)
-  %22 = add nuw nsw i64 %20, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(1) %16, i64 %22, i1 false)
+19:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i.i.i.i, i64 24
+  %21 = load i64, ptr %20, align 8, !tbaa !29
+  %22 = icmp ult i64 %21, 16
+  tail call void @llvm.assume(i1 %22)
+  %23 = add nuw nsw i64 %21, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(1) %17, i64 %23, i1 false)
   br label %_ZSt10_ConstructIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryEJS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  store ptr %15, ptr %12, align 8, !tbaa !25
-  %23 = load i64, ptr %16, align 8, !tbaa !56
-  store i64 %23, ptr %14, align 8, !tbaa !56
+  store ptr %16, ptr %13, align 8, !tbaa !25
+  %24 = load i64, ptr %17, align 8, !tbaa !56
+  store i64 %24, ptr %15, align 8, !tbaa !56
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i.i.i.i, i64 24
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !29
   br label %_ZSt10_ConstructIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryEJS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i
 
-_ZSt10_ConstructIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryEJS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i, %18
-  %24 = phi i64 [ %.pre.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i ], [ %20, %18 ]
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i.i.i.i, i64 24
-  %26 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 24
-  store i64 %24, ptr %26, align 8, !tbaa !29
-  store ptr %16, ptr %13, align 8, !tbaa !25
-  store i64 0, ptr %25, align 8, !tbaa !29
-  store i8 0, ptr %16, align 1, !tbaa !56
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i.i.i.i, i64 48
-  %28 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 48
-  %.not.i.i.i.i.i.i = icmp eq ptr %27, %4
+_ZSt10_ConstructIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryEJS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i, %19
+  %25 = phi i64 [ %.pre.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i ], [ %21, %19 ]
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i.i.i.i, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 24
+  store i64 %25, ptr %27, align 8, !tbaa !29
+  store ptr %17, ptr %14, align 8, !tbaa !25
+  store i64 0, ptr %26, align 8, !tbaa !29
+  store i8 0, ptr %17, align 1, !tbaa !56
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i.i.i.i, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 48
+  %.not.i.i.i.i.i.i = icmp eq ptr %28, %4
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryESaIS4_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS4_S6_EEEvEET_SE_RKS5_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !405
 
 _ZNSt12_Vector_baseIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryESaIS4_EED2Ev.exit.i: ; preds = %10, %.lr.ph.i.i.i.i.preheader.i.i
-  %29 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %.09 = extractvalue { ptr, i32 } %29, 0
-  %30 = tail call ptr @__cxa_begin_catch(ptr %.09) #26
+  %.09 = extractvalue { ptr, i32 } %30, 0
+  %31 = tail call ptr @__cxa_begin_catch(ptr %.09) #26
   invoke void @__cxa_end_catch()
           to label %_ZNSt6vectorIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryESaIS4_EED2Ev.exit unwind label %43
 
 _ZNSt6vectorIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryESaIS4_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS4_S6_EEEvEET_SE_RKS5_.exit: ; preds = %_ZSt10_ConstructIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryEJS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i
-  %31 = getelementptr inbounds nuw i8, ptr %11, i64 %7
   %.pre = load ptr, ptr %0, align 8, !tbaa !106
   %.pre16 = load ptr, ptr %3, align 8, !tbaa !86
+  %.sroa.14.0 = getelementptr inbounds nuw i8, ptr %12, i64 %7
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %11, ptr %0, align 8, !tbaa !106
-  store ptr %28, ptr %3, align 8, !tbaa !86
-  store ptr %31, ptr %32, align 8, !tbaa !89
+  store ptr %12, ptr %0, align 8, !tbaa !106
+  store ptr %29, ptr %3, align 8, !tbaa !86
+  store ptr %.sroa.14.0, ptr %32, align 8, !tbaa !89
   %.not4.i.i.i.i = icmp eq ptr %.pre, %.pre16
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryES4_EvT_S6_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 

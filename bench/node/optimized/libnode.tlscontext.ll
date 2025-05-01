@@ -1413,11 +1413,14 @@ sw.epilog:                                        ; preds = %sw.bb79, %if.then83
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4node4quic10TLSContext13getConnectionEP22ngtcp2_crypto_conn_ref(ptr noundef readonly captures(none) %ref) #4 align 2 {
+define dso_local noundef ptr @_ZN4node4quic10TLSContext13getConnectionEP22ngtcp2_crypto_conn_ref(ptr noundef %ref) #4 align 2 {
 entry:
-  %session_ = getelementptr inbounds nuw i8, ptr %ref, i64 40
-  %0 = load ptr, ptr %session_, align 8
-  %call2 = tail call noundef ptr @_ZNK4node4quic7SessioncvP11ngtcp2_connEv(ptr noundef nonnull align 8 dereferenceable(2616) %0) #19
+  %0 = ptrtoint ptr %ref to i64
+  %sub.i.i = add i64 %0, -8
+  %1 = inttoptr i64 %sub.i.i to ptr
+  %session_ = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %2 = load ptr, ptr %session_, align 8
+  %call2 = tail call noundef ptr @_ZNK4node4quic7SessioncvP11ngtcp2_connEv(ptr noundef nonnull align 8 dereferenceable(2616) %2) #19
   ret ptr %call2
 }
 
@@ -4847,8 +4850,11 @@ declare void @SSL_CTX_set_alpn_select_cb(ptr noundef, ptr noundef, ptr noundef) 
 define internal noundef range(i32 0, 4) i32 @_ZN4node4quic12_GLOBAL__N_121AlpnSelectionCallbackEP6ssl_stPPKhPhS5_jPv(ptr noundef %ssl, ptr noundef %out, ptr noundef %outlen, ptr noundef %in, i32 noundef %inlen, ptr readnone captures(none) %arg) #4 {
 entry:
   %requested = alloca %"class.std::__cxx11::basic_string", align 8
-  %call.i = tail call noundef nonnull align 8 dereferenceable(352) ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef 0) #19
-  %alpn = getelementptr inbounds nuw i8, ptr %call.i, i64 56
+  %call.i = tail call ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef 0) #19
+  %0 = ptrtoint ptr %call.i to i64
+  %sub.i.i.i = add i64 %0, -8
+  %1 = inttoptr i64 %sub.i.i.i to ptr
+  %alpn = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %requested, ptr noundef nonnull align 8 dereferenceable(32) %alpn) #19
   %call2 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %requested) #19
   %cmp = icmp ugt i64 %call2, 255
@@ -4886,8 +4892,11 @@ declare void @SSL_CTX_sess_set_new_cb(ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef i32 @_ZN4node4quic12_GLOBAL__N_118NewSessionCallbackEP6ssl_stP14ssl_session_st(ptr noundef %ssl, ptr noundef %session) #4 {
 entry:
-  %call.i = tail call noundef nonnull align 8 dereferenceable(352) ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef 0) #19
-  %call1 = tail call noundef i32 @_ZN4node4quic10TLSContext12OnNewSessionEP14ssl_session_st(ptr noundef nonnull align 8 dereferenceable(352) %call.i, ptr noundef %session)
+  %call.i = tail call ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef 0) #19
+  %0 = ptrtoint ptr %call.i to i64
+  %sub.i.i.i = add i64 %0, -8
+  %1 = inttoptr i64 %sub.i.i.i to ptr
+  %call1 = tail call noundef i32 @_ZN4node4quic10TLSContext12OnNewSessionEP14ssl_session_st(ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef %session)
   ret i32 0
 }
 
@@ -4898,10 +4907,13 @@ declare void @SSL_CTX_set_keylog_callback(ptr noundef, ptr noundef) local_unname
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node4quic12_GLOBAL__N_114KeylogCallbackEPK6ssl_stPKc(ptr noundef %ssl, ptr noundef %line) #4 {
 entry:
-  %call.i = tail call noundef nonnull align 8 dereferenceable(352) ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef 0) #19
-  %session_.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
-  %0 = load ptr, ptr %session_.i, align 8
-  tail call void @_ZN4node4quic7Session10EmitKeylogEPKc(ptr noundef nonnull align 8 dereferenceable(2616) %0, ptr noundef %line) #19
+  %call.i = tail call ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef 0) #19
+  %0 = ptrtoint ptr %call.i to i64
+  %sub.i.i.i = add i64 %0, -8
+  %1 = inttoptr i64 %sub.i.i.i to ptr
+  %session_.i = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %2 = load ptr, ptr %session_.i, align 8
+  tail call void @_ZN4node4quic7Session10EmitKeylogEPKc(ptr noundef nonnull align 8 dereferenceable(2616) %2, ptr noundef %line) #19
   ret void
 }
 

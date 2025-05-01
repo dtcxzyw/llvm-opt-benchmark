@@ -3885,7 +3885,7 @@ _ZN10ref_vectorI4expr11ast_managerEC2ERS1_jPKPS0_.exit75: ; preds = %_ZN10ref_ve
   %.pre2.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !102
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit
 
-_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; preds = %271, %.noexc76
+_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; preds = %.noexc76, %271
   %278 = phi ptr [ %.pre.i, %.noexc76 ], [ %269, %271 ]
   %279 = phi i32 [ %.pre2.i, %.noexc76 ], [ %273, %271 ]
   %280 = getelementptr inbounds i8, ptr %278, i64 -4

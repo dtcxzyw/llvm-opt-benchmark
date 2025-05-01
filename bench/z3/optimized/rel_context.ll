@@ -6589,7 +6589,7 @@ _ZSt9make_pairIRP9func_declRKN7datalog13relation_factEESt4pairINSt25__strip_refe
   %.pre2.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !352
   br label %_ZNSt4pairIP9func_declN7datalog13relation_factEED2Ev.exit
 
-_ZNSt4pairIP9func_declN7datalog13relation_factEED2Ev.exit: ; preds = %91, %.noexc
+_ZNSt4pairIP9func_declN7datalog13relation_factEED2Ev.exit: ; preds = %.noexc, %91
   %98 = phi i32 [ %.pre2.i, %.noexc ], [ %93, %91 ]
   %99 = phi ptr [ %.pre.i, %.noexc ], [ %89, %91 ]
   %100 = getelementptr inbounds i8, ptr %99, i64 -4

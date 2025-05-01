@@ -745,7 +745,7 @@ _ZNSt12__shared_ptrIN3gmx19IRestraintPotentialELN9__gnu_cxx12_Lock_policyE2EED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3gmx16RestraintManager13getRestraintsEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3gmx16RestraintManager13getRestraintsEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !48
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !4
@@ -753,70 +753,74 @@ define void @_ZNK3gmx16RestraintManager13getRestraintsEv(ptr dead_on_unwind noal
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %5, %6
-  br i1 %.not.i.i.i.i, label %.thread, label %11
+  br i1 %.not.i.i.i.i, label %.thread, label %13
 
 .thread:                                          ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  %11 = getelementptr inbounds nuw i8, ptr null, i64 %9
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  store ptr %11, ptr %12, align 8, !tbaa !10
   br label %_ZNSt6vectorISt10shared_ptrIN3gmx19IRestraintPotentialEESaIS3_EEC2ERKS5_.exit
 
-11:                                               ; preds = %2
-  %12 = icmp ugt i64 %9, 9223372036854775792
-  br i1 %12, label %.noexc.i.i, label %.lr.ph.i.i.i.i.i.preheader, !prof !38
+13:                                               ; preds = %2
+  %14 = icmp ugt i64 %9, 9223372036854775792
+  br i1 %14, label %.noexc.i.i, label %.lr.ph.i.i.i.i.i.preheader, !prof !38
 
-.noexc.i.i:                                       ; preds = %11
+.noexc.i.i:                                       ; preds = %13
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
-.lr.ph.i.i.i.i.i.preheader:                       ; preds = %11
-  %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #19
-  store ptr %13, ptr %0, align 8, !tbaa !17
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %13, ptr %14, align 8, !tbaa !4
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 %9
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %15, ptr %16, align 8, !tbaa !10
+.lr.ph.i.i.i.i.i.preheader:                       ; preds = %13
+  %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #19
+  store ptr %15, ptr %0, align 8, !tbaa !17
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %15, ptr %16, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 %9
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %17, ptr %18, align 8, !tbaa !10
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %_ZSt10_ConstructISt10shared_ptrIN3gmx19IRestraintPotentialEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i
-  %.09.i.i.i.i.i = phi ptr [ %30, %_ZSt10_ConstructISt10shared_ptrIN3gmx19IRestraintPotentialEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %13, %.lr.ph.i.i.i.i.i.preheader ]
-  %.sroa.04.08.i.i.i.i.i = phi ptr [ %29, %_ZSt10_ConstructISt10shared_ptrIN3gmx19IRestraintPotentialEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %6, %.lr.ph.i.i.i.i.i.preheader ]
-  %17 = load ptr, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !11
-  store ptr %17, ptr %.09.i.i.i.i.i, align 8, !tbaa !11
-  %18 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !16
-  store ptr %20, ptr %18, align 8, !tbaa !16
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIN3gmx19IRestraintPotentialEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, label %21
+  %.09.i.i.i.i.i = phi ptr [ %32, %_ZSt10_ConstructISt10shared_ptrIN3gmx19IRestraintPotentialEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %15, %.lr.ph.i.i.i.i.i.preheader ]
+  %.sroa.04.08.i.i.i.i.i = phi ptr [ %31, %_ZSt10_ConstructISt10shared_ptrIN3gmx19IRestraintPotentialEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %6, %.lr.ph.i.i.i.i.i.preheader ]
+  %19 = load ptr, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !11
+  store ptr %19, ptr %.09.i.i.i.i.i, align 8, !tbaa !11
+  %20 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !16
+  store ptr %22, ptr %20, align 8, !tbaa !16
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIN3gmx19IRestraintPotentialEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, label %23
 
-21:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %23 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %23, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %27, label %24
+23:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %25 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %25, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %29, label %26
 
-24:                                               ; preds = %21
-  %25 = load i32, ptr %22, align 4, !tbaa !37
-  %26 = add nsw i32 %25, 1
-  store i32 %26, ptr %22, align 4, !tbaa !37
+26:                                               ; preds = %23
+  %27 = load i32, ptr %24, align 4, !tbaa !37
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %24, align 4, !tbaa !37
   br label %_ZSt10_ConstructISt10shared_ptrIN3gmx19IRestraintPotentialEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i
 
-27:                                               ; preds = %21
-  %28 = atomicrmw volatile add ptr %22, i32 1 acq_rel, align 4
+29:                                               ; preds = %23
+  %30 = atomicrmw volatile add ptr %24, i32 1 acq_rel, align 4
   br label %_ZSt10_ConstructISt10shared_ptrIN3gmx19IRestraintPotentialEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i
 
-_ZSt10_ConstructISt10shared_ptrIN3gmx19IRestraintPotentialEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %27, %24, %.lr.ph.i.i.i.i.i
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
-  %30 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %29, %5
+_ZSt10_ConstructISt10shared_ptrIN3gmx19IRestraintPotentialEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %29, %26, %.lr.ph.i.i.i.i.i
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %31, %5
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN3gmx19IRestraintPotentialEESaIS3_EEC2ERKS5_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !50
 
 _ZNSt6vectorISt10shared_ptrIN3gmx19IRestraintPotentialEESaIS3_EEC2ERKS5_.exit: ; preds = %_ZSt10_ConstructISt10shared_ptrIN3gmx19IRestraintPotentialEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, %.thread
-  %31 = phi ptr [ %10, %.thread ], [ %14, %_ZSt10_ConstructISt10shared_ptrIN3gmx19IRestraintPotentialEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ]
-  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %.thread ], [ %30, %_ZSt10_ConstructISt10shared_ptrIN3gmx19IRestraintPotentialEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ]
-  store ptr %.0.lcssa.i.i.i.i.i, ptr %31, align 8, !tbaa !4
+  %33 = phi ptr [ %10, %.thread ], [ %16, %_ZSt10_ConstructISt10shared_ptrIN3gmx19IRestraintPotentialEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ]
+  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %.thread ], [ %32, %_ZSt10_ConstructISt10shared_ptrIN3gmx19IRestraintPotentialEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ]
+  store ptr %.0.lcssa.i.i.i.i.i, ptr %33, align 8, !tbaa !4
   ret void
 }
 

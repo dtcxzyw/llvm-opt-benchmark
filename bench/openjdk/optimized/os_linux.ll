@@ -7038,7 +7038,7 @@ define hidden noundef ptr @_ZN2os17pd_reserve_memoryEmb(i64 noundef %0, i1 nound
 
 9:                                                ; preds = %5
   %10 = tail call noundef ptr @_ZN2os8strerrorEi(i32 noundef %7) #26
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE105ELS1_78ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.185, i64 noundef 0, i64 noundef 0, i64 noundef %0, ptr noundef %10)
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE105ELS1_78ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.185, i64 noundef 0, i64 noundef %0, i64 noundef %0, ptr noundef %10)
   br label %11
 
 11:                                               ; preds = %9, %5

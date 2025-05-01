@@ -772,7 +772,10 @@ declare void @abort() local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node7tracing15NodeTraceBuffer12ExitSignalCbEP10uv_async_s(ptr noundef %signal) #0 align 2 {
 entry:
-  %flush_signal_ = getelementptr inbounds nuw i8, ptr %signal, i64 16
+  %0 = ptrtoint ptr %signal to i64
+  %sub.i.i = add i64 %0, -144
+  %1 = inttoptr i64 %sub.i.i to ptr
+  %flush_signal_ = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @uv_close(ptr noundef nonnull %flush_signal_, ptr noundef nonnull @"_ZZN4node7tracing15NodeTraceBuffer12ExitSignalCbEP10uv_async_sEN3$_08__invokeEP11uv_handle_s") #13
   ret void
 }
@@ -1243,7 +1246,10 @@ declare void @_ZN2v88platform7tracing11TraceObjectD1Ev(ptr noundef nonnull align
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZZN4node7tracing15NodeTraceBuffer12ExitSignalCbEP10uv_async_sEN3$_08__invokeEP11uv_handle_s"(ptr noundef %signal) #0 align 2 {
 entry:
-  %exit_signal_.i = getelementptr inbounds nuw i8, ptr %signal, i64 144
+  %0 = ptrtoint ptr %signal to i64
+  %sub.i.i.i = add i64 %0, -16
+  %1 = inttoptr i64 %sub.i.i.i to ptr
+  %exit_signal_.i = getelementptr inbounds nuw i8, ptr %1, i64 144
   tail call void @uv_close(ptr noundef nonnull %exit_signal_.i, ptr noundef nonnull @"_ZZZN4node7tracing15NodeTraceBuffer12ExitSignalCbEP10uv_async_sENK3$_0clEP11uv_handle_sENUlS6_E_8__invokeES6_") #13
   ret void
 }
@@ -1251,11 +1257,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZZZN4node7tracing15NodeTraceBuffer12ExitSignalCbEP10uv_async_sENK3$_0clEP11uv_handle_sENUlS6_E_8__invokeES6_"(ptr noundef %signal) #0 align 2 {
 entry:
-  %exit_mutex_.i = getelementptr inbounds nuw i8, ptr %signal, i64 280
+  %0 = ptrtoint ptr %signal to i64
+  %sub.i.i.i = add i64 %0, -144
+  %1 = inttoptr i64 %sub.i.i.i to ptr
+  %exit_mutex_.i = getelementptr inbounds nuw i8, ptr %1, i64 280
   tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %exit_mutex_.i) #13
-  %exited_.i = getelementptr inbounds nuw i8, ptr %signal, i64 272
+  %exited_.i = getelementptr inbounds nuw i8, ptr %1, i64 272
   store i8 1, ptr %exited_.i, align 8
-  %exit_cond_.i = getelementptr inbounds nuw i8, ptr %signal, i64 320
+  %exit_cond_.i = getelementptr inbounds nuw i8, ptr %1, i64 320
   tail call void @uv_cond_signal(ptr noundef nonnull align 8 dereferenceable(48) %exit_cond_.i) #13
   tail call void @uv_mutex_unlock(ptr noundef nonnull %exit_mutex_.i) #13
   ret void

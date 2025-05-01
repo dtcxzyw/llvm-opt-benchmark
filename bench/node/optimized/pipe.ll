@@ -643,8 +643,8 @@ uv_pipe_getsockname.exit:                         ; preds = %if.end7
   br i1 %cmp8.not, label %if.end10, label %return
 
 if.end10:                                         ; preds = %uv_pipe_getsockname.exit.thread, %uv_pipe_getsockname.exit
-  %name_len.054 = phi i64 [ %conv16.i.i, %uv_pipe_getsockname.exit.thread ], [ 0, %uv_pipe_getsockname.exit ]
-  %call11 = call ptr @uv__malloc(i64 noundef %name_len.054) #12
+  %name_len.055 = phi i64 [ %conv16.i.i, %uv_pipe_getsockname.exit.thread ], [ 0, %uv_pipe_getsockname.exit ]
+  %call11 = call ptr @uv__malloc(i64 noundef %name_len.055) #12
   %cmp12 = icmp eq ptr %call11, null
   br i1 %cmp12, label %return, label %if.end14
 
@@ -661,22 +661,22 @@ if.end.i.i28:                                     ; preds = %if.end14
   %sun_path.i.i29 = getelementptr inbounds nuw i8, ptr %sa.i.i24, i64 2
   %4 = load i8, ptr %sun_path.i.i29, align 2
   %cmp3.i.i30 = icmp eq i8 %4, 0
-  br i1 %cmp3.i.i30, label %if.then5.i.i44, label %if.else.i.i31
+  br i1 %cmp3.i.i30, label %if.then5.i.i45, label %if.else.i.i31
 
-if.then5.i.i44:                                   ; preds = %if.end.i.i28
+if.then5.i.i45:                                   ; preds = %if.end.i.i28
   %5 = load i32, ptr %addrlen.i.i25, align 4
-  %conv6.i.i45 = zext i32 %5 to i64
-  %sub.i.i46 = add nsw i64 %conv6.i.i45, -2
+  %conv6.i.i46 = zext i32 %5 to i64
+  %sub.i.i47 = add nsw i64 %conv6.i.i46, -2
   br label %if.end11.i.i33
 
 if.else.i.i31:                                    ; preds = %if.end.i.i28
   %call9.i.i32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %sun_path.i.i29) #13
   br label %if.end11.i.i33
 
-if.end11.i.i33:                                   ; preds = %if.else.i.i31, %if.then5.i.i44
-  %storemerge.in.i.i34 = phi i64 [ %call9.i.i32, %if.else.i.i31 ], [ %sub.i.i46, %if.then5.i.i44 ]
+if.end11.i.i33:                                   ; preds = %if.else.i.i31, %if.then5.i.i45
+  %storemerge.in.i.i34 = phi i64 [ %call9.i.i32, %if.else.i.i31 ], [ %sub.i.i47, %if.then5.i.i45 ]
   %conv12.i.i35 = and i64 %storemerge.in.i.i34, 4294967295
-  %cmp13.not.i.i36 = icmp samesign ult i64 %conv12.i.i35, %name_len.054
+  %cmp13.not.i.i36 = icmp samesign ult i64 %conv12.i.i35, %name_len.055
   br i1 %cmp13.not.i.i36, label %if.end17.i.i41, label %if.then17
 
 if.end17.i.i41:                                   ; preds = %if.end11.i.i33
@@ -686,8 +686,8 @@ if.end17.i.i41:                                   ; preds = %if.end11.i.i33
   br i1 %cmp24.not.i.i42, label %if.end18, label %if.then26.i.i43
 
 if.then26.i.i43:                                  ; preds = %if.end17.i.i41
-  %arrayidx27.i.i = getelementptr inbounds nuw i8, ptr %call11, i64 %conv12.i.i35
-  store i8 0, ptr %arrayidx27.i.i, align 1
+  %arrayidx27.i.i44 = getelementptr inbounds nuw i8, ptr %call11, i64 %conv12.i.i35
+  store i8 0, ptr %arrayidx27.i.i44, align 1
   br label %if.end18
 
 if.then17:                                        ; preds = %if.end11.i.i33, %if.end14

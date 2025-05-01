@@ -25360,7 +25360,7 @@ _ZN6casadi10casadi_dotIdEET_xPKS1_S3_.exit86:     ; preds = %.lr.ph.i80
   %79 = fsub double %56, %74
   %80 = fdiv double %78, %79
   %81 = select i1 %77, double 1.000000e+00, double %80
-  br i1 %25, label %.lr.ph.i90, label %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit
+  br i1 %25, label %.lr.ph.i90, label %.lr.ph.i102.preheader
 
 .lr.ph.i90:                                       ; preds = %_ZN6casadi10casadi_dotIdEET_xPKS1_S3_.exit86, %.lr.ph.i90
   %.08.i = phi i64 [ %85, %.lr.ph.i90 ], [ 0, %_ZN6casadi10casadi_dotIdEET_xPKS1_S3_.exit86 ]
@@ -25373,9 +25373,9 @@ _ZN6casadi10casadi_dotIdEET_xPKS1_S3_.exit86:     ; preds = %.lr.ph.i80
   %exitcond.not.i91 = icmp eq i64 %85, %7
   br i1 %exitcond.not.i91, label %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit, label %.lr.ph.i90, !llvm.loop !387
 
-_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit:         ; preds = %.lr.ph.i90, %_ZN6casadi10casadi_dotIdEET_xPKS1_S3_.exit86
+_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit:         ; preds = %.lr.ph.i90
   %86 = fsub double 1.000000e+00, %81
-  br i1 %or.cond.i58, label %.lr.ph.i95, label %.lr.ph.i102.preheader
+  br i1 %.not.i57, label %.lr.ph.i95, label %.lr.ph.i102.preheader
 
 .lr.ph.i95:                                       ; preds = %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit, %.lr.ph.i95
   %.014.i96 = phi i64 [ %92, %.lr.ph.i95 ], [ 0, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit ]
@@ -25391,7 +25391,7 @@ _ZN6casadi11casadi_scalIdEEvxT_PS1_.exit:         ; preds = %.lr.ph.i90, %_ZN6ca
   %exitcond.not.i99 = icmp eq i64 %92, %7
   br i1 %exitcond.not.i99, label %.lr.ph.i102.preheader, label %.lr.ph.i95, !llvm.loop !324
 
-.lr.ph.i102.preheader:                            ; preds = %.lr.ph.i95, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit
+.lr.ph.i102.preheader:                            ; preds = %.lr.ph.i95, %_ZN6casadi10casadi_dotIdEET_xPKS1_S3_.exit86, %_ZN6casadi11casadi_scalIdEEvxT_PS1_.exit
   br label %.lr.ph.i102
 
 .lr.ph.i102:                                      ; preds = %.lr.ph.i102.preheader, %.lr.ph.i102

@@ -1233,8 +1233,8 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaIm
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEvT_S7_.exit: ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i19.i.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i7.i.i.i
   %51 = load i64, ptr %7, align 8, !tbaa !22
-  %.not74 = icmp eq i64 %3, 1
-  br i1 %.not74, label %._crit_edge, label %.lr.ph.preheader
+  %.not75 = icmp eq i64 %3, 1
+  br i1 %.not75, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEvT_S7_.exit
   %umax = tail call i64 @llvm.umax.i64(i64 %3, i64 2)
@@ -1254,20 +1254,20 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEvT_S7_.exit: ; pr
   unreachable
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01673 = phi i64 [ %64, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %.01772 = phi i64 [ %62, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.01871 = phi i64 [ %58, %.lr.ph ], [ %51, %.lr.ph.preheader ]
-  %.070 = phi i64 [ %spec.select, %.lr.ph ], [ %51, %.lr.ph.preheader ]
-  %57 = getelementptr inbounds nuw i64, ptr %7, i64 %.01673
+  %.01674 = phi i64 [ %64, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.01773 = phi i64 [ %62, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.01872 = phi i64 [ %58, %.lr.ph ], [ %51, %.lr.ph.preheader ]
+  %.071 = phi i64 [ %spec.select68, %.lr.ph ], [ %51, %.lr.ph.preheader ]
+  %57 = getelementptr inbounds nuw i64, ptr %7, i64 %.01674
   %58 = load i64, ptr %57, align 8, !tbaa !22
   %59 = mul i64 %58, %3
-  %60 = sub i64 %58, %.01871
-  %61 = mul i64 %60, %.01673
-  %62 = add i64 %61, %.01772
+  %60 = sub i64 %58, %.01872
+  %61 = mul i64 %60, %.01674
+  %62 = add i64 %61, %.01773
   %63 = lshr i64 %59, 3
   %.not27 = icmp ugt i64 %62, %63
-  %spec.select = select i1 %.not27, i64 %.070, i64 %58
-  %64 = add nuw i64 %.01673, 1
+  %spec.select68 = select i1 %.not27, i64 %.071, i64 %58
+  %64 = add nuw i64 %.01674, 1
   %exitcond.not = icmp eq i64 %64, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
@@ -1283,7 +1283,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEvT_S7_.exit: ; pr
   unreachable
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEvT_S7_.exit.thread, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEvT_S7_.exit
-  %.0.lcssa = phi i64 [ %51, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEvT_S7_.exit ], [ %35, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEvT_S7_.exit.thread ], [ %spec.select, %.lr.ph ]
+  %.0.lcssa = phi i64 [ %51, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEvT_S7_.exit ], [ %35, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEvT_S7_.exit.thread ], [ %spec.select68, %.lr.ph ]
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %.0.lcssa, i64 524288)
   tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %.idx) #27
   br label %_ZNSt6vectorImSaImEED2Ev.exit

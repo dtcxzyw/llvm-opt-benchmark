@@ -1052,8 +1052,8 @@ define void @_ZNK4LIEF12BinaryStream14peek_u16stringB5cxx11Em(ptr dead_on_unwind
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #12
   store i16 0, ptr %5, align 2, !tbaa !45
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.not24 = icmp eq i64 %2, 0
-  br i1 %.not24, label %_ZNSt6vectorIDsSaIDsEE6resizeEmRKDs.exit, label %11
+  %.not23 = icmp eq i64 %2, 0
+  br i1 %.not23, label %_ZNSt6vectorIDsSaIDsEE6resizeEmRKDs.exit, label %11
 
 11:                                               ; preds = %9
   call void @_ZNSt6vectorIDsSaIDsEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPDsS1_EEmRKDs(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr null, i64 noundef %2, ptr noundef nonnull align 2 dereferenceable(2) %5)
@@ -1078,29 +1078,29 @@ _ZNSt6vectorIDsSaIDsEE6resizeEmRKDs.exit:         ; preds = %9, %11
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load i8, ptr %22, align 8, !tbaa !13, !range !14, !noundef !15
   %24 = trunc nuw i8 %23 to i1
-  %.pre20 = load ptr, ptr %4, align 8, !tbaa !52
-  %.pre22 = load ptr, ptr %10, align 8, !tbaa !52
+  %.pre19 = load ptr, ptr %4, align 8, !tbaa !52
+  %.pre21 = load ptr, ptr %10, align 8, !tbaa !52
   br i1 %24, label %25, label %.loopexit
 
 25:                                               ; preds = %21
-  %.not1516 = icmp eq ptr %.pre20, %.pre22
+  %.not1516 = icmp eq ptr %.pre19, %.pre21
   br i1 %.not1516, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25, %.lr.ph
-  %.sroa.010.017 = phi ptr [ %26, %.lr.ph ], [ %.pre20, %25 ]
+  %.sroa.010.017 = phi ptr [ %26, %.lr.ph ], [ %.pre19, %25 ]
   call void @_ZN4LIEF11swap_endianIDsEEvPT_(ptr noundef nonnull %.sroa.010.017) #12
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.010.017, i64 2
-  %.not15 = icmp eq ptr %26, %.pre22
+  %.not15 = icmp eq ptr %26, %.pre21
   br i1 %.not15, label %.loopexit.loopexit, label %.lr.ph
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
-  %.pre19 = load ptr, ptr %4, align 8, !tbaa !52
-  %.pre21 = load ptr, ptr %10, align 8, !tbaa !52
+  %.pre18 = load ptr, ptr %4, align 8, !tbaa !52
+  %.pre20 = load ptr, ptr %10, align 8, !tbaa !52
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %25, %21
-  %27 = phi ptr [ %.pre21, %.loopexit.loopexit ], [ %.pre20, %25 ], [ %.pre22, %21 ]
-  %28 = phi ptr [ %.pre19, %.loopexit.loopexit ], [ %.pre20, %25 ], [ %.pre20, %21 ]
+  %27 = phi ptr [ %.pre20, %.loopexit.loopexit ], [ %.pre19, %25 ], [ %.pre21, %21 ]
+  %28 = phi ptr [ %.pre18, %.loopexit.loopexit ], [ %.pre19, %25 ], [ %.pre19, %21 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #12
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %29, ptr %6, align 8, !tbaa !43
@@ -1176,11 +1176,11 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit: ; preds = %48
   store i32 1, ptr %0, align 8, !tbaa !33
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %55, align 8, !tbaa !37
-  %.pre23 = load ptr, ptr %4, align 8, !tbaa !50
+  %.pre22 = load ptr, ptr %4, align 8, !tbaa !50
   br label %56
 
 56:                                               ; preds = %54, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit
-  %57 = phi ptr [ %.pre23, %54 ], [ %28, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit ]
+  %57 = phi ptr [ %.pre22, %54 ], [ %28, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit ]
   %.not.i.i.i7 = icmp eq ptr %57, null
   br i1 %.not.i.i.i7, label %_ZNSt6vectorIDsSaIDsEED2Ev.exit, label %58
 

@@ -22362,7 +22362,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN2tf7SubflowEEZ
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ4mainE3$_1E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
-    i32 3, label %30
+    i32 3, label %32
     i32 2, label %7
   ]
 
@@ -22376,78 +22376,82 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN2tf7SubflowEEZ
   %14 = sub i64 %12, %13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %8, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, %11
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.noexc3.thread.i.i.i, label %16
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.noexc3.thread.i.i.i, label %18
 
 .noexc3.thread.i.i.i:                             ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %16 = getelementptr inbounds i8, ptr null, i64 %14
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
+  store ptr %16, ptr %17, align 8, !tbaa !107
   br label %"_ZNSt14_Function_base13_Base_managerIZ4mainE3$_1E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i"
 
-16:                                               ; preds = %7
-  %17 = icmp ugt i64 %14, 9223372036854775804
-  br i1 %17, label %.noexc.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i, !prof !27
+18:                                               ; preds = %7
+  %19 = icmp ugt i64 %14, 9223372036854775804
+  br i1 %19, label %.noexc.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i, !prof !27
 
-.noexc.i.i.i.i.i.i:                               ; preds = %16
+.noexc.i.i.i.i.i.i:                               ; preds = %18
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #37
-          to label %.noexc.i.i.i unwind label %23
+          to label %.noexc.i.i.i unwind label %25
 
 .noexc.i.i.i:                                     ; preds = %.noexc.i.i.i.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i: ; preds = %16
-  %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #39
-          to label %19 unwind label %23
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i: ; preds = %18
+  %20 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #39
+          to label %21 unwind label %25
 
-19:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i
-  store ptr %18, ptr %8, align 8, !tbaa !103
-  %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %18, ptr %20, align 8, !tbaa !106
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %14
-  %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %21, ptr %22, align 8, !tbaa !107
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %18, ptr align 4 %11, i64 %14, i1 false)
+21:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i
+  store ptr %20, ptr %8, align 8, !tbaa !103
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %20, ptr %22, align 8, !tbaa !106
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %14
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %23, ptr %24, align 8, !tbaa !107
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %20, ptr align 4 %11, i64 %14, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZ4mainE3$_1E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i"
 
-23:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i
-  %24 = landingpad { ptr, i32 }
+25:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i
+  %26 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef 32) #38
-  resume { ptr, i32 } %24
+  resume { ptr, i32 } %26
 
-"_ZNSt14_Function_base13_Base_managerIZ4mainE3$_1E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i": ; preds = %19, %.noexc3.thread.i.i.i
-  %25 = phi ptr [ null, %.noexc3.thread.i.i.i ], [ %21, %19 ]
-  %26 = phi ptr [ %15, %.noexc3.thread.i.i.i ], [ %20, %19 ]
-  store ptr %25, ptr %26, align 8, !tbaa !106
-  %27 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %28 = getelementptr inbounds nuw i8, ptr %.val6, i64 24
-  %29 = load i8, ptr %28, align 8, !tbaa !108, !range !258, !noundef !259
-  store i8 %29, ptr %27, align 8, !tbaa !108
+"_ZNSt14_Function_base13_Base_managerIZ4mainE3$_1E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i": ; preds = %21, %.noexc3.thread.i.i.i
+  %27 = phi ptr [ %16, %.noexc3.thread.i.i.i ], [ %23, %21 ]
+  %28 = phi ptr [ %15, %.noexc3.thread.i.i.i ], [ %22, %21 ]
+  store ptr %27, ptr %28, align 8, !tbaa !106
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %.val6, i64 24
+  %31 = load i8, ptr %30, align 8, !tbaa !108, !range !258, !noundef !259
+  store i8 %31, ptr %29, align 8, !tbaa !108
   store ptr %8, ptr %0, align 8, !tbaa !113
   br label %"_ZNSt14_Function_base13_Base_managerIZ4mainE3$_1E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-30:                                               ; preds = %6
+32:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8, !tbaa !113
-  %31 = icmp eq ptr %.val7.i, null
-  br i1 %31, label %"_ZNSt14_Function_base13_Base_managerIZ4mainE3$_1E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %32
+  %33 = icmp eq ptr %.val7.i, null
+  br i1 %33, label %"_ZNSt14_Function_base13_Base_managerIZ4mainE3$_1E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %34
 
-32:                                               ; preds = %30
+34:                                               ; preds = %32
   %.val.i.i = load ptr, ptr %.val7.i, align 8, !tbaa !103
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZZ4mainEN3$_1D2Ev.exit.i.i", label %33
+  br i1 %.not.i.i.i.i.i.i, label %"_ZZ4mainEN3$_1D2Ev.exit.i.i", label %35
 
-33:                                               ; preds = %32
-  %34 = getelementptr i8, ptr %.val7.i, i64 16
-  %.val1.i.i = load ptr, ptr %34, align 8
-  %35 = ptrtoint ptr %.val1.i.i to i64
-  %36 = ptrtoint ptr %.val.i.i to i64
-  %37 = sub i64 %35, %36
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val.i.i, i64 noundef %37) #38
+35:                                               ; preds = %34
+  %36 = getelementptr i8, ptr %.val7.i, i64 16
+  %.val1.i.i = load ptr, ptr %36, align 8
+  %37 = ptrtoint ptr %.val1.i.i to i64
+  %38 = ptrtoint ptr %.val.i.i to i64
+  %39 = sub i64 %37, %38
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val.i.i, i64 noundef %39) #38
   br label %"_ZZ4mainEN3$_1D2Ev.exit.i.i"
 
-"_ZZ4mainEN3$_1D2Ev.exit.i.i":                    ; preds = %33, %32
+"_ZZ4mainEN3$_1D2Ev.exit.i.i":                    ; preds = %35, %34
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #38
   br label %"_ZNSt14_Function_base13_Base_managerIZ4mainE3$_1E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZ4mainE3$_1E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %"_ZZ4mainEN3$_1D2Ev.exit.i.i", %30, %"_ZNSt14_Function_base13_Base_managerIZ4mainE3$_1E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZ4mainE3$_1E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %"_ZZ4mainEN3$_1D2Ev.exit.i.i", %32, %"_ZNSt14_Function_base13_Base_managerIZ4mainE3$_1E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
   ret i1 false
 }
 

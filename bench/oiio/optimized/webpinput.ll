@@ -778,17 +778,17 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_08webp_pvt9WebpInput4ope
 37:                                               ; preds = %35
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %31, i64 64)
   invoke void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr null, i64 noundef %.sroa.speculated, ptr noundef nonnull align 1 dereferenceable(1) %14)
-          to label %._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge unwind label %59
+          to label %._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge112 unwind label %59
 
-._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge: ; preds = %37
+._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge112: ; preds = %37
   %.pre = load ptr, ptr %13, align 8, !tbaa !75
   %.pre113 = load ptr, ptr %36, align 8, !tbaa !77
   %38 = ptrtoint ptr %.pre113 to i64
   br label %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit
 
-_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit:            ; preds = %35, %._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge
-  %39 = phi i64 [ %38, %._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge ], [ 0, %35 ]
-  %40 = phi ptr [ %.pre, %._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge ], [ null, %35 ]
+_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit:            ; preds = %35, %._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge112
+  %39 = phi i64 [ %38, %._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge112 ], [ 0, %35 ]
+  %40 = phi ptr [ %.pre, %._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge112 ], [ null, %35 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #24
   %41 = ptrtoint ptr %40 to i64
   %42 = sub i64 %39, %41

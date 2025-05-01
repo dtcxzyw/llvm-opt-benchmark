@@ -1036,40 +1036,39 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionESt6vectorIjSaIjEENS_12DenseMa
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm25PhysicalRegisterUsageInfo23storeUpdateRegUsageInfoERKNS_8FunctionENS_8ArrayRefIjEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr readonly captures(none) %2, i64 %3) local_unnamed_addr #1 align 2 {
   %5 = alloca ptr, align 8
+  %.idx.i = shl nuw nsw i64 %3, 2
   %.not.i.i.i.i = icmp eq i64 %3, 0
   br i1 %.not.i.i.i.i, label %_ZNK4llvm8ArrayRefIjEcvSt6vectorIjSaIjEEEv.exit, label %6
 
 6:                                                ; preds = %4
-  %.idx.i = shl nuw nsw i64 %3, 2
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i) #21, !noalias !125
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %7, ptr align 4 %2, i64 %.idx.i, i1 false), !noalias !125
   br label %_ZNK4llvm8ArrayRefIjEcvSt6vectorIjSaIjEEEv.exit
 
 _ZNK4llvm8ArrayRefIjEcvSt6vectorIjSaIjEEEv.exit:  ; preds = %4, %6
   %.sroa.0.0 = phi ptr [ null, %4 ], [ %7, %6 ]
-  %.sroa.9.0 = phi ptr [ null, %4 ], [ %8, %6 ]
+  %.sink.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 %.idx.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
   store ptr %1, ptr %5, align 8, !tbaa !78
-  %9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionESt6vectorIjSaIjEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %10 = load ptr, ptr %9, align 8, !tbaa !84
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !88
-  store ptr %.sroa.0.0, ptr %9, align 8, !tbaa !84
-  store ptr %.sroa.9.0, ptr %11, align 8, !tbaa !87
-  store ptr %.sroa.9.0, ptr %12, align 8, !tbaa !88
-  %.not.i.i.i.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %14
+  %8 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionESt6vectorIjSaIjEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %9 = load ptr, ptr %8, align 8, !tbaa !84
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %12 = load ptr, ptr %11, align 8, !tbaa !88
+  store ptr %.sroa.0.0, ptr %8, align 8, !tbaa !84
+  store ptr %.sink.i, ptr %10, align 8, !tbaa !87
+  store ptr %.sink.i, ptr %11, align 8, !tbaa !88
+  %.not.i.i.i.i.i = icmp eq ptr %9, null
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %13
 
-14:                                               ; preds = %_ZNK4llvm8ArrayRefIjEcvSt6vectorIjSaIjEEEv.exit
-  %15 = ptrtoint ptr %13 to i64
-  %16 = ptrtoint ptr %10 to i64
-  %17 = sub i64 %15, %16
-  call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef %17) #23
+13:                                               ; preds = %_ZNK4llvm8ArrayRefIjEcvSt6vectorIjSaIjEEEv.exit
+  %14 = ptrtoint ptr %12 to i64
+  %15 = ptrtoint ptr %9 to i64
+  %16 = sub i64 %14, %15
+  call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %16) #23
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
-_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %14, %_ZNK4llvm8ArrayRefIjEcvSt6vectorIjSaIjEEEv.exit
+_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %13, %_ZNK4llvm8ArrayRefIjEcvSt6vectorIjSaIjEEEv.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
   ret void
 }

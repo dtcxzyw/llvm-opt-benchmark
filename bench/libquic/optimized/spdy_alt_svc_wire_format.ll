@@ -2149,7 +2149,7 @@ define linkonce_odr void @_ZNSt6vectorIN3net20SpdyAltSvcWireFormat18AlternativeS
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !56
   %.not = icmp eq ptr %9, %11
-  br i1 %.not, label %40, label %12
+  br i1 %.not, label %42, label %12
 
 12:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
@@ -2161,75 +2161,79 @@ define linkonce_odr void @_ZNSt6vectorIN3net20SpdyAltSvcWireFormat18AlternativeS
   %18 = ptrtoint ptr %16 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i = icmp eq ptr %16, %17
-  br i1 %.not.i.i.i.i.i.i, label %.thread.i.i, label %22
+  br i1 %.not.i.i.i.i.i.i, label %.thread.i.i, label %24
 
 .thread.i.i:                                      ; preds = %12
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  %22 = getelementptr inbounds i8, ptr null, i64 %20
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  store ptr %22, ptr %23, align 8, !tbaa !28
   br label %_ZNSt6vectorItSaItEEC2ERKS1_.exit.i.i
 
-22:                                               ; preds = %12
-  %23 = icmp ugt i64 %20, 9223372036854775806
-  br i1 %23, label %.noexc.i.i.i.i, label %24, !prof !27
+24:                                               ; preds = %12
+  %25 = icmp ugt i64 %20, 9223372036854775806
+  br i1 %25, label %.noexc.i.i.i.i, label %26, !prof !27
 
-.noexc.i.i.i.i:                                   ; preds = %22
+.noexc.i.i.i.i:                                   ; preds = %24
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #20
   unreachable
 
-24:                                               ; preds = %22
-  %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #21
-  store ptr %25, ptr %7, align 8, !tbaa !26
-  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %25, ptr %26, align 8, !tbaa !25
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %20
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %27, ptr %28, align 8, !tbaa !28
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %25, ptr align 2 %17, i64 %20, i1 false)
+26:                                               ; preds = %24
+  %27 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #21
+  store ptr %27, ptr %7, align 8, !tbaa !26
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %27, ptr %28, align 8, !tbaa !25
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 %20
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %29, ptr %30, align 8, !tbaa !28
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %27, ptr align 2 %17, i64 %20, i1 false)
   br label %_ZNSt6vectorItSaItEEC2ERKS1_.exit.i.i
 
-_ZNSt6vectorItSaItEEC2ERKS1_.exit.i.i:            ; preds = %24, %.thread.i.i
-  %29 = phi ptr [ null, %.thread.i.i ], [ %27, %24 ]
-  %30 = phi ptr [ %21, %.thread.i.i ], [ %26, %24 ]
-  store ptr %29, ptr %30, align 8, !tbaa !25
+_ZNSt6vectorItSaItEEC2ERKS1_.exit.i.i:            ; preds = %26, %.thread.i.i
+  %31 = phi ptr [ %22, %.thread.i.i ], [ %29, %26 ]
+  %32 = phi ptr [ %21, %.thread.i.i ], [ %28, %26 ]
+  store ptr %31, ptr %32, align 8, !tbaa !25
   invoke void @_ZN3net20SpdyAltSvcWireFormat18AlternativeServiceC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_tjSt6vectorItSaItEE(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i16 noundef zeroext %13, i32 noundef %14, ptr noundef nonnull %7)
-          to label %31 unwind label %34
+          to label %33 unwind label %36
 
-31:                                               ; preds = %_ZNSt6vectorItSaItEEC2ERKS1_.exit.i.i
-  %32 = load ptr, ptr %7, align 8, !tbaa !26
-  %.not.i.i.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEE9constructIS2_JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_RtRjRSt6vectorItSaItEEEEEvRS3_PT_DpOT0_.exit, label %33
+33:                                               ; preds = %_ZNSt6vectorItSaItEEC2ERKS1_.exit.i.i
+  %34 = load ptr, ptr %7, align 8, !tbaa !26
+  %.not.i.i.i.i.i = icmp eq ptr %34, null
+  br i1 %.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEE9constructIS2_JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_RtRjRSt6vectorItSaItEEEEEvRS3_PT_DpOT0_.exit, label %35
 
-33:                                               ; preds = %31
-  call void @_ZdlPv(ptr noundef nonnull %32) #22
+35:                                               ; preds = %33
+  call void @_ZdlPv(ptr noundef nonnull %34) #22
   br label %_ZNSt16allocator_traitsISaIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEE9constructIS2_JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_RtRjRSt6vectorItSaItEEEEEvRS3_PT_DpOT0_.exit
 
-34:                                               ; preds = %_ZNSt6vectorItSaItEEC2ERKS1_.exit.i.i
-  %35 = landingpad { ptr, i32 }
+36:                                               ; preds = %_ZNSt6vectorItSaItEEC2ERKS1_.exit.i.i
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %36 = load ptr, ptr %7, align 8, !tbaa !26
-  %.not.i.i.i7.i.i = icmp eq ptr %36, null
-  br i1 %.not.i.i.i7.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit8.i.i, label %37
+  %38 = load ptr, ptr %7, align 8, !tbaa !26
+  %.not.i.i.i7.i.i = icmp eq ptr %38, null
+  br i1 %.not.i.i.i7.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit8.i.i, label %39
 
-37:                                               ; preds = %34
-  call void @_ZdlPv(ptr noundef nonnull %36) #22
+39:                                               ; preds = %36
+  call void @_ZdlPv(ptr noundef nonnull %38) #22
   br label %_ZNSt6vectorItSaItEED2Ev.exit8.i.i
 
-_ZNSt6vectorItSaItEED2Ev.exit8.i.i:               ; preds = %37, %34
-  resume { ptr, i32 } %35
+_ZNSt6vectorItSaItEED2Ev.exit8.i.i:               ; preds = %39, %36
+  resume { ptr, i32 } %37
 
-_ZNSt16allocator_traitsISaIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEE9constructIS2_JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_RtRjRSt6vectorItSaItEEEEEvRS3_PT_DpOT0_.exit: ; preds = %31, %33
+_ZNSt16allocator_traitsISaIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEE9constructIS2_JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_RtRjRSt6vectorItSaItEEEEEvRS3_PT_DpOT0_.exit: ; preds = %33, %35
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %38 = load ptr, ptr %8, align 8, !tbaa !33
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
-  store ptr %39, ptr %8, align 8, !tbaa !33
-  br label %41
+  %40 = load ptr, ptr %8, align 8, !tbaa !33
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 96
+  store ptr %41, ptr %8, align 8, !tbaa !33
+  br label %43
 
-40:                                               ; preds = %6
+42:                                               ; preds = %6
   tail call void @_ZNSt6vectorIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EE17_M_realloc_insertIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_RtRjRS_ItSaItEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %9, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 2 dereferenceable(2) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
-  br label %41
+  br label %43
 
-41:                                               ; preds = %40, %_ZNSt16allocator_traitsISaIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEE9constructIS2_JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_RtRjRSt6vectorItSaItEEEEEvRS3_PT_DpOT0_.exit
+43:                                               ; preds = %42, %_ZNSt16allocator_traitsISaIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEE9constructIS2_JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_RtRjRSt6vectorItSaItEEEEEvRS3_PT_DpOT0_.exit
   ret void
 }
 
@@ -2908,175 +2912,179 @@ _ZNSt12_Vector_baseIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EE11_M
   %34 = ptrtoint ptr %32 to i64
   %35 = ptrtoint ptr %33 to i64
   %36 = sub i64 %34, %35
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i = icmp eq ptr %32, %33
-  br i1 %.not.i.i.i.i.i.i, label %.thread.i.i, label %38
+  br i1 %.not.i.i.i.i.i.i, label %.thread.i.i, label %40
 
 .thread.i.i:                                      ; preds = %_ZNSt12_Vector_baseIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EE11_M_allocateEm.exit
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
+  %38 = getelementptr inbounds i8, ptr null, i64 %36
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
+  store ptr %38, ptr %39, align 8, !tbaa !28
   br label %_ZNSt6vectorItSaItEEC2ERKS1_.exit.i.i
 
-38:                                               ; preds = %_ZNSt12_Vector_baseIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EE11_M_allocateEm.exit
-  %39 = icmp ugt i64 %36, 9223372036854775806
-  br i1 %39, label %.noexc.i.i.i.i, label %40, !prof !27
+40:                                               ; preds = %_ZNSt12_Vector_baseIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EE11_M_allocateEm.exit
+  %41 = icmp ugt i64 %36, 9223372036854775806
+  br i1 %41, label %.noexc.i.i.i.i, label %42, !prof !27
 
-.noexc.i.i.i.i:                                   ; preds = %38
+.noexc.i.i.i.i:                                   ; preds = %40
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #20
           to label %.noexc unwind label %.body
 
 .noexc:                                           ; preds = %.noexc.i.i.i.i
   unreachable
 
-40:                                               ; preds = %38
-  %41 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %36) #21
+42:                                               ; preds = %40
+  %43 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %36) #21
           to label %.noexc32 unwind label %.body
 
-.noexc32:                                         ; preds = %40
-  store ptr %41, ptr %8, align 8, !tbaa !26
-  %42 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %41, ptr %42, align 8, !tbaa !25
-  %43 = getelementptr inbounds nuw i8, ptr %41, i64 %36
-  %44 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %43, ptr %44, align 8, !tbaa !28
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %41, ptr align 2 %33, i64 %36, i1 false)
+.noexc32:                                         ; preds = %42
+  store ptr %43, ptr %8, align 8, !tbaa !26
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %43, ptr %44, align 8, !tbaa !25
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 %36
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %45, ptr %46, align 8, !tbaa !28
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %43, ptr align 2 %33, i64 %36, i1 false)
   br label %_ZNSt6vectorItSaItEEC2ERKS1_.exit.i.i
 
 _ZNSt6vectorItSaItEEC2ERKS1_.exit.i.i:            ; preds = %.noexc32, %.thread.i.i
-  %45 = phi ptr [ null, %.thread.i.i ], [ %43, %.noexc32 ]
-  %46 = phi ptr [ %37, %.thread.i.i ], [ %42, %.noexc32 ]
-  store ptr %45, ptr %46, align 8, !tbaa !25
+  %47 = phi ptr [ %38, %.thread.i.i ], [ %45, %.noexc32 ]
+  %48 = phi ptr [ %37, %.thread.i.i ], [ %44, %.noexc32 ]
+  store ptr %47, ptr %48, align 8, !tbaa !25
   invoke void @_ZN3net20SpdyAltSvcWireFormat18AlternativeServiceC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_tjSt6vectorItSaItEE(ptr noundef nonnull align 8 dereferenceable(96) %28, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i16 noundef zeroext %29, i32 noundef %30, ptr noundef nonnull %8)
-          to label %47 unwind label %50
+          to label %49 unwind label %52
 
-47:                                               ; preds = %_ZNSt6vectorItSaItEEC2ERKS1_.exit.i.i
-  %48 = load ptr, ptr %8, align 8, !tbaa !26
-  %.not.i.i.i.i.i = icmp eq ptr %48, null
-  br i1 %.not.i.i.i.i.i, label %54, label %49
+49:                                               ; preds = %_ZNSt6vectorItSaItEEC2ERKS1_.exit.i.i
+  %50 = load ptr, ptr %8, align 8, !tbaa !26
+  %.not.i.i.i.i.i = icmp eq ptr %50, null
+  br i1 %.not.i.i.i.i.i, label %56, label %51
 
-49:                                               ; preds = %47
-  call void @_ZdlPv(ptr noundef nonnull %48) #22
-  br label %54
+51:                                               ; preds = %49
+  call void @_ZdlPv(ptr noundef nonnull %50) #22
+  br label %56
 
-50:                                               ; preds = %_ZNSt6vectorItSaItEEC2ERKS1_.exit.i.i
-  %51 = landingpad { ptr, i32 }
+52:                                               ; preds = %_ZNSt6vectorItSaItEEC2ERKS1_.exit.i.i
+  %53 = landingpad { ptr, i32 }
           catch ptr null
-  %52 = load ptr, ptr %8, align 8, !tbaa !26
-  %.not.i.i.i7.i.i = icmp eq ptr %52, null
-  br i1 %.not.i.i.i7.i.i, label %.body.thread, label %53
+  %54 = load ptr, ptr %8, align 8, !tbaa !26
+  %.not.i.i.i7.i.i = icmp eq ptr %54, null
+  br i1 %.not.i.i.i7.i.i, label %.body.thread, label %55
 
-53:                                               ; preds = %50
-  call void @_ZdlPv(ptr noundef nonnull %52) #22
+55:                                               ; preds = %52
+  call void @_ZdlPv(ptr noundef nonnull %54) #22
   br label %.body.thread
 
-54:                                               ; preds = %49, %47
+56:                                               ; preds = %51, %49
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   %.not14.i.i.i.i.i = icmp eq ptr %11, %1
   br i1 %.not14.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %54, %_ZSt10_ConstructIN3net20SpdyAltSvcWireFormat18AlternativeServiceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i
-  %.016.i.i.i.i.i = phi ptr [ %56, %_ZSt10_ConstructIN3net20SpdyAltSvcWireFormat18AlternativeServiceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %27, %54 ]
-  %.01215.i.i.i.i.i = phi ptr [ %55, %_ZSt10_ConstructIN3net20SpdyAltSvcWireFormat18AlternativeServiceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %11, %54 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %56, %_ZSt10_ConstructIN3net20SpdyAltSvcWireFormat18AlternativeServiceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i
+  %.016.i.i.i.i.i = phi ptr [ %58, %_ZSt10_ConstructIN3net20SpdyAltSvcWireFormat18AlternativeServiceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %27, %56 ]
+  %.01215.i.i.i.i.i = phi ptr [ %57, %_ZSt10_ConstructIN3net20SpdyAltSvcWireFormat18AlternativeServiceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %11, %56 ]
   invoke void @_ZN3net20SpdyAltSvcWireFormat18AlternativeServiceC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(96) %.016.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %.01215.i.i.i.i.i)
-          to label %_ZSt10_ConstructIN3net20SpdyAltSvcWireFormat18AlternativeServiceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i unwind label %57
+          to label %_ZSt10_ConstructIN3net20SpdyAltSvcWireFormat18AlternativeServiceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i unwind label %59
 
 _ZSt10_ConstructIN3net20SpdyAltSvcWireFormat18AlternativeServiceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %55 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i.i, i64 96
-  %56 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 96
-  %.not.i.i.i.i.i33 = icmp eq ptr %55, %1
+  %57 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i.i, i64 96
+  %58 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 96
+  %.not.i.i.i.i.i33 = icmp eq ptr %57, %1
   br i1 %.not.i.i.i.i.i33, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !59
 
-57:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %58 = landingpad { ptr, i32 }
+59:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %60 = landingpad { ptr, i32 }
           catch ptr null
-  %59 = extractvalue { ptr, i32 } %58, 0
-  %60 = call ptr @__cxa_begin_catch(ptr %59) #19
+  %61 = extractvalue { ptr, i32 } %60, 0
+  %62 = call ptr @__cxa_begin_catch(ptr %61) #19
   %.not4.i.i.i.i.i.i.i = icmp eq ptr %27, %.016.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvT_S4_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %57, %.lr.ph.i.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i.i = phi ptr [ %61, %.lr.ph.i.i.i.i.i.i.i ], [ %27, %57 ]
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %59, %.lr.ph.i.i.i.i.i.i.i
+  %.05.i.i.i.i.i.i.i = phi ptr [ %63, %.lr.ph.i.i.i.i.i.i.i ], [ %27, %59 ]
   call void @_ZN3net20SpdyAltSvcWireFormat18AlternativeServiceD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i.i.i.i) #19
-  %61 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i, i64 96
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %61, %.016.i.i.i.i.i
+  %63 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i, i64 96
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %63, %.016.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvT_S4_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !34
 
-_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvT_S4_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %57
+_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvT_S4_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %59
   invoke void @__cxa_rethrow() #20
-          to label %69 unwind label %62
+          to label %71 unwind label %64
 
-62:                                               ; preds = %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvT_S4_.exit.i.i.i.i.i
-  %63 = landingpad { ptr, i32 }
+64:                                               ; preds = %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvT_S4_.exit.i.i.i.i.i
+  %65 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %.body.thread68 unwind label %66
+          to label %.body.thread68 unwind label %68
 
-.body.thread68:                                   ; preds = %62
-  %64 = extractvalue { ptr, i32 } %63, 0
-  %65 = call ptr @__cxa_begin_catch(ptr %64) #19
+.body.thread68:                                   ; preds = %64
+  %66 = extractvalue { ptr, i32 } %65, 0
+  %67 = call ptr @__cxa_begin_catch(ptr %66) #19
   br label %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES2_EvT_S4_RSaIT0_E.exit58.thread
 
-66:                                               ; preds = %62
-  %67 = landingpad { ptr, i32 }
+68:                                               ; preds = %64
+  %69 = landingpad { ptr, i32 }
           catch ptr null
-  %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #24
+  %70 = extractvalue { ptr, i32 } %69, 0
+  call void @__clang_call_terminate(ptr %70) #24
   unreachable
 
-69:                                               ; preds = %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvT_S4_.exit.i.i.i.i.i
+71:                                               ; preds = %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvT_S4_.exit.i.i.i.i.i
   unreachable
 
-_ZSt34__uninitialized_move_if_noexcept_aIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %_ZSt10_ConstructIN3net20SpdyAltSvcWireFormat18AlternativeServiceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i, %54
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %27, %54 ], [ %56, %_ZSt10_ConstructIN3net20SpdyAltSvcWireFormat18AlternativeServiceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ]
+_ZSt34__uninitialized_move_if_noexcept_aIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %_ZSt10_ConstructIN3net20SpdyAltSvcWireFormat18AlternativeServiceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i, %56
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %27, %56 ], [ %58, %_ZSt10_ConstructIN3net20SpdyAltSvcWireFormat18AlternativeServiceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %.ptr = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 96
   %.not14.i.i.i.i.i37 = icmp eq ptr %1, %10
   br i1 %.not14.i.i.i.i.i37, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES3_SaIS2_EET0_T_S6_S5_RT1_.exit52, label %.lr.ph.i.i.i.i.i38
 
 .lr.ph.i.i.i.i.i38:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %_ZSt10_ConstructIN3net20SpdyAltSvcWireFormat18AlternativeServiceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i46
   %.016.i.i.i.i.i39.idx = phi i64 [ %.016.i.i.i.i.i39.add, %_ZSt10_ConstructIN3net20SpdyAltSvcWireFormat18AlternativeServiceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i46 ], [ 96, %_ZSt34__uninitialized_move_if_noexcept_aIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
-  %.01215.i.i.i.i.i40 = phi ptr [ %70, %_ZSt10_ConstructIN3net20SpdyAltSvcWireFormat18AlternativeServiceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i46 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
+  %.01215.i.i.i.i.i40 = phi ptr [ %72, %_ZSt10_ConstructIN3net20SpdyAltSvcWireFormat18AlternativeServiceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i46 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
   %.016.i.i.i.i.i39.ptr = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i39.idx
   invoke void @_ZN3net20SpdyAltSvcWireFormat18AlternativeServiceC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(96) %.016.i.i.i.i.i39.ptr, ptr noundef nonnull align 8 dereferenceable(96) %.01215.i.i.i.i.i40)
-          to label %_ZSt10_ConstructIN3net20SpdyAltSvcWireFormat18AlternativeServiceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i46 unwind label %71
+          to label %_ZSt10_ConstructIN3net20SpdyAltSvcWireFormat18AlternativeServiceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i46 unwind label %73
 
 _ZSt10_ConstructIN3net20SpdyAltSvcWireFormat18AlternativeServiceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i46: ; preds = %.lr.ph.i.i.i.i.i38
-  %70 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i.i40, i64 96
+  %72 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i.i40, i64 96
   %.016.i.i.i.i.i39.add = add nuw nsw i64 %.016.i.i.i.i.i39.idx, 96
-  %.not.i.i.i.i.i47 = icmp eq ptr %70, %10
+  %.not.i.i.i.i.i47 = icmp eq ptr %72, %10
   br i1 %.not.i.i.i.i.i47, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES3_SaIS2_EET0_T_S6_S5_RT1_.exit52.loopexit, label %.lr.ph.i.i.i.i.i38, !llvm.loop !59
 
-71:                                               ; preds = %.lr.ph.i.i.i.i.i38
-  %72 = landingpad { ptr, i32 }
+73:                                               ; preds = %.lr.ph.i.i.i.i.i38
+  %74 = landingpad { ptr, i32 }
           catch ptr null
-  %73 = extractvalue { ptr, i32 } %72, 0
-  %74 = call ptr @__cxa_begin_catch(ptr %73) #19
+  %75 = extractvalue { ptr, i32 } %74, 0
+  %76 = call ptr @__cxa_begin_catch(ptr %75) #19
   %.not4.i.i.i.i.i.i.i41 = icmp eq i64 %.016.i.i.i.i.i39.idx, 96
   br i1 %.not4.i.i.i.i.i.i.i41, label %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvT_S4_.exit.i.i.i.i.i45, label %.lr.ph.i.i.i.i.i.i.i42
 
-.lr.ph.i.i.i.i.i.i.i42:                           ; preds = %71, %.lr.ph.i.i.i.i.i.i.i42
-  %.05.i.i.i.i.i.i.i43 = phi ptr [ %75, %.lr.ph.i.i.i.i.i.i.i42 ], [ %.ptr, %71 ]
+.lr.ph.i.i.i.i.i.i.i42:                           ; preds = %73, %.lr.ph.i.i.i.i.i.i.i42
+  %.05.i.i.i.i.i.i.i43 = phi ptr [ %77, %.lr.ph.i.i.i.i.i.i.i42 ], [ %.ptr, %73 ]
   call void @_ZN3net20SpdyAltSvcWireFormat18AlternativeServiceD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i.i.i.i43) #19
-  %75 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i43, i64 96
-  %.not.i.i.i.i.i.i.i44 = icmp eq ptr %75, %.016.i.i.i.i.i39.ptr
+  %77 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i43, i64 96
+  %.not.i.i.i.i.i.i.i44 = icmp eq ptr %77, %.016.i.i.i.i.i39.ptr
   br i1 %.not.i.i.i.i.i.i.i44, label %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvT_S4_.exit.i.i.i.i.i45, label %.lr.ph.i.i.i.i.i.i.i42, !llvm.loop !34
 
-_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvT_S4_.exit.i.i.i.i.i45: ; preds = %.lr.ph.i.i.i.i.i.i.i42, %71
+_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvT_S4_.exit.i.i.i.i.i45: ; preds = %.lr.ph.i.i.i.i.i.i.i42, %73
   invoke void @__cxa_rethrow() #20
-          to label %81 unwind label %76
+          to label %83 unwind label %78
 
-76:                                               ; preds = %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvT_S4_.exit.i.i.i.i.i45
-  %77 = landingpad { ptr, i32 }
-          catch ptr null
-  invoke void @__cxa_end_catch()
-          to label %.body.thread unwind label %78
-
-78:                                               ; preds = %76
+78:                                               ; preds = %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvT_S4_.exit.i.i.i.i.i45
   %79 = landingpad { ptr, i32 }
           catch ptr null
-  %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #24
+  invoke void @__cxa_end_catch()
+          to label %.body.thread unwind label %80
+
+80:                                               ; preds = %78
+  %81 = landingpad { ptr, i32 }
+          catch ptr null
+  %82 = extractvalue { ptr, i32 } %81, 0
+  call void @__clang_call_terminate(ptr %82) #24
   unreachable
 
-81:                                               ; preds = %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvT_S4_.exit.i.i.i.i.i45
+83:                                               ; preds = %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvT_S4_.exit.i.i.i.i.i45
   unreachable
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES3_SaIS2_EET0_T_S6_S5_RT1_.exit52.loopexit: ; preds = %_ZSt10_ConstructIN3net20SpdyAltSvcWireFormat18AlternativeServiceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i46
@@ -3089,88 +3097,88 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN3net20SpdyAltSvcWireFormat18Alternati
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES2_EvT_S4_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES3_SaIS2_EET0_T_S6_S5_RT1_.exit52, %.lr.ph.i.i.i
-  %.05.i.i.i = phi ptr [ %82, %.lr.ph.i.i.i ], [ %11, %_ZSt34__uninitialized_move_if_noexcept_aIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES3_SaIS2_EET0_T_S6_S5_RT1_.exit52 ]
+  %.05.i.i.i = phi ptr [ %84, %.lr.ph.i.i.i ], [ %11, %_ZSt34__uninitialized_move_if_noexcept_aIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES3_SaIS2_EET0_T_S6_S5_RT1_.exit52 ]
   call void @_ZN3net20SpdyAltSvcWireFormat18AlternativeServiceD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i) #19
-  %82 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 96
-  %.not.i.i.i = icmp eq ptr %82, %10
+  %84 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 96
+  %.not.i.i.i = icmp eq ptr %84, %10
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES2_EvT_S4_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !34
 
 _ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES2_EvT_S4_RSaIT0_E.exit: ; preds = %.lr.ph.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES3_SaIS2_EET0_T_S6_S5_RT1_.exit52
   %.not.i53 = icmp eq ptr %11, null
-  br i1 %.not.i53, label %_ZNSt12_Vector_baseIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EE13_M_deallocateEPS2_m.exit, label %83
+  br i1 %.not.i53, label %_ZNSt12_Vector_baseIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EE13_M_deallocateEPS2_m.exit, label %85
 
-83:                                               ; preds = %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES2_EvT_S4_RSaIT0_E.exit
+85:                                               ; preds = %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES2_EvT_S4_RSaIT0_E.exit
   call void @_ZdlPv(ptr noundef nonnull %11) #22
   br label %_ZNSt12_Vector_baseIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EE13_M_deallocateEPS2_m.exit
 
-_ZNSt12_Vector_baseIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES2_EvT_S4_RSaIT0_E.exit, %83
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 16
+_ZNSt12_Vector_baseIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES2_EvT_S4_RSaIT0_E.exit, %85
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %27, ptr %0, align 8, !tbaa !30
   store ptr %.0.lcssa.i.i.i.i.i48, ptr %9, align 8, !tbaa !33
-  %85 = getelementptr inbounds nuw %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %27, i64 %21
-  store ptr %85, ptr %84, align 8, !tbaa !56
+  %87 = getelementptr inbounds nuw %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %27, i64 %21
+  store ptr %87, ptr %86, align 8, !tbaa !56
   ret void
 
-.body.thread:                                     ; preds = %53, %50, %76
-  %.0.lpad-body.ph = phi ptr [ %.ptr, %76 ], [ %27, %50 ], [ %27, %53 ]
-  %eh.lpad-body.ph = phi { ptr, i32 } [ %77, %76 ], [ %51, %50 ], [ %51, %53 ]
-  %86 = extractvalue { ptr, i32 } %eh.lpad-body.ph, 0
-  %87 = call ptr @__cxa_begin_catch(ptr %86) #19
-  br label %91
+.body.thread:                                     ; preds = %55, %52, %78
+  %.0.lpad-body.ph = phi ptr [ %.ptr, %78 ], [ %27, %52 ], [ %27, %55 ]
+  %eh.lpad-body.ph = phi { ptr, i32 } [ %79, %78 ], [ %53, %52 ], [ %53, %55 ]
+  %88 = extractvalue { ptr, i32 } %eh.lpad-body.ph, 0
+  %89 = call ptr @__cxa_begin_catch(ptr %88) #19
+  br label %93
 
-.body:                                            ; preds = %.noexc.i.i.i.i, %40
-  %88 = landingpad { ptr, i32 }
+.body:                                            ; preds = %.noexc.i.i.i.i, %42
+  %90 = landingpad { ptr, i32 }
           catch ptr null
-  %89 = extractvalue { ptr, i32 } %88, 0
-  %90 = tail call ptr @__cxa_begin_catch(ptr %89) #19
+  %91 = extractvalue { ptr, i32 } %90, 0
+  %92 = tail call ptr @__cxa_begin_catch(ptr %91) #19
   %.not = icmp eq ptr %27, null
-  br i1 %.not, label %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES2_EvT_S4_RSaIT0_E.exit58.thread, label %91
+  br i1 %.not, label %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES2_EvT_S4_RSaIT0_E.exit58.thread, label %93
 
 _ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES2_EvT_S4_RSaIT0_E.exit58.thread: ; preds = %.body, %.body.thread68
   call void @_ZN3net20SpdyAltSvcWireFormat18AlternativeServiceD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %28) #19
-  br label %95
+  br label %97
 
-91:                                               ; preds = %.body.thread, %.body
+93:                                               ; preds = %.body.thread, %.body
   %.0.lpad-body67 = phi ptr [ %.0.lpad-body.ph, %.body.thread ], [ %27, %.body ]
   %.not4.i.i.i54 = icmp eq ptr %27, %.0.lpad-body67
   br i1 %.not4.i.i.i54, label %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES2_EvT_S4_RSaIT0_E.exit58, label %.lr.ph.i.i.i55
 
-.lr.ph.i.i.i55:                                   ; preds = %91, %.lr.ph.i.i.i55
-  %.05.i.i.i56 = phi ptr [ %92, %.lr.ph.i.i.i55 ], [ %27, %91 ]
+.lr.ph.i.i.i55:                                   ; preds = %93, %.lr.ph.i.i.i55
+  %.05.i.i.i56 = phi ptr [ %94, %.lr.ph.i.i.i55 ], [ %27, %93 ]
   call void @_ZN3net20SpdyAltSvcWireFormat18AlternativeServiceD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i56) #19
-  %92 = getelementptr inbounds nuw i8, ptr %.05.i.i.i56, i64 96
-  %.not.i.i.i57 = icmp eq ptr %92, %.0.lpad-body67
+  %94 = getelementptr inbounds nuw i8, ptr %.05.i.i.i56, i64 96
+  %.not.i.i.i57 = icmp eq ptr %94, %.0.lpad-body67
   br i1 %.not.i.i.i57, label %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES2_EvT_S4_RSaIT0_E.exit58, label %.lr.ph.i.i.i55, !llvm.loop !34
 
-93:                                               ; preds = %_ZNSt12_Vector_baseIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EE13_M_deallocateEPS2_m.exit60
-  %94 = landingpad { ptr, i32 }
+95:                                               ; preds = %_ZNSt12_Vector_baseIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EE13_M_deallocateEPS2_m.exit60
+  %96 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %96 unwind label %97
+          to label %98 unwind label %99
 
-_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES2_EvT_S4_RSaIT0_E.exit58: ; preds = %.lr.ph.i.i.i55, %91
+_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES2_EvT_S4_RSaIT0_E.exit58: ; preds = %.lr.ph.i.i.i55, %93
   %.not.i59 = icmp eq ptr %27, null
-  br i1 %.not.i59, label %_ZNSt12_Vector_baseIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EE13_M_deallocateEPS2_m.exit60, label %95
+  br i1 %.not.i59, label %_ZNSt12_Vector_baseIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EE13_M_deallocateEPS2_m.exit60, label %97
 
-95:                                               ; preds = %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES2_EvT_S4_RSaIT0_E.exit58.thread, %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES2_EvT_S4_RSaIT0_E.exit58
+97:                                               ; preds = %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES2_EvT_S4_RSaIT0_E.exit58.thread, %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES2_EvT_S4_RSaIT0_E.exit58
   call void @_ZdlPv(ptr noundef nonnull %27) #22
   br label %_ZNSt12_Vector_baseIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EE13_M_deallocateEPS2_m.exit60
 
-_ZNSt12_Vector_baseIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EE13_M_deallocateEPS2_m.exit60: ; preds = %95, %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES2_EvT_S4_RSaIT0_E.exit58
+_ZNSt12_Vector_baseIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EE13_M_deallocateEPS2_m.exit60: ; preds = %97, %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES2_EvT_S4_RSaIT0_E.exit58
   invoke void @__cxa_rethrow() #20
-          to label %100 unwind label %93
+          to label %102 unwind label %95
 
-96:                                               ; preds = %93
-  resume { ptr, i32 } %94
+98:                                               ; preds = %95
+  resume { ptr, i32 } %96
 
-97:                                               ; preds = %93
-  %98 = landingpad { ptr, i32 }
+99:                                               ; preds = %95
+  %100 = landingpad { ptr, i32 }
           catch ptr null
-  %99 = extractvalue { ptr, i32 } %98, 0
-  call void @__clang_call_terminate(ptr %99) #24
+  %101 = extractvalue { ptr, i32 } %100, 0
+  call void @__clang_call_terminate(ptr %101) #24
   unreachable
 
-100:                                              ; preds = %_ZNSt12_Vector_baseIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EE13_M_deallocateEPS2_m.exit60
+102:                                              ; preds = %_ZNSt12_Vector_baseIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EE13_M_deallocateEPS2_m.exit60
   unreachable
 }
 

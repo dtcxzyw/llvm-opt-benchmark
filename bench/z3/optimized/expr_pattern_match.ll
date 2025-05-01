@@ -2099,7 +2099,12 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit:            ; preds = %382
   %116 = phi ptr [ %391, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ %104, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ]
   %117 = load ptr, ptr %9, align 8, !tbaa !45
   %118 = icmp eq ptr %117, null
-  br i1 %118, label %_ZN6vectorIP4exprLb0EjE4backEv.exit, label %119
+  br i1 %118, label %._ZN6vectorIP4exprLb0EjE4backEv.exit_crit_edge, label %119
+
+._ZN6vectorIP4exprLb0EjE4backEv.exit_crit_edge:   ; preds = %.lr.ph352
+  %.pre = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !12
+  %.pre320 = add i32 %.pre, -1
+  br label %_ZN6vectorIP4exprLb0EjE4backEv.exit
 
 119:                                              ; preds = %.lr.ph352
   %120 = getelementptr inbounds i8, ptr %117, i64 -4
@@ -2108,9 +2113,9 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit:            ; preds = %382
   %123 = zext i32 %122 to i64
   br label %_ZN6vectorIP4exprLb0EjE4backEv.exit
 
-_ZN6vectorIP4exprLb0EjE4backEv.exit:              ; preds = %.lr.ph352, %119
-  %.pre-phi = phi i32 [ %122, %119 ], [ undef, %.lr.ph352 ]
-  %.0.i.i = phi i64 [ %123, %119 ], [ 4294967295, %.lr.ph352 ]
+_ZN6vectorIP4exprLb0EjE4backEv.exit:              ; preds = %._ZN6vectorIP4exprLb0EjE4backEv.exit_crit_edge, %119
+  %.pre-phi = phi i32 [ %.pre320, %._ZN6vectorIP4exprLb0EjE4backEv.exit_crit_edge ], [ %122, %119 ]
+  %.0.i.i = phi i64 [ 4294967295, %._ZN6vectorIP4exprLb0EjE4backEv.exit_crit_edge ], [ %123, %119 ]
   %124 = getelementptr inbounds nuw i32, ptr %117, i64 %.0.i.i
   %125 = load i32, ptr %124, align 4, !tbaa !12
   %126 = add i32 %114, -1

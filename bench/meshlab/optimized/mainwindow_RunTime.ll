@@ -29739,7 +29739,7 @@ _ZNK10MainWindow3GLAEv.exit:                      ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 256
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %_ZNK10MainWindow3GLAEv.exit.thread, label %_ZNK10MainWindow3GLAEv.exit13.thread
+  br i1 %.not, label %_ZNK10MainWindow3GLAEv.exit.thread, label %8
 
 _ZNK10MainWindow3GLAEv.exit.thread:               ; preds = %1, %_ZNK10MainWindow3GLAEv.exit
   %6 = tail call noundef ptr @_ZNK7QObject6senderEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -29747,123 +29747,137 @@ _ZNK10MainWindow3GLAEv.exit.thread:               ; preds = %1, %_ZNK10MainWindo
   tail call void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(16) %7, i1 noundef zeroext false)
   br label %_ZN10MainWindow15suspendEditModeEv.exit
 
-_ZNK10MainWindow3GLAEv.exit13.thread:             ; preds = %_ZNK10MainWindow3GLAEv.exit
-  %8 = tail call noundef ptr @_ZNK7QObject6senderEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %9 = tail call noundef ptr @_ZNK11QMetaObject4castEP7QObject(ptr noundef nonnull align 8 dereferenceable(48) @_ZN7QAction16staticMetaObjectE, ptr noundef %8)
-  %10 = load ptr, ptr %2, align 8, !nonnull !61, !noundef !61
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 256
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1464
-  %14 = load ptr, ptr %13, align 8
-  %.not1041 = icmp eq ptr %14, null
+8:                                                ; preds = %_ZNK10MainWindow3GLAEv.exit
+  %9 = tail call noundef ptr @_ZNK7QObject6senderEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %10 = tail call noundef ptr @_ZNK11QMetaObject4castEP7QObject(ptr noundef nonnull align 8 dereferenceable(48) @_ZN7QAction16staticMetaObjectE, ptr noundef %9)
+  %11 = load ptr, ptr %2, align 8
+  %.not.i11 = icmp eq ptr %11, null
+  br i1 %.not.i11, label %_ZNK10MainWindow3GLAEv.exit13, label %_ZNK10MainWindow3GLAEv.exit13.thread
+
+_ZNK10MainWindow3GLAEv.exit13:                    ; preds = %8
+  %12 = load ptr, ptr inttoptr (i64 1464 to ptr), align 8, !nonnull !61, !noundef !61
+  %13 = icmp eq ptr %10, %12
+  br i1 %13, label %_ZNK10MainWindow3GLAEv.exit19, label %_ZN10MainWindow15suspendEditModeEv.exit
+
+_ZNK10MainWindow3GLAEv.exit13.thread:             ; preds = %8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 256
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1464
+  %17 = load ptr, ptr %16, align 8
+  %.not1041 = icmp eq ptr %17, null
   br i1 %.not1041, label %_ZNK10MainWindow3GLAEv.exit23, label %_ZNK10MainWindow3GLAEv.exit16.thread
 
 _ZNK10MainWindow3GLAEv.exit16.thread:             ; preds = %_ZNK10MainWindow3GLAEv.exit13.thread
-  %15 = icmp eq ptr %9, %14
-  br i1 %15, label %_ZNK10MainWindow3GLAEv.exit19.thread, label %_ZN10MainWindow15suspendEditModeEv.exit
+  %18 = icmp eq ptr %10, %17
+  br i1 %18, label %_ZNK10MainWindow3GLAEv.exit19.thread, label %_ZN10MainWindow15suspendEditModeEv.exit
+
+_ZNK10MainWindow3GLAEv.exit19:                    ; preds = %_ZNK10MainWindow3GLAEv.exit13
+  %19 = load i8, ptr inttoptr (i64 1353 to ptr), align 1
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %_ZN10MainWindow15suspendEditModeEv.exit, label %27
 
 _ZNK10MainWindow3GLAEv.exit19.thread:             ; preds = %_ZNK10MainWindow3GLAEv.exit16.thread
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 1353
-  %17 = load i8, ptr %16, align 1
-  %18 = trunc i8 %17 to i1
-  br i1 %18, label %_ZNK10MainWindow3GLAEv.exit7.i, label %22
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 1353
+  %22 = load i8, ptr %21, align 1
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %_ZNK10MainWindow3GLAEv.exit7.i, label %27
 
 _ZNK10MainWindow3GLAEv.exit7.i:                   ; preds = %_ZNK10MainWindow3GLAEv.exit19.thread
-  tail call void @_ZN6GLArea17suspendEditToggleEv(ptr noundef nonnull align 8 dereferenceable(1676) %12)
+  tail call void @_ZN6GLArea17suspendEditToggleEv(ptr noundef nonnull align 8 dereferenceable(1676) %15)
   tail call void @_ZN10MainWindow11updateMenusEv(ptr noundef nonnull align 8 dereferenceable(1376) %0)
-  %19 = load ptr, ptr %2, align 8, !nonnull !61, !noundef !61
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 256
-  %21 = load ptr, ptr %20, align 8
-  tail call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %21)
+  %24 = load ptr, ptr %2, align 8, !nonnull !61, !noundef !61
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 256
+  %26 = load ptr, ptr %25, align 8
+  tail call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %26)
   br label %_ZN10MainWindow15suspendEditModeEv.exit
 
-22:                                               ; preds = %_ZNK10MainWindow3GLAEv.exit19.thread
+27:                                               ; preds = %_ZNK10MainWindow3GLAEv.exit19.thread, %_ZNK10MainWindow3GLAEv.exit19
   tail call void @_ZN10MainWindow7endEditEv(ptr noundef nonnull align 8 dereferenceable(1376) %0)
   tail call void @_ZN10MainWindow11updateMenusEv(ptr noundef nonnull align 8 dereferenceable(1376) %0)
   br label %_ZN10MainWindow15suspendEditModeEv.exit
 
 _ZNK10MainWindow3GLAEv.exit23:                    ; preds = %_ZNK10MainWindow3GLAEv.exit13.thread
-  %23 = getelementptr inbounds nuw i8, ptr %12, i64 1480
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = load ptr, ptr %25, align 8
-  %.not.i.i.i = icmp eq ptr %26, null
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 1480
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %31 = load ptr, ptr %30, align 8
+  %.not.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i, label %_ZN6GLArea21editorExistsForActionEP7QAction.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZNK10MainWindow3GLAEv.exit23, %.preheader.i
   %.011.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.preheader.i ], [ null, %_ZNK10MainWindow3GLAEv.exit23 ]
-  %.0810.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.preheader.i ], [ %26, %_ZNK10MainWindow3GLAEv.exit23 ]
-  %27 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
-  %28 = load ptr, ptr %27, align 8
-  %29 = icmp ult ptr %28, %9
-  %.19.in.v.i.i.i.i = select i1 %29, i64 16, i64 8
+  %.0810.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.preheader.i ], [ %31, %_ZNK10MainWindow3GLAEv.exit23 ]
+  %32 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp ult ptr %33, %10
+  %.19.in.v.i.i.i.i = select i1 %34, i64 16, i64 8
   %.19.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 %.19.in.v.i.i.i.i
-  %.1.i.i.i.i = select i1 %29, ptr %.011.i.i.i.i, ptr %.0810.i.i.i.i
+  %.1.i.i.i.i = select i1 %34, ptr %.011.i.i.i.i, ptr %.0810.i.i.i.i
   %.19.i.i.i.i = load ptr, ptr %.19.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.19.i.i.i.i, null
   br i1 %.not.i.i.i.i, label %_ZN8QMapNodeIP7QActionP8EditToolE10lowerBoundERKS1_.exit.i.i.i, label %.preheader.i, !llvm.loop !363
 
 _ZN8QMapNodeIP7QActionP8EditToolE10lowerBoundERKS1_.exit.i.i.i: ; preds = %.preheader.i
   %.not11.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not11.i.i.i, label %_ZN6GLArea21editorExistsForActionEP7QAction.exit, label %30
+  br i1 %.not11.i.i.i, label %_ZN6GLArea21editorExistsForActionEP7QAction.exit, label %35
 
-30:                                               ; preds = %_ZN8QMapNodeIP7QActionP8EditToolE10lowerBoundERKS1_.exit.i.i.i
-  %31 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 24
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp ult ptr %9, %32
-  br i1 %33, label %_ZN6GLArea21editorExistsForActionEP7QAction.exit, label %_ZN6GLArea21editorExistsForActionEP7QAction.exit.thread
+35:                                               ; preds = %_ZN8QMapNodeIP7QActionP8EditToolE10lowerBoundERKS1_.exit.i.i.i
+  %36 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 24
+  %37 = load ptr, ptr %36, align 8
+  %38 = icmp ult ptr %10, %37
+  br i1 %38, label %_ZN6GLArea21editorExistsForActionEP7QAction.exit, label %_ZN6GLArea21editorExistsForActionEP7QAction.exit.thread
 
-_ZN6GLArea21editorExistsForActionEP7QAction.exit: ; preds = %30, %_ZN8QMapNodeIP7QActionP8EditToolE10lowerBoundERKS1_.exit.i.i.i, %_ZNK10MainWindow3GLAEv.exit23
-  %34 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %37 = load ptr, ptr %36, align 8, !nonnull !61, !noundef !61
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+_ZN6GLArea21editorExistsForActionEP7QAction.exit: ; preds = %35, %_ZN8QMapNodeIP7QActionP8EditToolE10lowerBoundERKS1_.exit.i.i.i, %_ZNK10MainWindow3GLAEv.exit23
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = tail call noundef ptr %40(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull @.str.58)
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
-  %44 = load ptr, ptr %43, align 8
-  %45 = tail call noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull %9)
-  %46 = load ptr, ptr %2, align 8
-  %.not.i25 = icmp eq ptr %46, null
-  br i1 %.not.i25, label %_ZNK10MainWindow3GLAEv.exit27, label %47
-
-47:                                               ; preds = %_ZN6GLArea21editorExistsForActionEP7QAction.exit
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 256
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %42 = load ptr, ptr %41, align 8, !nonnull !61, !noundef !61
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %45 = load ptr, ptr %44, align 8
+  %46 = tail call noundef ptr %45(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull @.str.58)
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %49 = load ptr, ptr %48, align 8
+  %50 = tail call noundef ptr %49(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef nonnull %10)
+  %51 = load ptr, ptr %2, align 8
+  %.not.i25 = icmp eq ptr %51, null
+  br i1 %.not.i25, label %_ZNK10MainWindow3GLAEv.exit27, label %52
+
+52:                                               ; preds = %_ZN6GLArea21editorExistsForActionEP7QAction.exit
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 256
+  %54 = load ptr, ptr %53, align 8
   br label %_ZNK10MainWindow3GLAEv.exit27
 
-_ZNK10MainWindow3GLAEv.exit27:                    ; preds = %_ZN6GLArea21editorExistsForActionEP7QAction.exit, %47
-  %.0.i26 = phi ptr [ %49, %47 ], [ null, %_ZN6GLArea21editorExistsForActionEP7QAction.exit ]
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i26, i64 1480
-  %51 = load ptr, ptr %50, align 8
-  %52 = load atomic i32, ptr %51 monotonic, align 4
-  %53 = icmp ugt i32 %52, 1
-  br i1 %53, label %54, label %_ZN4QMapIP7QActionP8EditToolE6detachEv.exit.i.i
+_ZNK10MainWindow3GLAEv.exit27:                    ; preds = %_ZN6GLArea21editorExistsForActionEP7QAction.exit, %52
+  %.0.i26 = phi ptr [ %54, %52 ], [ null, %_ZN6GLArea21editorExistsForActionEP7QAction.exit ]
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i26, i64 1480
+  %56 = load ptr, ptr %55, align 8
+  %57 = load atomic i32, ptr %56 monotonic, align 4
+  %58 = icmp ugt i32 %57, 1
+  br i1 %58, label %59, label %_ZN4QMapIP7QActionP8EditToolE6detachEv.exit.i.i
 
-54:                                               ; preds = %_ZNK10MainWindow3GLAEv.exit27
-  tail call void @_ZN4QMapIP7QActionP8EditToolE13detach_helperEv(ptr noundef nonnull align 8 dereferenceable(8) %50)
-  %.pre.i.i = load ptr, ptr %50, align 8
+59:                                               ; preds = %_ZNK10MainWindow3GLAEv.exit27
+  tail call void @_ZN4QMapIP7QActionP8EditToolE13detach_helperEv(ptr noundef nonnull align 8 dereferenceable(8) %55)
+  %.pre.i.i = load ptr, ptr %55, align 8
   br label %_ZN4QMapIP7QActionP8EditToolE6detachEv.exit.i.i
 
-_ZN4QMapIP7QActionP8EditToolE6detachEv.exit.i.i:  ; preds = %54, %_ZNK10MainWindow3GLAEv.exit27
-  %55 = phi ptr [ %51, %_ZNK10MainWindow3GLAEv.exit27 ], [ %.pre.i.i, %54 ]
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %.024.i.i = load ptr, ptr %56, align 8
+_ZN4QMapIP7QActionP8EditToolE6detachEv.exit.i.i:  ; preds = %59, %_ZNK10MainWindow3GLAEv.exit27
+  %60 = phi ptr [ %56, %_ZNK10MainWindow3GLAEv.exit27 ], [ %.pre.i.i, %59 ]
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %.024.i.i = load ptr, ptr %61, align 8
   %.not25.i.i = icmp eq ptr %.024.i.i, null
   br i1 %.not25.i.i, label %._crit_edge.thread.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4QMapIP7QActionP8EditToolE6detachEv.exit.i.i, %.lr.ph.i.i
   %.027.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.024.i.i, %_ZN4QMapIP7QActionP8EditToolE6detachEv.exit.i.i ]
   %.02026.i.i = phi ptr [ %.121.i.i, %.lr.ph.i.i ], [ null, %_ZN4QMapIP7QActionP8EditToolE6detachEv.exit.i.i ]
-  %58 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 24
-  %59 = load ptr, ptr %58, align 8
-  %60 = icmp uge ptr %59, %9
-  %.121.i.i = select i1 %60, ptr %.027.i.i, ptr %.02026.i.i
-  %.1.in.v.i.i = select i1 %60, i64 8, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 24
+  %64 = load ptr, ptr %63, align 8
+  %65 = icmp uge ptr %64, %10
+  %.121.i.i = select i1 %65, ptr %.027.i.i, ptr %.02026.i.i
+  %.1.in.v.i.i = select i1 %65, i64 8, i64 16
   %.1.in.i.i = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 %.1.in.v.i.i
   %.0.i.i = load ptr, ptr %.1.in.i.i, align 8
   %.not.i.i28 = icmp eq ptr %.0.i.i, null
@@ -29871,48 +29885,48 @@ _ZN4QMapIP7QActionP8EditToolE6detachEv.exit.i.i:  ; preds = %54, %_ZNK10MainWind
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %.not23.i.i = icmp eq ptr %.121.i.i, null
-  br i1 %.not23.i.i, label %._crit_edge.thread.i.i, label %61
+  br i1 %.not23.i.i, label %._crit_edge.thread.i.i, label %66
 
-61:                                               ; preds = %._crit_edge.i.i
-  %62 = getelementptr inbounds nuw i8, ptr %.121.i.i, i64 24
-  %63 = load ptr, ptr %62, align 8
-  %64 = icmp ult ptr %9, %63
-  br i1 %64, label %._crit_edge.thread.i.i, label %_ZN6GLArea13addMeshEditorEP7QActionP8EditTool.exit
+66:                                               ; preds = %._crit_edge.i.i
+  %67 = getelementptr inbounds nuw i8, ptr %.121.i.i, i64 24
+  %68 = load ptr, ptr %67, align 8
+  %69 = icmp ult ptr %10, %68
+  br i1 %69, label %._crit_edge.thread.i.i, label %_ZN6GLArea13addMeshEditorEP7QActionP8EditTool.exit
 
-._crit_edge.thread.i.i:                           ; preds = %61, %._crit_edge.i.i, %_ZN4QMapIP7QActionP8EditToolE6detachEv.exit.i.i
-  %.018.lcssa35.i.i = phi i1 [ %60, %61 ], [ %60, %._crit_edge.i.i ], [ true, %_ZN4QMapIP7QActionP8EditToolE6detachEv.exit.i.i ]
-  %.022.lcssa34.i.i = phi ptr [ %.027.i.i, %61 ], [ %.027.i.i, %._crit_edge.i.i ], [ %57, %_ZN4QMapIP7QActionP8EditToolE6detachEv.exit.i.i ]
-  %65 = tail call noundef ptr @_ZN12QMapDataBase10createNodeEiiP12QMapNodeBaseb(ptr noundef nonnull align 8 dereferenceable(40) %55, i32 noundef 40, i32 noundef 8, ptr noundef nonnull %.022.lcssa34.i.i, i1 noundef zeroext %.018.lcssa35.i.i)
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  store ptr %9, ptr %66, align 8
+._crit_edge.thread.i.i:                           ; preds = %66, %._crit_edge.i.i, %_ZN4QMapIP7QActionP8EditToolE6detachEv.exit.i.i
+  %.018.lcssa35.i.i = phi i1 [ %65, %66 ], [ %65, %._crit_edge.i.i ], [ true, %_ZN4QMapIP7QActionP8EditToolE6detachEv.exit.i.i ]
+  %.022.lcssa34.i.i = phi ptr [ %.027.i.i, %66 ], [ %.027.i.i, %._crit_edge.i.i ], [ %62, %_ZN4QMapIP7QActionP8EditToolE6detachEv.exit.i.i ]
+  %70 = tail call noundef ptr @_ZN12QMapDataBase10createNodeEiiP12QMapNodeBaseb(ptr noundef nonnull align 8 dereferenceable(40) %60, i32 noundef 40, i32 noundef 8, ptr noundef nonnull %.022.lcssa34.i.i, i1 noundef zeroext %.018.lcssa35.i.i)
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
+  store ptr %10, ptr %71, align 8
   br label %_ZN6GLArea13addMeshEditorEP7QActionP8EditTool.exit
 
-_ZN6GLArea13addMeshEditorEP7QActionP8EditTool.exit: ; preds = %61, %._crit_edge.thread.i.i
-  %.121.i.lcssa.sink.i = phi ptr [ %65, %._crit_edge.thread.i.i ], [ %.121.i.i, %61 ]
-  %67 = getelementptr inbounds nuw i8, ptr %.121.i.lcssa.sink.i, i64 32
-  store ptr %45, ptr %67, align 8
+_ZN6GLArea13addMeshEditorEP7QActionP8EditTool.exit: ; preds = %66, %._crit_edge.thread.i.i
+  %.121.i.lcssa.sink.i = phi ptr [ %70, %._crit_edge.thread.i.i ], [ %.121.i.i, %66 ]
+  %72 = getelementptr inbounds nuw i8, ptr %.121.i.lcssa.sink.i, i64 32
+  store ptr %50, ptr %72, align 8
   %.pre = load ptr, ptr %2, align 8
   br label %_ZN6GLArea21editorExistsForActionEP7QAction.exit.thread
 
-_ZN6GLArea21editorExistsForActionEP7QAction.exit.thread: ; preds = %30, %_ZN6GLArea13addMeshEditorEP7QActionP8EditTool.exit
-  %68 = phi ptr [ %10, %30 ], [ %.pre, %_ZN6GLArea13addMeshEditorEP7QActionP8EditTool.exit ]
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 48
-  %70 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN12MeshDocument16meshDocStateDataEv(ptr noundef nonnull align 8 dereferenceable(192) %69)
-  %71 = load ptr, ptr %2, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 48
-  tail call void @_ZN21MeshDocumentStateData6createER12MeshDocument(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(192) %72)
-  %73 = load ptr, ptr %2, align 8, !nonnull !61, !noundef !61
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 256
-  %75 = load ptr, ptr %74, align 8
-  tail call void @_ZN6GLArea20setCurrentEditActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(1676) %75, ptr noundef %9)
+_ZN6GLArea21editorExistsForActionEP7QAction.exit.thread: ; preds = %35, %_ZN6GLArea13addMeshEditorEP7QActionP8EditTool.exit
+  %73 = phi ptr [ %11, %35 ], [ %.pre, %_ZN6GLArea13addMeshEditorEP7QActionP8EditTool.exit ]
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 48
+  %75 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN12MeshDocument16meshDocStateDataEv(ptr noundef nonnull align 8 dereferenceable(192) %74)
+  %76 = load ptr, ptr %2, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 48
+  tail call void @_ZN21MeshDocumentStateData6createER12MeshDocument(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(192) %77)
+  %78 = load ptr, ptr %2, align 8, !nonnull !61, !noundef !61
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 256
+  %80 = load ptr, ptr %79, align 8
+  tail call void @_ZN6GLArea20setCurrentEditActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(1676) %80, ptr noundef %10)
   tail call void @_ZN10MainWindow11updateMenusEv(ptr noundef nonnull align 8 dereferenceable(1376) %0)
-  %76 = load ptr, ptr %2, align 8, !nonnull !61, !noundef !61
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 256
-  %78 = load ptr, ptr %77, align 8
-  tail call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %78)
+  %81 = load ptr, ptr %2, align 8, !nonnull !61, !noundef !61
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 256
+  %83 = load ptr, ptr %82, align 8
+  tail call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %83)
   br label %_ZN10MainWindow15suspendEditModeEv.exit
 
-_ZN10MainWindow15suspendEditModeEv.exit:          ; preds = %_ZNK10MainWindow3GLAEv.exit7.i, %_ZNK10MainWindow3GLAEv.exit16.thread, %_ZN6GLArea21editorExistsForActionEP7QAction.exit.thread, %22, %_ZNK10MainWindow3GLAEv.exit.thread
+_ZN10MainWindow15suspendEditModeEv.exit:          ; preds = %_ZNK10MainWindow3GLAEv.exit19, %_ZNK10MainWindow3GLAEv.exit7.i, %_ZNK10MainWindow3GLAEv.exit16.thread, %_ZNK10MainWindow3GLAEv.exit13, %_ZN6GLArea21editorExistsForActionEP7QAction.exit.thread, %27, %_ZNK10MainWindow3GLAEv.exit.thread
   ret void
 }
 

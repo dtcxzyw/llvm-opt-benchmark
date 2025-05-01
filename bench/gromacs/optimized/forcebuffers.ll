@@ -151,64 +151,70 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_N
 
 9:                                                ; preds = %4
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #13
-          to label %.noexc unwind label %20
+          to label %.noexc unwind label %22
 
 .noexc:                                           ; preds = %9
   unreachable
 
 _ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE17_S_check_init_lenEmRKS5_.exit.i: ; preds = %4
   %.not.i.i = icmp eq i64 %2, 0
-  br i1 %.not.i.i, label %.loopexit, label %10
+  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE11_M_allocateEm.exit.thread.i, label %12
 
-10:                                               ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE17_S_check_init_lenEmRKS5_.exit.i
-  %11 = tail call noundef ptr @_ZNK3gmx20HostAllocationPolicy6mallocEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.idx) #12
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %.lr.ph.i.preheader.i
+_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE11_M_allocateEm.exit.thread.i: ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE17_S_check_init_lenEmRKS5_.exit.i
+  %10 = getelementptr inbounds nuw i8, ptr null, i64 %.idx
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %10, ptr %11, align 8, !tbaa !24
+  br label %.loopexit
 
-13:                                               ; preds = %10
-  %14 = tail call ptr @__cxa_allocate_exception(i64 8) #12
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %14, align 8, !tbaa !24
-  invoke void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #13
-          to label %.noexc3 unwind label %20
+12:                                               ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE17_S_check_init_lenEmRKS5_.exit.i
+  %13 = tail call noundef ptr @_ZNK3gmx20HostAllocationPolicy6mallocEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.idx) #12
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %.lr.ph.i.preheader.i
 
-.noexc3:                                          ; preds = %13
+15:                                               ; preds = %12
+  %16 = tail call ptr @__cxa_allocate_exception(i64 8) #12
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %16, align 8, !tbaa !25
+  invoke void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #13
+          to label %.noexc3 unwind label %22
+
+.noexc3:                                          ; preds = %15
   unreachable
 
-.lr.ph.i.preheader.i:                             ; preds = %10
-  store ptr %11, ptr %6, align 8, !tbaa !9
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %15, ptr %16, align 8, !tbaa !26
+.lr.ph.i.preheader.i:                             ; preds = %12
+  store ptr %13, ptr %6, align 8, !tbaa !9
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %17, ptr %18, align 8, !tbaa !24
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
-  %.012.i.i = phi ptr [ %18, %.lr.ph.i.i ], [ %11, %.lr.ph.i.preheader.i ]
-  %.0911.i.i = phi ptr [ %17, %.lr.ph.i.i ], [ %1, %.lr.ph.i.preheader.i ]
+  %.012.i.i = phi ptr [ %20, %.lr.ph.i.i ], [ %13, %.lr.ph.i.preheader.i ]
+  %.0911.i.i = phi ptr [ %19, %.lr.ph.i.i ], [ %1, %.lr.ph.i.preheader.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i, i64 12, i1 false), !tbaa.struct !27
-  %17 = getelementptr inbounds nuw i8, ptr %.0911.i.i, i64 12
-  %18 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 12
-  %.not.i6.i = icmp eq ptr %17, %7
+  %19 = getelementptr inbounds nuw i8, ptr %.0911.i.i, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 12
+  %.not.i6.i = icmp eq ptr %19, %7
   br i1 %.not.i6.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !29
 
-.loopexit:                                        ; preds = %.lr.ph.i.i, %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE17_S_check_init_lenEmRKS5_.exit.i
-  %.0.lcssa.i.i = phi ptr [ null, %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE17_S_check_init_lenEmRKS5_.exit.i ], [ %18, %.lr.ph.i.i ]
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.0.lcssa.i.i, ptr %19, align 8, !tbaa !31
+.loopexit:                                        ; preds = %.lr.ph.i.i, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE11_M_allocateEm.exit.thread.i
+  %.0.lcssa.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE11_M_allocateEm.exit.thread.i ], [ %20, %.lr.ph.i.i ]
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.0.lcssa.i.i, ptr %21, align 8, !tbaa !31
   ret void
 
-20:                                               ; preds = %13, %9
-  %21 = landingpad { ptr, i32 }
+22:                                               ; preds = %15, %9
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %22 = load ptr, ptr %6, align 8, !tbaa !9
-  %.not.i.i4 = icmp eq ptr %22, null
-  br i1 %.not.i.i4, label %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEED2Ev.exit, label %23
+  %24 = load ptr, ptr %6, align 8, !tbaa !9
+  %.not.i.i4 = icmp eq ptr %24, null
+  br i1 %.not.i.i4, label %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEED2Ev.exit, label %25
 
-23:                                               ; preds = %20
-  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %22) #12
+25:                                               ; preds = %22
+  tail call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %24) #12
   br label %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEED2Ev.exit
 
-_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEED2Ev.exit: ; preds = %20, %23
-  resume { ptr, i32 } %21
+_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEED2Ev.exit: ; preds = %22, %25
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -315,7 +321,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_N
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !26
+  %8 = load ptr, ptr %7, align 8, !tbaa !24
   %9 = load ptr, ptr %6, align 8, !tbaa !9
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
@@ -336,7 +342,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_N
 
 23:                                               ; preds = %15
   %24 = tail call ptr @__cxa_allocate_exception(i64 8) #12
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %24, align 8, !tbaa !24
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %24, align 8, !tbaa !25
   tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #13
   unreachable
 
@@ -373,7 +379,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocation
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store ptr %31, ptr %16, align 8, !tbaa !31
   %32 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %21, i64 %1
-  store ptr %32, ptr %7, align 8, !tbaa !26
+  store ptr %32, ptr %7, align 8, !tbaa !24
   br label %33
 
 33:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE13_M_deallocateEPS2_m.exit, %5
@@ -395,7 +401,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_N
   %10 = sub i64 %8, %9
   %11 = sdiv exact i64 %10, 12
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !26
+  %13 = load ptr, ptr %12, align 8, !tbaa !24
   %14 = ptrtoint ptr %13 to i64
   %15 = sub i64 %14, %8
   %16 = sdiv exact i64 %15, 12
@@ -432,7 +438,7 @@ _ZNKSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicy
 
 30:                                               ; preds = %_ZNKSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE12_M_check_lenEmPKc.exit
   %31 = tail call ptr @__cxa_allocate_exception(i64 8) #12
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %31, align 8, !tbaa !24
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %31, align 8, !tbaa !25
   tail call void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #13
   unreachable
 
@@ -463,7 +469,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocation
   %37 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %33, i64 %1
   store ptr %37, ptr %5, align 8, !tbaa !31
   %38 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %28, i64 %26
-  store ptr %38, ptr %12, align 8, !tbaa !26
+  store ptr %38, ptr %12, align 8, !tbaa !24
   br label %39
 
 39:                                               ; preds = %20, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE13_M_deallocateEPS2_m.exit32, %2
@@ -479,7 +485,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_N
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !26
+  %8 = load ptr, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !31
   %11 = ptrtoint ptr %8 to i64
@@ -635,7 +641,7 @@ _ZNKSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicy
 
 62:                                               ; preds = %58
   %63 = tail call ptr @__cxa_allocate_exception(i64 8) #12
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %63, align 8, !tbaa !24
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %63, align 8, !tbaa !25
   tail call void @__cxa_throw(ptr nonnull %63, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #13
   unreachable
 
@@ -694,7 +700,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocation
   store ptr %64, ptr %6, align 8, !tbaa !9
   store ptr %.0.lcssa.i.i99, ptr %9, align 8, !tbaa !31
   %74 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %64, i64 %55
-  store ptr %74, ptr %7, align 8, !tbaa !26
+  store ptr %74, ptr %7, align 8, !tbaa !24
   br label %75
 
 75:                                               ; preds = %_ZSt4fillIPN3gmx11BasicVectorIfEES2_EvT_S4_RKT0_.exit, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE13_M_deallocateEPS2_m.exit, %4
@@ -1043,9 +1049,9 @@ attributes #13 = { noreturn }
 !21 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS3_NS1_9AllocatorIS3_NS1_20HostAllocationPolicyEEEEEE", !5, i64 0}
 !22 = !{!"_ZTSN3gmx16ForceBuffersViewE", !23, i64 0, !23, i64 24, !20, i64 48}
 !23 = !{!"_ZTSN3gmx19ArrayRefWithPaddingINS_11BasicVectorIfEEEE", !5, i64 0, !5, i64 8, !5, i64 16}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"vtable pointer", !8, i64 0}
-!26 = !{!10, !5, i64 16}
+!24 = !{!10, !5, i64 16}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"vtable pointer", !8, i64 0}
 !27 = !{i64 0, i64 12, !28}
 !28 = !{!7, !7, i64 0}
 !29 = distinct !{!29, !30}

@@ -1986,6 +1986,7 @@ _ZN2cv3dnn14dnn4_v20241223L14normalize_axisEii.exit: ; preds = %20
 
 36:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp ne ptr %9, %10
   tail call void @llvm.assume(i1 %.not.i.i.i.i)
   %37 = icmp ugt i64 %13, 9223372036854775804

@@ -878,7 +878,7 @@ define noundef ptr @_ZN9grpc_core23XdsOverrideHostLbConfig10JsonLoaderERKNS_8Jso
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, ptr %9, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i16 0, ptr %.sroa.5.0..sroa_idx, align 8
+  store i16 16, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 18
   store i8 0, ptr %.sroa.6.0..sroa_idx, align 2
   %.sroa.72.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -1589,7 +1589,7 @@ define linkonce_odr void @_ZNK9grpc_core11json_detail10AutoLoaderINS_23XdsOverri
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, ptr %13, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i16 0, ptr %.sroa.5.0..sroa_idx.i, align 8
+  store i16 16, ptr %.sroa.5.0..sroa_idx.i, align 8
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 18
   store i8 0, ptr %.sroa.6.0..sroa_idx.i, align 2
   %.sroa.72.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 24

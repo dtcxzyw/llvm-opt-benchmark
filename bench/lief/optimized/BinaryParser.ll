@@ -4363,7 +4363,7 @@ define void @_ZN4LIEF5MachO12BinaryParser5parseERKSt6vectorIhSaIhEEmRKNS0_12Pars
 
 8:                                                ; preds = %4
   store ptr null, ptr %0, align 8, !tbaa !223
-  br label %75
+  br label %71
 
 9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %6) #24
@@ -4438,75 +4438,71 @@ define void @_ZN4LIEF5MachO12BinaryParser5parseERKSt6vectorIhSaIhEEmRKNS0_12Pars
 
 45:                                               ; preds = %42
   %46 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %41) #25, !noalias !299
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %41
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %46, ptr align 1 %38, i64 %41, i1 false), !noalias !299
   br label %_ZNSt10unique_ptrIN4LIEF12VectorStreamESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4LIEF12VectorStreamESt14default_deleteIS1_EED2Ev.exit: ; preds = %45, %9
-  %48 = phi ptr [ %47, %45 ], [ null, %9 ]
-  %49 = phi ptr [ %46, %45 ], [ null, %9 ]
-  %50 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store i64 0, ptr %50, align 8, !tbaa !295, !noalias !299
-  %51 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store i8 0, ptr %51, align 8, !tbaa !296, !noalias !299
-  %52 = getelementptr inbounds nuw i8, ptr %35, i64 20
-  store i32 1, ptr %52, align 4, !tbaa !303, !noalias !299
+  %47 = phi ptr [ %46, %45 ], [ null, %9 ]
+  %48 = getelementptr inbounds i8, ptr %47, i64 %41
+  %49 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store i64 0, ptr %49, align 8, !tbaa !295, !noalias !299
+  %50 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  store i8 0, ptr %50, align 8, !tbaa !296, !noalias !299
+  %51 = getelementptr inbounds nuw i8, ptr %35, i64 20
+  store i32 1, ptr %51, align 4, !tbaa !303, !noalias !299
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4LIEF12VectorStreamE, i64 16), ptr %35, align 8, !tbaa !13, !noalias !299
-  %53 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  store ptr %49, ptr %53, align 8, !tbaa !233, !noalias !299
-  %54 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  store ptr %48, ptr %54, align 8, !tbaa !235, !noalias !299
-  %55 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  store ptr %48, ptr %55, align 8, !tbaa !236, !noalias !299
-  %56 = getelementptr inbounds nuw i8, ptr %35, i64 48
-  %57 = ptrtoint ptr %48 to i64
-  %58 = ptrtoint ptr %49 to i64
-  %59 = sub i64 %57, %58
-  store i64 %59, ptr %56, align 8, !tbaa !237, !noalias !299
+  %52 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  store ptr %47, ptr %52, align 8, !tbaa !233, !noalias !299
+  %53 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  store ptr %48, ptr %53, align 8, !tbaa !235, !noalias !299
+  %54 = getelementptr inbounds nuw i8, ptr %35, i64 40
+  store ptr %48, ptr %54, align 8, !tbaa !236, !noalias !299
+  %55 = getelementptr inbounds nuw i8, ptr %35, i64 48
+  store i64 %41, ptr %55, align 8, !tbaa !237, !noalias !299
   store ptr %35, ptr %10, align 8, !tbaa !222
-  %60 = call noalias noundef nonnull dereferenceable(488) ptr @_Znwm(i64 noundef 488) #25
-  call void @_ZN4LIEF5MachO6BinaryC1Ev(ptr noundef nonnull align 8 dereferenceable(488) %60) #24
-  %61 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %62 = load ptr, ptr %61, align 8, !tbaa !10
-  store ptr %60, ptr %61, align 8, !tbaa !10
-  %.not.i.i.i.i = icmp eq ptr %62, null
+  %56 = call noalias noundef nonnull dereferenceable(488) ptr @_Znwm(i64 noundef 488) #25
+  call void @_ZN4LIEF5MachO6BinaryC1Ev(ptr noundef nonnull align 8 dereferenceable(488) %56) #24
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %58 = load ptr, ptr %57, align 8, !tbaa !10
+  store ptr %56, ptr %57, align 8, !tbaa !10
+  %.not.i.i.i.i = icmp eq ptr %58, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4LIEF5MachO6BinaryEEclEPS2_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN4LIEF5MachO6BinaryEEclEPS2_.exit.i.i.i.i: ; preds = %_ZNSt10unique_ptrIN4LIEF12VectorStreamESt14default_deleteIS1_EED2Ev.exit
-  %63 = load ptr, ptr %62, align 8, !tbaa !13
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  %65 = load ptr, ptr %64, align 8
-  call void %65(ptr noundef nonnull align 8 dereferenceable(488) %62) #24
-  %.pre = load ptr, ptr %61, align 8, !tbaa !10
+  %59 = load ptr, ptr %58, align 8, !tbaa !13
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  %61 = load ptr, ptr %60, align 8
+  call void %61(ptr noundef nonnull align 8 dereferenceable(488) %58) #24
+  %.pre = load ptr, ptr %57, align 8, !tbaa !10
   br label %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4LIEF5MachO6BinaryEEclEPS2_.exit.i.i.i.i, %_ZNSt10unique_ptrIN4LIEF12VectorStreamESt14default_deleteIS1_EED2Ev.exit
-  %66 = phi ptr [ %.pre, %_ZNKSt14default_deleteIN4LIEF5MachO6BinaryEEclEPS2_.exit.i.i.i.i ], [ %60, %_ZNSt10unique_ptrIN4LIEF12VectorStreamESt14default_deleteIS1_EED2Ev.exit ]
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 384
-  store i64 %2, ptr %67, align 8, !tbaa !244
-  %68 = call i64 @_ZN4LIEF5MachO12BinaryParser14init_and_parseEv(ptr noundef nonnull align 8 dereferenceable(280) %6)
-  %69 = and i64 %68, 4294967296
-  %.not = icmp eq i64 %69, 0
-  br i1 %.not, label %70, label %73
+  %62 = phi ptr [ %.pre, %_ZNKSt14default_deleteIN4LIEF5MachO6BinaryEEclEPS2_.exit.i.i.i.i ], [ %56, %_ZNSt10unique_ptrIN4LIEF12VectorStreamESt14default_deleteIS1_EED2Ev.exit ]
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 384
+  store i64 %2, ptr %63, align 8, !tbaa !244
+  %64 = call i64 @_ZN4LIEF5MachO12BinaryParser14init_and_parseEv(ptr noundef nonnull align 8 dereferenceable(280) %6)
+  %65 = and i64 %64, 4294967296
+  %.not = icmp eq i64 %65, 0
+  br i1 %.not, label %66, label %69
 
-70:                                               ; preds = %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EED2Ev.exit
-  %71 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4LIEF7logging6Logger8instanceEPKc(ptr noundef nonnull @.str.34) #24
-  %72 = load ptr, ptr %71, align 8, !tbaa !66
+66:                                               ; preds = %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EED2Ev.exit
+  %67 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4LIEF7logging6Logger8instanceEPKc(ptr noundef nonnull @.str.34) #24
+  %68 = load ptr, ptr %67, align 8, !tbaa !66
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call void @_ZN6spdlog6logger4log_IJEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %72, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %5, i32 noundef 3, ptr nonnull @.str.9, i64 64)
+  call void @_ZN6spdlog6logger4log_IJEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %68, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %5, i32 noundef 3, ptr nonnull @.str.9, i64 64)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %73
+  br label %69
 
-73:                                               ; preds = %70, %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EED2Ev.exit
-  %74 = load i64, ptr %61, align 8, !tbaa !10
-  store i64 %74, ptr %0, align 8, !tbaa !10
-  store ptr null, ptr %61, align 8, !tbaa !10
+69:                                               ; preds = %66, %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EED2Ev.exit
+  %70 = load i64, ptr %57, align 8, !tbaa !10
+  store i64 %70, ptr %0, align 8, !tbaa !10
+  store ptr null, ptr %57, align 8, !tbaa !10
   call void @_ZN4LIEF5MachO12BinaryParserD1Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #24
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %6) #24
-  br label %75
+  br label %71
 
-75:                                               ; preds = %73, %8
+71:                                               ; preds = %69, %8
   ret void
 }
 

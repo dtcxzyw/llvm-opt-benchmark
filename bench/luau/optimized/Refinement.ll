@@ -45,8 +45,8 @@ define dso_local noundef ptr @_ZN4Luau15RefinementArena8variadicERKSt6vectorIPNS
 
 _ZNSt6vectorIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_11DisjunctionENS0_11EquivalenceENS0_11PropositionEEEESaIS9_EEC2ERKSB_.exit: ; preds = %10
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #11
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %13
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %15, ptr align 8 %3, i64 %13, i1 false)
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i64, ptr %17, align 8, !tbaa !13
   %19 = icmp ugt i64 %18, 1023

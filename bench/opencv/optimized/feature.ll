@@ -7600,74 +7600,78 @@ define hidden void @_ZNK2cv6detail8tracking15contrib_feature14CvLBPEvaluator13wr
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %7, %8
-  br i1 %.not.i.i.i.i, label %.thread, label %13
+  br i1 %.not.i.i.i.i, label %.thread, label %15
 
 .thread:                                          ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  %13 = getelementptr inbounds nuw i8, ptr null, i64 %11
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  store ptr %13, ptr %14, align 8, !tbaa !235
   br label %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EEC2ERKS7_.exit
 
-13:                                               ; preds = %3
-  %14 = sdiv exact i64 %11, 80
-  %15 = icmp ugt i64 %14, 115292150460684697
-  br i1 %15, label %.noexc.i.i, label %16, !prof !135
+15:                                               ; preds = %3
+  %16 = sdiv exact i64 %11, 80
+  %17 = icmp ugt i64 %16, 115292150460684697
+  br i1 %17, label %.noexc.i.i, label %18, !prof !135
 
-.noexc.i.i:                                       ; preds = %13
+.noexc.i.i:                                       ; preds = %15
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #29
   unreachable
 
-16:                                               ; preds = %13
-  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #32
-  store ptr %17, ptr %4, align 8, !tbaa !234
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %17, ptr %18, align 8, !tbaa !231
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %11
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %19, ptr %20, align 8, !tbaa !235
+18:                                               ; preds = %15
+  %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #32
+  store ptr %19, ptr %4, align 8, !tbaa !234
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %19, ptr %20, align 8, !tbaa !231
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %11
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %21, ptr %22, align 8, !tbaa !235
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %16, %.lr.ph.i.i.i.i.i
-  %.09.i.i.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i.i.i ], [ %17, %16 ]
-  %.sroa.04.08.i.i.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i.i.i ], [ %8, %16 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %18, %.lr.ph.i.i.i.i.i
+  %.09.i.i.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i.i.i ], [ %19, %18 ]
+  %.sroa.04.08.i.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i.i ], [ %8, %18 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %.09.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(80) %.sroa.04.08.i.i.i.i.i, i64 80, i1 false), !tbaa.struct !236
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 80
-  %22 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 80
-  %.not.i.i.i.i.i = icmp eq ptr %21, %7
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 80
+  %.not.i.i.i.i.i = icmp eq ptr %23, %7
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EEC2ERKS7_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !237
 
 _ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EEC2ERKS7_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.thread
-  %23 = phi ptr [ %12, %.thread ], [ %18, %.lr.ph.i.i.i.i.i ]
-  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %.thread ], [ %22, %.lr.ph.i.i.i.i.i ]
-  store ptr %.0.lcssa.i.i.i.i.i, ptr %23, align 8, !tbaa !231
+  %25 = phi ptr [ %12, %.thread ], [ %20, %.lr.ph.i.i.i.i.i ]
+  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %.thread ], [ %24, %.lr.ph.i.i.i.i.i ]
+  store ptr %.0.lcssa.i.i.i.i.i, ptr %25, align 8, !tbaa !231
   invoke void @_ZN2cv6detail8tracking15contrib_feature14_writeFeaturesINS2_14CvLBPEvaluator7FeatureEEEvSt6vectorIT_SaIS7_EERNS_11FileStorageERKNS_3MatE(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(96) %2)
-          to label %24 unwind label %27
+          to label %26 unwind label %29
 
-24:                                               ; preds = %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EEC2ERKS7_.exit
-  %25 = load ptr, ptr %4, align 8, !tbaa !234
-  %.not.i.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EED2Ev.exit, label %26
+26:                                               ; preds = %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EEC2ERKS7_.exit
+  %27 = load ptr, ptr %4, align 8, !tbaa !234
+  %.not.i.i.i = icmp eq ptr %27, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EED2Ev.exit, label %28
 
-26:                                               ; preds = %24
-  call void @_ZdlPv(ptr noundef nonnull %25) #30
+28:                                               ; preds = %26
+  call void @_ZdlPv(ptr noundef nonnull %27) #30
   br label %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EED2Ev.exit
 
-_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EED2Ev.exit: ; preds = %24, %26
+_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EED2Ev.exit: ; preds = %26, %28
   ret void
 
-27:                                               ; preds = %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EEC2ERKS7_.exit
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EEC2ERKS7_.exit
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %29 = load ptr, ptr %4, align 8, !tbaa !234
-  %.not.i.i.i4 = icmp eq ptr %29, null
-  br i1 %.not.i.i.i4, label %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EED2Ev.exit5, label %30
+  %31 = load ptr, ptr %4, align 8, !tbaa !234
+  %.not.i.i.i4 = icmp eq ptr %31, null
+  br i1 %.not.i.i.i4, label %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EED2Ev.exit5, label %32
 
-30:                                               ; preds = %27
-  call void @_ZdlPv(ptr noundef nonnull %29) #30
+32:                                               ; preds = %29
+  call void @_ZdlPv(ptr noundef nonnull %31) #30
   br label %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EED2Ev.exit5
 
-_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EED2Ev.exit5: ; preds = %27, %30
-  resume { ptr, i32 } %28
+_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EED2Ev.exit5: ; preds = %29, %32
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress uwtable

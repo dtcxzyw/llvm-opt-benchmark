@@ -974,7 +974,7 @@ define internal void @_ZNK9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_11
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIbEEE6value_E, ptr %13, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i16 0, ptr %.sroa.5.0..sroa_idx.i, align 8
+  store i16 16, ptr %.sroa.5.0..sroa_idx.i, align 8
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 18
   store i8 1, ptr %.sroa.6.0..sroa_idx.i, align 2
   %.sroa.72.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 24

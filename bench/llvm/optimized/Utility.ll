@@ -796,359 +796,362 @@ _ZN4llvm5ErrorD2Ev.exit30:                        ; preds = %_ZN4llvm8ExpectedIN
   %36 = sub i64 %34, %35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq ptr %32, %33
-  br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIN4llvm6object13Elf_Shdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEEEESaIS6_EEC2EmRKS7_.exit.i.i.thread, label %39
+  br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIN4llvm6object13Elf_Shdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEEEESaIS6_EEC2EmRKS7_.exit.i.i.thread, label %40
 
 _ZNSt12_Vector_baseIN4llvm6object13Elf_Shdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEEEESaIS6_EEC2EmRKS7_.exit.i.i.thread: ; preds = %_ZN4llvm5ErrorD2Ev.exit30
   %37 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %38 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %38 = getelementptr inbounds i8, ptr null, i64 %36
+  %39 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
+  store ptr %38, ptr %39, align 8, !tbaa !174
   br label %_ZNSt6vectorIN4llvm6object13Elf_Shdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEEEESaIS6_EEC2ERKS8_.exit.i
 
-39:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit30
-  %40 = icmp ugt i64 %36, 9223372036854775744
-  br i1 %40, label %41, label %42, !prof !174
+40:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit30
+  %41 = icmp ugt i64 %36, 9223372036854775744
+  br i1 %41, label %42, label %43, !prof !175
 
-41:                                               ; preds = %39
+42:                                               ; preds = %40
   call void @_ZSt28__throw_bad_array_new_lengthv() #17
   unreachable
 
-42:                                               ; preds = %39
-  %43 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %36) #18
-  store ptr %43, ptr %29, align 8, !tbaa !173
-  %44 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr %43, ptr %44, align 8, !tbaa !170
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 %36
-  %46 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  store ptr %45, ptr %46, align 8, !tbaa !175
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %43, ptr align 1 %33, i64 %36, i1 false)
+43:                                               ; preds = %40
+  %44 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %36) #18
+  store ptr %44, ptr %29, align 8, !tbaa !173
+  %45 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  store ptr %44, ptr %45, align 8, !tbaa !170
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 %36
+  %47 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  store ptr %46, ptr %47, align 8, !tbaa !174
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %44, ptr align 1 %33, i64 %36, i1 false)
   br label %_ZNSt6vectorIN4llvm6object13Elf_Shdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEEEESaIS6_EEC2ERKS8_.exit.i
 
-_ZNSt6vectorIN4llvm6object13Elf_Shdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEEEESaIS6_EEC2ERKS8_.exit.i: ; preds = %_ZNSt12_Vector_baseIN4llvm6object13Elf_Shdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEEEESaIS6_EEC2EmRKS7_.exit.i.i.thread, %42
-  %47 = phi ptr [ %38, %_ZNSt12_Vector_baseIN4llvm6object13Elf_Shdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEEEESaIS6_EEC2EmRKS7_.exit.i.i.thread ], [ %46, %42 ]
-  %48 = phi ptr [ null, %_ZNSt12_Vector_baseIN4llvm6object13Elf_Shdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEEEESaIS6_EEC2EmRKS7_.exit.i.i.thread ], [ %45, %42 ]
-  %49 = phi ptr [ %37, %_ZNSt12_Vector_baseIN4llvm6object13Elf_Shdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEEEESaIS6_EEC2EmRKS7_.exit.i.i.thread ], [ %44, %42 ]
-  store ptr %48, ptr %49, align 8, !tbaa !170
-  %50 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  %51 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  %52 = getelementptr inbounds nuw i8, ptr %20, i64 64
-  store ptr %52, ptr %50, align 8, !tbaa !176
-  %53 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  %54 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
-  %55 = load i64, ptr %54, align 8, !tbaa !177
-  %.not.i.i.i.i = icmp eq i64 %55, 0
+_ZNSt6vectorIN4llvm6object13Elf_Shdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEEEESaIS6_EEC2ERKS8_.exit.i: ; preds = %_ZNSt12_Vector_baseIN4llvm6object13Elf_Shdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEEEESaIS6_EEC2EmRKS7_.exit.i.i.thread, %43
+  %48 = phi ptr [ %39, %_ZNSt12_Vector_baseIN4llvm6object13Elf_Shdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEEEESaIS6_EEC2EmRKS7_.exit.i.i.thread ], [ %47, %43 ]
+  %49 = phi ptr [ %38, %_ZNSt12_Vector_baseIN4llvm6object13Elf_Shdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEEEESaIS6_EEC2EmRKS7_.exit.i.i.thread ], [ %46, %43 ]
+  %50 = phi ptr [ %37, %_ZNSt12_Vector_baseIN4llvm6object13Elf_Shdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEEEESaIS6_EEC2EmRKS7_.exit.i.i.thread ], [ %45, %43 ]
+  store ptr %49, ptr %50, align 8, !tbaa !170
+  %51 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %19, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %20, i64 64
+  store ptr %53, ptr %51, align 8, !tbaa !176
+  %54 = getelementptr inbounds nuw i8, ptr %20, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %19, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
+  %56 = load i64, ptr %55, align 8, !tbaa !177
+  %.not.i.i.i.i = icmp eq i64 %56, 0
   br i1 %.not.i.i.i.i, label %_ZN4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEC2ERKS5_.exit, label %_ZSt4copyIPKcPcET0_T_S4_S3_.exit31.i.i.i.i
 
 _ZSt4copyIPKcPcET0_T_S4_S3_.exit31.i.i.i.i:       ; preds = %_ZNSt6vectorIN4llvm6object13Elf_Shdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEEEESaIS6_EEC2ERKS8_.exit.i
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull %52, i64 noundef %55, i64 noundef 1) #15
-  %56 = load i64, ptr %54, align 8, !tbaa !177
-  %.not.i.i.i.i4.i = icmp samesign eq i64 %56, 0
-  br i1 %.not.i.i.i.i4.i, label %.sink.split.i.i.i.i, label %57
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull %53, i64 noundef %56, i64 noundef 1) #15
+  %57 = load i64, ptr %55, align 8, !tbaa !177
+  %.not.i.i.i.i4.i = icmp samesign eq i64 %57, 0
+  br i1 %.not.i.i.i.i4.i, label %.sink.split.i.i.i.i, label %58
 
-57:                                               ; preds = %_ZSt4copyIPKcPcET0_T_S4_S3_.exit31.i.i.i.i
-  %58 = load ptr, ptr %51, align 8, !tbaa !176
-  %59 = load ptr, ptr %50, align 8, !tbaa !176
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr align 1 %58, i64 %56, i1 false)
+58:                                               ; preds = %_ZSt4copyIPKcPcET0_T_S4_S3_.exit31.i.i.i.i
+  %59 = load ptr, ptr %52, align 8, !tbaa !176
+  %60 = load ptr, ptr %51, align 8, !tbaa !176
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr align 1 %59, i64 %57, i1 false)
   br label %.sink.split.i.i.i.i
 
-.sink.split.i.i.i.i:                              ; preds = %57, %_ZSt4copyIPKcPcET0_T_S4_S3_.exit31.i.i.i.i
-  store i64 %55, ptr %53, align 8, !tbaa !177
+.sink.split.i.i.i.i:                              ; preds = %58, %_ZSt4copyIPKcPcET0_T_S4_S3_.exit31.i.i.i.i
+  store i64 %56, ptr %54, align 8, !tbaa !177
   br label %_ZN4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEC2ERKS5_.exit
 
 _ZN4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEC2ERKS5_.exit: ; preds = %_ZNSt6vectorIN4llvm6object13Elf_Shdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEEEESaIS6_EEC2ERKS8_.exit.i, %.sink.split.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21) #15
   call void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE8sectionsEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.96") align 8 %21, ptr noundef nonnull align 8 dereferenceable(64) %20) #15
-  %60 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %61 = load i8, ptr %60, align 8
-  %62 = trunc i8 %61 to i1
-  br i1 %62, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i32, label %65
+  %61 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %62 = load i8, ptr %61, align 8
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i32, label %66
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i32: ; preds = %_ZN4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEC2ERKS5_.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !178)
-  %63 = load i64, ptr %21, align 8, !tbaa !168, !noalias !178
-  %64 = inttoptr i64 %63 to ptr
+  %64 = load i64, ptr %21, align 8, !tbaa !168, !noalias !178
+  %65 = inttoptr i64 %64 to ptr
   store ptr null, ptr %21, align 8, !tbaa !168, !noalias !178
-  store ptr %64, ptr %0, align 8, !tbaa !162, !alias.scope !178
-  br label %303
+  store ptr %65, ptr %0, align 8, !tbaa !162, !alias.scope !178
+  br label %304
 
-65:                                               ; preds = %_ZN4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEC2ERKS5_.exit
-  %66 = load ptr, ptr %20, align 8, !tbaa !137
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 8
+66:                                               ; preds = %_ZN4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEC2ERKS5_.exit
+  %67 = load ptr, ptr %20, align 8, !tbaa !137
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 8
   %.sroa.3.0.copyload = load i8, ptr %.sroa.3.0..sroa_idx, align 1
-  %67 = zext i8 %.sroa.3.0.copyload to i16
-  store i16 %67, ptr %3, align 2, !tbaa !181
-  %68 = load ptr, ptr %21, align 8, !tbaa !182
-  %69 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %70 = load i64, ptr %69, align 8, !tbaa !184
-  %71 = getelementptr inbounds nuw %"struct.llvm::object::Elf_Shdr_Impl", ptr %68, i64 %70
-  %.not85 = icmp eq i64 %70, 0
+  %68 = zext i8 %.sroa.3.0.copyload to i16
+  store i16 %68, ptr %3, align 2, !tbaa !181
+  %69 = load ptr, ptr %21, align 8, !tbaa !182
+  %70 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %71 = load i64, ptr %70, align 8, !tbaa !184
+  %72 = getelementptr inbounds nuw %"struct.llvm::object::Elf_Shdr_Impl", ptr %69, i64 %71
+  %.not85 = icmp eq i64 %71, 0
   br i1 %.not85, label %_ZN4llvm5ErrorD2Ev.exit39, label %.lr.ph88
 
-.lr.ph88:                                         ; preds = %65
-  %72 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %73 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  %74 = getelementptr inbounds nuw i8, ptr %14, i64 272
-  %75 = getelementptr inbounds nuw i8, ptr %14, i64 256
-  %76 = getelementptr inbounds nuw i8, ptr %14, i64 96
-  %77 = ptrtoint ptr %15 to i64
-  %78 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %79 = getelementptr inbounds nuw i8, ptr %13, i64 24
+.lr.ph88:                                         ; preds = %66
+  %73 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %14, i64 72
+  %75 = getelementptr inbounds nuw i8, ptr %14, i64 272
+  %76 = getelementptr inbounds nuw i8, ptr %14, i64 256
+  %77 = getelementptr inbounds nuw i8, ptr %14, i64 96
+  %78 = ptrtoint ptr %15 to i64
+  %79 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %.sroa.9.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %80 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %81 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %82 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %83 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %84 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %85 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %86 = getelementptr inbounds nuw i8, ptr %7, i64 52
-  %87 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %88 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %89 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %90 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %91 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %92 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %93 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %94 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %95 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %96 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %97 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %87 = getelementptr inbounds nuw i8, ptr %7, i64 52
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %90 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %91 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %93 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %96 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %98 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  br label %99
+  %99 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  br label %100
 
-99:                                               ; preds = %.lr.ph88, %.thread
-  %.02386 = phi ptr [ %68, %.lr.ph88 ], [ %302, %.thread ]
-  %100 = getelementptr inbounds nuw i8, ptr %.02386, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %100, i64 1) ]
-  %.0.copyload.i.i.i = load i32, ptr %100, align 1
+100:                                              ; preds = %.lr.ph88, %.thread
+  %.02386 = phi ptr [ %69, %.lr.ph88 ], [ %303, %.thread ]
+  %101 = getelementptr inbounds nuw i8, ptr %.02386, i64 4
+  call void @llvm.assume(i1 true) [ "align"(ptr %101, i64 1) ]
+  %.0.copyload.i.i.i = load i32, ptr %101, align 1
   %.not24 = icmp eq i32 %.0.copyload.i.i.i, 7
-  br i1 %.not24, label %101, label %.thread
+  br i1 %.not24, label %102, label %.thread
 
-101:                                              ; preds = %99
+102:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22) #15
   call void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE11notes_beginERKNS0_13Elf_Shdr_ImplIS4_EERNS_5ErrorE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::object::Elf_Note_Iterator_Impl") align 8 %22, ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull align 1 dereferenceable(64) %.02386, ptr noundef nonnull align 8 dereferenceable(8) %18)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %72, i8 0, i64 32, i1 false), !alias.scope !185
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %73, i8 0, i64 32, i1 false), !alias.scope !185
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23) #15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(64) %22, i64 32, i1 false), !tbaa.struct !188
-  %102 = load ptr, ptr %23, align 8, !tbaa !193
-  %.not7384 = icmp eq ptr %102, null
+  %103 = load ptr, ptr %23, align 8, !tbaa !193
+  %.not7384 = icmp eq ptr %103, null
   br i1 %.not7384, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %101
-  %103 = getelementptr inbounds nuw i8, ptr %.02386, i64 48
-  br label %104
+.lr.ph:                                           ; preds = %102
+  %104 = getelementptr inbounds nuw i8, ptr %.02386, i64 48
+  br label %105
 
-104:                                              ; preds = %.lr.ph, %_ZN4llvm5ErrorD2Ev.exit37.thread
-  %105 = phi ptr [ %102, %.lr.ph ], [ %301, %_ZN4llvm5ErrorD2Ev.exit37.thread ]
-  %106 = load ptr, ptr %18, align 8, !tbaa !162
-  %.not74 = icmp eq ptr %106, null
-  br i1 %.not74, label %107, label %.loopexit
+105:                                              ; preds = %.lr.ph, %_ZN4llvm5ErrorD2Ev.exit37.thread
+  %106 = phi ptr [ %103, %.lr.ph ], [ %302, %_ZN4llvm5ErrorD2Ev.exit37.thread ]
+  %107 = load ptr, ptr %18, align 8, !tbaa !162
+  %.not74 = icmp eq ptr %107, null
+  br i1 %.not74, label %108, label %.loopexit
 
-107:                                              ; preds = %104
-  call void @llvm.assume(i1 true) [ "align"(ptr %103, i64 1) ]
-  %.0.copyload.i.i.i33 = load i64, ptr %103, align 1
-  call void @llvm.assume(i1 true) [ "align"(ptr %105, i64 1) ]
-  %.0.copyload.i.i.i.i.i = load i32, ptr %105, align 1, !noalias !195
+108:                                              ; preds = %105
+  call void @llvm.assume(i1 true) [ "align"(ptr %104, i64 1) ]
+  %.0.copyload.i.i.i33 = load i64, ptr %104, align 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %106, i64 1) ]
+  %.0.copyload.i.i.i.i.i = load i32, ptr %106, align 1, !noalias !195
   %.not.i.i = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
   br i1 %.not.i.i, label %_ZN4llvm5ErrorD2Ev.exit37.thread, label %_ZNK4llvm6object13Elf_Note_ImplINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE7getNameEv.exit.i
 
-_ZNK4llvm6object13Elf_Note_ImplINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE7getNameEv.exit.i: ; preds = %107
-  call void @llvm.assume(i1 true) [ "align"(ptr %105, i64 1) ]
-  %108 = icmp eq i32 %.0.copyload.i.i.i.i.i, 7
-  br i1 %108, label %_ZN4llvmneENS_9StringRefES0_.exit.i, label %_ZN4llvm5ErrorD2Ev.exit37.thread
+_ZNK4llvm6object13Elf_Note_ImplINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE7getNameEv.exit.i: ; preds = %108
+  call void @llvm.assume(i1 true) [ "align"(ptr %106, i64 1) ]
+  %109 = icmp eq i32 %.0.copyload.i.i.i.i.i, 7
+  br i1 %109, label %_ZN4llvmneENS_9StringRefES0_.exit.i, label %_ZN4llvm5ErrorD2Ev.exit37.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit.i:              ; preds = %_ZNK4llvm6object13Elf_Note_ImplINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE7getNameEv.exit.i
-  %109 = getelementptr inbounds nuw i8, ptr %105, i64 12
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %109, ptr noundef nonnull dereferenceable(6) @.str.18, i64 6), !noalias !195
+  %110 = getelementptr inbounds nuw i8, ptr %106, i64 12
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %110, ptr noundef nonnull dereferenceable(6) @.str.18, i64 6), !noalias !195
   %.not.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %.not.i, label %_ZN4llvmneENS_9StringRefES0_.exit.thread17.i, label %_ZN4llvm5ErrorD2Ev.exit37.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread17.i:     ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.i
-  %110 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %110, i64 1) ]
-  %.0.copyload.i.i.i.i8.i = load i32, ptr %110, align 1, !noalias !195
+  %111 = getelementptr inbounds nuw i8, ptr %106, i64 4
+  call void @llvm.assume(i1 true) [ "align"(ptr %111, i64 1) ]
+  %.0.copyload.i.i.i.i8.i = load i32, ptr %111, align 1, !noalias !195
   %.not.i9.i = icmp eq i32 %.0.copyload.i.i.i.i8.i, 0
-  br i1 %.not.i9.i, label %_ZNK4llvm6object13Elf_Note_ImplINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE7getDescEm.exit.i, label %111
+  br i1 %.not.i9.i, label %_ZNK4llvm6object13Elf_Note_ImplINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE7getDescEm.exit.i, label %112
 
-111:                                              ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread17.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %105, i64 1) ]
-  %112 = sub i64 0, %.0.copyload.i.i.i33
-  %113 = add i64 %.0.copyload.i.i.i33, 18
-  %114 = and i64 %113, %112
-  %115 = getelementptr inbounds nuw i8, ptr %105, i64 %114
-  call void @llvm.assume(i1 true) [ "align"(ptr %110, i64 1) ]
-  %116 = zext i32 %.0.copyload.i.i.i.i8.i to i64
+112:                                              ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread17.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %106, i64 1) ]
+  %113 = sub i64 0, %.0.copyload.i.i.i33
+  %114 = add i64 %.0.copyload.i.i.i33, 18
+  %115 = and i64 %114, %113
+  %116 = getelementptr inbounds nuw i8, ptr %106, i64 %115
+  call void @llvm.assume(i1 true) [ "align"(ptr %111, i64 1) ]
+  %117 = zext i32 %.0.copyload.i.i.i.i8.i to i64
   br label %_ZNK4llvm6object13Elf_Note_ImplINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE7getDescEm.exit.i
 
-_ZNK4llvm6object13Elf_Note_ImplINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE7getDescEm.exit.i: ; preds = %111, %_ZN4llvmneENS_9StringRefES0_.exit.thread17.i
-  %.sroa.0.0.i10.i = phi ptr [ %115, %111 ], [ null, %_ZN4llvmneENS_9StringRefES0_.exit.thread17.i ]
-  %.sroa.4.0.i11.i = phi i64 [ %116, %111 ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit.thread17.i ]
+_ZNK4llvm6object13Elf_Note_ImplINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE7getDescEm.exit.i: ; preds = %112, %_ZN4llvmneENS_9StringRefES0_.exit.thread17.i
+  %.sroa.0.0.i10.i = phi ptr [ %116, %112 ], [ null, %_ZN4llvmneENS_9StringRefES0_.exit.thread17.i ]
+  %.sroa.4.0.i11.i = phi i64 [ %117, %112 ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit.thread17.i ]
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %14) #15, !noalias !195
-  store i8 0, ptr %74, align 8, !tbaa !198, !noalias !195
+  store i8 0, ptr %75, align 8, !tbaa !198, !noalias !195
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(273) %14, i8 0, i64 72, i1 false), !noalias !195
-  store ptr %75, ptr %73, align 8, !tbaa !217, !noalias !195
-  br label %117
+  store ptr %76, ptr %74, align 8, !tbaa !217, !noalias !195
+  br label %118
 
-117:                                              ; preds = %117, %_ZNK4llvm6object13Elf_Note_ImplINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE7getDescEm.exit.i
-  %indvars.iv.i.i = phi i64 [ 0, %_ZNK4llvm6object13Elf_Note_ImplINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE7getDescEm.exit.i ], [ %indvars.iv.next.i.i, %117 ]
-  %118 = trunc i64 %indvars.iv.i.i to i8
-  %119 = getelementptr inbounds nuw [11 x %"struct.llvm::msgpack::KindAndDocument"], ptr %76, i64 0, i64 %indvars.iv.i.i
-  store ptr %14, ptr %119, align 8, !tbaa !218, !noalias !195
-  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %119, i64 8
-  store i8 %118, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !220, !noalias !195
+118:                                              ; preds = %118, %_ZNK4llvm6object13Elf_Note_ImplINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE7getDescEm.exit.i
+  %indvars.iv.i.i = phi i64 [ 0, %_ZNK4llvm6object13Elf_Note_ImplINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE7getDescEm.exit.i ], [ %indvars.iv.next.i.i, %118 ]
+  %119 = trunc i64 %indvars.iv.i.i to i8
+  %120 = getelementptr inbounds nuw [11 x %"struct.llvm::msgpack::KindAndDocument"], ptr %77, i64 0, i64 %indvars.iv.i.i
+  store ptr %14, ptr %120, align 8, !tbaa !218, !noalias !195
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %120, i64 8
+  store i8 %119, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !220, !noalias !195
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.not.i14.i = icmp eq i64 %indvars.iv.next.i.i, 11
-  br i1 %.not.i14.i, label %_ZN4llvm7msgpack8DocumentC2Ev.exit.i, label %117, !llvm.loop !222
+  br i1 %.not.i14.i, label %_ZN4llvm7msgpack8DocumentC2Ev.exit.i, label %118, !llvm.loop !222
 
-_ZN4llvm7msgpack8DocumentC2Ev.exit.i:             ; preds = %117
+_ZN4llvm7msgpack8DocumentC2Ev.exit.i:             ; preds = %118
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #15, !noalias !195
-  %120 = call noundef zeroext i1 @_ZN4llvm7msgpack8Document12readFromBlobENS_9StringRefEbNS_12function_refIFiPNS0_7DocNodeES4_S4_EEE(ptr noundef nonnull align 8 dereferenceable(273) %14, ptr %.sroa.0.0.i10.i, i64 %.sroa.4.0.i11.i, i1 noundef zeroext false, ptr nonnull @_ZN4llvm12function_refIFiPNS_7msgpack7DocNodeES2_S2_EE11callback_fnIZNS1_8Document12readFromBlobENS_9StringRefEbS5_Ed_UlS3_S2_S2_E_EEilS3_S2_S2_, i64 %77) #15, !noalias !195
+  %121 = call noundef zeroext i1 @_ZN4llvm7msgpack8Document12readFromBlobENS_9StringRefEbNS_12function_refIFiPNS0_7DocNodeES4_S4_EEE(ptr noundef nonnull align 8 dereferenceable(273) %14, ptr %.sroa.0.0.i10.i, i64 %.sroa.4.0.i11.i, i1 noundef zeroext false, ptr nonnull @_ZN4llvm12function_refIFiPNS_7msgpack7DocNodeES2_S2_EE11callback_fnIZNS1_8Document12readFromBlobENS_9StringRefEbS5_Ed_UlS3_S2_S2_E_EEilS3_S2_S2_, i64 %78) #15, !noalias !195
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #15, !noalias !195
-  br i1 %120, label %121, label %_ZN4llvm5ErrorD2Ev.exit37.thread.sink.split
+  br i1 %121, label %122, label %_ZN4llvm5ErrorD2Ev.exit37.thread.sink.split
 
-121:                                              ; preds = %_ZN4llvm7msgpack8DocumentC2Ev.exit.i
+122:                                              ; preds = %_ZN4llvm7msgpack8DocumentC2Ev.exit.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #15, !noalias !195
   store i8 1, ptr %16, align 1, !tbaa !224, !noalias !195
-  %122 = call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier6verifyERNS_7msgpack7DocNodeE(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(24) %73) #15, !noalias !195
-  br i1 %122, label %123, label %_ZN4llvm5ErrorD2Ev.exit37.thread.sink.split.sink.split
+  %123 = call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier6verifyERNS_7msgpack7DocNodeE(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(24) %74) #15, !noalias !195
+  br i1 %123, label %124, label %_ZN4llvm5ErrorD2Ev.exit37.thread.sink.split.sink.split
 
-123:                                              ; preds = %121
+124:                                              ; preds = %122
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #15, !noalias !195
-  %124 = load ptr, ptr %73, align 8, !tbaa !226, !noalias !195
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %126 = load i8, ptr %125, align 8, !tbaa !227, !noalias !195
-  %.not.i17.i = icmp eq i8 %126, 8
-  br i1 %.not.i17.i, label %_ZN4llvm7msgpack7DocNode6getMapEb.exit.i, label %127
+  %125 = load ptr, ptr %74, align 8, !tbaa !226, !noalias !195
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  %127 = load i8, ptr %126, align 8, !tbaa !227, !noalias !195
+  %.not.i17.i = icmp eq i8 %127, 8
+  br i1 %.not.i17.i, label %_ZN4llvm7msgpack7DocNode6getMapEb.exit.i, label %128
 
-127:                                              ; preds = %123
-  call void @_ZN4llvm7msgpack7DocNode12convertToMapEv(ptr noundef nonnull align 8 dereferenceable(24) %73) #15, !noalias !195
+128:                                              ; preds = %124
+  call void @_ZN4llvm7msgpack7DocNode12convertToMapEv(ptr noundef nonnull align 8 dereferenceable(24) %74) #15, !noalias !195
   br label %_ZN4llvm7msgpack7DocNode6getMapEb.exit.i
 
-_ZN4llvm7msgpack7DocNode6getMapEb.exit.i:         ; preds = %127, %123
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %73, i64 24, i1 false), !noalias !195
-  %128 = call ptr @_ZN4llvm7msgpack10MapDocNode4findENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr nonnull @.str.19, i64 14) #15, !noalias !229
-  %129 = load ptr, ptr %78, align 8, !tbaa !108, !noalias !229
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
-  %131 = icmp eq ptr %128, %130
-  br i1 %131, label %._crit_edge.i.i.i.i.i.i, label %146
+_ZN4llvm7msgpack7DocNode6getMapEb.exit.i:         ; preds = %128, %124
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %74, i64 24, i1 false), !noalias !195
+  %129 = call ptr @_ZN4llvm7msgpack10MapDocNode4findENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr nonnull @.str.19, i64 14) #15, !noalias !229
+  %130 = load ptr, ptr %79, align 8, !tbaa !108, !noalias !229
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
+  %132 = icmp eq ptr %129, %131
+  br i1 %132, label %._crit_edge.i.i.i.i.i.i, label %147
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %_ZN4llvm7msgpack7DocNode6getMapEb.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #15, !noalias !229
-  %132 = call { i32, ptr } @_ZN4llvm22inconvertibleErrorCodeEv() #15, !noalias !229
-  %133 = extractvalue { i32, ptr } %132, 0
-  %134 = extractvalue { i32, ptr } %132, 1
+  %133 = call { i32, ptr } @_ZN4llvm22inconvertibleErrorCodeEv() #15, !noalias !229
+  %134 = extractvalue { i32, ptr } %133, 0
+  %135 = extractvalue { i32, ptr } %133, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #15, !noalias !234
-  %135 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %135, ptr %11, align 8, !tbaa !237, !noalias !234
+  %136 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr %136, ptr %11, align 8, !tbaa !237, !noalias !234
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15, !noalias !234
   store i64 33, ptr %10, align 8, !tbaa !141, !noalias !234
-  %136 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef 0) #15, !noalias !234
-  store ptr %136, ptr %11, align 8, !tbaa !125, !noalias !234
-  %137 = load i64, ptr %10, align 8, !tbaa !141, !noalias !234
-  store i64 %137, ptr %135, align 8, !tbaa !108, !noalias !234
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %136, ptr noundef nonnull align 1 dereferenceable(33) @.str.20, i64 33, i1 false), !noalias !234
-  %138 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 %137, ptr %138, align 8, !tbaa !126, !noalias !234
-  %139 = getelementptr inbounds nuw i8, ptr %136, i64 %137
-  store i8 0, ptr %139, align 1, !tbaa !108, !noalias !234
+  %137 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef 0) #15, !noalias !234
+  store ptr %137, ptr %11, align 8, !tbaa !125, !noalias !234
+  %138 = load i64, ptr %10, align 8, !tbaa !141, !noalias !234
+  store i64 %138, ptr %136, align 8, !tbaa !108, !noalias !234
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %137, ptr noundef nonnull align 1 dereferenceable(33) @.str.20, i64 33, i1 false), !noalias !234
+  %139 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 %138, ptr %139, align 8, !tbaa !126, !noalias !234
+  %140 = getelementptr inbounds nuw i8, ptr %137, i64 %138
+  store i8 0, ptr %140, align 1, !tbaa !108, !noalias !234
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15, !noalias !234
-  call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 %133, ptr %134) #15, !noalias !229
-  %140 = load ptr, ptr %11, align 8, !tbaa !125, !noalias !234
-  %141 = icmp eq ptr %140, %135
-  br i1 %141, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
+  call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 %134, ptr %135) #15, !noalias !229
+  %141 = load ptr, ptr %11, align 8, !tbaa !125, !noalias !234
+  %142 = icmp eq ptr %141, %136
+  br i1 %142, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.i.i.i.i
-  %142 = load i64, ptr %138, align 8, !tbaa !126, !noalias !234
-  %143 = icmp ult i64 %142, 16
-  call void @llvm.assume(i1 %143)
-  br label %286
+  %143 = load i64, ptr %139, align 8, !tbaa !126, !noalias !234
+  %144 = icmp ult i64 %143, 16
+  call void @llvm.assume(i1 %144)
+  br label %287
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.i.i.i.i
-  %144 = load i64, ptr %135, align 8, !tbaa !108, !noalias !234
-  %145 = add i64 %144, 1
-  call void @_ZdlPvm(ptr noundef %140, i64 noundef %145) #16, !noalias !229
-  br label %286
+  %145 = load i64, ptr %136, align 8, !tbaa !108, !noalias !234
+  %146 = add i64 %145, 1
+  call void @_ZdlPvm(ptr noundef %141, i64 noundef %146) #16, !noalias !229
+  br label %287
 
-146:                                              ; preds = %_ZN4llvm7msgpack7DocNode6getMapEb.exit.i
+147:                                              ; preds = %_ZN4llvm7msgpack7DocNode6getMapEb.exit.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13) #15, !noalias !229
-  %147 = getelementptr inbounds nuw i8, ptr %128, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %147, i64 48, i1 false), !noalias !229
-  %148 = load ptr, ptr %79, align 8, !tbaa !226, !noalias !229
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %150 = load i8, ptr %149, align 8, !tbaa !227, !noalias !229
-  %.not.i.i.i.i34 = icmp eq i8 %150, 7
-  br i1 %.not.i.i.i.i34, label %_ZN4llvm8ExpectedINS_7msgpack12ArrayDocNodeEE9takeErrorEv.exit.thread.i.i, label %151
+  %148 = getelementptr inbounds nuw i8, ptr %129, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %148, i64 48, i1 false), !noalias !229
+  %149 = load ptr, ptr %80, align 8, !tbaa !226, !noalias !229
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
+  %151 = load i8, ptr %150, align 8, !tbaa !227, !noalias !229
+  %.not.i.i.i.i34 = icmp eq i8 %151, 7
+  br i1 %.not.i.i.i.i34, label %_ZN4llvm8ExpectedINS_7msgpack12ArrayDocNodeEE9takeErrorEv.exit.thread.i.i, label %152
 
-151:                                              ; preds = %146
-  call void @_ZN4llvm7msgpack7DocNode14convertToArrayEv(ptr noundef nonnull align 8 dereferenceable(24) %79) #15, !noalias !229
+152:                                              ; preds = %147
+  call void @_ZN4llvm7msgpack7DocNode14convertToArrayEv(ptr noundef nonnull align 8 dereferenceable(24) %80) #15, !noalias !229
   br label %_ZN4llvm8ExpectedINS_7msgpack12ArrayDocNodeEE9takeErrorEv.exit.thread.i.i
 
-_ZN4llvm8ExpectedINS_7msgpack12ArrayDocNodeEE9takeErrorEv.exit.thread.i.i: ; preds = %151, %146
+_ZN4llvm8ExpectedINS_7msgpack12ArrayDocNodeEE9takeErrorEv.exit.thread.i.i: ; preds = %152, %147
   %.sroa.9.0.copyload.i.i = load ptr, ptr %.sroa.9.0..sroa_idx.i.i, align 8, !noalias !238
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13) #15, !noalias !229
-  %152 = load ptr, ptr %.sroa.9.0.copyload.i.i, align 8, !tbaa !239, !noalias !238
-  %153 = getelementptr inbounds nuw i8, ptr %.sroa.9.0.copyload.i.i, i64 8
-  %154 = load ptr, ptr %153, align 8, !tbaa !239, !noalias !238
-  %.not58.i.i = icmp eq ptr %152, %154
+  %153 = load ptr, ptr %.sroa.9.0.copyload.i.i, align 8, !tbaa !239, !noalias !238
+  %154 = getelementptr inbounds nuw i8, ptr %.sroa.9.0.copyload.i.i, i64 8
+  %155 = load ptr, ptr %154, align 8, !tbaa !239, !noalias !238
+  %.not58.i.i = icmp eq ptr %153, %155
   br i1 %.not58.i.i, label %_ZN4llvm5ErrorD2Ev.exit37.thread67, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZN4llvm8ExpectedINS_7msgpack12ArrayDocNodeEE9takeErrorEv.exit.thread.i.i, %284
-  %.sroa.024.059.i.i = phi ptr [ %285, %284 ], [ %152, %_ZN4llvm8ExpectedINS_7msgpack12ArrayDocNodeEE9takeErrorEv.exit.thread.i.i ]
-  %155 = load ptr, ptr %.sroa.024.059.i.i, align 8, !tbaa !226, !noalias !238
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  %157 = load i8, ptr %156, align 8, !tbaa !227, !noalias !238
-  %158 = icmp eq i8 %157, 8
-  br i1 %158, label %159, label %284
+.lr.ph.i.i:                                       ; preds = %_ZN4llvm8ExpectedINS_7msgpack12ArrayDocNodeEE9takeErrorEv.exit.thread.i.i, %285
+  %.sroa.024.059.i.i = phi ptr [ %286, %285 ], [ %153, %_ZN4llvm8ExpectedINS_7msgpack12ArrayDocNodeEE9takeErrorEv.exit.thread.i.i ]
+  %156 = load ptr, ptr %.sroa.024.059.i.i, align 8, !tbaa !226, !noalias !238
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
+  %158 = load i8, ptr %157, align 8, !tbaa !227, !noalias !238
+  %159 = icmp eq i8 %158, 8
+  br i1 %159, label %160, label %285
 
-159:                                              ; preds = %.lr.ph.i.i
+160:                                              ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %7), !noalias !238
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %7, i8 -1, i64 60, i1 false), !noalias !241
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #15, !noalias !241
-  store ptr %80, ptr %8, align 8, !tbaa !237, !noalias !241
-  store i64 0, ptr %81, align 8, !tbaa !126, !noalias !241
-  store i8 0, ptr %80, align 8, !tbaa !108, !noalias !241
-  %160 = load ptr, ptr %.sroa.024.059.i.i, align 8, !tbaa !226, !noalias !241
-  %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
-  %162 = load i8, ptr %161, align 8, !tbaa !227, !noalias !241
-  %.not.i.i14.i.i = icmp eq i8 %162, 8
-  br i1 %.not.i.i14.i.i, label %_ZN4llvm7msgpack7DocNode6getMapEb.exit.i.i.i, label %163
+  store ptr %81, ptr %8, align 8, !tbaa !237, !noalias !241
+  store i64 0, ptr %82, align 8, !tbaa !126, !noalias !241
+  store i8 0, ptr %81, align 8, !tbaa !108, !noalias !241
+  %161 = load ptr, ptr %.sroa.024.059.i.i, align 8, !tbaa !226, !noalias !241
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  %163 = load i8, ptr %162, align 8, !tbaa !227, !noalias !241
+  %.not.i.i14.i.i = icmp eq i8 %163, 8
+  br i1 %.not.i.i14.i.i, label %_ZN4llvm7msgpack7DocNode6getMapEb.exit.i.i.i, label %164
 
-163:                                              ; preds = %159
+164:                                              ; preds = %160
   call void @_ZN4llvm7msgpack7DocNode12convertToMapEv(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.024.059.i.i) #15, !noalias !241
   br label %_ZN4llvm7msgpack7DocNode6getMapEb.exit.i.i.i
 
-_ZN4llvm7msgpack7DocNode6getMapEb.exit.i.i.i:     ; preds = %163, %159
+_ZN4llvm7msgpack7DocNode6getMapEb.exit.i.i.i:     ; preds = %164, %160
   %.sroa.328.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.024.059.i.i, i64 8
   %.sroa.328.0.copyload.i.i.i = load ptr, ptr %.sroa.328.0..sroa_idx.i.i.i, align 8, !noalias !241
-  %164 = getelementptr inbounds nuw i8, ptr %.sroa.328.0.copyload.i.i.i, i64 24
-  %165 = load ptr, ptr %164, align 8, !tbaa !244, !noalias !241
-  %166 = getelementptr inbounds nuw i8, ptr %.sroa.328.0.copyload.i.i.i, i64 8
-  %.not32.i.i.i = icmp eq ptr %165, %166
+  %165 = getelementptr inbounds nuw i8, ptr %.sroa.328.0.copyload.i.i.i, i64 24
+  %166 = load ptr, ptr %165, align 8, !tbaa !244, !noalias !241
+  %167 = getelementptr inbounds nuw i8, ptr %.sroa.328.0.copyload.i.i.i, i64 8
+  %.not32.i.i.i = icmp eq ptr %166, %167
   br i1 %.not32.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4llvm7msgpack7DocNode6getMapEb.exit.i.i.i, %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
-  %167 = phi i32 [ %266, %_ZN4llvm5ErrorD2Ev.exit.i15.i.i ], [ -1, %_ZN4llvm7msgpack7DocNode6getMapEb.exit.i.i.i ]
   %168 = phi i32 [ %267, %_ZN4llvm5ErrorD2Ev.exit.i15.i.i ], [ -1, %_ZN4llvm7msgpack7DocNode6getMapEb.exit.i.i.i ]
   %169 = phi i32 [ %268, %_ZN4llvm5ErrorD2Ev.exit.i15.i.i ], [ -1, %_ZN4llvm7msgpack7DocNode6getMapEb.exit.i.i.i ]
   %170 = phi i32 [ %269, %_ZN4llvm5ErrorD2Ev.exit.i15.i.i ], [ -1, %_ZN4llvm7msgpack7DocNode6getMapEb.exit.i.i.i ]
   %171 = phi i32 [ %270, %_ZN4llvm5ErrorD2Ev.exit.i15.i.i ], [ -1, %_ZN4llvm7msgpack7DocNode6getMapEb.exit.i.i.i ]
   %172 = phi i32 [ %271, %_ZN4llvm5ErrorD2Ev.exit.i15.i.i ], [ -1, %_ZN4llvm7msgpack7DocNode6getMapEb.exit.i.i.i ]
   %173 = phi i32 [ %272, %_ZN4llvm5ErrorD2Ev.exit.i15.i.i ], [ -1, %_ZN4llvm7msgpack7DocNode6getMapEb.exit.i.i.i ]
-  %.sroa.024.033.i.i.i = phi ptr [ %273, %_ZN4llvm5ErrorD2Ev.exit.i15.i.i ], [ %165, %_ZN4llvm7msgpack7DocNode6getMapEb.exit.i.i.i ]
-  %174 = getelementptr inbounds nuw i8, ptr %.sroa.024.033.i.i.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %174, i64 48, i1 false), !noalias !241
+  %174 = phi i32 [ %273, %_ZN4llvm5ErrorD2Ev.exit.i15.i.i ], [ -1, %_ZN4llvm7msgpack7DocNode6getMapEb.exit.i.i.i ]
+  %.sroa.024.033.i.i.i = phi ptr [ %274, %_ZN4llvm5ErrorD2Ev.exit.i15.i.i ], [ %166, %_ZN4llvm7msgpack7DocNode6getMapEb.exit.i.i.i ]
+  %175 = getelementptr inbounds nuw i8, ptr %.sroa.024.033.i.i.i, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %175, i64 48, i1 false), !noalias !241
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !241
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false), !noalias !241
-  %175 = load ptr, ptr %6, align 8, !tbaa !226, !noalias !249
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  %177 = load i8, ptr %176, align 8, !tbaa !227, !noalias !249
-  %178 = icmp eq i8 %177, 5
-  br i1 %178, label %179, label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
+  %176 = load ptr, ptr %6, align 8, !tbaa !226, !noalias !249
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
+  %178 = load i8, ptr %177, align 8, !tbaa !227, !noalias !249
+  %179 = icmp eq i8 %178, 5
+  br i1 %179, label %180, label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
 
-179:                                              ; preds = %.lr.ph.i.i.i
-  %.val.i.i.i.i = load ptr, ptr %82, align 8, !tbaa !140, !noalias !249
-  %.val12.i.i.i.i = load i64, ptr %83, align 8, !tbaa !141, !noalias !249
+180:                                              ; preds = %.lr.ph.i.i.i
+  %.val.i.i.i.i = load ptr, ptr %83, align 8, !tbaa !140, !noalias !249
+  %.val12.i.i.i.i = load i64, ptr %84, align 8, !tbaa !141, !noalias !249
   switch i64 %.val12.i.i.i.i, label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i [
     i64 5, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit.i.i.i.i
     i64 11, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit38.i.i.i.i
@@ -1160,343 +1163,343 @@ _ZN4llvm7msgpack7DocNode6getMapEb.exit.i.i.i:     ; preds = %163, %159
     i64 24, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.i.i.i.i
   ]
 
-_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit.i.i.i.i: ; preds = %179
+_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit.i.i.i.i: ; preds = %180
   %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %.val.i.i.i.i, ptr noundef nonnull readonly dereferenceable(5) @.str.22, i64 5), !noalias !249
-  %180 = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
-  br i1 %180, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit.thread.i.i.i.i, label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
+  %181 = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
+  br i1 %181, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit.thread.i.i.i.i, label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
 
 _ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit.thread.i.i.i.i: ; preds = %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15, !noalias !249
-  call void @_ZNK4llvm7msgpack7DocNode8toStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %87) #15, !noalias !249
-  %181 = load ptr, ptr %8, align 8, !tbaa !125, !noalias !249
-  %182 = icmp eq ptr %181, %80
-  br i1 %182, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i.i.i
+  call void @_ZNK4llvm7msgpack7DocNode8toStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %88) #15, !noalias !249
+  %182 = load ptr, ptr %8, align 8, !tbaa !125, !noalias !249
+  %183 = icmp eq ptr %182, %81
+  br i1 %183, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit.thread.i.i.i.i
-  %183 = load i64, ptr %81, align 8, !tbaa !126, !noalias !249
-  %184 = icmp ult i64 %183, 16
-  call void @llvm.assume(i1 %184)
-  %185 = load ptr, ptr %5, align 8, !tbaa !125, !noalias !249
-  %186 = icmp eq ptr %185, %96
-  br i1 %186, label %189, label %.thread.i.i.i.i.i
+  %184 = load i64, ptr %82, align 8, !tbaa !126, !noalias !249
+  %185 = icmp ult i64 %184, 16
+  call void @llvm.assume(i1 %185)
+  %186 = load ptr, ptr %5, align 8, !tbaa !125, !noalias !249
+  %187 = icmp eq ptr %186, %97
+  br i1 %187, label %190, label %.thread.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i.i.i: ; preds = %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit.thread.i.i.i.i
-  %187 = load ptr, ptr %5, align 8, !tbaa !125, !noalias !249
-  %188 = icmp eq ptr %187, %96
-  br i1 %188, label %189, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i.i.i
+  %188 = load ptr, ptr %5, align 8, !tbaa !125, !noalias !249
+  %189 = icmp eq ptr %188, %97
+  br i1 %189, label %190, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i.i.i
 
-189:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
-  %190 = phi ptr [ %187, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i.i.i ], [ %185, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i ]
-  %191 = load i64, ptr %97, align 8, !tbaa !126, !noalias !249
-  %192 = icmp ult i64 %191, 16
-  call void @llvm.assume(i1 %192)
-  switch i64 %191, label %195 [
+190:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
+  %191 = phi ptr [ %188, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i.i.i ], [ %186, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i ]
+  %192 = load i64, ptr %98, align 8, !tbaa !126, !noalias !249
+  %193 = icmp ult i64 %192, 16
+  call void @llvm.assume(i1 %193)
+  switch i64 %192, label %196 [
     i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i.i.i
-    i64 1, label %193
+    i64 1, label %194
   ]
 
-193:                                              ; preds = %189
-  %194 = load i8, ptr %190, align 1, !tbaa !108, !noalias !249
-  store i8 %194, ptr %181, align 1, !tbaa !108, !noalias !249
+194:                                              ; preds = %190
+  %195 = load i8, ptr %191, align 1, !tbaa !108, !noalias !249
+  store i8 %195, ptr %182, align 1, !tbaa !108, !noalias !249
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i.i.i
 
-195:                                              ; preds = %189
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %181, ptr align 1 %190, i64 %191, i1 false), !noalias !249
+196:                                              ; preds = %190
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %182, ptr align 1 %191, i64 %192, i1 false), !noalias !249
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i.i.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i.i.i: ; preds = %195, %193, %189
-  %196 = load i64, ptr %97, align 8, !tbaa !126, !noalias !249
-  store i64 %196, ptr %81, align 8, !tbaa !126, !noalias !249
-  %197 = load ptr, ptr %8, align 8, !tbaa !125, !noalias !249
-  %198 = getelementptr inbounds nuw i8, ptr %197, i64 %196
-  store i8 0, ptr %198, align 1, !tbaa !108, !noalias !249
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i.i.i: ; preds = %196, %194, %190
+  %197 = load i64, ptr %98, align 8, !tbaa !126, !noalias !249
+  store i64 %197, ptr %82, align 8, !tbaa !126, !noalias !249
+  %198 = load ptr, ptr %8, align 8, !tbaa !125, !noalias !249
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 %197
+  store i8 0, ptr %199, align 1, !tbaa !108, !noalias !249
   %.pre.i.i.i.i.i = load ptr, ptr %5, align 8, !tbaa !125, !noalias !249
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i.i.i.i
 
 .thread.i.i.i.i.i:                                ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
-  store ptr %185, ptr %8, align 8, !tbaa !125, !noalias !249
-  %199 = load i64, ptr %97, align 8, !tbaa !126, !noalias !249
-  store i64 %199, ptr %81, align 8, !tbaa !126, !noalias !249
-  %200 = load i64, ptr %96, align 8, !tbaa !108, !noalias !249
-  store i64 %200, ptr %80, align 8, !tbaa !108, !noalias !249
-  br label %205
+  store ptr %186, ptr %8, align 8, !tbaa !125, !noalias !249
+  %200 = load i64, ptr %98, align 8, !tbaa !126, !noalias !249
+  store i64 %200, ptr %82, align 8, !tbaa !126, !noalias !249
+  %201 = load i64, ptr %97, align 8, !tbaa !108, !noalias !249
+  store i64 %201, ptr %81, align 8, !tbaa !108, !noalias !249
+  br label %206
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i.i.i
-  %201 = load i64, ptr %80, align 8, !tbaa !108, !noalias !249
-  store ptr %187, ptr %8, align 8, !tbaa !125, !noalias !249
-  %202 = load i64, ptr %97, align 8, !tbaa !126, !noalias !249
-  store i64 %202, ptr %81, align 8, !tbaa !126, !noalias !249
-  %203 = load i64, ptr %96, align 8, !tbaa !108, !noalias !249
-  store i64 %203, ptr %80, align 8, !tbaa !108, !noalias !249
-  %.not.i.i.i.i.i36 = icmp eq ptr %181, null
-  br i1 %.not.i.i.i.i.i36, label %205, label %204
+  %202 = load i64, ptr %81, align 8, !tbaa !108, !noalias !249
+  store ptr %188, ptr %8, align 8, !tbaa !125, !noalias !249
+  %203 = load i64, ptr %98, align 8, !tbaa !126, !noalias !249
+  store i64 %203, ptr %82, align 8, !tbaa !126, !noalias !249
+  %204 = load i64, ptr %97, align 8, !tbaa !108, !noalias !249
+  store i64 %204, ptr %81, align 8, !tbaa !108, !noalias !249
+  %.not.i.i.i.i.i36 = icmp eq ptr %182, null
+  br i1 %.not.i.i.i.i.i36, label %206, label %205
 
-204:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i.i.i
-  store ptr %181, ptr %5, align 8, !tbaa !125, !noalias !249
-  store i64 %201, ptr %96, align 8, !tbaa !108, !noalias !249
+205:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i.i.i
+  store ptr %182, ptr %5, align 8, !tbaa !125, !noalias !249
+  store i64 %202, ptr %97, align 8, !tbaa !108, !noalias !249
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i.i.i.i
 
-205:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i.i.i, %.thread.i.i.i.i.i
-  store ptr %96, ptr %5, align 8, !tbaa !125, !noalias !249
+206:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i.i.i, %.thread.i.i.i.i.i
+  store ptr %97, ptr %5, align 8, !tbaa !125, !noalias !249
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i.i.i.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i.i.i.i: ; preds = %205, %204, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i.i.i
-  %206 = phi ptr [ %181, %204 ], [ %96, %205 ], [ %.pre.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i.i.i ]
-  store i64 0, ptr %97, align 8, !tbaa !126, !noalias !249
-  store i8 0, ptr %206, align 1, !tbaa !108, !noalias !249
-  %207 = load ptr, ptr %5, align 8, !tbaa !125, !noalias !249
-  %208 = icmp eq ptr %207, %96
-  br i1 %208, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i17.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i16.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i.i.i.i: ; preds = %206, %205, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i.i.i
+  %207 = phi ptr [ %182, %205 ], [ %97, %206 ], [ %.pre.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i.i.i ]
+  store i64 0, ptr %98, align 8, !tbaa !126, !noalias !249
+  store i8 0, ptr %207, align 1, !tbaa !108, !noalias !249
+  %208 = load ptr, ptr %5, align 8, !tbaa !125, !noalias !249
+  %209 = icmp eq ptr %208, %97
+  br i1 %209, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i17.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i16.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i17.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i.i.i.i
-  %209 = load i64, ptr %97, align 8, !tbaa !126, !noalias !249
-  %210 = icmp ult i64 %209, 16
-  call void @llvm.assume(i1 %210)
+  %210 = load i64, ptr %98, align 8, !tbaa !126, !noalias !249
+  %211 = icmp ult i64 %210, 16
+  call void @llvm.assume(i1 %211)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i16.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i.i.i.i
-  %211 = load i64, ptr %96, align 8, !tbaa !108, !noalias !249
-  %212 = add i64 %211, 1
-  call void @_ZdlPvm(ptr noundef %207, i64 noundef %212) #16, !noalias !249
+  %212 = load i64, ptr %97, align 8, !tbaa !108, !noalias !249
+  %213 = add i64 %212, 1
+  call void @_ZdlPvm(ptr noundef %208, i64 noundef %213) #16, !noalias !249
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i16.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i17.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15, !noalias !249
   br label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
 
-_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit38.i.i.i.i: ; preds = %179
+_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit38.i.i.i.i: ; preds = %180
   %bcmp.i.i37.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %.val.i.i.i.i, ptr noundef nonnull readonly dereferenceable(11) @.str.23, i64 11), !noalias !249
-  %213 = icmp eq i32 %bcmp.i.i37.i.i.i.i, 0
-  br i1 %213, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit38.thread.i.i.i.i, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit46.i.i.i.i
+  %214 = icmp eq i32 %bcmp.i.i37.i.i.i.i, 0
+  br i1 %214, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit38.thread.i.i.i.i, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit46.i.i.i.i
 
 _ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit38.thread.i.i.i.i: ; preds = %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit38.i.i.i.i
-  %214 = load i64, ptr %84, align 8, !tbaa !141, !noalias !249
-  %215 = trunc i64 %214 to i32
+  %215 = load i64, ptr %85, align 8, !tbaa !141, !noalias !249
+  %216 = trunc i64 %215 to i32
   br label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
 
-_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit42.i.i.i.i: ; preds = %179
+_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit42.i.i.i.i: ; preds = %180
   %bcmp.i.i41.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(17) %.val.i.i.i.i, ptr noundef nonnull readonly dereferenceable(17) @.str.24, i64 17), !noalias !249
-  %216 = icmp eq i32 %bcmp.i.i41.i.i.i.i, 0
-  br i1 %216, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit42.thread.i.i.i.i, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.i.i.i.i
+  %217 = icmp eq i32 %bcmp.i.i41.i.i.i.i, 0
+  br i1 %217, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit42.thread.i.i.i.i, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.i.i.i.i
 
 _ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit42.thread.i.i.i.i: ; preds = %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit42.i.i.i.i
-  %217 = load i64, ptr %84, align 8, !tbaa !141, !noalias !249
-  %218 = trunc i64 %217 to i32
+  %218 = load i64, ptr %85, align 8, !tbaa !141, !noalias !249
+  %219 = trunc i64 %218 to i32
   br label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
 
 _ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit46.i.i.i.i: ; preds = %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit38.i.i.i.i
   %bcmp.i.i45.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %.val.i.i.i.i, ptr noundef nonnull readonly dereferenceable(11) @.str.25, i64 11), !noalias !249
-  %219 = icmp eq i32 %bcmp.i.i45.i.i.i.i, 0
-  br i1 %219, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit46.thread.i.i.i.i, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.i.i.i.i
+  %220 = icmp eq i32 %bcmp.i.i45.i.i.i.i, 0
+  br i1 %220, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit46.thread.i.i.i.i, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.i.i.i.i
 
 _ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit46.thread.i.i.i.i: ; preds = %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit46.i.i.i.i
-  %220 = load i64, ptr %84, align 8, !tbaa !141, !noalias !249
-  %221 = trunc i64 %220 to i32
+  %221 = load i64, ptr %85, align 8, !tbaa !141, !noalias !249
+  %222 = trunc i64 %221 to i32
   br label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
 
 _ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.i.i.i.i: ; preds = %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit42.i.i.i.i
   %bcmp.i.i49.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(17) %.val.i.i.i.i, ptr noundef nonnull readonly dereferenceable(17) @.str.26, i64 17), !noalias !249
-  %222 = icmp eq i32 %bcmp.i.i49.i.i.i.i, 0
-  br i1 %222, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.thread.i.i.i.i, label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
+  %223 = icmp eq i32 %bcmp.i.i49.i.i.i.i, 0
+  br i1 %223, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.thread.i.i.i.i, label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
 
 _ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.thread.i.i.i.i: ; preds = %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.i.i.i.i
-  %223 = load i64, ptr %84, align 8, !tbaa !141, !noalias !249
-  %224 = trunc i64 %223 to i32
+  %224 = load i64, ptr %85, align 8, !tbaa !141, !noalias !249
+  %225 = trunc i64 %224 to i32
   br label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
 
 _ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.i.i.i.i: ; preds = %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit46.i.i.i.i
   %bcmp.i.i53.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %.val.i.i.i.i, ptr noundef nonnull readonly dereferenceable(11) @.str.27, i64 11), !noalias !249
-  %225 = icmp eq i32 %bcmp.i.i53.i.i.i.i, 0
-  br i1 %225, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.thread.i.i.i.i, label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
+  %226 = icmp eq i32 %bcmp.i.i53.i.i.i.i, 0
+  br i1 %226, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.thread.i.i.i.i, label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
 
 _ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.thread.i.i.i.i: ; preds = %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.i.i.i.i
-  %226 = load i64, ptr %84, align 8, !tbaa !141, !noalias !249
-  %227 = trunc i64 %226 to i32
+  %227 = load i64, ptr %85, align 8, !tbaa !141, !noalias !249
+  %228 = trunc i64 %227 to i32
   br label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
 
-_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.i.i.i.i: ; preds = %179
+_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.i.i.i.i: ; preds = %180
   %bcmp.i.i57.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(27) %.val.i.i.i.i, ptr noundef nonnull readonly dereferenceable(27) @.str.28, i64 27), !noalias !249
-  %228 = icmp eq i32 %bcmp.i.i57.i.i.i.i, 0
-  br i1 %228, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.thread.i.i.i.i, label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
+  %229 = icmp eq i32 %bcmp.i.i57.i.i.i.i, 0
+  br i1 %229, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.thread.i.i.i.i, label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
 
 _ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.thread.i.i.i.i: ; preds = %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.i.i.i.i
-  %229 = load i64, ptr %84, align 8, !tbaa !141, !noalias !249
-  %230 = trunc i64 %229 to i32
+  %230 = load i64, ptr %85, align 8, !tbaa !141, !noalias !249
+  %231 = trunc i64 %230 to i32
   br label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
 
-_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.i.i.i.i: ; preds = %179
+_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.i.i.i.i: ; preds = %180
   %bcmp.i.i61.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(25) %.val.i.i.i.i, ptr noundef nonnull readonly dereferenceable(25) @.str.29, i64 25), !noalias !249
-  %231 = icmp eq i32 %bcmp.i.i61.i.i.i.i, 0
-  br i1 %231, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.thread.i.i.i.i, label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
+  %232 = icmp eq i32 %bcmp.i.i61.i.i.i.i, 0
+  br i1 %232, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.thread.i.i.i.i, label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
 
 _ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.thread.i.i.i.i: ; preds = %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.i.i.i.i
-  %232 = load i64, ptr %84, align 8, !tbaa !141, !noalias !249
-  %233 = trunc i64 %232 to i32
+  %233 = load i64, ptr %85, align 8, !tbaa !141, !noalias !249
+  %234 = trunc i64 %233 to i32
   br label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
 
-_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit66.i.i.i.i: ; preds = %179
+_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit66.i.i.i.i: ; preds = %180
   %bcmp.i.i65.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %.val.i.i.i.i, ptr noundef nonnull readonly dereferenceable(20) @.str.30, i64 20), !noalias !249
-  %234 = icmp eq i32 %bcmp.i.i65.i.i.i.i, 0
-  br i1 %234, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit66.thread.i.i.i.i, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit70.i.i.i.i
+  %235 = icmp eq i32 %bcmp.i.i65.i.i.i.i, 0
+  br i1 %235, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit66.thread.i.i.i.i, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit70.i.i.i.i
 
 _ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit66.thread.i.i.i.i: ; preds = %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit66.i.i.i.i
-  %235 = load ptr, ptr %87, align 8, !tbaa !226, !noalias !249
-  %236 = getelementptr inbounds nuw i8, ptr %235, i64 8
-  %237 = load i8, ptr %236, align 8, !tbaa !227, !noalias !249
-  %.not.i.i10.i.i.i = icmp eq i8 %237, 7
-  br i1 %.not.i.i10.i.i.i, label %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i11.i.i.i, label %238
+  %236 = load ptr, ptr %88, align 8, !tbaa !226, !noalias !249
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  %238 = load i8, ptr %237, align 8, !tbaa !227, !noalias !249
+  %.not.i.i10.i.i.i = icmp eq i8 %238, 7
+  br i1 %.not.i.i10.i.i.i, label %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i11.i.i.i, label %239
 
-238:                                              ; preds = %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit66.thread.i.i.i.i
-  call void @_ZN4llvm7msgpack7DocNode14convertToArrayEv(ptr noundef nonnull align 8 dereferenceable(24) %87) #15, !noalias !249
+239:                                              ; preds = %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit66.thread.i.i.i.i
+  call void @_ZN4llvm7msgpack7DocNode14convertToArrayEv(ptr noundef nonnull align 8 dereferenceable(24) %88) #15, !noalias !249
   br label %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i11.i.i.i
 
-_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i11.i.i.i: ; preds = %238, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit66.thread.i.i.i.i
-  %.sroa.3.0.copyload.i13.i.i.i = load ptr, ptr %84, align 8, !noalias !249
-  %239 = load ptr, ptr %.sroa.3.0.copyload.i13.i.i.i, align 8, !tbaa !239, !noalias !249
-  %240 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload.i13.i.i.i, i64 8
-  %241 = load ptr, ptr %240, align 8, !tbaa !239, !noalias !249
-  %.not6.i14.i.i.i = icmp eq ptr %239, %241
+_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i11.i.i.i: ; preds = %239, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit66.thread.i.i.i.i
+  %.sroa.3.0.copyload.i13.i.i.i = load ptr, ptr %85, align 8, !noalias !249
+  %240 = load ptr, ptr %.sroa.3.0.copyload.i13.i.i.i, align 8, !tbaa !239, !noalias !249
+  %241 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload.i13.i.i.i, i64 8
+  %242 = load ptr, ptr %241, align 8, !tbaa !239, !noalias !249
+  %.not6.i14.i.i.i = icmp eq ptr %240, %242
   br i1 %.not6.i14.i.i.i, label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i, label %.lr.ph.i15.i.i.i
 
 .lr.ph.i15.i.i.i:                                 ; preds = %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i11.i.i.i, %.lr.ph.i15.i.i.i
   %indvars.iv.i16.i.i.i = phi i64 [ %indvars.iv.next.i18.i.i.i, %.lr.ph.i15.i.i.i ], [ 0, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i11.i.i.i ]
-  %.sroa.01.07.i17.i.i.i = phi ptr [ %246, %.lr.ph.i15.i.i.i ], [ %239, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i11.i.i.i ]
-  %242 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i17.i.i.i, i64 8
-  %243 = load i64, ptr %242, align 8, !tbaa !141, !noalias !249
-  %244 = trunc i64 %243 to i32
+  %.sroa.01.07.i17.i.i.i = phi ptr [ %247, %.lr.ph.i15.i.i.i ], [ %240, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i11.i.i.i ]
+  %243 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i17.i.i.i, i64 8
+  %244 = load i64, ptr %243, align 8, !tbaa !141, !noalias !249
+  %245 = trunc i64 %244 to i32
   %indvars.iv.next.i18.i.i.i = add nuw nsw i64 %indvars.iv.i16.i.i.i, 1
-  %245 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv.i16.i.i.i
-  store i32 %244, ptr %245, align 4, !noalias !241
-  %246 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i17.i.i.i, i64 24
-  %.not.i19.i.i.i = icmp eq ptr %246, %241
+  %246 = getelementptr inbounds nuw i32, ptr %90, i64 %indvars.iv.i16.i.i.i
+  store i32 %245, ptr %246, align 4, !noalias !241
+  %247 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i17.i.i.i, i64 24
+  %.not.i19.i.i.i = icmp eq ptr %247, %242
   br i1 %.not.i19.i.i.i, label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i, label %.lr.ph.i15.i.i.i, !llvm.loop !252
 
 _ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit70.i.i.i.i: ; preds = %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit66.i.i.i.i
   %bcmp.i.i69.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %.val.i.i.i.i, ptr noundef nonnull readonly dereferenceable(20) @.str.31, i64 20), !noalias !249
-  %247 = icmp eq i32 %bcmp.i.i69.i.i.i.i, 0
-  br i1 %247, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit70.thread.i.i.i.i, label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
+  %248 = icmp eq i32 %bcmp.i.i69.i.i.i.i, 0
+  br i1 %248, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit70.thread.i.i.i.i, label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
 
 _ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit70.thread.i.i.i.i: ; preds = %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit70.i.i.i.i
-  %248 = load ptr, ptr %87, align 8, !tbaa !226, !noalias !249
-  %249 = getelementptr inbounds nuw i8, ptr %248, i64 8
-  %250 = load i8, ptr %249, align 8, !tbaa !227, !noalias !249
-  %.not.i.i8.i.i.i = icmp eq i8 %250, 7
-  br i1 %.not.i.i8.i.i.i, label %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i.i, label %251
+  %249 = load ptr, ptr %88, align 8, !tbaa !226, !noalias !249
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 8
+  %251 = load i8, ptr %250, align 8, !tbaa !227, !noalias !249
+  %.not.i.i8.i.i.i = icmp eq i8 %251, 7
+  br i1 %.not.i.i8.i.i.i, label %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i.i, label %252
 
-251:                                              ; preds = %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit70.thread.i.i.i.i
-  call void @_ZN4llvm7msgpack7DocNode14convertToArrayEv(ptr noundef nonnull align 8 dereferenceable(24) %87) #15, !noalias !249
+252:                                              ; preds = %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit70.thread.i.i.i.i
+  call void @_ZN4llvm7msgpack7DocNode14convertToArrayEv(ptr noundef nonnull align 8 dereferenceable(24) %88) #15, !noalias !249
   br label %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i.i
 
-_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i.i: ; preds = %251, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit70.thread.i.i.i.i
-  %.sroa.3.0.copyload.i.i.i.i = load ptr, ptr %84, align 8, !noalias !249
-  %252 = load ptr, ptr %.sroa.3.0.copyload.i.i.i.i, align 8, !tbaa !239, !noalias !249
-  %253 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload.i.i.i.i, i64 8
-  %254 = load ptr, ptr %253, align 8, !tbaa !239, !noalias !249
-  %.not6.i.i.i.i = icmp eq ptr %252, %254
+_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i.i: ; preds = %252, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit70.thread.i.i.i.i
+  %.sroa.3.0.copyload.i.i.i.i = load ptr, ptr %85, align 8, !noalias !249
+  %253 = load ptr, ptr %.sroa.3.0.copyload.i.i.i.i, align 8, !tbaa !239, !noalias !249
+  %254 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload.i.i.i.i, i64 8
+  %255 = load ptr, ptr %254, align 8, !tbaa !239, !noalias !249
+  %.not6.i.i.i.i = icmp eq ptr %253, %255
   br i1 %.not6.i.i.i.i, label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i.i, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i.i ]
-  %.sroa.01.07.i.i.i.i = phi ptr [ %259, %.lr.ph.i.i.i.i ], [ %252, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i.i ]
-  %255 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i.i.i, i64 8
-  %256 = load i64, ptr %255, align 8, !tbaa !141, !noalias !249
-  %257 = trunc i64 %256 to i32
+  %.sroa.01.07.i.i.i.i = phi ptr [ %260, %.lr.ph.i.i.i.i ], [ %253, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i.i ]
+  %256 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i.i.i, i64 8
+  %257 = load i64, ptr %256, align 8, !tbaa !141, !noalias !249
+  %258 = trunc i64 %257 to i32
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %258 = getelementptr inbounds nuw i32, ptr %88, i64 %indvars.iv.i.i.i.i
-  store i32 %257, ptr %258, align 4, !noalias !241
-  %259 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i.i.i, i64 24
-  %.not.i9.i.i.i = icmp eq ptr %259, %254
+  %259 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv.i.i.i.i
+  store i32 %258, ptr %259, align 4, !noalias !241
+  %260 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i.i.i, i64 24
+  %.not.i9.i.i.i = icmp eq ptr %260, %255
   br i1 %.not.i9.i.i.i, label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !252
 
-_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.i.i.i.i: ; preds = %179
+_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.i.i.i.i: ; preds = %180
   %bcmp.i.i73.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(15) %.val.i.i.i.i, ptr noundef nonnull readonly dereferenceable(15) @.str.32, i64 15), !noalias !249
-  %260 = icmp eq i32 %bcmp.i.i73.i.i.i.i, 0
-  br i1 %260, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.thread.i.i.i.i, label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
+  %261 = icmp eq i32 %bcmp.i.i73.i.i.i.i, 0
+  br i1 %261, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.thread.i.i.i.i, label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
 
 _ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.thread.i.i.i.i: ; preds = %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.i.i.i.i
-  %261 = load i64, ptr %84, align 8, !tbaa !141, !noalias !249
-  %262 = trunc i64 %261 to i32
-  store i32 %262, ptr %86, align 4, !noalias !241
+  %262 = load i64, ptr %85, align 8, !tbaa !141, !noalias !249
+  %263 = trunc i64 %262 to i32
+  store i32 %263, ptr %87, align 4, !noalias !241
   br label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
 
-_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.i.i.i.i: ; preds = %179
+_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.i.i.i.i: ; preds = %180
   %bcmp.i.i77.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(24) %.val.i.i.i.i, ptr noundef nonnull readonly dereferenceable(24) @.str.33, i64 24), !noalias !249
-  %263 = icmp eq i32 %bcmp.i.i77.i.i.i.i, 0
-  br i1 %263, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.thread.i.i.i.i, label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
+  %264 = icmp eq i32 %bcmp.i.i77.i.i.i.i, 0
+  br i1 %264, label %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.thread.i.i.i.i, label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
 
 _ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.thread.i.i.i.i: ; preds = %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.i.i.i.i
-  %264 = load i64, ptr %84, align 8, !tbaa !141, !noalias !249
-  %265 = trunc i64 %264 to i32
-  store i32 %265, ptr %85, align 8, !noalias !241
+  %265 = load i64, ptr %85, align 8, !tbaa !141, !noalias !249
+  %266 = trunc i64 %265 to i32
+  store i32 %266, ptr %86, align 8, !noalias !241
   br label %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
 
-_ZN4llvm5ErrorD2Ev.exit.i15.i.i:                  ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i15.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.thread.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.thread.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.i.i.i.i, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit70.i.i.i.i, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i11.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.thread.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.thread.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.thread.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.thread.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit46.thread.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit42.thread.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit38.thread.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit.i.i.i.i, %179, %.lr.ph.i.i.i
-  %266 = phi i32 [ %167, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i.i ], [ %167, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i11.i.i.i ], [ %167, %.lr.ph.i.i.i ], [ %167, %179 ], [ %167, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit.i.i.i.i ], [ %167, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i ], [ %215, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit38.thread.i.i.i.i ], [ %167, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit42.thread.i.i.i.i ], [ %167, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit46.thread.i.i.i.i ], [ %167, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.i.i.i.i ], [ %167, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.thread.i.i.i.i ], [ %167, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.i.i.i.i ], [ %167, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.thread.i.i.i.i ], [ %167, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.i.i.i.i ], [ %167, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.thread.i.i.i.i ], [ %167, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.i.i.i.i ], [ %167, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.thread.i.i.i.i ], [ %167, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit70.i.i.i.i ], [ %167, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.i.i.i.i ], [ %167, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.thread.i.i.i.i ], [ %167, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.i.i.i.i ], [ %167, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.thread.i.i.i.i ], [ %167, %.lr.ph.i15.i.i.i ], [ %167, %.lr.ph.i.i.i.i ]
-  %267 = phi i32 [ %168, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i.i ], [ %168, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i11.i.i.i ], [ %168, %.lr.ph.i.i.i ], [ %168, %179 ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit.i.i.i.i ], [ %168, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit38.thread.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit42.thread.i.i.i.i ], [ %221, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit46.thread.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.thread.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.thread.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.thread.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.thread.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit70.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.thread.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.thread.i.i.i.i ], [ %168, %.lr.ph.i15.i.i.i ], [ %168, %.lr.ph.i.i.i.i ]
-  %268 = phi i32 [ %169, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i.i ], [ %169, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i11.i.i.i ], [ %169, %.lr.ph.i.i.i ], [ %169, %179 ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit.i.i.i.i ], [ %169, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit38.thread.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit42.thread.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit46.thread.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.thread.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.i.i.i.i ], [ %227, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.thread.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.thread.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.thread.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit70.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.thread.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.thread.i.i.i.i ], [ %169, %.lr.ph.i15.i.i.i ], [ %169, %.lr.ph.i.i.i.i ]
-  %269 = phi i32 [ %170, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i.i ], [ %170, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i11.i.i.i ], [ %170, %.lr.ph.i.i.i ], [ %170, %179 ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit.i.i.i.i ], [ %170, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit38.thread.i.i.i.i ], [ %218, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit42.thread.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit46.thread.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.thread.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.thread.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.thread.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.thread.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit70.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.thread.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.thread.i.i.i.i ], [ %170, %.lr.ph.i15.i.i.i ], [ %170, %.lr.ph.i.i.i.i ]
-  %270 = phi i32 [ %171, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i.i ], [ %171, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i11.i.i.i ], [ %171, %.lr.ph.i.i.i ], [ %171, %179 ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit.i.i.i.i ], [ %171, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit38.thread.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit42.thread.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit46.thread.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.i.i.i.i ], [ %224, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.thread.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.thread.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.thread.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.thread.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit70.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.thread.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.thread.i.i.i.i ], [ %171, %.lr.ph.i15.i.i.i ], [ %171, %.lr.ph.i.i.i.i ]
-  %271 = phi i32 [ %172, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i.i ], [ %172, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i11.i.i.i ], [ %172, %.lr.ph.i.i.i ], [ %172, %179 ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit.i.i.i.i ], [ %172, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit38.thread.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit42.thread.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit46.thread.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.thread.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.thread.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.i.i.i.i ], [ %230, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.thread.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.thread.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit70.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.thread.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.thread.i.i.i.i ], [ %172, %.lr.ph.i15.i.i.i ], [ %172, %.lr.ph.i.i.i.i ]
-  %272 = phi i32 [ %173, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i.i ], [ %173, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i11.i.i.i ], [ %173, %.lr.ph.i.i.i ], [ %173, %179 ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit.i.i.i.i ], [ %173, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit38.thread.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit42.thread.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit46.thread.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.thread.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.thread.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.thread.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.i.i.i.i ], [ %233, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.thread.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit70.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.thread.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.thread.i.i.i.i ], [ %173, %.lr.ph.i15.i.i.i ], [ %173, %.lr.ph.i.i.i.i ]
+_ZN4llvm5ErrorD2Ev.exit.i15.i.i:                  ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i15.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.thread.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.thread.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.i.i.i.i, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit70.i.i.i.i, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i11.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.thread.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.thread.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.thread.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.thread.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit46.thread.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit42.thread.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit38.thread.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit.i.i.i.i, %180, %.lr.ph.i.i.i
+  %267 = phi i32 [ %168, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i.i ], [ %168, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i11.i.i.i ], [ %168, %.lr.ph.i.i.i ], [ %168, %180 ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit.i.i.i.i ], [ %168, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i ], [ %216, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit38.thread.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit42.thread.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit46.thread.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.thread.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.thread.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.thread.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.thread.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit70.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.thread.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.i.i.i.i ], [ %168, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.thread.i.i.i.i ], [ %168, %.lr.ph.i15.i.i.i ], [ %168, %.lr.ph.i.i.i.i ]
+  %268 = phi i32 [ %169, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i.i ], [ %169, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i11.i.i.i ], [ %169, %.lr.ph.i.i.i ], [ %169, %180 ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit.i.i.i.i ], [ %169, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit38.thread.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit42.thread.i.i.i.i ], [ %222, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit46.thread.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.thread.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.thread.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.thread.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.thread.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit70.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.thread.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.i.i.i.i ], [ %169, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.thread.i.i.i.i ], [ %169, %.lr.ph.i15.i.i.i ], [ %169, %.lr.ph.i.i.i.i ]
+  %269 = phi i32 [ %170, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i.i ], [ %170, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i11.i.i.i ], [ %170, %.lr.ph.i.i.i ], [ %170, %180 ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit.i.i.i.i ], [ %170, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit38.thread.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit42.thread.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit46.thread.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.thread.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.i.i.i.i ], [ %228, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.thread.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.thread.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.thread.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit70.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.thread.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.i.i.i.i ], [ %170, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.thread.i.i.i.i ], [ %170, %.lr.ph.i15.i.i.i ], [ %170, %.lr.ph.i.i.i.i ]
+  %270 = phi i32 [ %171, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i.i ], [ %171, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i11.i.i.i ], [ %171, %.lr.ph.i.i.i ], [ %171, %180 ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit.i.i.i.i ], [ %171, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit38.thread.i.i.i.i ], [ %219, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit42.thread.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit46.thread.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.thread.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.thread.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.thread.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.thread.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit70.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.thread.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.i.i.i.i ], [ %171, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.thread.i.i.i.i ], [ %171, %.lr.ph.i15.i.i.i ], [ %171, %.lr.ph.i.i.i.i ]
+  %271 = phi i32 [ %172, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i.i ], [ %172, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i11.i.i.i ], [ %172, %.lr.ph.i.i.i ], [ %172, %180 ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit.i.i.i.i ], [ %172, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit38.thread.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit42.thread.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit46.thread.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.i.i.i.i ], [ %225, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.thread.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.thread.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.thread.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.thread.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit70.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.thread.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.i.i.i.i ], [ %172, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.thread.i.i.i.i ], [ %172, %.lr.ph.i15.i.i.i ], [ %172, %.lr.ph.i.i.i.i ]
+  %272 = phi i32 [ %173, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i.i ], [ %173, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i11.i.i.i ], [ %173, %.lr.ph.i.i.i ], [ %173, %180 ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit.i.i.i.i ], [ %173, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit38.thread.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit42.thread.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit46.thread.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.thread.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.thread.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.i.i.i.i ], [ %231, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.thread.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.thread.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit70.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.thread.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.i.i.i.i ], [ %173, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.thread.i.i.i.i ], [ %173, %.lr.ph.i15.i.i.i ], [ %173, %.lr.ph.i.i.i.i ]
+  %273 = phi i32 [ %174, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i.i ], [ %174, %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i11.i.i.i ], [ %174, %.lr.ph.i.i.i ], [ %174, %180 ], [ %174, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit.i.i.i.i ], [ %174, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i ], [ %174, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit38.thread.i.i.i.i ], [ %174, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit42.thread.i.i.i.i ], [ %174, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit46.thread.i.i.i.i ], [ %174, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.i.i.i.i ], [ %174, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit50.thread.i.i.i.i ], [ %174, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.i.i.i.i ], [ %174, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit54.thread.i.i.i.i ], [ %174, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.i.i.i.i ], [ %174, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit58.thread.i.i.i.i ], [ %174, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.i.i.i.i ], [ %234, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit62.thread.i.i.i.i ], [ %174, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit70.i.i.i.i ], [ %174, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.i.i.i.i ], [ %174, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit74.thread.i.i.i.i ], [ %174, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.i.i.i.i ], [ %174, %_ZZN12_GLOBAL__N_116KernelInfoReader17extractKernelDataESt4pairIKN4llvm7msgpack7DocNodeES4_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_10offloading6amdgpu20AMDGPUKernelMetaDataEENKUlRS5_NS2_9StringRefEE_clESI_SJ_.exit78.thread.i.i.i.i ], [ %174, %.lr.ph.i15.i.i.i ], [ %174, %.lr.ph.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !241
-  %273 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.024.033.i.i.i) #19, !noalias !241
-  %.not.i.i19.i = icmp eq ptr %273, %166
+  %274 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.024.033.i.i.i) #19, !noalias !241
+  %.not.i.i19.i = icmp eq ptr %274, %167
   br i1 %.not.i.i19.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !253
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %_ZN4llvm5ErrorD2Ev.exit.i15.i.i
-  store i32 %272, ptr %7, align 8, !noalias !241
-  store i32 %271, ptr %90, align 4, !noalias !241
-  store i32 %270, ptr %91, align 4, !noalias !241
-  store i32 %269, ptr %92, align 8, !noalias !241
-  store i32 %268, ptr %93, align 8, !noalias !241
-  store i32 %267, ptr %94, align 4, !noalias !241
-  store i32 %266, ptr %95, align 8, !noalias !241
+  store i32 %273, ptr %7, align 8, !noalias !241
+  store i32 %272, ptr %91, align 4, !noalias !241
+  store i32 %271, ptr %92, align 4, !noalias !241
+  store i32 %270, ptr %93, align 8, !noalias !241
+  store i32 %269, ptr %94, align 8, !noalias !241
+  store i32 %268, ptr %95, align 4, !noalias !241
+  store i32 %267, ptr %96, align 8, !noalias !241
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %_ZN4llvm7msgpack7DocNode6getMapEb.exit.i.i.i
-  %274 = load ptr, ptr %8, align 8, !tbaa !125, !noalias !241
-  %275 = load i64, ptr %81, align 8, !tbaa !126, !noalias !241
+  %275 = load ptr, ptr %8, align 8, !tbaa !125, !noalias !241
+  %276 = load i64, ptr %82, align 8, !tbaa !126, !noalias !241
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4), !noalias !241
-  store ptr %274, ptr %4, align 8, !noalias !241
-  store i64 %275, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !noalias !241
+  store ptr %275, ptr %4, align 8, !noalias !241
+  store i64 %276, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !noalias !241
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %.sroa.3.0..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(60) %7, i64 60, i1 false), !noalias !241
-  %276 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %274, i64 %275) #15, !noalias !241
-  %277 = call { ptr, i8 } @_ZN4llvm9StringMapINS_10offloading6amdgpu20AMDGPUKernelMetaDataENS_15MallocAllocatorEE21try_emplace_with_hashIJS3_EEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %274, i64 %275, i32 noundef %276, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.3.0..sroa_idx.i.i.i), !noalias !241
+  %277 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %275, i64 %276) #15, !noalias !241
+  %278 = call { ptr, i8 } @_ZN4llvm9StringMapINS_10offloading6amdgpu20AMDGPUKernelMetaDataENS_15MallocAllocatorEE21try_emplace_with_hashIJS3_EEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %275, i64 %276, i32 noundef %277, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.3.0..sroa_idx.i.i.i), !noalias !241
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4), !noalias !241
-  %278 = load ptr, ptr %8, align 8, !tbaa !125, !noalias !241
-  %279 = icmp eq ptr %278, %80
-  br i1 %279, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7.i.i.i
+  %279 = load ptr, ptr %8, align 8, !tbaa !125, !noalias !241
+  %280 = icmp eq ptr %279, %81
+  br i1 %280, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %._crit_edge.i.i.i
-  %280 = load i64, ptr %81, align 8, !tbaa !126, !noalias !241
-  %281 = icmp ult i64 %280, 16
-  call void @llvm.assume(i1 %281)
+  %281 = load i64, ptr %82, align 8, !tbaa !126, !noalias !241
+  %282 = icmp ult i64 %281, 16
+  call void @llvm.assume(i1 %282)
   br label %_ZN4llvm5ErrorD2Ev.exit18.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7.i.i.i: ; preds = %._crit_edge.i.i.i
-  %282 = load i64, ptr %80, align 8, !tbaa !108, !noalias !241
-  %283 = add i64 %282, 1
-  call void @_ZdlPvm(ptr noundef %278, i64 noundef %283) #16, !noalias !241
+  %283 = load i64, ptr %81, align 8, !tbaa !108, !noalias !241
+  %284 = add i64 %283, 1
+  call void @_ZdlPvm(ptr noundef %279, i64 noundef %284) #16, !noalias !241
   br label %_ZN4llvm5ErrorD2Ev.exit18.i.i
 
 _ZN4llvm5ErrorD2Ev.exit18.i.i:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #15, !noalias !241
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %7), !noalias !238
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
-  br label %284
+  br label %285
 
-284:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit18.i.i, %.lr.ph.i.i
-  %285 = getelementptr inbounds nuw i8, ptr %.sroa.024.059.i.i, i64 24
-  %.not.i18.i = icmp eq ptr %285, %154
+285:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit18.i.i, %.lr.ph.i.i
+  %286 = getelementptr inbounds nuw i8, ptr %.sroa.024.059.i.i, i64 24
+  %.not.i18.i = icmp eq ptr %286, %155
   br i1 %.not.i18.i, label %_ZN4llvm5ErrorD2Ev.exit37.thread67, label %.lr.ph.i.i, !llvm.loop !254
 
-_ZN4llvm5ErrorD2Ev.exit37.thread67:               ; preds = %284, %_ZN4llvm8ExpectedINS_7msgpack12ArrayDocNodeEE9takeErrorEv.exit.thread.i.i
+_ZN4llvm5ErrorD2Ev.exit37.thread67:               ; preds = %285, %_ZN4llvm8ExpectedINS_7msgpack12ArrayDocNodeEE9takeErrorEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #15, !noalias !195
   br label %_ZN4llvm5ErrorD2Ev.exit37.thread.sink.split.sink.split
 
-286:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
+287:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #15, !noalias !234
-  %287 = load ptr, ptr %12, align 8, !tbaa !162, !noalias !255, !nonnull !258, !noundef !258
+  %288 = load ptr, ptr %12, align 8, !tbaa !162, !noalias !255, !nonnull !258, !noundef !258
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #15, !noalias !229
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #15, !noalias !195
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #15, !noalias !195
@@ -1504,7 +1507,7 @@ _ZN4llvm5ErrorD2Ev.exit37.thread67:               ; preds = %284, %_ZN4llvm8Expe
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %14) #15, !noalias !195
   br label %.loopexit
 
-_ZN4llvm5ErrorD2Ev.exit37.thread.sink.split.sink.split: ; preds = %121, %_ZN4llvm5ErrorD2Ev.exit37.thread67
+_ZN4llvm5ErrorD2Ev.exit37.thread.sink.split.sink.split: ; preds = %122, %_ZN4llvm5ErrorD2Ev.exit37.thread67
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #15, !noalias !195
   br label %_ZN4llvm5ErrorD2Ev.exit37.thread.sink.split
 
@@ -1513,153 +1516,153 @@ _ZN4llvm5ErrorD2Ev.exit37.thread.sink.split:      ; preds = %_ZN4llvm5ErrorD2Ev.
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %14) #15, !noalias !195
   br label %_ZN4llvm5ErrorD2Ev.exit37.thread
 
-_ZN4llvm5ErrorD2Ev.exit37.thread:                 ; preds = %_ZN4llvm5ErrorD2Ev.exit37.thread.sink.split, %107, %_ZNK4llvm6object13Elf_Note_ImplINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE7getNameEv.exit.i, %_ZN4llvmneENS_9StringRefES0_.exit.i
+_ZN4llvm5ErrorD2Ev.exit37.thread:                 ; preds = %_ZN4llvm5ErrorD2Ev.exit37.thread.sink.split, %108, %_ZNK4llvm6object13Elf_Note_ImplINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE7getNameEv.exit.i, %_ZN4llvmneENS_9StringRefES0_.exit.i
   store ptr null, ptr %18, align 8, !tbaa !162
-  %288 = load ptr, ptr %23, align 8, !tbaa !193
-  %289 = load i64, ptr %98, align 8, !tbaa !259
-  call void @llvm.assume(i1 true) [ "align"(ptr %288, i64 1) ]
-  %.0.copyload.i.i.i.i.i38 = load i32, ptr %288, align 1
-  %290 = zext i32 %.0.copyload.i.i.i.i.i38 to i64
-  %291 = sub i64 0, %289
-  %292 = add i64 %289, 11
-  %293 = add i64 %292, %290
-  %294 = and i64 %293, %291
-  %295 = getelementptr inbounds nuw i8, ptr %288, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %295, i64 1) ]
-  %.0.copyload.i.i.i2.i.i = load i32, ptr %295, align 1
-  %296 = zext i32 %.0.copyload.i.i.i2.i.i to i64
-  %297 = add i64 %289, -1
-  %298 = add i64 %297, %296
-  %299 = and i64 %298, %291
-  %300 = add i64 %299, %294
-  call void @_ZN4llvm6object22Elf_Note_Iterator_ImplINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE11advanceNhdrEPKhm(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull %288, i64 noundef %300)
-  %301 = load ptr, ptr %23, align 8, !tbaa !193
-  %.not73 = icmp eq ptr %301, null
-  br i1 %.not73, label %._crit_edge, label %104
+  %289 = load ptr, ptr %23, align 8, !tbaa !193
+  %290 = load i64, ptr %99, align 8, !tbaa !259
+  call void @llvm.assume(i1 true) [ "align"(ptr %289, i64 1) ]
+  %.0.copyload.i.i.i.i.i38 = load i32, ptr %289, align 1
+  %291 = zext i32 %.0.copyload.i.i.i.i.i38 to i64
+  %292 = sub i64 0, %290
+  %293 = add i64 %290, 11
+  %294 = add i64 %293, %291
+  %295 = and i64 %294, %292
+  %296 = getelementptr inbounds nuw i8, ptr %289, i64 4
+  call void @llvm.assume(i1 true) [ "align"(ptr %296, i64 1) ]
+  %.0.copyload.i.i.i2.i.i = load i32, ptr %296, align 1
+  %297 = zext i32 %.0.copyload.i.i.i2.i.i to i64
+  %298 = add i64 %290, -1
+  %299 = add i64 %298, %297
+  %300 = and i64 %299, %292
+  %301 = add i64 %300, %295
+  call void @_ZN4llvm6object22Elf_Note_Iterator_ImplINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE11advanceNhdrEPKhm(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull %289, i64 noundef %301)
+  %302 = load ptr, ptr %23, align 8, !tbaa !193
+  %.not73 = icmp eq ptr %302, null
+  br i1 %.not73, label %._crit_edge, label %105
 
-._crit_edge:                                      ; preds = %_ZN4llvm5ErrorD2Ev.exit37.thread, %101
+._crit_edge:                                      ; preds = %_ZN4llvm5ErrorD2Ev.exit37.thread, %102
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #15
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22) #15
   br label %.thread
 
-.thread:                                          ; preds = %99, %._crit_edge
-  %302 = getelementptr inbounds nuw i8, ptr %.02386, i64 64
-  %.not = icmp eq ptr %302, %71
-  br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit39, label %99
+.thread:                                          ; preds = %100, %._crit_edge
+  %303 = getelementptr inbounds nuw i8, ptr %.02386, i64 64
+  %.not = icmp eq ptr %303, %72
+  br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit39, label %100
 
-.loopexit:                                        ; preds = %104, %286
-  %storemerge = phi ptr [ %287, %286 ], [ %106, %104 ]
+.loopexit:                                        ; preds = %105, %287
+  %storemerge = phi ptr [ %288, %287 ], [ %107, %105 ]
   store ptr %storemerge, ptr %0, align 8, !tbaa !162
   store ptr null, ptr %18, align 8, !tbaa !162
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #15
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22) #15
-  br label %303
+  br label %304
 
-_ZN4llvm5ErrorD2Ev.exit39:                        ; preds = %.thread, %65
+_ZN4llvm5ErrorD2Ev.exit39:                        ; preds = %.thread, %66
   store ptr null, ptr %0, align 8, !tbaa !162
-  br label %303
+  br label %304
 
-303:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit39, %.loopexit, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i32
-  %304 = load i8, ptr %60, align 8
-  %305 = trunc i8 %304 to i1
-  br i1 %305, label %306, label %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object13Elf_Shdr_ImplINS2_7ELFTypeILNS_10endiannessE1ELb1EEEEEEEED2Ev.exit
+304:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit39, %.loopexit, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i32
+  %305 = load i8, ptr %61, align 8
+  %306 = trunc i8 %305 to i1
+  br i1 %306, label %307, label %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object13Elf_Shdr_ImplINS2_7ELFTypeILNS_10endiannessE1ELb1EEEEEEEED2Ev.exit
 
-306:                                              ; preds = %303
-  %307 = load ptr, ptr %21, align 8, !tbaa !168
-  %.not.i.i40 = icmp eq ptr %307, null
+307:                                              ; preds = %304
+  %308 = load ptr, ptr %21, align 8, !tbaa !168
+  %.not.i.i40 = icmp eq ptr %308, null
   br i1 %.not.i.i40, label %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object13Elf_Shdr_ImplINS2_7ELFTypeILNS_10endiannessE1ELb1EEEEEEEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %306
-  %308 = load ptr, ptr %307, align 8, !tbaa !260
-  %309 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  %310 = load ptr, ptr %309, align 8
-  call void %310(ptr noundef nonnull align 8 dereferenceable(8) %307) #15
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %307
+  %309 = load ptr, ptr %308, align 8, !tbaa !260
+  %310 = getelementptr inbounds nuw i8, ptr %309, i64 8
+  %311 = load ptr, ptr %310, align 8
+  call void %311(ptr noundef nonnull align 8 dereferenceable(8) %308) #15
   br label %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object13Elf_Shdr_ImplINS2_7ELFTypeILNS_10endiannessE1ELb1EEEEEEEED2Ev.exit
 
-_ZN4llvm8ExpectedINS_8ArrayRefINS_6object13Elf_Shdr_ImplINS2_7ELFTypeILNS_10endiannessE1ELb1EEEEEEEED2Ev.exit: ; preds = %306, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %303
+_ZN4llvm8ExpectedINS_8ArrayRefINS_6object13Elf_Shdr_ImplINS2_7ELFTypeILNS_10endiannessE1ELb1EEEEEEEED2Ev.exit: ; preds = %307, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %304
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #15
-  %311 = load ptr, ptr %50, align 8, !tbaa !176
-  %312 = icmp eq ptr %311, %52
-  br i1 %312, label %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i, label %313
+  %312 = load ptr, ptr %51, align 8, !tbaa !176
+  %313 = icmp eq ptr %312, %53
+  br i1 %313, label %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i, label %314
 
-313:                                              ; preds = %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object13Elf_Shdr_ImplINS2_7ELFTypeILNS_10endiannessE1ELb1EEEEEEEED2Ev.exit
-  call void @free(ptr noundef %311) #15
+314:                                              ; preds = %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object13Elf_Shdr_ImplINS2_7ELFTypeILNS_10endiannessE1ELb1EEEEEEEED2Ev.exit
+  call void @free(ptr noundef %312) #15
   br label %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i
 
-_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i:          ; preds = %313, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object13Elf_Shdr_ImplINS2_7ELFTypeILNS_10endiannessE1ELb1EEEEEEEED2Ev.exit
-  %314 = load ptr, ptr %29, align 8, !tbaa !173
-  %.not.i.i.i.i42 = icmp eq ptr %314, null
-  br i1 %.not.i.i.i.i42, label %_ZN4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEED2Ev.exit, label %315
+_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i:          ; preds = %314, %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object13Elf_Shdr_ImplINS2_7ELFTypeILNS_10endiannessE1ELb1EEEEEEEED2Ev.exit
+  %315 = load ptr, ptr %29, align 8, !tbaa !173
+  %.not.i.i.i.i42 = icmp eq ptr %315, null
+  br i1 %.not.i.i.i.i42, label %_ZN4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEED2Ev.exit, label %316
 
-315:                                              ; preds = %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i
-  %316 = load ptr, ptr %47, align 8, !tbaa !175
-  %317 = ptrtoint ptr %316 to i64
-  %318 = ptrtoint ptr %314 to i64
-  %319 = sub i64 %317, %318
-  call void @_ZdlPvm(ptr noundef nonnull %314, i64 noundef %319) #16
+316:                                              ; preds = %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i
+  %317 = load ptr, ptr %48, align 8, !tbaa !174
+  %318 = ptrtoint ptr %317 to i64
+  %319 = ptrtoint ptr %315 to i64
+  %320 = sub i64 %318, %319
+  call void @_ZdlPvm(ptr noundef nonnull %315, i64 noundef %320) #16
   br label %_ZN4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEED2Ev.exit
 
-_ZN4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i, %315
+_ZN4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i, %316
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %20) #15
   %.pre = load i8, ptr %24, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN4llvm8ExpectedINS_6object7ELFFileINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEE9takeErrorEv.exit, %_ZN4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEED2Ev.exit
-  %320 = phi i8 [ %25, %_ZN4llvm8ExpectedINS_6object7ELFFileINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEE9takeErrorEv.exit ], [ %.pre, %_ZN4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEED2Ev.exit ]
-  %321 = trunc i8 %320 to i1
-  br i1 %321, label %335, label %322
+  %321 = phi i8 [ %25, %_ZN4llvm8ExpectedINS_6object7ELFFileINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEE9takeErrorEv.exit ], [ %.pre, %_ZN4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEED2Ev.exit ]
+  %322 = trunc i8 %321 to i1
+  br i1 %322, label %336, label %323
 
-322:                                              ; preds = %.critedge
-  %323 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  %324 = load ptr, ptr %323, align 8, !tbaa !176
-  %325 = icmp eq ptr %324, %24
-  br i1 %325, label %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i.i, label %326
+323:                                              ; preds = %.critedge
+  %324 = getelementptr inbounds nuw i8, ptr %19, i64 40
+  %325 = load ptr, ptr %324, align 8, !tbaa !176
+  %326 = icmp eq ptr %325, %24
+  br i1 %326, label %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i.i, label %327
 
-326:                                              ; preds = %322
-  call void @free(ptr noundef %324) #15
+327:                                              ; preds = %323
+  call void @free(ptr noundef %325) #15
   br label %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i.i
 
-_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i.i:        ; preds = %326, %322
-  %327 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %328 = load ptr, ptr %327, align 8, !tbaa !173
-  %.not.i.i.i.i.i43 = icmp eq ptr %328, null
-  br i1 %.not.i.i.i.i.i43, label %_ZN4llvm8ExpectedINS_6object7ELFFileINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEED2Ev.exit, label %329
+_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i.i:        ; preds = %327, %323
+  %328 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %329 = load ptr, ptr %328, align 8, !tbaa !173
+  %.not.i.i.i.i.i43 = icmp eq ptr %329, null
+  br i1 %.not.i.i.i.i.i43, label %_ZN4llvm8ExpectedINS_6object7ELFFileINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEED2Ev.exit, label %330
 
-329:                                              ; preds = %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i.i
-  %330 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %331 = load ptr, ptr %330, align 8, !tbaa !175
-  %332 = ptrtoint ptr %331 to i64
-  %333 = ptrtoint ptr %328 to i64
-  %334 = sub i64 %332, %333
-  call void @_ZdlPvm(ptr noundef nonnull %328, i64 noundef %334) #16
+330:                                              ; preds = %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i.i
+  %331 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %332 = load ptr, ptr %331, align 8, !tbaa !174
+  %333 = ptrtoint ptr %332 to i64
+  %334 = ptrtoint ptr %329 to i64
+  %335 = sub i64 %333, %334
+  call void @_ZdlPvm(ptr noundef nonnull %329, i64 noundef %335) #16
   br label %_ZN4llvm8ExpectedINS_6object7ELFFileINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEED2Ev.exit
 
-335:                                              ; preds = %.critedge
-  %336 = load ptr, ptr %19, align 8, !tbaa !168
-  %.not.i.i44 = icmp eq ptr %336, null
+336:                                              ; preds = %.critedge
+  %337 = load ptr, ptr %19, align 8, !tbaa !168
+  %.not.i.i44 = icmp eq ptr %337, null
   br i1 %.not.i.i44, label %_ZN4llvm8ExpectedINS_6object7ELFFileINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i45
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i45: ; preds = %335
-  %337 = load ptr, ptr %336, align 8, !tbaa !260
-  %338 = getelementptr inbounds nuw i8, ptr %337, i64 8
-  %339 = load ptr, ptr %338, align 8
-  call void %339(ptr noundef nonnull align 8 dereferenceable(8) %336) #15
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i45: ; preds = %336
+  %338 = load ptr, ptr %337, align 8, !tbaa !260
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 8
+  %340 = load ptr, ptr %339, align 8
+  call void %340(ptr noundef nonnull align 8 dereferenceable(8) %337) #15
   br label %_ZN4llvm8ExpectedINS_6object7ELFFileINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEED2Ev.exit
 
-_ZN4llvm8ExpectedINS_6object7ELFFileINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEED2Ev.exit: ; preds = %335, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i45, %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i.i, %329
+_ZN4llvm8ExpectedINS_6object7ELFFileINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEED2Ev.exit: ; preds = %336, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i45, %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit.i.i, %330
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %19) #15
-  %340 = load ptr, ptr %18, align 8, !tbaa !162
-  %341 = icmp eq ptr %340, null
-  br i1 %341, label %_ZN4llvm5ErrorD2Ev.exit47, label %342
+  %341 = load ptr, ptr %18, align 8, !tbaa !162
+  %342 = icmp eq ptr %341, null
+  br i1 %342, label %_ZN4llvm5ErrorD2Ev.exit47, label %343
 
-342:                                              ; preds = %_ZN4llvm8ExpectedINS_6object7ELFFileINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEED2Ev.exit
-  %343 = load ptr, ptr %340, align 8, !tbaa !260
-  %344 = getelementptr inbounds nuw i8, ptr %343, i64 8
-  %345 = load ptr, ptr %344, align 8
-  call void %345(ptr noundef nonnull align 8 dereferenceable(8) %340) #15
+343:                                              ; preds = %_ZN4llvm8ExpectedINS_6object7ELFFileINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEED2Ev.exit
+  %344 = load ptr, ptr %341, align 8, !tbaa !260
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 8
+  %346 = load ptr, ptr %345, align 8
+  call void %346(ptr noundef nonnull align 8 dereferenceable(8) %341) #15
   br label %_ZN4llvm5ErrorD2Ev.exit47
 
-_ZN4llvm5ErrorD2Ev.exit47:                        ; preds = %_ZN4llvm8ExpectedINS_6object7ELFFileINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEED2Ev.exit, %342
+_ZN4llvm5ErrorD2Ev.exit47:                        ; preds = %_ZN4llvm8ExpectedINS_6object7ELFFileINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEED2Ev.exit, %343
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #15
   ret void
 }
@@ -2292,8 +2295,8 @@ attributes #19 = { nounwind willreturn memory(read) }
 !171 = !{!"_ZTSNSt12_Vector_baseIN4llvm6object13Elf_Shdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEEEESaIS6_EE17_Vector_impl_dataE", !172, i64 0, !172, i64 8, !172, i64 16}
 !172 = !{!"p1 _ZTSN4llvm6object13Elf_Shdr_ImplINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEE", !6, i64 0}
 !173 = !{!171, !172, i64 0}
-!174 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!175 = !{!171, !172, i64 16}
+!174 = !{!171, !172, i64 16}
+!175 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !176 = !{!80, !6, i64 0}
 !177 = !{!80, !40, i64 8}
 !178 = !{!179}

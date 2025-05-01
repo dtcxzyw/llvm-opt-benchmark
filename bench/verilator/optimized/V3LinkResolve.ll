@@ -10021,8 +10021,8 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN18LinkResolveVisitor5visitEP15AstNodeFTask
   br i1 %36, label %.lr.ph.preheader, label %._crit_edge, !prof !284
 
 .lr.ph.preheader:                                 ; preds = %_ZZN7AstNode11foreachImplI9AstVarRefZN18LinkResolveVisitor5visitEP15AstNodeFTaskRefEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread, %_ZZN7AstNode11foreachImplI9AstVarRefZN18LinkResolveVisitor5visitEP15AstNodeFTaskRefEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit
-  %.7.idx90 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI9AstVarRefZN18LinkResolveVisitor5visitEP15AstNodeFTaskRefEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread ], [ %.7.idx, %_ZZN7AstNode11foreachImplI9AstVarRefZN18LinkResolveVisitor5visitEP15AstNodeFTaskRefEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit ]
-  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx90
+  %.7.idx89 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI9AstVarRefZN18LinkResolveVisitor5visitEP15AstNodeFTaskRefEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread ], [ %.7.idx, %_ZZN7AstNode11foreachImplI9AstVarRefZN18LinkResolveVisitor5visitEP15AstNodeFTaskRefEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit ]
+  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx89
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZZN7AstNode11foreachImplI9AstVarRefZN18LinkResolveVisitor5visitEP15AstNodeFTaskRefEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit36

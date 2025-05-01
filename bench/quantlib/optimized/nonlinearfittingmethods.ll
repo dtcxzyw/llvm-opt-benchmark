@@ -2587,6 +2587,10 @@ entry:
 
 invoke.cont.i.i.i.thread.i:                       ; preds = %.noexc.i
   %_M_finish.i.i.i.i.i2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 192
+  %add.ptr.i.i.i.i.i3.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i
+  %_M_end_of_storage.i.i.i.i.i4.i = getelementptr inbounds nuw i8, ptr %call.i, i64 200
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %knots_.i.i.i, i8 0, i64 16, i1 false), !noalias !71
+  store ptr %add.ptr.i.i.i.i.i3.i, ptr %_M_end_of_storage.i.i.i.i.i4.i, align 8, !tbaa !70, !noalias !71
   br label %_ZNSt10unique_ptrIN8QuantLib20CubicBSplinesFittingESt14default_deleteIS1_EED2Ev.exit
 
 cond.true.i.i.i.i.i.i.i:                          ; preds = %.noexc.i
@@ -2631,7 +2635,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
   resume { ptr, i32 } %eh.lpad-body.i
 
 _ZNSt10unique_ptrIN8QuantLib20CubicBSplinesFittingESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.thread.i
-  %add.ptr.i.i.i.i.i6.i = phi ptr [ null, %invoke.cont.i.i.i.thread.i ], [ %add.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i.i.i6.i = phi ptr [ %add.ptr.i.i.i.i.i3.i, %invoke.cont.i.i.i.thread.i ], [ %add.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i.i5.i = phi ptr [ %_M_finish.i.i.i.i.i2.i, %invoke.cont.i.i.i.thread.i ], [ %_M_finish.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i.i.i6.i, ptr %_M_finish.i.i.i.i.i5.i, align 8, !tbaa !60, !noalias !71
   %size_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 208

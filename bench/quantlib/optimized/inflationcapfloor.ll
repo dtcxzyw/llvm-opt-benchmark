@@ -7056,7 +7056,10 @@ cond.true.i.i:                                    ; preds = %entry
 
 invoke.cont.i.thread:                             ; preds = %cond.true.i.i
   %_M_finish.i.i.i99 = getelementptr inbounds nuw i8, ptr %agg.tmp9, i64 8
+  %add.ptr.i.i.i100 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i.i101 = getelementptr inbounds nuw i8, ptr %agg.tmp9, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp9, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i100, ptr %_M_end_of_storage.i.i.i101, align 8, !tbaa !65
   br label %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %cond.true.i.i
@@ -7117,13 +7120,16 @@ invoke.cont:                                      ; preds = %_ZSt10_ConstructIN5
   %sub.ptr.lhs.cast.i.i13 = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast.i.i14 = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i13, %sub.ptr.rhs.cast.i.i14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp11, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i16 = icmp eq ptr %11, %12
   br i1 %cmp.not.i.i.i.i16, label %invoke.cont.i19.thread, label %cond.true.i.i.i.i17
 
 invoke.cont.i19.thread:                           ; preds = %invoke.cont
   %_M_finish.i.i.i21105 = getelementptr inbounds nuw i8, ptr %agg.tmp11, i64 8
+  %add.ptr.i.i.i22106 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i15
   %_M_end_of_storage.i.i.i23107 = getelementptr inbounds nuw i8, ptr %agg.tmp11, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp11, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp11, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i22106, ptr %_M_end_of_storage.i.i.i23107, align 8, !tbaa !68
   br label %invoke.cont14
 
 cond.true.i.i.i.i17:                              ; preds = %invoke.cont
@@ -7153,7 +7159,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_tr
 
 invoke.cont14:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont.i19.thread
   %_M_end_of_storage.i.i.i23110 = phi ptr [ %_M_end_of_storage.i.i.i23107, %invoke.cont.i19.thread ], [ %_M_end_of_storage.i.i.i23, %if.then.i.i.i.i.i.i.i.i.i ]
-  %add.ptr.i.i.i22109 = phi ptr [ null, %invoke.cont.i19.thread ], [ %add.ptr.i.i.i22, %if.then.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i22109 = phi ptr [ %add.ptr.i.i.i22106, %invoke.cont.i19.thread ], [ %add.ptr.i.i.i22, %if.then.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i21108 = phi ptr [ %_M_finish.i.i.i21105, %invoke.cont.i19.thread ], [ %_M_finish.i.i.i21, %if.then.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i22109, ptr %_M_finish.i.i.i21108, align 8, !tbaa !67
   %_M_finish.i.i28 = getelementptr inbounds nuw i8, ptr %args5, i64 8
@@ -7162,13 +7168,16 @@ invoke.cont14:                                    ; preds = %if.then.i.i.i.i.i.i
   %sub.ptr.lhs.cast.i.i29 = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast.i.i30 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i31 = sub i64 %sub.ptr.lhs.cast.i.i29, %sub.ptr.rhs.cast.i.i30
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp15, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i32 = icmp eq ptr %13, %14
   br i1 %cmp.not.i.i.i.i32, label %invoke.cont.i36.thread, label %cond.true.i.i.i.i33
 
 invoke.cont.i36.thread:                           ; preds = %invoke.cont14
   %_M_finish.i.i.i38113 = getelementptr inbounds nuw i8, ptr %agg.tmp15, i64 8
+  %add.ptr.i.i.i39114 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i31
   %_M_end_of_storage.i.i.i40115 = getelementptr inbounds nuw i8, ptr %agg.tmp15, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp15, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp15, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i39114, ptr %_M_end_of_storage.i.i.i40115, align 8, !tbaa !68
   br label %invoke.cont18
 
 cond.true.i.i.i.i33:                              ; preds = %invoke.cont14
@@ -7198,7 +7207,7 @@ if.then.i.i.i.i.i.i.i.i.i45:                      ; preds = %_ZNSt16allocator_tr
 
 invoke.cont18:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i45, %invoke.cont.i36.thread
   %_M_end_of_storage.i.i.i40118 = phi ptr [ %_M_end_of_storage.i.i.i40115, %invoke.cont.i36.thread ], [ %_M_end_of_storage.i.i.i40, %if.then.i.i.i.i.i.i.i.i.i45 ]
-  %add.ptr.i.i.i39117 = phi ptr [ null, %invoke.cont.i36.thread ], [ %add.ptr.i.i.i39, %if.then.i.i.i.i.i.i.i.i.i45 ]
+  %add.ptr.i.i.i39117 = phi ptr [ %add.ptr.i.i.i39114, %invoke.cont.i36.thread ], [ %add.ptr.i.i.i39, %if.then.i.i.i.i.i.i.i.i.i45 ]
   %_M_finish.i.i.i38116 = phi ptr [ %_M_finish.i.i.i38113, %invoke.cont.i36.thread ], [ %_M_finish.i.i.i38, %if.then.i.i.i.i.i.i.i.i.i45 ]
   store ptr %add.ptr.i.i.i39117, ptr %_M_finish.i.i.i38116, align 8, !tbaa !67
   invoke void @_ZN8QuantLib20YoYInflationCapFloorC1ENS0_4TypeESt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS6_EES2_IdSaIdEESA_(ptr noundef nonnull align 8 dereferenceable(184) %storage_.i, i32 noundef %5, ptr noundef nonnull %agg.tmp9, ptr noundef nonnull %agg.tmp11, ptr noundef nonnull %agg.tmp15)

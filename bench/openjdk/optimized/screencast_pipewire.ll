@@ -2863,17 +2863,17 @@ define internal void @onStreamProcess(ptr noundef readonly captures(none) %0) #3
   tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.702, ptr noundef nonnull @__func__.onStreamProcess, i32 noundef 240, i32 noundef %4, i32 noundef %6, i32 noundef %8, i32 noundef %10, i32 noundef %12, i32 noundef %14, i32 noundef %16, i32 noundef %18)
   %19 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %137, label %20
+  br i1 %.not, label %139, label %20
 
 20:                                               ; preds = %1
   %21 = load volatile i32, ptr %17, align 8
   %.not107 = icmp eq i32 %21, 0
-  br i1 %.not107, label %137, label %22
+  br i1 %.not107, label %139, label %22
 
 22:                                               ; preds = %20
   %23 = load volatile i32, ptr %15, align 4
   %.not108 = icmp eq i32 %23, 0
-  br i1 %.not108, label %24, label %137
+  br i1 %.not108, label %24, label %139
 
 24:                                               ; preds = %22
   %25 = load ptr, ptr %0, align 8
@@ -2893,164 +2893,172 @@ define internal void @onStreamProcess(ptr noundef readonly captures(none) %0) #3
   %34 = load i32, ptr %9, align 4
   %35 = load i32, ptr %11, align 4
   tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.703, ptr noundef nonnull @__func__.onStreamProcess, i32 noundef 254, i32 noundef %31, i32 noundef %32, i32 noundef %33, i32 noundef %34, i32 noundef %35, ptr noundef null)
-  br label %137
+  br label %139
 
 36:                                               ; preds = %26
-  %37 = load ptr, ptr %28, align 8, !nonnull !17, !noundef !17
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  %39 = load i32, ptr %38, align 4
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %._crit_edge, label %41
+  %37 = load ptr, ptr %28, align 8
+  %.not110 = icmp eq ptr %37, null
+  br i1 %.not110, label %._crit_edge, label %38
 
-41:                                               ; preds = %36
-  %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %._crit_edge, label %53
+._crit_edge:                                      ; preds = %36
+  %.pre116 = load i32, ptr inttoptr (i64 4 to ptr), align 4
+  br label %48
 
-._crit_edge:                                      ; preds = %41, %36
-  %47 = phi i32 [ %39, %41 ], [ 0, %36 ]
-  %48 = load i32, ptr %3, align 8
-  %49 = load i32, ptr %5, align 4
-  %50 = load i32, ptr %7, align 4
-  %51 = load i32, ptr %9, align 4
-  %52 = load i32, ptr %11, align 4
-  tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.704, ptr noundef nonnull @__func__.onStreamProcess, i32 noundef 263, i32 noundef %48, i32 noundef %49, i32 noundef %50, i32 noundef %51, i32 noundef %52, i32 noundef %47)
-  br label %137
+38:                                               ; preds = %36
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  %40 = load i32, ptr %39, align 4
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %48, label %42
 
-53:                                               ; preds = %41
-  %.sroa.123.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %48, label %55
+
+48:                                               ; preds = %._crit_edge, %42, %38
+  %49 = phi i32 [ %.pre116, %._crit_edge ], [ %40, %42 ], [ 0, %38 ]
+  %50 = load i32, ptr %3, align 8
+  %51 = load i32, ptr %5, align 4
+  %52 = load i32, ptr %7, align 4
+  %53 = load i32, ptr %9, align 4
+  %54 = load i32, ptr %11, align 4
+  tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.704, ptr noundef nonnull @__func__.onStreamProcess, i32 noundef 263, i32 noundef %50, i32 noundef %51, i32 noundef %52, i32 noundef %53, i32 noundef %54, i32 noundef %49)
+  br label %139
+
+55:                                               ; preds = %42
+  %.sroa.123.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 8
   %.sroa.123.0.copyload = load i64, ptr %.sroa.123.0..sroa_idx, align 8
-  %.sroa.326.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %.sroa.326.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 32
   %.sroa.326.0.copyload = load ptr, ptr %.sroa.326.0..sroa_idx, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %55 = load i32, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %57 = load i32, ptr %56, align 4
-  %58 = load i32, ptr %3, align 8
-  %59 = load i32, ptr %5, align 4
-  %60 = load i32, ptr %7, align 4
-  %61 = load i32, ptr %9, align 4
-  %62 = load i32, ptr %11, align 4
-  %63 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %57 = load i32, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %59 = load i32, ptr %58, align 4
+  %60 = load i32, ptr %3, align 8
+  %61 = load i32, ptr %5, align 4
+  %62 = load i32, ptr %7, align 4
+  %63 = load i32, ptr %9, align 4
+  %64 = load i32, ptr %11, align 4
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %70 = load i32, ptr %69, align 4
-  %71 = load volatile i32, ptr %17, align 8
-  tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.59, ptr noundef nonnull @__func__.onStreamProcess, i32 noundef 272, i32 noundef %58, i32 noundef %59, i32 noundef %60, i32 noundef %61, i32 noundef %62, i32 noundef %64, i32 noundef %66, i32 noundef %68, i32 noundef %70, i32 noundef %71)
-  %72 = load i32, ptr %3, align 8
-  %73 = load i32, ptr %5, align 4
-  %74 = load i32, ptr %7, align 4
-  %75 = load i32, ptr %9, align 4
-  %76 = load i32, ptr %11, align 4
-  %77 = load ptr, ptr %42, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
-  %81 = load i32, ptr %80, align 4
-  %82 = load i32, ptr %.sroa.326.0.copyload, align 4
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.326.0.copyload, i64 8
-  %84 = load i32, ptr %83, align 4
-  %85 = getelementptr inbounds nuw i8, ptr %.sroa.326.0.copyload, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %72 = load i32, ptr %71, align 4
+  %73 = load volatile i32, ptr %17, align 8
+  tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.59, ptr noundef nonnull @__func__.onStreamProcess, i32 noundef 272, i32 noundef %60, i32 noundef %61, i32 noundef %62, i32 noundef %63, i32 noundef %64, i32 noundef %66, i32 noundef %68, i32 noundef %70, i32 noundef %72, i32 noundef %73)
+  %74 = load i32, ptr %3, align 8
+  %75 = load i32, ptr %5, align 4
+  %76 = load i32, ptr %7, align 4
+  %77 = load i32, ptr %9, align 4
+  %78 = load i32, ptr %11, align 4
+  %79 = load ptr, ptr %43, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
+  %83 = load i32, ptr %82, align 4
+  %84 = load i32, ptr %.sroa.326.0.copyload, align 4
+  %85 = getelementptr inbounds nuw i8, ptr %.sroa.326.0.copyload, i64 8
   %86 = load i32, ptr %85, align 4
-  %87 = load volatile i32, ptr %15, align 4
-  tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.705, ptr noundef nonnull @__func__.onStreamProcess, i32 noundef 284, i32 noundef %72, i32 noundef %73, i32 noundef %74, i32 noundef %75, i32 noundef %76, i32 noundef %81, i32 noundef %82, i32 noundef %84, i32 noundef %86, i64 noundef %.sroa.123.0.copyload, i32 noundef %87, i32 noundef %55, i32 noundef %57)
-  %.sroa.09.0.copyload = load i32, ptr %63, align 4
-  %.sroa.210.0.copyload = load i32, ptr %65, align 4
-  %.sroa.3.0.copyload = load i32, ptr %67, align 4
-  %.sroa.6.0.copyload = load i32, ptr %69, align 4
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.326.0.copyload, i64 12
+  %88 = load i32, ptr %87, align 4
+  %89 = load volatile i32, ptr %15, align 4
+  tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.705, ptr noundef nonnull @__func__.onStreamProcess, i32 noundef 284, i32 noundef %74, i32 noundef %75, i32 noundef %76, i32 noundef %77, i32 noundef %78, i32 noundef %83, i32 noundef %84, i32 noundef %86, i32 noundef %88, i64 noundef %.sroa.123.0.copyload, i32 noundef %89, i32 noundef %57, i32 noundef %59)
+  %.sroa.09.0.copyload = load i32, ptr %65, align 4
+  %.sroa.210.0.copyload = load i32, ptr %67, align 4
+  %.sroa.3.0.copyload = load i32, ptr %69, align 4
+  %.sroa.6.0.copyload = load i32, ptr %71, align 4
   %.sroa.1.0.copyload = load i32, ptr %9, align 4
   %.sroa.2.0.copyload = load i32, ptr %11, align 4
-  %88 = load ptr, ptr @gtk, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 808
-  %90 = load ptr, ptr %89, align 8
-  %91 = load i32, ptr %83, align 4
-  %92 = tail call ptr %90(ptr noundef nonnull %45, i32 noundef 0, i32 noundef 1, i32 noundef 8, i32 noundef %55, i32 noundef %57, i32 noundef %91, ptr noundef null, ptr noundef null) #16
-  %93 = load i32, ptr %9, align 4
-  %.not111 = icmp eq i32 %93, %55
+  %90 = load ptr, ptr @gtk, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 808
+  %92 = load ptr, ptr %91, align 8
+  %93 = load i32, ptr %85, align 4
+  %94 = tail call ptr %92(ptr noundef nonnull %46, i32 noundef 0, i32 noundef 1, i32 noundef 8, i32 noundef %57, i32 noundef %59, i32 noundef %93, ptr noundef null, ptr noundef null) #16
+  %95 = load i32, ptr %9, align 4
+  %.not111 = icmp eq i32 %95, %57
   %.pre = load i32, ptr %11, align 4
-  %.not112 = icmp eq i32 %.pre, %57
+  %.not112 = icmp eq i32 %.pre, %59
   %or.cond117 = select i1 %.not111, i1 %.not112, i1 false
-  br i1 %or.cond117, label %107, label %94
+  br i1 %or.cond117, label %109, label %96
 
-94:                                               ; preds = %53
-  %95 = load i32, ptr %3, align 8
-  %96 = load i32, ptr %5, align 4
-  %97 = load i32, ptr %7, align 4
-  tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.706, ptr noundef nonnull @__func__.onStreamProcess, i32 noundef 305, i32 noundef %95, i32 noundef %96, i32 noundef %97, i32 noundef %93, i32 noundef %.pre, i32 noundef %55, i32 noundef %57, i32 noundef %93, i32 noundef %.pre)
-  %98 = load ptr, ptr @gtk, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 816
-  %100 = load ptr, ptr %99, align 8
-  %101 = load i32, ptr %9, align 4
-  %102 = load i32, ptr %11, align 4
-  %103 = tail call ptr %100(ptr noundef %92, i32 noundef %101, i32 noundef %102, i32 noundef 2) #16
-  %104 = load ptr, ptr @gtk, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 504
-  %106 = load ptr, ptr %105, align 8
-  tail call void %106(ptr noundef %92) #16
-  br label %107
+96:                                               ; preds = %55
+  %97 = load i32, ptr %3, align 8
+  %98 = load i32, ptr %5, align 4
+  %99 = load i32, ptr %7, align 4
+  tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.706, ptr noundef nonnull @__func__.onStreamProcess, i32 noundef 305, i32 noundef %97, i32 noundef %98, i32 noundef %99, i32 noundef %95, i32 noundef %.pre, i32 noundef %57, i32 noundef %59, i32 noundef %95, i32 noundef %.pre)
+  %100 = load ptr, ptr @gtk, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 816
+  %102 = load ptr, ptr %101, align 8
+  %103 = load i32, ptr %9, align 4
+  %104 = load i32, ptr %11, align 4
+  %105 = tail call ptr %102(ptr noundef %94, i32 noundef %103, i32 noundef %104, i32 noundef 2) #16
+  %106 = load ptr, ptr @gtk, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 504
+  %108 = load ptr, ptr %107, align 8
+  tail call void %108(ptr noundef %94) #16
+  br label %109
 
-107:                                              ; preds = %53, %94
-  %.0 = phi ptr [ %103, %94 ], [ %92, %53 ]
+109:                                              ; preds = %55, %96
+  %.0 = phi ptr [ %105, %96 ], [ %94, %55 ]
   %.not113 = icmp eq i32 %.sroa.3.0.copyload, %.sroa.1.0.copyload
   %.not114 = icmp eq i32 %.sroa.6.0.copyload, %.sroa.2.0.copyload
   %or.cond = select i1 %.not113, i1 %.not114, i1 false
-  br i1 %or.cond, label %124, label %108
+  br i1 %or.cond, label %126, label %110
 
-108:                                              ; preds = %107
-  %109 = load ptr, ptr @gtk, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 800
-  %111 = load ptr, ptr %110, align 8
-  %112 = tail call ptr %111(i32 noundef 0, i32 noundef 1, i32 noundef 8, i32 noundef %.sroa.3.0.copyload, i32 noundef %.sroa.6.0.copyload) #16
-  %.not115 = icmp eq ptr %112, null
-  br i1 %.not115, label %117, label %113
+110:                                              ; preds = %109
+  %111 = load ptr, ptr @gtk, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 800
+  %113 = load ptr, ptr %112, align 8
+  %114 = tail call ptr %113(i32 noundef 0, i32 noundef 1, i32 noundef 8, i32 noundef %.sroa.3.0.copyload, i32 noundef %.sroa.6.0.copyload) #16
+  %.not115 = icmp eq ptr %114, null
+  br i1 %.not115, label %119, label %115
 
-113:                                              ; preds = %108
-  %114 = load ptr, ptr @gtk, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 832
-  %116 = load ptr, ptr %115, align 8
-  tail call void %116(ptr noundef %.0, i32 noundef %.sroa.09.0.copyload, i32 noundef %.sroa.210.0.copyload, i32 noundef %.sroa.3.0.copyload, i32 noundef %.sroa.6.0.copyload, ptr noundef nonnull %112, i32 noundef 0, i32 noundef 0) #16
-  br label %120
+115:                                              ; preds = %110
+  %116 = load ptr, ptr @gtk, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 832
+  %118 = load ptr, ptr %117, align 8
+  tail call void %118(ptr noundef %.0, i32 noundef %.sroa.09.0.copyload, i32 noundef %.sroa.210.0.copyload, i32 noundef %.sroa.3.0.copyload, i32 noundef %.sroa.6.0.copyload, ptr noundef nonnull %114, i32 noundef 0, i32 noundef 0) #16
+  br label %122
 
-117:                                              ; preds = %108
-  %118 = load ptr, ptr @stderr, align 8
-  %119 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %118, ptr noundef nonnull @.str.707, ptr noundef nonnull @__func__.onStreamProcess, i32 noundef 334) #19
-  br label %120
+119:                                              ; preds = %110
+  %120 = load ptr, ptr @stderr, align 8
+  %121 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %120, ptr noundef nonnull @.str.707, ptr noundef nonnull @__func__.onStreamProcess, i32 noundef 334) #19
+  br label %122
 
-120:                                              ; preds = %117, %113
-  %121 = load ptr, ptr @gtk, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 504
-  %123 = load ptr, ptr %122, align 8
-  tail call void %123(ptr noundef %.0) #16
-  br label %124
+122:                                              ; preds = %119, %115
+  %123 = load ptr, ptr @gtk, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 504
+  %125 = load ptr, ptr %124, align 8
+  tail call void %125(ptr noundef %.0) #16
+  br label %126
 
-124:                                              ; preds = %107, %120
-  %.0.sink = phi ptr [ %112, %120 ], [ %.0, %107 ]
-  %125 = load ptr, ptr %2, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 48
-  store ptr %.0.sink, ptr %126, align 8
+126:                                              ; preds = %109, %122
+  %.0.sink = phi ptr [ %114, %122 ], [ %.0, %109 ]
+  %127 = load ptr, ptr %2, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 48
+  store ptr %.0.sink, ptr %128, align 8
   store volatile i32 1, ptr %15, align 4
-  %127 = load i32, ptr %3, align 8
-  %128 = load i32, ptr %5, align 4
-  %129 = load i32, ptr %7, align 4
-  %130 = load i32, ptr %9, align 4
-  %131 = load i32, ptr %11, align 4
-  tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.708, ptr noundef nonnull @__func__.onStreamProcess, i32 noundef 347, i32 noundef %127, i32 noundef %128, i32 noundef %129, i32 noundef %130, i32 noundef %131, ptr noundef null)
-  %132 = load ptr, ptr @fp_pw_stream_queue_buffer, align 8
-  %133 = load ptr, ptr %0, align 8
-  %134 = tail call i32 %132(ptr noundef %133, ptr noundef nonnull %28) #16
-  %135 = load ptr, ptr @fp_pw_thread_loop_signal, align 8
-  %136 = load ptr, ptr @pw, align 8
-  tail call void %135(ptr noundef %136, i1 noundef zeroext false) #16
-  br label %137
+  %129 = load i32, ptr %3, align 8
+  %130 = load i32, ptr %5, align 4
+  %131 = load i32, ptr %7, align 4
+  %132 = load i32, ptr %9, align 4
+  %133 = load i32, ptr %11, align 4
+  tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.708, ptr noundef nonnull @__func__.onStreamProcess, i32 noundef 347, i32 noundef %129, i32 noundef %130, i32 noundef %131, i32 noundef %132, i32 noundef %133, ptr noundef null)
+  %134 = load ptr, ptr @fp_pw_stream_queue_buffer, align 8
+  %135 = load ptr, ptr %0, align 8
+  %136 = tail call i32 %134(ptr noundef %135, ptr noundef nonnull %28) #16
+  %137 = load ptr, ptr @fp_pw_thread_loop_signal, align 8
+  %138 = load ptr, ptr @pw, align 8
+  tail call void %137(ptr noundef %138, i1 noundef zeroext false) #16
+  br label %139
 
-137:                                              ; preds = %1, %20, %22, %124, %._crit_edge, %30
+139:                                              ; preds = %1, %20, %22, %126, %48, %30
   ret void
 }
 
@@ -3198,7 +3206,7 @@ spa_pod_prop_is_inside.exit.i.i:                  ; preds = %.lr.ph30.i.i
   %85 = add i64 %84, %83
   %86 = inttoptr i64 %85 to ptr
   %.not21.i.i = icmp eq ptr %54, %86
-  br i1 %.not21.i.i, label %spa_pod_object_find_prop.exit.i, label %.lr.ph30.i.i, !llvm.loop !18
+  br i1 %.not21.i.i, label %spa_pod_object_find_prop.exit.i, label %.lr.ph30.i.i, !llvm.loop !17
 
 spa_pod_object_find_prop.exit.i:                  ; preds = %66, %spa_pod_prop_is_inside.exit.i.i, %.lr.ph30.i.i, %spa_pod_prop_is_inside.exit.preheader.i.i
   %.019.i.i = phi ptr [ null, %spa_pod_prop_is_inside.exit.preheader.i.i ], [ %.129.i.i, %.lr.ph30.i.i ], [ null, %spa_pod_prop_is_inside.exit.i.i ], [ %.026.i.i, %66 ]
@@ -4353,7 +4361,7 @@ define internal fastcc ptr @spa_debug_type_find(ptr noundef readonly captures(ad
   %17 = getelementptr inbounds nuw i8, ptr %.01219, i64 32
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !18
 
 .critedge:                                        ; preds = %11, %13, %15, %2
   %.0 = phi ptr [ null, %2 ], [ null, %15 ], [ %.01219, %13 ], [ %12, %11 ]
@@ -4518,7 +4526,7 @@ define internal void @spa_pod_builder_add(ptr noundef nonnull captures(none) %0,
   %102 = getelementptr inbounds nuw i8, ptr %.02841.i.i.i, i64 8
   %.028.i.i.i = load ptr, ptr %102, align 8
   %.not34.i.i.i = icmp eq ptr %.028.i.i.i, null
-  br i1 %.not34.i.i.i, label %spa_pod_builder_prop.exit.i, label %.lr.ph.i.i.i, !llvm.loop !20
+  br i1 %.not34.i.i.i, label %spa_pod_builder_prop.exit.i, label %.lr.ph.i.i.i, !llvm.loop !19
 
 103:                                              ; preds = %63
   %104 = load i32, ptr %16, align 16
@@ -4622,7 +4630,7 @@ define internal void @spa_pod_builder_add(ptr noundef nonnull captures(none) %0,
   %152 = getelementptr inbounds nuw i8, ptr %.02841.i.i127.i, i64 8
   %.028.i.i128.i = load ptr, ptr %152, align 8
   %.not34.i.i129.i = icmp eq ptr %.028.i.i128.i, null
-  br i1 %.not34.i.i129.i, label %spa_pod_builder_prop.exit.i, label %.lr.ph.i.i126.i, !llvm.loop !20
+  br i1 %.not34.i.i129.i, label %spa_pod_builder_prop.exit.i, label %.lr.ph.i.i126.i, !llvm.loop !19
 
 spa_pod_builder_prop.exit.i:                      ; preds = %.lr.ph.i.i126.i, %.lr.ph.i.i.i, %.critedge.thread.i.i122.i, %.critedge.thread.i.i.i, %63
   %153 = load i32, ptr %16, align 16
@@ -4737,7 +4745,7 @@ spa_choice_from_id.exit.i:                        ; preds = %176, %175, %174, %1
   %200 = getelementptr inbounds nuw i8, ptr %.02841.i.i140.i, i64 8
   %.028.i.i141.i = load ptr, ptr %200, align 8
   %.not34.i.i142.i = icmp eq ptr %.028.i.i141.i, null
-  br i1 %.not34.i.i142.i, label %spa_pod_builder_raw.exit.i.loopexit.i, label %.lr.ph.i.i139.i, !llvm.loop !20
+  br i1 %.not34.i.i142.i, label %spa_pod_builder_raw.exit.i.loopexit.i, label %.lr.ph.i.i139.i, !llvm.loop !19
 
 spa_pod_builder_raw.exit.i.loopexit.i:            ; preds = %.lr.ph.i.i139.i
   %.pre.i = load ptr, ptr %17, align 8
@@ -5176,7 +5184,7 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   %396 = getelementptr inbounds nuw i8, ptr %.02841.i.i154.i, i64 8
   %.028.i.i155.i = load ptr, ptr %396, align 8
   %.not34.i.i156.i = icmp eq ptr %.028.i.i155.i, null
-  br i1 %.not34.i.i156.i, label %spa_pod_builder_bytes.exit.i, label %.lr.ph.i.i153.i, !llvm.loop !20
+  br i1 %.not34.i.i156.i, label %spa_pod_builder_bytes.exit.i, label %.lr.ph.i.i153.i, !llvm.loop !19
 
 spa_pod_builder_bytes.exit.i:                     ; preds = %.lr.ph.i.i153.i, %.critedge.thread.i.i149.i
   call fastcc void @spa_pod_builder_raw_padded(ptr noundef nonnull %0, ptr noundef %371, i32 noundef %373)
@@ -5401,7 +5409,7 @@ spa_pod_builder_bytes.exit.i:                     ; preds = %.lr.ph.i.i153.i, %.
   %505 = getelementptr inbounds nuw i8, ptr %.02841.i.i170.i, i64 8
   %.028.i.i171.i = load ptr, ptr %505, align 8
   %.not34.i.i172.i = icmp eq ptr %.028.i.i171.i, null
-  br i1 %.not34.i.i172.i, label %spa_pod_builder_array.exit.i, label %.lr.ph.i.i169.i, !llvm.loop !20
+  br i1 %.not34.i.i172.i, label %spa_pod_builder_array.exit.i, label %.lr.ph.i.i169.i, !llvm.loop !19
 
 spa_pod_builder_array.exit.i:                     ; preds = %.lr.ph.i.i169.i, %.critedge.thread.i.i165.i
   call fastcc void @spa_pod_builder_raw_padded(ptr noundef nonnull %0, ptr noundef %480, i32 noundef %481)
@@ -5605,7 +5613,7 @@ spa_pod_builder_array.exit.i:                     ; preds = %.lr.ph.i.i169.i, %.
   %601 = getelementptr inbounds nuw i8, ptr %.02841.i.i186.i, i64 8
   %.028.i.i187.i = load ptr, ptr %601, align 8
   %.not34.i.i188.i = icmp eq ptr %.028.i.i187.i, null
-  br i1 %.not34.i.i188.i, label %spa_pod_builder_raw.exit.i189.i, label %.lr.ph.i.i185.i, !llvm.loop !20
+  br i1 %.not34.i.i188.i, label %spa_pod_builder_raw.exit.i189.i, label %.lr.ph.i.i185.i, !llvm.loop !19
 
 spa_pod_builder_raw.exit.i189.i:                  ; preds = %.lr.ph.i.i185.i, %.critedge.thread.i.i181.i
   %602 = load i32, ptr %32, align 4
@@ -5680,7 +5688,7 @@ spa_pod_builder_pad.exit.thread.i.i:              ; preds = %603
   %632 = getelementptr inbounds nuw i8, ptr %.02841.i.i.i.i, i64 8
   %.028.i.i.i.i = load ptr, ptr %632, align 8
   %.not34.i.i.i.i = icmp eq ptr %.028.i.i.i.i, null
-  br i1 %.not34.i.i.i.i, label %spa_pod_builder_pad.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !20
+  br i1 %.not34.i.i.i.i, label %spa_pod_builder_pad.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !19
 
 spa_pod_builder_pad.exit.i.i:                     ; preds = %.lr.ph.i.i.i.i, %.critedge.thread.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
@@ -5688,7 +5696,7 @@ spa_pod_builder_pad.exit.i.i:                     ; preds = %.lr.ph.i.i.i.i, %.c
 
 spa_pod_builder_primitive.exit.i:                 ; preds = %spa_pod_builder_pad.exit.i.i, %spa_pod_builder_pad.exit.thread.i.i, %spa_pod_builder_raw.exit.i189.i, %561, %542, %527, %spa_pod_builder_array.exit.i, %425, %408, %spa_pod_builder_bytes.exit.i, %345, %323, %320, %303, %288, %274, %260, %246, %230, %.lr.ph.i
   %633 = icmp samesign ugt i32 %.in.i, 1
-  br i1 %633, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !21
+  br i1 %633, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %spa_pod_builder_primitive.exit.i
   br i1 %169, label %._crit_edge.thread.i, label %.backedge
@@ -5773,7 +5781,7 @@ define internal fastcc noundef ptr @spa_pod_builder_pop(ptr noundef nonnull capt
   %35 = getelementptr inbounds nuw i8, ptr %.02841.i, i64 8
   %.028.i = load ptr, ptr %35, align 8
   %.not34.i = icmp eq ptr %.028.i, null
-  br i1 %.not34.i, label %spa_pod_builder_raw.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %.not34.i, label %spa_pod_builder_raw.exit, label %.lr.ph.i, !llvm.loop !19
 
 spa_pod_builder_raw.exit:                         ; preds = %.lr.ph.i, %.critedge.thread.i, %2
   %.val = load i32, ptr %1, align 8
@@ -5876,7 +5884,7 @@ spa_pod_builder_frame.exit.thread:                ; preds = %spa_pod_builder_raw
   %85 = getelementptr inbounds nuw i8, ptr %.02841.i.i, i64 8
   %.028.i.i = load ptr, ptr %85, align 8
   %.not34.i.i = icmp eq ptr %.028.i.i, null
-  br i1 %.not34.i.i, label %spa_pod_builder_pad.exit, label %.lr.ph.i.i, !llvm.loop !20
+  br i1 %.not34.i.i, label %spa_pod_builder_pad.exit, label %.lr.ph.i.i, !llvm.loop !19
 
 spa_pod_builder_pad.exit:                         ; preds = %.lr.ph.i.i, %spa_pod_builder_frame.exit.thread, %.critedge.thread.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -5949,7 +5957,7 @@ define internal fastcc void @spa_pod_builder_string_len(ptr noundef nonnull capt
   %33 = getelementptr inbounds nuw i8, ptr %.02841.i, i64 8
   %.028.i = load ptr, ptr %33, align 8
   %.not34.i = icmp eq ptr %.028.i, null
-  br i1 %.not34.i, label %spa_pod_builder_raw.exit.loopexit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %.not34.i, label %spa_pod_builder_raw.exit.loopexit, label %.lr.ph.i, !llvm.loop !19
 
 spa_pod_builder_raw.exit.loopexit:                ; preds = %.lr.ph.i
   %.pre = load i32, ptr %6, align 8
@@ -6017,7 +6025,7 @@ spa_pod_builder_raw.exit:                         ; preds = %spa_pod_builder_raw
   %62 = getelementptr inbounds nuw i8, ptr %.02841.i.i, i64 8
   %.028.i.i = load ptr, ptr %62, align 8
   %.not34.i.i = icmp eq ptr %.028.i.i, null
-  br i1 %.not34.i.i, label %spa_pod_builder_raw.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !20
+  br i1 %.not34.i.i, label %spa_pod_builder_raw.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !19
 
 spa_pod_builder_raw.exit.loopexit.i:              ; preds = %.lr.ph.i.i
   %.pre.i = load i32, ptr %6, align 8
@@ -6078,7 +6086,7 @@ spa_pod_builder_raw.exit.i:                       ; preds = %spa_pod_builder_raw
   %87 = getelementptr inbounds nuw i8, ptr %.02841.i18.i, i64 8
   %.028.i19.i = load ptr, ptr %87, align 8
   %.not34.i20.i = icmp eq ptr %.028.i19.i, null
-  br i1 %.not34.i20.i, label %spa_pod_builder_raw.exit24.loopexit.i, label %.lr.ph.i17.i, !llvm.loop !20
+  br i1 %.not34.i20.i, label %spa_pod_builder_raw.exit24.loopexit.i, label %.lr.ph.i17.i, !llvm.loop !19
 
 spa_pod_builder_raw.exit24.loopexit.i:            ; preds = %.lr.ph.i17.i
   %.pre29.i = load i32, ptr %6, align 8
@@ -6149,7 +6157,7 @@ spa_pod_builder_raw.exit24.i:                     ; preds = %spa_pod_builder_raw
   %117 = getelementptr inbounds nuw i8, ptr %.02841.i.i.i, i64 8
   %.028.i.i.i = load ptr, ptr %117, align 8
   %.not34.i.i.i = icmp eq ptr %.028.i.i.i, null
-  br i1 %.not34.i.i.i, label %spa_pod_builder_write_string.exit, label %.lr.ph.i.i.i, !llvm.loop !20
+  br i1 %.not34.i.i.i, label %spa_pod_builder_write_string.exit, label %.lr.ph.i.i.i, !llvm.loop !19
 
 spa_pod_builder_write_string.exit:                ; preds = %.lr.ph.i.i.i, %.critedge.thread.i.i.i, %spa_pod_builder_raw.exit24.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -6245,7 +6253,7 @@ define internal fastcc void @spa_pod_builder_primitive(ptr noundef nonnull captu
   %48 = getelementptr inbounds nuw i8, ptr %.02841.i, i64 8
   %.028.i = load ptr, ptr %48, align 8
   %.not34.i = icmp eq ptr %.028.i, null
-  br i1 %.not34.i, label %spa_pod_builder_raw.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %.not34.i, label %spa_pod_builder_raw.exit, label %.lr.ph.i, !llvm.loop !19
 
 spa_pod_builder_raw.exit:                         ; preds = %.lr.ph.i, %.critedge.thread.i
   %49 = load i32, ptr %4, align 4
@@ -6318,7 +6326,7 @@ spa_pod_builder_raw.exit:                         ; preds = %.lr.ph.i, %.critedg
   %81 = getelementptr inbounds nuw i8, ptr %.02841.i.i, i64 8
   %.028.i.i = load ptr, ptr %81, align 8
   %.not34.i.i = icmp eq ptr %.028.i.i, null
-  br i1 %.not34.i.i, label %.sink.split, label %.lr.ph.i.i, !llvm.loop !20
+  br i1 %.not34.i.i, label %.sink.split, label %.lr.ph.i.i, !llvm.loop !19
 
 .sink.split:                                      ; preds = %.lr.ph.i.i, %.critedge.thread.i.i, %50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -6395,7 +6403,7 @@ define internal fastcc void @spa_pod_builder_raw_padded(ptr noundef nonnull capt
   %36 = getelementptr inbounds nuw i8, ptr %.02841.i, i64 8
   %.028.i = load ptr, ptr %36, align 8
   %.not34.i = icmp eq ptr %.028.i, null
-  br i1 %.not34.i, label %spa_pod_builder_raw.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %.not34.i, label %spa_pod_builder_raw.exit, label %.lr.ph.i, !llvm.loop !19
 
 spa_pod_builder_raw.exit:                         ; preds = %.lr.ph.i, %.critedge.thread.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -6463,7 +6471,7 @@ spa_pod_builder_raw.exit:                         ; preds = %.lr.ph.i, %.critedg
   %67 = getelementptr inbounds nuw i8, ptr %.02841.i.i, i64 8
   %.028.i.i = load ptr, ptr %67, align 8
   %.not34.i.i = icmp eq ptr %.028.i.i, null
-  br i1 %.not34.i.i, label %spa_pod_builder_pad.exit.thread, label %.lr.ph.i.i, !llvm.loop !20
+  br i1 %.not34.i.i, label %spa_pod_builder_pad.exit.thread, label %.lr.ph.i.i, !llvm.loop !19
 
 spa_pod_builder_pad.exit.thread:                  ; preds = %.lr.ph.i.i, %.critedge.thread.i.i, %spa_pod_builder_raw.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -6522,8 +6530,7 @@ attributes #19 = { cold nounwind }
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
-!17 = !{}
+!17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}

@@ -975,27 +975,34 @@ cond.false.i73:                                   ; preds = %dynamic_cast.end3.i
 invoke.cont65:                                    ; preds = %cond.true.i64, %if.then.i.i.i68
   %accrualStartDate_.i77 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %d1.sroa.0.0.copyload = load i64, ptr %accrualStartDate_.i77, align 8, !tbaa !30
-  %vtable72 = load ptr, ptr %51, align 8, !tbaa !35
-  %vfn73 = getelementptr inbounds nuw i8, ptr %vtable72, i64 16
-  %54 = load ptr, ptr %vfn73, align 8
-  %call75 = invoke i64 %54(ptr noundef nonnull align 8 dereferenceable(88) %51)
-          to label %invoke.cont74 unwind label %lpad69
+  br label %invoke.cont70
 
 cond.false.i79:                                   ; preds = %cond.false.i73
-  unreachable
+  %d1.sroa.0.0.copyload453 = load i64, ptr inttoptr (i64 40 to ptr), align 8, !tbaa !30
+  invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.9, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib6CouponEEptEv, ptr noundef nonnull @.str.10, i64 noundef 784)
+          to label %invoke.cont70 unwind label %lpad69
 
-invoke.cont74:                                    ; preds = %invoke.cont65
+invoke.cont70:                                    ; preds = %cond.false.i79, %invoke.cont65
+  %d1.sroa.0.0.copyload456 = phi i64 [ %d1.sroa.0.0.copyload, %invoke.cont65 ], [ %d1.sroa.0.0.copyload453, %cond.false.i79 ]
+  %.pre.i80446454 = phi ptr [ %51, %invoke.cont65 ], [ null, %cond.false.i79 ]
+  %vtable72 = load ptr, ptr %.pre.i80446454, align 8, !tbaa !35
+  %vfn73 = getelementptr inbounds nuw i8, ptr %vtable72, i64 16
+  %54 = load ptr, ptr %vfn73, align 8
+  %call75 = invoke i64 %54(ptr noundef nonnull align 8 dereferenceable(88) %.pre.i80446454)
+          to label %invoke.cont74 unwind label %lpad69
+
+invoke.cont74:                                    ; preds = %invoke.cont70
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d) #26
   invoke void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %d)
           to label %invoke.cont78 unwind label %lpad77
 
 invoke.cont78:                                    ; preds = %invoke.cont74
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d0) #26
-  store i64 %d1.sroa.0.0.copyload, ptr %d0, align 8, !tbaa !30
+  store i64 %d1.sroa.0.0.copyload456, ptr %d0, align 8, !tbaa !30
   br label %do.body
 
 do.body:                                          ; preds = %invoke.cont134, %invoke.cont78
-  %55 = phi i64 [ %d1.sroa.0.0.copyload, %invoke.cont78 ], [ %115, %invoke.cont134 ]
+  %55 = phi i64 [ %d1.sroa.0.0.copyload456, %invoke.cont78 ], [ %115, %invoke.cont134 ]
   %e1.3 = phi double [ %e1.1414, %invoke.cont78 ], [ %call100, %invoke.cont134 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp80) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp80, i8 0, i64 16, i1 false)
@@ -1140,7 +1147,7 @@ lpad64:                                           ; preds = %cond.false.i73
           cleanup
   br label %ehcleanup148
 
-lpad69:                                           ; preds = %invoke.cont65
+lpad69:                                           ; preds = %cond.false.i79, %invoke.cont70
   %74 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup148

@@ -2329,7 +2329,7 @@ rb_ec_ractor_ptr.exit:                            ; preds = %5, %16
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %53
   %.lcssa.i = phi i64 [ %.pr.i, %53 ], [ %54, %.lr.ph.i ]
   %55 = call i64 @rb_id2sym(i64 noundef %.lcssa.i) #19
-  br label %168
+  br label %169
 
 56:                                               ; preds = %50, %49
   br i1 %.not75, label %62, label %57
@@ -2352,7 +2352,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %53
 rbimpl_intern_const.exit65:                       ; preds = %.lr.ph.i63, %59
   %.lcssa.i62 = phi i64 [ %.pr.i60, %59 ], [ %60, %.lr.ph.i63 ]
   %61 = call i64 @rb_id2sym(i64 noundef %.lcssa.i62) #19
-  br label %168
+  br label %169
 
 62:                                               ; preds = %57, %56
   store i32 0, ptr %14, align 8, !tbaa !100
@@ -2360,11 +2360,11 @@ rbimpl_intern_const.exit65:                       ; preds = %.lr.ph.i63, %59
   %64 = call i32 @rb_st_foreach(ptr noundef %63, ptr noundef nonnull @ractor_selector_wait_i, i64 noundef %29) #19
   br label %.sink.split
 
-.sink.split:                                      ; preds = %62, %145
+.sink.split:                                      ; preds = %62, %146
   call void @rb_native_mutex_lock(ptr noundef nonnull %30) #19
   br label %65
 
-65:                                               ; preds = %.sink.split, %143
+65:                                               ; preds = %.sink.split, %144
   %.val5893 = load i32, ptr %14, align 8, !tbaa !100
   %66 = icmp eq i32 %.val5893, 0
   br i1 %66, label %.lr.ph, label %ractor_queue_empty_p.exit
@@ -2489,159 +2489,169 @@ ractor_check_take_basket.exit.thread:             ; preds = %.critedge.i, %97, %
   store i64 36, ptr %7, align 8, !tbaa !151
   %115 = load ptr, ptr %42, align 8, !tbaa !152
   store ptr %115, ptr %43, align 8, !tbaa !153
-  %.0.1.val.i.i = load ptr, ptr %15, align 8, !tbaa !90, !nonnull !99, !noundef !99
-  %116 = getelementptr inbounds nuw i8, ptr %.0.1.val.i.i, i64 32
-  %117 = load ptr, ptr %116, align 8, !tbaa !79
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 88
-  %119 = load ptr, ptr %118, align 8, !tbaa !154
+  %.0.1.val.i.i = load ptr, ptr %15, align 8, !tbaa !90
+  %.not.i.i.i.i = icmp eq ptr %.0.1.val.i.i, null
+  br i1 %.not.i.i.i.i, label %rb_ec_ractor_ptr.exit.i.i.i, label %116
+
+116:                                              ; preds = %114
+  %117 = getelementptr inbounds nuw i8, ptr %.0.1.val.i.i, i64 32
+  %118 = load ptr, ptr %117, align 8, !tbaa !79
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 88
   %120 = getelementptr inbounds nuw i8, ptr %.0.1.val.i.i, i64 24
   %121 = load ptr, ptr %120, align 8, !tbaa !57
-  %.not.i.i.i = icmp eq ptr %119, %121
-  br i1 %.not.i.i.i, label %122, label %rb_ec_vm_lock_rec.exit.i.i
+  br label %rb_ec_ractor_ptr.exit.i.i.i
 
-122:                                              ; preds = %114
-  %123 = getelementptr inbounds nuw i8, ptr %117, i64 96
-  %124 = load i32, ptr %123, align 8, !tbaa !155
+rb_ec_ractor_ptr.exit.i.i.i:                      ; preds = %116, %114
+  %.in.i.i.i = phi ptr [ %119, %116 ], [ inttoptr (i64 88 to ptr), %114 ]
+  %.0.i2.i.i.i = phi ptr [ %118, %116 ], [ null, %114 ]
+  %.0.i6.i.i.i = phi ptr [ %121, %116 ], [ null, %114 ]
+  %122 = load ptr, ptr %.in.i.i.i, align 8, !tbaa !154
+  %.not.i.i.i = icmp eq ptr %122, %.0.i6.i.i.i
+  br i1 %.not.i.i.i, label %123, label %rb_ec_vm_lock_rec.exit.i.i
+
+123:                                              ; preds = %rb_ec_ractor_ptr.exit.i.i.i
+  %124 = getelementptr inbounds nuw i8, ptr %.0.i2.i.i.i, i64 96
+  %125 = load i32, ptr %124, align 8, !tbaa !155
   br label %rb_ec_vm_lock_rec.exit.i.i
 
-rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %122, %114
-  %.0.i.i.i = phi i32 [ %124, %122 ], [ 0, %114 ]
+rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %123, %rb_ec_ractor_ptr.exit.i.i.i
+  %.0.i.i.i = phi i32 [ %125, %123 ], [ 0, %rb_ec_ractor_ptr.exit.i.i.i ]
   store i32 %.0.i.i.i, ptr %44, align 4, !tbaa !156
-  %125 = call ptr @llvm.frameaddress.p0(i32 0)
-  store ptr %125, ptr %45, align 8
-  %126 = call ptr @llvm.stacksave.p0()
-  store ptr %126, ptr %46, align 8
-  %127 = call i32 @llvm.eh.sjlj.setjmp(ptr nonnull %45)
-  %.not25.i.i = icmp eq i32 %127, 0
-  br i1 %.not25.i.i, label %.thread27.i.i, label %129, !prof !157
+  %126 = call ptr @llvm.frameaddress.p0(i32 0)
+  store ptr %126, ptr %45, align 8
+  %127 = call ptr @llvm.stacksave.p0()
+  store ptr %127, ptr %46, align 8
+  %128 = call i32 @llvm.eh.sjlj.setjmp(ptr nonnull %45)
+  %.not25.i.i = icmp eq i32 %128, 0
+  br i1 %.not25.i.i, label %.thread27.i.i, label %130, !prof !157
 
 .thread27.i.i:                                    ; preds = %rb_ec_vm_lock_rec.exit.i.i
   store ptr %7, ptr %42, align 8, !tbaa !152
   call void @rb_ec_check_ints(ptr noundef nonnull %10) #19
-  %128 = load ptr, ptr %43, align 8, !tbaa !153
-  store ptr %128, ptr %42, align 8, !tbaa !152
+  %129 = load ptr, ptr %43, align 8, !tbaa !153
+  store ptr %129, ptr %42, align 8, !tbaa !152
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @rb_native_mutex_lock(ptr noundef nonnull %30) #19
   store i32 %113, ptr %39, align 8, !tbaa !105
   br label %ractor_check_ints.exit.i
 
-129:                                              ; preds = %rb_ec_vm_lock_rec.exit.i.i
+130:                                              ; preds = %rb_ec_vm_lock_rec.exit.i.i
   %.0..0..0..0..0..0..0..0.2.i.i = load volatile ptr, ptr %6, align 8, !tbaa !123
-  %130 = call fastcc i32 @rb_ec_tag_state(ptr noundef %.0..0..0..0..0..0..0..0.2.i.i)
-  %131 = load ptr, ptr %43, align 8, !tbaa !153
+  %131 = call fastcc i32 @rb_ec_tag_state(ptr noundef %.0..0..0..0..0..0..0..0.2.i.i)
+  %132 = load ptr, ptr %43, align 8, !tbaa !153
   %.0..0..0..0..0..0..0..0.4.i.i = load ptr, ptr %6, align 8, !tbaa !123
-  %132 = getelementptr inbounds nuw i8, ptr %.0..0..0..0..0..0..0..0.4.i.i, i64 24
-  store ptr %131, ptr %132, align 8, !tbaa !152
+  %133 = getelementptr inbounds nuw i8, ptr %.0..0..0..0..0..0..0..0.4.i.i, i64 24
+  store ptr %132, ptr %133, align 8, !tbaa !152
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call fastcc void @ractor_selector_wait_cleaup(ptr noundef nonnull %.0.i, ptr noundef nonnull %14) #19, !callees !158
   %.val.i.i69 = load ptr, ptr %42, align 8, !tbaa !152
-  %133 = getelementptr inbounds nuw i8, ptr %.val.i.i69, i64 64
-  store i32 %130, ptr %133, align 8, !tbaa !149
-  %134 = getelementptr inbounds nuw i8, ptr %.val.i.i69, i64 16
-  call void @llvm.eh.sjlj.longjmp(ptr nonnull %134)
+  %134 = getelementptr inbounds nuw i8, ptr %.val.i.i69, i64 64
+  store i32 %131, ptr %134, align 8, !tbaa !149
+  %135 = getelementptr inbounds nuw i8, ptr %.val.i.i69, i64 16
+  call void @llvm.eh.sjlj.longjmp(ptr nonnull %135)
   unreachable
 
 ractor_check_ints.exit.i:                         ; preds = %.thread27.i.i, %.split.i
   %.pr.i70 = load i32, ptr %40, align 4, !tbaa !106
-  %135 = icmp eq i32 %.pr.i70, 0
-  br i1 %135, label %.split.i, label %ractor_sleep_with_cleanup.exit, !llvm.loop !159
+  %136 = icmp eq i32 %.pr.i70, 0
+  br i1 %136, label %.split.i, label %ractor_sleep_with_cleanup.exit, !llvm.loop !159
 
 ractor_sleep_with_cleanup.exit:                   ; preds = %ractor_check_ints.exit.i
   store i32 0, ptr %39, align 8, !tbaa !105
   store i32 0, ptr %40, align 4, !tbaa !106
   %.val58 = load i32, ptr %14, align 8, !tbaa !100
-  %136 = icmp eq i32 %.val58, 0
-  br i1 %136, label %.lr.ph, label %ractor_queue_empty_p.exit
+  %137 = icmp eq i32 %.val58, 0
+  br i1 %137, label %.lr.ph, label %ractor_queue_empty_p.exit
 
 ractor_queue_empty_p.exit:                        ; preds = %ractor_sleep_with_cleanup.exit, %.lr.ph.i66, %108, %65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false), !tbaa.struct !120
-  %137 = load i32, ptr %8, align 8, !tbaa !100
-  %138 = icmp eq i32 %137, 8
-  br i1 %138, label %143, label %139
+  %138 = load i32, ptr %8, align 8, !tbaa !100
+  %139 = icmp eq i32 %138, 8
+  br i1 %139, label %144, label %140
 
-139:                                              ; preds = %ractor_queue_empty_p.exit
-  %140 = cmpxchg volatile ptr %14, i32 %137, i32 6 seq_cst seq_cst, align 4
-  %141 = extractvalue { i32, i1 } %140, 0
-  %142 = load i32, ptr %8, align 8, !tbaa !100
-  %.not56 = icmp eq i32 %141, %142
-  br i1 %.not56, label %146, label %143
+140:                                              ; preds = %ractor_queue_empty_p.exit
+  %141 = cmpxchg volatile ptr %14, i32 %138, i32 6 seq_cst seq_cst, align 4
+  %142 = extractvalue { i32, i1 } %141, 0
+  %143 = load i32, ptr %8, align 8, !tbaa !100
+  %.not56 = icmp eq i32 %142, %143
+  br i1 %.not56, label %147, label %144
 
-143:                                              ; preds = %139, %ractor_queue_empty_p.exit
+144:                                              ; preds = %140, %ractor_queue_empty_p.exit
   %.val57 = load i32, ptr %14, align 8, !tbaa !100
-  %144 = icmp eq i32 %.val57, 8
-  br i1 %144, label %145, label %65
+  %145 = icmp eq i32 %.val57, 8
+  br i1 %145, label %146, label %65
 
-145:                                              ; preds = %143
+146:                                              ; preds = %144
   call void @rb_native_mutex_unlock(ptr noundef nonnull %30) #19
   call void @rb_thread_sleep(i32 noundef 0) #19
   br label %.sink.split
 
-146:                                              ; preds = %139
+147:                                              ; preds = %140
   call void @rb_native_mutex_unlock(ptr noundef nonnull %30) #19
-  %147 = load i32, ptr %8, align 8, !tbaa !100
-  switch i32 %147, label %.loopexit [
+  %148 = load i32, ptr %8, align 8, !tbaa !100
+  switch i32 %148, label %.loopexit [
     i32 0, label %.backedge
-    i32 8, label %152
-    i32 5, label %153
-    i32 4, label %163
+    i32 8, label %153
+    i32 5, label %154
+    i32 4, label %164
   ]
 
-.backedge:                                        ; preds = %146, %ractor_take_will_lock.exit
-  %148 = load ptr, ptr %23, align 8, !tbaa !138
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 16
-  %150 = load i64, ptr %149, align 8, !tbaa !144
-  %.not = icmp eq i64 %150, 0
+.backedge:                                        ; preds = %147, %ractor_take_will_lock.exit
+  %149 = load ptr, ptr %23, align 8, !tbaa !138
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 16
+  %151 = load i64, ptr %150, align 8, !tbaa !144
+  %.not = icmp eq i64 %151, 0
   %spec.select = select i1 %.not, i32 0, i32 2
   %.2 = or disjoint i32 %spec.select, %.299.v
-  %151 = icmp eq i32 %.2, 0
-  br i1 %151, label %._crit_edge, label %49
+  %152 = icmp eq i32 %.2, 0
+  br i1 %152, label %._crit_edge, label %49
 
-152:                                              ; preds = %146
+153:                                              ; preds = %147
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #33
   unreachable
 
-153:                                              ; preds = %146
-  %154 = load i64, ptr %47, align 8, !tbaa !102
-  %155 = call i64 @ractor_selector_remove(i64 noundef %0, i64 noundef %154)
-  %156 = inttoptr i64 %154 to ptr
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 32
-  %158 = load ptr, ptr %157, align 8, !tbaa !111
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 40
-  call void @rb_native_mutex_lock(ptr noundef nonnull %159) #19
-  %160 = getelementptr i8, ptr %158, i64 152
-  %.val.i.i71 = load i32, ptr %160, align 8, !tbaa !100
-  %161 = icmp eq i32 %.val.i.i71, 4
-  br i1 %161, label %ractor_take_will_lock.exit.thread, label %ractor_take_will_lock.exit
+154:                                              ; preds = %147
+  %155 = load i64, ptr %47, align 8, !tbaa !102
+  %156 = call i64 @ractor_selector_remove(i64 noundef %0, i64 noundef %155)
+  %157 = inttoptr i64 %155 to ptr
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 32
+  %159 = load ptr, ptr %158, align 8, !tbaa !111
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 40
+  call void @rb_native_mutex_lock(ptr noundef nonnull %160) #19
+  %161 = getelementptr i8, ptr %159, i64 152
+  %.val.i.i71 = load i32, ptr %161, align 8, !tbaa !100
+  %162 = icmp eq i32 %.val.i.i71, 4
+  br i1 %162, label %ractor_take_will_lock.exit.thread, label %ractor_take_will_lock.exit
 
-ractor_take_will_lock.exit.thread:                ; preds = %153
-  %162 = getelementptr i8, ptr %158, i64 152
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %162, i64 32, i1 false), !tbaa.struct !120
-  store i32 0, ptr %162, align 8, !tbaa !100
-  call void @rb_native_mutex_unlock(ptr noundef nonnull %159) #19
+ractor_take_will_lock.exit.thread:                ; preds = %154
+  %163 = getelementptr i8, ptr %159, i64 152
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %163, i64 32, i1 false), !tbaa.struct !120
+  store i32 0, ptr %163, align 8, !tbaa !100
+  call void @rb_native_mutex_unlock(ptr noundef nonnull %160) #19
   br label %.loopexit
 
-ractor_take_will_lock.exit:                       ; preds = %153
-  call void @rb_native_mutex_unlock(ptr noundef nonnull %159) #19
+ractor_take_will_lock.exit:                       ; preds = %154
+  call void @rb_native_mutex_unlock(ptr noundef nonnull %160) #19
   br label %.backedge
 
-163:                                              ; preds = %146
-  %164 = load i64, ptr %47, align 8, !tbaa !102
-  %165 = call i64 @ractor_selector_remove(i64 noundef %0, i64 noundef %164)
+164:                                              ; preds = %147
+  %165 = load i64, ptr %47, align 8, !tbaa !102
+  %166 = call i64 @ractor_selector_remove(i64 noundef %0, i64 noundef %165)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %146, %ractor_take_will_lock.exit.thread, %163
-  %166 = call fastcc i64 @ractor_basket_accept(ptr noundef %8)
-  %167 = load i64, ptr %47, align 8, !tbaa !102
-  br label %168
+.loopexit:                                        ; preds = %147, %ractor_take_will_lock.exit.thread, %164
+  %167 = call fastcc i64 @ractor_basket_accept(ptr noundef %8)
+  %168 = load i64, ptr %47, align 8, !tbaa !102
+  br label %169
 
-168:                                              ; preds = %.loopexit, %rbimpl_intern_const.exit65, %rbimpl_intern_const.exit
-  %.053 = phi i64 [ %61, %rbimpl_intern_const.exit65 ], [ %167, %.loopexit ], [ %55, %rbimpl_intern_const.exit ]
-  %.052 = phi i64 [ 4, %rbimpl_intern_const.exit65 ], [ %166, %.loopexit ], [ %51, %rbimpl_intern_const.exit ]
-  %169 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %.053, i64 noundef %.052) #19
+169:                                              ; preds = %.loopexit, %rbimpl_intern_const.exit65, %rbimpl_intern_const.exit
+  %.053 = phi i64 [ %61, %rbimpl_intern_const.exit65 ], [ %168, %.loopexit ], [ %55, %rbimpl_intern_const.exit ]
+  %.052 = phi i64 [ 4, %rbimpl_intern_const.exit65 ], [ %167, %.loopexit ], [ %51, %rbimpl_intern_const.exit ]
+  %170 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %.053, i64 noundef %.052) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #19
-  ret i64 %169
+  ret i64 %170
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4243,66 +4253,76 @@ ractor_selector_new.exit:                         ; preds = %.lr.ph.i, %ractor_s
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store ptr %47, ptr %48, align 8, !tbaa !153
   %49 = getelementptr i8, ptr %0, i64 48
-  %.0.2.val = load ptr, ptr %49, align 8, !tbaa !90, !nonnull !99, !noundef !99
-  %50 = getelementptr inbounds nuw i8, ptr %.0.2.val, i64 32
-  %51 = load ptr, ptr %50, align 8, !tbaa !79
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 88
-  %53 = load ptr, ptr %52, align 8, !tbaa !154
+  %.0.2.val = load ptr, ptr %49, align 8, !tbaa !90
+  %.not.i.i18 = icmp eq ptr %.0.2.val, null
+  br i1 %.not.i.i18, label %rb_ec_ractor_ptr.exit.i, label %50
+
+50:                                               ; preds = %ractor_selector_new.exit
+  %51 = getelementptr inbounds nuw i8, ptr %.0.2.val, i64 32
+  %52 = load ptr, ptr %51, align 8, !tbaa !79
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 88
   %54 = getelementptr inbounds nuw i8, ptr %.0.2.val, i64 24
   %55 = load ptr, ptr %54, align 8, !tbaa !57
-  %.not.i19 = icmp eq ptr %53, %55
-  br i1 %.not.i19, label %56, label %rb_ec_vm_lock_rec.exit
+  br label %rb_ec_ractor_ptr.exit.i
 
-56:                                               ; preds = %ractor_selector_new.exit
-  %57 = getelementptr inbounds nuw i8, ptr %51, i64 96
-  %58 = load i32, ptr %57, align 8, !tbaa !155
+rb_ec_ractor_ptr.exit.i:                          ; preds = %50, %ractor_selector_new.exit
+  %.in.i = phi ptr [ %53, %50 ], [ inttoptr (i64 88 to ptr), %ractor_selector_new.exit ]
+  %.0.i2.i = phi ptr [ %52, %50 ], [ null, %ractor_selector_new.exit ]
+  %.0.i6.i = phi ptr [ %55, %50 ], [ null, %ractor_selector_new.exit ]
+  %56 = load ptr, ptr %.in.i, align 8, !tbaa !154
+  %.not.i19 = icmp eq ptr %56, %.0.i6.i
+  br i1 %.not.i19, label %57, label %rb_ec_vm_lock_rec.exit
+
+57:                                               ; preds = %rb_ec_ractor_ptr.exit.i
+  %58 = getelementptr inbounds nuw i8, ptr %.0.i2.i, i64 96
+  %59 = load i32, ptr %58, align 8, !tbaa !155
   br label %rb_ec_vm_lock_rec.exit
 
-rb_ec_vm_lock_rec.exit:                           ; preds = %ractor_selector_new.exit, %56
-  %.0.i20 = phi i32 [ %58, %56 ], [ 0, %ractor_selector_new.exit ]
-  %59 = getelementptr inbounds nuw i8, ptr %10, i64 68
-  store i32 %.0.i20, ptr %59, align 4, !tbaa !156
-  %60 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %61 = tail call ptr @llvm.frameaddress.p0(i32 0)
-  store ptr %61, ptr %60, align 8
-  %62 = tail call ptr @llvm.stacksave.p0()
-  %63 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store ptr %62, ptr %63, align 8
-  %64 = call i32 @llvm.eh.sjlj.setjmp(ptr nonnull %60)
-  %.not = icmp eq i32 %64, 0
-  br i1 %.not, label %72, label %65, !prof !157
+rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.exit.i, %57
+  %.0.i20 = phi i32 [ %59, %57 ], [ 0, %rb_ec_ractor_ptr.exit.i ]
+  %60 = getelementptr inbounds nuw i8, ptr %10, i64 68
+  store i32 %.0.i20, ptr %60, align 4, !tbaa !156
+  %61 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %62 = tail call ptr @llvm.frameaddress.p0(i32 0)
+  store ptr %62, ptr %61, align 8
+  %63 = tail call ptr @llvm.stacksave.p0()
+  %64 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store ptr %63, ptr %64, align 8
+  %65 = call i32 @llvm.eh.sjlj.setjmp(ptr nonnull %61)
+  %.not = icmp eq i32 %65, 0
+  br i1 %.not, label %73, label %66, !prof !157
 
-65:                                               ; preds = %rb_ec_vm_lock_rec.exit
+66:                                               ; preds = %rb_ec_vm_lock_rec.exit
   %.0..0..0..0.3 = load volatile ptr, ptr %9, align 8, !tbaa !123
-  %66 = call fastcc i32 @rb_ec_tag_state(ptr noundef %.0..0..0..0.3)
-  %67 = load ptr, ptr %48, align 8, !tbaa !153
+  %67 = call fastcc i32 @rb_ec_tag_state(ptr noundef %.0..0..0..0.3)
+  %68 = load ptr, ptr %48, align 8, !tbaa !153
   %.0..0..0..0.5 = load ptr, ptr %9, align 8, !tbaa !123
-  %68 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.5, i64 24
-  store ptr %67, ptr %68, align 8, !tbaa !152
+  %69 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.5, i64 24
+  store ptr %68, ptr %69, align 8, !tbaa !152
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %69 = call i64 @ractor_selector_clear(i64 noundef %29)
+  %70 = call i64 @ractor_selector_clear(i64 noundef %29)
   %.val = load ptr, ptr %46, align 8, !tbaa !152
-  %70 = getelementptr inbounds nuw i8, ptr %.val, i64 64
-  store i32 %66, ptr %70, align 8, !tbaa !149
-  %71 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  call void @llvm.eh.sjlj.longjmp(ptr nonnull %71)
+  %71 = getelementptr inbounds nuw i8, ptr %.val, i64 64
+  store i32 %67, ptr %71, align 8, !tbaa !149
+  %72 = getelementptr inbounds nuw i8, ptr %.val, i64 16
+  call void @llvm.eh.sjlj.longjmp(ptr nonnull %72)
   unreachable
 
-72:                                               ; preds = %rb_ec_vm_lock_rec.exit
+73:                                               ; preds = %rb_ec_vm_lock_rec.exit
   store ptr %10, ptr %46, align 8, !tbaa !152
-  %73 = call i64 @ractor_selector__wait(i64 noundef %29, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6)
-  %74 = load ptr, ptr %48, align 8, !tbaa !153
-  store ptr %74, ptr %46, align 8, !tbaa !152
+  %74 = call i64 @ractor_selector__wait(i64 noundef %29, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6)
+  %75 = load ptr, ptr %48, align 8, !tbaa !153
+  store ptr %75, ptr %46, align 8, !tbaa !152
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #19
   store ptr %8, ptr %11, align 8, !tbaa !203
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %11) #19, !srcloc !205
-  %75 = load ptr, ptr %11, align 8, !tbaa !203
+  %76 = load ptr, ptr %11, align 8, !tbaa !203
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #19
-  %76 = load volatile i64, ptr %75, align 8, !tbaa !80
-  ret i64 %73
+  %77 = load volatile i64, ptr %76, align 8, !tbaa !80
+  ret i64 %74
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5582,7 +5602,7 @@ ractor_queue_enq.exit45.i:                        ; preds = %._crit_edge.i38.i, 
 
 158:                                              ; preds = %151
   store i32 4, ptr %10, align 4, !tbaa !12
-  br label %188
+  br label %189
 
 159:                                              ; preds = %151
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
@@ -5596,53 +5616,63 @@ ractor_queue_enq.exit45.i:                        ; preds = %._crit_edge.i38.i, 
   %163 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store ptr %162, ptr %163, align 8, !tbaa !153
   %164 = getelementptr i8, ptr %0, i64 48
-  %.0.1.val = load ptr, ptr %164, align 8, !tbaa !90, !nonnull !99, !noundef !99
-  %165 = getelementptr inbounds nuw i8, ptr %.0.1.val, i64 32
-  %166 = load ptr, ptr %165, align 8, !tbaa !79
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 88
-  %168 = load ptr, ptr %167, align 8, !tbaa !154
+  %.0.1.val = load ptr, ptr %164, align 8, !tbaa !90
+  %.not.i.i30 = icmp eq ptr %.0.1.val, null
+  br i1 %.not.i.i30, label %rb_ec_ractor_ptr.exit.i, label %165
+
+165:                                              ; preds = %159
+  %166 = getelementptr inbounds nuw i8, ptr %.0.1.val, i64 32
+  %167 = load ptr, ptr %166, align 8, !tbaa !79
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 88
   %169 = getelementptr inbounds nuw i8, ptr %.0.1.val, i64 24
   %170 = load ptr, ptr %169, align 8, !tbaa !57
-  %.not.i31 = icmp eq ptr %168, %170
-  br i1 %.not.i31, label %171, label %rb_ec_vm_lock_rec.exit
+  br label %rb_ec_ractor_ptr.exit.i
 
-171:                                              ; preds = %159
-  %172 = getelementptr inbounds nuw i8, ptr %166, i64 96
-  %173 = load i32, ptr %172, align 8, !tbaa !155
+rb_ec_ractor_ptr.exit.i:                          ; preds = %165, %159
+  %.in.i = phi ptr [ %168, %165 ], [ inttoptr (i64 88 to ptr), %159 ]
+  %.0.i2.i = phi ptr [ %167, %165 ], [ null, %159 ]
+  %.0.i6.i = phi ptr [ %170, %165 ], [ null, %159 ]
+  %171 = load ptr, ptr %.in.i, align 8, !tbaa !154
+  %.not.i31 = icmp eq ptr %171, %.0.i6.i
+  br i1 %.not.i31, label %172, label %rb_ec_vm_lock_rec.exit
+
+172:                                              ; preds = %rb_ec_ractor_ptr.exit.i
+  %173 = getelementptr inbounds nuw i8, ptr %.0.i2.i, i64 96
+  %174 = load i32, ptr %173, align 8, !tbaa !155
   br label %rb_ec_vm_lock_rec.exit
 
-rb_ec_vm_lock_rec.exit:                           ; preds = %159, %171
-  %.0.i = phi i32 [ %173, %171 ], [ 0, %159 ]
-  %174 = getelementptr inbounds nuw i8, ptr %12, i64 68
-  store i32 %.0.i, ptr %174, align 4, !tbaa !156
-  %175 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %176 = tail call ptr @llvm.frameaddress.p0(i32 0)
-  store ptr %176, ptr %175, align 8
-  %177 = tail call ptr @llvm.stacksave.p0()
-  %178 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store ptr %177, ptr %178, align 8
-  %179 = call i32 @llvm.eh.sjlj.setjmp(ptr nonnull %175)
-  %.not = icmp eq i32 %179, 0
-  br i1 %.not, label %.thread33, label %182, !prof !157
+rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.exit.i, %172
+  %.0.i = phi i32 [ %174, %172 ], [ 0, %rb_ec_ractor_ptr.exit.i ]
+  %175 = getelementptr inbounds nuw i8, ptr %12, i64 68
+  store i32 %.0.i, ptr %175, align 4, !tbaa !156
+  %176 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %177 = tail call ptr @llvm.frameaddress.p0(i32 0)
+  store ptr %177, ptr %176, align 8
+  %178 = tail call ptr @llvm.stacksave.p0()
+  %179 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store ptr %178, ptr %179, align 8
+  %180 = call i32 @llvm.eh.sjlj.setjmp(ptr nonnull %176)
+  %.not = icmp eq i32 %180, 0
+  br i1 %.not, label %.thread33, label %183, !prof !157
 
 .thread33:                                        ; preds = %rb_ec_vm_lock_rec.exit
   store ptr %12, ptr %161, align 8, !tbaa !152
-  %180 = load volatile i64, ptr %8, align 8, !tbaa !80
-  call fastcc void @ractor_basket_prepare_contents(i64 noundef %180, i64 noundef %4, ptr noundef %8, ptr noundef %10)
-  %181 = load ptr, ptr %163, align 8, !tbaa !153
-  store ptr %181, ptr %161, align 8, !tbaa !152
+  %181 = load volatile i64, ptr %8, align 8, !tbaa !80
+  call fastcc void @ractor_basket_prepare_contents(i64 noundef %181, i64 noundef %4, ptr noundef %8, ptr noundef %10)
+  %182 = load ptr, ptr %163, align 8, !tbaa !153
+  store ptr %182, ptr %161, align 8, !tbaa !152
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %.pre = load i32, ptr %10, align 4, !tbaa !12
-  br label %188
+  br label %189
 
-182:                                              ; preds = %rb_ec_vm_lock_rec.exit
+183:                                              ; preds = %rb_ec_vm_lock_rec.exit
   %.0..0..0..0.2 = load volatile ptr, ptr %11, align 8, !tbaa !123
-  %183 = call fastcc i32 @rb_ec_tag_state(ptr noundef %.0..0..0..0.2)
-  %184 = load ptr, ptr %163, align 8, !tbaa !153
+  %184 = call fastcc i32 @rb_ec_tag_state(ptr noundef %.0..0..0..0.2)
+  %185 = load ptr, ptr %163, align 8, !tbaa !153
   %.0..0..0..0.4 = load ptr, ptr %11, align 8, !tbaa !123
-  %185 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.4, i64 24
-  store ptr %184, ptr %185, align 8, !tbaa !152
+  %186 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.4, i64 24
+  store ptr %185, ptr %186, align 8, !tbaa !152
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @rb_native_mutex_lock(ptr noundef nonnull %13) #19
@@ -5650,72 +5680,72 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %159, %171
   call fastcc void @ractor_queue_enq(ptr noundef nonnull %2, ptr noundef %9)
   call void @rb_native_mutex_unlock(ptr noundef nonnull %13) #19
   %.val = load ptr, ptr %161, align 8, !tbaa !152
-  %186 = getelementptr inbounds nuw i8, ptr %.val, i64 64
-  store i32 %183, ptr %186, align 8, !tbaa !149
-  %187 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  call void @llvm.eh.sjlj.longjmp(ptr nonnull %187)
+  %187 = getelementptr inbounds nuw i8, ptr %.val, i64 64
+  store i32 %184, ptr %187, align 8, !tbaa !149
+  %188 = getelementptr inbounds nuw i8, ptr %.val, i64 16
+  call void @llvm.eh.sjlj.longjmp(ptr nonnull %188)
   unreachable
 
-188:                                              ; preds = %.thread33, %158
-  %189 = phi i32 [ %.pre, %.thread33 ], [ 4, %158 ]
-  %190 = getelementptr inbounds nuw i8, ptr %156, i64 40
-  call void @rb_native_mutex_lock(ptr noundef nonnull %190) #19
-  %191 = load volatile i64, ptr %8, align 8, !tbaa !80
+189:                                              ; preds = %.thread33, %158
+  %190 = phi i32 [ %.pre, %.thread33 ], [ 4, %158 ]
+  %191 = getelementptr inbounds nuw i8, ptr %156, i64 40
+  call void @rb_native_mutex_lock(ptr noundef nonnull %191) #19
+  %192 = load volatile i64, ptr %8, align 8, !tbaa !80
   %.val29 = load i64, ptr %1, align 8, !tbaa !37
-  %192 = zext i1 %5 to i8
-  %193 = getelementptr inbounds nuw i8, ptr %157, i64 8
-  store i64 %.val29, ptr %193, align 8, !tbaa !102
-  %194 = getelementptr inbounds nuw i8, ptr %157, i64 16
-  %195 = getelementptr inbounds nuw i8, ptr %157, i64 24
-  store i8 %192, ptr %195, align 8, !tbaa !100
-  store i64 %191, ptr %194, align 8, !tbaa !100
-  %196 = cmpxchg volatile ptr %157, i32 8, i32 %189 seq_cst seq_cst, align 4
-  %.not28 = extractvalue { i32, i1 } %196, 1
-  br i1 %.not28, label %198, label %197
+  %193 = zext i1 %5 to i8
+  %194 = getelementptr inbounds nuw i8, ptr %157, i64 8
+  store i64 %.val29, ptr %194, align 8, !tbaa !102
+  %195 = getelementptr inbounds nuw i8, ptr %157, i64 16
+  %196 = getelementptr inbounds nuw i8, ptr %157, i64 24
+  store i8 %193, ptr %196, align 8, !tbaa !100
+  store i64 %192, ptr %195, align 8, !tbaa !100
+  %197 = cmpxchg volatile ptr %157, i32 8, i32 %190 seq_cst seq_cst, align 4
+  %.not28 = extractvalue { i32, i1 } %197, 1
+  br i1 %.not28, label %199, label %198
 
-197:                                              ; preds = %188
+198:                                              ; preds = %189
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #33
   unreachable
 
-198:                                              ; preds = %188
-  %199 = getelementptr inbounds nuw i8, ptr %156, i64 184
-  %200 = load i32, ptr %199, align 8, !tbaa !105
-  %201 = and i32 %200, 2
-  %.not.i.i32 = icmp eq i32 %201, 0
+199:                                              ; preds = %189
+  %200 = getelementptr inbounds nuw i8, ptr %156, i64 184
+  %201 = load i32, ptr %200, align 8, !tbaa !105
+  %202 = and i32 %201, 2
+  %.not.i.i32 = icmp eq i32 %202, 0
   br i1 %.not.i.i32, label %ractor_wakeup.exit, label %ractor_sleeping_by.exit.i
 
-ractor_sleeping_by.exit.i:                        ; preds = %198
-  %202 = getelementptr inbounds nuw i8, ptr %156, i64 188
-  %203 = load i32, ptr %202, align 4, !tbaa !106
-  %204 = icmp eq i32 %203, 0
-  br i1 %204, label %205, label %ractor_wakeup.exit
+ractor_sleeping_by.exit.i:                        ; preds = %199
+  %203 = getelementptr inbounds nuw i8, ptr %156, i64 188
+  %204 = load i32, ptr %203, align 4, !tbaa !106
+  %205 = icmp eq i32 %204, 0
+  br i1 %205, label %206, label %ractor_wakeup.exit
 
-205:                                              ; preds = %ractor_sleeping_by.exit.i
-  store i32 2, ptr %202, align 4, !tbaa !106
+206:                                              ; preds = %ractor_sleeping_by.exit.i
+  store i32 2, ptr %203, align 4, !tbaa !106
   call void @rb_ractor_sched_wakeup(ptr noundef nonnull %156) #19
   br label %ractor_wakeup.exit
 
-ractor_wakeup.exit:                               ; preds = %198, %ractor_sleeping_by.exit.i, %205
-  call void @rb_native_mutex_unlock(ptr noundef nonnull %190) #19
+ractor_wakeup.exit:                               ; preds = %199, %ractor_sleeping_by.exit.i, %206
+  call void @rb_native_mutex_unlock(ptr noundef nonnull %191) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #19
-  br label %211
+  br label %212
 
 .loopexit:                                        ; preds = %107, %103, %25, %7
   tail call void @rb_native_mutex_unlock(ptr noundef nonnull %13) #19
-  %206 = getelementptr inbounds nuw i8, ptr %1, i64 81
-  %207 = load i8, ptr %206, align 1, !tbaa !97, !range !98, !noundef !99
-  %208 = trunc nuw i8 %207 to i1
-  br i1 %208, label %209, label %211
+  %207 = getelementptr inbounds nuw i8, ptr %1, i64 81
+  %208 = load i8, ptr %207, align 1, !tbaa !97, !range !98, !noundef !99
+  %209 = trunc nuw i8 %208 to i1
+  br i1 %209, label %210, label %212
 
-209:                                              ; preds = %.loopexit
-  %210 = load i64, ptr @rb_eRactorClosedError, align 8, !tbaa !80
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %210, ptr noundef nonnull @.str.65) #27
+210:                                              ; preds = %.loopexit
+  %211 = load i64, ptr @rb_eRactorClosedError, align 8, !tbaa !80
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %211, ptr noundef nonnull @.str.65) #27
   unreachable
 
-211:                                              ; preds = %.loopexit, %ractor_wakeup.exit
-  %212 = phi i1 [ false, %.loopexit ], [ true, %ractor_wakeup.exit ]
+212:                                              ; preds = %.loopexit, %ractor_wakeup.exit
+  %213 = phi i1 [ false, %.loopexit ], [ true, %ractor_wakeup.exit ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #19
-  ret i1 %212
+  ret i1 %213
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
@@ -5737,35 +5767,45 @@ define internal fastcc range(i32 1, 9) i32 @rb_ec_tag_state(ptr noundef %0) unna
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %7 = load i32, ptr %6, align 4, !tbaa !156
   %8 = getelementptr i8, ptr %0, i64 48
-  %.val.i = load ptr, ptr %8, align 8, !tbaa !90, !nonnull !99, !noundef !99
-  %9 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !79
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 88
-  %12 = load ptr, ptr %11, align 8, !tbaa !154
+  %.val.i = load ptr, ptr %8, align 8, !tbaa !90
+  %.not.i.i.i = icmp eq ptr %.val.i, null
+  br i1 %.not.i.i.i, label %rb_ec_ractor_ptr.exit.i.i, label %9
+
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
+  %11 = load ptr, ptr %10, align 8, !tbaa !79
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %13 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !57
-  %.not.i.i = icmp eq ptr %12, %14
-  br i1 %.not.i.i, label %15, label %rb_ec_vm_lock_rec.exit.i
+  br label %rb_ec_ractor_ptr.exit.i.i
 
-15:                                               ; preds = %1
-  %16 = getelementptr inbounds nuw i8, ptr %10, i64 96
-  %17 = load i32, ptr %16, align 8, !tbaa !155
+rb_ec_ractor_ptr.exit.i.i:                        ; preds = %9, %1
+  %.in.i.i = phi ptr [ %12, %9 ], [ inttoptr (i64 88 to ptr), %1 ]
+  %.0.i2.i.i = phi ptr [ %11, %9 ], [ null, %1 ]
+  %.0.i6.i.i = phi ptr [ %14, %9 ], [ null, %1 ]
+  %15 = load ptr, ptr %.in.i.i, align 8, !tbaa !154
+  %.not.i.i = icmp eq ptr %15, %.0.i6.i.i
+  br i1 %.not.i.i, label %16, label %rb_ec_vm_lock_rec.exit.i
+
+16:                                               ; preds = %rb_ec_ractor_ptr.exit.i.i
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i2.i.i, i64 96
+  %18 = load i32, ptr %17, align 8, !tbaa !155
   br label %rb_ec_vm_lock_rec.exit.i
 
-rb_ec_vm_lock_rec.exit.i:                         ; preds = %15, %1
-  %.0.i.i = phi i32 [ %17, %15 ], [ 0, %1 ]
+rb_ec_vm_lock_rec.exit.i:                         ; preds = %16, %rb_ec_ractor_ptr.exit.i.i
+  %.0.i.i = phi i32 [ %18, %16 ], [ 0, %rb_ec_ractor_ptr.exit.i.i ]
   %.not.i = icmp eq i32 %.0.i.i, %7
-  br i1 %.not.i, label %rb_ec_vm_lock_rec_check.exit, label %18
+  br i1 %.not.i, label %rb_ec_vm_lock_rec_check.exit, label %19
 
-18:                                               ; preds = %rb_ec_vm_lock_rec.exit.i
+19:                                               ; preds = %rb_ec_vm_lock_rec.exit.i
   tail call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %0, i32 noundef %7, i32 noundef %.0.i.i) #19
   br label %rb_ec_vm_lock_rec_check.exit
 
-rb_ec_vm_lock_rec_check.exit:                     ; preds = %rb_ec_vm_lock_rec.exit.i, %18
-  %19 = icmp ne i32 %5, 0
-  tail call void @llvm.assume(i1 %19)
-  %20 = icmp ult i32 %5, 9
+rb_ec_vm_lock_rec_check.exit:                     ; preds = %rb_ec_vm_lock_rec.exit.i, %19
+  %20 = icmp ne i32 %5, 0
   tail call void @llvm.assume(i1 %20)
+  %21 = icmp ult i32 %5, 9
+  tail call void @llvm.assume(i1 %21)
   ret i32 %5
 }
 
@@ -8375,176 +8415,186 @@ rb_ec_ractor_ptr.exit:                            ; preds = %5, %11
   store i64 36, ptr %7, align 8, !tbaa !151
   %31 = load ptr, ptr %15, align 8, !tbaa !152
   store ptr %31, ptr %16, align 8, !tbaa !153
-  %32 = getelementptr inbounds nuw i8, ptr %.0.2.val, i64 32
-  %33 = load ptr, ptr %32, align 8, !tbaa !79
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 88
-  %35 = load ptr, ptr %34, align 8, !tbaa !154
+  %.not.i.i = icmp eq ptr %.0.2.val, null
+  br i1 %.not.i.i, label %rb_ec_ractor_ptr.exit.i, label %32
+
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds nuw i8, ptr %.0.2.val, i64 32
+  %34 = load ptr, ptr %33, align 8, !tbaa !79
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 88
   %36 = getelementptr inbounds nuw i8, ptr %.0.2.val, i64 24
   %37 = load ptr, ptr %36, align 8, !tbaa !57
-  %.not.i14 = icmp eq ptr %35, %37
-  br i1 %.not.i14, label %38, label %rb_ec_vm_lock_rec.exit
+  br label %rb_ec_ractor_ptr.exit.i
 
-38:                                               ; preds = %30
-  %39 = getelementptr inbounds nuw i8, ptr %33, i64 96
-  %40 = load i32, ptr %39, align 8, !tbaa !155
+rb_ec_ractor_ptr.exit.i:                          ; preds = %32, %30
+  %.in.i = phi ptr [ %35, %32 ], [ inttoptr (i64 88 to ptr), %30 ]
+  %.0.i2.i = phi ptr [ %34, %32 ], [ null, %30 ]
+  %.0.i6.i = phi ptr [ %37, %32 ], [ null, %30 ]
+  %38 = load ptr, ptr %.in.i, align 8, !tbaa !154
+  %.not.i14 = icmp eq ptr %38, %.0.i6.i
+  br i1 %.not.i14, label %39, label %rb_ec_vm_lock_rec.exit
+
+39:                                               ; preds = %rb_ec_ractor_ptr.exit.i
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i2.i, i64 96
+  %41 = load i32, ptr %40, align 8, !tbaa !155
   br label %rb_ec_vm_lock_rec.exit
 
-rb_ec_vm_lock_rec.exit:                           ; preds = %30, %38
-  %.0.i15 = phi i32 [ %40, %38 ], [ 0, %30 ]
+rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.exit.i, %39
+  %.0.i15 = phi i32 [ %41, %39 ], [ 0, %rb_ec_ractor_ptr.exit.i ]
   store i32 %.0.i15, ptr %17, align 4, !tbaa !156
   store ptr %19, ptr %18, align 8
-  %41 = call ptr @llvm.stacksave.p0()
-  store ptr %41, ptr %20, align 8
-  %42 = call i32 @llvm.eh.sjlj.setjmp(ptr nonnull %18)
-  %.not = icmp eq i32 %42, 0
-  br i1 %.not, label %43, label %.critedge, !prof !157
+  %42 = call ptr @llvm.stacksave.p0()
+  store ptr %42, ptr %20, align 8
+  %43 = call i32 @llvm.eh.sjlj.setjmp(ptr nonnull %18)
+  %.not = icmp eq i32 %43, 0
+  br i1 %.not, label %44, label %.critedge, !prof !157
 
-43:                                               ; preds = %rb_ec_vm_lock_rec.exit
+44:                                               ; preds = %rb_ec_vm_lock_rec.exit
   store ptr %7, ptr %15, align 8, !tbaa !152
-  %44 = call fastcc i64 @ractor_try_receive(ptr noundef %.0.i, ptr noundef nonnull %21)
-  %45 = icmp eq i64 %44, 36
-  br i1 %45, label %.lr.ph.i, label %ractor_receive.exit
+  %45 = call fastcc i64 @ractor_try_receive(ptr noundef %.0.i, ptr noundef nonnull %21)
+  %46 = icmp eq i64 %45, 36
+  br i1 %46, label %.lr.ph.i, label %ractor_receive.exit
 
-.lr.ph.i:                                         ; preds = %43, %ractor_try_receive.exit
+.lr.ph.i:                                         ; preds = %44, %ractor_try_receive.exit
   call fastcc void @ractor_wait_receive(ptr noundef %9, ptr noundef nonnull %.0.i, ptr noundef nonnull %21)
   %.val.i = load i64, ptr %22, align 8, !tbaa !116
   %.not.i.i16 = icmp eq i64 %.val.i, 0
-  br i1 %.not.i.i16, label %ractor_recursive_receive_if.exit.i, label %46
+  br i1 %.not.i.i16, label %ractor_recursive_receive_if.exit.i, label %47
 
-46:                                               ; preds = %.lr.ph.i
-  %47 = call i64 @rb_mutex_owned_p(i64 noundef %.val.i) #19
-  %.not2.i.i = icmp eq i64 %47, 0
-  br i1 %.not2.i.i, label %ractor_recursive_receive_if.exit.i, label %48
+47:                                               ; preds = %.lr.ph.i
+  %48 = call i64 @rb_mutex_owned_p(i64 noundef %.val.i) #19
+  %.not2.i.i = icmp eq i64 %48, 0
+  br i1 %.not2.i.i, label %ractor_recursive_receive_if.exit.i, label %49
 
-48:                                               ; preds = %46
-  %49 = load i64, ptr @rb_eRactorError, align 8, !tbaa !80
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %49, ptr noundef nonnull @.str.72) #27
+49:                                               ; preds = %47
+  %50 = load i64, ptr @rb_eRactorError, align 8, !tbaa !80
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %50, ptr noundef nonnull @.str.72) #27
   unreachable
 
-ractor_recursive_receive_if.exit.i:               ; preds = %46, %.lr.ph.i
+ractor_recursive_receive_if.exit.i:               ; preds = %47, %.lr.ph.i
   call void @rb_native_mutex_lock(ptr noundef nonnull %23) #19
-  %50 = load i32, ptr %24, align 4, !tbaa !86
-  %.not8.i.i = icmp sgt i32 %50, 0
+  %51 = load i32, ptr %24, align 4, !tbaa !86
+  %.not8.i.i = icmp sgt i32 %51, 0
   br i1 %.not8.i.i, label %.lr.ph.i.i, label %.loopexit2.i
 
 .lr.ph.i.i:                                       ; preds = %ractor_recursive_receive_if.exit.i
-  %51 = load ptr, ptr %21, align 8, !tbaa !88
-  %52 = load i32, ptr %25, align 8, !tbaa !87
-  %53 = load i32, ptr %26, align 8, !tbaa !85
-  br label %56
+  %52 = load ptr, ptr %21, align 8, !tbaa !88
+  %53 = load i32, ptr %25, align 8, !tbaa !87
+  %54 = load i32, ptr %26, align 8, !tbaa !85
+  br label %57
 
-54:                                               ; preds = %56
-  %55 = add nuw nsw i32 %.0179.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %55, %50
-  br i1 %exitcond.not.i.i, label %.loopexit2.i, label %56, !llvm.loop !107
+55:                                               ; preds = %57
+  %56 = add nuw nsw i32 %.0179.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %56, %51
+  br i1 %exitcond.not.i.i, label %.loopexit2.i, label %57, !llvm.loop !107
 
-56:                                               ; preds = %54, %.lr.ph.i.i
-  %.0179.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %55, %54 ]
-  %57 = add i32 %.0179.i.i, %52
-  %58 = srem i32 %57, %53
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr %struct.rb_ractor_basket, ptr %51, i64 %59
-  %.val4.i.i.i = load i32, ptr %60, align 8, !tbaa !100
-  %61 = add i32 %.val4.i.i.i, -5
-  %spec.select.i.i.i = icmp ult i32 %61, 2
-  br i1 %spec.select.i.i.i, label %54, label %62
+57:                                               ; preds = %55, %.lr.ph.i.i
+  %.0179.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %56, %55 ]
+  %58 = add i32 %.0179.i.i, %53
+  %59 = srem i32 %58, %54
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr %struct.rb_ractor_basket, ptr %52, i64 %60
+  %.val4.i.i.i = load i32, ptr %61, align 8, !tbaa !100
+  %62 = add i32 %.val4.i.i.i, -5
+  %spec.select.i.i.i = icmp ult i32 %62, 2
+  br i1 %spec.select.i.i.i, label %55, label %63
 
-62:                                               ; preds = %56
-  %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 8
+63:                                               ; preds = %57
+  %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 8
   %.sroa.518.0.copyload = load i64, ptr %.sroa.518.0..sroa_idx, align 8, !tbaa !80
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 16
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 16
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 24
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 24
   %.sroa.7.0.copyload = load i8, ptr %.sroa.7.0..sroa_idx, align 8
-  store i32 5, ptr %60, align 8, !tbaa !100
-  %63 = load i32, ptr %24, align 4, !tbaa !86
-  %64 = icmp sgt i32 %63, 0
-  br i1 %64, label %.lr.ph.i.i.i, label %.loopexit.i
+  store i32 5, ptr %61, align 8, !tbaa !100
+  %64 = load i32, ptr %24, align 4, !tbaa !86
+  %65 = icmp sgt i32 %64, 0
+  br i1 %65, label %.lr.ph.i.i.i, label %.loopexit.i
 
-.lr.ph.i.i.i:                                     ; preds = %62, %ractor_queue_advance.exit.i.i.i
-  %65 = phi i32 [ %83, %ractor_queue_advance.exit.i.i.i ], [ %63, %62 ]
-  %66 = load ptr, ptr %21, align 8, !tbaa !88
-  %67 = load i32, ptr %25, align 8, !tbaa !87
-  %68 = load i32, ptr %26, align 8, !tbaa !85
-  %69 = srem i32 %67, %68
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr %struct.rb_ractor_basket, ptr %66, i64 %70
-  %.val.i.i.i = load i32, ptr %71, align 8, !tbaa !100
-  %72 = icmp eq i32 %.val.i.i.i, 5
-  br i1 %72, label %73, label %.loopexit.i
+.lr.ph.i.i.i:                                     ; preds = %63, %ractor_queue_advance.exit.i.i.i
+  %66 = phi i32 [ %84, %ractor_queue_advance.exit.i.i.i ], [ %64, %63 ]
+  %67 = load ptr, ptr %21, align 8, !tbaa !88
+  %68 = load i32, ptr %25, align 8, !tbaa !87
+  %69 = load i32, ptr %26, align 8, !tbaa !85
+  %70 = srem i32 %68, %69
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr %struct.rb_ractor_basket, ptr %67, i64 %71
+  %.val.i.i.i = load i32, ptr %72, align 8, !tbaa !100
+  %73 = icmp eq i32 %.val.i.i.i, 5
+  br i1 %73, label %74, label %.loopexit.i
 
-73:                                               ; preds = %.lr.ph.i.i.i
-  %74 = load i32, ptr %27, align 8, !tbaa !108
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %82
+74:                                               ; preds = %.lr.ph.i.i.i
+  %75 = load i32, ptr %27, align 8, !tbaa !108
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %77, label %83
 
-76:                                               ; preds = %73
-  %77 = add nsw i32 %65, -1
-  store i32 %77, ptr %24, align 4, !tbaa !86
-  %78 = add i32 %67, 1
-  %79 = srem i32 %78, %68
-  store i32 %79, ptr %25, align 8, !tbaa !87
-  %80 = load i32, ptr %28, align 4, !tbaa !109
-  %81 = add i32 %80, 1
-  store i32 %81, ptr %28, align 4, !tbaa !109
+77:                                               ; preds = %74
+  %78 = add nsw i32 %66, -1
+  store i32 %78, ptr %24, align 4, !tbaa !86
+  %79 = add i32 %68, 1
+  %80 = srem i32 %79, %69
+  store i32 %80, ptr %25, align 8, !tbaa !87
+  %81 = load i32, ptr %28, align 4, !tbaa !109
+  %82 = add i32 %81, 1
+  store i32 %82, ptr %28, align 4, !tbaa !109
   br label %ractor_queue_advance.exit.i.i.i
 
-82:                                               ; preds = %73
-  store i32 5, ptr %71, align 8, !tbaa !100
+83:                                               ; preds = %74
+  store i32 5, ptr %72, align 8, !tbaa !100
   %.pre.i.i.i = load i32, ptr %24, align 4, !tbaa !86
   br label %ractor_queue_advance.exit.i.i.i
 
-ractor_queue_advance.exit.i.i.i:                  ; preds = %82, %76
-  %83 = phi i32 [ %77, %76 ], [ %.pre.i.i.i, %82 ]
-  %84 = icmp sgt i32 %83, 0
-  br i1 %84, label %.lr.ph.i.i.i, label %.loopexit.i, !llvm.loop !110
+ractor_queue_advance.exit.i.i.i:                  ; preds = %83, %77
+  %84 = phi i32 [ %78, %77 ], [ %.pre.i.i.i, %83 ]
+  %85 = icmp sgt i32 %84, 0
+  br i1 %85, label %.lr.ph.i.i.i, label %.loopexit.i, !llvm.loop !110
 
-.loopexit2.i:                                     ; preds = %54, %ractor_recursive_receive_if.exit.i
+.loopexit2.i:                                     ; preds = %55, %ractor_recursive_receive_if.exit.i
   call void @rb_native_mutex_unlock(ptr noundef nonnull %23) #19
-  %85 = load i8, ptr %29, align 8, !tbaa !104, !range !98, !noundef !99
-  %86 = trunc nuw i8 %85 to i1
-  br i1 %86, label %87, label %ractor_try_receive.exit
+  %86 = load i8, ptr %29, align 8, !tbaa !104, !range !98, !noundef !99
+  %87 = trunc nuw i8 %86 to i1
+  br i1 %87, label %88, label %ractor_try_receive.exit
 
-87:                                               ; preds = %.loopexit2.i
-  %88 = load i64, ptr @rb_eRactorClosedError, align 8, !tbaa !80
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %88, ptr noundef nonnull @.str.71) #27
+88:                                               ; preds = %.loopexit2.i
+  %89 = load i64, ptr @rb_eRactorClosedError, align 8, !tbaa !80
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %89, ptr noundef nonnull @.str.71) #27
   unreachable
 
-.loopexit.i:                                      ; preds = %ractor_queue_advance.exit.i.i.i, %.lr.ph.i.i.i, %62
+.loopexit.i:                                      ; preds = %ractor_queue_advance.exit.i.i.i, %.lr.ph.i.i.i, %63
   call void @rb_native_mutex_unlock(ptr noundef nonnull %23) #19
   %.val4.i.i.i.off = add i32 %.val4.i.i.i, -1
   %switch = icmp ult i32 %.val4.i.i.i.off, 4
-  br i1 %switch, label %ractor_basket_value.exit.i, label %89
+  br i1 %switch, label %ractor_basket_value.exit.i, label %90
 
-89:                                               ; preds = %.loopexit.i
+90:                                               ; preds = %.loopexit.i
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #33
   unreachable
 
 ractor_basket_value.exit.i:                       ; preds = %.loopexit.i
-  %90 = trunc nuw i8 %.sroa.7.0.copyload to i1
-  br i1 %90, label %91, label %ractor_try_receive.exit
+  %91 = trunc nuw i8 %.sroa.7.0.copyload to i1
+  br i1 %91, label %92, label %ractor_try_receive.exit
 
-91:                                               ; preds = %ractor_basket_value.exit.i
-  %92 = load i64, ptr @rb_eRactorRemoteError, align 8, !tbaa !80
-  %93 = call fastcc i64 @rbimpl_exc_new_cstr(i64 noundef %92)
-  %94 = call fastcc i64 @rbimpl_intern_const(ptr noundef @ractor_basket_accept.rbimpl_id, ptr noundef @.str.74) #35
-  %95 = call i64 @rb_ivar_set(i64 noundef %93, i64 noundef %94, i64 noundef %.sroa.518.0.copyload) #19
-  call void @rb_ec_setup_exception(ptr noundef null, i64 noundef %93, i64 noundef %.sroa.6.0.copyload) #19
-  call void @rb_exc_raise(i64 noundef %93) #27
+92:                                               ; preds = %ractor_basket_value.exit.i
+  %93 = load i64, ptr @rb_eRactorRemoteError, align 8, !tbaa !80
+  %94 = call fastcc i64 @rbimpl_exc_new_cstr(i64 noundef %93)
+  %95 = call fastcc i64 @rbimpl_intern_const(ptr noundef @ractor_basket_accept.rbimpl_id, ptr noundef @.str.74) #35
+  %96 = call i64 @rb_ivar_set(i64 noundef %94, i64 noundef %95, i64 noundef %.sroa.518.0.copyload) #19
+  call void @rb_ec_setup_exception(ptr noundef null, i64 noundef %94, i64 noundef %.sroa.6.0.copyload) #19
+  call void @rb_exc_raise(i64 noundef %94) #27
   unreachable
 
 ractor_try_receive.exit:                          ; preds = %ractor_basket_value.exit.i, %.loopexit2.i
   %.0.i17 = phi i64 [ 36, %.loopexit2.i ], [ %.sroa.6.0.copyload, %ractor_basket_value.exit.i ]
-  %96 = icmp eq i64 %.0.i17, 36
-  br i1 %96, label %.lr.ph.i, label %ractor_receive.exit, !llvm.loop !117
+  %97 = icmp eq i64 %.0.i17, 36
+  br i1 %97, label %.lr.ph.i, label %ractor_receive.exit, !llvm.loop !117
 
-ractor_receive.exit:                              ; preds = %ractor_try_receive.exit, %43
-  %.lcssa.i = phi i64 [ %44, %43 ], [ %.0.i17, %ractor_try_receive.exit ]
+ractor_receive.exit:                              ; preds = %ractor_try_receive.exit, %44
+  %.lcssa.i = phi i64 [ %45, %44 ], [ %.0.i17, %ractor_try_receive.exit ]
   call fastcc void @ractor_yield(ptr noundef %9, ptr noundef nonnull %.0.i, i64 noundef %.lcssa.i, i64 noundef 0)
-  %97 = load ptr, ptr %16, align 8, !tbaa !153
+  %98 = load ptr, ptr %16, align 8, !tbaa !153
   %.0..0..0..0.5 = load ptr, ptr %6, align 8, !tbaa !123
-  %98 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.5, i64 24
-  store ptr %97, ptr %98, align 8, !tbaa !152
+  %99 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.5, i64 24
+  store ptr %98, ptr %99, align 8, !tbaa !152
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %.0.2.val.pre = load ptr, ptr %10, align 8, !tbaa !90
@@ -8552,11 +8602,11 @@ ractor_receive.exit:                              ; preds = %ractor_try_receive.
 
 .critedge:                                        ; preds = %rb_ec_vm_lock_rec.exit
   %.0..0..0..0.3 = load volatile ptr, ptr %6, align 8, !tbaa !123
-  %99 = call fastcc i32 @rb_ec_tag_state(ptr noundef %.0..0..0..0.3)
-  %100 = load ptr, ptr %16, align 8, !tbaa !153
+  %100 = call fastcc i32 @rb_ec_tag_state(ptr noundef %.0..0..0..0.3)
+  %101 = load ptr, ptr %16, align 8, !tbaa !153
   %.0..0..0..0.5.c = load ptr, ptr %6, align 8, !tbaa !123
-  %101 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.5.c, i64 24
-  store ptr %100, ptr %101, align 8, !tbaa !152
+  %102 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.5.c, i64 24
+  store ptr %101, ptr %102, align 8, !tbaa !152
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret i64 4
@@ -8839,7 +8889,7 @@ ractor_try_take.exit.thread:                      ; preds = %22, %22
 ractor_try_take.exit:                             ; preds = %.critedge.i
   %26 = call fastcc i64 @ractor_basket_accept(ptr noundef nonnull %6)
   %27 = icmp eq i64 %26, 36
-  br i1 %27, label %28, label %53
+  br i1 %27, label %28, label %54
 
 28:                                               ; preds = %ractor_try_take.exit.thread, %ractor_try_take.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #19
@@ -8874,64 +8924,74 @@ ractor_try_take.exit:                             ; preds = %.critedge.i
   store i64 36, ptr %4, align 8, !tbaa !151
   %32 = load ptr, ptr %17, align 8, !tbaa !152
   store ptr %32, ptr %18, align 8, !tbaa !153
-  %.0.1.val.i.i.i = load ptr, ptr %7, align 8, !tbaa !90, !nonnull !99, !noundef !99
-  %33 = getelementptr inbounds nuw i8, ptr %.0.1.val.i.i.i, i64 32
-  %34 = load ptr, ptr %33, align 8, !tbaa !79
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 88
-  %36 = load ptr, ptr %35, align 8, !tbaa !154
+  %.0.1.val.i.i.i = load ptr, ptr %7, align 8, !tbaa !90
+  %.not.i.i.i.i.i = icmp eq ptr %.0.1.val.i.i.i, null
+  br i1 %.not.i.i.i.i.i, label %rb_ec_ractor_ptr.exit.i.i.i.i, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %.0.1.val.i.i.i, i64 32
+  %35 = load ptr, ptr %34, align 8, !tbaa !79
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 88
   %37 = getelementptr inbounds nuw i8, ptr %.0.1.val.i.i.i, i64 24
   %38 = load ptr, ptr %37, align 8, !tbaa !57
-  %.not.i.i.i.i = icmp eq ptr %36, %38
-  br i1 %.not.i.i.i.i, label %39, label %rb_ec_vm_lock_rec.exit.i.i.i
+  br label %rb_ec_ractor_ptr.exit.i.i.i.i
 
-39:                                               ; preds = %31
-  %40 = getelementptr inbounds nuw i8, ptr %34, i64 96
-  %41 = load i32, ptr %40, align 8, !tbaa !155
+rb_ec_ractor_ptr.exit.i.i.i.i:                    ; preds = %33, %31
+  %.in.i.i.i.i = phi ptr [ %36, %33 ], [ inttoptr (i64 88 to ptr), %31 ]
+  %.0.i2.i.i.i.i = phi ptr [ %35, %33 ], [ null, %31 ]
+  %.0.i6.i.i.i.i = phi ptr [ %38, %33 ], [ null, %31 ]
+  %39 = load ptr, ptr %.in.i.i.i.i, align 8, !tbaa !154
+  %.not.i.i.i.i = icmp eq ptr %39, %.0.i6.i.i.i.i
+  br i1 %.not.i.i.i.i, label %40, label %rb_ec_vm_lock_rec.exit.i.i.i
+
+40:                                               ; preds = %rb_ec_ractor_ptr.exit.i.i.i.i
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i2.i.i.i.i, i64 96
+  %42 = load i32, ptr %41, align 8, !tbaa !155
   br label %rb_ec_vm_lock_rec.exit.i.i.i
 
-rb_ec_vm_lock_rec.exit.i.i.i:                     ; preds = %39, %31
-  %.0.i.i.i.i = phi i32 [ %41, %39 ], [ 0, %31 ]
+rb_ec_vm_lock_rec.exit.i.i.i:                     ; preds = %40, %rb_ec_ractor_ptr.exit.i.i.i.i
+  %.0.i.i.i.i = phi i32 [ %42, %40 ], [ 0, %rb_ec_ractor_ptr.exit.i.i.i.i ]
   store i32 %.0.i.i.i.i, ptr %19, align 4, !tbaa !156
-  %42 = call ptr @llvm.frameaddress.p0(i32 0)
-  store ptr %42, ptr %20, align 8
-  %43 = call ptr @llvm.stacksave.p0()
-  store ptr %43, ptr %21, align 8
-  %44 = call i32 @llvm.eh.sjlj.setjmp(ptr nonnull %20)
-  %.not25.i.i.i = icmp eq i32 %44, 0
-  br i1 %.not25.i.i.i, label %.thread27.i.i.i, label %46, !prof !157
+  %43 = call ptr @llvm.frameaddress.p0(i32 0)
+  store ptr %43, ptr %20, align 8
+  %44 = call ptr @llvm.stacksave.p0()
+  store ptr %44, ptr %21, align 8
+  %45 = call i32 @llvm.eh.sjlj.setjmp(ptr nonnull %20)
+  %.not25.i.i.i = icmp eq i32 %45, 0
+  br i1 %.not25.i.i.i, label %.thread27.i.i.i, label %47, !prof !157
 
 .thread27.i.i.i:                                  ; preds = %rb_ec_vm_lock_rec.exit.i.i.i
   store ptr %4, ptr %17, align 8, !tbaa !152
   call void @rb_ec_check_ints(ptr noundef nonnull %0) #19
-  %45 = load ptr, ptr %18, align 8, !tbaa !153
-  store ptr %45, ptr %17, align 8, !tbaa !152
+  %46 = load ptr, ptr %18, align 8, !tbaa !153
+  store ptr %46, ptr %17, align 8, !tbaa !152
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @rb_native_mutex_lock(ptr noundef nonnull %12) #19
   store i32 %30, ptr %14, align 8, !tbaa !105
   br label %ractor_check_ints.exit.i.i
 
-46:                                               ; preds = %rb_ec_vm_lock_rec.exit.i.i.i
+47:                                               ; preds = %rb_ec_vm_lock_rec.exit.i.i.i
   %.0..0..0..0..0..0..0..0..0..0.2.i.i.i = load volatile ptr, ptr %3, align 8, !tbaa !123
-  %47 = call fastcc i32 @rb_ec_tag_state(ptr noundef %.0..0..0..0..0..0..0..0..0..0.2.i.i.i)
-  %48 = load ptr, ptr %18, align 8, !tbaa !153
+  %48 = call fastcc i32 @rb_ec_tag_state(ptr noundef %.0..0..0..0..0..0..0..0..0..0.2.i.i.i)
+  %49 = load ptr, ptr %18, align 8, !tbaa !153
   %.0..0..0..0..0..0..0..0..0..0.4.i.i.i = load ptr, ptr %3, align 8, !tbaa !123
-  %49 = getelementptr inbounds nuw i8, ptr %.0..0..0..0..0..0..0..0..0..0.4.i.i.i, i64 24
-  store ptr %48, ptr %49, align 8, !tbaa !152
+  %50 = getelementptr inbounds nuw i8, ptr %.0..0..0..0..0..0..0..0..0..0.4.i.i.i, i64 24
+  store ptr %49, ptr %50, align 8, !tbaa !152
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call fastcc void @ractor_wait_take_cleanup(ptr noundef nonnull %5) #19
   %.val.i.i.i = load ptr, ptr %17, align 8, !tbaa !152
-  %50 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 64
-  store i32 %47, ptr %50, align 8, !tbaa !149
-  %51 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 16
-  call void @llvm.eh.sjlj.longjmp(ptr nonnull %51)
+  %51 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 64
+  store i32 %48, ptr %51, align 8, !tbaa !149
+  %52 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 16
+  call void @llvm.eh.sjlj.longjmp(ptr nonnull %52)
   unreachable
 
 ractor_check_ints.exit.i.i:                       ; preds = %.thread27.i.i.i, %.split.i.i
   %.pr.i.i = load i32, ptr %15, align 4, !tbaa !106
-  %52 = icmp eq i32 %.pr.i.i, 0
-  br i1 %52, label %.split.i.i, label %ractor_sleep_with_cleanup.exit.i, !llvm.loop !159
+  %53 = icmp eq i32 %.pr.i.i, 0
+  br i1 %53, label %.split.i.i, label %ractor_sleep_with_cleanup.exit.i, !llvm.loop !159
 
 ractor_sleep_with_cleanup.exit.i:                 ; preds = %ractor_check_ints.exit.i.i
   store i32 0, ptr %14, align 8, !tbaa !105
@@ -8943,7 +9003,7 @@ ractor_wait_take.exit:                            ; preds = %28, %ractor_sleep_w
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
   br label %22, !llvm.loop !286
 
-53:                                               ; preds = %ractor_try_take.exit
+54:                                               ; preds = %ractor_try_take.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #19
   ret i64 %26
 }

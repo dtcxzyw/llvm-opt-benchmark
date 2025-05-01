@@ -7221,9 +7221,9 @@ _ZNK2dd11pdd_manager6is_valEj.exit112.thread397:  ; preds = %_ZNK2dd11pdd_manage
   br i1 %.not.i.i109, label %_ZNK2dd11pdd_manager6is_valEj.exit114, label %_ZNK2dd11pdd_manager6is_valEj.exit114.thread
 
 _ZNK2dd11pdd_manager6is_valEj.exit114:            ; preds = %_ZNK2dd11pdd_manager6is_valEj.exit112.thread397
-  %.phi.trans.insert480 = getelementptr inbounds nuw i8, ptr %78, i64 12
-  %.pre481 = load i32, ptr %.phi.trans.insert480, align 4, !tbaa !98
-  %109 = icmp eq i32 %.pre481, 0
+  %.phi.trans.insert481 = getelementptr inbounds nuw i8, ptr %78, i64 12
+  %.pre482 = load i32, ptr %.phi.trans.insert481, align 4, !tbaa !98
+  %109 = icmp eq i32 %.pre482, 0
   br i1 %109, label %_ZNK2dd11pdd_manager6is_valEj.exit114.thread, label %_ZNK2dd11pdd_manager6is_valEj.exit114.thread398
 
 _ZNK2dd11pdd_manager6is_valEj.exit114.thread398:  ; preds = %_ZNK2dd11pdd_manager6is_valEj.exit110, %75, %_ZNK2dd11pdd_manager6is_valEj.exit114
@@ -7340,8 +7340,8 @@ _ZNK2dd11pdd_manager6is_valEj.exit120.thread401:  ; preds = %_ZNK2dd11pdd_manage
 
 _ZNK2dd11pdd_manager6is_valEj.exit122:            ; preds = %_ZNK2dd11pdd_manager6is_valEj.exit120.thread401
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %136, i64 12
-  %.pre479 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !98
-  %167 = icmp eq i32 %.pre479, 0
+  %.pre480 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !98
+  %167 = icmp eq i32 %.pre480, 0
   br i1 %167, label %_ZNK2dd11pdd_manager6is_valEj.exit114.thread, label %_ZNK2dd11pdd_manager6is_valEj.exit122.thread404
 
 _ZNK2dd11pdd_manager6is_valEj.exit122.thread404:  ; preds = %_ZNK2dd11pdd_manager6is_valEj.exit118, %133, %_ZNK2dd11pdd_manager6is_valEj.exit122
@@ -7410,7 +7410,7 @@ _ZNK2dd11pdd_manager6is_valEj.exit126.thread406:  ; preds = %186, %_ZNK2dd11pdd_
   br label %203
 
 203:                                              ; preds = %223, %202
-  %204 = phi ptr [ %.pre.i, %202 ], [ %.pre, %223 ]
+  %204 = phi ptr [ %.pre.i, %202 ], [ %.pre479, %223 ]
   %.0.i464 = phi i32 [ %2, %202 ], [ %225, %223 ]
   %205 = zext i32 %.0.i464 to i64
   %206 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %204, i64 %205
@@ -7439,16 +7439,16 @@ _ZNK2dd11pdd_manager6is_valEj.exit.thread5.i465:  ; preds = %_ZNK2dd11pdd_manage
   %220 = load i32, ptr %219, align 4, !tbaa !94
   %221 = tail call noundef i32 @_ZNK2dd11pdd_manager6degreeEj(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %220)
   %222 = icmp ult i32 %217, %221
-  %.pre = load ptr, ptr %0, align 8, !tbaa !91
+  %.pre479 = load ptr, ptr %0, align 8, !tbaa !91
   br i1 %222, label %223, label %_ZNK2dd11pdd_manager13first_leadingEj.exit468
 
 223:                                              ; preds = %_ZNK2dd11pdd_manager6is_valEj.exit.thread5.i465
-  %224 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %.pre, i64 %205, i32 1
+  %224 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %.pre479, i64 %205, i32 1
   %225 = load i32, ptr %224, align 4, !tbaa !94
   br label %203, !llvm.loop !211
 
 _ZNK2dd11pdd_manager13first_leadingEj.exit468:    ; preds = %210, %_ZNK2dd11pdd_manager6is_valEj.exit.i467, %_ZNK2dd11pdd_manager6is_valEj.exit.thread5.i465
-  %226 = phi ptr [ %204, %210 ], [ %204, %_ZNK2dd11pdd_manager6is_valEj.exit.i467 ], [ %.pre, %_ZNK2dd11pdd_manager6is_valEj.exit.thread5.i465 ]
+  %226 = phi ptr [ %204, %210 ], [ %204, %_ZNK2dd11pdd_manager6is_valEj.exit.i467 ], [ %.pre479, %_ZNK2dd11pdd_manager6is_valEj.exit.thread5.i465 ]
   %227 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %226, i64 %205
   %228 = load i32, ptr %227, align 4
   %229 = lshr i32 %228, 10
@@ -7503,7 +7503,7 @@ _ZNK2dd11pdd_manager6is_valEj.exit130.thread408:  ; preds = %_ZNK2dd11pdd_manage
   br i1 %256, label %234, label %.critedge, !llvm.loop !212
 
 .critedge:                                        ; preds = %240, %_ZNK2dd11pdd_manager6is_valEj.exit128, %_ZNK2dd11pdd_manager6is_valEj.exit130.thread408, %_ZNK2dd11pdd_manager6is_valEj.exit130
-  %.lcssa484 = phi i1 [ true, %240 ], [ true, %_ZNK2dd11pdd_manager6is_valEj.exit128 ], [ %239, %_ZNK2dd11pdd_manager6is_valEj.exit130.thread408 ], [ %239, %_ZNK2dd11pdd_manager6is_valEj.exit130 ]
+  %.lcssa485 = phi i1 [ true, %240 ], [ true, %_ZNK2dd11pdd_manager6is_valEj.exit128 ], [ %239, %_ZNK2dd11pdd_manager6is_valEj.exit130.thread408 ], [ %239, %_ZNK2dd11pdd_manager6is_valEj.exit130 ]
   %.pr = load i32, ptr %30, align 4, !tbaa !92
   %257 = icmp eq i32 %.pr, 0
   br i1 %257, label %258, label %_ZNK2dd11pdd_manager6is_valEj.exit132.thread409
@@ -7519,7 +7519,7 @@ _ZNK2dd11pdd_manager6is_valEj.exit132:            ; preds = %258
   br i1 %260, label %_ZNK2dd11pdd_manager6is_valEj.exit126.thread, label %_ZNK2dd11pdd_manager6is_valEj.exit132.thread409
 
 _ZNK2dd11pdd_manager6is_valEj.exit132.thread409:  ; preds = %.critedge, %_ZNK2dd11pdd_manager6is_valEj.exit132
-  br i1 %.lcssa484, label %261, label %_ZNK2dd11pdd_manager6is_valEj.exit114.thread
+  br i1 %.lcssa485, label %261, label %_ZNK2dd11pdd_manager6is_valEj.exit114.thread
 
 261:                                              ; preds = %_ZNK2dd11pdd_manager6is_valEj.exit132.thread409
   %262 = getelementptr inbounds nuw i8, ptr %236, i64 4
@@ -7702,23 +7702,27 @@ _ZNK2dd11pdd_manager6is_valEj.exit137.thread412:  ; preds = %302, %_ZNK2dd11pdd_
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %350 = load ptr, ptr %349, align 8, !tbaa !53
   %351 = icmp eq ptr %350, null
-  br i1 %351, label %_ZN2dd11pdd_manager4readEj.exit142, label %352
+  br i1 %351, label %._ZN2dd11pdd_manager4readEj.exit142_crit_edge, label %352
+
+._ZN2dd11pdd_manager4readEj.exit142_crit_edge:    ; preds = %339
+  %.pre451 = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !83
+  br label %_ZN2dd11pdd_manager4readEj.exit142
 
 352:                                              ; preds = %339
   %353 = getelementptr inbounds i8, ptr %350, i64 -4
   %354 = load i32, ptr %353, align 4, !tbaa !83
   %355 = add i32 %354, -2
   %356 = zext i32 %355 to i64
-  %357 = add i32 %354, -1
-  %358 = zext i32 %357 to i64
   br label %_ZN2dd11pdd_manager4readEj.exit142
 
-_ZN2dd11pdd_manager4readEj.exit142:               ; preds = %339, %352
-  %359 = phi i64 [ %358, %352 ], [ 0, %339 ]
-  %.0.i.i139 = phi i64 [ %356, %352 ], [ 4294967294, %339 ]
-  %360 = getelementptr inbounds nuw i32, ptr %350, i64 %.0.i.i139
-  %361 = load i32, ptr %360, align 4, !tbaa !83
-  %362 = getelementptr inbounds nuw i32, ptr %350, i64 %359
+_ZN2dd11pdd_manager4readEj.exit142:               ; preds = %._ZN2dd11pdd_manager4readEj.exit142_crit_edge, %352
+  %357 = phi i32 [ %354, %352 ], [ %.pre451, %._ZN2dd11pdd_manager4readEj.exit142_crit_edge ]
+  %.0.i.i139 = phi i64 [ %356, %352 ], [ 4294967294, %._ZN2dd11pdd_manager4readEj.exit142_crit_edge ]
+  %358 = getelementptr inbounds nuw i32, ptr %350, i64 %.0.i.i139
+  %359 = load i32, ptr %358, align 4, !tbaa !83
+  %360 = add i32 %357, -1
+  %361 = zext i32 %360 to i64
+  %362 = getelementptr inbounds nuw i32, ptr %350, i64 %361
   %363 = load i32, ptr %362, align 4, !tbaa !83
   %364 = getelementptr inbounds nuw i8, ptr %0, i64 721
   store i8 0, ptr %364, align 1, !tbaa !81
@@ -7730,7 +7734,7 @@ _ZN2dd11pdd_manager4readEj.exit142:               ; preds = %339, %352
   %367 = and i32 %296, -1024
   store i32 %367, ptr %20, align 4
   %368 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  store i32 %361, ptr %368, align 4, !tbaa !94
+  store i32 %359, ptr %368, align 4, !tbaa !94
   %369 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 %363, ptr %369, align 4, !tbaa !92
   %370 = getelementptr inbounds nuw i8, ptr %20, i64 12
@@ -7835,23 +7839,27 @@ _ZNK2dd11pdd_manager6is_valEj.exit150.thread:     ; preds = %399, %_ZNK2dd11pdd_
   %423 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %424 = load ptr, ptr %423, align 8, !tbaa !53
   %425 = icmp eq ptr %424, null
-  br i1 %425, label %_ZN2dd11pdd_manager4readEj.exit156, label %426
+  br i1 %425, label %_ZNK2dd11pdd_manager6is_valEj.exit150.thread._ZN2dd11pdd_manager4readEj.exit156_crit_edge, label %426
+
+_ZNK2dd11pdd_manager6is_valEj.exit150.thread._ZN2dd11pdd_manager4readEj.exit156_crit_edge: ; preds = %_ZNK2dd11pdd_manager6is_valEj.exit150.thread
+  %.pre449 = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !83
+  br label %_ZN2dd11pdd_manager4readEj.exit156
 
 426:                                              ; preds = %_ZNK2dd11pdd_manager6is_valEj.exit150.thread
   %427 = getelementptr inbounds i8, ptr %424, i64 -4
   %428 = load i32, ptr %427, align 4, !tbaa !83
   %429 = add i32 %428, -2
   %430 = zext i32 %429 to i64
-  %431 = add i32 %428, -1
-  %432 = zext i32 %431 to i64
   br label %_ZN2dd11pdd_manager4readEj.exit156
 
-_ZN2dd11pdd_manager4readEj.exit156:               ; preds = %_ZNK2dd11pdd_manager6is_valEj.exit150.thread, %426
-  %433 = phi i64 [ %432, %426 ], [ 0, %_ZNK2dd11pdd_manager6is_valEj.exit150.thread ]
-  %.0.i.i153 = phi i64 [ %430, %426 ], [ 4294967294, %_ZNK2dd11pdd_manager6is_valEj.exit150.thread ]
-  %434 = getelementptr inbounds nuw i32, ptr %424, i64 %.0.i.i153
-  %435 = load i32, ptr %434, align 4, !tbaa !83
-  %436 = getelementptr inbounds nuw i32, ptr %424, i64 %433
+_ZN2dd11pdd_manager4readEj.exit156:               ; preds = %_ZNK2dd11pdd_manager6is_valEj.exit150.thread._ZN2dd11pdd_manager4readEj.exit156_crit_edge, %426
+  %431 = phi i32 [ %428, %426 ], [ %.pre449, %_ZNK2dd11pdd_manager6is_valEj.exit150.thread._ZN2dd11pdd_manager4readEj.exit156_crit_edge ]
+  %.0.i.i153 = phi i64 [ %430, %426 ], [ 4294967294, %_ZNK2dd11pdd_manager6is_valEj.exit150.thread._ZN2dd11pdd_manager4readEj.exit156_crit_edge ]
+  %432 = getelementptr inbounds nuw i32, ptr %424, i64 %.0.i.i153
+  %433 = load i32, ptr %432, align 4, !tbaa !83
+  %434 = add i32 %431, -1
+  %435 = zext i32 %434 to i64
+  %436 = getelementptr inbounds nuw i32, ptr %424, i64 %435
   %437 = load i32, ptr %436, align 4, !tbaa !83
   %438 = getelementptr inbounds nuw i8, ptr %0, i64 721
   store i8 0, ptr %438, align 1, !tbaa !81
@@ -7863,7 +7871,7 @@ _ZN2dd11pdd_manager4readEj.exit156:               ; preds = %_ZNK2dd11pdd_manage
   %441 = and i32 %300, -1024
   store i32 %441, ptr %18, align 4
   %442 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 %435, ptr %442, align 4, !tbaa !94
+  store i32 %433, ptr %442, align 4, !tbaa !94
   %443 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %437, ptr %443, align 4, !tbaa !92
   %444 = getelementptr inbounds nuw i8, ptr %18, i64 12
@@ -7942,23 +7950,27 @@ _ZN2dd11pdd_manager4readEj.exit162:               ; preds = %_ZNK2dd11pdd_manage
   %486 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %487 = load ptr, ptr %486, align 8, !tbaa !53
   %488 = icmp eq ptr %487, null
-  br i1 %488, label %_ZN2dd11pdd_manager4readEj.exit168, label %489
+  br i1 %488, label %._ZN2dd11pdd_manager4readEj.exit168_crit_edge, label %489
+
+._ZN2dd11pdd_manager4readEj.exit168_crit_edge:    ; preds = %474
+  %.pre447 = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !83
+  br label %_ZN2dd11pdd_manager4readEj.exit168
 
 489:                                              ; preds = %474
   %490 = getelementptr inbounds i8, ptr %487, i64 -4
   %491 = load i32, ptr %490, align 4, !tbaa !83
   %492 = add i32 %491, -2
   %493 = zext i32 %492 to i64
-  %494 = add i32 %491, -1
-  %495 = zext i32 %494 to i64
   br label %_ZN2dd11pdd_manager4readEj.exit168
 
-_ZN2dd11pdd_manager4readEj.exit168:               ; preds = %474, %489
-  %496 = phi i64 [ %495, %489 ], [ 0, %474 ]
-  %.0.i.i165 = phi i64 [ %493, %489 ], [ 4294967294, %474 ]
-  %497 = getelementptr inbounds nuw i32, ptr %487, i64 %.0.i.i165
-  %498 = load i32, ptr %497, align 4, !tbaa !83
-  %499 = getelementptr inbounds nuw i32, ptr %487, i64 %496
+_ZN2dd11pdd_manager4readEj.exit168:               ; preds = %._ZN2dd11pdd_manager4readEj.exit168_crit_edge, %489
+  %494 = phi i32 [ %491, %489 ], [ %.pre447, %._ZN2dd11pdd_manager4readEj.exit168_crit_edge ]
+  %.0.i.i165 = phi i64 [ %493, %489 ], [ 4294967294, %._ZN2dd11pdd_manager4readEj.exit168_crit_edge ]
+  %495 = getelementptr inbounds nuw i32, ptr %487, i64 %.0.i.i165
+  %496 = load i32, ptr %495, align 4, !tbaa !83
+  %497 = add i32 %494, -1
+  %498 = zext i32 %497 to i64
+  %499 = getelementptr inbounds nuw i32, ptr %487, i64 %498
   %500 = load i32, ptr %499, align 4, !tbaa !83
   %501 = getelementptr inbounds nuw i8, ptr %0, i64 721
   store i8 0, ptr %501, align 1, !tbaa !81
@@ -7970,7 +7982,7 @@ _ZN2dd11pdd_manager4readEj.exit168:               ; preds = %474, %489
   %504 = and i32 %296, -1024
   store i32 %504, ptr %16, align 4
   %505 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  store i32 %498, ptr %505, align 4, !tbaa !94
+  store i32 %496, ptr %505, align 4, !tbaa !94
   %506 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 %500, ptr %506, align 4, !tbaa !92
   %507 = getelementptr inbounds nuw i8, ptr %16, i64 12
@@ -8010,23 +8022,27 @@ _ZNK2dd11pdd_manager6is_valEj.exit172.thread:     ; preds = %513, %_ZNK2dd11pdd_
   %526 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %527 = load ptr, ptr %526, align 8, !tbaa !53
   %528 = icmp eq ptr %527, null
-  br i1 %528, label %_ZN2dd11pdd_manager4readEj.exit176, label %529
+  br i1 %528, label %_ZNK2dd11pdd_manager6is_valEj.exit172.thread._ZN2dd11pdd_manager4readEj.exit176_crit_edge, label %529
+
+_ZNK2dd11pdd_manager6is_valEj.exit172.thread._ZN2dd11pdd_manager4readEj.exit176_crit_edge: ; preds = %_ZNK2dd11pdd_manager6is_valEj.exit172.thread
+  %.pre445 = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !83
+  br label %_ZN2dd11pdd_manager4readEj.exit176
 
 529:                                              ; preds = %_ZNK2dd11pdd_manager6is_valEj.exit172.thread
   %530 = getelementptr inbounds i8, ptr %527, i64 -4
   %531 = load i32, ptr %530, align 4, !tbaa !83
   %532 = add i32 %531, -2
   %533 = zext i32 %532 to i64
-  %534 = add i32 %531, -1
-  %535 = zext i32 %534 to i64
   br label %_ZN2dd11pdd_manager4readEj.exit176
 
-_ZN2dd11pdd_manager4readEj.exit176:               ; preds = %_ZNK2dd11pdd_manager6is_valEj.exit172.thread, %529
-  %536 = phi i64 [ %535, %529 ], [ 0, %_ZNK2dd11pdd_manager6is_valEj.exit172.thread ]
-  %.0.i.i173 = phi i64 [ %533, %529 ], [ 4294967294, %_ZNK2dd11pdd_manager6is_valEj.exit172.thread ]
-  %537 = getelementptr inbounds nuw i32, ptr %527, i64 %.0.i.i173
-  %538 = load i32, ptr %537, align 4, !tbaa !83
-  %539 = getelementptr inbounds nuw i32, ptr %527, i64 %536
+_ZN2dd11pdd_manager4readEj.exit176:               ; preds = %_ZNK2dd11pdd_manager6is_valEj.exit172.thread._ZN2dd11pdd_manager4readEj.exit176_crit_edge, %529
+  %534 = phi i32 [ %531, %529 ], [ %.pre445, %_ZNK2dd11pdd_manager6is_valEj.exit172.thread._ZN2dd11pdd_manager4readEj.exit176_crit_edge ]
+  %.0.i.i173 = phi i64 [ %533, %529 ], [ 4294967294, %_ZNK2dd11pdd_manager6is_valEj.exit172.thread._ZN2dd11pdd_manager4readEj.exit176_crit_edge ]
+  %535 = getelementptr inbounds nuw i32, ptr %527, i64 %.0.i.i173
+  %536 = load i32, ptr %535, align 4, !tbaa !83
+  %537 = add i32 %534, -1
+  %538 = zext i32 %537 to i64
+  %539 = getelementptr inbounds nuw i32, ptr %527, i64 %538
   %540 = load i32, ptr %539, align 4, !tbaa !83
   %541 = getelementptr inbounds nuw i8, ptr %0, i64 721
   store i8 0, ptr %541, align 1, !tbaa !81
@@ -8038,7 +8054,7 @@ _ZN2dd11pdd_manager4readEj.exit176:               ; preds = %_ZNK2dd11pdd_manage
   %544 = and i32 %296, -1024
   store i32 %544, ptr %15, align 4
   %545 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store i32 %538, ptr %545, align 4, !tbaa !94
+  store i32 %536, ptr %545, align 4, !tbaa !94
   %546 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 %540, ptr %546, align 4, !tbaa !92
   %547 = getelementptr inbounds nuw i8, ptr %15, i64 12
@@ -8098,25 +8114,29 @@ _ZN2dd11pdd_manager4readEj.exit180:               ; preds = %553, %562
   call void @_ZN2dd11pdd_manager4pushEj(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %580)
   %581 = load ptr, ptr %559, align 8, !tbaa !53
   %582 = icmp eq ptr %581, null
-  br i1 %582, label %_ZN2dd11pdd_manager4readEj.exit184, label %583
+  br i1 %582, label %_ZN2dd11pdd_manager4readEj.exit180._ZN2dd11pdd_manager4readEj.exit184_crit_edge, label %583
+
+_ZN2dd11pdd_manager4readEj.exit180._ZN2dd11pdd_manager4readEj.exit184_crit_edge: ; preds = %_ZN2dd11pdd_manager4readEj.exit180
+  %.pre443 = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !83
+  br label %_ZN2dd11pdd_manager4readEj.exit184
 
 583:                                              ; preds = %_ZN2dd11pdd_manager4readEj.exit180
   %584 = getelementptr inbounds i8, ptr %581, i64 -4
   %585 = load i32, ptr %584, align 4, !tbaa !83
   %586 = add i32 %585, -1
   %587 = zext i32 %586 to i64
-  %588 = add i32 %585, -2
-  %589 = zext i32 %588 to i64
   br label %_ZN2dd11pdd_manager4readEj.exit184
 
-_ZN2dd11pdd_manager4readEj.exit184:               ; preds = %_ZN2dd11pdd_manager4readEj.exit180, %583
-  %590 = phi i64 [ %589, %583 ], [ 0, %_ZN2dd11pdd_manager4readEj.exit180 ]
-  %.0.i.i181 = phi i64 [ %587, %583 ], [ 4294967295, %_ZN2dd11pdd_manager4readEj.exit180 ]
-  %591 = getelementptr inbounds nuw i32, ptr %581, i64 %.0.i.i181
-  %592 = load i32, ptr %591, align 4, !tbaa !83
-  %593 = getelementptr inbounds nuw i32, ptr %581, i64 %590
+_ZN2dd11pdd_manager4readEj.exit184:               ; preds = %_ZN2dd11pdd_manager4readEj.exit180._ZN2dd11pdd_manager4readEj.exit184_crit_edge, %583
+  %588 = phi i32 [ %585, %583 ], [ %.pre443, %_ZN2dd11pdd_manager4readEj.exit180._ZN2dd11pdd_manager4readEj.exit184_crit_edge ]
+  %.0.i.i181 = phi i64 [ %587, %583 ], [ 4294967295, %_ZN2dd11pdd_manager4readEj.exit180._ZN2dd11pdd_manager4readEj.exit184_crit_edge ]
+  %589 = getelementptr inbounds nuw i32, ptr %581, i64 %.0.i.i181
+  %590 = load i32, ptr %589, align 4, !tbaa !83
+  %591 = add i32 %588, -2
+  %592 = zext i32 %591 to i64
+  %593 = getelementptr inbounds nuw i32, ptr %581, i64 %592
   %594 = load i32, ptr %593, align 4, !tbaa !83
-  %595 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %592, i32 noundef %594, i32 noundef 5)
+  %595 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %590, i32 noundef %594, i32 noundef 5)
   call void @_ZN2dd11pdd_manager4pushEj(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %595)
   %596 = load ptr, ptr %559, align 8, !tbaa !53
   %597 = icmp eq ptr %596, null
@@ -8198,7 +8218,11 @@ _ZN2dd11pdd_manager4readEj.exit188:               ; preds = %_ZN2dd11pdd_manager
   %645 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %646 = load ptr, ptr %645, align 8, !tbaa !53
   %647 = icmp eq ptr %646, null
-  br i1 %647, label %_ZN2dd11pdd_manager4readEj.exit198, label %648
+  br i1 %647, label %._ZN2dd11pdd_manager4readEj.exit198_crit_edge, label %648
+
+._ZN2dd11pdd_manager4readEj.exit198_crit_edge:    ; preds = %623
+  %.pre441 = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !83
+  br label %_ZN2dd11pdd_manager4readEj.exit198
 
 648:                                              ; preds = %623
   %649 = getelementptr inbounds i8, ptr %646, i64 -4
@@ -8207,9 +8231,9 @@ _ZN2dd11pdd_manager4readEj.exit188:               ; preds = %_ZN2dd11pdd_manager
   %652 = zext i32 %651 to i64
   br label %_ZN2dd11pdd_manager4readEj.exit198
 
-_ZN2dd11pdd_manager4readEj.exit198:               ; preds = %623, %648
-  %653 = phi i32 [ %650, %648 ], [ undef, %623 ]
-  %.0.i.i191 = phi i64 [ %652, %648 ], [ 4294967292, %623 ]
+_ZN2dd11pdd_manager4readEj.exit198:               ; preds = %._ZN2dd11pdd_manager4readEj.exit198_crit_edge, %648
+  %653 = phi i32 [ %650, %648 ], [ %.pre441, %._ZN2dd11pdd_manager4readEj.exit198_crit_edge ]
+  %.0.i.i191 = phi i64 [ %652, %648 ], [ 4294967292, %._ZN2dd11pdd_manager4readEj.exit198_crit_edge ]
   %654 = getelementptr inbounds nuw i32, ptr %646, i64 %.0.i.i191
   %655 = load i32, ptr %654, align 4, !tbaa !83
   %656 = add i32 %653, -3
@@ -8412,23 +8436,27 @@ _ZN2dd11pdd_manager4readEj.exit214:               ; preds = %_ZN2dd11pdd_manager
   %763 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %764 = load ptr, ptr %763, align 8, !tbaa !53
   %765 = icmp eq ptr %764, null
-  br i1 %765, label %_ZN2dd11pdd_manager4readEj.exit220, label %766
+  br i1 %765, label %._ZN2dd11pdd_manager4readEj.exit220_crit_edge, label %766
+
+._ZN2dd11pdd_manager4readEj.exit220_crit_edge:    ; preds = %755
+  %.pre439 = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !83
+  br label %_ZN2dd11pdd_manager4readEj.exit220
 
 766:                                              ; preds = %755
   %767 = getelementptr inbounds i8, ptr %764, i64 -4
   %768 = load i32, ptr %767, align 4, !tbaa !83
   %769 = add i32 %768, -2
   %770 = zext i32 %769 to i64
-  %771 = add i32 %768, -1
-  %772 = zext i32 %771 to i64
   br label %_ZN2dd11pdd_manager4readEj.exit220
 
-_ZN2dd11pdd_manager4readEj.exit220:               ; preds = %755, %766
-  %773 = phi i64 [ %772, %766 ], [ 0, %755 ]
-  %.0.i.i217 = phi i64 [ %770, %766 ], [ 4294967294, %755 ]
-  %774 = getelementptr inbounds nuw i32, ptr %764, i64 %.0.i.i217
-  %775 = load i32, ptr %774, align 4, !tbaa !83
-  %776 = getelementptr inbounds nuw i32, ptr %764, i64 %773
+_ZN2dd11pdd_manager4readEj.exit220:               ; preds = %._ZN2dd11pdd_manager4readEj.exit220_crit_edge, %766
+  %771 = phi i32 [ %768, %766 ], [ %.pre439, %._ZN2dd11pdd_manager4readEj.exit220_crit_edge ]
+  %.0.i.i217 = phi i64 [ %770, %766 ], [ 4294967294, %._ZN2dd11pdd_manager4readEj.exit220_crit_edge ]
+  %772 = getelementptr inbounds nuw i32, ptr %764, i64 %.0.i.i217
+  %773 = load i32, ptr %772, align 4, !tbaa !83
+  %774 = add i32 %771, -1
+  %775 = zext i32 %774 to i64
+  %776 = getelementptr inbounds nuw i32, ptr %764, i64 %775
   %777 = load i32, ptr %776, align 4, !tbaa !83
   %778 = getelementptr inbounds nuw i8, ptr %0, i64 721
   store i8 0, ptr %778, align 1, !tbaa !81
@@ -8440,7 +8468,7 @@ _ZN2dd11pdd_manager4readEj.exit220:               ; preds = %755, %766
   %781 = and i32 %296, -1024
   store i32 %781, ptr %9, align 4
   %782 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %775, ptr %782, align 4, !tbaa !94
+  store i32 %773, ptr %782, align 4, !tbaa !94
   %783 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %777, ptr %783, align 4, !tbaa !92
   %784 = getelementptr inbounds nuw i8, ptr %9, i64 12
@@ -8508,28 +8536,32 @@ _ZNK2dd11pdd_manager13first_leadingEj.exit:       ; preds = %792, %_ZNK2dd11pdd_
   %821 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %822 = load ptr, ptr %821, align 8, !tbaa !53
   %823 = icmp eq ptr %822, null
-  br i1 %823, label %_ZN2dd11pdd_manager4readEj.exit227, label %824
+  br i1 %823, label %._ZN2dd11pdd_manager4readEj.exit227_crit_edge, label %824
+
+._ZN2dd11pdd_manager4readEj.exit227_crit_edge:    ; preds = %813
+  %.pre435 = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !83
+  br label %_ZN2dd11pdd_manager4readEj.exit227
 
 824:                                              ; preds = %813
   %825 = getelementptr inbounds i8, ptr %822, i64 -4
   %826 = load i32, ptr %825, align 4, !tbaa !83
   %827 = add i32 %826, -2
   %828 = zext i32 %827 to i64
-  %829 = add i32 %826, -1
-  %830 = zext i32 %829 to i64
   br label %_ZN2dd11pdd_manager4readEj.exit227
 
-_ZN2dd11pdd_manager4readEj.exit227:               ; preds = %813, %824
-  %831 = phi i64 [ %830, %824 ], [ 0, %813 ]
-  %.0.i.i224 = phi i64 [ %828, %824 ], [ 4294967294, %813 ]
-  %832 = getelementptr inbounds nuw i32, ptr %822, i64 %.0.i.i224
-  %833 = load i32, ptr %832, align 4, !tbaa !83
-  %834 = getelementptr inbounds nuw i32, ptr %822, i64 %831
+_ZN2dd11pdd_manager4readEj.exit227:               ; preds = %._ZN2dd11pdd_manager4readEj.exit227_crit_edge, %824
+  %829 = phi i32 [ %826, %824 ], [ %.pre435, %._ZN2dd11pdd_manager4readEj.exit227_crit_edge ]
+  %.0.i.i224 = phi i64 [ %828, %824 ], [ 4294967294, %._ZN2dd11pdd_manager4readEj.exit227_crit_edge ]
+  %830 = getelementptr inbounds nuw i32, ptr %822, i64 %.0.i.i224
+  %831 = load i32, ptr %830, align 4, !tbaa !83
+  %832 = add i32 %829, -1
+  %833 = zext i32 %832 to i64
+  %834 = getelementptr inbounds nuw i32, ptr %822, i64 %833
   %835 = load i32, ptr %834, align 4, !tbaa !83
   %836 = load ptr, ptr %0, align 8, !tbaa !91
   %837 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %836, i64 %294, i32 1
   %838 = load i32, ptr %837, align 4, !tbaa !94
-  %839 = icmp eq i32 %833, %838
+  %839 = icmp eq i32 %831, %838
   br i1 %839, label %840, label %844
 
 840:                                              ; preds = %_ZN2dd11pdd_manager4readEj.exit227
@@ -8539,7 +8571,7 @@ _ZN2dd11pdd_manager4readEj.exit227:               ; preds = %813, %824
   br i1 %843, label %_ZN2dd11pdd_manager9make_nodeEjjj.exit, label %844
 
 844:                                              ; preds = %840, %_ZN2dd11pdd_manager4readEj.exit227
-  %845 = zext i32 %833 to i64
+  %845 = zext i32 %831 to i64
   %846 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %836, i64 %845
   %847 = load i32, ptr %846, align 4
   %848 = lshr i32 %847, 10
@@ -8574,7 +8606,7 @@ _ZN2dd11pdd_manager4readEj.exit227:               ; preds = %813, %824
   %862 = and i32 %296, -1024
   store i32 %862, ptr %8, align 4
   %863 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 %833, ptr %863, align 4, !tbaa !94
+  store i32 %831, ptr %863, align 4, !tbaa !94
   %864 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %835, ptr %864, align 4, !tbaa !92
   %865 = getelementptr inbounds nuw i8, ptr %8, i64 12
@@ -8612,7 +8644,7 @@ _ZN2dd11pdd_manager4readEj.exit231:               ; preds = %867, %881
   %.0.i.i230 = phi i64 [ %885, %881 ], [ 4294967295, %867 ]
   %886 = getelementptr inbounds nuw i32, ptr %879, i64 %.0.i.i230
   %887 = load i32, ptr %886, align 4, !tbaa !83
-  %888 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %887, i32 noundef %833, i32 noundef 2)
+  %888 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %887, i32 noundef %831, i32 noundef 2)
   call void @_ZN2dd11pdd_manager4pushEj(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %888)
   %889 = load ptr, ptr %821, align 8, !tbaa !53
   %890 = icmp eq ptr %889, null
@@ -8735,25 +8767,29 @@ _ZN2dd11pdd_manager4readEj.exit245:               ; preds = %_ZN2dd11pdd_manager
   call void @_ZN2dd11pdd_manager4pushEj(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %955)
   %956 = load ptr, ptr %904, align 8, !tbaa !53
   %957 = icmp eq ptr %956, null
-  br i1 %957, label %_ZN2dd11pdd_manager4readEj.exit249, label %958
+  br i1 %957, label %_ZN2dd11pdd_manager4readEj.exit245._ZN2dd11pdd_manager4readEj.exit249_crit_edge, label %958
+
+_ZN2dd11pdd_manager4readEj.exit245._ZN2dd11pdd_manager4readEj.exit249_crit_edge: ; preds = %_ZN2dd11pdd_manager4readEj.exit245
+  %.pre = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !83
+  br label %_ZN2dd11pdd_manager4readEj.exit249
 
 958:                                              ; preds = %_ZN2dd11pdd_manager4readEj.exit245
   %959 = getelementptr inbounds i8, ptr %956, i64 -4
   %960 = load i32, ptr %959, align 4, !tbaa !83
   %961 = add i32 %960, -1
   %962 = zext i32 %961 to i64
-  %963 = add i32 %960, -3
-  %964 = zext i32 %963 to i64
   br label %_ZN2dd11pdd_manager4readEj.exit249
 
-_ZN2dd11pdd_manager4readEj.exit249:               ; preds = %_ZN2dd11pdd_manager4readEj.exit245, %958
-  %965 = phi i64 [ %964, %958 ], [ 0, %_ZN2dd11pdd_manager4readEj.exit245 ]
-  %.0.i.i246 = phi i64 [ %962, %958 ], [ 4294967295, %_ZN2dd11pdd_manager4readEj.exit245 ]
-  %966 = getelementptr inbounds nuw i32, ptr %956, i64 %.0.i.i246
-  %967 = load i32, ptr %966, align 4, !tbaa !83
-  %968 = getelementptr inbounds nuw i32, ptr %956, i64 %965
+_ZN2dd11pdd_manager4readEj.exit249:               ; preds = %_ZN2dd11pdd_manager4readEj.exit245._ZN2dd11pdd_manager4readEj.exit249_crit_edge, %958
+  %963 = phi i32 [ %960, %958 ], [ %.pre, %_ZN2dd11pdd_manager4readEj.exit245._ZN2dd11pdd_manager4readEj.exit249_crit_edge ]
+  %.0.i.i246 = phi i64 [ %962, %958 ], [ 4294967295, %_ZN2dd11pdd_manager4readEj.exit245._ZN2dd11pdd_manager4readEj.exit249_crit_edge ]
+  %964 = getelementptr inbounds nuw i32, ptr %956, i64 %.0.i.i246
+  %965 = load i32, ptr %964, align 4, !tbaa !83
+  %966 = add i32 %963, -3
+  %967 = zext i32 %966 to i64
+  %968 = getelementptr inbounds nuw i32, ptr %956, i64 %967
   %969 = load i32, ptr %968, align 4, !tbaa !83
-  %970 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %967, i32 noundef %969, i32 noundef 2)
+  %970 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %965, i32 noundef %969, i32 noundef 2)
   br label %_ZN2dd11pdd_manager9make_nodeEjjj.exit
 
 971:                                              ; preds = %290
@@ -8832,7 +8868,7 @@ _ZN2dd11pdd_manager4readEj.exit253:               ; preds = %984, %994
 
 _ZN2dd11pdd_manager9make_nodeEjjj.exit:           ; preds = %1003, %_ZN2dd11pdd_manager4readEj.exit253, %978, %973, %946, %_ZN2dd11pdd_manager4readEj.exit241, %861, %858, %840, %780, %_ZN2dd11pdd_manager4readEj.exit220, %749, %_ZN2dd11pdd_manager4readEj.exit214, %725, %_ZN2dd11pdd_manager4readEj.exit208, %617, %_ZN2dd11pdd_manager4readEj.exit188, %543, %_ZN2dd11pdd_manager4readEj.exit176, %503, %_ZN2dd11pdd_manager4readEj.exit168, %468, %_ZN2dd11pdd_manager4readEj.exit162, %440, %_ZN2dd11pdd_manager4readEj.exit156, %389, %_ZN2dd11pdd_manager4readEj.exit146, %366, %_ZN2dd11pdd_manager4readEj.exit142, %330, %_ZN2dd11pdd_manager4readEj.exit, %_ZN2dd11pdd_manager4readEj.exit233, %_ZN2dd11pdd_manager4readEj.exit249, %898, %1009
   %.089.neg = phi i32 [ -2, %1009 ], [ -3, %_ZN2dd11pdd_manager4readEj.exit249 ], [ 0, %898 ], [ -4, %_ZN2dd11pdd_manager4readEj.exit233 ], [ -1, %_ZN2dd11pdd_manager4readEj.exit ], [ -1, %330 ], [ -2, %_ZN2dd11pdd_manager4readEj.exit142 ], [ -2, %366 ], [ -1, %_ZN2dd11pdd_manager4readEj.exit146 ], [ -1, %389 ], [ -2, %_ZN2dd11pdd_manager4readEj.exit156 ], [ -2, %440 ], [ -1, %_ZN2dd11pdd_manager4readEj.exit162 ], [ -1, %468 ], [ -2, %_ZN2dd11pdd_manager4readEj.exit168 ], [ -2, %503 ], [ -2, %_ZN2dd11pdd_manager4readEj.exit176 ], [ -2, %543 ], [ -5, %_ZN2dd11pdd_manager4readEj.exit188 ], [ -5, %617 ], [ -7, %_ZN2dd11pdd_manager4readEj.exit208 ], [ -7, %725 ], [ -6, %_ZN2dd11pdd_manager4readEj.exit214 ], [ -6, %749 ], [ -2, %_ZN2dd11pdd_manager4readEj.exit220 ], [ -2, %780 ], [ -2, %840 ], [ -2, %858 ], [ -2, %861 ], [ -2, %_ZN2dd11pdd_manager4readEj.exit241 ], [ -2, %946 ], [ 0, %973 ], [ 0, %978 ], [ -1, %_ZN2dd11pdd_manager4readEj.exit253 ], [ -1, %1003 ]
-  %.087 = phi i32 [ -1, %1009 ], [ %970, %_ZN2dd11pdd_manager4readEj.exit249 ], [ %899, %898 ], [ %897, %_ZN2dd11pdd_manager4readEj.exit233 ], [ %324, %_ZN2dd11pdd_manager4readEj.exit ], [ %335, %330 ], [ %361, %_ZN2dd11pdd_manager4readEj.exit142 ], [ %371, %366 ], [ %383, %_ZN2dd11pdd_manager4readEj.exit146 ], [ %394, %389 ], [ %435, %_ZN2dd11pdd_manager4readEj.exit156 ], [ %445, %440 ], [ %462, %_ZN2dd11pdd_manager4readEj.exit162 ], [ %473, %468 ], [ %498, %_ZN2dd11pdd_manager4readEj.exit168 ], [ %508, %503 ], [ %538, %_ZN2dd11pdd_manager4readEj.exit176 ], [ %548, %543 ], [ %568, %_ZN2dd11pdd_manager4readEj.exit188 ], [ %622, %617 ], [ %667, %_ZN2dd11pdd_manager4readEj.exit208 ], [ %730, %725 ], [ %667, %_ZN2dd11pdd_manager4readEj.exit214 ], [ %754, %749 ], [ %775, %_ZN2dd11pdd_manager4readEj.exit220 ], [ %785, %780 ], [ %.0393, %840 ], [ %833, %858 ], [ %866, %861 ], [ %943, %_ZN2dd11pdd_manager4readEj.exit241 ], [ %951, %946 ], [ %975, %973 ], [ %983, %978 ], [ %990, %_ZN2dd11pdd_manager4readEj.exit253 ], [ %1008, %1003 ]
+  %.087 = phi i32 [ -1, %1009 ], [ %970, %_ZN2dd11pdd_manager4readEj.exit249 ], [ %899, %898 ], [ %897, %_ZN2dd11pdd_manager4readEj.exit233 ], [ %324, %_ZN2dd11pdd_manager4readEj.exit ], [ %335, %330 ], [ %359, %_ZN2dd11pdd_manager4readEj.exit142 ], [ %371, %366 ], [ %383, %_ZN2dd11pdd_manager4readEj.exit146 ], [ %394, %389 ], [ %433, %_ZN2dd11pdd_manager4readEj.exit156 ], [ %445, %440 ], [ %462, %_ZN2dd11pdd_manager4readEj.exit162 ], [ %473, %468 ], [ %496, %_ZN2dd11pdd_manager4readEj.exit168 ], [ %508, %503 ], [ %536, %_ZN2dd11pdd_manager4readEj.exit176 ], [ %548, %543 ], [ %568, %_ZN2dd11pdd_manager4readEj.exit188 ], [ %622, %617 ], [ %667, %_ZN2dd11pdd_manager4readEj.exit208 ], [ %730, %725 ], [ %667, %_ZN2dd11pdd_manager4readEj.exit214 ], [ %754, %749 ], [ %773, %_ZN2dd11pdd_manager4readEj.exit220 ], [ %785, %780 ], [ %.0393, %840 ], [ %831, %858 ], [ %866, %861 ], [ %943, %_ZN2dd11pdd_manager4readEj.exit241 ], [ %951, %946 ], [ %975, %973 ], [ %983, %978 ], [ %990, %_ZN2dd11pdd_manager4readEj.exit253 ], [ %1008, %1003 ]
   %1010 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %1011 = load ptr, ptr %1010, align 8, !tbaa !53
   %1012 = icmp eq ptr %1011, null
@@ -32806,7 +32842,12 @@ _ZNK6vectorIN2dd11pdd_manager4nodeELb0EjE4sizeEv.exit20: ; preds = %34, %44
 46:                                               ; preds = %_ZNK6vectorIN2dd11pdd_manager4nodeELb0EjE4sizeEv.exit20, %33
   %47 = load ptr, ptr %16, align 8, !tbaa !53
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %_ZN6vectorIjLb0EjE4backEv.exit, label %49
+  br i1 %48, label %._ZN6vectorIjLb0EjE4backEv.exit_crit_edge, label %49
+
+._ZN6vectorIjLb0EjE4backEv.exit_crit_edge:        ; preds = %46
+  %.pre = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !83
+  %.pre22 = add i32 %.pre, -1
+  br label %_ZN6vectorIjLb0EjE4backEv.exit
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds i8, ptr %47, i64 -4
@@ -32815,9 +32856,9 @@ _ZNK6vectorIN2dd11pdd_manager4nodeELb0EjE4sizeEv.exit20: ; preds = %34, %44
   %53 = zext i32 %52 to i64
   br label %_ZN6vectorIjLb0EjE4backEv.exit
 
-_ZN6vectorIjLb0EjE4backEv.exit:                   ; preds = %46, %49
-  %.pre-phi = phi i32 [ %52, %49 ], [ undef, %46 ]
-  %.0.i.i = phi i64 [ %53, %49 ], [ 4294967295, %46 ]
+_ZN6vectorIjLb0EjE4backEv.exit:                   ; preds = %._ZN6vectorIjLb0EjE4backEv.exit_crit_edge, %49
+  %.pre-phi = phi i32 [ %.pre22, %._ZN6vectorIjLb0EjE4backEv.exit_crit_edge ], [ %52, %49 ]
+  %.0.i.i = phi i64 [ 4294967295, %._ZN6vectorIjLb0EjE4backEv.exit_crit_edge ], [ %53, %49 ]
   %54 = getelementptr inbounds nuw i32, ptr %47, i64 %.0.i.i
   %55 = load i32, ptr %54, align 4, !tbaa !83
   %56 = getelementptr inbounds i8, ptr %47, i64 -4

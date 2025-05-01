@@ -3561,7 +3561,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRSt6vectorIhSaIh
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
-    i32 3, label %21
+    i32 3, label %23
     i32 2, label %6
   ]
 
@@ -3583,61 +3583,64 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRSt6vectorIhSaIh
   %9 = ptrtoint ptr %.val8.i to i64
   %10 = ptrtoint ptr %.val7.i to i64
   %11 = sub i64 %9, %10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val8.i, %.val7.i
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread.i.i.i, label %12
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread.i.i.i, label %14
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread.i.i.i: ; preds = %6
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
+  %12 = getelementptr inbounds i8, ptr null, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %12, ptr %13, align 8, !tbaa !50
   br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E15_M_init_functorIRKS7_EEvRSt9_Any_dataOT_.exit.i"
 
-12:                                               ; preds = %6
-  %13 = icmp slt i64 %11, 0
-  br i1 %13, label %14, label %15, !prof !55
+14:                                               ; preds = %6
+  %15 = icmp slt i64 %11, 0
+  br i1 %15, label %16, label %17, !prof !55
 
-14:                                               ; preds = %12
+16:                                               ; preds = %14
   tail call void @_ZSt17__throw_bad_allocv() #26
   unreachable
 
-15:                                               ; preds = %12
-  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #27
-  store ptr %16, ptr %8, align 8, !tbaa !49
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %11
-  %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %17, ptr %18, align 8, !tbaa !50
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %.val7.i, i64 %11, i1 false)
+17:                                               ; preds = %14
+  %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #27
+  store ptr %18, ptr %8, align 8, !tbaa !49
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %11
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %19, ptr %20, align 8, !tbaa !50
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr align 1 %.val7.i, i64 %11, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E15_M_init_functorIRKS7_EEvRSt9_Any_dataOT_.exit.i"
 
-"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E15_M_init_functorIRKS7_EEvRSt9_Any_dataOT_.exit.i": ; preds = %15, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread.i.i.i
-  %19 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread.i.i.i ], [ %17, %15 ]
-  %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %19, ptr %20, align 8, !tbaa !52
+"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E15_M_init_functorIRKS7_EEvRSt9_Any_dataOT_.exit.i": ; preds = %17, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread.i.i.i
+  %21 = phi ptr [ %12, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread.i.i.i ], [ %19, %17 ]
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %21, ptr %22, align 8, !tbaa !52
   store ptr %8, ptr %0, align 8, !tbaa !101
   br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
-21:                                               ; preds = %3
+23:                                               ; preds = %3
   %.val9.i = load ptr, ptr %0, align 8, !tbaa !101
-  %22 = icmp eq ptr %.val9.i, null
-  br i1 %22, label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit", label %23
+  %24 = icmp eq ptr %.val9.i, null
+  br i1 %24, label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit", label %25
 
-23:                                               ; preds = %21
+25:                                               ; preds = %23
   %.val.i.i = load ptr, ptr %.val9.i, align 8, !tbaa !49
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit.i.i", label %24
+  br i1 %.not.i.i.i.i.i.i, label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit.i.i", label %26
 
-24:                                               ; preds = %23
-  %25 = getelementptr i8, ptr %.val9.i, i64 16
-  %.val1.i.i = load ptr, ptr %25, align 8
-  %26 = ptrtoint ptr %.val1.i.i to i64
-  %27 = ptrtoint ptr %.val.i.i to i64
-  %28 = sub i64 %26, %27
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val.i.i, i64 noundef %28) #25
+26:                                               ; preds = %25
+  %27 = getelementptr i8, ptr %.val9.i, i64 16
+  %.val1.i.i = load ptr, ptr %27, align 8
+  %28 = ptrtoint ptr %.val1.i.i to i64
+  %29 = ptrtoint ptr %.val.i.i to i64
+  %30 = sub i64 %28, %29
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val.i.i, i64 noundef %30) #25
   br label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit.i.i"
 
-"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit.i.i": ; preds = %24, %23
+"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit.i.i": ; preds = %26, %25
   tail call void @_ZdlPvm(ptr noundef nonnull %.val9.i, i64 noundef 24) #25
   br label %"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit.i.i", %21, %"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E15_M_init_functorIRKS7_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit.i.i", %23, %"_ZNSt14_Function_base13_Base_managerIZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEE3$_0E15_M_init_functorIRKS7_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 

@@ -1366,45 +1366,47 @@ define linkonce_odr hidden void @_ZNK4LIEF2PE27DynamicFixupControlTransfer5clone
   %12 = ptrtoint ptr %10 to i64
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 0, ptr %15, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq ptr %10, %11
-  br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EEC2EmRKS4_.exit.i.i.thread, label %16
+  br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EEC2EmRKS4_.exit.i.i.thread, label %17
 
 _ZNSt12_Vector_baseIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EEC2EmRKS4_.exit.i.i.thread: ; preds = %2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  %15 = getelementptr inbounds nuw i8, ptr null, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  store ptr %15, ptr %16, align 8, !tbaa !81
   br label %_ZNSt10unique_ptrIN4LIEF2PE27DynamicFixupControlTransferESt14default_deleteIS2_EED2Ev.exit
 
-16:                                               ; preds = %2
-  %17 = icmp ugt i64 %14, 9223372036854775800
-  br i1 %17, label %18, label %_ZNSt12_Vector_baseIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EEC2EmRKS4_.exit.i.i, !prof !134
+17:                                               ; preds = %2
+  %18 = icmp ugt i64 %14, 9223372036854775800
+  br i1 %18, label %19, label %_ZNSt12_Vector_baseIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EEC2EmRKS4_.exit.i.i, !prof !134
 
-18:                                               ; preds = %16
+19:                                               ; preds = %17
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
-_ZNSt12_Vector_baseIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EEC2EmRKS4_.exit.i.i: ; preds = %16
-  %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #24
-  store ptr %19, ptr %7, align 8, !tbaa !82
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %14
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %20, ptr %21, align 8, !tbaa !81
+_ZNSt12_Vector_baseIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EEC2EmRKS4_.exit.i.i: ; preds = %17
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #24
+  store ptr %20, ptr %7, align 8, !tbaa !82
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %14
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr %21, ptr %22, align 8, !tbaa !81
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EEC2EmRKS4_.exit.i.i, %.lr.ph.i.i.i.i.i.i
-  %.09.i.i.i.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i.i.i.i ], [ %19, %_ZNSt12_Vector_baseIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EEC2EmRKS4_.exit.i.i ]
-  %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i.i.i ], [ %11, %_ZNSt12_Vector_baseIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EEC2EmRKS4_.exit.i.i ]
-  %22 = load i64, ptr %.sroa.04.08.i.i.i.i.i.i, align 4
-  store i64 %22, ptr %.09.i.i.i.i.i.i, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 8
-  %24 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %23, %10
+  %.09.i.i.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i.i ], [ %20, %_ZNSt12_Vector_baseIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EEC2EmRKS4_.exit.i.i ]
+  %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i.i.i.i ], [ %11, %_ZNSt12_Vector_baseIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EEC2EmRKS4_.exit.i.i ]
+  %23 = load i64, ptr %.sroa.04.08.i.i.i.i.i.i, align 4
+  store i64 %23, ptr %.09.i.i.i.i.i.i, align 4
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %24, %10
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN4LIEF2PE27DynamicFixupControlTransferESt14default_deleteIS2_EED2Ev.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !135
 
 _ZNSt10unique_ptrIN4LIEF2PE27DynamicFixupControlTransferESt14default_deleteIS2_EED2Ev.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EEC2EmRKS4_.exit.i.i.thread
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EEC2EmRKS4_.exit.i.i.thread ], [ %24, %.lr.ph.i.i.i.i.i.i ]
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %.0.lcssa.i.i.i.i.i.i, ptr %25, align 8, !tbaa !78
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EEC2EmRKS4_.exit.i.i.thread ], [ %25, %.lr.ph.i.i.i.i.i.i ]
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %.0.lcssa.i.i.i.i.i.i, ptr %26, align 8, !tbaa !78
   store ptr %3, ptr %0, align 8, !tbaa !136
   ret void
 }

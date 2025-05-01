@@ -889,31 +889,31 @@ declare noundef zeroext i1 @_ZN5clang4ento14CheckerContext19isHardenedVariantOfE
 define dso_local void @_ZN5clang4ento18CallDescriptionSetC2EOSt16initializer_listINS0_15CallDescriptionEE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 align 2 {
 _ZN5clang4ento18CallDescriptionMapIbEC2EOSt16initializer_listISt4pairINS0_15CallDescriptionEbEE.exit:
   %2 = alloca %"struct.std::pair", align 8
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %5 = load i64, ptr %4, align 8, !tbaa !459
-  %6 = icmp ugt i64 %5, 128102389400760775
-  br i1 %6, label %7, label %8
+  %6 = load i64, ptr %5, align 8, !tbaa !459
+  %7 = icmp ugt i64 %6, 128102389400760775
+  br i1 %7, label %8, label %9
 
-7:                                                ; preds = %_ZN5clang4ento18CallDescriptionMapIbEC2EOSt16initializer_listISt4pairINS0_15CallDescriptionEbEE.exit
+8:                                                ; preds = %_ZN5clang4ento18CallDescriptionMapIbEC2EOSt16initializer_listISt4pairINS0_15CallDescriptionEbEE.exit
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #16
   unreachable
 
-8:                                                ; preds = %_ZN5clang4ento18CallDescriptionMapIbEC2EOSt16initializer_listISt4pairINS0_15CallDescriptionEbEE.exit
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not14 = icmp eq i64 %5, 0
+9:                                                ; preds = %_ZN5clang4ento18CallDescriptionMapIbEC2EOSt16initializer_listISt4pairINS0_15CallDescriptionEbEE.exit
+  %.not14 = icmp eq i64 %6, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %8
-  %10 = mul nuw nsw i64 %5, 72
+.lr.ph:                                           ; preds = %9
+  %10 = mul nuw nsw i64 %6, 72
   %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #17
   store ptr %11, ptr %0, align 8, !tbaa !462
-  store ptr %11, ptr %3, align 8, !tbaa !465
-  %12 = getelementptr inbounds nuw %"struct.std::pair", ptr %11, i64 %5
-  store ptr %12, ptr %9, align 8, !tbaa !466
+  store ptr %11, ptr %4, align 8, !tbaa !465
+  %12 = getelementptr inbounds nuw %"struct.std::pair", ptr %11, i64 %6
+  store ptr %12, ptr %3, align 8, !tbaa !466
   %13 = load ptr, ptr %1, align 8, !tbaa !467
-  %14 = getelementptr inbounds nuw %"class.clang::ento::CallDescription", ptr %13, i64 %5
+  %14 = getelementptr inbounds nuw %"class.clang::ento::CallDescription", ptr %13, i64 %6
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -921,7 +921,7 @@ _ZN5clang4ento18CallDescriptionMapIbEC2EOSt16initializer_listISt4pairINS0_15Call
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 32
   br label %20
 
-._crit_edge:                                      ; preds = %_ZNSt4pairIN5clang4ento15CallDescriptionEbED2Ev.exit, %8
+._crit_edge:                                      ; preds = %_ZNSt4pairIN5clang4ento15CallDescriptionEbED2Ev.exit, %9
   ret void
 
 20:                                               ; preds = %.lr.ph, %_ZNSt4pairIN5clang4ento15CallDescriptionEbED2Ev.exit
@@ -933,8 +933,8 @@ _ZN5clang4ento18CallDescriptionMapIbEC2EOSt16initializer_listISt4pairINS0_15Call
   %22 = getelementptr inbounds nuw i8, ptr %.012, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(20) %22, i64 20, i1 false)
   store i8 1, ptr %17, align 8, !tbaa !468
-  %23 = load ptr, ptr %3, align 8, !tbaa !465
-  %24 = load ptr, ptr %9, align 8, !tbaa !466
+  %23 = load ptr, ptr %4, align 8, !tbaa !465
+  %24 = load ptr, ptr %3, align 8, !tbaa !466
   %.not.i.i = icmp eq ptr %23, %24
   br i1 %.not.i.i, label %_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEbESaIS4_EE9push_backEOS4_.exit, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.thread
 
@@ -955,9 +955,9 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %33 = load i8, ptr %17, align 8, !tbaa !468, !range !57, !noundef !58
   store i8 %33, ptr %32, align 8, !tbaa !468
-  %34 = load ptr, ptr %3, align 8, !tbaa !465
+  %34 = load ptr, ptr %4, align 8, !tbaa !465
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 72
-  store ptr %35, ptr %3, align 8, !tbaa !465
+  store ptr %35, ptr %4, align 8, !tbaa !465
   br label %_ZNSt4pairIN5clang4ento15CallDescriptionEbED2Ev.exit
 
 _ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEbESaIS4_EE9push_backEOS4_.exit: ; preds = %20

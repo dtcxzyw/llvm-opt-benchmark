@@ -10249,7 +10249,10 @@ _ZNKSt6vectorIN15MapBlockBspTree8TreeNodeESaIS1_EE12_M_check_lenEmPKc.exit: ; pr
 
 invoke.cont.i.i.i.i.thread:                       ; preds = %_ZNKSt6vectorIN15MapBlockBspTree8TreeNodeESaIS1_EE12_M_check_lenEmPKc.exit
   %_M_finish.i.i.i.i.i.i81 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %triangle_refs5.i.i.i, i8 0, i64 24, i1 false)
+  %add.ptr.i.i.i.i.i.i82 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i
+  %_M_end_of_storage.i.i.i.i.i.i83 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %triangle_refs5.i.i.i, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i.i.i.i82, ptr %_M_end_of_storage.i.i.i.i.i.i83, align 8, !tbaa !81
   br label %invoke.cont
 
 cond.true.i.i.i.i.i.i.i:                          ; preds = %_ZNKSt6vectorIN15MapBlockBspTree8TreeNodeESaIS1_EE12_M_check_lenEmPKc.exit
@@ -10451,7 +10454,10 @@ _ZNKSt6vectorIN15MapBlockBspTree8TreeNodeESaIS1_EE12_M_check_lenEmPKc.exit: ; pr
 
 invoke.cont.i.i.i.i.thread:                       ; preds = %_ZNKSt6vectorIN15MapBlockBspTree8TreeNodeESaIS1_EE12_M_check_lenEmPKc.exit
   %_M_finish.i.i.i.i.i.i81 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %triangle_refs5.i.i.i, i8 0, i64 24, i1 false)
+  %add.ptr.i.i.i.i.i.i82 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i
+  %_M_end_of_storage.i.i.i.i.i.i83 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %triangle_refs5.i.i.i, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i.i.i.i82, ptr %_M_end_of_storage.i.i.i.i.i.i83, align 8, !tbaa !81
   br label %invoke.cont
 
 cond.true.i.i.i.i.i.i.i:                          ; preds = %_ZNKSt6vectorIN15MapBlockBspTree8TreeNodeESaIS1_EE12_M_check_lenEmPKc.exit

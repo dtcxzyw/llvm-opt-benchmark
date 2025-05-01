@@ -24369,6 +24369,10 @@ if.end:                                           ; preds = %entry
 
 invoke.cont.i.i.i.i.i.i.i.i.thread:               ; preds = %if.end
   %_M_finish.i.i.i.i.i.i.i.i.i.i3 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %add.ptr.i.i.i.i.i.i.i.i.i.i4 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i5 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i5, align 8
   br label %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit.i.i.i.i.i.i.i
 
 cond.true.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.end
@@ -24391,7 +24395,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %cond.true.i.i.i.i.i
   br label %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit.i.i.i.i.i.i.i
 
 _ZNSt6vectorIiSaIiEEC2ERKS1_.exit.i.i.i.i.i.i.i:  ; preds = %invoke.cont.i.i.i.i.i.i.i.i.thread, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i.i.i.i7 = phi ptr [ null, %invoke.cont.i.i.i.i.i.i.i.i.thread ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i.i.i.i.i.i.i.i7 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i.i4, %invoke.cont.i.i.i.i.i.i.i.i.thread ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i.i.i.i.i.i.i6 = phi ptr [ %_M_finish.i.i.i.i.i.i.i.i.i.i3, %invoke.cont.i.i.i.i.i.i.i.i.thread ], [ %_M_finish.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i7, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i6, align 8
   %file_path.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24

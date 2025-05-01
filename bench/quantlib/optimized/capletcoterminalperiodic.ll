@@ -937,6 +937,7 @@ _ZN8QuantLib6MatrixD2Ev.exit:                     ; preds = %invoke.cont124, %_Z
   %cmp.i.i.i.i.i.i262 = icmp ugt i64 %sub.ptr.sub.i.i259, 9223372036854775800
   %_M_finish.i.i.i266 = getelementptr inbounds nuw i8, ptr %agg.tmp199, i64 8
   %_M_end_of_storage.i.i.i268 = getelementptr inbounds nuw i8, ptr %agg.tmp199, i64 16
+  %add.ptr.i.i.i267563 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i259
   %pn.i280 = getelementptr inbounds nuw i8, ptr %periodflmm, i64 8
   %pn.i302 = getelementptr inbounds nuw i8, ptr %periodsmm, i64 8
   %conv282 = uitofp i64 %div to double
@@ -1278,7 +1279,12 @@ invoke.cont195:                                   ; preds = %if.then.i.i.i.i.i.i
 
 invoke.cont197:                                   ; preds = %invoke.cont195
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp199, i8 0, i64 24, i1 false)
-  br i1 %cmp.not.i.i.i.i260, label %invoke.cont201, label %cond.true.i.i.i.i261
+  br i1 %cmp.not.i.i.i.i260, label %invoke.cont.i264.thread, label %cond.true.i.i.i.i261
+
+invoke.cont.i264.thread:                          ; preds = %invoke.cont197
+  store i64 0, ptr %agg.tmp199, align 8
+  store ptr %add.ptr.i.i.i267563, ptr %_M_end_of_storage.i.i.i268, align 8, !tbaa !24
+  br label %invoke.cont201
 
 cond.true.i.i.i.i261:                             ; preds = %invoke.cont197
   br i1 %cmp.i.i.i.i.i.i262, label %if.then3.i.i.i.i.i.i275, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i263, !prof !35
@@ -1301,8 +1307,8 @@ if.then.i.i.i.i.i.i.i.i.i273:                     ; preds = %_ZNSt16allocator_tr
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i6.i278, ptr align 8 %newDisplacements.sroa.0.0, i64 %sub.ptr.sub.i.i259, i1 false)
   br label %invoke.cont201
 
-invoke.cont201:                                   ; preds = %invoke.cont197, %if.then.i.i.i.i.i.i.i.i.i273
-  %add.ptr.i.i.i267566 = phi ptr [ %add.ptr.i.i.i267, %if.then.i.i.i.i.i.i.i.i.i273 ], [ null, %invoke.cont197 ]
+invoke.cont201:                                   ; preds = %if.then.i.i.i.i.i.i.i.i.i273, %invoke.cont.i264.thread
+  %add.ptr.i.i.i267566 = phi ptr [ %add.ptr.i.i.i267563, %invoke.cont.i264.thread ], [ %add.ptr.i.i.i267, %if.then.i.i.i.i.i.i.i.i.i273 ]
   store ptr %add.ptr.i.i.i267566, ptr %_M_finish.i.i.i266, align 8, !tbaa !25
   invoke void @_ZN8QuantLib16FwdPeriodAdapterC1ERKN5boost10shared_ptrINS_11MarketModelEEEmmSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(280) %call198, ptr noundef nonnull align 8 dereferenceable(16) %flmm, i64 noundef %period, i64 noundef %rem, ptr noundef nonnull %agg.tmp199)
           to label %invoke.cont203 unwind label %lpad202.body

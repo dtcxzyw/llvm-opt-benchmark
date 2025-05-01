@@ -6630,8 +6630,8 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN14FuncOptVisitor8readsLhsEP13AstNodeAssign
   br i1 %53, label %.lr.ph, label %._crit_edge, !prof !222
 
 .lr.ph:                                           ; preds = %_ZZN7AstNode11foreachImplI9AstVarRefZN14FuncOptVisitor8readsLhsEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.thread, %_ZZN7AstNode11foreachImplI9AstVarRefZN14FuncOptVisitor8readsLhsEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit
-  %.7.idx211 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI9AstVarRefZN14FuncOptVisitor8readsLhsEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.thread ], [ %.7.idx, %_ZZN7AstNode11foreachImplI9AstVarRefZN14FuncOptVisitor8readsLhsEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit ]
-  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx211
+  %.7.idx210 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI9AstVarRefZN14FuncOptVisitor8readsLhsEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.thread ], [ %.7.idx, %_ZZN7AstNode11foreachImplI9AstVarRefZN14FuncOptVisitor8readsLhsEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit ]
+  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx210
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %55
 
@@ -7134,7 +7134,7 @@ _ZNKSt10_HashtableIPK6AstVarS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4
   br i1 %270, label %271, label %.noexc73._crit_edge
 
 .noexc73._crit_edge:                              ; preds = %.noexc73
-  %.pre209 = load ptr, ptr %222, align 8, !tbaa !173
+  %.pre208 = load ptr, ptr %222, align 8, !tbaa !173
   br label %317
 
 271:                                              ; preds = %.noexc73
@@ -7279,7 +7279,7 @@ _ZNSt10_HashtableIPK6AstVarS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4h
   br label %317
 
 317:                                              ; preds = %.noexc73._crit_edge, %_ZNSt10_HashtableIPK6AstVarS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit.i
-  %318 = phi ptr [ %.0.i.i, %_ZNSt10_HashtableIPK6AstVarS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit.i ], [ %.pre209, %.noexc73._crit_edge ]
+  %318 = phi ptr [ %.0.i.i, %_ZNSt10_HashtableIPK6AstVarS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit.i ], [ %.pre208, %.noexc73._crit_edge ]
   %.0.i = phi i64 [ %316, %_ZNSt10_HashtableIPK6AstVarS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit.i ], [ %262, %.noexc73._crit_edge ]
   %319 = getelementptr inbounds nuw ptr, ptr %318, i64 %.0.i
   %320 = load ptr, ptr %319, align 8, !tbaa !192

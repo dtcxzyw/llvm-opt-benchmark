@@ -1107,7 +1107,10 @@ if.then28:                                        ; preds = %do.end
 
 invoke.cont.i.thread:                             ; preds = %if.then28
   %_M_finish.i.i.i298 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
+  %add.ptr.i.i.i299 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
+  %_M_end_of_storage.i.i.i300 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i299, ptr %_M_end_of_storage.i.i.i300, align 8, !tbaa !36
   br label %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
 
 cond.true.i.i.i.i:                                ; preds = %if.then28
@@ -1130,7 +1133,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %cond.true.i.i.i.i
   br label %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
 
 _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %invoke.cont.i.thread, %if.then.i.i.i.i.i.i.i.i.i
-  %add.ptr.i.i.i302 = phi ptr [ null, %invoke.cont.i.thread ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i302 = phi ptr [ %add.ptr.i.i.i299, %invoke.cont.i.thread ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i301 = phi ptr [ %_M_finish.i.i.i298, %invoke.cont.i.thread ], [ %_M_finish.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i302, ptr %_M_finish.i.i.i301, align 8, !tbaa !39
   br label %return
@@ -1589,6 +1592,10 @@ for.cond.cleanup245:                              ; preds = %for.body246, %if.en
 
 invoke.cont.i169.thread:                          ; preds = %for.cond.cleanup245
   %_M_finish.i.i.i171304 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %add.ptr.i.i.i172305 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i163
+  %_M_end_of_storage.i.i.i173306 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i172305, ptr %_M_end_of_storage.i.i.i173306, align 8, !tbaa !36
   br label %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit181
 
 cond.true.i.i.i.i165:                             ; preds = %for.cond.cleanup245
@@ -1611,7 +1618,7 @@ if.then.i.i.i.i.i.i.i.i.i178:                     ; preds = %cond.true.i.i.i.i16
   br label %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit181
 
 _ZNSt6vectorIdSaIdEEC2ERKS1_.exit181:             ; preds = %invoke.cont.i169.thread, %if.then.i.i.i.i.i.i.i.i.i178
-  %add.ptr.i.i.i172308 = phi ptr [ null, %invoke.cont.i169.thread ], [ %add.ptr.i.i.i172, %if.then.i.i.i.i.i.i.i.i.i178 ]
+  %add.ptr.i.i.i172308 = phi ptr [ %add.ptr.i.i.i172305, %invoke.cont.i169.thread ], [ %add.ptr.i.i.i172, %if.then.i.i.i.i.i.i.i.i.i178 ]
   %_M_finish.i.i.i171307 = phi ptr [ %_M_finish.i.i.i171304, %invoke.cont.i169.thread ], [ %_M_finish.i.i.i171, %if.then.i.i.i.i.i.i.i.i.i178 ]
   store ptr %add.ptr.i.i.i172308, ptr %_M_finish.i.i.i171307, align 8, !tbaa !39
   br label %return
@@ -2043,7 +2050,7 @@ _ZN5boost10shared_ptrIN8QuantLib11MarketModelEED2Ev.exit: ; preds = %_ZNSt6vecto
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib32VolatilityBumpInstrumentJacobian14onePercentBumpEm(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.27") align 8 captures(none) initializes((8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %this, i64 noundef %j) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib32VolatilityBumpInstrumentJacobian14onePercentBumpEm(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.27") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %this, i64 noundef %j) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.ensured = alloca %"class.std::vector.27", align 8
   call void @_ZNK8QuantLib32VolatilityBumpInstrumentJacobian21derivativesVolatilityEm(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.27") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(192) %this, i64 noundef %j)
@@ -2070,13 +2077,15 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
   %sub.ptr.lhs.cast.i.i2 = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i.i3 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i4 = sub i64 %sub.ptr.lhs.cast.i.i2, %sub.ptr.rhs.cast.i.i3
-  %5 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i64 0, ptr %5, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i.i.i.i, label %invoke.cont.i.thread, label %cond.true.i.i.i.i
 
 invoke.cont.i.thread:                             ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
+  %add.ptr.i.i.i7 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i4
+  %_M_end_of_storage.i.i.i8 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i7, ptr %_M_end_of_storage.i.i.i8, align 8, !tbaa !36
   br label %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
 
 cond.true.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
@@ -2097,7 +2106,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %cond.true.i.i.i.i
   br label %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
 
 _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %invoke.cont.i.thread, %if.then.i.i.i.i.i.i.i.i.i
-  %add.ptr.i.i.i10 = phi ptr [ null, %invoke.cont.i.thread ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i10 = phi ptr [ %add.ptr.i.i.i7, %invoke.cont.i.thread ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i9 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i.i.i10, ptr %_M_finish.i.i.i9, align 8, !tbaa !39
   ret void

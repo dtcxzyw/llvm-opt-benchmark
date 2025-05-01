@@ -1854,6 +1854,10 @@ call5.i.i.i.i.i.i.noexc:                          ; preds = %invoke.cont111
 
 invoke.cont.i.i.i.thread.i.i.i:                   ; preds = %call5.i.i.i.i.i.i.noexc
   %_M_finish.i.i.i.i.i13.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i152, i64 24
+  %add.ptr.i.i.i.i.i14.i.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i.i.i
+  %_M_end_of_storage.i.i.i.i.i15.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i152, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i.i.i14.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i15.i.i.i, align 8, !tbaa !119
   br label %invoke.cont113
 
 cond.true.i.i.i.i.i.i.i.i.i:                      ; preds = %call5.i.i.i.i.i.i.noexc
@@ -1888,7 +1892,7 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeISt6vectorIdSaIdEEEEED2Ev.exit10.i.i.i: 
   br label %ehcleanup246
 
 invoke.cont113:                                   ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.thread.i.i.i
-  %add.ptr.i.i.i.i.i17.i.i.i = phi ptr [ null, %invoke.cont.i.i.i.thread.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i.i.i17.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i14.i.i.i, %invoke.cont.i.i.i.thread.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i.i16.i.i.i = phi ptr [ %_M_finish.i.i.i.i.i13.i.i.i, %invoke.cont.i.i.i.thread.i.i.i ], [ %_M_finish.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i.i.i17.i.i.i, ptr %_M_finish.i.i.i.i.i16.i.i.i, align 8, !tbaa !116
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i152, ptr noundef nonnull align 8 dereferenceable(24) %stoppingTimes) #28
@@ -2019,7 +2023,10 @@ invoke.cont135:                                   ; preds = %_ZN5boost10shared_p
 
 invoke.cont.i.thread:                             ; preds = %invoke.cont135
   %_M_finish.i.i.i677 = getelementptr inbounds nuw i8, ptr %agg.tmp137, i64 8
+  %add.ptr.i.i.i678 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i.i679 = getelementptr inbounds nuw i8, ptr %agg.tmp137, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp137, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i678, ptr %_M_end_of_storage.i.i.i679, align 8, !tbaa !119
   br label %invoke.cont139
 
 cond.true.i.i.i.i:                                ; preds = %invoke.cont135
@@ -2049,7 +2056,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_tr
 
 invoke.cont139:                                   ; preds = %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont.i.thread
   %_M_end_of_storage.i.i.i682 = phi ptr [ %_M_end_of_storage.i.i.i679, %invoke.cont.i.thread ], [ %_M_end_of_storage.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
-  %add.ptr.i.i.i681 = phi ptr [ null, %invoke.cont.i.thread ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i681 = phi ptr [ %add.ptr.i.i.i678, %invoke.cont.i.thread ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i680 = phi ptr [ %_M_finish.i.i.i677, %invoke.cont.i.thread ], [ %_M_finish.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i681, ptr %_M_finish.i.i.i680, align 8, !tbaa !116
   store ptr %95, ptr %agg.tmp140, align 8, !tbaa !103
@@ -2537,6 +2544,10 @@ _ZN5boost10shared_ptrIN8QuantLib9FdmMesherEEC2ERKS3_.exit.i: ; preds = %if.then.
 
 invoke.cont.i.i.thread:                           ; preds = %_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEEC2ERKS3_.exit.i
   %_M_finish.i.i.i.i690 = getelementptr inbounds nuw i8, ptr %agg.tmp188, i64 24
+  %add.ptr.i.i.i.i691 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i.i
+  %_M_end_of_storage.i.i.i.i692 = getelementptr inbounds nuw i8, ptr %agg.tmp188, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bcSet.i, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i.i691, ptr %_M_end_of_storage.i.i.i.i692, align 8, !tbaa !153
   br label %invoke.cont.i385
 
 cond.true.i.i.i.i.i:                              ; preds = %_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEEC2ERKS3_.exit.i

@@ -1789,7 +1789,7 @@ define dso_local void @_ZN4Luau37findAncestryAtPositionForAutocompleteEPNS_12Ast
   %7 = load ptr, ptr %1, align 8, !tbaa !8
   %8 = load ptr, ptr %7, align 8
   invoke void %8(ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull %4)
-          to label %9 unwind label %32
+          to label %9 unwind label %34
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1800,77 +1800,81 @@ define dso_local void @_ZN4Luau37findAncestryAtPositionForAutocompleteEPNS_12Ast
   %15 = sub i64 %13, %14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %11, %12
-  br i1 %.not.i.i.i.i, label %.noexc4.thread, label %17
+  br i1 %.not.i.i.i.i, label %.noexc4.thread, label %19
 
 .noexc4.thread:                                   ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %24
+  %17 = getelementptr inbounds i8, ptr null, i64 %15
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  store ptr %17, ptr %18, align 8, !tbaa !25
+  br label %26
 
-17:                                               ; preds = %9
-  %18 = icmp ugt i64 %15, 9223372036854775800
-  br i1 %18, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIPN4Luau7AstNodeEEE8allocateERS3_m.exit.i.i.i.i, !prof !79
+19:                                               ; preds = %9
+  %20 = icmp ugt i64 %15, 9223372036854775800
+  br i1 %20, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIPN4Luau7AstNodeEEE8allocateERS3_m.exit.i.i.i.i, !prof !79
 
-.noexc.i.i:                                       ; preds = %17
+.noexc.i.i:                                       ; preds = %19
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #21
-          to label %.noexc unwind label %32
+          to label %.noexc unwind label %34
 
 .noexc:                                           ; preds = %.noexc.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIPN4Luau7AstNodeEEE8allocateERS3_m.exit.i.i.i.i: ; preds = %17
-  %19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #22
-          to label %20 unwind label %32
+_ZNSt16allocator_traitsISaIPN4Luau7AstNodeEEE8allocateERS3_m.exit.i.i.i.i: ; preds = %19
+  %21 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #22
+          to label %22 unwind label %34
 
-20:                                               ; preds = %_ZNSt16allocator_traitsISaIPN4Luau7AstNodeEEE8allocateERS3_m.exit.i.i.i.i
-  store ptr %19, ptr %0, align 8, !tbaa !28
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %19, ptr %21, align 8, !tbaa !24
-  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %15
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %22, ptr %23, align 8, !tbaa !25
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %19, ptr align 8 %12, i64 %15, i1 false)
-  br label %24
+22:                                               ; preds = %_ZNSt16allocator_traitsISaIPN4Luau7AstNodeEEE8allocateERS3_m.exit.i.i.i.i
+  store ptr %21, ptr %0, align 8, !tbaa !28
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %21, ptr %23, align 8, !tbaa !24
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 %15
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %24, ptr %25, align 8, !tbaa !25
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %21, ptr align 8 %12, i64 %15, i1 false)
+  br label %26
 
-24:                                               ; preds = %20, %.noexc4.thread
-  %25 = phi ptr [ null, %.noexc4.thread ], [ %22, %20 ]
-  %26 = phi ptr [ %16, %.noexc4.thread ], [ %21, %20 ]
-  store ptr %25, ptr %26, align 8, !tbaa !24
+26:                                               ; preds = %22, %.noexc4.thread
+  %27 = phi ptr [ %17, %.noexc4.thread ], [ %24, %22 ]
+  %28 = phi ptr [ %16, %.noexc4.thread ], [ %23, %22 ]
+  store ptr %27, ptr %28, align 8, !tbaa !24
   store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTVN4Luau12_GLOBAL__N_122AutocompleteNodeFinderE, i64 16), ptr %4, align 8, !tbaa !8
   %.not.i.i.i.i5 = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.i5, label %_ZN4Luau12_GLOBAL__N_122AutocompleteNodeFinderD2Ev.exit, label %27
+  br i1 %.not.i.i.i.i5, label %_ZN4Luau12_GLOBAL__N_122AutocompleteNodeFinderD2Ev.exit, label %29
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %29 = load ptr, ptr %28, align 8, !tbaa !25
-  %30 = ptrtoint ptr %29 to i64
-  %31 = sub i64 %30, %14
-  call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %31) #23
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %31 = load ptr, ptr %30, align 8, !tbaa !25
+  %32 = ptrtoint ptr %31 to i64
+  %33 = sub i64 %32, %14
+  call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %33) #23
   br label %_ZN4Luau12_GLOBAL__N_122AutocompleteNodeFinderD2Ev.exit
 
-_ZN4Luau12_GLOBAL__N_122AutocompleteNodeFinderD2Ev.exit: ; preds = %24, %27
+_ZN4Luau12_GLOBAL__N_122AutocompleteNodeFinderD2Ev.exit: ; preds = %26, %29
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #24
   ret void
 
-32:                                               ; preds = %_ZNSt16allocator_traitsISaIPN4Luau7AstNodeEEE8allocateERS3_m.exit.i.i.i.i, %.noexc.i.i, %3
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %_ZNSt16allocator_traitsISaIPN4Luau7AstNodeEEE8allocateERS3_m.exit.i.i.i.i, %.noexc.i.i, %3
+  %35 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTVN4Luau12_GLOBAL__N_122AutocompleteNodeFinderE, i64 16), ptr %4, align 8, !tbaa !8
-  %34 = load ptr, ptr %6, align 8, !tbaa !28
-  %.not.i.i.i.i6 = icmp eq ptr %34, null
-  br i1 %.not.i.i.i.i6, label %_ZN4Luau12_GLOBAL__N_122AutocompleteNodeFinderD2Ev.exit7, label %35
+  %36 = load ptr, ptr %6, align 8, !tbaa !28
+  %.not.i.i.i.i6 = icmp eq ptr %36, null
+  br i1 %.not.i.i.i.i6, label %_ZN4Luau12_GLOBAL__N_122AutocompleteNodeFinderD2Ev.exit7, label %37
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %37 = load ptr, ptr %36, align 8, !tbaa !25
-  %38 = ptrtoint ptr %37 to i64
-  %39 = ptrtoint ptr %34 to i64
-  %40 = sub i64 %38, %39
-  call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef %40) #23
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %39 = load ptr, ptr %38, align 8, !tbaa !25
+  %40 = ptrtoint ptr %39 to i64
+  %41 = ptrtoint ptr %36 to i64
+  %42 = sub i64 %40, %41
+  call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef %42) #23
   br label %_ZN4Luau12_GLOBAL__N_122AutocompleteNodeFinderD2Ev.exit7
 
-_ZN4Luau12_GLOBAL__N_122AutocompleteNodeFinderD2Ev.exit7: ; preds = %32, %35
+_ZN4Luau12_GLOBAL__N_122AutocompleteNodeFinderD2Ev.exit7: ; preds = %34, %37
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #24
-  resume { ptr, i32 } %33
+  resume { ptr, i32 } %35
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -1942,7 +1946,7 @@ define dso_local void @_ZN4Luau25findAstAncestryOfPositionEPNS_12AstStatBlockENS
   %16 = load ptr, ptr %1, align 8, !tbaa !8
   %17 = load ptr, ptr %16, align 8
   invoke void %17(ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull %5)
-          to label %18 unwind label %41
+          to label %18 unwind label %43
 
 18:                                               ; preds = %4
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1953,75 +1957,79 @@ define dso_local void @_ZN4Luau25findAstAncestryOfPositionEPNS_12AstStatBlockENS
   %24 = sub i64 %22, %23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %20, %21
-  br i1 %.not.i.i.i.i, label %.noexc5.thread, label %26
+  br i1 %.not.i.i.i.i, label %.noexc5.thread, label %28
 
 .noexc5.thread:                                   ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %33
+  %26 = getelementptr inbounds i8, ptr null, i64 %24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  store ptr %26, ptr %27, align 8, !tbaa !25
+  br label %35
 
-26:                                               ; preds = %18
-  %27 = icmp ugt i64 %24, 9223372036854775800
-  br i1 %27, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIPN4Luau7AstNodeEEE8allocateERS3_m.exit.i.i.i.i, !prof !79
+28:                                               ; preds = %18
+  %29 = icmp ugt i64 %24, 9223372036854775800
+  br i1 %29, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIPN4Luau7AstNodeEEE8allocateERS3_m.exit.i.i.i.i, !prof !79
 
-.noexc.i.i:                                       ; preds = %26
+.noexc.i.i:                                       ; preds = %28
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #21
-          to label %.noexc unwind label %41
+          to label %.noexc unwind label %43
 
 .noexc:                                           ; preds = %.noexc.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIPN4Luau7AstNodeEEE8allocateERS3_m.exit.i.i.i.i: ; preds = %26
-  %28 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #22
-          to label %29 unwind label %41
+_ZNSt16allocator_traitsISaIPN4Luau7AstNodeEEE8allocateERS3_m.exit.i.i.i.i: ; preds = %28
+  %30 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #22
+          to label %31 unwind label %43
 
-29:                                               ; preds = %_ZNSt16allocator_traitsISaIPN4Luau7AstNodeEEE8allocateERS3_m.exit.i.i.i.i
-  store ptr %28, ptr %0, align 8, !tbaa !28
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %28, ptr %30, align 8, !tbaa !24
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %24
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %31, ptr %32, align 8, !tbaa !25
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr align 8 %21, i64 %24, i1 false)
-  br label %33
+31:                                               ; preds = %_ZNSt16allocator_traitsISaIPN4Luau7AstNodeEEE8allocateERS3_m.exit.i.i.i.i
+  store ptr %30, ptr %0, align 8, !tbaa !28
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %30, ptr %32, align 8, !tbaa !24
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %33, ptr %34, align 8, !tbaa !25
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %30, ptr align 8 %21, i64 %24, i1 false)
+  br label %35
 
-33:                                               ; preds = %29, %.noexc5.thread
-  %34 = phi ptr [ null, %.noexc5.thread ], [ %31, %29 ]
-  %35 = phi ptr [ %25, %.noexc5.thread ], [ %30, %29 ]
-  store ptr %34, ptr %35, align 8, !tbaa !24
+35:                                               ; preds = %31, %.noexc5.thread
+  %36 = phi ptr [ %26, %.noexc5.thread ], [ %33, %31 ]
+  %37 = phi ptr [ %25, %.noexc5.thread ], [ %32, %31 ]
+  store ptr %36, ptr %37, align 8, !tbaa !24
   %.not.i.i.i.i6 = icmp eq ptr %21, null
-  br i1 %.not.i.i.i.i6, label %_ZN4Luau16FindFullAncestryD2Ev.exit, label %36
+  br i1 %.not.i.i.i.i6, label %_ZN4Luau16FindFullAncestryD2Ev.exit, label %38
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %38 = load ptr, ptr %37, align 8, !tbaa !25
-  %39 = ptrtoint ptr %38 to i64
-  %40 = sub i64 %39, %23
-  call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %40) #23
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %40 = load ptr, ptr %39, align 8, !tbaa !25
+  %41 = ptrtoint ptr %40 to i64
+  %42 = sub i64 %41, %23
+  call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %42) #23
   br label %_ZN4Luau16FindFullAncestryD2Ev.exit
 
-_ZN4Luau16FindFullAncestryD2Ev.exit:              ; preds = %33, %36
+_ZN4Luau16FindFullAncestryD2Ev.exit:              ; preds = %35, %38
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #24
   ret void
 
-41:                                               ; preds = %_ZNSt16allocator_traitsISaIPN4Luau7AstNodeEEE8allocateERS3_m.exit.i.i.i.i, %.noexc.i.i, %4
-  %42 = landingpad { ptr, i32 }
+43:                                               ; preds = %_ZNSt16allocator_traitsISaIPN4Luau7AstNodeEEE8allocateERS3_m.exit.i.i.i.i, %.noexc.i.i, %4
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %43 = load ptr, ptr %12, align 8, !tbaa !28
-  %.not.i.i.i.i7 = icmp eq ptr %43, null
-  br i1 %.not.i.i.i.i7, label %_ZN4Luau16FindFullAncestryD2Ev.exit8, label %44
+  %45 = load ptr, ptr %12, align 8, !tbaa !28
+  %.not.i.i.i.i7 = icmp eq ptr %45, null
+  br i1 %.not.i.i.i.i7, label %_ZN4Luau16FindFullAncestryD2Ev.exit8, label %46
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %46 = load ptr, ptr %45, align 8, !tbaa !25
-  %47 = ptrtoint ptr %46 to i64
-  %48 = ptrtoint ptr %43 to i64
-  %49 = sub i64 %47, %48
-  call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %49) #23
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %48 = load ptr, ptr %47, align 8, !tbaa !25
+  %49 = ptrtoint ptr %48 to i64
+  %50 = ptrtoint ptr %45 to i64
+  %51 = sub i64 %49, %50
+  call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef %51) #23
   br label %_ZN4Luau16FindFullAncestryD2Ev.exit8
 
-_ZN4Luau16FindFullAncestryD2Ev.exit8:             ; preds = %41, %44
+_ZN4Luau16FindFullAncestryD2Ev.exit8:             ; preds = %43, %46
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #24
-  resume { ptr, i32 } %42
+  resume { ptr, i32 } %44
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

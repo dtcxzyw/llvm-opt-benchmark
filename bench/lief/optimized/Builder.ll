@@ -1817,36 +1817,38 @@ _ZN4LIEF5MachO7Builder5buildEv.exit:              ; preds = %32, %34
   %40 = ptrtoint ptr %38 to i64
   %41 = ptrtoint ptr %39 to i64
   %42 = sub i64 %40, %41
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %43, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %38, %39
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.thread, label %44
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.thread, label %45
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.thread: ; preds = %_ZN4LIEF5MachO7Builder5buildEv.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  %43 = getelementptr inbounds i8, ptr null, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  store ptr %43, ptr %44, align 8, !tbaa !9
   br label %_ZNSt6vectorIhSaIhEEC2ERKS1_.exit
 
-44:                                               ; preds = %_ZN4LIEF5MachO7Builder5buildEv.exit
-  %45 = icmp slt i64 %42, 0
-  br i1 %45, label %46, label %47, !prof !148
+45:                                               ; preds = %_ZN4LIEF5MachO7Builder5buildEv.exit
+  %46 = icmp slt i64 %42, 0
+  br i1 %46, label %47, label %48, !prof !148
 
-46:                                               ; preds = %44
+47:                                               ; preds = %45
   call void @_ZSt17__throw_bad_allocv() #25
   unreachable
 
-47:                                               ; preds = %44
-  %48 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #26
-  store ptr %48, ptr %0, align 8, !tbaa !3
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %42
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %49, ptr %50, align 8, !tbaa !9
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %48, ptr align 1 %39, i64 %42, i1 false)
+48:                                               ; preds = %45
+  %49 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #26
+  store ptr %49, ptr %0, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 %42
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %50, ptr %51, align 8, !tbaa !9
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %49, ptr align 1 %39, i64 %42, i1 false)
   br label %_ZNSt6vectorIhSaIhEEC2ERKS1_.exit
 
-_ZNSt6vectorIhSaIhEEC2ERKS1_.exit:                ; preds = %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.thread, %47
-  %51 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.thread ], [ %49, %47 ]
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %51, ptr %52, align 8, !tbaa !67
+_ZNSt6vectorIhSaIhEEC2ERKS1_.exit:                ; preds = %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.thread, %48
+  %52 = phi ptr [ %43, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.thread ], [ %50, %48 ]
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %52, ptr %53, align 8, !tbaa !67
   call void @_ZN4LIEF5MachO7BuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(201) %4) #27
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #27
   ret void

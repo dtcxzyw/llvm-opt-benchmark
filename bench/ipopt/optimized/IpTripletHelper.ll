@@ -908,33 +908,35 @@ _ZNK5Ipopt25ExpandedMultiVectorMatrix35ExpandedMultiVectorMatrixOwnerSpaceEv.exi
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !131, !noalias !134
   %.not.i.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i.i, label %_ZNK5Ipopt25ExpandedMultiVectorMatrix35ExpandedMultiVectorMatrixOwnerSpaceEv.exit._crit_edge.thread, label %_ZNK5Ipopt25ExpandedMultiVectorMatrix35ExpandedMultiVectorMatrixOwnerSpaceEv.exit._crit_edge
-
-_ZNK5Ipopt25ExpandedMultiVectorMatrix35ExpandedMultiVectorMatrixOwnerSpaceEv.exit._crit_edge.thread: ; preds = %_ZNK5Ipopt25ExpandedMultiVectorMatrix35ExpandedMultiVectorMatrixOwnerSpaceEv.exit
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %15 = load i32, ptr %14, align 4, !tbaa !137
-  br label %22
+  br i1 %.not.i.i.i.i, label %_ZNK5Ipopt25ExpandedMultiVectorMatrix35ExpandedMultiVectorMatrixOwnerSpaceEv.exit._crit_edge, label %15
 
 _ZNK5Ipopt25ExpandedMultiVectorMatrix35ExpandedMultiVectorMatrixOwnerSpaceEv.exit._crit_edge: ; preds = %_ZNK5Ipopt25ExpandedMultiVectorMatrix35ExpandedMultiVectorMatrixOwnerSpaceEv.exit
+  %.pre = load i32, ptr inttoptr (i64 8 to ptr), align 8, !tbaa !42
+  %14 = add nsw i32 %.pre, -1
+  br label %18
+
+15:                                               ; preds = %_ZNK5Ipopt25ExpandedMultiVectorMatrix35ExpandedMultiVectorMatrixOwnerSpaceEv.exit
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !42, !noalias !134
-  %18 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %19 = load i32, ptr %18, align 4, !tbaa !137
-  %20 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i32 %17, ptr %20, align 8, !tbaa !42
-  %21 = icmp eq i32 %17, 0
-  br i1 %21, label %22, label %_ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit
+  br label %18
 
-22:                                               ; preds = %_ZNK5Ipopt25ExpandedMultiVectorMatrix35ExpandedMultiVectorMatrixOwnerSpaceEv.exit._crit_edge.thread, %_ZNK5Ipopt25ExpandedMultiVectorMatrix35ExpandedMultiVectorMatrixOwnerSpaceEv.exit._crit_edge
-  %23 = phi i32 [ %15, %_ZNK5Ipopt25ExpandedMultiVectorMatrix35ExpandedMultiVectorMatrixOwnerSpaceEv.exit._crit_edge.thread ], [ %19, %_ZNK5Ipopt25ExpandedMultiVectorMatrix35ExpandedMultiVectorMatrixOwnerSpaceEv.exit._crit_edge ]
-  %24 = load ptr, ptr %13, align 8, !tbaa !43
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8
-  tail call void %26(ptr noundef nonnull align 8 dereferenceable(16) %13) #17
+18:                                               ; preds = %_ZNK5Ipopt25ExpandedMultiVectorMatrix35ExpandedMultiVectorMatrixOwnerSpaceEv.exit._crit_edge, %15
+  %19 = phi i32 [ %14, %_ZNK5Ipopt25ExpandedMultiVectorMatrix35ExpandedMultiVectorMatrixOwnerSpaceEv.exit._crit_edge ], [ %17, %15 ]
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %21 = load i32, ptr %20, align 4, !tbaa !137
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i32 %19, ptr %22, align 8, !tbaa !42
+  %23 = icmp eq i32 %19, 0
+  br i1 %23, label %24, label %_ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit
+
+24:                                               ; preds = %18
+  %25 = load ptr, ptr %13, align 8, !tbaa !43
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = load ptr, ptr %26, align 8
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %13) #17
   br label %_ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit
 
-_ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit:  ; preds = %22, %_ZNK5Ipopt25ExpandedMultiVectorMatrix35ExpandedMultiVectorMatrixOwnerSpaceEv.exit._crit_edge
-  %27 = phi i32 [ %23, %22 ], [ %19, %_ZNK5Ipopt25ExpandedMultiVectorMatrix35ExpandedMultiVectorMatrixOwnerSpaceEv.exit._crit_edge ]
+_ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit:  ; preds = %24, %18
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !42
   %30 = add nsw i32 %29, -1
@@ -950,7 +952,7 @@ _ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit:  ; preds = %22, %_ZNK5Ipopt25Ex
   br label %_ZN5Ipopt8SmartPtrIKNS_30ExpandedMultiVectorMatrixSpaceEED2Ev.exit
 
 _ZN5Ipopt8SmartPtrIKNS_30ExpandedMultiVectorMatrixSpaceEED2Ev.exit: ; preds = %_ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit, %32
-  %36 = mul nsw i32 %27, %5
+  %36 = mul nsw i32 %21, %5
   ret i32 %36
 }
 

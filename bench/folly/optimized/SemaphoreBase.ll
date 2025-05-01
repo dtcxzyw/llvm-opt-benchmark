@@ -219,8 +219,8 @@ define noundef zeroext i1 @_ZN5folly6fibers13SemaphoreBase10signalSlowEl(ptr nou
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %9
 
-9:                                                ; preds = %73, %2
-  %.024 = phi i64 [ %1, %2 ], [ %.125, %73 ]
+9:                                                ; preds = %74, %2
+  %.024 = phi i64 [ %1, %2 ], [ %.125, %74 ]
   %10 = load atomic i64, ptr %6 acquire, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #5, !noalias !7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5, !noalias !7
@@ -296,82 +296,83 @@ define noundef zeroext i1 @_ZN5folly6fibers13SemaphoreBase10signalSlowEl(ptr nou
 
 ._crit_edge:                                      ; preds = %40
   %.pre = add nsw i64 %10, %.024
-  br label %49
+  br label %50
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %46 = load i64, ptr %45, align 8, !tbaa !20
-  %47 = add nsw i64 %10, %.024
-  %48 = icmp sgt i64 %46, %47
-  br i1 %48, label %49, label %52
+  %45 = getelementptr inbounds i8, ptr %41, i64 -8
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %47 = load i64, ptr %46, align 8, !tbaa !20
+  %48 = add nsw i64 %10, %.024
+  %49 = icmp sgt i64 %47, %48
+  br i1 %49, label %50, label %53
 
-49:                                               ; preds = %._crit_edge, %44
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %47, %44 ]
-  %50 = cmpxchg ptr %6, i64 %10, i64 %.pre-phi release monotonic, align 8
-  %51 = extractvalue { i64, i1 } %50, 1
-  %spec.select45 = select i1 %51, i32 1, i32 3
+50:                                               ; preds = %._crit_edge, %44
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %48, %44 ]
+  %51 = cmpxchg ptr %6, i64 %10, i64 %.pre-phi release monotonic, align 8
+  %52 = extractvalue { i64, i1 } %51, 1
+  %spec.select45 = select i1 %52, i32 1, i32 3
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit32
 
-52:                                               ; preds = %44
-  %53 = icmp sgt i64 %10, %46
-  %54 = sub nsw i64 %46, %10
-  %spec.select = select i1 %53, i64 0, i64 %54
-  %55 = sub i64 %10, %46
-  %56 = add i64 %55, %spec.select
-  %57 = cmpxchg ptr %6, i64 %10, i64 %56 monotonic monotonic, align 8
-  %58 = extractvalue { i64, i1 } %57, 1
-  br i1 %58, label %59, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit32
+53:                                               ; preds = %44
+  %54 = icmp sgt i64 %10, %47
+  %55 = sub nsw i64 %47, %10
+  %spec.select = select i1 %54, i64 0, i64 %55
+  %56 = sub i64 %10, %47
+  %57 = add i64 %56, %spec.select
+  %58 = cmpxchg ptr %6, i64 %10, i64 %57 monotonic monotonic, align 8
+  %59 = extractvalue { i64, i1 } %58, 1
+  br i1 %59, label %60, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit32
 
-59:                                               ; preds = %52
-  %60 = load ptr, ptr %41, align 8, !tbaa !16
-  %61 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %62 = load ptr, ptr %61, align 8, !tbaa !26
-  store ptr %60, ptr %62, align 8, !tbaa !16
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr %62, ptr %63, align 8, !tbaa !26
+60:                                               ; preds = %53
+  %61 = load ptr, ptr %41, align 8, !tbaa !16
+  %62 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %63 = load ptr, ptr %62, align 8, !tbaa !26
+  store ptr %61, ptr %63, align 8, !tbaa !16
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  store ptr %63, ptr %64, align 8, !tbaa !26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
-  %64 = sub nsw i64 %.024, %spec.select
+  %65 = sub nsw i64 %.024, %spec.select
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit32
 
-_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit32: ; preds = %49, %52, %59
-  %.027 = phi ptr [ %41, %59 ], [ %41, %52 ], [ null, %49 ]
-  %.125 = phi i64 [ %64, %59 ], [ %.024, %52 ], [ %.024, %49 ]
-  %.019 = phi i32 [ 0, %59 ], [ 3, %52 ], [ %spec.select45, %49 ]
+_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit32: ; preds = %50, %53, %60
+  %.027 = phi ptr [ %45, %60 ], [ %45, %53 ], [ null, %50 ]
+  %.125 = phi i64 [ %65, %60 ], [ %.024, %53 ], [ %.024, %50 ]
+  %.019 = phi i32 [ 0, %60 ], [ 3, %53 ], [ %spec.select45, %50 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
-  %65 = atomicrmw and ptr %7, i32 -401 seq_cst, align 4
-  %66 = and i32 %65, -401
-  store i32 %66, ptr %3, align 4, !tbaa !10
-  %67 = and i32 %65, 15
-  %.not.i.i.i.i.i = icmp eq i32 %67, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN5folly9LockedPtrINS_12SynchronizedIN5boost9intrusive4listINS_6fibers13SemaphoreBase6WaiterEJNS3_11member_hookIS7_NS3_16list_member_hookIJNS3_9link_modeILNS3_14link_mode_typeE1EEEEEEXadL_ZNS7_5hook_EEEEENS3_18constant_time_sizeILb0EEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSN_22SynchronizedMutexLevelE1ELNSN_23SynchronizedMutexMethodE0EEEED2Ev.exit, label %68, !prof !14
+  %66 = atomicrmw and ptr %7, i32 -401 seq_cst, align 4
+  %67 = and i32 %66, -401
+  store i32 %67, ptr %3, align 4, !tbaa !10
+  %68 = and i32 %66, 15
+  %.not.i.i.i.i.i = icmp eq i32 %68, 0
+  br i1 %.not.i.i.i.i.i, label %_ZN5folly9LockedPtrINS_12SynchronizedIN5boost9intrusive4listINS_6fibers13SemaphoreBase6WaiterEJNS3_11member_hookIS7_NS3_16list_member_hookIJNS3_9link_modeILNS3_14link_mode_typeE1EEEEEEXadL_ZNS7_5hook_EEEEENS3_18constant_time_sizeILb0EEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSN_22SynchronizedMutexLevelE1ELNSN_23SynchronizedMutexMethodE0EEEED2Ev.exit, label %69, !prof !14
 
-68:                                               ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit32
+69:                                               ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit32
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 15)
-          to label %_ZN5folly9LockedPtrINS_12SynchronizedIN5boost9intrusive4listINS_6fibers13SemaphoreBase6WaiterEJNS3_11member_hookIS7_NS3_16list_member_hookIJNS3_9link_modeILNS3_14link_mode_typeE1EEEEEEXadL_ZNS7_5hook_EEEEENS3_18constant_time_sizeILb0EEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSN_22SynchronizedMutexLevelE1ELNSN_23SynchronizedMutexMethodE0EEEED2Ev.exit unwind label %69
+          to label %_ZN5folly9LockedPtrINS_12SynchronizedIN5boost9intrusive4listINS_6fibers13SemaphoreBase6WaiterEJNS3_11member_hookIS7_NS3_16list_member_hookIJNS3_9link_modeILNS3_14link_mode_typeE1EEEEEEXadL_ZNS7_5hook_EEEEENS3_18constant_time_sizeILb0EEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSN_22SynchronizedMutexLevelE1ELNSN_23SynchronizedMutexMethodE0EEEED2Ev.exit unwind label %70
 
-69:                                               ; preds = %68
-  %70 = landingpad { ptr, i32 }
+70:                                               ; preds = %69
+  %71 = landingpad { ptr, i32 }
           catch ptr null
-  %71 = extractvalue { ptr, i32 } %70, 0
-  call void @__clang_call_terminate(ptr %71) #19
+  %72 = extractvalue { ptr, i32 } %71, 0
+  call void @__clang_call_terminate(ptr %72) #19
   unreachable
 
-_ZN5folly9LockedPtrINS_12SynchronizedIN5boost9intrusive4listINS_6fibers13SemaphoreBase6WaiterEJNS3_11member_hookIS7_NS3_16list_member_hookIJNS3_9link_modeILNS3_14link_mode_typeE1EEEEEEXadL_ZNS7_5hook_EEEEENS3_18constant_time_sizeILb0EEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSN_22SynchronizedMutexLevelE1ELNSN_23SynchronizedMutexMethodE0EEEED2Ev.exit: ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit32, %68
+_ZN5folly9LockedPtrINS_12SynchronizedIN5boost9intrusive4listINS_6fibers13SemaphoreBase6WaiterEJNS3_11member_hookIS7_NS3_16list_member_hookIJNS3_9link_modeILNS3_14link_mode_typeE1EEEEEEXadL_ZNS7_5hook_EEEEENS3_18constant_time_sizeILb0EEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSN_22SynchronizedMutexLevelE1ELNSN_23SynchronizedMutexMethodE0EEEED2Ev.exit: ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit32, %69
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
   %cond = icmp eq i32 %.019, 0
-  br i1 %cond, label %72, label %73
+  br i1 %cond, label %73, label %74
 
-72:                                               ; preds = %_ZN5folly9LockedPtrINS_12SynchronizedIN5boost9intrusive4listINS_6fibers13SemaphoreBase6WaiterEJNS3_11member_hookIS7_NS3_16list_member_hookIJNS3_9link_modeILNS3_14link_mode_typeE1EEEEEEXadL_ZNS7_5hook_EEEEENS3_18constant_time_sizeILb0EEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSN_22SynchronizedMutexLevelE1ELNSN_23SynchronizedMutexMethodE0EEEED2Ev.exit
+73:                                               ; preds = %_ZN5folly9LockedPtrINS_12SynchronizedIN5boost9intrusive4listINS_6fibers13SemaphoreBase6WaiterEJNS3_11member_hookIS7_NS3_16list_member_hookIJNS3_9link_modeILNS3_14link_mode_typeE1EEEEEEXadL_ZNS7_5hook_EEEEENS3_18constant_time_sizeILb0EEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSN_22SynchronizedMutexLevelE1ELNSN_23SynchronizedMutexMethodE0EEEED2Ev.exit
   call void @_ZN5folly6fibers5Baton4postEv(ptr noundef nonnull align 8 dereferenceable(8) %.027)
-  br label %73
+  br label %74
 
-73:                                               ; preds = %_ZN5folly9LockedPtrINS_12SynchronizedIN5boost9intrusive4listINS_6fibers13SemaphoreBase6WaiterEJNS3_11member_hookIS7_NS3_16list_member_hookIJNS3_9link_modeILNS3_14link_mode_typeE1EEEEEEXadL_ZNS7_5hook_EEEEENS3_18constant_time_sizeILb0EEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSN_22SynchronizedMutexLevelE1ELNSN_23SynchronizedMutexMethodE0EEEED2Ev.exit, %72
+74:                                               ; preds = %_ZN5folly9LockedPtrINS_12SynchronizedIN5boost9intrusive4listINS_6fibers13SemaphoreBase6WaiterEJNS3_11member_hookIS7_NS3_16list_member_hookIJNS3_9link_modeILNS3_14link_mode_typeE1EEEEEEXadL_ZNS7_5hook_EEEEENS3_18constant_time_sizeILb0EEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSN_22SynchronizedMutexLevelE1ELNSN_23SynchronizedMutexMethodE0EEEED2Ev.exit, %73
   %switch = icmp ne i32 %.019, 1
-  %74 = icmp sgt i64 %.125, 0
-  %or.cond = select i1 %switch, i1 %74, i1 false
-  br i1 %or.cond, label %9, label %75, !llvm.loop !27
+  %75 = icmp sgt i64 %.125, 0
+  %or.cond = select i1 %switch, i1 %75, i1 false
+  br i1 %or.cond, label %9, label %76, !llvm.loop !27
 
-75:                                               ; preds = %73
+76:                                               ; preds = %74
   ret i1 true
 }
 

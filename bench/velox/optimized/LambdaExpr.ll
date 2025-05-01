@@ -4506,7 +4506,10 @@ _ZNKSt6vectorIN8facebook5velox17SelectivityVectorESaIS2_EE12_M_check_lenEmPKc.ex
 
 invoke.cont.i.i.i.i.thread:                       ; preds = %_ZNKSt6vectorIN8facebook5velox17SelectivityVectorESaIS2_EE12_M_check_lenEmPKc.exit
   %_M_finish.i.i.i.i.i.i44 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr, i8 0, i64 24, i1 false)
+  %add.ptr.i.i.i.i.i.i45 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i
+  %_M_end_of_storage.i.i.i.i.i.i46 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i.i.i.i45, ptr %_M_end_of_storage.i.i.i.i.i.i46, align 8
   br label %invoke.cont
 
 cond.true.i.i.i.i.i.i.i:                          ; preds = %_ZNKSt6vectorIN8facebook5velox17SelectivityVectorESaIS2_EE12_M_check_lenEmPKc.exit
@@ -4535,7 +4538,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZNSt16allocator_tr
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.thread
-  %add.ptr.i.i.i.i.i.i48 = phi ptr [ null, %invoke.cont.i.i.i.i.thread ], [ %add.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i.i.i.i48 = phi ptr [ %add.ptr.i.i.i.i.i.i45, %invoke.cont.i.i.i.i.thread ], [ %add.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i.i.i47 = phi ptr [ %_M_finish.i.i.i.i.i.i44, %invoke.cont.i.i.i.i.thread ], [ %_M_finish.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i.i.i.i48, ptr %_M_finish.i.i.i.i.i.i47, align 8
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 24
@@ -6097,6 +6100,10 @@ _ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2IKNS1_7RowTypeEvEERKS_IT_E.exit: ; p
 
 invoke.cont.i.thread:                             ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2IKNS1_7RowTypeEvEERKS_IT_E.exit
   %_M_finish.i.i.i19 = getelementptr inbounds nuw i8, ptr %agg.tmp12, i64 8
+  %add.ptr.i.i.i20 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
+  %_M_end_of_storage.i.i.i21 = getelementptr inbounds nuw i8, ptr %agg.tmp12, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp12, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i20, ptr %_M_end_of_storage.i.i.i21, align 8
   br label %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2IKNS1_7RowTypeEvEERKS_IT_E.exit
@@ -7396,13 +7403,16 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %allVectors, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i.i.i.i, label %invoke.cont.i.thread, label %cond.true.i.i.i.i
 
 invoke.cont.i.thread:                             ; preds = %if.end
   %_M_finish.i.i.i154 = getelementptr inbounds nuw i8, ptr %allVectors, i64 8
+  %add.ptr.i.i.i155 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i
   %_M_end_of_storage.i.i.i156 = getelementptr inbounds nuw i8, ptr %allVectors, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %allVectors, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %allVectors, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i155, ptr %_M_end_of_storage.i.i.i156, align 8
   br label %_ZNSt6vectorISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EEC2ERKS6_.exit
 
 cond.true.i.i.i.i:                                ; preds = %if.end

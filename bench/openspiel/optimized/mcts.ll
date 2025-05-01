@@ -7984,55 +7984,54 @@ _ZNSt12_Vector_baseIN10open_spiel10algorithms10SearchNodeESaIS2_EED2Ev.exit.i: ;
   %.09 = extractvalue { ptr, i32 } %32, 0
   %33 = tail call ptr @__cxa_begin_catch(ptr %.09) #29
   invoke void @__cxa_end_catch()
-          to label %_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EED2Ev.exit unwind label %46
+          to label %_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EED2Ev.exit unwind label %45
 
 _ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i.i
-  %34 = getelementptr inbounds i8, ptr %11, i64 %7
   %.pre = load ptr, ptr %0, align 8
   %.pre18 = load ptr, ptr %3, align 8
   br label %_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit
 
 _ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit: ; preds = %_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.loopexit, %_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
-  %35 = phi ptr [ %4, %_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %.pre18, %_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.loopexit ]
-  %36 = phi ptr [ %2, %_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %.pre, %_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.loopexit ]
+  %34 = phi ptr [ %4, %_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %.pre18, %_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.loopexit ]
+  %35 = phi ptr [ %2, %_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %.pre, %_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.loopexit ]
   %.sroa.0.0 = phi ptr [ null, %_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %11, %_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.loopexit ]
-  %.sroa.11.0 = phi ptr [ null, %_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %34, %_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.loopexit ]
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %31, %_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.loopexit ]
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %38 = load ptr, ptr %37, align 8
+  %.sroa.11.0 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %7
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %37 = load ptr, ptr %36, align 8
   store ptr %.sroa.0.0, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i.i, ptr %3, align 8
-  store ptr %.sroa.11.0, ptr %37, align 8
-  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN10open_spiel10algorithms10SearchNodeEEEvT_S6_(ptr noundef %36, ptr noundef %35)
-          to label %_ZSt8_DestroyIPN10open_spiel10algorithms10SearchNodeES2_EvT_S4_RSaIT0_E.exit.i unwind label %43
+  store ptr %.sroa.11.0, ptr %36, align 8
+  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN10open_spiel10algorithms10SearchNodeEEEvT_S6_(ptr noundef %35, ptr noundef %34)
+          to label %_ZSt8_DestroyIPN10open_spiel10algorithms10SearchNodeES2_EvT_S4_RSaIT0_E.exit.i unwind label %42
 
 _ZSt8_DestroyIPN10open_spiel10algorithms10SearchNodeES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit
-  %.not.i.i.i10 = icmp eq ptr %36, null
-  br i1 %.not.i.i.i10, label %_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EED2Ev.exit, label %39
+  %.not.i.i.i10 = icmp eq ptr %35, null
+  br i1 %.not.i.i.i10, label %_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EED2Ev.exit, label %38
 
-39:                                               ; preds = %_ZSt8_DestroyIPN10open_spiel10algorithms10SearchNodeES2_EvT_S4_RSaIT0_E.exit.i
-  %40 = ptrtoint ptr %38 to i64
-  %41 = ptrtoint ptr %36 to i64
-  %42 = sub i64 %40, %41
-  tail call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef %42) #27
+38:                                               ; preds = %_ZSt8_DestroyIPN10open_spiel10algorithms10SearchNodeES2_EvT_S4_RSaIT0_E.exit.i
+  %39 = ptrtoint ptr %37 to i64
+  %40 = ptrtoint ptr %35 to i64
+  %41 = sub i64 %39, %40
+  tail call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %41) #27
   br label %_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EED2Ev.exit
 
-43:                                               ; preds = %_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit
-  %44 = landingpad { ptr, i32 }
+42:                                               ; preds = %_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit
+  %43 = landingpad { ptr, i32 }
           catch ptr null
-  %45 = extractvalue { ptr, i32 } %44, 0
-  tail call void @__clang_call_terminate(ptr %45) #31
+  %44 = extractvalue { ptr, i32 } %43, 0
+  tail call void @__clang_call_terminate(ptr %44) #31
   unreachable
 
-_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EED2Ev.exit: ; preds = %39, %_ZSt8_DestroyIPN10open_spiel10algorithms10SearchNodeES2_EvT_S4_RSaIT0_E.exit.i, %_ZNSt12_Vector_baseIN10open_spiel10algorithms10SearchNodeESaIS2_EED2Ev.exit.i
-  %.0 = phi i1 [ false, %_ZNSt12_Vector_baseIN10open_spiel10algorithms10SearchNodeESaIS2_EED2Ev.exit.i ], [ true, %_ZSt8_DestroyIPN10open_spiel10algorithms10SearchNodeES2_EvT_S4_RSaIT0_E.exit.i ], [ true, %39 ]
+_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EED2Ev.exit: ; preds = %38, %_ZSt8_DestroyIPN10open_spiel10algorithms10SearchNodeES2_EvT_S4_RSaIT0_E.exit.i, %_ZNSt12_Vector_baseIN10open_spiel10algorithms10SearchNodeESaIS2_EED2Ev.exit.i
+  %.0 = phi i1 [ false, %_ZNSt12_Vector_baseIN10open_spiel10algorithms10SearchNodeESaIS2_EED2Ev.exit.i ], [ true, %_ZSt8_DestroyIPN10open_spiel10algorithms10SearchNodeES2_EvT_S4_RSaIT0_E.exit.i ], [ true, %38 ]
   ret i1 %.0
 
-46:                                               ; preds = %_ZNSt12_Vector_baseIN10open_spiel10algorithms10SearchNodeESaIS2_EED2Ev.exit.i
-  %47 = landingpad { ptr, i32 }
+45:                                               ; preds = %_ZNSt12_Vector_baseIN10open_spiel10algorithms10SearchNodeESaIS2_EED2Ev.exit.i
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %48 = extractvalue { ptr, i32 } %47, 0
-  tail call void @__clang_call_terminate(ptr %48) #31
+  %47 = extractvalue { ptr, i32 } %46, 0
+  tail call void @__clang_call_terminate(ptr %47) #31
   unreachable
 }
 

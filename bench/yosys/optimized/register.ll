@@ -101236,66 +101236,67 @@ _ZNSt6vectorIN6json114JsonESaIS1_EE17_S_check_init_lenEmRKS2_.exit: ; preds = %3
 
 _ZNSt12_Vector_baseIN6json114JsonESaIS1_EE11_M_allocateEm.exit.thread: ; preds = %_ZNSt6vectorIN6json114JsonESaIS1_EE17_S_check_init_lenEmRKS2_.exit
   store ptr null, ptr %0, align 8, !tbaa !547
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %10, align 8, !tbaa !550
+  %10 = getelementptr inbounds nuw %"class.json11::Json", ptr null, i64 %7
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %10, ptr %11, align 8, !tbaa !550
   br label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPN6json114JsonESF_ET0_T_SI_SH_RSaIT1_E.exit
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZNSt6vectorIN6json114JsonESaIS1_EE17_S_check_init_lenEmRKS2_.exit
-  %11 = ashr exact i64 %6, 1
-  %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #41
-  store ptr %12, ptr %0, align 8, !tbaa !547
-  %13 = getelementptr inbounds nuw %"class.json11::Json", ptr %12, i64 %7
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %13, ptr %14, align 8, !tbaa !550
+  %12 = ashr exact i64 %6, 1
+  %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #41
+  store ptr %13, ptr %0, align 8, !tbaa !547
+  %14 = getelementptr inbounds nuw %"class.json11::Json", ptr %13, i64 %7
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %14, ptr %15, align 8, !tbaa !550
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %_ZSt10_ConstructIN6json114JsonEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_DpOT0_.exit.i.i.i.i
-  %.014.i.i.i.i = phi ptr [ %16, %_ZSt10_ConstructIN6json114JsonEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_DpOT0_.exit.i.i.i.i ], [ %12, %.lr.ph.i.i.i.i.preheader ]
-  %.sroa.08.013.i.i.i.i = phi ptr [ %15, %_ZSt10_ConstructIN6json114JsonEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_DpOT0_.exit.i.i.i.i ], [ %1, %.lr.ph.i.i.i.i.preheader ]
+  %.014.i.i.i.i = phi ptr [ %17, %_ZSt10_ConstructIN6json114JsonEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_DpOT0_.exit.i.i.i.i ], [ %13, %.lr.ph.i.i.i.i.preheader ]
+  %.sroa.08.013.i.i.i.i = phi ptr [ %16, %_ZSt10_ConstructIN6json114JsonEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_DpOT0_.exit.i.i.i.i ], [ %1, %.lr.ph.i.i.i.i.preheader ]
   invoke void @_ZN6json114JsonC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %.014.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.08.013.i.i.i.i)
-          to label %_ZSt10_ConstructIN6json114JsonEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_DpOT0_.exit.i.i.i.i unwind label %17
+          to label %_ZSt10_ConstructIN6json114JsonEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_DpOT0_.exit.i.i.i.i unwind label %18
 
 _ZSt10_ConstructIN6json114JsonEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i, i64 32
-  %16 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 16
-  %.not.i.i.i.i = icmp eq ptr %15, %2
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 16
+  %.not.i.i.i.i = icmp eq ptr %16, %2
   br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPN6json114JsonESF_ET0_T_SI_SH_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !553
 
-17:                                               ; preds = %.lr.ph.i.i.i.i
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %.lr.ph.i.i.i.i
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  %20 = tail call ptr @__cxa_begin_catch(ptr %19) #39
-  invoke void @_ZSt8_DestroyIPN6json114JsonEEvT_S3_(ptr noundef nonnull %12, ptr noundef nonnull %.014.i.i.i.i)
-          to label %21 unwind label %22
+  %20 = extractvalue { ptr, i32 } %19, 0
+  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #39
+  invoke void @_ZSt8_DestroyIPN6json114JsonEEvT_S3_(ptr noundef nonnull %13, ptr noundef nonnull %.014.i.i.i.i)
+          to label %22 unwind label %23
 
-21:                                               ; preds = %17
+22:                                               ; preds = %18
   invoke void @__cxa_rethrow() #40
-          to label %28 unwind label %22
+          to label %29 unwind label %23
 
-22:                                               ; preds = %21, %17
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %22, %18
+  %24 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %24 unwind label %25
+          to label %25 unwind label %26
 
-24:                                               ; preds = %22
-  resume { ptr, i32 } %23
+25:                                               ; preds = %23
+  resume { ptr, i32 } %24
 
-25:                                               ; preds = %22
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %23
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #37
+  %28 = extractvalue { ptr, i32 } %27, 0
+  tail call void @__clang_call_terminate(ptr %28) #37
   unreachable
 
-28:                                               ; preds = %21
+29:                                               ; preds = %22
   unreachable
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPN6json114JsonESF_ET0_T_SI_SH_RSaIT1_E.exit: ; preds = %_ZSt10_ConstructIN6json114JsonEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_DpOT0_.exit.i.i.i.i, %_ZNSt12_Vector_baseIN6json114JsonESaIS1_EE11_M_allocateEm.exit.thread
-  %.0.lcssa.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN6json114JsonESaIS1_EE11_M_allocateEm.exit.thread ], [ %16, %_ZSt10_ConstructIN6json114JsonEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_DpOT0_.exit.i.i.i.i ]
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.lcssa.i.i.i.i, ptr %29, align 8, !tbaa !551
+  %.0.lcssa.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN6json114JsonESaIS1_EE11_M_allocateEm.exit.thread ], [ %17, %_ZSt10_ConstructIN6json114JsonEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_DpOT0_.exit.i.i.i.i ]
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.lcssa.i.i.i.i, ptr %30, align 8, !tbaa !551
   ret void
 }
 

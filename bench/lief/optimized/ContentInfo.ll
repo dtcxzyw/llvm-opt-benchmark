@@ -100,7 +100,7 @@ define void @_ZNK4LIEF2PE11ContentInfo6acceptERNS_7VisitorE(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK4LIEF2PE11ContentInfo6digestEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
+define void @_ZNK4LIEF2PE11ContentInfo6digestEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -108,7 +108,7 @@ define void @_ZNK4LIEF2PE11ContentInfo6digestEv(ptr dead_on_unwind noalias writa
   %7 = icmp ne i32 %6, 0
   %.not.not5 = icmp eq ptr %4, null
   %.not.not = or i1 %.not.not5, %7
-  br i1 %.not.not, label %25, label %8
+  br i1 %.not.not, label %24, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -119,7 +119,7 @@ define void @_ZNK4LIEF2PE11ContentInfo6digestEv(ptr dead_on_unwind noalias writa
   %14 = ptrtoint ptr %10 to i64
   %15 = sub i64 %13, %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !19
+  store i64 0, ptr %0, align 8, !alias.scope !19
   %16 = icmp slt i64 %15, 0
   br i1 %16, label %17, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i
 
@@ -129,28 +129,28 @@ define void @_ZNK4LIEF2PE11ContentInfo6digestEv(ptr dead_on_unwind noalias writa
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %8
   %.not.i.i.i.i = icmp eq ptr %12, %10
-  br i1 %.not.i.i.i.i, label %22, label %18
+  br i1 %.not.i.i.i.i, label %21, label %18
 
 18:                                               ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #12, !noalias !19
   store ptr %19, ptr %0, align 8, !tbaa !15, !alias.scope !19
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %15
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %20, ptr %21, align 8, !tbaa !22, !alias.scope !19
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr align 1 %10, i64 %15, i1 false), !noalias !19
-  br label %22
+  br label %21
 
-22:                                               ; preds = %18, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i
-  %23 = phi ptr [ %20, %18 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i ]
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %23, ptr %24, align 8, !tbaa !18, !alias.scope !19
-  br label %26
+21:                                               ; preds = %18, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i
+  %.sink.i = phi ptr [ %20, %18 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i ]
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sink.i, ptr %22, align 8, !tbaa !22, !alias.scope !19
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink.i, ptr %23, align 8, !tbaa !18, !alias.scope !19
+  br label %25
 
-25:                                               ; preds = %2
+24:                                               ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %26
+  br label %25
 
-26:                                               ; preds = %22, %25
+25:                                               ; preds = %21, %24
   ret void
 }
 

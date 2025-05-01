@@ -1018,6 +1018,10 @@ entry:
 
 _ZNSt12_Vector_baseIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EEC2EmRKS4_.exit.i.i.i.i.thread.i.i: ; preds = %entry
   %_M_finish.i.i.i.i.i.i4.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 48
+  %add.ptr.i.i.i.i.i.i5.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i.i.i
+  %_M_end_of_storage.i.i.i.i.i.i6.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i.i.i.i5.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i6.i.i, align 8
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaISC_EEESaISF_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSH_18_Mod_range_hashingENSH_20_Default_ranged_hashENSH_20_Prime_rehash_policyENSH_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRS7_RSE_EEEPNSH_16_Hashtable_allocISaINSH_10_Hash_nodeISF_Lb1EEEEEEDpOT_.exit
 
 cond.true.i.i.i.i.i.i.i.i.i:                      ; preds = %entry

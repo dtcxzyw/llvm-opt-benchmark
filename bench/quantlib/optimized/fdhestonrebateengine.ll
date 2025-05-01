@@ -2695,6 +2695,10 @@ _ZN5boost10shared_ptrIN8QuantLib9FdmMesherEEC2ERKS3_.exit: ; preds = %if.end251,
 
 invoke.cont.i.thread:                             ; preds = %_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEEC2ERKS3_.exit
   %_M_finish.i.i.i700 = getelementptr inbounds nuw i8, ptr %solverDesc, i64 24
+  %add.ptr.i.i.i701 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i
+  %_M_end_of_storage.i.i.i702 = getelementptr inbounds nuw i8, ptr %solverDesc, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bcSet, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i701, ptr %_M_end_of_storage.i.i.i702, align 8, !tbaa !169
   br label %invoke.cont254
 
 cond.true.i.i.i.i:                                ; preds = %_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEEC2ERKS3_.exit
@@ -2825,6 +2829,10 @@ _ZN5boost10shared_ptrIN8QuantLib9FdmMesherEEC2ERKS3_.exit.i: ; preds = %if.then.
 
 invoke.cont.i.i.thread:                           ; preds = %_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEEC2ERKS3_.exit.i
   %_M_finish.i.i.i.i705 = getelementptr inbounds nuw i8, ptr %agg.tmp265, i64 24
+  %add.ptr.i.i.i.i706 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i.i
+  %_M_end_of_storage.i.i.i.i707 = getelementptr inbounds nuw i8, ptr %agg.tmp265, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bcSet.i, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i.i706, ptr %_M_end_of_storage.i.i.i.i707, align 8, !tbaa !169
   br label %invoke.cont.i331
 
 cond.true.i.i.i.i.i:                              ; preds = %_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEEC2ERKS3_.exit.i

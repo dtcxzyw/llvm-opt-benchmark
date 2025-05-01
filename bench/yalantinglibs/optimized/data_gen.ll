@@ -50489,7 +50489,10 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_ch
   br i1 %cmp.not.i.i.i, label %invoke.cont21.thread, label %for.body.i.i.i.i.preheader.i.i
 
 invoke.cont21.thread:                             ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__c, i8 0, i64 24, i1 false)
+  %ref.tmp.sroa.11.018 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i.i
+  %_M_end_of_storage.i4.i.i19 = getelementptr inbounds nuw i8, ptr %__c, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__c, i8 0, i64 16, i1 false)
+  store ptr %ref.tmp.sroa.11.018, ptr %_M_end_of_storage.i4.i.i19, align 8
   br label %invoke.cont.i
 
 for.body.i.i.i.i.preheader.i.i:                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i
@@ -50546,13 +50549,13 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
           to label %return unwind label %terminate.lpad
 
 invoke.cont21:                                    ; preds = %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i1.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   %.pre = load ptr, ptr %__c, align 8
   %.pre15 = load ptr, ptr %_M_finish.i, align 8
+  %ref.tmp.sroa.11.0 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i1.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   %_M_end_of_storage.i4.i.i = getelementptr inbounds nuw i8, ptr %__c, i64 16
   store ptr %call5.i.i.i.i1.i, ptr %__c, align 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %_M_finish.i, align 8
-  store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i4.i.i, align 8
+  store ptr %ref.tmp.sroa.11.0, ptr %_M_end_of_storage.i4.i.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %.pre, %.pre15
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
@@ -53156,7 +53159,10 @@ _ZNSt6vectorI6WeaponSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i: ; preds = %invo
   br i1 %cmp.not.i.i.i, label %invoke.cont21.thread, label %for.body.i.i.i.i.preheader.i.i
 
 invoke.cont21.thread:                             ; preds = %_ZNSt6vectorI6WeaponSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__c, i8 0, i64 24, i1 false)
+  %ref.tmp.sroa.11.018 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i.i
+  %_M_end_of_storage.i4.i.i19 = getelementptr inbounds nuw i8, ptr %__c, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__c, i8 0, i64 16, i1 false)
+  store ptr %ref.tmp.sroa.11.018, ptr %_M_end_of_storage.i4.i.i19, align 8
   br label %invoke.cont.i
 
 for.body.i.i.i.i.preheader.i.i:                   ; preds = %_ZNSt6vectorI6WeaponSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i
@@ -53217,13 +53223,13 @@ _ZNSt12_Vector_baseI6WeaponSaIS0_EED2Ev.exit.i:   ; preds = %if.then.i.i.i, %for
           to label %return unwind label %terminate.lpad
 
 invoke.cont21:                                    ; preds = %_ZSt10_ConstructI6WeaponJS0_EEvPT_DpOT0_.exit.i.i.i.i.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   %.pre = load ptr, ptr %__c, align 8
   %.pre15 = load ptr, ptr %_M_finish.i, align 8
+  %ref.tmp.sroa.11.0 = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   %_M_end_of_storage.i4.i.i = getelementptr inbounds nuw i8, ptr %__c, i64 16
   store ptr %call5.i.i.i.i1.i, ptr %__c, align 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %_M_finish.i, align 8
-  store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i4.i.i, align 8
+  store ptr %ref.tmp.sroa.11.0, ptr %_M_end_of_storage.i4.i.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %.pre, %.pre15
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 

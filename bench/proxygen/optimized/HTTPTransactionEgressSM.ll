@@ -249,7 +249,13 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt6vectorISt4pairIS0_IN8proxygen27HTTPTransactionEgressSMData5StateENS2_5EventEES3_ESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i: ; preds = %entry
   %cmp.not.i.i = icmp eq i64 %__l.coerce1, 0
-  br i1 %cmp.not.i.i, label %invoke.cont, label %for.body.i.i.i.i.preheader.i
+  br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseISt4pairIS0_IN8proxygen27HTTPTransactionEgressSMData5StateENS2_5EventEES3_ESaIS6_EE11_M_allocateEm.exit.thread.i, label %for.body.i.i.i.i.preheader.i
+
+_ZNSt12_Vector_baseISt4pairIS0_IN8proxygen27HTTPTransactionEgressSMData5StateENS2_5EventEES3_ESaIS6_EE11_M_allocateEm.exit.thread.i: ; preds = %_ZNSt6vectorISt4pairIS0_IN8proxygen27HTTPTransactionEgressSMData5StateENS2_5EventEES3_ESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i
+  %add.ptr5.i = getelementptr inbounds nuw i8, ptr null, i64 %add.ptr.i.idx
+  %_M_end_of_storage6.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  store ptr %add.ptr5.i, ptr %_M_end_of_storage6.i, align 8
+  br label %invoke.cont
 
 for.body.i.i.i.i.preheader.i:                     ; preds = %_ZNSt6vectorISt4pairIS0_IN8proxygen27HTTPTransactionEgressSMData5StateENS2_5EventEES3_ESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i
   %call5.i.i.i.i2 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.ptr.i.idx) #15
@@ -268,8 +274,8 @@ call5.i.i.i.i.noexc:                              ; preds = %for.body.i.i.i.i.pr
   %scevgep.i = getelementptr i8, ptr %call5.i.i.i.i2, i64 %3
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %_ZNSt6vectorISt4pairIS0_IN8proxygen27HTTPTransactionEgressSMData5StateENS2_5EventEES3_ESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i, %call5.i.i.i.i.noexc
-  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i, %call5.i.i.i.i.noexc ], [ null, %_ZNSt6vectorISt4pairIS0_IN8proxygen27HTTPTransactionEgressSMData5StateENS2_5EventEES3_ESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i ]
+invoke.cont:                                      ; preds = %call5.i.i.i.i.noexc, %_ZNSt12_Vector_baseISt4pairIS0_IN8proxygen27HTTPTransactionEgressSMData5StateENS2_5EventEES3_ESaIS6_EE11_M_allocateEm.exit.thread.i
+  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i, %call5.i.i.i.i.noexc ], [ null, %_ZNSt12_Vector_baseISt4pairIS0_IN8proxygen27HTTPTransactionEgressSMData5StateENS2_5EventEES3_ESaIS6_EE11_M_allocateEm.exit.thread.i ]
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i, align 8
   ret void

@@ -24284,117 +24284,121 @@ _ZNKSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE12_
   %25 = ptrtoint ptr %23 to i64
   %26 = ptrtoint ptr %24 to i64
   %27 = sub i64 %25, %26
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i = icmp eq ptr %23, %24
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EEC2EmRKS3_.exit.i.i.i.thread, label %29
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EEC2EmRKS3_.exit.i.i.i.thread, label %31
 
 _ZNSt12_Vector_baseIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EEC2EmRKS3_.exit.i.i.i.thread: ; preds = %_ZNKSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE12_M_check_lenEmPKc.exit
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
+  %29 = getelementptr inbounds nuw i8, ptr null, i64 %27
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+  store ptr %29, ptr %30, align 8, !tbaa !560
   br label %_ZNSt16allocator_traitsISaISt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
 
-29:                                               ; preds = %_ZNKSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE12_M_check_lenEmPKc.exit
-  %30 = sdiv exact i64 %27, 120
-  %31 = icmp ugt i64 %30, 76861433640456465
-  br i1 %31, label %32, label %_ZNSt12_Vector_baseIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EEC2EmRKS3_.exit.i.i.i, !prof !102
+31:                                               ; preds = %_ZNKSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE12_M_check_lenEmPKc.exit
+  %32 = sdiv exact i64 %27, 120
+  %33 = icmp ugt i64 %32, 76861433640456465
+  br i1 %33, label %34, label %_ZNSt12_Vector_baseIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EEC2EmRKS3_.exit.i.i.i, !prof !102
 
-32:                                               ; preds = %29
+34:                                               ; preds = %31
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #30
   unreachable
 
-_ZNSt12_Vector_baseIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EEC2EmRKS3_.exit.i.i.i: ; preds = %29
-  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #31
-  store ptr %33, ptr %21, align 8, !tbaa !561
-  %34 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store ptr %33, ptr %34, align 8, !tbaa !558
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %27
-  %36 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store ptr %35, ptr %36, align 8, !tbaa !560
+_ZNSt12_Vector_baseIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EEC2EmRKS3_.exit.i.i.i: ; preds = %31
+  %35 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #31
+  store ptr %35, ptr %21, align 8, !tbaa !561
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store ptr %35, ptr %36, align 8, !tbaa !558
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 %27
+  %38 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store ptr %37, ptr %38, align 8, !tbaa !560
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EEC2EmRKS3_.exit.i.i.i, %.lr.ph.i.i.i.i.i.i.i
-  %.09.i.i.i.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i.i.i.i ], [ %33, %_ZNSt12_Vector_baseIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EEC2EmRKS3_.exit.i.i.i ]
-  %.sroa.04.08.i.i.i.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i.i.i.i ], [ %24, %_ZNSt12_Vector_baseIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EEC2EmRKS3_.exit.i.i.i ]
+  %.09.i.i.i.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i.i.i.i ], [ %35, %_ZNSt12_Vector_baseIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EEC2EmRKS3_.exit.i.i.i ]
+  %.sroa.04.08.i.i.i.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i.i.i.i ], [ %24, %_ZNSt12_Vector_baseIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EEC2EmRKS3_.exit.i.i.i ]
   tail call void @_ZN4llvm12IRSimilarity21IRSimilarityCandidateC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(120) %.09.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.04.08.i.i.i.i.i.i.i)
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i, i64 120
-  %38 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i, i64 120
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %37, %23
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i, i64 120
+  %40 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i, i64 120
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %39, %23
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !637
 
 _ZNSt16allocator_traitsISaISt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EEC2EmRKS3_.exit.i.i.i.thread
-  %39 = phi ptr [ %28, %_ZNSt12_Vector_baseIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EEC2EmRKS3_.exit.i.i.i.thread ], [ %34, %.lr.ph.i.i.i.i.i.i.i ]
-  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EEC2EmRKS3_.exit.i.i.i.thread ], [ %38, %.lr.ph.i.i.i.i.i.i.i ]
-  store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %39, align 8, !tbaa !558
+  %41 = phi ptr [ %28, %_ZNSt12_Vector_baseIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EEC2EmRKS3_.exit.i.i.i.thread ], [ %36, %.lr.ph.i.i.i.i.i.i.i ]
+  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EEC2EmRKS3_.exit.i.i.i.thread ], [ %40, %.lr.ph.i.i.i.i.i.i.i ]
+  store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %41, align 8, !tbaa !558
   %.not10.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaISt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i ], [ %20, %_ZNSt16allocator_traitsISaISt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ]
-  %.0911.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaISt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ]
+  %.012.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i ], [ %20, %_ZNSt16allocator_traitsISaISt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ]
+  %.0911.i.i.i = phi ptr [ %49, %.lr.ph.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaISt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !819)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !822)
-  %40 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !561, !alias.scope !822, !noalias !819
-  store ptr %40, ptr %.012.i.i.i, align 8, !tbaa !561, !alias.scope !819, !noalias !822
-  %41 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
-  %42 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !558, !alias.scope !822, !noalias !819
-  store ptr %43, ptr %41, align 8, !tbaa !558, !alias.scope !819, !noalias !822
-  %44 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
-  %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !560, !alias.scope !822, !noalias !819
-  store ptr %46, ptr %44, align 8, !tbaa !560, !alias.scope !819, !noalias !822
+  %42 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !561, !alias.scope !822, !noalias !819
+  store ptr %42, ptr %.012.i.i.i, align 8, !tbaa !561, !alias.scope !819, !noalias !822
+  %43 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !558, !alias.scope !822, !noalias !819
+  store ptr %45, ptr %43, align 8, !tbaa !558, !alias.scope !819, !noalias !822
+  %46 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
+  %48 = load ptr, ptr %47, align 8, !tbaa !560, !alias.scope !822, !noalias !819
+  store ptr %48, ptr %46, align 8, !tbaa !560, !alias.scope !819, !noalias !822
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !822, !noalias !819
   tail call void @_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i) #27, !noalias !819
-  %47 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
-  %48 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
-  %.not.i.i.i = icmp eq ptr %47, %1
+  %49 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
+  %.not.i.i.i = icmp eq ptr %49, %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %.lr.ph.i.i.i, !llvm.loop !824
 
 _ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaISt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
-  %.0.lcssa.i.i.i = phi ptr [ %20, %_ZNSt16allocator_traitsISaISt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %48, %.lr.ph.i.i.i ]
-  %49 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 24
+  %.0.lcssa.i.i.i = phi ptr [ %20, %_ZNSt16allocator_traitsISaISt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %50, %.lr.ph.i.i.i ]
+  %51 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 24
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %.lr.ph.i.i.i17
-  %.012.i.i.i18 = phi ptr [ %58, %.lr.ph.i.i.i17 ], [ %49, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
-  %.0911.i.i.i19 = phi ptr [ %57, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
+  %.012.i.i.i18 = phi ptr [ %60, %.lr.ph.i.i.i17 ], [ %51, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
+  %.0911.i.i.i19 = phi ptr [ %59, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !825)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !828)
-  %50 = load ptr, ptr %.0911.i.i.i19, align 8, !tbaa !561, !alias.scope !828, !noalias !825
-  store ptr %50, ptr %.012.i.i.i18, align 8, !tbaa !561, !alias.scope !825, !noalias !828
-  %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 8
-  %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !558, !alias.scope !828, !noalias !825
-  store ptr %53, ptr %51, align 8, !tbaa !558, !alias.scope !825, !noalias !828
-  %54 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 16
-  %55 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
-  %56 = load ptr, ptr %55, align 8, !tbaa !560, !alias.scope !828, !noalias !825
-  store ptr %56, ptr %54, align 8, !tbaa !560, !alias.scope !825, !noalias !828
+  %52 = load ptr, ptr %.0911.i.i.i19, align 8, !tbaa !561, !alias.scope !828, !noalias !825
+  store ptr %52, ptr %.012.i.i.i18, align 8, !tbaa !561, !alias.scope !825, !noalias !828
+  %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !558, !alias.scope !828, !noalias !825
+  store ptr %55, ptr %53, align 8, !tbaa !558, !alias.scope !825, !noalias !828
+  %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
+  %58 = load ptr, ptr %57, align 8, !tbaa !560, !alias.scope !828, !noalias !825
+  store ptr %58, ptr %56, align 8, !tbaa !560, !alias.scope !825, !noalias !828
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i19, i8 0, i64 24, i1 false), !alias.scope !828, !noalias !825
   tail call void @_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i19) #27, !noalias !825
-  %57 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 24
-  %58 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 24
-  %.not.i.i.i20 = icmp eq ptr %57, %5
+  %59 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 24
+  %.not.i.i.i20 = icmp eq ptr %59, %5
   br i1 %.not.i.i.i20, label %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !824
 
 _ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22: ; preds = %.lr.ph.i.i.i17, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit
-  %.0.lcssa.i.i.i21 = phi ptr [ %49, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ], [ %58, %.lr.ph.i.i.i17 ]
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.0.lcssa.i.i.i21 = phi ptr [ %51, %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ], [ %60, %.lr.ph.i.i.i17 ]
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i23 = icmp eq ptr %6, null
-  br i1 %.not.i23, label %_ZNSt12_Vector_baseISt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EESaIS5_EE13_M_deallocateEPS5_m.exit, label %60
+  br i1 %.not.i23, label %_ZNSt12_Vector_baseISt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EESaIS5_EE13_M_deallocateEPS5_m.exit, label %62
 
-60:                                               ; preds = %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22
-  %61 = load ptr, ptr %59, align 8, !tbaa !636
-  %62 = ptrtoint ptr %61 to i64
-  %63 = sub i64 %62, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %63) #28
+62:                                               ; preds = %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22
+  %63 = load ptr, ptr %61, align 8, !tbaa !636
+  %64 = ptrtoint ptr %63 to i64
+  %65 = sub i64 %64, %8
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %65) #28
   br label %_ZNSt12_Vector_baseISt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EESaIS5_EE13_M_deallocateEPS5_m.exit
 
-_ZNSt12_Vector_baseISt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %60
+_ZNSt12_Vector_baseISt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorIS_IN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %62
   store ptr %20, ptr %0, align 8, !tbaa !639
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !633
-  %64 = getelementptr inbounds nuw %"class.std::vector.333", ptr %20, i64 %16
-  store ptr %64, ptr %59, align 8, !tbaa !636
+  %66 = getelementptr inbounds nuw %"class.std::vector.333", ptr %20, i64 %16
+  store ptr %66, ptr %61, align 8, !tbaa !636
   ret void
 }
 

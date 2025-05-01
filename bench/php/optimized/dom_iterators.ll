@@ -404,7 +404,7 @@ define internal void @php_dom_iterator_move_forward(ptr noundef %0) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8, !tbaa !38
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %126, label %8
+  br i1 %7, label %128, label %8
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %4, align 8, !tbaa !38
@@ -421,8 +421,8 @@ define internal void @php_dom_iterator_move_forward(ptr noundef %0) #0 {
   %15 = getelementptr inbounds nuw i8, ptr %.val.val, i64 24
   %16 = load i32, ptr %15, align 8, !tbaa !33
   switch i32 %16, label %80 [
-    i32 6, label %118
-    i32 12, label %118
+    i32 6, label %120
+    i32 12, label %120
     i32 19, label %17
     i32 2, label %31
     i32 1, label %31
@@ -446,13 +446,13 @@ define internal void @php_dom_iterator_move_forward(ptr noundef %0) #0 {
   store i32 %26, ptr %5, align 8, !tbaa !38
   %27 = and i32 %26, 65280
   %.not72 = icmp eq i32 %27, 0
-  br i1 %.not72, label %126, label %28
+  br i1 %.not72, label %128, label %28
 
 28:                                               ; preds = %23
   %29 = load i32, ptr %24, align 4, !tbaa !48
   %30 = add i32 %29, 1
   store i32 %30, ptr %24, align 4, !tbaa !48
-  br label %126
+  br label %128
 
 31:                                               ; preds = %14, %14
   %32 = getelementptr inbounds i8, ptr %9, i64 -16
@@ -551,7 +551,7 @@ dom_fetch_first_iteration_item.exit:              ; preds = %50, %53, %php_dom_f
 .critedge.thread85:                               ; preds = %72
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #9
   store i32 0, ptr %5, align 8, !tbaa !38
-  br label %123
+  br label %125
 
 73:                                               ; preds = %72
   %74 = add i64 %.06292, 1
@@ -579,92 +579,102 @@ php_dom_follow_spec_doc_ref.exit.thread:          ; preds = %31, %38, %php_dom_f
 
 86:                                               ; preds = %80
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %88 = load ptr, ptr %87, align 8, !tbaa !76, !nonnull !77, !noundef !77
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  %90 = load ptr, ptr %89, align 8, !tbaa !78
-  %.not13.i = icmp eq ptr %90, null
+  %88 = load ptr, ptr %87, align 8, !tbaa !76
+  %.not12.i = icmp eq ptr %88, null
+  br i1 %.not12.i, label %.thread, label %89
+
+89:                                               ; preds = %86
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %91 = load ptr, ptr %90, align 8, !tbaa !77
+  %.not13.i = icmp eq ptr %91, null
   br i1 %.not13.i, label %php_dom_mark_cache_tag_up_to_date_from_node.exit, label %php_dom_is_cache_tag_stale_from_node.exit
 
-php_dom_is_cache_tag_stale_from_node.exit:        ; preds = %86
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %92 = load i64, ptr %91, align 8, !tbaa !73
-  %93 = load i64, ptr %84, align 8, !tbaa !73
-  %.not89 = icmp eq i64 %92, %93
-  br i1 %.not89, label %103, label %.thread.thread100
+php_dom_is_cache_tag_stale_from_node.exit:        ; preds = %89
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
+  %93 = load i64, ptr %92, align 8, !tbaa !73
+  %94 = load i64, ptr %84, align 8, !tbaa !73
+  %.not89 = icmp eq i64 %93, %94
+  br i1 %.not89, label %105, label %.thread.thread98
 
-.thread.thread100:                                ; preds = %php_dom_is_cache_tag_stale_from_node.exit
-  %94 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %95 = load i64, ptr %94, align 8, !tbaa !81
-  store i64 %95, ptr %84, align 8, !tbaa !73
+.thread:                                          ; preds = %86
+  %.pre = load ptr, ptr inttoptr (i64 8 to ptr), align 8, !tbaa !77
+  %.not8.i = icmp eq ptr %.pre, null
+  br i1 %.not8.i, label %php_dom_mark_cache_tag_up_to_date_from_node.exit, label %.thread.thread98
+
+.thread.thread98:                                 ; preds = %php_dom_is_cache_tag_stale_from_node.exit, %.thread
+  %95 = phi ptr [ %.pre, %.thread ], [ %91, %php_dom_is_cache_tag_stale_from_node.exit ]
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
+  %97 = load i64, ptr %96, align 8, !tbaa !80
+  store i64 %97, ptr %84, align 8, !tbaa !73
   br label %php_dom_mark_cache_tag_up_to_date_from_node.exit
 
-php_dom_mark_cache_tag_up_to_date_from_node.exit: ; preds = %86, %80, %.thread.thread100
+php_dom_mark_cache_tag_up_to_date_from_node.exit: ; preds = %89, %80, %.thread, %.thread.thread98
   store i64 0, ptr %3, align 8, !tbaa !59
-  %96 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %97 = load i32, ptr %96, align 8, !tbaa !60
-  switch i32 %97, label %100 [
-    i32 9, label %98
-    i32 13, label %98
+  %98 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %99 = load i32, ptr %98, align 8, !tbaa !60
+  switch i32 %99, label %102 [
+    i32 9, label %100
+    i32 13, label %100
   ]
 
-98:                                               ; preds = %php_dom_mark_cache_tag_up_to_date_from_node.exit, %php_dom_mark_cache_tag_up_to_date_from_node.exit
-  %99 = tail call ptr @xmlDocGetRootElement(ptr noundef nonnull %82) #9
+100:                                              ; preds = %php_dom_mark_cache_tag_up_to_date_from_node.exit, %php_dom_mark_cache_tag_up_to_date_from_node.exit
+  %101 = tail call ptr @xmlDocGetRootElement(ptr noundef nonnull %82) #9
   br label %php_dom_first_child_of_container_node.exit
 
-100:                                              ; preds = %php_dom_mark_cache_tag_up_to_date_from_node.exit
-  %101 = getelementptr inbounds nuw i8, ptr %82, i64 24
-  %102 = load ptr, ptr %101, align 8, !tbaa !61
+102:                                              ; preds = %php_dom_mark_cache_tag_up_to_date_from_node.exit
+  %103 = getelementptr inbounds nuw i8, ptr %82, i64 24
+  %104 = load ptr, ptr %103, align 8, !tbaa !61
   br label %php_dom_first_child_of_container_node.exit
 
-103:                                              ; preds = %php_dom_is_cache_tag_stale_from_node.exit
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %105 = load i64, ptr %104, align 8, !tbaa !65
-  %106 = add i64 %105, -1
-  store i64 %106, ptr %3, align 8, !tbaa !59
-  %107 = load ptr, ptr %10, align 8, !tbaa !50
-  %108 = load ptr, ptr %107, align 8, !tbaa !66
+105:                                              ; preds = %php_dom_is_cache_tag_stale_from_node.exit
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %107 = load i64, ptr %106, align 8, !tbaa !65
+  %108 = add i64 %107, -1
+  store i64 %108, ptr %3, align 8, !tbaa !59
+  %109 = load ptr, ptr %10, align 8, !tbaa !50
+  %110 = load ptr, ptr %109, align 8, !tbaa !66
   br label %php_dom_first_child_of_container_node.exit
 
-php_dom_first_child_of_container_node.exit:       ; preds = %100, %98, %103
-  %.2 = phi ptr [ %108, %103 ], [ %99, %98 ], [ %102, %100 ]
-  %109 = getelementptr inbounds nuw i8, ptr %.val.val, i64 56
-  %110 = load ptr, ptr %109, align 8, !tbaa !62
-  %111 = getelementptr inbounds nuw i8, ptr %.val.val, i64 40
-  %112 = load ptr, ptr %111, align 8, !tbaa !63
-  %113 = getelementptr inbounds nuw i8, ptr %.val.val, i64 48
-  %114 = load ptr, ptr %113, align 8, !tbaa !64
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %116 = load i64, ptr %115, align 8, !tbaa !65
-  %117 = call ptr @dom_get_elements_by_tag_name_ns_raw(ptr noundef nonnull %82, ptr noundef %.2, ptr noundef %110, ptr noundef %112, ptr noundef %114, ptr noundef nonnull %3, i64 noundef %116) #9
+php_dom_first_child_of_container_node.exit:       ; preds = %102, %100, %105
+  %.2 = phi ptr [ %110, %105 ], [ %101, %100 ], [ %104, %102 ]
+  %111 = getelementptr inbounds nuw i8, ptr %.val.val, i64 56
+  %112 = load ptr, ptr %111, align 8, !tbaa !62
+  %113 = getelementptr inbounds nuw i8, ptr %.val.val, i64 40
+  %114 = load ptr, ptr %113, align 8, !tbaa !63
+  %115 = getelementptr inbounds nuw i8, ptr %.val.val, i64 48
+  %116 = load ptr, ptr %115, align 8, !tbaa !64
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %118 = load i64, ptr %117, align 8, !tbaa !65
+  %119 = call ptr @dom_get_elements_by_tag_name_ns_raw(ptr noundef nonnull %82, ptr noundef %.2, ptr noundef %112, ptr noundef %114, ptr noundef %116, ptr noundef nonnull %3, i64 noundef %118) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
   br label %.critedge
 
-118:                                              ; preds = %14, %14
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %120 = load i64, ptr %119, align 8, !tbaa !65
-  %121 = trunc i64 %120 to i32
-  %122 = tail call ptr @php_dom_libxml_hash_iter(ptr noundef nonnull %.val.val, i32 noundef %121)
+120:                                              ; preds = %14, %14
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %122 = load i64, ptr %121, align 8, !tbaa !65
+  %123 = trunc i64 %122 to i32
+  %124 = tail call ptr @php_dom_libxml_hash_iter(ptr noundef nonnull %.val.val, i32 noundef %123)
   br label %.critedge
 
 .critedge.thread:                                 ; preds = %73, %43, %dom_fetch_first_iteration_item.exit, %8, %17
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #9
   store i32 0, ptr %5, align 8, !tbaa !38
-  br label %126
+  br label %128
 
-.critedge:                                        ; preds = %118, %php_dom_first_child_of_container_node.exit, %php_dom_follow_spec_doc_ref.exit.thread
-  %.0 = phi ptr [ %79, %php_dom_follow_spec_doc_ref.exit.thread ], [ %117, %php_dom_first_child_of_container_node.exit ], [ %122, %118 ]
+.critedge:                                        ; preds = %120, %php_dom_first_child_of_container_node.exit, %php_dom_follow_spec_doc_ref.exit.thread
+  %.0 = phi ptr [ %79, %php_dom_follow_spec_doc_ref.exit.thread ], [ %119, %php_dom_first_child_of_container_node.exit ], [ %124, %120 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #9
   store i32 0, ptr %5, align 8, !tbaa !38
   %.not73 = icmp eq ptr %.0, null
-  br i1 %.not73, label %126, label %123
+  br i1 %.not73, label %128, label %125
 
-123:                                              ; preds = %.critedge.thread85, %.critedge
+125:                                              ; preds = %.critedge.thread85, %.critedge
   %.088 = phi ptr [ %.193, %.critedge.thread85 ], [ %.0, %.critedge ]
-  %124 = load ptr, ptr %.val.val, align 8, !tbaa !53
-  %125 = call zeroext i1 @php_dom_create_object(ptr noundef nonnull %.088, ptr noundef nonnull %4, ptr noundef %124) #9
-  br label %126
+  %126 = load ptr, ptr %.val.val, align 8, !tbaa !53
+  %127 = call zeroext i1 @php_dom_create_object(ptr noundef nonnull %.088, ptr noundef nonnull %4, ptr noundef %126) #9
+  br label %128
 
-126:                                              ; preds = %.critedge.thread, %28, %23, %123, %.critedge, %1
+128:                                              ; preds = %.critedge.thread, %28, %23, %125, %.critedge, %1
   ret void
 }
 
@@ -784,12 +794,11 @@ attributes #10 = { nounwind allocsize(0) }
 !74 = !{!55, !12, i64 48}
 !75 = !{!55, !5, i64 0}
 !76 = !{!67, !5, i64 16}
-!77 = !{}
-!78 = !{!79, !52, i64 8}
-!79 = !{!"_php_libxml_node_object", !80, i64 0, !52, i64 8, !42, i64 16}
-!80 = !{!"p1 _ZTS20_php_libxml_node_ptr", !5, i64 0}
-!81 = !{!82, !26, i64 16}
-!82 = !{!"_php_libxml_ref_obj", !5, i64 0, !83, i64 8, !25, i64 16, !84, i64 24, !85, i64 32, !10, i64 40, !10, i64 44, !10, i64 45}
-!83 = !{!"p1 _ZTS17_libxml_doc_props", !5, i64 0}
-!84 = !{!"p1 _ZTS30php_libxml_private_data_header", !5, i64 0}
-!85 = !{!"p1 _ZTS28php_libxml_document_handlers", !5, i64 0}
+!77 = !{!78, !52, i64 8}
+!78 = !{!"_php_libxml_node_object", !79, i64 0, !52, i64 8, !42, i64 16}
+!79 = !{!"p1 _ZTS20_php_libxml_node_ptr", !5, i64 0}
+!80 = !{!81, !26, i64 16}
+!81 = !{!"_php_libxml_ref_obj", !5, i64 0, !82, i64 8, !25, i64 16, !83, i64 24, !84, i64 32, !10, i64 40, !10, i64 44, !10, i64 45}
+!82 = !{!"p1 _ZTS17_libxml_doc_props", !5, i64 0}
+!83 = !{!"p1 _ZTS30php_libxml_private_data_header", !5, i64 0}
+!84 = !{!"p1 _ZTS28php_libxml_document_handlers", !5, i64 0}

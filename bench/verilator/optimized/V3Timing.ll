@@ -36101,8 +36101,8 @@ _ZZN7AstNode11foreachImplI6AstSelZN20TimingControlVisitor5visitEP13AstNodeAssign
   br i1 %38, label %.lr.ph, label %._crit_edge, !prof !614
 
 .lr.ph:                                           ; preds = %_ZZN7AstNode11foreachImplI6AstSelZN20TimingControlVisitor5visitEP13AstNodeAssignEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread, %_ZZN7AstNode11foreachImplI6AstSelZN20TimingControlVisitor5visitEP13AstNodeAssignEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit
-  %.7.idx92 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI6AstSelZN20TimingControlVisitor5visitEP13AstNodeAssignEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread ], [ %.6.idx, %_ZZN7AstNode11foreachImplI6AstSelZN20TimingControlVisitor5visitEP13AstNodeAssignEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit ]
-  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx92
+  %.7.idx91 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI6AstSelZN20TimingControlVisitor5visitEP13AstNodeAssignEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread ], [ %.6.idx, %_ZZN7AstNode11foreachImplI6AstSelZN20TimingControlVisitor5visitEP13AstNodeAssignEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit ]
+  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx91
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -36690,8 +36690,8 @@ _ZZN7AstNode11foreachImplI10AstNodeSelZN20TimingControlVisitor5visitEP13AstNodeA
   br i1 %38, label %.lr.ph, label %._crit_edge, !prof !614
 
 .lr.ph:                                           ; preds = %_ZZN7AstNode11foreachImplI10AstNodeSelZN20TimingControlVisitor5visitEP13AstNodeAssignEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread, %_ZZN7AstNode11foreachImplI10AstNodeSelZN20TimingControlVisitor5visitEP13AstNodeAssignEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit
-  %.7.idx93 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI10AstNodeSelZN20TimingControlVisitor5visitEP13AstNodeAssignEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread ], [ %.6.idx, %_ZZN7AstNode11foreachImplI10AstNodeSelZN20TimingControlVisitor5visitEP13AstNodeAssignEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit ]
-  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx93
+  %.7.idx92 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI10AstNodeSelZN20TimingControlVisitor5visitEP13AstNodeAssignEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread ], [ %.6.idx, %_ZZN7AstNode11foreachImplI10AstNodeSelZN20TimingControlVisitor5visitEP13AstNodeAssignEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit ]
+  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx92
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 16

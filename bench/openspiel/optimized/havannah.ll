@@ -4736,7 +4736,7 @@ define noundef zeroext i1 @_ZN10open_spiel8havannah13HavannahState12CheckRingDFS
 define void @_ZNK10open_spiel8havannah13HavannahState5CloneEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(122) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #29
   invoke void @_ZN10open_spiel5StateC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(122) %3, ptr noundef nonnull align 8 dereferenceable(122) %1)
-          to label %.noexc unwind label %27
+          to label %.noexc unwind label %29
 
 .noexc:                                           ; preds = %2
   store ptr getelementptr inbounds nuw inrange(-16, 304) (i8, ptr @_ZTVN10open_spiel8havannah13HavannahStateE, i64 16), ptr %3, align 8
@@ -4750,70 +4750,73 @@ define void @_ZNK10open_spiel8havannah13HavannahState5CloneEv(ptr dead_on_unwind
   %11 = sub i64 %9, %10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq ptr %7, %8
-  br i1 %.not.i.i.i.i.i, label %.noexc5.i.thread, label %13
+  br i1 %.not.i.i.i.i.i, label %.noexc5.i.thread, label %15
 
 .noexc5.i.thread:                                 ; preds = %.noexc
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  %13 = getelementptr inbounds i8, ptr null, i64 %11
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  store ptr %13, ptr %14, align 8
   br label %.loopexit
 
-13:                                               ; preds = %.noexc
-  %14 = icmp ugt i64 %11, 9223372036854775800
-  br i1 %14, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIN10open_spiel8havannah13HavannahState4CellEEE8allocateERS4_m.exit.i.i.i.i.i
+15:                                               ; preds = %.noexc
+  %16 = icmp ugt i64 %11, 9223372036854775800
+  br i1 %16, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIN10open_spiel8havannah13HavannahState4CellEEE8allocateERS4_m.exit.i.i.i.i.i
 
-.noexc.i.i.i:                                     ; preds = %13
+.noexc.i.i.i:                                     ; preds = %15
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #26
-          to label %.noexc.i unwind label %22
+          to label %.noexc.i unwind label %24
 
 .noexc.i:                                         ; preds = %.noexc.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIN10open_spiel8havannah13HavannahState4CellEEE8allocateERS4_m.exit.i.i.i.i.i: ; preds = %13
-  %15 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #29
-          to label %.noexc5.i unwind label %22
+_ZNSt16allocator_traitsISaIN10open_spiel8havannah13HavannahState4CellEEE8allocateERS4_m.exit.i.i.i.i.i: ; preds = %15
+  %17 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #29
+          to label %.noexc5.i unwind label %24
 
 .noexc5.i:                                        ; preds = %_ZNSt16allocator_traitsISaIN10open_spiel8havannah13HavannahState4CellEEE8allocateERS4_m.exit.i.i.i.i.i
-  store ptr %15, ptr %4, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 %11
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store ptr %17, ptr %4, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr %17, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %11
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store ptr %19, ptr %20, align 8
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc5.i, %.lr.ph.i.i.i.i.i.i
-  %.09.i.i.i.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i.i.i.i ], [ %15, %.noexc5.i ]
-  %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %20, %.lr.ph.i.i.i.i.i.i ], [ %8, %.noexc5.i ]
-  %19 = load i64, ptr %.sroa.04.08.i.i.i.i.i.i, align 2
-  store i64 %19, ptr %.09.i.i.i.i.i.i, align 2
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 8
-  %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %20, %7
+  %.09.i.i.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i.i.i ], [ %17, %.noexc5.i ]
+  %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i.i.i.i ], [ %8, %.noexc5.i ]
+  %21 = load i64, ptr %.sroa.04.08.i.i.i.i.i.i, align 2
+  store i64 %21, ptr %.09.i.i.i.i.i.i, align 2
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %22, %7
   br i1 %.not.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !40
 
-22:                                               ; preds = %_ZNSt16allocator_traitsISaIN10open_spiel8havannah13HavannahState4CellEEE8allocateERS4_m.exit.i.i.i.i.i, %.noexc.i.i.i
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %_ZNSt16allocator_traitsISaIN10open_spiel8havannah13HavannahState4CellEEE8allocateERS4_m.exit.i.i.i.i.i, %.noexc.i.i.i
+  %25 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN10open_spiel5StateD2Ev(ptr noundef nonnull align 8 dereferenceable(122) %3) #27
   br label %.body
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc5.i.thread
-  %24 = phi ptr [ %12, %.noexc5.i.thread ], [ %16, %.lr.ph.i.i.i.i.i.i ]
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %.noexc5.i.thread ], [ %21, %.lr.ph.i.i.i.i.i.i ]
-  store ptr %.0.lcssa.i.i.i.i.i.i, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %25, ptr noundef nonnull align 8 dereferenceable(34) %26, i64 34, i1 false)
+  %26 = phi ptr [ %12, %.noexc5.i.thread ], [ %18, %.lr.ph.i.i.i.i.i.i ]
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %.noexc5.i.thread ], [ %23, %.lr.ph.i.i.i.i.i.i ]
+  store ptr %.0.lcssa.i.i.i.i.i.i, ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %27, ptr noundef nonnull align 8 dereferenceable(34) %28, i64 34, i1 false)
   store ptr %3, ptr %0, align 8
   ret void
 
-27:                                               ; preds = %2
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %2
+  %30 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %22, %27
-  %eh.lpad-body = phi { ptr, i32 } [ %28, %27 ], [ %23, %22 ]
+.body:                                            ; preds = %24, %29
+  %eh.lpad-body = phi { ptr, i32 } [ %30, %29 ], [ %25, %24 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 128) #30
   resume { ptr, i32 } %eh.lpad-body
 }

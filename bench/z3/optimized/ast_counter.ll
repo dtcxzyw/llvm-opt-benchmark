@@ -1449,7 +1449,12 @@ _ZN7counterC2Ev.exit.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %174, i8 0, i64 32, i1 false)
   %189 = load ptr, ptr %5, align 8, !tbaa !63
   %190 = icmp eq ptr %189, null
-  br i1 %190, label %196, label %191
+  br i1 %190, label %._crit_edge, label %191
+
+._crit_edge:                                      ; preds = %188
+  %.pre103 = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !8
+  %.pre106 = add i32 %.pre103, -1
+  br label %196
 
 191:                                              ; preds = %188
   %192 = getelementptr inbounds i8, ptr %189, i64 -4
@@ -1458,9 +1463,9 @@ _ZN7counterC2Ev.exit.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.
   %195 = zext i32 %194 to i64
   br label %196
 
-196:                                              ; preds = %191, %188
-  %.pre-phi = phi i32 [ %194, %191 ], [ undef, %188 ]
-  %.0.i.i49 = phi i64 [ %195, %191 ], [ 4294967295, %188 ]
+196:                                              ; preds = %191, %._crit_edge
+  %.pre-phi = phi i32 [ %.pre106, %._crit_edge ], [ %194, %191 ]
+  %.0.i.i49 = phi i64 [ 4294967295, %._crit_edge ], [ %195, %191 ]
   %197 = getelementptr inbounds nuw ptr, ptr %189, i64 %.0.i.i49
   %198 = load ptr, ptr %197, align 8, !tbaa !78
   %199 = getelementptr inbounds i8, ptr %189, i64 -4

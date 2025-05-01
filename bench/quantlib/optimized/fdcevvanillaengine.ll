@@ -2172,6 +2172,10 @@ _ZN5boost10shared_ptrIN8QuantLib9FdmMesherEEC2ERKS3_.exit: ; preds = %if.end165,
 
 invoke.cont.i282.thread:                          ; preds = %_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEEC2ERKS3_.exit
   %_M_finish.i.i.i560 = getelementptr inbounds nuw i8, ptr %solverDesc, i64 24
+  %add.ptr.i.i.i561 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i280
+  %_M_end_of_storage.i.i.i562 = getelementptr inbounds nuw i8, ptr %solverDesc, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bcSet, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i561, ptr %_M_end_of_storage.i.i.i562, align 8, !tbaa !139
   br label %invoke.cont168
 
 cond.true.i.i.i.i:                                ; preds = %_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEEC2ERKS3_.exit

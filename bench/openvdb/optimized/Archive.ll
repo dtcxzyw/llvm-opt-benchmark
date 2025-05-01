@@ -13085,7 +13085,13 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZNSt6vectorISt10shared_ptrIKN7openvdb5v11_08GridBaseEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i: ; preds = %entry
   %cmp.not.i.i.i = icmp eq ptr %1, %0
-  br i1 %cmp.not.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.preheader.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseISt10shared_ptrIKN7openvdb5v11_08GridBaseEESaIS5_EE11_M_allocateEm.exit.thread.i.i, label %for.body.i.i.i.i.preheader.i.i
+
+_ZNSt12_Vector_baseISt10shared_ptrIKN7openvdb5v11_08GridBaseEESaIS5_EE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorISt10shared_ptrIKN7openvdb5v11_08GridBaseEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i
+  %add.ptr3.i.i = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i
+  %_M_end_of_storage4.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  store ptr %add.ptr3.i.i, ptr %_M_end_of_storage4.i.i, align 8
+  br label %invoke.cont
 
 for.body.i.i.i.i.preheader.i.i:                   ; preds = %_ZNSt6vectorISt10shared_ptrIKN7openvdb5v11_08GridBaseEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i
   %call5.i.i.i.i1.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i.i) #38
@@ -13129,8 +13135,8 @@ _ZSt10_ConstructISt10shared_ptrIKN7openvdb5v11_08GridBaseEEJRKS0_IS3_EEEvPT_DpOT
   %cmp.i.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %1
   br i1 %cmp.i.not.i.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i.i, !llvm.loop !57
 
-invoke.cont:                                      ; preds = %_ZSt10_ConstructISt10shared_ptrIKN7openvdb5v11_08GridBaseEEJRKS0_IS3_EEEvPT_DpOT0_.exit.i.i.i.i.i.i, %_ZNSt6vectorISt10shared_ptrIKN7openvdb5v11_08GridBaseEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i
-  %7 = phi ptr [ null, %_ZNSt6vectorISt10shared_ptrIKN7openvdb5v11_08GridBaseEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %_ZSt10_ConstructISt10shared_ptrIKN7openvdb5v11_08GridBaseEEJRKS0_IS3_EEEvPT_DpOT0_.exit.i.i.i.i.i.i ]
+invoke.cont:                                      ; preds = %_ZSt10_ConstructISt10shared_ptrIKN7openvdb5v11_08GridBaseEEJRKS0_IS3_EEEvPT_DpOT0_.exit.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIKN7openvdb5v11_08GridBaseEESaIS5_EE11_M_allocateEm.exit.thread.i.i
+  %7 = phi ptr [ null, %_ZNSt12_Vector_baseISt10shared_ptrIKN7openvdb5v11_08GridBaseEESaIS5_EE11_M_allocateEm.exit.thread.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %_ZSt10_ConstructISt10shared_ptrIKN7openvdb5v11_08GridBaseEEJRKS0_IS3_EEEvPT_DpOT0_.exit.i.i.i.i.i.i ]
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store ptr %7, ptr %_M_finish.i.i, align 8
   invoke void @_ZNK7openvdb5v11_02io7Archive5writeERSoRKSt6vectorISt10shared_ptrIKNS0_8GridBaseEESaIS8_EEbRKNS0_7MetaMapE(ptr noundef nonnull align 8 dereferenceable(65) %this, ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i1 noundef zeroext %seekable, ptr noundef nonnull align 8 dereferenceable(56) %metadata)

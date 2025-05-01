@@ -4950,27 +4950,28 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE19_M_range_initializeIPKiEEvT_S5_S
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit: ; preds = %3
   %.not.i = icmp eq ptr %2, %1
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread, label %11
+  br i1 %.not.i, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread, label %12
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread: ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit
   store ptr null, ptr %0, align 8, !tbaa !13
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %10, align 8, !tbaa !17
+  %10 = getelementptr inbounds i8, ptr null, i64 %6
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %10, ptr %11, align 8, !tbaa !17
   br label %_ZSt22__uninitialized_copy_aIPKiPiiET0_T_S4_S3_RSaIT1_E.exit
 
-11:                                               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit
-  %12 = tail call noundef ptr @_ZNSt15__new_allocatorIiE8allocateEmPKv(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %7, ptr noundef null) #16
-  store ptr %12, ptr %0, align 8, !tbaa !13
-  %13 = getelementptr inbounds i8, ptr %12, i64 %6
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %13, ptr %14, align 8, !tbaa !17
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %12, ptr align 4 %1, i64 %6, i1 false)
+12:                                               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit
+  %13 = tail call noundef ptr @_ZNSt15__new_allocatorIiE8allocateEmPKv(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %7, ptr noundef null) #16
+  store ptr %13, ptr %0, align 8, !tbaa !13
+  %14 = getelementptr inbounds i8, ptr %13, i64 %6
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %14, ptr %15, align 8, !tbaa !17
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %13, ptr align 4 %1, i64 %6, i1 false)
   br label %_ZSt22__uninitialized_copy_aIPKiPiiET0_T_S4_S3_RSaIT1_E.exit
 
-_ZSt22__uninitialized_copy_aIPKiPiiET0_T_S4_S3_RSaIT1_E.exit: ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread, %11
-  %15 = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread ], [ %13, %11 ]
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %15, ptr %16, align 8, !tbaa !33
+_ZSt22__uninitialized_copy_aIPKiPiiET0_T_S4_S3_RSaIT1_E.exit: ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread, %12
+  %16 = phi ptr [ %10, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread ], [ %14, %12 ]
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %16, ptr %17, align 8, !tbaa !33
   ret void
 }
 

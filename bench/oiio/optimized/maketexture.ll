@@ -70717,9 +70717,11 @@ _ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EE17_S_check_init_lenEmRKS3
   br i1 %.not.i.i, label %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.thread, label %.lr.ph.i.i.i.i.preheader.i
 
 _ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.thread: ; preds = %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
+  %.sroa.15.022 = getelementptr inbounds nuw i8, ptr null, i64 %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !173
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  store ptr %.sroa.15.022, ptr %11, align 8, !tbaa !173
   br label %_ZSt8_DestroyIPN11OpenImageIO6v3_1_010ParamValueES2_EvT_S4_RSaIT0_E.exit.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
@@ -70776,49 +70778,49 @@ _ZNSt12_Vector_baseIN11OpenImageIO6v3_1_010ParamValueESaIS2_EED2Ev.exit.i: ; pre
   %.09 = extractvalue { ptr, i32 } %39, 0
   %40 = tail call ptr @__cxa_begin_catch(ptr %.09) #28
   invoke void @__cxa_end_catch()
-          to label %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EED2Ev.exit unwind label %51
+          to label %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EED2Ev.exit unwind label %50
 
 _ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %41 = getelementptr inbounds nuw i8, ptr %13, i64 %7
   %.pre = load ptr, ptr %0, align 8, !tbaa !169
   %.pre19 = load ptr, ptr %3, align 8, !tbaa !170
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !173
+  %.sroa.15.0 = getelementptr inbounds nuw i8, ptr %13, i64 %7
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %42 = load ptr, ptr %41, align 8, !tbaa !173
   store ptr %13, ptr %0, align 8, !tbaa !169
   store ptr %38, ptr %3, align 8, !tbaa !170
-  store ptr %41, ptr %42, align 8, !tbaa !173
+  store ptr %.sroa.15.0, ptr %41, align 8, !tbaa !173
   %.not4.i.i.i.i = icmp eq ptr %.pre, %.pre19
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN11OpenImageIO6v3_1_010ParamValueES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i ], [ %.pre, %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit ]
+  %.05.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i ], [ %.pre, %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit ]
   tail call void @_ZN11OpenImageIO6v3_1_010ParamValue11clear_valueEv(ptr noundef nonnull align 8 dereferenceable(39) %.05.i.i.i.i) #28
-  %44 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 40
-  %.not.i.i.i.i = icmp eq ptr %44, %.pre19
+  %43 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 40
+  %.not.i.i.i.i = icmp eq ptr %43, %.pre19
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN11OpenImageIO6v3_1_010ParamValueES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !171
 
 _ZSt8_DestroyIPN11OpenImageIO6v3_1_010ParamValueES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.thread, %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit
-  %45 = phi ptr [ %12, %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.thread ], [ %43, %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit ], [ %43, %.lr.ph.i.i.i.i ]
-  %46 = phi ptr [ %2, %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.thread ], [ %.pre, %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit ], [ %.pre, %.lr.ph.i.i.i.i ]
-  %.not.i.i.i10 = icmp eq ptr %46, null
-  br i1 %.not.i.i.i10, label %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EED2Ev.exit, label %47
+  %44 = phi ptr [ %12, %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.thread ], [ %42, %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit ], [ %42, %.lr.ph.i.i.i.i ]
+  %45 = phi ptr [ %2, %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.thread ], [ %.pre, %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit ], [ %.pre, %.lr.ph.i.i.i.i ]
+  %.not.i.i.i10 = icmp eq ptr %45, null
+  br i1 %.not.i.i.i10, label %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EED2Ev.exit, label %46
 
-47:                                               ; preds = %_ZSt8_DestroyIPN11OpenImageIO6v3_1_010ParamValueES2_EvT_S4_RSaIT0_E.exit.i
+46:                                               ; preds = %_ZSt8_DestroyIPN11OpenImageIO6v3_1_010ParamValueES2_EvT_S4_RSaIT0_E.exit.i
+  %47 = ptrtoint ptr %44 to i64
   %48 = ptrtoint ptr %45 to i64
-  %49 = ptrtoint ptr %46 to i64
-  %50 = sub i64 %48, %49
-  tail call void @_ZdlPvm(ptr noundef nonnull %46, i64 noundef %50) #29
+  %49 = sub i64 %47, %48
+  tail call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef %49) #29
   br label %_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EED2Ev.exit: ; preds = %47, %_ZSt8_DestroyIPN11OpenImageIO6v3_1_010ParamValueES2_EvT_S4_RSaIT0_E.exit.i, %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_010ParamValueESaIS2_EED2Ev.exit.i
-  %.0 = phi i1 [ false, %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_010ParamValueESaIS2_EED2Ev.exit.i ], [ true, %_ZSt8_DestroyIPN11OpenImageIO6v3_1_010ParamValueES2_EvT_S4_RSaIT0_E.exit.i ], [ true, %47 ]
+_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EED2Ev.exit: ; preds = %46, %_ZSt8_DestroyIPN11OpenImageIO6v3_1_010ParamValueES2_EvT_S4_RSaIT0_E.exit.i, %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_010ParamValueESaIS2_EED2Ev.exit.i
+  %.0 = phi i1 [ false, %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_010ParamValueESaIS2_EED2Ev.exit.i ], [ true, %_ZSt8_DestroyIPN11OpenImageIO6v3_1_010ParamValueES2_EvT_S4_RSaIT0_E.exit.i ], [ true, %46 ]
   ret i1 %.0
 
-51:                                               ; preds = %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_010ParamValueESaIS2_EED2Ev.exit.i
-  %52 = landingpad { ptr, i32 }
+50:                                               ; preds = %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_010ParamValueESaIS2_EED2Ev.exit.i
+  %51 = landingpad { ptr, i32 }
           catch ptr null
-  %53 = extractvalue { ptr, i32 } %52, 0
-  tail call void @__clang_call_terminate(ptr %53) #30
+  %52 = extractvalue { ptr, i32 } %51, 0
+  tail call void @__clang_call_terminate(ptr %52) #30
   unreachable
 }
 

@@ -6029,7 +6029,12 @@ define linkonce_odr hidden void @_ZN15expr2polynomial3imp14process_uminusEP3app(
   %.pre = load ptr, ptr %8, align 8, !tbaa !62
   store ptr %19, ptr %3, align 8, !tbaa !110
   %23 = icmp eq ptr %.pre, null
-  br i1 %23, label %_ZN6vectorIPN10polynomial10polynomialELb0EjE4backEv.exit.i, label %24
+  br i1 %23, label %._ZN6vectorIPN10polynomial10polynomialELb0EjE4backEv.exit_crit_edge.i, label %24
+
+._ZN6vectorIPN10polynomial10polynomialELb0EjE4backEv.exit_crit_edge.i: ; preds = %22
+  %.pre.i = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !80
+  %.pre2.i = add i32 %.pre.i, -1
+  br label %_ZN6vectorIPN10polynomial10polynomialELb0EjE4backEv.exit.i
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds i8, ptr %.pre, i64 -4
@@ -6038,9 +6043,9 @@ define linkonce_odr hidden void @_ZN15expr2polynomial3imp14process_uminusEP3app(
   %28 = zext i32 %27 to i64
   br label %_ZN6vectorIPN10polynomial10polynomialELb0EjE4backEv.exit.i
 
-_ZN6vectorIPN10polynomial10polynomialELb0EjE4backEv.exit.i: ; preds = %24, %22
-  %.pre-phi.i = phi i32 [ %27, %24 ], [ undef, %22 ]
-  %.0.i.i.i4 = phi i64 [ %28, %24 ], [ 4294967295, %22 ]
+_ZN6vectorIPN10polynomial10polynomialELb0EjE4backEv.exit.i: ; preds = %24, %._ZN6vectorIPN10polynomial10polynomialELb0EjE4backEv.exit_crit_edge.i
+  %.pre-phi.i = phi i32 [ %.pre2.i, %._ZN6vectorIPN10polynomial10polynomialELb0EjE4backEv.exit_crit_edge.i ], [ %27, %24 ]
+  %.0.i.i.i4 = phi i64 [ 4294967295, %._ZN6vectorIPN10polynomial10polynomialELb0EjE4backEv.exit_crit_edge.i ], [ %28, %24 ]
   %29 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.0.i.i.i4
   %30 = load ptr, ptr %29, align 8, !tbaa !81
   %31 = getelementptr inbounds i8, ptr %.pre, i64 -4

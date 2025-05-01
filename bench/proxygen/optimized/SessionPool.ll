@@ -176,7 +176,8 @@ while.body.lr.ph.i:                               ; preds = %entry
 
 while.body.i:                                     ; preds = %.noexc, %while.body.lr.ph.i
   %2 = load ptr, ptr %prev_.i.i, align 8
-  invoke void @_ZN8proxygen13SessionHolder5drainEv(ptr noundef nonnull align 8 dereferenceable(152) %2)
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 -8
+  invoke void @_ZN8proxygen13SessionHolder5drainEv(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i.i)
           to label %.noexc unwind label %terminate.lpad.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %while.body.i
@@ -199,103 +200,105 @@ while.body.lr.ph.i4:                              ; preds = %invoke.cont
   %prev_.i.i5 = getelementptr inbounds nuw i8, ptr %this, i64 80
   br label %while.body.i6
 
-while.body.i6:                                    ; preds = %.noexc9, %while.body.lr.ph.i4
+while.body.i6:                                    ; preds = %.noexc10, %while.body.lr.ph.i4
   %7 = load ptr, ptr %prev_.i.i5, align 8
-  invoke void @_ZN8proxygen13SessionHolder5drainEv(ptr noundef nonnull align 8 dereferenceable(152) %7)
-          to label %.noexc9 unwind label %terminate.lpad.loopexit.split-lp.loopexit
+  %add.ptr.i.i7 = getelementptr inbounds i8, ptr %7, i64 -8
+  invoke void @_ZN8proxygen13SessionHolder5drainEv(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i.i7)
+          to label %.noexc10 unwind label %terminate.lpad.loopexit.split-lp.loopexit
 
-.noexc9:                                          ; preds = %while.body.i6
+.noexc10:                                         ; preds = %while.body.i6
   %8 = load ptr, ptr %m_header.i27.i1, align 8
-  %tobool.not.i.i7 = icmp eq ptr %8, null
-  %cmp.i.i8 = icmp eq ptr %8, %m_header.i27.i1
-  %9 = or i1 %tobool.not.i.i7, %cmp.i.i8
+  %tobool.not.i.i8 = icmp eq ptr %8, null
+  %cmp.i.i9 = icmp eq ptr %8, %m_header.i27.i1
+  %9 = or i1 %tobool.not.i.i8, %cmp.i.i9
   br i1 %9, label %invoke.cont2, label %while.body.i6, !llvm.loop !6
 
-invoke.cont2:                                     ; preds = %.noexc9, %invoke.cont
+invoke.cont2:                                     ; preds = %.noexc10, %invoke.cont
   %fullSessionList_ = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %m_header.i27.i11 = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %10 = load ptr, ptr %m_header.i27.i11, align 8
-  %tobool.not.i2.i12 = icmp eq ptr %10, null
-  %cmp.i3.i13 = icmp eq ptr %10, %m_header.i27.i11
-  %11 = or i1 %tobool.not.i2.i12, %cmp.i3.i13
-  br i1 %11, label %while.end, label %while.body.lr.ph.i14
+  %m_header.i27.i12 = getelementptr inbounds nuw i8, ptr %this, i64 96
+  %10 = load ptr, ptr %m_header.i27.i12, align 8
+  %tobool.not.i2.i13 = icmp eq ptr %10, null
+  %cmp.i3.i14 = icmp eq ptr %10, %m_header.i27.i12
+  %11 = or i1 %tobool.not.i2.i13, %cmp.i3.i14
+  br i1 %11, label %while.end, label %while.body.lr.ph.i15
 
-while.body.lr.ph.i14:                             ; preds = %invoke.cont2
-  %prev_.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 104
-  br label %while.body.i16
+while.body.lr.ph.i15:                             ; preds = %invoke.cont2
+  %prev_.i.i16 = getelementptr inbounds nuw i8, ptr %this, i64 104
+  br label %while.body.i17
 
-while.body.i16:                                   ; preds = %.noexc19, %while.body.lr.ph.i14
-  %12 = load ptr, ptr %prev_.i.i15, align 8
-  invoke void @_ZN8proxygen13SessionHolder5drainEv(ptr noundef nonnull align 8 dereferenceable(152) %12)
-          to label %.noexc19 unwind label %terminate.lpad.loopexit
+while.body.i17:                                   ; preds = %.noexc21, %while.body.lr.ph.i15
+  %12 = load ptr, ptr %prev_.i.i16, align 8
+  %add.ptr.i.i18 = getelementptr inbounds i8, ptr %12, i64 -8
+  invoke void @_ZN8proxygen13SessionHolder5drainEv(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i.i18)
+          to label %.noexc21 unwind label %terminate.lpad.loopexit
 
-.noexc19:                                         ; preds = %while.body.i16
-  %13 = load ptr, ptr %m_header.i27.i11, align 8
-  %tobool.not.i.i17 = icmp eq ptr %13, null
-  %cmp.i.i18 = icmp eq ptr %13, %m_header.i27.i11
-  %14 = or i1 %tobool.not.i.i17, %cmp.i.i18
-  br i1 %14, label %while.end, label %while.body.i16, !llvm.loop !6
+.noexc21:                                         ; preds = %while.body.i17
+  %13 = load ptr, ptr %m_header.i27.i12, align 8
+  %tobool.not.i.i19 = icmp eq ptr %13, null
+  %cmp.i.i20 = icmp eq ptr %13, %m_header.i27.i12
+  %14 = or i1 %tobool.not.i.i19, %cmp.i.i20
+  br i1 %14, label %while.end, label %while.body.i17, !llvm.loop !6
 
-while.end:                                        ; preds = %.noexc19, %invoke.cont2
-  %15 = phi ptr [ %10, %invoke.cont2 ], [ %13, %.noexc19 ]
-  %cmp.i.not6.i.i.i.i = icmp eq ptr %15, %m_header.i27.i11
+while.end:                                        ; preds = %.noexc21, %invoke.cont2
+  %15 = phi ptr [ %10, %invoke.cont2 ], [ %13, %.noexc21 ]
+  %cmp.i.not6.i.i.i.i = icmp eq ptr %15, %m_header.i27.i12
   br i1 %cmp.i.not6.i.i.i.i, label %_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.end, %while.body.i.i.i.i
   %it.sroa.0.07.i.i.i.i = phi ptr [ %16, %while.body.i.i.i.i ], [ %15, %while.end ]
   %16 = load ptr, ptr %it.sroa.0.07.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.07.i.i.i.i, i8 0, i64 16, i1 false)
-  %cmp.i.not.i.i.i.i = icmp eq ptr %16, %m_header.i27.i11
+  %cmp.i.not.i.i.i.i = icmp eq ptr %16, %m_header.i27.i12
   br i1 %cmp.i.not.i.i.i.i, label %_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit, label %while.body.i.i.i.i, !llvm.loop !4
 
 _ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit: ; preds = %while.body.i.i.i.i, %while.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fullSessionList_, i8 0, i64 24, i1 false)
   %17 = load ptr, ptr %m_header.i27.i1, align 8
-  %cmp.i.not6.i.i.i.i22 = icmp eq ptr %17, %m_header.i27.i1
-  br i1 %cmp.i.not6.i.i.i.i22, label %_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit26, label %while.body.i.i.i.i23
+  %cmp.i.not6.i.i.i.i24 = icmp eq ptr %17, %m_header.i27.i1
+  br i1 %cmp.i.not6.i.i.i.i24, label %_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit28, label %while.body.i.i.i.i25
 
-while.body.i.i.i.i23:                             ; preds = %_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit, %while.body.i.i.i.i23
-  %it.sroa.0.07.i.i.i.i24 = phi ptr [ %18, %while.body.i.i.i.i23 ], [ %17, %_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit ]
-  %18 = load ptr, ptr %it.sroa.0.07.i.i.i.i24, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.07.i.i.i.i24, i8 0, i64 16, i1 false)
-  %cmp.i.not.i.i.i.i25 = icmp eq ptr %18, %m_header.i27.i1
-  br i1 %cmp.i.not.i.i.i.i25, label %_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit26, label %while.body.i.i.i.i23, !llvm.loop !4
+while.body.i.i.i.i25:                             ; preds = %_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit, %while.body.i.i.i.i25
+  %it.sroa.0.07.i.i.i.i26 = phi ptr [ %18, %while.body.i.i.i.i25 ], [ %17, %_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit ]
+  %18 = load ptr, ptr %it.sroa.0.07.i.i.i.i26, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.07.i.i.i.i26, i8 0, i64 16, i1 false)
+  %cmp.i.not.i.i.i.i27 = icmp eq ptr %18, %m_header.i27.i1
+  br i1 %cmp.i.not.i.i.i.i27, label %_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit28, label %while.body.i.i.i.i25, !llvm.loop !4
 
-_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit26: ; preds = %while.body.i.i.i.i23, %_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit
+_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit28: ; preds = %while.body.i.i.i.i25, %_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unfilledSessionList_, i8 0, i64 24, i1 false)
   %19 = load ptr, ptr %m_header.i27.i, align 8
-  %cmp.i.not6.i.i.i.i28 = icmp eq ptr %19, %m_header.i27.i
-  br i1 %cmp.i.not6.i.i.i.i28, label %_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit32, label %while.body.i.i.i.i29
+  %cmp.i.not6.i.i.i.i30 = icmp eq ptr %19, %m_header.i27.i
+  br i1 %cmp.i.not6.i.i.i.i30, label %_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit34, label %while.body.i.i.i.i31
 
-while.body.i.i.i.i29:                             ; preds = %_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit26, %while.body.i.i.i.i29
-  %it.sroa.0.07.i.i.i.i30 = phi ptr [ %20, %while.body.i.i.i.i29 ], [ %19, %_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit26 ]
-  %20 = load ptr, ptr %it.sroa.0.07.i.i.i.i30, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.07.i.i.i.i30, i8 0, i64 16, i1 false)
-  %cmp.i.not.i.i.i.i31 = icmp eq ptr %20, %m_header.i27.i
-  br i1 %cmp.i.not.i.i.i.i31, label %_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit32, label %while.body.i.i.i.i29, !llvm.loop !4
+while.body.i.i.i.i31:                             ; preds = %_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit28, %while.body.i.i.i.i31
+  %it.sroa.0.07.i.i.i.i32 = phi ptr [ %20, %while.body.i.i.i.i31 ], [ %19, %_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit28 ]
+  %20 = load ptr, ptr %it.sroa.0.07.i.i.i.i32, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.07.i.i.i.i32, i8 0, i64 16, i1 false)
+  %cmp.i.not.i.i.i.i33 = icmp eq ptr %20, %m_header.i27.i
+  br i1 %cmp.i.not.i.i.i.i33, label %_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit34, label %while.body.i.i.i.i31, !llvm.loop !4
 
-_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit32: ; preds = %while.body.i.i.i.i29, %_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit26
+_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit34: ; preds = %while.body.i.i.i.i31, %_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit28
   %idleSessionList_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %idleSessionList_, i8 0, i64 24, i1 false)
   ret void
 
-terminate.lpad.loopexit:                          ; preds = %while.body.i16
+terminate.lpad.loopexit:                          ; preds = %while.body.i17
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
   br label %terminate.lpad
 
 terminate.lpad.loopexit.split-lp.loopexit:        ; preds = %while.body.i6
-  %lpad.loopexit33 = landingpad { ptr, i32 }
+  %lpad.loopexit35 = landingpad { ptr, i32 }
           catch ptr null
   br label %terminate.lpad
 
 terminate.lpad.loopexit.split-lp.loopexit.split-lp: ; preds = %while.body.i
-  %lpad.loopexit.split-lp34 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp36 = landingpad { ptr, i32 }
           catch ptr null
   br label %terminate.lpad
 
 terminate.lpad:                                   ; preds = %terminate.lpad.loopexit.split-lp.loopexit, %terminate.lpad.loopexit.split-lp.loopexit.split-lp, %terminate.lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit33, %terminate.lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp34, %terminate.lpad.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit35, %terminate.lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp36, %terminate.lpad.loopexit.split-lp.loopexit.split-lp ]
   %21 = extractvalue { ptr, i32 } %lpad.phi, 0
   tail call void @__clang_call_terminate(ptr %21) #19
   unreachable
@@ -317,7 +320,8 @@ while.body.lr.ph:                                 ; preds = %entry
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %2 = load ptr, ptr %prev_.i, align 8
-  tail call void @_ZN8proxygen13SessionHolder5drainEv(ptr noundef nonnull align 8 dereferenceable(152) %2)
+  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 -8
+  tail call void @_ZN8proxygen13SessionHolder5drainEv(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i)
   %3 = load ptr, ptr %m_header.i27, align 8
   %tobool.not.i = icmp eq ptr %3, null
   %cmp.i = icmp eq ptr %3, %m_header.i27
@@ -412,7 +416,11 @@ entry:
   %idleSessionList_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %idleSessionList_, align 8
   %cmp.not.i = icmp ugt i64 %0, 4294967295
-  br i1 %cmp.not.i, label %if.else.i, label %while.end
+  br i1 %cmp.not.i, label %if.else.i, label %_ZN6google12Check_LEImplImjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread
+
+_ZN6google12Check_LEImplImjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread: ; preds = %entry
+  store ptr null, ptr %_result, align 8
+  br label %while.end
 
 if.else.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %comb.i.i)
@@ -465,8 +473,8 @@ lpad:                                             ; preds = %while.body
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp17) #19
   unreachable
 
-while.end:                                        ; preds = %entry, %_ZN6google12Check_LEImplImjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge
-  %4 = phi i64 [ %.pre, %_ZN6google12Check_LEImplImjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge ], [ %0, %entry ]
+while.end:                                        ; preds = %_ZN6google12Check_LEImplImjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge, %_ZN6google12Check_LEImplImjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread
+  %4 = phi i64 [ %.pre, %_ZN6google12Check_LEImplImjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge ], [ %0, %_ZN6google12Check_LEImplImjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread ]
   %m_header.i79 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %5 = load ptr, ptr %m_header.i79, align 8
   %tobool.not.i8 = icmp eq ptr %5, null
@@ -484,7 +492,8 @@ while.body25.preheader:                           ; preds = %while.end
 while.body25:                                     ; preds = %while.body25.preheader, %if.end
   %8 = phi ptr [ %10, %if.end ], [ %5, %while.body25.preheader ]
   %excess.010 = phi i64 [ %dec, %if.end ], [ %sub, %while.body25.preheader ]
-  %call29 = call i64 @_ZNK8proxygen13SessionHolder14getLastUseTimeEv(ptr noundef nonnull align 8 dereferenceable(152) %8)
+  %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 -8
+  %call29 = call i64 @_ZNK8proxygen13SessionHolder14getLastUseTimeEv(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i)
   %cmp.i.i.i = icmp slt i64 %sub.i.i, %call29
   %cmp = icmp slt i64 %excess.010, 1
   %9 = select i1 %cmp.i.i.i, i1 %cmp, i1 false
@@ -492,7 +501,7 @@ while.body25:                                     ; preds = %while.body25.prehea
 
 if.end:                                           ; preds = %while.body25
   %dec = add nsw i64 %excess.010, -1
-  call void @_ZN8proxygen13SessionHolder5drainEv(ptr noundef nonnull align 8 dereferenceable(152) %8)
+  call void @_ZN8proxygen13SessionHolder5drainEv(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i)
   %10 = load ptr, ptr %m_header.i79, align 8
   %tobool.not.i = icmp eq ptr %10, null
   %cmp.i3 = icmp eq ptr %10, %m_header.i79
@@ -764,12 +773,13 @@ while.body.lr.ph.i:                               ; preds = %entry
 
 while.body.i:                                     ; preds = %while.cond.backedge.i, %while.body.lr.ph.i
   %2 = phi ptr [ %0, %while.body.lr.ph.i ], [ %3, %while.cond.backedge.i ]
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 -8
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %maxAge_.i, align 8
-  %call3.i = tail call noundef zeroext i1 @_ZNK8proxygen13SessionHolder12shouldAgeOutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(152) %2, i64 %agg.tmp.sroa.0.0.copyload.i)
+  %call3.i = tail call noundef zeroext i1 @_ZNK8proxygen13SessionHolder12shouldAgeOutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i.i, i64 %agg.tmp.sroa.0.0.copyload.i)
   br i1 %call3.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.body.i
-  tail call void @_ZN8proxygen13SessionHolder5drainEv(ptr noundef nonnull align 8 dereferenceable(152) %2)
+  tail call void @_ZN8proxygen13SessionHolder5drainEv(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i.i)
   br label %while.cond.backedge.i
 
 while.cond.backedge.i:                            ; preds = %if.end.i, %if.then.i
@@ -780,9 +790,9 @@ while.cond.backedge.i:                            ; preds = %if.end.i, %if.then.
   br i1 %4, label %if.then, label %while.body.i, !llvm.loop !8
 
 if.end.i:                                         ; preds = %while.body.i
-  %call4.i = tail call noundef ptr @_ZN8proxygen13SessionHolder14newTransactionEPNS_22HTTPTransactionHandlerE(ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef %upstreamHandler)
-  tail call void @_ZN8proxygen13SessionHolder6unlinkEv(ptr noundef nonnull align 8 dereferenceable(152) %2)
-  tail call void @_ZN8proxygen13SessionHolder4linkEv(ptr noundef nonnull align 8 dereferenceable(152) %2)
+  %call4.i = tail call noundef ptr @_ZN8proxygen13SessionHolder14newTransactionEPNS_22HTTPTransactionHandlerE(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i.i, ptr noundef %upstreamHandler)
+  tail call void @_ZN8proxygen13SessionHolder6unlinkEv(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i.i)
+  tail call void @_ZN8proxygen13SessionHolder4linkEv(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i.i)
   %tobool.not.i = icmp eq ptr %call4.i, null
   br i1 %tobool.not.i, label %while.cond.backedge.i, label %if.end
 
@@ -799,32 +809,33 @@ while.body.lr.ph.i6:                              ; preds = %if.then
   %maxAge_.i7 = getelementptr inbounds nuw i8, ptr %this, i64 32
   br label %while.body.i8
 
-while.body.i8:                                    ; preds = %while.cond.backedge.i15, %while.body.lr.ph.i6
-  %7 = phi ptr [ %5, %while.body.lr.ph.i6 ], [ %8, %while.cond.backedge.i15 ]
-  %agg.tmp.sroa.0.0.copyload.i9 = load i64, ptr %maxAge_.i7, align 8
-  %call3.i10 = tail call noundef zeroext i1 @_ZNK8proxygen13SessionHolder12shouldAgeOutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(152) %7, i64 %agg.tmp.sroa.0.0.copyload.i9)
-  br i1 %call3.i10, label %if.then.i18, label %if.end.i11
+while.body.i8:                                    ; preds = %while.cond.backedge.i16, %while.body.lr.ph.i6
+  %7 = phi ptr [ %5, %while.body.lr.ph.i6 ], [ %8, %while.cond.backedge.i16 ]
+  %add.ptr.i.i9 = getelementptr inbounds i8, ptr %7, i64 -8
+  %agg.tmp.sroa.0.0.copyload.i10 = load i64, ptr %maxAge_.i7, align 8
+  %call3.i11 = tail call noundef zeroext i1 @_ZNK8proxygen13SessionHolder12shouldAgeOutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i.i9, i64 %agg.tmp.sroa.0.0.copyload.i10)
+  br i1 %call3.i11, label %if.then.i19, label %if.end.i12
 
-if.then.i18:                                      ; preds = %while.body.i8
-  tail call void @_ZN8proxygen13SessionHolder5drainEv(ptr noundef nonnull align 8 dereferenceable(152) %7)
-  br label %while.cond.backedge.i15
+if.then.i19:                                      ; preds = %while.body.i8
+  tail call void @_ZN8proxygen13SessionHolder5drainEv(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i.i9)
+  br label %while.cond.backedge.i16
 
-while.cond.backedge.i15:                          ; preds = %if.end.i11, %if.then.i18
+while.cond.backedge.i16:                          ; preds = %if.end.i12, %if.then.i19
   %8 = load ptr, ptr %m_header.i32.i3, align 8
-  %tobool.not.i.i16 = icmp eq ptr %8, null
-  %cmp.i.i17 = icmp eq ptr %8, %m_header.i32.i3
-  %9 = or i1 %tobool.not.i.i16, %cmp.i.i17
+  %tobool.not.i.i17 = icmp eq ptr %8, null
+  %cmp.i.i18 = icmp eq ptr %8, %m_header.i32.i3
+  %9 = or i1 %tobool.not.i.i17, %cmp.i.i18
   br i1 %9, label %if.end, label %while.body.i8, !llvm.loop !8
 
-if.end.i11:                                       ; preds = %while.body.i8
-  %call4.i12 = tail call noundef ptr @_ZN8proxygen13SessionHolder14newTransactionEPNS_22HTTPTransactionHandlerE(ptr noundef nonnull align 8 dereferenceable(152) %7, ptr noundef %upstreamHandler)
-  tail call void @_ZN8proxygen13SessionHolder6unlinkEv(ptr noundef nonnull align 8 dereferenceable(152) %7)
-  tail call void @_ZN8proxygen13SessionHolder4linkEv(ptr noundef nonnull align 8 dereferenceable(152) %7)
-  %tobool.not.i13 = icmp eq ptr %call4.i12, null
-  br i1 %tobool.not.i13, label %while.cond.backedge.i15, label %if.end
+if.end.i12:                                       ; preds = %while.body.i8
+  %call4.i13 = tail call noundef ptr @_ZN8proxygen13SessionHolder14newTransactionEPNS_22HTTPTransactionHandlerE(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i.i9, ptr noundef %upstreamHandler)
+  tail call void @_ZN8proxygen13SessionHolder6unlinkEv(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i.i9)
+  tail call void @_ZN8proxygen13SessionHolder4linkEv(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i.i9)
+  %tobool.not.i14 = icmp eq ptr %call4.i13, null
+  br i1 %tobool.not.i14, label %while.cond.backedge.i16, label %if.end
 
-if.end:                                           ; preds = %if.end.i, %if.end.i11, %while.cond.backedge.i15, %if.then
-  %txn.0 = phi ptr [ null, %if.then ], [ %call4.i12, %if.end.i11 ], [ null, %while.cond.backedge.i15 ], [ %call4.i, %if.end.i ]
+if.end:                                           ; preds = %if.end.i, %if.end.i12, %while.cond.backedge.i16, %if.then
+  %txn.0 = phi ptr [ null, %if.then ], [ %call4.i13, %if.end.i12 ], [ null, %while.cond.backedge.i16 ], [ %call4.i, %if.end.i ]
   ret ptr %txn.0
 }
 
@@ -844,12 +855,13 @@ while.body.lr.ph:                                 ; preds = %entry
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
   %2 = phi ptr [ %0, %while.body.lr.ph ], [ %3, %while.cond.backedge ]
+  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 -8
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %maxAge_, align 8
-  %call3 = tail call noundef zeroext i1 @_ZNK8proxygen13SessionHolder12shouldAgeOutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(152) %2, i64 %agg.tmp.sroa.0.0.copyload)
+  %call3 = tail call noundef zeroext i1 @_ZNK8proxygen13SessionHolder12shouldAgeOutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i, i64 %agg.tmp.sroa.0.0.copyload)
   br i1 %call3, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
-  tail call void @_ZN8proxygen13SessionHolder5drainEv(ptr noundef nonnull align 8 dereferenceable(152) %2)
+  tail call void @_ZN8proxygen13SessionHolder5drainEv(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i)
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.then, %if.end
@@ -860,9 +872,9 @@ while.cond.backedge:                              ; preds = %if.then, %if.end
   br i1 %4, label %return, label %while.body, !llvm.loop !8
 
 if.end:                                           ; preds = %while.body
-  %call4 = tail call noundef ptr @_ZN8proxygen13SessionHolder14newTransactionEPNS_22HTTPTransactionHandlerE(ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef %upstreamHandler)
-  tail call void @_ZN8proxygen13SessionHolder6unlinkEv(ptr noundef nonnull align 8 dereferenceable(152) %2)
-  tail call void @_ZN8proxygen13SessionHolder4linkEv(ptr noundef nonnull align 8 dereferenceable(152) %2)
+  %call4 = tail call noundef ptr @_ZN8proxygen13SessionHolder14newTransactionEPNS_22HTTPTransactionHandlerE(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i, ptr noundef %upstreamHandler)
+  tail call void @_ZN8proxygen13SessionHolder6unlinkEv(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i)
+  tail call void @_ZN8proxygen13SessionHolder4linkEv(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i)
   %tobool.not = icmp eq ptr %call4, null
   br i1 %tobool.not, label %while.cond.backedge, label %return
 
@@ -892,7 +904,8 @@ entry:
   br i1 %1, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  store ptr %0, ptr %holder, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 -8
+  store ptr %add.ptr.i, ptr %holder, align 8
   %call4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google12CheckNotNullIRPN8proxygen13SessionHolderEEET_PKciS7_OS5_(ptr noundef nonnull @.str, i32 noundef 130, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %holder)
   %2 = load ptr, ptr %holder, align 8
   %listHook.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -992,7 +1005,8 @@ while.body.lr.ph.i:                               ; preds = %entry
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %2 = load ptr, ptr %prev_.i.i, align 8
-  tail call void @_ZN8proxygen13SessionHolder5drainEv(ptr noundef nonnull align 8 dereferenceable(152) %2)
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 -8
+  tail call void @_ZN8proxygen13SessionHolder5drainEv(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i.i)
   %3 = load ptr, ptr %m_header.i27.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
   %cmp.i.i = icmp eq ptr %3, %m_header.i27.i
@@ -1005,7 +1019,7 @@ _ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13Session
   %tobool.not.i2.i2 = icmp eq ptr %5, null
   %cmp.i3.i3 = icmp eq ptr %5, %m_header.i27.i1
   %6 = or i1 %tobool.not.i2.i2, %cmp.i3.i3
-  br i1 %6, label %_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit9, label %while.body.lr.ph.i4
+  br i1 %6, label %_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit10, label %while.body.lr.ph.i4
 
 while.body.lr.ph.i4:                              ; preds = %_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit
   %prev_.i.i5 = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -1013,35 +1027,37 @@ while.body.lr.ph.i4:                              ; preds = %_ZN8proxygen11Sessi
 
 while.body.i6:                                    ; preds = %while.body.i6, %while.body.lr.ph.i4
   %7 = load ptr, ptr %prev_.i.i5, align 8
-  tail call void @_ZN8proxygen13SessionHolder5drainEv(ptr noundef nonnull align 8 dereferenceable(152) %7)
+  %add.ptr.i.i7 = getelementptr inbounds i8, ptr %7, i64 -8
+  tail call void @_ZN8proxygen13SessionHolder5drainEv(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i.i7)
   %8 = load ptr, ptr %m_header.i27.i1, align 8
-  %tobool.not.i.i7 = icmp eq ptr %8, null
-  %cmp.i.i8 = icmp eq ptr %8, %m_header.i27.i1
-  %9 = or i1 %tobool.not.i.i7, %cmp.i.i8
-  br i1 %9, label %_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit9, label %while.body.i6, !llvm.loop !6
+  %tobool.not.i.i8 = icmp eq ptr %8, null
+  %cmp.i.i9 = icmp eq ptr %8, %m_header.i27.i1
+  %9 = or i1 %tobool.not.i.i8, %cmp.i.i9
+  br i1 %9, label %_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit10, label %while.body.i6, !llvm.loop !6
 
-_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit9: ; preds = %while.body.i6, %_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit
-  %m_header.i27.i10 = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %10 = load ptr, ptr %m_header.i27.i10, align 8
-  %tobool.not.i2.i11 = icmp eq ptr %10, null
-  %cmp.i3.i12 = icmp eq ptr %10, %m_header.i27.i10
-  %11 = or i1 %tobool.not.i2.i11, %cmp.i3.i12
-  br i1 %11, label %_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit18, label %while.body.lr.ph.i13
+_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit10: ; preds = %while.body.i6, %_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit
+  %m_header.i27.i11 = getelementptr inbounds nuw i8, ptr %this, i64 96
+  %10 = load ptr, ptr %m_header.i27.i11, align 8
+  %tobool.not.i2.i12 = icmp eq ptr %10, null
+  %cmp.i3.i13 = icmp eq ptr %10, %m_header.i27.i11
+  %11 = or i1 %tobool.not.i2.i12, %cmp.i3.i13
+  br i1 %11, label %_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit20, label %while.body.lr.ph.i14
 
-while.body.lr.ph.i13:                             ; preds = %_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit9
-  %prev_.i.i14 = getelementptr inbounds nuw i8, ptr %this, i64 104
-  br label %while.body.i15
+while.body.lr.ph.i14:                             ; preds = %_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit10
+  %prev_.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 104
+  br label %while.body.i16
 
-while.body.i15:                                   ; preds = %while.body.i15, %while.body.lr.ph.i13
-  %12 = load ptr, ptr %prev_.i.i14, align 8
-  tail call void @_ZN8proxygen13SessionHolder5drainEv(ptr noundef nonnull align 8 dereferenceable(152) %12)
-  %13 = load ptr, ptr %m_header.i27.i10, align 8
-  %tobool.not.i.i16 = icmp eq ptr %13, null
-  %cmp.i.i17 = icmp eq ptr %13, %m_header.i27.i10
-  %14 = or i1 %tobool.not.i.i16, %cmp.i.i17
-  br i1 %14, label %_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit18, label %while.body.i15, !llvm.loop !6
+while.body.i16:                                   ; preds = %while.body.i16, %while.body.lr.ph.i14
+  %12 = load ptr, ptr %prev_.i.i15, align 8
+  %add.ptr.i.i17 = getelementptr inbounds i8, ptr %12, i64 -8
+  tail call void @_ZN8proxygen13SessionHolder5drainEv(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i.i17)
+  %13 = load ptr, ptr %m_header.i27.i11, align 8
+  %tobool.not.i.i18 = icmp eq ptr %13, null
+  %cmp.i.i19 = icmp eq ptr %13, %m_header.i27.i11
+  %14 = or i1 %tobool.not.i.i18, %cmp.i.i19
+  br i1 %14, label %_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit20, label %while.body.i16, !llvm.loop !6
 
-_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit18: ; preds = %while.body.i15, %_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit9
+_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit20: ; preds = %while.body.i16, %_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit10
   ret void
 }
 
@@ -1061,7 +1077,8 @@ while.body.lr.ph.i:                               ; preds = %entry
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %2 = load ptr, ptr %prev_.i.i, align 8
-  tail call void @_ZN8proxygen13SessionHolder14closeWithResetEv(ptr noundef nonnull align 8 dereferenceable(152) %2)
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 -8
+  tail call void @_ZN8proxygen13SessionHolder14closeWithResetEv(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i.i)
   %3 = load ptr, ptr %m_header.i27.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
   %cmp.i.i = icmp eq ptr %3, %m_header.i27.i
@@ -1074,7 +1091,7 @@ _ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_
   %tobool.not.i2.i2 = icmp eq ptr %5, null
   %cmp.i3.i3 = icmp eq ptr %5, %m_header.i27.i1
   %6 = or i1 %tobool.not.i2.i2, %cmp.i3.i3
-  br i1 %6, label %_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit9, label %while.body.lr.ph.i4
+  br i1 %6, label %_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit10, label %while.body.lr.ph.i4
 
 while.body.lr.ph.i4:                              ; preds = %_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit
   %prev_.i.i5 = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -1082,35 +1099,37 @@ while.body.lr.ph.i4:                              ; preds = %_ZN8proxygen11Sessi
 
 while.body.i6:                                    ; preds = %while.body.i6, %while.body.lr.ph.i4
   %7 = load ptr, ptr %prev_.i.i5, align 8
-  tail call void @_ZN8proxygen13SessionHolder14closeWithResetEv(ptr noundef nonnull align 8 dereferenceable(152) %7)
+  %add.ptr.i.i7 = getelementptr inbounds i8, ptr %7, i64 -8
+  tail call void @_ZN8proxygen13SessionHolder14closeWithResetEv(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i.i7)
   %8 = load ptr, ptr %m_header.i27.i1, align 8
-  %tobool.not.i.i7 = icmp eq ptr %8, null
-  %cmp.i.i8 = icmp eq ptr %8, %m_header.i27.i1
-  %9 = or i1 %tobool.not.i.i7, %cmp.i.i8
-  br i1 %9, label %_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit9, label %while.body.i6, !llvm.loop !9
+  %tobool.not.i.i8 = icmp eq ptr %8, null
+  %cmp.i.i9 = icmp eq ptr %8, %m_header.i27.i1
+  %9 = or i1 %tobool.not.i.i8, %cmp.i.i9
+  br i1 %9, label %_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit10, label %while.body.i6, !llvm.loop !9
 
-_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit9: ; preds = %while.body.i6, %_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit
-  %m_header.i27.i10 = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %10 = load ptr, ptr %m_header.i27.i10, align 8
-  %tobool.not.i2.i11 = icmp eq ptr %10, null
-  %cmp.i3.i12 = icmp eq ptr %10, %m_header.i27.i10
-  %11 = or i1 %tobool.not.i2.i11, %cmp.i3.i12
-  br i1 %11, label %_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit18, label %while.body.lr.ph.i13
+_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit10: ; preds = %while.body.i6, %_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit
+  %m_header.i27.i11 = getelementptr inbounds nuw i8, ptr %this, i64 96
+  %10 = load ptr, ptr %m_header.i27.i11, align 8
+  %tobool.not.i2.i12 = icmp eq ptr %10, null
+  %cmp.i3.i13 = icmp eq ptr %10, %m_header.i27.i11
+  %11 = or i1 %tobool.not.i2.i12, %cmp.i3.i13
+  br i1 %11, label %_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit20, label %while.body.lr.ph.i14
 
-while.body.lr.ph.i13:                             ; preds = %_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit9
-  %prev_.i.i14 = getelementptr inbounds nuw i8, ptr %this, i64 104
-  br label %while.body.i15
+while.body.lr.ph.i14:                             ; preds = %_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit10
+  %prev_.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 104
+  br label %while.body.i16
 
-while.body.i15:                                   ; preds = %while.body.i15, %while.body.lr.ph.i13
-  %12 = load ptr, ptr %prev_.i.i14, align 8
-  tail call void @_ZN8proxygen13SessionHolder14closeWithResetEv(ptr noundef nonnull align 8 dereferenceable(152) %12)
-  %13 = load ptr, ptr %m_header.i27.i10, align 8
-  %tobool.not.i.i16 = icmp eq ptr %13, null
-  %cmp.i.i17 = icmp eq ptr %13, %m_header.i27.i10
-  %14 = or i1 %tobool.not.i.i16, %cmp.i.i17
-  br i1 %14, label %_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit18, label %while.body.i15, !llvm.loop !9
+while.body.i16:                                   ; preds = %while.body.i16, %while.body.lr.ph.i14
+  %12 = load ptr, ptr %prev_.i.i15, align 8
+  %add.ptr.i.i17 = getelementptr inbounds i8, ptr %12, i64 -8
+  tail call void @_ZN8proxygen13SessionHolder14closeWithResetEv(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i.i17)
+  %13 = load ptr, ptr %m_header.i27.i11, align 8
+  %tobool.not.i.i18 = icmp eq ptr %13, null
+  %cmp.i.i19 = icmp eq ptr %13, %m_header.i27.i11
+  %14 = or i1 %tobool.not.i.i18, %cmp.i.i19
+  br i1 %14, label %_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit20, label %while.body.i16, !llvm.loop !9
 
-_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit18: ; preds = %while.body.i15, %_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit9
+_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit20: ; preds = %while.body.i16, %_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit10
   ret void
 }
 
@@ -1130,7 +1149,8 @@ while.body.lr.ph:                                 ; preds = %entry
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %2 = load ptr, ptr %prev_.i, align 8
-  tail call void @_ZN8proxygen13SessionHolder14closeWithResetEv(ptr noundef nonnull align 8 dereferenceable(152) %2)
+  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 -8
+  tail call void @_ZN8proxygen13SessionHolder14closeWithResetEv(ptr noundef nonnull align 8 dereferenceable(152) %add.ptr.i)
   %3 = load ptr, ptr %m_header.i27, align 8
   %tobool.not.i = icmp eq ptr %3, null
   %cmp.i = icmp eq ptr %3, %m_header.i27

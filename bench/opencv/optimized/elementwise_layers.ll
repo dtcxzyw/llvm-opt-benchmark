@@ -11246,8 +11246,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67: ; preds = %_ZN
   %.val61 = load ptr, ptr %113, align 8, !tbaa !311
   %114 = sext i32 %.val to i64
   %.idx = shl nsw i64 %114, 2
-  %.not153 = icmp eq i32 %.val, 0
-  br i1 %.not153, label %"_ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN2cv3dnn14dnn4_v2024122318ChannelsPReLULayer6createERKNS9_11LayerParamsEE3$_0ENSt15iterator_traitsIT_E15difference_typeESG_SG_T0_.exit.thread", label %115
+  %.not146 = icmp eq i32 %.val, 0
+  br i1 %.not146, label %"_ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN2cv3dnn14dnn4_v2024122318ChannelsPReLULayer6createERKNS9_11LayerParamsEE3$_0ENSt15iterator_traitsIT_E15difference_typeESG_SG_T0_.exit.thread", label %115
 
 115:                                              ; preds = %111
   %116 = icmp slt i32 %.val, 0
@@ -11262,9 +11262,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67: ; preds = %_ZN
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %115
   %118 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #27
-          to label %.noexc103 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i
+          to label %.lr.ph.i.i.preheader unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i
 
-.noexc103:                                        ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
+.lr.ph.i.i.preheader:                             ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %118, ptr align 4 %.val61, i64 %.idx, i1 false)
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 %.idx
   br label %.lr.ph.i.i
@@ -11274,9 +11274,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %117, %_ZNSt12_Vecto
           cleanup
   br label %.body
 
-.lr.ph.i.i:                                       ; preds = %.noexc103, %.lr.ph.i.i
-  %.07.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ 0, %.noexc103 ]
-  %.sroa.02.06.i.i = phi ptr [ %123, %.lr.ph.i.i ], [ %118, %.noexc103 ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
+  %.07.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
+  %.sroa.02.06.i.i = phi ptr [ %123, %.lr.ph.i.i ], [ %118, %.lr.ph.i.i.preheader ]
   %121 = load i32, ptr %.sroa.02.06.i.i, align 4, !tbaa !48
   %.not4.i.i = icmp ne i32 %121, 1
   %122 = zext i1 %.not4.i.i to i64
@@ -11458,7 +11458,7 @@ _ZNSt12__shared_ptrIN2cv3dnn14dnn4_v202412235LayerELN9__gnu_cxx12_Lock_policyE2E
 191:                                              ; preds = %125
   %192 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread146
+  br label %.thread
 
 .thread128:                                       ; preds = %127
   %193 = landingpad { ptr, i32 }
@@ -11474,13 +11474,13 @@ _ZNSt12__shared_ptrIN2cv3dnn14dnn4_v202412235LayerELN9__gnu_cxx12_Lock_policyE2E
 195:                                              ; preds = %137
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #25
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %12) #25
-  br label %.thread146
+  br label %.thread
 
 196:                                              ; preds = %.thread134, %.thread128
   %.pn46133 = phi { ptr, i32 } [ %193, %.thread128 ], [ %194, %.thread134 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %12) #25
   call void @_ZdlPv(ptr noundef nonnull %126) #26
-  br label %.thread146
+  br label %.thread
 
 "_ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN2cv3dnn14dnn4_v2024122318ChannelsPReLULayer6createERKNS9_11LayerParamsEE3$_0ENSt15iterator_traitsIT_E15difference_typeESG_SG_T0_.exit.thread": ; preds = %111, %"_ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN2cv3dnn14dnn4_v2024122318ChannelsPReLULayer6createERKNS9_11LayerParamsEE3$_0ENSt15iterator_traitsIT_E15difference_typeESG_SG_T0_.exit"
   %.sroa.0108.0118127 = phi ptr [ %118, %"_ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN2cv3dnn14dnn4_v2024122318ChannelsPReLULayer6createERKNS9_11LayerParamsEE3$_0ENSt15iterator_traitsIT_E15difference_typeESG_SG_T0_.exit" ], [ null, %111 ]
@@ -11689,16 +11689,16 @@ _ZNSt12__shared_ptrIN2cv3dnn14dnn4_v202412235LayerELN9__gnu_cxx12_Lock_policyE2E
   %.sroa.0108.0119 = phi ptr [ %.sroa.0108.0118126, %189 ], [ %.sroa.0108.0118127, %265 ], [ %.sroa.0108.0118127, %264 ], [ %.sroa.0108.0118127, %260 ]
   %.pn49 = phi { ptr, i32 } [ %190, %189 ], [ %.pn43142, %265 ], [ %209, %264 ], [ %261, %260 ]
   %.not.i.i.i99 = icmp eq ptr %.sroa.0108.0119, null
-  br i1 %.not.i.i.i99, label %.body, label %.thread146
+  br i1 %.not.i.i.i99, label %.body, label %.thread
 
-.thread146:                                       ; preds = %191, %195, %196, %270
-  %.pn49151 = phi { ptr, i32 } [ %.pn49, %270 ], [ %192, %191 ], [ %138, %195 ], [ %.pn46133, %196 ]
-  %.sroa.0108.0119150 = phi ptr [ %.sroa.0108.0119, %270 ], [ %118, %191 ], [ %118, %195 ], [ %118, %196 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0108.0119150) #26
+.thread:                                          ; preds = %191, %195, %196, %270
+  %.pn49155 = phi { ptr, i32 } [ %.pn49, %270 ], [ %192, %191 ], [ %138, %195 ], [ %.pn46133, %196 ]
+  %.sroa.0108.0119154 = phi ptr [ %.sroa.0108.0119, %270 ], [ %118, %191 ], [ %118, %195 ], [ %118, %196 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0108.0119154) #26
   br label %.body
 
-.body:                                            ; preds = %.thread146, %270, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i
-  %.pn49.pn = phi { ptr, i32 } [ %120, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i ], [ %.pn49, %270 ], [ %.pn49151, %.thread146 ]
+.body:                                            ; preds = %.thread, %270, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i
+  %.pn49.pn = phi { ptr, i32 } [ %120, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i ], [ %.pn49, %270 ], [ %.pn49155, %.thread ]
   call void @_ZNSt12__shared_ptrIN2cv3dnn14dnn4_v202412235LayerELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
   br label %271
 

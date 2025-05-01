@@ -52,8 +52,8 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIfSaIfE
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
   %14 = phi i1 [ false, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ false, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ true, %.lr.ph ]
-  %invariant.gep6694 = phi ptr [ %invariant.gep66, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %invariant.gep66, %.lr.ph ]
-  %invariant.gep93 = phi ptr [ %invariant.gep, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %invariant.gep, %.lr.ph ]
+  %invariant.gep6694 = phi ptr [ %invariant.gep66, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ inttoptr (i64 8 to ptr), %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %invariant.gep66, %.lr.ph ]
+  %invariant.gep93 = phi ptr [ %invariant.gep, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ inttoptr (i64 4 to ptr), %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %invariant.gep, %.lr.ph ]
   %.sroa.047.091 = phi ptr [ %8, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %8, %.lr.ph ]
   %.sroa.18.090 = phi i64 [ %12, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ 0, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %12, %.lr.ph ]
   invoke void @_ZN19OpenColorIO_v2_5dev10OpRcPtrVec8finalizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3)

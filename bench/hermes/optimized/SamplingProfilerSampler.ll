@@ -455,11 +455,17 @@ if.then.i49:                                      ; preds = %if.end19
   store i64 %agg.tmp.sroa.0.0.copyload.i.i.i, ptr %timeStamp.i.i.i.i, align 8
   %stack.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stack.i.i.i.i, i8 0, i64 24, i1 false)
+  %add.ptr.i46.idx = mul nuw nsw i64 %conv, 24
   %cmp.not.i.i.i.i.i.i.i = icmp eq i32 %9, 0
-  br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN6hermes2vm16SamplingProfiler10StackTraceEEE9constructIS3_JRmRNSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10StackFrameESt6vectorISK_SaISK_EEEESP_EEEvRS4_PT_DpOT0_.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN6hermes2vm16SamplingProfiler10StackFrameESaIS3_EE11_M_allocateEm.exit.thread.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+
+_ZNSt12_Vector_baseIN6hermes2vm16SamplingProfiler10StackFrameESaIS3_EE11_M_allocateEm.exit.thread.i.i.i.i.i.i: ; preds = %if.then.i49
+  %add.ptr3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr null, i64 %add.ptr.i46.idx
+  %_M_end_of_storage4.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 32
+  store ptr %add.ptr3.i.i.i.i.i.i, ptr %_M_end_of_storage4.i.i.i.i.i.i, align 8
+  br label %_ZNSt16allocator_traitsISaIN6hermes2vm16SamplingProfiler10StackTraceEEE9constructIS3_JRmRNSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10StackFrameESt6vectorISK_SaISK_EEEESP_EEEvRS4_PT_DpOT0_.exit.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %if.then.i49
-  %add.ptr.i46.idx = mul nuw nsw i64 %conv, 24
   %call5.i.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %add.ptr.i46.idx) #18
   store ptr %call5.i.i.i.i.i.i.i.i.i, ptr %stack.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i.i, i64 %add.ptr.i46.idx
@@ -468,8 +474,8 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %if.then.i49
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i.i.i.i, ptr align 8 %10, i64 %add.ptr.i46.idx, i1 false)
   br label %_ZNSt16allocator_traitsISaIN6hermes2vm16SamplingProfiler10StackTraceEEE9constructIS3_JRmRNSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10StackFrameESt6vectorISK_SaISK_EEEESP_EEEvRS4_PT_DpOT0_.exit.i
 
-_ZNSt16allocator_traitsISaIN6hermes2vm16SamplingProfiler10StackTraceEEE9constructIS3_JRmRNSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10StackFrameESt6vectorISK_SaISK_EEEESP_EEEvRS4_PT_DpOT0_.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i49
-  %add.ptr5.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then.i49 ]
+_ZNSt16allocator_traitsISaIN6hermes2vm16SamplingProfiler10StackTraceEEE9constructIS3_JRmRNSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10StackFrameESt6vectorISK_SaISK_EEEESP_EEEvRS4_PT_DpOT0_.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN6hermes2vm16SamplingProfiler10StackFrameESaIS3_EE11_M_allocateEm.exit.thread.i.i.i.i.i.i
+  %add.ptr5.i.i.i.i.i.i = phi ptr [ %add.ptr3.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN6hermes2vm16SamplingProfiler10StackFrameESaIS3_EE11_M_allocateEm.exit.thread.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %add.ptr5.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i, align 8
   %14 = load ptr, ptr %_M_finish.i47, align 8
@@ -1450,7 +1456,13 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNKSt6vectorIN6her
 
 _ZNSt6vectorIN6hermes2vm16SamplingProfiler10StackFrameESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i.i.i.i: ; preds = %_ZNKSt6vectorIN6hermes2vm16SamplingProfiler10StackTraceESaIS3_EE12_M_check_lenEmPKc.exit
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %agg.tmp9.sroa.0.0.copyload.i.i, %agg.tmp8.sroa.0.0.copyload.i.i
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN6hermes2vm16SamplingProfiler10StackTraceEEE9constructIS3_JRmRNSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10StackFrameESt6vectorISK_SaISK_EEEESP_EEEvRS4_PT_DpOT0_.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN6hermes2vm16SamplingProfiler10StackFrameESaIS3_EE11_M_allocateEm.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
+
+_ZNSt12_Vector_baseIN6hermes2vm16SamplingProfiler10StackFrameESaIS3_EE11_M_allocateEm.exit.thread.i.i.i.i.i: ; preds = %_ZNSt6vectorIN6hermes2vm16SamplingProfiler10StackFrameESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i.i.i.i
+  %add.ptr3.i.i.i.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i
+  %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 32
+  store ptr %add.ptr3.i.i.i.i.i, ptr %_M_end_of_storage4.i.i.i.i.i, align 8
+  br label %_ZNSt16allocator_traitsISaIN6hermes2vm16SamplingProfiler10StackTraceEEE9constructIS3_JRmRNSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10StackFrameESt6vectorISK_SaISK_EEEESP_EEEvRS4_PT_DpOT0_.exit
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIN6hermes2vm16SamplingProfiler10StackFrameESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i.i.i.i
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i.i.i.i.i) #18
@@ -1461,8 +1473,8 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIN6herm
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i.i.i, ptr align 8 %agg.tmp8.sroa.0.0.copyload.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZNSt16allocator_traitsISaIN6hermes2vm16SamplingProfiler10StackTraceEEE9constructIS3_JRmRNSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10StackFrameESt6vectorISK_SaISK_EEEESP_EEEvRS4_PT_DpOT0_.exit
 
-_ZNSt16allocator_traitsISaIN6hermes2vm16SamplingProfiler10StackTraceEEE9constructIS3_JRmRNSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10StackFrameESt6vectorISK_SaISK_EEEESP_EEEvRS4_PT_DpOT0_.exit: ; preds = %_ZNSt6vectorIN6hermes2vm16SamplingProfiler10StackFrameESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %add.ptr5.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIN6hermes2vm16SamplingProfiler10StackFrameESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i.i.i.i ]
+_ZNSt16allocator_traitsISaIN6hermes2vm16SamplingProfiler10StackTraceEEE9constructIS3_JRmRNSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10StackFrameESt6vectorISK_SaISK_EEEESP_EEEvRS4_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseIN6hermes2vm16SamplingProfiler10StackFrameESaIS3_EE11_M_allocateEm.exit.thread.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %add.ptr5.i.i.i.i.i = phi ptr [ %add.ptr3.i.i.i.i.i, %_ZNSt12_Vector_baseIN6hermes2vm16SamplingProfiler10StackFrameESaIS3_EE11_M_allocateEm.exit.thread.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 24
   store ptr %add.ptr5.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce

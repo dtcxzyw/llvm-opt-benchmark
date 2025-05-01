@@ -3103,6 +3103,11 @@ if.then.i.i2.i:                                   ; preds = %lpad.i
   br label %ehcleanup334
 
 if.then:                                          ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i
+  %add.ptr3.i.i = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i
+  %_M_end_of_storage4.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  store ptr %add.ptr3.i.i, ptr %_M_end_of_storage4.i.i, align 8, !tbaa !105
+  %_M_finish.i.i367 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  store ptr %add.ptr3.i.i, ptr %_M_finish.i.i367, align 8, !tbaa !107
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream) #27
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream)
           to label %invoke.cont7 unwind label %lpad6

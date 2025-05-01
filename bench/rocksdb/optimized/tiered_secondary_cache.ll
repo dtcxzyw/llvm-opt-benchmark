@@ -604,7 +604,8 @@ _ZNSt12_Vector_baseIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE11_M_allocate
   %.sroa.9.0.lcssa161 = phi ptr [ null, %._crit_edge.thread ], [ %.sroa.9.1, %._crit_edge ]
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  store ptr null, ptr %25, align 8, !tbaa !59
   br label %87
 
 26:                                               ; preds = %._crit_edge
@@ -1920,78 +1921,81 @@ define linkonce_odr void @_ZN7rocksdb21SecondaryCacheWrapper7WaitAllESt6vectorIP
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %7, %8
-  br i1 %.not.i.i.i.i, label %.thread, label %14
+  br i1 %.not.i.i.i.i, label %.thread, label %15
 
 .thread:                                          ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  %13 = getelementptr inbounds i8, ptr null, i64 %11
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  store ptr %13, ptr %14, align 8, !tbaa !59
   br label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EEC2ERKS4_.exit
 
-14:                                               ; preds = %2
-  %15 = icmp ugt i64 %11, 9223372036854775800
-  br i1 %15, label %.noexc.i.i, label %16, !prof !51
+15:                                               ; preds = %2
+  %16 = icmp ugt i64 %11, 9223372036854775800
+  br i1 %16, label %.noexc.i.i, label %17, !prof !51
 
-.noexc.i.i:                                       ; preds = %14
+.noexc.i.i:                                       ; preds = %15
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #20
   unreachable
 
-16:                                               ; preds = %14
-  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #19
-  store ptr %17, ptr %3, align 8, !tbaa !58
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %17, ptr %18, align 8, !tbaa !54
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %11
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %19, ptr %20, align 8, !tbaa !59
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %17, ptr align 8 %8, i64 %11, i1 false)
+17:                                               ; preds = %15
+  %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #19
+  store ptr %18, ptr %3, align 8, !tbaa !58
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %18, ptr %19, align 8, !tbaa !54
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %11
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %20, ptr %21, align 8, !tbaa !59
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %18, ptr align 8 %8, i64 %11, i1 false)
   br label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EEC2ERKS4_.exit
 
-_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EEC2ERKS4_.exit: ; preds = %.thread, %16
-  %21 = phi ptr [ %13, %.thread ], [ %20, %16 ]
-  %22 = phi ptr [ null, %.thread ], [ %19, %16 ]
-  %23 = phi ptr [ %12, %.thread ], [ %18, %16 ]
-  store ptr %22, ptr %23, align 8, !tbaa !54
-  %24 = load ptr, ptr %5, align 8, !tbaa !24
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 192
-  %26 = load ptr, ptr %25, align 8
-  invoke void %26(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %3)
-          to label %27 unwind label %34
+_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EEC2ERKS4_.exit: ; preds = %.thread, %17
+  %22 = phi ptr [ %14, %.thread ], [ %21, %17 ]
+  %23 = phi ptr [ %13, %.thread ], [ %20, %17 ]
+  %24 = phi ptr [ %12, %.thread ], [ %19, %17 ]
+  store ptr %23, ptr %24, align 8, !tbaa !54
+  %25 = load ptr, ptr %5, align 8, !tbaa !24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 192
+  %27 = load ptr, ptr %26, align 8
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %3)
+          to label %28 unwind label %35
 
-27:                                               ; preds = %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EEC2ERKS4_.exit
-  %28 = load ptr, ptr %3, align 8, !tbaa !58
-  %.not.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit, label %29
+28:                                               ; preds = %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EEC2ERKS4_.exit
+  %29 = load ptr, ptr %3, align 8, !tbaa !58
+  %.not.i.i.i = icmp eq ptr %29, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit, label %30
 
-29:                                               ; preds = %27
-  %30 = load ptr, ptr %21, align 8, !tbaa !59
-  %31 = ptrtoint ptr %30 to i64
-  %32 = ptrtoint ptr %28 to i64
-  %33 = sub i64 %31, %32
-  call void @_ZdlPvm(ptr noundef nonnull %28, i64 noundef %33) #18
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %22, align 8, !tbaa !59
+  %32 = ptrtoint ptr %31 to i64
+  %33 = ptrtoint ptr %29 to i64
+  %34 = sub i64 %32, %33
+  call void @_ZdlPvm(ptr noundef nonnull %29, i64 noundef %34) #18
   br label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit: ; preds = %27, %29
+_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit: ; preds = %28, %30
   ret void
 
-34:                                               ; preds = %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EEC2ERKS4_.exit
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EEC2ERKS4_.exit
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %36 = load ptr, ptr %3, align 8, !tbaa !58
-  %.not.i.i.i2 = icmp eq ptr %36, null
-  br i1 %.not.i.i.i2, label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit3, label %37
+  %37 = load ptr, ptr %3, align 8, !tbaa !58
+  %.not.i.i.i2 = icmp eq ptr %37, null
+  br i1 %.not.i.i.i2, label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit3, label %38
 
-37:                                               ; preds = %34
-  %38 = load ptr, ptr %21, align 8, !tbaa !59
-  %39 = ptrtoint ptr %38 to i64
-  %40 = ptrtoint ptr %36 to i64
-  %41 = sub i64 %39, %40
-  call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef %41) #18
+38:                                               ; preds = %35
+  %39 = load ptr, ptr %22, align 8, !tbaa !59
+  %40 = ptrtoint ptr %39 to i64
+  %41 = ptrtoint ptr %37 to i64
+  %42 = sub i64 %40, %41
+  call void @_ZdlPvm(ptr noundef nonnull %37, i64 noundef %42) #18
   br label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit3
 
-_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit3: ; preds = %34, %37
-  resume { ptr, i32 } %35
+_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit3: ; preds = %35, %38
+  resume { ptr, i32 } %36
 }
 
 ; Function Attrs: noreturn

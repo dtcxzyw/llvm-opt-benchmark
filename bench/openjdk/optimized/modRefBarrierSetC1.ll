@@ -403,7 +403,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %19, %21
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef zeroext i8 %31(ptr noundef nonnull align 8 dereferenceable(8) %28) #5
-  br label %_ZNK7LIR_Opr4typeEv.exit
+  br label %.thread
 
 33:                                               ; preds = %24
   %34 = and i64 %2, 7
@@ -427,9 +427,9 @@ switch.lookup:                                    ; preds = %33
   %switch.shiftamt = zext nneg i32 %43 to i56
   %switch.downshift = lshr i56 4792797207726858, %switch.shiftamt
   %switch.masked = trunc i56 %switch.downshift to i8
-  br label %_ZNK7LIR_Opr4typeEv.exit
+  br label %.thread
 
-_ZNK7LIR_Opr4typeEv.exit:                         ; preds = %switch.lookup, %27
+.thread:                                          ; preds = %switch.lookup, %27
   %.0.i = phi i8 [ %32, %27 ], [ %switch.masked, %switch.lookup ]
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %2, ptr %44, align 8
@@ -452,44 +452,52 @@ _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %switch.lookup, %27
   store i8 %.0.i, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 60
   store i32 0, ptr %53, align 4
-  br label %54
+  br label %56
 
-54:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit, %_ZNK7LIR_Opr4typeEv.exit
-  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 696
+54:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit
+  %.pre = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %55 = icmp eq ptr %.pre, null
+  br i1 %55, label %56, label %62
+
+56:                                               ; preds = %.thread, %54
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %59 = load ptr, ptr %58, align 8
-  store ptr %59, ptr %55, align 8
-  %60 = load i32, ptr %0, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %62 = load i32, ptr %61, align 4
-  %63 = icmp eq i32 %60, %62
-  br i1 %63, label %64, label %_ZN8LIR_List6appendEP6LIR_Op.exit
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 696
+  %61 = load ptr, ptr %60, align 8
+  store ptr %61, ptr %57, align 8
+  br label %62
 
-64:                                               ; preds = %54
-  %65 = add nsw i32 %60, 1
-  %66 = icmp sgt i32 %60, -1
-  %67 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %65)
-  %68 = icmp samesign ult i32 %67, 2
-  %or.cond.i.i.i.i.i = select i1 %66, i1 %68, i1 false
-  %69 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %65, i1 true)
-  %70 = sub nuw nsw i32 32, %69
-  %71 = shl nuw i32 1, %70
-  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %65, i32 %71
+62:                                               ; preds = %56, %54
+  %63 = load i32, ptr %0, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %65 = load i32, ptr %64, align 4
+  %66 = icmp eq i32 %63, %65
+  br i1 %66, label %67, label %_ZN8LIR_List6appendEP6LIR_Op.exit
+
+67:                                               ; preds = %62
+  %68 = add nsw i32 %63, 1
+  %69 = icmp sgt i32 %63, -1
+  %70 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %68)
+  %71 = icmp samesign ult i32 %70, 2
+  %or.cond.i.i.i.i.i = select i1 %69, i1 %71, i1 false
+  %72 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %68, i1 true)
+  %73 = sub nuw nsw i32 32, %72
+  %74 = shl nuw i32 1, %73
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %68, i32 %74
   tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
-_ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %54, %64
-  %72 = phi i32 [ %.pre.i.i, %64 ], [ %60, %54 ]
-  %73 = add nsw i32 %72, 1
-  store i32 %73, ptr %0, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %75 = load ptr, ptr %74, align 8
-  %76 = sext i32 %72 to i64
-  %77 = getelementptr inbounds ptr, ptr %75, i64 %76
-  store ptr %.0.i.i.i, ptr %77, align 8
+_ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %62, %67
+  %75 = phi i32 [ %.pre.i.i, %67 ], [ %63, %62 ]
+  %76 = add nsw i32 %75, 1
+  store i32 %76, ptr %0, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %78 = load ptr, ptr %77, align 8
+  %79 = sext i32 %75 to i64
+  %80 = getelementptr inbounds ptr, ptr %78, i64 %79
+  store ptr %.0.i.i.i, ptr %80, align 8
   ret void
 }
 

@@ -960,7 +960,13 @@ _ZNK7obj_mapI9func_declSt4pairIjP4exprEE9find_coreEPS0_.exit: ; preds = %18, %26
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %36 = load ptr, ptr %35, align 8, !tbaa !43
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %_ZN6vectorIP9func_declLb0EjE4backEv.exit15, label %38
+  br i1 %37, label %_ZNK7obj_mapI9func_declSt4pairIjP4exprEE9find_coreEPS0_.exit._ZN6vectorIP9func_declLb0EjE4backEv.exit15_crit_edge, label %38
+
+_ZNK7obj_mapI9func_declSt4pairIjP4exprEE9find_coreEPS0_.exit._ZN6vectorIP9func_declLb0EjE4backEv.exit15_crit_edge: ; preds = %_ZNK7obj_mapI9func_declSt4pairIjP4exprEE9find_coreEPS0_.exit
+  %.pre = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !64
+  %.pre172 = add i32 %.pre, -1
+  %.pre173 = zext i32 %.pre172 to i64
+  br label %_ZN6vectorIP9func_declLb0EjE4backEv.exit15
 
 38:                                               ; preds = %_ZNK7obj_mapI9func_declSt4pairIjP4exprEE9find_coreEPS0_.exit
   %39 = getelementptr inbounds i8, ptr %36, i64 -4
@@ -969,9 +975,9 @@ _ZNK7obj_mapI9func_declSt4pairIjP4exprEE9find_coreEPS0_.exit: ; preds = %18, %26
   %42 = zext i32 %41 to i64
   br label %_ZN6vectorIP9func_declLb0EjE4backEv.exit15
 
-_ZN6vectorIP9func_declLb0EjE4backEv.exit15:       ; preds = %_ZNK7obj_mapI9func_declSt4pairIjP4exprEE9find_coreEPS0_.exit, %38
-  %.pre-phi174 = phi i64 [ %42, %38 ], [ 0, %_ZNK7obj_mapI9func_declSt4pairIjP4exprEE9find_coreEPS0_.exit ]
-  %.0.i.i = phi i64 [ %42, %38 ], [ 4294967295, %_ZNK7obj_mapI9func_declSt4pairIjP4exprEE9find_coreEPS0_.exit ]
+_ZN6vectorIP9func_declLb0EjE4backEv.exit15:       ; preds = %_ZNK7obj_mapI9func_declSt4pairIjP4exprEE9find_coreEPS0_.exit._ZN6vectorIP9func_declLb0EjE4backEv.exit15_crit_edge, %38
+  %.pre-phi174 = phi i64 [ %.pre173, %_ZNK7obj_mapI9func_declSt4pairIjP4exprEE9find_coreEPS0_.exit._ZN6vectorIP9func_declLb0EjE4backEv.exit15_crit_edge ], [ %42, %38 ]
+  %.0.i.i = phi i64 [ 4294967295, %_ZNK7obj_mapI9func_declSt4pairIjP4exprEE9find_coreEPS0_.exit._ZN6vectorIP9func_declLb0EjE4backEv.exit15_crit_edge ], [ %42, %38 ]
   %43 = getelementptr inbounds nuw ptr, ptr %36, i64 %.0.i.i
   %44 = load ptr, ptr %43, align 8, !tbaa !65
   %45 = zext i32 %.sroa.0.0.copyload to i64

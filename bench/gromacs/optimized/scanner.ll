@@ -1535,72 +1535,66 @@ define void @_Z18_gmx_sel_yyrestartP8_IO_FILEPv(ptr noundef %0, ptr noundef capt
   store i32 1, ptr %46, align 8, !tbaa !79
   %47 = getelementptr inbounds nuw i8, ptr %36, i64 64
   store i32 0, ptr %47, align 8, !tbaa !64
-  %48 = load ptr, ptr %3, align 8, !tbaa !20
-  %.not15.i.i = icmp eq ptr %48, null
-  br i1 %.not15.i.i, label %.thread.i, label %49
+  %48 = load ptr, ptr %3, align 8, !tbaa !20, !nonnull !49, !noundef !49
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load i64, ptr %49, align 8, !tbaa !21
+  %51 = getelementptr inbounds nuw ptr, ptr %48, i64 %50
+  %52 = load ptr, ptr %51, align 8, !tbaa !22
+  %53 = icmp eq ptr %36, %52
+  br i1 %53, label %_Z24_gmx_sel_yy_flush_bufferP15yy_buffer_statePv.exit.thread.i.thread, label %_Z24_gmx_sel_yy_flush_bufferP15yy_buffer_statePv.exit.thread.i
 
-49:                                               ; preds = %35
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load i64, ptr %50, align 8, !tbaa !21
-  %52 = getelementptr inbounds nuw ptr, ptr %48, i64 %51
-  %53 = load ptr, ptr %52, align 8, !tbaa !22
-  %54 = icmp eq ptr %36, %53
-  br i1 %54, label %_Z24_gmx_sel_yy_flush_bufferP15yy_buffer_statePv.exit.thread.i.thread, label %.thread.i
+_Z24_gmx_sel_yy_flush_bufferP15yy_buffer_statePv.exit.thread.i.thread: ; preds = %35
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 32
+  %55 = load i64, ptr %54, align 8, !tbaa !25
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  store i64 %55, ptr %56, align 8, !tbaa !27
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %58 = load ptr, ptr %57, align 8, !tbaa !28
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  store ptr %58, ptr %59, align 8, !tbaa !29
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  store ptr %58, ptr %60, align 8, !tbaa !30
+  %61 = load ptr, ptr %52, align 8, !tbaa !31
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %61, ptr %62, align 8, !tbaa !17
+  %63 = load i8, ptr %58, align 1, !tbaa !32
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store i8 %63, ptr %64, align 8, !tbaa !33
+  store ptr %0, ptr %36, align 8, !tbaa !31
+  %65 = getelementptr inbounds nuw i8, ptr %36, i64 60
+  store i32 1, ptr %65, align 4, !tbaa !69
+  br label %_ZL23_gmx_sel_yy_init_bufferP15yy_buffer_stateP8_IO_FILEPv.exit
 
-_Z24_gmx_sel_yy_flush_bufferP15yy_buffer_statePv.exit.thread.i.thread: ; preds = %49
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %56 = load i64, ptr %55, align 8, !tbaa !25
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i64 %56, ptr %57, align 8, !tbaa !27
-  %58 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %59 = load ptr, ptr %58, align 8, !tbaa !28
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store ptr %59, ptr %60, align 8, !tbaa !29
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store ptr %59, ptr %61, align 8, !tbaa !30
-  %62 = load ptr, ptr %53, align 8, !tbaa !31
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %62, ptr %63, align 8, !tbaa !17
-  %64 = load i8, ptr %59, align 1, !tbaa !32
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i8 %64, ptr %65, align 8, !tbaa !33
+_Z24_gmx_sel_yy_flush_bufferP15yy_buffer_statePv.exit.thread.i: ; preds = %35
   store ptr %0, ptr %36, align 8, !tbaa !31
   %66 = getelementptr inbounds nuw i8, ptr %36, i64 60
   store i32 1, ptr %66, align 4, !tbaa !69
+  %67 = getelementptr inbounds nuw i8, ptr %36, i64 52
+  store i32 1, ptr %67, align 4, !tbaa !80
+  %68 = getelementptr inbounds nuw i8, ptr %36, i64 56
+  store i32 0, ptr %68, align 8, !tbaa !81
   br label %_ZL23_gmx_sel_yy_init_bufferP15yy_buffer_stateP8_IO_FILEPv.exit
 
-.thread.i:                                        ; preds = %49, %35
-  %.pre27 = phi ptr [ undef, %35 ], [ %53, %49 ]
-  store ptr %0, ptr %36, align 8, !tbaa !31
-  %67 = getelementptr inbounds nuw i8, ptr %36, i64 60
-  store i32 1, ptr %67, align 4, !tbaa !69
-  %68 = getelementptr inbounds nuw i8, ptr %36, i64 52
-  store i32 1, ptr %68, align 4, !tbaa !80
-  %69 = getelementptr inbounds nuw i8, ptr %36, i64 56
-  store i32 0, ptr %69, align 8, !tbaa !81
-  br label %_ZL23_gmx_sel_yy_init_bufferP15yy_buffer_stateP8_IO_FILEPv.exit
-
-_ZL23_gmx_sel_yy_init_bufferP15yy_buffer_stateP8_IO_FILEPv.exit: ; preds = %_Z24_gmx_sel_yy_flush_bufferP15yy_buffer_statePv.exit.thread.i.thread, %.thread.i
-  %70 = phi ptr [ %.pre27, %.thread.i ], [ %53, %_Z24_gmx_sel_yy_flush_bufferP15yy_buffer_statePv.exit.thread.i.thread ]
-  %71 = getelementptr inbounds nuw i8, ptr %36, i64 44
-  store i32 0, ptr %71, align 4, !tbaa !74
+_ZL23_gmx_sel_yy_init_bufferP15yy_buffer_stateP8_IO_FILEPv.exit: ; preds = %_Z24_gmx_sel_yy_flush_bufferP15yy_buffer_statePv.exit.thread.i.thread, %_Z24_gmx_sel_yy_flush_bufferP15yy_buffer_statePv.exit.thread.i
+  %69 = getelementptr inbounds nuw i8, ptr %36, i64 44
+  store i32 0, ptr %69, align 4, !tbaa !74
   store i32 %38, ptr %37, align 4, !tbaa !76
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 32
-  %73 = load i64, ptr %72, align 8, !tbaa !25
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i64 %73, ptr %74, align 8, !tbaa !27
-  %75 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  %76 = load ptr, ptr %75, align 8, !tbaa !28
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store ptr %76, ptr %77, align 8, !tbaa !29
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store ptr %76, ptr %78, align 8, !tbaa !30
-  %79 = load ptr, ptr %70, align 8, !tbaa !31
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %79, ptr %80, align 8, !tbaa !17
-  %81 = load i8, ptr %76, align 1, !tbaa !32
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i8 %81, ptr %82, align 8, !tbaa !33
+  %70 = getelementptr inbounds nuw i8, ptr %52, i64 32
+  %71 = load i64, ptr %70, align 8, !tbaa !25
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  store i64 %71, ptr %72, align 8, !tbaa !27
+  %73 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %74 = load ptr, ptr %73, align 8, !tbaa !28
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  store ptr %74, ptr %75, align 8, !tbaa !29
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  store ptr %74, ptr %76, align 8, !tbaa !30
+  %77 = load ptr, ptr %52, align 8, !tbaa !31
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %77, ptr %78, align 8, !tbaa !17
+  %79 = load i8, ptr %74, align 1, !tbaa !32
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store i8 %79, ptr %80, align 8, !tbaa !33
   ret void
 }
 

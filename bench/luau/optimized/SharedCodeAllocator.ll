@@ -914,7 +914,7 @@ _ZSt8_DestroyIPSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEES5_
 _ZSt8_DestroyIPSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i, %60
   %68 = phi ptr [ %.pr.i.i.i.i.i.i.i, %_ZSt8_DestroyIPSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i ], [ %62, %60 ]
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %68, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS2_EED2Ev.exit, label %69
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4Luau7CodeGen12NativeModuleEEclEPS2_.exit.i.i.i.i, label %69
 
 69:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i
   %70 = getelementptr inbounds nuw i8, ptr %59, i64 64
@@ -923,21 +923,21 @@ _ZSt8_DestroyIPSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEES5_
   %73 = ptrtoint ptr %68 to i64
   %74 = sub i64 %72, %73
   call void @_ZdlPvm(ptr noundef nonnull %68, i64 noundef %74) #24
-  br label %_ZNSt10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS2_EED2Ev.exit
+  br label %_ZNKSt14default_deleteIN4Luau7CodeGen12NativeModuleEEclEPS2_.exit.i.i.i.i
 
-_ZNSt10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i, %69
+_ZNKSt14default_deleteIN4Luau7CodeGen12NativeModuleEEclEPS2_.exit.i.i.i.i: ; preds = %69, %_ZSt8_DestroyIPSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i
   call void @_ZdlPvm(ptr noundef nonnull %59, i64 noundef 72) #24
   %.pr = load ptr, ptr %37, align 8, !tbaa !58
   %.not.i25 = icmp eq ptr %.pr, null
   br i1 %.not.i25, label %_ZN4Luau7CodeGen15NativeModuleRefD2Ev.exit28, label %_ZNSt10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS2_EED2Ev.exit.thread
 
-_ZNSt10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS2_EED2Ev.exit.thread: ; preds = %58, %_ZNSt10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS2_EED2Ev.exit
-  %75 = phi ptr [ %.pr, %_ZNSt10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS2_EED2Ev.exit ], [ %38, %58 ]
+_ZNSt10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS2_EED2Ev.exit.thread: ; preds = %58, %_ZNKSt14default_deleteIN4Luau7CodeGen12NativeModuleEEclEPS2_.exit.i.i.i.i
+  %75 = phi ptr [ %.pr, %_ZNKSt14default_deleteIN4Luau7CodeGen12NativeModuleEEclEPS2_.exit.i.i.i.i ], [ %38, %58 ]
   %76 = atomicrmw add ptr %75, i64 1 seq_cst, align 8
   br label %_ZN4Luau7CodeGen15NativeModuleRefD2Ev.exit28
 
-_ZN4Luau7CodeGen15NativeModuleRefD2Ev.exit28:     ; preds = %_ZNSt10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS2_EED2Ev.exit.thread, %_ZNSt10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS2_EED2Ev.exit
-  %77 = phi ptr [ null, %_ZNSt10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS2_EED2Ev.exit ], [ %75, %_ZNSt10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS2_EED2Ev.exit.thread ]
+_ZN4Luau7CodeGen15NativeModuleRefD2Ev.exit28:     ; preds = %_ZNSt10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS2_EED2Ev.exit.thread, %_ZNKSt14default_deleteIN4Luau7CodeGen12NativeModuleEEclEPS2_.exit.i.i.i.i
+  %77 = phi ptr [ null, %_ZNKSt14default_deleteIN4Luau7CodeGen12NativeModuleEEclEPS2_.exit.i.i.i.i ], [ %75, %_ZNSt10unique_ptrIN4Luau7CodeGen12NativeModuleESt14default_deleteIS2_EED2Ev.exit.thread ]
   store ptr %77, ptr %0, align 8, !tbaa !56
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %78, align 8, !tbaa !72

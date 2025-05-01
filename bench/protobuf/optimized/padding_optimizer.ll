@@ -1716,6 +1716,10 @@ _ZNKSt6vectorIN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESaIS5_EE1
 
 invoke.cont.i.i.i.i.thread.i:                     ; preds = %_ZNKSt6vectorIN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESaIS5_EE12_M_check_lenEmPKc.exit.i
   %_M_finish.i.i.i.i.i.i45.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
+  %add.ptr.i.i.i.i.i.i46.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i.i
+  %_M_end_of_storage.i.i.i.i.i.i47.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fields_.i.i.i.i, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i.i.i.i46.i, ptr %_M_end_of_storage.i.i.i.i.i.i47.i, align 8
   br label %invoke.cont.i
 
 cond.true.i.i.i.i.i.i.i.i:                        ; preds = %_ZNKSt6vectorIN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESaIS5_EE12_M_check_lenEmPKc.exit.i
@@ -1744,7 +1748,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt16allocator_tr
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.thread.i
-  %add.ptr.i.i.i.i.i.i49.i = phi ptr [ null, %invoke.cont.i.i.i.i.thread.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i.i.i.i49.i = phi ptr [ %add.ptr.i.i.i.i.i.i46.i, %invoke.cont.i.i.i.i.thread.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i.i.i48.i = phi ptr [ %_M_finish.i.i.i.i.i.i45.i, %invoke.cont.i.i.i.i.thread.i ], [ %_M_finish.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i.i.i.i49.i, ptr %_M_finish.i.i.i.i.i.i48.i, align 8
   br i1 %cmp.i.i.i, label %_ZNSt6vectorIN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit35.i, label %for.body.i.i.i.i

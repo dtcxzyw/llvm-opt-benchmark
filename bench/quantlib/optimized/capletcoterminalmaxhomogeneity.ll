@@ -302,12 +302,15 @@ _ZN5boost10shared_ptrIN8QuantLib28PiecewiseConstantCorrelationEEC2ERKS3_.exit: ;
 
 invoke.cont.i.thread:                             ; preds = %_ZN5boost10shared_ptrIN8QuantLib28PiecewiseConstantCorrelationEEC2ERKS3_.exit
   %_M_finish.i.i.i104 = getelementptr inbounds nuw i8, ptr %agg.tmp3, i64 8
+  %add.ptr.i.i.i105 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i.i106 = getelementptr inbounds nuw i8, ptr %agg.tmp3, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i105, ptr %_M_end_of_storage.i.i.i106, align 8, !tbaa !23
   br label %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %_ZN5boost10shared_ptrIN8QuantLib28PiecewiseConstantCorrelationEEC2ERKS3_.exit
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775792
-  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN5boost10shared_ptrIN8QuantLib25PiecewiseConstantVarianceEEEEE8allocateERS5_m.exit.i.i.i.i, !prof !23
+  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN5boost10shared_ptrIN8QuantLib25PiecewiseConstantVarianceEEEEE8allocateERS5_m.exit.i.i.i.i, !prof !24
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #22
@@ -326,7 +329,7 @@ invoke.cont.i:                                    ; preds = %_ZNSt16allocator_tr
   store ptr %call5.i.i.i.i2.i6.i13, ptr %_M_finish.i.i.i, align 8, !tbaa !20
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i6.i13, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp3, i64 16
-  store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !24
+  store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !23
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i, %_ZSt10_ConstructIN5boost10shared_ptrIN8QuantLib25PiecewiseConstantVarianceEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i
@@ -369,12 +372,15 @@ invoke.cont:                                      ; preds = %_ZSt10_ConstructIN5
 
 invoke.cont.i21.thread:                           ; preds = %invoke.cont
   %_M_finish.i.i.i23110 = getelementptr inbounds nuw i8, ptr %agg.tmp4, i64 8
+  %add.ptr.i.i.i24111 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i17
   %_M_end_of_storage.i.i.i25112 = getelementptr inbounds nuw i8, ptr %agg.tmp4, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp4, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i24111, ptr %_M_end_of_storage.i.i.i25112, align 8, !tbaa !32
   br label %invoke.cont6
 
 cond.true.i.i.i.i19:                              ; preds = %invoke.cont
   %cmp.i.i.i.i.i.i20 = icmp ugt i64 %sub.ptr.sub.i.i17, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i20, label %if.then3.i.i.i.i.i.i26, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !23
+  br i1 %cmp.i.i.i.i.i.i20, label %if.then3.i.i.i.i.i.i26, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !24
 
 if.then3.i.i.i.i.i.i26:                           ; preds = %cond.true.i.i.i.i19
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #22
@@ -399,7 +405,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_tr
 
 invoke.cont6:                                     ; preds = %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont.i21.thread
   %_M_end_of_storage.i.i.i25115 = phi ptr [ %_M_end_of_storage.i.i.i25112, %invoke.cont.i21.thread ], [ %_M_end_of_storage.i.i.i25, %if.then.i.i.i.i.i.i.i.i.i ]
-  %add.ptr.i.i.i24114 = phi ptr [ null, %invoke.cont.i21.thread ], [ %add.ptr.i.i.i24, %if.then.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i24114 = phi ptr [ %add.ptr.i.i.i24111, %invoke.cont.i21.thread ], [ %add.ptr.i.i.i24, %if.then.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i23113 = phi ptr [ %_M_finish.i.i.i23110, %invoke.cont.i21.thread ], [ %_M_finish.i.i.i23, %if.then.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i24114, ptr %_M_finish.i.i.i23113, align 8, !tbaa !29
   %10 = load ptr, ptr %cs, align 8, !tbaa !33
@@ -532,7 +538,7 @@ invoke.cont.i45:                                  ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i46, label %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib25PiecewiseConstantVarianceEEESaIS4_EED2Ev.exit, label %if.then.i.i.i47
 
 if.then.i.i.i47:                                  ; preds = %invoke.cont.i45
-  %32 = load ptr, ptr %_M_end_of_storage.i.i.i108, align 8, !tbaa !24
+  %32 = load ptr, ptr %_M_end_of_storage.i.i.i108, align 8, !tbaa !23
   %sub.ptr.lhs.cast.i.i49 = ptrtoint ptr %32 to i64
   %sub.ptr.rhs.cast.i.i50 = ptrtoint ptr %31 to i64
   %sub.ptr.sub.i.i51 = sub i64 %sub.ptr.lhs.cast.i.i49, %sub.ptr.rhs.cast.i.i50
@@ -905,7 +911,7 @@ entry:
 
 cond.true.i.i.i.i:                                ; preds = %entry
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !23
+  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !24
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #22
@@ -952,7 +958,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %invoke.cont.i, %if.
 
 cond.true.i.i.i.i14:                              ; preds = %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
   %cmp.i.i.i.i.i.i15 = icmp ugt i64 %sub.ptr.sub.i.i12, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i15, label %if.then3.i.i.i.i.i.i29, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i16, !prof !23
+  br i1 %cmp.i.i.i.i.i.i15, label %if.then3.i.i.i.i.i.i29, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i16, !prof !24
 
 if.then3.i.i.i.i.i.i29:                           ; preds = %cond.true.i.i.i.i14
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #22
@@ -1002,7 +1008,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
 
 cond.true.i.i.i.i37:                              ; preds = %invoke.cont
   %cmp.i.i.i.i.i.i38 = icmp ugt i64 %sub.ptr.sub.i.i35, 9223372036854775792
-  br i1 %cmp.i.i.i.i.i.i38, label %if.then3.i.i.i.i.i.i45, label %_ZNSt16allocator_traitsISaISt4pairImmEEE8allocateERS2_m.exit.i.i.i.i, !prof !23
+  br i1 %cmp.i.i.i.i.i.i38, label %if.then3.i.i.i.i.i.i45, label %_ZNSt16allocator_traitsISaISt4pairImmEEE8allocateERS2_m.exit.i.i.i.i, !prof !24
 
 if.then3.i.i.i.i.i.i45:                           ; preds = %cond.true.i.i.i.i37
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #22
@@ -1054,7 +1060,7 @@ invoke.cont7:                                     ; preds = %for.body.i.i.i.i.i,
 
 cond.true.i.i.i.i53:                              ; preds = %invoke.cont7
   %cmp.i.i.i.i.i.i54 = icmp ugt i64 %sub.ptr.sub.i.i51, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i54, label %if.then3.i.i.i.i.i.i68, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i55, !prof !23
+  br i1 %cmp.i.i.i.i.i.i54, label %if.then3.i.i.i.i.i.i68, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i55, !prof !24
 
 if.then3.i.i.i.i.i.i68:                           ; preds = %cond.true.i.i.i.i53
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #22
@@ -1104,7 +1110,7 @@ invoke.cont10:                                    ; preds = %if.then.i.i.i.i.i.i
 
 cond.true.i.i.i.i77:                              ; preds = %invoke.cont10
   %cmp.i.i.i.i.i.i78 = icmp ugt i64 %sub.ptr.sub.i.i75, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i78, label %if.then3.i.i.i.i.i.i91, label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i, !prof !23
+  br i1 %cmp.i.i.i.i.i.i78, label %if.then3.i.i.i.i.i.i91, label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i, !prof !24
 
 if.then3.i.i.i.i.i.i91:                           ; preds = %cond.true.i.i.i.i77
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #22
@@ -1330,7 +1336,7 @@ invoke.cont:                                      ; preds = %invoke.contthread-p
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %10 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !24
+  %10 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !23
   %sub.ptr.lhs.cast.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -2029,7 +2035,7 @@ invoke.cont111:                                   ; preds = %if.end.i.i.i.i.i.i.
   %56 = load ptr, ptr %displacedSwapVariances, align 8, !tbaa !22
   %57 = load ptr, ptr %56, align 8, !tbaa !25
   %cmp.not.i = icmp eq ptr %57, null
-  br i1 %cmp.not.i, label %cond.false.i, label %invoke.cont116, !prof !23
+  br i1 %cmp.not.i, label %cond.false.i, label %invoke.cont116, !prof !24
 
 cond.false.i:                                     ; preds = %invoke.cont111
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.23, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib25PiecewiseConstantVarianceEEptEv, ptr noundef nonnull @.str.24, i64 noundef 784)
@@ -2099,7 +2105,7 @@ if.then.i:                                        ; preds = %invoke.cont132
 
 cond.true.i.i.i.i.i.i.i:                          ; preds = %if.then.i
   %cmp.i.i.i.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i.i.i, !prof !23
+  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i.i.i, !prof !24
 
 if.then3.i.i.i.i.i.i.i.i.i:                       ; preds = %cond.true.i.i.i.i.i.i.i
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #22
@@ -2279,7 +2285,7 @@ for.body141:                                      ; preds = %for.body141.lr.ph, 
   %add.ptr.i273 = getelementptr inbounds nuw %"class.boost::shared_ptr.32", ptr %81, i64 %add
   %82 = load ptr, ptr %add.ptr.i273, align 8, !tbaa !25
   %cmp.not.i274 = icmp eq ptr %82, null
-  br i1 %cmp.not.i274, label %cond.false.i275, label %invoke.cont146, !prof !23
+  br i1 %cmp.not.i274, label %cond.false.i275, label %invoke.cont146, !prof !24
 
 cond.false.i275:                                  ; preds = %for.body141
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.23, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib25PiecewiseConstantVarianceEEptEv, ptr noundef nonnull @.str.24, i64 noundef 784)
@@ -3342,7 +3348,7 @@ if.then.i327:                                     ; preds = %for.cond.cleanup235
 
 cond.true.i.i.i.i.i.i.i333:                       ; preds = %if.then.i327
   %cmp.i.i.i.i.i.i.i.i.i334 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i331, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i.i.i.i334, label %if.then3.i.i.i.i.i.i.i.i.i350.invoke, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i.i.i335, !prof !23
+  br i1 %cmp.i.i.i.i.i.i.i.i.i334, label %if.then3.i.i.i.i.i.i.i.i.i350.invoke, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i.i.i335, !prof !24
 
 if.then3.i.i.i.i.i.i.i.i.i350.invoke:             ; preds = %cond.true.i.i.i370, %cond.true.i.i.i.i.i.i.i333
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #22
@@ -3419,7 +3425,7 @@ invoke.cont247:                                   ; preds = %if.else.i351.invoke
 
 cond.true.i.i.i370:                               ; preds = %invoke.cont247
   %cmp.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i366, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i, label %if.then3.i.i.i.i.i.i.i.i.i350.invoke, label %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i.i, !prof !23
+  br i1 %cmp.i.i.i.i.i, label %if.then3.i.i.i.i.i.i.i.i.i350.invoke, label %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i.i, !prof !24
 
 _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i370
   %call5.i.i.i.i.i375 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i366) #25
@@ -4309,7 +4315,7 @@ entry:
   %corr_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %corr_, align 8, !tbaa !18
   %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib28PiecewiseConstantCorrelationEEdeEv.exit, !prof !23
+  br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib28PiecewiseConstantCorrelationEEdeEv.exit, !prof !24
 
 cond.false.i:                                     ; preds = %entry
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.23, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib28PiecewiseConstantCorrelationEEdeEv, ptr noundef nonnull @.str.24, i64 noundef 778)
@@ -4321,7 +4327,7 @@ _ZNK5boost10shared_ptrIN8QuantLib28PiecewiseConstantCorrelationEEdeEv.exit: ; pr
   %cs_ = getelementptr inbounds nuw i8, ptr %this, i64 296
   %2 = load ptr, ptr %cs_, align 8, !tbaa !33
   %cmp.not.i1 = icmp eq ptr %2, null
-  br i1 %cmp.not.i1, label %cond.false.i2, label %_ZNK5boost10shared_ptrIN8QuantLib10CurveStateEEdeEv.exit, !prof !23
+  br i1 %cmp.not.i1, label %cond.false.i2, label %_ZNK5boost10shared_ptrIN8QuantLib10CurveStateEEdeEv.exit, !prof !24
 
 cond.false.i2:                                    ; preds = %_ZNK5boost10shared_ptrIN8QuantLib28PiecewiseConstantCorrelationEEdeEv.exit
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.23, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib10CurveStateEEdeEv, ptr noundef nonnull @.str.24, i64 noundef 778)
@@ -4617,7 +4623,7 @@ invoke.cont.i65:                                  ; preds = %invoke.contthread-p
 
 if.then.i.i.i67:                                  ; preds = %invoke.cont.i65
   %_M_end_of_storage.i.i68 = getelementptr inbounds nuw i8, ptr %this, i64 168
-  %38 = load ptr, ptr %_M_end_of_storage.i.i68, align 8, !tbaa !24
+  %38 = load ptr, ptr %_M_end_of_storage.i.i68, align 8, !tbaa !23
   %sub.ptr.lhs.cast.i.i69 = ptrtoint ptr %38 to i64
   %sub.ptr.rhs.cast.i.i70 = ptrtoint ptr %37 to i64
   %sub.ptr.sub.i.i71 = sub i64 %sub.ptr.lhs.cast.i.i69, %sub.ptr.rhs.cast.i.i70
@@ -5202,12 +5208,15 @@ _ZNKSt6vectorIS_IdSaIdEESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
 
 invoke.cont.i.i.i.thread:                         ; preds = %_ZNKSt6vectorIS_IdSaIdEESaIS1_EE12_M_check_lenEmPKc.exit
   %_M_finish.i.i.i.i.i47 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr, i8 0, i64 24, i1 false)
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i
+  %_M_end_of_storage.i.i.i.i.i49 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i.i.i48, ptr %_M_end_of_storage.i.i.i.i.i49, align 8, !tbaa !32
   br label %invoke.cont
 
 cond.true.i.i.i.i.i.i:                            ; preds = %_ZNKSt6vectorIS_IdSaIdEESaIS1_EE12_M_check_lenEmPKc.exit
   %cmp.i.i.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i.i, !prof !23
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i.i, !prof !24
 
 if.then3.i.i.i.i.i.i.i.i:                         ; preds = %cond.true.i.i.i.i.i.i
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #22
@@ -5231,7 +5240,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZNSt16allocator_tr
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.thread
-  %add.ptr.i.i.i.i.i51 = phi ptr [ null, %invoke.cont.i.i.i.thread ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i.i.i51 = phi ptr [ %add.ptr.i.i.i.i.i48, %invoke.cont.i.i.i.thread ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i.i50 = phi ptr [ %_M_finish.i.i.i.i.i47, %invoke.cont.i.i.i.thread ], [ %_M_finish.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i.i.i51, ptr %_M_finish.i.i.i.i.i50, align 8, !tbaa !29
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -5505,8 +5514,8 @@ attributes #26 = { builtin nounwind }
 !20 = !{!21, !5, i64 8}
 !21 = !{!"_ZTSNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib25PiecewiseConstantVarianceEEESaIS4_EE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
 !22 = !{!21, !5, i64 0}
-!23 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!24 = !{!21, !5, i64 16}
+!23 = !{!21, !5, i64 16}
+!24 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !25 = !{!26, !5, i64 0}
 !26 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib25PiecewiseConstantVarianceEEE", !5, i64 0, !17, i64 8}
 !27 = distinct !{!27, !28}

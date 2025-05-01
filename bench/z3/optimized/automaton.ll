@@ -5602,12 +5602,12 @@ _ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1
 
 _ZN9automatonIj21default_value_managerIjEE6removeEjjPjR6vectorINS2_4moveELb1EjE.exit.i: ; preds = %.noexc250, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i.i
   %242 = phi i32 [ %228, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i.i ], [ %.pre.i248, %.noexc250 ]
-  %.3.i8.i.i = phi i64 [ %241, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i.i ], [ 4294967295, %.noexc250 ]
+  %.3.i9.i.i = phi i64 [ %241, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i.i ], [ 4294967295, %.noexc250 ]
   %243 = phi ptr [ %225, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i.i ], [ %.pre.i.i246, %.noexc250 ]
   %244 = add i32 %242, -1
   %245 = zext i32 %244 to i64
   %246 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %243, i64 %245
-  %247 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %243, i64 %.3.i8.i.i
+  %247 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %243, i64 %.3.i9.i.i
   %248 = getelementptr inbounds nuw i8, ptr %246, i64 8
   %249 = load ptr, ptr %248, align 8, !tbaa !8
   %250 = getelementptr inbounds nuw i8, ptr %247, i64 8
@@ -5688,12 +5688,12 @@ _ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1
 
 281:                                              ; preds = %.noexc252, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i20.i
   %282 = phi i32 [ %267, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i20.i ], [ %.pre27.i, %.noexc252 ]
-  %.3.i8.i19.i = phi i64 [ %280, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i20.i ], [ 4294967295, %.noexc252 ]
+  %.3.i9.i19.i = phi i64 [ %280, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i20.i ], [ 4294967295, %.noexc252 ]
   %283 = phi ptr [ %264, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i20.i ], [ %.pre.i18.i, %.noexc252 ]
   %284 = add i32 %282, -1
   %285 = zext i32 %284 to i64
   %286 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %283, i64 %285
-  %287 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %283, i64 %.3.i8.i19.i
+  %287 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %283, i64 %.3.i9.i19.i
   %288 = getelementptr inbounds nuw i8, ptr %286, i64 8
   %289 = load ptr, ptr %288, align 8, !tbaa !8
   %290 = getelementptr inbounds nuw i8, ptr %287, i64 8
@@ -6066,12 +6066,12 @@ _ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1
 
 _ZN9automatonIj21default_value_managerIjEE6removeEjjPjR6vectorINS2_4moveELb1EjE.exit.i284: ; preds = %.noexc303, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i.i301
   %454 = phi i32 [ %440, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i.i301 ], [ %.pre.i283, %.noexc303 ]
-  %.3.i8.i.i285 = phi i64 [ %453, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i.i301 ], [ 4294967295, %.noexc303 ]
+  %.3.i9.i.i285 = phi i64 [ %453, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i.i301 ], [ 4294967295, %.noexc303 ]
   %455 = phi ptr [ %437, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i.i301 ], [ %.pre.i.i281, %.noexc303 ]
   %456 = add i32 %454, -1
   %457 = zext i32 %456 to i64
   %458 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %455, i64 %457
-  %459 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %455, i64 %.3.i8.i.i285
+  %459 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %455, i64 %.3.i9.i.i285
   %460 = getelementptr inbounds nuw i8, ptr %458, i64 8
   %461 = load ptr, ptr %460, align 8, !tbaa !8
   %462 = getelementptr inbounds nuw i8, ptr %459, i64 8
@@ -6151,12 +6151,12 @@ _ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1
 
 492:                                              ; preds = %.noexc305, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i20.i300
   %493 = phi i32 [ %478, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i20.i300 ], [ %.pre27.i298, %.noexc305 ]
-  %.3.i8.i19.i299 = phi i64 [ %491, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i20.i300 ], [ 4294967295, %.noexc305 ]
+  %.3.i9.i19.i299 = phi i64 [ %491, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i20.i300 ], [ 4294967295, %.noexc305 ]
   %494 = phi ptr [ %475, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i20.i300 ], [ %.pre.i18.i296, %.noexc305 ]
   %495 = add i32 %493, -1
   %496 = zext i32 %495 to i64
   %497 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %494, i64 %496
-  %498 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %494, i64 %.3.i8.i19.i299
+  %498 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %494, i64 %.3.i9.i19.i299
   %499 = getelementptr inbounds nuw i8, ptr %497, i64 8
   %500 = load ptr, ptr %499, align 8, !tbaa !8
   %501 = getelementptr inbounds nuw i8, ptr %498, i64 8
@@ -6627,12 +6627,12 @@ _ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1
 
 _ZN9automatonIj21default_value_managerIjEE6removeEjjPjR6vectorINS2_4moveELb1EjE.exit.i375: ; preds = %.noexc394, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i.i392
   %699 = phi i32 [ %685, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i.i392 ], [ %.pre.i374, %.noexc394 ]
-  %.3.i8.i.i376 = phi i64 [ %698, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i.i392 ], [ 4294967295, %.noexc394 ]
+  %.3.i9.i.i376 = phi i64 [ %698, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i.i392 ], [ 4294967295, %.noexc394 ]
   %700 = phi ptr [ %682, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i.i392 ], [ %.pre.i.i372, %.noexc394 ]
   %701 = add i32 %699, -1
   %702 = zext i32 %701 to i64
   %703 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %700, i64 %702
-  %704 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %700, i64 %.3.i8.i.i376
+  %704 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %700, i64 %.3.i9.i.i376
   %705 = getelementptr inbounds nuw i8, ptr %703, i64 8
   %706 = load ptr, ptr %705, align 8, !tbaa !8
   %707 = getelementptr inbounds nuw i8, ptr %704, i64 8
@@ -6712,12 +6712,12 @@ _ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1
 
 737:                                              ; preds = %.noexc396, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i20.i391
   %738 = phi i32 [ %723, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i20.i391 ], [ %.pre27.i389, %.noexc396 ]
-  %.3.i8.i19.i390 = phi i64 [ %736, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i20.i391 ], [ 4294967295, %.noexc396 ]
+  %.3.i9.i19.i390 = phi i64 [ %736, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i20.i391 ], [ 4294967295, %.noexc396 ]
   %739 = phi ptr [ %720, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i20.i391 ], [ %.pre.i18.i387, %.noexc396 ]
   %740 = add i32 %738, -1
   %741 = zext i32 %740 to i64
   %742 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %739, i64 %741
-  %743 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %739, i64 %.3.i8.i19.i390
+  %743 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %739, i64 %.3.i9.i19.i390
   %744 = getelementptr inbounds nuw i8, ptr %742, i64 8
   %745 = load ptr, ptr %744, align 8, !tbaa !8
   %746 = getelementptr inbounds nuw i8, ptr %743, i64 8
@@ -7229,12 +7229,12 @@ _ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1
 
 _ZN9automatonIj21default_value_managerIjEE6removeEjjPjR6vectorINS2_4moveELb1EjE.exit.i471: ; preds = %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i.i467, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i.i488
   %977 = phi i32 [ %963, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i.i488 ], [ %.pre.i470, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i.i467 ]
-  %.3.i8.i.i472 = phi i64 [ %976, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i.i488 ], [ 4294967295, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i.i467 ]
+  %.3.i9.i.i472 = phi i64 [ %976, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i.i488 ], [ 4294967295, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i.i467 ]
   %978 = phi ptr [ %960, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i.i488 ], [ %.pre.i.i468, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i.i467 ]
   %979 = add i32 %977, -1
   %980 = zext i32 %979 to i64
   %981 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %978, i64 %980
-  %982 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %978, i64 %.3.i8.i.i472
+  %982 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %978, i64 %.3.i9.i.i472
   %983 = getelementptr inbounds nuw i8, ptr %981, i64 8
   %984 = load ptr, ptr %983, align 8, !tbaa !8
   %985 = getelementptr inbounds nuw i8, ptr %982, i64 8
@@ -7309,12 +7309,12 @@ _ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1
 
 _ZN9automatonIj21default_value_managerIjEE6removeEjjPj.exit489: ; preds = %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i20.i487, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i17.i482
   %1016 = phi i32 [ %1002, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i20.i487 ], [ %.pre27.i485, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i17.i482 ]
-  %.3.i8.i19.i486 = phi i64 [ %1015, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i20.i487 ], [ 4294967295, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i17.i482 ]
+  %.3.i9.i19.i486 = phi i64 [ %1015, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i20.i487 ], [ 4294967295, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i17.i482 ]
   %1017 = phi ptr [ %999, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i20.i487 ], [ %.pre.i18.i483, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i17.i482 ]
   %1018 = add i32 %1016, -1
   %1019 = zext i32 %1018 to i64
   %1020 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %1017, i64 %1019
-  %1021 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %1017, i64 %.3.i8.i19.i486
+  %1021 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %1017, i64 %.3.i9.i19.i486
   %1022 = getelementptr inbounds nuw i8, ptr %1020, i64 8
   %1023 = load ptr, ptr %1022, align 8, !tbaa !8
   %1024 = getelementptr inbounds nuw i8, ptr %1021, i64 8
@@ -7548,12 +7548,12 @@ _ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1
 
 _ZN9automatonIj21default_value_managerIjEE6removeEjjPjR6vectorINS2_4moveELb1EjE.exit: ; preds = %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i
   %26 = phi i32 [ %12, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i ], [ %.pre, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i ]
-  %.3.i8.i = phi i64 [ %25, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i ], [ 4294967295, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i ]
+  %.3.i9.i = phi i64 [ %25, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i ], [ 4294967295, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i ]
   %27 = phi ptr [ %9, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i ], [ %.pre.i, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i ]
   %28 = add i32 %26, -1
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %27, i64 %29
-  %31 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %27, i64 %.3.i8.i
+  %31 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %27, i64 %.3.i9.i
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !8
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -7629,12 +7629,12 @@ _ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1
 
 _ZN9automatonIj21default_value_managerIjEE6removeEjjPjR6vectorINS2_4moveELb1EjE.exit21: ; preds = %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i20, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i17
   %66 = phi i32 [ %52, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i20 ], [ %.pre27, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i17 ]
-  %.3.i8.i19 = phi i64 [ %65, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i20 ], [ 4294967295, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i17 ]
+  %.3.i9.i19 = phi i64 [ %65, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i20 ], [ 4294967295, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i17 ]
   %67 = phi ptr [ %49, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread.i20 ], [ %.pre.i18, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i17 ]
   %68 = add i32 %66, -1
   %69 = zext i32 %68 to i64
   %70 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %67, i64 %69
-  %71 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %67, i64 %.3.i8.i19
+  %71 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %67, i64 %.3.i9.i19
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !8
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
@@ -10561,14 +10561,14 @@ _ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1
   br label %_ZN9automatonIj21default_value_managerIjEE6removeEjR6vectorINS2_4moveELb1EjE.exit
 
 _ZN9automatonIj21default_value_managerIjEE6removeEjR6vectorINS2_4moveELb1EjE.exit: ; preds = %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread
-  %.3.i8 = phi i64 [ %22, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread ], [ 4294967295, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit ]
+  %.3.i9 = phi i64 [ %22, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread ], [ 4294967295, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit ]
   %23 = phi ptr [ %6, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.thread ], [ %.pre, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit ]
   %24 = getelementptr inbounds i8, ptr %23, i64 -4
   %25 = load i32, ptr %24, align 4, !tbaa !22
   %26 = add i32 %25, -1
   %27 = zext i32 %26 to i64
   %28 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %23, i64 %27
-  %29 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %23, i64 %.3.i8
+  %29 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %23, i64 %.3.i9
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !8
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -10595,7 +10595,13 @@ _ZN9automatonIj21default_value_managerIjEE6removeEjR6vectorINS2_4moveELb1EjE.exi
 define weak_odr hidden void @_ZN9automatonIj21default_value_managerIjEE6removeEjR6vectorINS2_4moveELb1EjE(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = load ptr, ptr %2, align 8, !tbaa !16
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE8pop_backEv.exit, label %6
+  br i1 %5, label %._ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE8pop_backEv.exit_crit_edge, label %6
+
+._ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE8pop_backEv.exit_crit_edge: ; preds = %3
+  %.pre = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !22
+  %.pre3 = add i32 %.pre, -1
+  %.pre4 = zext i32 %.pre3 to i64
+  br label %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE8pop_backEv.exit
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %4, i64 -4
@@ -10604,9 +10610,9 @@ define weak_odr hidden void @_ZN9automatonIj21default_value_managerIjEE6removeEj
   %10 = zext i32 %9 to i64
   br label %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE8pop_backEv.exit
 
-_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE8pop_backEv.exit: ; preds = %3, %6
-  %.pre-phi5 = phi i64 [ %10, %6 ], [ 0, %3 ]
-  %.0.i.i = phi i64 [ %10, %6 ], [ 4294967295, %3 ]
+_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE8pop_backEv.exit: ; preds = %._ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE8pop_backEv.exit_crit_edge, %6
+  %.pre-phi5 = phi i64 [ %.pre4, %._ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE8pop_backEv.exit_crit_edge ], [ %10, %6 ]
+  %.0.i.i = phi i64 [ 4294967295, %._ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE8pop_backEv.exit_crit_edge ], [ %10, %6 ]
   %11 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %4, i64 %.0.i.i
   %12 = zext i32 %1 to i64
   %13 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %4, i64 %12

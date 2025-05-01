@@ -21148,11 +21148,11 @@ _ZN7xgboost10JsonReader12PeekNextCharEv.exit54:   ; preds = %_ZN7xgboost10JsonRe
 
 49:                                               ; preds = %_ZN7xgboost10JsonReader12PeekNextCharEv.exit54
   tail call void @_ZN7xgboost9UBJReader15ParseTypedArrayINS_14JsonTypedArrayIfLNS_5Value9ValueKindE7EEEEEDal(ptr dead_on_unwind writable sret(%"class.xgboost::Json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %44)
-  br label %401
+  br label %402
 
 50:                                               ; preds = %_ZN7xgboost10JsonReader12PeekNextCharEv.exit54
   tail call void @_ZN7xgboost9UBJReader15ParseTypedArrayINS_14JsonTypedArrayIdLNS_5Value9ValueKindE8EEEEEDal(ptr dead_on_unwind writable sret(%"class.xgboost::Json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %44)
-  br label %401
+  br label %402
 
 51:                                               ; preds = %_ZN7xgboost10JsonReader12PeekNextCharEv.exit54
   tail call void @llvm.experimental.noalias.scope.decl(metadata !394)
@@ -21222,8 +21222,8 @@ _ZN7xgboost10JsonReader12PeekNextCharEv.exit54:   ; preds = %_ZN7xgboost10JsonRe
   call void @_ZdlPvm(ptr noundef nonnull %77, i64 noundef %83) #36, !noalias !394
   br label %_ZN7xgboost14JsonTypedArrayIaLNS_5Value9ValueKindE9EED2Ev.exit12.i
 
-common.resume:                                    ; preds = %209, %400, %_ZN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE10EED2Ev.exit12.i, %_ZN7xgboost14JsonTypedArrayIaLNS_5Value9ValueKindE9EED2Ev.exit12.i
-  %common.resume.op = phi { ptr, i32 } [ %75, %_ZN7xgboost14JsonTypedArrayIaLNS_5Value9ValueKindE9EED2Ev.exit12.i ], [ %108, %_ZN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE10EED2Ev.exit12.i ], [ %.pn42.pn, %400 ], [ %.pn.pn.pn.pn, %209 ]
+common.resume:                                    ; preds = %209, %401, %_ZN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE10EED2Ev.exit12.i, %_ZN7xgboost14JsonTypedArrayIaLNS_5Value9ValueKindE9EED2Ev.exit12.i
+  %common.resume.op = phi { ptr, i32 } [ %75, %_ZN7xgboost14JsonTypedArrayIaLNS_5Value9ValueKindE9EED2Ev.exit12.i ], [ %108, %_ZN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE10EED2Ev.exit12.i ], [ %.pn42.pn, %401 ], [ %.pn.pn.pn.pn, %209 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7xgboost14JsonTypedArrayIaLNS_5Value9ValueKindE9EED2Ev.exit12.i: ; preds = %78, %74
@@ -21232,7 +21232,7 @@ _ZN7xgboost14JsonTypedArrayIaLNS_5Value9ValueKindE9EED2Ev.exit12.i: ; preds = %7
 
 _ZN7xgboost9UBJReader15ParseTypedArrayINS_14JsonTypedArrayIaLNS_5Value9ValueKindE9EEEEEDal.exit: ; preds = %63, %68
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #18, !noalias !394
-  br label %401
+  br label %402
 
 84:                                               ; preds = %_ZN7xgboost10JsonReader12PeekNextCharEv.exit54
   tail call void @llvm.experimental.noalias.scope.decl(metadata !398)
@@ -21308,19 +21308,19 @@ _ZN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE10EED2Ev.exit12.i: ; preds = %
 
 _ZN7xgboost9UBJReader15ParseTypedArrayINS_14JsonTypedArrayIhLNS_5Value9ValueKindE10EEEEEDal.exit: ; preds = %96, %101
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #18, !noalias !398
-  br label %401
+  br label %402
 
 117:                                              ; preds = %_ZN7xgboost10JsonReader12PeekNextCharEv.exit54
   tail call void @_ZN7xgboost9UBJReader15ParseTypedArrayINS_14JsonTypedArrayIsLNS_5Value9ValueKindE11EEEEEDal(ptr dead_on_unwind writable sret(%"class.xgboost::Json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %44)
-  br label %401
+  br label %402
 
 118:                                              ; preds = %_ZN7xgboost10JsonReader12PeekNextCharEv.exit54
   tail call void @_ZN7xgboost9UBJReader15ParseTypedArrayINS_14JsonTypedArrayIiLNS_5Value9ValueKindE12EEEEEDal(ptr dead_on_unwind writable sret(%"class.xgboost::Json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %44)
-  br label %401
+  br label %402
 
 119:                                              ; preds = %_ZN7xgboost10JsonReader12PeekNextCharEv.exit54
   tail call void @_ZN7xgboost9UBJReader15ParseTypedArrayINS_14JsonTypedArrayIlLNS_5Value9ValueKindE13EEEEEDal(ptr dead_on_unwind writable sret(%"class.xgboost::Json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %44)
-  br label %401
+  br label %402
 
 120:                                              ; preds = %_ZN7xgboost10JsonReader12PeekNextCharEv.exit54
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #18
@@ -21569,7 +21569,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83: ; preds = %_ZN
 208:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83, %182
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83 ], [ %183, %182 ]
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %209 unwind label %402
+          to label %209 unwind label %403
 
 209:                                              ; preds = %208
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #18
@@ -21703,12 +21703,12 @@ _ZNSt6vectorIN7xgboost4JsonESaIS1_EE6resizeEm.exit: ; preds = %240, %242, %244, 
 257:                                              ; preds = %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i103.thread, %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i86.thread
   %258 = landingpad { ptr, i32 }
           cleanup
-  br label %400
+  br label %401
 
 259:                                              ; preds = %240
   %260 = landingpad { ptr, i32 }
           cleanup
-  br label %400
+  br label %401
 
 .lr.ph137:                                        ; preds = %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE6resizeEm.exit, %_ZN7xgboost4JsonD2Ev.exit
   %.0136 = phi i64 [ %274, %_ZN7xgboost4JsonD2Ev.exit ], [ 0, %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE6resizeEm.exit ]
@@ -21750,7 +21750,7 @@ _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %261, %266, %270
   %276 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #18
-  br label %400
+  br label %401
 
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #18
@@ -21859,7 +21859,7 @@ _ZN7xgboost4JsonD2Ev.exit98:                      ; preds = %_ZNSt6vectorIN7xgbo
 _ZN7xgboost4JsonD2Ev.exit102:                     ; preds = %317, %313, %310, %308
   %.pn38 = phi { ptr, i32 } [ %309, %308 ], [ %311, %310 ], [ %311, %313 ], [ %311, %317 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #18
-  br label %400
+  br label %401
 
 ._crit_edge:                                      ; preds = %303, %_ZN7xgboost10JsonReader12PeekNextCharEv.exit.thread.._crit_edge_crit_edge
   %321 = phi i64 [ %.pre148, %_ZN7xgboost10JsonReader12PeekNextCharEv.exit.thread.._crit_edge_crit_edge ], [ %301, %303 ]
@@ -21896,149 +21896,152 @@ _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit107: ; preds = %_ZN7xgboost4Js
   %335 = ptrtoint ptr %333 to i64
   %336 = ptrtoint ptr %334 to i64
   %337 = sub i64 %335, %336
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %331, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i108 = icmp eq ptr %333, %334
-  br i1 %.not.i.i.i.i.i108, label %.noexc3.i.thread, label %340
+  br i1 %.not.i.i.i.i.i108, label %.noexc3.i.thread, label %341
 
 .noexc3.i.thread:                                 ; preds = %_ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit107
   %338 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %339 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %331, i8 0, i64 24, i1 false)
+  %339 = getelementptr inbounds nuw i8, ptr null, i64 %337
+  %340 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %331, i8 0, i64 16, i1 false)
+  store ptr %339, ptr %340, align 8, !tbaa !273
   br label %.loopexit
 
-340:                                              ; preds = %_ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit107
-  %341 = icmp ugt i64 %337, 9223372036854775800
-  br i1 %341, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE8allocateERS2_m.exit.i.i.i.i.i, !prof !372
+341:                                              ; preds = %_ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit107
+  %342 = icmp ugt i64 %337, 9223372036854775800
+  br i1 %342, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE8allocateERS2_m.exit.i.i.i.i.i, !prof !372
 
-.noexc.i.i.i:                                     ; preds = %340
+.noexc.i.i.i:                                     ; preds = %341
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #38
-          to label %.noexc109 unwind label %395
+          to label %.noexc109 unwind label %396
 
 .noexc109:                                        ; preds = %.noexc.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE8allocateERS2_m.exit.i.i.i.i.i: ; preds = %340
-  %342 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %337) #39
-          to label %.noexc3.i unwind label %395
+_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE8allocateERS2_m.exit.i.i.i.i.i: ; preds = %341
+  %343 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %337) #39
+          to label %.noexc3.i unwind label %396
 
 .noexc3.i:                                        ; preds = %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE8allocateERS2_m.exit.i.i.i.i.i
-  store ptr %342, ptr %331, align 8, !tbaa !186
-  %343 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store ptr %342, ptr %343, align 8, !tbaa !183
-  %344 = getelementptr inbounds nuw i8, ptr %342, i64 %337
-  %345 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store ptr %344, ptr %345, align 8, !tbaa !273
+  store ptr %343, ptr %331, align 8, !tbaa !186
+  %344 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store ptr %343, ptr %344, align 8, !tbaa !183
+  %345 = getelementptr inbounds nuw i8, ptr %343, i64 %337
+  %346 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  store ptr %345, ptr %346, align 8, !tbaa !273
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc3.i, %_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i
-  %.013.i.i.i.i.i.i = phi ptr [ %351, %_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %342, %.noexc3.i ]
-  %.sroa.08.012.i.i.i.i.i.i = phi ptr [ %350, %_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %334, %.noexc3.i ]
-  %346 = load ptr, ptr %.sroa.08.012.i.i.i.i.i.i, align 8, !tbaa !173
-  store ptr %346, ptr %.013.i.i.i.i.i.i, align 8, !tbaa !173
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %346, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, label %347
+  %.013.i.i.i.i.i.i = phi ptr [ %352, %_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %343, %.noexc3.i ]
+  %.sroa.08.012.i.i.i.i.i.i = phi ptr [ %351, %_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %334, %.noexc3.i ]
+  %347 = load ptr, ptr %.sroa.08.012.i.i.i.i.i.i, align 8, !tbaa !173
+  store ptr %347, ptr %.013.i.i.i.i.i.i, align 8, !tbaa !173
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %347, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, label %348
 
-347:                                              ; preds = %.lr.ph.i.i.i.i.i.i
-  %348 = getelementptr inbounds nuw i8, ptr %346, i64 8
-  %349 = atomicrmw add ptr %348, i32 1 monotonic, align 4
+348:                                              ; preds = %.lr.ph.i.i.i.i.i.i
+  %349 = getelementptr inbounds nuw i8, ptr %347, i64 8
+  %350 = atomicrmw add ptr %349, i32 1 monotonic, align 4
   br label %_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i
 
-_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %347, %.lr.ph.i.i.i.i.i.i
-  %350 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i.i, i64 8
-  %351 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %350, %333
+_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %348, %.lr.ph.i.i.i.i.i.i
+  %351 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i.i, i64 8
+  %352 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %351, %333
   br i1 %.not.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !409
 
 .loopexit:                                        ; preds = %_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %.noexc3.i.thread
-  %352 = phi ptr [ %339, %.noexc3.i.thread ], [ %345, %_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
-  %353 = phi ptr [ %338, %.noexc3.i.thread ], [ %343, %_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %.noexc3.i.thread ], [ %351, %_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
-  store ptr %.0.lcssa.i.i.i.i.i.i, ptr %353, align 8, !tbaa !183
-  %354 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #39
-          to label %355 unwind label %397
+  %353 = phi ptr [ %340, %.noexc3.i.thread ], [ %346, %_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
+  %354 = phi ptr [ %338, %.noexc3.i.thread ], [ %344, %_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %.noexc3.i.thread ], [ %352, %_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
+  store ptr %.0.lcssa.i.i.i.i.i.i, ptr %354, align 8, !tbaa !183
+  %355 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #39
+          to label %356 unwind label %398
 
-355:                                              ; preds = %.loopexit
-  call void @_ZN7xgboost9JsonArrayC1EOS0_(ptr noundef nonnull align 8 dereferenceable(48) %354, ptr noundef nonnull align 8 dereferenceable(48) %12) #18
-  store ptr %354, ptr %0, align 8, !tbaa !173
-  %356 = getelementptr inbounds nuw i8, ptr %354, i64 8
-  %357 = atomicrmw add ptr %356, i32 1 monotonic, align 4
+356:                                              ; preds = %.loopexit
+  call void @_ZN7xgboost9JsonArrayC1EOS0_(ptr noundef nonnull align 8 dereferenceable(48) %355, ptr noundef nonnull align 8 dereferenceable(48) %12) #18
+  store ptr %355, ptr %0, align 8, !tbaa !173
+  %357 = getelementptr inbounds nuw i8, ptr %355, i64 8
+  %358 = atomicrmw add ptr %357, i32 1 monotonic, align 4
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN7xgboost9JsonArrayE, i64 16), ptr %12, align 8, !tbaa !13
-  %358 = load ptr, ptr %331, align 8, !tbaa !186
-  %359 = load ptr, ptr %353, align 8, !tbaa !183
-  %.not4.i.i.i.i.i = icmp eq ptr %358, %359
+  %359 = load ptr, ptr %331, align 8, !tbaa !186
+  %360 = load ptr, ptr %354, align 8, !tbaa !183
+  %.not4.i.i.i.i.i = icmp eq ptr %359, %360
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit.i.i117, label %.lr.ph.i.i.i.i.i112
 
-.lr.ph.i.i.i.i.i112:                              ; preds = %355, %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i115
-  %.05.i.i.i.i.i113 = phi ptr [ %369, %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i115 ], [ %358, %355 ]
-  %360 = load ptr, ptr %.05.i.i.i.i.i113, align 8, !tbaa !173
-  %.not.i.i.i.i.i.i.i.i.i114 = icmp eq ptr %360, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i114, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i115, label %361
+.lr.ph.i.i.i.i.i112:                              ; preds = %356, %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i115
+  %.05.i.i.i.i.i113 = phi ptr [ %370, %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i115 ], [ %359, %356 ]
+  %361 = load ptr, ptr %.05.i.i.i.i.i113, align 8, !tbaa !173
+  %.not.i.i.i.i.i.i.i.i.i114 = icmp eq ptr %361, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i114, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i115, label %362
 
-361:                                              ; preds = %.lr.ph.i.i.i.i.i112
-  %362 = getelementptr inbounds nuw i8, ptr %360, i64 8
-  %363 = atomicrmw sub ptr %362, i32 1 release, align 4
-  %364 = icmp eq i32 %363, 1
-  br i1 %364, label %365, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i115
+362:                                              ; preds = %.lr.ph.i.i.i.i.i112
+  %363 = getelementptr inbounds nuw i8, ptr %361, i64 8
+  %364 = atomicrmw sub ptr %363, i32 1 release, align 4
+  %365 = icmp eq i32 %364, 1
+  br i1 %365, label %366, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i115
 
-365:                                              ; preds = %361
+366:                                              ; preds = %362
   fence acquire
-  %366 = load ptr, ptr %360, align 8, !tbaa !13
-  %367 = getelementptr inbounds nuw i8, ptr %366, i64 8
-  %368 = load ptr, ptr %367, align 8
-  call void %368(ptr noundef nonnull align 8 dereferenceable(24) %360) #18
+  %367 = load ptr, ptr %361, align 8, !tbaa !13
+  %368 = getelementptr inbounds nuw i8, ptr %367, i64 8
+  %369 = load ptr, ptr %368, align 8
+  call void %369(ptr noundef nonnull align 8 dereferenceable(24) %361) #18
   br label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i115
 
-_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i115: ; preds = %365, %361, %.lr.ph.i.i.i.i.i112
-  %369 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i113, i64 8
-  %.not.i.i.i.i.i116 = icmp eq ptr %369, %359
+_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i115: ; preds = %366, %362, %.lr.ph.i.i.i.i.i112
+  %370 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i113, i64 8
+  %.not.i.i.i.i.i116 = icmp eq ptr %370, %360
   br i1 %.not.i.i.i.i.i116, label %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i112, !llvm.loop !383
 
 _ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i115
   %.pr.i.i = load ptr, ptr %331, align 8, !tbaa !186
   br label %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit.i.i117
 
-_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit.i.i117: ; preds = %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %355
-  %370 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %358, %355 ]
-  %.not.i.i.i.i = icmp eq ptr %370, null
-  br i1 %.not.i.i.i.i, label %_ZN7xgboost9JsonArrayD2Ev.exit, label %371
+_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit.i.i117: ; preds = %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %356
+  %371 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %359, %356 ]
+  %.not.i.i.i.i = icmp eq ptr %371, null
+  br i1 %.not.i.i.i.i, label %_ZN7xgboost9JsonArrayD2Ev.exit, label %372
 
-371:                                              ; preds = %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit.i.i117
-  %372 = load ptr, ptr %352, align 8, !tbaa !273
-  %373 = ptrtoint ptr %372 to i64
-  %374 = ptrtoint ptr %370 to i64
-  %375 = sub i64 %373, %374
-  call void @_ZdlPvm(ptr noundef nonnull %370, i64 noundef %375) #36
+372:                                              ; preds = %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit.i.i117
+  %373 = load ptr, ptr %353, align 8, !tbaa !273
+  %374 = ptrtoint ptr %373 to i64
+  %375 = ptrtoint ptr %371 to i64
+  %376 = sub i64 %374, %375
+  call void @_ZdlPvm(ptr noundef nonnull %371, i64 noundef %376) #36
   br label %_ZN7xgboost9JsonArrayD2Ev.exit
 
-_ZN7xgboost9JsonArrayD2Ev.exit:                   ; preds = %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit.i.i117, %371
+_ZN7xgboost9JsonArrayD2Ev.exit:                   ; preds = %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit.i.i117, %372
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12) #18
-  %376 = load ptr, ptr %9, align 8, !tbaa !186
-  %377 = load ptr, ptr %332, align 8, !tbaa !183
-  %.not4.i.i.i.i = icmp eq ptr %376, %377
+  %377 = load ptr, ptr %9, align 8, !tbaa !186
+  %378 = load ptr, ptr %332, align 8, !tbaa !183
+  %.not4.i.i.i.i = icmp eq ptr %377, %378
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost9JsonArrayD2Ev.exit, %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %387, %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i ], [ %376, %_ZN7xgboost9JsonArrayD2Ev.exit ]
-  %378 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !173
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %378, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i, label %379
+  %.05.i.i.i.i = phi ptr [ %388, %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i ], [ %377, %_ZN7xgboost9JsonArrayD2Ev.exit ]
+  %379 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !173
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %379, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i, label %380
 
-379:                                              ; preds = %.lr.ph.i.i.i.i
-  %380 = getelementptr inbounds nuw i8, ptr %378, i64 8
-  %381 = atomicrmw sub ptr %380, i32 1 release, align 4
-  %382 = icmp eq i32 %381, 1
-  br i1 %382, label %383, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i
+380:                                              ; preds = %.lr.ph.i.i.i.i
+  %381 = getelementptr inbounds nuw i8, ptr %379, i64 8
+  %382 = atomicrmw sub ptr %381, i32 1 release, align 4
+  %383 = icmp eq i32 %382, 1
+  br i1 %383, label %384, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i
 
-383:                                              ; preds = %379
+384:                                              ; preds = %380
   fence acquire
-  %384 = load ptr, ptr %378, align 8, !tbaa !13
-  %385 = getelementptr inbounds nuw i8, ptr %384, i64 8
-  %386 = load ptr, ptr %385, align 8
-  call void %386(ptr noundef nonnull align 8 dereferenceable(24) %378) #18
+  %385 = load ptr, ptr %379, align 8, !tbaa !13
+  %386 = getelementptr inbounds nuw i8, ptr %385, i64 8
+  %387 = load ptr, ptr %386, align 8
+  call void %387(ptr noundef nonnull align 8 dereferenceable(24) %379) #18
   br label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i
 
-_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i:  ; preds = %383, %379, %.lr.ph.i.i.i.i
-  %387 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
-  %.not.i.i.i.i118 = icmp eq ptr %387, %377
+_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i:  ; preds = %384, %380, %.lr.ph.i.i.i.i
+  %388 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
+  %.not.i.i.i.i118 = icmp eq ptr %388, %378
   br i1 %.not.i.i.i.i118, label %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !383
 
 _ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i
@@ -22046,53 +22049,53 @@ _ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds
   br label %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %_ZN7xgboost9JsonArrayD2Ev.exit
-  %388 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %376, %_ZN7xgboost9JsonArrayD2Ev.exit ]
-  %.not.i.i.i119 = icmp eq ptr %388, null
-  br i1 %.not.i.i.i119, label %_ZNSt6vectorIN7xgboost4JsonESaIS1_EED2Ev.exit, label %389
+  %389 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %377, %_ZN7xgboost9JsonArrayD2Ev.exit ]
+  %.not.i.i.i119 = icmp eq ptr %389, null
+  br i1 %.not.i.i.i119, label %_ZNSt6vectorIN7xgboost4JsonESaIS1_EED2Ev.exit, label %390
 
-389:                                              ; preds = %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit.i
-  %390 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %391 = load ptr, ptr %390, align 8, !tbaa !273
-  %392 = ptrtoint ptr %391 to i64
-  %393 = ptrtoint ptr %388 to i64
-  %394 = sub i64 %392, %393
-  call void @_ZdlPvm(ptr noundef nonnull %388, i64 noundef %394) #36
+390:                                              ; preds = %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit.i
+  %391 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %392 = load ptr, ptr %391, align 8, !tbaa !273
+  %393 = ptrtoint ptr %392 to i64
+  %394 = ptrtoint ptr %389 to i64
+  %395 = sub i64 %393, %394
+  call void @_ZdlPvm(ptr noundef nonnull %389, i64 noundef %395) #36
   br label %_ZNSt6vectorIN7xgboost4JsonESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN7xgboost4JsonESaIS1_EED2Ev.exit:    ; preds = %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit.i, %389
+_ZNSt6vectorIN7xgboost4JsonESaIS1_EED2Ev.exit:    ; preds = %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit.i, %390
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #18
-  br label %401
+  br label %402
 
-395:                                              ; preds = %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE8allocateERS2_m.exit.i.i.i.i.i, %.noexc.i.i.i
-  %396 = landingpad { ptr, i32 }
+396:                                              ; preds = %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE8allocateERS2_m.exit.i.i.i.i.i, %.noexc.i.i.i
+  %397 = landingpad { ptr, i32 }
           cleanup
-  br label %399
-
-397:                                              ; preds = %.loopexit
-  %398 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN7xgboost9JsonArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #18
-  br label %399
-
-399:                                              ; preds = %397, %395
-  %.pn40 = phi { ptr, i32 } [ %398, %397 ], [ %396, %395 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12) #18
   br label %400
 
-400:                                              ; preds = %259, %275, %399, %_ZN7xgboost4JsonD2Ev.exit102, %257
-  %.pn42.pn = phi { ptr, i32 } [ %.pn40, %399 ], [ %258, %257 ], [ %.pn38, %_ZN7xgboost4JsonD2Ev.exit102 ], [ %276, %275 ], [ %260, %259 ]
+398:                                              ; preds = %.loopexit
+  %399 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN7xgboost9JsonArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #18
+  br label %400
+
+400:                                              ; preds = %398, %396
+  %.pn40 = phi { ptr, i32 } [ %399, %398 ], [ %397, %396 ]
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12) #18
+  br label %401
+
+401:                                              ; preds = %259, %275, %400, %_ZN7xgboost4JsonD2Ev.exit102, %257
+  %.pn42.pn = phi { ptr, i32 } [ %.pn40, %400 ], [ %258, %257 ], [ %.pn38, %_ZN7xgboost4JsonD2Ev.exit102 ], [ %276, %275 ], [ %260, %259 ]
   call void @_ZNSt6vectorIN7xgboost4JsonESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #18
   br label %common.resume
 
-401:                                              ; preds = %49, %50, %_ZN7xgboost9UBJReader15ParseTypedArrayINS_14JsonTypedArrayIaLNS_5Value9ValueKindE9EEEEEDal.exit, %_ZN7xgboost9UBJReader15ParseTypedArrayINS_14JsonTypedArrayIhLNS_5Value9ValueKindE10EEEEEDal.exit, %117, %118, %119, %_ZNSt6vectorIN7xgboost4JsonESaIS1_EED2Ev.exit
+402:                                              ; preds = %49, %50, %_ZN7xgboost9UBJReader15ParseTypedArrayINS_14JsonTypedArrayIaLNS_5Value9ValueKindE9EEEEEDal.exit, %_ZN7xgboost9UBJReader15ParseTypedArrayINS_14JsonTypedArrayIhLNS_5Value9ValueKindE10EEEEEDal.exit, %117, %118, %119, %_ZNSt6vectorIN7xgboost4JsonESaIS1_EED2Ev.exit
   ret void
 
-402:                                              ; preds = %208
-  %403 = landingpad { ptr, i32 }
+403:                                              ; preds = %208
+  %404 = landingpad { ptr, i32 }
           catch ptr null
-  %404 = extractvalue { ptr, i32 } %403, 0
-  call void @__clang_call_terminate(ptr %404) #37
+  %405 = extractvalue { ptr, i32 } %404, 0
+  call void @__clang_call_terminate(ptr %405) #37
   unreachable
 }
 

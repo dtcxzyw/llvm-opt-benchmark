@@ -47916,13 +47916,12 @@ if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %cond.true.i.i.i.i
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i34) #22
-  %add.ptr.i.i.i35 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i34
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i, ptr align 8 %jmpTable.sroa.0.0, i64 %sub.ptr.sub.i.i34, i1 false)
   br label %_ZNSt6vectorIPN6hermes10BasicBlockESaIS2_EEC2ERKS4_.exit
 
 _ZNSt6vectorIPN6hermes10BasicBlockESaIS2_EEC2ERKS4_.exit: ; preds = %_ZN6hermes3hbc7HBCISel17registerSwitchImmEjPNS_13SwitchImmInstE.exit, %if.then.i.i.i.i.i.i.i.i.i
-  %add.ptr.i.i.i3574 = phi ptr [ %add.ptr.i.i.i35, %if.then.i.i.i.i.i.i.i.i.i ], [ null, %_ZN6hermes3hbc7HBCISel17registerSwitchImmEjPNS_13SwitchImmInstE.exit ]
   %cond.i.i.i.i73 = phi ptr [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ], [ null, %_ZN6hermes3hbc7HBCISel17registerSwitchImmEjPNS_13SwitchImmInstE.exit ]
+  %add.ptr.i.i.i3574 = getelementptr inbounds i8, ptr %cond.i.i.i.i73, i64 %sub.ptr.sub.i.i34
   %switchImmInfo_ = getelementptr inbounds nuw i8, ptr %this, i64 288
   %25 = load ptr, ptr %switchImmInfo_, align 8
   %NumBuckets.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 304

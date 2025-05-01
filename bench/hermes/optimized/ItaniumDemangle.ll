@@ -28289,7 +28289,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10Vec
   %BaseType.i.i.i82 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i72, i64 -32
   store ptr %call37, ptr %BaseType.i.i.i82, align 8
   %Dimension.i.i.i83 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i72, i64 -24
-  store ptr null, ptr %Dimension.i.i.i83, align 8
+  store ptr inttoptr (i64 1 to ptr), ptr %Dimension.i.i.i83, align 8
   %Dimension_.sroa.2.0.Dimension.sroa_idx.i.i.i84 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i72, i64 -16
   store ptr inttoptr (i64 1 to ptr), ptr %Dimension_.sroa.2.0.Dimension.sroa_idx.i.i.i84, align 8
   br label %return

@@ -7110,7 +7110,11 @@ dt_masks_dynbuf_free.exit493:                     ; preds = %._crit_edge618, %29
   store float %302, ptr %305, align 8, !tbaa !6
   %306 = load ptr, ptr %1, align 8, !tbaa !18
   %.not.i494 = icmp eq ptr %.0377614, null
-  br i1 %.not.i494, label %g_list_next_wraparound.exit, label %307
+  br i1 %.not.i494, label %.g_list_next_wraparound.exit_crit_edge, label %307
+
+.g_list_next_wraparound.exit_crit_edge:           ; preds = %299
+  %.pre.pre = load ptr, ptr inttoptr (i64 8 to ptr), align 8, !tbaa !27
+  br label %g_list_next_wraparound.exit
 
 307:                                              ; preds = %299
   %308 = getelementptr inbounds nuw i8, ptr %.0377614, i64 8
@@ -7118,13 +7122,14 @@ dt_masks_dynbuf_free.exit493:                     ; preds = %._crit_edge618, %29
   %.not6.i = icmp eq ptr %309, null
   br i1 %.not6.i, label %g_list_next_wraparound.exit, label %g_list_next_wraparound.exit.thread
 
-g_list_next_wraparound.exit:                      ; preds = %299, %307
+g_list_next_wraparound.exit:                      ; preds = %.g_list_next_wraparound.exit_crit_edge, %307
+  %.pre = phi ptr [ %.pre.pre, %.g_list_next_wraparound.exit_crit_edge ], [ null, %307 ]
   %.not.i495 = icmp ne ptr %306, null
   call void @llvm.assume(i1 %.not.i495)
   br label %g_list_next_wraparound.exit.thread
 
 g_list_next_wraparound.exit.thread:               ; preds = %g_list_next_wraparound.exit, %307
-  %310 = phi ptr [ null, %g_list_next_wraparound.exit ], [ %309, %307 ]
+  %310 = phi ptr [ %.pre, %g_list_next_wraparound.exit ], [ %309, %307 ]
   %311 = phi ptr [ %306, %g_list_next_wraparound.exit ], [ %309, %307 ]
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 8
   %313 = load ptr, ptr %312, align 8, !tbaa !27

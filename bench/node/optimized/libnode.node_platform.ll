@@ -4008,29 +4008,32 @@ _ZNSt6vectorISt10unique_ptrIN4node11DelayedTaskEPFvPS2_EESaIS6_EE5eraseEN9__gnu_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node22PerIsolatePlatformData17RunForegroundTaskEP10uv_timer_s(ptr noundef captures(address) %handle) #3 align 2 {
+define dso_local void @_ZN4node22PerIsolatePlatformData17RunForegroundTaskEP10uv_timer_s(ptr noundef %handle) #3 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.22", align 8
-  %platform_data = getelementptr inbounds nuw i8, ptr %handle, i64 168
-  %0 = load ptr, ptr %platform_data, align 8
-  %1 = load i64, ptr %handle, align 8
-  store i64 %1, ptr %agg.tmp, align 8
-  store ptr null, ptr %handle, align 8
-  call void @_ZN4node22PerIsolatePlatformData17RunForegroundTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(576) %0, ptr noundef nonnull %agg.tmp)
-  %cmp.not.i = icmp eq i64 %1, 0
+  %0 = ptrtoint ptr %handle to i64
+  %sub.i.i = add i64 %0, -8
+  %1 = inttoptr i64 %sub.i.i to ptr
+  %platform_data = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %2 = load ptr, ptr %platform_data, align 8
+  %3 = load i64, ptr %1, align 8
+  store i64 %3, ptr %agg.tmp, align 8
+  store ptr null, ptr %1, align 8
+  call void @_ZN4node22PerIsolatePlatformData17RunForegroundTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(576) %2, ptr noundef nonnull %agg.tmp)
+  %cmp.not.i = icmp eq i64 %3, 0
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i: ; preds = %entry
-  %.cast = inttoptr i64 %1 to ptr
+  %.cast = inttoptr i64 %3 to ptr
   %vtable.i.i = load ptr, ptr %.cast, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
-  %2 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %.cast) #25
+  %4 = load ptr, ptr %vfn.i.i, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %.cast) #25
   br label %_ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i
-  %3 = load ptr, ptr %platform_data, align 8
-  tail call void @_ZN4node22PerIsolatePlatformData24DeleteFromScheduledTasksEPNS_11DelayedTaskE(ptr noundef nonnull align 8 dereferenceable(576) %3, ptr noundef nonnull %handle)
+  %5 = load ptr, ptr %platform_data, align 8
+  tail call void @_ZN4node22PerIsolatePlatformData24DeleteFromScheduledTasksEPNS_11DelayedTaskE(ptr noundef nonnull align 8 dereferenceable(576) %5, ptr noundef nonnull %1)
   ret void
 }
 
@@ -5116,19 +5119,22 @@ define linkonce_odr dso_local void @_ZN4node23WorkerThreadsTaskRunner20DelayedTa
 entry:
   %loop = getelementptr inbounds nuw i8, ptr %flush_tasks, i64 8
   %0 = load ptr, ptr %loop, align 8
-  %tasks_ = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %1 = ptrtoint ptr %0 to i64
+  %sub.i.i = add i64 %1, -264
+  %2 = inttoptr i64 %sub.i.i to ptr
+  %tasks_ = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(224) %tasks_) #25, !noalias !108
-  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !108
-  %2 = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !108
-  %cmp.i.i.i.i14 = icmp eq ptr %1, %2
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 232
+  %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 200
+  %3 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !108
+  %4 = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !108
+  %cmp.i.i.i.i14 = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i.i14, label %_ZN4node9TaskQueueIN2v84TaskEE3PopEv.exit.thread, label %if.end.i.lr.ph
 
 if.end.i.lr.ph:                                   ; preds = %entry
-  %_M_last.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %_M_first.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %_M_node.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %_M_last.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 216
+  %_M_first.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 208
+  %_M_node.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 224
   br label %if.end.i
 
 _ZN4node9TaskQueueIN2v84TaskEE3PopEv.exit.thread: ; preds = %_ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit, %entry
@@ -5136,77 +5142,77 @@ _ZN4node9TaskQueueIN2v84TaskEE3PopEv.exit.thread: ; preds = %_ZNSt10unique_ptrIN
   br label %while.end
 
 if.end.i:                                         ; preds = %if.end.i.lr.ph, %_ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit
-  %3 = phi ptr [ %2, %if.end.i.lr.ph ], [ %18, %_ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit ]
-  %4 = load i64, ptr %3, align 8, !noalias !108
-  %5 = inttoptr i64 %4 to ptr
-  store ptr null, ptr %3, align 8, !noalias !108
-  %6 = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !108
-  %7 = load ptr, ptr %_M_last.i.i.i, align 8, !noalias !108
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 -8
-  %cmp.not.i.i.i = icmp eq ptr %6, %add.ptr.i.i.i
-  %8 = load ptr, ptr %6, align 8, !noalias !108
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %8, null
+  %5 = phi ptr [ %4, %if.end.i.lr.ph ], [ %20, %_ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit ]
+  %6 = load i64, ptr %5, align 8, !noalias !108
+  %7 = inttoptr i64 %6 to ptr
+  store ptr null, ptr %5, align 8, !noalias !108
+  %8 = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !108
+  %9 = load ptr, ptr %_M_last.i.i.i, align 8, !noalias !108
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %9, i64 -8
+  %cmp.not.i.i.i = icmp eq ptr %8, %add.ptr.i.i.i
+  %10 = load ptr, ptr %8, align 8, !noalias !108
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EEEE7destroyIS5_EEvRS6_PT_.exit.i.i.i, label %_ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i
-  %vtable.i.i.i.i.i.i.i = load ptr, ptr %8, align 8, !noalias !108
+  %vtable.i.i.i.i.i.i.i = load ptr, ptr %10, align 8, !noalias !108
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i, i64 8
-  %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8, !noalias !108
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #25, !noalias !108
+  %11 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8, !noalias !108
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #25, !noalias !108
   br label %_ZNSt16allocator_traitsISaISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EEEE7destroyIS5_EEvRS6_PT_.exit.i.i.i
 
 _ZNSt16allocator_traitsISaISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EEEE7destroyIS5_EEvRS6_PT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i.i.i.i.i.i, %if.then.i.i.i
-  store ptr null, ptr %6, align 8, !noalias !108
-  %10 = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !108
-  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr null, ptr %8, align 8, !noalias !108
+  %12 = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !108
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %_ZN4node9TaskQueueIN2v84TaskEE3PopEv.exit
 
 if.else.i.i.i:                                    ; preds = %if.end.i
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt5dequeISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EESaIS5_EE16_M_pop_front_auxEv.exit.i.i.i, label %_ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i
-  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %8, align 8, !noalias !108
+  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %10, align 8, !noalias !108
   %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 8
-  %11 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8, !noalias !108
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #25, !noalias !108
+  %13 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8, !noalias !108
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #25, !noalias !108
   br label %_ZNSt5dequeISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EESaIS5_EE16_M_pop_front_auxEv.exit.i.i.i
 
 _ZNSt5dequeISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EESaIS5_EE16_M_pop_front_auxEv.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i.i.i.i.i.i.i, %if.else.i.i.i
-  store ptr null, ptr %6, align 8, !noalias !108
-  %12 = load ptr, ptr %_M_first.i.i.i.i, align 8, !noalias !108
-  tail call void @_ZdlPv(ptr noundef %12) #28, !noalias !108
-  %13 = load ptr, ptr %_M_node.i.i.i.i, align 8, !noalias !108
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr null, ptr %8, align 8, !noalias !108
+  %14 = load ptr, ptr %_M_first.i.i.i.i, align 8, !noalias !108
+  tail call void @_ZdlPv(ptr noundef %14) #28, !noalias !108
+  %15 = load ptr, ptr %_M_node.i.i.i.i, align 8, !noalias !108
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %add.ptr.i.i.i.i, ptr %_M_node.i.i.i.i, align 8, !noalias !108
-  %14 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !noalias !108
-  store ptr %14, ptr %_M_first.i.i.i.i, align 8, !noalias !108
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 512
+  %16 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !noalias !108
+  store ptr %16, ptr %_M_first.i.i.i.i, align 8, !noalias !108
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 512
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_last.i.i.i, align 8, !noalias !108
   br label %_ZN4node9TaskQueueIN2v84TaskEE3PopEv.exit
 
 _ZN4node9TaskQueueIN2v84TaskEE3PopEv.exit:        ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EEEE7destroyIS5_EEvRS6_PT_.exit.i.i.i, %_ZNSt5dequeISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EESaIS5_EE16_M_pop_front_auxEv.exit.i.i.i
-  %storemerge.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt16allocator_traitsISaISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EEEE7destroyIS5_EEvRS6_PT_.exit.i.i.i ], [ %14, %_ZNSt5dequeISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EESaIS5_EE16_M_pop_front_auxEv.exit.i.i.i ]
+  %storemerge.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt16allocator_traitsISaISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EEEE7destroyIS5_EEvRS6_PT_.exit.i.i.i ], [ %16, %_ZNSt5dequeISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EESaIS5_EE16_M_pop_front_auxEv.exit.i.i.i ]
   store ptr %storemerge.i.i.i, ptr %_M_start.i.i.i, align 8, !noalias !108
   tail call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(224) %tasks_) #25, !noalias !108
-  %cmp.i.not = icmp eq i64 %4, 0
+  %cmp.i.not = icmp eq i64 %6, 0
   br i1 %cmp.i.not, label %while.end, label %_ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4node9TaskQueueIN2v84TaskEE3PopEv.exit
-  %vtable = load ptr, ptr %5, align 8
+  %vtable = load ptr, ptr %7, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
-  %15 = load ptr, ptr %vfn, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %5) #25
-  %vtable.i.i = load ptr, ptr %5, align 8
+  %17 = load ptr, ptr %vfn, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %7) #25
+  %vtable.i.i = load ptr, ptr %7, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
-  %16 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %5) #25
+  %18 = load ptr, ptr %vfn.i.i, align 8
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %7) #25
   tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(224) %tasks_) #25, !noalias !108
-  %17 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !108
-  %18 = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !108
-  %cmp.i.i.i.i = icmp eq ptr %17, %18
+  %19 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !108
+  %20 = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !108
+  %cmp.i.i.i.i = icmp eq ptr %19, %20
   br i1 %cmp.i.i.i.i, label %_ZN4node9TaskQueueIN2v84TaskEE3PopEv.exit.thread, label %if.end.i
 
 while.end:                                        ; preds = %_ZN4node9TaskQueueIN2v84TaskEE3PopEv.exit, %_ZN4node9TaskQueueIN2v84TaskEE3PopEv.exit.thread
@@ -5428,58 +5434,61 @@ entry:
   %agg.tmp = alloca %"class.std::unique_ptr.22", align 8
   %loop = getelementptr inbounds nuw i8, ptr %timer, i64 8
   %0 = load ptr, ptr %loop, align 8
-  %pending_worker_tasks_ = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1 = load ptr, ptr %pending_worker_tasks_, align 8
+  %1 = ptrtoint ptr %0 to i64
+  %sub.i.i = add i64 %1, -264
+  %2 = inttoptr i64 %sub.i.i to ptr
+  %pending_worker_tasks_ = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3 = load ptr, ptr %pending_worker_tasks_, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %timer.addr.i)
   store ptr %timer, ptr %timer.addr.i, align 8, !noalias !112
-  %2 = load ptr, ptr %timer, align 8, !noalias !112
-  store ptr %2, ptr %agg.tmp, align 8, !alias.scope !112
+  %4 = load ptr, ptr %timer, align 8, !noalias !112
+  store ptr %4, ptr %agg.tmp, align 8, !alias.scope !112
   %call.i = tail call i32 @uv_timer_stop(ptr noundef nonnull %timer) #25, !noalias !112
   tail call void @uv_close(ptr noundef nonnull %timer, ptr noundef nonnull @_ZZN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler13TakeTimerTaskEP10uv_timer_sENUlP11uv_handle_sE_8__invokeES5_) #25, !noalias !112
-  %timers_.i = getelementptr inbounds nuw i8, ptr %0, i64 1240
+  %timers_.i = getelementptr inbounds nuw i8, ptr %2, i64 1240
   %call.i.i.i = call noundef i64 @_ZNSt10_HashtableIP10uv_timer_sS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %timers_.i, ptr noundef nonnull align 8 dereferenceable(8) %timer.addr.i), !noalias !112
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %timer.addr.i)
-  call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(224) %1) #25
-  %outstanding_tasks_.i = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %3 = load i32, ptr %outstanding_tasks_.i, align 8
-  %inc.i = add nsw i32 %3, 1
+  call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(224) %3) #25
+  %outstanding_tasks_.i = getelementptr inbounds nuw i8, ptr %3, i64 136
+  %5 = load i32, ptr %outstanding_tasks_.i, align 8
+  %inc.i = add nsw i32 %5, 1
   store i32 %inc.i, ptr %outstanding_tasks_.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %4 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %_M_last.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %5 = load ptr, ptr %_M_last.i.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 -8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %add.ptr.i.i.i.i
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 192
+  %6 = load ptr, ptr %_M_finish.i.i.i.i, align 8
+  %_M_last.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 208
+  %7 = load ptr, ptr %_M_last.i.i.i.i, align 8
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 -8
+  %cmp.not.i.i.i.i = icmp eq ptr %6, %add.ptr.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %6 = ptrtoint ptr %2 to i64
-  store i64 %6, ptr %4, align 8
+  %8 = ptrtoint ptr %4 to i64
+  store i64 %8, ptr %6, align 8
   store ptr null, ptr %agg.tmp, align 8
-  %7 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = load ptr, ptr %_M_finish.i.i.i.i, align 8
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
   br label %_ZN4node9TaskQueueIN2v84TaskEE4PushESt10unique_ptrIS2_St14default_deleteIS2_EE.exit
 
 if.else.i.i.i.i:                                  ; preds = %entry
-  %task_queue_.i = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %task_queue_.i = getelementptr inbounds nuw i8, ptr %3, i64 144
   call void @_ZNSt5dequeISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %task_queue_.i, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp)
   br label %_ZN4node9TaskQueueIN2v84TaskEE4PushESt10unique_ptrIS2_St14default_deleteIS2_EE.exit
 
 _ZN4node9TaskQueueIN2v84TaskEE4PushESt10unique_ptrIS2_St14default_deleteIS2_EE.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
-  %tasks_available_.i = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %tasks_available_.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @uv_cond_signal(ptr noundef nonnull align 8 dereferenceable(48) %tasks_available_.i) #25
-  call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(224) %1) #25
-  %8 = load ptr, ptr %agg.tmp, align 8
-  %cmp.not.i = icmp eq ptr %8, null
+  call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(224) %3) #25
+  %10 = load ptr, ptr %agg.tmp, align 8
+  %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i: ; preds = %_ZN4node9TaskQueueIN2v84TaskEE4PushESt10unique_ptrIS2_St14default_deleteIS2_EE.exit
-  %vtable.i.i = load ptr, ptr %8, align 8
+  %vtable.i.i = load ptr, ptr %10, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
-  %9 = load ptr, ptr %vfn.i.i, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #25
+  %11 = load ptr, ptr %vfn.i.i, align 8
+  call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #25
   br label %_ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4node9TaskQueueIN2v84TaskEE4PushESt10unique_ptrIS2_St14default_deleteIS2_EE.exit, %_ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i

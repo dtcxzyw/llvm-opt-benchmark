@@ -5039,7 +5039,11 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
 36:                                               ; preds = %30, %26, %21
   %.096 = phi ptr [ %31, %30 ], [ %27, %26 ], [ %23, %21 ]
   %.not126 = icmp eq ptr %.096, null
-  br i1 %.not126, label %.critedge, label %37
+  br i1 %.not126, label %..critedge_crit_edge, label %37
+
+..critedge_crit_edge:                             ; preds = %36
+  %.pre = load i64, ptr inttoptr (i64 24 to ptr), align 8
+  br label %.critedge
 
 37:                                               ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %.096, i64 24
@@ -5048,8 +5052,8 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
   %.not127 = icmp eq i64 %40, 0
   br i1 %.not127, label %.critedge8, label %.critedge
 
-.critedge:                                        ; preds = %36, %37
-  %41 = phi i64 [ %39, %37 ], [ undef, %36 ]
+.critedge:                                        ; preds = %..critedge_crit_edge, %37
+  %41 = phi i64 [ %.pre, %..critedge_crit_edge ], [ %39, %37 ]
   %42 = getelementptr inbounds nuw i8, ptr %.096, i64 24
   %43 = or i64 %41, 16384
   store i64 %43, ptr %42, align 8

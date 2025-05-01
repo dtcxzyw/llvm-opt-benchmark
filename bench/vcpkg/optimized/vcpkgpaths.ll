@@ -21272,7 +21272,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN5vcpkg17ToolsetArchOptionESaIS
 
 6:                                                ; preds = %4
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.145) #30
-          to label %.noexc unwind label %15
+          to label %.noexc unwind label %18
 
 .noexc:                                           ; preds = %6
   unreachable
@@ -21281,59 +21281,65 @@ _ZNSt6vectorIN5vcpkg17ToolsetArchOptionESaIS1_EE17_S_check_init_lenEmRKS2_.exit.
   %.not.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5vcpkg17ToolsetArchOptionESaIS1_EE11_M_allocateEm.exit.thread.i, label %.lr.ph.i.i.i.i.preheader.i
 
+_ZNSt12_Vector_baseIN5vcpkg17ToolsetArchOptionESaIS1_EE11_M_allocateEm.exit.thread.i: ; preds = %_ZNSt6vectorIN5vcpkg17ToolsetArchOptionESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
+  %7 = getelementptr inbounds nuw i8, ptr null, i64 %.idx
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %7, ptr %8, align 8, !tbaa !510
+  br label %16
+
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZNSt6vectorIN5vcpkg17ToolsetArchOptionESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  %7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #33
-          to label %.noexc3 unwind label %15
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #33
+          to label %.noexc3 unwind label %18
 
 .noexc3:                                          ; preds = %.lr.ph.i.i.i.i.preheader.i
-  store ptr %7, ptr %0, align 8, !tbaa !510
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %8, ptr %9, align 8, !tbaa !513
-  %10 = add nsw i64 %.idx, -24
-  %11 = urem i64 %10, 24
-  %12 = sub nuw nsw i64 %10, %11
-  %13 = add nsw i64 %12, 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %7, ptr align 8 %1, i64 %13, i1 false)
-  %scevgep.i = getelementptr i8, ptr %7, i64 %13
-  br label %_ZNSt12_Vector_baseIN5vcpkg17ToolsetArchOptionESaIS1_EE11_M_allocateEm.exit.thread.i
+  store ptr %9, ptr %0, align 8, !tbaa !513
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %10, ptr %11, align 8, !tbaa !510
+  %12 = add nsw i64 %.idx, -24
+  %13 = urem i64 %12, 24
+  %14 = sub nuw nsw i64 %12, %13
+  %15 = add nsw i64 %14, 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr align 8 %1, i64 %15, i1 false)
+  %scevgep.i = getelementptr i8, ptr %9, i64 %15
+  br label %16
 
-_ZNSt12_Vector_baseIN5vcpkg17ToolsetArchOptionESaIS1_EE11_M_allocateEm.exit.thread.i: ; preds = %_ZNSt6vectorIN5vcpkg17ToolsetArchOptionESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i, %.noexc3
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i, %.noexc3 ], [ null, %_ZNSt6vectorIN5vcpkg17ToolsetArchOptionESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.lcssa.i.i.i.i.i, ptr %14, align 8, !tbaa !514
+16:                                               ; preds = %.noexc3, %_ZNSt12_Vector_baseIN5vcpkg17ToolsetArchOptionESaIS1_EE11_M_allocateEm.exit.thread.i
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i, %.noexc3 ], [ null, %_ZNSt12_Vector_baseIN5vcpkg17ToolsetArchOptionESaIS1_EE11_M_allocateEm.exit.thread.i ]
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.lcssa.i.i.i.i.i, ptr %17, align 8, !tbaa !514
   ret void
 
-15:                                               ; preds = %.lr.ph.i.i.i.i.preheader.i, %6
-  %16 = landingpad { ptr, i32 }
+18:                                               ; preds = %.lr.ph.i.i.i.i.preheader.i, %6
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %17 = load ptr, ptr %0, align 8, !tbaa !510
-  %.not.i.i4 = icmp eq ptr %17, null
-  br i1 %.not.i.i4, label %_ZNSt12_Vector_baseIN5vcpkg17ToolsetArchOptionESaIS1_EED2Ev.exit, label %18
+  %20 = load ptr, ptr %0, align 8, !tbaa !513
+  %.not.i.i4 = icmp eq ptr %20, null
+  br i1 %.not.i.i4, label %_ZNSt12_Vector_baseIN5vcpkg17ToolsetArchOptionESaIS1_EED2Ev.exit, label %21
 
-18:                                               ; preds = %15
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !513
-  %21 = ptrtoint ptr %20 to i64
-  %22 = ptrtoint ptr %17 to i64
-  %23 = sub i64 %21, %22
-  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %23) #29
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %23 = load ptr, ptr %22, align 8, !tbaa !510
+  %24 = ptrtoint ptr %23 to i64
+  %25 = ptrtoint ptr %20 to i64
+  %26 = sub i64 %24, %25
+  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %26) #29
   br label %_ZNSt12_Vector_baseIN5vcpkg17ToolsetArchOptionESaIS1_EED2Ev.exit
 
-_ZNSt12_Vector_baseIN5vcpkg17ToolsetArchOptionESaIS1_EED2Ev.exit: ; preds = %15, %18
-  resume { ptr, i32 } %16
+_ZNSt12_Vector_baseIN5vcpkg17ToolsetArchOptionESaIS1_EED2Ev.exit: ; preds = %18, %21
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5vcpkg7ToolsetD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %3 = load ptr, ptr %2, align 8, !tbaa !510
+  %3 = load ptr, ptr %2, align 8, !tbaa !513
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN5vcpkg17ToolsetArchOptionESaIS1_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %6 = load ptr, ptr %5, align 8, !tbaa !513
+  %6 = load ptr, ptr %5, align 8, !tbaa !510
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
@@ -40889,10 +40895,10 @@ attributes #34 = { nounwind willreturn memory(read) }
 !507 = !{!"_ZTSN5vcpkg11ZStringViewE", !32, i64 0}
 !508 = !{!"_ZTSN5vcpkg15CPUArchitectureE", !12, i64 0}
 !509 = !{!506, !508, i64 20}
-!510 = !{!511, !512, i64 0}
+!510 = !{!511, !512, i64 16}
 !511 = !{!"_ZTSNSt12_Vector_baseIN5vcpkg17ToolsetArchOptionESaIS1_EE17_Vector_impl_dataE", !512, i64 0, !512, i64 8, !512, i64 16}
 !512 = !{!"p1 _ZTSN5vcpkg17ToolsetArchOptionE", !11, i64 0}
-!513 = !{!511, !512, i64 16}
+!513 = !{!511, !512, i64 0}
 !514 = !{!511, !512, i64 8}
 !515 = !{!516}
 !516 = distinct !{!516, !517, !"_ZN3fmt3v1116make_format_argsINS0_7contextEJNS0_6detail9named_argIcN5vcpkg10StringViewEEEELm1ELy4611686018427387919ETnNSt9enable_ifIXneT1_Li0EEiE4typeELi0EEENS3_16format_arg_storeIT_XsZT0_EXT1_EXT2_EEEDpRT0_: argument 0"}

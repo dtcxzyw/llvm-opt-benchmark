@@ -9436,7 +9436,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_19ObjCRuntimeNameAttrEN4llvm11SmallVe
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 36
   %36 = load i32, ptr %35, align 4, !tbaa !604
   %37 = zext i32 %36 to i64
-  br label %54
+  br label %58
 
 .loopexit13.i:                                    ; preds = %19, %_ZN5clangneENS_22specific_attr_iteratorINS_19ObjCRuntimeNameAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i, %8, %4
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -9446,7 +9446,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_19ObjCRuntimeNameAttrEN4llvm11SmallVe
   %42 = and i64 %39, -8
   %.not2.i.i = icmp eq i64 %42, 0
   %.not.i4.i = or i1 %41, %.not2.i.i
-  br i1 %.not.i4.i, label %54, label %43
+  br i1 %.not.i4.i, label %58, label %43
 
 43:                                               ; preds = %.loopexit13.i
   %44 = inttoptr i64 %42 to ptr
@@ -9455,18 +9455,22 @@ _ZN5clangneENS_22specific_attr_iteratorINS_19ObjCRuntimeNameAttrEN4llvm11SmallVe
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load i64, ptr %46, align 8, !tbaa !125
   %49 = and i64 %48, 4294967295
-  br label %54
+  br label %58
 
 .thread:                                          ; preds = %1
-  %50 = load ptr, ptr inttoptr (i64 16 to ptr), align 16, !tbaa !122
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %52 = load i64, ptr %50, align 8, !tbaa !125
-  %53 = and i64 %52, 4294967295
-  br label %54
+  %50 = load i64, ptr inttoptr (i64 40 to ptr), align 8, !tbaa !93
+  %51 = and i64 %50, -8
+  %52 = inttoptr i64 %51 to ptr
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %54 = load ptr, ptr %53, align 8, !tbaa !122
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %56 = load i64, ptr %54, align 8, !tbaa !125
+  %57 = and i64 %56, 4294967295
+  br label %58
 
-54:                                               ; preds = %.loopexit.i, %.loopexit13.i, %43, %.thread
-  %.sroa.0.1 = phi ptr [ %51, %.thread ], [ %34, %.loopexit.i ], [ %47, %43 ], [ @.str.3, %.loopexit13.i ]
-  %.sroa.3.1 = phi i64 [ %53, %.thread ], [ %37, %.loopexit.i ], [ %49, %43 ], [ 0, %.loopexit13.i ]
+58:                                               ; preds = %.loopexit.i, %.loopexit13.i, %43, %.thread
+  %.sroa.0.1 = phi ptr [ %55, %.thread ], [ %34, %.loopexit.i ], [ %47, %43 ], [ @.str.3, %.loopexit13.i ]
+  %.sroa.3.1 = phi i64 [ %57, %.thread ], [ %37, %.loopexit.i ], [ %49, %43 ], [ 0, %.loopexit13.i ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.3.1, 1
   ret { ptr, i64 } %.fca.1.insert

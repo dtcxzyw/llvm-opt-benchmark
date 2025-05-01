@@ -6956,6 +6956,10 @@ _ZNSt10shared_ptrIKN8facebook5velox4core13CallTypedExprEEC2ERKS5_.exit: ; preds 
 
 invoke.cont.i.thread:                             ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4core13CallTypedExprEEC2ERKS5_.exit
   %_M_finish.i.i.i195 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
+  %add.ptr.i.i.i196 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
+  %_M_end_of_storage.i.i.i197 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %rawInputTypes36, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i196, ptr %_M_end_of_storage.i.i.i197, align 8
   br label %invoke.cont38
 
 cond.true.i.i.i.i:                                ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4core13CallTypedExprEEC2ERKS5_.exit
@@ -31534,7 +31538,10 @@ entry:
 
 invoke.cont.i.thread:                             ; preds = %entry
   %_M_finish.i.i.i47 = getelementptr inbounds nuw i8, ptr %types, i64 8
+  %add.ptr.i.i.i48 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i.i49 = getelementptr inbounds nuw i8, ptr %types, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %types, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i48, ptr %_M_end_of_storage.i.i.i49, align 8
   br label %invoke.cont4
 
 cond.true.i.i.i.i:                                ; preds = %entry
@@ -32704,7 +32711,10 @@ _ZNKRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.e
 
 invoke.cont.i.thread.i:                           ; preds = %_ZNKRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.exit
   %_M_finish.i.i.i71.i = getelementptr inbounds nuw i8, ptr %types.i, i64 8
+  %add.ptr.i.i.i72.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i
   %_M_end_of_storage.i.i.i73.i = getelementptr inbounds nuw i8, ptr %types.i, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %types.i, i8 0, i64 16, i1 false), !noalias !306
+  store ptr %add.ptr.i.i.i72.i, ptr %_M_end_of_storage.i.i.i73.i, align 8, !noalias !306
   br label %invoke.cont.i
 
 cond.true.i.i.i.i.i:                              ; preds = %_ZNKRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.exit
@@ -73942,6 +73952,10 @@ entry:
 
 invoke.cont.i.thread:                             ; preds = %entry
   %_M_finish.i.i.i142 = getelementptr inbounds nuw i8, ptr %agg.tmp15, i64 8
+  %add.ptr.i.i.i143 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
+  %_M_end_of_storage.i.i.i144 = getelementptr inbounds nuw i8, ptr %agg.tmp15, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp15, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i143, ptr %_M_end_of_storage.i.i.i144, align 8
   br label %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %entry
@@ -74018,6 +74032,10 @@ invoke.cont:                                      ; preds = %_ZSt10_ConstructISt
 
 invoke.cont.i15.thread:                           ; preds = %invoke.cont
   %_M_finish.i.i.i17147 = getelementptr inbounds nuw i8, ptr %agg.tmp16, i64 8
+  %add.ptr.i.i.i18148 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i10
+  %_M_end_of_storage.i.i.i19149 = getelementptr inbounds nuw i8, ptr %agg.tmp16, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp16, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i18148, ptr %_M_end_of_storage.i.i.i19149, align 8
   br label %invoke.cont18
 
 cond.true.i.i.i.i12:                              ; preds = %invoke.cont
@@ -74094,6 +74112,10 @@ invoke.cont18:                                    ; preds = %_ZSt10_ConstructISt
 
 invoke.cont.i50.thread:                           ; preds = %invoke.cont18
   %_M_finish.i.i.i52152 = getelementptr inbounds nuw i8, ptr %agg.tmp19, i64 8
+  %add.ptr.i.i.i53153 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i46
+  %_M_end_of_storage.i.i.i54154 = getelementptr inbounds nuw i8, ptr %agg.tmp19, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp19, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i53153, ptr %_M_end_of_storage.i.i.i54154, align 8
   br label %invoke.cont21
 
 cond.true.i.i.i.i48:                              ; preds = %invoke.cont18
@@ -74783,6 +74805,10 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont.i.thread:                             ; preds = %invoke.cont
   %_M_finish.i.i.i17 = getelementptr inbounds nuw i8, ptr %agg.tmp8, i64 8
+  %add.ptr.i.i.i18 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
+  %_M_end_of_storage.i.i.i19 = getelementptr inbounds nuw i8, ptr %agg.tmp8, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp8, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i18, ptr %_M_end_of_storage.i.i.i19, align 8
   br label %invoke.cont10
 
 cond.true.i.i.i.i:                                ; preds = %invoke.cont
@@ -75163,6 +75189,10 @@ entry:
 
 invoke.cont.i.thread:                             ; preds = %entry
   %_M_finish.i.i.i16 = getelementptr inbounds nuw i8, ptr %agg.tmp9, i64 8
+  %add.ptr.i.i.i17 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
+  %_M_end_of_storage.i.i.i18 = getelementptr inbounds nuw i8, ptr %agg.tmp9, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp9, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i17, ptr %_M_end_of_storage.i.i.i18, align 8
   br label %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %entry
@@ -75535,6 +75565,10 @@ entry:
 
 invoke.cont.i.thread:                             ; preds = %entry
   %_M_finish.i.i.i129 = getelementptr inbounds nuw i8, ptr %agg.tmp13, i64 8
+  %add.ptr.i.i.i130 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
+  %_M_end_of_storage.i.i.i131 = getelementptr inbounds nuw i8, ptr %agg.tmp13, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp13, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i130, ptr %_M_end_of_storage.i.i.i131, align 8
   br label %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %entry
@@ -75611,6 +75645,10 @@ invoke.cont:                                      ; preds = %_ZSt10_ConstructISt
 
 invoke.cont.i13.thread:                           ; preds = %invoke.cont
   %_M_finish.i.i.i15134 = getelementptr inbounds nuw i8, ptr %agg.tmp14, i64 8
+  %add.ptr.i.i.i16135 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i8
+  %_M_end_of_storage.i.i.i17136 = getelementptr inbounds nuw i8, ptr %agg.tmp14, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp14, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i16135, ptr %_M_end_of_storage.i.i.i17136, align 8
   br label %invoke.cont16
 
 cond.true.i.i.i.i10:                              ; preds = %invoke.cont
@@ -75687,6 +75725,10 @@ invoke.cont16:                                    ; preds = %_ZSt10_ConstructISt
 
 invoke.cont.i48.thread:                           ; preds = %invoke.cont16
   %_M_finish.i.i.i50139 = getelementptr inbounds nuw i8, ptr %agg.tmp17, i64 8
+  %add.ptr.i.i.i51140 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i44
+  %_M_end_of_storage.i.i.i52141 = getelementptr inbounds nuw i8, ptr %agg.tmp17, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp17, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i51140, ptr %_M_end_of_storage.i.i.i52141, align 8
   br label %invoke.cont19
 
 cond.true.i.i.i.i46:                              ; preds = %invoke.cont16

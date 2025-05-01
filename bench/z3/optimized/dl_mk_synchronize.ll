@@ -2359,12 +2359,8 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i:         ; preds = %9
   %.not.not.i.i = icmp eq i32 %16, 0
   br i1 %.not.not.i.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE6resizeEj.exit.preheader, label %.preheader
 
-thread-pre-split.i.i:                             ; preds = %_ZNK6vectorIP4exprLb0EjE8capacityEv.exit.thread.i.i
-  %.pr.pre.i.i = load ptr, ptr %12, align 8, !tbaa !304
-  br label %.preheader
-
-.preheader:                                       ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i, %thread-pre-split.i.i
-  %17 = phi ptr [ %.pr.pre.i.i, %thread-pre-split.i.i ], [ null, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i ]
+.preheader:                                       ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i, %.noexc20
+  %17 = phi ptr [ %.pr.pre.i.i, %.noexc20 ], [ null, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i ]
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK6vectorIP4exprLb0EjE8capacityEv.exit.thread.i.i, label %_ZNK6vectorIP4exprLb0EjE8capacityEv.exit.i.i
 
@@ -2376,7 +2372,11 @@ _ZNK6vectorIP4exprLb0EjE8capacityEv.exit.i.i:     ; preds = %.preheader
 
 _ZNK6vectorIP4exprLb0EjE8capacityEv.exit.thread.i.i: ; preds = %_ZNK6vectorIP4exprLb0EjE8capacityEv.exit.i.i, %.preheader
   invoke void @_ZN6vectorIP4exprLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %thread-pre-split.i.i unwind label %39
+          to label %.noexc20 unwind label %39
+
+.noexc20:                                         ; preds = %_ZNK6vectorIP4exprLb0EjE8capacityEv.exit.thread.i.i
+  %.pr.pre.i.i = load ptr, ptr %12, align 8, !tbaa !304
+  br label %.preheader
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK6vectorIP4exprLb0EjE8capacityEv.exit.i.i
   %22 = getelementptr inbounds i8, ptr %17, i64 -4
@@ -4575,12 +4575,8 @@ _ZNK6vectorIP3appLb0EjE4sizeEv.exit.i.i:          ; preds = %244
   %.not.not.i.i = icmp eq i32 %94, 0
   br i1 %.not.not.i.i, label %_ZN6vectorIbLb0EjE6resizeEj.exit, label %.preheader
 
-thread-pre-split.i.i:                             ; preds = %_ZNK6vectorIP3appLb0EjE8capacityEv.exit.thread.i.i
-  %.pr.pre.i.i = load ptr, ptr %252, align 8, !tbaa !246
-  br label %.preheader
-
-.preheader:                                       ; preds = %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.i.i, %thread-pre-split.i.i
-  %253 = phi ptr [ %.pr.pre.i.i, %thread-pre-split.i.i ], [ null, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.i.i ]
+.preheader:                                       ; preds = %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.i.i, %.noexc105
+  %253 = phi ptr [ %.pr.pre.i.i, %.noexc105 ], [ null, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.i.i ]
   %254 = icmp eq ptr %253, null
   br i1 %254, label %_ZNK6vectorIP3appLb0EjE8capacityEv.exit.thread.i.i, label %_ZNK6vectorIP3appLb0EjE8capacityEv.exit.i.i
 
@@ -4592,7 +4588,11 @@ _ZNK6vectorIP3appLb0EjE8capacityEv.exit.i.i:      ; preds = %.preheader
 
 _ZNK6vectorIP3appLb0EjE8capacityEv.exit.thread.i.i: ; preds = %_ZNK6vectorIP3appLb0EjE8capacityEv.exit.i.i, %.preheader
   invoke void @_ZN6vectorIP3appLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %252)
-          to label %thread-pre-split.i.i unwind label %.loopexit
+          to label %.noexc105 unwind label %.loopexit
+
+.noexc105:                                        ; preds = %_ZNK6vectorIP3appLb0EjE8capacityEv.exit.thread.i.i
+  %.pr.pre.i.i = load ptr, ptr %252, align 8, !tbaa !246
+  br label %.preheader
 
 .lr.ph.preheader.i.i101:                          ; preds = %_ZNK6vectorIP3appLb0EjE8capacityEv.exit.i.i
   %258 = getelementptr inbounds i8, ptr %253, i64 -4
@@ -5692,12 +5692,8 @@ _ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i: ; preds = %158
   %.not.not.i.i50 = icmp eq i32 %.0.i74, 0
   br i1 %.not.not.i.i50, label %_ZN15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE6resizeEj.exit, label %.preheader
 
-thread-pre-split.i.i46:                           ; preds = %_ZNK6vectorIPN7datalog4ruleELb0EjE8capacityEv.exit.thread.i.i
-  %.pr.pre.i.i47 = load ptr, ptr %164, align 8, !tbaa !314
-  br label %.preheader
-
-.preheader:                                       ; preds = %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i, %thread-pre-split.i.i46
-  %165 = phi ptr [ %.pr.pre.i.i47, %thread-pre-split.i.i46 ], [ null, %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i ]
+.preheader:                                       ; preds = %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i, %.noexc52
+  %165 = phi ptr [ %.pr.pre.i.i47, %.noexc52 ], [ null, %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i ]
   %166 = icmp eq ptr %165, null
   br i1 %166, label %_ZNK6vectorIPN7datalog4ruleELb0EjE8capacityEv.exit.thread.i.i, label %_ZNK6vectorIPN7datalog4ruleELb0EjE8capacityEv.exit.i.i
 
@@ -5709,7 +5705,11 @@ _ZNK6vectorIPN7datalog4ruleELb0EjE8capacityEv.exit.i.i: ; preds = %.preheader
 
 _ZNK6vectorIPN7datalog4ruleELb0EjE8capacityEv.exit.thread.i.i: ; preds = %_ZNK6vectorIPN7datalog4ruleELb0EjE8capacityEv.exit.i.i, %.preheader
   invoke void @_ZN6vectorIPN7datalog4ruleELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %164)
-          to label %thread-pre-split.i.i46 unwind label %200
+          to label %.noexc52 unwind label %200
+
+.noexc52:                                         ; preds = %_ZNK6vectorIPN7datalog4ruleELb0EjE8capacityEv.exit.thread.i.i
+  %.pr.pre.i.i47 = load ptr, ptr %164, align 8, !tbaa !314
+  br label %.preheader
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK6vectorIPN7datalog4ruleELb0EjE8capacityEv.exit.i.i
   %170 = getelementptr inbounds i8, ptr %165, i64 -4

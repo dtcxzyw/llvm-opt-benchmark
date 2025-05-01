@@ -7974,242 +7974,254 @@ define hidden void @_ZN10Scheduling22AddNodeToAvailableListEP4Node(ptr noundef n
   %9 = load i16, ptr %8, align 2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i32, ptr %10, align 8
-  %.not57 = icmp eq i32 %11, 0
-  br i1 %.not57, label %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit._crit_edge, label %_ZNK10Node_ArrayixEj.exit.lr.ph
+  %.not62 = icmp eq i32 %11, 0
+  br i1 %.not62, label %.loopexit51, label %.lr.ph
 
-_ZNK10Node_ArrayixEj.exit.lr.ph:                  ; preds = %2
+.lr.ph:                                           ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %_ZNK10Node_ArrayixEj.exit
+  br label %17
 
-_ZNK10Node_ArrayixEj.exit:                        ; preds = %_ZNK10Node_ArrayixEj.exit.lr.ph, %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread
-  %17 = phi i32 [ %11, %_ZNK10Node_ArrayixEj.exit.lr.ph ], [ %91, %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread ]
-  %indvars.iv = phi i64 [ 0, %_ZNK10Node_ArrayixEj.exit.lr.ph ], [ %indvars.iv.next, %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread ]
-  %18 = load ptr, ptr %3, align 8
-  %19 = load i32, ptr %12, align 8
-  %20 = zext i32 %19 to i64
-  %21 = icmp samesign ult i64 %indvars.iv, %20
-  tail call void @llvm.assume(i1 %21)
-  %22 = load ptr, ptr %13, align 8
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %26 = load i32, ptr %25, align 8
-  %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw i16, ptr %18, i64 %27
-  %29 = load i16, ptr %28, align 2
-  %30 = icmp ugt i16 %29, %9
-  br i1 %30, label %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit._crit_edge.loopexit, label %_ZNK10Node_ArrayixEj.exit42
+17:                                               ; preds = %.lr.ph, %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread
+  %18 = phi i32 [ %11, %.lr.ph ], [ %98, %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread ]
+  %19 = load ptr, ptr %3, align 8
+  %20 = load i32, ptr %12, align 8
+  %21 = zext i32 %20 to i64
+  %22 = icmp samesign ult i64 %indvars.iv, %21
+  br i1 %22, label %_ZNK10Node_ArrayixEj.exit, label %_ZNK10Node_ArrayixEj.exit.thread
+
+_ZNK10Node_ArrayixEj.exit:                        ; preds = %17
+  %23 = load ptr, ptr %13, align 8
+  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
+  %27 = load i32, ptr %26, align 8
+  %28 = zext i32 %27 to i64
+  %29 = getelementptr inbounds nuw i16, ptr %19, i64 %28
+  %30 = load i16, ptr %29, align 2
+  %31 = icmp ugt i16 %30, %9
+  br i1 %31, label %.loopexit51.loopexit, label %_ZNK10Node_ArrayixEj.exit42
+
+_ZNK10Node_ArrayixEj.exit.thread:                 ; preds = %17
+  %32 = trunc nuw i64 %indvars.iv to i32
+  %33 = load i32, ptr inttoptr (i64 40 to ptr), align 8
+  %34 = zext i32 %33 to i64
+  %35 = getelementptr inbounds nuw i16, ptr %19, i64 %34
+  %36 = load i16, ptr %35, align 2
+  %37 = icmp ugt i16 %36, %9
+  tail call void @llvm.assume(i1 %37)
+  br label %.loopexit51
 
 _ZNK10Node_ArrayixEj.exit42:                      ; preds = %_ZNK10Node_ArrayixEj.exit
-  %31 = icmp eq i16 %29, %9
-  br i1 %31, label %32, label %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread
+  %38 = icmp eq i16 %30, %9
+  br i1 %38, label %39, label %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread
 
-32:                                               ; preds = %_ZNK10Node_ArrayixEj.exit42
-  %33 = load i32, ptr %14, align 4
-  %34 = and i32 %33, 31
-  %35 = icmp eq i32 %34, 18
-  br i1 %35, label %_ZNK10Node_ArrayixEj.exit43, label %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread
+39:                                               ; preds = %_ZNK10Node_ArrayixEj.exit42
+  %40 = load i32, ptr %14, align 4
+  %41 = and i32 %40, 31
+  %42 = icmp eq i32 %41, 18
+  br i1 %42, label %_ZNK10Node_ArrayixEj.exit43, label %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread
 
-_ZNK10Node_ArrayixEj.exit43:                      ; preds = %32
-  %36 = getelementptr inbounds nuw i8, ptr %24, i64 44
-  %37 = load i32, ptr %36, align 4
-  %38 = and i32 %37, 31
-  %39 = icmp eq i32 %38, 18
-  br i1 %39, label %_ZNK10Node_ArrayixEj.exit44, label %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread
+_ZNK10Node_ArrayixEj.exit43:                      ; preds = %39
+  %43 = getelementptr inbounds nuw i8, ptr %25, i64 44
+  %44 = load i32, ptr %43, align 4
+  %45 = and i32 %44, 31
+  %46 = icmp eq i32 %45, 18
+  br i1 %46, label %_ZNK10Node_ArrayixEj.exit44, label %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread
 
 _ZNK10Node_ArrayixEj.exit44:                      ; preds = %_ZNK10Node_ArrayixEj.exit43
-  %40 = load ptr, ptr %15, align 8
-  %41 = load ptr, ptr %16, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 40
-  %47 = load i32, ptr %46, align 8
-  %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw %class.OptoRegPair, ptr %45, i64 %48, i32 1
-  %50 = load i16, ptr %49, align 2
-  %51 = load i32, ptr %5, align 8
-  %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw %class.OptoRegPair, ptr %45, i64 %52, i32 1
-  %54 = load i16, ptr %53, align 2
-  %55 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  %60 = load i32, ptr %59, align 8
-  %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw %class.OptoRegPair, ptr %45, i64 %61, i32 1
-  %63 = load i16, ptr %62, align 2
-  %64 = getelementptr inbounds nuw %class.OptoRegPair, ptr %45, i64 %27, i32 1
-  %65 = load i16, ptr %64, align 2
-  %66 = icmp sgt i16 %50, 615
-  %67 = icmp sgt i16 %63, 615
-  %or.cond.i = select i1 %66, i1 %67, i1 false
-  br i1 %or.cond.i, label %68, label %76
+  %47 = load ptr, ptr %15, align 8
+  %48 = load ptr, ptr %16, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 40
+  %54 = load i32, ptr %53, align 8
+  %55 = zext i32 %54 to i64
+  %56 = getelementptr inbounds nuw %class.OptoRegPair, ptr %52, i64 %55, i32 1
+  %57 = load i16, ptr %56, align 2
+  %58 = load i32, ptr %5, align 8
+  %59 = zext i32 %58 to i64
+  %60 = getelementptr inbounds nuw %class.OptoRegPair, ptr %52, i64 %59, i32 1
+  %61 = load i16, ptr %60, align 2
+  %62 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 40
+  %67 = load i32, ptr %66, align 8
+  %68 = zext i32 %67 to i64
+  %69 = getelementptr inbounds nuw %class.OptoRegPair, ptr %52, i64 %68, i32 1
+  %70 = load i16, ptr %69, align 2
+  %71 = getelementptr inbounds nuw %class.OptoRegPair, ptr %52, i64 %28, i32 1
+  %72 = load i16, ptr %71, align 2
+  %73 = icmp sgt i16 %57, 615
+  %74 = icmp sgt i16 %70, 615
+  %or.cond.i = select i1 %73, i1 %74, i1 false
+  br i1 %or.cond.i, label %75, label %83
 
-68:                                               ; preds = %_ZNK10Node_ArrayixEj.exit44
-  %69 = icmp ne i16 %54, -1
-  %70 = icmp slt i16 %54, 616
-  %71 = and i1 %69, %70
-  br i1 %71, label %72, label %76
+75:                                               ; preds = %_ZNK10Node_ArrayixEj.exit44
+  %76 = icmp ne i16 %61, -1
+  %77 = icmp slt i16 %61, 616
+  %78 = and i1 %76, %77
+  br i1 %78, label %79, label %83
 
-72:                                               ; preds = %68
-  %73 = icmp ne i16 %65, -1
-  %74 = icmp slt i16 %65, 616
-  %75 = and i1 %73, %74
-  br i1 %75, label %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit, label %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread
-
-76:                                               ; preds = %68, %_ZNK10Node_ArrayixEj.exit44
-  %77 = icmp sgt i16 %54, 615
-  %78 = icmp sgt i16 %65, 615
-  %or.cond17.i = select i1 %77, i1 %78, i1 false
-  br i1 %or.cond17.i, label %79, label %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread
-
-79:                                               ; preds = %76
-  %80 = icmp ne i16 %50, -1
-  %81 = icmp slt i16 %50, 616
+79:                                               ; preds = %75
+  %80 = icmp ne i16 %72, -1
+  %81 = icmp slt i16 %72, 616
   %82 = and i1 %80, %81
-  br i1 %82, label %83, label %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread
+  br i1 %82, label %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit, label %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread
 
-83:                                               ; preds = %79
-  %84 = icmp ne i16 %63, -1
-  %85 = icmp slt i16 %63, 616
-  %86 = and i1 %84, %85
-  br i1 %86, label %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit, label %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread
+83:                                               ; preds = %75, %_ZNK10Node_ArrayixEj.exit44
+  %84 = icmp sgt i16 %61, 615
+  %85 = icmp sgt i16 %72, 615
+  %or.cond17.i = select i1 %84, i1 %85, i1 false
+  br i1 %or.cond17.i, label %86, label %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread
 
-_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit: ; preds = %72, %83
-  %.sink21.in.i = phi i16 [ %50, %72 ], [ %54, %83 ]
-  %.sink20.in.i = phi i16 [ %63, %72 ], [ %65, %83 ]
+86:                                               ; preds = %83
+  %87 = icmp ne i16 %57, -1
+  %88 = icmp slt i16 %57, 616
+  %89 = and i1 %87, %88
+  br i1 %89, label %90, label %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread
+
+90:                                               ; preds = %86
+  %91 = icmp ne i16 %70, -1
+  %92 = icmp slt i16 %70, 616
+  %93 = and i1 %91, %92
+  br i1 %93, label %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit, label %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread
+
+_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit: ; preds = %79, %90
+  %.sink21.in.i = phi i16 [ %57, %79 ], [ %61, %90 ]
+  %.sink20.in.i = phi i16 [ %70, %79 ], [ %72, %90 ]
   %.sink20.i = zext nneg i16 %.sink20.in.i to i32
   %.sink21.i = zext nneg i16 %.sink21.in.i to i32
-  %87 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %40, i32 noundef %.sink21.i) #14
-  %88 = load ptr, ptr %15, align 8
-  %89 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %88, i32 noundef %.sink20.i) #14
-  %90 = icmp sgt i32 %87, %89
-  br i1 %90, label %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit._crit_edge.loopexit, label %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit._ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread_crit_edge
+  %94 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %47, i32 noundef %.sink21.i) #14
+  %95 = load ptr, ptr %15, align 8
+  %96 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %95, i32 noundef %.sink20.i) #14
+  %97 = icmp sgt i32 %94, %96
+  br i1 %97, label %.loopexit51.loopexit, label %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit._ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread_crit_edge
 
 _ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit._ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread_crit_edge: ; preds = %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit
   %.pre = load i32, ptr %10, align 8
   br label %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread
 
-_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread: ; preds = %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit._ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread_crit_edge, %72, %76, %79, %83, %_ZNK10Node_ArrayixEj.exit43, %32, %_ZNK10Node_ArrayixEj.exit42
-  %91 = phi i32 [ %.pre, %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit._ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread_crit_edge ], [ %17, %72 ], [ %17, %76 ], [ %17, %79 ], [ %17, %83 ], [ %17, %_ZNK10Node_ArrayixEj.exit43 ], [ %17, %32 ], [ %17, %_ZNK10Node_ArrayixEj.exit42 ]
+_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread: ; preds = %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit._ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread_crit_edge, %79, %83, %86, %90, %_ZNK10Node_ArrayixEj.exit43, %39, %_ZNK10Node_ArrayixEj.exit42
+  %98 = phi i32 [ %.pre, %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit._ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread_crit_edge ], [ %18, %79 ], [ %18, %83 ], [ %18, %86 ], [ %18, %90 ], [ %18, %_ZNK10Node_ArrayixEj.exit43 ], [ %18, %39 ], [ %18, %_ZNK10Node_ArrayixEj.exit42 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %92 = zext i32 %91 to i64
-  %93 = icmp samesign ult i64 %indvars.iv.next, %92
-  br i1 %93, label %_ZNK10Node_ArrayixEj.exit, label %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit._crit_edge.loopexit, !llvm.loop !58
+  %99 = zext i32 %98 to i64
+  %100 = icmp samesign ult i64 %indvars.iv.next, %99
+  br i1 %100, label %17, label %.loopexit51.loopexit, !llvm.loop !58
 
-_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit._crit_edge.loopexit: ; preds = %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit, %_ZNK10Node_ArrayixEj.exit, %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread
-  %.0.lcssa.ph.in = phi i64 [ %indvars.iv.next, %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread ], [ %indvars.iv, %_ZNK10Node_ArrayixEj.exit ], [ %indvars.iv, %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit ]
+.loopexit51.loopexit:                             ; preds = %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread, %_ZNK10Node_ArrayixEj.exit, %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit
+  %.0.lcssa.ph.in = phi i64 [ %indvars.iv, %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit ], [ %indvars.iv, %_ZNK10Node_ArrayixEj.exit ], [ %indvars.iv.next, %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit.thread ]
   %.0.lcssa.ph = trunc nuw i64 %.0.lcssa.ph.in to i32
-  br label %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit._crit_edge
+  br label %.loopexit51
 
-_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit._crit_edge: ; preds = %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit._crit_edge.loopexit, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %.0.lcssa.ph, %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit._crit_edge.loopexit ]
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %95 = load i32, ptr %94, align 4
-  %96 = and i32 %95, 3
-  %97 = icmp ne i32 %96, 2
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %99 = load i32, ptr %98, align 8
-  %.not = icmp eq i32 %99, 0
-  %or.cond = select i1 %97, i1 true, i1 %.not
-  br i1 %or.cond, label %.loopexit, label %100
-
-100:                                              ; preds = %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit._crit_edge
-  %101 = load ptr, ptr %1, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 328
-  %103 = load ptr, ptr %102, align 8
-  %104 = tail call noundef i32 %103(ptr noundef nonnull align 8 dereferenceable(64) %1) #14
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 40
+.loopexit51:                                      ; preds = %2, %.loopexit51.loopexit, %_ZNK10Node_ArrayixEj.exit.thread
+  %.055 = phi i32 [ %32, %_ZNK10Node_ArrayixEj.exit.thread ], [ 0, %2 ], [ %.0.lcssa.ph, %.loopexit51.loopexit ]
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %102 = load i32, ptr %101, align 4
+  %103 = and i32 %102, 3
+  %104 = icmp ne i32 %103, 2
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %106 = load i32, ptr %105, align 8
-  %.not49 = icmp eq i32 %106, 0
-  br i1 %.not49, label %_ZNK10Node_ArrayixEj.exit45, label %107
+  %.not = icmp eq i32 %106, 0
+  %or.cond = select i1 %104, i1 true, i1 %.not
+  br i1 %or.cond, label %.loopexit, label %107
 
-107:                                              ; preds = %100
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %109 = load ptr, ptr %108, align 8
+107:                                              ; preds = %.loopexit51
+  %108 = load ptr, ptr %1, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 328
   %110 = load ptr, ptr %109, align 8
+  %111 = tail call noundef i32 %110(ptr noundef nonnull align 8 dereferenceable(64) %1) #14
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %113 = load i32, ptr %112, align 8
+  %.not49 = icmp eq i32 %113, 0
+  br i1 %.not49, label %_ZNK10Node_ArrayixEj.exit45, label %114
+
+114:                                              ; preds = %107
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %116 = load ptr, ptr %115, align 8
+  %117 = load ptr, ptr %116, align 8
   br label %_ZNK10Node_ArrayixEj.exit45
 
-_ZNK10Node_ArrayixEj.exit45:                      ; preds = %100, %107
-  %111 = phi ptr [ %110, %107 ], [ null, %100 ]
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 44
-  %113 = load i32, ptr %112, align 4
-  %114 = and i32 %113, 31
-  %115 = icmp eq i32 %114, 26
-  br i1 %115, label %116, label %.loopexit
+_ZNK10Node_ArrayixEj.exit45:                      ; preds = %107, %114
+  %118 = phi ptr [ %117, %114 ], [ null, %107 ]
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 44
+  %120 = load i32, ptr %119, align 4
+  %121 = and i32 %120, 31
+  %122 = icmp eq i32 %121, 26
+  br i1 %122, label %123, label %.loopexit
 
-116:                                              ; preds = %_ZNK10Node_ArrayixEj.exit45
-  %117 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %120 = load ptr, ptr %119, align 8
-  %121 = icmp eq ptr %120, %1
-  br i1 %121, label %122, label %.loopexit
+123:                                              ; preds = %_ZNK10Node_ArrayixEj.exit45
+  %124 = getelementptr inbounds nuw i8, ptr %118, i64 8
+  %125 = load ptr, ptr %124, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  %127 = load ptr, ptr %126, align 8
+  %128 = icmp eq ptr %127, %1
+  br i1 %128, label %129, label %.loopexit
 
-122:                                              ; preds = %116
-  switch i32 %104, label %.loopexit [
-    i32 88, label %123
-    i32 86, label %123
-    i32 85, label %123
-    i32 82, label %123
-    i32 81, label %123
-    i32 79, label %123
-    i32 77, label %123
+129:                                              ; preds = %123
+  switch i32 %111, label %.loopexit [
+    i32 88, label %130
+    i32 86, label %130
+    i32 85, label %130
+    i32 82, label %130
+    i32 81, label %130
+    i32 79, label %130
+    i32 77, label %130
   ]
 
-123:                                              ; preds = %122, %122, %122, %122, %122, %122, %122
-  %124 = load i32, ptr %10, align 8
-  %.not58 = icmp eq i32 %124, 0
-  br i1 %.not58, label %.loopexit, label %_ZNK10Node_ArrayixEj.exit46.lr.ph
+130:                                              ; preds = %129, %129, %129, %129, %129, %129, %129
+  %131 = load i32, ptr %10, align 8
+  %.not63 = icmp eq i32 %131, 0
+  br i1 %.not63, label %.loopexit, label %_ZNK10Node_ArrayixEj.exit46.lr.ph
 
-_ZNK10Node_ArrayixEj.exit46.lr.ph:                ; preds = %123
-  %125 = load ptr, ptr %3, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %127 = load i32, ptr %126, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %129 = load ptr, ptr %128, align 8
-  %130 = zext i32 %127 to i64
-  %wide.trip.count = zext i32 %124 to i64
+_ZNK10Node_ArrayixEj.exit46.lr.ph:                ; preds = %130
+  %132 = load ptr, ptr %3, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %134 = load i32, ptr %133, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %136 = load ptr, ptr %135, align 8
+  %137 = zext i32 %134 to i64
+  %wide.trip.count = zext i32 %131 to i64
   br label %_ZNK10Node_ArrayixEj.exit46
 
-_ZNK10Node_ArrayixEj.exit46:                      ; preds = %_ZNK10Node_ArrayixEj.exit46.lr.ph, %139
-  %indvars.iv60 = phi i64 [ 0, %_ZNK10Node_ArrayixEj.exit46.lr.ph ], [ %indvars.iv.next61, %139 ]
-  %131 = icmp samesign ult i64 %indvars.iv60, %130
-  tail call void @llvm.assume(i1 %131)
-  %132 = getelementptr inbounds nuw ptr, ptr %129, i64 %indvars.iv60
-  %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 40
-  %135 = load i32, ptr %134, align 8
-  %136 = zext i32 %135 to i64
-  %137 = getelementptr inbounds nuw i16, ptr %125, i64 %136
-  %138 = load i16, ptr %137, align 2
-  %.not41 = icmp ult i16 %138, %9
-  br i1 %.not41, label %139, label %.loopexit.loopexit.split.loop.exit
+_ZNK10Node_ArrayixEj.exit46:                      ; preds = %_ZNK10Node_ArrayixEj.exit46.lr.ph, %146
+  %indvars.iv67 = phi i64 [ 0, %_ZNK10Node_ArrayixEj.exit46.lr.ph ], [ %indvars.iv.next68, %146 ]
+  %138 = icmp samesign ult i64 %indvars.iv67, %137
+  tail call void @llvm.assume(i1 %138)
+  %139 = getelementptr inbounds nuw ptr, ptr %136, i64 %indvars.iv67
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 40
+  %142 = load i32, ptr %141, align 8
+  %143 = zext i32 %142 to i64
+  %144 = getelementptr inbounds nuw i16, ptr %132, i64 %143
+  %145 = load i16, ptr %144, align 2
+  %.not41 = icmp ult i16 %145, %9
+  br i1 %.not41, label %146, label %.loopexit.loopexit.split.loop.exit
 
-139:                                              ; preds = %_ZNK10Node_ArrayixEj.exit46
-  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count
+146:                                              ; preds = %_ZNK10Node_ArrayixEj.exit46
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %_ZNK10Node_ArrayixEj.exit46, !llvm.loop !59
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %_ZNK10Node_ArrayixEj.exit46
-  %140 = trunc nuw i64 %indvars.iv60 to i32
+  %147 = trunc nuw i64 %indvars.iv67 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %139, %.loopexit.loopexit.split.loop.exit, %123, %122, %_ZNK10Node_ArrayixEj.exit45, %116, %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit._crit_edge
-  %.1 = phi i32 [ %.0.lcssa, %122 ], [ %.0.lcssa, %116 ], [ %.0.lcssa, %_ZNK10Node_ArrayixEj.exit45 ], [ %.0.lcssa, %_ZN10Scheduling23compare_two_spill_nodesEP4NodeS1_.exit._crit_edge ], [ 0, %123 ], [ %140, %.loopexit.loopexit.split.loop.exit ], [ %124, %139 ]
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  tail call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(28) %141, i32 noundef %.1, ptr noundef nonnull %1) #14
-  %142 = load i32, ptr %10, align 8
-  %143 = add i32 %142, 1
-  store i32 %143, ptr %10, align 8
+.loopexit:                                        ; preds = %146, %.loopexit.loopexit.split.loop.exit, %130, %129, %_ZNK10Node_ArrayixEj.exit45, %123, %.loopexit51
+  %.1 = phi i32 [ %.055, %129 ], [ %.055, %123 ], [ %.055, %_ZNK10Node_ArrayixEj.exit45 ], [ %.055, %.loopexit51 ], [ 0, %130 ], [ %147, %.loopexit.loopexit.split.loop.exit ], [ %131, %146 ]
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(28) %148, i32 noundef %.1, ptr noundef nonnull %1) #14
+  %149 = load i32, ptr %10, align 8
+  %150 = add i32 %149, 1
+  store i32 %150, ptr %10, align 8
   ret void
 }
 

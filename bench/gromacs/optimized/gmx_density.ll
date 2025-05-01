@@ -274,12 +274,12 @@ define noundef i32 @_Z11gmx_densityiPPc(i32 noundef %0, ptr noundef %1) local_un
   br label %.body
 
 .loopexit.split-lp.loopexit:                      ; preds = %.lr.ph.i
-  %lpad.loopexit89 = landingpad { ptr, i32 }
+  %lpad.loopexit88 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.noexc42, %._crit_edge40.i, %.noexc40, %379, %245, %.noexc34, %._crit_edge.i, %196, %180, %165, %161, %_ZL13gmx_snew_implIPiEvPKcS2_iRPT_m.exit, %_ZL13gmx_snew_implIPcEvPKcS2_iRPT_m.exit, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %140, %150, %136, %134, %132, %125, %118, %110, %106, %2
-  %lpad.loopexit.split-lp90 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp89 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -1104,8 +1104,8 @@ _ZL12calc_densityPKcPPiPKiPPPdS1_P10t_topology7PbcTypeiiPfbS1_iPK16gmx_output_en
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   %399 = load i32, ptr @_ZZ11gmx_densityiPPcE5ngrps, align 4, !tbaa !4
   %400 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %.not119 = icmp eq i32 %399, 0
-  br i1 %.not119, label %._crit_edge, label %401
+  %.not118 = icmp eq i32 %399, 0
+  br i1 %.not118, label %._crit_edge, label %401
 
 401:                                              ; preds = %398
   %402 = sext i32 %399 to i64
@@ -1672,7 +1672,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   ret i32 0
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %251, %397, %.body61, %116, %71
-  %.pn23.pn = phi { ptr, i32 } [ %.pn23, %.body61 ], [ %.pn, %116 ], [ %72, %71 ], [ %252, %251 ], [ %.pn.i, %397 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit89, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp90, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn23.pn = phi { ptr, i32 } [ %.pn23, %.body61 ], [ %.pn, %116 ], [ %72, %71 ], [ %252, %251 ], [ %.pn.i, %397 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit88, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp89, %.loopexit.split-lp.loopexit.split-lp ]
   %617 = getelementptr inbounds nuw i8, ptr %32, i64 280
   br label %618
 

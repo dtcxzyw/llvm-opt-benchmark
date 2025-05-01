@@ -6689,7 +6689,11 @@ define dso_local void @_ZNK5clang4ento22PathDiagnosticLocation4dumpEv(ptr nounde
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %72 = load ptr, ptr %71, align 8, !tbaa !385
   %.not.i.i = icmp eq ptr %72, null
-  br i1 %.not.i.i, label %._crit_edge.thread, label %73
+  br i1 %.not.i.i, label %._crit_edge, label %73
+
+._crit_edge:                                      ; preds = %70
+  %.pre = load i32, ptr inttoptr (i64 28 to ptr), align 4
+  br label %90
 
 73:                                               ; preds = %70
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 28
@@ -6697,7 +6701,7 @@ define dso_local void @_ZNK5clang4ento22PathDiagnosticLocation4dumpEv(ptr nounde
   %76 = and i32 %75, 127
   %77 = add nsw i32 %76, -16
   %78 = icmp ult i32 %77, 63
-  br i1 %78, label %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit, label %._crit_edge
+  br i1 %78, label %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit, label %90
 
 _ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit: ; preds = %73
   %79 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #25
@@ -6720,22 +6724,22 @@ _ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit: ; preds =
   store ptr %89, ptr %82, align 8, !tbaa !96
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-._crit_edge:                                      ; preds = %73
-  %90 = and i32 %75, 127
-  %91 = icmp eq i32 %90, 8
-  br i1 %91, label %92, label %._crit_edge.thread
+90:                                               ; preds = %._crit_edge, %73
+  %91 = phi i32 [ %.pre, %._crit_edge ], [ %75, %73 ]
+  %92 = and i32 %91, 127
+  %93 = icmp eq i32 %92, 8
+  %94 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #25
+  br i1 %93, label %95, label %97
 
-92:                                               ; preds = %._crit_edge
-  %93 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #25
-  %94 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %93, ptr noundef nonnull @.str.23)
+95:                                               ; preds = %90
+  %96 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %94, ptr noundef nonnull @.str.23)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-._crit_edge.thread:                               ; preds = %70, %._crit_edge
-  %95 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #25
-  %96 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %95, ptr noundef nonnull @.str.24)
+97:                                               ; preds = %90
+  %98 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %94, ptr noundef nonnull @.str.24)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-_ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %87, %85, %67, %65, %48, %46, %34, %32, %17, %15, %._crit_edge.thread, %92, %54, %20
+_ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %87, %85, %67, %65, %48, %46, %34, %32, %17, %15, %97, %95, %54, %20
   ret void
 }
 

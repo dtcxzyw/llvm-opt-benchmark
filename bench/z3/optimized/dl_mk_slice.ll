@@ -11823,7 +11823,7 @@ _ZNK7obj_mapI3appPS0_E8containsES1_.exit:         ; preds = %55, %63, %_ZN6vecto
   %.pre2.i116 = load i32, ptr %.phi.trans.insert.i115, align 4, !tbaa !231
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit
 
-_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; preds = %172, %.noexc117
+_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; preds = %.noexc117, %172
   %179 = phi i32 [ %.pre2.i116, %.noexc117 ], [ %174, %172 ]
   %180 = phi ptr [ %.pre.i114, %.noexc117 ], [ %.pre312, %172 ]
   %181 = getelementptr inbounds i8, ptr %180, i64 -4
@@ -12142,7 +12142,7 @@ _ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE4sizeEv.exit: ; preds = %.preh
   %.pre2.i165 = load i32, ptr %.phi.trans.insert.i164, align 4, !tbaa !231
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit178
 
-_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit178: ; preds = %310, %.noexc166
+_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit178: ; preds = %.noexc166, %310
   %317 = phi i32 [ %.pre2.i165, %.noexc166 ], [ %312, %310 ]
   %318 = phi ptr [ %.pre.i163, %.noexc166 ], [ %308, %310 ]
   %319 = getelementptr inbounds i8, ptr %318, i64 -4

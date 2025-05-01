@@ -2680,6 +2680,10 @@ call5.i.i.i.i.i.i.noexc:                          ; preds = %for.cond.cleanup
 
 invoke.cont.i.i.i.thread.i.i.i:                   ; preds = %call5.i.i.i.i.i.i.noexc
   %_M_finish.i.i.i.i.i13.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i220, i64 24
+  %add.ptr.i.i.i.i.i14.i.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.pre-phi
+  %_M_end_of_storage.i.i.i.i.i15.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i220, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i216, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i.i.i14.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i15.i.i.i, align 8, !tbaa !167
   br label %invoke.cont165
 
 cond.true.i.i.i.i.i.i.i.i.i:                      ; preds = %call5.i.i.i.i.i.i.noexc
@@ -2812,7 +2816,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i215.not, label %for.cond.cleanup, label %for.body
 
 invoke.cont165:                                   ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.thread.i.i.i
-  %add.ptr.i.i.i.i.i17.i.i.i = phi ptr [ null, %invoke.cont.i.i.i.thread.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i.i.i17.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i14.i.i.i, %invoke.cont.i.i.i.thread.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i.i16.i.i.i = phi ptr [ %_M_finish.i.i.i.i.i13.i.i.i, %invoke.cont.i.i.i.thread.i.i.i ], [ %_M_finish.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i.i.i17.i.i.i, ptr %_M_finish.i.i.i.i.i16.i.i.i, align 8, !tbaa !165
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i220, ptr noundef nonnull align 8 dereferenceable(24) %stoppingTimes) #28
@@ -3301,6 +3305,10 @@ _ZN5boost10shared_ptrIN8QuantLib9FdmMesherEEC2ERKS3_.exit: ; preds = %if.end266,
 
 invoke.cont.i356.thread:                          ; preds = %_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEEC2ERKS3_.exit
   %_M_finish.i.i.i358818 = getelementptr inbounds nuw i8, ptr %solverDesc, i64 24
+  %add.ptr.i.i.i359819 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i352
+  %_M_end_of_storage.i.i.i360820 = getelementptr inbounds nuw i8, ptr %solverDesc, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bcSet, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i359819, ptr %_M_end_of_storage.i.i.i360820, align 8, !tbaa !187
   br label %invoke.cont269
 
 cond.true.i.i.i.i354:                             ; preds = %_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEEC2ERKS3_.exit
@@ -6572,6 +6580,10 @@ _ZN5boost10shared_ptrIN8QuantLib9FdmMesherEEC2ERKS3_.exit.i: ; preds = %if.then.
 
 invoke.cont.i.i.thread:                           ; preds = %_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEEC2ERKS3_.exit.i
   %_M_finish.i.i.i.i65 = getelementptr inbounds nuw i8, ptr %agg.tmp14, i64 24
+  %add.ptr.i.i.i.i66 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i.i
+  %_M_end_of_storage.i.i.i.i67 = getelementptr inbounds nuw i8, ptr %agg.tmp14, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bcSet.i, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i.i66, ptr %_M_end_of_storage.i.i.i.i67, align 8, !tbaa !187
   br label %invoke.cont.i
 
 cond.true.i.i.i.i.i:                              ; preds = %_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEEC2ERKS3_.exit.i
@@ -7295,7 +7307,10 @@ cond.true.i.i:                                    ; preds = %entry
 
 invoke.cont.i.thread:                             ; preds = %cond.true.i.i
   %_M_finish.i.i.i40 = getelementptr inbounds nuw i8, ptr %agg.tmp15, i64 8
+  %add.ptr.i.i.i41 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i.i42 = getelementptr inbounds nuw i8, ptr %agg.tmp15, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp15, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i41, ptr %_M_end_of_storage.i.i.i42, align 8, !tbaa !101
   br label %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %cond.true.i.i
@@ -7876,7 +7891,10 @@ cond.true.i.i:                                    ; preds = %entry
 
 invoke.cont.i.thread:                             ; preds = %cond.true.i.i
   %_M_finish.i.i.i40 = getelementptr inbounds nuw i8, ptr %agg.tmp15, i64 8
+  %add.ptr.i.i.i41 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i.i42 = getelementptr inbounds nuw i8, ptr %agg.tmp15, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp15, i8 0, i64 16, i1 false)
+  store ptr %add.ptr.i.i.i41, ptr %_M_end_of_storage.i.i.i42, align 8, !tbaa !101
   br label %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %cond.true.i.i

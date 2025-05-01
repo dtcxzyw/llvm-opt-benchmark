@@ -5710,8 +5710,8 @@ _ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlP
   br i1 %41, label %.lr.ph.preheader, label %._crit_edge.thread, !prof !260
 
 .lr.ph.preheader:                                 ; preds = %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit.thread, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit
-  %.7.idx87 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit.thread ], [ %.7.idx, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit ]
-  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx87
+  %.7.idx86 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit.thread ], [ %.7.idx, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit ]
+  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx86
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit34
