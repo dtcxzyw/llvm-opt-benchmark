@@ -6474,38 +6474,38 @@ define internal fastcc range(i32 0, 33) i32 @read_eocd(ptr noundef writeonly cap
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.val25 = load i8, ptr %4, align 1, !tbaa !36
   %5 = getelementptr i8, ptr %1, i64 5
-  %.val26 = load i8, ptr %5, align 1, !tbaa !36
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %7 = load i32, ptr %6, align 1
+  %6 = load i8, ptr %5, align 1, !tbaa !36
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %8 = load i32, ptr %7, align 1
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 1
   %10 = or i8 %.val26, %.val25
   %.not = icmp eq i8 %10, 0
   br i1 %.not, label %11, label %27
 
-11:                                               ; preds = %3
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %.val23 = load i8, ptr %12, align 1, !tbaa !36
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  %.val23 = load i8, ptr %10, align 1, !tbaa !36
   %13 = getelementptr i8, ptr %1, i64 7
   %.val24 = load i8, ptr %13, align 1, !tbaa !36
   %14 = or i8 %.val24, %.val23
   %.not18 = icmp eq i8 %14, 0
-  br i1 %.not18, label %15, label %27
+  br i1 %.not18, label %15, label %19
 
-15:                                               ; preds = %11
+15: ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %.val21 = load i16, ptr %16, align 1
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load i16, ptr %17, align 1
   %.not19 = icmp eq i16 %.val21, %.val
-  br i1 %.not19, label %18, label %27
+  br i1 %.not19, label %14, label %27
 
-18:                                               ; preds = %15
-  %19 = zext i32 %9 to i64
-  %20 = zext i32 %7 to i64
-  %21 = add nuw nsw i64 %19, %20
-  %22 = icmp samesign ugt i64 %21, %2
-  br i1 %22, label %27, label %23
+14:                                               ; preds = %15
+  %15 = zext i32 %9 to i64
+  %16 = zext i32 %7 to i64
+  %17 = add nuw nsw i64 %15, %16
+  %18 = icmp samesign ugt i64 %17, %2
+  br i1 %18, label %27, label %23
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6515,7 +6515,7 @@ define internal fastcc range(i32 0, 33) i32 @read_eocd(ptr noundef writeonly cap
   store i64 %25, ptr %26, align 8, !tbaa !112
   br label %27
 
-27:                                               ; preds = %18, %15, %11, %3, %23
+19:                                               ; preds = %14, %15, %9, %3, %23
   %.0 = phi i32 [ 32, %23 ], [ 0, %3 ], [ 0, %11 ], [ 0, %15 ], [ 0, %18 ]
   ret i32 %.0
 }

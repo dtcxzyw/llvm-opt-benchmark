@@ -157090,7 +157090,7 @@ _ZN3fmt3v116detail6bufferIjE9push_backERKj.exit.i194: ; preds = %.noexc198, %149
 _ZN3fmt3v116detail6bigintlSEi.exit199:            ; preds = %_ZN3fmt3v116detail6bufferIjE9push_backERKj.exit.i194, %._crit_edge.i192, %141, %.thread, %.loopexit580
   %.293 = phi ptr [ null, %.loopexit580 ], [ %9, %.thread ], [ %9, %141 ], [ %9, %._crit_edge.i192 ], [ %9, %_ZN3fmt3v116detail6bufferIjE9push_backERKj.exit.i194 ]
   %157 = load i128, ptr %0, align 16, !tbaa !3624
-  %.sroa.0.0.insert.ext.i.i200 = and i128 %157, 18446744073709551615
+  %.sroa.02.0.insert.ext.i200 = and i128 %157, 18446744073709551615
   %158 = load i64, ptr %12, align 8, !tbaa !3626
   %.not23.i.i = icmp eq i64 %158, 0
   br i1 %.not23.i.i, label %_ZN3fmt3v116detail6bigintlSEi.exit218, label %.lr.ph.i.i201
@@ -157111,7 +157111,7 @@ _ZN3fmt3v116detail6bigintlSEi.exit199:            ; preds = %_ZN3fmt3v116detail6
   %163 = getelementptr inbounds nuw i32, ptr %159, i64 %.01718.i.i
   %164 = load i32, ptr %163, align 4, !tbaa !202
   %165 = zext i32 %164 to i128
-  %166 = mul nuw nsw i128 %.sroa.0.0.insert.ext.i.i200, %165
+  %166 = mul nuw nsw i128 %.sroa.02.0.insert.ext.i200, %165
   %167 = and i128 %.019.i.i, 4294967295
   %168 = add nuw nsw i128 %166, %167
   %169 = mul nuw i128 %161, %165

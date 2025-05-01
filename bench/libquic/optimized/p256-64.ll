@@ -5659,7 +5659,7 @@ define internal fastcc void @point_add(ptr noundef nonnull captures(none) %0, pt
 
 1351:                                             ; preds = %757
   tail call fastcc void @point_double(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  br label %1834
+  br label %1833
 
 1352:                                             ; preds = %757
   %1353 = shl i128 %812, 1
@@ -6128,7 +6128,7 @@ copy_small_conditional.exit:                      ; preds = %1760
   %.sroa.0.0.insert.insert.i82 = mul nuw i128 %.sroa.2.0.insert.ext.i79, 18446744073709551617
   br label %1770
 
-1770:                                             ; preds = %1770, %copy_small_conditional.exit
+1770:   ; preds = %1770, %copy_small_conditional.exit
   %.09.i = phi i64 [ 0, %copy_small_conditional.exit ], [ %1778, %1770 ]
   %1771 = getelementptr inbounds nuw i128, ptr %3, i64 %.09.i
   %1772 = load i128, ptr %1771, align 16, !tbaa !6
@@ -6142,7 +6142,7 @@ copy_small_conditional.exit:                      ; preds = %1760
   %exitcond.not.i83 = icmp eq i64 %1778, 4
   br i1 %exitcond.not.i83, label %copy_conditional.exit, label %1770, !llvm.loop !27
 
-copy_conditional.exit:                            ; preds = %1770, %copy_conditional.exit
+copy_conditional.exit:; preds = %1770, %copy_conditional.exit
   %.010.i88 = phi i64 [ %1787, %copy_conditional.exit ], [ 0, %1770 ]
   %1779 = getelementptr inbounds nuw i64, ptr %8, i64 %.010.i88
   %1780 = load i64, ptr %1779, align 8, !tbaa !18
@@ -6158,85 +6158,85 @@ copy_conditional.exit:                            ; preds = %1770, %copy_conditi
   br i1 %exitcond.not.i89, label %copy_small_conditional.exit90, label %copy_conditional.exit, !llvm.loop !25
 
 copy_small_conditional.exit90:                    ; preds = %copy_conditional.exit, %copy_small_conditional.exit90
-  %.09.i95 = phi i64 [ %1795, %copy_small_conditional.exit90 ], [ 0, %copy_conditional.exit ]
-  %1788 = getelementptr inbounds nuw i128, ptr %4, i64 %.09.i95
-  %1789 = load i128, ptr %1788, align 16, !tbaa !6
-  %1790 = getelementptr inbounds nuw i128, ptr %19, i64 %.09.i95
-  %1791 = load i128, ptr %1790, align 16, !tbaa !6
-  %1792 = xor i128 %1791, %1789
-  %1793 = and i128 %1792, %.sroa.0.0.insert.insert.i82
-  %1794 = xor i128 %1793, %1791
-  store i128 %1794, ptr %1790, align 16, !tbaa !6
-  %1795 = add nuw nsw i64 %.09.i95, 1
-  %exitcond.not.i96 = icmp eq i64 %1795, 4
+  %.09.i95 = phi i64 [ %1794, %copy_small_conditional.exit90 ], [ 0, %copy_conditional.exit ]
+  %1787 = getelementptr inbounds nuw i128, ptr %4, i64 %.09.i95
+  %1788 = load i128, ptr %1787, align 16, !tbaa !6
+  %1789 = getelementptr inbounds nuw i128, ptr %19, i64 %.09.i95
+  %1790 = load i128, ptr %1789, align 16, !tbaa !6
+  %1791 = xor i128 %1790, %1788
+  %1792 = and i128 %1791, %.sroa.0.0.insert.insert.i82
+  %1793 = xor i128 %1792, %1790
+  store i128 %1793, ptr %1789, align 16, !tbaa !6
+  %1794 = add nuw nsw i64 %.09.i95, 1
+  %exitcond.not.i96 = icmp eq i64 %1794, 4
   br i1 %exitcond.not.i96, label %copy_conditional.exit97, label %copy_small_conditional.exit90, !llvm.loop !27
 
 copy_conditional.exit97:                          ; preds = %copy_small_conditional.exit90, %copy_conditional.exit97
-  %.010.i102 = phi i64 [ %1804, %copy_conditional.exit97 ], [ 0, %copy_small_conditional.exit90 ]
-  %1796 = getelementptr inbounds nuw i64, ptr %9, i64 %.010.i102
-  %1797 = load i64, ptr %1796, align 8, !tbaa !18
-  %1798 = and i64 %1797, %118
-  %1799 = zext i64 %1798 to i128
-  %1800 = getelementptr inbounds nuw i128, ptr %20, i64 %.010.i102
-  %1801 = load i128, ptr %1800, align 16, !tbaa !6
-  %1802 = and i128 %1801, %1759
-  %1803 = or i128 %1802, %1799
-  store i128 %1803, ptr %1800, align 16, !tbaa !6
-  %1804 = add nuw nsw i64 %.010.i102, 1
-  %exitcond.not.i103 = icmp eq i64 %1804, 4
+  %.010.i102 = phi i64 [ %1803, %copy_conditional.exit97 ], [ 0, %copy_small_conditional.exit90 ]
+  %1795 = getelementptr inbounds nuw i64, ptr %9, i64 %.010.i102
+  %1796 = load i64, ptr %1795, align 8, !tbaa !18
+  %1797 = and i64 %1796, %118
+  %1798 = zext i64 %1797 to i128
+  %1799 = getelementptr inbounds nuw i128, ptr %20, i64 %.010.i102
+  %1800 = load i128, ptr %1799, align 16, !tbaa !6
+  %1801 = and i128 %1800, %1759
+  %1802 = or i128 %1801, %1798
+  store i128 %1802, ptr %1799, align 16, !tbaa !6
+  %1803 = add nuw nsw i64 %.010.i102, 1
+  %exitcond.not.i103 = icmp eq i64 %1803, 4
   br i1 %exitcond.not.i103, label %copy_small_conditional.exit104, label %copy_conditional.exit97, !llvm.loop !25
 
 copy_small_conditional.exit104:                   ; preds = %copy_conditional.exit97, %copy_small_conditional.exit104
-  %.09.i109 = phi i64 [ %1812, %copy_small_conditional.exit104 ], [ 0, %copy_conditional.exit97 ]
-  %1805 = getelementptr inbounds nuw i128, ptr %5, i64 %.09.i109
-  %1806 = load i128, ptr %1805, align 16, !tbaa !6
-  %1807 = getelementptr inbounds nuw i128, ptr %20, i64 %.09.i109
-  %1808 = load i128, ptr %1807, align 16, !tbaa !6
-  %1809 = xor i128 %1808, %1806
-  %1810 = and i128 %1809, %.sroa.0.0.insert.insert.i82
-  %1811 = xor i128 %1810, %1808
-  store i128 %1811, ptr %1807, align 16, !tbaa !6
-  %1812 = add nuw nsw i64 %.09.i109, 1
-  %exitcond.not.i110 = icmp eq i64 %1812, 4
+  %.09.i109 = phi i64 [ %1811, %copy_small_conditional.exit104 ], [ 0, %copy_conditional.exit97 ]
+  %1804 = getelementptr inbounds nuw i128, ptr %5, i64 %.09.i109
+  %1805 = load i128, ptr %1804, align 16, !tbaa !6
+  %1806 = getelementptr inbounds nuw i128, ptr %20, i64 %.09.i109
+  %1807 = load i128, ptr %1806, align 16, !tbaa !6
+  %1808 = xor i128 %1807, %1805
+  %1809 = and i128 %1808, %.sroa.0.0.insert.insert.i82
+  %1810 = xor i128 %1809, %1807
+  store i128 %1810, ptr %1806, align 16, !tbaa !6
+  %1811 = add nuw nsw i64 %.09.i109, 1
+  %exitcond.not.i110 = icmp eq i64 %1811, 4
   br i1 %exitcond.not.i110, label %copy_conditional.exit111, label %copy_small_conditional.exit104, !llvm.loop !27
 
 copy_conditional.exit111:                         ; preds = %copy_small_conditional.exit104
-  %1813 = load i128, ptr %18, align 16, !tbaa !6
-  store i128 %1813, ptr %0, align 16, !tbaa !6
-  %1814 = load i128, ptr %1518, align 16, !tbaa !6
-  %1815 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i128 %1814, ptr %1815, align 16, !tbaa !6
-  %1816 = load i128, ptr %1520, align 16, !tbaa !6
-  %1817 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i128 %1816, ptr %1817, align 16, !tbaa !6
-  %1818 = load i128, ptr %1522, align 16, !tbaa !6
-  %1819 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i128 %1818, ptr %1819, align 16, !tbaa !6
-  %1820 = load i128, ptr %19, align 16, !tbaa !6
-  store i128 %1820, ptr %1, align 16, !tbaa !6
-  %1821 = load i128, ptr %1729, align 16, !tbaa !6
-  %1822 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i128 %1821, ptr %1822, align 16, !tbaa !6
-  %1823 = load i128, ptr %1730, align 16, !tbaa !6
-  %1824 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i128 %1823, ptr %1824, align 16, !tbaa !6
-  %1825 = load i128, ptr %1731, align 16, !tbaa !6
-  %1826 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i128 %1825, ptr %1826, align 16, !tbaa !6
-  %1827 = load i128, ptr %20, align 16, !tbaa !6
-  store i128 %1827, ptr %2, align 16, !tbaa !6
-  %1828 = load i128, ptr %1030, align 16, !tbaa !6
-  %1829 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i128 %1828, ptr %1829, align 16, !tbaa !6
-  %1830 = load i128, ptr %1032, align 16, !tbaa !6
-  %1831 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i128 %1830, ptr %1831, align 16, !tbaa !6
-  %1832 = load i128, ptr %1034, align 16, !tbaa !6
-  %1833 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store i128 %1832, ptr %1833, align 16, !tbaa !6
-  br label %1834
+  %1812 = load i128, ptr %18, align 16, !tbaa !6
+  store i128 %1812, ptr %0, align 16, !tbaa !6
+  %1813 = load i128, ptr %1518, align 16, !tbaa !6
+  %1814 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i128 %1813, ptr %1814, align 16, !tbaa !6
+  %1815 = load i128, ptr %1520, align 16, !tbaa !6
+  %1816 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i128 %1815, ptr %1816, align 16, !tbaa !6
+  %1817 = load i128, ptr %1522, align 16, !tbaa !6
+  %1818 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i128 %1817, ptr %1818, align 16, !tbaa !6
+  %1819 = load i128, ptr %19, align 16, !tbaa !6
+  store i128 %1819, ptr %1, align 16, !tbaa !6
+  %1820 = load i128, ptr %1729, align 16, !tbaa !6
+  %1821 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i128 %1820, ptr %1821, align 16, !tbaa !6
+  %1822 = load i128, ptr %1730, align 16, !tbaa !6
+  %1823 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i128 %1822, ptr %1823, align 16, !tbaa !6
+  %1824 = load i128, ptr %1731, align 16, !tbaa !6
+  %1825 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store i128 %1824, ptr %1825, align 16, !tbaa !6
+  %1826 = load i128, ptr %20, align 16, !tbaa !6
+  store i128 %1826, ptr %2, align 16, !tbaa !6
+  %1827 = load i128, ptr %1030, align 16, !tbaa !6
+  %1828 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i128 %1827, ptr %1828, align 16, !tbaa !6
+  %1829 = load i128, ptr %1032, align 16, !tbaa !6
+  %1830 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i128 %1829, ptr %1830, align 16, !tbaa !6
+  %1831 = load i128, ptr %1034, align 16, !tbaa !6
+  %1832 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  store i128 %1831, ptr %1832, align 16, !tbaa !6
+  br label %1833
 
-1834:                                             ; preds = %copy_conditional.exit111, %1351
+1833:                                             ; preds = %copy_conditional.exit111, %1351
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #9
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %22) #9

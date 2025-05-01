@@ -1374,7 +1374,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
   switch i8 %196, label %.thread.i [
     i8 6, label %197
     i8 4, label %203
-    i8 2, label %259
+    i8 2, label %262
   ]
 
 197:                                              ; preds = %195
@@ -1432,121 +1432,121 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
   %229 = icmp eq i8 %228, 0
   br i1 %229, label %230, label %234
 
-230:                                              ; preds = %227
+230:; preds = %227
   %231 = load i32, ptr @hf_atm_padding, align 4
   %232 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %231, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   %233 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 2)
   br label %.thread205.i
 
-234:                                              ; preds = %227
-  br i1 %224, label %235, label %._crit_edge.i
+237:                                              ; preds = %227
+  br i1 %224, label %238, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %234
+._crit_edge.i:                                    ; preds = %237
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1
-  br label %243
+  br label %246
 
-235:                                              ; preds = %234
-  %236 = getelementptr inbounds nuw i8, ptr %7, i64 3
-  %237 = load i8, ptr %236, align 1
-  switch i8 %237, label %238 [
+238:                                              ; preds = %237
+  %239 = getelementptr inbounds nuw i8, ptr %7, i64 3
+  %240 = load i8, ptr %239, align 1
+  switch i8 %240, label %238 [
     i8 -52, label %.thread205.i
     i8 -114, label %.thread205.i
   ]
 
-238:                                              ; preds = %235
-  %239 = icmp eq i8 %237, 0
-  %240 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %241 = load i8, ptr %240, align 1
-  %242 = icmp eq i8 %241, -128
-  %or.cond15.i = select i1 %239, i1 %242, i1 false
-  br i1 %or.cond15.i, label %.thread205.i, label %243
+241:                                              ; preds = %238
+  %242 = icmp eq i8 %240, 0
+  %243 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %244 = load i8, ptr %243, align 1
+  %245 = icmp eq i8 %244, -128
+  %or.cond15.i = select i1 %242, i1 %245, i1 false
+  br i1 %or.cond15.i, label %.thread205.i, label %246
 
-243:                                              ; preds = %238, %._crit_edge.i
-  %244 = phi i8 [ %.pre.i, %._crit_edge.i ], [ %241, %238 ]
-  %245 = icmp eq i8 %244, 3
-  br i1 %245, label %246, label %254
-
-246:                                              ; preds = %243
-  %247 = getelementptr inbounds nuw i8, ptr %7, i64 5
-  %248 = load i8, ptr %247, align 1
-  switch i8 %248, label %249 [
-    i8 -52, label %.thread205.i
-    i8 -114, label %.thread205.i
-  ]
+246:                                              ; preds = %241, %._crit_edge.i
+  %247 = phi i8 [ %.pre.i, %._crit_edge.i ], [ %244, %238 ]
+  %248 = icmp eq i8 %247, 3
+  br i1 %248, label %249, label %257
 
 249:                                              ; preds = %246
-  %250 = icmp eq i8 %248, 0
-  %251 = getelementptr inbounds nuw i8, ptr %7, i64 6
-  %252 = load i8, ptr %251, align 1
-  %253 = icmp eq i8 %252, -128
-  %or.cond23.i = select i1 %250, i1 %253, i1 false
-  br i1 %or.cond23.i, label %.thread205.i, label %254
+  %250 = getelementptr inbounds nuw i8, ptr %7, i64 5
+  %251 = load i8, ptr %250, align 1
+  switch i8 %251, label %249 [
+    i8 -52, label %.thread205.i
+    i8 -114, label %.thread205.i
+  ]
 
-254:                                              ; preds = %249, %243
-  %255 = and i8 %217, -16
-  switch i8 %255, label %258 [
+252:                                              ; preds = %249
+  %253 = icmp eq i8 %251, 0
+  %254 = getelementptr inbounds nuw i8, ptr %7, i64 6
+  %255 = load i8, ptr %254, align 1
+  %256 = icmp eq i8 %255, -128
+  %or.cond23.i = select i1 %253, i1 %256, i1 false
+  br i1 %or.cond23.i, label %.thread205.i, label %257
+
+257:                                              ; preds = %252, %246
+  %258 = and i8 %217, -16
+  switch i8 %258, label %258 [
     i8 64, label %.thread205.i
     i8 96, label %.thread205.i
   ]
 
-.thread205.i:                                     ; preds = %254, %254, %249, %246, %246, %238, %235, %235, %230, %225, %215
+.thread205.i:                                     ; preds = %257, %257, %252, %249, %249, %241, %238, %238, %230, %225, %215
   %llc_handle.sink.i = phi ptr [ @eth_maybefcs_handle, %230 ], [ @llc_handle, %215 ], [ @ppp_handle, %225 ], [ @fr_handle, %235 ], [ @fr_handle, %235 ], [ @fr_handle, %238 ], [ @fr_handle, %246 ], [ @fr_handle, %246 ], [ @fr_handle, %249 ], [ @ip_handle, %254 ], [ @ip_handle, %254 ]
   %.0.sink.i = phi ptr [ %233, %230 ], [ %.0.i, %215 ], [ %.0.i, %225 ], [ %.0.i, %235 ], [ %.0.i, %235 ], [ %.0.i, %238 ], [ %.0.i, %246 ], [ %.0.i, %246 ], [ %.0.i, %249 ], [ %.0.i, %254 ], [ %.0.i, %254 ]
-  %256 = load ptr, ptr %llc_handle.sink.i, align 8
-  %257 = call i32 @call_dissector(ptr noundef %256, ptr noundef %.0.sink.i, ptr noundef %1, ptr noundef %2)
+  %259 = load ptr, ptr %llc_handle.sink.i, align 8
+  %260 = call i32 @call_dissector(ptr noundef %259, ptr noundef %.0.sink.i, ptr noundef %1, ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
   br label %dissect_reassembled_pdu.exit
 
-258:                                              ; preds = %254
+261:                                              ; preds = %257
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
   br label %.thread.i
 
-259:                                              ; preds = %195
-  %260 = load i32, ptr @hf_atm_cid, align 4
-  %261 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %262 = load i8, ptr %261, align 4
-  %263 = zext i8 %262 to i32
-  %264 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %260, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %263)
-  %265 = load i16, ptr %186, align 4
-  %266 = zext i16 %265 to i32
-  %267 = load i16, ptr %190, align 2
-  %268 = zext i16 %267 to i32
-  %269 = load i8, ptr %261, align 4
-  %270 = zext i8 %269 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.050, ptr noundef nonnull @.str.344, i32 noundef %266, i32 noundef %268, i32 noundef %270)
-  %271 = load i32, ptr %4, align 4
-  %272 = and i32 %271, 8
-  %.not188.i = icmp eq i32 %272, 0
-  br i1 %.not188.i, label %273, label %.thread.i
+262:                                              ; preds = %195
+  %263 = load i32, ptr @hf_atm_cid, align 4
+  %264 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %265 = load i8, ptr %264, align 4
+  %266 = zext i8 %265 to i32
+  %267 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %263, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %266)
+  %268 = load i16, ptr %186, align 4
+  %269 = zext i16 %268 to i32
+  %270 = load i16, ptr %190, align 2
+  %271 = zext i16 %270 to i32
+  %272 = load i8, ptr %264, align 4
+  %273 = zext i8 %272 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.050, ptr noundef nonnull @.str.344, i32 noundef %269, i32 noundef %271, i32 noundef %273)
+  %274 = load i32, ptr %4, align 4
+  %275 = and i32 %274, 8
+  %.not188.i = icmp eq i32 %275, 0
+  br i1 %.not188.i, label %276, label %.thread.i
 
-273:                                              ; preds = %259
-  %274 = and i32 %271, 4
-  %.not189.i = icmp eq i32 %274, 0
-  br i1 %.not189.i, label %275, label %277
+276:                                              ; preds = %262
+  %277 = and i32 %274, 4
+  %.not189.i = icmp eq i32 %277, 0
+  br i1 %.not189.i, label %278, label %280
 
-275:                                              ; preds = %273
-  %276 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 4)
-  br label %277
+278:                                              ; preds = %276
+  %279 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 4)
+  br label %280
 
-277:                                              ; preds = %275, %273
-  %.3.i = phi ptr [ %276, %275 ], [ %0, %273 ]
-  %278 = load ptr, ptr @atm_type_aal2_table, align 8
-  %279 = getelementptr inbounds nuw i8, ptr %4, i64 5
-  %280 = load i8, ptr %279, align 1
-  %281 = zext i8 %280 to i32
-  %282 = tail call i32 @dissector_try_uint(ptr noundef %278, i32 noundef %281, ptr noundef %.3.i, ptr noundef %1, ptr noundef %2)
-  %.not190.not.i = icmp eq i32 %282, 0
+280:                                              ; preds = %278, %276
+  %.3.i = phi ptr [ %279, %275 ], [ %0, %273 ]
+  %281 = load ptr, ptr @atm_type_aal2_table, align 8
+  %282 = getelementptr inbounds nuw i8, ptr %4, i64 5
+  %283 = load i8, ptr %282, align 1
+  %284 = zext i8 %283 to i32
+  %285 = tail call i32 @dissector_try_uint(ptr noundef %281, i32 noundef %284, ptr noundef %.3.i, ptr noundef %1, ptr noundef %2)
+  %.not190.not.i = icmp eq i32 %285, 0
   br i1 %.not190.not.i, label %.thread.i, label %dissect_reassembled_pdu.exit
 
-.thread.i:                                        ; preds = %277, %259, %258, %212, %203, %197, %195
+.thread.i:                                        ; preds = %280, %262, %261, %212, %203, %197, %195
   %.1199.i = phi ptr [ %.3.i, %277 ], [ %.0.i, %258 ], [ %.0.i, %195 ], [ %.0.i, %259 ], [ %.0.i, %203 ], [ %.0.i, %212 ], [ %.0.i, %197 ]
-  %283 = call i32 @call_data_dissector(ptr noundef %.1199.i, ptr noundef %1, ptr noundef %2)
+  %286 = call i32 @call_data_dissector(ptr noundef %.1199.i, ptr noundef %1, ptr noundef %2)
   br label %dissect_reassembled_pdu.exit
 
-dissect_reassembled_pdu.exit:                     ; preds = %.thread.i, %277, %.thread205.i, %206, %200, %184, %65
-  %284 = call i32 @tvb_reported_length(ptr noundef %0)
-  ret i32 %284
+dissect_reassembled_pdu.exit:                     ; preds = %.thread.i, %280, %.thread205.i, %206, %200, %184, %65
+  %287 = call i32 @tvb_reported_length(ptr noundef %0)
+  ret i32 %287
 }
 
 ; Function Attrs: null_pointer_is_valid

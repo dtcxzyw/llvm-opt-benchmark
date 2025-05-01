@@ -660,7 +660,7 @@ define i32 @fdt_num_mem_rsv(ptr noundef readonly captures(none) %0) local_unname
 
 .split:                                           ; preds = %.split.preheader, %77
   %indvars.iv = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next, %77 ]
-  %49 = phi i32 [ %18, %.split.preheader ], [ %80, %77 ]
+  %49 = phi i32 [ %18, %.split.preheader ], [ %95, %77 ]
   %50 = sext i32 %49 to i64
   %51 = icmp ult i64 %37, %50
   br i1 %51, label %fdt_mem_rsv.exit.thread.split, label %52
@@ -692,20 +692,20 @@ define i32 @fdt_num_mem_rsv(ptr noundef readonly captures(none) %0) local_unname
   %76 = icmp eq i8 %75, 0
   br i1 %76, label %fdt_mem_rsv.exit.thread.split.split.loop.exit, label %77
 
-77:                                               ; preds = %52
+77:; preds = %52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %78 = trunc nsw i64 %indvars.iv.next to i32
-  %79 = shl i32 %78, 4
-  %80 = add i32 %18, %79
-  %81 = icmp ult i32 %80, %18
-  br i1 %81, label %fdt_mem_rsv.exit.thread.split, label %.split, !llvm.loop !10
+  %93 = trunc nsw i64 %indvars.iv.next to i32
+  %94 = shl i32 %93, 4
+  %95 = add i32 %18, %94
+  %96 = icmp ult i32 %95, %18
+  br i1 %96, label %fdt_mem_rsv.exit.thread.split, label %.split, !llvm.loop !10
 
 fdt_mem_rsv.exit.thread.split.split.loop.exit:    ; preds = %52
-  %82 = trunc nuw nsw i64 %indvars.iv to i32
+  %97 = trunc nuw nsw i64 %indvars.iv to i32
   br label %fdt_mem_rsv.exit.thread.split
 
 fdt_mem_rsv.exit.thread.split:                    ; preds = %.split, %77, %fdt_mem_rsv.exit.thread.split.split.loop.exit
-  %.0.split.ph = phi i32 [ %82, %fdt_mem_rsv.exit.thread.split.split.loop.exit ], [ -8, %77 ], [ -8, %.split ]
+  %.0.split.ph = phi i32 [ %97, %fdt_mem_rsv.exit.thread.split.split.loop.exit ], [ -8, %77 ], [ -8, %.split ]
   ret i32 %.0.split.ph
 }
 
@@ -3138,13 +3138,13 @@ define i32 @fdt_check_full(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   store i32 0, ptr %4, align 4, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   %6 = icmp ult i64 %1, 28
-  br i1 %6, label %fdt_num_mem_rsv.exit.thread, label %7
+  br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %2
   %8 = tail call i32 @fdt_check_header(ptr noundef %0) #9
   store i32 %8, ptr %3, align 4, !tbaa !6
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %fdt_num_mem_rsv.exit.thread
+  br i1 %.not, label %9, label %.loopexit
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3166,7 +3166,7 @@ define i32 @fdt_check_full(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   %26 = zext i8 %25 to i64
   %27 = or disjoint i64 %23, %26
   %28 = icmp ult i64 %1, %27
-  br i1 %28, label %fdt_num_mem_rsv.exit.thread, label %29
+  br i1 %28, label %.loopexit, label %29
 
 29:                                               ; preds = %9
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3262,47 +3262,47 @@ fdt_num_mem_rsv.exit.preheader:                   ; preds = %63
     i32 3, label %107
   ]
 
-99:                                               ; preds = %.lr.ph
+38:                                               ; preds = %.lr.ph
   %.not25 = icmp eq i32 %.01830, 0
   %. = select i1 %.not25, i32 0, i32 -11
-  br label %fdt_num_mem_rsv.exit.thread
+  br label %.loopexit
 
-100:                                              ; preds = %.lr.ph
-  %101 = add i32 %.01830, 1
-  %102 = icmp slt i32 %101, 0
-  br i1 %102, label %fdt_num_mem_rsv.exit.thread, label %fdt_num_mem_rsv.exit
+39:                                               ; preds = %.lr.ph
+  %40 = add i32 %.01830, 1
+  %41 = icmp slt i32 %40, 0
+  br i1 %41, label %.loopexit, label %50
 
-103:                                              ; preds = %.lr.ph
-  %104 = icmp eq i32 %.01830, 0
-  br i1 %104, label %fdt_num_mem_rsv.exit.thread, label %105
+42:                                               ; preds = %.lr.ph
+  %43 = icmp eq i32 %.01830, 0
+  br i1 %43, label %.loopexit, label %44
 
-105:                                              ; preds = %103
-  %106 = add i32 %.01830, -1
-  br label %fdt_num_mem_rsv.exit
+44:                                               ; preds = %42
+  %45 = add i32 %.01830, -1
+  br label %50
 
-107:                                              ; preds = %.lr.ph
-  %108 = call ptr @fdt_getprop_by_offset(ptr noundef nonnull %0, i32 noundef %98, ptr noundef nonnull %5, ptr noundef nonnull %3)
-  %.not24 = icmp eq ptr %108, null
-  br i1 %.not24, label %109, label %.fdt_num_mem_rsv.exit_crit_edge
+46:                                               ; preds = %.lr.ph
+  %47 = call ptr @fdt_getprop_by_offset(ptr noundef nonnull %0, i32 noundef %98, ptr noundef nonnull %5, ptr noundef nonnull %3)
+  %.not24 = icmp eq ptr %47, null
+  br i1 %.not24, label %48, label %._crit_edge
 
-.fdt_num_mem_rsv.exit_crit_edge:                  ; preds = %107
+._crit_edge:                                      ; preds = %46
   %.pre = load i32, ptr %4, align 4, !tbaa !6
-  br label %fdt_num_mem_rsv.exit
+  br label %50
 
-109:                                              ; preds = %107
-  %110 = load i32, ptr %3, align 4, !tbaa !6
-  br label %fdt_num_mem_rsv.exit.thread
+48:                                               ; preds = %46
+  %49 = load i32, ptr %3, align 4, !tbaa !6
+  br label %.loopexit
 
-fdt_num_mem_rsv.exit:                             ; preds = %.fdt_num_mem_rsv.exit_crit_edge, %100, %105, %.lr.ph
-  %111 = phi i32 [ %.pre, %.fdt_num_mem_rsv.exit_crit_edge ], [ %96, %105 ], [ %96, %100 ], [ %96, %.lr.ph ]
-  %.1 = phi i32 [ %.01830, %.fdt_num_mem_rsv.exit_crit_edge ], [ %106, %105 ], [ %101, %100 ], [ %.01830, %.lr.ph ]
-  %112 = call i32 @fdt_next_tag(ptr noundef nonnull %0, i32 noundef %111, ptr noundef nonnull %4) #9
-  %113 = load i32, ptr %4, align 4, !tbaa !6
-  %114 = icmp slt i32 %113, 0
-  br i1 %114, label %fdt_num_mem_rsv.exit.thread, label %.lr.ph
+50:                                               ; preds = %._crit_edge, %39, %44, %.lr.ph
+  %51 = phi i32 [ %.pre, %.fdt_num_mem_rsv.exit_crit_edge ], [ %96, %105 ], [ %96, %100 ], [ %96, %.lr.ph ]
+  %.1 = phi i32 [ %.01830, %.fdt_num_mem_rsv.exit_crit_edge ], [ %45, %105 ], [ %40, %100 ], [ %.01830, %.lr.ph ]
+  %52 = call i32 @fdt_next_tag(ptr noundef nonnull %0, i32 noundef %51, ptr noundef nonnull %4) #9
+  %53 = load i32, ptr %4, align 4, !tbaa !6
+  %54 = icmp slt i32 %53, 0
+  br i1 %54, label %.loopexit, label %.lr.ph
 
-fdt_num_mem_rsv.exit.thread:                      ; preds = %.split.i, %91, %fdt_num_mem_rsv.exit, %100, %103, %.lr.ph, %fdt_num_mem_rsv.exit.preheader, %99, %9, %7, %2, %109
-  %.0 = phi i32 [ %110, %109 ], [ -8, %2 ], [ %8, %7 ], [ -8, %9 ], [ %., %99 ], [ %89, %fdt_num_mem_rsv.exit.preheader ], [ %113, %fdt_num_mem_rsv.exit ], [ -11, %100 ], [ -11, %103 ], [ -13, %.lr.ph ], [ -8, %91 ], [ -8, %.split.i ]
+.loopexit:                                        ; preds = %.split.i, %91, %50, %39, %42, %.lr.ph, %fdt_num_mem_rsv.exit.preheader, %38, %9, %7, %2, %48
+  %.0 = phi i32 [ %49, %109 ], [ -8, %2 ], [ %8, %7 ], [ -8, %9 ], [ %., %99 ], [ %89, %fdt_num_mem_rsv.exit.preheader ], [ %53, %fdt_num_mem_rsv.exit ], [ -11, %100 ], [ -11, %103 ], [ -13, %.lr.ph ], [ -8, %91 ], [ -8, %.split.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9

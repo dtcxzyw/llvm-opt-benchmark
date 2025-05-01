@@ -159,8 +159,8 @@ define internal range(i32 -1, 49) i32 @archive_read_format_iso9660_bid(ptr nound
   br label %25
 
 25:                                               ; preds = %.lr.ph, %isPVD.exit
-  %.02666 = phi ptr [ %15, %.lr.ph ], [ %269, %isPVD.exit ]
-  %26 = phi i64 [ %13, %.lr.ph ], [ %268, %isPVD.exit ]
+  %.02666 = phi ptr [ %15, %.lr.ph ], [ %267, %isPVD.exit ]
+  %26 = phi i64 [ %13, %.lr.ph ], [ %266, %isPVD.exit ]
   %27 = load i8, ptr %.02666, align 1, !tbaa !45
   switch i8 %27, label %.loopexit [
     i8 -1, label %28
@@ -490,19 +490,19 @@ isBootRecord.exit:                                ; preds = %isJolietSVD.exit.th
   %196 = icmp eq i8 %195, 0
   br i1 %196, label %.thread, label %197
 
-197:                                              ; preds = %192
+197:; preds = %192
   %198 = getelementptr inbounds nuw i8, ptr %.02666, i64 80
   %199 = load i32, ptr %198, align 1
   %200 = icmp slt i32 %199, 21
   br i1 %200, label %.thread, label %201
 
-201:                                              ; preds = %197
+201:; preds = %197
   %202 = getelementptr inbounds nuw i8, ptr %.02666, i64 881
   %203 = load i8, ptr %202, align 1, !tbaa !45
   %.not34.i = icmp eq i8 %203, 2
   br i1 %.not34.i, label %204, label %.thread
 
-204:                                              ; preds = %201
+204:; preds = %201
   %205 = getelementptr inbounds nuw i8, ptr %.02666, i64 140
   %206 = load i32, ptr %205, align 1
   %207 = icmp sgt i32 %206, 17
@@ -510,14 +510,14 @@ isBootRecord.exit:                                ; preds = %isJolietSVD.exit.th
   %or.cond40.i = and i1 %207, %.not35.i
   br i1 %or.cond40.i, label %208, label %.thread
 
-208:                                              ; preds = %204
+208:; preds = %204
   %209 = getelementptr inbounds nuw i8, ptr %.02666, i64 148
-  %210 = getelementptr inbounds nuw i8, ptr %.02666, i64 151
-  %211 = load i8, ptr %210, align 1, !tbaa !45
-  %212 = zext i8 %211 to i32
-  %213 = getelementptr inbounds nuw i8, ptr %.02666, i64 150
-  %214 = load i8, ptr %213, align 1, !tbaa !45
-  %215 = zext i8 %214 to i32
+  %211 = getelementptr inbounds nuw i8, ptr %.02666, i64 151
+  %212 = load i8, ptr %211, align 1, !tbaa !45
+  %213 = zext i8 %212 to i32
+  %214 = getelementptr inbounds nuw i8, ptr %.02666, i64 148
+  %215 = load i8, ptr %214, align 1, !tbaa !45
+  %216 = zext i8 %215 to i32
   %216 = getelementptr inbounds nuw i8, ptr %.02666, i64 149
   %217 = load i8, ptr %216, align 1, !tbaa !45
   %218 = zext i8 %217 to i32
@@ -533,69 +533,69 @@ isBootRecord.exit:                                ; preds = %isJolietSVD.exit.th
   %or.cond.i48 = icmp ult i32 %227, -17
   %.not36.i = icmp slt i32 %226, %199
   %or.cond41.i = and i1 %.not36.i, %or.cond.i48
-  br i1 %or.cond41.i, label %228, label %.thread
+  br i1 %or.cond41.i, label %226, label %.thread
 
-228:                                              ; preds = %208
-  %229 = getelementptr inbounds nuw i8, ptr %.02666, i64 882
+226:                                              ; preds = %208
+  %227 = getelementptr inbounds nuw i8, ptr %.02666, i64 882
   %lhsc.i = load i8, ptr %16, align 1
-  %rhsc.i = load i8, ptr %229, align 1
+  %rhsc.i = load i8, ptr %227, align 1
   %.not48.i = icmp eq i8 %lhsc.i, %rhsc.i
-  br i1 %.not48.i, label %230, label %.thread
+  br i1 %.not48.i, label %228, label %.thread
+
+228:                                              ; preds = %226
+  %229 = getelementptr inbounds nuw i8, ptr %.02666, i64 1395
+  %bcmp.i45.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(653) %16, ptr noundef nonnull readonly dereferenceable(653) %229, i64 653)
+  %.not49.i = icmp eq i32 %bcmp.i45.i, 0
+  br i1 %.not49.i, label %230, label %.thread
 
 230:                                              ; preds = %228
-  %231 = getelementptr inbounds nuw i8, ptr %.02666, i64 1395
-  %bcmp.i45.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(653) %16, ptr noundef nonnull readonly dereferenceable(653) %231, i64 653)
-  %.not49.i = icmp eq i32 %bcmp.i45.i, 0
-  br i1 %.not49.i, label %232, label %.thread
-
-232:                                              ; preds = %230
-  %233 = getelementptr inbounds nuw i8, ptr %.02666, i64 156
-  %234 = call fastcc i32 @isRootDirectoryRecord(ptr noundef readonly %233)
-  %.not39.i = icmp eq i32 %234, 0
+  %231 = getelementptr inbounds nuw i8, ptr %.02666, i64 156
+  %232 = call fastcc i32 @isRootDirectoryRecord(ptr noundef readonly %231)
+  %.not39.i = icmp eq i32 %232, 0
   br i1 %.not39.i, label %.thread, label %isPVD.exit
 
-.thread:                                          ; preds = %isJolietSVD.exit.thread, %232, %isBootRecord.exit, %182, %185, %188, %190, %192, %197, %201, %204, %208, %228, %230
-  %235 = call fastcc i32 @isSVD(ptr noundef nonnull %8, ptr noundef %.02666)
-  %.not36 = icmp eq i32 %235, 0
-  br i1 %.not36, label %236, label %isPVD.exit
+.thread:                                          ; preds = %isJolietSVD.exit.thread, %230, %isBootRecord.exit, %182, %185, %188, %190, %192, %197, %201, %204, %208, %228, %230
+  %233 = call fastcc i32 @isSVD(ptr noundef nonnull %8, ptr noundef %.02666)
+  %.not36 = icmp eq i32 %233, 0
+  br i1 %.not36, label %234, label %isPVD.exit
 
-236:                                              ; preds = %.thread
+234:                                              ; preds = %.thread
   %.not.i50 = icmp eq i8 %27, 3
-  br i1 %.not.i50, label %237, label %isVolumePartition.exit.thread
+  br i1 %.not.i50, label %235, label %isVolumePartition.exit.thread
 
-237:                                              ; preds = %236
-  %238 = getelementptr inbounds nuw i8, ptr %.02666, i64 6
-  %239 = load i8, ptr %238, align 1, !tbaa !45
-  %.not10.i = icmp eq i8 %239, 1
-  br i1 %.not10.i, label %240, label %isVolumePartition.exit.thread
+235:                                              ; preds = %234
+  %236 = getelementptr inbounds nuw i8, ptr %.02666, i64 6
+  %237 = load i8, ptr %236, align 1, !tbaa !45
+  %.not10.i = icmp eq i8 %237, 1
+  br i1 %.not10.i, label %238, label %isVolumePartition.exit.thread
 
-240:                                              ; preds = %237
-  %241 = getelementptr inbounds nuw i8, ptr %.02666, i64 7
-  %242 = load i8, ptr %241, align 1, !tbaa !45
-  %.not11.i = icmp eq i8 %242, 0
-  br i1 %.not11.i, label %243, label %isVolumePartition.exit.thread
+238:                                              ; preds = %235
+  %239 = getelementptr inbounds nuw i8, ptr %.02666, i64 7
+  %240 = load i8, ptr %239, align 1, !tbaa !45
+  %.not11.i = icmp eq i8 %240, 0
+  br i1 %.not11.i, label %241, label %isVolumePartition.exit.thread
 
-243:                                              ; preds = %240
-  %244 = getelementptr inbounds nuw i8, ptr %.02666, i64 72
-  %245 = load i32, ptr %244, align 1
-  %246 = icmp slt i32 %245, 17
-  br i1 %246, label %isVolumePartition.exit.thread, label %247
+241:                                              ; preds = %238
+  %242 = getelementptr inbounds nuw i8, ptr %.02666, i64 72
+  %243 = load i32, ptr %242, align 1
+  %244 = icmp slt i32 %243, 17
+  br i1 %244, label %isVolumePartition.exit.thread, label %245
 
-247:                                              ; preds = %243
-  %248 = load i32, ptr %19, align 8, !tbaa !48
-  %.not12.i = icmp slt i32 %245, %248
+245:                                              ; preds = %241
+  %246 = load i32, ptr %19, align 8, !tbaa !48
+  %.not12.i = icmp slt i32 %243, %246
   br i1 %.not12.i, label %isVolumePartition.exit, label %isVolumePartition.exit.thread
 
-isVolumePartition.exit:                           ; preds = %247
-  %249 = getelementptr inbounds nuw i8, ptr %.02666, i64 76
-  %250 = getelementptr inbounds nuw i8, ptr %.02666, i64 79
-  %251 = load i8, ptr %250, align 1, !tbaa !45
-  %252 = zext i8 %251 to i32
-  %253 = getelementptr inbounds nuw i8, ptr %.02666, i64 78
-  %254 = load i8, ptr %253, align 1, !tbaa !45
-  %255 = zext i8 %254 to i32
-  %256 = getelementptr inbounds nuw i8, ptr %.02666, i64 77
-  %257 = load i8, ptr %256, align 1, !tbaa !45
+isVolumePartition.exit:                           ; preds = %245
+  %247 = getelementptr inbounds nuw i8, ptr %.02666, i64 76
+  %248 = getelementptr inbounds nuw i8, ptr %.02666, i64 79
+  %249 = load i8, ptr %248, align 1, !tbaa !45
+  %250 = zext i8 %249 to i32
+  %251 = getelementptr inbounds nuw i8, ptr %.02666, i64 78
+  %252 = load i8, ptr %251, align 1, !tbaa !45
+  %253 = zext i8 %252 to i32
+  %254 = getelementptr inbounds nuw i8, ptr %.02666, i64 77
+  %255 = load i8, ptr %254, align 1, !tbaa !45
   %258 = zext i8 %257 to i32
   %259 = load i8, ptr %249, align 1, !tbaa !45
   %260 = zext i8 %259 to i32
@@ -608,27 +608,27 @@ isVolumePartition.exit:                           ; preds = %247
   %.not13.i.not = icmp eq i32 %245, %266
   br i1 %.not13.i.not, label %isPVD.exit, label %isVolumePartition.exit.thread
 
-isVolumePartition.exit.thread:                    ; preds = %243, %247, %240, %237, %236, %isVolumePartition.exit
-  %267 = call fastcc i32 @isVDSetTerminator(ptr noundef nonnull %8, ptr noundef %.02666)
-  %.not38 = icmp eq i32 %267, 0
-  br i1 %.not38, label %.loopexit, label %271
+isVolumePartition.exit.thread:                    ; preds = %241, %245, %238, %235, %234, %isVolumePartition.exit
+  %265 = call fastcc i32 @isVDSetTerminator(ptr noundef nonnull %8, ptr noundef %.02666)
+  %.not38 = icmp eq i32 %265, 0
+  br i1 %.not38, label %.loopexit, label %269
 
-isPVD.exit:                                       ; preds = %232, %isJolietSVD.exit, %142, %140, %isVolumePartition.exit, %.thread, %isBootRecord.exit
-  %268 = add nsw i64 %26, -2048
-  store i64 %268, ptr %3, align 8, !tbaa !44
-  %269 = getelementptr inbounds nuw i8, ptr %.02666, i64 2048
-  %270 = icmp slt i64 %26, 4097
-  br i1 %270, label %.critedge, label %25, !llvm.loop !54
+isPVD.exit:                                       ; preds = %230, %isJolietSVD.exit, %142, %140, %isVolumePartition.exit, %.thread, %isBootRecord.exit
+  %266 = add nsw i64 %26, -2048
+  store i64 %266, ptr %3, align 8, !tbaa !44
+  %267 = getelementptr inbounds nuw i8, ptr %.02666, i64 2048
+  %268 = icmp slt i64 %26, 4097
+  br i1 %268, label %.critedge, label %25, !llvm.loop !54
 
-271:                                              ; preds = %isVolumePartition.exit.thread
-  %272 = load i32, ptr %17, align 4, !tbaa !46
-  %273 = icmp sgt i32 %272, 16
-  br i1 %273, label %.loopexit, label %.critedge
+269:                                              ; preds = %isVolumePartition.exit.thread
+  %270 = load i32, ptr %17, align 4, !tbaa !46
+  %271 = icmp sgt i32 %270, 16
+  br i1 %271, label %.loopexit, label %.critedge
 
-.critedge:                                        ; preds = %isPVD.exit, %11, %271
+.critedge:                                        ; preds = %isPVD.exit, %11, %269
   br label %.loopexit
 
-.loopexit:                                        ; preds = %25, %28, %271, %isVolumePartition.exit.thread, %5, %2, %.critedge
+.loopexit:                                        ; preds = %25, %28, %269, %isVolumePartition.exit.thread, %5, %2, %.critedge
   %.027 = phi i32 [ 0, %.critedge ], [ -1, %2 ], [ -1, %5 ], [ 0, %isVolumePartition.exit.thread ], [ 48, %271 ], [ 0, %28 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
   ret i32 %.027
@@ -1947,33 +1947,33 @@ declare ptr @__archive_read_ahead(ptr noundef, i64 noundef, ptr noundef) local_u
 define internal fastcc range(i32 0, 49) i32 @isSVD(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #7 {
   %3 = load i8, ptr %1, align 1, !tbaa !45
   %.not = icmp eq i8 %3, 2
-  br i1 %.not, label %4, label %50
+  br i1 %.not, label %4, label %48
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %5, ptr noundef nonnull readonly dereferenceable(8) %6, i64 8)
   %.not38 = icmp eq i32 %bcmp.i, 0
-  br i1 %.not38, label %7, label %50
+  br i1 %.not38, label %7, label %48
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 882
   %lhsc = load i8, ptr %5, align 1
   %rhsc = load i8, ptr %8, align 1
   %.not39 = icmp eq i8 %lhsc, %rhsc
-  br i1 %.not39, label %9, label %50
+  br i1 %.not39, label %9, label %48
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 1395
   %bcmp.i37 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(653) %5, ptr noundef nonnull readonly dereferenceable(653) %10, i64 653)
   %.not40 = icmp eq i32 %bcmp.i37, 0
-  br i1 %.not40, label %11, label %50
+  br i1 %.not40, label %11, label %48
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 881
   %13 = load i8, ptr %12, align 1, !tbaa !45
   %.not29 = icmp eq i8 %13, 1
-  br i1 %.not29, label %14, label %50
+  br i1 %.not29, label %14, label %48
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -1984,28 +1984,28 @@ define internal fastcc range(i32 0, 49) i32 @isSVD(ptr noundef readonly captures
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %50, label %19
 
-19:                                               ; preds = %14
+19:; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %21 = load i32, ptr %20, align 1
   %22 = icmp slt i32 %21, 21
-  br i1 %22, label %50, label %23
+  br i1 %22, label %48, label %23
 
-23:                                               ; preds = %19
+23:; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %25 = load i32, ptr %24, align 1
   %26 = icmp sgt i32 %25, 17
   %.not30 = icmp slt i32 %25, %21
   %or.cond33 = and i1 %26, %.not30
-  br i1 %or.cond33, label %27, label %50
+  br i1 %or.cond33, label %27, label %48
 
-27:                                               ; preds = %23
+27:; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 148
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 151
-  %30 = load i8, ptr %29, align 1, !tbaa !45
-  %31 = zext i8 %30 to i32
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 150
-  %33 = load i8, ptr %32, align 1, !tbaa !45
-  %34 = zext i8 %33 to i32
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 151
+  %31 = load i8, ptr %30, align 1, !tbaa !45
+  %32 = zext i8 %31 to i32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 148
+  %34 = load i8, ptr %33, align 1, !tbaa !45
+  %35 = zext i8 %34 to i32
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 149
   %36 = load i8, ptr %35, align 1, !tbaa !45
   %37 = zext i8 %36 to i32
@@ -2021,16 +2021,16 @@ define internal fastcc range(i32 0, 49) i32 @isSVD(ptr noundef readonly captures
   %or.cond = icmp ult i32 %46, -17
   %.not31 = icmp slt i32 %45, %21
   %or.cond34 = and i1 %.not31, %or.cond
-  br i1 %or.cond34, label %47, label %50
+  br i1 %or.cond34, label %45, label %48
 
-47:                                               ; preds = %27
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 156
-  %49 = tail call fastcc i32 @isRootDirectoryRecord(ptr noundef %48)
-  %.not32 = icmp eq i32 %49, 0
+45:                                               ; preds = %27
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 156
+  %47 = tail call fastcc i32 @isRootDirectoryRecord(ptr noundef %46)
+  %.not32 = icmp eq i32 %47, 0
   %. = select i1 %.not32, i32 0, i32 48
-  br label %50
+  br label %48
 
-50:                                               ; preds = %47, %27, %23, %19, %14, %11, %9, %7, %4, %2
+48:                                               ; preds = %45, %27, %23, %19, %14, %11, %9, %7, %4, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 0, %7 ], [ 0, %9 ], [ 0, %11 ], [ 0, %14 ], [ 0, %19 ], [ 0, %23 ], [ 0, %27 ], [ %., %47 ]
   ret i32 %.0
 }

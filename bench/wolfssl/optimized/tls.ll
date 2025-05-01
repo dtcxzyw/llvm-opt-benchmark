@@ -2018,7 +2018,7 @@ define range(i32 -396, 2) i32 @TLSX_SNI_GetFromBuffer(ptr noundef readonly captu
 7:                                                ; preds = %5
   %8 = load i8, ptr %0, align 1, !tbaa !51
   %.not = icmp eq i8 %8, 22
-  br i1 %.not, label %25, label %9
+  br i1 %.not, label %28, label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -2049,19 +2049,19 @@ define range(i32 -396, 2) i32 @TLSX_SNI_GetFromBuffer(ptr noundef readonly captu
   %. = select i1 %.not117, i32 -396, i32 -328
   br label %.thread165
 
-25:                                               ; preds = %7
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %27 = load i8, ptr %26, align 1, !tbaa !51
-  %.not110 = icmp eq i8 %27, 3
-  br i1 %.not110, label %28, label %.thread165
-
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2
+28:                                               ; preds = %7
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %30 = load i8, ptr %29, align 1, !tbaa !51
+  %.not110 = icmp eq i8 %30, 3
+  br i1 %.not110, label %35, label %.thread165
+
+35:                                               ; preds = %25
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %.val121 = load i8, ptr %36, align 1, !tbaa !51
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %.thread165, label %32
 
-32:                                               ; preds = %28
+32:; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %.val121 = load i8, ptr %33, align 1, !tbaa !51
   %34 = getelementptr i8, ptr %0, i64 4
@@ -2098,7 +2098,7 @@ define range(i32 -396, 2) i32 @TLSX_SNI_GetFromBuffer(ptr noundef readonly captu
   %59 = icmp ugt i32 %58, %1
   br i1 %59, label %.thread165, label %60
 
-60:                                               ; preds = %44
+60:; preds = %44
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 43
   %62 = load i8, ptr %61, align 1, !tbaa !51
   %63 = zext i8 %62 to i32
@@ -2106,7 +2106,7 @@ define range(i32 -396, 2) i32 @TLSX_SNI_GetFromBuffer(ptr noundef readonly captu
   %65 = icmp ult i32 %1, %64
   br i1 %65, label %.thread165, label %66
 
-66:                                               ; preds = %60
+66:; preds = %60
   %67 = add nuw nsw i32 %63, 46
   %68 = icmp ult i32 %1, %67
   br i1 %68, label %.thread165, label %69
@@ -2126,7 +2126,7 @@ define range(i32 -396, 2) i32 @TLSX_SNI_GetFromBuffer(ptr noundef readonly captu
   %.not112 = icmp ugt i32 %1, %78
   br i1 %.not112, label %79, label %.thread165
 
-79:                                               ; preds = %69
+79:; preds = %69
   %80 = zext nneg i32 %78 to i64
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 %80
   %82 = load i8, ptr %81, align 1, !tbaa !51
@@ -2135,14 +2135,14 @@ define range(i32 -396, 2) i32 @TLSX_SNI_GetFromBuffer(ptr noundef readonly captu
   %85 = icmp ult i32 %1, %84
   br i1 %85, label %.thread165, label %86
 
-86:                                               ; preds = %79
+86:; preds = %79
   %87 = add nuw nsw i32 %78, 1
   %88 = add nuw nsw i32 %87, %83
   %89 = add nuw nsw i32 %88, 2
   %90 = icmp ult i32 %1, %89
   br i1 %90, label %.thread165, label %91
 
-91:                                               ; preds = %86
+91:; preds = %86
   %92 = zext nneg i32 %88 to i64
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 %92
   %.val125 = load i8, ptr %93, align 1, !tbaa !51
@@ -2157,39 +2157,39 @@ define range(i32 -396, 2) i32 @TLSX_SNI_GetFromBuffer(ptr noundef readonly captu
   %101 = icmp ult i32 %1, %100
   br i1 %101, label %.thread165, label %.preheader170
 
-.preheader170:                                    ; preds = %91
+.preheader170:; preds = %91
   %102 = icmp ugt i16 %98, 3
   br i1 %102, label %.lr.ph184, label %._crit_edge
 
 .lr.ph184:                                        ; preds = %.preheader170, %.loopexit
   %.097183 = phi i32 [ %.299, %.loopexit ], [ %89, %.preheader170 ]
   %.0153182 = phi i16 [ %164, %.loopexit ], [ %98, %.preheader170 ]
-  %103 = add i32 %.097183, 2
-  %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 %104
-  %.val129 = load i8, ptr %105, align 1, !tbaa !51
-  %106 = getelementptr i8, ptr %105, i64 1
-  %.val130 = load i8, ptr %106, align 1, !tbaa !51
-  %107 = zext i8 %.val129 to i32
-  %108 = shl nuw nsw i32 %107, 8
-  %109 = zext i8 %.val130 to i32
-  %110 = or disjoint i32 %108, %109
-  %111 = add i32 %.097183, 4
-  %112 = add i32 %110, %111
-  %113 = icmp ult i32 %1, %112
-  br i1 %113, label %.thread165, label %114
+  %106 = add i32 %.097183, 2
+  %107 = zext i32 %106 to i64
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 %107
+  %.val129 = load i8, ptr %108, align 1, !tbaa !51
+  %109 = getelementptr i8, ptr %108, i64 1
+  %.val130 = load i8, ptr %109, align 1, !tbaa !51
+  %110 = zext i8 %.val129 to i32
+  %111 = shl nuw nsw i32 %110, 8
+  %112 = zext i8 %.val130 to i32
+  %113 = or disjoint i32 %111, %112
+  %114 = add i32 %.097183, 4
+  %115 = add i32 %113, %114
+  %116 = icmp ult i32 %1, %115
+  br i1 %116, label %.thread165, label %117
 
-114:                                              ; preds = %.lr.ph184
-  %115 = zext i32 %.097183 to i64
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 %115
-  %.val127 = load i8, ptr %116, align 1, !tbaa !51
-  %117 = getelementptr i8, ptr %116, i64 1
+117:                                              ; preds = %.lr.ph184
+  %118 = zext i32 %.097183 to i64
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 %118
+  %.val127 = load i8, ptr %119, align 1, !tbaa !51
+  %117 = getelementptr i8, ptr %119, i64 1
   %.val128 = load i8, ptr %117, align 1, !tbaa !51
   %118 = or i8 %.val128, %.val127
   %.not114 = icmp eq i8 %118, 0
   br i1 %.not114, label %119, label %.loopexit
 
-119:                                              ; preds = %114
+119:; preds = %114
   %120 = zext i32 %111 to i64
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 %120
   %.val131 = load i8, ptr %121, align 1, !tbaa !51
@@ -2200,16 +2200,16 @@ define range(i32 -396, 2) i32 @TLSX_SNI_GetFromBuffer(ptr noundef readonly captu
   %125 = zext i8 %.val132 to i16
   %126 = or disjoint i16 %124, %125
   %127 = add i32 %.097183, 6
-  %128 = zext i16 %126 to i32
-  %129 = add i32 %127, %128
+  %131 = zext i16 %126 to i32
+  %129 = add i32 %127, %135
   %130 = icmp ult i32 %1, %129
   br i1 %130, label %.thread165, label %.preheader
 
-.preheader:                                       ; preds = %119
+.preheader:; preds = %119
   %131 = icmp ugt i16 %126, 3
   br i1 %131, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader, %153
+.lr.ph:; preds = %.preheader, %153
   %.4101181 = phi i32 [ %141, %153 ], [ %127, %.preheader ]
   %.0151180 = phi i16 [ %158, %153 ], [ %126, %.preheader ]
   %132 = add i32 %.4101181, 1
@@ -2227,7 +2227,7 @@ define range(i32 -396, 2) i32 @TLSX_SNI_GetFromBuffer(ptr noundef readonly captu
   %142 = icmp ult i32 %1, %141
   br i1 %142, label %.thread165, label %143
 
-143:                                              ; preds = %.lr.ph
+143:; preds = %.lr.ph
   %144 = zext i32 %.4101181 to i64
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 %144
   %146 = load i8, ptr %145, align 1, !tbaa !51
@@ -2244,9 +2244,9 @@ define range(i32 -396, 2) i32 @TLSX_SNI_GetFromBuffer(ptr noundef readonly captu
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr nonnull align 1 %151, i64 %152, i1 false)
   br label %.thread165
 
-153:                                              ; preds = %143
-  %154 = add nuw nsw i32 %139, 3
-  %155 = zext i16 %.0151180 to i32
+159:                                              ; preds = %143
+  %160 = add nuw nsw i32 %139, 3
+  %161 = zext i16 %.0151180 to i32
   %156 = tail call range(i32 0, 65540) i32 @llvm.umin.i32(i32 range(i32 0, 65540) %154, i32 %155)
   %157 = trunc nuw i32 %156 to i16
   %158 = sub i16 %.0151180, %157
@@ -2266,11 +2266,11 @@ define range(i32 -396, 2) i32 @TLSX_SNI_GetFromBuffer(ptr noundef readonly captu
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader170
   %.0153.lcssa = phi i16 [ %98, %.preheader170 ], [ %164, %.loopexit ]
   %.not113 = icmp eq i16 %.0153.lcssa, 0
-  %166 = select i1 %.not113, i32 0, i32 -328
+  %172 = select i1 %.not113, i32 0, i32 -328
   br label %.thread165
 
 .thread165:                                       ; preds = %119, %.lr.ph184, %.lr.ph, %147, %91, %86, %79, %69, %66, %60, %44, %41, %32, %28, %25, %9, %21, %13, %5, %._crit_edge
-  %.0 = phi i32 [ %166, %._crit_edge ], [ -310, %5 ], [ -328, %13 ], [ %., %21 ], [ -328, %9 ], [ -328, %25 ], [ -396, %28 ], [ -310, %32 ], [ -328, %41 ], [ -328, %44 ], [ -328, %60 ], [ -328, %66 ], [ -328, %69 ], [ -328, %79 ], [ 0, %86 ], [ -328, %91 ], [ 1, %147 ], [ -328, %.lr.ph ], [ -328, %.lr.ph184 ], [ -328, %119 ]
+  %.0 = phi i32 [ %172, %._crit_edge ], [ -310, %5 ], [ -328, %13 ], [ %., %21 ], [ -328, %9 ], [ -328, %25 ], [ -396, %28 ], [ -310, %32 ], [ -335, %41 ], [ -328, %44 ], [ -328, %60 ], [ -328, %66 ], [ -328, %69 ], [ -328, %79 ], [ 0, %86 ], [ -328, %91 ], [ 1, %147 ], [ -328, %.lr.ph ], [ -328, %.lr.ph184 ], [ -328, %119 ]
   ret i32 %.0
 }
 

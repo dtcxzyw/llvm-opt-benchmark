@@ -104,12 +104,12 @@ define range(i32 -10, 2147483647) i32 @fdt_ro_probe_(ptr noundef readonly captur
   %89 = icmp eq i8 %88, 0
   br i1 %89, label %92, label %90
 
-90:                                               ; preds = %77, %57
+90: ; preds = %77, %57
   %91 = icmp ult i32 %19, 2147483647
   %. = select i1 %91, i32 %19, i32 -8
   br label %92
 
-92:                                               ; preds = %1, %90, %77, %57, %37
+92:; preds = %1, %90, %77, %57, %37
   %.0 = phi i32 [ -10, %37 ], [ -10, %57 ], [ -7, %77 ], [ %., %90 ], [ -9, %1 ]
   ret i32 %.0
 }

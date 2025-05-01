@@ -261,7 +261,7 @@ define internal range(i32 0, 65536) i32 @tt_cmap2_char_index(ptr noundef readonl
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %8 = icmp samesign ult i32 %1, 256
-  br i1 %8, label %9, label %17
+  br i1 %8, label %9, label %20
 
 9:                                                ; preds = %6
   %.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 518
@@ -275,49 +275,49 @@ define internal range(i32 0, 65536) i32 @tt_cmap2_char_index(ptr noundef readonl
   %.not.i = icmp eq i8 %16, 0
   br i1 %.not.i, label %tt_cmap2_get_subheader.exit, label %tt_cmap2_get_subheader.exit.thread
 
-17:                                               ; preds = %6
-  %18 = lshr i32 %1, 7
-  %19 = and i32 %18, 510
-  %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 %20
-  %22 = load i8, ptr %21, align 1, !tbaa !15
-  %23 = zext i8 %22 to i64
-  %24 = shl nuw nsw i64 %23, 8
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 1
-  %26 = load i8, ptr %25, align 1, !tbaa !15
-  %27 = and i8 %26, -8
-  %.masked.i = zext i8 %27 to i64
-  %.add.i = add nuw nsw i64 %24, 518
+20:                                               ; preds = %6
+  %21 = lshr i32 %1, 7
+  %22 = and i32 %21, 510
+  %23 = zext nneg i32 %22 to i64
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 %23
+  %25 = load i8, ptr %24, align 1, !tbaa !15
+  %26 = zext i8 %25 to i64
+  %27 = shl nuw nsw i64 %26, 8
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 1
+  %29 = load i8, ptr %28, align 1, !tbaa !15
+  %30 = and i8 %29, -8
+  %.masked.i = zext i8 %30 to i64
+  %.add.i = add nuw nsw i64 %27, 518
   %.add26.i = or disjoint i64 %.add.i, %.masked.i
   %.ptr28.i = getelementptr inbounds nuw i8, ptr %4, i64 %.add26.i
-  %28 = icmp eq i64 %.add26.i, 518
-  br i1 %28, label %tt_cmap2_get_subheader.exit.thread, label %tt_cmap2_get_subheader.exit
+  %31 = icmp eq i64 %.add26.i, 518
+  br i1 %31, label %tt_cmap2_get_subheader.exit.thread, label %tt_cmap2_get_subheader.exit
 
-tt_cmap2_get_subheader.exit:                      ; preds = %17, %9
+tt_cmap2_get_subheader.exit:                      ; preds = %20, %9
   %.021.i = phi ptr [ %.ptr.i, %9 ], [ %.ptr28.i, %17 ]
-  %29 = and i32 %1, 255
-  %30 = load i8, ptr %.021.i, align 1, !tbaa !15
-  %31 = zext i8 %30 to i32
-  %32 = shl nuw nsw i32 %31, 8
-  %33 = getelementptr inbounds nuw i8, ptr %.021.i, i64 1
-  %34 = load i8, ptr %33, align 1, !tbaa !15
-  %35 = zext i8 %34 to i32
-  %36 = or disjoint i32 %32, %35
-  %37 = getelementptr inbounds nuw i8, ptr %.021.i, i64 2
-  %38 = load i8, ptr %37, align 1, !tbaa !15
-  %39 = zext i8 %38 to i32
-  %40 = shl nuw nsw i32 %39, 8
-  %41 = getelementptr inbounds nuw i8, ptr %.021.i, i64 3
-  %42 = load i8, ptr %41, align 1, !tbaa !15
-  %43 = zext i8 %42 to i32
-  %44 = or disjoint i32 %40, %43
-  %45 = getelementptr inbounds nuw i8, ptr %.021.i, i64 6
-  %46 = getelementptr inbounds nuw i8, ptr %.021.i, i64 4
-  %47 = load i8, ptr %46, align 1, !tbaa !15
-  %48 = zext i8 %47 to i32
-  %49 = shl nuw nsw i32 %48, 8
-  %50 = getelementptr inbounds nuw i8, ptr %.021.i, i64 5
-  %51 = load i8, ptr %50, align 1, !tbaa !15
+  %32 = and i32 %1, 255
+  %33 = load i8, ptr %.021.i, align 1, !tbaa !15
+  %34 = zext i8 %33 to i32
+  %35 = shl nuw nsw i32 %34, 8
+  %36 = getelementptr inbounds nuw i8, ptr %.021.i, i64 1
+  %37 = load i8, ptr %36, align 1, !tbaa !15
+  %38 = zext i8 %37 to i32
+  %39 = or disjoint i32 %35, %38
+  %40 = getelementptr inbounds nuw i8, ptr %.021.i, i64 2
+  %41 = load i8, ptr %40, align 1, !tbaa !15
+  %42 = zext i8 %41 to i32
+  %43 = shl nuw nsw i32 %42, 8
+  %44 = getelementptr inbounds nuw i8, ptr %.021.i, i64 3
+  %45 = load i8, ptr %44, align 1, !tbaa !15
+  %46 = zext i8 %45 to i32
+  %47 = or disjoint i32 %43, %46
+  %48 = getelementptr inbounds nuw i8, ptr %.021.i, i64 6
+  %49 = getelementptr inbounds nuw i8, ptr %.021.i, i64 4
+  %50 = load i8, ptr %49, align 1, !tbaa !15
+  %51 = zext i8 %50 to i32
+  %52 = shl nuw nsw i32 %51, 8
+  %53 = getelementptr inbounds nuw i8, ptr %.021.i, i64 5
+  %54 = load i8, ptr %53, align 1, !tbaa !15
   %52 = zext i8 %51 to i32
   %53 = or disjoint i32 %49, %52
   %54 = load i8, ptr %45, align 1, !tbaa !15
@@ -330,10 +330,10 @@ tt_cmap2_get_subheader.exit:                      ; preds = %17, %9
   %61 = sub nsw i32 %29, %36
   %62 = icmp ult i32 %61, %44
   %63 = icmp ne i32 %60, 0
-  %or.cond = select i1 %62, i1 %63, i1 false
-  br i1 %or.cond, label %64, label %tt_cmap2_get_subheader.exit.thread
+  %65 = select i1 %62, i1 %63, i1 false
+  br i1 %65, label %64, label %tt_cmap2_get_subheader.exit.thread
 
-64:                                               ; preds = %tt_cmap2_get_subheader.exit
+64:; preds = %tt_cmap2_get_subheader.exit
   %65 = shl nuw nsw i32 %61, 1
   %66 = add nuw nsw i32 %60, %65
   %67 = zext nneg i32 %66 to i64
@@ -341,20 +341,20 @@ tt_cmap2_get_subheader.exit:                      ; preds = %17, %9
   %69 = load i8, ptr %68, align 1, !tbaa !15
   %70 = zext i8 %69 to i32
   %71 = shl nuw nsw i32 %70, 8
-  %72 = getelementptr inbounds nuw i8, ptr %68, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
   %73 = load i8, ptr %72, align 1, !tbaa !15
   %74 = zext i8 %73 to i32
   %75 = or disjoint i32 %71, %74
   %.not36 = icmp eq i32 %75, 0
   br i1 %.not36, label %tt_cmap2_get_subheader.exit.thread, label %76
 
-76:                                               ; preds = %64
-  %77 = add nuw nsw i32 %75, %53
-  %78 = and i32 %77, 65535
+79:                                               ; preds = %64
+  %80 = add nuw nsw i32 %78, %53
+  %81 = and i32 %80, 65535
   br label %tt_cmap2_get_subheader.exit.thread
 
-tt_cmap2_get_subheader.exit.thread:               ; preds = %17, %9, %2, %tt_cmap2_get_subheader.exit, %76, %64
-  %.0 = phi i32 [ %78, %76 ], [ 0, %64 ], [ 0, %tt_cmap2_get_subheader.exit ], [ 0, %2 ], [ 0, %9 ], [ 0, %17 ]
+tt_cmap2_get_subheader.exit.thread:               ; preds = %20, %9, %2, %tt_cmap2_get_subheader.exit, %79, %64
+  %.0 = phi i32 [ %81, %79 ], [ 0, %64 ], [ 0, %tt_cmap2_get_subheader.exit ], [ 0, %2 ], [ 0, %9 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -375,7 +375,7 @@ define internal range(i32 0, 65536) i32 @tt_cmap2_char_next(ptr noundef readonly
 9:                                                ; preds = %.lr.ph107, %.backedge
   %.067105 = phi i32 [ %6, %.lr.ph107 ], [ %.067.be, %.backedge ]
   %10 = icmp samesign ult i32 %.067105, 256
-  br i1 %10, label %11, label %19
+  br i1 %10, label %11, label %22
 
 11:                                               ; preds = %9
   %12 = shl nuw nsw i32 %.067105, 1
@@ -388,48 +388,48 @@ define internal range(i32 0, 65536) i32 @tt_cmap2_char_next(ptr noundef readonly
   %.not.i = icmp eq i8 %18, 0
   br i1 %.not.i, label %tt_cmap2_get_subheader.exit, label %tt_cmap2_get_subheader.exit.thread
 
-19:                                               ; preds = %9
-  %20 = lshr i32 %.067105, 7
-  %21 = and i32 %20, 510
-  %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw i8, ptr %8, i64 %22
-  %24 = load i8, ptr %23, align 1, !tbaa !15
-  %25 = zext i8 %24 to i64
-  %26 = shl nuw nsw i64 %25, 8
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 1
-  %28 = load i8, ptr %27, align 1, !tbaa !15
-  %29 = and i8 %28, -8
-  %.masked.i = zext i8 %29 to i64
-  %.add.i = add nuw nsw i64 %26, 518
+22:                                               ; preds = %9
+  %23 = lshr i32 %.067105, 7
+  %24 = and i32 %23, 510
+  %25 = zext nneg i32 %24 to i64
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 %25
+  %27 = load i8, ptr %26, align 1, !tbaa !15
+  %28 = zext i8 %27 to i64
+  %29 = shl nuw nsw i64 %28, 8
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 1
+  %31 = load i8, ptr %30, align 1, !tbaa !15
+  %32 = and i8 %31, -8
+  %.masked.i = zext i8 %32 to i64
+  %.add.i = add nuw nsw i64 %29, 518
   %.add26.i = or disjoint i64 %.add.i, %.masked.i
   %.ptr28.i = getelementptr inbounds nuw i8, ptr %4, i64 %.add26.i
-  %30 = icmp eq i64 %.add26.i, 518
-  br i1 %30, label %tt_cmap2_get_subheader.exit.thread, label %tt_cmap2_get_subheader.exit
+  %33 = icmp eq i64 %.add26.i, 518
+  br i1 %33, label %tt_cmap2_get_subheader.exit.thread, label %tt_cmap2_get_subheader.exit
 
-tt_cmap2_get_subheader.exit:                      ; preds = %19, %11
-  %.021.i = phi ptr [ %.ptr.i, %11 ], [ %.ptr28.i, %19 ]
-  %31 = load i8, ptr %.021.i, align 1, !tbaa !15
-  %32 = zext i8 %31 to i32
-  %33 = shl nuw nsw i32 %32, 8
-  %34 = getelementptr inbounds nuw i8, ptr %.021.i, i64 1
-  %35 = load i8, ptr %34, align 1, !tbaa !15
-  %36 = zext i8 %35 to i32
-  %37 = or disjoint i32 %33, %36
-  %38 = getelementptr inbounds nuw i8, ptr %.021.i, i64 2
-  %39 = load i8, ptr %38, align 1, !tbaa !15
-  %40 = zext i8 %39 to i32
-  %41 = shl nuw nsw i32 %40, 8
-  %42 = getelementptr inbounds nuw i8, ptr %.021.i, i64 3
-  %43 = load i8, ptr %42, align 1, !tbaa !15
-  %44 = zext i8 %43 to i32
-  %45 = or disjoint i32 %41, %44
-  %46 = getelementptr inbounds nuw i8, ptr %.021.i, i64 6
-  %47 = getelementptr inbounds nuw i8, ptr %.021.i, i64 4
-  %48 = load i8, ptr %47, align 1, !tbaa !15
-  %49 = zext i8 %48 to i32
-  %50 = shl nuw nsw i32 %49, 8
-  %51 = getelementptr inbounds nuw i8, ptr %.021.i, i64 5
-  %52 = load i8, ptr %51, align 1, !tbaa !15
+tt_cmap2_get_subheader.exit:                      ; preds = %22, %11
+  %.021.i = phi ptr [ %.ptr.i, %11 ], [ %.ptr28.i, %22 ]
+  %34 = load i8, ptr %.021.i, align 1, !tbaa !15
+  %35 = zext i8 %34 to i32
+  %36 = shl nuw nsw i32 %35, 8
+  %37 = getelementptr inbounds nuw i8, ptr %.021.i, i64 1
+  %38 = load i8, ptr %37, align 1, !tbaa !15
+  %39 = zext i8 %38 to i32
+  %40 = or disjoint i32 %36, %39
+  %41 = getelementptr inbounds nuw i8, ptr %.021.i, i64 2
+  %42 = load i8, ptr %41, align 1, !tbaa !15
+  %43 = zext i8 %42 to i32
+  %44 = shl nuw nsw i32 %43, 8
+  %45 = getelementptr inbounds nuw i8, ptr %.021.i, i64 3
+  %46 = load i8, ptr %45, align 1, !tbaa !15
+  %47 = zext i8 %46 to i32
+  %48 = or disjoint i32 %44, %47
+  %49 = getelementptr inbounds nuw i8, ptr %.021.i, i64 6
+  %50 = getelementptr inbounds nuw i8, ptr %.021.i, i64 4
+  %51 = load i8, ptr %50, align 1, !tbaa !15
+  %52 = zext i8 %51 to i32
+  %53 = shl nuw nsw i32 %52, 8
+  %54 = getelementptr inbounds nuw i8, ptr %.021.i, i64 5
+  %55 = load i8, ptr %54, align 1, !tbaa !15
   %53 = zext i8 %52 to i32
   %54 = or disjoint i32 %50, %53
   %55 = load i8, ptr %46, align 1, !tbaa !15
@@ -442,83 +442,83 @@ tt_cmap2_get_subheader.exit:                      ; preds = %19, %11
   %62 = and i32 %.067105, 255
   %63 = add nuw nsw i32 %45, %37
   %64 = icmp samesign uge i32 %62, %63
-  %or.cond = and i1 %10, %64
-  br i1 %or.cond, label %.backedge, label %65
+  %65 = and i1 %10, %64
+  br i1 %68, label %.backedge, label %65
 
-65:                                               ; preds = %tt_cmap2_get_subheader.exit
-  %66 = icmp eq i32 %61, 0
-  br i1 %66, label %67, label %69
+68:                                               ; preds = %tt_cmap2_get_subheader.exit
+  %69 = icmp eq i32 %61, 0
+  br i1 %69, label %70, label %72
 
-67:                                               ; preds = %65
-  %68 = icmp eq i32 %.067105, 256
-  br i1 %68, label %.thread95, label %tt_cmap2_get_subheader.exit.thread
+70:                                               ; preds = %68
+  %71 = icmp eq i32 %.067105, 256
+  br i1 %71, label %.thread95, label %tt_cmap2_get_subheader.exit.thread
 
-69:                                               ; preds = %65
-  %.060 = tail call i32 @llvm.umax.i32(i32 %62, i32 %37)
-  %.059 = tail call i32 @llvm.usub.sat.i32(i32 %62, i32 %37)
-  %70 = and i32 %.067105, 65280
-  %71 = add nuw nsw i32 %.060, %70
-  %72 = icmp samesign ult i32 %.059, %45
-  br i1 %72, label %.lr.ph.preheader, label %._crit_edge
+72:                                               ; preds = %68
+  %.060 = tail call i32 @llvm.umax.i32(i32 %62, i32 %40)
+  %.059 = tail call i32 @llvm.usub.sat.i32(i32 %62, i32 %40)
+  %73 = and i32 %.067105, 65280
+  %74 = add nuw nsw i32 %.060, %73
+  %75 = icmp samesign ult i32 %.059, %48
+  br i1 %75, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %69
-  %73 = shl nuw nsw i32 %.059, 1
-  %74 = add nuw nsw i32 %61, %73
-  %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds nuw i8, ptr %46, i64 %75
+.lr.ph.preheader:                                 ; preds = %72
+  %76 = shl nuw nsw i32 %.059, 1
+  %77 = add nuw nsw i32 %61, %76
+  %78 = zext nneg i32 %77 to i64
+  %79 = getelementptr inbounds nuw i8, ptr %49, i64 %78
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %88
-  %.1104 = phi i32 [ %89, %88 ], [ %.059, %.lr.ph.preheader ]
-  %.269103 = phi i32 [ %90, %88 ], [ %71, %.lr.ph.preheader ]
-  %.073102 = phi ptr [ %77, %88 ], [ %76, %.lr.ph.preheader ]
-  %77 = getelementptr inbounds nuw i8, ptr %.073102, i64 2
-  %78 = load i8, ptr %.073102, align 1, !tbaa !15
-  %79 = zext i8 %78 to i32
-  %80 = shl nuw nsw i32 %79, 8
-  %81 = getelementptr inbounds nuw i8, ptr %.073102, i64 1
-  %82 = load i8, ptr %81, align 1, !tbaa !15
-  %83 = zext i8 %82 to i32
-  %84 = or disjoint i32 %80, %83
-  %.not84 = icmp eq i32 %84, 0
-  br i1 %.not84, label %88, label %85
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %91
+  %.1104 = phi i32 [ %92, %88 ], [ %.059, %.lr.ph.preheader ]
+  %.269103 = phi i32 [ %93, %88 ], [ %74, %.lr.ph.preheader ]
+  %.073102 = phi ptr [ %80, %88 ], [ %79, %.lr.ph.preheader ]
+  %80 = getelementptr inbounds nuw i8, ptr %.073102, i64 2
+  %81 = load i8, ptr %.073102, align 1, !tbaa !15
+  %82 = zext i8 %81 to i32
+  %83 = shl nuw nsw i32 %82, 8
+  %84 = getelementptr inbounds nuw i8, ptr %.073102, i64 1
+  %85 = load i8, ptr %84, align 1, !tbaa !15
+  %86 = zext i8 %85 to i32
+  %87 = or disjoint i32 %83, %86
+  %.not84 = icmp eq i32 %87, 0
+  br i1 %.not84, label %91, label %88
 
-85:                                               ; preds = %.lr.ph
-  %86 = add nuw nsw i32 %84, %54
-  %87 = and i32 %86, 65535
-  %.not85 = icmp eq i32 %87, 0
-  br i1 %.not85, label %88, label %.thread95
+88:                                               ; preds = %.lr.ph
+  %89 = add nuw nsw i32 %87, %54
+  %90 = and i32 %89, 65535
+  %.not85 = icmp eq i32 %90, 0
+  br i1 %.not85, label %91, label %.thread95
 
-88:                                               ; preds = %.lr.ph, %85
-  %89 = add nuw nsw i32 %.1104, 1
-  %90 = add nuw nsw i32 %.269103, 1
-  %91 = icmp samesign ult i32 %89, %45
-  br i1 %91, label %.lr.ph, label %._crit_edge, !llvm.loop !29
+91:                                               ; preds = %.lr.ph, %88
+  %92 = add nuw nsw i32 %.1104, 1
+  %93 = add nuw nsw i32 %.269103, 1
+  %94 = icmp samesign ult i32 %92, %48
+  br i1 %94, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %88, %69
-  %.269.lcssa = phi i32 [ %71, %69 ], [ %90, %88 ]
-  %.not83 = icmp ne i32 %45, 0
-  %92 = sext i1 %.not83 to i32
-  %spec.select = add i32 %.269.lcssa, %92
+._crit_edge:                                      ; preds = %91, %72
+  %.269.lcssa = phi i32 [ %74, %69 ], [ %93, %88 ]
+  %.not83 = icmp ne i32 %48, 0
+  %95 = sext i1 %.not83 to i32
+  %spec.select = add i32 %.269.lcssa, %95
   br label %tt_cmap2_get_subheader.exit.thread
 
-tt_cmap2_get_subheader.exit.thread:               ; preds = %67, %._crit_edge, %19, %11
-  %.471 = phi i32 [ %.067105, %11 ], [ %.067105, %19 ], [ %.067105, %67 ], [ %spec.select, %._crit_edge ]
-  %93 = icmp ult i32 %.471, 256
-  %94 = add nuw nsw i32 %.471, 1
-  %95 = and i32 %.471, -256
-  %96 = add i32 %95, 256
-  %.572 = select i1 %93, i32 %94, i32 %96
+tt_cmap2_get_subheader.exit.thread:               ; preds = %70, %._crit_edge, %22, %11
+  %.471 = phi i32 [ %.067105, %11 ], [ %.067105, %22 ], [ %.067105, %67 ], [ %spec.select, %._crit_edge ]
+  %96 = icmp ult i32 %.471, 256
+  %97 = add nuw nsw i32 %.471, 1
+  %98 = and i32 %.471, -256
+  %99 = add i32 %98, 256
+  %.572 = select i1 %96, i32 %97, i32 %99
   br label %.backedge
 
 .backedge:                                        ; preds = %tt_cmap2_get_subheader.exit.thread, %tt_cmap2_get_subheader.exit
   %.067.be = phi i32 [ %.572, %tt_cmap2_get_subheader.exit.thread ], [ 256, %tt_cmap2_get_subheader.exit ]
-  %97 = icmp ult i32 %.067.be, 65536
-  br i1 %97, label %9, label %.thread95, !llvm.loop !30
+  %100 = icmp ult i32 %.067.be, 65536
+  br i1 %100, label %9, label %.thread95, !llvm.loop !30
 
-.thread95:                                        ; preds = %.backedge, %67, %85, %2
+.thread95:                                        ; preds = %.backedge, %70, %88, %2
   %.366 = phi i32 [ 0, %2 ], [ %.269103, %85 ], [ 0, %67 ], [ 0, %.backedge ]
-  %.5 = phi i32 [ 0, %2 ], [ %87, %85 ], [ 0, %67 ], [ 0, %.backedge ]
+  %.5 = phi i32 [ 0, %2 ], [ %90, %85 ], [ 0, %67 ], [ 0, %.backedge ]
   store i32 %.366, ptr %1, align 4, !tbaa !16
   ret i32 %.5
 }
@@ -3959,7 +3959,7 @@ define internal ptr @tt_cmap14_char_variants(ptr noundef captures(none) %0, ptr 
 
 tt_cmap14_ensure.exit:                            ; preds = %14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #27
-  br label %178
+  br label %181
 
 23:                                               ; preds = %._crit_edge69, %22
   %24 = phi ptr [ %.pre, %._crit_edge69 ], [ %20, %22 ]
@@ -3973,7 +3973,7 @@ tt_cmap14_ensure.exit:                            ; preds = %14
   br label %27
 
 27:                                               ; preds = %.lr.ph, %tt_cmap14_char_map_nondef_binary.exit.thread
-  %.03763 = phi i32 [ %7, %.lr.ph ], [ %177, %tt_cmap14_char_map_nondef_binary.exit.thread ]
+  %.03763 = phi i32 [ %7, %.lr.ph ], [ %180, %tt_cmap14_char_map_nondef_binary.exit.thread ]
   %.03862 = phi ptr [ %25, %.lr.ph ], [ %58, %tt_cmap14_char_map_nondef_binary.exit.thread ]
   %.03961 = phi ptr [ %24, %.lr.ph ], [ %.1, %tt_cmap14_char_map_nondef_binary.exit.thread ]
   %28 = load i8, ptr %.03862, align 1, !tbaa !15
@@ -4167,21 +4167,21 @@ tt_cmap14_char_map_nondef_binary.exit:            ; preds = %165
 
 tt_cmap14_char_map_def_binary.exit:               ; preds = %119, %tt_cmap14_char_map_nondef_binary.exit
   store i32 %39, ptr %.03961, align 4, !tbaa !16
-  %176 = getelementptr inbounds nuw i8, ptr %.03961, i64 4
+  %179 = getelementptr inbounds nuw i8, ptr %.03961, i64 4
   br label %tt_cmap14_char_map_nondef_binary.exit.thread
 
 tt_cmap14_char_map_nondef_binary.exit.thread:     ; preds = %169, %126, %tt_cmap14_char_map_def_binary.exit, %tt_cmap14_char_map_nondef_binary.exit, %tt_cmap14_char_map_def_binary.exit.thread
-  %.1 = phi ptr [ %176, %tt_cmap14_char_map_def_binary.exit ], [ %.03961, %tt_cmap14_char_map_nondef_binary.exit ], [ %.03961, %tt_cmap14_char_map_def_binary.exit.thread ], [ %.03961, %126 ], [ %.03961, %169 ]
-  %177 = add i32 %.03763, -1
-  %.not42 = icmp eq i32 %177, 0
+  %.1 = phi ptr [ %179, %tt_cmap14_char_map_def_binary.exit ], [ %.03961, %tt_cmap14_char_map_nondef_binary.exit ], [ %.03961, %tt_cmap14_char_map_def_binary.exit.thread ], [ %.03961, %126 ], [ %.03961, %169 ]
+  %180 = add i32 %.03763, -1
+  %.not42 = icmp eq i32 %180, 0
   br i1 %.not42, label %._crit_edge, label %27, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %tt_cmap14_char_map_nondef_binary.exit.thread, %23
   %.039.lcssa = phi ptr [ %24, %23 ], [ %.1, %tt_cmap14_char_map_nondef_binary.exit.thread ]
   store i32 0, ptr %.039.lcssa, align 4, !tbaa !16
-  br label %178
+  br label %181
 
-178:                                              ; preds = %tt_cmap14_ensure.exit, %._crit_edge
+181:                                              ; preds = %tt_cmap14_ensure.exit, %._crit_edge
   %.0 = phi ptr [ %24, %._crit_edge ], [ null, %tt_cmap14_ensure.exit ]
   ret ptr %.0
 }

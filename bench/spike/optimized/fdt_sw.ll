@@ -98,7 +98,7 @@ define range(i32 -13, 1) i32 @fdt_resize(ptr noundef readonly captures(address) 
   %.not.i = icmp eq i32 %20, 804389138
   %..i = select i1 %.not.i, i32 0, i32 -9
   %.0.i = select i1 %21, i32 -7, i32 %..i
-  br i1 %.not.i, label %22, label %124
+  br i1 %.not.i, label %22, label %131
 
 22:                                               ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -177,12 +177,12 @@ define range(i32 -13, 1) i32 @fdt_resize(ptr noundef readonly captures(address) 
   %96 = zext i8 %95 to i64
   %97 = or disjoint i64 %93, %96
   %98 = icmp samesign ugt i64 %79, %97
-  br i1 %98, label %124, label %99
+  br i1 %98, label %131, label %99
 
 99:                                               ; preds = %22
   %100 = sext i32 %2 to i64
   %101 = icmp ugt i64 %79, %100
-  br i1 %101, label %124, label %102
+  br i1 %101, label %131, label %102
 
 102:                                              ; preds = %99
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 %97
@@ -221,11 +221,11 @@ define range(i32 -13, 1) i32 @fdt_resize(ptr noundef readonly captures(address) 
   %.not45 = icmp eq i8 %122, 0
   br i1 %.not45, label %124, label %123
 
-123:                                              ; preds = %110
+123: ; preds = %110
   store i32 %rev.i.i, ptr %112, align 4, !tbaa !13
-  br label %124
+  br label %131
 
-124:                                              ; preds = %110, %123, %99, %22, %3
+131:                                              ; preds = %110, %123, %99, %22, %3
   %.1 = phi i32 [ %.0.i, %3 ], [ -13, %22 ], [ -3, %99 ], [ 0, %123 ], [ 0, %110 ]
   ret i32 %.1
 }
@@ -271,66 +271,66 @@ define range(i32 -9, 1) i32 @fdt_add_reservemap_entry(ptr noundef captures(none)
   br i1 %.not5.i, label %fdt_sw_probe_memrsv_.exit.thread, label %fdt_sw_probe_memrsv_.exit.thread18
 
 fdt_sw_probe_memrsv_.exit:                        ; preds = %3
-  %33 = icmp eq i32 %20, -804389139
-  %.0.i.i = select i1 %33, i32 -7, i32 -9
+  %40 = icmp eq i32 %20, -804389139
+  %.0.i.i = select i1 %40, i32 -7, i32 -9
   br label %fdt_sw_probe_memrsv_.exit.thread18
 
 fdt_sw_probe_memrsv_.exit.thread:                 ; preds = %21
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %35 = load i8, ptr %34, align 1, !tbaa !14
-  %36 = zext i8 %35 to i32
-  %37 = shl nuw i32 %36, 24
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %39 = load i8, ptr %38, align 1, !tbaa !14
-  %40 = zext i8 %39 to i32
-  %41 = shl nuw nsw i32 %40, 16
-  %42 = or disjoint i32 %41, %37
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %44 = load i8, ptr %43, align 1, !tbaa !14
-  %45 = zext i8 %44 to i32
-  %46 = shl nuw nsw i32 %45, 8
-  %47 = or disjoint i32 %42, %46
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %49 = load i8, ptr %48, align 1, !tbaa !14
-  %50 = zext i8 %49 to i32
-  %51 = or disjoint i32 %47, %50
-  %52 = sext i32 %51 to i64
-  %53 = add nsw i64 %52, 16
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %55 = load i8, ptr %54, align 1, !tbaa !14
-  %56 = zext i8 %55 to i64
-  %57 = shl nuw nsw i64 %56, 24
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %59 = load i8, ptr %58, align 1, !tbaa !14
-  %60 = zext i8 %59 to i64
-  %61 = shl nuw nsw i64 %60, 16
-  %62 = or disjoint i64 %61, %57
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %64 = load i8, ptr %63, align 1, !tbaa !14
-  %65 = zext i8 %64 to i64
-  %66 = shl nuw nsw i64 %65, 8
-  %67 = or disjoint i64 %62, %66
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %69 = load i8, ptr %68, align 1, !tbaa !14
-  %70 = zext i8 %69 to i64
-  %71 = or disjoint i64 %67, %70
-  %72 = icmp ugt i64 %53, %71
-  br i1 %72, label %fdt_sw_probe_memrsv_.exit.thread18, label %73
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %42 = load i8, ptr %41, align 1, !tbaa !14
+  %43 = zext i8 %42 to i32
+  %44 = shl nuw i32 %43, 24
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %46 = load i8, ptr %45, align 1, !tbaa !14
+  %47 = zext i8 %46 to i32
+  %48 = shl nuw nsw i32 %47, 16
+  %49 = or disjoint i32 %48, %44
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %51 = load i8, ptr %50, align 1, !tbaa !14
+  %52 = zext i8 %51 to i32
+  %53 = shl nuw nsw i32 %52, 8
+  %54 = or disjoint i32 %49, %53
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  %56 = load i8, ptr %55, align 1, !tbaa !14
+  %57 = zext i8 %56 to i32
+  %58 = or disjoint i32 %54, %57
+  %59 = sext i32 %58 to i64
+  %60 = add nsw i64 %59, 16
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %62 = load i8, ptr %61, align 1, !tbaa !14
+  %63 = zext i8 %62 to i64
+  %64 = shl nuw nsw i64 %63, 24
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %66 = load i8, ptr %65, align 1, !tbaa !14
+  %67 = zext i8 %66 to i64
+  %68 = shl nuw nsw i64 %67, 16
+  %69 = or disjoint i64 %68, %64
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %71 = load i8, ptr %70, align 1, !tbaa !14
+  %72 = zext i8 %71 to i64
+  %73 = shl nuw nsw i64 %72, 8
+  %74 = or disjoint i64 %69, %73
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 7
+  %76 = load i8, ptr %75, align 1, !tbaa !14
+  %77 = zext i8 %76 to i64
+  %78 = or disjoint i64 %74, %77
+  %79 = icmp ugt i64 %60, %78
+  br i1 %79, label %fdt_sw_probe_memrsv_.exit.thread18, label %80
 
-73:                                               ; preds = %fdt_sw_probe_memrsv_.exit.thread
-  %74 = getelementptr inbounds i8, ptr %0, i64 %52
-  %75 = tail call noundef i64 @llvm.bswap.i64(i64 %1)
-  store i64 %75, ptr %74, align 8, !tbaa !15
-  %76 = tail call noundef i64 @llvm.bswap.i64(i64 %2)
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store i64 %76, ptr %77, align 8, !tbaa !18
-  %78 = trunc nuw i64 %53 to i32
-  %rev.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %78)
-  store i32 %rev.i.i, ptr %34, align 4, !tbaa !12
+80:                                               ; preds = %fdt_sw_probe_memrsv_.exit.thread
+  %81 = getelementptr inbounds i8, ptr %0, i64 %59
+  %82 = tail call noundef i64 @llvm.bswap.i64(i64 %1)
+  store i64 %82, ptr %81, align 8, !tbaa !15
+  %83 = tail call noundef i64 @llvm.bswap.i64(i64 %2)
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  store i64 %83, ptr %84, align 8, !tbaa !18
+  %85 = trunc nuw i64 %60 to i32
+  %rev.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %85)
+  store i32 %rev.i.i, ptr %41, align 4, !tbaa !12
   br label %fdt_sw_probe_memrsv_.exit.thread18
 
-fdt_sw_probe_memrsv_.exit.thread18:               ; preds = %fdt_sw_probe_memrsv_.exit, %21, %fdt_sw_probe_memrsv_.exit.thread, %73
-  %.1 = phi i32 [ 0, %73 ], [ %.0.i.i, %fdt_sw_probe_memrsv_.exit ], [ -3, %fdt_sw_probe_memrsv_.exit.thread ], [ -7, %21 ]
+fdt_sw_probe_memrsv_.exit.thread18:               ; preds = %fdt_sw_probe_memrsv_.exit, %21, %fdt_sw_probe_memrsv_.exit.thread, %80
+  %.1 = phi i32 [ 0, %80 ], [ %.0.i.i, %fdt_sw_probe_memrsv_.exit ], [ -3, %fdt_sw_probe_memrsv_.exit.thread ], [ -7, %21 ]
   ret i32 %.1
 }
 
@@ -372,59 +372,59 @@ define range(i32 -9, 1) i32 @fdt_finish_reservemap(ptr noundef captures(none) %0
   br i1 %.not5.i.i, label %fdt_sw_probe_memrsv_.exit.thread.i, label %fdt_add_reservemap_entry.exit.thread
 
 fdt_sw_probe_memrsv_.exit.i:                      ; preds = %1
-  %31 = icmp eq i32 %18, -804389139
-  %.0.i.i.i = select i1 %31, i32 -7, i32 -9
+  %38 = icmp eq i32 %18, -804389139
+  %.0.i.i.i = select i1 %38, i32 -7, i32 -9
   br label %fdt_add_reservemap_entry.exit.thread
 
 fdt_sw_probe_memrsv_.exit.thread.i:               ; preds = %19
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load i8, ptr %32, align 1, !tbaa !14
-  %34 = zext i8 %33 to i32
-  %35 = shl nuw i32 %34, 24
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %37 = load i8, ptr %36, align 1, !tbaa !14
-  %38 = zext i8 %37 to i32
-  %39 = shl nuw nsw i32 %38, 16
-  %40 = or disjoint i32 %39, %35
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %42 = load i8, ptr %41, align 1, !tbaa !14
-  %43 = zext i8 %42 to i32
-  %44 = shl nuw nsw i32 %43, 8
-  %45 = or disjoint i32 %40, %44
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %47 = load i8, ptr %46, align 1, !tbaa !14
-  %48 = zext i8 %47 to i32
-  %49 = or disjoint i32 %45, %48
-  %50 = sext i32 %49 to i64
-  %51 = add nsw i64 %50, 16
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %53 = load i8, ptr %52, align 1, !tbaa !14
-  %54 = zext i8 %53 to i64
-  %55 = shl nuw nsw i64 %54, 24
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %57 = load i8, ptr %56, align 1, !tbaa !14
-  %58 = zext i8 %57 to i64
-  %59 = shl nuw nsw i64 %58, 16
-  %60 = or disjoint i64 %59, %55
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %62 = load i8, ptr %61, align 1, !tbaa !14
-  %63 = zext i8 %62 to i64
-  %64 = shl nuw nsw i64 %63, 8
-  %65 = or disjoint i64 %60, %64
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %67 = load i8, ptr %66, align 1, !tbaa !14
-  %68 = zext i8 %67 to i64
-  %69 = or disjoint i64 %65, %68
-  %70 = icmp ugt i64 %51, %69
-  br i1 %70, label %fdt_add_reservemap_entry.exit.thread, label %71
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %40 = load i8, ptr %39, align 1, !tbaa !14
+  %41 = zext i8 %40 to i32
+  %42 = shl nuw i32 %41, 24
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %44 = load i8, ptr %43, align 1, !tbaa !14
+  %45 = zext i8 %44 to i32
+  %46 = shl nuw nsw i32 %45, 16
+  %47 = or disjoint i32 %46, %42
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %49 = load i8, ptr %48, align 1, !tbaa !14
+  %50 = zext i8 %49 to i32
+  %51 = shl nuw nsw i32 %50, 8
+  %52 = or disjoint i32 %47, %51
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  %54 = load i8, ptr %53, align 1, !tbaa !14
+  %55 = zext i8 %54 to i32
+  %56 = or disjoint i32 %52, %55
+  %57 = sext i32 %56 to i64
+  %58 = add nsw i64 %57, 16
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %60 = load i8, ptr %59, align 1, !tbaa !14
+  %61 = zext i8 %60 to i64
+  %62 = shl nuw nsw i64 %61, 24
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %64 = load i8, ptr %63, align 1, !tbaa !14
+  %65 = zext i8 %64 to i64
+  %66 = shl nuw nsw i64 %65, 16
+  %67 = or disjoint i64 %66, %62
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %69 = load i8, ptr %68, align 1, !tbaa !14
+  %70 = zext i8 %69 to i64
+  %71 = shl nuw nsw i64 %70, 8
+  %72 = or disjoint i64 %67, %71
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 7
+  %74 = load i8, ptr %73, align 1, !tbaa !14
+  %75 = zext i8 %74 to i64
+  %76 = or disjoint i64 %72, %75
+  %77 = icmp ugt i64 %58, %76
+  br i1 %77, label %fdt_add_reservemap_entry.exit.thread, label %78
 
-71:                                               ; preds = %fdt_sw_probe_memrsv_.exit.thread.i
-  %72 = getelementptr inbounds i8, ptr %0, i64 %50
-  %73 = trunc nuw i64 %51 to i32
-  %rev.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %73)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, i8 0, i64 16, i1 false)
-  store i32 %rev.i.i.i, ptr %32, align 4, !tbaa !12
-  %74 = load i8, ptr %52, align 1, !tbaa !14
+78:                                               ; preds = %fdt_sw_probe_memrsv_.exit.thread.i
+  %79 = getelementptr inbounds i8, ptr %0, i64 %57
+  %80 = trunc nuw i64 %58 to i32
+  %rev.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %80)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, i8 0, i64 16, i1 false)
+  store i32 %rev.i.i.i, ptr %39, align 4, !tbaa !12
+  %81 = load i8, ptr %59, align 1, !tbaa !14
   %75 = zext i8 %74 to i32
   %76 = shl nuw i32 %75, 24
   %77 = load i8, ptr %56, align 1, !tbaa !14
@@ -442,8 +442,8 @@ fdt_sw_probe_memrsv_.exit.thread.i:               ; preds = %19
   store i32 %rev.i.i, ptr %20, align 4, !tbaa !13
   br label %fdt_add_reservemap_entry.exit.thread
 
-fdt_add_reservemap_entry.exit.thread:             ; preds = %19, %fdt_sw_probe_memrsv_.exit.thread.i, %fdt_sw_probe_memrsv_.exit.i, %71
-  %.0 = phi i32 [ 0, %71 ], [ -7, %19 ], [ -3, %fdt_sw_probe_memrsv_.exit.thread.i ], [ %.0.i.i.i, %fdt_sw_probe_memrsv_.exit.i ]
+fdt_add_reservemap_entry.exit.thread:             ; preds = %19, %fdt_sw_probe_memrsv_.exit.thread.i, %fdt_sw_probe_memrsv_.exit.i, %78
+  %.0 = phi i32 [ 0, %78 ], [ -7, %19 ], [ -3, %fdt_sw_probe_memrsv_.exit.thread.i ], [ %.0.i.i.i, %fdt_sw_probe_memrsv_.exit.i ]
   ret i32 %.0
 }
 

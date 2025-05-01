@@ -1233,7 +1233,7 @@ define internal range(i32 -1, 1) i32 @H5T__vlen_disk_setnull(ptr noundef %0, ptr
   %9 = trunc nuw i8 %8 to i1
   %10 = xor i1 %9, true
   %11 = select i1 %7, i1 true, i1 %10
-  br i1 %11, label %12, label %42, !prof !9
+  br i1 %11, label %12, label %33, !prof !9
 
 12:                                               ; preds = %3
   %.not = icmp eq ptr %2, null
@@ -1245,7 +1245,7 @@ define internal range(i32 -1, 1) i32 @H5T__vlen_disk_setnull(ptr noundef %0, ptr
   %16 = load i8, ptr %15, align 1, !tbaa !32
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %18 = load i8, ptr %17, align 1, !tbaa !32
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 3
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %20 = load i8, ptr %19, align 1, !tbaa !32
   %21 = or i8 %16, %14
   %22 = or i8 %21, %18
@@ -1257,40 +1257,40 @@ define internal range(i32 -1, 1) i32 @H5T__vlen_disk_setnull(ptr noundef %0, ptr
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
   store i32 0, ptr %4, align 8, !tbaa !57
-  %26 = call i32 @H5VL_blob_specific(ptr noundef %0, ptr noundef nonnull %25, ptr noundef nonnull %4) #13
-  %27 = icmp sgt i32 %26, -1
-  br i1 %27, label %H5T__vlen_disk_delete.exit, label %28
+  %17 = call i32 @H5VL_blob_specific(ptr noundef %0, ptr noundef nonnull %16, ptr noundef nonnull %4) #13
+  %18 = icmp sgt i32 %17, -1
+  br i1 %18, label %H5T__vlen_disk_delete.exit, label %19
 
-H5T__vlen_disk_delete.exit:                       ; preds = %24
+H5T__vlen_disk_delete.exit:                       ; preds = %15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
   br label %H5T__vlen_disk_delete.exit.thread
 
-28:                                               ; preds = %24
-  %29 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
-  %30 = load i64, ptr @H5E_CANTREMOVE_g, align 8, !tbaa !11
-  %31 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__vlen_disk_delete, i32 noundef 921, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.29) #13
+19:                                               ; preds = %15
+  %20 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
+  %21 = load i64, ptr @H5E_CANTREMOVE_g, align 8, !tbaa !11
+  %22 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__vlen_disk_delete, i32 noundef 921, i64 noundef %20, i64 noundef %21, ptr noundef nonnull @.str.29) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
-  %32 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
-  %33 = load i64, ptr @H5E_CANTREMOVE_g, align 8, !tbaa !11
-  %34 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__vlen_disk_setnull, i32 noundef 797, i64 noundef %32, i64 noundef %33, ptr noundef nonnull @.str.25) #13
-  br label %42
+  %23 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
+  %24 = load i64, ptr @H5E_CANTREMOVE_g, align 8, !tbaa !11
+  %25 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__vlen_disk_setnull, i32 noundef 797, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.25) #13
+  br label %33
 
 H5T__vlen_disk_delete.exit.thread:                ; preds = %13, %H5T__vlen_disk_delete.exit, %12
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %1, align 1
   store i32 2, ptr %5, align 8, !tbaa !57
-  %36 = call i32 @H5VL_blob_specific(ptr noundef %0, ptr noundef nonnull %35, ptr noundef nonnull %5) #13
-  %37 = icmp slt i32 %36, 0
-  br i1 %37, label %38, label %42
+  %27 = call i32 @H5VL_blob_specific(ptr noundef %0, ptr noundef nonnull %26, ptr noundef nonnull %5) #13
+  %28 = icmp slt i32 %27, 0
+  br i1 %28, label %29, label %33
 
-38:                                               ; preds = %H5T__vlen_disk_delete.exit.thread
-  %39 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
-  %40 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !11
-  %41 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__vlen_disk_setnull, i32 noundef 807, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.26) #13
-  br label %42
+29:                                               ; preds = %H5T__vlen_disk_delete.exit.thread
+  %30 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
+  %31 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !11
+  %32 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__vlen_disk_setnull, i32 noundef 807, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.26) #13
+  br label %33
 
-42:                                               ; preds = %28, %38, %H5T__vlen_disk_delete.exit.thread, %3
-  %.0 = phi i32 [ -1, %28 ], [ -1, %38 ], [ 0, %H5T__vlen_disk_delete.exit.thread ], [ 0, %3 ]
+33:                                               ; preds = %19, %29, %H5T__vlen_disk_delete.exit.thread, %3
+  %.0 = phi i32 [ -1, %19 ], [ -1, %29 ], [ 0, %H5T__vlen_disk_delete.exit.thread ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #13
   ret i32 %.0
 }
@@ -1331,7 +1331,7 @@ define internal range(i32 -1, 1) i32 @H5T__vlen_disk_write(ptr noundef %0, ptr r
   %12 = trunc nuw i8 %11 to i1
   %13 = xor i1 %12, true
   %14 = select i1 %10, i1 true, i1 %13
-  br i1 %14, label %15, label %56, !prof !9
+  br i1 %14, label %15, label %47, !prof !9
 
 15:                                               ; preds = %7
   %.not = icmp eq ptr %4, null
@@ -1343,7 +1343,7 @@ define internal range(i32 -1, 1) i32 @H5T__vlen_disk_write(ptr noundef %0, ptr r
   %19 = load i8, ptr %18, align 1, !tbaa !32
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %21 = load i8, ptr %20, align 1, !tbaa !32
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 3
   %23 = load i8, ptr %22, align 1, !tbaa !32
   %24 = or i8 %19, %17
   %25 = or i8 %24, %21
@@ -1355,53 +1355,53 @@ define internal range(i32 -1, 1) i32 @H5T__vlen_disk_write(ptr noundef %0, ptr r
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #13
   store i32 0, ptr %8, align 8, !tbaa !57
-  %29 = call i32 @H5VL_blob_specific(ptr noundef %0, ptr noundef nonnull %28, ptr noundef nonnull %8) #13
-  %30 = icmp sgt i32 %29, -1
-  br i1 %30, label %H5T__vlen_disk_delete.exit, label %31
+  %20 = call i32 @H5VL_blob_specific(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %8) #13
+  %21 = icmp sgt i32 %20, -1
+  br i1 %21, label %H5T__vlen_disk_delete.exit, label %22
 
-H5T__vlen_disk_delete.exit:                       ; preds = %27
+H5T__vlen_disk_delete.exit:                       ; preds = %18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #13
   br label %H5T__vlen_disk_delete.exit.thread
 
-31:                                               ; preds = %27
-  %32 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
-  %33 = load i64, ptr @H5E_CANTREMOVE_g, align 8, !tbaa !11
-  %34 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__vlen_disk_delete, i32 noundef 921, i64 noundef %32, i64 noundef %33, ptr noundef nonnull @.str.29) #13
+22:                                               ; preds = %18
+  %23 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
+  %24 = load i64, ptr @H5E_CANTREMOVE_g, align 8, !tbaa !11
+  %25 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__vlen_disk_delete, i32 noundef 921, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.29) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #13
-  %35 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
-  %36 = load i64, ptr @H5E_CANTREMOVE_g, align 8, !tbaa !11
-  %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__vlen_disk_write, i32 noundef 873, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.25) #13
-  br label %56
+  %26 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
+  %27 = load i64, ptr @H5E_CANTREMOVE_g, align 8, !tbaa !11
+  %28 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__vlen_disk_write, i32 noundef 873, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.25) #13
+  br label %47
 
 H5T__vlen_disk_delete.exit.thread:                ; preds = %16, %H5T__vlen_disk_delete.exit, %15
-  %38 = trunc i64 %5 to i8
-  store i8 %38, ptr %2, align 1, !tbaa !32
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %40 = lshr i64 %5, 8
-  %41 = trunc i64 %40 to i8
-  store i8 %41, ptr %39, align 1, !tbaa !32
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %43 = lshr i64 %5, 16
-  %44 = trunc i64 %43 to i8
-  store i8 %44, ptr %42, align 1, !tbaa !32
-  %45 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  %46 = lshr i64 %5, 24
-  %47 = trunc i64 %46 to i8
-  store i8 %47, ptr %45, align 1, !tbaa !32
-  %48 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %49 = mul i64 %6, %5
-  %50 = call i32 @H5VL_blob_put(ptr noundef %0, ptr noundef %3, i64 noundef %49, ptr noundef nonnull %48, ptr noundef null) #13
-  %51 = icmp slt i32 %50, 0
-  br i1 %51, label %52, label %56
+  %29 = trunc i64 %5 to i8
+  store i8 %29, ptr %2, align 1, !tbaa !32
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %31 = lshr i64 %5, 8
+  %32 = trunc i64 %31 to i8
+  store i8 %32, ptr %30, align 1, !tbaa !32
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %34 = lshr i64 %5, 16
+  %35 = trunc i64 %34 to i8
+  store i8 %35, ptr %33, align 1, !tbaa !32
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 3
+  %37 = lshr i64 %5, 24
+  %38 = trunc i64 %37 to i8
+  store i8 %38, ptr %36, align 1, !tbaa !32
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %40 = mul i64 %6, %5
+  %41 = call i32 @H5VL_blob_put(ptr noundef %0, ptr noundef %3, i64 noundef %40, ptr noundef nonnull %39, ptr noundef null) #13
+  %42 = icmp slt i32 %41, 0
+  br i1 %42, label %43, label %47
 
-52:                                               ; preds = %H5T__vlen_disk_delete.exit.thread
-  %53 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
-  %54 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !11
-  %55 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__vlen_disk_write, i32 noundef 880, i64 noundef %53, i64 noundef %54, ptr noundef nonnull @.str.28) #13
-  br label %56
+43:                                               ; preds = %H5T__vlen_disk_delete.exit.thread
+  %44 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
+  %45 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !11
+  %46 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__vlen_disk_write, i32 noundef 880, i64 noundef %44, i64 noundef %45, ptr noundef nonnull @.str.28) #13
+  br label %47
 
-56:                                               ; preds = %31, %52, %H5T__vlen_disk_delete.exit.thread, %7
-  %.0 = phi i32 [ -1, %31 ], [ -1, %52 ], [ 0, %H5T__vlen_disk_delete.exit.thread ], [ 0, %7 ]
+47:                                               ; preds = %22, %43, %H5T__vlen_disk_delete.exit.thread, %7
+  %.0 = phi i32 [ -1, %22 ], [ -1, %52 ], [ 0, %H5T__vlen_disk_delete.exit.thread ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -1416,7 +1416,7 @@ define internal range(i32 -1, 1) i32 @H5T__vlen_disk_delete(ptr noundef %0, ptr 
   %9 = select i1 %5, i1 true, i1 %8
   %10 = icmp ne ptr %1, null
   %or.cond = and i1 %10, %9
-  br i1 %or.cond, label %11, label %31, !prof !56
+  br i1 %or.cond, label %11, label %22, !prof !56
 
 11:                                               ; preds = %2
   %12 = load i8, ptr %1, align 1, !tbaa !32
@@ -1424,7 +1424,7 @@ define internal range(i32 -1, 1) i32 @H5T__vlen_disk_delete(ptr noundef %0, ptr 
   %14 = load i8, ptr %13, align 1, !tbaa !32
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %16 = load i8, ptr %15, align 1, !tbaa !32
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %18 = load i8, ptr %17, align 1, !tbaa !32
   %19 = or i8 %14, %12
   %20 = or i8 %19, %16
@@ -1436,23 +1436,23 @@ define internal range(i32 -1, 1) i32 @H5T__vlen_disk_delete(ptr noundef %0, ptr 
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13
   store i32 0, ptr %3, align 8, !tbaa !57
-  %24 = call i32 @H5VL_blob_specific(ptr noundef %0, ptr noundef nonnull %23, ptr noundef nonnull %3) #13
-  %25 = icmp sgt i32 %24, -1
-  br i1 %25, label %30, label %26
+  %15 = call i32 @H5VL_blob_specific(ptr noundef %0, ptr noundef nonnull %23, ptr noundef nonnull %3) #13
+  %16 = icmp sgt i32 %15, -1
+  br i1 %16, label %21, label %17
 
-26:                                               ; preds = %22
-  %27 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
-  %28 = load i64, ptr @H5E_CANTREMOVE_g, align 8, !tbaa !11
-  %29 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__vlen_disk_delete, i32 noundef 921, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.29) #13
-  br label %30
+17:                                               ; preds = %19
+  %18 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
+  %19 = load i64, ptr @H5E_CANTREMOVE_g, align 8, !tbaa !11
+  %20 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__vlen_disk_delete, i32 noundef 921, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.29) #13
+  br label %21
 
-30:                                               ; preds = %22, %26
-  %.2 = phi i32 [ -1, %26 ], [ 0, %22 ]
+21:                                               ; preds = %19, %17
+  %.2 = phi i32 [ -1, %17 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #13
-  br label %31
+  br label %22
 
-31:                                               ; preds = %30, %11, %2
-  %.021 = phi i32 [ 0, %2 ], [ 0, %11 ], [ %.2, %30 ]
+22:                                               ; preds = %21, %11, %2
+  %.021 = phi i32 [ 0, %2 ], [ 0, %11 ], [ %.2, %21 ]
   ret i32 %.021
 }
 
