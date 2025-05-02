@@ -759,7 +759,7 @@ scan_tree.exit36.i:                               ; preds = %138, %scan_tree.exi
 
 148:                                              ; preds = %141
   %149 = add nsw i32 %.041.i, -1
-  %150 = icmp ugt i32 %.041.i, 3
+  %150 = icmp samesign ugt i32 %.041.i, 3
   br i1 %150, label %141, label %build_bl_tree.exit, !llvm.loop !44
 
 build_bl_tree.exit:                               ; preds = %141, %148

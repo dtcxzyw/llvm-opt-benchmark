@@ -214,7 +214,7 @@ _ZL10in_stringsPciPPKc.exit145.thread:            ; preds = %51, %_ZL10in_string
 
 .preheader.i:                                     ; preds = %68
   %72 = add nuw nsw i64 %indvars.iv26.i, 1
-  %73 = icmp ult i64 %72, %67
+  %73 = icmp samesign ult i64 %72, %67
   br i1 %73, label %.lr.ph9.i, label %.loopexit.i
 
 .lr.ph9.i:                                        ; preds = %.preheader.i
@@ -269,7 +269,7 @@ _ZL10in_stringsPciPPKc.exit145.thread:            ; preds = %51, %_ZL10in_string
   %106 = load i8, ptr %105, align 1, !tbaa !36, !range !44, !noundef !45
   %107 = trunc nuw i8 %106 to i1
   %108 = add nuw nsw i64 %indvars.iv26.i, 1
-  %109 = icmp ult i64 %108, %67
+  %109 = icmp samesign ult i64 %108, %67
   %or.cond.i = select i1 %107, i1 %109, i1 false
   br i1 %or.cond.i, label %.lr.ph.i148, label %.loopexit.i
 

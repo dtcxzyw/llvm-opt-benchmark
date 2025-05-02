@@ -4679,7 +4679,7 @@ _ZN5Eigen8internal18partial_lu_inplaceINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS_14Tr
   %51 = load i32, ptr %49, align 4, !tbaa !90, !alias.scope !190
   store i32 %51, ptr %48, align 4, !tbaa !90, !alias.scope !190
   store i32 %50, ptr %49, align 4, !tbaa !90, !alias.scope !190
-  %52 = icmp ugt i64 %.0.in6.i.i.i.i.i.i, 1
+  %52 = icmp samesign ugt i64 %.0.in6.i.i.i.i.i.i, 1
   br i1 %52, label %44, label %53, !llvm.loop !196
 
 53:                                               ; preds = %44
@@ -13445,7 +13445,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const
 
 .lr.ph:                                           ; preds = %23
   %28 = shl nuw nsw i64 %indvars.iv198, 1
-  %29 = icmp ugt i64 %indvars.iv198, 3
+  %29 = icmp samesign ugt i64 %indvars.iv198, 3
   %30 = and i64 %indvars.iv198, 2
   %.not.not = icmp eq i64 %30, 0
   br label %31
@@ -13578,7 +13578,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const
   %.1124.lcssa = phi i64 [ %.0123174, %23 ], [ %88, %._crit_edge159 ]
   %.1.lcssa = phi i64 [ %.0122175, %23 ], [ %.4.lcssa, %._crit_edge159 ]
   %indvars.iv.next199 = add nsw i64 %indvars.iv198, -2
-  %90 = icmp ugt i64 %indvars.iv198, 2
+  %90 = icmp samesign ugt i64 %indvars.iv198, 2
   br i1 %90, label %23, label %.preheader137
 
 ._crit_edge183:                                   ; preds = %._crit_edge179.us, %.preheader.lr.ph, %.preheader137

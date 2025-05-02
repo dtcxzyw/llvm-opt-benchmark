@@ -856,7 +856,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
   %132 = xor i32 %.val69.i, %.val72.i
   %133 = and i32 %132, 1073741823
   %134 = icmp eq i32 %133, 0
-  %135 = icmp ugt i8 %.2.i, 13
+  %135 = icmp samesign ugt i8 %.2.i, 13
   %or.cond4.not.i = or i1 %135, %134
   br i1 %or.cond4.not.i, label %136, label %124, !llvm.loop !91
 
@@ -1480,7 +1480,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
   %94 = getelementptr inbounds i8, ptr %.053159, i64 %93
   %.val66 = load i8, ptr %94, align 1, !tbaa !69
   %95 = icmp ne i8 %.val66, 0
-  %96 = icmp ugt i8 %.2, 13
+  %96 = icmp samesign ugt i8 %.2, 13
   %or.cond4.not = or i1 %95, %96
   br i1 %or.cond4.not, label %97, label %86, !llvm.loop !111
 

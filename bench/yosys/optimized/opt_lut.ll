@@ -1337,7 +1337,7 @@ _ZN12_GLOBAL__N_18dlogic_taSERKS0_.exit.i.i.i.i.i.i.i: ; preds = %330, %_ZN5Yosy
   %340 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 64
   %341 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 64
   %342 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %343 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %343 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %343, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4copyIPKN12_GLOBAL__N_18dlogic_tEPS1_ET0_T_S6_S5_.exit.i.i, !llvm.loop !88
 
 _ZSt4copyIPKN12_GLOBAL__N_18dlogic_tEPS1_ET0_T_S6_S5_.exit.i.i: ; preds = %.noexc179

@@ -17066,7 +17066,7 @@ for.body622:                                      ; preds = %invoke.cont615, %in
           to label %for.inc641 unwind label %lpad446.loopexit.split-lp.loopexit
 
 for.inc641:                                       ; preds = %for.body622
-  %cmp.i.i.i1543 = icmp ugt i64 %rit.sroa.24.23763, 1
+  %cmp.i.i.i1543 = icmp samesign ugt i64 %rit.sroa.24.23763, 1
   br i1 %cmp.i.i.i1543, label %if.then.i.i.i1552, label %if.else.i.i.i1544
 
 if.then.i.i.i1552:                                ; preds = %for.inc641

@@ -579,7 +579,7 @@ _ZN7Imf_3_49AutoArrayIPmLi65537EED2Ev.exit112.i:  ; preds = %_ZSt9make_heapIPPmN
   %255 = lshr i64 %254, 1
   store i64 %.02531.i.i, ptr %252, align 8, !tbaa !7
   %indvars.iv.next37.i.i = add nsw i64 %indvars.iv36.i.i, -1
-  %256 = icmp ugt i64 %indvars.iv36.i.i, 1
+  %256 = icmp samesign ugt i64 %indvars.iv36.i.i, 1
   br i1 %256, label %.preheader27.i.i, label %.preheader.i.i, !llvm.loop !25
 
 .preheader.i.i:                                   ; preds = %.preheader27.i.i, %268
@@ -1629,7 +1629,7 @@ _ZN7Imf_3_412_GLOBAL__N_17getBitsEiRmRiRPKc.exit42.i: ; preds = %_ZN7Imf_3_412_G
   %158 = lshr i64 %157, 1
   store i64 %.02531.i.i, ptr %155, align 8, !tbaa !7
   %indvars.iv.next37.i.i = add nsw i64 %indvars.iv36.i.i, -1
-  %159 = icmp ugt i64 %indvars.iv36.i.i, 1
+  %159 = icmp samesign ugt i64 %indvars.iv36.i.i, 1
   br i1 %159, label %.preheader27.i.i, label %.preheader.i.i, !llvm.loop !25
 
 .preheader.i.i:                                   ; preds = %.preheader27.i.i, %171

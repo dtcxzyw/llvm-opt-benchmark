@@ -5448,7 +5448,7 @@ define void @Gia_ManSifPrintTimes(ptr noundef readonly captures(none) %0, ptr no
 
 40:                                               ; preds = %34, %37
   %indvars.iv.next36 = add nsw i64 %indvars.iv35, -1
-  %41 = icmp ugt i64 %indvars.iv35, 1
+  %41 = icmp samesign ugt i64 %indvars.iv35, 1
   br i1 %41, label %34, label %.preheader, !llvm.loop !128
 
 .preheader:                                       ; preds = %40, %47

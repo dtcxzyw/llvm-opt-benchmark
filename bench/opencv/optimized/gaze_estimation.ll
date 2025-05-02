@@ -7377,7 +7377,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSERKS6_.exit.i.i.i.i.i.i: ; preds = %2510, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i.i.i.i.i
   %2511 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i.i, i64 32
   %2512 = add nsw i64 %.07.i.i.i.i.i.i, -1
-  %2513 = icmp ugt i64 %.07.i.i.i.i.i.i, 1
+  %2513 = icmp samesign ugt i64 %.07.i.i.i.i.i.i, 1
   br i1 %2513, label %2489, label %_ZN2cv4gapi2ie6ParamsIN6custom12_GLOBAL__N_18HeadPoseEE15cfgOutputLayersERKSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EE.exit, !llvm.loop !239
 
 _ZN2cv4gapi2ie6ParamsIN6custom12_GLOBAL__N_18HeadPoseEE15cfgOutputLayersERKSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EE.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSERKS6_.exit.i.i.i.i.i.i
@@ -8288,7 +8288,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSERKS6_.exit.i.i.i.i.i.i784: ; preds = %2833, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i.i.i.i.i783
   %2834 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i.i780, i64 32
   %2835 = add nsw i64 %.07.i.i.i.i.i.i779, -1
-  %2836 = icmp ugt i64 %.07.i.i.i.i.i.i779, 1
+  %2836 = icmp samesign ugt i64 %.07.i.i.i.i.i.i779, 1
   br i1 %2836, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit.i778, label %_ZN2cv4gapi2ie6ParamsIN6custom12_GLOBAL__N_14GazeEE14cfgInputLayersERKSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EE.exit, !llvm.loop !239
 
 _ZN2cv4gapi2ie6ParamsIN6custom12_GLOBAL__N_14GazeEE14cfgInputLayersERKSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EE.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSERKS6_.exit.i.i.i.i.i.i784

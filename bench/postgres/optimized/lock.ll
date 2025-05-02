@@ -5170,7 +5170,7 @@ define dso_local ptr @GetLockStatusData() local_unnamed_addr #0 {
   %184 = getelementptr %union.LWLockPadded, ptr %183, i64 %indvars.iv171
   %185 = getelementptr i8, ptr %184, i64 23040
   call void @LWLockRelease(ptr noundef nonnull %185) #17
-  %186 = icmp ugt i64 %indvars.iv171, 1
+  %186 = icmp samesign ugt i64 %indvars.iv171, 1
   br i1 %186, label %.preheader, label %187, !llvm.loop !55
 
 187:                                              ; preds = %.preheader
@@ -5269,7 +5269,7 @@ define dso_local ptr @GetBlockerStatusData(i32 noundef %0) local_unnamed_addr #0
   %44 = getelementptr %union.LWLockPadded, ptr %43, i64 %indvars.iv42
   %45 = getelementptr i8, ptr %44, i64 23040
   tail call void @LWLockRelease(ptr noundef nonnull %45) #17
-  %46 = icmp ugt i64 %indvars.iv42, 1
+  %46 = icmp samesign ugt i64 %indvars.iv42, 1
   br i1 %46, label %.loopexit36, label %.loopexit, !llvm.loop !58
 
 .loopexit:                                        ; preds = %.loopexit36, %1
@@ -5559,7 +5559,7 @@ define dso_local ptr @GetRunningTransactionLocks(ptr noundef writeonly captures(
   %40 = getelementptr %union.LWLockPadded, ptr %39, i64 %indvars.iv41
   %41 = getelementptr i8, ptr %40, i64 23040
   call void @LWLockRelease(ptr noundef nonnull %41) #17
-  %42 = icmp ugt i64 %indvars.iv41, 1
+  %42 = icmp samesign ugt i64 %indvars.iv41, 1
   br i1 %42, label %.preheader, label %43, !llvm.loop !63
 
 43:                                               ; preds = %.preheader

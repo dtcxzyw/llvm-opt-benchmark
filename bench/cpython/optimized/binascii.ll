@@ -758,7 +758,7 @@ define internal ptr @binascii_a2b_base64(ptr noundef %0, ptr noundef %1, i64 nou
   br label %77
 
 71:                                               ; preds = %.lr.ph.split.us.split.i
-  %72 = icmp ugt i32 %.07733.us.i, 1
+  %72 = icmp samesign ugt i32 %.07733.us.i, 1
   br i1 %72, label %73, label %77
 
 73:                                               ; preds = %71

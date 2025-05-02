@@ -4251,7 +4251,7 @@ _ZN11duckdb_zstdL6trsortEPiS0_ii.exit:            ; preds = %.thread158.i, %2059
   %.2264.lcssa = phi i32 [ %.1263468, %2101 ], [ %2115, %._crit_edge465.loopexit ]
   %.18.lcssa = phi i32 [ %2103, %2101 ], [ %2116, %._crit_edge465.loopexit ]
   %indvars.iv.next607 = add nsw i64 %indvars.iv606, -1
-  %2117 = icmp ult i64 %indvars.iv609, %indvars.iv.next607
+  %2117 = icmp samesign ult i64 %indvars.iv609, %indvars.iv.next607
   br i1 %2117, label %2101, label %._crit_edge473, !llvm.loop !77
 
 ._crit_edge473:                                   ; preds = %._crit_edge465

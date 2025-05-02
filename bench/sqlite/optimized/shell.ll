@@ -3179,7 +3179,7 @@ hash_step.exit57:                                 ; preds = %119, %120
   store i8 %131, ptr %132, align 1, !tbaa !25
   %133 = lshr i64 %.04283, 8
   %indvars.iv.next94 = add nsw i64 %indvars.iv93, -1
-  %134 = icmp ugt i64 %indvars.iv93, 1
+  %134 = icmp samesign ugt i64 %indvars.iv93, 1
   br i1 %134, label %130, label %135, !llvm.loop !39
 
 135:                                              ; preds = %130
@@ -3238,7 +3238,7 @@ hash_step.exit62:                                 ; preds = %142, %147
   store i8 %161, ptr %162, align 1, !tbaa !25
   %163 = lshr i64 %.04481, 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %164 = icmp ugt i64 %indvars.iv, 1
+  %164 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %164, label %160, label %165, !llvm.loop !40
 
 165:                                              ; preds = %160
@@ -5058,7 +5058,7 @@ define internal void @base85(ptr noundef %0, i32 %1, ptr noundef readonly captur
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %65 = getelementptr inbounds nuw i8, ptr %.0525.i, i64 %indvars.iv.next.i
   store i8 %64, ptr %65, align 1, !tbaa !25
-  %66 = icmp ugt i64 %indvars.iv.i, 1
+  %66 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %66, label %49, label %67, !llvm.loop !87
 
 67:                                               ; preds = %62
@@ -31384,7 +31384,7 @@ define internal fastcc void @sha3UpdateFromValue(ptr noundef nonnull captures(no
   store i8 %21, ptr %22, align 1, !tbaa !25
   %23 = lshr i64 %.093, 8
   %indvars.iv.next110 = add nsw i64 %indvars.iv109, -1
-  %24 = icmp ugt i64 %indvars.iv109, 1
+  %24 = icmp samesign ugt i64 %indvars.iv109, 1
   br i1 %24, label %20, label %25, !llvm.loop !690
 
 25:                                               ; preds = %20
@@ -31473,7 +31473,7 @@ SHA3Update.exit39:                                ; preds = %59
   store i8 %66, ptr %67, align 1, !tbaa !25
   %68 = lshr i64 %.03191, 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %69 = icmp ugt i64 %indvars.iv, 1
+  %69 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %69, label %65, label %70, !llvm.loop !691
 
 70:                                               ; preds = %65
@@ -40144,7 +40144,7 @@ define internal i32 @apndWrite(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   %20 = getelementptr inbounds nuw [25 x i8], ptr %5, i64 0, i64 %19
   store i8 %18, ptr %20, align 1, !tbaa !25
   %21 = ashr i64 %.01214.i, 8
-  %22 = icmp ugt i64 %indvars.iv.i, 1
+  %22 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %22, label %17, label %23, !llvm.loop !821
 
 23:                                               ; preds = %17
@@ -40198,7 +40198,7 @@ define internal i32 @apndTruncate(ptr noundef %0, i64 noundef %1) #2 {
   %9 = getelementptr inbounds nuw [25 x i8], ptr %3, i64 0, i64 %8
   store i8 %7, ptr %9, align 1, !tbaa !25
   %10 = ashr i64 %.01214.i, 8
-  %11 = icmp ugt i64 %indvars.iv.i, 1
+  %11 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %11, label %6, label %12, !llvm.loop !821
 
 12:                                               ; preds = %6

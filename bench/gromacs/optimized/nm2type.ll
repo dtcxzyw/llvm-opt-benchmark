@@ -1164,7 +1164,7 @@ _ZL9match_strPKcS0_.exit215.us359:                ; preds = %sub_1.i214.us, %sub
 
 ._crit_edge368.split.us.us:                       ; preds = %._crit_edge366.us.us
   %indvars.iv.next456 = add nsw i64 %indvars.iv455, -1
-  %166 = icmp ugt i64 %indvars.iv455, 1
+  %166 = icmp samesign ugt i64 %indvars.iv455, 1
   br i1 %166, label %.preheader283.us, label %.split.us, !llvm.loop !73
 
 .lr.ph363:                                        ; preds = %._crit_edge355.us, %.lr.ph363

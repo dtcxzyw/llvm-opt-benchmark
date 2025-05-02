@@ -859,7 +859,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %130 = and i32 %129, 31
   %131 = zext nneg i32 %130 to i64
   %132 = mul nuw nsw i64 %127, %131
-  %133 = icmp ugt i64 %132, %.0308795
+  %133 = icmp samesign ugt i64 %132, %.0308795
   %spec.select = tail call i64 @llvm.smax.i64(i64 %132, i64 %.0308795)
   %134 = trunc nuw nsw i64 %indvars.iv856 to i32
   %spec.select566 = select i1 %133, i32 %134, i32 %.0306796

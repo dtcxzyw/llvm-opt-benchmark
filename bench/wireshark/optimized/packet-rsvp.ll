@@ -5998,7 +5998,7 @@ proto_item_set_hidden.exit.i502:                  ; preds = %1141, %1138, %1133
 
 1178:                                             ; preds = %1177, %1175, %1171
   %1179 = add nuw nsw i32 %.080.i, 4
-  %1180 = icmp ult i32 %1179, %1151
+  %1180 = icmp samesign ult i32 %1179, %1151
   br i1 %1180, label %.lr.ph.i503, label %.loopexit680, !llvm.loop !20
 
 1181:                                             ; preds = %1162

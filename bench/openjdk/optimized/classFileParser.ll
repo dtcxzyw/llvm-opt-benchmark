@@ -4372,7 +4372,7 @@ define internal fastcc void @_ZL17parse_annotationsPK12ConstantPoolPKhiP19Annota
 .lr.ph.i:                                         ; preds = %26, %.lr.ph.preheader.i
   %.in.i = phi i32 [ %27, %26 ], [ %25, %.lr.ph.preheader.i ]
   %.01723.i = phi i32 [ %29, %26 ], [ %22, %.lr.ph.preheader.i ]
-  %.not22.i = icmp ult i32 %.01723.i, %15
+  %.not22.i = icmp samesign ult i32 %.01723.i, %15
   br i1 %.not22.i, label %26, label %_ZL15skip_annotationPKhii.exit
 
 26:                                               ; preds = %.lr.ph.i
@@ -19269,7 +19269,7 @@ define internal fastcc noundef range(i32 4, -2147483648) i32 @_ZL21skip_annotati
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %46
   %.in = phi i32 [ %47, %46 ], [ %45, %.lr.ph.preheader ]
   %.017.i44 = phi i32 [ %49, %46 ], [ %36, %.lr.ph.preheader ]
-  %.not22.i = icmp ult i32 %.017.i44, %40
+  %.not22.i = icmp samesign ult i32 %.017.i44, %40
   br i1 %.not22.i, label %46, label %_ZL15skip_annotationPKhii.exit
 
 46:                                               ; preds = %.lr.ph

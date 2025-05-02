@@ -253,7 +253,7 @@ _ZNSt10unique_ptrIN8rawspeed7CiffIFDESt14default_deleteIS1_EED2Ev.exit: ; preds 
 57:                                               ; preds = %54
   %.02946.i.i.i.i.i.i.add18 = add nuw nsw i64 %.02946.i.i.i.i.i.i.idx, 8
   %58 = add nsw i64 %.047.i.i.i.i.i.i, -1
-  %59 = icmp ugt i64 %.047.i.i.i.i.i.i, 1
+  %59 = icmp samesign ugt i64 %.047.i.i.i.i.i.i, 1
   br i1 %59, label %.lr.ph.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN8rawspeed9CiffEntryESt14default_deleteIS1_EED2Ev.exit, !llvm.loop !46
 
 _ZN8rawspeed4isInINS_7CiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i

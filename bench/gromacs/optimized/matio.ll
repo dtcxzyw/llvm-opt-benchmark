@@ -4095,7 +4095,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit294.i: ; preds = %
   %.1614.i = phi ptr [ %.9.i, %742 ], [ %.10.i, %.preheader.i ]
   %.0487613.i = phi ptr [ null, %742 ], [ %storemerge.i, %.preheader.i ]
   %.1501612.i = phi i32 [ %.8508.i, %742 ], [ %.9509.i, %.preheader.i ]
-  %743 = icmp ult i32 %.1501612.i, 4096
+  %743 = icmp samesign ult i32 %.1501612.i, 4096
   br i1 %743, label %744, label %.noexc296.i
 
 744:                                              ; preds = %.loopexit545.i

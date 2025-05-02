@@ -2088,7 +2088,7 @@ _get_sum_and_average.exit.i.i:                    ; preds = %.lr.ph.i.i.i
 
 405:                                              ; preds = %.lr.ph346.i.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i216, -1
-  %406 = icmp ugt i64 %indvars.iv.i216, 2
+  %406 = icmp samesign ugt i64 %indvars.iv.i216, 2
   br i1 %406, label %.lr.ph346.i.i, label %.critedge5.i.i
 
 .lr.ph352.preheader.i.i:                          ; preds = %.lr.ph346.i.i

@@ -5820,7 +5820,7 @@ _ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit: ; 
 64:                                               ; preds = %61
   %.02950.i.i.i.i.add27 = add nuw nsw i64 %.02950.i.i.i.i.idx, 16
   %65 = add nsw i64 %.051.i.i.i.i, -1
-  %66 = icmp ugt i64 %.051.i.i.i.i, 1
+  %66 = icmp samesign ugt i64 %.051.i.i.i.i, 1
   br i1 %66, label %52, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !667
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %64
@@ -11254,7 +11254,7 @@ _ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit: ; 
 40:                                               ; preds = %37
   %.02950.i.i.i.i.add19.i = add nuw nsw i64 %.02950.i.i.i.i.idx.i, 16
   %41 = add nsw i64 %.051.i.i.i.i.i, -1
-  %42 = icmp ugt i64 %.051.i.i.i.i.i, 1
+  %42 = icmp samesign ugt i64 %.051.i.i.i.i.i, 1
   br i1 %42, label %28, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !802
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %40
@@ -11522,7 +11522,7 @@ _ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit89: 
 165:                                              ; preds = %162
   %.02950.i.i.i.i.add118 = add nuw nsw i64 %.02950.i.i.i.i.idx, 16
   %166 = add nsw i64 %.051.i.i.i.i, -1
-  %167 = icmp ugt i64 %.051.i.i.i.i, 1
+  %167 = icmp samesign ugt i64 %.051.i.i.i.i, 1
   br i1 %167, label %153, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !805
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %165

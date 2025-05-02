@@ -4100,7 +4100,7 @@ _getrecord_ex.exit:                               ; preds = %PyUnicode_READ.exit
   br i1 %172, label %.thread201, label %173
 
 173:                                              ; preds = %171
-  %.not147 = icmp ult i32 %.0122240, %170
+  %.not147 = icmp samesign ult i32 %.0122240, %170
   br i1 %.not147, label %174, label %231, !llvm.loop !63
 
 174:                                              ; preds = %173, %_getrecord_ex.exit

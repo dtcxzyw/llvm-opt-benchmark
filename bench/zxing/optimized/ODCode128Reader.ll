@@ -268,7 +268,7 @@ _ZN5ZXing5ToIntISt5arrayIiLm4EEvEEiRKT_.exit.i:   ; preds = %64, %84
 84:                                               ; preds = %81
   %.02946.i.i.i.i.i.add6.i = add nuw nsw i64 %.02946.i.i.i.i.i.idx.i, 16
   %85 = add nsw i64 %.047.i.i.i.i.i.i, -1
-  %86 = icmp ugt i64 %.047.i.i.i.i.i.i, 1
+  %86 = icmp samesign ugt i64 %.047.i.i.i.i.i.i, 1
   br i1 %86, label %_ZN5ZXing5ToIntISt5arrayIiLm4EEvEEiRKT_.exit.i, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !47
 
 ._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %84
@@ -580,7 +580,7 @@ _ZN5ZXing5ToIntISt5arrayIiLm4EEvEEiRKT_.exit.i82: ; preds = %187, %207
 207:                                              ; preds = %204
   %.02946.i.i.i.i.i.add6.i92 = add nuw nsw i64 %.02946.i.i.i.i.i.idx.i84, 16
   %208 = add nsw i64 %.047.i.i.i.i.i.i83, -1
-  %209 = icmp ugt i64 %.047.i.i.i.i.i.i83, 1
+  %209 = icmp samesign ugt i64 %.047.i.i.i.i.i.i83, 1
   br i1 %209, label %_ZN5ZXing5ToIntISt5arrayIiLm4EEvEEiRKT_.exit.i82, label %._crit_edge.loopexit.i.i.i.i.i.i93, !llvm.loop !47
 
 ._crit_edge.loopexit.i.i.i.i.i.i93:               ; preds = %207

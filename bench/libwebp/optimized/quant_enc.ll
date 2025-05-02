@@ -1084,7 +1084,7 @@ IsFlatSource16.exit.i:                            ; preds = %76, %74, %72, %70, 
 
 120:                                              ; preds = %112
   %121 = getelementptr inbounds nuw i8, ptr %.01626.i.i, i64 32
-  %122 = icmp ugt i32 %.in.i.i, 1
+  %122 = icmp samesign ugt i32 %.in.i.i, 1
   br i1 %122, label %.preheader.i.i, label %IsFlat_C.exit.i, !llvm.loop !114
 
 IsFlat_C.exit.i:                                  ; preds = %120
@@ -1646,7 +1646,7 @@ PickBestIntra4.exit:                              ; preds = %PickBestIntra4.exit
 
 438:                                              ; preds = %430
   %439 = getelementptr inbounds nuw i8, ptr %.01626.i.i44, i64 32
-  %440 = icmp ugt i32 %.in.i.i42, 1
+  %440 = icmp samesign ugt i32 %.in.i.i42, 1
   br i1 %440, label %.preheader.i.i41, label %IsFlat_C.exit.i49, !llvm.loop !114
 
 IsFlat_C.exit.i49:                                ; preds = %438
@@ -2500,7 +2500,7 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias nou
 
 41:                                               ; preds = %31
   %42 = add nsw i32 %.0182213, -1
-  %.not.not = icmp ugt i32 %.0182213, %16
+  %.not.not = icmp samesign ugt i32 %.0182213, %16
   br i1 %.not.not, label %31, label %43, !llvm.loop !235
 
 43:                                               ; preds = %31, %41

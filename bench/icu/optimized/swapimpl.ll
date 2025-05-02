@@ -339,8 +339,8 @@ define internal noundef i32 @_ZL11uprops_swapPK12UDataSwapperPKviPvP10UErrorCode
   %70 = load i32, ptr %69, align 4, !tbaa !15
   %71 = icmp eq i32 %70, 0
   %72 = add nsw i32 %.1103120, -1
-  %73 = icmp ugt i32 %.1103120, 1
-  %or.cond126 = and i1 %71, %73
+  %73 = icmp samesign ugt i32 %.1103120, 1
+  %or.cond126 = select i1 %71, i1 %73, i1 false
   br i1 %or.cond126, label %.preheader, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %.preheader

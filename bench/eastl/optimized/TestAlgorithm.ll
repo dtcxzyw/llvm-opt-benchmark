@@ -3500,7 +3500,7 @@ _ZN5eastl20back_insert_iteratorINS_12basic_stringIcNS_9allocatorEEEEaSERKc.exit.
   %223 = phi i8 [ %221, %cond.true.i.i.i.i.i.i.i.i.i.i ], [ %conv.i.i21.i.i.i.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i64 %n.06.i.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %first.addr.05.i.i.i.i.i.i, i64 1
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %n.06.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %n.06.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %invoke.cont525, !llvm.loop !23
 
 invoke.cont525:                                   ; preds = %_ZN5eastl20back_insert_iteratorINS_12basic_stringIcNS_9allocatorEEEEaSERKc.exit.i.i.i.i.i.i

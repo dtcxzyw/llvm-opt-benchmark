@@ -576,7 +576,7 @@ define void @_ZN10LabelStack21updateTemporaryStatusEv(ptr noundef align 8 derefe
 
 14:                                               ; preds = %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %15 = icmp ugt i64 %indvars.iv, 1
+  %15 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %14, %11, %5

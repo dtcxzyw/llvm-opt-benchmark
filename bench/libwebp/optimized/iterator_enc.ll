@@ -1434,7 +1434,7 @@ define hidden void @VP8SetIntra4Mode(ptr noundef readonly captures(none) %0, ptr
   %12 = getelementptr inbounds i8, ptr %.0811, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %.0910, i64 4
   %14 = add nsw i32 %.012, -1
-  %15 = icmp ugt i32 %.012, 1
+  %15 = icmp samesign ugt i32 %.012, 1
   br i1 %15, label %6, label %16, !llvm.loop !86
 
 16:                                               ; preds = %6

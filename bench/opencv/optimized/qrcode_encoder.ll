@@ -546,7 +546,7 @@ _ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit
 
 50:                                               ; preds = %_ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit23.us
   %indvars.iv.next83 = add nsw i64 %indvars.iv82, -1
-  %51 = icmp ugt i64 %indvars.iv82, 1
+  %51 = icmp samesign ugt i64 %indvars.iv82, 1
   br i1 %51, label %_ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit23.us, label %.thread, !llvm.loop !53
 
 .preheader.split.split.us37:                      ; preds = %.preheader
@@ -562,7 +562,7 @@ _ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit
 
 53:                                               ; preds = %_ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit23.us40
   %indvars.iv.next80 = add nsw i64 %indvars.iv79, -1
-  %54 = icmp ugt i64 %indvars.iv79, 1
+  %54 = icmp samesign ugt i64 %indvars.iv79, 1
   br i1 %54, label %_ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit23.us40, label %.thread, !llvm.loop !53
 
 .preheader.split.split.us47:                      ; preds = %.preheader
@@ -578,7 +578,7 @@ _ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit
 
 56:                                               ; preds = %_ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit23.us50
   %indvars.iv.next77 = add nsw i64 %indvars.iv76, -1
-  %57 = icmp ugt i64 %indvars.iv76, 1
+  %57 = icmp samesign ugt i64 %indvars.iv76, 1
   br i1 %57, label %_ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit23.us50, label %.thread, !llvm.loop !53
 
 .preheader.split.split:                           ; preds = %.preheader
@@ -626,7 +626,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i21: ; preds = %_
 
 69:                                               ; preds = %_ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit23
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %70 = icmp ugt i64 %indvars.iv, 1
+  %70 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %70, label %_ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit23, label %.thread, !llvm.loop !53
 
 .split.us:                                        ; preds = %_ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit23, %_ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit23.us50, %_ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit23.us40, %_ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit23.us

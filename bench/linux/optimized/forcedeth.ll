@@ -1501,7 +1501,7 @@ define internal void @nv_remove(ptr noundef %0) #2 align 16 {
 102:                                              ; preds = %105, %95
   %103 = phi i32 [ 10000, %95 ], [ %106, %105 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %104 = icmp ult i32 %103, 10
+  %104 = icmp samesign ult i32 %103, 10
   br i1 %104, label %mii_rw.exit, label %105
 
 105:                                              ; preds = %102
@@ -1632,7 +1632,7 @@ mii_rw.exit:                                      ; preds = %105, %102
 180:                                              ; preds = %183, %173
   %181 = phi i32 [ 10000, %173 ], [ %184, %183 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %182 = icmp ult i32 %181, 10
+  %182 = icmp samesign ult i32 %181, 10
   br i1 %182, label %mii_rw.exit4, label %183
 
 183:                                              ; preds = %180
@@ -1919,7 +1919,7 @@ define internal void @nv_do_nic_poll(ptr noundef %0) #2 align 16 {
 82:                                               ; preds = %85, %67
   %83 = phi i32 [ 500000, %67 ], [ %86, %85 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %84 = icmp ugt i32 %83, 9
+  %84 = icmp samesign ugt i32 %83, 9
   br i1 %84, label %85, label %90
 
 85:                                               ; preds = %82
@@ -1962,7 +1962,7 @@ nv_stop_rx.exit:                                  ; preds = %.loopexit.i, %93
 106:                                              ; preds = %109, %nv_stop_rx.exit
   %107 = phi i32 [ 500000, %nv_stop_rx.exit ], [ %110, %109 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %108 = icmp ugt i32 %107, 9
+  %108 = icmp samesign ugt i32 %107, 9
   br i1 %108, label %109, label %114
 
 109:                                              ; preds = %106
@@ -3010,7 +3010,7 @@ define internal fastcc i32 @mii_rw(ptr noundef readonly captures(none) %0, i32 n
 24:                                               ; preds = %27, %19
   %25 = phi i32 [ 10000, %19 ], [ %28, %27 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %26 = icmp ult i32 %25, 10
+  %26 = icmp samesign ult i32 %25, 10
   br i1 %26, label %.thread, label %27
 
 27:                                               ; preds = %24
@@ -3133,7 +3133,7 @@ define internal fastcc void @phy_init(ptr noundef %0) unnamed_addr #2 align 16 {
 55:                                               ; preds = %58, %48
   %56 = phi i32 [ 10000, %48 ], [ %59, %58 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %57 = icmp ult i32 %56, 10
+  %57 = icmp samesign ult i32 %56, 10
   br i1 %57, label %mii_rw.exit, label %58
 
 58:                                               ; preds = %55
@@ -3230,7 +3230,7 @@ mii_rw.exit.thread:                               ; preds = %58, %1
 107:                                              ; preds = %110, %102
   %108 = phi i32 [ 10000, %102 ], [ %111, %110 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %109 = icmp ult i32 %108, 10
+  %109 = icmp samesign ult i32 %108, 10
   br i1 %109, label %.thread81, label %110
 
 110:                                              ; preds = %107
@@ -3388,7 +3388,7 @@ mii_rw.exit34.thread:                             ; preds = %115
 196:                                              ; preds = %199, %191
   %197 = phi i32 [ 10000, %191 ], [ %200, %199 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %198 = icmp ult i32 %197, 10
+  %198 = icmp samesign ult i32 %197, 10
   br i1 %198, label %.critedge, label %199
 
 199:                                              ; preds = %196
@@ -3548,7 +3548,7 @@ mii_rw.exit36.thread83:                           ; preds = %204, %mii_rw.exit36
 290:                                              ; preds = %293, %285
   %291 = phi i32 [ 10000, %285 ], [ %294, %293 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %292 = icmp ult i32 %291, 10
+  %292 = icmp samesign ult i32 %291, 10
   br i1 %292, label %.critedge, label %293
 
 293:                                              ; preds = %290
@@ -3749,7 +3749,7 @@ mii_rw.exit38:                                    ; preds = %299
 406:                                              ; preds = %409, %401
   %407 = phi i32 [ 10000, %401 ], [ %410, %409 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %408 = icmp ult i32 %407, 10
+  %408 = icmp samesign ult i32 %407, 10
   br i1 %408, label %mii_rw.exit40.thread, label %409
 
 409:                                              ; preds = %406
@@ -3936,7 +3936,7 @@ mii_rw.exit40.thread90:                           ; preds = %414, %mii_rw.exit40
 518:                                              ; preds = %521, %511
   %519 = phi i32 [ 10000, %511 ], [ %522, %521 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %520 = icmp ult i32 %519, 10
+  %520 = icmp samesign ult i32 %519, 10
   br i1 %520, label %mii_rw.exit42, label %521
 
 521:                                              ; preds = %518
@@ -4073,7 +4073,7 @@ mii_rw.exit42.thread:                             ; preds = %521, %536
 596:                                              ; preds = %599, %591
   %597 = phi i32 [ 10000, %591 ], [ %600, %599 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %598 = icmp ult i32 %597, 10
+  %598 = icmp samesign ult i32 %597, 10
   br i1 %598, label %mii_rw.exit44.thread, label %599
 
 599:                                              ; preds = %596
@@ -4234,7 +4234,7 @@ mii_rw.exit44.thread96:                           ; preds = %604, %622, %mii_rw.
 688:                                              ; preds = %691, %681
   %689 = phi i32 [ 10000, %681 ], [ %692, %691 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %690 = icmp ult i32 %689, 10
+  %690 = icmp samesign ult i32 %689, 10
   br i1 %690, label %mii_rw.exit46, label %691
 
 691:                                              ; preds = %688
@@ -4334,7 +4334,7 @@ mii_rw.exit44.thread96:                           ; preds = %604, %622, %mii_rw.
 747:                                              ; preds = %750, %742
   %748 = phi i32 [ 10000, %742 ], [ %751, %750 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %749 = icmp ult i32 %748, 10
+  %749 = icmp samesign ult i32 %748, 10
   br i1 %749, label %mii_rw.exit46, label %750
 
 750:                                              ; preds = %747
@@ -4449,7 +4449,7 @@ mii_rw.exit48.thread99:                           ; preds = %755, %mii_rw.exit48
 813:                                              ; preds = %816, %808
   %814 = phi i32 [ 10000, %808 ], [ %817, %816 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %815 = icmp ult i32 %814, 10
+  %815 = icmp samesign ult i32 %814, 10
   br i1 %815, label %mii_rw.exit46, label %816
 
 816:                                              ; preds = %813
@@ -4669,7 +4669,7 @@ mii_rw.exit46:                                    ; preds = %688, %747, %813, %8
 941:                                              ; preds = %944, %936
   %942 = phi i32 [ 10000, %936 ], [ %945, %944 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %943 = icmp ult i32 %942, 10
+  %943 = icmp samesign ult i32 %942, 10
   br i1 %943, label %mii_rw.exit54, label %944
 
 944:                                              ; preds = %941
@@ -4776,7 +4776,7 @@ mii_rw.exit52.thread105:                          ; preds = %949, %mii_rw.exit52
 1004:                                             ; preds = %1007, %997
   %1005 = phi i32 [ 10000, %997 ], [ %1008, %1007 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %1006 = icmp ult i32 %1005, 10
+  %1006 = icmp samesign ult i32 %1005, 10
   br i1 %1006, label %mii_rw.exit54, label %1007
 
 1007:                                             ; preds = %1004
@@ -4816,7 +4816,7 @@ mii_rw.exit52.thread105:                          ; preds = %949, %mii_rw.exit52
 1028:                                             ; preds = %1031, %1021
   %1029 = phi i32 [ 10000, %1021 ], [ %1032, %1031 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %1030 = icmp ult i32 %1029, 10
+  %1030 = icmp samesign ult i32 %1029, 10
   br i1 %1030, label %mii_rw.exit54, label %1031
 
 1031:                                             ; preds = %1028
@@ -4856,7 +4856,7 @@ mii_rw.exit52.thread105:                          ; preds = %949, %mii_rw.exit52
 1052:                                             ; preds = %1055, %1045
   %1053 = phi i32 [ 10000, %1045 ], [ %1056, %1055 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %1054 = icmp ult i32 %1053, 10
+  %1054 = icmp samesign ult i32 %1053, 10
   br i1 %1054, label %mii_rw.exit54, label %1055
 
 1055:                                             ; preds = %1052
@@ -4894,7 +4894,7 @@ mii_rw.exit52.thread105:                          ; preds = %949, %mii_rw.exit52
 1075:                                             ; preds = %1078, %1069
   %1076 = phi i32 [ 10000, %1069 ], [ %1079, %1078 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %1077 = icmp ult i32 %1076, 10
+  %1077 = icmp samesign ult i32 %1076, 10
   br i1 %1077, label %mii_rw.exit57, label %1078
 
 1078:                                             ; preds = %1075
@@ -4948,7 +4948,7 @@ mii_rw.exit57:                                    ; preds = %1075, %1083, %1087
 1108:                                             ; preds = %1111, %1101
   %1109 = phi i32 [ 10000, %1101 ], [ %1112, %1111 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %1110 = icmp ult i32 %1109, 10
+  %1110 = icmp samesign ult i32 %1109, 10
   br i1 %1110, label %mii_rw.exit54, label %1111
 
 1111:                                             ; preds = %1108
@@ -4986,7 +4986,7 @@ mii_rw.exit57:                                    ; preds = %1075, %1083, %1087
 1131:                                             ; preds = %1134, %1125
   %1132 = phi i32 [ 10000, %1125 ], [ %1135, %1134 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %1133 = icmp ult i32 %1132, 10
+  %1133 = icmp samesign ult i32 %1132, 10
   br i1 %1133, label %mii_rw.exit60, label %1134
 
 1134:                                             ; preds = %1131
@@ -5047,7 +5047,7 @@ mii_rw.exit60:                                    ; preds = %1131, %1139, %1143
 1166:                                             ; preds = %1169, %1161
   %1167 = phi i32 [ 10000, %1161 ], [ %1170, %1169 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %1168 = icmp ult i32 %1167, 10
+  %1168 = icmp samesign ult i32 %1167, 10
   br i1 %1168, label %mii_rw.exit54, label %1169
 
 1169:                                             ; preds = %1166
@@ -5102,7 +5102,7 @@ mii_rw.exit62.thread107:                          ; preds = %1174, %mii_rw.exit6
 1197:                                             ; preds = %1200, %1190
   %1198 = phi i32 [ 10000, %1190 ], [ %1201, %1200 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %1199 = icmp ult i32 %1198, 10
+  %1199 = icmp samesign ult i32 %1198, 10
   br i1 %1199, label %mii_rw.exit54, label %1200
 
 1200:                                             ; preds = %1197
@@ -5142,7 +5142,7 @@ mii_rw.exit62.thread107:                          ; preds = %1174, %mii_rw.exit6
 1221:                                             ; preds = %1224, %1214
   %1222 = phi i32 [ 10000, %1214 ], [ %1225, %1224 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %1223 = icmp ult i32 %1222, 10
+  %1223 = icmp samesign ult i32 %1222, 10
   br i1 %1223, label %mii_rw.exit54, label %1224
 
 1224:                                             ; preds = %1221
@@ -5180,7 +5180,7 @@ mii_rw.exit62.thread107:                          ; preds = %1174, %mii_rw.exit6
 1244:                                             ; preds = %1247, %1238
   %1245 = phi i32 [ 10000, %1238 ], [ %1248, %1247 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %1246 = icmp ult i32 %1245, 10
+  %1246 = icmp samesign ult i32 %1245, 10
   br i1 %1246, label %mii_rw.exit65, label %1247
 
 1247:                                             ; preds = %1244
@@ -5241,7 +5241,7 @@ mii_rw.exit65:                                    ; preds = %1244, %1252, %1256
 1279:                                             ; preds = %1282, %1274
   %1280 = phi i32 [ 10000, %1274 ], [ %1283, %1282 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %1281 = icmp ult i32 %1280, 10
+  %1281 = icmp samesign ult i32 %1280, 10
   br i1 %1281, label %mii_rw.exit54, label %1282
 
 1282:                                             ; preds = %1279
@@ -5294,7 +5294,7 @@ mii_rw.exit67.thread108:                          ; preds = %1287, %mii_rw.exit6
 1309:                                             ; preds = %1312, %1303
   %1310 = phi i32 [ 10000, %1303 ], [ %1313, %1312 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %1311 = icmp ult i32 %1310, 10
+  %1311 = icmp samesign ult i32 %1310, 10
   br i1 %1311, label %mii_rw.exit68, label %1312
 
 1312:                                             ; preds = %1309
@@ -5348,7 +5348,7 @@ mii_rw.exit68:                                    ; preds = %1309, %1317, %1321
 1342:                                             ; preds = %1345, %1335
   %1343 = phi i32 [ 10000, %1335 ], [ %1346, %1345 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %1344 = icmp ult i32 %1343, 10
+  %1344 = icmp samesign ult i32 %1343, 10
   br i1 %1344, label %mii_rw.exit54, label %1345
 
 1345:                                             ; preds = %1342
@@ -5388,7 +5388,7 @@ mii_rw.exit68:                                    ; preds = %1309, %1317, %1321
 1366:                                             ; preds = %1369, %1359
   %1367 = phi i32 [ 10000, %1359 ], [ %1370, %1369 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %1368 = icmp ult i32 %1367, 10
+  %1368 = icmp samesign ult i32 %1367, 10
   br i1 %1368, label %mii_rw.exit54, label %1369
 
 1369:                                             ; preds = %1366
@@ -5428,7 +5428,7 @@ mii_rw.exit68:                                    ; preds = %1309, %1317, %1321
 1390:                                             ; preds = %1393, %1383
   %1391 = phi i32 [ 10000, %1383 ], [ %1394, %1393 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %1392 = icmp ult i32 %1391, 10
+  %1392 = icmp samesign ult i32 %1391, 10
   br i1 %1392, label %mii_rw.exit54, label %1393
 
 1393:                                             ; preds = %1390
@@ -5513,7 +5513,7 @@ mii_rw.exit54:                                    ; preds = %855, %881, %941, %1
 1438:                                             ; preds = %1441, %1433
   %1439 = phi i32 [ 10000, %1433 ], [ %1442, %1441 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %1440 = icmp ult i32 %1439, 10
+  %1440 = icmp samesign ult i32 %1439, 10
   br i1 %1440, label %.thread109, label %1441
 
 1441:                                             ; preds = %1438
@@ -5707,7 +5707,7 @@ mii_rw.exit74.thread:                             ; preds = %1446
 1550:                                             ; preds = %1553, %1543
   %1551 = phi i32 [ 10000, %1543 ], [ %1554, %1553 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %1552 = icmp ult i32 %1551, 10
+  %1552 = icmp samesign ult i32 %1551, 10
   br i1 %1552, label %mii_rw.exit76, label %1553
 
 1553:                                             ; preds = %1550
@@ -5817,7 +5817,7 @@ mii_rw.exit50.thread101:                          ; preds = %mii_rw.exit74.threa
 1613:                                             ; preds = %1616, %1608
   %1614 = phi i32 [ 10000, %1608 ], [ %1617, %1616 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %1615 = icmp ult i32 %1614, 10
+  %1615 = icmp samesign ult i32 %1614, 10
   br i1 %1615, label %mii_rw.exit78, label %1616
 
 1616:                                             ; preds = %1613
@@ -5932,7 +5932,7 @@ mii_rw.exit78:                                    ; preds = %1613, %1621, %1622,
 1680:                                             ; preds = %1683, %1675
   %1681 = phi i32 [ 10000, %1675 ], [ %1684, %1683 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %1682 = icmp ult i32 %1681, 10
+  %1682 = icmp samesign ult i32 %1681, 10
   br i1 %1682, label %mii_rw.exit80, label %1683
 
 1683:                                             ; preds = %1680
@@ -6072,7 +6072,7 @@ define internal fastcc void @nv_stop_tx(ptr noundef %0) unnamed_addr #2 align 16
 15:                                               ; preds = %18, %1
   %16 = phi i32 [ 500000, %1 ], [ %19, %18 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %17 = icmp ugt i32 %16, 9
+  %17 = icmp samesign ugt i32 %16, 9
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %15
@@ -7013,7 +7013,7 @@ define internal fastcc void @nv_stop_rx(ptr noundef %0) unnamed_addr #2 align 16
 15:                                               ; preds = %18, %1
   %16 = phi i32 [ 500000, %1 ], [ %19, %18 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %17 = icmp ugt i32 %16, 9
+  %17 = icmp samesign ugt i32 %16, 9
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %15
@@ -8305,7 +8305,7 @@ define internal fastcc void @nv_legacybackoff_reseed(ptr noundef %0) unnamed_add
 28:                                               ; preds = %31, %17
   %29 = phi i32 [ 500000, %17 ], [ %32, %31 ]
   call void @__const_udelay(i64 noundef 42950) #18
-  %30 = icmp ugt i32 %29, 9
+  %30 = icmp samesign ugt i32 %29, 9
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %28
@@ -8350,7 +8350,7 @@ nv_stop_tx.exit:                                  ; preds = %.loopexit.i, %39
 54:                                               ; preds = %57, %nv_stop_tx.exit
   %55 = phi i32 [ 500000, %nv_stop_tx.exit ], [ %58, %57 ]
   call void @__const_udelay(i64 noundef 42950) #18
-  %56 = icmp ugt i32 %55, 9
+  %56 = icmp samesign ugt i32 %55, 9
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %54
@@ -8406,7 +8406,7 @@ nv_stop_rx.exit:                                  ; preds = %.loopexit.i1, %65
 87:                                               ; preds = %90, %76
   %88 = phi i32 [ 500000, %76 ], [ %91, %90 ]
   call void @__const_udelay(i64 noundef 42950) #18
-  %89 = icmp ugt i32 %88, 9
+  %89 = icmp samesign ugt i32 %88, 9
   br i1 %89, label %90, label %95
 
 90:                                               ; preds = %87
@@ -8626,7 +8626,7 @@ define internal fastcc void @nv_linkchange(ptr noundef %0) unnamed_addr #2 align
 77:                                               ; preds = %80, %65
   %78 = phi i32 [ 500000, %65 ], [ %81, %80 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %79 = icmp ugt i32 %78, 9
+  %79 = icmp samesign ugt i32 %78, 9
   br i1 %79, label %80, label %85
 
 80:                                               ; preds = %77
@@ -9130,7 +9130,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nv_update_linkspeed(ptr noun
 293:                                              ; preds = %296, %280
   %294 = phi i32 [ 500000, %280 ], [ %297, %296 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %295 = icmp ugt i32 %294, 9
+  %295 = icmp samesign ugt i32 %294, 9
   br i1 %295, label %296, label %301
 
 296:                                              ; preds = %293
@@ -9185,7 +9185,7 @@ nv_stop_tx.exit:                                  ; preds = %304, %.loopexit.i, 
 327:                                              ; preds = %330, %313
   %328 = phi i32 [ 500000, %313 ], [ %331, %330 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %329 = icmp ugt i32 %328, 9
+  %329 = icmp samesign ugt i32 %328, 9
   br i1 %329, label %330, label %335
 
 330:                                              ; preds = %327
@@ -10074,7 +10074,7 @@ define internal noundef range(i32 0, 2) i32 @nv_open(ptr noundef %0) #2 align 16
 49:                                               ; preds = %52, %43
   %50 = phi i32 [ 10000, %43 ], [ %53, %52 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %51 = icmp ult i32 %50, 10
+  %51 = icmp samesign ult i32 %50, 10
   br i1 %51, label %mii_rw.exit, label %52
 
 52:                                               ; preds = %49
@@ -10295,7 +10295,7 @@ mii_rw.exit:                                      ; preds = %52, %49
 197:                                              ; preds = %200, %185
   %198 = phi i32 [ 50000, %185 ], [ %201, %200 ]
   tail call void @__const_udelay(i64 noundef 21475) #18
-  %199 = icmp ugt i32 %198, 4
+  %199 = icmp samesign ugt i32 %198, 4
   br i1 %199, label %200, label %204
 
 200:                                              ; preds = %197
@@ -10661,7 +10661,7 @@ define internal noundef i32 @nv_close(ptr noundef %0) #2 align 16 {
 51:                                               ; preds = %54, %38
   %52 = phi i32 [ 500000, %38 ], [ %55, %54 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %53 = icmp ugt i32 %52, 9
+  %53 = icmp samesign ugt i32 %52, 9
   br i1 %53, label %54, label %59
 
 54:                                               ; preds = %51
@@ -10704,7 +10704,7 @@ nv_stop_rx.exit:                                  ; preds = %.loopexit.i, %62
 75:                                               ; preds = %78, %nv_stop_rx.exit
   %76 = phi i32 [ 500000, %nv_stop_rx.exit ], [ %79, %78 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %77 = icmp ugt i32 %76, 9
+  %77 = icmp samesign ugt i32 %76, 9
   br i1 %77, label %78, label %83
 
 78:                                               ; preds = %75
@@ -10984,7 +10984,7 @@ nv_free_irq.exit:                                 ; preds = %136, %146
 243:                                              ; preds = %246, %238
   %244 = phi i32 [ 10000, %238 ], [ %247, %246 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %245 = icmp ult i32 %244, 10
+  %245 = icmp samesign ult i32 %244, 10
   br i1 %245, label %mii_rw.exit, label %246
 
 246:                                              ; preds = %243
@@ -11646,7 +11646,7 @@ define internal void @nv_set_multicast(ptr noundef %0) #2 align 16 {
 70:                                               ; preds = %73, %51
   %71 = phi i32 [ 500000, %51 ], [ %74, %73 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %72 = icmp ugt i32 %71, 9
+  %72 = icmp samesign ugt i32 %71, 9
   br i1 %72, label %73, label %78
 
 73:                                               ; preds = %70
@@ -11770,7 +11770,7 @@ define internal noundef range(i32 -99, 1) i32 @nv_set_mac_address(ptr noundef %0
 35:                                               ; preds = %38, %19
   %36 = phi i32 [ 500000, %19 ], [ %39, %38 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %37 = icmp ugt i32 %36, 9
+  %37 = icmp samesign ugt i32 %36, 9
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %35
@@ -11953,7 +11953,7 @@ nv_disable_irq.exit:                              ; preds = %25, %27, %31
 54:                                               ; preds = %57, %nv_disable_irq.exit
   %55 = phi i32 [ 500000, %nv_disable_irq.exit ], [ %58, %57 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %56 = icmp ugt i32 %55, 9
+  %56 = icmp samesign ugt i32 %55, 9
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %54
@@ -11996,7 +11996,7 @@ nv_stop_rx.exit:                                  ; preds = %.loopexit.i, %65
 78:                                               ; preds = %81, %nv_stop_rx.exit
   %79 = phi i32 [ 500000, %nv_stop_rx.exit ], [ %82, %81 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %80 = icmp ugt i32 %79, 9
+  %80 = icmp samesign ugt i32 %79, 9
   br i1 %80, label %81, label %86
 
 81:                                               ; preds = %78
@@ -12374,7 +12374,7 @@ define internal void @nv_tx_timeout(ptr noundef %0, i32 %1) #12 align 16 {
 118:                                              ; preds = %121, %.loopexit
   %119 = phi i32 [ 500000, %.loopexit ], [ %122, %121 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %120 = icmp ugt i32 %119, 9
+  %120 = icmp samesign ugt i32 %119, 9
   br i1 %120, label %121, label %126
 
 121:                                              ; preds = %118
@@ -13049,7 +13049,7 @@ nv_disable_irq.exit:                              ; preds = %51, %53, %57
 84:                                               ; preds = %87, %79
   %85 = phi i32 [ 10000, %79 ], [ %88, %87 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %86 = icmp ult i32 %85, 10
+  %86 = icmp samesign ult i32 %85, 10
   br i1 %86, label %mii_rw.exit.thread, label %87
 
 87:                                               ; preds = %84
@@ -14441,7 +14441,7 @@ nv_disable_irq.exit:                              ; preds = %20, %22, %26
 49:                                               ; preds = %52, %nv_disable_irq.exit
   %50 = phi i32 [ 500000, %nv_disable_irq.exit ], [ %53, %52 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %51 = icmp ugt i32 %50, 9
+  %51 = icmp samesign ugt i32 %50, 9
   br i1 %51, label %52, label %57
 
 52:                                               ; preds = %49
@@ -14484,7 +14484,7 @@ nv_stop_rx.exit:                                  ; preds = %.loopexit.i, %60
 73:                                               ; preds = %76, %nv_stop_rx.exit
   %74 = phi i32 [ 500000, %nv_stop_rx.exit ], [ %77, %76 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %75 = icmp ugt i32 %74, 9
+  %75 = icmp samesign ugt i32 %74, 9
   br i1 %75, label %76, label %81
 
 76:                                               ; preds = %73
@@ -14625,7 +14625,7 @@ nv_stop_tx.exit:                                  ; preds = %.loopexit.i1, %84
 148:                                              ; preds = %151, %143
   %149 = phi i32 [ 10000, %143 ], [ %152, %151 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %150 = icmp ult i32 %149, 10
+  %150 = icmp samesign ult i32 %149, 10
   br i1 %150, label %mii_rw.exit, label %151
 
 151:                                              ; preds = %148
@@ -15129,7 +15129,7 @@ nv_disable_irq.exit:                              ; preds = %44, %46, %50
 73:                                               ; preds = %76, %nv_disable_irq.exit
   %74 = phi i32 [ 500000, %nv_disable_irq.exit ], [ %77, %76 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %75 = icmp ugt i32 %74, 9
+  %75 = icmp samesign ugt i32 %74, 9
   br i1 %75, label %76, label %81
 
 76:                                               ; preds = %73
@@ -15172,7 +15172,7 @@ nv_stop_rx.exit:                                  ; preds = %.loopexit.i, %84
 97:                                               ; preds = %100, %nv_stop_rx.exit
   %98 = phi i32 [ 500000, %nv_stop_rx.exit ], [ %101, %100 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %99 = icmp ugt i32 %98, 9
+  %99 = icmp samesign ugt i32 %98, 9
   br i1 %99, label %100, label %105
 
 100:                                              ; preds = %97
@@ -15346,7 +15346,7 @@ nv_stop_tx.exit:                                  ; preds = %.loopexit.i2, %108
 197:                                              ; preds = %200, %192
   %198 = phi i32 [ 10000, %192 ], [ %201, %200 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %199 = icmp ult i32 %198, 10
+  %199 = icmp samesign ult i32 %198, 10
   br i1 %199, label %mii_rw.exit, label %200
 
 200:                                              ; preds = %197
@@ -15468,7 +15468,7 @@ mii_rw.exit:                                      ; preds = %197, %205, %206, %2
 266:                                              ; preds = %269, %261
   %267 = phi i32 [ 10000, %261 ], [ %270, %269 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %268 = icmp ult i32 %267, 10
+  %268 = icmp samesign ult i32 %267, 10
   br i1 %268, label %mii_rw.exit4, label %269
 
 269:                                              ; preds = %266
@@ -15836,7 +15836,7 @@ define internal void @nv_self_test(ptr noundef %0, ptr noundef captures(none) %1
 129:                                              ; preds = %132, %116
   %130 = phi i32 [ 500000, %116 ], [ %133, %132 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %131 = icmp ugt i32 %130, 9
+  %131 = icmp samesign ugt i32 %130, 9
   br i1 %131, label %132, label %137
 
 132:                                              ; preds = %129
@@ -15879,7 +15879,7 @@ nv_stop_rx.exit:                                  ; preds = %.loopexit.i, %140
 153:                                              ; preds = %156, %nv_stop_rx.exit
   %154 = phi i32 [ 500000, %nv_stop_rx.exit ], [ %157, %156 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %155 = icmp ugt i32 %154, 9
+  %155 = icmp samesign ugt i32 %154, 9
   br i1 %155, label %156, label %161
 
 156:                                              ; preds = %153
@@ -16594,7 +16594,7 @@ nv_disable_irq.exit:                              ; preds = %341, %343, %347
 618:                                              ; preds = %621, %605
   %619 = phi i32 [ 500000, %605 ], [ %622, %621 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %620 = icmp ugt i32 %619, 9
+  %620 = icmp samesign ugt i32 %619, 9
   br i1 %620, label %621, label %626
 
 621:                                              ; preds = %618
@@ -16637,7 +16637,7 @@ nv_stop_rx.exit13:                                ; preds = %.loopexit.i12, %629
 642:                                              ; preds = %645, %nv_stop_rx.exit13
   %643 = phi i32 [ 500000, %nv_stop_rx.exit13 ], [ %646, %645 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %644 = icmp ugt i32 %643, 9
+  %644 = icmp samesign ugt i32 %643, 9
   br i1 %644, label %645, label %650
 
 645:                                              ; preds = %642
@@ -17354,7 +17354,7 @@ nv_disable_irq.exit:                              ; preds = %49, %51, %55
 79:                                               ; preds = %82, %nv_disable_irq.exit
   %80 = phi i32 [ 500000, %nv_disable_irq.exit ], [ %83, %82 ]
   call void @__const_udelay(i64 noundef 42950) #18
-  %81 = icmp ugt i32 %80, 9
+  %81 = icmp samesign ugt i32 %80, 9
   br i1 %81, label %82, label %87
 
 82:                                               ; preds = %79
@@ -17397,7 +17397,7 @@ nv_stop_rx.exit:                                  ; preds = %.loopexit.i, %90
 103:                                              ; preds = %106, %nv_stop_rx.exit
   %104 = phi i32 [ 500000, %nv_stop_rx.exit ], [ %107, %106 ]
   call void @__const_udelay(i64 noundef 42950) #18
-  %105 = icmp ugt i32 %104, 9
+  %105 = icmp samesign ugt i32 %104, 9
   br i1 %105, label %106, label %111
 
 106:                                              ; preds = %103
@@ -17533,7 +17533,7 @@ nv_stop_tx.exit:                                  ; preds = %.loopexit.i4, %114
 183:                                              ; preds = %186, %176
   %184 = phi i32 [ 10000, %176 ], [ %187, %186 ]
   call void @__const_udelay(i64 noundef 42950) #18
-  %185 = icmp ult i32 %184, 10
+  %185 = icmp samesign ult i32 %184, 10
   br i1 %185, label %mii_rw.exit, label %186
 
 186:                                              ; preds = %183
@@ -17770,7 +17770,7 @@ mii_rw.exit:                                      ; preds = %186, %183
 325:                                              ; preds = %328, %320
   %326 = phi i32 [ 10000, %320 ], [ %329, %328 ]
   call void @__const_udelay(i64 noundef 42950) #18
-  %327 = icmp ult i32 %326, 10
+  %327 = icmp samesign ult i32 %326, 10
   br i1 %327, label %mii_rw.exit5, label %328
 
 328:                                              ; preds = %325
@@ -18038,7 +18038,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @phy_reset(ptr noundef reado
 24:                                               ; preds = %27, %19
   %25 = phi i32 [ 10000, %19 ], [ %28, %27 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %26 = icmp ult i32 %25, 10
+  %26 = icmp samesign ult i32 %25, 10
   br i1 %26, label %mii_rw.exit.thread, label %27
 
 27:                                               ; preds = %24
@@ -18261,7 +18261,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @init_realtek_8201(ptr nounde
 60:                                               ; preds = %63, %55
   %61 = phi i32 [ 10000, %55 ], [ %64, %63 ]
   tail call void @__const_udelay(i64 noundef 42950) #18
-  %62 = icmp ult i32 %61, 10
+  %62 = icmp samesign ult i32 %61, 10
   br i1 %62, label %mii_rw.exit.thread, label %63
 
 63:                                               ; preds = %60

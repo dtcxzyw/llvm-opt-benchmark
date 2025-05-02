@@ -7138,7 +7138,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i67.i.i.i.i.i:    ; preds = %"_ZN9__gnu_cxx5__op
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_116AArch64AsmParser18parseDirectiveArchEN4llvm5SMLocEE3$_0EclIPK9ExtensionEEbT_.exit78.thread128.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_116AArch64AsmParser18parseDirectiveArchEN4llvm5SMLocEE3$_0EclIPK9ExtensionEEbT_.exit78.i.i.i.i.i", %168, %_ZN4llvm9StringRefC2EPKc.exit.i.i67.i.i.i.i.i
   %.029171.i.i.i.i.add40.i = add nuw nsw i64 %.029171.i.i.i.i.idx.i, 192
   %170 = add nsw i64 %.0172.i.i.i.i.i, -1
-  %171 = icmp ugt i64 %.0172.i.i.i.i.i, 1
+  %171 = icmp samesign ugt i64 %.0172.i.i.i.i.i, 1
   br i1 %171, label %153, label %_ZN4llvm9StringRefC2EPKc.exit.i.i93.i.i.i.i.i, !llvm.loop !378
 
 _ZN4llvm9StringRefC2EPKc.exit.i.i93.i.i.i.i.i:    ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_116AArch64AsmParser18parseDirectiveArchEN4llvm5SMLocEE3$_0EclIPK9ExtensionEEbT_.exit78.thread128.i.i.i.i.i"
@@ -7564,7 +7564,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i67.i.i.i.i.i95:  ; preds = %"_ZN9__gnu_cxx5__op
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_116AArch64AsmParser17parseDirectiveCPUEN4llvm5SMLocEE3$_0EclIPK9ExtensionEEbT_.exit78.thread128.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_116AArch64AsmParser17parseDirectiveCPUEN4llvm5SMLocEE3$_0EclIPK9ExtensionEEbT_.exit78.i.i.i.i.i", %304, %_ZN4llvm9StringRefC2EPKc.exit.i.i67.i.i.i.i.i95
   %.029171.i.i.i.i.add34.i = add nuw nsw i64 %.029171.i.i.i.i.idx.i77, 192
   %306 = add nsw i64 %.0172.i.i.i.i.i76, -1
-  %307 = icmp ugt i64 %.0172.i.i.i.i.i76, 1
+  %307 = icmp samesign ugt i64 %.0172.i.i.i.i.i76, 1
   br i1 %307, label %289, label %_ZN4llvm9StringRefC2EPKc.exit.i.i93.i.i.i.i.i97, !llvm.loop !392
 
 _ZN4llvm9StringRefC2EPKc.exit.i.i93.i.i.i.i.i97:  ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_116AArch64AsmParser17parseDirectiveCPUEN4llvm5SMLocEE3$_0EclIPK9ExtensionEEbT_.exit78.thread128.i.i.i.i.i"
@@ -44177,7 +44177,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i67.i.i.i.i:      ; preds = %"_ZN9__gnu_cxx5__op
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_116AArch64AsmParser27parseDirectiveArchExtensionEN4llvm5SMLocEE3$_0EclIPK9ExtensionEEbT_.exit78.thread128.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_116AArch64AsmParser27parseDirectiveArchExtensionEN4llvm5SMLocEE3$_0EclIPK9ExtensionEEbT_.exit78.i.i.i.i", %58, %_ZN4llvm9StringRefC2EPKc.exit.i.i67.i.i.i.i
   %.029171.i.i.i.i.add12 = add nuw nsw i64 %.029171.i.i.i.i.idx, 192
   %60 = add nsw i64 %.0172.i.i.i.i, -1
-  %61 = icmp ugt i64 %.0172.i.i.i.i, 1
+  %61 = icmp samesign ugt i64 %.0172.i.i.i.i, 1
   br i1 %61, label %43, label %_ZN4llvm9StringRefC2EPKc.exit.i.i93.i.i.i.i, !llvm.loop !1425
 
 _ZN4llvm9StringRefC2EPKc.exit.i.i93.i.i.i.i:      ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_116AArch64AsmParser27parseDirectiveArchExtensionEN4llvm5SMLocEE3$_0EclIPK9ExtensionEEbT_.exit78.thread128.i.i.i.i"

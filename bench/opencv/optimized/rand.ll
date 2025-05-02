@@ -137,7 +137,7 @@ define internal fastcc void @_ZN2cvL13randn_0_1_32fEPfiPm(ptr noundef writeonly 
   %27 = getelementptr inbounds nuw [128 x float], ptr @_ZZN2cvL13randn_0_1_32fEPfiPmE2wn, i64 0, i64 %indvars.iv
   store float %26, ptr %27, align 4, !tbaa !3
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %28 = icmp ugt i64 %indvars.iv, 1
+  %28 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %28, label %6, label %29, !llvm.loop !11
 
 29:                                               ; preds = %6

@@ -1526,7 +1526,7 @@ define range(i32 1, 0) i32 @ggml_n_dims(ptr noundef readonly captures(none) %0) 
 
 10:                                               ; preds = %3
   %11 = add nsw i32 %.069, -1
-  %12 = icmp ult i32 %.069, 2
+  %12 = icmp samesign ult i32 %.069, 2
   br i1 %12, label %.loopexit, label %3, !llvm.loop !56
 
 .loopexit:                                        ; preds = %10, %8

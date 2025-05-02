@@ -128,7 +128,7 @@ define dso_local noundef range(i32 -2147483646, -2147483648) i32 @_ZN4absl18debu
 35:                                               ; preds = %.preheader33
   %36 = getelementptr inbounds nuw i8, ptr %.0914.i, i64 1
   %37 = add nsw i32 %.01113.i, -1
-  %38 = icmp ult i32 %.01113.i, 2
+  %38 = icmp samesign ult i32 %.01113.i, 2
   br i1 %38, label %.critedge.i, label %.preheader33, !llvm.loop !18
 
 .critedge.i:                                      ; preds = %35
@@ -163,7 +163,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_119GetStackConsumptionEPKv.exit: ; pred
 46:                                               ; preds = %.preheader
   %47 = getelementptr inbounds nuw i8, ptr %.0914.i28, i64 1
   %48 = add nsw i32 %.01113.i29, -1
-  %49 = icmp ult i32 %.01113.i29, 2
+  %49 = icmp samesign ult i32 %.01113.i29, 2
   br i1 %49, label %.critedge.i31, label %.preheader, !llvm.loop !18
 
 .critedge.i31:                                    ; preds = %46

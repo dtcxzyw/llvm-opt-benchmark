@@ -4644,7 +4644,7 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
 
 528:                                              ; preds = %519, %518
   %529 = phi reassoc nsz arcp contract afn float [ %..i, %519 ], [ %485, %518 ]
-  %530 = icmp ult i64 %indvars.iv333.i, %501
+  %530 = icmp samesign ult i64 %indvars.iv333.i, %501
   br i1 %530, label %531, label %._crit_edge337.i
 
 ._crit_edge337.i:                                 ; preds = %528

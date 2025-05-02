@@ -182,7 +182,7 @@ define hidden void @jRDfloat(ptr noundef readonly captures(none) %0, ptr noundef
   %.1198 = getelementptr inbounds nuw i8, ptr %.0197202, i64 4
   %.1200 = getelementptr inbounds nuw i8, ptr %.0199201, i64 2
   %135 = add nsw i32 %.0204, -1
-  %136 = icmp ugt i32 %.0204, 1
+  %136 = icmp samesign ugt i32 %.0204, 1
   br i1 %136, label %13, label %.preheader, !llvm.loop !6
 
 137:                                              ; preds = %.preheader, %137

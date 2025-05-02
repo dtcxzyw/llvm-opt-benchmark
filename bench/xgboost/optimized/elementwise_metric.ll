@@ -25003,7 +25003,7 @@ _ZNK7xgboost6linalg6TensorIfLi2EE4SizeEv.exit.i:  ; preds = %_ZNSt6vectorIdSaIdE
   %266 = getelementptr inbounds nuw [3 x i64], ptr %8, i64 0, i64 %indvars.iv.i.i.i.i.i.i
   store i64 %.sink.i.i.i.i.i.i, ptr %266, align 8, !tbaa !44, !noalias !914
   %indvars.iv.next.i.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i.i, -1
-  %267 = icmp ugt i64 %indvars.iv.i.i.i.i.i.i, 1
+  %267 = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i.i, 1
   br i1 %267, label %253, label %_ZN7xgboost6linalg6detail11UnravelImplImLi3EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i, !llvm.loop !921
 
 _ZN7xgboost6linalg6detail11UnravelImplImLi3EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i: ; preds = %265
@@ -25048,7 +25048,7 @@ _ZN7xgboost6linalg6detail11UnravelImplImLi3EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
   %286 = getelementptr inbounds nuw [3 x i64], ptr %7, i64 0, i64 %indvars.iv.i7.i.i.i.i.i
   store i64 %.sink.i11.i.i.i.i.i, ptr %286, align 8, !tbaa !44, !noalias !929
   %indvars.iv.next.i12.i.i.i.i.i = add nsw i64 %indvars.iv.i7.i.i.i.i.i, -1
-  %287 = icmp ugt i64 %indvars.iv.i7.i.i.i.i.i, 1
+  %287 = icmp samesign ugt i64 %indvars.iv.i7.i.i.i.i.i, 1
   br i1 %287, label %272, label %_ZN7xgboost6linalg6detail11UnravelImplIjLi3EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i, !llvm.loop !932
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi3EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i: ; preds = %285
@@ -25311,7 +25311,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %397 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv.i.i.i.i
   store i64 %.sink.i.i.i62.i, ptr %397, align 8, !tbaa !44, !noalias !946
   %indvars.iv.next.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i, -1
-  %398 = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %398 = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %398, label %384, label %_ZN7xgboost6linalg6detail11UnravelImplImLi3EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i, !llvm.loop !921
 
 _ZN7xgboost6linalg6detail11UnravelImplImLi3EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i: ; preds = %396
@@ -25356,7 +25356,7 @@ _ZN7xgboost6linalg6detail11UnravelImplImLi3EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
   %417 = getelementptr inbounds nuw [3 x i64], ptr %5, i64 0, i64 %indvars.iv.i7.i.i.i
   store i64 %.sink.i11.i.i.i, ptr %417, align 8, !tbaa !44, !noalias !960
   %indvars.iv.next.i12.i.i.i = add nsw i64 %indvars.iv.i7.i.i.i, -1
-  %418 = icmp ugt i64 %indvars.iv.i7.i.i.i, 1
+  %418 = icmp samesign ugt i64 %indvars.iv.i7.i.i.i, 1
   br i1 %418, label %403, label %_ZN7xgboost6linalg6detail11UnravelImplIjLi3EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i, !llvm.loop !932
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi3EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i: ; preds = %416

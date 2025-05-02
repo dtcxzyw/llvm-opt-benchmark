@@ -487,7 +487,7 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr noundef writeonly captur
   br i1 %.not, label %._crit_edge135, label %84, !llvm.loop !51
 
 ._crit_edge135:                                   ; preds = %90, %.preheader104
-  %103 = icmp ugt i64 %indvars.iv168, 17
+  %103 = icmp samesign ugt i64 %indvars.iv168, 17
   %indvars.iv.next164 = add nsw i64 %indvars.iv163, -1
   br i1 %103, label %.preheader104, label %.preheader, !llvm.loop !52
 

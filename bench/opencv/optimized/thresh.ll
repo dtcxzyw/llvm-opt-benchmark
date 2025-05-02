@@ -668,7 +668,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit277: ; preds = %_Z
 
 265:                                              ; preds = %261
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %266 = icmp ugt i64 %indvars.iv, 1
+  %266 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %266, label %261, label %.thread97.i, !llvm.loop !53
 
 267:                                              ; preds = %261

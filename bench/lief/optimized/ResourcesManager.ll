@@ -1048,7 +1048,7 @@ define void @_ZNK4LIEF2PE16ResourcesManager9get_typesEv(ptr dead_on_unwind noali
 29:                                               ; preds = %27
   %.02950.i.i.i.add27 = add nuw nsw i64 %.02950.i.i.i.idx, 16
   %30 = add nsw i64 %.051.i.i.i, -1
-  %31 = icmp ugt i64 %.051.i.i.i, 1
+  %31 = icmp samesign ugt i64 %.051.i.i.i, 1
   br i1 %31, label %21, label %._crit_edge.loopexit.i.i.i, !llvm.loop !52
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %29

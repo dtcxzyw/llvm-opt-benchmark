@@ -3831,7 +3831,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit593:   ; preds = %1071, %1073
   %.0390809 = phi i32 [ %1134, %1133 ], [ 2, %.preheader883 ]
   tail call void @_ZN4llvm12MachineInstr13removeOperandEj(ptr noundef nonnull align 8 dereferenceable(70) %2, i32 noundef %.0390809) #16
   %1134 = add nsw i32 %.0390809, -1
-  %1135 = icmp ugt i32 %.0390809, 1
+  %1135 = icmp samesign ugt i32 %.0390809, 1
   br i1 %1135, label %1133, label %1126, !llvm.loop !620
 
 1136:                                             ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
@@ -3995,7 +3995,7 @@ _ZN4llvm12MachineInstr15untieRegOperandEj.exit:   ; preds = %_ZN4llvm12MachineIn
   %.0386806 = phi i32 [ %1199, %.preheader800 ], [ 2, %3 ]
   tail call void @_ZN4llvm12MachineInstr13removeOperandEj(ptr noundef nonnull align 8 dereferenceable(70) %2, i32 noundef %.0386806) #16
   %1199 = add nsw i32 %.0386806, -1
-  %1200 = icmp ugt i32 %.0386806, 1
+  %1200 = icmp samesign ugt i32 %.0386806, 1
   br i1 %1200, label %.preheader800, label %1193, !llvm.loop !623
 
 1201:                                             ; preds = %3, %3, %3

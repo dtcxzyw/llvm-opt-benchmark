@@ -1831,7 +1831,7 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_crypt_ctr(ptr noundef read
   store i8 %18, ptr %gep, align 1, !tbaa !8
   %.not25 = icmp eq i8 %18, 0
   %19 = add nsw i32 %.01926, -1
-  %20 = icmp ugt i32 %.01926, 1
+  %20 = icmp samesign ugt i32 %.01926, 1
   %or.cond = and i1 %.not25, %20
   br i1 %or.cond, label %15, label %.loopexit, !llvm.loop !34
 
@@ -2278,7 +2278,7 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %54, %.split.us
   store i8 %178, ptr %gep.i, align 1, !tbaa !8
   %.not25.i = icmp eq i8 %178, 0
   %179 = add nsw i32 %.01926.i, -1
-  %180 = icmp ugt i32 %.01926.i, 1
+  %180 = icmp samesign ugt i32 %.01926.i, 1
   %or.cond.i = and i1 %180, %.not25.i
   br i1 %or.cond.i, label %175, label %.loopexit.i, !llvm.loop !34
 
@@ -2333,7 +2333,7 @@ mbedtls_camellia_crypt_ctr.exit:                  ; preds = %.loopexit.i
   store i8 %200, ptr %gep.i128, align 1, !tbaa !8
   %.not25.i129 = icmp eq i8 %200, 0
   %201 = add nsw i32 %.01926.i127, -1
-  %202 = icmp ugt i32 %.01926.i127, 1
+  %202 = icmp samesign ugt i32 %.01926.i127, 1
   %or.cond.i130 = and i1 %202, %.not25.i129
   br i1 %or.cond.i130, label %197, label %.loopexit.i122, !llvm.loop !34
 

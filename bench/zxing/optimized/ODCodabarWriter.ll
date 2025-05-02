@@ -1066,7 +1066,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %238, %._crit_edge
 335:                                              ; preds = %331
   %336 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   %337 = add nsw i64 %.047.i.i.i.i.i, -1
-  %338 = icmp ugt i64 %.047.i.i.i.i.i, 1
+  %338 = icmp samesign ugt i64 %.047.i.i.i.i.i, 1
   br i1 %338, label %320, label %._crit_edge._crit_edge52.i.i.i.i.i176, !llvm.loop !40
 
 ._crit_edge._crit_edge52.i.i.i.i.i176:            ; preds = %335

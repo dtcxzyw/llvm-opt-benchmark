@@ -402,7 +402,7 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
 37:                                               ; preds = %.preheader105, %39
   %indvars.iv = phi i64 [ 8192, %.preheader105 ], [ %indvars.iv.next, %39 ]
   %.083 = phi i32 [ 0, %.preheader105 ], [ %42, %39 ]
-  %38 = icmp ugt i64 %indvars.iv, 33
+  %38 = icmp samesign ugt i64 %indvars.iv, 33
   br i1 %38, label %39, label %.split.loop.exit265
 
 39:                                               ; preds = %37

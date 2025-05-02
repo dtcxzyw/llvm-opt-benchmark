@@ -4159,7 +4159,7 @@ nk_utf_decode_byte.exit34:                        ; preds = %28
 
 ._crit_edge.loopexit:                             ; preds = %36
   %indvars = trunc i64 %indvars.iv.next to i32
-  %42 = icmp ult i32 %indvars, %16
+  %42 = icmp samesign ult i32 %indvars, %16
   br i1 %42, label %nk_utf_validate.exit, label %43
 
 ._crit_edge:                                      ; preds = %.preheader
@@ -4344,7 +4344,7 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %24
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !31
 
 ._crit_edge.loopexit.i:                           ; preds = %32
-  %33 = icmp ult i32 %21, %15
+  %33 = icmp samesign ult i32 %21, %15
   br i1 %33, label %.loopexit, label %nk_utf_decode.exit
 
 ._crit_edge.i:                                    ; preds = %.preheader.i
@@ -4448,7 +4448,7 @@ nk_utf_decode_byte.exit34.i50:                    ; preds = %61
   br i1 %exitcond.not.i55, label %._crit_edge.loopexit.i56, label %.lr.ph.i42, !llvm.loop !31
 
 ._crit_edge.loopexit.i56:                         ; preds = %69
-  %70 = icmp ult i32 %58, %52
+  %70 = icmp samesign ult i32 %58, %52
   br i1 %70, label %.loopexit, label %nk_utf_decode.exit58
 
 ._crit_edge.i34:                                  ; preds = %.preheader.i33
@@ -5638,7 +5638,7 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %26
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !31
 
 ._crit_edge.loopexit.i:                           ; preds = %34
-  %35 = icmp ult i32 %narrow, %19
+  %35 = icmp samesign ult i32 %narrow, %19
   br i1 %35, label %nk_utf_decode.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.preheader.i, %._crit_edge.loopexit.i
@@ -5769,7 +5769,7 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %25
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !31
 
 ._crit_edge.loopexit.i:                           ; preds = %33
-  %39 = icmp ult i32 %narrow, %15
+  %39 = icmp samesign ult i32 %narrow, %15
   br i1 %39, label %nk_str_append_text_char.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.preheader.i, %._crit_edge.loopexit.i
@@ -5891,7 +5891,7 @@ nk_utf_decode_byte.exit34.i45:                    ; preds = %73
   br i1 %exitcond.not.i50, label %._crit_edge.loopexit.i51, label %.lr.ph.i37, !llvm.loop !31
 
 ._crit_edge.loopexit.i51:                         ; preds = %81
-  %87 = icmp ult i32 %narrow104, %63
+  %87 = icmp samesign ult i32 %narrow104, %63
   br i1 %87, label %nk_utf_decode.exit53.thread, label %._crit_edge.i29
 
 nk_utf_decode.exit53.thread:                      ; preds = %._crit_edge.loopexit.i51
@@ -6556,7 +6556,7 @@ nk_utf_decode_byte.exit34.i.i:                    ; preds = %26
   br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !31
 
 ._crit_edge.loopexit.i.i:                         ; preds = %34
-  %35 = icmp ult i32 %23, %20
+  %35 = icmp samesign ult i32 %23, %20
   br i1 %35, label %nk_utf_decode.exit.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %.preheader.i.i
@@ -6674,7 +6674,7 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %27
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !31
 
 ._crit_edge.loopexit.i:                           ; preds = %35
-  %36 = icmp ult i32 %narrow, %20
+  %36 = icmp samesign ult i32 %narrow, %20
   br i1 %36, label %nk_utf_decode.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.preheader.i, %._crit_edge.loopexit.i
@@ -6797,7 +6797,7 @@ nk_utf_decode_byte.exit34.i.i:                    ; preds = %26
   br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !31
 
 ._crit_edge.loopexit.i.i:                         ; preds = %34
-  %35 = icmp ult i32 %23, %20
+  %35 = icmp samesign ult i32 %23, %20
   br i1 %35, label %nk_utf_decode.exit.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %.preheader.i.i
@@ -6913,7 +6913,7 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %26
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !31
 
 ._crit_edge.loopexit.i:                           ; preds = %34
-  %40 = icmp ult i32 %narrow, %16
+  %40 = icmp samesign ult i32 %narrow, %16
   br i1 %40, label %._crit_edge, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.preheader.i, %._crit_edge.loopexit.i
@@ -7035,7 +7035,7 @@ nk_utf_decode_byte.exit34.i46:                    ; preds = %74
   br i1 %exitcond.not.i51, label %._crit_edge.loopexit.i52, label %.lr.ph.i38, !llvm.loop !31
 
 ._crit_edge.loopexit.i52:                         ; preds = %82
-  %88 = icmp ult i32 %narrow104, %64
+  %88 = icmp samesign ult i32 %narrow104, %64
   br i1 %88, label %nk_utf_decode.exit54.thread, label %._crit_edge.i30
 
 nk_utf_decode.exit54.thread:                      ; preds = %._crit_edge.loopexit.i52
@@ -9935,7 +9935,7 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %72
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i88, !llvm.loop !31
 
 ._crit_edge.loopexit.i:                           ; preds = %80
-  %86 = icmp ult i32 %69, %60
+  %86 = icmp samesign ult i32 %69, %60
   br i1 %86, label %.thread96, label %nk_utf_decode.exit
 
 ._crit_edge.i:                                    ; preds = %.preheader.i
@@ -13745,7 +13745,7 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %58
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !31
 
 ._crit_edge.loopexit.i:                           ; preds = %66
-  %72 = icmp ult i32 %55, %46
+  %72 = icmp samesign ult i32 %55, %46
   br i1 %72, label %nk_utf_decode.exit.thread, label %73
 
 ._crit_edge.i:                                    ; preds = %.preheader.i
@@ -13899,7 +13899,7 @@ nk_utf_decode_byte.exit34.i91:                    ; preds = %123
   br i1 %exitcond.not.i96, label %._crit_edge.loopexit.i97, label %.lr.ph.i83, !llvm.loop !31
 
 ._crit_edge.loopexit.i97:                         ; preds = %131
-  %137 = icmp ult i32 %120, %111
+  %137 = icmp samesign ult i32 %120, %111
   br i1 %137, label %nk_utf_decode.exit99.thread, label %138
 
 ._crit_edge.i75:                                  ; preds = %.preheader.i74
@@ -32085,7 +32085,7 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %24
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !31
 
 ._crit_edge.loopexit.i:                           ; preds = %32
-  %38 = icmp ult i32 %narrow, %14
+  %38 = icmp samesign ult i32 %narrow, %14
   br i1 %38, label %nk_utf_decode.exit.thread, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.preheader.i, %._crit_edge.loopexit.i
@@ -50784,7 +50784,7 @@ nk_utf_decode_byte.exit34.i.i:                    ; preds = %140
   br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i113.i, !llvm.loop !31
 
 ._crit_edge.loopexit.i.i:                         ; preds = %148
-  %154 = icmp ult i32 %137, %128
+  %154 = icmp samesign ult i32 %137, %128
   br i1 %154, label %nk_utf_decode.exit.thread.i, label %155
 
 ._crit_edge.i.i:                                  ; preds = %.preheader.i.i
@@ -58180,7 +58180,7 @@ nk_utf_decode_byte.exit34.i.i:                    ; preds = %82
   br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !31
 
 ._crit_edge.loopexit.i.i:                         ; preds = %90
-  %96 = icmp ult i32 %79, %70
+  %96 = icmp samesign ult i32 %79, %70
   br i1 %96, label %nk_str_rune_at.exit.i, label %97
 
 ._crit_edge.i.i:                                  ; preds = %.preheader.i.i
@@ -58682,7 +58682,7 @@ nk_utf_decode_byte.exit34.i.i.i:                  ; preds = %85
   br i1 %exitcond.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !31
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %93
-  %94 = icmp ult i32 %82, %79
+  %94 = icmp samesign ult i32 %82, %79
   br i1 %94, label %nk_utf_decode.exit.i.i, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %.preheader.i.i.i
@@ -58864,7 +58864,7 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %33
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !31
 
 ._crit_edge.loopexit.i:                           ; preds = %41
-  %47 = icmp ult i32 %30, %21
+  %47 = icmp samesign ult i32 %30, %21
   br i1 %47, label %.loopexit, label %48
 
 ._crit_edge.i:                                    ; preds = %.preheader.i
@@ -59116,7 +59116,7 @@ nk_utf_decode_byte.exit34.i.i:                    ; preds = %148
   br i1 %exitcond.not.i.i66, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !31
 
 ._crit_edge.loopexit.i.i:                         ; preds = %156
-  %157 = icmp ult i32 %145, %142
+  %157 = icmp samesign ult i32 %145, %142
   br i1 %157, label %nk_utf_decode.exit.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %.preheader.i.i
@@ -59280,7 +59280,7 @@ nk_utf_decode_byte.exit34.i.i99:                  ; preds = %207
   br i1 %exitcond.not.i.i104, label %._crit_edge.loopexit.i.i105, label %.lr.ph.i.i92, !llvm.loop !31
 
 ._crit_edge.loopexit.i.i105:                      ; preds = %215
-  %216 = icmp ult i32 %204, %201
+  %216 = icmp samesign ult i32 %204, %201
   br i1 %216, label %nk_utf_decode.exit.i80, label %._crit_edge.i.i87
 
 ._crit_edge.i.i87:                                ; preds = %._crit_edge.loopexit.i.i105, %.preheader.i.i86
@@ -59432,7 +59432,7 @@ nk_utf_decode_byte.exit34.i135:                   ; preds = %264
   br i1 %exitcond.not.i140, label %._crit_edge.loopexit.i141, label %.lr.ph.i127, !llvm.loop !31
 
 ._crit_edge.loopexit.i141:                        ; preds = %272
-  %278 = icmp ult i32 %261, %252
+  %278 = icmp samesign ult i32 %261, %252
   br i1 %278, label %.loopexit, label %279
 
 ._crit_edge.i119:                                 ; preds = %.preheader.i118
@@ -61847,7 +61847,7 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %464
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i876, !llvm.loop !31
 
 ._crit_edge.loopexit.i:                           ; preds = %472
-  %478 = icmp ult i32 %461, %452
+  %478 = icmp samesign ult i32 %461, %452
   br i1 %478, label %nk_utf_decode.exit, label %479
 
 ._crit_edge.i874:                                 ; preds = %.preheader.i
@@ -62117,7 +62117,7 @@ nk_utf_decode_byte.exit34.i904:                   ; preds = %568
   br i1 %exitcond.not.i909, label %._crit_edge.loopexit.i910, label %.lr.ph.i896, !llvm.loop !31
 
 ._crit_edge.loopexit.i910:                        ; preds = %576
-  %582 = icmp ult i32 %565, %556
+  %582 = icmp samesign ult i32 %565, %556
   br i1 %582, label %nk_utf_decode.exit912, label %583
 
 ._crit_edge.i888:                                 ; preds = %.preheader.i887
@@ -62253,7 +62253,7 @@ nk_utf_decode_byte.exit34.i940:                   ; preds = %629
   br i1 %exitcond.not.i945, label %._crit_edge.loopexit.i946, label %.lr.ph.i932, !llvm.loop !31
 
 ._crit_edge.loopexit.i946:                        ; preds = %637
-  %643 = icmp ult i32 %626, %617
+  %643 = icmp samesign ult i32 %626, %617
   br i1 %643, label %nk_utf_decode.exit948, label %644
 
 ._crit_edge.i924:                                 ; preds = %.preheader.i923
@@ -62912,7 +62912,7 @@ nk_utf_decode_byte.exit34.i1087:                  ; preds = %937
   br i1 %exitcond.not.i1092, label %._crit_edge.loopexit.i1093, label %.lr.ph.i1079, !llvm.loop !31
 
 ._crit_edge.loopexit.i1093:                       ; preds = %945
-  %946 = icmp ult i32 %narrow1402, %930
+  %946 = icmp samesign ult i32 %narrow1402, %930
   br i1 %946, label %.split, label %._crit_edge.i1071
 
 ._crit_edge.i1071:                                ; preds = %.preheader.i1070, %._crit_edge.loopexit.i1093
@@ -76379,7 +76379,7 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %33
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !31
 
 ._crit_edge.loopexit.i:                           ; preds = %41
-  %47 = icmp ult i32 %30, %21
+  %47 = icmp samesign ult i32 %30, %21
   br i1 %47, label %nk_utf_decode.exit.thread, label %48
 
 ._crit_edge.i:                                    ; preds = %.preheader.i
@@ -76592,7 +76592,7 @@ nk_utf_decode_byte.exit34.i73:                    ; preds = %122
   br i1 %exitcond.not.i78, label %._crit_edge.loopexit.i79, label %.lr.ph.i65, !llvm.loop !31
 
 ._crit_edge.loopexit.i79:                         ; preds = %130
-  %136 = icmp ult i32 %119, %110
+  %136 = icmp samesign ult i32 %119, %110
   br i1 %136, label %nk_utf_decode.exit.thread, label %137
 
 ._crit_edge.i57:                                  ; preds = %.preheader.i56
@@ -79909,7 +79909,7 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %34
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !31
 
 ._crit_edge.loopexit.i:                           ; preds = %42
-  %48 = icmp ult i32 %31, %22
+  %48 = icmp samesign ult i32 %31, %22
   br i1 %48, label %nk_utf_decode.exit.thread, label %49
 
 ._crit_edge.i:                                    ; preds = %.preheader.i
@@ -80092,7 +80092,7 @@ nk_utf_decode_byte.exit34.i124:                   ; preds = %109
   br i1 %exitcond.not.i129, label %._crit_edge.loopexit.i130, label %.lr.ph.i116, !llvm.loop !31
 
 ._crit_edge.loopexit.i130:                        ; preds = %117
-  %123 = icmp ult i32 %106, %95
+  %123 = icmp samesign ult i32 %106, %95
   br i1 %123, label %.loopexit, label %124
 
 ._crit_edge.i108:                                 ; preds = %.preheader.i107
@@ -80232,7 +80232,7 @@ nk_utf_decode_byte.exit34.i160:                   ; preds = %170
   br i1 %exitcond.not.i165, label %._crit_edge.loopexit.i166, label %.lr.ph.i152, !llvm.loop !31
 
 ._crit_edge.loopexit.i166:                        ; preds = %178
-  %184 = icmp ult i32 %167, %156
+  %184 = icmp samesign ult i32 %167, %156
   br i1 %184, label %nk_utf_decode.exit168, label %185
 
 ._crit_edge.i144:                                 ; preds = %.preheader.i143
@@ -80441,7 +80441,7 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %54
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !31
 
 ._crit_edge.loopexit.i:                           ; preds = %62
-  %68 = icmp ult i32 %51, %42
+  %68 = icmp samesign ult i32 %51, %42
   br i1 %68, label %nk_utf_decode.exit.thread, label %69
 
 ._crit_edge.i:                                    ; preds = %.preheader.i
@@ -80681,7 +80681,7 @@ nk_utf_decode_byte.exit34.i163:                   ; preds = %161
   br i1 %exitcond.not.i168, label %._crit_edge.loopexit.i169, label %.lr.ph.i155, !llvm.loop !31
 
 ._crit_edge.loopexit.i169:                        ; preds = %169
-  %175 = icmp ult i32 %158, %148
+  %175 = icmp samesign ult i32 %158, %148
   br i1 %175, label %nk_utf_decode.exit.thread, label %176
 
 ._crit_edge.i147:                                 ; preds = %.preheader.i146
@@ -80814,7 +80814,7 @@ nk_utf_decode_byte.exit34.i199:                   ; preds = %217
   br i1 %exitcond.not.i204, label %._crit_edge.loopexit.i205, label %.lr.ph.i191, !llvm.loop !31
 
 ._crit_edge.loopexit.i205:                        ; preds = %225
-  %231 = icmp ult i32 %214, %203
+  %231 = icmp samesign ult i32 %214, %203
   br i1 %231, label %.outer._crit_edge, label %232
 
 ._crit_edge.i183:                                 ; preds = %.preheader.i182
@@ -80958,7 +80958,7 @@ nk_utf_decode_byte.exit34.i235:                   ; preds = %282
   br i1 %exitcond.not.i240, label %._crit_edge.loopexit.i241, label %.lr.ph.i227, !llvm.loop !31
 
 ._crit_edge.loopexit.i241:                        ; preds = %290
-  %296 = icmp ult i32 %279, %268
+  %296 = icmp samesign ult i32 %279, %268
   br i1 %296, label %.outer._crit_edge, label %297
 
 ._crit_edge.i219:                                 ; preds = %.preheader.i218
@@ -81678,7 +81678,7 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %104
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !31
 
 ._crit_edge.loopexit.i:                           ; preds = %112
-  %118 = icmp ult i32 %101, %92
+  %118 = icmp samesign ult i32 %101, %92
   br i1 %118, label %.loopexit.i.i, label %nk_utf_decode.exit
 
 ._crit_edge.i:                                    ; preds = %.preheader.i

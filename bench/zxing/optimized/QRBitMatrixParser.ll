@@ -109,7 +109,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode21ReadFormatInformationERKNS_9BitMatrixE(pt
   %12 = shl i32 %.1100131, 1
   %13 = or disjoint i32 %12, %11
   %14 = add nsw i32 %.071132, -1
-  %15 = icmp ugt i32 %.071132, 1
+  %15 = icmp samesign ugt i32 %.071132, 1
   br i1 %15, label %.preheader, label %8, !llvm.loop !5
 
 16:                                               ; preds = %1
@@ -124,7 +124,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode21ReadFormatInformationERKNS_9BitMatrixE(pt
   %20 = shl i32 %.096117, 1
   %21 = or disjoint i32 %20, %19
   %22 = add nsw i32 %.070118, -1
-  %23 = icmp ugt i32 %.070118, 1
+  %23 = icmp samesign ugt i32 %.070118, 1
   br i1 %23, label %.preheader106, label %.preheader104, !llvm.loop !6
 
 .preheader104:                                    ; preds = %.preheader106, %29
@@ -141,7 +141,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode21ReadFormatInformationERKNS_9BitMatrixE(pt
 
 29:                                               ; preds = %32
   %30 = add nsw i32 %.069122, -1
-  %31 = icmp ugt i32 %.069122, 8
+  %31 = icmp samesign ugt i32 %.069122, 8
   br i1 %31, label %.preheader104, label %24, !llvm.loop !19
 
 32:                                               ; preds = %.preheader104, %32
@@ -152,7 +152,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode21ReadFormatInformationERKNS_9BitMatrixE(pt
   %35 = shl i32 %.298119, 1
   %36 = or disjoint i32 %35, %34
   %37 = add nsw i32 %.068120, -1
-  %38 = icmp ugt i32 %.068120, 1
+  %38 = icmp samesign ugt i32 %.068120, 1
   br i1 %38, label %32, label %29, !llvm.loop !20
 
 39:                                               ; preds = %24, %39

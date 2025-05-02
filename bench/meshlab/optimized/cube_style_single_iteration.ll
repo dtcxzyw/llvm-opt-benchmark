@@ -7968,7 +7968,7 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_16blas_data_mapperIdlLi0ELi0ELi1EEELi4EL
 
 ._crit_edge.us102.i.us:                           ; preds = %167
   %174 = add nuw nsw i64 %.199.us.i.us, 2
-  %175 = icmp ult i64 %174, %149
+  %175 = icmp samesign ult i64 %174, %149
   br i1 %175, label %.preheader86.us.i.us, label %.preheader85.i.us, !llvm.loop !171
 
 .preheader85.i.us:                                ; preds = %._crit_edge.us102.i.us, %.preheader87.i.us
@@ -8183,7 +8183,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
 
 ._crit_edge.us102.i325:                           ; preds = %247
   %254 = add nuw nsw i64 %.199.us.i320, 2
-  %255 = icmp ult i64 %254, %229
+  %255 = icmp samesign ult i64 %254, %229
   br i1 %255, label %.preheader86.us.i319, label %.preheader85.i305, !llvm.loop !171
 
 .preheader85.i305:                                ; preds = %._crit_edge.us102.i325, %.preheader87.i302
@@ -14512,7 +14512,7 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_16blas_data_mapperIdlLi0ELi0ELi1EEELi4EL
 
 ._crit_edge.us102.i.us:                           ; preds = %166
   %173 = add nuw nsw i64 %.199.us.i.us, 2
-  %174 = icmp ult i64 %173, %148
+  %174 = icmp samesign ult i64 %173, %148
   br i1 %174, label %.preheader86.us.i.us, label %.preheader85.i.us, !llvm.loop !171
 
 .preheader85.i.us:                                ; preds = %._crit_edge.us102.i.us, %.preheader87.i.us
@@ -14739,7 +14739,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
 
 ._crit_edge.us102.i332:                           ; preds = %258
   %265 = add nuw nsw i64 %.199.us.i327, 2
-  %266 = icmp ult i64 %265, %240
+  %266 = icmp samesign ult i64 %265, %240
   br i1 %266, label %.preheader86.us.i326, label %.preheader85.i312, !llvm.loop !171
 
 .preheader85.i312:                                ; preds = %._crit_edge.us102.i332, %.preheader87.i309

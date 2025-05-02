@@ -5066,7 +5066,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub19GetNonUnifo
   store i32 %.sink44, ptr %17, align 4
   store i32 %storemerge64.i, ptr %18, align 4
   store i32 %storemerge63.i, ptr %20, align 4
-  %50 = icmp ult i64 %indvars.iv57.i, %28
+  %50 = icmp samesign ult i64 %indvars.iv57.i, %28
   %51 = add nsw i32 %.sink44, %48
   %52 = add nsw i32 %storemerge63.i, %.sroa.speculated.i
   %.sink45 = select i1 %50, i32 %51, i32 0

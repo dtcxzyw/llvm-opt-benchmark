@@ -1662,7 +1662,7 @@ define void @neighbors(ptr noundef readonly captures(none) %0, i32 noundef %1, p
 
 18:                                               ; preds = %16, %13, %8
   %.126 = phi i32 [ %11, %16 ], [ %.02530, %13 ], [ %.02530, %8 ]
-  %19 = icmp ugt i32 %.02431, %11
+  %19 = icmp samesign ugt i32 %.02431, %11
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %18
@@ -12821,7 +12821,7 @@ setup_temp_free.exit1197:                         ; preds = %651, %658, %478
 852:                                              ; preds = %848, %843
   %.11205 = phi i8 [ %.01204, %843 ], [ %spec.select1245, %848 ]
   %.126.i = phi i32 [ %.02530.i, %843 ], [ %spec.select1246, %848 ]
-  %853 = icmp ugt i32 %.02431.i, %846
+  %853 = icmp samesign ugt i32 %.02431.i, %846
   br i1 %853, label %854, label %858
 
 854:                                              ; preds = %852

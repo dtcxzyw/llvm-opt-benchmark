@@ -9710,7 +9710,7 @@ _ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE23getTypeLegalizationCostEPNS_4Ty
 902:                                              ; preds = %895
   %.02952.i.add1137 = add nuw nsw i64 %.02952.i.idx, 48
   %903 = add nsw i64 %.053.i, -1
-  %904 = icmp ugt i64 %.053.i, 1
+  %904 = icmp samesign ugt i64 %.053.i, 1
   br i1 %904, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !450
 
 ._crit_edge.loopexit.i:                           ; preds = %902

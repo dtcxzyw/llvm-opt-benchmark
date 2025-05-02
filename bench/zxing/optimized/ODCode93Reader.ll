@@ -535,7 +535,7 @@ _ZN5ZXing6ResultC2Ev.exit:                        ; preds = %_ZN5ZXing11PatternV
 204:                                              ; preds = %201
   %.02946.i.i.i.i.add9.i.i = add nuw nsw i64 %.02946.i.i.i.i.idx.i.i, 16
   %205 = add nsw i64 %.047.i.i.i.i.i.i, -1
-  %206 = icmp ugt i64 %.047.i.i.i.i.i.i, 1
+  %206 = icmp samesign ugt i64 %.047.i.i.i.i.i.i, 1
   br i1 %206, label %.preheader, label %_ZN5ZXing4OneD9RowReader16LookupBitPatternIA48_iA49_cEEciRKT_RKT0_.exit, !llvm.loop !56
 
 _ZN5ZXing4FindIA48_KiiEEDTclsr3stdE5beginfp_EERT_RKT0_.exit.i.i: ; preds = %.preheader

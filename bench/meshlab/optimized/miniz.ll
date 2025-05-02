@@ -19288,7 +19288,7 @@ tdefl_optimize_huffman_table.exit47.i:            ; preds = %80
 
 109:                                              ; preds = %111, %106
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %111 ], [ 286, %106 ]
-  %110 = icmp ugt i64 %indvars.iv.i, 257
+  %110 = icmp samesign ugt i64 %indvars.iv.i, 257
   br i1 %110, label %111, label %.split.loop.exit461.i
 
 111:                                              ; preds = %109
@@ -19309,7 +19309,7 @@ tdefl_optimize_huffman_table.exit47.i:            ; preds = %80
 
 116:                                              ; preds = %118, %.split.loop.exit461.i
   %indvars.iv399.i = phi i64 [ %indvars.iv.next400.i, %118 ], [ 30, %.split.loop.exit461.i ]
-  %117 = icmp ugt i64 %indvars.iv399.i, 1
+  %117 = icmp samesign ugt i64 %indvars.iv399.i, 1
   br i1 %117, label %118, label %.split.loop.exit464.i
 
 118:                                              ; preds = %116

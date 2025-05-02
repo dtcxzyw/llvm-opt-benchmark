@@ -32063,7 +32063,7 @@ _ZNSt20back_insert_iteratorIN4llvm11SmallVectorIPNS0_17MachineBasicBlockELj8EEEE
   store i32 %85, ptr %39, align 8, !tbaa !26
   %86 = getelementptr inbounds nuw i8, ptr %.056.i.i.i23, i64 8
   %87 = add nsw i64 %.07.i.i.i22, -1
-  %88 = icmp ugt i64 %.07.i.i.i22, 1
+  %88 = icmp samesign ugt i64 %.07.i.i.i22, 1
   br i1 %88, label %72, label %_ZSt14__copy_move_a1ILb0EPPN4llvm17MachineBasicBlockESt20back_insert_iteratorINS0_11SmallVectorIS2_Lj8EEEEET1_T0_S9_S8_.exit27, !llvm.loop !1054
 
 _ZSt14__copy_move_a1ILb0EPPN4llvm17MachineBasicBlockESt20back_insert_iteratorINS0_11SmallVectorIS2_Lj8EEEEET1_T0_S9_S8_.exit27: ; preds = %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorIPNS0_17MachineBasicBlockELj8EEEEaSERKS3_.exit.i.i.i26

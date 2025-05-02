@@ -922,7 +922,7 @@ _ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_
 308:                                              ; preds = %299
   %.02946.i.i.i.i.i.add17.i.i = add nuw nsw i64 %.02946.i.i.i.i.i.idx.i.i, 4
   %309 = add nsw i64 %.047.i.i.i.i.i.i.i, -1
-  %310 = icmp ugt i64 %.047.i.i.i.i.i.i.i, 1
+  %310 = icmp samesign ugt i64 %.047.i.i.i.i.i.i.i, 1
   br i1 %310, label %.lr.ph.i.i.i.i.i.i.i, label %.loopexit, !llvm.loop !52
 
 _ZN5vcpkgL9is_sha512ENS_10StringViewE.exit.i:     ; preds = %.lr.ph.i.i.i.i.i.i.i

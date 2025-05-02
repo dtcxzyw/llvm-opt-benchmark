@@ -3474,7 +3474,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %_ZN
   %70 = getelementptr inbounds nuw [1105 x i8], ptr %5, i64 0, i64 %66
   store i8 %69, ptr %70, align 1, !tbaa !25
   %71 = sdiv i64 %.05181, 10
-  %72 = icmp ugt i64 %.05082, 1
+  %72 = icmp samesign ugt i64 %.05082, 1
   br i1 %72, label %65, label %59, !llvm.loop !114
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %74

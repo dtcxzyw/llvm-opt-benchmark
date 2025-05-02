@@ -6794,7 +6794,7 @@ select.unfold13.i:                                ; preds = %select.unfold.i, %s
 
 270:                                              ; preds = %.preheader.i
   %271 = add nsw i32 %.03946.i.i, -1
-  %272 = icmp ugt i32 %.03946.i.i, 1
+  %272 = icmp samesign ugt i32 %.03946.i.i, 1
   br i1 %272, label %.preheader.i, label %.lr.ph52.i.i.preheader
 
 273:                                              ; preds = %.preheader.i
@@ -7754,7 +7754,7 @@ define internal fastcc void @node_delete(ptr noundef captures(address_is_null) %
 
 29:                                               ; preds = %25
   %30 = add nsw i32 %.03946.i, -1
-  %31 = icmp ugt i32 %.03946.i, 1
+  %31 = icmp samesign ugt i32 %.03946.i, 1
   br i1 %31, label %25, label %.lr.ph52.i.preheader
 
 32:                                               ; preds = %25

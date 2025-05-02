@@ -280,7 +280,7 @@ _ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14.us: ; preds = %_ZL1
   %18 = icmp ult i64 %.029.us, %.028.us
   %19 = icmp ult i64 %.028.us, %.027.us
   %or.cond.us = or i1 %18, %19
-  %20 = icmp ugt i32 %.038.us, 1
+  %20 = icmp samesign ugt i32 %.038.us, 1
   %or.cond9.us = select i1 %or.cond.us, i1 %20, i1 false
   br i1 %or.cond9.us, label %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14.us, label %.critedge, !llvm.loop !6
 
@@ -296,7 +296,7 @@ _ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14: ; preds = %_ZL14ge
   %25 = icmp ult i64 %.029, %.028
   %26 = icmp ult i64 %.028, %.027
   %or.cond = or i1 %25, %26
-  %27 = icmp ugt i32 %.038, 1
+  %27 = icmp samesign ugt i32 %.038, 1
   %or.cond9 = select i1 %or.cond, i1 %27, i1 false
   br i1 %or.cond9, label %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14, label %.critedge, !llvm.loop !6
 

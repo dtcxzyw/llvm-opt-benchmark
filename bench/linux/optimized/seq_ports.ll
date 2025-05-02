@@ -286,7 +286,7 @@ define dso_local range(i32 -22, -2147483648) i32 @snd_seq_create_port(ptr nounde
   %54 = getelementptr i8, ptr %52, i64 -79
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
-  %57 = icmp ult i32 %53, %56
+  %57 = icmp samesign ult i32 %53, %56
   br i1 %57, label %.loopexit, label %58
 
 58:                                               ; preds = %.split.us.preheader

@@ -162,7 +162,7 @@ define dso_local noundef i32 @crypto_core_hsalsa20(ptr noundef nonnull %0, ptr n
   %132 = tail call noundef i32 @llvm.fshl.i32(i32 %131, i32 %131, i32 18)
   %133 = xor i32 %132, %85
   %134 = add nsw i32 %.0166, -2
-  %135 = icmp ugt i32 %.0166, 2
+  %135 = icmp samesign ugt i32 %.0166, 2
   br i1 %135, label %37, label %136, !llvm.loop !4
 
 136:                                              ; preds = %37

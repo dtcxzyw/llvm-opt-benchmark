@@ -18425,7 +18425,7 @@ _ZN7testing15AssertionResultD2Ev.exit75:          ; preds = %95, %_ZNKSt14defaul
 
 134:                                              ; preds = %127
   %135 = add nsw i64 %.015.i.i.i.i93, -1
-  %136 = icmp ugt i64 %.015.i.i.i.i93, 1
+  %136 = icmp samesign ugt i64 %.015.i.i.i.i93, 1
   br i1 %136, label %.lr.ph.i.i.i.i91, label %._crit_edge.i.i.i.i76, !llvm.loop !345
 
 ._crit_edge.i.i.i.i76:                            ; preds = %134
@@ -18634,7 +18634,7 @@ _ZN7testing15AssertionResultD2Ev.exit121:         ; preds = %174, %_ZNKSt14defau
 
 213:                                              ; preds = %206
   %214 = add nsw i64 %.015.i.i.i.i139, -1
-  %215 = icmp ugt i64 %.015.i.i.i.i139, 1
+  %215 = icmp samesign ugt i64 %.015.i.i.i.i139, 1
   br i1 %215, label %.lr.ph.i.i.i.i137, label %._crit_edge.i.i.i.i122, !llvm.loop !345
 
 ._crit_edge.i.i.i.i122:                           ; preds = %213
@@ -18842,7 +18842,7 @@ _ZN7testing15AssertionResultD2Ev.exit166:         ; preds = %252, %_ZNKSt14defau
 
 291:                                              ; preds = %284
   %292 = add nsw i64 %.015.i.i.i.i184, -1
-  %293 = icmp ugt i64 %.015.i.i.i.i184, 1
+  %293 = icmp samesign ugt i64 %.015.i.i.i.i184, 1
   br i1 %293, label %.lr.ph.i.i.i.i182, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.i.i201, !llvm.loop !345
 
 _ZN4absl28StripTrailingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit192.split.loop.exit285: ; preds = %284

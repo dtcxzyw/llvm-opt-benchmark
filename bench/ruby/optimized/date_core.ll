@@ -22538,7 +22538,7 @@ rb_array_const_ptr.exit632:                       ; preds = %rb_array_len.exit62
   br label %207, !llvm.loop !88
 
 223:                                              ; preds = %rb_array_len.exit629.thread, %rb_array_len.exit629
-  %224 = icmp ugt i64 %.0235, %.0230
+  %224 = icmp samesign ugt i64 %.0235, %.0230
   %spec.select247 = select i1 %224, i64 %.0229, i64 %.0232
   %spec.select248 = tail call i64 @llvm.smax.i64(i64 %.0235, i64 %.0230)
   %225 = add nuw nsw i64 %.0229, 1

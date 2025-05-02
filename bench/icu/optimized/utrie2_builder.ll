@@ -1053,7 +1053,7 @@ define void @utrie2_freeze_77(ptr noundef %0, i32 noundef %1, ptr noundef captur
 54:                                               ; preds = %49
   %indvars.iv.next161.i.i = add nsw i64 %indvars.iv160.i.i, -1
   %55 = add nsw i32 %.486.us.i.i, -1
-  %56 = icmp ugt i64 %indvars.iv160.i.i, 1
+  %56 = icmp samesign ugt i64 %indvars.iv160.i.i, 1
   br i1 %56, label %49, label %.outer.us.i.i, !llvm.loop !60
 
 .outer.us.i.i:                                    ; preds = %54, %47
@@ -1159,7 +1159,7 @@ define void @utrie2_freeze_77(ptr noundef %0, i32 noundef %1, ptr noundef captur
 92:                                               ; preds = %87
   %indvars.iv.next149.i.i = add nsw i64 %indvars.iv148.i.i, -1
   %93 = add nsw i32 %.486.i.i, -1
-  %94 = icmp ugt i64 %indvars.iv148.i.i, 1
+  %94 = icmp samesign ugt i64 %indvars.iv148.i.i, 1
   br i1 %94, label %87, label %.outer.i.i, !llvm.loop !60
 
 .outer.i.i:                                       ; preds = %92
@@ -1555,7 +1555,7 @@ _ZL11compactDataP9UNewTrie2.exit.i:               ; preds = %225, %._crit_edge16
   %249 = getelementptr inbounds nuw i8, ptr %.078.i.i.i48.i, i64 4
   %250 = getelementptr inbounds nuw i8, ptr %.069.i.i.i47.i, i64 4
   %251 = add nsw i32 %.010.i.i.i46.i, -1
-  %252 = icmp ugt i32 %.010.i.i.i46.i, 1
+  %252 = icmp samesign ugt i32 %.010.i.i.i46.i, 1
   br i1 %252, label %244, label %_ZL19findSameIndex2BlockPKiii.exit.i.i, !llvm.loop !74
 
 253:                                              ; preds = %244
@@ -1612,7 +1612,7 @@ _ZL19findSameIndex2BlockPKiii.exit.i.i:           ; preds = %248
 
 279:                                              ; preds = %270
   %indvars.iv.next115.i.i = add nsw i64 %indvars.iv114.i.i, -1
-  %280 = icmp ugt i64 %indvars.iv114.i.i, 1
+  %280 = icmp samesign ugt i64 %indvars.iv114.i.i, 1
   br i1 %280, label %266, label %.critedge71.i.i, !llvm.loop !77
 
 .critedge71.i.i:                                  ; preds = %279
@@ -1900,7 +1900,7 @@ _ZL11compactTrieP6UTrie2P10UErrorCode.exit:       ; preds = %330, %321
   %418 = getelementptr inbounds nuw i8, ptr %.0127236, i64 2
   store i16 %417, ptr %.0127236, align 2, !tbaa !53
   %419 = add nsw i32 %.0131235, -1
-  %420 = icmp ugt i32 %.0131235, 1
+  %420 = icmp samesign ugt i32 %.0131235, 1
   br i1 %420, label %412, label %.preheader153, !llvm.loop !95
 
 421:                                              ; preds = %.preheader153, %421

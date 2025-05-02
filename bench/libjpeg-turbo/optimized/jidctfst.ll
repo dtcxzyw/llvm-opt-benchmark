@@ -200,7 +200,7 @@ define void @jpeg_idct_ifast(ptr noundef readonly captures(none) %0, ptr noundef
   %.1224 = getelementptr inbounds nuw i8, ptr %.0223268, i64 2
   %.1226 = getelementptr inbounds nuw i8, ptr %.0225267, i64 2
   %152 = add nsw i32 %.0270, -1
-  %153 = icmp ugt i32 %.0270, 1
+  %153 = icmp samesign ugt i32 %.0270, 1
   br i1 %153, label %13, label %.preheader, !llvm.loop !34
 
 154:                                              ; preds = %.preheader, %310

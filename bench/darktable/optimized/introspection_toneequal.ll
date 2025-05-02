@@ -1974,7 +1974,7 @@ _triangular_descent_fast.exit.i:                  ; preds = %._crit_edge.i60.i, 
   %170 = fmul reassoc nsz arcp contract afn float %169, %167
   %171 = fsub reassoc nsz arcp contract afn float %.02933.i.i, %170
   %indvars.iv.next.i71.i = add nsw i64 %indvars.iv.i69.i, -1
-  %172 = icmp ugt i64 %indvars.iv.next.i71.i, %indvars.iv38.i.i
+  %172 = icmp samesign ugt i64 %indvars.iv.next.i71.i, %indvars.iv38.i.i
   br i1 %172, label %.lr.ph.i68.i, label %._crit_edge.i65.i
 
 173:                                              ; preds = %._crit_edge.i65.i
@@ -2029,7 +2029,7 @@ _triangular_descent_fast.exit.i:                  ; preds = %._crit_edge.i60.i, 
   %189 = fmul reassoc nsz arcp contract afn float %188, %186
   %190 = fsub reassoc nsz arcp contract afn float %.02225.i.i, %189
   %indvars.iv.next.i80.i = add nsw i64 %indvars.iv.i77.i, -1
-  %191 = icmp ugt i64 %indvars.iv.next.i80.i, %indvars.iv29.i.i
+  %191 = icmp samesign ugt i64 %indvars.iv.next.i80.i, %indvars.iv29.i.i
   br i1 %191, label %.lr.ph.i76.i, label %._crit_edge.i73.i
 
 .critedge.sink.split.i:                           ; preds = %.thread.i.i, %.thread.i67.i, %159, %119, %50

@@ -172,7 +172,7 @@ define void @jpeg_idct_4x4(ptr noundef readonly captures(none) %0, ptr noundef r
   %130 = getelementptr inbounds nuw i8, ptr %.0125131, i64 2
   %131 = getelementptr inbounds nuw i8, ptr %.0123132, i64 4
   %132 = add nsw i32 %.0133, -1
-  %133 = icmp ugt i32 %.0133, 1
+  %133 = icmp samesign ugt i32 %.0133, 1
   br i1 %133, label %13, label %.preheader, !llvm.loop !34
 
 134:                                              ; preds = %.preheader, %231
@@ -435,7 +435,7 @@ define void @jpeg_idct_2x2(ptr noundef readonly captures(none) %0, ptr noundef r
   %86 = getelementptr inbounds nuw i8, ptr %.07883, i64 2
   %87 = getelementptr inbounds nuw i8, ptr %.07982, i64 4
   %88 = add nsw i32 %.085, -1
-  %89 = icmp ugt i32 %.085, 1
+  %89 = icmp samesign ugt i32 %.085, 1
   br i1 %89, label %13, label %.preheader, !llvm.loop !39
 
 90:                                               ; preds = %.preheader, %147

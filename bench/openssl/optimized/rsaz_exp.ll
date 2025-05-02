@@ -122,7 +122,7 @@ define void @RSAZ_1024_mod_exp_avx2(ptr noundef %0, ptr noundef %1, ptr noundef 
   %31 = add nsw i32 %.0296, -5
   call void @rsaz_1024_gather5_avx2(ptr noundef nonnull %.295, ptr noundef nonnull %13, i32 noundef %30) #3
   call void @rsaz_1024_mul_avx2(ptr noundef nonnull %.294, ptr noundef nonnull %.294, ptr noundef nonnull %.295, ptr noundef nonnull %., i64 noundef %5) #3
-  %32 = icmp ugt i32 %.0296, 4
+  %32 = icmp samesign ugt i32 %.0296, 4
   br i1 %32, label %22, label %33, !llvm.loop !6
 
 33:                                               ; preds = %22

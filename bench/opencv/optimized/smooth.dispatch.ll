@@ -1520,7 +1520,7 @@ _ZN2cv10softdoubleaSERKS0_.exit.i.i.i.i.i.i:      ; preds = %83, %.lr.ph.i.i.i.i
   %85 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 8
   %86 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 8
   %87 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %88 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %88 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %88, label %.lr.ph.i.i.i.i.i.i102, label %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit.i, !llvm.loop !111
 
 _ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit.i: ; preds = %_ZN2cv10softdoubleaSERKS0_.exit.i.i.i.i.i.i
@@ -1636,7 +1636,7 @@ _ZN2cv10softdoubleaSERKS0_.exit.i.i.i.i.i.i113:   ; preds = %123, %.lr.ph.i.i.i.
   %125 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i111, i64 8
   %126 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i110, i64 8
   %127 = add nsw i64 %.012.i.i.i.i.i.i109, -1
-  %128 = icmp ugt i64 %.012.i.i.i.i.i.i109, 1
+  %128 = icmp samesign ugt i64 %.012.i.i.i.i.i.i109, 1
   br i1 %128, label %.lr.ph.i.i.i.i.i.i108, label %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit.i106, !llvm.loop !111
 
 _ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit.i106: ; preds = %_ZN2cv10softdoubleaSERKS0_.exit.i.i.i.i.i.i113
@@ -1756,7 +1756,7 @@ _ZN2cv10softdoubleaSERKS0_.exit.i.i.i.i.i.i141:   ; preds = %165, %.lr.ph.i.i.i.
   %167 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i139, i64 8
   %168 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i138, i64 8
   %169 = add nsw i64 %.012.i.i.i.i.i.i137, -1
-  %170 = icmp ugt i64 %.012.i.i.i.i.i.i137, 1
+  %170 = icmp samesign ugt i64 %.012.i.i.i.i.i.i137, 1
   br i1 %170, label %.lr.ph.i.i.i.i.i.i136, label %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit.i134, !llvm.loop !111
 
 _ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit.i134: ; preds = %_ZN2cv10softdoubleaSERKS0_.exit.i.i.i.i.i.i141
@@ -1880,7 +1880,7 @@ _ZN2cv10softdoubleaSERKS0_.exit.i.i.i.i.i.i169:   ; preds = %209, %.lr.ph.i.i.i.
   %211 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i167, i64 8
   %212 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i166, i64 8
   %213 = add nsw i64 %.012.i.i.i.i.i.i165, -1
-  %214 = icmp ugt i64 %.012.i.i.i.i.i.i165, 1
+  %214 = icmp samesign ugt i64 %.012.i.i.i.i.i.i165, 1
   br i1 %214, label %.lr.ph.i.i.i.i.i.i164, label %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit.i162, !llvm.loop !111
 
 _ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit.i162: ; preds = %_ZN2cv10softdoubleaSERKS0_.exit.i.i.i.i.i.i169

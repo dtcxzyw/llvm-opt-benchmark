@@ -527,7 +527,7 @@ define hidden void @dissect_smc_readelementstatus(ptr noundef %0, ptr noundef re
 
 158:                                              ; preds = %155
   %159 = add nsw i32 %.017.i20.i, -1
-  %160 = icmp ugt i32 %.017.i20.i, 1
+  %160 = icmp samesign ugt i32 %.017.i20.i, 1
   br i1 %160, label %155, label %dissect_scsi_smc_volume_tag.exit23.i, !llvm.loop !6
 
 dissect_scsi_smc_volume_tag.exit23.i:             ; preds = %158, %155
@@ -565,7 +565,7 @@ dissect_scsi_smc_volume_tag.exit23.i:             ; preds = %158, %155
 
 178:                                              ; preds = %175
   %179 = add nsw i32 %.017.i.i, -1
-  %180 = icmp ugt i32 %.017.i.i, 1
+  %180 = icmp samesign ugt i32 %.017.i.i, 1
   br i1 %180, label %175, label %dissect_scsi_smc_volume_tag.exit.i, !llvm.loop !6
 
 dissect_scsi_smc_volume_tag.exit.i:               ; preds = %178, %175

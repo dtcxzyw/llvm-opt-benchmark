@@ -15180,7 +15180,7 @@ mb_find_order_for_block.exit:                     ; preds = %87, %.mb_find_order
   %124 = load i16, ptr %30, align 8
   %125 = zext i16 %124 to i32
   %126 = add nuw nsw i32 %125, 1
-  %127 = icmp ult i32 %126, %118
+  %127 = icmp samesign ult i32 %126, %118
   br i1 %127, label %.thread.loopexit, label %128
 
 128:                                              ; preds = %123

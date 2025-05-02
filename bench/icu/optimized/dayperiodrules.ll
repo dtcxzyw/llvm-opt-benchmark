@@ -900,7 +900,7 @@ _ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCo
 
 17:                                               ; preds = %.preheader.i
   %18 = add nsw i32 %.02042.i, -1
-  %19 = icmp ugt i32 %.02042.i, 1
+  %19 = icmp samesign ugt i32 %.02042.i, 1
   br i1 %19, label %.preheader.i, label %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread, !llvm.loop !39
 
 20:                                               ; preds = %.preheader.i
@@ -1041,7 +1041,7 @@ define noundef range(i32 -1, -2147483648) i32 @_ZNK6icu_7714DayPeriodRules24getS
 
 18:                                               ; preds = %.preheader
   %19 = add nsw i32 %.02042, -1
-  %20 = icmp ugt i32 %.02042, 1
+  %20 = icmp samesign ugt i32 %.02042, 1
   br i1 %20, label %.preheader, label %.thread, !llvm.loop !39
 
 21:                                               ; preds = %.preheader

@@ -384,7 +384,7 @@ _ZN5ZXing11PatternView10skipSymbolEv.exit.i14.i:  ; preds = %.noexc31
 134:                                              ; preds = %131
   %.02946.i.i.i.i.i.add53.i = add nuw nsw i64 %.02946.i.i.i.i.i.idx.i, 16
   %135 = add nsw i64 %.047.i.i.i.i.i.i, -1
-  %136 = icmp ugt i64 %.047.i.i.i.i.i.i, 1
+  %136 = icmp samesign ugt i64 %.047.i.i.i.i.i.i, 1
   br i1 %136, label %122, label %._crit_edge._crit_edge.i.i.i.i.i.i, !llvm.loop !51
 
 ._crit_edge._crit_edge.i.i.i.i.i.i:               ; preds = %134
@@ -899,7 +899,7 @@ _ZN5ZXing11PatternView10skipSymbolEv.exit.i.i103: ; preds = %.noexc111
 308:                                              ; preds = %305
   %.02946.i.i.i.i.add9.i.i = add nuw nsw i64 %.02946.i.i.i.i.idx.i.i, 16
   %309 = add nsw i64 %.047.i.i.i.i.i.i106, -1
-  %310 = icmp ugt i64 %.047.i.i.i.i.i.i106, 1
+  %310 = icmp samesign ugt i64 %.047.i.i.i.i.i.i106, 1
   br i1 %310, label %296, label %_ZN5ZXing4OneDL4UPCEERNS0_13PartialResultENS_11PatternViewE.exit.thread282, !llvm.loop !51
 
 _ZN5ZXing4FindIKSt5arrayIiLm20EEiEEDTclsr3stdE5beginfp_EERT_RKT0_.exit.i.i: ; preds = %296
@@ -2431,7 +2431,7 @@ _ZN5ZXing11PatternView10skipSymbolEv.exit:        ; preds = %53
   %.not.i.i30 = icmp eq ptr %.sroa.044.070, null
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.044.070, i64 8
   %spec.select = select i1 %.not.i.i30, ptr null, ptr %55
-  %56 = icmp ult i32 %.071, %9
+  %56 = icmp samesign ult i32 %.071, %9
   br i1 %56, label %.lr.ph.i.i.i.i31, label %71
 
 .lr.ph.i.i.i.i31:                                 ; preds = %_ZN5ZXing11PatternView10skipSymbolEv.exit, %.lr.ph.i.i.i.i31
@@ -2636,7 +2636,7 @@ _ZN5ZXing4OneDL12Ean5ChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
 140:                                              ; preds = %136
   %141 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   %142 = add nsw i64 %.047.i.i.i.i.i, -1
-  %143 = icmp ugt i64 %.047.i.i.i.i.i, 1
+  %143 = icmp samesign ugt i64 %.047.i.i.i.i.i, 1
   br i1 %143, label %125, label %._crit_edge._crit_edge.i.i.i.i.i, !llvm.loop !51
 
 ._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %140

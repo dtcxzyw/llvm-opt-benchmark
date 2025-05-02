@@ -10919,7 +10919,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i.i.i35: ; pre
   %150 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i31, i64 32
   %151 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i30, i64 32
   %152 = add nsw i64 %.013.i.i.i29, -1
-  %153 = icmp ugt i64 %.013.i.i.i29, 1
+  %153 = icmp samesign ugt i64 %.013.i.i.i29, 1
   br i1 %153, label %.lr.ph.i.i.i28, label %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit41, !llvm.loop !358
 
 _ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit41: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i.i.i35

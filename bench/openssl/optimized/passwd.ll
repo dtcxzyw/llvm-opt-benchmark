@@ -874,7 +874,7 @@ switch.lookup:                                    ; preds = %16
   %211 = getelementptr inbounds nuw i8, ptr %.2503.i, i64 1
   store i8 %210, ptr %.2503.i, align 1, !tbaa !14
   %212 = lshr i32 %.0332504.i, 6
-  %213 = icmp ugt i32 %.0331505.i, 1
+  %213 = icmp samesign ugt i32 %.0331505.i, 1
   br i1 %213, label %205, label %214, !llvm.loop !24
 
 214:                                              ; preds = %205
@@ -905,7 +905,7 @@ switch.lookup:                                    ; preds = %16
   %234 = getelementptr inbounds nuw i8, ptr %.3506.i, i64 1
   store i8 %233, ptr %.3506.i, align 1, !tbaa !14
   %235 = lshr i32 %.0330507.i, 6
-  %236 = icmp ugt i32 %.0329508.i, 1
+  %236 = icmp samesign ugt i32 %.0329508.i, 1
   br i1 %236, label %228, label %237, !llvm.loop !25
 
 237:                                              ; preds = %228
@@ -936,7 +936,7 @@ switch.lookup:                                    ; preds = %16
   %257 = getelementptr inbounds nuw i8, ptr %.4509.i, i64 1
   store i8 %256, ptr %.4509.i, align 1, !tbaa !14
   %258 = lshr i32 %.0328510.i, 6
-  %259 = icmp ugt i32 %.0327511.i, 1
+  %259 = icmp samesign ugt i32 %.0327511.i, 1
   br i1 %259, label %251, label %260, !llvm.loop !26
 
 260:                                              ; preds = %251
@@ -967,7 +967,7 @@ switch.lookup:                                    ; preds = %16
   %280 = getelementptr inbounds nuw i8, ptr %.5512.i, i64 1
   store i8 %279, ptr %.5512.i, align 1, !tbaa !14
   %281 = lshr i32 %.0326513.i, 6
-  %282 = icmp ugt i32 %.0325514.i, 1
+  %282 = icmp samesign ugt i32 %.0325514.i, 1
   br i1 %282, label %274, label %283, !llvm.loop !27
 
 283:                                              ; preds = %274
@@ -998,7 +998,7 @@ switch.lookup:                                    ; preds = %16
   %303 = getelementptr inbounds nuw i8, ptr %.6515.i, i64 1
   store i8 %302, ptr %.6515.i, align 1, !tbaa !14
   %304 = lshr i32 %.0324516.i, 6
-  %305 = icmp ugt i32 %.0323517.i, 1
+  %305 = icmp samesign ugt i32 %.0323517.i, 1
   br i1 %305, label %297, label %306, !llvm.loop !28
 
 306:                                              ; preds = %297
@@ -1029,7 +1029,7 @@ switch.lookup:                                    ; preds = %16
   %326 = getelementptr inbounds nuw i8, ptr %.7518.i, i64 1
   store i8 %325, ptr %.7518.i, align 1, !tbaa !14
   %327 = lshr i32 %.0322519.i, 6
-  %328 = icmp ugt i32 %.0321520.i, 1
+  %328 = icmp samesign ugt i32 %.0321520.i, 1
   br i1 %328, label %320, label %329, !llvm.loop !29
 
 329:                                              ; preds = %320
@@ -1060,7 +1060,7 @@ switch.lookup:                                    ; preds = %16
   %349 = getelementptr inbounds nuw i8, ptr %.8521.i, i64 1
   store i8 %348, ptr %.8521.i, align 1, !tbaa !14
   %350 = lshr i32 %.0320522.i, 6
-  %351 = icmp ugt i32 %.0319523.i, 1
+  %351 = icmp samesign ugt i32 %.0319523.i, 1
   br i1 %351, label %343, label %352, !llvm.loop !30
 
 352:                                              ; preds = %343
@@ -1091,7 +1091,7 @@ switch.lookup:                                    ; preds = %16
   %372 = getelementptr inbounds nuw i8, ptr %.9524.i, i64 1
   store i8 %371, ptr %.9524.i, align 1, !tbaa !14
   %373 = lshr i32 %.0318525.i, 6
-  %374 = icmp ugt i32 %.0317526.i, 1
+  %374 = icmp samesign ugt i32 %.0317526.i, 1
   br i1 %374, label %366, label %375, !llvm.loop !31
 
 375:                                              ; preds = %366
@@ -1122,7 +1122,7 @@ switch.lookup:                                    ; preds = %16
   %395 = getelementptr inbounds nuw i8, ptr %.10527.i, i64 1
   store i8 %394, ptr %.10527.i, align 1, !tbaa !14
   %396 = lshr i32 %.0316528.i, 6
-  %397 = icmp ugt i32 %.0315529.i, 1
+  %397 = icmp samesign ugt i32 %.0315529.i, 1
   br i1 %397, label %389, label %398, !llvm.loop !32
 
 398:                                              ; preds = %389
@@ -1153,7 +1153,7 @@ switch.lookup:                                    ; preds = %16
   %418 = getelementptr inbounds nuw i8, ptr %.11530.i, i64 1
   store i8 %417, ptr %.11530.i, align 1, !tbaa !14
   %419 = lshr i32 %.0314531.i, 6
-  %420 = icmp ugt i32 %.0313532.i, 1
+  %420 = icmp samesign ugt i32 %.0313532.i, 1
   br i1 %420, label %412, label %421, !llvm.loop !33
 
 421:                                              ; preds = %412
@@ -1174,7 +1174,7 @@ switch.lookup:                                    ; preds = %16
   %431 = getelementptr inbounds nuw i8, ptr %.12533.i, i64 1
   store i8 %430, ptr %.12533.i, align 1, !tbaa !14
   %432 = lshr i32 %.0312534.i, 6
-  %433 = icmp ugt i32 %.0311535.i, 1
+  %433 = icmp samesign ugt i32 %.0311535.i, 1
   br i1 %433, label %425, label %.loopexit.i, !llvm.loop !34
 
 434:                                              ; preds = %188
@@ -1204,7 +1204,7 @@ switch.lookup:                                    ; preds = %16
   %453 = getelementptr inbounds nuw i8, ptr %.14437.i, i64 1
   store i8 %452, ptr %.14437.i, align 1, !tbaa !14
   %454 = lshr i32 %.0310438.i, 6
-  %455 = icmp ugt i32 %.0309439.i, 1
+  %455 = icmp samesign ugt i32 %.0309439.i, 1
   br i1 %455, label %447, label %456, !llvm.loop !35
 
 456:                                              ; preds = %447
@@ -1235,7 +1235,7 @@ switch.lookup:                                    ; preds = %16
   %476 = getelementptr inbounds nuw i8, ptr %.15440.i, i64 1
   store i8 %475, ptr %.15440.i, align 1, !tbaa !14
   %477 = lshr i32 %.0308441.i, 6
-  %478 = icmp ugt i32 %.0307442.i, 1
+  %478 = icmp samesign ugt i32 %.0307442.i, 1
   br i1 %478, label %470, label %479, !llvm.loop !36
 
 479:                                              ; preds = %470
@@ -1266,7 +1266,7 @@ switch.lookup:                                    ; preds = %16
   %499 = getelementptr inbounds nuw i8, ptr %.16443.i, i64 1
   store i8 %498, ptr %.16443.i, align 1, !tbaa !14
   %500 = lshr i32 %.0306444.i, 6
-  %501 = icmp ugt i32 %.0305445.i, 1
+  %501 = icmp samesign ugt i32 %.0305445.i, 1
   br i1 %501, label %493, label %502, !llvm.loop !37
 
 502:                                              ; preds = %493
@@ -1297,7 +1297,7 @@ switch.lookup:                                    ; preds = %16
   %522 = getelementptr inbounds nuw i8, ptr %.17446.i, i64 1
   store i8 %521, ptr %.17446.i, align 1, !tbaa !14
   %523 = lshr i32 %.0304447.i, 6
-  %524 = icmp ugt i32 %.0303448.i, 1
+  %524 = icmp samesign ugt i32 %.0303448.i, 1
   br i1 %524, label %516, label %525, !llvm.loop !38
 
 525:                                              ; preds = %516
@@ -1328,7 +1328,7 @@ switch.lookup:                                    ; preds = %16
   %545 = getelementptr inbounds nuw i8, ptr %.18449.i, i64 1
   store i8 %544, ptr %.18449.i, align 1, !tbaa !14
   %546 = lshr i32 %.0302450.i, 6
-  %547 = icmp ugt i32 %.0301451.i, 1
+  %547 = icmp samesign ugt i32 %.0301451.i, 1
   br i1 %547, label %539, label %548, !llvm.loop !39
 
 548:                                              ; preds = %539
@@ -1359,7 +1359,7 @@ switch.lookup:                                    ; preds = %16
   %568 = getelementptr inbounds nuw i8, ptr %.19452.i, i64 1
   store i8 %567, ptr %.19452.i, align 1, !tbaa !14
   %569 = lshr i32 %.0300453.i, 6
-  %570 = icmp ugt i32 %.0299454.i, 1
+  %570 = icmp samesign ugt i32 %.0299454.i, 1
   br i1 %570, label %562, label %571, !llvm.loop !40
 
 571:                                              ; preds = %562
@@ -1390,7 +1390,7 @@ switch.lookup:                                    ; preds = %16
   %591 = getelementptr inbounds nuw i8, ptr %.20455.i, i64 1
   store i8 %590, ptr %.20455.i, align 1, !tbaa !14
   %592 = lshr i32 %.0298456.i, 6
-  %593 = icmp ugt i32 %.0297457.i, 1
+  %593 = icmp samesign ugt i32 %.0297457.i, 1
   br i1 %593, label %585, label %594, !llvm.loop !41
 
 594:                                              ; preds = %585
@@ -1421,7 +1421,7 @@ switch.lookup:                                    ; preds = %16
   %614 = getelementptr inbounds nuw i8, ptr %.21458.i, i64 1
   store i8 %613, ptr %.21458.i, align 1, !tbaa !14
   %615 = lshr i32 %.0296459.i, 6
-  %616 = icmp ugt i32 %.0295460.i, 1
+  %616 = icmp samesign ugt i32 %.0295460.i, 1
   br i1 %616, label %608, label %617, !llvm.loop !42
 
 617:                                              ; preds = %608
@@ -1452,7 +1452,7 @@ switch.lookup:                                    ; preds = %16
   %637 = getelementptr inbounds nuw i8, ptr %.22461.i, i64 1
   store i8 %636, ptr %.22461.i, align 1, !tbaa !14
   %638 = lshr i32 %.0294462.i, 6
-  %639 = icmp ugt i32 %.0293463.i, 1
+  %639 = icmp samesign ugt i32 %.0293463.i, 1
   br i1 %639, label %631, label %640, !llvm.loop !43
 
 640:                                              ; preds = %631
@@ -1483,7 +1483,7 @@ switch.lookup:                                    ; preds = %16
   %660 = getelementptr inbounds nuw i8, ptr %.23464.i, i64 1
   store i8 %659, ptr %.23464.i, align 1, !tbaa !14
   %661 = lshr i32 %.0292465.i, 6
-  %662 = icmp ugt i32 %.0291466.i, 1
+  %662 = icmp samesign ugt i32 %.0291466.i, 1
   br i1 %662, label %654, label %663, !llvm.loop !44
 
 663:                                              ; preds = %654
@@ -1514,7 +1514,7 @@ switch.lookup:                                    ; preds = %16
   %683 = getelementptr inbounds nuw i8, ptr %.24467.i, i64 1
   store i8 %682, ptr %.24467.i, align 1, !tbaa !14
   %684 = lshr i32 %.0290468.i, 6
-  %685 = icmp ugt i32 %.0289469.i, 1
+  %685 = icmp samesign ugt i32 %.0289469.i, 1
   br i1 %685, label %677, label %686, !llvm.loop !45
 
 686:                                              ; preds = %677
@@ -1545,7 +1545,7 @@ switch.lookup:                                    ; preds = %16
   %706 = getelementptr inbounds nuw i8, ptr %.25470.i, i64 1
   store i8 %705, ptr %.25470.i, align 1, !tbaa !14
   %707 = lshr i32 %.0288471.i, 6
-  %708 = icmp ugt i32 %.0287472.i, 1
+  %708 = icmp samesign ugt i32 %.0287472.i, 1
   br i1 %708, label %700, label %709, !llvm.loop !46
 
 709:                                              ; preds = %700
@@ -1576,7 +1576,7 @@ switch.lookup:                                    ; preds = %16
   %729 = getelementptr inbounds nuw i8, ptr %.26473.i, i64 1
   store i8 %728, ptr %.26473.i, align 1, !tbaa !14
   %730 = lshr i32 %.0286474.i, 6
-  %731 = icmp ugt i32 %.0285475.i, 1
+  %731 = icmp samesign ugt i32 %.0285475.i, 1
   br i1 %731, label %723, label %732, !llvm.loop !47
 
 732:                                              ; preds = %723
@@ -1607,7 +1607,7 @@ switch.lookup:                                    ; preds = %16
   %752 = getelementptr inbounds nuw i8, ptr %.27476.i, i64 1
   store i8 %751, ptr %.27476.i, align 1, !tbaa !14
   %753 = lshr i32 %.0284477.i, 6
-  %754 = icmp ugt i32 %.0283478.i, 1
+  %754 = icmp samesign ugt i32 %.0283478.i, 1
   br i1 %754, label %746, label %755, !llvm.loop !48
 
 755:                                              ; preds = %746
@@ -1638,7 +1638,7 @@ switch.lookup:                                    ; preds = %16
   %775 = getelementptr inbounds nuw i8, ptr %.28479.i, i64 1
   store i8 %774, ptr %.28479.i, align 1, !tbaa !14
   %776 = lshr i32 %.0282480.i, 6
-  %777 = icmp ugt i32 %.0281481.i, 1
+  %777 = icmp samesign ugt i32 %.0281481.i, 1
   br i1 %777, label %769, label %778, !llvm.loop !49
 
 778:                                              ; preds = %769
@@ -1669,7 +1669,7 @@ switch.lookup:                                    ; preds = %16
   %798 = getelementptr inbounds nuw i8, ptr %.29482.i, i64 1
   store i8 %797, ptr %.29482.i, align 1, !tbaa !14
   %799 = lshr i32 %.0280483.i, 6
-  %800 = icmp ugt i32 %.0279484.i, 1
+  %800 = icmp samesign ugt i32 %.0279484.i, 1
   br i1 %800, label %792, label %801, !llvm.loop !50
 
 801:                                              ; preds = %792
@@ -1700,7 +1700,7 @@ switch.lookup:                                    ; preds = %16
   %821 = getelementptr inbounds nuw i8, ptr %.30485.i, i64 1
   store i8 %820, ptr %.30485.i, align 1, !tbaa !14
   %822 = lshr i32 %.0278486.i, 6
-  %823 = icmp ugt i32 %.0277487.i, 1
+  %823 = icmp samesign ugt i32 %.0277487.i, 1
   br i1 %823, label %815, label %824, !llvm.loop !51
 
 824:                                              ; preds = %815
@@ -1731,7 +1731,7 @@ switch.lookup:                                    ; preds = %16
   %844 = getelementptr inbounds nuw i8, ptr %.31488.i, i64 1
   store i8 %843, ptr %.31488.i, align 1, !tbaa !14
   %845 = lshr i32 %.0276489.i, 6
-  %846 = icmp ugt i32 %.0275490.i, 1
+  %846 = icmp samesign ugt i32 %.0275490.i, 1
   br i1 %846, label %838, label %847, !llvm.loop !52
 
 847:                                              ; preds = %838
@@ -1762,7 +1762,7 @@ switch.lookup:                                    ; preds = %16
   %867 = getelementptr inbounds nuw i8, ptr %.32491.i, i64 1
   store i8 %866, ptr %.32491.i, align 1, !tbaa !14
   %868 = lshr i32 %.0274492.i, 6
-  %869 = icmp ugt i32 %.0273493.i, 1
+  %869 = icmp samesign ugt i32 %.0273493.i, 1
   br i1 %869, label %861, label %870, !llvm.loop !53
 
 870:                                              ; preds = %861
@@ -1793,7 +1793,7 @@ switch.lookup:                                    ; preds = %16
   %890 = getelementptr inbounds nuw i8, ptr %.33494.i, i64 1
   store i8 %889, ptr %.33494.i, align 1, !tbaa !14
   %891 = lshr i32 %.0272495.i, 6
-  %892 = icmp ugt i32 %.0271496.i, 1
+  %892 = icmp samesign ugt i32 %.0271496.i, 1
   br i1 %892, label %884, label %893, !llvm.loop !54
 
 893:                                              ; preds = %884
@@ -1824,7 +1824,7 @@ switch.lookup:                                    ; preds = %16
   %913 = getelementptr inbounds nuw i8, ptr %.34497.i, i64 1
   store i8 %912, ptr %.34497.i, align 1, !tbaa !14
   %914 = lshr i32 %.0270498.i, 6
-  %915 = icmp ugt i32 %.0269499.i, 1
+  %915 = icmp samesign ugt i32 %.0269499.i, 1
   br i1 %915, label %907, label %916, !llvm.loop !55
 
 916:                                              ; preds = %907
@@ -1845,7 +1845,7 @@ switch.lookup:                                    ; preds = %16
   %926 = getelementptr inbounds nuw i8, ptr %.35500.i, i64 1
   store i8 %925, ptr %.35500.i, align 1, !tbaa !14
   %927 = lshr i32 %.0268501.i, 6
-  %928 = icmp ugt i32 %.0502.i, 1
+  %928 = icmp samesign ugt i32 %.0502.i, 1
   br i1 %928, label %920, label %.loopexit.i, !llvm.loop !56
 
 .loopexit.i:                                      ; preds = %920, %425

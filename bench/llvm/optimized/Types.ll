@@ -267,7 +267,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6driver5types22canTypeBeUserSpecif
 14:                                               ; preds = %11
   %.02946.i.i.i.add6.i = add nuw nsw i64 %.02946.i.i.i.idx.i, 16
   %15 = add nsw i64 %.047.i.i.i.i, -1
-  %16 = icmp ugt i64 %.047.i.i.i.i, 1
+  %16 = icmp samesign ugt i64 %.047.i.i.i.i, 1
   br i1 %16, label %2, label %_ZN4llvm12is_containedIRA20_KN5clang6driver5types2IDES4_EEbOT_RKT0_.exit, !llvm.loop !16
 
 _ZN4llvm12is_containedIRA20_KN5clang6driver5types2IDES4_EEbOT_RKT0_.exit: ; preds = %2, %5, %8, %11, %14
@@ -841,7 +841,7 @@ define dso_local noundef i32 @_ZN5clang6driver5types26lookupTypeForTypeSpecifier
 19:                                               ; preds = %15
   %.02946.i.i.i.add6.i.i = add nuw nsw i64 %.02946.i.i.i.idx.i.i, 16
   %20 = add nsw i64 %.047.i.i.i.i.i, -1
-  %21 = icmp ugt i64 %.047.i.i.i.i.i, 1
+  %21 = icmp samesign ugt i64 %.047.i.i.i.i.i, 1
   br i1 %21, label %3, label %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread15, !llvm.loop !16
 
 _ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit: ; preds = %3

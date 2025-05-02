@@ -8085,7 +8085,7 @@ _ZNSt20back_insert_iteratorISt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePai
   store ptr %storemerge, ptr %32, align 8, !tbaa !236
   %157 = getelementptr inbounds nuw i8, ptr %.056.i.i.i20, i64 16
   %158 = add nsw i64 %.07.i.i.i19, -1
-  %159 = icmp ugt i64 %.07.i.i.i19, 1
+  %159 = icmp samesign ugt i64 %.07.i.i.i19, 1
   br i1 %159, label %64, label %_ZSt14__copy_move_a1ILb0EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESt20back_insert_iteratorISt5dequeIS2_SaIS2_EEEET1_T0_SA_S9_.exit23, !llvm.loop !499
 
 _ZSt14__copy_move_a1ILb0EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESt20back_insert_iteratorISt5dequeIS2_SaIS2_EEEET1_T0_SA_S9_.exit23: ; preds = %_ZNSt20back_insert_iteratorISt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS3_EEEaSERKS3_.exit.i.i.i22

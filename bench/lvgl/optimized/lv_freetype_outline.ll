@@ -152,7 +152,7 @@ outline_send_event.exit.i:                        ; preds = %._crit_edge.i
 
 61:                                               ; preds = %54
   %62 = add nuw nsw i64 %indvars.iv.i, 1
-  %63 = icmp ult i64 %62, %38
+  %63 = icmp samesign ult i64 %62, %38
   %64 = select i1 %63, i64 %62, i64 0
   %65 = getelementptr inbounds nuw i8, ptr %37, i64 %64
   %66 = load i8, ptr %65, align 1, !tbaa !68

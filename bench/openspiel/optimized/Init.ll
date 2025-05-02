@@ -360,7 +360,7 @@ define void @_Z13InitConstantsv() local_unnamed_addr #5 {
 
 10:                                               ; preds = %2
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %11 = icmp ugt i64 %indvars.iv, 2
+  %11 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %11, label %2, label %.loopexit117.preheader, !llvm.loop !6
 
 .loopexit117.preheader:                           ; preds = %10, %7
@@ -450,7 +450,7 @@ define void @_Z13InitConstantsv() local_unnamed_addr #5 {
 42:                                               ; preds = %34, %39
   %.198 = phi i8 [ %40, %39 ], [ %.097125, %34 ]
   %indvars.iv.next153 = add nsw i64 %indvars.iv152, -1
-  %43 = icmp ugt i64 %indvars.iv152, 2
+  %43 = icmp samesign ugt i64 %indvars.iv152, 2
   br i1 %43, label %34, label %44, !llvm.loop !11
 
 44:                                               ; preds = %42
@@ -494,7 +494,7 @@ define void @_Z13InitConstantsv() local_unnamed_addr #5 {
   %.193 = phi i16 [ %55, %54 ], [ %.092128, %47 ]
   %.191 = phi i32 [ %56, %54 ], [ %.090129, %47 ]
   %indvars.iv.next159 = add nsw i64 %indvars.iv158, -1
-  %58 = icmp ugt i64 %indvars.iv158, 2
+  %58 = icmp samesign ugt i64 %indvars.iv158, 2
   br i1 %58, label %47, label %59, !llvm.loop !13
 
 59:                                               ; preds = %52, %57
@@ -924,7 +924,7 @@ define void @_Z13SetDealTablesP10ThreadData(ptr noundef captures(none) %0) local
 
 .loopexit:                                        ; preds = %19, %17
   %indvars.iv.next106 = add nsw i64 %indvars.iv105, -1
-  %20 = icmp ugt i64 %indvars.iv105, 2
+  %20 = icmp samesign ugt i64 %indvars.iv105, 2
   br i1 %20, label %9, label %21, !llvm.loop !28
 
 21:                                               ; preds = %.loopexit

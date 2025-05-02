@@ -882,7 +882,7 @@ define hidden void @do_pause() local_unnamed_addr #0 {
   %.08 = phi i32 [ 600, %0 ], [ %6, %4 ]
   %5 = tail call i32 @sleep(i32 noundef 10) #10
   %6 = add nsw i32 %.08, -10
-  %7 = icmp ugt i32 %.08, 10
+  %7 = icmp samesign ugt i32 %.08, 10
   br i1 %7, label %4, label %8, !llvm.loop !6
 
 8:                                                ; preds = %4

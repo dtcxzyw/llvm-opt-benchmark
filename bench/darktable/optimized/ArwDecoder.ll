@@ -494,7 +494,7 @@ _ZN8rawspeed10ArwDecoder11SonyDecryptENS_10Array1DRefIKhEENS1_IhEEij.exit: ; pre
   %90 = load i8, ptr %89, align 1, !tbaa !15
   %91 = zext i8 %90 to i32
   %92 = or disjoint i32 %88, %91
-  %93 = icmp ugt i64 %indvars.iv181, 23
+  %93 = icmp samesign ugt i64 %indvars.iv181, 23
   br i1 %93, label %87, label %83, !llvm.loop !29
 
 94:                                               ; preds = %83

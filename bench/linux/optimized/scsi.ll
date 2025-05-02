@@ -2115,7 +2115,7 @@ define internal fastcc ptr @scsi_get_vpd_buf(ptr noundef %0, i8 noundef zeroext 
   %36 = zext i16 %35 to i32
   %37 = add nuw nsw i32 %36, 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
-  %38 = icmp ugt i32 %37, %17
+  %38 = icmp samesign ugt i32 %37, %17
   br i1 %38, label %39, label %47
 
 39:                                               ; preds = %34

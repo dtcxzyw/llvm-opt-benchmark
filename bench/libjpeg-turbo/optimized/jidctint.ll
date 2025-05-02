@@ -226,7 +226,7 @@ define void @jpeg_idct_islow(ptr noundef readonly captures(none) %0, ptr noundef
   %.1252 = getelementptr inbounds nuw i8, ptr %.0251263, i64 2
   %.1254 = getelementptr inbounds nuw i8, ptr %.0253262, i64 2
   %178 = add nsw i32 %.0265, -1
-  %179 = icmp ugt i32 %.0265, 1
+  %179 = icmp samesign ugt i32 %.0265, 1
   br i1 %179, label %13, label %.preheader, !llvm.loop !34
 
 180:                                              ; preds = %.preheader, %332

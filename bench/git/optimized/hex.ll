@@ -213,7 +213,7 @@ oid_set_algo.exit.i:                              ; preds = %3, %23
 
 get_oid_hex_algop.exit:                           ; preds = %hex2chr.exit.i.i
   %32 = add i32 %.017, -1
-  %33 = icmp ugt i32 %.017, 1
+  %33 = icmp samesign ugt i32 %.017, 1
   br i1 %33, label %3, label %get_oid_hex_algop.exit.thread, !llvm.loop !39
 
 get_oid_hex_algop.exit.thread:                    ; preds = %get_oid_hex_algop.exit, %29, %oid_set_algo.exit.i
@@ -463,7 +463,7 @@ oid_set_algo.exit.i.i:                            ; preds = %25
 
 get_oid_hex_algop.exit.i:                         ; preds = %hex2chr.exit.i.i.i
   %34 = add nsw i32 %.017.i, -1
-  %35 = icmp ugt i32 %.017.i, 1
+  %35 = icmp samesign ugt i32 %.017.i, 1
   br i1 %35, label %4, label %get_oid_hex_any.exit.thread, !llvm.loop !39
 
 get_oid_hex_any.exit:                             ; preds = %oid_set_algo.exit.i.i, %31

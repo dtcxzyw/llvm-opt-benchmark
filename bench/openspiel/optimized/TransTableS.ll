@@ -2397,7 +2397,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %27 = load i64, ptr %26, align 8
   %28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEx(ptr noundef nonnull align 8 dereferenceable(8) %25, i64 noundef %27)
   %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.8)
-  %30 = icmp ugt i64 %indvars.iv, 1
+  %30 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %30, label %21, label %35, !llvm.loop !41
 
 31:                                               ; preds = %.noexc, %2

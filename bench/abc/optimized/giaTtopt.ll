@@ -11411,7 +11411,7 @@ define linkonce_odr void @_ZN5Ttopt14TruthTableCare13CompleteMergeEv(ptr noundef
 
 .lr.ph:                                           ; preds = %10
   %15 = sub nsw i64 %8, %indvars.iv.next
-  %16 = icmp ugt i64 %15, 6
+  %16 = icmp samesign ugt i64 %15, 6
   %17 = trunc i64 %15 to i32
   %18 = sub i32 6, %17
   %19 = shl nuw i32 1, %18

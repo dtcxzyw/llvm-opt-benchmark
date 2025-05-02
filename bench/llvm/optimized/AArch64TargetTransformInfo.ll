@@ -3460,7 +3460,7 @@ _ZN4llvmmlERKNS_15InstructionCostES2_.exit:       ; preds = %_ZNK4llvm16BasicTTI
 98:                                               ; preds = %96
   %.02950.i.i.i.i.i.i.add1253 = add nuw nsw i64 %.02950.i.i.i.i.i.i.idx, 8
   %99 = add nsw i64 %.051.i.i.i.i.i.i, -1
-  %100 = icmp ugt i64 %.051.i.i.i.i.i.i, 1
+  %100 = icmp samesign ugt i64 %.051.i.i.i.i.i.i, 1
   br i1 %100, label %90, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !330
 
 ._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %98
@@ -4095,7 +4095,7 @@ _ZNK4llvm16BasicTTIImplBaseINS_14AArch64TTIImplEE23getTypeLegalizationCostEPNS_4
 358:                                              ; preds = %351
   %.02952.i.add1245 = add nuw nsw i64 %.02952.i.idx, 48
   %359 = add nsw i64 %.053.i, -1
-  %360 = icmp ugt i64 %.053.i, 1
+  %360 = icmp samesign ugt i64 %.053.i, 1
   br i1 %360, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !351
 
 ._crit_edge.loopexit.i:                           ; preds = %358
@@ -4306,7 +4306,7 @@ _ZN4llvmmlERKNS_15InstructionCostES2_.exit628:    ; preds = %_ZNK4llvm3MVT19getS
 465:                                              ; preds = %458
   %.02952.i851.add1238 = add nuw nsw i64 %.02952.i851.idx, 48
   %466 = add nsw i64 %.053.i850, -1
-  %467 = icmp ugt i64 %.053.i850, 1
+  %467 = icmp samesign ugt i64 %.053.i850, 1
   br i1 %467, label %.lr.ph.i849, label %.critedge385, !llvm.loop !351
 
 _ZSt9__find_ifIPKN4llvm13CostTblEntryTIjEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15CostTableLookupIjEEPKNS1_IT_EENS0_8ArrayRefISA_EEiNS0_3MVTEEUlRS3_E_EEES9_S9_S9_T0_St26random_access_iterator_tag.exit857: ; preds = %.lr.ph.i849
@@ -7473,7 +7473,7 @@ _ZNK4llvm16BasicTTIImplBaseINS_14AArch64TTIImplEE23getTypeLegalizationCostEPNS_4
 87:                                               ; preds = %85
   %.02950.i.i.i.i.i.i.add201 = add nuw nsw i64 %.02950.i.i.i.i.i.i.idx, 8
   %88 = add nsw i64 %.051.i.i.i.i.i.i, -1
-  %89 = icmp ugt i64 %.051.i.i.i.i.i.i, 1
+  %89 = icmp samesign ugt i64 %.051.i.i.i.i.i.i, 1
   br i1 %89, label %79, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !384
 
 ._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %87
@@ -25511,7 +25511,7 @@ _ZNK4llvm3MVT20getVectorNumElementsEv.exit:       ; preds = %110, %112
 154:                                              ; preds = %147
   %.02952.i.add358 = add nuw nsw i64 %.02952.i.idx, 48
   %155 = add nsw i64 %.053.i, -1
-  %156 = icmp ugt i64 %.053.i, 1
+  %156 = icmp samesign ugt i64 %.053.i, 1
   br i1 %156, label %.lr.ph.i, label %_ZN4llvm16BasicTTIImplBaseINS_14AArch64TTIImplEE26getArithmeticReductionCostEjPNS_10VectorTypeESt8optionalINS_13FastMathFlagsEENS_19TargetTransformInfo14TargetCostKindE.exit236, !llvm.loop !351
 
 _ZSt9__find_ifIPKN4llvm13CostTblEntryTIjEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15CostTableLookupIjEEPKNS1_IT_EENS0_8ArrayRefISA_EEiNS0_3MVTEEUlRS3_E_EEES9_S9_S9_T0_St26random_access_iterator_tag.exit: ; preds = %147
@@ -25580,7 +25580,7 @@ _ZSt9__find_ifIPKN4llvm13CostTblEntryTIjEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15C
 188:                                              ; preds = %181
   %.02952.i241.add351 = add nuw nsw i64 %.02952.i241.idx, 48
   %189 = add nsw i64 %.053.i240, -1
-  %190 = icmp ugt i64 %.053.i240, 1
+  %190 = icmp samesign ugt i64 %.053.i240, 1
   br i1 %190, label %.lr.ph.i239, label %._crit_edge.loopexit.i242, !llvm.loop !351
 
 ._crit_edge.loopexit.i242:                        ; preds = %188
@@ -25928,7 +25928,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit:           ; preds = %_ZNK4llvm3MVT13getS
 107:                                              ; preds = %99
   %108 = getelementptr inbounds nuw i8, ptr %.02952.i, i64 48
   %109 = add nsw i64 %.053.i, -1
-  %110 = icmp ugt i64 %.053.i, 1
+  %110 = icmp samesign ugt i64 %.053.i, 1
   br i1 %110, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !351
 
 ._crit_edge.loopexit.i:                           ; preds = %107
@@ -27132,7 +27132,7 @@ _ZNK4llvm3MVT20getVectorNumElementsEv.exit279.thread: ; preds = %343, %353, %.pr
 423:                                              ; preds = %416
   %.02952.i.add441 = add nuw nsw i64 %.02952.i.idx, 48
   %424 = add nsw i64 %.053.i, -1
-  %425 = icmp ugt i64 %.053.i, 1
+  %425 = icmp samesign ugt i64 %.053.i, 1
   br i1 %425, label %.lr.ph.i324, label %.critedge204, !llvm.loop !351
 
 _ZSt9__find_ifIPKN4llvm13CostTblEntryTIjEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15CostTableLookupIjEEPKNS1_IT_EENS0_8ArrayRefISA_EEiNS0_3MVTEEUlRS3_E_EEES9_S9_S9_T0_St26random_access_iterator_tag.exit: ; preds = %.lr.ph.i324

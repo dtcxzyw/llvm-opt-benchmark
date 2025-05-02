@@ -29383,7 +29383,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
 
 ._crit_edge.us102.i326:                           ; preds = %227
   %234 = add nuw nsw i64 %.199.us.i321, 2
-  %235 = icmp ult i64 %234, %209
+  %235 = icmp samesign ult i64 %234, %209
   br i1 %235, label %.preheader86.us.i320, label %.preheader85.i306, !llvm.loop !730
 
 .preheader85.i306:                                ; preds = %._crit_edge.us102.i326, %.preheader87.i303
@@ -30150,7 +30150,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
 
 ._crit_edge.us102.i315:                           ; preds = %220
   %227 = add nuw nsw i64 %.199.us.i310, 2
-  %228 = icmp ult i64 %227, %202
+  %228 = icmp samesign ult i64 %227, %202
   br i1 %228, label %.preheader86.us.i309, label %.preheader85.i295, !llvm.loop !730
 
 .preheader85.i295:                                ; preds = %._crit_edge.us102.i315, %.preheader87.i292
@@ -34399,7 +34399,7 @@ _ZN5Eigen15PermutationBaseINS_17PermutationMatrixILi3ELi3EiEEE11setIdentityEl.ex
   %171 = load i32, ptr %169, align 4
   store i32 %171, ptr %168, align 4
   store i32 %170, ptr %169, align 4
-  %172 = icmp ugt i64 %.057.in196, 1
+  %172 = icmp samesign ugt i64 %.057.in196, 1
   br i1 %172, label %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILi3ELi3EiEEE11setIdentityEl.exit, label %173, !llvm.loop !881
 
 173:                                              ; preds = %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILi3ELi3EiEEE11setIdentityEl.exit

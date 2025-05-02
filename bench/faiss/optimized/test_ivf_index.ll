@@ -2309,7 +2309,7 @@ _ZN7testing15AssertionResultD2Ev.exit296:         ; preds = %_ZSt4findISt23_Rb_t
 846:                                              ; preds = %842
   %.sroa.032.051.i.i.i.add484 = add nuw nsw i64 %.sroa.032.051.i.i.i.idx, 32
   %847 = add nsw i64 %.052.i.i.i, -1
-  %848 = icmp ugt i64 %.052.i.i.i, 1
+  %848 = icmp samesign ugt i64 %.052.i.i.i, 1
   br i1 %848, label %831, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEElET_S8_S8_RKT0_.exit.thread, !llvm.loop !139
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEElET_S8_S8_RKT0_.exit.thread: ; preds = %846

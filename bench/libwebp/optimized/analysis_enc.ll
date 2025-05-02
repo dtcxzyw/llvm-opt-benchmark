@@ -258,7 +258,7 @@ MergeJobs.exit:                                   ; preds = %.preheader
 
 137:                                              ; preds = %.lr.ph.i
   %indvars.iv.next162.i = add nsw i64 %indvars.iv161.i, -1
-  %138 = icmp ugt i64 %indvars.iv.next162.i, %indvars.iv.i53
+  %138 = icmp samesign ugt i64 %indvars.iv.next162.i, %indvars.iv.i53
   br i1 %138, label %.lr.ph.i, label %.critedge2.i, !llvm.loop !56
 
 .critedge2.loopexit.split.loop.exit205.i:         ; preds = %.lr.ph.i

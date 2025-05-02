@@ -2382,7 +2382,7 @@ _ZN5Eigen15PermutationBaseINS_17PermutationMatrixILi6ELi6EiEEE11setIdentityEl.ex
   %111 = load i32, ptr %109, align 4, !tbaa !161
   store i32 %111, ptr %108, align 4, !tbaa !161
   store i32 %110, ptr %109, align 4, !tbaa !161
-  %112 = icmp ugt i64 %.0.in6.i.i, 1
+  %112 = icmp samesign ugt i64 %.0.in6.i.i, 1
   br i1 %112, label %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILi6ELi6EiEEE11setIdentityEl.exit.i.i, label %_ZN5Eigen17PermutationMatrixILi6ELi6EiEaSINS_14TranspositionsILi6ELi6EiEEEERS1_RKNS_18TranspositionsBaseIT_EE.exit, !llvm.loop !163
 
 _ZN5Eigen17PermutationMatrixILi6ELi6EiEaSINS_14TranspositionsILi6ELi6EiEEEERS1_RKNS_18TranspositionsBaseIT_EE.exit: ; preds = %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILi6ELi6EiEEE11setIdentityEl.exit.i.i

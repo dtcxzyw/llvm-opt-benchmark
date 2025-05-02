@@ -1953,7 +1953,7 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
 
 391:                                              ; preds = %393
   %indvars.iv.next73.i = add nsw i64 %indvars.iv72.i, -1
-  %392 = icmp ugt i64 %indvars.iv72.i, 1
+  %392 = icmp samesign ugt i64 %indvars.iv72.i, 1
   br i1 %392, label %.lr.ph58.i, label %gauss_solve_triangular.exit
 
 393:                                              ; preds = %393, %.lr.ph58.i
@@ -2060,7 +2060,7 @@ gauss_solve_triangular.exit:                      ; preds = %391
 
 444:                                              ; preds = %446
   %indvars.iv.next73.i405 = add nsw i64 %indvars.iv72.i399, -1
-  %445 = icmp ugt i64 %indvars.iv72.i399, 1
+  %445 = icmp samesign ugt i64 %indvars.iv72.i399, 1
   br i1 %445, label %.lr.ph58.i398, label %gauss_solve_triangular.exit406
 
 446:                                              ; preds = %446, %.lr.ph58.i398
@@ -2166,7 +2166,7 @@ gauss_solve_triangular.exit406:                   ; preds = %444
 
 496:                                              ; preds = %498
   %indvars.iv.next73.i427 = add nsw i64 %indvars.iv72.i421, -1
-  %497 = icmp ugt i64 %indvars.iv72.i421, 1
+  %497 = icmp samesign ugt i64 %indvars.iv72.i421, 1
   br i1 %497, label %.lr.ph58.i420, label %gauss_solve_triangular.exit428
 
 498:                                              ; preds = %498, %.lr.ph58.i420
@@ -2830,7 +2830,7 @@ define internal fastcc range(i32 0, 2) i32 @gauss_solve(ptr noundef nonnull capt
 
 33:                                               ; preds = %35
   %indvars.iv.next73.i = add nsw i64 %indvars.iv72.i, -1
-  %34 = icmp ugt i64 %indvars.iv72.i, 1
+  %34 = icmp samesign ugt i64 %indvars.iv72.i, 1
   br i1 %34, label %26, label %gauss_solve_triangular.exit
 
 35:                                               ; preds = %35, %26

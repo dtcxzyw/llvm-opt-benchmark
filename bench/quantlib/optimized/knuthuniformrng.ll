@@ -207,7 +207,7 @@ for.body30:                                       ; preds = %for.cond28.preheade
   %add.ptr.i79 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i64, i64 %4
   store double %5, ptr %add.ptr.i79, align 8, !tbaa !18
   %indvars.iv.next199 = add nsw i64 %indvars.iv198, -1
-  %cmp29 = icmp ugt i64 %indvars.iv198, 1
+  %cmp29 = icmp samesign ugt i64 %indvars.iv198, 1
   br i1 %cmp29, label %for.body30, label %for.body45, !llvm.loop !22
 
 for.body45:                                       ; preds = %for.body30, %for.body45
@@ -223,7 +223,7 @@ for.body45:                                       ; preds = %for.body30, %for.bo
   %add.ptr.i83 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i64, i64 %6
   store double %sub53, ptr %add.ptr.i83, align 8, !tbaa !18
   %indvars.iv.next203 = add nsw i64 %indvars.iv202, -2
-  %cmp44 = icmp ugt i64 %indvars.iv202, 65
+  %cmp44 = icmp samesign ugt i64 %indvars.iv202, 65
   br i1 %cmp44, label %for.body45, label %for.body62, !llvm.loop !23
 
 for.body62:                                       ; preds = %for.body45, %for.inc103
@@ -264,7 +264,7 @@ if.then66:                                        ; preds = %for.body62
 
 for.inc103:                                       ; preds = %for.body62, %if.then66
   %indvars.iv.next207 = add nsw i64 %indvars.iv206, -1
-  %cmp61 = icmp ugt i64 %indvars.iv206, 100
+  %cmp61 = icmp samesign ugt i64 %indvars.iv206, 100
   br i1 %cmp61, label %for.body62, label %for.end105, !llvm.loop !24
 
 for.end105:                                       ; preds = %for.inc103

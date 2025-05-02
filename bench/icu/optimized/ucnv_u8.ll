@@ -1982,7 +1982,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us:       ; preds = %.lr.ph310.split.us
 
 165:                                              ; preds = %.lr.ph310.split
   %166 = load i8, ptr %.2309, align 1, !tbaa !25
-  %167 = icmp ugt i8 %.2221307, 1
+  %167 = icmp samesign ugt i8 %.2221307, 1
   br i1 %167, label %168, label %171
 
 168:                                              ; preds = %165
@@ -2052,7 +2052,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %168, %172, %180
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %205 = getelementptr inbounds [7 x i8], ptr %201, i64 0, i64 %indvars.iv
   store i8 %204, ptr %205, align 1, !tbaa !25
-  %206 = icmp ult i64 %indvars.iv.next, %196
+  %206 = icmp samesign ult i64 %indvars.iv.next, %196
   br i1 %206, label %202, label %._crit_edge331, !llvm.loop !54
 
 ._crit_edge331:                                   ; preds = %202, %.split.us

@@ -2937,7 +2937,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_129BlockInCriticalSectionChecker20
 13:                                               ; preds = %11
   %.02950.i.i.i.i.add5 = add nuw nsw i64 %.02950.i.i.i.i.idx, 544
   %14 = add nsw i64 %.051.i.i.i.i, -1
-  %15 = icmp ugt i64 %.051.i.i.i.i, 1
+  %15 = icmp samesign ugt i64 %.051.i.i.i.i, 1
   br i1 %15, label %.lr.ph.i.i.i.i, label %"_ZN4llvm7find_ifIRKSt5arrayISt7variantIJN12_GLOBAL__N_123FirstArgMutexDescriptorENS3_21MemberMutexDescriptorENS3_19RAIIMutexDescriptorEEELm8EEZNKS3_29BlockInCriticalSectionChecker20checkDescriptorMatchERKN5clang4ento9CallEventERNSD_14CheckerContextEbE3$_0EEDaOT_T0_.exit.thread", !llvm.loop !219
 
 "_ZN4llvm7find_ifIRKSt5arrayISt7variantIJN12_GLOBAL__N_123FirstArgMutexDescriptorENS3_21MemberMutexDescriptorENS3_19RAIIMutexDescriptorEEELm8EEZNKS3_29BlockInCriticalSectionChecker20checkDescriptorMatchERKN5clang4ento9CallEventERNSD_14CheckerContextEbE3$_0EEDaOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i

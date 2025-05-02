@@ -991,8 +991,8 @@ cdce.end:                                         ; preds = %106, %cdce.call
   br label %._crit_edge2132
 
 .lr.ph2131:                                       ; preds = %519
-  %.not1675 = icmp ule i32 %.015392141, %.015322142
-  %.not1660 = icmp ugt i32 %.015392141, %.015322142
+  %.not1675 = icmp samesign ule i32 %.015392141, %.015322142
+  %.not1660 = icmp samesign ugt i32 %.015392141, %.015322142
   br label %522
 
 ..loopexit1727_crit_edge:                         ; preds = %.lr.ph2121
@@ -2845,7 +2845,7 @@ cdce.end:                                         ; preds = %106, %cdce.call
   %1545 = fmul double %.sink2332, %1544
   %1546 = getelementptr inbounds double, ptr %34, i64 %1542
   store double %1545, ptr %1546, align 8, !tbaa !7
-  %1547 = icmp ult i32 %.015392141, %.015322142
+  %1547 = icmp samesign ult i32 %.015392141, %.015322142
   %1548 = fcmp ugt double %.11517.lcssa, %122
   %.not1637 = icmp sgt i32 %.01469.lcssa, %1541
   %or.cond2337 = select i1 %1548, i1 %.not1637, i1 false

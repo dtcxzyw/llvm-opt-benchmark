@@ -73,7 +73,7 @@ define internal i32 @ps_unicode_value(ptr noundef readonly captures(address) %0)
   %25 = or disjoint i32 %.067, %24
   %26 = add nsw i32 %.068120, -1
   %27 = getelementptr inbounds nuw i8, ptr %.069119, i64 1
-  %28 = icmp ugt i32 %.068120, 1
+  %28 = icmp samesign ugt i32 %.068120, 1
   br i1 %28, label %14, label %29, !llvm.loop !6
 
 29:                                               ; preds = %23
@@ -112,7 +112,7 @@ define internal i32 @ps_unicode_value(ptr noundef readonly captures(address) %0)
   %44 = or disjoint i32 %.056, %43
   %45 = add nsw i32 %.062122, -1
   %.058 = getelementptr inbounds nuw i8, ptr %.058124, i64 1
-  %46 = icmp ugt i32 %.062122, 1
+  %46 = icmp samesign ugt i32 %.062122, 1
   br i1 %46, label %33, label %.thread93, !llvm.loop !8
 
 47:                                               ; preds = %33

@@ -315,7 +315,7 @@ _ZSt13find_first_ofIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIc
 88:                                               ; preds = %86
   %.02999.us.i.i.i.i.i.i.add159 = add nuw nsw i64 %.02999.us.i.i.i.i.i.i.idx, 64
   %89 = add nsw i64 %.0100.us.i.i.i.i.i.i, -1
-  %90 = icmp ugt i64 %.0100.us.i.i.i.i.i.i, 1
+  %90 = icmp samesign ugt i64 %.0100.us.i.i.i.i.i.i, 1
   br i1 %90, label %.lr.ph.split.us.i.i.i.i.i.i, label %.thread, !llvm.loop !24
 
 .lr.ph.split.split.split.i.i.i.i.i.i:             ; preds = %78, %106
@@ -375,7 +375,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i62.i.i.i.i.i.i: ; preds = %102
 106:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i62.i.i.i.i.i.i, %102
   %.02999.i.i.i.i.i.i.add160 = add nuw nsw i64 %.02999.i.i.i.i.i.i.idx, 64
   %107 = add nsw i64 %.0100.i.i.i.i.i.i, -1
-  %108 = icmp ugt i64 %.0100.i.i.i.i.i.i, 1
+  %108 = icmp samesign ugt i64 %.0100.i.i.i.i.i.i, 1
   br i1 %108, label %.lr.ph.split.split.split.i.i.i.i.i.i, label %.thread, !llvm.loop !24
 
 .loopexit:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.split.us.i.i.i.i.i.i

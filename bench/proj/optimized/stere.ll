@@ -493,7 +493,7 @@ define internal { double, double } @_ZL15stere_e_inverse5PJ_XYP8PJconsts(double 
 
 57:                                               ; preds = %60
   %58 = add nsw i32 %.05264, -1
-  %59 = icmp ult i32 %.05264, 2
+  %59 = icmp samesign ult i32 %.05264, 2
   br i1 %59, label %80, label %60, !llvm.loop !59
 
 60:                                               ; preds = %54, %57

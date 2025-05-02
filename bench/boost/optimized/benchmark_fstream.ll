@@ -812,7 +812,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit39: ; preds = %12
   %128 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i8 noundef signext %.0.i.i.i38)
   %129 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %128)
   %130 = shl nuw nsw i32 %storemerge54, 1
-  %131 = icmp ult i32 %storemerge54, 4097
+  %131 = icmp samesign ult i32 %storemerge54, 4097
   br i1 %131, label %34, label %33, !llvm.loop !54
 }
 
@@ -1785,7 +1785,7 @@ _ZNKSt3mapImdSt4lessImESaISt4pairIKmdEEE4findERS3_.exit.thread.i42: ; preds = %_
   store double %198, ptr %196, align 8, !tbaa !72
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #27
   %199 = shl nuw nsw i32 %storemerge64, 1
-  %200 = icmp ult i32 %storemerge64, 4097
+  %200 = icmp samesign ult i32 %storemerge64, 4097
   br i1 %200, label %.preheader, label %115, !llvm.loop !73
 
 201:                                              ; preds = %153
@@ -2351,7 +2351,7 @@ _ZNKSt3mapImdSt4lessImESaISt4pairIKmdEEE4findERS3_.exit.thread.i42: ; preds = %_
   store double %198, ptr %196, align 8, !tbaa !72
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #27
   %199 = shl nuw nsw i32 %storemerge64, 1
-  %200 = icmp ult i32 %storemerge64, 4097
+  %200 = icmp samesign ult i32 %storemerge64, 4097
   br i1 %200, label %.preheader, label %115, !llvm.loop !77
 
 201:                                              ; preds = %153
@@ -2917,7 +2917,7 @@ _ZNKSt3mapImdSt4lessImESaISt4pairIKmdEEE4findERS3_.exit.thread.i42: ; preds = %_
   store double %198, ptr %196, align 8, !tbaa !72
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #27
   %199 = shl nuw nsw i32 %storemerge64, 1
-  %200 = icmp ult i32 %storemerge64, 4097
+  %200 = icmp samesign ult i32 %storemerge64, 4097
   br i1 %200, label %.preheader, label %115, !llvm.loop !80
 
 201:                                              ; preds = %153

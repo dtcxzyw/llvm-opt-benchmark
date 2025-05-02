@@ -195,14 +195,14 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.03372.us = phi i32 [ %59, %.split.us ], [ 10, %57 ]
   tail call fastcc void @readx509(ptr noundef %44, i32 noundef %58)
   %59 = add nsw i32 %.03372.us, -1
-  %60 = icmp ugt i32 %.03372.us, 1
+  %60 = icmp samesign ugt i32 %.03372.us, 1
   br i1 %60, label %.split.us, label %.split74.us, !llvm.loop !18
 
 .split.us75:                                      ; preds = %57, %.split.us75
   %.03372.us76 = phi i32 [ %61, %.split.us75 ], [ 10, %57 ]
   tail call fastcc void @readpkey(ptr noundef %44, i32 noundef %58)
   %61 = add nsw i32 %.03372.us76, -1
-  %62 = icmp ugt i32 %.03372.us76, 1
+  %62 = icmp samesign ugt i32 %.03372.us76, 1
   br i1 %62, label %.split.us75, label %.split74.us, !llvm.loop !18
 
 .split74.us:                                      ; preds = %.split.us75, %.split.us, %57

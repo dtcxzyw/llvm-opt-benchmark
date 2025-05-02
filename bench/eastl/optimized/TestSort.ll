@@ -7146,7 +7146,7 @@ _ZN5eastl8Internal14tim_sort_mergeIPZ8TestSortvE17StableSortTestObjS2_Z8TestSort
   %add24.i5144 = add nsw i64 %542, %541
   store i64 %add24.i5144, ptr %length.i5903, align 8
   %dec.i5145 = add nsw i64 %stack_curr.i.4, -1
-  %cmp16.i5146 = icmp ugt i64 %stack_curr.i.4, 2
+  %cmp16.i5146 = icmp samesign ugt i64 %stack_curr.i.4, 2
   br i1 %cmp16.i5146, label %while.body.i5141, label %for.cond.i2232.preheader, !llvm.loop !87
 
 for.cond.i2214:                                   ; preds = %for.cond.i2214.backedge, %for.cond.i2214.outer

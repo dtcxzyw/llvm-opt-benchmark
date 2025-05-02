@@ -35356,7 +35356,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSERKh.exit.i.i.i31: ; preds = %_Z
   %125 = phi ptr [ %103, %100 ], [ %122, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i38 ]
   %126 = getelementptr inbounds nuw i8, ptr %.056.i.i.i29, i64 1
   %127 = add nsw i64 %.07.i.i.i28, -1
-  %128 = icmp ugt i64 %.07.i.i.i28, 1
+  %128 = icmp samesign ugt i64 %.07.i.i.i28, 1
   br i1 %128, label %97, label %_ZSt14__copy_move_a1ILb0EPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET1_T0_S7_S6_.exit39, !llvm.loop !841
 
 _ZSt14__copy_move_a1ILb0EPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET1_T0_S7_S6_.exit39: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSERKh.exit.i.i.i31

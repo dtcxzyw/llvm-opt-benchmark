@@ -1030,7 +1030,7 @@ _ZN5Eigen14JacobiRotationIfE10makeGivensERKfS3_Pf.exit.i: ; preds = %94, %85, %7
   br label %135
 
 135:                                              ; preds = %129, %_ZN5Eigen14JacobiRotationIfE10makeGivensERKfS3_Pf.exit.i
-  %136 = icmp ult i64 %.073112.i, %27
+  %136 = icmp samesign ult i64 %.073112.i, %27
   br i1 %136, label %137, label %143
 
 137:                                              ; preds = %135
@@ -6597,7 +6597,7 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_lhsIflNS0_22const_blas_d
   %99 = getelementptr i8, ptr %95, i64 12
   store float %94, ptr %99, align 4, !tbaa !6
   %100 = add nuw nsw i64 %.0131146.us.us, 4
-  %101 = icmp ult i64 %100, %33
+  %101 = icmp samesign ult i64 %100, %33
   br i1 %101, label %78, label %._crit_edge.us.us, !llvm.loop !441
 
 ._crit_edge.us.us:                                ; preds = %78
@@ -6609,7 +6609,7 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_lhsIflNS0_22const_blas_d
   %.1124.lcssa = phi i64 [ %.0123191, %27 ], [ %34, %._crit_edge151.us ]
   %.1.lcssa = phi i64 [ %.0122192, %27 ], [ %.4.lcssa.us, %._crit_edge151.us ]
   %indvars.iv.next222 = add nsw i64 %indvars.iv221, -4
-  %103 = icmp ugt i64 %indvars.iv221, 4
+  %103 = icmp samesign ugt i64 %indvars.iv221, 4
   br i1 %103, label %27, label %.preheader137
 
 ._crit_edge199:                                   ; preds = %._crit_edge196.us, %.preheader.lr.ph, %.preheader137

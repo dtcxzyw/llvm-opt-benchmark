@@ -1331,7 +1331,7 @@ _ZL17_findUnusedBlocksP8UNewTrie.exit:            ; preds = %.lr.ph.i, %7
   %50 = getelementptr inbounds nuw i8, ptr %.078.i.i, i64 4
   %51 = getelementptr inbounds nuw i8, ptr %.069.i.i, i64 4
   %52 = add nsw i32 %.010.i.i, -1
-  %53 = icmp ugt i32 %.010.i.i, 1
+  %53 = icmp samesign ugt i32 %.010.i.i, 1
   br i1 %53, label %45, label %_ZL18_findSameDataBlockPKjiii.exit, !llvm.loop !45
 
 54:                                               ; preds = %45
@@ -1382,7 +1382,7 @@ _ZL18_findSameDataBlockPKjiii.exit.thread:        ; preds = %39, %54
 
 74:                                               ; preds = %65
   %indvars.iv.next = add nsw i64 %indvars.iv, -4
-  %75 = icmp ugt i64 %indvars.iv, 4
+  %75 = icmp samesign ugt i64 %indvars.iv, 4
   %indvars.iv.next65 = add i32 %indvars.iv64, -4
   br i1 %75, label %61, label %.critedge.thread, !llvm.loop !47
 
@@ -1434,7 +1434,7 @@ _ZL18_findSameDataBlockPKjiii.exit.thread:        ; preds = %39, %54
   %95 = getelementptr inbounds i32, ptr %89, i64 %indvars.iv73
   store i32 %94, ptr %95, align 4, !tbaa !12
   %96 = add nsw i32 %.38533, -1
-  %97 = icmp ugt i32 %.38533, 1
+  %97 = icmp samesign ugt i32 %.38533, 1
   br i1 %97, label %92, label %.outer.loopexit, !llvm.loop !49
 
 98:                                               ; preds = %.critedge.thread

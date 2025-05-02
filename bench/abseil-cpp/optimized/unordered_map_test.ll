@@ -45402,7 +45402,7 @@ _ZNSt20back_insert_iteratorISt6vectorISt4pairIKiiESaIS3_EEEaSEOS3_.exit.i: ; pre
   %.sroa.0148.2 = phi ptr [ %49, %_ZNSt6vectorISt4pairIKiiESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i ], [ %.sroa.0148.1, %36 ]
   %.sroa.10153.1 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i.pn, i64 8
   %56 = add nsw i32 %.05.i, -1
-  %57 = icmp ugt i32 %.05.i, 1
+  %57 = icmp samesign ugt i32 %.05.i, 1
   br i1 %57, label %34, label %_ZSt10generate_nISt20back_insert_iteratorISt6vectorISt4pairIKiiESaIS4_EEEiN4absl18container_internal13hash_internal15UniqueGeneratorIS4_Lm64EvEEET_SD_T0_T1_.exit, !llvm.loop !802
 
 _ZSt10generate_nISt20back_insert_iteratorISt6vectorISt4pairIKiiESaIS4_EEEiN4absl18container_internal13hash_internal15UniqueGeneratorIS4_Lm64EvEEET_SD_T0_T1_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorISt4pairIKiiESaIS3_EEEaSEOS3_.exit.i
@@ -50480,7 +50480,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #28
   %56 = add nsw i32 %.04.i, -1
-  %57 = icmp ugt i32 %.04.i, 1
+  %57 = icmp samesign ugt i32 %.04.i, 1
   br i1 %57, label %42, label %_ZSt10generate_nISt20back_insert_iteratorISt6vectorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaISA_EEEiN4absl18container_internal13hash_internal15UniqueGeneratorISA_Lm64EvEEET_SJ_T0_T1_.exit, !llvm.loop !987
 
 58:                                               ; preds = %.noexc

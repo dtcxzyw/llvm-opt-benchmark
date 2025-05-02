@@ -203,7 +203,7 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit40:          ; preds = %.lr.ph.i.i.i.i.i.i.
 22:                                               ; preds = %20
   %.sroa.025.050.i.i.i.i.add110 = add nuw nsw i64 %.sroa.025.050.i.i.i.i.idx, 32
   %23 = add nsw i64 %.051.i.i.i.i, -1
-  %24 = icmp ugt i64 %.051.i.i.i.i, 1
+  %24 = icmp samesign ugt i64 %.051.i.i.i.i, 1
   br i1 %24, label %.lr.ph.i.i.i.i, label %.thread, !llvm.loop !21
 
 .thread:                                          ; preds = %22
@@ -549,7 +549,7 @@ _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEiEvT_S7_T0_.exit: 
 23:                                               ; preds = %21
   %.sroa.025.050.i.i.i.i.add113 = add nuw nsw i64 %.sroa.025.050.i.i.i.i.idx, 32
   %24 = add nsw i64 %.051.i.i.i.i, -1
-  %25 = icmp ugt i64 %.051.i.i.i.i, 1
+  %25 = icmp samesign ugt i64 %.051.i.i.i.i, 1
   br i1 %25, label %.lr.ph.i.i.i.i, label %.thread, !llvm.loop !45
 
 .thread:                                          ; preds = %23

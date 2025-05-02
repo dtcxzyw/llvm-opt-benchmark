@@ -1234,7 +1234,7 @@ replace_cstring.exit79.i:                         ; preds = %130, %127
   %.048129.i31 = phi i32 [ %138, %137 ], [ 9, %replace_cstring.exit79.i ]
   %.0130.i30 = phi ptr [ %139, %137 ], [ %128, %replace_cstring.exit79.i ]
   %141 = getelementptr inbounds nuw i8, ptr %.0130.i30, i64 1
-  %142 = icmp ugt i32 %.048129.i31, 1
+  %142 = icmp samesign ugt i32 %.048129.i31, 1
   br i1 %142, label %137, label %143, !llvm.loop !67
 
 143:                                              ; preds = %.lr.ph

@@ -60121,7 +60121,7 @@ _ZNSt20back_insert_iteratorISt6vectorIiSaIiEEEaSERKi.exit.i.i.i.i.i.i.i.i: ; pre
   %44 = phi ptr [ %21, %19 ], [ %39, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i ]
   %45 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i.i.i.i, i64 4
   %46 = add nsw i64 %.07.i.i.i.i.i.i.i.i, -1
-  %47 = icmp ugt i64 %.07.i.i.i.i.i.i.i.i, 1
+  %47 = icmp samesign ugt i64 %.07.i.i.i.i.i.i.i.i, 1
   br i1 %47, label %15, label %_ZN4absl8c_copy_nISt6vectorIiSaIiEEiSt20back_insert_iteratorIS3_EEET1_RKT_T0_S6_.exit, !llvm.loop !1035
 
 _ZN4absl8c_copy_nISt6vectorIiSaIiEEiSt20back_insert_iteratorIS3_EEET1_RKT_T0_S6_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIiSaIiEEEaSERKi.exit.i.i.i.i.i.i.i.i
@@ -68853,7 +68853,7 @@ _ZNKSt14default_deleteIiEclEPi.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
 
 _ZNSt10unique_ptrIiSt14default_deleteIiEEaSEOS2_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIiEclEPi.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   %73 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %74 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %74 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %74, label %.lr.ph.i.i.i.i.i.i, label %75, !llvm.loop !1467
 
 75:                                               ; preds = %_ZNSt10unique_ptrIiSt14default_deleteIiEEaSEOS2_.exit.i.i.i.i.i.i

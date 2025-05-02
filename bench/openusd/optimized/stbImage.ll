@@ -61942,7 +61942,7 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit: ; preds = %221, %1
 
 231:                                              ; preds = %226
   %232 = add nsw i32 %.0126260, -1
-  %233 = icmp ugt i32 %.0126260, 1
+  %233 = icmp samesign ugt i32 %.0126260, 1
   br i1 %233, label %226, label %238, !llvm.loop !1181
 
 .preheader233:                                    ; preds = %226

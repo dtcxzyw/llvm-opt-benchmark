@@ -34,7 +34,7 @@ define range(i32 0, 3) i32 @is_tar(ptr noundef readonly captures(none) %0, i32 n
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %.013.i, i64 1
   %17 = add nsw i32 %.014.i, -1
-  %18 = icmp ult i32 %.014.i, 2
+  %18 = icmp samesign ult i32 %.014.i, 2
   br i1 %18, label %from_oct.exit, label %8
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %21
@@ -82,7 +82,7 @@ from_oct.exit:                                    ; preds = %15, %21, %.preheade
   %36 = load i8, ptr %.029, align 1, !tbaa !8
   %37 = zext i8 %36 to i32
   %38 = add nuw nsw i32 %.01628, %37
-  %39 = icmp ugt i32 %.01727, 1
+  %39 = icmp samesign ugt i32 %.01727, 1
   br i1 %39, label %33, label %.preheader
 
 .preheader:                                       ; preds = %33, %.preheader
@@ -93,7 +93,7 @@ from_oct.exit:                                    ; preds = %15, %21, %.preheade
   %41 = load i8, ptr %40, align 1, !tbaa !8
   %42 = zext i8 %41 to i32
   %43 = sub nsw i32 %.131, %42
-  %44 = icmp ugt i64 %indvars.iv, 1
+  %44 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %44, label %.preheader, label %45
 
 45:                                               ; preds = %.preheader

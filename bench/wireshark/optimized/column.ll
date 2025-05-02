@@ -428,7 +428,7 @@ col_format_to_string.exit.i.preheader:            ; preds = %10, %6, %2
   store i8 0, ptr %20, align 1
   %22 = tail call ptr @strrchr(ptr noundef %16, i32 noundef 58) #12
   %23 = add nsw i32 %.03970, -1
-  %24 = icmp ugt i32 %.03970, 1
+  %24 = icmp samesign ugt i32 %.03970, 1
   %25 = icmp ne ptr %22, null
   %26 = select i1 %24, i1 %25, i1 false
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !6

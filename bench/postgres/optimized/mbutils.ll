@@ -2071,7 +2071,7 @@ define internal noundef zeroext i1 @pg_eucjp_increment(ptr noundef captures(none
 
 16:                                               ; preds = %25
   %17 = add nsw i32 %.051, -1
-  %18 = icmp ugt i32 %.051, 1
+  %18 = icmp samesign ugt i32 %.051, 1
   br i1 %18, label %.preheader42, label %.loopexit, !llvm.loop !13
 
 .preheader42:                                     ; preds = %15, %16

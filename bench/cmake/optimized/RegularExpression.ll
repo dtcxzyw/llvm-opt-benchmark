@@ -3100,7 +3100,7 @@ define dso_local noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_2
   %45 = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
   store ptr null, ptr %.019.i, align 8, !tbaa !18
   %46 = add nsw i32 %.01517.i, -1
-  %47 = icmp ugt i32 %.01517.i, 1
+  %47 = icmp samesign ugt i32 %.01517.i, 1
   br i1 %47, label %43, label %48, !llvm.loop !52
 
 48:                                               ; preds = %43
@@ -3148,7 +3148,7 @@ define dso_local noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_2
   %65 = getelementptr inbounds nuw i8, ptr %.019.i45, i64 8
   store ptr null, ptr %.019.i45, align 8, !tbaa !18
   %66 = add nsw i32 %.01517.i47, -1
-  %67 = icmp ugt i32 %.01517.i47, 1
+  %67 = icmp samesign ugt i32 %.01517.i47, 1
   br i1 %67, label %63, label %68, !llvm.loop !52
 
 68:                                               ; preds = %63
@@ -3182,7 +3182,7 @@ define dso_local noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_2
   %80 = getelementptr inbounds nuw i8, ptr %.019.i51, i64 8
   store ptr null, ptr %.019.i51, align 8, !tbaa !18
   %81 = add nsw i32 %.01517.i53, -1
-  %82 = icmp ugt i32 %.01517.i53, 1
+  %82 = icmp samesign ugt i32 %.01517.i53, 1
   br i1 %82, label %78, label %83, !llvm.loop !52
 
 83:                                               ; preds = %78
@@ -3238,7 +3238,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN5cmsys10RegExpFind6regtryEPKcPS
   %10 = getelementptr inbounds nuw i8, ptr %.019, i64 8
   store ptr null, ptr %.019, align 8, !tbaa !18
   %11 = add nsw i32 %.01517, -1
-  %12 = icmp ugt i32 %.01517, 1
+  %12 = icmp samesign ugt i32 %.01517, 1
   br i1 %12, label %8, label %13, !llvm.loop !52
 
 13:                                               ; preds = %8

@@ -152,7 +152,7 @@ gv_alloc.exit.preheader.i:                        ; preds = %6
   %128 = fmul double %102, %127
   %129 = fcmp ole double %128, 1.000000e-05
   %130 = add nuw nsw i32 %.089105.i, 1
-  %131 = icmp ult i32 %130, %.088107.i
+  %131 = icmp samesign ult i32 %130, %.088107.i
   %132 = select i1 %129, i1 %131, i1 false
   br i1 %132, label %.lr.ph.i, label %gv_alloc.exit.i, !llvm.loop !10
 

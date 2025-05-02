@@ -2602,7 +2602,7 @@ define internal i32 @SSE8x8_SSE2(ptr noalias noundef readonly captures(none) %0,
   %33 = add <4 x i32> %32, %31
   %34 = getelementptr inbounds nuw i8, ptr %.030, i64 64
   %35 = getelementptr inbounds nuw i8, ptr %.02429, i64 64
-  %36 = icmp ugt i32 %.02528, 1
+  %36 = icmp samesign ugt i32 %.02528, 1
   br i1 %36, label %3, label %37, !llvm.loop !407
 
 37:                                               ; preds = %3

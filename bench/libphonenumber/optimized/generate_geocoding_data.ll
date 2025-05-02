@@ -1073,7 +1073,7 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 4
   %49 = add nsw i64 %.052.i.i.i, -1
-  %50 = icmp ugt i64 %.052.i.i.i, 1
+  %50 = icmp samesign ugt i64 %.052.i.i.i, 1
   br i1 %50, label %.lr.ph.i.i.i.backedge, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.thread
 
 .lr.ph.i.i.i.backedge:                            ; preds = %47, %.backedge

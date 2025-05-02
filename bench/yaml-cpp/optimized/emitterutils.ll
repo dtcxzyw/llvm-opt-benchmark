@@ -1062,7 +1062,7 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.t
   %28 = and i8 %24, 63
   %29 = zext nneg i8 %28 to i32
   %30 = or disjoint i32 %27, %29
-  %31 = icmp ugt i32 %.057.in.i, 2
+  %31 = icmp samesign ugt i32 %.057.in.i, 2
   br i1 %31, label %21, label %32, !llvm.loop !18
 
 32:                                               ; preds = %26
@@ -1303,7 +1303,7 @@ define noundef zeroext i1 @_ZN4YAML5Utils23WriteDoubleQuotedStringERNS_15ostream
   %32 = and i8 %28, 63
   %33 = zext nneg i8 %32 to i32
   %34 = or disjoint i32 %31, %33
-  %35 = icmp ugt i32 %.057.in.i, 2
+  %35 = icmp samesign ugt i32 %.057.in.i, 2
   br i1 %35, label %25, label %36, !llvm.loop !18
 
 36:                                               ; preds = %30
@@ -1582,7 +1582,7 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.t
   %32 = and i8 %28, 63
   %33 = zext nneg i8 %32 to i32
   %34 = or disjoint i32 %31, %33
-  %35 = icmp ugt i32 %.057.in.i, 2
+  %35 = icmp samesign ugt i32 %.057.in.i, 2
   br i1 %35, label %25, label %36, !llvm.loop !18
 
 36:                                               ; preds = %30
@@ -1810,7 +1810,7 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.t
   %36 = and i8 %32, 63
   %37 = zext nneg i8 %36 to i32
   %38 = or disjoint i32 %35, %37
-  %39 = icmp ugt i32 %.057.in.i, 2
+  %39 = icmp samesign ugt i32 %.057.in.i, 2
   br i1 %39, label %29, label %40, !llvm.loop !18
 
 40:                                               ; preds = %34
@@ -1959,7 +1959,7 @@ define internal fastcc noundef zeroext i1 @_ZN4YAML5Utils12_GLOBAL__N_114WriteAl
   %28 = and i8 %24, 63
   %29 = zext nneg i8 %28 to i32
   %30 = or disjoint i32 %27, %29
-  %31 = icmp ugt i32 %.057.in.i, 2
+  %31 = icmp samesign ugt i32 %.057.in.i, 2
   br i1 %31, label %21, label %32, !llvm.loop !18
 
 32:                                               ; preds = %26

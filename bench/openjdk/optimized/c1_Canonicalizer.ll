@@ -1201,7 +1201,7 @@ _ZN7ciField4typeEv.exit:                          ; preds = %9, %15
   %34 = getelementptr inbounds nuw i8, ptr %.067.i, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = add nsw i32 %.08.i, -1
-  %37 = icmp ugt i32 %.08.i, 1
+  %37 = icmp samesign ugt i32 %.08.i, 1
   %38 = icmp ne ptr %35, null
   %or.cond.i = and i1 %37, %38
   br i1 %or.cond.i, label %.preheader, label %_ZL16in_current_blockP11Instruction.exit, !llvm.loop !6
@@ -1809,7 +1809,7 @@ define hidden void @_ZN13Canonicalizer15do_StoreIndexedEP12StoreIndexed(ptr noun
   %26 = getelementptr inbounds nuw i8, ptr %.067.i, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = add nsw i32 %.08.i, -1
-  %29 = icmp ugt i32 %.08.i, 1
+  %29 = icmp samesign ugt i32 %.08.i, 1
   %30 = icmp ne ptr %27, null
   %or.cond.i = and i1 %29, %30
   br i1 %or.cond.i, label %.preheader, label %_ZL16in_current_blockP11Instruction.exit, !llvm.loop !6

@@ -192,7 +192,7 @@ define void @jpeg_idct_float(ptr noundef readonly captures(none) %0, ptr noundef
   %.1199 = getelementptr inbounds nuw i8, ptr %.0198203, i64 4
   %.1201 = getelementptr inbounds nuw i8, ptr %.0200202, i64 2
   %144 = add nsw i32 %.0205, -1
-  %145 = icmp ugt i32 %.0205, 1
+  %145 = icmp samesign ugt i32 %.0205, 1
   br i1 %145, label %12, label %.preheader, !llvm.loop !35
 
 146:                                              ; preds = %.preheader, %146

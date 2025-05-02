@@ -370,7 +370,7 @@ define noundef i32 @SizeASN_Items(ptr noundef readonly captures(none) %0, ptr no
   %.014.in.i98 = phi i32 [ 16, %22 ], [ %.014.i100, %28 ]
   %.0.i99 = phi i32 [ 4, %22 ], [ %31, %28 ]
   %.014.i100 = add nsw i32 %.014.in.i98, -8
-  %29 = icmp ugt i32 %.014.in.i98, 8
+  %29 = icmp samesign ugt i32 %.014.in.i98, 8
   %30 = lshr i32 %25, %.014.i100
   %.not.i101 = icmp eq i32 %30, 0
   %or.cond.i102 = select i1 %29, i1 %.not.i101, i1 false

@@ -990,7 +990,7 @@ _ZN10pcg_extras12bounded_randIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1E
   %419 = load i8, ptr %416, align 1, !tbaa !18
   store i8 %419, ptr %417, align 1, !tbaa !18
   store i8 %418, ptr %416, align 1, !tbaa !18
-  %420 = icmp ugt i64 %.0911.i, 2
+  %420 = icmp samesign ugt i64 %.0911.i, 2
   br i1 %420, label %_ZSt4iotaIPciEvT_S1_T0_.exit113, label %_ZN10pcg_extras7shuffleIPcRN10pcg_detail6engineIjmNS2_12xsh_rr_mixinIjmEELb1ENS2_15specific_streamImEENS2_18default_multiplierImEEEEEEvT_SC_OT0_.exit, !llvm.loop !68
 
 _ZN10pcg_extras7shuffleIPcRN10pcg_detail6engineIjmNS2_12xsh_rr_mixinIjmEELb1ENS2_15specific_streamImEENS2_18default_multiplierImEEEEEEvT_SC_OT0_.exit: ; preds = %_ZN10pcg_extras12bounded_randIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEEENT_11result_typeERSA_SB_.exit.i

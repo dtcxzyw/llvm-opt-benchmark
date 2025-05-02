@@ -3453,7 +3453,7 @@ enc_uint64.exit251:                               ; preds = %137, %134
 
 171:                                              ; preds = %167
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %172 = icmp ugt i64 %indvars.iv, 1
+  %172 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %172, label %167, label %.split.loop.exit478, !llvm.loop !169
 
 .split.loop.exit:                                 ; preds = %167

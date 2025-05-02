@@ -36776,7 +36776,7 @@ sdefl_fnd.exit155:                                ; preds = %.thread.us.i139, %1
 
 223:                                              ; preds = %220
   %224 = add nsw i32 %.sroa.5.0.i, -1
-  %225 = icmp ugt i32 %.sroa.5.0.i, 258
+  %225 = icmp samesign ugt i32 %.sroa.5.0.i, 258
   br i1 %225, label %220, label %226
 
 226:                                              ; preds = %223, %220
@@ -36793,7 +36793,7 @@ sdefl_fnd.exit155:                                ; preds = %.thread.us.i139, %1
 
 230:                                              ; preds = %227
   %231 = add nsw i32 %.sroa.8.0.i, -1
-  %232 = icmp ugt i32 %.sroa.8.0.i, 2
+  %232 = icmp samesign ugt i32 %.sroa.8.0.i, 2
   br i1 %232, label %227, label %233
 
 233:                                              ; preds = %230, %227
@@ -36954,7 +36954,7 @@ sdefl_precode.exit.i:                             ; preds = %._crit_edge111.i.i
 
 305:                                              ; preds = %307, %sdefl_precode.exit.i
   %indvars.iv.i159 = phi i64 [ %indvars.iv.next.i164, %307 ], [ 19, %sdefl_precode.exit.i ]
-  %306 = icmp ugt i64 %indvars.iv.i159, 4
+  %306 = icmp samesign ugt i64 %indvars.iv.i159, 4
   br i1 %306, label %307, label %.split.loop.exit292.i
 
 307:                                              ; preds = %305

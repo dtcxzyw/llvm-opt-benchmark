@@ -634,7 +634,7 @@ define hidden noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef
   br i1 %or.cond51, label %.outer.backedge, label %53
 
 53:                                               ; preds = %50
-  %54 = icmp ult i32 %.1, %.038.ph
+  %54 = icmp samesign ult i32 %.1, %.038.ph
   %55 = icmp eq i8 %51, 0
   %or.cond137 = and i1 %54, %55
   br i1 %or.cond137, label %.outer.backedge, label %56

@@ -34281,7 +34281,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
 53:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit, %30
   %.1 = phi i8 [ %.01426, %30 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %54 = icmp ugt i64 %indvars.iv, 4
+  %54 = icmp samesign ugt i64 %indvars.iv, 4
   br i1 %54, label %30, label %8, !llvm.loop !335
 
 55:                                               ; preds = %27, %15

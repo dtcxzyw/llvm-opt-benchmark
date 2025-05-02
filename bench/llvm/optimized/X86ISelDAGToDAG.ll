@@ -1446,7 +1446,7 @@ _ZL12isEndbrImm64m.exit.thread1313:               ; preds = %.backedge.i, %204
 223:                                              ; preds = %219
   %224 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 4
   %225 = add nsw i64 %.047.i.i.i.i.i, -1
-  %226 = icmp ugt i64 %.047.i.i.i.i.i, 1
+  %226 = icmp samesign ugt i64 %.047.i.i.i.i.i, 1
   br i1 %226, label %.preheader.i, label %._crit_edge._crit_edge.i.i.i.i.i, !llvm.loop !590
 
 ._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %223

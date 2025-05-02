@@ -51,7 +51,7 @@ define dso_local noundef i32 @main() local_unnamed_addr #0 personality ptr @__gx
 
 14:                                               ; preds = %._crit_edge
   %15 = add nsw i32 %.048127, -1
-  %16 = icmp ugt i32 %.048127, 1
+  %16 = icmp samesign ugt i32 %.048127, 1
   br i1 %16, label %.preheader, label %12, !llvm.loop !4
 
 17:                                               ; preds = %.preheader, %._crit_edge

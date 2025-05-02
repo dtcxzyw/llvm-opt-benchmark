@@ -124,7 +124,7 @@ define hidden noundef double @_Z7pj_mlfndddPKd(double noundef %0, double noundef
   %13 = getelementptr double, ptr %3, i64 %indvars.iv.i
   %14 = load double, ptr %13, align 8, !tbaa !3
   %15 = fadd double %12, %14
-  %16 = icmp ugt i64 %indvars.iv.i, 1
+  %16 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %16, label %10, label %_ZL8clenshawddPKdi.exit, !llvm.loop !10
 
 _ZL8clenshawddPKdi.exit:                          ; preds = %10
@@ -159,7 +159,7 @@ define hidden noundef double @_Z11pj_inv_mlfndPKd(double noundef %0, ptr noundef
   %15 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.next.i
   %16 = load double, ptr %15, align 8, !tbaa !3
   %17 = fadd double %14, %16
-  %18 = icmp ugt i64 %indvars.iv.i, 1
+  %18 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %18, label %12, label %_ZL8clenshawddPKdi.exit, !llvm.loop !10
 
 _ZL8clenshawddPKdi.exit:                          ; preds = %12

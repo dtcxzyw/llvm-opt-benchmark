@@ -5134,7 +5134,7 @@ get_nfc.exit.thread:                              ; preds = %376, %get_nfc.exit
 
 494:                                              ; preds = %.lr.ph1787, %477
   %495 = phi i32 [ %493, %477 ], [ 0, %.lr.ph1787 ]
-  %496 = icmp uge i32 %.065111101785, %495
+  %496 = icmp samesign uge i32 %.065111101785, %495
   %497 = icmp ne i32 %.065111101785, 228
   %or.cond13 = and i1 %497, %496
   %498 = icmp ne i32 %495, 228

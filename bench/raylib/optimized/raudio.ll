@@ -70164,7 +70164,7 @@ setup_temp_free.exit1195:                         ; preds = %645, %652, %479
 847:                                              ; preds = %843, %838
   %.11203 = phi i8 [ %.01202, %838 ], [ %spec.select1241, %843 ]
   %.126.i = phi i32 [ %.02530.i, %838 ], [ %spec.select1242, %843 ]
-  %848 = icmp ugt i32 %.02431.i, %841
+  %848 = icmp samesign ugt i32 %.02431.i, %841
   br i1 %848, label %849, label %853
 
 849:                                              ; preds = %847

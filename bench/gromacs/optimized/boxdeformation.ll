@@ -779,7 +779,7 @@ define void @_ZN3gmx14BoxDeformation5applyEPNS_13MultiDimArrayISt5arrayIfLm9EENS
   ret void
 
 .loopexit:                                        ; preds = %76, %.preheader
-  %40 = icmp ugt i64 %indvars.iv106, 1
+  %40 = icmp samesign ugt i64 %indvars.iv106, 1
   br i1 %40, label %.preheader72, label %54, !llvm.loop !169
 
 .preheader72:                                     ; preds = %.preheader73, %.loopexit

@@ -173,7 +173,7 @@ define internal fastcc void @print_error(i64 %0, ptr noundef %1, i32 noundef ran
 
 53:                                               ; preds = %52, %51
   %54 = add nuw nsw i64 %.2115, 1
-  %.not95.not = icmp ult i64 %.2115, %.sroa.5.0.extract.shift
+  %.not95.not = icmp samesign ult i64 %.2115, %.sroa.5.0.extract.shift
   br i1 %.not95.not, label %41, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %53, %.preheader110

@@ -1254,7 +1254,7 @@ _ZN15InteractionListD2Ev.exit.i.i.i.i13.i.i.i:    ; preds = %285, %.preheader.i.
 318:                                              ; preds = %311
   %319 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 16
   %320 = add nsw i64 %.050.i.i.i.i.i, -1
-  %321 = icmp ugt i64 %.050.i.i.i.i.i, 1
+  %321 = icmp samesign ugt i64 %.050.i.i.i.i.i, 1
   br i1 %321, label %.lr.ph.i.i.i.i.i, label %"_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i", !llvm.loop !127
 
 "_ZSt9__find_ifIPKiN9__gnu_cxx5__ops10_Iter_predIZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EEE3$_0EEET_SD_SD_T0_St26random_access_iterator_tag.exit.i.i.i.i.split.loop.exit165": ; preds = %311

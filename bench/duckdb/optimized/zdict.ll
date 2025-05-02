@@ -1483,7 +1483,7 @@ _ZN11duckdb_zstdL11ZDICT_countEPKvS1_.exit296.i.i.i: ; preds = %.lr.ph.i290.i.i.
 
 275:                                              ; preds = %.preheader311.i.i.i
   %276 = add nsw i32 %.1225342.i.i.i, -1
-  %277 = icmp ugt i32 %.1225342.i.i.i, 7
+  %277 = icmp samesign ugt i32 %.1225342.i.i.i, 7
   br i1 %277, label %.preheader311.i.i.i, label %278, !llvm.loop !74
 
 278:                                              ; preds = %275, %.preheader311.i.i.i

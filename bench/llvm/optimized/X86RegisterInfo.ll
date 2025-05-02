@@ -4702,7 +4702,7 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i86.i.i.i.i.i.i338: ; pred
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit88.i.i.i.i.i.i": ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i.i.i86.i.i.i.i.i.i338, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit.i.i.i.i81.i.i.i.i.i.i333
   %.029181.i.i.i.i.i.i286.add427 = add nuw nsw i64 %.029181.i.i.i.i.i.i286.idx, 16
   %444 = add nsw i64 %.0182.i.i.i.i.i.i285, -1
-  %445 = icmp ugt i64 %.0182.i.i.i.i.i.i285, 1
+  %445 = icmp samesign ugt i64 %.0182.i.i.i.i.i.i285, 1
   br i1 %445, label %332, label %.loopexit.thread564, !llvm.loop !719
 
 .loopexit.thread564:                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm15X86RegisterInfo18isArgumentRegisterERKNS2_15MachineFunctionENS2_10MCRegisterEE3$_4EclIPS7_EEbT_.exit88.i.i.i.i.i.i"

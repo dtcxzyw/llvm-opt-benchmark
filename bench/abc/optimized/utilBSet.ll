@@ -2395,7 +2395,7 @@ define void @Abc_TtPermGenTest() local_unnamed_addr #7 {
   br i1 %exitcond.not, label %.preheader, label %3, !llvm.loop !58
 
 6:                                                ; preds = %.preheader, %Abc_TtPermGen.exit
-  %.128 = phi i32 [ 0, %.preheader ], [ %33, %Abc_TtPermGen.exit ]
+  %.128 = phi i32 [ 0, %.preheader ], [ %32, %Abc_TtPermGen.exit ]
   %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %.128)
   br label %8
 
@@ -2412,21 +2412,21 @@ define void @Abc_TtPermGenTest() local_unnamed_addr #7 {
   %putchar = tail call i32 @putchar(i32 10)
   br label %13
 
-13:                                               ; preds = %22, %12
-  %indvars.iv23.i = phi i64 [ 5, %12 ], [ %indvars.iv.next24.i, %22 ]
-  %.05.i = phi i32 [ 4, %12 ], [ %23, %22 ]
-  %14 = zext i32 %.05.i to i64
+13:                                               ; preds = %23, %12
+  %indvars.iv23.i = phi i64 [ 5, %12 ], [ %indvars.iv.next24.i, %23 ]
+  %.05.i = phi i32 [ 4, %12 ], [ %24, %23 ]
+  %14 = zext nneg i32 %.05.i to i64
   %15 = getelementptr i32, ptr %1, i64 %14
   %16 = getelementptr i8, ptr %15, i64 -4
   %17 = load i32, ptr %16, align 4, !tbaa !7
   %18 = load i32, ptr %15, align 4, !tbaa !7
   %.not.i = icmp slt i32 %17, %18
-  br i1 %.not.i, label %.critedge.preheader.i, label %22
+  br i1 %.not.i, label %.critedge.preheader.i, label %23
 
 .critedge.preheader.i:                            ; preds = %13
   %19 = getelementptr i8, ptr %15, i64 -4
   %20 = icmp slt i32 %.05.i, 5
-  br i1 %20, label %.lr.ph.i, label %.critedge2.thread.i
+  br i1 %20, label %.lr.ph.preheader.i, label %.critedge2.thread.i
 
 .critedge2.thread.i:                              ; preds = %.critedge.preheader.i
   %21 = load i32, ptr %2, align 16, !tbaa !7
@@ -2434,34 +2434,38 @@ define void @Abc_TtPermGenTest() local_unnamed_addr #7 {
   store i32 %17, ptr %2, align 16, !tbaa !7
   br label %Abc_TtPermGen.exit
 
-22:                                               ; preds = %13
-  %23 = add nsw i32 %.05.i, -1
+.lr.ph.preheader.i:                               ; preds = %.critedge.preheader.i
+  %22 = sext i32 %.05.i to i64
+  br label %.lr.ph.i
+
+23:                                               ; preds = %13
+  %24 = add nsw i32 %.05.i, -1
   %.not39.i = icmp eq i32 %.05.i, 0
   %indvars.iv.next24.i = add nsw i64 %indvars.iv23.i, -1
   br i1 %.not39.i, label %Abc_TtPermGen.exit, label %13, !llvm.loop !60
 
-.lr.ph.i:                                         ; preds = %.critedge.preheader.i, %.critedge.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.critedge.i ], [ 5, %.critedge.preheader.i ]
+.lr.ph.i:                                         ; preds = %.critedge.i, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 5, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.critedge.i ]
   %gep.i = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv.i
-  %24 = load i32, ptr %gep.i, align 4, !tbaa !7
-  %.not55.i = icmp sgt i32 %24, %17
+  %25 = load i32, ptr %gep.i, align 4, !tbaa !7
+  %.not55.i = icmp sgt i32 %25, %17
   br i1 %.not55.i, label %.critedge2.split.loop.exit.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %25 = icmp ugt i64 %indvars.iv.next.i, %14
-  br i1 %25, label %.lr.ph.i, label %.critedge2.i, !llvm.loop !61
+  %26 = icmp samesign ugt i64 %indvars.iv.next.i, %22
+  br i1 %26, label %.lr.ph.i, label %.critedge2.i, !llvm.loop !61
 
 .critedge2.split.loop.exit.i:                     ; preds = %.lr.ph.i
-  %26 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %sext = shl i64 %indvars.iv.i, 32
+  %.pre = ashr exact i64 %sext, 32
   br label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %.critedge.i, %.critedge2.split.loop.exit.i
-  %.051.lcssa.ph.i = phi i32 [ %26, %.critedge2.split.loop.exit.i ], [ %.05.i, %.critedge.i ]
-  %27 = sext i32 %.051.lcssa.ph.i to i64
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %27
-  %28 = load i32, ptr %gep, align 4, !tbaa !7
-  store i32 %28, ptr %19, align 4, !tbaa !7
+  %.pre-phi = phi i64 [ %.pre, %.critedge2.split.loop.exit.i ], [ %22, %.critedge.i ]
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %.pre-phi
+  %27 = load i32, ptr %gep, align 4, !tbaa !7
+  store i32 %27, ptr %19, align 4, !tbaa !7
   store i32 %17, ptr %gep, align 4, !tbaa !7
   %.not52.i = icmp eq i32 %.05.i, 4
   br i1 %.not52.i, label %Abc_TtPermGen.exit, label %.lr.ph14.i
@@ -2470,24 +2474,24 @@ define void @Abc_TtPermGenTest() local_unnamed_addr #7 {
   %indvars.iv32.i = phi i64 [ %indvars.iv.next33.i, %.lr.ph14.i ], [ 5, %.critedge2.i ]
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.lr.ph14.i ], [ %14, %.critedge2.i ]
   %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %.lr.ph14.i ], [ %indvars.iv23.i, %.critedge2.i ]
-  %29 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv30.i
-  %30 = load i32, ptr %29, align 4, !tbaa !7
+  %28 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv30.i
+  %29 = load i32, ptr %28, align 4, !tbaa !7
   %gep9.i = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv32.i
-  %31 = load i32, ptr %gep9.i, align 4, !tbaa !7
-  store i32 %31, ptr %29, align 4, !tbaa !7
-  store i32 %30, ptr %gep9.i, align 4, !tbaa !7
+  %30 = load i32, ptr %gep9.i, align 4, !tbaa !7
+  store i32 %30, ptr %28, align 4, !tbaa !7
+  store i32 %29, ptr %gep9.i, align 4, !tbaa !7
   %indvars.iv.next33.i = add nsw i64 %indvars.iv32.i, -1
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
-  %32 = icmp ult i64 %indvars.iv.next27.i, %indvars.iv.next33.i
+  %31 = icmp samesign ult i64 %indvars.iv.next27.i, %indvars.iv.next33.i
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
-  br i1 %32, label %.lr.ph14.i, label %Abc_TtPermGen.exit, !llvm.loop !62
+  br i1 %31, label %.lr.ph14.i, label %Abc_TtPermGen.exit, !llvm.loop !62
 
-Abc_TtPermGen.exit:                               ; preds = %22, %.lr.ph14.i, %.critedge2.thread.i, %.critedge2.i
-  %33 = add nuw nsw i32 %.128, 1
-  %exitcond43.not = icmp eq i32 %33, 120
-  br i1 %exitcond43.not, label %34, label %6, !llvm.loop !63
+Abc_TtPermGen.exit:                               ; preds = %23, %.lr.ph14.i, %.critedge2.thread.i, %.critedge2.i
+  %32 = add nuw nsw i32 %.128, 1
+  %exitcond43.not = icmp eq i32 %32, 120
+  br i1 %exitcond43.not, label %33, label %6, !llvm.loop !63
 
-34:                                               ; preds = %Abc_TtPermGen.exit
+33:                                               ; preds = %Abc_TtPermGen.exit
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %1) #24
   ret void
 }

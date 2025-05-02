@@ -18229,7 +18229,7 @@ define internal fastcc noundef nonnull ptr @"_ZN4llvm7find_ifIRA276_KNS_18Subtar
 38:                                               ; preds = %29
   %39 = getelementptr inbounds nuw i8, ptr %.02964.i.i.i, i64 256
   %40 = add nsw i64 %.065.i.i.i, -1
-  %41 = icmp ugt i64 %.065.i.i.i, 1
+  %41 = icmp samesign ugt i64 %.065.i.i.i, 1
   br i1 %41, label %2, label %"_ZSt7find_ifIPKN4llvm18SubtargetFeatureKVEZN12_GLOBAL__N_114RISCVAsmParser22parseCSRSystemRegisterERNS0_15SmallVectorImplISt10unique_ptrINS0_18MCParsedAsmOperandESt14default_deleteIS8_EEEEE3$_0ET_SF_SF_T0_.exit", !llvm.loop !783
 
 .loopexit.split.loop.exit55.i.i.i:                ; preds = %11

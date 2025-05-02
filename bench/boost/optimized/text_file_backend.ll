@@ -1568,7 +1568,7 @@ define hidden noundef zeroext i1 @_ZN5boost3log11v2_mt_posix5sinks9anonymous13ma
 
 39:                                               ; preds = %44
   %40 = add nsw i64 %.079.i, -1
-  %41 = icmp ult i64 %.079.i, 2
+  %41 = icmp samesign ult i64 %.079.i, 2
   br i1 %41, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit, label %.lr.ph.i, !llvm.loop !22
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %39
@@ -1592,7 +1592,7 @@ _ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_
 
 49:                                               ; preds = %54
   %50 = add nsw i64 %.079.i38, -1
-  %51 = icmp ult i64 %.079.i38, 2
+  %51 = icmp samesign ult i64 %.079.i38, 2
   br i1 %51, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit42, label %.lr.ph.i37, !llvm.loop !22
 
 .lr.ph.i37:                                       ; preds = %33, %49
@@ -1616,7 +1616,7 @@ _ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_
 
 59:                                               ; preds = %64
   %60 = add nsw i64 %.079.i45, -1
-  %61 = icmp ult i64 %.079.i45, 2
+  %61 = icmp samesign ult i64 %.079.i45, 2
   br i1 %61, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit49, label %.lr.ph.i44, !llvm.loop !22
 
 .lr.ph.i44:                                       ; preds = %33, %59

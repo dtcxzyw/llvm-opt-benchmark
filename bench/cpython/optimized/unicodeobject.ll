@@ -39370,7 +39370,7 @@ _PyUnicode_FromASCII.exit.thread90.i.i:           ; preds = %644, %642
 
 646:                                              ; preds = %_PyUnicode_FromASCII.exit.thread90.i.i, %_PyUnicode_FromASCII.exit.i.i
   %.0.i92.i.i = phi ptr [ %638, %_PyUnicode_FromASCII.exit.thread90.i.i ], [ %.0.i.i.i288, %_PyUnicode_FromASCII.exit.i.i ]
-  %647 = icmp ult i64 %.050106.i.i, 12
+  %647 = icmp samesign ult i64 %.050106.i.i, 12
   br i1 %647, label %648, label %650
 
 648:                                              ; preds = %646
@@ -40063,7 +40063,7 @@ _PyUnicode_DATA.exit.i.i.i:                       ; preds = %926, %924
 
 _PyUnicode_FromUCS1.exit.thread.i.i:              ; preds = %_PyUnicode_DATA.exit.i.i.i, %_PyUnicode_FromUCS1.exit.i.i, %895
   %.0.i101.i.i = phi ptr [ %.0.i.i.i318, %_PyUnicode_FromUCS1.exit.i.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35376), %895 ], [ %920, %_PyUnicode_DATA.exit.i.i.i ]
-  %928 = icmp ult i64 %.050121.i.i, 12
+  %928 = icmp samesign ult i64 %.050121.i.i, 12
   br i1 %928, label %929, label %931
 
 929:                                              ; preds = %_PyUnicode_FromUCS1.exit.thread.i.i
@@ -40794,7 +40794,7 @@ Py_DECREF.exit74.i341:                            ; preds = %ucs1lib_find_max_ch
   br i1 %1214, label %Py_DECREF.exit69.i.i391, label %1215
 
 1215:                                             ; preds = %1211
-  %1216 = icmp ult i64 %.05088.i.i, 12
+  %1216 = icmp samesign ult i64 %.05088.i.i, 12
   br i1 %1216, label %1217, label %1219
 
 1217:                                             ; preds = %1215
@@ -41196,7 +41196,7 @@ Py_DECREF.exit74.i413:                            ; preds = %1287, %Py_DECREF.ex
   br i1 %1371, label %Py_DECREF.exit69.i.i438, label %1372
 
 1372:                                             ; preds = %1368
-  %1373 = icmp ult i64 %.05088.i.i452, 12
+  %1373 = icmp samesign ult i64 %.05088.i.i452, 12
   br i1 %1373, label %1374, label %1376
 
 1374:                                             ; preds = %1372

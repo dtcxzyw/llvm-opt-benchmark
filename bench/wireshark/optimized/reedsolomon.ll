@@ -81,7 +81,7 @@ modnn.exit:                                       ; preds = %.lr.ph.i, %20
   %35 = getelementptr i8, ptr %1, i64 %34
   store i8 %.sink, ptr %35, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %36 = icmp ugt i64 %indvars.iv, 1
+  %36 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %36, label %.preheader40, label %37, !llvm.loop !8
 
 37:                                               ; preds = %33

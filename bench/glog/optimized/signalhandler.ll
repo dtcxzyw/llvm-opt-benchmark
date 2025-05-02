@@ -736,7 +736,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit27.i: ; preds = 
   %59 = phi i8 [ %64, %61 ], [ 34, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit27.i.preheader ]
   %.010.i28.i = phi i64 [ %62, %61 ], [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit27.i.preheader ]
   %.add57.i = add nuw nsw i64 %.010.i28.i, %.ptr55.add.pre-phi.i
-  %60 = icmp ult i64 %.add57.i, 256
+  %60 = icmp samesign ult i64 %.add57.i, 256
   br i1 %60, label %61, label %_ZN6google12_GLOBAL__N_112DumpTimeInfoEv.exit
 
 61:                                               ; preds = %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit27.i
@@ -916,7 +916,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit.i12: ; preds = 
   %116 = phi i8 [ 32, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit.i12 ], [ %121, %118 ]
   %.010.i30.i = phi i64 [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit.i12 ], [ %119, %118 ]
   %.sroa.5.0.add.i = add nuw nsw i64 %.010.i30.i, %.sroa.5.0.idx.i
-  %117 = icmp ult i64 %.sroa.5.0.add.i, 256
+  %117 = icmp samesign ult i64 %.sroa.5.0.add.i, 256
   br i1 %117, label %118, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit33.i
 
 118:                                              ; preds = %115
@@ -944,7 +944,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit33.i: ; preds =
   %indvars.iv82 = phi i64 [ %indvars.iv.next83, %127 ], [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit33.i ]
   %.014.i35.i = phi i64 [ %129, %127 ], [ %124, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit33.i ]
   %.add205.i = add nuw nsw i64 %.sroa.5.0.ptr.add.i, %indvars.iv82
-  %126 = icmp ult i64 %.add205.i, 256
+  %126 = icmp samesign ult i64 %.add205.i, 256
   br i1 %126, label %127, label %split.i36.loopexit.i
 
 127:                                              ; preds = %125
@@ -1007,7 +1007,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit55.i: ; preds =
   %145 = phi i8 [ 32, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit55.i ], [ %150, %147 ]
   %.010.i57.i = phi i64 [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit55.i ], [ %148, %147 ]
   %.add212.i = add nuw nsw i64 %.010.i57.i, %.ptr210.add.i
-  %146 = icmp ult i64 %.add212.i, 256
+  %146 = icmp samesign ult i64 %.add212.i, 256
   br i1 %146, label %147, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit60.i
 
 147:                                              ; preds = %144
@@ -1083,7 +1083,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit77.i: ; preds = 
   %169 = phi i8 [ %174, %171 ], [ 32, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit77.i.preheader ]
   %.010.i79.i = phi i64 [ %172, %171 ], [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit77.i.preheader ]
   %.add219.i = add nuw nsw i64 %.010.i79.i, %.ptr217.add.pre-phi.i
-  %170 = icmp ult i64 %.add219.i, 256
+  %170 = icmp samesign ult i64 %.add219.i, 256
   br i1 %170, label %171, label %split.i
 
 171:                                              ; preds = %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit77.i
@@ -1193,7 +1193,7 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.i: ; pr
   %220 = phi i8 [ %225, %222 ], [ %219, %_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.i ]
   %.010.i87.i = phi i64 [ %223, %222 ], [ 0, %_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.i ]
   %.add222.i = add nuw nsw i64 %.010.i87.i, %.ptr.add221.i
-  %221 = icmp ult i64 %.add222.i, 256
+  %221 = icmp samesign ult i64 %.add222.i, 256
   br i1 %221, label %222, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit90.i
 
 222:                                              ; preds = %.lr.ph.i86.i
@@ -1232,7 +1232,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %233 = phi i8 [ 32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %238, %235 ]
   %.010.i92.i = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %236, %235 ]
   %.add226.i = add nuw nsw i64 %.010.i92.i, %.ptr224.add.i
-  %234 = icmp ult i64 %.add226.i, 256
+  %234 = icmp samesign ult i64 %.add226.i, 256
   br i1 %234, label %235, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit95.i
 
 235:                                              ; preds = %232
@@ -1308,7 +1308,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit112.i: ; preds =
   %256 = phi i8 [ %261, %258 ], [ 41, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit112.i.preheader ]
   %.010.i114.i = phi i64 [ %259, %258 ], [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit112.i.preheader ]
   %.add233.i = add nuw nsw i64 %.010.i114.i, %.ptr231.add.pre-phi.i
-  %257 = icmp ult i64 %.add233.i, 256
+  %257 = icmp samesign ult i64 %.add233.i, 256
   br i1 %257, label %258, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit117.i
 
 258:                                              ; preds = %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit112.i
@@ -1332,7 +1332,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit117.i: ; preds 
   %263 = phi i8 [ 102, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit117.i ], [ %268, %265 ]
   %.010.i119.i = phi i64 [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit117.i ], [ %266, %265 ]
   %.add236.i = add nuw nsw i64 %.010.i119.i, %.ptr.add235.i
-  %264 = icmp ult i64 %.add236.i, 256
+  %264 = icmp samesign ult i64 %.add236.i, 256
   br i1 %264, label %265, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit122.i
 
 265:                                              ; preds = %262
@@ -1408,7 +1408,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit139.i: ; preds =
   %287 = phi i8 [ %292, %289 ], [ 59, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit139.i.preheader ]
   %.010.i141.i = phi i64 [ %290, %289 ], [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit139.i.preheader ]
   %.add243.i = add nuw nsw i64 %.010.i141.i, %.ptr.add242.pre-phi.i
-  %288 = icmp ult i64 %.add243.i, 256
+  %288 = icmp samesign ult i64 %.add243.i, 256
   br i1 %288, label %289, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit144.i
 
 289:                                              ; preds = %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit139.i
@@ -1433,7 +1433,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit144.i: ; preds 
   %294 = phi i8 [ 115, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit144.i ], [ %299, %296 ]
   %.010.i146.i = phi i64 [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit144.i ], [ %297, %296 ]
   %.add247.i = add nuw nsw i64 %.010.i146.i, %.ptr245.add.i
-  %295 = icmp ult i64 %.add247.i, 256
+  %295 = icmp samesign ult i64 %.add247.i, 256
   br i1 %295, label %296, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit149.i
 
 296:                                              ; preds = %293
@@ -1609,7 +1609,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit: ; preds = %.l
   %15 = phi i8 [ 64, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit ], [ %20, %17 ]
   %.010.i6 = phi i64 [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit ], [ %18, %17 ]
   %.add = add nuw nsw i64 %.010.i6, %.0.lcssa.i
-  %16 = icmp ult i64 %.add, 1024
+  %16 = icmp samesign ult i64 %.add, 1024
   br i1 %16, label %17, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit9
 
 17:                                               ; preds = %14
@@ -1635,7 +1635,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit9: ; preds = %1
   %23 = phi i8 [ 48, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit9 ], [ %28, %25 ]
   %.010.i.i = phi i64 [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit9 ], [ %26, %25 ]
   %.add45 = add nuw nsw i64 %.010.i.i, %.ptr.add
-  %24 = icmp ult i64 %.add45, 1024
+  %24 = icmp samesign ult i64 %.add45, 1024
   br i1 %24, label %25, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i
 
 25:                                               ; preds = %22
@@ -1660,7 +1660,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i: ; preds = %
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i ]
   %.014.i.i = phi i64 [ %33, %31 ], [ %21, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i ]
   %.add48 = add nuw nsw i64 %.ptr46.add, %indvars.iv
-  %30 = icmp ult i64 %.add48, 1024
+  %30 = icmp samesign ult i64 %.add48, 1024
   br i1 %30, label %31, label %split.i.loopexit.i
 
 31:                                               ; preds = %29
@@ -1747,7 +1747,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit14: ; preds = %
   %53 = phi i8 [ %58, %55 ], [ %52, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit14 ]
   %.010.i17 = phi i64 [ %56, %55 ], [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit14 ]
   %.add54 = add nuw nsw i64 %.010.i17, %.sroa.4.0.ptr.add
-  %54 = icmp ult i64 %.add54, 1024
+  %54 = icmp samesign ult i64 %.add54, 1024
   br i1 %54, label %55, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit20
 
 55:                                               ; preds = %.lr.ph.i16
@@ -1762,7 +1762,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit14: ; preds = %
 _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit20: ; preds = %.lr.ph.i16, %55, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit14
   %.0.lcssa.i18 = phi i64 [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit14 ], [ %.010.i17, %.lr.ph.i16 ], [ %56, %55 ]
   %.ptr.add56 = add nuw nsw i64 %.0.lcssa.i18, %.sroa.4.0.ptr.add
-  %59 = icmp ult i64 %.ptr.add56, 1024
+  %59 = icmp samesign ult i64 %.ptr.add56, 1024
   br i1 %59, label %60, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit25
 
 60:                                               ; preds = %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit20

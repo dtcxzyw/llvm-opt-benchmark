@@ -3036,7 +3036,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombine
   %.0.copyload.i.i.i.i.i.i.i.i.us = load i32, ptr %20, align 1
   store i32 %.0.copyload.i.i.i.i.i.i.i.i.us, ptr %.057.i.us, align 4, !tbaa !30
   %21 = add nsw i32 %.08.i.us, -1
-  %22 = icmp ugt i32 %.08.i.us, 1
+  %22 = icmp samesign ugt i32 %.08.i.us, 1
   br i1 %22, label %.split.us, label %"_ZSt10generate_nIPjiZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombinedENS1_10ByteStreamEjjE3$_0ET_S5_T0_T1_.exit", !llvm.loop !237
 
 .split:                                           ; preds = %4, %"_ZZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombinedENS_10ByteStreamEjjENK3$_0clEv.exit.i"
@@ -3060,7 +3060,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombine
   %25 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i.i.i.i.i)
   store i32 %25, ptr %.057.i, align 4, !tbaa !30
   %26 = add nsw i32 %.08.i, -1
-  %27 = icmp ugt i32 %.08.i, 1
+  %27 = icmp samesign ugt i32 %.08.i, 1
   br i1 %27, label %.split, label %"_ZSt10generate_nIPjiZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombinedENS1_10ByteStreamEjjE3$_0ET_S5_T0_T1_.exit", !llvm.loop !237
 
 "_ZSt10generate_nIPjiZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombinedENS1_10ByteStreamEjjE3$_0ET_S5_T0_T1_.exit": ; preds = %"_ZZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombinedENS_10ByteStreamEjjENK3$_0clEv.exit.i", %"_ZZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombinedENS_10ByteStreamEjjENK3$_0clEv.exit.i.us"

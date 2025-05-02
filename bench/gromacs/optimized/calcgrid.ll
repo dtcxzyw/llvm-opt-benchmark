@@ -210,7 +210,7 @@ define noundef float @_Z11calcFftGridP8_IO_FILEPA3_KffiPiS4_S4_(ptr noundef capt
 86:                                               ; preds = %.preheader106, %85
   %87 = phi i32 [ %77, %.preheader106 ], [ %80, %85 ]
   %indvars.iv.next118 = add nsw i64 %indvars.iv117, -1
-  %88 = icmp ugt i64 %indvars.iv117, 1
+  %88 = icmp samesign ugt i64 %indvars.iv117, 1
   br i1 %88, label %.preheader106, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %86, %56, %.critedge

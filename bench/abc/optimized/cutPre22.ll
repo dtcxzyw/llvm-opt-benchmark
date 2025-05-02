@@ -1519,7 +1519,7 @@ Abc_Clock.exit301:                                ; preds = %._crit_edge361, %51
 547:                                              ; preds = %542
   %putchar227 = call i32 @putchar(i32 10)
   %indvars.iv.next456 = add nsw i64 %indvars.iv455, -1
-  %548 = icmp ugt i64 %indvars.iv455, 4
+  %548 = icmp samesign ugt i64 %indvars.iv455, 4
   br i1 %548, label %257, label %549, !llvm.loop !65
 
 549:                                              ; preds = %547

@@ -3254,7 +3254,7 @@ _fits_in_n_bits.exit142.thread:                   ; preds = %62
   %76 = load i8, ptr %75, align 1, !tbaa !29
   %77 = getelementptr i8, ptr %.193163, i64 1
   store i8 %76, ptr %.193163, align 1, !tbaa !29
-  %78 = icmp ugt i64 %.090164, 1
+  %78 = icmp samesign ugt i64 %.090164, 1
   br i1 %78, label %73, label %_fits_in_n_bits.exit.thread, !llvm.loop !68
 
 79:                                               ; preds = %._crit_edge171

@@ -489,7 +489,7 @@ define internal range(i32 -30, 1) i32 @archive_compressor_xz_open(ptr noundef ca
 
 97:                                               ; preds = %.preheader.i
   %98 = add nsw i32 %.05261.i, -1
-  %99 = icmp ugt i32 %.05261.i, 12
+  %99 = icmp samesign ugt i32 %.05261.i, 12
   br i1 %99, label %.preheader.i, label %._crit_edge.i, !llvm.loop !59
 
 ._crit_edge.i:                                    ; preds = %97

@@ -2603,7 +2603,7 @@ define noundef range(i32 -2147483646, -2147483648) i32 @_Z11pbc_dx_aiucPK5t_pbcP
 
 93:                                               ; preds = %.sink.split461, %80
   %indvars.iv.next433 = add nsw i64 %indvars.iv432, -1
-  %94 = icmp ugt i64 %indvars.iv432, 1
+  %94 = icmp samesign ugt i64 %indvars.iv432, 1
   br i1 %94, label %68, label %95, !llvm.loop !72
 
 95:                                               ; preds = %93
@@ -2836,7 +2836,7 @@ define noundef range(i32 -2147483646, -2147483648) i32 @_Z11pbc_dx_aiucPK5t_pbcP
 224:                                              ; preds = %195, %221
   %.3 = phi float [ %223, %221 ], [ %.2336, %195 ]
   %indvars.iv.next412 = add nsw i64 %indvars.iv411, -1
-  %225 = icmp ugt i64 %indvars.iv411, 1
+  %225 = icmp samesign ugt i64 %indvars.iv411, 1
   br i1 %225, label %195, label %226, !llvm.loop !77
 
 226:                                              ; preds = %224
@@ -4440,7 +4440,7 @@ define internal fastcc void @_ZL22putAtomsInBoxTemplatedILb0EEv7PbcTypePA3_KfS3_
   br label %48
 
 .loopexit:                                        ; preds = %56
-  %45 = icmp ugt i64 %indvars.iv30, 1
+  %45 = icmp samesign ugt i64 %indvars.iv30, 1
   br i1 %45, label %48, label %46, !llvm.loop !121
 
 46:                                               ; preds = %.loopexit
@@ -4686,7 +4686,7 @@ define internal void @_Z20put_atoms_in_box_omp7PbcTypePA3_KfbS2_N3gmx8ArrayRefIN
   br label %85
 
 .loopexit.i:                                      ; preds = %93
-  %82 = icmp ugt i64 %indvars.iv42.i, 1
+  %82 = icmp samesign ugt i64 %indvars.iv42.i, 1
   br i1 %82, label %85, label %83, !llvm.loop !137
 
 83:                                               ; preds = %.loopexit.i

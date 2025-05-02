@@ -1725,7 +1725,7 @@ storage_write.exit.thread:                        ; preds = %221, %45, %.critedg
   %.3 = phi i32 [ %.4, %231 ], [ %.2105, %38 ], [ %.2105, %33 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #21
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %233 = icmp ugt i64 %indvars.iv, 1
+  %233 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %233, label %33, label %31, !llvm.loop !174
 
 234:                                              ; preds = %.preheader
@@ -2347,7 +2347,7 @@ define internal noalias noundef nonnull ptr @storage_compact_thread(ptr noundef 
 297:                                              ; preds = %294
   %298 = call i32 @usleep(i32 noundef 1000) #21
   %299 = add nsw i32 %.0118203.i, -1
-  %300 = icmp ugt i32 %.0118203.i, 1
+  %300 = icmp samesign ugt i32 %.0118203.i, 1
   br i1 %300, label %294, label %.critedge.i, !llvm.loop !205
 
 301:                                              ; preds = %294

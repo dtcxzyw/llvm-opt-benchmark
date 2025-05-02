@@ -8139,7 +8139,7 @@ define hidden i32 @dissect_cip_multiple_service_packet(ptr noundef %0, ptr nound
   %92 = icmp sgt i32 %91, 0
   %93 = icmp sgt i32 %.0107, 0
   %or.cond.not131 = and i1 %93, %92
-  %.not121 = icmp ult i32 %.0109134, %67
+  %.not121 = icmp samesign ult i32 %.0109134, %67
   %or.cond127 = select i1 %or.cond.not131, i1 %.not121, i1 false
   br i1 %or.cond127, label %97, label %94
 

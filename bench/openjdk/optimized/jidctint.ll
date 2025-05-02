@@ -208,7 +208,7 @@ define hidden void @jRDislow(ptr noundef readonly captures(none) %0, ptr noundef
   %.1252 = getelementptr inbounds nuw i8, ptr %.0251263, i64 4
   %.1254 = getelementptr inbounds nuw i8, ptr %.0253262, i64 2
   %161 = add nsw i32 %.0265, -1
-  %162 = icmp ugt i32 %.0265, 1
+  %162 = icmp samesign ugt i32 %.0265, 1
   br i1 %162, label %13, label %.preheader, !llvm.loop !6
 
 163:                                              ; preds = %.preheader, %315

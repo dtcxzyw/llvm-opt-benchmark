@@ -131,7 +131,7 @@ define internal noundef i32 @rc2_init_key(ptr noundef %0, ptr noundef readonly c
   %54 = getelementptr inbounds i8, ptr %.05068.i, i64 -2
   store i16 %53, ptr %.05068.i, align 2, !tbaa !21
   %indvars.iv.next79.i = add nsw i64 %indvars.iv78.i, -2
-  %55 = icmp ugt i64 %indvars.iv78.i, 1
+  %55 = icmp samesign ugt i64 %indvars.iv78.i, 1
   br i1 %55, label %52, label %RC2_set_key.exit, !llvm.loop !23
 
 RC2_set_key.exit:                                 ; preds = %52

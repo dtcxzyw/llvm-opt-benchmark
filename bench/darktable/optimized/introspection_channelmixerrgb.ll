@@ -2213,7 +2213,7 @@ transpose_dot_vector.exit.i.i:                    ; preds = %609
 
 674:                                              ; preds = %676
   %indvars.iv.next69.i.i.i.i = add nsw i64 %indvars.iv68.i.i.i.i, -1
-  %675 = icmp ugt i64 %indvars.iv68.i.i.i.i, 1
+  %675 = icmp samesign ugt i64 %indvars.iv68.i.i.i.i, 1
   br i1 %675, label %.preheader.i.i.i.i, label %gauss_solve_triangular.exit.i.i.i
 
 676:                                              ; preds = %676, %.preheader.i.i.i.i

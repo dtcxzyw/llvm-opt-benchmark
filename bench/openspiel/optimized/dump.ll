@@ -172,7 +172,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 21:                                               ; preds = %11, %15
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %22 = icmp ugt i64 %indvars.iv, 2
+  %22 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %22, label %11, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -274,7 +274,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 27:                                               ; preds = %14, %25, %19
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %28 = icmp ugt i64 %indvars.iv, 2
+  %28 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %28, label %14, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %27, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit

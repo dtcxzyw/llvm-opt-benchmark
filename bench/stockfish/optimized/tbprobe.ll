@@ -2258,7 +2258,7 @@ _ZNSt11scoped_lockIJSt5mutexEEC2ERS0_.exit.i.i:   ; preds = %59
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #24
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %121 = icmp ugt i64 %indvars.iv.i.i, 1
+  %121 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %121, label %71, label %122, !llvm.loop !76
 
 122:                                              ; preds = %71
@@ -5529,7 +5529,7 @@ _ZNSt11scoped_lockIJSt5mutexEEC2ERS0_.exit.i:     ; preds = %44
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #24
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %106 = icmp ugt i64 %indvars.iv.i, 1
+  %106 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %106, label %56, label %107, !llvm.loop !124
 
 107:                                              ; preds = %56

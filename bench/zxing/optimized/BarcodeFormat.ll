@@ -119,7 +119,7 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_13BarcodeFormatE(ptr dead_on_unwind no
 11:                                               ; preds = %9
   %.02956.i.i.i.i.add22 = add nuw nsw i64 %.02956.i.i.i.i.idx, 96
   %12 = add nsw i64 %.057.i.i.i.i, -1
-  %13 = icmp ugt i64 %.057.i.i.i.i, 1
+  %13 = icmp samesign ugt i64 %.057.i.i.i.i, 1
   br i1 %13, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !12
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %11
@@ -660,7 +660,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 56:                                               ; preds = %.noexc4.i.i.i
   %57 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i, i64 96
   %58 = add nsw i64 %.051.i.i.i.i, -1
-  %59 = icmp ugt i64 %.051.i.i.i.i, 1
+  %59 = icmp samesign ugt i64 %.051.i.i.i.i, 1
   br i1 %59, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !29
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %56

@@ -405,7 +405,7 @@ define hidden range(i32 0, 2) i32 @cmsDetectDestinationBlackPoint(ptr noundef %0
   %. = select i1 %69, double %68, double %66
   store double %., ptr %67, align 8
   %indvars.iv.next145 = add nsw i64 %indvars.iv144, -1
-  %70 = icmp ugt i64 %indvars.iv144, 1
+  %70 = icmp samesign ugt i64 %indvars.iv144, 1
   br i1 %70, label %.preheader134, label %71, !llvm.loop !8
 
 71:                                               ; preds = %.preheader134

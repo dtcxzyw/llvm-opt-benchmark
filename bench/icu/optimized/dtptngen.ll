@@ -7286,7 +7286,7 @@ _ZN6icu_7713UnicodeString6appendEDs.exit:         ; preds = %.lr.ph138
 _ZN6icu_7713UnicodeString6appendEDs.exit116:      ; preds = %.preheader
   %81 = add nsw i32 %.084139, -1
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8)
-  %82 = icmp ugt i32 %.084139, 1
+  %82 = icmp samesign ugt i32 %.084139, 1
   br i1 %82, label %.preheader, label %.loopexit
 
 83:                                               ; preds = %46
@@ -9699,7 +9699,7 @@ define noundef range(i32 0, 17) i32 @_ZNK6icu_7724DateTimePatternGenerator23getF
 
 14:                                               ; preds = %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %15 = icmp ugt i64 %indvars.iv, 1
+  %15 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !168
 
 .loopexit:                                        ; preds = %14, %12
@@ -12985,7 +12985,7 @@ define linkonce_odr hidden void @_ZN6icu_7724DateTimePatternGenerator19AppendIte
 
 22:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %23 = icmp ugt i64 %indvars.iv.i, 1
+  %23 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %23, label %.preheader.i, label %.loopexit.i, !llvm.loop !168
 
 .loopexit.i:                                      ; preds = %22, %20

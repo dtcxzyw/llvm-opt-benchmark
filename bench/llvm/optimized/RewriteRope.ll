@@ -1261,7 +1261,7 @@ _ZN4llvm9RopePieceaSERKS0_.exit.i.i.i.i.i:        ; preds = %77, %74, %_ZN4llvm1
   %81 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 16
   %82 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 16
   %83 = add nsw i64 %.012.i.i.i.i.i, -1
-  %84 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %84 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %84, label %.lr.ph.i.i.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i.i.i.i, !llvm.loop !56
 
 _ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i.i.i.i: ; preds = %_ZN4llvm9RopePieceaSERKS0_.exit.i.i.i.i.i, %_ZN4llvm9RopePieceaSERKS0_.exit.i.i.i

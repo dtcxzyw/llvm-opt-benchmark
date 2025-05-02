@@ -532,7 +532,7 @@ define noundef zeroext i1 @_ZNK3gmx22OutputAdapterContainer7isEmptyEv(ptr nounde
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i, i64 32
   %11 = add nsw i64 %.050.i.i.i.i, -1
-  %12 = icmp ugt i64 %.050.i.i.i.i, 1
+  %12 = icmp samesign ugt i64 %.050.i.i.i.i, 1
   br i1 %12, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !51
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %9

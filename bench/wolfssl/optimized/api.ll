@@ -2778,7 +2778,7 @@ test_ssl_memio_setup.exit.thread270:              ; preds = %test_ssl_memio_setu
   %.251.i = phi i32 [ %.0495.i, %244 ], [ 1, %254 ], [ %.0495.i, %250 ], [ %.0495.i, %246 ]
   %261 = add nsw i32 %.0581.i, -1
   %.not66.i = or i1 %245, %260
-  %262 = icmp ugt i32 %.0581.i, 1
+  %262 = icmp samesign ugt i32 %.0581.i, 1
   %263 = select i1 %.not66.i, i1 %262, i1 false
   br i1 %263, label %test_ssl_memio_setup.exit.thread270, label %test_ssl_memio_setup.exit.thread, !llvm.loop !34
 

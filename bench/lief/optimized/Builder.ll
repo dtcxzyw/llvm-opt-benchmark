@@ -32323,7 +32323,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i: ; preds = %_
   %.pre.i.i.i.i.i43 = phi ptr [ %64, %61 ], [ %83, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i ]
   %86 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 1
   %87 = add nsw i64 %.07.i.i.i.i.i, -1
-  %88 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %88 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %88, label %58, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i
@@ -32656,7 +32656,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i: ; preds = %_
   %.pre.i.i.i.i.i26 = phi ptr [ %55, %52 ], [ %74, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i ]
   %77 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 1
   %78 = add nsw i64 %.07.i.i.i.i.i, -1
-  %79 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %79 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %79, label %49, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i
@@ -32967,7 +32967,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i: ; preds = %_
   %73 = phi ptr [ %51, %48 ], [ %70, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i ]
   %74 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 1
   %75 = add nsw i64 %.07.i.i.i.i.i, -1
-  %76 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %76 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %76, label %45, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i
@@ -33125,7 +33125,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i: ; preds = %_
   %75 = phi ptr [ %53, %50 ], [ %72, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i ]
   %76 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 1
   %77 = add nsw i64 %.07.i.i.i.i.i, -1
-  %78 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %78 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %78, label %47, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i
@@ -33289,7 +33289,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i: ; preds = %_
   %74 = phi ptr [ %52, %49 ], [ %71, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i ]
   %75 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 1
   %76 = add nsw i64 %.07.i.i.i.i.i, -1
-  %77 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %77 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %77, label %46, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i
@@ -33421,7 +33421,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i: ; preds = %_
   %57 = phi ptr [ %35, %32 ], [ %54, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i ]
   %58 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 1
   %59 = add nsw i64 %.07.i.i.i.i.i, -1
-  %60 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %60 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %60, label %29, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i
@@ -33606,7 +33606,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i: ; preds = %_
   %.pre.i.i.i.i.i26 = phi ptr [ %58, %55 ], [ %77, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i ]
   %80 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 1
   %81 = add nsw i64 %.07.i.i.i.i.i, -1
-  %82 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %82 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %82, label %52, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i
@@ -33945,7 +33945,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i: ; preds = %_
   %.pre.i.i.i.i.i26 = phi ptr [ %58, %55 ], [ %77, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i ]
   %80 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 1
   %81 = add nsw i64 %.07.i.i.i.i.i, -1
-  %82 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %82 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %82, label %52, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i
@@ -34271,7 +34271,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i: ; preds = %_
   %.pre.i.i.i.i.i25 = phi ptr [ %52, %49 ], [ %71, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i ]
   %74 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 1
   %75 = add nsw i64 %.07.i.i.i.i.i, -1
-  %76 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %76 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %76, label %46, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i
@@ -34628,7 +34628,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i: ; preds = %_
   %.pre.i.i.i.i.i21 = phi ptr [ %74, %71 ], [ %93, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i ]
   %96 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 1
   %97 = add nsw i64 %.07.i.i.i.i.i, -1
-  %98 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %98 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %98, label %68, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i
@@ -35011,7 +35011,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i: ; preds = %_
   %.pre.i.i.i.i.i55 = phi ptr [ %78, %75 ], [ %97, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i ]
   %100 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 1
   %101 = add nsw i64 %.07.i.i.i.i.i, -1
-  %102 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %102 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %102, label %72, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i
@@ -35312,7 +35312,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i: ; preds = %_
   %.pre.i.i.i.i.i26 = phi ptr [ %58, %55 ], [ %77, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i ]
   %80 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 1
   %81 = add nsw i64 %.07.i.i.i.i.i, -1
-  %82 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %82 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %82, label %52, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i
@@ -35821,7 +35821,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i: ; preds = %_
   %202 = phi ptr [ %180, %177 ], [ %199, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i ]
   %203 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 1
   %204 = add nsw i64 %.07.i.i.i.i.i, -1
-  %205 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %205 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %205, label %174, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i
@@ -36445,7 +36445,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i82: ; preds = 
   %468 = phi ptr [ %446, %443 ], [ %465, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i89 ]
   %469 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i80, i64 1
   %470 = add nsw i64 %.07.i.i.i.i.i79, -1
-  %471 = icmp ugt i64 %.07.i.i.i.i.i79, 1
+  %471 = icmp samesign ugt i64 %.07.i.i.i.i.i79, 1
   br i1 %471, label %440, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit90, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit90: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i82
@@ -53494,7 +53494,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i: ; preds = %_
   %.pre.i.i.i.i.i43 = phi ptr [ %64, %61 ], [ %83, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i ]
   %86 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 1
   %87 = add nsw i64 %.07.i.i.i.i.i, -1
-  %88 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %88 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %88, label %58, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i
@@ -53827,7 +53827,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i: ; preds = %_
   %.pre.i.i.i.i.i26 = phi ptr [ %55, %52 ], [ %74, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i ]
   %77 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 1
   %78 = add nsw i64 %.07.i.i.i.i.i, -1
-  %79 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %79 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %79, label %49, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i
@@ -54138,7 +54138,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i: ; preds = %_
   %73 = phi ptr [ %51, %48 ], [ %70, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i ]
   %74 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 1
   %75 = add nsw i64 %.07.i.i.i.i.i, -1
-  %76 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %76 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %76, label %45, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i
@@ -54296,7 +54296,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i: ; preds = %_
   %75 = phi ptr [ %53, %50 ], [ %72, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i ]
   %76 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 1
   %77 = add nsw i64 %.07.i.i.i.i.i, -1
-  %78 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %78 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %78, label %47, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i
@@ -54468,7 +54468,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i: ; preds = %_
   %82 = phi ptr [ %60, %57 ], [ %79, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i ]
   %83 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 1
   %84 = add nsw i64 %.07.i.i.i.i.i, -1
-  %85 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %85 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %85, label %54, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i
@@ -54600,7 +54600,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i: ; preds = %_
   %57 = phi ptr [ %35, %32 ], [ %54, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i ]
   %58 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 1
   %59 = add nsw i64 %.07.i.i.i.i.i, -1
-  %60 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %60 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %60, label %29, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i
@@ -54785,7 +54785,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i: ; preds = %_
   %.pre.i.i.i.i.i26 = phi ptr [ %58, %55 ], [ %77, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i ]
   %80 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 1
   %81 = add nsw i64 %.07.i.i.i.i.i, -1
-  %82 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %82 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %82, label %52, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i
@@ -55124,7 +55124,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i: ; preds = %_
   %.pre.i.i.i.i.i26 = phi ptr [ %58, %55 ], [ %77, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i ]
   %80 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 1
   %81 = add nsw i64 %.07.i.i.i.i.i, -1
-  %82 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %82 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %82, label %52, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i
@@ -55450,7 +55450,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i: ; preds = %_
   %.pre.i.i.i.i.i25 = phi ptr [ %52, %49 ], [ %71, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i ]
   %74 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 1
   %75 = add nsw i64 %.07.i.i.i.i.i, -1
-  %76 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %76 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %76, label %46, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i
@@ -55807,7 +55807,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i: ; preds = %_
   %.pre.i.i.i.i.i21 = phi ptr [ %74, %71 ], [ %93, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i ]
   %96 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 1
   %97 = add nsw i64 %.07.i.i.i.i.i, -1
-  %98 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %98 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %98, label %68, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i
@@ -56190,7 +56190,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i: ; preds = %_
   %.pre.i.i.i.i.i55 = phi ptr [ %78, %75 ], [ %97, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i ]
   %100 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 1
   %101 = add nsw i64 %.07.i.i.i.i.i, -1
-  %102 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %102 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %102, label %72, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i
@@ -56491,7 +56491,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i: ; preds = %_
   %.pre.i.i.i.i.i26 = phi ptr [ %58, %55 ], [ %77, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i ]
   %80 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 1
   %81 = add nsw i64 %.07.i.i.i.i.i, -1
-  %82 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %82 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %82, label %52, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i
@@ -57004,7 +57004,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i: ; preds = %_
   %205 = phi ptr [ %183, %180 ], [ %202, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i ]
   %206 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 1
   %207 = add nsw i64 %.07.i.i.i.i.i, -1
-  %208 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %208 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %208, label %177, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i
@@ -57627,7 +57627,7 @@ _ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i81: ; preds = 
   %471 = phi ptr [ %449, %446 ], [ %468, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i.i.i.i88 ]
   %472 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i79, i64 1
   %473 = add nsw i64 %.07.i.i.i.i.i78, -1
-  %474 = icmp ugt i64 %.07.i.i.i.i.i78, 1
+  %474 = icmp samesign ugt i64 %.07.i.i.i.i.i78, 1
   br i1 %474, label %443, label %_ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit89, !llvm.loop !819
 
 _ZSt4moveIPhSt20back_insert_iteratorISt6vectorIhSaIhEEEET0_T_S7_S6_.exit89: ; preds = %_ZNSt20back_insert_iteratorISt6vectorIhSaIhEEEaSEOh.exit.i.i.i.i.i81

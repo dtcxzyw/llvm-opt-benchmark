@@ -2458,7 +2458,7 @@ sljit_create_compiler.exit:                       ; preds = %init_compiler.exit.
   %970 = add i8 %969, 80
   store i8 %970, ptr %.0.i771, align 1, !tbaa !75
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %971 = icmp ugt i64 %indvars.iv.i, 9
+  %971 = icmp samesign ugt i64 %indvars.iv.i, 9
   br i1 %971, label %938, label %.preheader.i772
 
 .preheader.i772:                                  ; preds = %967

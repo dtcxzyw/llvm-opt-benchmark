@@ -7237,7 +7237,7 @@ get_typedef_config.exit.i:                        ; preds = %34, %.lr.ph.split.i
   %.029.i = load i32, ptr %.029.in.i, align 8
   %.030.i = load i32, ptr %.030.in.i, align 4
   %40 = icmp eq i32 %.029.i, 6
-  %41 = icmp ugt i32 %.03151.i, 1
+  %41 = icmp samesign ugt i32 %.03151.i, 1
   %42 = select i1 %40, i1 %41, i1 false
   br i1 %42, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !24
 
@@ -9470,7 +9470,7 @@ get_typedef_config.exit.thread.i:                 ; preds = %16, %get_typedef_co
   %.1.i = phi i8 [ %19, %16 ], [ 6, %get_typedef_config.exit.i ], [ 6, %.lr.ph.split.i ]
   %23 = add nsw i32 %.03765.i, -1
   %24 = icmp eq i8 %.1.i, 6
-  %25 = icmp ugt i32 %.03765.i, 1
+  %25 = icmp samesign ugt i32 %.03765.i, 1
   %26 = select i1 %24, i1 %25, i1 false
   br i1 %26, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !35
 

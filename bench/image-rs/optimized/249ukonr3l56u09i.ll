@@ -29638,7 +29638,7 @@ _ZN5image6codecs3ico7decoder8DirEntry18matches_dimensions17h326bb5d15c82cfc4E.ex
 
 171:                                              ; preds = %169, %156
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %172 = icmp ugt i32 %.sroa.4206.0280.us, 1
+  %172 = icmp samesign ugt i32 %.sroa.4206.0280.us, 1
   br i1 %172, label %154, label %.thread247.us
 
 ..loopexit_crit_edge.us:                          ; preds = %.thread247.us
@@ -30389,7 +30389,7 @@ _ZN5image6codecs3ico7decoder8DirEntry18matches_dimensions17h326bb5d15c82cfc4E.ex
 
 177:                                              ; preds = %175, %162
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %178 = icmp ugt i32 %.sroa.4208.0284.us, 1
+  %178 = icmp samesign ugt i32 %.sroa.4208.0284.us, 1
   br i1 %178, label %160, label %.thread243.us
 
 ..loopexit_crit_edge.us:                          ; preds = %.thread243.us

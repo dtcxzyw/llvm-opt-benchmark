@@ -274,7 +274,7 @@ define i32 @Map_CanonComputeFast(ptr noundef readonly captures(none) %0, i32 nou
   br i1 %.not.i59.i, label %.sink.split.i.i, label %20
 
 20:                                               ; preds = %.preheader.i.i
-  %21 = icmp ult i32 %.037.i.i, 32
+  %21 = icmp samesign ult i32 %.037.i.i, 32
   br i1 %21, label %22, label %.sink.split.i.i
 
 22:                                               ; preds = %20

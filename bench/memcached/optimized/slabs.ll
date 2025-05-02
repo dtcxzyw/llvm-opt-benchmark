@@ -1455,7 +1455,7 @@ define dso_local i32 @slabs_pick_any_for_reassign(i32 noundef %0) local_unnamed_
 
 15:                                               ; preds = %7, %3
   %16 = add nsw i32 %.07, -1
-  %17 = icmp ugt i32 %.07, 1
+  %17 = icmp samesign ugt i32 %.07, 1
   br i1 %17, label %3, label %18, !llvm.loop !66
 
 18:                                               ; preds = %15

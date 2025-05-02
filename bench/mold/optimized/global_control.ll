@@ -269,7 +269,7 @@ define void @_ZN3tbb6detail2r121global_control_unlockEv() local_unnamed_addr #5 
   %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store atomic i8 0, ptr %5 release, align 1
-  %6 = icmp ugt i64 %indvars.iv, 1
+  %6 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %6, label %2, label %1, !llvm.loop !23
 }
 

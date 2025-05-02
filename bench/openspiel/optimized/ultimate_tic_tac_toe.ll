@@ -521,7 +521,7 @@ define noundef zeroext i1 @_ZNK10open_spiel20ultimate_tic_tac_toe16UltimateTTTSt
 21:                                               ; preds = %16
   %.02943.i.i.i.i.i.add3 = add nuw nsw i64 %.02943.i.i.i.i.i.idx, 32
   %22 = add nsw i64 %.044.i.i.i.i.i, -1
-  %23 = icmp ugt i64 %.044.i.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %.044.i.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !4
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %21
@@ -736,7 +736,7 @@ define void @_ZN10open_spiel20ultimate_tic_tac_toe16UltimateTTTState13DoApplyAct
 104:                                              ; preds = %99
   %.02943.i.i.i.i.i.add3.i = add nuw nsw i64 %.02943.i.i.i.i.i.idx.i, 32
   %105 = add nsw i64 %.044.i.i.i.i.i.i, -1
-  %106 = icmp ugt i64 %.044.i.i.i.i.i.i, 1
+  %106 = icmp samesign ugt i64 %.044.i.i.i.i.i.i, 1
   br i1 %106, label %.lr.ph.i.i.i.i.i.i, label %_ZNK10open_spiel20ultimate_tic_tac_toe16UltimateTTTState22AllLocalStatesTerminalEv.exit, !llvm.loop !4
 
 "_ZSt6any_ofIPKSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EEZNKS1_20ultimate_tic_tac_toe16UltimateTTTState22AllLocalStatesTerminalEvE3$_0EbT_SB_T0_.exit.loopexit.i": ; preds = %99, %89

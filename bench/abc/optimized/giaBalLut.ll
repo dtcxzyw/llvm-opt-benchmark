@@ -3788,7 +3788,7 @@ Bal_ManEvalTwo.exit.thread.i.i:                   ; preds = %623, %621, %Bal_Man
   %.37349.i.i = phi i32 [ %.474.lcssa.i.i, %.loopexit.i.i ], [ %.37349.i.i.ph, %.lr.ph52.i.i.preheader ]
   %.37948.i.i = phi i32 [ %.480.lcssa.i.i, %.loopexit.i.i ], [ %.37948.i.i.ph, %.lr.ph52.i.i.preheader ]
   %indvars.iv.next72.i.i = add nuw nsw i64 %indvars.iv71.i.i, 1
-  %.not93.not37.i.i = icmp ult i64 %indvars.iv.next72.i.i, %557
+  %.not93.not37.i.i = icmp samesign ult i64 %indvars.iv.next72.i.i, %557
   br i1 %.not93.not37.i.i, label %.lr.ph.i84.i, label %.loopexit.i.i
 
 .lr.ph.i84.i:                                     ; preds = %.lr.ph52.i.i

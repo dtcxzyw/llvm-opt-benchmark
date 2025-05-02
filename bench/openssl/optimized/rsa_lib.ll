@@ -431,7 +431,7 @@ ilog_e.exit:                                      ; preds = %.preheader.i
   %36 = select i1 %.not.not.i, i64 %.neg17.i, i64 0
   %.1.i = add i64 %36, %.01319.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -3
-  %37 = icmp ugt i64 %indvars.iv.i, 2
+  %37 = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %37, label %30, label %icbrt64.exit, !llvm.loop !47
 
 icbrt64.exit:                                     ; preds = %30

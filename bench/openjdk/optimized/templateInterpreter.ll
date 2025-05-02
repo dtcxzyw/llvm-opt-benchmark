@@ -518,7 +518,7 @@ define hidden noundef zeroext i1 @_ZN13DispatchTableeqERS_(ptr noundef nonnull r
   br label %42
 
 _ZN10EntryPointeqERKS_.exit.loopexit:             ; preds = %83
-  %41 = icmp ult i64 %indvars.iv, 2
+  %41 = icmp samesign ult i64 %indvars.iv, 2
   br i1 %41, label %_ZN10EntryPointeqERKS_.exit.thread, label %42, !llvm.loop !9
 
 42:                                               ; preds = %2, %_ZN10EntryPointeqERKS_.exit.loopexit

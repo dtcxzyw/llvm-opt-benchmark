@@ -535,7 +535,7 @@ push_heap.exit.i:                                 ; preds = %223, %216, %pop_hea
   %255 = lshr i64 %254, 1
   store i64 %.032.i.i, ptr %252, align 8, !tbaa !7
   %indvars.iv.next37.i.i = add nsw i64 %indvars.iv36.i.i, -1
-  %256 = icmp ugt i64 %indvars.iv36.i.i, 1
+  %256 = icmp samesign ugt i64 %indvars.iv36.i.i, 1
   br i1 %256, label %.preheader27.i.i, label %.preheader.i.i, !llvm.loop !22
 
 .preheader.i.i:                                   ; preds = %.preheader27.i.i, %265
@@ -1818,7 +1818,7 @@ fasthuf_read_bits.exit181.i:                      ; preds = %fasthuf_read_bits.e
 
 .critedge86.i.i:                                  ; preds = %.critedge86.preheader.i.i
   %259 = add nsw i32 %.06995.i.i, -1
-  %260 = icmp ugt i32 %.06995.i.i, 1
+  %260 = icmp samesign ugt i32 %.06995.i.i, 1
   br i1 %260, label %.critedge86.preheader.i.i, label %264, !llvm.loop !79
 
 fasthuf_initialize.exit.thread.sink.split:        ; preds = %249, %178, %121, %109, %87, %48
@@ -2007,7 +2007,7 @@ getBits.exit50.i:                                 ; preds = %._crit_edge.loopexi
   %338 = lshr i64 %337, 1
   store i64 %.032.i.i, ptr %335, align 8, !tbaa !7
   %indvars.iv.next37.i.i = add nsw i64 %indvars.iv36.i.i, -1
-  %339 = icmp ugt i64 %indvars.iv36.i.i, 1
+  %339 = icmp samesign ugt i64 %indvars.iv36.i.i, 1
   br i1 %339, label %.preheader27.i.i, label %.preheader.i.i80, !llvm.loop !22
 
 .preheader.i.i80:                                 ; preds = %.preheader27.i.i, %348
@@ -2139,7 +2139,7 @@ define internal fastcc range(i32 0, 24) i32 @fasthuf_decode(ptr noundef %0, ptr 
   br label %103
 
 29:                                               ; preds = %22
-  %30 = icmp ult i32 %.087317, 64
+  %30 = icmp samesign ult i32 %.087317, 64
   br i1 %30, label %.preheader278, label %FastHufDecoder_refill.exit
 
 .preheader278:                                    ; preds = %29, %.sink.split.i

@@ -1320,7 +1320,7 @@ _Z12LUPDecomposePPdidPi.exit:                     ; preds = %.loopexit.i
 .preheader.i46:                                   ; preds = %._crit_edge.i, %._crit_edge49.i
   %indvars.iv61.i = phi i64 [ %indvars.iv.next62.i, %._crit_edge49.i ], [ 3, %._crit_edge.i ]
   %indvars.iv.next62.i = add nsw i64 %indvars.iv61.i, -1
-  %139 = icmp ult i64 %indvars.iv61.i, 3
+  %139 = icmp samesign ult i64 %indvars.iv61.i, 3
   br i1 %139, label %.lr.ph48.i, label %.preheader.._crit_edge49_crit_edge.i
 
 .preheader.._crit_edge49_crit_edge.i:             ; preds = %.preheader.i46

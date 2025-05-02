@@ -44264,7 +44264,7 @@ stbiw__jpg_writeBits.exit:                        ; preds = %227, %176, %stbiw__
 
 237:                                              ; preds = %232
   %238 = add nsw i32 %.0126260, -1
-  %239 = icmp ugt i32 %.0126260, 1
+  %239 = icmp samesign ugt i32 %.0126260, 1
   br i1 %239, label %232, label %244
 
 .preheader233:                                    ; preds = %232

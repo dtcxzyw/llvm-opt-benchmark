@@ -1181,144 +1181,143 @@ Hmac_HashUpdate.exit144:                          ; preds = %89, %91, %93, %95
   %103 = add nsw i32 %switch.load, -8
   %.not173 = icmp eq i32 %4, 0
   %104 = zext nneg i32 %103 to i64
-  %105 = zext nneg i32 %103 to i64
   %wide.trip.count = zext nneg i32 %switch.load to i64
-  br label %106
+  br label %105
 
-106:                                              ; preds = %.lr.ph171, %._crit_edge
-  %.0118169 = phi i32 [ %.0125182, %.lr.ph171 ], [ %175, %._crit_edge ]
-  %.0121168 = phi i32 [ %99, %.lr.ph171 ], [ %137, %._crit_edge ]
+105:                                              ; preds = %.lr.ph171, %._crit_edge
+  %.0118169 = phi i32 [ %.0125182, %.lr.ph171 ], [ %174, %._crit_edge ]
+  %.0121168 = phi i32 [ %99, %.lr.ph171 ], [ %136, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %10) #17
-  %107 = add i32 %.0118169, %100
-  %108 = xor i32 %.0118169, -1
-  %109 = add i32 %43, %108
-  %.neg7.i = and i32 %107, %109
-  %110 = ashr i32 %.neg7.i, 31
-  %111 = trunc nsw i32 %110 to i8
-  %112 = add i32 %.0118169, %101
-  %113 = add i32 %42, %108
-  %.neg7.i145 = and i32 %112, %113
-  %114 = ashr i32 %.neg7.i145, 31
-  %115 = trunc nsw i32 %114 to i8
-  %116 = xor i8 %111, -1
-  %117 = xor i8 %115, -1
-  %118 = or i8 %111, %117
-  %119 = trunc nsw i32 %114 to i1
-  br label %120
+  %106 = add i32 %.0118169, %100
+  %107 = xor i32 %.0118169, -1
+  %108 = add i32 %43, %107
+  %.neg7.i = and i32 %106, %108
+  %109 = ashr i32 %.neg7.i, 31
+  %110 = trunc nsw i32 %109 to i8
+  %111 = add i32 %.0118169, %101
+  %112 = add i32 %42, %107
+  %.neg7.i145 = and i32 %111, %112
+  %113 = ashr i32 %.neg7.i145, 31
+  %114 = trunc nsw i32 %113 to i8
+  %115 = xor i8 %110, -1
+  %116 = xor i8 %114, -1
+  %117 = or i8 %110, %116
+  %118 = trunc nsw i32 %113 to i1
+  br label %119
 
-120:                                              ; preds = %106, %147
-  %indvars.iv = phi i64 [ 0, %106 ], [ %indvars.iv.next, %147 ]
-  %.1122165 = phi i32 [ %.0121168, %106 ], [ %137, %147 ]
-  %121 = trunc nuw nsw i64 %indvars.iv to i32
-  %122 = add i32 %121, %102
-  %123 = trunc i64 %indvars.iv to i32
-  %124 = xor i32 %123, -1
-  %125 = add i32 %35, %124
-  %.neg7.i146 = and i32 %125, %.neg7.i
-  %126 = and i32 %.neg7.i146, %122
-  %127 = icmp sgt i32 %122, -1
-  %128 = icmp ult i32 %.1122165, %6
-  br i1 %128, label %.sink.split, label %129
+119:                                              ; preds = %105, %146
+  %indvars.iv = phi i64 [ 0, %105 ], [ %indvars.iv.next, %146 ]
+  %.1122165 = phi i32 [ %.0121168, %105 ], [ %136, %146 ]
+  %120 = trunc nuw nsw i64 %indvars.iv to i32
+  %121 = add i32 %120, %102
+  %122 = trunc i64 %indvars.iv to i32
+  %123 = xor i32 %122, -1
+  %124 = add i32 %35, %123
+  %.neg7.i146 = and i32 %124, %.neg7.i
+  %125 = and i32 %.neg7.i146, %121
+  %126 = icmp sgt i32 %121, -1
+  %127 = icmp ult i32 %.1122165, %6
+  br i1 %127, label %.sink.split, label %128
 
-129:                                              ; preds = %120
-  %130 = icmp ult i32 %.1122165, %19
-  br i1 %130, label %131, label %136
+128:                                              ; preds = %119
+  %129 = icmp ult i32 %.1122165, %19
+  br i1 %129, label %130, label %135
 
-131:                                              ; preds = %129
-  %132 = sub i32 %.1122165, %6
+130:                                              ; preds = %128
+  %131 = sub i32 %.1122165, %6
   br label %.sink.split
 
-.sink.split:                                      ; preds = %120, %131
-  %.sink = phi i32 [ %132, %131 ], [ %.1122165, %120 ]
-  %.sink183 = phi ptr [ %2, %131 ], [ %5, %120 ]
-  %133 = zext i32 %.sink to i64
-  %134 = getelementptr inbounds nuw i8, ptr %.sink183, i64 %133
-  %135 = load i8, ptr %134, align 1, !tbaa !51
-  br label %136
+.sink.split:                                      ; preds = %119, %130
+  %.sink = phi i32 [ %131, %130 ], [ %.1122165, %119 ]
+  %.sink183 = phi ptr [ %2, %130 ], [ %5, %119 ]
+  %132 = zext i32 %.sink to i64
+  %133 = getelementptr inbounds nuw i8, ptr %.sink183, i64 %132
+  %134 = load i8, ptr %133, align 1, !tbaa !51
+  br label %135
 
-136:                                              ; preds = %.sink.split, %129
-  %.0 = phi i8 [ 0, %129 ], [ %135, %.sink.split ]
-  %137 = add i32 %.1122165, 1
-  %.not162 = icmp sgt i32 %126, -1
-  %138 = select i1 %.not162, i8 %.0, i8 -128
-  %139 = select i1 %127, i8 %116, i8 -1
-  %140 = and i8 %138, %139
-  %141 = and i8 %140, %118
-  %.not140 = icmp samesign ult i64 %indvars.iv, %105
-  br i1 %.not140, label %147, label %142
+135:                                              ; preds = %.sink.split, %128
+  %.0 = phi i8 [ 0, %128 ], [ %134, %.sink.split ]
+  %136 = add i32 %.1122165, 1
+  %.not162 = icmp sgt i32 %125, -1
+  %137 = select i1 %.not162, i8 %.0, i8 -128
+  %138 = select i1 %126, i8 %115, i8 -1
+  %139 = and i8 %137, %138
+  %140 = and i8 %139, %117
+  %.not140 = icmp samesign ult i64 %indvars.iv, %104
+  br i1 %.not140, label %146, label %141
 
-142:                                              ; preds = %136
-  %143 = sub nsw i64 %indvars.iv, %104
-  %144 = getelementptr inbounds [8 x i8], ptr %9, i64 0, i64 %143
-  %145 = load i8, ptr %144, align 1, !tbaa !51
-  %146 = select i1 %119, i8 %145, i8 %140
-  br label %147
+141:                                              ; preds = %135
+  %142 = sub nuw nsw i64 %indvars.iv, %104
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 0, i64 %142
+  %144 = load i8, ptr %143, align 1, !tbaa !51
+  %145 = select i1 %118, i8 %144, i8 %139
+  br label %146
 
-147:                                              ; preds = %142, %136
-  %.1 = phi i8 [ %146, %142 ], [ %141, %136 ]
-  %148 = getelementptr inbounds nuw [144 x i8], ptr %10, i64 0, i64 %indvars.iv
-  store i8 %.1, ptr %148, align 1, !tbaa !51
+146:                                              ; preds = %141, %135
+  %.1 = phi i8 [ %145, %141 ], [ %140, %135 ]
+  %147 = getelementptr inbounds nuw [144 x i8], ptr %10, i64 0, i64 %indvars.iv
+  store i8 %.1, ptr %147, align 1, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %149, label %120, !llvm.loop !79
+  br i1 %exitcond.not, label %148, label %119, !llvm.loop !79
 
-149:                                              ; preds = %147
-  %150 = load i8, ptr %11, align 8, !tbaa !77
-  switch i8 %150, label %.thread [
-    i8 4, label %151
-    i8 6, label %153
-    i8 7, label %155
-    i8 8, label %157
+148:                                              ; preds = %146
+  %149 = load i8, ptr %11, align 8, !tbaa !77
+  switch i8 %149, label %.thread [
+    i8 4, label %150
+    i8 6, label %152
+    i8 7, label %154
+    i8 8, label %156
   ]
 
-151:                                              ; preds = %149
-  %152 = call i32 @wc_ShaUpdate(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef %switch.load) #17
+150:                                              ; preds = %148
+  %151 = call i32 @wc_ShaUpdate(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef %switch.load) #17
   br label %Hmac_HashUpdate.exit148
 
-153:                                              ; preds = %149
-  %154 = call i32 @wc_Sha256Update(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef %switch.load) #17
+152:                                              ; preds = %148
+  %153 = call i32 @wc_Sha256Update(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef %switch.load) #17
   br label %Hmac_HashUpdate.exit148
 
-155:                                              ; preds = %149
-  %156 = call i32 @wc_Sha384Update(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef %switch.load) #17
+154:                                              ; preds = %148
+  %155 = call i32 @wc_Sha384Update(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef %switch.load) #17
   br label %Hmac_HashUpdate.exit148
 
-157:                                              ; preds = %149
-  %158 = call i32 @wc_Sha512Update(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef %switch.load) #17
+156:                                              ; preds = %148
+  %157 = call i32 @wc_Sha512Update(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef %switch.load) #17
   br label %Hmac_HashUpdate.exit148
 
-Hmac_HashUpdate.exit148:                          ; preds = %151, %153, %155, %157
-  %.0.i147 = phi i32 [ %158, %157 ], [ %156, %155 ], [ %154, %153 ], [ %152, %151 ]
+Hmac_HashUpdate.exit148:                          ; preds = %150, %152, %154, %156
+  %.0.i147 = phi i32 [ %157, %156 ], [ %155, %154 ], [ %153, %152 ], [ %151, %150 ]
   %.not138 = icmp eq i32 %.0.i147, 0
-  br i1 %.not138, label %159, label %.thread
+  br i1 %.not138, label %158, label %.thread
 
-159:                                              ; preds = %Hmac_HashUpdate.exit148
-  %160 = load i8, ptr %11, align 8, !tbaa !77
-  switch i8 %160, label %.thread [
-    i8 4, label %161
-    i8 6, label %163
-    i8 7, label %165
-    i8 8, label %167
+158:                                              ; preds = %Hmac_HashUpdate.exit148
+  %159 = load i8, ptr %11, align 8, !tbaa !77
+  switch i8 %159, label %.thread [
+    i8 4, label %160
+    i8 6, label %162
+    i8 7, label %164
+    i8 8, label %166
   ]
 
-161:                                              ; preds = %159
-  %162 = call i32 @wc_ShaFinalRaw(ptr noundef nonnull %0, ptr noundef nonnull %10) #17
+160:                                              ; preds = %158
+  %161 = call i32 @wc_ShaFinalRaw(ptr noundef nonnull %0, ptr noundef nonnull %10) #17
   br label %Hmac_HashFinalRaw.exit
 
-163:                                              ; preds = %159
-  %164 = call i32 @wc_Sha256FinalRaw(ptr noundef nonnull %0, ptr noundef nonnull %10) #17
+162:                                              ; preds = %158
+  %163 = call i32 @wc_Sha256FinalRaw(ptr noundef nonnull %0, ptr noundef nonnull %10) #17
   br label %Hmac_HashFinalRaw.exit
 
-165:                                              ; preds = %159
-  %166 = call i32 @wc_Sha384FinalRaw(ptr noundef nonnull %0, ptr noundef nonnull %10) #17
+164:                                              ; preds = %158
+  %165 = call i32 @wc_Sha384FinalRaw(ptr noundef nonnull %0, ptr noundef nonnull %10) #17
   br label %Hmac_HashFinalRaw.exit
 
-167:                                              ; preds = %159
-  %168 = call i32 @wc_Sha512FinalRaw(ptr noundef nonnull %0, ptr noundef nonnull %10) #17
+166:                                              ; preds = %158
+  %167 = call i32 @wc_Sha512FinalRaw(ptr noundef nonnull %0, ptr noundef nonnull %10) #17
   br label %Hmac_HashFinalRaw.exit
 
-Hmac_HashFinalRaw.exit:                           ; preds = %161, %163, %165, %167
-  %.0.i149 = phi i32 [ %168, %167 ], [ %166, %165 ], [ %164, %163 ], [ %162, %161 ]
+Hmac_HashFinalRaw.exit:                           ; preds = %160, %162, %164, %166
+  %.0.i149 = phi i32 [ %167, %166 ], [ %165, %164 ], [ %163, %162 ], [ %161, %160 ]
   %.not139 = icmp eq i32 %.0.i149, 0
   br i1 %.not139, label %.preheader, label %.thread
 
@@ -1327,66 +1326,66 @@ Hmac_HashFinalRaw.exit:                           ; preds = %161, %163, %165, %1
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv175 = phi i64 [ %indvars.iv.next176, %.lr.ph ], [ 0, %.preheader ]
-  %169 = getelementptr inbounds nuw [144 x i8], ptr %10, i64 0, i64 %indvars.iv175
-  %170 = load i8, ptr %169, align 1, !tbaa !51
-  %171 = and i8 %170, %115
-  %172 = getelementptr inbounds nuw i8, ptr %72, i64 %indvars.iv175
-  %173 = load i8, ptr %172, align 1, !tbaa !51
-  %174 = or i8 %173, %171
-  store i8 %174, ptr %172, align 1, !tbaa !51
+  %168 = getelementptr inbounds nuw [144 x i8], ptr %10, i64 0, i64 %indvars.iv175
+  %169 = load i8, ptr %168, align 1, !tbaa !51
+  %170 = and i8 %169, %114
+  %171 = getelementptr inbounds nuw i8, ptr %72, i64 %indvars.iv175
+  %172 = load i8, ptr %171, align 1, !tbaa !51
+  %173 = or i8 %172, %170
+  store i8 %173, ptr %171, align 1, !tbaa !51
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next176, %73
   br i1 %exitcond179.not, label %._crit_edge, label %.lr.ph, !llvm.loop !80
 
-.thread:                                          ; preds = %Hmac_HashUpdate.exit148, %Hmac_HashFinalRaw.exit, %149, %159
-  %.2.ph = phi i32 [ %.0.i149, %Hmac_HashFinalRaw.exit ], [ %.0.i147, %Hmac_HashUpdate.exit148 ], [ -173, %149 ], [ -173, %159 ]
+.thread:                                          ; preds = %Hmac_HashUpdate.exit148, %Hmac_HashFinalRaw.exit, %148, %158
+  %.2.ph = phi i32 [ %.0.i149, %Hmac_HashFinalRaw.exit ], [ %.0.i147, %Hmac_HashUpdate.exit148 ], [ -173, %148 ], [ -173, %158 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10) #17
   br label %Hmac_HashUpdate.exit.thread
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10) #17
-  %175 = add nuw nsw i32 %.0118169, 1
-  %176 = icmp slt i32 %175, %27
-  br i1 %176, label %106, label %._crit_edge172, !llvm.loop !81
+  %174 = add nuw nsw i32 %.0118169, 1
+  %175 = icmp slt i32 %174, %27
+  br i1 %175, label %105, label %._crit_edge172, !llvm.loop !81
 
 ._crit_edge172:                                   ; preds = %._crit_edge, %97
   call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %8) #17
-  %177 = load i8, ptr %11, align 8, !tbaa !77
-  %178 = zext i8 %177 to i32
-  %179 = call i32 @wc_HashGetDigestSize(i32 noundef %178) #17
-  %180 = call i32 @wc_HashGetBlockSize(i32 noundef %178) #17
+  %176 = load i8, ptr %11, align 8, !tbaa !77
+  %177 = zext i8 %176 to i32
+  %178 = call i32 @wc_HashGetDigestSize(i32 noundef %177) #17
+  %179 = call i32 @wc_HashGetBlockSize(i32 noundef %177) #17
+  %180 = icmp sgt i32 %178, -1
   %181 = icmp sgt i32 %179, -1
-  %182 = icmp sgt i32 %180, -1
-  %or.cond.i = select i1 %181, i1 %182, i1 false
-  br i1 %or.cond.i, label %183, label %Hmac_OuterHash.exit
+  %or.cond.i = select i1 %180, i1 %181, i1 false
+  br i1 %or.cond.i, label %182, label %Hmac_OuterHash.exit
 
-183:                                              ; preds = %._crit_edge172
-  %184 = call i32 @wc_HashInit(ptr noundef nonnull %8, i32 noundef %178) #17
-  %185 = icmp eq i32 %184, 0
-  br i1 %185, label %186, label %Hmac_OuterHash.exit
+182:                                              ; preds = %._crit_edge172
+  %183 = call i32 @wc_HashInit(ptr noundef nonnull %8, i32 noundef %177) #17
+  %184 = icmp eq i32 %183, 0
+  br i1 %184, label %185, label %Hmac_OuterHash.exit
 
-186:                                              ; preds = %183
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %188 = call i32 @wc_HashUpdate(ptr noundef nonnull %8, i32 noundef %178, ptr noundef nonnull %187, i32 noundef %180) #17
-  %189 = icmp eq i32 %188, 0
-  br i1 %189, label %190, label %.thread21.i
+185:                                              ; preds = %182
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %187 = call i32 @wc_HashUpdate(ptr noundef nonnull %8, i32 noundef %177, ptr noundef nonnull %186, i32 noundef %179) #17
+  %188 = icmp eq i32 %187, 0
+  br i1 %188, label %189, label %.thread21.i
 
-190:                                              ; preds = %186
-  %191 = call i32 @wc_HashUpdate(ptr noundef nonnull %8, i32 noundef %178, ptr noundef nonnull %72, i32 noundef %179) #17
-  %192 = icmp eq i32 %191, 0
-  br i1 %192, label %193, label %.thread21.i
+189:                                              ; preds = %185
+  %190 = call i32 @wc_HashUpdate(ptr noundef nonnull %8, i32 noundef %177, ptr noundef nonnull %72, i32 noundef %178) #17
+  %191 = icmp eq i32 %190, 0
+  br i1 %191, label %192, label %.thread21.i
 
-193:                                              ; preds = %190
-  %194 = call i32 @wc_HashFinal(ptr noundef nonnull %8, i32 noundef %178, ptr noundef %1) #17
+192:                                              ; preds = %189
+  %193 = call i32 @wc_HashFinal(ptr noundef nonnull %8, i32 noundef %177, ptr noundef %1) #17
   br label %.thread21.i
 
-.thread21.i:                                      ; preds = %193, %190, %186
-  %.3.i = phi i32 [ %194, %193 ], [ %191, %190 ], [ %188, %186 ]
-  %195 = call i32 @wc_HashFree(ptr noundef nonnull %8, i32 noundef %178) #17
+.thread21.i:                                      ; preds = %192, %189, %185
+  %.3.i = phi i32 [ %193, %192 ], [ %190, %189 ], [ %187, %185 ]
+  %194 = call i32 @wc_HashFree(ptr noundef nonnull %8, i32 noundef %177) #17
   br label %Hmac_OuterHash.exit
 
-Hmac_OuterHash.exit:                              ; preds = %._crit_edge172, %183, %.thread21.i
-  %.1.i = phi i32 [ %.3.i, %.thread21.i ], [ %184, %183 ], [ -173, %._crit_edge172 ]
+Hmac_OuterHash.exit:                              ; preds = %._crit_edge172, %182, %.thread21.i
+  %.1.i = phi i32 [ %.3.i, %.thread21.i ], [ %183, %182 ], [ -173, %._crit_edge172 ]
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %8) #17
   br label %Hmac_HashUpdate.exit.thread
 

@@ -3564,7 +3564,7 @@ define hidden void @_ZN2cv5sqpnp10PoseSolver25nearestRotationMatrixFOAMERKNS_4Ma
   %101 = tail call double @llvm.fabs.f64(double %.1263)
   %102 = fmul double %101, 0x3D719799812DEA11
   %103 = fcmp ogt double %100, %102
-  %104 = icmp ugt i32 %.0264, 1
+  %104 = icmp samesign ugt i32 %.0264, 1
   %105 = select i1 %103, i1 %104, i1 false
   br i1 %105, label %87, label %._crit_edge, !llvm.loop !179
 

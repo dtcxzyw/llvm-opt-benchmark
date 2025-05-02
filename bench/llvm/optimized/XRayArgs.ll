@@ -2279,7 +2279,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i341: ; preds = %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
   %906 = getelementptr inbounds nuw i8, ptr %.057.i, i64 8
   %907 = add nsw i64 %.08.i, -1
-  %908 = icmp ugt i64 %.08.i, 1
+  %908 = icmp samesign ugt i64 %.08.i, 1
   br i1 %908, label %_ZN4llvmeqENS_9StringRefES0_.exit253.thread, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit, !llvm.loop !228
 
 .thread:                                          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit253, %_ZN4llvmeqENS_9StringRefES0_.exit

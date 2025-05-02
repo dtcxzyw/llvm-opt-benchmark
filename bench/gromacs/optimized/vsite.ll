@@ -7293,7 +7293,7 @@ _ZN3gmxL13spread_vsitenILNS_19VirtualSitesHandler14VirialHandlingE0EEEiPKiNS_8Ar
 
 .loopexit.i:                                      ; preds = %1184, %121, %115
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %1195 = icmp ugt i64 %indvars.iv.i, 65
+  %1195 = icmp samesign ugt i64 %indvars.iv.i, 65
   br i1 %1195, label %115, label %_ZN3gmxL20spreadForceForThreadILNS_19VirtualSitesHandler14VirialHandlingE0EEEvNS_8ArrayRefIKNS_11BasicVectorIfEEEENS3_IS5_EES8_PA3_fNS3_IK9t_iparamsEENS3_IK15InteractionListEEPK5t_pbc.exit, !llvm.loop !193
 
 1196:                                             ; preds = %96
@@ -9395,7 +9395,7 @@ _ZN3gmxL13spread_vsitenILNS_19VirtualSitesHandler14VirialHandlingE1EEEiPKiNS_8Ar
 
 .loopexit.i14:                                    ; preds = %2676, %1223, %1217
   %indvars.iv.next.i15 = add nsw i64 %indvars.iv.i13, -1
-  %2687 = icmp ugt i64 %indvars.iv.i13, 65
+  %2687 = icmp samesign ugt i64 %indvars.iv.i13, 65
   br i1 %2687, label %1217, label %_ZN3gmxL20spreadForceForThreadILNS_19VirtualSitesHandler14VirialHandlingE0EEEvNS_8ArrayRefIKNS_11BasicVectorIfEEEENS3_IS5_EES8_PA3_fNS3_IK9t_iparamsEENS3_IK15InteractionListEEPK5t_pbc.exit, !llvm.loop !201
 
 2688:                                             ; preds = %.thread, %96
@@ -11375,7 +11375,7 @@ _ZN3gmxL13spread_vsitenILNS_19VirtualSitesHandler14VirialHandlingE2EEEiPKiNS_8Ar
 
 .loopexit.i37:                                    ; preds = %4040, %2752, %2746
   %indvars.iv.next.i38 = add nsw i64 %indvars.iv.i36, -1
-  %4051 = icmp ugt i64 %indvars.iv.i36, 65
+  %4051 = icmp samesign ugt i64 %indvars.iv.i36, 65
   br i1 %4051, label %2746, label %_ZN3gmxL20spreadForceForThreadILNS_19VirtualSitesHandler14VirialHandlingE0EEEvNS_8ArrayRefIKNS_11BasicVectorIfEEEENS3_IS5_EES8_PA3_fNS3_IK9t_iparamsEENS3_IK15InteractionListEEPK5t_pbc.exit, !llvm.loop !220
 
 _ZN3gmxL20spreadForceForThreadILNS_19VirtualSitesHandler14VirialHandlingE0EEEvNS_8ArrayRefIKNS_11BasicVectorIfEEEENS3_IS5_EES8_PA3_fNS3_IK9t_iparamsEENS3_IK15InteractionListEEPK5t_pbc.exit: ; preds = %.loopexit.i14, %.loopexit.i, %.loopexit.i37, %96

@@ -3088,7 +3088,7 @@ _ZL10fill_tableP11t_tabledataiPK19interaction_const_tb.exit: ; preds = %792, %.p
 836:                                              ; preds = %868, %.lr.ph.i113
   %indvars.iv.i115 = phi i64 [ 0, %.lr.ph.i113 ], [ %indvars.iv.next.pre-phi.i, %868 ]
   %.07.i = phi double [ 0.000000e+00, %.lr.ph.i113 ], [ %.1.i, %868 ]
-  %837 = icmp ult i64 %indvars.iv.i115, %834
+  %837 = icmp samesign ult i64 %indvars.iv.i115, %834
   br i1 %837, label %838, label %863
 
 838:                                              ; preds = %836
@@ -5543,7 +5543,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %76
 89:                                               ; preds = %123, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.pre-phi.i, %123 ]
   %.07.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.1.i, %123 ]
-  %90 = icmp ult i64 %indvars.iv.i, %88
+  %90 = icmp samesign ult i64 %indvars.iv.i, %88
   br i1 %90, label %91, label %118
 
 91:                                               ; preds = %89

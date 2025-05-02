@@ -11650,7 +11650,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 251:                                              ; preds = %244
   %252 = add nsw i64 %.017.i.i.i.i285, -1
-  %253 = icmp ugt i64 %.017.i.i.i.i285, 1
+  %253 = icmp samesign ugt i64 %.017.i.i.i.i285, 1
   br i1 %253, label %.lr.ph.i.i.i.i283, label %254, !llvm.loop !209
 
 254:                                              ; preds = %251
@@ -11915,7 +11915,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 358:                                              ; preds = %351
   %359 = add nsw i64 %.017.i.i.i.i316, -1
-  %360 = icmp ugt i64 %.017.i.i.i.i316, 1
+  %360 = icmp samesign ugt i64 %.017.i.i.i.i316, 1
   br i1 %360, label %.lr.ph.i.i.i.i314, label %361, !llvm.loop !209
 
 361:                                              ; preds = %358

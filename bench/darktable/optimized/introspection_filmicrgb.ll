@@ -13339,7 +13339,7 @@ define internal fastcc void @gauss_solve(ptr noundef nonnull captures(none) %0, 
 
 72:                                               ; preds = %74
   %indvars.iv.next74.i = add nsw i64 %indvars.iv73.i, -1
-  %73 = icmp ugt i64 %indvars.iv73.i, 1
+  %73 = icmp samesign ugt i64 %indvars.iv73.i, 1
   br i1 %73, label %65, label %gauss_solve_triangular.exit
 
 74:                                               ; preds = %74, %65

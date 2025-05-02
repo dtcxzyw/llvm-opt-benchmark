@@ -960,7 +960,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb11SymbolCache16createSimpleTypeENS_8c
 18:                                               ; preds = %16
   %.02956.i.i.i.i.add13 = add nuw nsw i64 %.02956.i.i.i.i.idx, 48
   %19 = add nsw i64 %.057.i.i.i.i, -1
-  %20 = icmp ugt i64 %.057.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %.057.i.i.i.i, 1
   br i1 %20, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !86
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %18
@@ -1316,7 +1316,7 @@ _ZN4llvm5ErrorD2Ev.exit10:                        ; preds = %4
 46:                                               ; preds = %44
   %.02956.i.i.i.i.add13.i = add nuw nsw i64 %.02956.i.i.i.i.idx.i, 48
   %47 = add nsw i64 %.057.i.i.i.i.i, -1
-  %48 = icmp ugt i64 %.057.i.i.i.i.i, 1
+  %48 = icmp samesign ugt i64 %.057.i.i.i.i.i, 1
   br i1 %48, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !86
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %46
@@ -1647,7 +1647,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview9TypeIndexEjNS_12DenseMapInfoIS3
 62:                                               ; preds = %60
   %.02956.i.i.i.i.add13.i = add nuw nsw i64 %.02956.i.i.i.i.idx.i, 48
   %63 = add nsw i64 %.057.i.i.i.i.i, -1
-  %64 = icmp ugt i64 %.057.i.i.i.i.i, 1
+  %64 = icmp samesign ugt i64 %.057.i.i.i.i.i, 1
   br i1 %64, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !86
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %62

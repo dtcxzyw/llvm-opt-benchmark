@@ -689,7 +689,7 @@ Abc_Clock.exit:                                   ; preds = %4, %10
 
 ._crit_edge228:                                   ; preds = %.loopexit185
   %indvars.iv.next = add nsw i64 %indvars.iv389, -1
-  %35 = icmp ugt i64 %indvars.iv.next, 1
+  %35 = icmp samesign ugt i64 %indvars.iv.next, 1
   br i1 %35, label %.lr.ph227, label %._crit_edge228.thread, !llvm.loop !64
 
 ._crit_edge228.thread:                            ; preds = %._crit_edge228

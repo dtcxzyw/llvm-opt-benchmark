@@ -179,7 +179,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsEnvironment_initXRende
 .lr.ph70.i:                                       ; preds = %.preheader.i, %102
   %.04769.i = phi i32 [ %72, %102 ], [ 50, %.preheader.i ]
   %72 = add nsw i32 %.04769.i, -1
-  %73 = icmp ugt i32 %.04769.i, 1
+  %73 = icmp samesign ugt i32 %.04769.i, 1
   br i1 %73, label %74, label %.critedge4.i
 
 74:                                               ; preds = %.lr.ph70.i

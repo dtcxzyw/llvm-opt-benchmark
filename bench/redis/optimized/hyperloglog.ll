@@ -2018,7 +2018,7 @@ hllTau.exit:                                      ; preds = %hllTau.exit.prehead
   %141 = fadd double %.035, %140
   %142 = fmul double %141, 5.000000e-01
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %143 = icmp ugt i64 %indvars.iv, 1
+  %143 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %143, label %hllTau.exit, label %144, !llvm.loop !56
 
 144:                                              ; preds = %hllTau.exit

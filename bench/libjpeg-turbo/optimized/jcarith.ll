@@ -1714,7 +1714,7 @@ define internal noundef i32 @encode_mcu(ptr noundef %0, ptr noundef readonly cap
 
 105:                                              ; preds = %98
   %106 = add nsw i32 %.0140182, -1
-  %107 = icmp ugt i32 %.0140182, 1
+  %107 = icmp samesign ugt i32 %.0140182, 1
   br i1 %107, label %98, label %._crit_edge209.thread, !llvm.loop !90
 
 108:                                              ; preds = %98

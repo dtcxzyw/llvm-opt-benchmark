@@ -625,7 +625,7 @@ define hidden noundef i32 @_ZN2os12get_priorityEPK6ThreadR14ThreadPriority(ptr n
 
 14:                                               ; preds = %.preheader
   %15 = add nsw i32 %.01318, -1
-  %16 = icmp ugt i32 %.01318, 2
+  %16 = icmp samesign ugt i32 %.01318, 2
   br i1 %16, label %.preheader, label %.critedge, !llvm.loop !6
 
 .preheader15:                                     ; preds = %5, %21
@@ -638,7 +638,7 @@ define hidden noundef i32 @_ZN2os12get_priorityEPK6ThreadR14ThreadPriority(ptr n
 
 21:                                               ; preds = %.preheader15
   %22 = add nsw i32 %.217, -1
-  %23 = icmp ugt i32 %.217, 2
+  %23 = icmp samesign ugt i32 %.217, 2
   br i1 %23, label %.preheader15, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %.preheader15, %21, %.preheader, %14

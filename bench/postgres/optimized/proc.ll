@@ -1785,7 +1785,7 @@ define dso_local range(i32 2, 1) i32 @ProcSleep(ptr noundef %0) local_unnamed_ad
   %108 = getelementptr %union.LWLockPadded, ptr %107, i64 %indvars.iv9.i
   %109 = getelementptr i8, ptr %108, i64 23040
   call void @LWLockRelease(ptr noundef nonnull %109) #14
-  %110 = icmp ugt i64 %indvars.iv9.i, 1
+  %110 = icmp samesign ugt i64 %indvars.iv9.i, 1
   br i1 %110, label %106, label %CheckDeadLock.exit, !llvm.loop !25
 
 CheckDeadLock.exit:                               ; preds = %106

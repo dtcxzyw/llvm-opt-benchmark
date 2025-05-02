@@ -6094,7 +6094,7 @@ define dso_local noundef range(i32 0, -1) i32 @_ZN8V3Number5log2bEj(i32 noundef 
 
 7:                                                ; preds = %3
   %8 = add nsw i32 %.079, -1
-  %9 = icmp ult i32 %.079, 2
+  %9 = icmp samesign ult i32 %.079, 2
   br i1 %9, label %10, label %3, !llvm.loop !140
 
 10:                                               ; preds = %3, %7
@@ -6121,7 +6121,7 @@ define dso_local noundef i32 @_ZN8V3Number9log2bQuadEm(i64 noundef %0) local_unn
 
 8:                                                ; preds = %4
   %9 = add nsw i32 %.079.i, -1
-  %10 = icmp ult i32 %.079.i, 2
+  %10 = icmp samesign ult i32 %.079.i, 2
   br i1 %10, label %_ZN8V3Number5log2bEj.exit, label %4, !llvm.loop !140
 
 _ZN8V3Number5log2bEj.exit:                        ; preds = %4, %8
@@ -6139,7 +6139,7 @@ _ZN8V3Number5log2bEj.exit:                        ; preds = %4, %8
 
 15:                                               ; preds = %.preheader
   %16 = add nsw i32 %.079.i5, -1
-  %17 = icmp ult i32 %.079.i5, 2
+  %17 = icmp samesign ult i32 %.079.i5, 2
   br i1 %17, label %_ZN8V3Number5log2bEj.exit8, label %.preheader, !llvm.loop !140
 
 _ZN8V3Number5log2bEj.exit8:                       ; preds = %15, %.preheader, %_ZN8V3Number5log2bEj.exit

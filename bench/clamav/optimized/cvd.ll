@@ -743,7 +743,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_cvdverify(ptr noundef %0, ptr n
 .critedge2:                                       ; preds = %10, %10
   store i8 0, ptr %11, align 1, !tbaa !17
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %13 = icmp ugt i64 %indvars.iv, 1
+  %13 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %13, label %10, label %.critedge
 
 .critedge:                                        ; preds = %10, %.critedge2

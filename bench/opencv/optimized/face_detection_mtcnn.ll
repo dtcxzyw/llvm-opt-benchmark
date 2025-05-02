@@ -13867,7 +13867,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSERKS6_.exit.i.i.i.i.i.i: ; preds = %5042, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i.i.i.i.i
   %5043 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i.i, i64 32
   %5044 = add nsw i64 %.07.i.i.i.i.i.i, -1
-  %5045 = icmp ugt i64 %.07.i.i.i.i.i.i, 1
+  %5045 = icmp samesign ugt i64 %.07.i.i.i.i.i.i, 1
   br i1 %5045, label %5021, label %_ZN2cv4gapi2ie6ParamsIN6custom12_GLOBAL__N_115MTCNNRefinementEE15cfgOutputLayersERKSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm2EE.exit, !llvm.loop !400
 
 _ZN2cv4gapi2ie6ParamsIN6custom12_GLOBAL__N_115MTCNNRefinementEE15cfgOutputLayersERKSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm2EE.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSERKS6_.exit.i.i.i.i.i.i
@@ -14467,7 +14467,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSERKS6_.exit.i.i.i.i.i.i1562: ; preds = %5258, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i.i.i.i.i1561
   %5259 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i.i1558, i64 32
   %5260 = add nsw i64 %.07.i.i.i.i.i.i1557, -1
-  %5261 = icmp ugt i64 %.07.i.i.i.i.i.i1557, 1
+  %5261 = icmp samesign ugt i64 %.07.i.i.i.i.i.i1557, 1
   br i1 %5261, label %5237, label %_ZN2cv4gapi2ie6ParamsIN6custom12_GLOBAL__N_111MTCNNOutputEE15cfgOutputLayersERKSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EE.exit, !llvm.loop !400
 
 _ZN2cv4gapi2ie6ParamsIN6custom12_GLOBAL__N_111MTCNNOutputEE15cfgOutputLayersERKSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EE.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSERKS6_.exit.i.i.i.i.i.i1562

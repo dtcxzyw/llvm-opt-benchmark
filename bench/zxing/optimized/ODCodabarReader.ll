@@ -562,7 +562,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; pr
 111:                                              ; preds = %108
   %.02946.i.i.i.i.add9.i.i.i = add nuw nsw i64 %.02946.i.i.i.i.idx.i.i.i, 16
   %112 = add nsw i64 %.047.i.i.i.i.i.i.i, -1
-  %113 = icmp ugt i64 %.047.i.i.i.i.i.i.i, 1
+  %113 = icmp samesign ugt i64 %.047.i.i.i.i.i.i.i, 1
   br i1 %113, label %.noexc33, label %_ZN5ZXing4OneD9RowReader23DecodeNarrowWidePatternIA20_iA21_cEEcRKNS_11PatternViewERKT_RKT0_.exit, !llvm.loop !61
 
 _ZN5ZXing4FindIA20_KiiEEDTclsr3stdE5beginfp_EERT_RKT0_.exit.i.i.i: ; preds = %.noexc33
@@ -793,7 +793,7 @@ _ZN5ZXing6ResultC2Ev.exit40:                      ; preds = %_ZN5ZXing11PatternV
 209:                                              ; preds = %206
   %.02946.i.i.i.i.add9.i.i.i50 = add nuw nsw i64 %.02946.i.i.i.i.idx.i.i.i42, 16
   %210 = add nsw i64 %.047.i.i.i.i.i.i.i41, -1
-  %211 = icmp ugt i64 %.047.i.i.i.i.i.i.i41, 1
+  %211 = icmp samesign ugt i64 %.047.i.i.i.i.i.i.i41, 1
   br i1 %211, label %.noexc55, label %_ZN5ZXing4OneD9RowReader23DecodeNarrowWidePatternIA20_iA21_cEEcRKNS_11PatternViewERKT_RKT0_.exit56, !llvm.loop !61
 
 _ZN5ZXing4FindIA20_KiiEEDTclsr3stdE5beginfp_EERT_RKT0_.exit.i.i.i54: ; preds = %.noexc55

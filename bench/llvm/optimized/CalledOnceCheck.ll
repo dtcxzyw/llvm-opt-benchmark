@@ -3539,7 +3539,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlock
 _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit78.thread.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit78.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK5clang9NamedDecl7getNameEv.exit.i.i72.i.i.i.i.i.i.i.i.i.i.i.i
   %.02924.i.i.i.i.i.i.i.add11.i.i.i.i.i = add nuw nsw i64 %.02924.i.i.i.i.i.i.i.idx.i.i.i.i.i, 96
   %768 = add nsw i64 %.025.i.i.i.i.i.i.i.i.i.i.i.i, -1
-  %769 = icmp ugt i64 %.025.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %769 = icmp samesign ugt i64 %.025.i.i.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %769, label %715, label %_ZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEj.exit.thread.i.i.i.i.i, !llvm.loop !265
 
 _ZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEj.exit.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit.i.i.i.i.i.i.i.i.i.i.i.i

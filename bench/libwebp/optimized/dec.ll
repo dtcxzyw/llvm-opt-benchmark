@@ -544,7 +544,7 @@ define internal void @VFilter16i_C(ptr noundef captures(none) %0, i32 noundef %1
   %9 = getelementptr inbounds i8, ptr %.089, i64 %7
   tail call fastcc void @FilterLoop24_C(ptr noundef %9, i32 noundef %1, i32 noundef 1, i32 noundef 16, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   %10 = add nsw i32 %.010, -1
-  %11 = icmp ugt i32 %.010, 1
+  %11 = icmp samesign ugt i32 %.010, 1
   br i1 %11, label %8, label %12, !llvm.loop !17
 
 12:                                               ; preds = %8
@@ -830,7 +830,7 @@ define internal void @SimpleVFilter16i_C(ptr noundef captures(none) %0, i32 noun
 
 SimpleVFilter16_C.exit:                           ; preds = %71
   %72 = add nsw i32 %.08, -1
-  %73 = icmp ugt i32 %.08, 1
+  %73 = icmp samesign ugt i32 %.08, 1
   br i1 %73, label %17, label %74, !llvm.loop !22
 
 74:                                               ; preds = %SimpleVFilter16_C.exit
@@ -922,7 +922,7 @@ define internal void @SimpleHFilter16i_C(ptr noundef captures(none) %0, i32 noun
 
 SimpleHFilter16_C.exit:                           ; preds = %66
   %67 = add nsw i32 %.07, -1
-  %68 = icmp ugt i32 %.07, 1
+  %68 = icmp samesign ugt i32 %.07, 1
   br i1 %68, label %11, label %69, !llvm.loop !23
 
 69:                                               ; preds = %SimpleHFilter16_C.exit
@@ -939,7 +939,7 @@ define internal void @HFilter16i_C(ptr noundef captures(none) %0, i32 noundef %1
   %7 = getelementptr inbounds nuw i8, ptr %.078, i64 4
   tail call fastcc void @FilterLoop24_C(ptr noundef nonnull %7, i32 noundef 1, i32 noundef %1, i32 noundef 16, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   %8 = add nsw i32 %.09, -1
-  %9 = icmp ugt i32 %.09, 1
+  %9 = icmp samesign ugt i32 %.09, 1
   br i1 %9, label %6, label %10, !llvm.loop !24
 
 10:                                               ; preds = %6
@@ -1876,7 +1876,7 @@ define internal void @HE16_C(ptr noundef captures(none) %0) #3 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.045, i8 %4, i64 16, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %.045, i64 32
   %6 = add nsw i32 %.06, -1
-  %7 = icmp ugt i32 %.06, 1
+  %7 = icmp samesign ugt i32 %.06, 1
   br i1 %7, label %2, label %8, !llvm.loop !33
 
 8:                                                ; preds = %2

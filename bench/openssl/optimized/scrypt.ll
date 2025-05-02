@@ -1054,7 +1054,7 @@ define internal fastcc void @scryptBlockMix(ptr noundef nonnull writeonly captur
   %143 = call i32 @llvm.fshl.i32(i32 %142, i32 %142, i32 18)
   %144 = xor i32 %143, %96
   %145 = add nsw i32 %.037.i, -2
-  %146 = icmp ugt i32 %.037.i, 2
+  %146 = icmp samesign ugt i32 %.037.i, 2
   br i1 %146, label %32, label %.preheader.i, !llvm.loop !40
 
 147:                                              ; preds = %147, %.preheader.i

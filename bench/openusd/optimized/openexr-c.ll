@@ -36102,7 +36102,7 @@ push_heap.exit.i:                                 ; preds = %258, %.lr.ph.i.i102
   %290 = lshr i64 %289, 1
   store i64 %.032.i.i, ptr %287, align 8
   %indvars.iv.next37.i.i = add nsw i64 %indvars.iv36.i.i, -1
-  %291 = icmp ugt i64 %indvars.iv36.i.i, 1
+  %291 = icmp samesign ugt i64 %indvars.iv36.i.i, 1
   br i1 %291, label %.preheader27.i.i, label %.preheader.i.i, !llvm.loop !253
 
 .preheader.i.i:                                   ; preds = %.preheader27.i.i, %300
@@ -52155,7 +52155,7 @@ fasthuf_read_bits.exit165.i:                      ; preds = %fasthuf_read_bits.e
 
 253:                                              ; preds = %.preheader.i.i
   %254 = add nsw i32 %.06080.i.i, -1
-  %255 = icmp ugt i32 %.06080.i.i, 1
+  %255 = icmp samesign ugt i32 %.06080.i.i, 1
   br i1 %255, label %.preheader.i.i, label %259, !llvm.loop !408
 
 fasthuf_initialize.exit.thread.sink.split:        ; preds = %246, %173, %119, %106, %84, %48
@@ -52344,7 +52344,7 @@ getBits.exit48.i:                                 ; preds = %.lr.ph.i46.i, %293
   %333 = lshr i64 %332, 1
   store i64 %.032.i.i, ptr %330, align 8
   %indvars.iv.next37.i.i = add nsw i64 %indvars.iv36.i.i, -1
-  %334 = icmp ugt i64 %indvars.iv36.i.i, 1
+  %334 = icmp samesign ugt i64 %indvars.iv36.i.i, 1
   br i1 %334, label %.preheader27.i.i, label %.preheader.i.i71, !llvm.loop !253
 
 .preheader.i.i71:                                 ; preds = %.preheader27.i.i, %343

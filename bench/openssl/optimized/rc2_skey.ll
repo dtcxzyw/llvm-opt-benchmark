@@ -115,7 +115,7 @@ define void @RC2_set_key(ptr noundef captures(none) initializes((0, 1)) %0, i32 
   %51 = getelementptr inbounds i8, ptr %.05068, i64 -4
   store i32 %50, ptr %.05068, align 4, !tbaa !10
   %indvars.iv.next79 = add nsw i64 %indvars.iv78, -2
-  %52 = icmp ugt i64 %indvars.iv78, 1
+  %52 = icmp samesign ugt i64 %indvars.iv78, 1
   br i1 %52, label %48, label %53, !llvm.loop !12
 
 53:                                               ; preds = %48

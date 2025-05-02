@@ -888,7 +888,7 @@ define dso_local void @_ZN4llvm3X8617getFeaturesForCPUENS_9StringRefERNS_15Small
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit65.thread11.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit65.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit61.thread8.i.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit61.thread8.i.i.i.i"
   %21 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i, i64 224
   %22 = add nsw i64 %.044.i.i.i.i, -1
-  %23 = icmp ugt i64 %.044.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %.044.i.i.i.i, 1
   br i1 %23, label %.split.split.i.i.i, label %.split36.us.i.i.i, !llvm.loop !30
 
 .split36.us.i.i.i:                                ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8617getFeaturesForCPUENS2_9StringRefERNS2_15SmallVectorImplIS4_EEbE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit65.thread11.i.i.i.i"
@@ -1123,7 +1123,7 @@ define dso_local void @_ZN4llvm3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9S
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit74.thread11.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit74.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit67.thread8.i.i.i.i"
   %.02943.i.i.i.i.add40 = add nuw nsw i64 %.02943.i.i.i.i.idx, 160
   %31 = add nsw i64 %.044.i.i.i.i, -1
-  %32 = icmp ugt i64 %.044.i.i.i.i, 1
+  %32 = icmp samesign ugt i64 %.044.i.i.i.i, 1
   br i1 %32, label %10, label %33, !llvm.loop !39
 
 33:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit74.thread11.i.i.i.i"
@@ -1432,7 +1432,7 @@ define dso_local noundef signext i8 @_ZN4llvm3X8622getCPUDispatchManglingENS_9St
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8622getCPUDispatchManglingENS2_9StringRefEE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit65.thread11.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8622getCPUDispatchManglingENS2_9StringRefEE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit65.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8622getCPUDispatchManglingENS2_9StringRefEE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit61.thread8.i.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8622getCPUDispatchManglingENS2_9StringRefEE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit61.thread8.i.i.i.i"
   %17 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i, i64 224
   %18 = add nsw i64 %.044.i.i.i.i, -1
-  %19 = icmp ugt i64 %.044.i.i.i.i, 1
+  %19 = icmp samesign ugt i64 %.044.i.i.i.i, 1
   br i1 %19, label %.split.split.i.i.i, label %.split36.us.i.i.i, !llvm.loop !52
 
 .split36.us.i.i.i:                                ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8622getCPUDispatchManglingENS2_9StringRefEE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit65.thread11.i.i.i.i"
@@ -1547,7 +1547,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8630validateCPUSpecificCPUDispatc
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8630validateCPUSpecificCPUDispatchENS2_9StringRefEE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit65.thread11.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8630validateCPUSpecificCPUDispatchENS2_9StringRefEE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit65.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8630validateCPUSpecificCPUDispatchENS2_9StringRefEE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit61.thread8.i.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8630validateCPUSpecificCPUDispatchENS2_9StringRefEE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit61.thread8.i.i.i.i"
   %17 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i, i64 224
   %18 = add nsw i64 %.044.i.i.i.i, -1
-  %19 = icmp ugt i64 %.044.i.i.i.i, 1
+  %19 = icmp samesign ugt i64 %.044.i.i.i.i, 1
   br i1 %19, label %.split.split.i.i.i, label %.split36.us.i.i.i, !llvm.loop !54
 
 .split36.us.i.i.i:                                ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8630validateCPUSpecificCPUDispatchENS2_9StringRefEE3$_0EclIPKN12_GLOBAL__N_18ProcInfoEEEbT_.exit65.thread11.i.i.i.i"

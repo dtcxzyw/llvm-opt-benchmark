@@ -18,7 +18,7 @@ define hidden i32 @od_ec_tell_frac(i32 noundef %0, i32 noundef %1) local_unnamed
   %8 = shl i32 %.01213, 1
   %9 = or disjoint i32 %7, %8
   %10 = lshr i32 %6, %7
-  %11 = icmp ugt i32 %.01114, 1
+  %11 = icmp samesign ugt i32 %.01114, 1
   br i1 %11, label %3, label %12, !llvm.loop !4
 
 12:                                               ; preds = %3

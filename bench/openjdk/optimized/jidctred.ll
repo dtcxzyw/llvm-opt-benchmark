@@ -159,7 +159,7 @@ define hidden void @jRD4x4(ptr noundef readonly captures(none) %0, ptr noundef r
   %118 = getelementptr inbounds nuw i8, ptr %.0125131, i64 4
   %119 = getelementptr inbounds nuw i8, ptr %.0123132, i64 4
   %120 = add nsw i32 %.0133, -1
-  %121 = icmp ugt i32 %.0133, 1
+  %121 = icmp samesign ugt i32 %.0133, 1
   br i1 %121, label %13, label %.preheader, !llvm.loop !6
 
 122:                                              ; preds = %.preheader, %216
@@ -403,7 +403,7 @@ define hidden void @jRD2x2(ptr noundef readonly captures(none) %0, ptr noundef r
   %78 = getelementptr inbounds nuw i8, ptr %.07883, i64 4
   %79 = getelementptr inbounds nuw i8, ptr %.07982, i64 4
   %80 = add nsw i32 %.085, -1
-  %81 = icmp ugt i32 %.085, 1
+  %81 = icmp samesign ugt i32 %.085, 1
   br i1 %81, label %13, label %.preheader, !llvm.loop !9
 
 82:                                               ; preds = %.preheader, %136

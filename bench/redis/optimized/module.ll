@@ -25981,7 +25981,7 @@ define dso_local void @modulesCron() local_unnamed_addr #0 {
   %11 = load i64, ptr @moduleTempClientMinCount, align 8, !tbaa !24
   %12 = add i64 %11, -1
   store i64 %12, ptr @moduleTempClientMinCount, align 8, !tbaa !24
-  %13 = icmp ugt i32 %.010, 1
+  %13 = icmp samesign ugt i32 %.010, 1
   %14 = load i64, ptr @moduleTempClientCount, align 8
   %15 = icmp ne i64 %14, 0
   %or.cond = select i1 %13, i1 %15, i1 false

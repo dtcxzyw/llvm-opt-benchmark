@@ -552,7 +552,7 @@ define void @_ZN6LibRaw18kodak_thumb_loaderEv(ptr noundef nonnull align 8 derefe
 266:                                              ; preds = %.preheader174, %268
   %indvars.iv273 = phi i64 [ 8192, %.preheader174 ], [ %indvars.iv.next274, %268 ]
   %.0127 = phi i32 [ 0, %.preheader174 ], [ %271, %268 ]
-  %267 = icmp ugt i64 %indvars.iv273, 33
+  %267 = icmp samesign ugt i64 %indvars.iv273, 33
   br i1 %267, label %268, label %.split.loop.exit309
 
 268:                                              ; preds = %266

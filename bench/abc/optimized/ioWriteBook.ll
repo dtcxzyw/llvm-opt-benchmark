@@ -441,7 +441,7 @@ Vec_PtrPush.exit.i.i:                             ; preds = %157, %Vec_PtrGrow.e
   br label %Vec_PtrPush.exit222.i.i
 
 173:                                              ; preds = %166
-  %174 = icmp ult i64 %indvars.iv313.i.i, 16
+  %174 = icmp samesign ult i64 %indvars.iv313.i.i, 16
   %175 = load ptr, ptr %116, align 8, !tbaa !33
   %.not9.i.i220.i.i = icmp eq ptr %175, null
   br i1 %174, label %176, label %182

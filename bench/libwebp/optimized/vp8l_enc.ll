@@ -4063,7 +4063,7 @@ VP8LPutBits.exit.i:                               ; preds = %121, %115
 
 132:                                              ; preds = %134, %._crit_edge.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %134 ], [ 19, %._crit_edge.i ]
-  %133 = icmp ugt i64 %indvars.iv.i.i, 4
+  %133 = icmp samesign ugt i64 %indvars.iv.i.i, 4
   br i1 %133, label %134, label %.split.loop.exit19.i.i
 
 134:                                              ; preds = %132

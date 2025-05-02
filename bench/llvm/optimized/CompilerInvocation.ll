@@ -48757,7 +48757,7 @@ _ZN4llvm15SmallVectorImplISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
 10089:                                            ; preds = %10085
   %10090 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
   %10091 = add nsw i64 %.047.i.i.i.i, -1
-  %10092 = icmp ugt i64 %.047.i.i.i.i, 1
+  %10092 = icmp samesign ugt i64 %.047.i.i.i.i, 1
   br i1 %10092, label %10074, label %._crit_edge._crit_edge52.i.i.i.i, !llvm.loop !1507
 
 ._crit_edge._crit_edge52.i.i.i.i:                 ; preds = %10089

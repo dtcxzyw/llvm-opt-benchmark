@@ -3770,7 +3770,7 @@ cvPrepareNextStep.exit.i:                         ; preds = %1262, %1256, %1233,
   %1269 = load double, ptr %1268, align 8, !tbaa !96
   %1270 = getelementptr inbounds nuw [6 x [4 x double]], ptr %432, i64 0, i64 %indvars.iv.i113.i, i64 %indvars.iv99.i.i
   store double %1269, ptr %1270, align 8, !tbaa !96
-  %1271 = icmp ugt i64 %indvars.iv.i113.i, 2
+  %1271 = icmp samesign ugt i64 %indvars.iv.i113.i, 2
   br i1 %1271, label %1267, label %1272
 
 1272:                                             ; preds = %1267

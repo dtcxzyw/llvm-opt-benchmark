@@ -32260,7 +32260,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3060: ; preds = %2198, %_ZNSt11cha
 
 2198:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3060
   %.0.add.i.i3065 = add nsw i64 %.0.idx35.i.i3061, -1
-  %.not29.i.i3066 = icmp ult i64 %.0.idx35.i.i3061, 3
+  %.not29.i.i3066 = icmp samesign ult i64 %.0.idx35.i.i3061, 3
   br i1 %.not29.i.i3066, label %.loopexit27056, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3060, !llvm.loop !322
 
 .loopexit27056:                                   ; preds = %2198, %2196
@@ -32290,7 +32290,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3073: ; preds = %2205, %.loopexit2
 
 2205:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3073
   %.0.add.i.i3078 = add nsw i64 %.0.idx35.i.i3074, -1
-  %.not29.i.i3079 = icmp ult i64 %.0.idx35.i.i3074, 3
+  %.not29.i.i3079 = icmp samesign ult i64 %.0.idx35.i.i3074, 3
   br i1 %.not29.i.i3079, label %.loopexit27055, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3073, !llvm.loop !322
 
 .loopexit27055:                                   ; preds = %2205, %2203
@@ -32320,7 +32320,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3086: ; preds = %2212, %.loopexit2
 
 2212:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3086
   %.0.add.i.i3091 = add nsw i64 %.0.idx35.i.i3087, -1
-  %.not29.i.i3092 = icmp ult i64 %.0.idx35.i.i3087, 3
+  %.not29.i.i3092 = icmp samesign ult i64 %.0.idx35.i.i3087, 3
   br i1 %.not29.i.i3092, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3099, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3086, !llvm.loop !322
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3099: ; preds = %2212, %2210
@@ -32363,7 +32363,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3115: ; preds = %2224, %_ZNSt11cha
 
 2224:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3115
   %.0.add.i.i3120 = add nsw i64 %.0.idx35.i.i3116, -1
-  %.not29.i.i3121 = icmp ult i64 %.0.idx35.i.i3116, 3
+  %.not29.i.i3121 = icmp samesign ult i64 %.0.idx35.i.i3116, 3
   br i1 %.not29.i.i3121, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3128, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3115, !llvm.loop !322
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3128: ; preds = %2224, %2222
@@ -32408,7 +32408,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3170: ; preds = %2238, %_ZNSt11cha
 
 2238:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3170
   %.0.add.i.i3175 = add nsw i64 %.0.idx35.i.i3171, -1
-  %.not29.i.i3176 = icmp ult i64 %.0.idx35.i.i3171, 3
+  %.not29.i.i3176 = icmp samesign ult i64 %.0.idx35.i.i3171, 3
   br i1 %.not29.i.i3176, label %.loopexit27054, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3170, !llvm.loop !322
 
 .loopexit27054:                                   ; preds = %2238, %2236
@@ -32443,7 +32443,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3228: ; preds = %2250, %.loopexit2
 
 2250:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3228
   %.0.add.i.i3233 = add nsw i64 %.0.idx35.i.i3229, -1
-  %.not29.i.i3234 = icmp ult i64 %.0.idx35.i.i3229, 3
+  %.not29.i.i3234 = icmp samesign ult i64 %.0.idx35.i.i3229, 3
   br i1 %.not29.i.i3234, label %.loopexit27053, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3228, !llvm.loop !322
 
 .loopexit27053:                                   ; preds = %2250, %2248
@@ -32473,7 +32473,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3241: ; preds = %2257, %.loopexit2
 
 2257:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3241
   %.0.add.i.i3246 = add nsw i64 %.0.idx35.i.i3242, -1
-  %.not29.i.i3247 = icmp ult i64 %.0.idx35.i.i3242, 3
+  %.not29.i.i3247 = icmp samesign ult i64 %.0.idx35.i.i3242, 3
   br i1 %.not29.i.i3247, label %.loopexit27052, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3241, !llvm.loop !322
 
 .loopexit27052:                                   ; preds = %2257, %2255
@@ -32503,7 +32503,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3254: ; preds = %2264, %.loopexit2
 
 2264:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3254
   %.0.add.i.i3259 = add nsw i64 %.0.idx35.i.i3255, -1
-  %.not29.i.i3260 = icmp ult i64 %.0.idx35.i.i3255, 3
+  %.not29.i.i3260 = icmp samesign ult i64 %.0.idx35.i.i3255, 3
   br i1 %.not29.i.i3260, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3267, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3254, !llvm.loop !322
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3267: ; preds = %2264, %2262
@@ -32546,7 +32546,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3283: ; preds = %2276, %_ZNSt11cha
 
 2276:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3283
   %.0.add.i.i3288 = add nsw i64 %.0.idx35.i.i3284, -1
-  %.not29.i.i3289 = icmp ult i64 %.0.idx35.i.i3284, 3
+  %.not29.i.i3289 = icmp samesign ult i64 %.0.idx35.i.i3284, 3
   br i1 %.not29.i.i3289, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3296, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3283, !llvm.loop !322
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3296: ; preds = %2276, %2274
@@ -32591,7 +32591,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3338: ; preds = %2290, %_ZNSt11cha
 
 2290:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3338
   %.0.add.i.i3343 = add nsw i64 %.0.idx35.i.i3339, -1
-  %.not29.i.i3344 = icmp ult i64 %.0.idx35.i.i3339, 3
+  %.not29.i.i3344 = icmp samesign ult i64 %.0.idx35.i.i3339, 3
   br i1 %.not29.i.i3344, label %.loopexit27051, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3338, !llvm.loop !322
 
 .loopexit27051:                                   ; preds = %2290, %2288
@@ -32626,7 +32626,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3396: ; preds = %2302, %.loopexit2
 
 2302:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3396
   %.0.add.i.i3401 = add nsw i64 %.0.idx35.i.i3397, -1
-  %.not29.i.i3402 = icmp ult i64 %.0.idx35.i.i3397, 3
+  %.not29.i.i3402 = icmp samesign ult i64 %.0.idx35.i.i3397, 3
   br i1 %.not29.i.i3402, label %.loopexit27050, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3396, !llvm.loop !322
 
 .loopexit27050:                                   ; preds = %2302, %2300
@@ -32656,7 +32656,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3409: ; preds = %2309, %.loopexit2
 
 2309:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3409
   %.0.add.i.i3414 = add nsw i64 %.0.idx35.i.i3410, -1
-  %.not29.i.i3415 = icmp ult i64 %.0.idx35.i.i3410, 3
+  %.not29.i.i3415 = icmp samesign ult i64 %.0.idx35.i.i3410, 3
   br i1 %.not29.i.i3415, label %.loopexit27049, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3409, !llvm.loop !322
 
 .loopexit27049:                                   ; preds = %2309, %2307
@@ -32686,7 +32686,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3422: ; preds = %2316, %.loopexit2
 
 2316:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3422
   %.0.add.i.i3427 = add nsw i64 %.0.idx35.i.i3423, -1
-  %.not29.i.i3428 = icmp ult i64 %.0.idx35.i.i3423, 3
+  %.not29.i.i3428 = icmp samesign ult i64 %.0.idx35.i.i3423, 3
   br i1 %.not29.i.i3428, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3435, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3422, !llvm.loop !322
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3435: ; preds = %2316, %2314
@@ -32729,7 +32729,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3451: ; preds = %2328, %_ZNSt11cha
 
 2328:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3451
   %.0.add.i.i3456 = add nsw i64 %.0.idx35.i.i3452, -1
-  %.not29.i.i3457 = icmp ult i64 %.0.idx35.i.i3452, 3
+  %.not29.i.i3457 = icmp samesign ult i64 %.0.idx35.i.i3452, 3
   br i1 %.not29.i.i3457, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3464, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3451, !llvm.loop !322
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3464: ; preds = %2328, %2326
@@ -32774,7 +32774,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3506: ; preds = %2342, %_ZNSt11cha
 
 2342:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3506
   %.0.add.i.i3511 = add nsw i64 %.0.idx35.i.i3507, -1
-  %.not29.i.i3512 = icmp ult i64 %.0.idx35.i.i3507, 3
+  %.not29.i.i3512 = icmp samesign ult i64 %.0.idx35.i.i3507, 3
   br i1 %.not29.i.i3512, label %.loopexit27048, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3506, !llvm.loop !322
 
 .loopexit27048:                                   ; preds = %2342, %2340
@@ -32809,7 +32809,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3564: ; preds = %2354, %.loopexit2
 
 2354:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3564
   %.0.add.i.i3569 = add nsw i64 %.0.idx35.i.i3565, -1
-  %.not29.i.i3570 = icmp ult i64 %.0.idx35.i.i3565, 3
+  %.not29.i.i3570 = icmp samesign ult i64 %.0.idx35.i.i3565, 3
   br i1 %.not29.i.i3570, label %.loopexit27047, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3564, !llvm.loop !322
 
 .loopexit27047:                                   ; preds = %2354, %2352
@@ -32839,7 +32839,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3577: ; preds = %2361, %.loopexit2
 
 2361:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3577
   %.0.add.i.i3582 = add nsw i64 %.0.idx35.i.i3578, -1
-  %.not29.i.i3583 = icmp ult i64 %.0.idx35.i.i3578, 3
+  %.not29.i.i3583 = icmp samesign ult i64 %.0.idx35.i.i3578, 3
   br i1 %.not29.i.i3583, label %.loopexit27046, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3577, !llvm.loop !322
 
 .loopexit27046:                                   ; preds = %2361, %2359
@@ -32869,7 +32869,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3590: ; preds = %2368, %.loopexit2
 
 2368:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3590
   %.0.add.i.i3595 = add nsw i64 %.0.idx35.i.i3591, -1
-  %.not29.i.i3596 = icmp ult i64 %.0.idx35.i.i3591, 3
+  %.not29.i.i3596 = icmp samesign ult i64 %.0.idx35.i.i3591, 3
   br i1 %.not29.i.i3596, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3603, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3590, !llvm.loop !322
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3603: ; preds = %2368, %2366
@@ -32912,7 +32912,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3619: ; preds = %2380, %_ZNSt11cha
 
 2380:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3619
   %.0.add.i.i3624 = add nsw i64 %.0.idx35.i.i3620, -1
-  %.not29.i.i3625 = icmp ult i64 %.0.idx35.i.i3620, 3
+  %.not29.i.i3625 = icmp samesign ult i64 %.0.idx35.i.i3620, 3
   br i1 %.not29.i.i3625, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3632, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3619, !llvm.loop !322
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3632: ; preds = %2380, %2378
@@ -32957,7 +32957,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3674: ; preds = %2394, %_ZNSt11cha
 
 2394:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3674
   %.0.add.i.i3679 = add nsw i64 %.0.idx35.i.i3675, -1
-  %.not29.i.i3680 = icmp ult i64 %.0.idx35.i.i3675, 3
+  %.not29.i.i3680 = icmp samesign ult i64 %.0.idx35.i.i3675, 3
   br i1 %.not29.i.i3680, label %.loopexit27045, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3674, !llvm.loop !322
 
 .loopexit27045:                                   ; preds = %2394, %2392
@@ -32992,7 +32992,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3732: ; preds = %2406, %.loopexit2
 
 2406:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3732
   %.0.add.i.i3737 = add nsw i64 %.0.idx35.i.i3733, -1
-  %.not29.i.i3738 = icmp ult i64 %.0.idx35.i.i3733, 3
+  %.not29.i.i3738 = icmp samesign ult i64 %.0.idx35.i.i3733, 3
   br i1 %.not29.i.i3738, label %.loopexit27044, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3732, !llvm.loop !322
 
 .loopexit27044:                                   ; preds = %2406, %2404
@@ -33022,7 +33022,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3745: ; preds = %2413, %.loopexit2
 
 2413:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3745
   %.0.add.i.i3750 = add nsw i64 %.0.idx35.i.i3746, -1
-  %.not29.i.i3751 = icmp ult i64 %.0.idx35.i.i3746, 3
+  %.not29.i.i3751 = icmp samesign ult i64 %.0.idx35.i.i3746, 3
   br i1 %.not29.i.i3751, label %.loopexit27043, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3745, !llvm.loop !322
 
 .loopexit27043:                                   ; preds = %2413, %2411
@@ -33052,7 +33052,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3758: ; preds = %2420, %.loopexit2
 
 2420:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3758
   %.0.add.i.i3763 = add nsw i64 %.0.idx35.i.i3759, -1
-  %.not29.i.i3764 = icmp ult i64 %.0.idx35.i.i3759, 3
+  %.not29.i.i3764 = icmp samesign ult i64 %.0.idx35.i.i3759, 3
   br i1 %.not29.i.i3764, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3771, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3758, !llvm.loop !322
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3771: ; preds = %2420, %2418
@@ -33095,7 +33095,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3787: ; preds = %2432, %_ZNSt11cha
 
 2432:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3787
   %.0.add.i.i3792 = add nsw i64 %.0.idx35.i.i3788, -1
-  %.not29.i.i3793 = icmp ult i64 %.0.idx35.i.i3788, 3
+  %.not29.i.i3793 = icmp samesign ult i64 %.0.idx35.i.i3788, 3
   br i1 %.not29.i.i3793, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3800, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3787, !llvm.loop !322
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3800: ; preds = %2432, %2430
@@ -33140,7 +33140,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3842: ; preds = %2446, %_ZNSt11cha
 
 2446:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3842
   %.0.add.i.i3847 = add nsw i64 %.0.idx35.i.i3843, -1
-  %.not29.i.i3848 = icmp ult i64 %.0.idx35.i.i3843, 3
+  %.not29.i.i3848 = icmp samesign ult i64 %.0.idx35.i.i3843, 3
   br i1 %.not29.i.i3848, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3913.preheader, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3842, !llvm.loop !322
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3913.preheader: ; preds = %2446, %2444
@@ -33243,7 +33243,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4068: ; preds = %2485, %_ZNSt11cha
 
 2485:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4068
   %.0.add.i.i4073 = add nsw i64 %.0.idx35.i.i4069, -1
-  %.not29.i.i4074 = icmp ult i64 %.0.idx35.i.i4069, 3
+  %.not29.i.i4074 = icmp samesign ult i64 %.0.idx35.i.i4069, 3
   br i1 %.not29.i.i4074, label %.loopexit27042, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4068, !llvm.loop !322
 
 .loopexit27042:                                   ; preds = %2485, %2483
@@ -33271,7 +33271,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4081: ; preds = %2491, %.loopexit2
 
 2491:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4081
   %.0.add.i.i4086 = add nsw i64 %.0.idx35.i.i4082, -1
-  %.not29.i.i4087 = icmp ult i64 %.0.idx35.i.i4082, 3
+  %.not29.i.i4087 = icmp samesign ult i64 %.0.idx35.i.i4082, 3
   br i1 %.not29.i.i4087, label %.loopexit27041, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4081, !llvm.loop !322
 
 .loopexit27041:                                   ; preds = %2491, %2489
@@ -33299,7 +33299,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4094: ; preds = %2497, %.loopexit2
 
 2497:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4094
   %.0.add.i.i4099 = add nsw i64 %.0.idx35.i.i4095, -1
-  %.not29.i.i4100 = icmp ult i64 %.0.idx35.i.i4095, 3
+  %.not29.i.i4100 = icmp samesign ult i64 %.0.idx35.i.i4095, 3
   br i1 %.not29.i.i4100, label %.loopexit27040, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4094, !llvm.loop !322
 
 .loopexit27040:                                   ; preds = %2497, %2495
@@ -33327,7 +33327,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4107: ; preds = %2503, %.loopexit2
 
 2503:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4107
   %.0.add.i.i4112 = add nsw i64 %.0.idx35.i.i4108, -1
-  %.not29.i.i4113 = icmp ult i64 %.0.idx35.i.i4108, 3
+  %.not29.i.i4113 = icmp samesign ult i64 %.0.idx35.i.i4108, 3
   br i1 %.not29.i.i4113, label %.loopexit27039, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4107, !llvm.loop !322
 
 .loopexit27039:                                   ; preds = %2503, %2501
@@ -33356,7 +33356,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4123: ; preds = %2510, %.loopexit2
 
 2510:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4123
   %.0.add.i.i4128 = add nsw i64 %.0.idx35.i.i4124, -1
-  %.not29.i.i4129 = icmp ult i64 %.0.idx35.i.i4124, 3
+  %.not29.i.i4129 = icmp samesign ult i64 %.0.idx35.i.i4124, 3
   br i1 %.not29.i.i4129, label %.loopexit27038, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4123, !llvm.loop !322
 
 .loopexit27038:                                   ; preds = %2510, %2508
@@ -33384,7 +33384,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4136: ; preds = %2516, %.loopexit2
 
 2516:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4136
   %.0.add.i.i4141 = add nsw i64 %.0.idx35.i.i4137, -1
-  %.not29.i.i4142 = icmp ult i64 %.0.idx35.i.i4137, 3
+  %.not29.i.i4142 = icmp samesign ult i64 %.0.idx35.i.i4137, 3
   br i1 %.not29.i.i4142, label %.loopexit27037, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4136, !llvm.loop !322
 
 .loopexit27037:                                   ; preds = %2516, %2514
@@ -33412,7 +33412,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4149: ; preds = %2522, %.loopexit2
 
 2522:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4149
   %.0.add.i.i4154 = add nsw i64 %.0.idx35.i.i4150, -1
-  %.not29.i.i4155 = icmp ult i64 %.0.idx35.i.i4150, 3
+  %.not29.i.i4155 = icmp samesign ult i64 %.0.idx35.i.i4150, 3
   br i1 %.not29.i.i4155, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4162, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4149, !llvm.loop !322
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4162: ; preds = %2522, %2520
@@ -33451,7 +33451,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4178: ; preds = %2532, %_ZNSt11cha
 
 2532:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4178
   %.0.add.i.i4183 = add nsw i64 %.0.idx35.i.i4179, -1
-  %.not29.i.i4184 = icmp ult i64 %.0.idx35.i.i4179, 3
+  %.not29.i.i4184 = icmp samesign ult i64 %.0.idx35.i.i4179, 3
   br i1 %.not29.i.i4184, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4191, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4178, !llvm.loop !322
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4191: ; preds = %2532, %2530
@@ -33493,7 +33493,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4236: ; preds = %2545, %_ZNSt11cha
 
 2545:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4236
   %.0.add.i.i4241 = add nsw i64 %.0.idx35.i.i4237, -1
-  %.not29.i.i4242 = icmp ult i64 %.0.idx35.i.i4237, 3
+  %.not29.i.i4242 = icmp samesign ult i64 %.0.idx35.i.i4237, 3
   br i1 %.not29.i.i4242, label %.loopexit27036, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4236, !llvm.loop !322
 
 .loopexit27036:                                   ; preds = %2545, %2543
@@ -33521,7 +33521,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4249: ; preds = %2551, %.loopexit2
 
 2551:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4249
   %.0.add.i.i4254 = add nsw i64 %.0.idx35.i.i4250, -1
-  %.not29.i.i4255 = icmp ult i64 %.0.idx35.i.i4250, 3
+  %.not29.i.i4255 = icmp samesign ult i64 %.0.idx35.i.i4250, 3
   br i1 %.not29.i.i4255, label %.loopexit27035, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4249, !llvm.loop !322
 
 .loopexit27035:                                   ; preds = %2551, %2549
@@ -33549,7 +33549,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4262: ; preds = %2557, %.loopexit2
 
 2557:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4262
   %.0.add.i.i4267 = add nsw i64 %.0.idx35.i.i4263, -1
-  %.not29.i.i4268 = icmp ult i64 %.0.idx35.i.i4263, 3
+  %.not29.i.i4268 = icmp samesign ult i64 %.0.idx35.i.i4263, 3
   br i1 %.not29.i.i4268, label %.loopexit27034, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4262, !llvm.loop !322
 
 .loopexit27034:                                   ; preds = %2557, %2555
@@ -33577,7 +33577,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4275: ; preds = %2563, %.loopexit2
 
 2563:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4275
   %.0.add.i.i4280 = add nsw i64 %.0.idx35.i.i4276, -1
-  %.not29.i.i4281 = icmp ult i64 %.0.idx35.i.i4276, 3
+  %.not29.i.i4281 = icmp samesign ult i64 %.0.idx35.i.i4276, 3
   br i1 %.not29.i.i4281, label %.loopexit27033, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4275, !llvm.loop !322
 
 .loopexit27033:                                   ; preds = %2563, %2561
@@ -33606,7 +33606,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4291: ; preds = %2570, %.loopexit2
 
 2570:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4291
   %.0.add.i.i4296 = add nsw i64 %.0.idx35.i.i4292, -1
-  %.not29.i.i4297 = icmp ult i64 %.0.idx35.i.i4292, 3
+  %.not29.i.i4297 = icmp samesign ult i64 %.0.idx35.i.i4292, 3
   br i1 %.not29.i.i4297, label %.loopexit27032, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4291, !llvm.loop !322
 
 .loopexit27032:                                   ; preds = %2570, %2568
@@ -33634,7 +33634,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4304: ; preds = %2576, %.loopexit2
 
 2576:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4304
   %.0.add.i.i4309 = add nsw i64 %.0.idx35.i.i4305, -1
-  %.not29.i.i4310 = icmp ult i64 %.0.idx35.i.i4305, 3
+  %.not29.i.i4310 = icmp samesign ult i64 %.0.idx35.i.i4305, 3
   br i1 %.not29.i.i4310, label %.loopexit27031, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4304, !llvm.loop !322
 
 .loopexit27031:                                   ; preds = %2576, %2574
@@ -33662,7 +33662,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4317: ; preds = %2582, %.loopexit2
 
 2582:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4317
   %.0.add.i.i4322 = add nsw i64 %.0.idx35.i.i4318, -1
-  %.not29.i.i4323 = icmp ult i64 %.0.idx35.i.i4318, 3
+  %.not29.i.i4323 = icmp samesign ult i64 %.0.idx35.i.i4318, 3
   br i1 %.not29.i.i4323, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4330, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4317, !llvm.loop !322
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4330: ; preds = %2582, %2580
@@ -33701,7 +33701,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4346: ; preds = %2592, %_ZNSt11cha
 
 2592:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4346
   %.0.add.i.i4351 = add nsw i64 %.0.idx35.i.i4347, -1
-  %.not29.i.i4352 = icmp ult i64 %.0.idx35.i.i4347, 3
+  %.not29.i.i4352 = icmp samesign ult i64 %.0.idx35.i.i4347, 3
   br i1 %.not29.i.i4352, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4359, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4346, !llvm.loop !322
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4359: ; preds = %2592, %2590
@@ -33743,7 +33743,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4404: ; preds = %2605, %_ZNSt11cha
 
 2605:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4404
   %.0.add.i.i4409 = add nsw i64 %.0.idx35.i.i4405, -1
-  %.not29.i.i4410 = icmp ult i64 %.0.idx35.i.i4405, 3
+  %.not29.i.i4410 = icmp samesign ult i64 %.0.idx35.i.i4405, 3
   br i1 %.not29.i.i4410, label %.loopexit27030, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4404, !llvm.loop !322
 
 .loopexit27030:                                   ; preds = %2605, %2603
@@ -33771,7 +33771,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4417: ; preds = %2611, %.loopexit2
 
 2611:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4417
   %.0.add.i.i4422 = add nsw i64 %.0.idx35.i.i4418, -1
-  %.not29.i.i4423 = icmp ult i64 %.0.idx35.i.i4418, 3
+  %.not29.i.i4423 = icmp samesign ult i64 %.0.idx35.i.i4418, 3
   br i1 %.not29.i.i4423, label %.loopexit27029, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4417, !llvm.loop !322
 
 .loopexit27029:                                   ; preds = %2611, %2609
@@ -33799,7 +33799,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4430: ; preds = %2617, %.loopexit2
 
 2617:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4430
   %.0.add.i.i4435 = add nsw i64 %.0.idx35.i.i4431, -1
-  %.not29.i.i4436 = icmp ult i64 %.0.idx35.i.i4431, 3
+  %.not29.i.i4436 = icmp samesign ult i64 %.0.idx35.i.i4431, 3
   br i1 %.not29.i.i4436, label %.loopexit27028, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4430, !llvm.loop !322
 
 .loopexit27028:                                   ; preds = %2617, %2615
@@ -33827,7 +33827,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4443: ; preds = %2623, %.loopexit2
 
 2623:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4443
   %.0.add.i.i4448 = add nsw i64 %.0.idx35.i.i4444, -1
-  %.not29.i.i4449 = icmp ult i64 %.0.idx35.i.i4444, 3
+  %.not29.i.i4449 = icmp samesign ult i64 %.0.idx35.i.i4444, 3
   br i1 %.not29.i.i4449, label %.loopexit27027, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4443, !llvm.loop !322
 
 .loopexit27027:                                   ; preds = %2623, %2621
@@ -33856,7 +33856,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4459: ; preds = %2630, %.loopexit2
 
 2630:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4459
   %.0.add.i.i4464 = add nsw i64 %.0.idx35.i.i4460, -1
-  %.not29.i.i4465 = icmp ult i64 %.0.idx35.i.i4460, 3
+  %.not29.i.i4465 = icmp samesign ult i64 %.0.idx35.i.i4460, 3
   br i1 %.not29.i.i4465, label %.loopexit27026, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4459, !llvm.loop !322
 
 .loopexit27026:                                   ; preds = %2630, %2628
@@ -33884,7 +33884,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4472: ; preds = %2636, %.loopexit2
 
 2636:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4472
   %.0.add.i.i4477 = add nsw i64 %.0.idx35.i.i4473, -1
-  %.not29.i.i4478 = icmp ult i64 %.0.idx35.i.i4473, 3
+  %.not29.i.i4478 = icmp samesign ult i64 %.0.idx35.i.i4473, 3
   br i1 %.not29.i.i4478, label %.loopexit27025, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4472, !llvm.loop !322
 
 .loopexit27025:                                   ; preds = %2636, %2634
@@ -33912,7 +33912,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4485: ; preds = %2642, %.loopexit2
 
 2642:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4485
   %.0.add.i.i4490 = add nsw i64 %.0.idx35.i.i4486, -1
-  %.not29.i.i4491 = icmp ult i64 %.0.idx35.i.i4486, 3
+  %.not29.i.i4491 = icmp samesign ult i64 %.0.idx35.i.i4486, 3
   br i1 %.not29.i.i4491, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4498, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4485, !llvm.loop !322
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4498: ; preds = %2642, %2640
@@ -33951,7 +33951,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4514: ; preds = %2652, %_ZNSt11cha
 
 2652:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4514
   %.0.add.i.i4519 = add nsw i64 %.0.idx35.i.i4515, -1
-  %.not29.i.i4520 = icmp ult i64 %.0.idx35.i.i4515, 3
+  %.not29.i.i4520 = icmp samesign ult i64 %.0.idx35.i.i4515, 3
   br i1 %.not29.i.i4520, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4527, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4514, !llvm.loop !322
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4527: ; preds = %2652, %2650
@@ -33993,7 +33993,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4572: ; preds = %2665, %_ZNSt11cha
 
 2665:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4572
   %.0.add.i.i4577 = add nsw i64 %.0.idx35.i.i4573, -1
-  %.not29.i.i4578 = icmp ult i64 %.0.idx35.i.i4573, 3
+  %.not29.i.i4578 = icmp samesign ult i64 %.0.idx35.i.i4573, 3
   br i1 %.not29.i.i4578, label %.loopexit27024, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4572, !llvm.loop !322
 
 .loopexit27024:                                   ; preds = %2665, %2663
@@ -34021,7 +34021,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4585: ; preds = %2671, %.loopexit2
 
 2671:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4585
   %.0.add.i.i4590 = add nsw i64 %.0.idx35.i.i4586, -1
-  %.not29.i.i4591 = icmp ult i64 %.0.idx35.i.i4586, 3
+  %.not29.i.i4591 = icmp samesign ult i64 %.0.idx35.i.i4586, 3
   br i1 %.not29.i.i4591, label %.loopexit27023, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4585, !llvm.loop !322
 
 .loopexit27023:                                   ; preds = %2671, %2669
@@ -34049,7 +34049,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4598: ; preds = %2677, %.loopexit2
 
 2677:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4598
   %.0.add.i.i4603 = add nsw i64 %.0.idx35.i.i4599, -1
-  %.not29.i.i4604 = icmp ult i64 %.0.idx35.i.i4599, 3
+  %.not29.i.i4604 = icmp samesign ult i64 %.0.idx35.i.i4599, 3
   br i1 %.not29.i.i4604, label %.loopexit27022, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4598, !llvm.loop !322
 
 .loopexit27022:                                   ; preds = %2677, %2675
@@ -34077,7 +34077,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4611: ; preds = %2683, %.loopexit2
 
 2683:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4611
   %.0.add.i.i4616 = add nsw i64 %.0.idx35.i.i4612, -1
-  %.not29.i.i4617 = icmp ult i64 %.0.idx35.i.i4612, 3
+  %.not29.i.i4617 = icmp samesign ult i64 %.0.idx35.i.i4612, 3
   br i1 %.not29.i.i4617, label %.loopexit27021, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4611, !llvm.loop !322
 
 .loopexit27021:                                   ; preds = %2683, %2681
@@ -34106,7 +34106,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4627: ; preds = %2690, %.loopexit2
 
 2690:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4627
   %.0.add.i.i4632 = add nsw i64 %.0.idx35.i.i4628, -1
-  %.not29.i.i4633 = icmp ult i64 %.0.idx35.i.i4628, 3
+  %.not29.i.i4633 = icmp samesign ult i64 %.0.idx35.i.i4628, 3
   br i1 %.not29.i.i4633, label %.loopexit27020, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4627, !llvm.loop !322
 
 .loopexit27020:                                   ; preds = %2690, %2688
@@ -34134,7 +34134,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4640: ; preds = %2696, %.loopexit2
 
 2696:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4640
   %.0.add.i.i4645 = add nsw i64 %.0.idx35.i.i4641, -1
-  %.not29.i.i4646 = icmp ult i64 %.0.idx35.i.i4641, 3
+  %.not29.i.i4646 = icmp samesign ult i64 %.0.idx35.i.i4641, 3
   br i1 %.not29.i.i4646, label %.loopexit27019, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4640, !llvm.loop !322
 
 .loopexit27019:                                   ; preds = %2696, %2694
@@ -34162,7 +34162,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4653: ; preds = %2702, %.loopexit2
 
 2702:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4653
   %.0.add.i.i4658 = add nsw i64 %.0.idx35.i.i4654, -1
-  %.not29.i.i4659 = icmp ult i64 %.0.idx35.i.i4654, 3
+  %.not29.i.i4659 = icmp samesign ult i64 %.0.idx35.i.i4654, 3
   br i1 %.not29.i.i4659, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4666, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4653, !llvm.loop !322
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4666: ; preds = %2702, %2700
@@ -34201,7 +34201,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4682: ; preds = %2712, %_ZNSt11cha
 
 2712:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4682
   %.0.add.i.i4687 = add nsw i64 %.0.idx35.i.i4683, -1
-  %.not29.i.i4688 = icmp ult i64 %.0.idx35.i.i4683, 3
+  %.not29.i.i4688 = icmp samesign ult i64 %.0.idx35.i.i4683, 3
   br i1 %.not29.i.i4688, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4695, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4682, !llvm.loop !322
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4695: ; preds = %2712, %2710
@@ -34243,7 +34243,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4740: ; preds = %2725, %_ZNSt11cha
 
 2725:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4740
   %.0.add.i.i4745 = add nsw i64 %.0.idx35.i.i4741, -1
-  %.not29.i.i4746 = icmp ult i64 %.0.idx35.i.i4741, 3
+  %.not29.i.i4746 = icmp samesign ult i64 %.0.idx35.i.i4741, 3
   br i1 %.not29.i.i4746, label %.loopexit27018, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4740, !llvm.loop !322
 
 .loopexit27018:                                   ; preds = %2725, %2723
@@ -34271,7 +34271,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4753: ; preds = %2731, %.loopexit2
 
 2731:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4753
   %.0.add.i.i4758 = add nsw i64 %.0.idx35.i.i4754, -1
-  %.not29.i.i4759 = icmp ult i64 %.0.idx35.i.i4754, 3
+  %.not29.i.i4759 = icmp samesign ult i64 %.0.idx35.i.i4754, 3
   br i1 %.not29.i.i4759, label %.loopexit27017, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4753, !llvm.loop !322
 
 .loopexit27017:                                   ; preds = %2731, %2729
@@ -34299,7 +34299,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4766: ; preds = %2737, %.loopexit2
 
 2737:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4766
   %.0.add.i.i4771 = add nsw i64 %.0.idx35.i.i4767, -1
-  %.not29.i.i4772 = icmp ult i64 %.0.idx35.i.i4767, 3
+  %.not29.i.i4772 = icmp samesign ult i64 %.0.idx35.i.i4767, 3
   br i1 %.not29.i.i4772, label %.loopexit27016, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4766, !llvm.loop !322
 
 .loopexit27016:                                   ; preds = %2737, %2735
@@ -34327,7 +34327,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4779: ; preds = %2743, %.loopexit2
 
 2743:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4779
   %.0.add.i.i4784 = add nsw i64 %.0.idx35.i.i4780, -1
-  %.not29.i.i4785 = icmp ult i64 %.0.idx35.i.i4780, 3
+  %.not29.i.i4785 = icmp samesign ult i64 %.0.idx35.i.i4780, 3
   br i1 %.not29.i.i4785, label %.loopexit27015, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4779, !llvm.loop !322
 
 .loopexit27015:                                   ; preds = %2743, %2741
@@ -34356,7 +34356,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4795: ; preds = %2750, %.loopexit2
 
 2750:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4795
   %.0.add.i.i4800 = add nsw i64 %.0.idx35.i.i4796, -1
-  %.not29.i.i4801 = icmp ult i64 %.0.idx35.i.i4796, 3
+  %.not29.i.i4801 = icmp samesign ult i64 %.0.idx35.i.i4796, 3
   br i1 %.not29.i.i4801, label %.loopexit27014, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4795, !llvm.loop !322
 
 .loopexit27014:                                   ; preds = %2750, %2748
@@ -34384,7 +34384,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4808: ; preds = %2756, %.loopexit2
 
 2756:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4808
   %.0.add.i.i4813 = add nsw i64 %.0.idx35.i.i4809, -1
-  %.not29.i.i4814 = icmp ult i64 %.0.idx35.i.i4809, 3
+  %.not29.i.i4814 = icmp samesign ult i64 %.0.idx35.i.i4809, 3
   br i1 %.not29.i.i4814, label %.loopexit27013, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4808, !llvm.loop !322
 
 .loopexit27013:                                   ; preds = %2756, %2754
@@ -34412,7 +34412,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4821: ; preds = %2762, %.loopexit2
 
 2762:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4821
   %.0.add.i.i4826 = add nsw i64 %.0.idx35.i.i4822, -1
-  %.not29.i.i4827 = icmp ult i64 %.0.idx35.i.i4822, 3
+  %.not29.i.i4827 = icmp samesign ult i64 %.0.idx35.i.i4822, 3
   br i1 %.not29.i.i4827, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4834, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4821, !llvm.loop !322
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4834: ; preds = %2762, %2760
@@ -34451,7 +34451,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4850: ; preds = %2772, %_ZNSt11cha
 
 2772:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4850
   %.0.add.i.i4855 = add nsw i64 %.0.idx35.i.i4851, -1
-  %.not29.i.i4856 = icmp ult i64 %.0.idx35.i.i4851, 3
+  %.not29.i.i4856 = icmp samesign ult i64 %.0.idx35.i.i4851, 3
   br i1 %.not29.i.i4856, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4863, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4850, !llvm.loop !322
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4863: ; preds = %2772, %2770
@@ -34581,7 +34581,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5076: ; preds = %2817, %_ZNSt11cha
 
 2817:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5076
   %.0.add.i.i5081 = add nsw i64 %.0.idx35.i.i5077, -1
-  %.not29.i.i5082 = icmp ult i64 %.0.idx35.i.i5077, 3
+  %.not29.i.i5082 = icmp samesign ult i64 %.0.idx35.i.i5077, 3
   br i1 %.not29.i.i5082, label %.loopexit27012, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5076, !llvm.loop !322
 
 .loopexit27012:                                   ; preds = %2817, %2815
@@ -34609,7 +34609,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5089: ; preds = %2823, %.loopexit2
 
 2823:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5089
   %.0.add.i.i5094 = add nsw i64 %.0.idx35.i.i5090, -1
-  %.not29.i.i5095 = icmp ult i64 %.0.idx35.i.i5090, 3
+  %.not29.i.i5095 = icmp samesign ult i64 %.0.idx35.i.i5090, 3
   br i1 %.not29.i.i5095, label %.loopexit27011, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5089, !llvm.loop !322
 
 .loopexit27011:                                   ; preds = %2823, %2821
@@ -34637,7 +34637,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5102: ; preds = %2829, %.loopexit2
 
 2829:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5102
   %.0.add.i.i5107 = add nsw i64 %.0.idx35.i.i5103, -1
-  %.not29.i.i5108 = icmp ult i64 %.0.idx35.i.i5103, 3
+  %.not29.i.i5108 = icmp samesign ult i64 %.0.idx35.i.i5103, 3
   br i1 %.not29.i.i5108, label %.loopexit27010, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5102, !llvm.loop !322
 
 .loopexit27010:                                   ; preds = %2829, %2827
@@ -34665,7 +34665,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5115: ; preds = %2835, %.loopexit2
 
 2835:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5115
   %.0.add.i.i5120 = add nsw i64 %.0.idx35.i.i5116, -1
-  %.not29.i.i5121 = icmp ult i64 %.0.idx35.i.i5116, 3
+  %.not29.i.i5121 = icmp samesign ult i64 %.0.idx35.i.i5116, 3
   br i1 %.not29.i.i5121, label %.loopexit27009, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5115, !llvm.loop !322
 
 .loopexit27009:                                   ; preds = %2835, %2833
@@ -34694,7 +34694,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5131: ; preds = %2842, %.loopexit2
 
 2842:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5131
   %.0.add.i.i5136 = add nsw i64 %.0.idx35.i.i5132, -1
-  %.not29.i.i5137 = icmp ult i64 %.0.idx35.i.i5132, 3
+  %.not29.i.i5137 = icmp samesign ult i64 %.0.idx35.i.i5132, 3
   br i1 %.not29.i.i5137, label %.loopexit27008, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5131, !llvm.loop !322
 
 .loopexit27008:                                   ; preds = %2842, %2840
@@ -34722,7 +34722,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5144: ; preds = %2848, %.loopexit2
 
 2848:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5144
   %.0.add.i.i5149 = add nsw i64 %.0.idx35.i.i5145, -1
-  %.not29.i.i5150 = icmp ult i64 %.0.idx35.i.i5145, 3
+  %.not29.i.i5150 = icmp samesign ult i64 %.0.idx35.i.i5145, 3
   br i1 %.not29.i.i5150, label %.loopexit27007, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5144, !llvm.loop !322
 
 .loopexit27007:                                   ; preds = %2848, %2846
@@ -34750,7 +34750,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5157: ; preds = %2854, %.loopexit2
 
 2854:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5157
   %.0.add.i.i5162 = add nsw i64 %.0.idx35.i.i5158, -1
-  %.not29.i.i5163 = icmp ult i64 %.0.idx35.i.i5158, 3
+  %.not29.i.i5163 = icmp samesign ult i64 %.0.idx35.i.i5158, 3
   br i1 %.not29.i.i5163, label %.loopexit27006, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5157, !llvm.loop !322
 
 .loopexit27006:                                   ; preds = %2854, %2852
@@ -34778,7 +34778,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5170: ; preds = %2860, %.loopexit2
 
 2860:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5170
   %.0.add.i.i5175 = add nsw i64 %.0.idx35.i.i5171, -1
-  %.not29.i.i5176 = icmp ult i64 %.0.idx35.i.i5171, 3
+  %.not29.i.i5176 = icmp samesign ult i64 %.0.idx35.i.i5171, 3
   br i1 %.not29.i.i5176, label %.loopexit27005, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5170, !llvm.loop !322
 
 .loopexit27005:                                   ; preds = %2860, %2858
@@ -34807,7 +34807,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5186: ; preds = %2867, %.loopexit2
 
 2867:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5186
   %.0.add.i.i5191 = add nsw i64 %.0.idx35.i.i5187, -1
-  %.not29.i.i5192 = icmp ult i64 %.0.idx35.i.i5187, 3
+  %.not29.i.i5192 = icmp samesign ult i64 %.0.idx35.i.i5187, 3
   br i1 %.not29.i.i5192, label %.loopexit27004, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5186, !llvm.loop !322
 
 .loopexit27004:                                   ; preds = %2867, %2865
@@ -34835,7 +34835,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5199: ; preds = %2873, %.loopexit2
 
 2873:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5199
   %.0.add.i.i5204 = add nsw i64 %.0.idx35.i.i5200, -1
-  %.not29.i.i5205 = icmp ult i64 %.0.idx35.i.i5200, 3
+  %.not29.i.i5205 = icmp samesign ult i64 %.0.idx35.i.i5200, 3
   br i1 %.not29.i.i5205, label %.loopexit27003, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5199, !llvm.loop !322
 
 .loopexit27003:                                   ; preds = %2873, %2871
@@ -34863,7 +34863,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5212: ; preds = %2879, %.loopexit2
 
 2879:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5212
   %.0.add.i.i5217 = add nsw i64 %.0.idx35.i.i5213, -1
-  %.not29.i.i5218 = icmp ult i64 %.0.idx35.i.i5213, 3
+  %.not29.i.i5218 = icmp samesign ult i64 %.0.idx35.i.i5213, 3
   br i1 %.not29.i.i5218, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5225, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5212, !llvm.loop !322
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5225: ; preds = %2879, %2877
@@ -34903,7 +34903,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5244: ; preds = %2890, %_ZNSt11cha
 
 2890:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5244
   %.0.add.i.i5249 = add nsw i64 %.0.idx35.i.i5245, -1
-  %.not29.i.i5250 = icmp ult i64 %.0.idx35.i.i5245, 3
+  %.not29.i.i5250 = icmp samesign ult i64 %.0.idx35.i.i5245, 3
   br i1 %.not29.i.i5250, label %.loopexit27002, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5244, !llvm.loop !322
 
 .loopexit27002:                                   ; preds = %2890, %2888
@@ -34931,7 +34931,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5257: ; preds = %2896, %.loopexit2
 
 2896:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5257
   %.0.add.i.i5262 = add nsw i64 %.0.idx35.i.i5258, -1
-  %.not29.i.i5263 = icmp ult i64 %.0.idx35.i.i5258, 3
+  %.not29.i.i5263 = icmp samesign ult i64 %.0.idx35.i.i5258, 3
   br i1 %.not29.i.i5263, label %.loopexit27001, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5257, !llvm.loop !322
 
 .loopexit27001:                                   ; preds = %2896, %2894
@@ -34959,7 +34959,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5270: ; preds = %2902, %.loopexit2
 
 2902:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5270
   %.0.add.i.i5275 = add nsw i64 %.0.idx35.i.i5271, -1
-  %.not29.i.i5276 = icmp ult i64 %.0.idx35.i.i5271, 3
+  %.not29.i.i5276 = icmp samesign ult i64 %.0.idx35.i.i5271, 3
   br i1 %.not29.i.i5276, label %.loopexit27000, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5270, !llvm.loop !322
 
 .loopexit27000:                                   ; preds = %2902, %2900
@@ -34987,7 +34987,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5283: ; preds = %2908, %.loopexit2
 
 2908:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5283
   %.0.add.i.i5288 = add nsw i64 %.0.idx35.i.i5284, -1
-  %.not29.i.i5289 = icmp ult i64 %.0.idx35.i.i5284, 3
+  %.not29.i.i5289 = icmp samesign ult i64 %.0.idx35.i.i5284, 3
   br i1 %.not29.i.i5289, label %.loopexit26999, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5283, !llvm.loop !322
 
 .loopexit26999:                                   ; preds = %2908, %2906
@@ -35016,7 +35016,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5299: ; preds = %2915, %.loopexit2
 
 2915:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5299
   %.0.add.i.i5304 = add nsw i64 %.0.idx35.i.i5300, -1
-  %.not29.i.i5305 = icmp ult i64 %.0.idx35.i.i5300, 3
+  %.not29.i.i5305 = icmp samesign ult i64 %.0.idx35.i.i5300, 3
   br i1 %.not29.i.i5305, label %.loopexit26998, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5299, !llvm.loop !322
 
 .loopexit26998:                                   ; preds = %2915, %2913
@@ -35044,7 +35044,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5312: ; preds = %2921, %.loopexit2
 
 2921:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5312
   %.0.add.i.i5317 = add nsw i64 %.0.idx35.i.i5313, -1
-  %.not29.i.i5318 = icmp ult i64 %.0.idx35.i.i5313, 3
+  %.not29.i.i5318 = icmp samesign ult i64 %.0.idx35.i.i5313, 3
   br i1 %.not29.i.i5318, label %.loopexit26997, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5312, !llvm.loop !322
 
 .loopexit26997:                                   ; preds = %2921, %2919
@@ -35072,7 +35072,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5325: ; preds = %2927, %.loopexit2
 
 2927:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5325
   %.0.add.i.i5330 = add nsw i64 %.0.idx35.i.i5326, -1
-  %.not29.i.i5331 = icmp ult i64 %.0.idx35.i.i5326, 3
+  %.not29.i.i5331 = icmp samesign ult i64 %.0.idx35.i.i5326, 3
   br i1 %.not29.i.i5331, label %.loopexit26996, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5325, !llvm.loop !322
 
 .loopexit26996:                                   ; preds = %2927, %2925
@@ -35100,7 +35100,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5338: ; preds = %2933, %.loopexit2
 
 2933:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5338
   %.0.add.i.i5343 = add nsw i64 %.0.idx35.i.i5339, -1
-  %.not29.i.i5344 = icmp ult i64 %.0.idx35.i.i5339, 3
+  %.not29.i.i5344 = icmp samesign ult i64 %.0.idx35.i.i5339, 3
   br i1 %.not29.i.i5344, label %.loopexit26995, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5338, !llvm.loop !322
 
 .loopexit26995:                                   ; preds = %2933, %2931
@@ -35129,7 +35129,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5354: ; preds = %2940, %.loopexit2
 
 2940:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5354
   %.0.add.i.i5359 = add nsw i64 %.0.idx35.i.i5355, -1
-  %.not29.i.i5360 = icmp ult i64 %.0.idx35.i.i5355, 3
+  %.not29.i.i5360 = icmp samesign ult i64 %.0.idx35.i.i5355, 3
   br i1 %.not29.i.i5360, label %.loopexit26994, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5354, !llvm.loop !322
 
 .loopexit26994:                                   ; preds = %2940, %2938
@@ -35157,7 +35157,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5367: ; preds = %2946, %.loopexit2
 
 2946:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5367
   %.0.add.i.i5372 = add nsw i64 %.0.idx35.i.i5368, -1
-  %.not29.i.i5373 = icmp ult i64 %.0.idx35.i.i5368, 3
+  %.not29.i.i5373 = icmp samesign ult i64 %.0.idx35.i.i5368, 3
   br i1 %.not29.i.i5373, label %.loopexit26993, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5367, !llvm.loop !322
 
 .loopexit26993:                                   ; preds = %2946, %2944
@@ -35185,7 +35185,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5380: ; preds = %2952, %.loopexit2
 
 2952:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5380
   %.0.add.i.i5385 = add nsw i64 %.0.idx35.i.i5381, -1
-  %.not29.i.i5386 = icmp ult i64 %.0.idx35.i.i5381, 3
+  %.not29.i.i5386 = icmp samesign ult i64 %.0.idx35.i.i5381, 3
   br i1 %.not29.i.i5386, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5393, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5380, !llvm.loop !322
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5393: ; preds = %2952, %2950
@@ -35225,7 +35225,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5412: ; preds = %2963, %_ZNSt11cha
 
 2963:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5412
   %.0.add.i.i5417 = add nsw i64 %.0.idx35.i.i5413, -1
-  %.not29.i.i5418 = icmp ult i64 %.0.idx35.i.i5413, 3
+  %.not29.i.i5418 = icmp samesign ult i64 %.0.idx35.i.i5413, 3
   br i1 %.not29.i.i5418, label %.loopexit26992, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5412, !llvm.loop !322
 
 .loopexit26992:                                   ; preds = %2963, %2961
@@ -35253,7 +35253,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5425: ; preds = %2969, %.loopexit2
 
 2969:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5425
   %.0.add.i.i5430 = add nsw i64 %.0.idx35.i.i5426, -1
-  %.not29.i.i5431 = icmp ult i64 %.0.idx35.i.i5426, 3
+  %.not29.i.i5431 = icmp samesign ult i64 %.0.idx35.i.i5426, 3
   br i1 %.not29.i.i5431, label %.loopexit26991, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5425, !llvm.loop !322
 
 .loopexit26991:                                   ; preds = %2969, %2967
@@ -35281,7 +35281,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5438: ; preds = %2975, %.loopexit2
 
 2975:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5438
   %.0.add.i.i5443 = add nsw i64 %.0.idx35.i.i5439, -1
-  %.not29.i.i5444 = icmp ult i64 %.0.idx35.i.i5439, 3
+  %.not29.i.i5444 = icmp samesign ult i64 %.0.idx35.i.i5439, 3
   br i1 %.not29.i.i5444, label %.loopexit26990, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5438, !llvm.loop !322
 
 .loopexit26990:                                   ; preds = %2975, %2973
@@ -35309,7 +35309,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5451: ; preds = %2981, %.loopexit2
 
 2981:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5451
   %.0.add.i.i5456 = add nsw i64 %.0.idx35.i.i5452, -1
-  %.not29.i.i5457 = icmp ult i64 %.0.idx35.i.i5452, 3
+  %.not29.i.i5457 = icmp samesign ult i64 %.0.idx35.i.i5452, 3
   br i1 %.not29.i.i5457, label %.loopexit26989, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5451, !llvm.loop !322
 
 .loopexit26989:                                   ; preds = %2981, %2979
@@ -35338,7 +35338,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5467: ; preds = %2988, %.loopexit2
 
 2988:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5467
   %.0.add.i.i5472 = add nsw i64 %.0.idx35.i.i5468, -1
-  %.not29.i.i5473 = icmp ult i64 %.0.idx35.i.i5468, 3
+  %.not29.i.i5473 = icmp samesign ult i64 %.0.idx35.i.i5468, 3
   br i1 %.not29.i.i5473, label %.loopexit26988, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5467, !llvm.loop !322
 
 .loopexit26988:                                   ; preds = %2988, %2986
@@ -35366,7 +35366,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5480: ; preds = %2994, %.loopexit2
 
 2994:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5480
   %.0.add.i.i5485 = add nsw i64 %.0.idx35.i.i5481, -1
-  %.not29.i.i5486 = icmp ult i64 %.0.idx35.i.i5481, 3
+  %.not29.i.i5486 = icmp samesign ult i64 %.0.idx35.i.i5481, 3
   br i1 %.not29.i.i5486, label %.loopexit26987, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5480, !llvm.loop !322
 
 .loopexit26987:                                   ; preds = %2994, %2992
@@ -35394,7 +35394,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5493: ; preds = %3000, %.loopexit2
 
 3000:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5493
   %.0.add.i.i5498 = add nsw i64 %.0.idx35.i.i5494, -1
-  %.not29.i.i5499 = icmp ult i64 %.0.idx35.i.i5494, 3
+  %.not29.i.i5499 = icmp samesign ult i64 %.0.idx35.i.i5494, 3
   br i1 %.not29.i.i5499, label %.loopexit26986, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5493, !llvm.loop !322
 
 .loopexit26986:                                   ; preds = %3000, %2998
@@ -35422,7 +35422,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5506: ; preds = %3006, %.loopexit2
 
 3006:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5506
   %.0.add.i.i5511 = add nsw i64 %.0.idx35.i.i5507, -1
-  %.not29.i.i5512 = icmp ult i64 %.0.idx35.i.i5507, 3
+  %.not29.i.i5512 = icmp samesign ult i64 %.0.idx35.i.i5507, 3
   br i1 %.not29.i.i5512, label %.loopexit26985, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5506, !llvm.loop !322
 
 .loopexit26985:                                   ; preds = %3006, %3004
@@ -35451,7 +35451,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5522: ; preds = %3013, %.loopexit2
 
 3013:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5522
   %.0.add.i.i5527 = add nsw i64 %.0.idx35.i.i5523, -1
-  %.not29.i.i5528 = icmp ult i64 %.0.idx35.i.i5523, 3
+  %.not29.i.i5528 = icmp samesign ult i64 %.0.idx35.i.i5523, 3
   br i1 %.not29.i.i5528, label %.loopexit26984, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5522, !llvm.loop !322
 
 .loopexit26984:                                   ; preds = %3013, %3011
@@ -35479,7 +35479,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5535: ; preds = %3019, %.loopexit2
 
 3019:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5535
   %.0.add.i.i5540 = add nsw i64 %.0.idx35.i.i5536, -1
-  %.not29.i.i5541 = icmp ult i64 %.0.idx35.i.i5536, 3
+  %.not29.i.i5541 = icmp samesign ult i64 %.0.idx35.i.i5536, 3
   br i1 %.not29.i.i5541, label %.loopexit26983, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5535, !llvm.loop !322
 
 .loopexit26983:                                   ; preds = %3019, %3017
@@ -35507,7 +35507,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5548: ; preds = %3025, %.loopexit2
 
 3025:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5548
   %.0.add.i.i5553 = add nsw i64 %.0.idx35.i.i5549, -1
-  %.not29.i.i5554 = icmp ult i64 %.0.idx35.i.i5549, 3
+  %.not29.i.i5554 = icmp samesign ult i64 %.0.idx35.i.i5549, 3
   br i1 %.not29.i.i5554, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5561, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5548, !llvm.loop !322
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5561: ; preds = %3025, %3023
@@ -35547,7 +35547,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5580: ; preds = %3036, %_ZNSt11cha
 
 3036:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5580
   %.0.add.i.i5585 = add nsw i64 %.0.idx35.i.i5581, -1
-  %.not29.i.i5586 = icmp ult i64 %.0.idx35.i.i5581, 3
+  %.not29.i.i5586 = icmp samesign ult i64 %.0.idx35.i.i5581, 3
   br i1 %.not29.i.i5586, label %.loopexit26982, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5580, !llvm.loop !322
 
 .loopexit26982:                                   ; preds = %3036, %3034
@@ -35575,7 +35575,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5593: ; preds = %3042, %.loopexit2
 
 3042:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5593
   %.0.add.i.i5598 = add nsw i64 %.0.idx35.i.i5594, -1
-  %.not29.i.i5599 = icmp ult i64 %.0.idx35.i.i5594, 3
+  %.not29.i.i5599 = icmp samesign ult i64 %.0.idx35.i.i5594, 3
   br i1 %.not29.i.i5599, label %.loopexit26981, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5593, !llvm.loop !322
 
 .loopexit26981:                                   ; preds = %3042, %3040
@@ -35603,7 +35603,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5606: ; preds = %3048, %.loopexit2
 
 3048:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5606
   %.0.add.i.i5611 = add nsw i64 %.0.idx35.i.i5607, -1
-  %.not29.i.i5612 = icmp ult i64 %.0.idx35.i.i5607, 3
+  %.not29.i.i5612 = icmp samesign ult i64 %.0.idx35.i.i5607, 3
   br i1 %.not29.i.i5612, label %.loopexit26980, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5606, !llvm.loop !322
 
 .loopexit26980:                                   ; preds = %3048, %3046
@@ -35631,7 +35631,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5619: ; preds = %3054, %.loopexit2
 
 3054:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5619
   %.0.add.i.i5624 = add nsw i64 %.0.idx35.i.i5620, -1
-  %.not29.i.i5625 = icmp ult i64 %.0.idx35.i.i5620, 3
+  %.not29.i.i5625 = icmp samesign ult i64 %.0.idx35.i.i5620, 3
   br i1 %.not29.i.i5625, label %.loopexit26979, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5619, !llvm.loop !322
 
 .loopexit26979:                                   ; preds = %3054, %3052
@@ -35660,7 +35660,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5635: ; preds = %3061, %.loopexit2
 
 3061:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5635
   %.0.add.i.i5640 = add nsw i64 %.0.idx35.i.i5636, -1
-  %.not29.i.i5641 = icmp ult i64 %.0.idx35.i.i5636, 3
+  %.not29.i.i5641 = icmp samesign ult i64 %.0.idx35.i.i5636, 3
   br i1 %.not29.i.i5641, label %.loopexit26978, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5635, !llvm.loop !322
 
 .loopexit26978:                                   ; preds = %3061, %3059
@@ -35688,7 +35688,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5648: ; preds = %3067, %.loopexit2
 
 3067:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5648
   %.0.add.i.i5653 = add nsw i64 %.0.idx35.i.i5649, -1
-  %.not29.i.i5654 = icmp ult i64 %.0.idx35.i.i5649, 3
+  %.not29.i.i5654 = icmp samesign ult i64 %.0.idx35.i.i5649, 3
   br i1 %.not29.i.i5654, label %.loopexit26977, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5648, !llvm.loop !322
 
 .loopexit26977:                                   ; preds = %3067, %3065
@@ -35716,7 +35716,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5661: ; preds = %3073, %.loopexit2
 
 3073:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5661
   %.0.add.i.i5666 = add nsw i64 %.0.idx35.i.i5662, -1
-  %.not29.i.i5667 = icmp ult i64 %.0.idx35.i.i5662, 3
+  %.not29.i.i5667 = icmp samesign ult i64 %.0.idx35.i.i5662, 3
   br i1 %.not29.i.i5667, label %.loopexit26976, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5661, !llvm.loop !322
 
 .loopexit26976:                                   ; preds = %3073, %3071
@@ -35744,7 +35744,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5674: ; preds = %3079, %.loopexit2
 
 3079:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5674
   %.0.add.i.i5679 = add nsw i64 %.0.idx35.i.i5675, -1
-  %.not29.i.i5680 = icmp ult i64 %.0.idx35.i.i5675, 3
+  %.not29.i.i5680 = icmp samesign ult i64 %.0.idx35.i.i5675, 3
   br i1 %.not29.i.i5680, label %_ZN5boost14static_strings6testRFINS0_19basic_static_stringILm400EcSt11char_traitsIcEEEEEbRKT_PKNS6_10value_typeENS6_9size_typeESC_SC_.exit5683, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5674, !llvm.loop !322
 
 _ZN5boost14static_strings6testRFINS0_19basic_static_stringILm400EcSt11char_traitsIcEEEEEbRKT_PKNS6_10value_typeENS6_9size_typeESC_SC_.exit5683: ; preds = %3079, %3077

@@ -36059,7 +36059,7 @@ _ZN4llvm11raw_ostreamlsEc.exit13:                 ; preds = %28, %30
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 4
   %59 = add nsw i64 %.047.i.i.i.i, -1
-  %60 = icmp ugt i64 %.047.i.i.i.i, 1
+  %60 = icmp samesign ugt i64 %.047.i.i.i.i, 1
   br i1 %60, label %42, label %._crit_edge._crit_edge.i.i.i.i, !llvm.loop !1023
 
 ._crit_edge._crit_edge.i.i.i.i:                   ; preds = %57

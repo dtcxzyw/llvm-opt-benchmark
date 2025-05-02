@@ -7566,7 +7566,7 @@ dissect_usb_configuration_descriptor.exit:        ; preds = %.thread.i, %268, %5
   %541 = add i32 %.0474.i, 2
   %.not54.i = icmp sge i32 %541, %3
   %542 = sub i32 %541, %3
-  %543 = icmp ult i32 %542, %514
+  %543 = icmp samesign ult i32 %542, %514
   %or.cond.i53 = and i1 %.not54.i, %543
   br i1 %or.cond.i53, label %.lr.ph.i52, label %.critedge.i, !llvm.loop !18
 

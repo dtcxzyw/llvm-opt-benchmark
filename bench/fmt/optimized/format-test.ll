@@ -190862,7 +190862,7 @@ _ZN3fmt3v1114basic_appenderIcEaSEc.exit.i.i.i:    ; preds = %.noexc, %12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %19
   store i8 126, ptr %21, align 1, !tbaa !40
   %22 = add nsw i32 %.03.i.i.i, -1
-  %23 = icmp ugt i32 %.03.i.i.i, 1
+  %23 = icmp samesign ugt i32 %.03.i.i.i, 1
   br i1 %23, label %12, label %_ZSt6fill_nIN3fmt3v1114basic_appenderIcEEicET_S4_T0_RKT1_.exit, !llvm.loop !5099
 
 _ZSt6fill_nIN3fmt3v1114basic_appenderIcEEicET_S4_T0_RKT1_.exit: ; preds = %_ZN3fmt3v1114basic_appenderIcEaSEc.exit.i.i.i

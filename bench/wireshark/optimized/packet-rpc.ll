@@ -4669,7 +4669,7 @@ define internal fastcc noundef zeroext i1 @dissect_rpc_tcp_common(ptr noundef %0
 33:                                               ; preds = %30
   %34 = getelementptr i8, ptr %.03039.i.i, i64 -1
   %35 = add nsw i32 %.040.i.i, -1
-  %36 = icmp ugt i32 %.040.i.i, 1
+  %36 = icmp samesign ugt i32 %.040.i.i, 1
   br i1 %36, label %30, label %.loopexit.i.i, !llvm.loop !16
 
 .loopexit.i.i:                                    ; preds = %33

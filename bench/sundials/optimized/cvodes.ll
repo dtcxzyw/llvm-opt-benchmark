@@ -8492,7 +8492,7 @@ cvPrepareNextStep.exit.i:                         ; preds = %2013, %2007, %1984,
   %2020 = load double, ptr %2019, align 8, !tbaa !69
   %2021 = getelementptr inbounds nuw [6 x [4 x double]], ptr %697, i64 0, i64 %indvars.iv.i291.i, i64 %indvars.iv99.i.i
   store double %2020, ptr %2021, align 8, !tbaa !69
-  %2022 = icmp ugt i64 %indvars.iv.i291.i, 2
+  %2022 = icmp samesign ugt i64 %indvars.iv.i291.i, 2
   br i1 %2022, label %2018, label %2023
 
 2023:                                             ; preds = %2018

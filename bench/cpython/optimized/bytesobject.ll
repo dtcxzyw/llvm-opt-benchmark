@@ -13091,7 +13091,7 @@ Py_DECREF.exit87.i.i:                             ; preds = %.critedge2.thread.i
   br i1 %161, label %Py_DECREF.exit69.i.i.i, label %162
 
 162:                                              ; preds = %158
-  %163 = icmp ult i64 %.05088.i.i.i, 12
+  %163 = icmp samesign ult i64 %.05088.i.i.i, 12
   br i1 %163, label %164, label %166
 
 164:                                              ; preds = %162

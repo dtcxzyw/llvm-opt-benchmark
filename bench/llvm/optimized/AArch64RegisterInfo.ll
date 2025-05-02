@@ -5348,7 +5348,7 @@ _ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit: ; preds = %3, %16
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   %41 = add nsw i64 %.047.i.i.i.i.i, -1
-  %42 = icmp ugt i64 %.047.i.i.i.i.i, 1
+  %42 = icmp samesign ugt i64 %.047.i.i.i.i.i, 1
   br i1 %42, label %.lr.ph.i.i.i.i.i, label %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit", !llvm.loop !443
 
 "_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit.split.loop.exit691": ; preds = %27
@@ -5402,7 +5402,7 @@ _ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread: ; preds = %_ZNK4
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i59, i64 16
   %63 = add nsw i64 %.047.i.i.i.i.i58, -1
-  %64 = icmp ugt i64 %.047.i.i.i.i.i58, 1
+  %64 = icmp samesign ugt i64 %.047.i.i.i.i.i58, 1
   br i1 %64, label %.lr.ph.i.i.i.i.i56, label %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit73", !llvm.loop !443
 
 "_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit73.split.loop.exit649": ; preds = %49
@@ -5470,7 +5470,7 @@ _ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread: ; preds = %_ZNK4
 90:                                               ; preds = %86
   %91 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i99, i64 16
   %92 = add nsw i64 %.047.i.i.i.i.i98, -1
-  %93 = icmp ugt i64 %.047.i.i.i.i.i98, 1
+  %93 = icmp samesign ugt i64 %.047.i.i.i.i.i98, 1
   br i1 %93, label %.lr.ph.i.i.i.i.i96, label %._crit_edge._crit_edge52.i.i.i.i.i105, !llvm.loop !443
 
 ._crit_edge._crit_edge52.i.i.i.i.i105:            ; preds = %90
@@ -5528,7 +5528,7 @@ _ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread: ; preds = %_ZNK4
 113:                                              ; preds = %109
   %114 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i139, i64 16
   %115 = add nsw i64 %.047.i.i.i.i.i138, -1
-  %116 = icmp ugt i64 %.047.i.i.i.i.i138, 1
+  %116 = icmp samesign ugt i64 %.047.i.i.i.i.i138, 1
   br i1 %116, label %.lr.ph.i.i.i.i.i136, label %._crit_edge._crit_edge52.i.i.i.i.i145, !llvm.loop !443
 
 ._crit_edge._crit_edge52.i.i.i.i.i145:            ; preds = %113
@@ -5604,7 +5604,7 @@ _ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit: ; preds = %124
 139:                                              ; preds = %135
   %140 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i159, i64 16
   %141 = add nsw i64 %.047.i.i.i.i.i158, -1
-  %142 = icmp ugt i64 %.047.i.i.i.i.i158, 1
+  %142 = icmp samesign ugt i64 %.047.i.i.i.i.i158, 1
   br i1 %142, label %.lr.ph.i.i.i.i.i156, label %._crit_edge._crit_edge.i.i.i.i.i167, !llvm.loop !443
 
 ._crit_edge._crit_edge.i.i.i.i.i167:              ; preds = %139
@@ -5662,7 +5662,7 @@ _ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit: ; preds = %124
 160:                                              ; preds = %157
   %.02946.i.i.i.i.i179.add486 = add nuw nsw i64 %.02946.i.i.i.i.i179.idx, 16
   %161 = add nsw i64 %.047.i.i.i.i.i178, -1
-  %162 = icmp ugt i64 %.047.i.i.i.i.i178, 1
+  %162 = icmp samesign ugt i64 %.047.i.i.i.i.i178, 1
   br i1 %162, label %.lr.ph.i.i.i.i.i176, label %._crit_edge._crit_edge.i.i.i.i.i187, !llvm.loop !443
 
 ._crit_edge._crit_edge.i.i.i.i.i187:              ; preds = %160
@@ -5719,7 +5719,7 @@ _ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit: ; preds = %124
 180:                                              ; preds = %176
   %181 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i219, i64 16
   %182 = add nsw i64 %.047.i.i.i.i.i218, -1
-  %183 = icmp ugt i64 %.047.i.i.i.i.i218, 1
+  %183 = icmp samesign ugt i64 %.047.i.i.i.i.i218, 1
   br i1 %183, label %.lr.ph.i.i.i.i.i216, label %._crit_edge._crit_edge52.i.i.i.i.i225, !llvm.loop !443
 
 ._crit_edge._crit_edge52.i.i.i.i.i225:            ; preds = %180
@@ -5773,7 +5773,7 @@ _ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit: ; preds = %124
 200:                                              ; preds = %197
   %.02946.i.i.i.i.i239.add493 = add nuw nsw i64 %.02946.i.i.i.i.i239.idx, 16
   %201 = add nsw i64 %.047.i.i.i.i.i238, -1
-  %202 = icmp ugt i64 %.047.i.i.i.i.i238, 1
+  %202 = icmp samesign ugt i64 %.047.i.i.i.i.i238, 1
   br i1 %202, label %.lr.ph.i.i.i.i.i236, label %._crit_edge._crit_edge52.i.i.i.i.i245, !llvm.loop !443
 
 ._crit_edge._crit_edge52.i.i.i.i.i245:            ; preds = %200
@@ -5828,7 +5828,7 @@ _ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit: ; preds = %124
 222:                                              ; preds = %218
   %223 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i339, i64 16
   %224 = add nsw i64 %.047.i.i.i.i.i338, -1
-  %225 = icmp ugt i64 %.047.i.i.i.i.i338, 1
+  %225 = icmp samesign ugt i64 %.047.i.i.i.i.i338, 1
   br i1 %225, label %.lr.ph.i.i.i.i.i336, label %._crit_edge._crit_edge52.i.i.i.i.i345, !llvm.loop !443
 
 ._crit_edge._crit_edge52.i.i.i.i.i345:            ; preds = %222
@@ -5891,7 +5891,7 @@ _ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit: ; preds = %124
 250:                                              ; preds = %246
   %251 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i379, i64 16
   %252 = add nsw i64 %.047.i.i.i.i.i378, -1
-  %253 = icmp ugt i64 %.047.i.i.i.i.i378, 1
+  %253 = icmp samesign ugt i64 %.047.i.i.i.i.i378, 1
   br i1 %253, label %.lr.ph.i.i.i.i.i376, label %._crit_edge._crit_edge52.i.i.i.i.i385, !llvm.loop !443
 
 ._crit_edge._crit_edge52.i.i.i.i.i385:            ; preds = %250
@@ -5944,7 +5944,7 @@ _ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit: ; preds = %124
 273:                                              ; preds = %269
   %274 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i399, i64 16
   %275 = add nsw i64 %.047.i.i.i.i.i398, -1
-  %276 = icmp ugt i64 %.047.i.i.i.i.i398, 1
+  %276 = icmp samesign ugt i64 %.047.i.i.i.i.i398, 1
   br i1 %276, label %.lr.ph.i.i.i.i.i396, label %._crit_edge._crit_edge.i.i.i.i.i407, !llvm.loop !443
 
 ._crit_edge._crit_edge.i.i.i.i.i407:              ; preds = %273

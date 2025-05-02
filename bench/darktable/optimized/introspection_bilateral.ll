@@ -824,7 +824,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi5ELi4EEC2Emmm(ptr n
   %gep77 = getelementptr i32, ptr %invariant.gep76, i64 %indvars.iv62
   store i32 %18, ptr %gep77, align 4, !tbaa !115
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %21 = icmp ult i64 %indvars.iv62, 5
+  %21 = icmp samesign ult i64 %indvars.iv62, 5
   br i1 %21, label %20, label %._crit_edge49, !llvm.loop !128
 
 22:                                               ; preds = %47
@@ -976,7 +976,7 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi5ELi4EE5splatEPfS1
   %46 = fadd reassoc nsz arcp contract afn float %40, %45
   %47 = getelementptr inbounds nuw [6 x float], ptr %6, i64 0, i64 %indvars.iv
   store float %46, ptr %47, align 4, !tbaa !33
-  %48 = icmp ugt i64 %indvars.iv, 1
+  %48 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %48, label %28, label %20, !llvm.loop !134
 
 49:                                               ; preds = %20, %49

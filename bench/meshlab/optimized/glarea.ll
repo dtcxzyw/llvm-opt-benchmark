@@ -9975,7 +9975,7 @@ define void @_ZN6GLArea22displayViewerHighlightEv(ptr noundef nonnull align 8 de
   tail call void @glVertex2f(float noundef -1.000000e+00, float noundef -1.000000e+00)
   tail call void @glEnd()
   %4 = add nsw i32 %.03, -2
-  %5 = icmp ugt i32 %.03, 2
+  %5 = icmp samesign ugt i32 %.03, 2
   br i1 %5, label %2, label %6, !llvm.loop !95
 
 6:                                                ; preds = %2

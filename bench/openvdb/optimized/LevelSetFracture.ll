@@ -15336,7 +15336,7 @@ for.inc125:                                       ; preds = %for.body112, %for.b
 
 for.inc128:                                       ; preds = %for.inc125
   %indvars.iv.next176 = add nsw i64 %indvars.iv175, -1
-  %cmp95 = icmp ugt i64 %indvars.iv175, 1
+  %cmp95 = icmp samesign ugt i64 %indvars.iv175, 1
   br i1 %cmp95, label %for.cond98.preheader, label %for.end129, !llvm.loop !89
 
 for.end129:                                       ; preds = %for.inc128

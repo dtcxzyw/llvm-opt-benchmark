@@ -4379,7 +4379,7 @@ xorbuf.exit274:                                   ; preds = %xorbuf.exit274.preh
   %247 = getelementptr inbounds nuw i8, ptr %240, i64 %indvars.iv.i275
   store i8 %246, ptr %247, align 1, !tbaa !15
   %indvars.iv.next.i276 = add nsw i64 %indvars.iv.i275, -1
-  %248 = icmp ugt i64 %indvars.iv.i275, 1
+  %248 = icmp samesign ugt i64 %indvars.iv.i275, 1
   br i1 %248, label %241, label %Shift4_M0.exit, !llvm.loop !28
 
 Shift4_M0.exit:                                   ; preds = %241
@@ -4544,7 +4544,7 @@ xorbuf.exit:                                      ; preds = %xorbuf.exit.prehead
   %71 = zext i16 %70 to i64
   %72 = xor i64 %64, %71
   %indvars.iv.next.i45 = add nsw i64 %indvars.iv.i44, -1
-  %73 = icmp ugt i64 %indvars.iv.i44, 1
+  %73 = icmp samesign ugt i64 %indvars.iv.i44, 1
   br i1 %73, label %xorbuf.exit, label %GMULT.exit, !llvm.loop !32
 
 GMULT.exit:                                       ; preds = %xorbuf.exit
@@ -4665,7 +4665,7 @@ xorbuf.exit65:                                    ; preds = %.lr.ph.i.i59
   %155 = zext i16 %154 to i64
   %156 = xor i64 %148, %155
   %indvars.iv.next.i70 = add nsw i64 %indvars.iv.i66, -1
-  %157 = icmp ugt i64 %indvars.iv.i66, 1
+  %157 = icmp samesign ugt i64 %indvars.iv.i66, 1
   br i1 %157, label %119, label %GMULT.exit71, !llvm.loop !32
 
 GMULT.exit71:                                     ; preds = %119
@@ -4810,7 +4810,7 @@ xorbuf.exit91:                                    ; preds = %xorbuf.exit91.prehe
   %253 = zext i16 %252 to i64
   %254 = xor i64 %246, %253
   %indvars.iv.next.i96 = add nsw i64 %indvars.iv.i92, -1
-  %255 = icmp ugt i64 %indvars.iv.i92, 1
+  %255 = icmp samesign ugt i64 %indvars.iv.i92, 1
   br i1 %255, label %xorbuf.exit91, label %GMULT.exit97, !llvm.loop !32
 
 GMULT.exit97:                                     ; preds = %xorbuf.exit91
@@ -4931,7 +4931,7 @@ xorbuf.exit117:                                   ; preds = %.lr.ph.i.i111
   %337 = zext i16 %336 to i64
   %338 = xor i64 %330, %337
   %indvars.iv.next.i122 = add nsw i64 %indvars.iv.i118, -1
-  %339 = icmp ugt i64 %indvars.iv.i118, 1
+  %339 = icmp samesign ugt i64 %indvars.iv.i118, 1
   br i1 %339, label %301, label %GMULT.exit123, !llvm.loop !32
 
 GMULT.exit123:                                    ; preds = %301
@@ -5094,7 +5094,7 @@ xorbuf.exit143:                                   ; preds = %.lr.ph.i.i137
   %455 = zext i16 %454 to i64
   %456 = xor i64 %448, %455
   %indvars.iv.next.i148 = add nsw i64 %indvars.iv.i144, -1
-  %457 = icmp ugt i64 %indvars.iv.i144, 1
+  %457 = icmp samesign ugt i64 %indvars.iv.i144, 1
   br i1 %457, label %419, label %GMULT.exit149, !llvm.loop !32
 
 GMULT.exit149:                                    ; preds = %419
@@ -5222,8 +5222,8 @@ define range(i32 -226, 1) i32 @wc_AesGcmEncrypt(ptr noundef %0, ptr noundef %1, 
   store i8 %40, ptr %38, align 1, !tbaa !15
   %.not.i.i = icmp eq i8 %40, 0
   %41 = add nsw i32 %.03.i.i, -1
-  %42 = icmp ugt i32 %.03.i.i, 12
-  %or.cond.i.i = and i1 %42, %.not.i.i
+  %42 = icmp samesign ugt i32 %.03.i.i, 12
+  %or.cond.i.i = select i1 %.not.i.i, i1 %42, i1 false
   br i1 %or.cond.i.i, label %36, label %IncrementGcmCounter.exit.i, !llvm.loop !35
 
 IncrementGcmCounter.exit.i:                       ; preds = %36
@@ -5315,8 +5315,8 @@ xorbufout.exit.i:                                 ; preds = %.lr.ph52.i.i, %.lr.
   store i8 %73, ptr %71, align 1, !tbaa !15
   %.not.i61.i = icmp eq i8 %73, 0
   %74 = add nsw i32 %.03.i60.i, -1
-  %75 = icmp ugt i32 %.03.i60.i, 12
-  %or.cond.i62.i = and i1 %75, %.not.i61.i
+  %75 = icmp samesign ugt i32 %.03.i60.i, 12
+  %or.cond.i62.i = select i1 %.not.i61.i, i1 %75, i1 false
   br i1 %or.cond.i62.i, label %.preheader.i, label %IncrementGcmCounter.exit63.i, !llvm.loop !35
 
 IncrementGcmCounter.exit63.i:                     ; preds = %.preheader.i
@@ -5590,8 +5590,8 @@ xorbuf.exit.preheader.i:                          ; preds = %.lr.ph.i.i.i
   store i8 %50, ptr %48, align 1, !tbaa !15
   %.not.i59.i = icmp eq i8 %50, 0
   %51 = add nsw i32 %.03.i.i, -1
-  %52 = icmp ugt i32 %.03.i.i, 12
-  %or.cond.i.i = and i1 %52, %.not.i59.i
+  %52 = icmp samesign ugt i32 %.03.i.i, 12
+  %or.cond.i.i = select i1 %.not.i59.i, i1 %52, i1 false
   br i1 %or.cond.i.i, label %46, label %IncrementGcmCounter.exit.i, !llvm.loop !35
 
 IncrementGcmCounter.exit.i:                       ; preds = %46
@@ -5683,8 +5683,8 @@ xorbuf.exit._crit_edge.i:                         ; preds = %xorbufout.exit.i, %
   store i8 %83, ptr %81, align 1, !tbaa !15
   %.not.i72.i = icmp eq i8 %83, 0
   %84 = add nsw i32 %.03.i71.i, -1
-  %85 = icmp ugt i32 %.03.i71.i, 12
-  %or.cond.i73.i = and i1 %85, %.not.i72.i
+  %85 = icmp samesign ugt i32 %.03.i71.i, 12
+  %or.cond.i73.i = select i1 %.not.i72.i, i1 %85, i1 false
   br i1 %or.cond.i73.i, label %.preheader.i, label %IncrementGcmCounter.exit74.i, !llvm.loop !35
 
 IncrementGcmCounter.exit74.i:                     ; preds = %.preheader.i

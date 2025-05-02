@@ -2604,7 +2604,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resize
 
 .noexc22:                                         ; preds = %37, %31
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %47 = icmp ugt i64 %indvars.iv.i, 11
+  %47 = icmp samesign ugt i64 %indvars.iv.i, 11
   br i1 %47, label %31, label %._crit_edge.us.i, !llvm.loop !30
 
 ._crit_edge.us.i:                                 ; preds = %.noexc22
@@ -2650,7 +2650,7 @@ _ZNK11TransTableL17SetToPartialHandsEjjiiRSt6vectorIS0_INSt7__cxx1112basic_strin
 
 .noexc32:                                         ; preds = %59, %53
   %indvars.iv.next.i28 = add nsw i64 %indvars.iv.i26, -1
-  %69 = icmp ugt i64 %indvars.iv.i26, 7
+  %69 = icmp samesign ugt i64 %indvars.iv.i26, 7
   br i1 %69, label %53, label %._crit_edge.us.i29, !llvm.loop !30
 
 ._crit_edge.us.i29:                               ; preds = %.noexc32
@@ -2696,7 +2696,7 @@ _ZNK11TransTableL17SetToPartialHandsEjjiiRSt6vectorIS0_INSt7__cxx1112basic_strin
 
 .noexc43:                                         ; preds = %81, %75
   %indvars.iv.next.i39 = add nsw i64 %indvars.iv.i37, -1
-  %91 = icmp ugt i64 %indvars.iv.i37, 3
+  %91 = icmp samesign ugt i64 %indvars.iv.i37, 3
   br i1 %91, label %75, label %._crit_edge.us.i40, !llvm.loop !30
 
 ._crit_edge.us.i40:                               ; preds = %.noexc43
@@ -4324,7 +4324,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 25:                                               ; preds = %19
   %26 = add nsw i32 %.01519, -1
-  %27 = icmp ugt i32 %.01519, 1
+  %27 = icmp samesign ugt i32 %.01519, 1
   br i1 %27, label %.preheader, label %28, !llvm.loop !63
 
 28:                                               ; preds = %25
@@ -4787,7 +4787,7 @@ _ZNK11TransTableL14UpdateSuitHistEiiPiS0_RiS1_.exit: ; preds = %9
 
 29:                                               ; preds = %_ZNK11TransTableL14UpdateSuitHistEiiPiS0_RiS1_.exit
   %indvars.iv.next32 = add nsw i64 %indvars.iv31, -1
-  %30 = icmp ugt i64 %indvars.iv31, 1
+  %30 = icmp samesign ugt i64 %indvars.iv31, 1
   br i1 %30, label %.preheader, label %31, !llvm.loop !70
 
 31:                                               ; preds = %29
@@ -4983,7 +4983,7 @@ _ZNK11TransTableL14CalcPercentileEPKidi.exit:     ; preds = %76, %._crit_edge.lo
 110:                                              ; preds = %102
   %111 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.7)
   %indvars.iv.next83 = add nsw i64 %indvars.iv82, -1
-  %112 = icmp ugt i64 %indvars.iv82, 1
+  %112 = icmp samesign ugt i64 %indvars.iv82, 1
   br i1 %112, label %.preheader, label %113, !llvm.loop !72
 
 113:                                              ; preds = %110
@@ -6200,7 +6200,7 @@ _ZNK11TransTableL13DistToLengthsEiPKiPA4_h.exit.i: ; preds = %99
 
 134:                                              ; preds = %122
   %indvars.iv.next46 = add nsw i64 %indvars.iv45, -1
-  %135 = icmp ugt i64 %indvars.iv45, 1
+  %135 = icmp samesign ugt i64 %indvars.iv45, 1
   br i1 %135, label %.preheader, label %136, !llvm.loop !87
 
 136:                                              ; preds = %134
@@ -6491,7 +6491,7 @@ _ZNK11TransTableL15UpdateEntryHistEiiPiS0_RiS1_.exit: ; preds = %._crit_edge.i
 
 36:                                               ; preds = %_ZNK11TransTableL15UpdateEntryHistEiiPiS0_RiS1_.exit
   %indvars.iv.next35 = add nsw i64 %indvars.iv34, -1
-  %37 = icmp ugt i64 %indvars.iv34, 1
+  %37 = icmp samesign ugt i64 %indvars.iv34, 1
   br i1 %37, label %.preheader, label %38, !llvm.loop !93
 
 38:                                               ; preds = %36
@@ -6741,7 +6741,7 @@ _ZNK11TransTableL14CalcPercentileEPKidi.exit:     ; preds = %94, %._crit_edge.lo
 118:                                              ; preds = %_ZNK11TransTableL14CalcPercentileEPKidi.exit
   %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.7)
   %indvars.iv.next126 = add nsw i64 %indvars.iv125, -1
-  %120 = icmp ugt i64 %indvars.iv125, 1
+  %120 = icmp samesign ugt i64 %indvars.iv125, 1
   br i1 %120, label %.preheader, label %121, !llvm.loop !96
 
 121:                                              ; preds = %118

@@ -7518,7 +7518,7 @@ define internal fastcc noundef i32 @_ZL21ARMCountOfUnwindCodesN4llvm8ArrayRefINS
 
 16:                                               ; preds = %12
   %17 = add nsw i32 %.034, -1
-  %18 = icmp ugt i32 %.034, 1
+  %18 = icmp samesign ugt i32 %.034, 1
   br i1 %18, label %12, label %19, !llvm.loop !314
 
 19:                                               ; preds = %12, %16
@@ -7889,7 +7889,7 @@ define internal fastcc void @_ZL17ARMEmitUnwindCodeRN4llvm10MCStreamerERKNS_5Win
 
 181:                                              ; preds = %177
   %182 = add nsw i32 %.084, -1
-  %183 = icmp ugt i32 %.084, 1
+  %183 = icmp samesign ugt i32 %.084, 1
   br i1 %183, label %177, label %.preheader89, !llvm.loop !315
 
 .preheader89:                                     ; preds = %177, %181

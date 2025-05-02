@@ -163459,7 +163459,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost14multiprecision8backen
 20:                                               ; preds = %18
   %.02937.i.i.i.add48 = add nuw nsw i64 %.02937.i.i.i.idx, 16
   %21 = add nsw i64 %.038.i.i.i, -1
-  %22 = icmp ugt i64 %.038.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.038.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !2751
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %20
@@ -163515,7 +163515,7 @@ _ZSt7find_ifIPKjPFbRS0_EET_S5_S5_T0_.exit.loopexit: ; preds = %18, %16, %14, %.l
 36:                                               ; preds = %34
   %.02937.i.i.i14.add31 = add nuw nsw i64 %.02937.i.i.i14.idx, 16
   %37 = add nsw i64 %.038.i.i.i13, -1
-  %38 = icmp ugt i64 %.038.i.i.i13, 1
+  %38 = icmp samesign ugt i64 %.038.i.i.i13, 1
   br i1 %38, label %.lr.ph.i.i.i12, label %._crit_edge.loopexit.i.i.i15, !llvm.loop !2751
 
 ._crit_edge.loopexit.i.i.i15:                     ; preds = %36
@@ -164793,7 +164793,7 @@ _ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE15eval_subtract_nEPjPK
 185:                                              ; preds = %183
   %.02937.i.i.i.add = add nuw nsw i64 %.02937.i.i.i.idx, 16
   %186 = add nsw i64 %.038.i.i.i, -1
-  %187 = icmp ugt i64 %.038.i.i.i, 1
+  %187 = icmp samesign ugt i64 %.038.i.i.i, 1
   br i1 %187, label %.lr.ph.i.i.i111, label %._crit_edge.loopexit.i.i.i, !llvm.loop !2809
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %185

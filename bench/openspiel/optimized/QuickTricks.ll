@@ -845,7 +845,7 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
 
 402:                                              ; preds = %.preheader
   %403 = add nsw i32 %.0533843, -1
-  %404 = icmp ugt i32 %.0533843, 2
+  %404 = icmp samesign ugt i32 %.0533843, 2
   br i1 %404, label %.preheader, label %.loopexit, !llvm.loop !8
 
 .preheader:                                       ; preds = %.thread810, %402
@@ -884,7 +884,7 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
 
 422:                                              ; preds = %.preheader824
   %423 = add nsw i32 %.0532842, -1
-  %424 = icmp ugt i32 %.0532842, 2
+  %424 = icmp samesign ugt i32 %.0532842, 2
   br i1 %424, label %.preheader824, label %.loopexit825, !llvm.loop !9
 
 .preheader824:                                    ; preds = %416, %422

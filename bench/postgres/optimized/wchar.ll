@@ -1667,7 +1667,7 @@ is_valid_ascii.exit:                              ; preds = %.preheader53
   %21 = and i32 %15, 31
   %22 = lshr i32 %20, %21
   %23 = add nsw i32 %.07.i, -1
-  %24 = icmp ugt i32 %.07.i, 1
+  %24 = icmp samesign ugt i32 %.07.i, 1
   br i1 %24, label %14, label %utf8_advance.exit, !llvm.loop !15
 
 utf8_advance.exit:                                ; preds = %14
@@ -3074,7 +3074,7 @@ pg_johab_mblen.exit.i:                            ; preds = %.lr.ph
 .preheader.i:                                     ; preds = %pg_johab_mblen.exit.i, %9
   %.013.i = phi i32 [ %10, %9 ], [ %spec.select, %pg_johab_mblen.exit.i ]
   %.012.i = phi ptr [ %11, %9 ], [ %.01427, %pg_johab_mblen.exit.i ]
-  %8 = icmp ugt i32 %.013.i, 1
+  %8 = icmp samesign ugt i32 %.013.i, 1
   br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %.preheader.i

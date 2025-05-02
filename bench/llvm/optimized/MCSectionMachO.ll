@@ -1011,7 +1011,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %159
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14MCSectionMachO21ParseSectionSpecifierENS2_9StringRefERS4_S5_RjRbS6_E3$_0EclIPK3$_0EEbT_.exit65.thread11.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14MCSectionMachO21ParseSectionSpecifierENS2_9StringRefERS4_S5_RjRbS6_E3$_0EclIPK3$_0EEbT_.exit65.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14MCSectionMachO21ParseSectionSpecifierENS2_9StringRefERS4_S5_RjRbS6_E3$_0EclIPK3$_0EEbT_.exit61.thread8.i.i.i.i"
   %.02943.i.i.i.i.add147 = add nuw nsw i64 %.02943.i.i.i.i.idx, 128
   %169 = add nsw i64 %.044.i.i.i.i, -1
-  %170 = icmp ugt i64 %.044.i.i.i.i, 1
+  %170 = icmp samesign ugt i64 %.044.i.i.i.i, 1
   br i1 %170, label %.split.split.split.i.i.i.i, label %.split52.us.i.i.i.i, !llvm.loop !73
 
 .split52.us.i.i.i.i:                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14MCSectionMachO21ParseSectionSpecifierENS2_9StringRefERS4_S5_RjRbS6_E3$_0EclIPK3$_0EEbT_.exit65.thread11.i.i.i.i"
@@ -1289,7 +1289,7 @@ _ZN4llvm5ErrorD2Ev.exit101:                       ; preds = %194
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14MCSectionMachO21ParseSectionSpecifierENS2_9StringRefERS4_S5_RjRbS6_E3$_1EclIPK3$_1EEbT_.exit65.thread11.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14MCSectionMachO21ParseSectionSpecifierENS2_9StringRefERS4_S5_RjRbS6_E3$_1EclIPK3$_1EEbT_.exit65.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14MCSectionMachO21ParseSectionSpecifierENS2_9StringRefERS4_S5_RjRbS6_E3$_1EclIPK3$_1EEbT_.exit55.thread8.i.i.i.i"
   %.02943.i.i.i.i103.add156 = add nuw nsw i64 %.02943.i.i.i.i103.idx, 160
   %282 = add nsw i64 %.044.i.i.i.i102, -1
-  %283 = icmp ugt i64 %.044.i.i.i.i102, 1
+  %283 = icmp samesign ugt i64 %.044.i.i.i.i102, 1
   br i1 %283, label %217, label %284, !llvm.loop !77
 
 284:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14MCSectionMachO21ParseSectionSpecifierENS2_9StringRefERS4_S5_RjRbS6_E3$_1EclIPK3$_1EEbT_.exit65.thread11.i.i.i.i"

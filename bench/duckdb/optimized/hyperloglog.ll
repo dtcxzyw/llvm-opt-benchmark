@@ -1536,7 +1536,7 @@ _ZN10duckdb_hll6hllTauEd.exit:                    ; preds = %_ZN10duckdb_hll6hll
   %162 = fadd double %.041, %161
   %163 = fmul double %162, 5.000000e-01
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %164 = icmp ugt i64 %indvars.iv, 1
+  %164 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %164, label %_ZN10duckdb_hll6hllTauEd.exit, label %165, !llvm.loop !36
 
 165:                                              ; preds = %_ZN10duckdb_hll6hllTauEd.exit

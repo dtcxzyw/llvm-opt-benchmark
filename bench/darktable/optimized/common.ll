@@ -380,7 +380,7 @@ gauss_solve.exit.thread:                          ; preds = %._crit_edge.i.i
 
 189:                                              ; preds = %191
   %indvars.iv.next69.i.i = add nsw i64 %indvars.iv68.i.i, -1
-  %190 = icmp ugt i64 %indvars.iv68.i.i, 1
+  %190 = icmp samesign ugt i64 %indvars.iv68.i.i, 1
   br i1 %190, label %.preheader.i.i, label %gauss_solve.exit
 
 191:                                              ; preds = %191, %.preheader.i.i

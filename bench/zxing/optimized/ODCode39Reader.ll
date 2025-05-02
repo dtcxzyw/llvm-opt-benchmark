@@ -327,7 +327,7 @@ _ZNK5ZXing11PatternView7isValidEv.exit.thread:    ; preds = %5, %_ZNK5ZXing11Pat
 66:                                               ; preds = %63
   %.02946.i.i.i.i.add9.i.i.i = add nuw nsw i64 %.02946.i.i.i.i.idx.i.i.i, 16
   %67 = add nsw i64 %.047.i.i.i.i.i.i.i, -1
-  %68 = icmp ugt i64 %.047.i.i.i.i.i.i.i, 1
+  %68 = icmp samesign ugt i64 %.047.i.i.i.i.i.i.i, 1
   br i1 %68, label %54, label %_ZN5ZXing4OneD9RowReader23DecodeNarrowWidePatternIA44_iA45_cEEcRKNS_11PatternViewERKT_RKT0_.exit.thread, !llvm.loop !48
 
 _ZN5ZXing4FindIA44_KiiEEDTclsr3stdE5beginfp_EERT_RKT0_.exit.i.i.i: ; preds = %54
@@ -561,7 +561,7 @@ _ZN5ZXing6ResultC2Ev.exit:                        ; preds = %_ZN5ZXing11PatternV
 154:                                              ; preds = %151
   %.02946.i.i.i.i.add9.i.i.i84 = add nuw nsw i64 %.02946.i.i.i.i.idx.i.i.i76, 16
   %155 = add nsw i64 %.047.i.i.i.i.i.i.i75, -1
-  %156 = icmp ugt i64 %.047.i.i.i.i.i.i.i75, 1
+  %156 = icmp samesign ugt i64 %.047.i.i.i.i.i.i.i75, 1
   br i1 %156, label %.noexc89, label %_ZN5ZXing4OneD9RowReader23DecodeNarrowWidePatternIA44_iA45_cEEcRKNS_11PatternViewERKT_RKT0_.exit90, !llvm.loop !48
 
 _ZN5ZXing4FindIA44_KiiEEDTclsr3stdE5beginfp_EERT_RKT0_.exit.i.i.i88: ; preds = %.noexc89

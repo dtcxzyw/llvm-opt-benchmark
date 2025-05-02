@@ -2617,7 +2617,7 @@ define internal fastcc ptr @tls1_get_legacy_sigalg(ptr noundef %0, i32 noundef %
 
 43:                                               ; preds = %39
   %44 = add nsw i32 %.04485, -1
-  %45 = icmp ugt i32 %.04485, 4
+  %45 = icmp samesign ugt i32 %.04485, 4
   br i1 %45, label %39, label %.thread66, !llvm.loop !203
 
 46:                                               ; preds = %.preheader73, %50
@@ -2630,7 +2630,7 @@ define internal fastcc ptr @tls1_get_legacy_sigalg(ptr noundef %0, i32 noundef %
 
 50:                                               ; preds = %46
   %51 = add nsw i32 %.04384, -1
-  %52 = icmp ugt i32 %.04384, 5
+  %52 = icmp samesign ugt i32 %.04384, 5
   br i1 %52, label %46, label %.thread66, !llvm.loop !204
 
 53:                                               ; preds = %4

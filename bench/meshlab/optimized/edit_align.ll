@@ -6693,7 +6693,7 @@ _ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit.i: ; preds = %96, %87, %8
   br label %137
 
 137:                                              ; preds = %131, %_ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit.i
-  %138 = icmp ult i64 %.074110.i, %27
+  %138 = icmp samesign ult i64 %.074110.i, %27
   br i1 %138, label %139, label %145
 
 139:                                              ; preds = %137
@@ -15947,7 +15947,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
 
 ._crit_edge.us102.i326:                           ; preds = %227
   %234 = add nuw nsw i64 %.199.us.i321, 2
-  %235 = icmp ult i64 %234, %209
+  %235 = icmp samesign ult i64 %234, %209
   br i1 %235, label %.preheader86.us.i320, label %.preheader85.i306, !llvm.loop !460
 
 .preheader85.i306:                                ; preds = %._crit_edge.us102.i326, %.preheader87.i303
@@ -16645,7 +16645,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
 
 ._crit_edge.us102.i315:                           ; preds = %220
   %227 = add nuw nsw i64 %.199.us.i310, 2
-  %228 = icmp ult i64 %227, %202
+  %228 = icmp samesign ult i64 %227, %202
   br i1 %228, label %.preheader86.us.i309, label %.preheader85.i295, !llvm.loop !460
 
 .preheader85.i295:                                ; preds = %._crit_edge.us102.i315, %.preheader87.i292

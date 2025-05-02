@@ -850,7 +850,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   store i32 %477, ptr %18, align 4, !tbaa !3
   %478 = add nsw i32 %.2624829, -1
   store i32 %478, ptr %13, align 4, !tbaa !3
-  %.not653781 = icmp ult i32 %.2624829, 2
+  %.not653781 = icmp samesign ult i32 %.2624829, 2
   br i1 %.not653781, label %._crit_edge785, label %.lr.ph784
 
 .lr.ph784:                                        ; preds = %472

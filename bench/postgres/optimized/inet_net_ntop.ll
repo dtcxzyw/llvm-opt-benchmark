@@ -56,7 +56,7 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr noundef reado
   %.neg.i = add i64 %.02733.i, %23
   %24 = sub i64 %.neg.i, %22
   %25 = add nsw i32 %.036.i, -1
-  %26 = icmp ugt i32 %.036.i, 1
+  %26 = icmp samesign ugt i32 %.036.i, 1
   br i1 %26, label %.preheader.i, label %27, !llvm.loop !4
 
 27:                                               ; preds = %15

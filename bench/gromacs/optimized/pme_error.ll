@@ -2865,7 +2865,7 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit:     ; preds = %_ZN3gmx22UniformInt
   %230 = call noundef float @powf(float noundef %229, float noundef %214) #22, !tbaa !4
   %231 = fadd float %.146.i, %230
   %232 = add nsw i32 %.13845.i, -1
-  %233 = icmp ugt i32 %.13845.i, 1
+  %233 = icmp samesign ugt i32 %.13845.i, 1
   br i1 %233, label %.preheader40.i, label %.preheader.i, !llvm.loop !300
 
 234:                                              ; preds = %234, %.preheader.i
@@ -2907,7 +2907,7 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit:     ; preds = %_ZN3gmx22UniformInt
   %256 = call noundef float @powf(float noundef %255, float noundef %224) #22, !tbaa !4
   %257 = fadd float %.134.i.i, %256
   %258 = add nsw i32 %.12833.i.i, -1
-  %259 = icmp ugt i32 %.12833.i.i, 1
+  %259 = icmp samesign ugt i32 %.12833.i.i, 1
   br i1 %259, label %.preheader.i.i, label %_ZL9eps_poly1fff.exit.i, !llvm.loop !303
 
 _ZL9eps_poly1fff.exit.i:                          ; preds = %.preheader.i.i
@@ -2967,7 +2967,7 @@ _ZL9eps_poly2fff.exit:                            ; preds = %177, %_ZL9eps_poly1
   %290 = call noundef float @powf(float noundef %289, float noundef %274) #22, !tbaa !4
   %291 = fadd float %.146.i348, %290
   %292 = add nsw i32 %.13845.i349, -1
-  %293 = icmp ugt i32 %.13845.i349, 1
+  %293 = icmp samesign ugt i32 %.13845.i349, 1
   br i1 %293, label %.preheader40.i347, label %.preheader.i350, !llvm.loop !300
 
 294:                                              ; preds = %294, %.preheader.i350
@@ -3009,7 +3009,7 @@ _ZL9eps_poly2fff.exit:                            ; preds = %177, %_ZL9eps_poly1
   %316 = call noundef float @powf(float noundef %315, float noundef %284) #22, !tbaa !4
   %317 = fadd float %.134.i.i359, %316
   %318 = add nsw i32 %.12833.i.i360, -1
-  %319 = icmp ugt i32 %.12833.i.i360, 1
+  %319 = icmp samesign ugt i32 %.12833.i.i360, 1
   br i1 %319, label %.preheader.i.i358, label %_ZL9eps_poly1fff.exit.i361, !llvm.loop !303
 
 _ZL9eps_poly1fff.exit.i361:                       ; preds = %.preheader.i.i358
@@ -3071,7 +3071,7 @@ _ZL9eps_poly2fff.exit363:                         ; preds = %_ZL9eps_poly2fff.ex
   %352 = call noundef float @powf(float noundef %351, float noundef %336) #22, !tbaa !4
   %353 = fadd float %.146.i369, %352
   %354 = add nsw i32 %.13845.i370, -1
-  %355 = icmp ugt i32 %.13845.i370, 1
+  %355 = icmp samesign ugt i32 %.13845.i370, 1
   br i1 %355, label %.preheader40.i368, label %.preheader.i371, !llvm.loop !300
 
 356:                                              ; preds = %356, %.preheader.i371
@@ -3113,7 +3113,7 @@ _ZL9eps_poly2fff.exit363:                         ; preds = %_ZL9eps_poly2fff.ex
   %378 = call noundef float @powf(float noundef %377, float noundef %346) #22, !tbaa !4
   %379 = fadd float %.134.i.i380, %378
   %380 = add nsw i32 %.12833.i.i381, -1
-  %381 = icmp ugt i32 %.12833.i.i381, 1
+  %381 = icmp samesign ugt i32 %.12833.i.i381, 1
   br i1 %381, label %.preheader.i.i379, label %_ZL9eps_poly1fff.exit.i382, !llvm.loop !303
 
 _ZL9eps_poly1fff.exit.i382:                       ; preds = %.preheader.i.i379
@@ -3169,7 +3169,7 @@ _ZL9eps_poly2fff.exit384:                         ; preds = %_ZL9eps_poly2fff.ex
   %412 = call noundef float @powf(float noundef %411, float noundef %397) #22, !tbaa !4
   %413 = fadd float %.134.i, %412
   %414 = add nsw i32 %.12833.i, -1
-  %415 = icmp ugt i32 %.12833.i, 1
+  %415 = icmp samesign ugt i32 %.12833.i, 1
   br i1 %415, label %.preheader.i386, label %416, !llvm.loop !303
 
 416:                                              ; preds = %.preheader.i386
@@ -3223,7 +3223,7 @@ _ZL9eps_poly1fff.exit:                            ; preds = %_ZL9eps_poly2fff.ex
   %445 = call noundef float @powf(float noundef %444, float noundef %430) #22, !tbaa !4
   %446 = fadd float %.134.i392, %445
   %447 = add nsw i32 %.12833.i393, -1
-  %448 = icmp ugt i32 %.12833.i393, 1
+  %448 = icmp samesign ugt i32 %.12833.i393, 1
   br i1 %448, label %.preheader.i391, label %449, !llvm.loop !303
 
 449:                                              ; preds = %.preheader.i391
@@ -3279,7 +3279,7 @@ _ZL9eps_poly1fff.exit395:                         ; preds = %_ZL9eps_poly1fff.ex
   %480 = call noundef float @powf(float noundef %479, float noundef %465) #22, !tbaa !4
   %481 = fadd float %.134.i401, %480
   %482 = add nsw i32 %.12833.i402, -1
-  %483 = icmp ugt i32 %.12833.i402, 1
+  %483 = icmp samesign ugt i32 %.12833.i402, 1
   br i1 %483, label %.preheader.i400, label %484, !llvm.loop !303
 
 484:                                              ; preds = %.preheader.i400
@@ -3333,7 +3333,7 @@ _ZL9eps_poly1fff.exit404:                         ; preds = %_ZL9eps_poly1fff.ex
   %513 = call noundef float @powf(float noundef %512, float noundef %498) #22, !tbaa !4
   %514 = fadd float %.134.i410, %513
   %515 = add nsw i32 %.12833.i411, -1
-  %516 = icmp ugt i32 %.12833.i411, 1
+  %516 = icmp samesign ugt i32 %.12833.i411, 1
   br i1 %516, label %.preheader.i409, label %517, !llvm.loop !303
 
 517:                                              ; preds = %.preheader.i409
@@ -3389,7 +3389,7 @@ _ZL9eps_poly1fff.exit413:                         ; preds = %_ZL9eps_poly1fff.ex
   %548 = call noundef float @powf(float noundef %547, float noundef %533) #22, !tbaa !4
   %549 = fadd float %.134.i419, %548
   %550 = add nsw i32 %.12833.i420, -1
-  %551 = icmp ugt i32 %.12833.i420, 1
+  %551 = icmp samesign ugt i32 %.12833.i420, 1
   br i1 %551, label %.preheader.i418, label %552, !llvm.loop !303
 
 552:                                              ; preds = %.preheader.i418
@@ -3448,7 +3448,7 @@ _ZL9eps_poly1fff.exit431.thread:                  ; preds = %_ZL9eps_poly1fff.ex
   %583 = call noundef float @powf(float noundef %582, float noundef %568) #22, !tbaa !4
   %584 = fadd float %.134.i428, %583
   %585 = add nsw i32 %.12833.i429, -1
-  %586 = icmp ugt i32 %.12833.i429, 1
+  %586 = icmp samesign ugt i32 %.12833.i429, 1
   br i1 %586, label %.preheader.i427, label %.preheader30.i432, !llvm.loop !303
 
 .preheader30.i432:                                ; preds = %.preheader.i427
@@ -3495,7 +3495,7 @@ _ZL9eps_poly1fff.exit431.thread:                  ; preds = %_ZL9eps_poly1fff.ex
   %616 = call noundef float @powf(float noundef %615, float noundef %601) #22, !tbaa !4
   %617 = fadd float %.134.i437, %616
   %618 = add nsw i32 %.12833.i438, -1
-  %619 = icmp ugt i32 %.12833.i438, 1
+  %619 = icmp samesign ugt i32 %.12833.i438, 1
   br i1 %619, label %.preheader.i436, label %620, !llvm.loop !303
 
 620:                                              ; preds = %.preheader.i436
@@ -3549,7 +3549,7 @@ _ZL9eps_poly1fff.exit440:                         ; preds = %_ZL9eps_poly1fff.ex
   %648 = call noundef float @powf(float noundef %647, float noundef %633) #22, !tbaa !4
   %649 = fadd float %.134.i446, %648
   %650 = add nsw i32 %.12833.i447, -1
-  %651 = icmp ugt i32 %.12833.i447, 1
+  %651 = icmp samesign ugt i32 %.12833.i447, 1
   br i1 %651, label %.preheader.i445, label %652, !llvm.loop !303
 
 652:                                              ; preds = %.preheader.i445
@@ -3602,7 +3602,7 @@ _ZL9eps_poly1fff.exit449:                         ; preds = %_ZL9eps_poly1fff.ex
   %680 = call noundef float @powf(float noundef %679, float noundef %665) #22, !tbaa !4
   %681 = fadd float %.134.i455, %680
   %682 = add nsw i32 %.12833.i456, -1
-  %683 = icmp ugt i32 %.12833.i456, 1
+  %683 = icmp samesign ugt i32 %.12833.i456, 1
   br i1 %683, label %.preheader.i454, label %684, !llvm.loop !303
 
 684:                                              ; preds = %.preheader.i454
@@ -3673,7 +3673,7 @@ _ZL9eps_poly1fff.exit458:                         ; preds = %_ZL9eps_poly1fff.ex
   %727 = call noundef float @powf(float noundef %726, float noundef %711) #22, !tbaa !4
   %728 = call float @llvm.fmuladd.f32(float %722, float %727, float %.142.i)
   %729 = add nsw i32 %.13541.i, -1
-  %730 = icmp ugt i32 %.13541.i, 1
+  %730 = icmp samesign ugt i32 %.13541.i, 1
   br i1 %730, label %.preheader37.i, label %.preheader.i460, !llvm.loop !305
 
 731:                                              ; preds = %731, %.preheader.i460
@@ -3749,7 +3749,7 @@ _ZL9eps_poly3fff.exit:                            ; preds = %_ZL9eps_poly1fff.ex
   %773 = call noundef float @powf(float noundef %772, float noundef %757) #22, !tbaa !4
   %774 = call float @llvm.fmuladd.f32(float %768, float %773, float %.142.i466)
   %775 = add nsw i32 %.13541.i467, -1
-  %776 = icmp ugt i32 %.13541.i467, 1
+  %776 = icmp samesign ugt i32 %.13541.i467, 1
   br i1 %776, label %.preheader37.i465, label %.preheader.i468, !llvm.loop !305
 
 777:                                              ; preds = %777, %.preheader.i468
@@ -3825,7 +3825,7 @@ _ZL9eps_poly3fff.exit473:                         ; preds = %_ZL9eps_poly3fff.ex
   %819 = call noundef float @powf(float noundef %818, float noundef %803) #22, !tbaa !4
   %820 = call float @llvm.fmuladd.f32(float %814, float %819, float %.142.i479)
   %821 = add nsw i32 %.13541.i480, -1
-  %822 = icmp ugt i32 %.13541.i480, 1
+  %822 = icmp samesign ugt i32 %.13541.i480, 1
   br i1 %822, label %.preheader37.i478, label %.preheader.i481, !llvm.loop !305
 
 823:                                              ; preds = %823, %.preheader.i481
@@ -3908,7 +3908,7 @@ _ZL9eps_poly3fff.exit486:                         ; preds = %_ZL9eps_poly3fff.ex
   %871 = call noundef float @powf(float noundef %868, float noundef %851) #22, !tbaa !4
   %872 = call float @llvm.fmuladd.f32(float %870, float %871, float %.144.i)
   %873 = add nsw i32 %.13743.i, -1
-  %874 = icmp ugt i32 %.13743.i, 1
+  %874 = icmp samesign ugt i32 %.13743.i, 1
   br i1 %874, label %.preheader39.i, label %.preheader.i489, !llvm.loop !308
 
 875:                                              ; preds = %875, %.preheader.i489
@@ -3988,7 +3988,7 @@ _ZL9eps_poly4fff.exit:                            ; preds = %_ZL9eps_poly3fff.ex
   %919 = call noundef float @powf(float noundef %916, float noundef %899) #22, !tbaa !4
   %920 = call float @llvm.fmuladd.f32(float %918, float %919, float %.144.i495)
   %921 = add nsw i32 %.13743.i496, -1
-  %922 = icmp ugt i32 %.13743.i496, 1
+  %922 = icmp samesign ugt i32 %.13743.i496, 1
   br i1 %922, label %.preheader39.i494, label %.preheader.i497, !llvm.loop !308
 
 923:                                              ; preds = %923, %.preheader.i497
@@ -4068,7 +4068,7 @@ _ZL9eps_poly4fff.exit502:                         ; preds = %_ZL9eps_poly4fff.ex
   %967 = call noundef float @powf(float noundef %964, float noundef %947) #22, !tbaa !4
   %968 = call float @llvm.fmuladd.f32(float %966, float %967, float %.144.i508)
   %969 = add nsw i32 %.13743.i509, -1
-  %970 = icmp ugt i32 %.13743.i509, 1
+  %970 = icmp samesign ugt i32 %.13743.i509, 1
   br i1 %970, label %.preheader39.i507, label %.preheader.i510, !llvm.loop !308
 
 971:                                              ; preds = %971, %.preheader.i510
@@ -4631,7 +4631,7 @@ _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit.lo
   %1330 = call float @llvm.fmuladd.f32(float %1328, float %1329, float %.14554.i)
   %1331 = fadd float %.155.i, %1327
   %1332 = add nsw i32 %.14753.i, -1
-  %1333 = icmp ugt i32 %.14753.i, 1
+  %1333 = icmp samesign ugt i32 %.14753.i, 1
   br i1 %1333, label %.preheader.i517, label %1334, !llvm.loop !316
 
 1334:                                             ; preds = %.preheader.i517
@@ -4709,7 +4709,7 @@ _ZL8eps_selfffPffS_.exit:                         ; preds = %1262, %1334
   %1388 = call float @llvm.fmuladd.f32(float %1386, float %1387, float %.14554.i525)
   %1389 = fadd float %.155.i524, %1385
   %1390 = add nsw i32 %.14753.i526, -1
-  %1391 = icmp ugt i32 %.14753.i526, 1
+  %1391 = icmp samesign ugt i32 %.14753.i526, 1
   br i1 %1391, label %.preheader.i523, label %1392, !llvm.loop !316
 
 1392:                                             ; preds = %.preheader.i523
@@ -4790,7 +4790,7 @@ _ZL8eps_selfffPffS_.exit528:                      ; preds = %_ZL8eps_selfffPffS_
   %1449 = call float @llvm.fmuladd.f32(float %1447, float %1448, float %.14554.i535)
   %1450 = fadd float %.155.i534, %1446
   %1451 = add nsw i32 %.14753.i536, -1
-  %1452 = icmp ugt i32 %.14753.i536, 1
+  %1452 = icmp samesign ugt i32 %.14753.i536, 1
   br i1 %1452, label %.preheader.i533, label %1453, !llvm.loop !316
 
 1453:                                             ; preds = %.preheader.i533

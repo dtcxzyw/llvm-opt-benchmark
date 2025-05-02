@@ -263,7 +263,7 @@ define noundef i32 @_ZN6icu_7712PropNameData12findPropertyEi(i32 noundef %0) loc
   %16 = shl nsw i32 %15, 1
   %17 = add nsw i32 %16, %10
   %18 = add nsw i32 %.02340, -1
-  %19 = icmp ugt i32 %.02340, 1
+  %19 = icmp samesign ugt i32 %.02340, 1
   br i1 %19, label %2, label %.thread31, !llvm.loop !12
 
 20:                                               ; preds = %12
@@ -495,7 +495,7 @@ define noundef ptr @_ZN6icu_7712PropNameData15getPropertyNameEii(i32 noundef %0,
   %17 = shl nsw i32 %16, 1
   %18 = add nsw i32 %17, %11
   %19 = add nsw i32 %.02340.i, -1
-  %20 = icmp ugt i32 %.02340.i, 1
+  %20 = icmp samesign ugt i32 %.02340.i, 1
   br i1 %20, label %3, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, !llvm.loop !12
 
 _ZN6icu_7712PropNameData12findPropertyEi.exit:    ; preds = %13
@@ -574,7 +574,7 @@ define noundef ptr @_ZN6icu_7712PropNameData20getPropertyValueNameEiii(i32 nound
   %18 = shl nsw i32 %17, 1
   %19 = add nsw i32 %18, %12
   %20 = add nsw i32 %.02340.i, -1
-  %21 = icmp ugt i32 %.02340.i, 1
+  %21 = icmp samesign ugt i32 %.02340.i, 1
   br i1 %21, label %4, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, !llvm.loop !12
 
 _ZN6icu_7712PropNameData12findPropertyEi.exit:    ; preds = %14
@@ -857,7 +857,7 @@ define noundef i32 @_ZN6icu_7712PropNameData20getPropertyValueEnumEiPKc(i32 noun
   %17 = shl nsw i32 %16, 1
   %18 = add nsw i32 %17, %11
   %19 = add nsw i32 %.02340.i, -1
-  %20 = icmp ugt i32 %.02340.i, 1
+  %20 = icmp samesign ugt i32 %.02340.i, 1
   br i1 %20, label %3, label %_ZN6icu_7712PropNameData12findPropertyEi.exit.thread, !llvm.loop !12
 
 _ZN6icu_7712PropNameData12findPropertyEi.exit:    ; preds = %13
@@ -914,7 +914,7 @@ define ptr @u_getPropertyName_77(i32 noundef %0, i32 noundef %1) local_unnamed_a
   %17 = shl nsw i32 %16, 1
   %18 = add nsw i32 %17, %11
   %19 = add nsw i32 %.02340.i.i, -1
-  %20 = icmp ugt i32 %.02340.i.i, 1
+  %20 = icmp samesign ugt i32 %.02340.i.i, 1
   br i1 %20, label %3, label %_ZN6icu_7712PropNameData15getPropertyNameEii.exit, !llvm.loop !12
 
 _ZN6icu_7712PropNameData12findPropertyEi.exit.i:  ; preds = %13
@@ -1005,7 +1005,7 @@ define noundef i32 @u_getPropertyValueEnum_77(i32 noundef %0, ptr noundef captur
   %17 = shl nsw i32 %16, 1
   %18 = add nsw i32 %17, %11
   %19 = add nsw i32 %.02340.i.i, -1
-  %20 = icmp ugt i32 %.02340.i.i, 1
+  %20 = icmp samesign ugt i32 %.02340.i.i, 1
   br i1 %20, label %3, label %_ZN6icu_7712PropNameData20getPropertyValueEnumEiPKc.exit, !llvm.loop !12
 
 _ZN6icu_7712PropNameData12findPropertyEi.exit.i:  ; preds = %13

@@ -2301,7 +2301,7 @@ _ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit.us.us.i: ; preds = %248
 _ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.thread.us.us.i: ; preds = %_ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit.us.us.i, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.us.us.i, %240, %.noexc384
   %.2.us.us.i = phi i32 [ %264, %_ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit.us.us.i ], [ -1, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.us.us.i ], [ -1, %240 ], [ -1, %.noexc384 ]
   %265 = add nsw i32 %.02941.us.us.i, -1
-  %.not30.us.us.not.i = icmp ugt i32 %.02941.us.us.i, %219
+  %.not30.us.us.not.i = icmp samesign ugt i32 %.02941.us.us.i, %219
   br i1 %.not30.us.us.not.i, label %233, label %.split46.us.us.i, !llvm.loop !147
 
 .split46.us.us.i:                                 ; preds = %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.thread.us.us.i
@@ -2393,7 +2393,7 @@ _ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit.i:   ; preds = %287
 _ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.thread.i: ; preds = %_ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit.i, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i, %279, %.noexc385
   %.2.i = phi i32 [ %303, %_ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit.i ], [ -1, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i ], [ -1, %279 ], [ -1, %.noexc385 ]
   %304 = add nsw i32 %.02941.i, -1
-  %.not30.not.i = icmp ugt i32 %.02941.i, %219
+  %.not30.not.i = icmp samesign ugt i32 %.02941.i, %219
   br i1 %.not30.not.i, label %272, label %.split46.i, !llvm.loop !147
 
 305:                                              ; preds = %223
@@ -5488,7 +5488,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing6QRCode7Version11IsValidSizeENS
 63:                                               ; preds = %55
   %64 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 32
   %65 = add nsw i64 %.047.i, -1
-  %66 = icmp ugt i64 %.047.i, 1
+  %66 = icmp samesign ugt i64 %.047.i, 1
   br i1 %66, label %.preheader, label %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit, !llvm.loop !254
 
 _ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.split.loop.exit59: ; preds = %39

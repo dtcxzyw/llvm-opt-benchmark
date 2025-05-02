@@ -4573,7 +4573,7 @@ for.inc60:                                        ; preds = %if.then27, %if.then
   %EC.sroa.0.1 = phi i32 [ 17, %if.then54 ], [ 0, %if.end43 ], [ 17, %if.then27 ], [ 13, %lor.rhs ]
   %EC.sroa.15114.1 = phi ptr [ %retval.sroa.3.0.i, %if.then54 ], [ %retval.sroa.5.0.i, %if.end43 ], [ %24, %if.then27 ], [ %24, %lor.rhs ]
   %dec = add nsw i32 %Retries.0126, -1
-  %cmp = icmp ugt i32 %Retries.0126, 1
+  %cmp = icmp samesign ugt i32 %Retries.0126, 1
   br i1 %cmp, label %for.body, label %cleanup, !llvm.loop !60
 
 cleanup:                                          ; preds = %for.inc60, %_ZN4llvh3sys2fs16create_directoryERKNS_5TwineEbNS1_5permsE.exit, %if.then54, %if.end43, %_ZN4llvh3sys2fs6accessERKNS_5TwineENS1_10AccessModeE.exit, %_ZN4llvh5TwineC2EPKc.exit, %lor.rhs

@@ -3704,7 +3704,7 @@ _ZL15mk_1shift_screwPA3_KfPS_S2_S2_PKiPi.exit.i:  ; preds = %218
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %.lr.ph42.i.i, %265
-  %267 = icmp ugt i64 %indvars.iv53.i.i, 1
+  %267 = icmp samesign ugt i64 %indvars.iv53.i.i, 1
   %indvars.iv.next.i83.i = add nsw i32 %indvars.iv.i81.i, -1
   br i1 %267, label %233, label %_ZL14mk_1shift_triciPA3_KfPS_S2_S2_PKiPi.exit.i, !llvm.loop !126
 

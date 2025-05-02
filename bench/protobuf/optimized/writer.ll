@@ -364,7 +364,7 @@ if.end8.i.i.i.i.i.i.i:                            ; preds = %if.end4.i.i.i.i.i.i
 if.end12.i.i.i.i.i.i.i:                           ; preds = %if.end8.i.i.i.i.i.i.i
   %__first.addr.080.i.i.i.i.i.i.i.add92 = add nuw nsw i64 %__first.addr.080.i.i.i.i.i.i.i.idx, 32
   %dec.i.i.i.i.i.i.i = add nsw i64 %__trip_count.081.i.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i.i = icmp ugt i64 %__trip_count.081.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i = icmp samesign ugt i64 %__trip_count.081.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %for.end.loopexit.i.i.i.i.i.i.i, !llvm.loop !10
 
 for.end.loopexit.i.i.i.i.i.i.i:                   ; preds = %if.end12.i.i.i.i.i.i.i

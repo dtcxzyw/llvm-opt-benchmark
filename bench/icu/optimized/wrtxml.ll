@@ -138,7 +138,7 @@ define dso_local i32 @computeCRC(ptr noundef readonly captures(none) %0, i32 nou
   %9 = xor i32 %8, -306674912
   %.1 = select i1 %.not23, i32 %8, i32 %9
   %10 = add nsw i32 %.01825, -1
-  %11 = icmp ugt i32 %.01825, 1
+  %11 = icmp samesign ugt i32 %.01825, 1
   br i1 %11, label %6, label %12, !llvm.loop !4
 
 12:                                               ; preds = %6
@@ -1544,7 +1544,7 @@ _ZL10write_tabsP11_FileStream.exit91.i:           ; preds = %_ZL10write_tabsP11_
   %516 = xor i32 %515, -306674912
   %.1.i.i = select i1 %.not23.i.i, i32 %515, i32 %516
   %517 = add nsw i32 %.01825.i.i, -1
-  %518 = icmp ugt i32 %.01825.i.i, 1
+  %518 = icmp samesign ugt i32 %.01825.i.i, 1
   br i1 %518, label %513, label %519, !llvm.loop !4
 
 519:                                              ; preds = %513

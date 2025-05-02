@@ -4088,7 +4088,7 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit:          ; preds = %505, %518, %519
   %608 = load float, ptr %607, align 4, !tbaa !52
   %609 = fadd float %608, %606
   store float %609, ptr %607, align 4, !tbaa !52
-  %610 = icmp ugt i64 %indvars.iv573, 1
+  %610 = icmp samesign ugt i64 %indvars.iv573, 1
   br i1 %610, label %.preheader455, label %.preheader, !llvm.loop !180
 
 611:                                              ; preds = %.preheader

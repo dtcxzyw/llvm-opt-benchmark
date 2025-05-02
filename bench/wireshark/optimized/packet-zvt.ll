@@ -1034,7 +1034,7 @@ define internal fastcc i32 @dissect_zvt_tlv_seq(ptr noundef %0, i32 noundef %1, 
   %.136.i = phi i32 [ %29, %24 ], [ %18, %.lr.ph ]
   %.1.i = phi i32 [ %30, %24 ], [ %19, %.lr.ph ]
   %22 = sub i32 %.1.i, %.04072
-  %23 = icmp ugt i32 %22, 4
+  %23 = icmp samesign ugt i32 %22, 4
   br i1 %23, label %dissect_zvt_tlv_tag.exit.thread, label %24
 
 24:                                               ; preds = %.preheader.i

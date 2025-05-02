@@ -21289,7 +21289,7 @@ _ZNK4llvm3opt7ArgList5beginEv.exit:               ; preds = %.lr.ph.i.i.i, %.lr.
 2010:                                             ; preds = %2007
   %.02946.i.i.i.i.add8370 = add nuw nsw i64 %.02946.i.i.i.i.idx, 16
   %2011 = add nsw i64 %.047.i.i.i.i, -1
-  %2012 = icmp ugt i64 %.047.i.i.i.i, 1
+  %2012 = icmp samesign ugt i64 %.047.i.i.i.i, 1
   br i1 %2012, label %1998, label %._crit_edge._crit_edge52.i.i.i.i, !llvm.loop !673
 
 ._crit_edge._crit_edge52.i.i.i.i:                 ; preds = %2010

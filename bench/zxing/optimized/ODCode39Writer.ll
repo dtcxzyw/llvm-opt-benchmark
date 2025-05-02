@@ -159,7 +159,7 @@ define void @_ZNK5ZXing4OneD12Code39Writer6encodeERKNSt7__cxx1112basic_stringIwS
 61:                                               ; preds = %56
   %62 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 4
   %63 = add nsw i64 %.047.i.i.i.i.i, -1
-  %64 = icmp ugt i64 %.047.i.i.i.i.i, 1
+  %64 = icmp samesign ugt i64 %.047.i.i.i.i.i, 1
   br i1 %64, label %42, label %._crit_edge._crit_edge52.i.i.i.i.i, !llvm.loop !22
 
 ._crit_edge._crit_edge52.i.i.i.i.i:               ; preds = %61

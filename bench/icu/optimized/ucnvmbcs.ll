@@ -6442,7 +6442,7 @@ define internal fastcc void @_ZL12getStatePropPA256_KiPai(ptr noundef %0, ptr no
 
 54:                                               ; preds = %48, %51
   %indvars.iv.next81 = add nsw i64 %indvars.iv80, -1
-  %55 = icmp ult i64 %indvars.iv, %indvars.iv.next81
+  %55 = icmp samesign ult i64 %indvars.iv, %indvars.iv.next81
   br i1 %55, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !179
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %51
@@ -7141,7 +7141,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us:       ; preds = %.lr.ph.split.us
 
 180:                                              ; preds = %.lr.ph.split.split.us
   %181 = load i8, ptr %.6332.us351, align 1, !tbaa !28
-  %182 = icmp ugt i8 %.2230331.us352, 1
+  %182 = icmp samesign ugt i8 %.2230331.us352, 1
   br i1 %182, label %183, label %_ZN6icu_774UTF812isValidTrailEihii.exit.us354
 
 183:                                              ; preds = %180
@@ -7177,7 +7177,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us354:    ; preds = %180
 
 201:                                              ; preds = %.lr.ph.split.split
   %202 = load i8, ptr %.6332, align 1, !tbaa !28
-  %203 = icmp ugt i8 %.2230331, 1
+  %203 = icmp samesign ugt i8 %.2230331, 1
   br i1 %203, label %204, label %_ZN6icu_774UTF812isValidTrailEihii.exit
 
 204:                                              ; preds = %201
@@ -7229,7 +7229,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %201
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %231 = getelementptr inbounds [7 x i8], ptr %227, i64 0, i64 %indvars.iv
   store i8 %230, ptr %231, align 1, !tbaa !28
-  %232 = icmp ult i64 %indvars.iv.next, %222
+  %232 = icmp samesign ult i64 %indvars.iv.next, %222
   br i1 %232, label %228, label %._crit_edge386, !llvm.loop !185
 
 ._crit_edge386:                                   ; preds = %228, %.split.us
@@ -7767,7 +7767,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us:       ; preds = %.lr.ph.split.us
 
 186:                                              ; preds = %.lr.ph.split.split.us
   %187 = load i8, ptr %.7312.us331, align 1, !tbaa !28
-  %188 = icmp ugt i8 %.2239311.us332, 1
+  %188 = icmp samesign ugt i8 %.2239311.us332, 1
   br i1 %188, label %189, label %_ZN6icu_774UTF812isValidTrailEihii.exit.us334
 
 189:                                              ; preds = %186
@@ -7803,7 +7803,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us334:    ; preds = %186
 
 207:                                              ; preds = %.lr.ph.split.split
   %208 = load i8, ptr %.7312, align 1, !tbaa !28
-  %209 = icmp ugt i8 %.2239311, 1
+  %209 = icmp samesign ugt i8 %.2239311, 1
   br i1 %209, label %210, label %_ZN6icu_774UTF812isValidTrailEihii.exit
 
 210:                                              ; preds = %207
@@ -7855,7 +7855,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %207
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %237 = getelementptr inbounds [7 x i8], ptr %233, i64 0, i64 %indvars.iv
   store i8 %236, ptr %237, align 1, !tbaa !28
-  %238 = icmp ult i64 %indvars.iv.next, %228
+  %238 = icmp samesign ult i64 %indvars.iv.next, %228
   br i1 %238, label %234, label %._crit_edge366, !llvm.loop !190
 
 ._crit_edge366:                                   ; preds = %234, %.split.us

@@ -10147,7 +10147,7 @@ _ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit.i: ; preds = %113, %104, 
   br label %154
 
 154:                                              ; preds = %148, %_ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit.i
-  %155 = icmp ult i64 %.073112.i, %37
+  %155 = icmp samesign ult i64 %.073112.i, %37
   br i1 %155, label %156, label %162
 
 156:                                              ; preds = %154
@@ -18440,7 +18440,7 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_d
 
 .lr.ph:                                           ; preds = %23
   %28 = shl nuw nsw i64 %indvars.iv198, 1
-  %29 = icmp ugt i64 %indvars.iv198, 3
+  %29 = icmp samesign ugt i64 %indvars.iv198, 3
   %30 = and i64 %indvars.iv198, 2
   %.not.not = icmp eq i64 %30, 0
   br label %31
@@ -18573,7 +18573,7 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_d
   %.1124.lcssa = phi i64 [ %.0123174, %23 ], [ %88, %._crit_edge159 ]
   %.1.lcssa = phi i64 [ %.0122175, %23 ], [ %.4.lcssa, %._crit_edge159 ]
   %indvars.iv.next199 = add nsw i64 %indvars.iv198, -2
-  %90 = icmp ugt i64 %indvars.iv198, 2
+  %90 = icmp samesign ugt i64 %indvars.iv198, 2
   br i1 %90, label %23, label %.preheader137
 
 ._crit_edge183:                                   ; preds = %._crit_edge179.us, %.preheader.lr.ph, %.preheader137

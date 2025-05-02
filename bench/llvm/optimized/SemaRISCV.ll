@@ -8854,7 +8854,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22Const
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit62.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit62.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit59.thread.i.i.i.i.i.i"
   %.02982.i.i.i.i.i.i.add198 = add nuw nsw i64 %.02982.i.i.i.i.i.i.idx, 64
   %107 = add nsw i64 %.083.i.i.i.i.i.i, -1
-  %108 = icmp ugt i64 %.083.i.i.i.i.i.i, 1
+  %108 = icmp samesign ugt i64 %.083.i.i.i.i.i.i, 1
   br i1 %108, label %62, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !1241
 
 ._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit62.thread.i.i.i.i.i.i"

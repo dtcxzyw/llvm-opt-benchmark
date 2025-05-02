@@ -17352,7 +17352,7 @@ if.else:                                          ; preds = %entry
 
 for.cond.i:                                       ; preds = %for.body.i, %if.else
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 286, %if.else ]
-  %cmp.i = icmp ugt i64 %indvars.iv.i, 257
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i, 257
   br i1 %cmp.i, label %for.body.i, label %for.end.i
 
 for.body.i:                                       ; preds = %for.cond.i
@@ -17373,7 +17373,7 @@ for.end.i:                                        ; preds = %for.cond.i, %for.en
 
 for.cond4.i:                                      ; preds = %for.body6.i, %for.end.i
   %indvars.iv297.i = phi i64 [ %indvars.iv.next298.i, %for.body6.i ], [ 30, %for.end.i ]
-  %cmp5.i = icmp ugt i64 %indvars.iv297.i, 1
+  %cmp5.i = icmp samesign ugt i64 %indvars.iv297.i, 1
   br i1 %cmp5.i, label %for.body6.i, label %for.end17.i
 
 for.body6.i:                                      ; preds = %for.cond4.i

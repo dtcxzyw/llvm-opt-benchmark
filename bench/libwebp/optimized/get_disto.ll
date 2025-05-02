@@ -605,7 +605,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr noun
   %indvars.iv.next113.i.us = add nuw nsw i64 %indvars.iv112.i.us, 1
   %85 = getelementptr inbounds nuw i8, ptr %.090.i.us, i64 %33
   %86 = getelementptr inbounds nuw i8, ptr %.05189.i.us, i64 %33
-  %.not.not.i.us = icmp ult i64 %indvars.iv112.i.us, %47
+  %.not.not.i.us = icmp samesign ult i64 %indvars.iv112.i.us, %47
   br i1 %.not.not.i.us, label %.preheader.i.us, label %._crit_edge91.loopexit105.i.us, !llvm.loop !32
 
 ._crit_edge91.loopexit105.i.us:                   ; preds = %._crit_edge.i.us

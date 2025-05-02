@@ -3834,7 +3834,7 @@ thread-pre-split.i.us:                            ; preds = %.thread544.i.us, %1
   %.phi.trans.insert = getelementptr inbounds i16, ptr %937, i64 %.pre835.i.us.pre-phi
   %.pre258 = load i16, ptr %.phi.trans.insert, align 2
   %.pre259 = zext i16 %.pre258 to i32
-  %1517 = icmp ugt i32 %.0335725.i.us, %.pre259
+  %1517 = icmp samesign ugt i32 %.0335725.i.us, %.pre259
   %or.cond = select i1 %1516, i1 true, i1 %1517
   br i1 %or.cond, label %._crit_edge834.i.us, label %._crit_edge818.i.us
 

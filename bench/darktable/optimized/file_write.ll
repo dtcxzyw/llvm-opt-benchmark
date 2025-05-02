@@ -1157,7 +1157,7 @@ define void @_ZN6LibRaw14write_ppm_tiffEv(ptr noundef nonnull align 8 dereferenc
 29:                                               ; preds = %.preheader112, %31
   %indvars.iv = phi i64 [ 8192, %.preheader112 ], [ %indvars.iv.next, %31 ]
   %.042 = phi i32 [ 0, %.preheader112 ], [ %34, %31 ]
-  %30 = icmp ugt i64 %indvars.iv, 33
+  %30 = icmp samesign ugt i64 %indvars.iv, 33
   br i1 %30, label %31, label %.split.loop.exit192
 
 31:                                               ; preds = %29

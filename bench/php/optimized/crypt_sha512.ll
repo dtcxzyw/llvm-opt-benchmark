@@ -436,7 +436,7 @@ sub_2:                                            ; preds = %sub_1
   store i8 %163, ptr %.4490564, align 1, !tbaa !9
   %165 = add nsw i32 %.2470565, -1
   %166 = lshr i32 %.0457566, 6
-  %167 = icmp ugt i32 %.0456567, 1
+  %167 = icmp samesign ugt i32 %.0456567, 1
   %168 = icmp samesign ugt i32 %.2470565, 1
   %169 = select i1 %167, i1 %168, i1 false
   br i1 %169, label %.lr.ph569, label %._crit_edge570
@@ -475,7 +475,7 @@ sub_2:                                            ; preds = %sub_1
   store i8 %187, ptr %.5491573, align 1, !tbaa !9
   %189 = add nsw i32 %.3471574, -1
   %190 = lshr i32 %.0455575, 6
-  %191 = icmp ugt i32 %.0454576, 1
+  %191 = icmp samesign ugt i32 %.0454576, 1
   %192 = icmp samesign ugt i32 %.3471574, 1
   %193 = select i1 %191, i1 %192, i1 false
   br i1 %193, label %.lr.ph578, label %._crit_edge579
@@ -514,7 +514,7 @@ sub_2:                                            ; preds = %sub_1
   store i8 %211, ptr %.6492582, align 1, !tbaa !9
   %213 = add nsw i32 %.4472583, -1
   %214 = lshr i32 %.0453584, 6
-  %215 = icmp ugt i32 %.0452585, 1
+  %215 = icmp samesign ugt i32 %.0452585, 1
   %216 = icmp samesign ugt i32 %.4472583, 1
   %217 = select i1 %215, i1 %216, i1 false
   br i1 %217, label %.lr.ph587, label %._crit_edge588
@@ -553,7 +553,7 @@ sub_2:                                            ; preds = %sub_1
   store i8 %235, ptr %.7493591, align 1, !tbaa !9
   %237 = add nsw i32 %.5592, -1
   %238 = lshr i32 %.0451593, 6
-  %239 = icmp ugt i32 %.0450594, 1
+  %239 = icmp samesign ugt i32 %.0450594, 1
   %240 = icmp samesign ugt i32 %.5592, 1
   %241 = select i1 %239, i1 %240, i1 false
   br i1 %241, label %.lr.ph596, label %._crit_edge597
@@ -592,7 +592,7 @@ sub_2:                                            ; preds = %sub_1
   store i8 %259, ptr %.8494600, align 1, !tbaa !9
   %261 = add nsw i32 %.6601, -1
   %262 = lshr i32 %.0449602, 6
-  %263 = icmp ugt i32 %.0448603, 1
+  %263 = icmp samesign ugt i32 %.0448603, 1
   %264 = icmp samesign ugt i32 %.6601, 1
   %265 = select i1 %263, i1 %264, i1 false
   br i1 %265, label %.lr.ph605, label %._crit_edge606
@@ -631,7 +631,7 @@ sub_2:                                            ; preds = %sub_1
   store i8 %283, ptr %.9495609, align 1, !tbaa !9
   %285 = add nsw i32 %.7610, -1
   %286 = lshr i32 %.0447611, 6
-  %287 = icmp ugt i32 %.0446612, 1
+  %287 = icmp samesign ugt i32 %.0446612, 1
   %288 = icmp samesign ugt i32 %.7610, 1
   %289 = select i1 %287, i1 %288, i1 false
   br i1 %289, label %.lr.ph614, label %._crit_edge615
@@ -670,7 +670,7 @@ sub_2:                                            ; preds = %sub_1
   store i8 %307, ptr %.10496618, align 1, !tbaa !9
   %309 = add nsw i32 %.8619, -1
   %310 = lshr i32 %.0445620, 6
-  %311 = icmp ugt i32 %.0444621, 1
+  %311 = icmp samesign ugt i32 %.0444621, 1
   %312 = icmp samesign ugt i32 %.8619, 1
   %313 = select i1 %311, i1 %312, i1 false
   br i1 %313, label %.lr.ph623, label %._crit_edge624
@@ -709,7 +709,7 @@ sub_2:                                            ; preds = %sub_1
   store i8 %331, ptr %.11497627, align 1, !tbaa !9
   %333 = add nsw i32 %.9628, -1
   %334 = lshr i32 %.0443629, 6
-  %335 = icmp ugt i32 %.0442630, 1
+  %335 = icmp samesign ugt i32 %.0442630, 1
   %336 = icmp samesign ugt i32 %.9628, 1
   %337 = select i1 %335, i1 %336, i1 false
   br i1 %337, label %.lr.ph632, label %._crit_edge633
@@ -748,7 +748,7 @@ sub_2:                                            ; preds = %sub_1
   store i8 %355, ptr %.12498636, align 1, !tbaa !9
   %357 = add nsw i32 %.10637, -1
   %358 = lshr i32 %.0441638, 6
-  %359 = icmp ugt i32 %.0440639, 1
+  %359 = icmp samesign ugt i32 %.0440639, 1
   %360 = icmp samesign ugt i32 %.10637, 1
   %361 = select i1 %359, i1 %360, i1 false
   br i1 %361, label %.lr.ph641, label %._crit_edge642
@@ -787,7 +787,7 @@ sub_2:                                            ; preds = %sub_1
   store i8 %379, ptr %.13499645, align 1, !tbaa !9
   %381 = add nsw i32 %.11646, -1
   %382 = lshr i32 %.0439647, 6
-  %383 = icmp ugt i32 %.0438648, 1
+  %383 = icmp samesign ugt i32 %.0438648, 1
   %384 = icmp samesign ugt i32 %.11646, 1
   %385 = select i1 %383, i1 %384, i1 false
   br i1 %385, label %.lr.ph650, label %._crit_edge651
@@ -826,7 +826,7 @@ sub_2:                                            ; preds = %sub_1
   store i8 %403, ptr %.14500654, align 1, !tbaa !9
   %405 = add nsw i32 %.12655, -1
   %406 = lshr i32 %.0437656, 6
-  %407 = icmp ugt i32 %.0436657, 1
+  %407 = icmp samesign ugt i32 %.0436657, 1
   %408 = icmp samesign ugt i32 %.12655, 1
   %409 = select i1 %407, i1 %408, i1 false
   br i1 %409, label %.lr.ph659, label %._crit_edge660
@@ -865,7 +865,7 @@ sub_2:                                            ; preds = %sub_1
   store i8 %427, ptr %.15501663, align 1, !tbaa !9
   %429 = add nsw i32 %.13664, -1
   %430 = lshr i32 %.0435665, 6
-  %431 = icmp ugt i32 %.0434666, 1
+  %431 = icmp samesign ugt i32 %.0434666, 1
   %432 = icmp samesign ugt i32 %.13664, 1
   %433 = select i1 %431, i1 %432, i1 false
   br i1 %433, label %.lr.ph668, label %._crit_edge669
@@ -904,7 +904,7 @@ sub_2:                                            ; preds = %sub_1
   store i8 %451, ptr %.16502672, align 1, !tbaa !9
   %453 = add nsw i32 %.14673, -1
   %454 = lshr i32 %.0433674, 6
-  %455 = icmp ugt i32 %.0432675, 1
+  %455 = icmp samesign ugt i32 %.0432675, 1
   %456 = icmp samesign ugt i32 %.14673, 1
   %457 = select i1 %455, i1 %456, i1 false
   br i1 %457, label %.lr.ph677, label %._crit_edge678
@@ -943,7 +943,7 @@ sub_2:                                            ; preds = %sub_1
   store i8 %475, ptr %.17503681, align 1, !tbaa !9
   %477 = add nsw i32 %.15682, -1
   %478 = lshr i32 %.0431683, 6
-  %479 = icmp ugt i32 %.0430684, 1
+  %479 = icmp samesign ugt i32 %.0430684, 1
   %480 = icmp samesign ugt i32 %.15682, 1
   %481 = select i1 %479, i1 %480, i1 false
   br i1 %481, label %.lr.ph686, label %._crit_edge687
@@ -982,7 +982,7 @@ sub_2:                                            ; preds = %sub_1
   store i8 %499, ptr %.18504690, align 1, !tbaa !9
   %501 = add nsw i32 %.16691, -1
   %502 = lshr i32 %.0429692, 6
-  %503 = icmp ugt i32 %.0428693, 1
+  %503 = icmp samesign ugt i32 %.0428693, 1
   %504 = icmp samesign ugt i32 %.16691, 1
   %505 = select i1 %503, i1 %504, i1 false
   br i1 %505, label %.lr.ph695, label %._crit_edge696
@@ -1021,7 +1021,7 @@ sub_2:                                            ; preds = %sub_1
   store i8 %523, ptr %.19505699, align 1, !tbaa !9
   %525 = add nsw i32 %.17700, -1
   %526 = lshr i32 %.0427701, 6
-  %527 = icmp ugt i32 %.0426702, 1
+  %527 = icmp samesign ugt i32 %.0426702, 1
   %528 = icmp samesign ugt i32 %.17700, 1
   %529 = select i1 %527, i1 %528, i1 false
   br i1 %529, label %.lr.ph704, label %._crit_edge705
@@ -1060,7 +1060,7 @@ sub_2:                                            ; preds = %sub_1
   store i8 %547, ptr %.20506708, align 1, !tbaa !9
   %549 = add nsw i32 %.18709, -1
   %550 = lshr i32 %.0425710, 6
-  %551 = icmp ugt i32 %.0424711, 1
+  %551 = icmp samesign ugt i32 %.0424711, 1
   %552 = icmp samesign ugt i32 %.18709, 1
   %553 = select i1 %551, i1 %552, i1 false
   br i1 %553, label %.lr.ph713, label %._crit_edge714
@@ -1099,7 +1099,7 @@ sub_2:                                            ; preds = %sub_1
   store i8 %571, ptr %.21507717, align 1, !tbaa !9
   %573 = add nsw i32 %.19718, -1
   %574 = lshr i32 %.0423719, 6
-  %575 = icmp ugt i32 %.0422720, 1
+  %575 = icmp samesign ugt i32 %.0422720, 1
   %576 = icmp samesign ugt i32 %.19718, 1
   %577 = select i1 %575, i1 %576, i1 false
   br i1 %577, label %.lr.ph722, label %._crit_edge723
@@ -1138,7 +1138,7 @@ sub_2:                                            ; preds = %sub_1
   store i8 %595, ptr %.22508726, align 1, !tbaa !9
   %597 = add nsw i32 %.20727, -1
   %598 = lshr i32 %.0421728, 6
-  %599 = icmp ugt i32 %.0420729, 1
+  %599 = icmp samesign ugt i32 %.0420729, 1
   %600 = icmp samesign ugt i32 %.20727, 1
   %601 = select i1 %599, i1 %600, i1 false
   br i1 %601, label %.lr.ph731, label %._crit_edge732
@@ -1177,7 +1177,7 @@ sub_2:                                            ; preds = %sub_1
   store i8 %619, ptr %.23509735, align 1, !tbaa !9
   %621 = add nsw i32 %.21736, -1
   %622 = lshr i32 %.0419737, 6
-  %623 = icmp ugt i32 %.0418738, 1
+  %623 = icmp samesign ugt i32 %.0418738, 1
   %624 = icmp samesign ugt i32 %.21736, 1
   %625 = select i1 %623, i1 %624, i1 false
   br i1 %625, label %.lr.ph740, label %._crit_edge741
@@ -1216,7 +1216,7 @@ sub_2:                                            ; preds = %sub_1
   store i8 %643, ptr %.24744, align 1, !tbaa !9
   %645 = add nsw i32 %.22745, -1
   %646 = lshr i32 %.0417746, 6
-  %647 = icmp ugt i32 %.0416747, 1
+  %647 = icmp samesign ugt i32 %.0416747, 1
   %648 = icmp samesign ugt i32 %.22745, 1
   %649 = select i1 %647, i1 %648, i1 false
   br i1 %649, label %.lr.ph749, label %._crit_edge750
@@ -1245,7 +1245,7 @@ sub_2:                                            ; preds = %sub_1
   store i8 %657, ptr %.25753, align 1, !tbaa !9
   %659 = add nsw i32 %.23754, -1
   %660 = lshr i32 %.0415755, 6
-  %661 = icmp ugt i32 %.0756, 1
+  %661 = icmp samesign ugt i32 %.0756, 1
   %662 = icmp samesign ugt i32 %.23754, 1
   %663 = select i1 %661, i1 %662, i1 false
   br i1 %663, label %.lr.ph758, label %._crit_edge759

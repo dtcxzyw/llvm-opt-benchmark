@@ -5174,7 +5174,7 @@ _ZN4llvm5TwineC2EPKc.exit.us.i:                   ; preds = %12, %.split.us.i
 .critedge.us.i:                                   ; preds = %21, %16
   %.sroa.042.2.us.i = phi i32 [ 13, %21 ], [ 17, %16 ]
   %24 = add nsw i32 %.071.us.i, -1
-  %25 = icmp ult i32 %.071.us.i, 2
+  %25 = icmp samesign ult i32 %.071.us.i, 2
   br i1 %25, label %_ZL18createUniqueEntityRKN4llvm5TwineERiRNS_15SmallVectorImplIcEEb8FSEntityNS_3sys2fs9OpenFlagsEj.exit, label %.split.us.i, !llvm.loop !111
 
 _ZL18createUniqueEntityRKN4llvm5TwineERiRNS_15SmallVectorImplIcEEb8FSEntityNS_3sys2fs9OpenFlagsEj.exit: ; preds = %_ZN4llvm5TwineC2EPKc.exit.us.i, %21, %.critedge.us.i
@@ -5251,7 +5251,7 @@ _ZN4llvm5TwineC2EPKc.exit.us:                     ; preds = %28, %.split.us
 .critedge.us:                                     ; preds = %37, %32
   %.sroa.042.2.us = phi i32 [ 13, %37 ], [ 17, %32 ]
   %40 = add nsw i32 %.071.us, -1
-  %41 = icmp ult i32 %.071.us, 2
+  %41 = icmp samesign ult i32 %.071.us, 2
   br i1 %41, label %.critedge21, label %.split.us, !llvm.loop !111
 
 .split.us73:                                      ; preds = %7, %.critedge.us75
@@ -5314,7 +5314,7 @@ _ZN4llvm3sys2fs6accessERKNS_5TwineENS1_10AccessModeE.exit.us: ; preds = %56, %53
 
 .critedge.us75:                                   ; preds = %61
   %62 = add nsw i32 %.071.us74, -1
-  %63 = icmp ult i32 %.071.us74, 2
+  %63 = icmp samesign ult i32 %.071.us74, 2
   br i1 %63, label %.critedge21, label %.split.us73, !llvm.loop !111
 
 .split.us82:                                      ; preds = %7, %.critedge.us84
@@ -5377,7 +5377,7 @@ _ZN4llvm3sys2fs16create_directoryERKNS_5TwineEbNS1_5permsE.exit.us: ; preds = %7
 
 .critedge.us84:                                   ; preds = %79
   %84 = add nsw i32 %.071.us83, -1
-  %85 = icmp ult i32 %.071.us83, 2
+  %85 = icmp samesign ult i32 %.071.us83, 2
   br i1 %85, label %.critedge21, label %.split.us82, !llvm.loop !111
 
 default.unreachable:                              ; preds = %7
@@ -5441,7 +5441,7 @@ _ZN4llvm5TwineC2EPKc.exit.us.i.i:                 ; preds = %11, %.split.us.i.i
 .critedge.us.i.i:                                 ; preds = %20, %15
   %.sroa.042.2.us.i.i = phi i32 [ 13, %20 ], [ 17, %15 ]
   %23 = add nsw i32 %.071.us.i.i, -1
-  %24 = icmp ult i32 %.071.us.i.i, 2
+  %24 = icmp samesign ult i32 %.071.us.i.i, 2
   br i1 %24, label %_ZN4llvm3sys2fs16createUniqueFileERKNS_5TwineERiRNS_15SmallVectorImplIcEENS1_9OpenFlagsEj.exit.thread, label %.split.us.i.i, !llvm.loop !111
 
 _ZN4llvm3sys2fs16createUniqueFileERKNS_5TwineERiRNS_15SmallVectorImplIcEENS1_9OpenFlagsEj.exit.thread: ; preds = %20, %.critedge.us.i.i
@@ -11717,7 +11717,7 @@ _ZN4llvm5TwineC2EPKc.exit.us.i.i:                 ; preds = %23, %.split.us.i.i
 .critedge.us.i.i:                                 ; preds = %32, %27
   %.sroa.042.2.us.i.i = phi i32 [ 13, %32 ], [ 17, %27 ]
   %35 = add nsw i32 %.071.us.i.i, -1
-  %36 = icmp ult i32 %.071.us.i.i, 2
+  %36 = icmp samesign ult i32 %.071.us.i.i, 2
   br i1 %36, label %_ZN4llvm5ErrorD2Ev.exit, label %.split.us.i.i, !llvm.loop !111
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %.critedge.us.i.i, %32

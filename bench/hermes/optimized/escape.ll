@@ -2979,7 +2979,7 @@ if.end7.i.i.i.i:                                  ; preds = %if.end3.i.i.i.i
 if.end11.i.i.i.i:                                 ; preds = %if.end7.i.i.i.i
   %__first.addr.049.i.i.i.i.add24 = add nuw nsw i64 %__first.addr.049.i.i.i.i.idx, 8
   %dec.i.i.i.i = add nsw i64 %__trip_count.050.i.i.i.i, -1
-  %cmp.i.i.i.i = icmp ugt i64 %__trip_count.050.i.i.i.i, 1
+  %cmp.i.i.i.i = icmp samesign ugt i64 %__trip_count.050.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %sw.bb21.i.i.i.i, !llvm.loop !19
 
 sw.bb21.i.i.i.i:                                  ; preds = %if.end11.i.i.i.i
@@ -3024,7 +3024,7 @@ if.end7.i.i.i.i10:                                ; preds = %if.end3.i.i.i.i8
 if.end11.i.i.i.i12:                               ; preds = %if.end7.i.i.i.i10
   %__first.addr.049.i.i.i.add18.i = add nuw nsw i64 %__first.addr.049.i.i.i.idx.i, 8
   %dec.i.i.i.i13 = add nsw i64 %__trip_count.050.i.i.i.i4, -1
-  %cmp.i.i.i.i14 = icmp ugt i64 %__trip_count.050.i.i.i.i4, 1
+  %cmp.i.i.i.i14 = icmp samesign ugt i64 %__trip_count.050.i.i.i.i4, 1
   br i1 %cmp.i.i.i.i14, label %for.body.i.i.i.i3, label %sw.bb26.i.i.i.i15, !llvm.loop !19
 
 sw.bb26.i.i.i.i15:                                ; preds = %if.end11.i.i.i.i12
@@ -3144,7 +3144,7 @@ if.end7.i.i.i:                                    ; preds = %if.end3.i.i.i
 if.end11.i.i.i:                                   ; preds = %if.end7.i.i.i
   %__first.addr.049.i.i.i.add18 = add nuw nsw i64 %__first.addr.049.i.i.i.idx, 8
   %dec.i.i.i = add nsw i64 %__trip_count.050.i.i.i, -1
-  %cmp.i.i.i = icmp ugt i64 %__trip_count.050.i.i.i, 1
+  %cmp.i.i.i = icmp samesign ugt i64 %__trip_count.050.i.i.i, 1
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %sw.bb26.i.i.i, !llvm.loop !19
 
 sw.bb26.i.i.i:                                    ; preds = %if.end11.i.i.i
@@ -4109,7 +4109,7 @@ if.end7.i.i.i.i:                                  ; preds = %if.end3.i.i.i.i
 if.end11.i.i.i.i:                                 ; preds = %if.end7.i.i.i.i
   %incdec.ptr12.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i.i, i64 8
   %dec.i.i.i.i = add nsw i64 %__trip_count.050.i.i.i.i, -1
-  %cmp.i.i.i.i = icmp ugt i64 %__trip_count.050.i.i.i.i, 1
+  %cmp.i.i.i.i = icmp samesign ugt i64 %__trip_count.050.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %sw.bb21.i.i.i.i, !llvm.loop !19
 
 sw.bb21.i.i.i.i:                                  ; preds = %if.end11.i.i.i.i

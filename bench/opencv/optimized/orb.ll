@@ -4662,7 +4662,7 @@ _ZNSt20back_insert_iteratorISt6vectorIN2cv6Point_IiEESaIS3_EEEaSERKS3_.exit.i: ;
   %.sroa.12.1 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i.pn, i64 8
   %1163 = getelementptr inbounds nuw i8, ptr %.056.i, i64 8
   %1164 = add nsw i64 %.07.i, -1
-  %1165 = icmp ugt i64 %.07.i, 1
+  %1165 = icmp samesign ugt i64 %.07.i, 1
   br i1 %1165, label %.preheader, label %_ZSt4copyIPKN2cv6Point_IiEESt20back_insert_iteratorISt6vectorIS2_SaIS2_EEEET0_T_SB_SA_.exit, !llvm.loop !159
 
 _ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %1138

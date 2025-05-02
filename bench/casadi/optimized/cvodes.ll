@@ -12048,7 +12048,7 @@ cvPrepareNextStep.exit:                           ; preds = %2055, %2078, %2099,
   %2446 = load double, ptr %2445, align 8, !tbaa !49
   %2447 = getelementptr inbounds nuw [6 x [4 x double]], ptr %2443, i64 0, i64 %indvars.iv.i306, i64 %indvars.iv96.i
   store double %2446, ptr %2447, align 8, !tbaa !49
-  %2448 = icmp ugt i64 %indvars.iv.i306, 2
+  %2448 = icmp samesign ugt i64 %indvars.iv.i306, 2
   br i1 %2448, label %2444, label %2449, !llvm.loop !346
 
 2449:                                             ; preds = %2444

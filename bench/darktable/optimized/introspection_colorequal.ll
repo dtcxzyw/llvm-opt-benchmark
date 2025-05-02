@@ -4252,7 +4252,7 @@ _triangular_descent_fast.exit.i.i:                ; preds = %._crit_edge.i45.i.i
   %132 = fmul reassoc nsz arcp contract afn float %131, %129
   %133 = fsub reassoc nsz arcp contract afn float %.02225.i.i.i, %132
   %indvars.iv.next.i52.i.i = add nsw i64 %indvars.iv.i50.i.i, -1
-  %134 = icmp ugt i64 %indvars.iv.next.i52.i.i, %indvars.iv29.i.i.i
+  %134 = icmp samesign ugt i64 %indvars.iv.next.i52.i.i, %indvars.iv29.i.i.i
   br i1 %134, label %.lr.ph.i49.i.i, label %._crit_edge.i46.i.i
 
 135:                                              ; preds = %._crit_edge.i46.i.i

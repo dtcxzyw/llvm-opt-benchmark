@@ -3209,7 +3209,7 @@ _ZN6icu_7712_GLOBAL__N_111MixedBlocks4initEii.exit333.i.i.i: ; preds = %.noexc33
 
 _ZN6icu_7712_GLOBAL__N_111equalBlocksItjEEbPKT_PKT0_i.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i102.i.i
   %indvars.iv.next.i.i106.i.i = add nsw i64 %indvars.iv.i.i101.i.i, -1
-  %734 = icmp ugt i64 %indvars.iv.i.i101.i.i, 1
+  %734 = icmp samesign ugt i64 %indvars.iv.i.i101.i.i, 1
   br i1 %734, label %721, label %.lr.ph.preheader.i107.i.i, !llvm.loop !82
 
 _ZN6icu_7712_GLOBAL__N_110getOverlapItjEEiPKT_iPKT0_ii.exit.i.i.i: ; preds = %729
@@ -3349,7 +3349,7 @@ _ZN6icu_7712_GLOBAL__N_110getOverlapItjEEiPKT_iPKT0_ii.exit.i.i.i: ; preds = %72
 
 _ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.loopexit.i.i.i.i: ; preds = %.lr.ph.i.i335.i.i.i
   %indvars.iv.next.i339.i.i.i = add nsw i64 %indvars.iv.i334.i.i.i, -1
-  %817 = icmp ugt i64 %indvars.iv.i334.i.i.i, 1
+  %817 = icmp samesign ugt i64 %indvars.iv.i334.i.i.i, 1
   br i1 %817, label %.lr.ph.i.i109.i.i, label %_ZN6icu_7712_GLOBAL__N_110getOverlapIttEEiPKT_iPKT0_ii.exit.thread.i.i.i, !llvm.loop !85
 
 .lr.ph.i.i109.i.i:                                ; preds = %_ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.loopexit.i.i.i.i, %815

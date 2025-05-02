@@ -27448,7 +27448,7 @@ define hidden void @_PyMem_DebugRawFree(ptr noundef readonly captures(none) %0, 
   %13 = zext i8 %12 to i64
   %14 = or disjoint i64 %11, %13
   %15 = add nsw i32 %10, -1
-  %16 = icmp ugt i32 %10, 1
+  %16 = icmp samesign ugt i32 %10, 1
   br i1 %16, label %9, label %read_size_t.exit, !llvm.loop !546
 
 read_size_t.exit:                                 ; preds = %9
@@ -27482,7 +27482,7 @@ define internal fastcc void @_PyMem_DebugCheckAddress(ptr noundef %0, i8 noundef
 
 9:                                                ; preds = %.preheader
   %10 = add nsw i32 %.026, -1
-  %11 = icmp ugt i32 %.026, 1
+  %11 = icmp samesign ugt i32 %.026, 1
   br i1 %11, label %.preheader, label %17, !llvm.loop !548
 
 .preheader:                                       ; preds = %3, %9
@@ -27515,7 +27515,7 @@ define internal fastcc void @_PyMem_DebugCheckAddress(ptr noundef %0, i8 noundef
   %25 = zext i8 %24 to i64
   %26 = or disjoint i64 %23, %25
   %27 = add nsw i32 %22, -1
-  %28 = icmp ugt i32 %22, 1
+  %28 = icmp samesign ugt i32 %22, 1
   br i1 %28, label %21, label %read_size_t.exit, !llvm.loop !546
 
 read_size_t.exit:                                 ; preds = %21
@@ -27616,7 +27616,7 @@ write_size_t.exit.i:                              ; preds = %18
   %41 = zext i8 %40 to i64
   %42 = or disjoint i64 %39, %41
   %43 = add nsw i32 %38, -1
-  %44 = icmp ugt i32 %38, 1
+  %44 = icmp samesign ugt i32 %38, 1
   br i1 %44, label %37, label %read_size_t.exit, !llvm.loop !546
 
 read_size_t.exit:                                 ; preds = %37
@@ -27879,7 +27879,7 @@ _PyMem_DebugCheckGIL.exit:                        ; preds = %2
   %17 = zext i8 %16 to i64
   %18 = or disjoint i64 %15, %17
   %19 = add nsw i32 %14, -1
-  %20 = icmp ugt i32 %14, 1
+  %20 = icmp samesign ugt i32 %14, 1
   br i1 %20, label %13, label %read_size_t.exit.i, !llvm.loop !546
 
 read_size_t.exit.i:                               ; preds = %13
@@ -33457,7 +33457,7 @@ define internal fastcc void @_PyObject_DebugDumpAddress(ptr noundef nonnull %0) 
   %16 = zext i8 %15 to i64
   %17 = or disjoint i64 %14, %16
   %18 = add nsw i32 %13, -1
-  %19 = icmp ugt i32 %13, 1
+  %19 = icmp samesign ugt i32 %13, 1
   br i1 %19, label %12, label %read_size_t.exit, !llvm.loop !546
 
 read_size_t.exit:                                 ; preds = %12
@@ -33511,7 +33511,7 @@ read_size_t.exit:                                 ; preds = %12
   %46 = load ptr, ptr @stderr, align 8, !tbaa !216
   %47 = tail call i32 @fputc(i32 noundef 10, ptr noundef %46)
   %indvars.iv.next82 = add nsw i64 %indvars.iv81, -1
-  %48 = icmp ugt i64 %indvars.iv81, 1
+  %48 = icmp samesign ugt i64 %indvars.iv81, 1
   br i1 %48, label %34, label %49, !llvm.loop !599
 
 49:                                               ; preds = %45

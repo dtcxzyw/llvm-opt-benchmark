@@ -9108,7 +9108,7 @@ _ZN14arrow_vendored4dateL7tolowerERNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 650:                                              ; preds = %.noexc59.i.i
   %651 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 128
   %652 = add nsw i64 %.044.i.i.i.i.i, -1
-  %653 = icmp ugt i64 %.044.i.i.i.i.i, 1
+  %653 = icmp samesign ugt i64 %.044.i.i.i.i.i, 1
   br i1 %653, label %_ZN14arrow_vendored4dateL7tolowerERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !251
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %650

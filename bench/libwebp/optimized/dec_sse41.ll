@@ -26,7 +26,7 @@ define internal void @HE16_SSE41(ptr noundef captures(none) %0) #1 {
   store <16 x i8> %6, ptr %.09, align 1, !tbaa !7
   %7 = getelementptr inbounds nuw i8, ptr %.09, i64 32
   %8 = add nsw i32 %.078, -1
-  %9 = icmp ugt i32 %.078, 1
+  %9 = icmp samesign ugt i32 %.078, 1
   br i1 %9, label %2, label %10, !llvm.loop !8
 
 10:                                               ; preds = %2

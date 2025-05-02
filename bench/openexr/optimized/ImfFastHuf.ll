@@ -829,7 +829,7 @@ define hidden void @_ZN7Imf_3_414FastHufDecoder11buildTablesEPmS1_(ptr noundef n
 
 70:                                               ; preds = %.preheader
   %71 = add nsw i32 %.059, -1
-  %72 = icmp ugt i32 %.059, 1
+  %72 = icmp samesign ugt i32 %.059, 1
   br i1 %72, label %.preheader, label %73, !llvm.loop !35
 
 73:                                               ; preds = %70, %.preheader

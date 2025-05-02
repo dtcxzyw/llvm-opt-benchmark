@@ -623,7 +623,7 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE5splatEPfS1
   %46 = fadd reassoc nsz arcp contract afn float %40, %45
   %47 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %indvars.iv
   store float %46, ptr %47, align 4, !tbaa !36
-  %48 = icmp ugt i64 %indvars.iv, 1
+  %48 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %48, label %28, label %20, !llvm.loop !69
 
 49:                                               ; preds = %20, %49

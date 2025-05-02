@@ -508,7 +508,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 142:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing22CharacterSetFromStringESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclIPNS2_16CharacterSetNameEEEbT_.exit63.i.i.i.i"
   %143 = getelementptr inbounds nuw i8, ptr %.02998.i.i.i.i, i64 96
   %144 = add nsw i64 %.099.i.i.i.i, -1
-  %145 = icmp ugt i64 %.099.i.i.i.i, 1
+  %145 = icmp samesign ugt i64 %.099.i.i.i.i, 1
   br i1 %145, label %75, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !20
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %142
@@ -1258,7 +1258,7 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_12CharacterSetE(ptr dead_on_unwind noa
 14:                                               ; preds = %11
   %.02956.i.i.i.i.add51 = add nuw nsw i64 %.02956.i.i.i.i.idx, 96
   %15 = add nsw i64 %.057.i.i.i.i, -1
-  %16 = icmp ugt i64 %.057.i.i.i.i, 1
+  %16 = icmp samesign ugt i64 %.057.i.i.i.i, 1
   br i1 %16, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !29
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %14

@@ -4273,7 +4273,7 @@ define internal fastcc void @_ZN2cv5mjpegL11aan_fdct8x8EPKsPsiS2_(ptr noundef no
   %79 = add nsw i32 %.0208215, -1
   %80 = getelementptr inbounds nuw i16, ptr %.0217, i64 %6
   %81 = getelementptr inbounds nuw i8, ptr %.0207216, i64 32
-  %82 = icmp ugt i32 %.0208215, 1
+  %82 = icmp samesign ugt i32 %.0208215, 1
   br i1 %82, label %7, label %.preheader, !llvm.loop !170
 
 .preheader:                                       ; preds = %7, %.preheader
@@ -4415,7 +4415,7 @@ define internal fastcc void @_ZN2cv5mjpegL11aan_fdct8x8EPKsPsiS2_(ptr noundef no
   %202 = getelementptr inbounds nuw i8, ptr %.1219, i64 4
   %203 = getelementptr inbounds nuw i8, ptr %.0206220, i64 16
   %204 = getelementptr inbounds nuw i8, ptr %.0205221, i64 16
-  %205 = icmp ugt i32 %.1209218, 1
+  %205 = icmp samesign ugt i32 %.1209218, 1
   br i1 %205, label %.preheader, label %206, !llvm.loop !171
 
 206:                                              ; preds = %.preheader

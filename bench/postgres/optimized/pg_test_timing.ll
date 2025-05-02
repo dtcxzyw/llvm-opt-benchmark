@@ -290,7 +290,7 @@ test_timing.exit:                                 ; preds = %test_timing.exit.lo
 
 135:                                              ; preds = %131
   %136 = add nsw i64 %.028.i, -1
-  %137 = icmp ugt i64 %.028.i, 1
+  %137 = icmp samesign ugt i64 %.028.i, 1
   br i1 %137, label %131, label %.critedge.i, !llvm.loop !7
 
 .critedge.i:                                      ; preds = %135, %131

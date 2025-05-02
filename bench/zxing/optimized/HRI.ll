@@ -82,7 +82,7 @@ define void @_ZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traits
 16:                                               ; preds = %14
   %.02944.i.i.i.i.add72 = add nuw nsw i64 %.02944.i.i.i.i.idx, 24
   %17 = add nsw i64 %.045.i.i.i.i, -1
-  %18 = icmp ugt i64 %.045.i.i.i.i, 1
+  %18 = icmp samesign ugt i64 %.045.i.i.i.i, 1
   br i1 %18, label %8, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !13
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %16

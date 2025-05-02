@@ -733,7 +733,7 @@ eval_buf.exit:                                    ; preds = %208, %211, %216
   %249 = fdiv double %248, 1.000000e+06
   %250 = getelementptr inbounds nuw [5 x double], ptr %7, i64 0, i64 %indvars.iv746
   store double %249, ptr %250, align 8, !tbaa !25
-  %251 = icmp ugt i64 %indvars.iv746, 1
+  %251 = icmp samesign ugt i64 %indvars.iv746, 1
   br i1 %251, label %.split.us, label %.split628.us, !llvm.loop !27
 
 .split:                                           ; preds = %234, %263
@@ -756,7 +756,7 @@ eval_buf.exit:                                    ; preds = %208, %211, %216
   br label %263
 
 263:                                              ; preds = %262, %.split
-  %264 = icmp ugt i64 %indvars.iv743, 1
+  %264 = icmp samesign ugt i64 %indvars.iv743, 1
   br i1 %264, label %.split, label %.split628.us, !llvm.loop !27
 
 .split628.us:                                     ; preds = %263, %.split.us

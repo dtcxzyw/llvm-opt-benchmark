@@ -1806,7 +1806,7 @@ define noalias ptr @ossl_ipaddr_to_asc(ptr noundef readonly captures(none) %0, i
   %.02023 = phi i32 [ %17, %.preheader ], [ 8, %2 ]
   %.02122 = phi ptr [ %32, %.preheader ], [ %3, %2 ]
   %17 = add nsw i32 %.02023, -1
-  %18 = icmp ugt i32 %.02023, 1
+  %18 = icmp samesign ugt i32 %.02023, 1
   %19 = select i1 %18, ptr @.str.16, ptr @.str.17
   %20 = sext i32 %.01924 to i64
   %21 = load i8, ptr %.025, align 1, !tbaa !13

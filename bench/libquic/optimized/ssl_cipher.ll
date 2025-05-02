@@ -3554,7 +3554,7 @@ rule_equals.exit223.thread:                       ; preds = %.preheader, %rule_e
 
 SSL_CIPHER_get_bits.exit.i:                       ; preds = %115, %114, %111, %111, %111
   %.07.i.i = phi i32 [ 112, %115 ], [ 256, %114 ], [ 128, %111 ], [ 128, %111 ], [ 128, %111 ]
-  %116 = icmp ugt i32 %.07.i.i, %.02848.i
+  %116 = icmp samesign ugt i32 %.07.i.i, %.02848.i
   br i1 %116, label %117, label %SSL_CIPHER_get_bits.exit38.i
 
 117:                                              ; preds = %SSL_CIPHER_get_bits.exit.i

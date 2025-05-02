@@ -4541,7 +4541,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %57 = fadd <2 x double> %56, %55
   store <2 x double> %57, ptr %52, align 16, !tbaa !65
   %58 = add nuw nsw i64 %.021.i.i.i.i.i.i.i.us.i, 2
-  %59 = icmp ult i64 %58, %45
+  %59 = icmp samesign ult i64 %58, %45
   br i1 %59, label %.lr.ph.i.i.i.i.i.i.i.us.i, label %._crit_edge.i.i.i.i.i.i.i.us.i, !llvm.loop !198
 
 ._crit_edge.i.i.i.i.i.i.i.us.i:                   ; preds = %.lr.ph.i.i.i.i.i.i.i.us.i, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEENS5_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS8_EEKNS6_ISJ_Li0ESA_EEEEEENS0_13add_assign_opIddEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.us.i

@@ -1310,7 +1310,7 @@ define noundef range(i32 1, 0) i32 @_ZN10duckdb_fmt2v68internal12count_digitsILj
 
 9:                                                ; preds = %4
   %10 = add nsw i32 %.07, -1
-  %11 = icmp ugt i32 %.07, 1
+  %11 = icmp samesign ugt i32 %.07, 1
   br i1 %11, label %4, label %..critedge_crit_edge, !llvm.loop !21
 
 ..critedge_crit_edge:                             ; preds = %9

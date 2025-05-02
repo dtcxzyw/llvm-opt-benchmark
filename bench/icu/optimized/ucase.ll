@@ -1287,7 +1287,7 @@ define signext range(i8 0, 2) i8 @ucase_addStringCaseClosure_77(ptr noundef read
 
 20:                                               ; preds = %18
   %21 = add nsw i32 %.014.i.us, -1
-  %22 = icmp ugt i32 %.014.i.us, 1
+  %22 = icmp samesign ugt i32 %.014.i.us, 1
   br i1 %22, label %13, label %.preheader, !llvm.loop !25
 
 _ZL9strcmpMaxPKDsiS0_i.exit.us:                   ; preds = %18
@@ -1332,7 +1332,7 @@ _ZL9strcmpMaxPKDsiS0_i.exit.thread.us:            ; preds = %13, %_ZL9strcmpMaxP
 
 41:                                               ; preds = %36
   %42 = add nsw i32 %.014.i, -1
-  %43 = icmp ugt i32 %.014.i, 1
+  %43 = icmp samesign ugt i32 %.014.i, 1
   br i1 %43, label %31, label %44, !llvm.loop !25
 
 44:                                               ; preds = %41

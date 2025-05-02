@@ -5061,7 +5061,7 @@ select.unfold:                                    ; preds = %74
 
 .thread21:                                        ; preds = %170, %157, %171
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not = icmp ugt i64 %indvars.iv, %30
+  %.not = icmp samesign ugt i64 %indvars.iv, %30
   br i1 %.not, label %157, label %.thread25, !llvm.loop !113
 
 .preheader:                                       ; preds = %173, %206
@@ -6315,7 +6315,7 @@ find_suitable_fallback.exit:                      ; preds = %375, %.critedge.pre
 
 .preheader:                                       ; preds = %.preheader.preheader, %387
   %indvars.iv = phi i64 [ %indvars.iv.next, %387 ], [ 10, %.preheader.preheader ]
-  %.not = icmp ugt i64 %indvars.iv, %72
+  %.not = icmp samesign ugt i64 %indvars.iv, %72
   br i1 %.not, label %387, label %440, !llvm.loop !113
 
 399:                                              ; preds = %424, %396

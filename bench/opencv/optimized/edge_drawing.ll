@@ -3948,7 +3948,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit43:  ; preds = %111, %114
   %175 = add nsw i32 %174, %store_forwarded
   store i32 %175, ptr %gep, align 4, !tbaa !15
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %176 = icmp ugt i64 %indvars.iv, 1
+  %176 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %176, label %173, label %.preheader46, !llvm.loop !196
 
 177:                                              ; preds = %188

@@ -1508,7 +1508,7 @@ define dso_local { i64, i8 } @_Z30getFreeFunctionDataForFunctionPKN4llvm8Functio
 10:                                               ; preds = %8
   %.02956.i.i.i.i.add9 = add nuw nsw i64 %.02956.i.i.i.i.idx, 48
   %11 = add nsw i64 %.057.i.i.i.i, -1
-  %12 = icmp ugt i64 %.057.i.i.i.i, 1
+  %12 = icmp samesign ugt i64 %.057.i.i.i.i, 1
   br i1 %12, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !111
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %10
@@ -1640,7 +1640,7 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit: ; preds = %15
 52:                                               ; preds = %50
   %.02956.i.i.i.i.add9.i = add nuw nsw i64 %.02956.i.i.i.i.idx.i, 48
   %53 = add nsw i64 %.057.i.i.i.i.i, -1
-  %54 = icmp ugt i64 %.057.i.i.i.i.i, 1
+  %54 = icmp samesign ugt i64 %.057.i.i.i.i.i, 1
   br i1 %54, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !111
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %52
@@ -1951,7 +1951,7 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit: ; preds = %21
 48:                                               ; preds = %46
   %.02956.i.i.i.i.add38 = add nuw nsw i64 %.02956.i.i.i.i.idx, 112
   %49 = add nsw i64 %.057.i.i.i.i, -1
-  %50 = icmp ugt i64 %.057.i.i.i.i, 1
+  %50 = icmp samesign ugt i64 %.057.i.i.i.i, 1
   br i1 %50, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !152
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %48
@@ -2092,7 +2092,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17isLibFreeFunctionEPKNS_8FunctionE
 11:                                               ; preds = %9
   %.02956.i.i.i.i.add9.i = add nuw nsw i64 %.02956.i.i.i.i.idx.i, 48
   %12 = add nsw i64 %.057.i.i.i.i.i, -1
-  %13 = icmp ugt i64 %.057.i.i.i.i.i, 1
+  %13 = icmp samesign ugt i64 %.057.i.i.i.i.i, 1
   br i1 %13, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !111
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %11
@@ -2235,7 +2235,7 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit: ; preds = %12
 39:                                               ; preds = %37
   %.02956.i.i.i.i.add9.i.i = add nuw nsw i64 %.02956.i.i.i.i.idx.i.i, 48
   %40 = add nsw i64 %.057.i.i.i.i.i.i, -1
-  %41 = icmp ugt i64 %.057.i.i.i.i.i.i, 1
+  %41 = icmp samesign ugt i64 %.057.i.i.i.i.i.i, 1
   br i1 %41, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !111
 
 ._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %39

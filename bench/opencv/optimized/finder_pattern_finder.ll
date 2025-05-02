@@ -9645,7 +9645,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i.i.i.i.i.i.i304: ; preds
   %840 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i301, i64 8
   %841 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i300, i64 8
   %842 = add nsw i64 %.012.i.i.i.i.i.i.i299, -1
-  %843 = icmp ugt i64 %.012.i.i.i.i.i.i.i299, 1
+  %843 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i299, 1
   br i1 %843, label %.lr.ph.i.i.i.i.i.i.i298, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i289, !llvm.loop !147
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i289: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit.i.i.i.i.i.i.i304

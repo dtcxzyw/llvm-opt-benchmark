@@ -1343,7 +1343,7 @@ define internal i32 @dissect_vrt(ptr noundef %0, ptr noundef readonly captures(n
 127:                                              ; preds = %123, %.preheader.i
   %.2.i.i = phi i32 [ %126, %123 ], [ %.02530.i.i, %.preheader.i ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %128 = icmp ugt i64 %indvars.iv.next.i.i, 7
+  %128 = icmp samesign ugt i64 %indvars.iv.next.i.i, 7
   br i1 %128, label %.preheader.i, label %dissect_context_as_cif.exit.i, !llvm.loop !8
 
 dissect_context_as_cif.exit.i:                    ; preds = %127

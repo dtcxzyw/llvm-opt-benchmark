@@ -55,7 +55,7 @@ define void @_ZN4base8internal26PlatformThreadLocalStorage12OnThreadExitEPv(ptr 
 ._crit_edge.i:                                    ; preds = %19, %5
   %.1.lcssa.i = phi i1 [ false, %5 ], [ %.2.i, %19 ]
   %9 = add nsw i32 %.0.i, -1
-  %10 = icmp ult i32 %.0.i, 2
+  %10 = icmp samesign ult i32 %.0.i, 2
   br i1 %10, label %_ZN12_GLOBAL__N_120OnThreadExitInternalEPv.exit, label %4
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i

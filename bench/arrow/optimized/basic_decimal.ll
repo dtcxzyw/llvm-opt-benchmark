@@ -3186,35 +3186,34 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2
   %.not30.not = icmp eq i32 %8, 0
   %10 = sub nuw nsw i32 64, %8
   %11 = zext nneg i32 %10 to i64
-  %12 = zext nneg i32 %5 to i64
   br i1 %.not30.not, label %.lr.ph.split.us.preheader, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %.neg = xor i32 %5, -1
+  %12 = zext nneg i32 %5 to i64
   %13 = sext i32 %.neg to i64
-  %14 = zext nneg i32 %5 to i64
-  %15 = sub nuw nsw i64 3, %14
-  %16 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %15
-  %17 = load i64, ptr %16, align 8, !tbaa !7
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = shl i64 %17, %9
-  store i64 %19, ptr %18, align 8, !tbaa !7
+  %14 = sub nuw nsw i64 3, %12
+  %15 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %14
+  %16 = load i64, ptr %15, align 8, !tbaa !7
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %18 = shl i64 %16, %9
+  store i64 %18, ptr %17, align 8, !tbaa !7
   %.not31.not53 = icmp ult i32 %1, 192
   br i1 %.not31.not53, label %.lr.ph.split, label %.preheader
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %20 = zext nneg i32 %5 to i64
+  %19 = zext nneg i32 %5 to i64
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %indvars.iv45 = phi i64 [ 3, %.lr.ph.split.us.preheader ], [ %indvars.iv.next46, %.lr.ph.split.us ]
-  %21 = sub nsw i64 %indvars.iv45, %20
-  %22 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %21
-  %23 = load i64, ptr %22, align 8, !tbaa !7
-  %24 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %indvars.iv45
-  store i64 %23, ptr %24, align 8, !tbaa !7
+  %20 = sub nsw i64 %indvars.iv45, %19
+  %21 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %20
+  %22 = load i64, ptr %21, align 8, !tbaa !7
+  %23 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %indvars.iv45
+  store i64 %22, ptr %23, align 8, !tbaa !7
   %indvars.iv.next46 = add nsw i64 %indvars.iv45, -1
-  %.not.us.not = icmp ugt i64 %indvars.iv45, %12
+  %.not.us.not = icmp samesign ugt i64 %indvars.iv45, %19
   br i1 %.not.us.not, label %.lr.ph.split.us, label %.preheader, !llvm.loop !31
 
 .preheader:                                       ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph.split.preheader
@@ -3222,37 +3221,37 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2
   br i1 %.not, label %.loopexit, label %.lr.ph41.preheader
 
 .lr.ph41.preheader:                               ; preds = %.preheader
-  %25 = add nsw i32 %5, -1
-  %26 = zext i32 %25 to i64
+  %24 = add nsw i32 %5, -1
+  %25 = zext i32 %24 to i64
   %smin = tail call i32 @llvm.smin.i32(i32 %5, i32 1)
-  %27 = sub nsw i32 %5, %smin
-  %28 = zext i32 %27 to i64
-  %29 = shl nuw nsw i64 %28, 3
-  %30 = sub nsw i64 %26, %28
-  %31 = shl nsw i64 %30, 3
-  %scevgep = getelementptr i8, ptr %0, i64 %31
-  %32 = add nuw nsw i64 %29, 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %32, i1 false), !tbaa !7
+  %26 = sub nsw i32 %5, %smin
+  %27 = zext i32 %26 to i64
+  %28 = shl nuw nsw i64 %27, 3
+  %29 = sub nsw i64 %25, %27
+  %30 = shl nsw i64 %29, 3
+  %scevgep = getelementptr i8, ptr %0, i64 %30
+  %31 = add nuw nsw i64 %28, 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %31, i1 false), !tbaa !7
   br label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
-  %33 = phi i64 [ %44, %.lr.ph.split ], [ %19, %.lr.ph.split.preheader ]
-  %34 = phi ptr [ %43, %.lr.ph.split ], [ %18, %.lr.ph.split.preheader ]
+  %32 = phi i64 [ %43, %.lr.ph.split ], [ %18, %.lr.ph.split.preheader ]
+  %33 = phi ptr [ %42, %.lr.ph.split ], [ %17, %.lr.ph.split.preheader ]
   %indvars.iv54 = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 3, %.lr.ph.split.preheader ]
-  %35 = add nsw i64 %indvars.iv54, %13
-  %36 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %35
-  %37 = load i64, ptr %36, align 8, !tbaa !7
-  %38 = lshr i64 %37, %11
-  %39 = or i64 %38, %33
-  store i64 %39, ptr %34, align 8, !tbaa !7
+  %34 = add nsw i64 %indvars.iv54, %13
+  %35 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %34
+  %36 = load i64, ptr %35, align 8, !tbaa !7
+  %37 = lshr i64 %36, %11
+  %38 = or i64 %37, %32
+  store i64 %38, ptr %33, align 8, !tbaa !7
   %indvars.iv.next = add nsw i64 %indvars.iv54, -1
-  %40 = sub nsw i64 %indvars.iv.next, %14
-  %41 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %40
-  %42 = load i64, ptr %41, align 8, !tbaa !7
-  %43 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %indvars.iv.next
-  %44 = shl i64 %42, %9
-  store i64 %44, ptr %43, align 8, !tbaa !7
-  %.not31.not = icmp ugt i64 %indvars.iv.next, %12
+  %39 = sub nsw i64 %indvars.iv.next, %12
+  %40 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %39
+  %41 = load i64, ptr %40, align 8, !tbaa !7
+  %42 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %indvars.iv.next
+  %43 = shl i64 %41, %9
+  store i64 %43, ptr %42, align 8, !tbaa !7
+  %.not31.not = icmp samesign ugt i64 %indvars.iv.next, %12
   br i1 %.not31.not, label %.lr.ph.split, label %.preheader
 
 .loopexit:                                        ; preds = %.lr.ph41.preheader, %.preheader, %7, %2

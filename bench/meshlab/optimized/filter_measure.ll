@@ -27632,7 +27632,7 @@ _ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit.i: ; preds = %96, %87, %8
   br label %137
 
 137:                                              ; preds = %131, %_ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit.i
-  %138 = icmp ult i64 %.074110.i, %27
+  %138 = icmp samesign ult i64 %.074110.i, %27
   br i1 %138, label %139, label %145
 
 139:                                              ; preds = %137

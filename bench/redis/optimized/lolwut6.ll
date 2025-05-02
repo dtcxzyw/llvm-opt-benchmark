@@ -266,7 +266,7 @@ define dso_local void @generateSkyline(ptr noundef %0) local_unnamed_addr #0 {
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.split
   %30 = phi i32 [ %11, %.split ], [ %28, %.lr.ph.split.us ], [ %47, %.lr.ph.split ]
   %31 = add nsw i32 %.02427, -1
-  %32 = icmp ugt i32 %.02427, 1
+  %32 = icmp samesign ugt i32 %.02427, 1
   br i1 %32, label %.split, label %.split29, !llvm.loop !24
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split

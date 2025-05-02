@@ -848,7 +848,7 @@ define dso_local void @_ZN9Stockfish6Search6Worker19iterative_deepeningEv(ptr no
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 28
   store i32 32002, ptr %36, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %37 = icmp ugt i64 %indvars.iv, 1
+  %37 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %37, label %32, label %.preheader363, !llvm.loop !9
 
 38:                                               ; preds = %.preheader363, %38

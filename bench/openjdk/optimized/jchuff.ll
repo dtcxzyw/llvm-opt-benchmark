@@ -477,7 +477,7 @@ define hidden void @jGenOptTbl(ptr noundef %0, ptr noundef writeonly captures(no
 
 ._crit_edge135:                                   ; preds = %._crit_edge130, %.preheader108.._crit_edge135_crit_edge
   %indvars.iv.next163.pre-phi = phi i64 [ %.pre, %.preheader108.._crit_edge135_crit_edge ], [ %74, %._crit_edge130 ]
-  %102 = icmp ugt i64 %indvars.iv162, 17
+  %102 = icmp samesign ugt i64 %indvars.iv162, 17
   %indvars.iv.next158 = add nsw i64 %indvars.iv157, -1
   br i1 %102, label %.preheader108, label %.preheader107, !llvm.loop !18
 

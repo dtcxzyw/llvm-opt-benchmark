@@ -4245,7 +4245,7 @@ trsort.exit:                                      ; preds = %.thread158.i, %2058
   %.2264.lcssa = phi i32 [ %.1263469, %2100 ], [ %2114, %._crit_edge466.loopexit ]
   %.18.lcssa = phi i32 [ %2102, %2100 ], [ %2115, %._crit_edge466.loopexit ]
   %indvars.iv.next609 = add nsw i64 %indvars.iv608, -1
-  %2116 = icmp ult i64 %indvars.iv611, %indvars.iv.next609
+  %2116 = icmp samesign ult i64 %indvars.iv611, %indvars.iv.next609
   br i1 %2116, label %2100, label %._crit_edge474, !llvm.loop !74
 
 ._crit_edge474:                                   ; preds = %._crit_edge466

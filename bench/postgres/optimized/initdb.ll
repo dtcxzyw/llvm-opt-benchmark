@@ -1973,7 +1973,7 @@ set_null_conf.exit:                               ; preds = %35
 54:                                               ; preds = %51
   %55 = add nsw i32 %.0617.i.i, -1
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #19
-  %56 = icmp ugt i32 %.0617.i.i, 1
+  %56 = icmp samesign ugt i32 %.0617.i.i, 1
   br i1 %56, label %45, label %choose_dsm_implementation.exit.i
 
 .loopexit.sink.split.i.i:                         ; preds = %51, %.thread.i.i

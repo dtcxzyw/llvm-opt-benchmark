@@ -1812,7 +1812,7 @@ define internal void @VFilter16i_SSE2(ptr noundef captures(none) %0, i32 noundef
   %129 = getelementptr inbounds i8, ptr %30, i64 %15
   store <2 x i64> %126, ptr %129, align 1, !tbaa !7
   %130 = add nsw i32 %.040101, -1
-  %131 = icmp ugt i32 %.040101, 1
+  %131 = icmp samesign ugt i32 %.040101, 1
   br i1 %131, label %29, label %132, !llvm.loop !10
 
 132:                                              ; preds = %29
@@ -2201,7 +2201,7 @@ Store4x4_SSE2.exit36.i:                           ; preds = %282
 
 Store16x4_SSE2.exit:                              ; preds = %293
   %300 = add nsw i32 %.018129, -1
-  %301 = icmp ugt i32 %.018129, 1
+  %301 = icmp samesign ugt i32 %.018129, 1
   br i1 %301, label %93, label %302, !llvm.loop !11
 
 302:                                              ; preds = %Store16x4_SSE2.exit
@@ -3140,7 +3140,7 @@ define internal void @SimpleVFilter16i_SSE2(ptr noundef captures(none) %0, i32 n
   store <2 x i64> %64, ptr %18, align 1, !tbaa !7
   store <2 x i64> %65, ptr %15, align 1, !tbaa !7
   %66 = add nsw i32 %.08, -1
-  %67 = icmp ugt i32 %.08, 1
+  %67 = icmp samesign ugt i32 %.08, 1
   br i1 %67, label %14, label %68, !llvm.loop !12
 
 68:                                               ; preds = %14
@@ -3157,7 +3157,7 @@ define internal void @SimpleHFilter16i_SSE2(ptr noundef captures(none) %0, i32 n
   %5 = getelementptr inbounds nuw i8, ptr %.056, i64 4
   tail call void @SimpleHFilter16_SSE2(ptr noundef nonnull %5, i32 noundef %1, i32 noundef %2)
   %6 = add nsw i32 %.07, -1
-  %7 = icmp ugt i32 %.07, 1
+  %7 = icmp samesign ugt i32 %.07, 1
   br i1 %7, label %4, label %8, !llvm.loop !13
 
 8:                                                ; preds = %4
@@ -3557,7 +3557,7 @@ define internal void @HE16_SSE2(ptr noundef captures(none) %0) #2 {
   store <16 x i8> %6, ptr %.07, align 1, !tbaa !7
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   %8 = add nsw i32 %.056, -1
-  %9 = icmp ugt i32 %.056, 1
+  %9 = icmp samesign ugt i32 %.056, 1
   br i1 %9, label %2, label %10, !llvm.loop !20
 
 10:                                               ; preds = %2

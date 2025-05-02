@@ -4113,7 +4113,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN6spdlog7details2os17is_color_ter
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i, i64 32
   %17 = add nsw i64 %.057.i.i.i.i.i, -1
-  %18 = icmp ugt i64 %.057.i.i.i.i.i, 1
+  %18 = icmp samesign ugt i64 %.057.i.i.i.i.i, 1
   br i1 %18, label %.preheader, label %"_ZSt6any_ofIPKPKcZZN6spdlog7details2os17is_color_terminalEvENK3$_0clEvEUlS1_E_EbT_S9_T0_.exit", !llvm.loop !84
 
 "_ZSt6any_ofIPKPKcZZN6spdlog7details2os17is_color_terminalEvENK3$_0clEvEUlS1_E_EbT_S9_T0_.exit.split.loop.exit16": ; preds = %6

@@ -188,7 +188,7 @@ define hidden void @jRDifast(ptr noundef readonly captures(none) %0, ptr noundef
   %.1224 = getelementptr inbounds nuw i8, ptr %.0223229, i64 4
   %.1226 = getelementptr inbounds nuw i8, ptr %.0225228, i64 2
   %141 = add nsw i32 %.0231, -1
-  %142 = icmp ugt i32 %.0231, 1
+  %142 = icmp samesign ugt i32 %.0231, 1
   br i1 %142, label %13, label %.preheader, !llvm.loop !6
 
 143:                                              ; preds = %.preheader, %283

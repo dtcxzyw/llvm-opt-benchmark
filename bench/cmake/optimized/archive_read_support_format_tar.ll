@@ -5699,7 +5699,7 @@ tar_atol10.exit:                                  ; preds = %29, %31, %.critedge
 
 tar_atol10.exit.thread:                           ; preds = %.critedge2.i.i, %.critedge53.i.i, %.critedge, %tar_atol10.exit
   %.044.i.i2 = phi i64 [ %.044.i.i, %tar_atol10.exit ], [ 0, %.critedge ], [ 0, %.critedge53.i.i ], [ 0, %.critedge2.i.i ]
-  %42 = icmp ult i64 %.032, %.044.i.i2
+  %42 = icmp samesign ult i64 %.032, %.044.i.i2
   br i1 %42, label %43, label %60
 
 43:                                               ; preds = %tar_atol10.exit.thread

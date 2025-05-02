@@ -1313,7 +1313,7 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_crypt_ctr(ptr noundef readonly
   store i8 %18, ptr %gep, align 1, !tbaa !9
   %.not25 = icmp eq i8 %18, 0
   %19 = add nsw i32 %.01926, -1
-  %20 = icmp ugt i32 %.01926, 1
+  %20 = icmp samesign ugt i32 %.01926, 1
   %or.cond = and i1 %.not25, %20
   br i1 %or.cond, label %15, label %.loopexit, !llvm.loop !22
 
@@ -1727,7 +1727,7 @@ mbedtls_aria_crypt_cfb128.exit105:                ; preds = %84
   store i8 %110, ptr %gep.i, align 1, !tbaa !9
   %.not25.i = icmp eq i8 %110, 0
   %111 = add nsw i32 %.01926.i, -1
-  %112 = icmp ugt i32 %.01926.i, 1
+  %112 = icmp samesign ugt i32 %.01926.i, 1
   %or.cond.i = and i1 %112, %.not25.i
   br i1 %or.cond.i, label %107, label %.loopexit.i108, !llvm.loop !22
 
@@ -1793,7 +1793,7 @@ mbedtls_aria_crypt_ctr.exit:                      ; preds = %.loopexit.i108
   store i8 %136, ptr %gep.i122, align 1, !tbaa !9
   %.not25.i123 = icmp eq i8 %136, 0
   %137 = add nsw i32 %.01926.i121, -1
-  %138 = icmp ugt i32 %.01926.i121, 1
+  %138 = icmp samesign ugt i32 %.01926.i121, 1
   %or.cond.i124 = and i1 %138, %.not25.i123
   br i1 %or.cond.i124, label %133, label %.loopexit.i117, !llvm.loop !22
 

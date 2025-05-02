@@ -178,7 +178,7 @@ define void @dgsvj0_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %.not13561696, label %._crit_edge1704, label %.lr.ph1703
 
 .lr.ph1703:                                       ; preds = %100
-  %.not1383 = icmp ule i32 %.013051714, %.012891715
+  %.not1383 = icmp samesign ule i32 %.013051714, %.012891715
   br label %102
 
 ..loopexit1426_crit_edge:                         ; preds = %.lr.ph1694
@@ -1643,7 +1643,7 @@ thread-pre-split:                                 ; preds = %144, %158
   %819 = fmul double %.sink1833, %818
   %820 = getelementptr inbounds double, ptr %29, i64 %816
   store double %819, ptr %820, align 8, !tbaa !7
-  %821 = icmp ult i32 %.013051714, %.012891715
+  %821 = icmp samesign ult i32 %.013051714, %.012891715
   %822 = fcmp ugt double %.01273.lcssa, %84
   %.not1357 = icmp sgt i32 %.01239.lcssa, %815
   %or.cond1838 = select i1 %822, i1 %.not1357, i1 false

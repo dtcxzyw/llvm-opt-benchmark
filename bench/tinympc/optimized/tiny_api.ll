@@ -15269,7 +15269,7 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_d
 
 .lr.ph166:                                        ; preds = %23
   %28 = shl nuw nsw i64 %.0126170, 1
-  %29 = icmp ugt i64 %.0126170, 3
+  %29 = icmp samesign ugt i64 %.0126170, 3
   %30 = and i64 %.0126170, 2
   %.not = icmp ne i64 %30, 0
   br label %31
@@ -15309,7 +15309,7 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_d
   %46 = getelementptr inbounds nuw double, ptr %45, i64 %.0126170
   store <2 x double> %43, ptr %46, align 16, !tbaa !14
   %47 = add nuw nsw i64 %.0130144.us, 2
-  %48 = icmp ult i64 %47, %.0126170
+  %48 = icmp samesign ult i64 %47, %.0126170
   br i1 %48, label %.critedge205, label %._crit_edge.us, !llvm.loop !509
 
 ._crit_edge.us:                                   ; preds = %.critedge205
@@ -15365,7 +15365,7 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_d
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader139
   %.0131.lcssa = phi i64 [ 0, %.preheader139 ], [ 4, %.lr.ph ]
   %.5.lcssa = phi i64 [ %.4159, %.preheader139 ], [ %63, %.lr.ph ]
-  %76 = icmp ult i64 %.0131.lcssa, %.0126170
+  %76 = icmp samesign ult i64 %.0131.lcssa, %.0126170
   %or.cond = and i1 %.not, %76
   br i1 %or.cond, label %.lr.ph155, label %.loopexit
 
@@ -15403,7 +15403,7 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_d
   %.1124.lcssa = phi i64 [ %.0123171, %23 ], [ %87, %._crit_edge160 ]
   %.1.lcssa = phi i64 [ %.0122172, %23 ], [ %.4.lcssa, %._crit_edge160 ]
   %89 = add nsw i64 %.0126170, -2
-  %90 = icmp ugt i64 %.0126170, 2
+  %90 = icmp samesign ugt i64 %.0126170, 2
   br i1 %90, label %23, label %.preheader137
 
 ._crit_edge180:                                   ; preds = %._crit_edge176.us, %.preheader.lr.ph, %.preheader137

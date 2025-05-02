@@ -12905,7 +12905,7 @@ _ZNK7Compile21is_method_compilationEv.exit:       ; preds = %1
 86:                                               ; preds = %53, %65, %71, %44, %._crit_edge55
   %87 = add nsw i32 %.03858, -1
   %88 = icmp ne ptr %.1, null
-  %89 = icmp ugt i32 %.03858, 1
+  %89 = icmp samesign ugt i32 %.03858, 1
   %90 = select i1 %88, i1 %89, i1 false
   br i1 %90, label %28, label %_ZNK7Compile21is_method_compilationEv.exit.thread, !llvm.loop !57
 

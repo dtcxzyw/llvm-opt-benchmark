@@ -160,7 +160,7 @@ define dso_local noundef zeroext i1 @_ZN4absl18debugging_internal14ForEachSectio
 .lr.ph.split.us.i.i:                              ; preds = %..lr.ph.split.us.i_crit_edge.i, %14
   %.sroa.37.4 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i ], [ %15, %14 ]
   %.sroa.21.4 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i ], [ %.028.ph72.i.i, %14 ]
-  %.not.us.i.i = icmp uge i64 %.028.ph72.i.i, %.sroa.21.4
+  %.not.us.i.i = icmp samesign uge i64 %.028.ph72.i.i, %.sroa.21.4
   %20 = icmp slt i64 %.028.ph72.i.i, %.sroa.37.4
   %or.cond.i.i = select i1 %.not.us.i.i, i1 %20, i1 false
   br i1 %or.cond.i.i, label %.outer.i.i, label %.lr.ph.i
@@ -531,7 +531,7 @@ define dso_local noundef zeroext i1 @_ZN4absl18debugging_internal22GetSectionHea
 .lr.ph.split.us.i.i:                              ; preds = %..lr.ph.split.us.i_crit_edge.i, %17
   %.sroa.37.4 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i ], [ %18, %17 ]
   %.sroa.21.4 = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i ], [ %.028.ph72.i.i, %17 ]
-  %.not.us.i.i = icmp uge i64 %.028.ph72.i.i, %.sroa.21.4
+  %.not.us.i.i = icmp samesign uge i64 %.028.ph72.i.i, %.sroa.21.4
   %23 = icmp slt i64 %.028.ph72.i.i, %.sroa.37.4
   %or.cond.i.i = select i1 %.not.us.i.i, i1 %23, i1 false
   br i1 %or.cond.i.i, label %.outer.i.i, label %.lr.ph.i
@@ -1434,7 +1434,7 @@ _ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFil
 .lr.ph.split.us.i.i84.i.i.i:                      ; preds = %..lr.ph.split.us.i_crit_edge.i93.i.i.i, %117
   %.sroa.30.13.i.i.i = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i93.i.i.i ], [ %118, %117 ]
   %.sroa.17.13.i.i.i = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i93.i.i.i ], [ %.028.ph72.i.i78.i.i.i, %117 ]
-  %.not.us.i.i85.i.i.i = icmp uge i64 %.028.ph72.i.i78.i.i.i, %.sroa.17.13.i.i.i
+  %.not.us.i.i85.i.i.i = icmp samesign uge i64 %.028.ph72.i.i78.i.i.i, %.sroa.17.13.i.i.i
   %123 = icmp slt i64 %.028.ph72.i.i78.i.i.i, %.sroa.30.13.i.i.i
   %or.cond.i.i86.i.i.i = select i1 %.not.us.i.i85.i.i.i, i1 %123, i1 false
   br i1 %or.cond.i.i86.i.i.i, label %.outer.i.i87.i.i.i, label %.lr.ph.i83.i.i.i
@@ -1520,7 +1520,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
 .lr.ph.split.us.i.i.i.i.i:                        ; preds = %..lr.ph.split.us.i_crit_edge.i.i.i.i, %146
   %.sroa.30.3.i.i.i = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i.i.i.i ], [ %147, %146 ]
   %.sroa.17.3.i.i.i = phi i64 [ 0, %..lr.ph.split.us.i_crit_edge.i.i.i.i ], [ %.028.ph72.i.i.i.i.i, %146 ]
-  %.not.us.i.i.i.i.i = icmp uge i64 %.028.ph72.i.i.i.i.i, %.sroa.17.3.i.i.i
+  %.not.us.i.i.i.i.i = icmp samesign uge i64 %.028.ph72.i.i.i.i.i, %.sroa.17.3.i.i.i
   %152 = icmp slt i64 %.028.ph72.i.i.i.i.i, %.sroa.30.3.i.i.i
   %or.cond.i.i.i.i.i = select i1 %.not.us.i.i.i.i.i, i1 %152, i1 false
   br i1 %or.cond.i.i.i.i.i, label %.outer.i.i.i.i.i, label %.lr.ph.i.i.i.i

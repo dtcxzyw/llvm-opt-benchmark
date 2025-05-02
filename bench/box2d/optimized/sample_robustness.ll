@@ -320,7 +320,7 @@ define linkonce_odr dso_local void @_ZN14HighMassRatio1C2ER8Settings(ptr noundef
 
 55:                                               ; preds = %66
   %56 = add nsw i32 %.05266, -1
-  %57 = icmp ugt i32 %.05266, 1
+  %57 = icmp samesign ugt i32 %.05266, 1
   br i1 %57, label %.preheader, label %70, !llvm.loop !25
 
 58:                                               ; preds = %.preheader, %66

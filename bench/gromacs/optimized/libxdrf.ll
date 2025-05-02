@@ -2407,7 +2407,7 @@ _ZL11receivebitsP10DataBufferi.exit:              ; preds = %_ZL11receivebitsP10
   %74 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv94
   store i32 %.recomposed, ptr %74, align 4, !tbaa !16
   %indvars.iv.next95 = add nsw i64 %indvars.iv94, -1
-  %75 = icmp ugt i64 %indvars.iv94, 1
+  %75 = icmp samesign ugt i64 %indvars.iv94, 1
   br i1 %75, label %.split.us, label %.split77.us, !llvm.loop !51
 
 .split:                                           ; preds = %.split.preheader, %.preheader
@@ -2422,7 +2422,7 @@ _ZL11receivebitsP10DataBufferi.exit:              ; preds = %_ZL11receivebitsP10
   %80 = getelementptr inbounds nuw i32, ptr %3, i64 %76
   store i32 0, ptr %80, align 4, !tbaa !16
   %81 = add nsw i32 %.03373, -1
-  %82 = icmp ugt i32 %.03373, 1
+  %82 = icmp samesign ugt i32 %.03373, 1
   br i1 %82, label %.split, label %.split77.us, !llvm.loop !51
 
 .split75.us:                                      ; preds = %.split, %.split.us

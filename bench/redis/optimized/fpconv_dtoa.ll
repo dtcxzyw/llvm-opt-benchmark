@@ -206,7 +206,7 @@ find_cachedpow10.exit.i:                          ; preds = %58
 
 130:                                              ; preds = %round_digit.exit.thread.i.i
   %131 = getelementptr inbounds nuw i8, ptr %.07518.i.i, i64 8
-  %132 = icmp ugt i32 %.07617.i.i, 1
+  %132 = icmp samesign ugt i32 %.07617.i.i, 1
   br i1 %132, label %133, label %.preheader.i.i, !llvm.loop !15
 
 .preheader.i.i:                                   ; preds = %130

@@ -51127,7 +51127,7 @@ _ZN5Eigen15PermutationBaseINS_17PermutationMatrixILi6ELi6EiEEE11setIdentityEl.ex
   %111 = load i32, ptr %109, align 4, !tbaa !29
   store i32 %111, ptr %108, align 4, !tbaa !29
   store i32 %110, ptr %109, align 4, !tbaa !29
-  %112 = icmp ugt i64 %.0.in6.i.i, 1
+  %112 = icmp samesign ugt i64 %.0.in6.i.i, 1
   br i1 %112, label %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILi6ELi6EiEEE11setIdentityEl.exit.i.i, label %_ZN5Eigen17PermutationMatrixILi6ELi6EiEaSINS_14TranspositionsILi6ELi6EiEEEERS1_RKNS_18TranspositionsBaseIT_EE.exit, !llvm.loop !2033
 
 _ZN5Eigen17PermutationMatrixILi6ELi6EiEaSINS_14TranspositionsILi6ELi6EiEEEERS1_RKNS_18TranspositionsBaseIT_EE.exit: ; preds = %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILi6ELi6EiEEE11setIdentityEl.exit.i.i
@@ -64212,7 +64212,7 @@ _ZN5Eigen15PermutationBaseINS_17PermutationMatrixILi7ELi7EiEEE11setIdentityEl.ex
   %128 = load i32, ptr %126, align 4, !tbaa !29
   store i32 %128, ptr %125, align 4, !tbaa !29
   store i32 %127, ptr %126, align 4, !tbaa !29
-  %129 = icmp ugt i64 %.0.in6.i.i.i, 1
+  %129 = icmp samesign ugt i64 %.0.in6.i.i.i, 1
   br i1 %129, label %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILi7ELi7EiEEE11setIdentityEl.exit.i.i.i, label %_ZN5Eigen12PartialPivLUINS_6MatrixIdLi7ELi7ELi0ELi7ELi7EEEE7computeEv.exit, !llvm.loop !2454
 
 _ZN5Eigen12PartialPivLUINS_6MatrixIdLi7ELi7ELi0ELi7ELi7EEEE7computeEv.exit: ; preds = %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILi7ELi7EiEEE11setIdentityEl.exit.i.i.i

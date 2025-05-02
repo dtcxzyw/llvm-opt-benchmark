@@ -363,7 +363,7 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZNK18BinaryMagnitudeSeq9ma
 
 8:                                                ; preds = %4
   %9 = add nsw i32 %.06, -1
-  %10 = icmp ugt i32 %.06, 1
+  %10 = icmp samesign ugt i32 %.06, 1
   br i1 %10, label %4, label %11, !llvm.loop !17
 
 11:                                               ; preds = %8, %4

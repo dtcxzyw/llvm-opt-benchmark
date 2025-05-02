@@ -3672,7 +3672,7 @@ _ZN2cvL25icvGradientOfHistogram256INS_10AutoBufferIiLm256EEEEEvRKT_RS3_.exit.i: 
 
 239:                                              ; preds = %234, %224, %220, %216
   %.2100.i = phi i32 [ %.098150.i, %220 ], [ %.098150.i, %216 ], [ %.098150.i, %224 ], [ %235, %234 ]
-  %240 = icmp ugt i64 %indvars.iv.i, 3
+  %240 = icmp samesign ugt i64 %indvars.iv.i, 3
   %241 = icmp samesign ult i32 %.2100.i, 20
   %242 = select i1 %240, i1 %241, i1 false
   br i1 %242, label %216, label %214, !llvm.loop !150
@@ -3719,7 +3719,7 @@ _ZN2cvL25icvGradientOfHistogram256INS_10AutoBufferIiLm256EEEEEvRKT_RS3_.exit.i: 
 
 265:                                              ; preds = %260
   %indvars.iv.next181.i = add nsw i64 %indvars.iv180.i, -1
-  %266 = icmp ugt i64 %indvars.iv180.i, 1
+  %266 = icmp samesign ugt i64 %indvars.iv180.i, 1
   br i1 %266, label %260, label %.split.loop.exit198.i, !llvm.loop !152
 
 .split.loop.exit.i:                               ; preds = %260
@@ -7801,7 +7801,7 @@ define hidden void @_ZN2cv18ChessBoardDetector9orderQuadERNS_14ChessBoardQuadERN
   %27 = load ptr, ptr %26, align 8, !tbaa !121
   %28 = getelementptr inbounds nuw [4 x ptr], ptr %17, i64 0, i64 %indvars.iv33
   store ptr %27, ptr %28, align 8, !tbaa !121
-  %29 = icmp ugt i64 %indvars.iv33, 1
+  %29 = icmp samesign ugt i64 %indvars.iv33, 1
   br i1 %29, label %25, label %22, !llvm.loop !296
 
 ._crit_edge:                                      ; preds = %22, %.split.loop.exit36
