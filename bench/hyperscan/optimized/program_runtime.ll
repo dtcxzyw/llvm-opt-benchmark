@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @mmbit_keyshift_lut = external local_unnamed_addr constant [32 x i8], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 -1, 1) i64 @roseRunProgram(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef zeroext %5) #0 {
+define hidden range(i64 -1, 1) i64 @roseRunProgram(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = alloca [7 x %struct.mmbit_sparse_state], align 16
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8

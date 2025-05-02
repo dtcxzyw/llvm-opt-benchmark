@@ -1834,7 +1834,7 @@ define hidden void @luaV_finishOp(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaV_execute(ptr noundef %0, ptr noundef %1) #0 {
+define hidden void @luaV_execute(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.TValue, align 8
   %4 = alloca %struct.TValue, align 8
   %5 = alloca %struct.TValue, align 8

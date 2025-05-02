@@ -386,7 +386,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZL16CheckStackTrace1i(i32 noundef range(i32 0, -2147483648) %0) #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16CheckStackTrace1i(i32 noundef range(i32 0, -2147483648) %0) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"struct.google::logging::internal::CheckOpString", align 8
   %4 = alloca %"class.std::unique_ptr", align 8
@@ -696,7 +696,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare ptr @llvm.returnaddress(i32 immarg) #16
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZL16CheckStackTrace2i(i32 noundef range(i32 0, -2147483648) %0) #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16CheckStackTrace2i(i32 noundef range(i32 0, -2147483648) %0) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"struct.google::logging::internal::CheckOpString", align 8
   %4 = alloca %"class.std::unique_ptr", align 8
@@ -904,7 +904,7 @@ declare void @_ZN6google7logging8internal21CheckOpMessageBuilderD1Ev(ptr noundef
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZL16CheckStackTrace3i(i32 noundef range(i32 0, -2147483648) %0) #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16CheckStackTrace3i(i32 noundef range(i32 0, -2147483648) %0) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"struct.google::logging::internal::CheckOpString", align 8
   %4 = alloca %"class.std::unique_ptr", align 8
@@ -1065,7 +1065,7 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit19: ; preds = %_ZNSt10unique_
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZL16CheckStackTrace4i(i32 noundef range(i32 0, -2147483648) %0) #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16CheckStackTrace4i(i32 noundef range(i32 0, -2147483648) %0) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"struct.google::logging::internal::CheckOpString", align 8
   %4 = alloca %"class.std::unique_ptr", align 8
@@ -1226,7 +1226,7 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit18: ; preds = %_ZNSt10unique_
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZL19CheckStackTraceLeafv() #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL19CheckStackTraceLeafv() unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca ptr, align 8
   %2 = alloca %"struct.google::logging::internal::CheckOpString", align 8
   %3 = alloca %"class.std::unique_ptr", align 8

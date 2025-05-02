@@ -2548,7 +2548,7 @@ define dso_local void @_PyObjectArray_Free(ptr noundef %0, ptr noundef readnone 
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_PyEval_EvalFrameDefault(ptr noundef %0, ptr noundef %1, i32 noundef %2) #2 {
+define dso_local ptr @_PyEval_EvalFrameDefault(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [2 x ptr], align 16
   %5 = alloca [2 x ptr], align 16
   %6 = alloca %struct._PyInterpreterFrame, align 8

@@ -191,7 +191,7 @@ define hidden void @_Z12luau_executeP9lua_State(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12luau_executeILb1EEvP9lua_State(ptr noundef %0) #3 {
+define internal fastcc void @_ZL12luau_executeILb1EEvP9lua_State(ptr noundef %0) unnamed_addr #3 {
   %2 = alloca %struct.lua_TValue, align 8
   %3 = alloca %struct.lua_TValue, align 8
   %4 = alloca %struct.lua_TValue, align 8
@@ -6360,7 +6360,7 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1506
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12luau_executeILb0EEvP9lua_State(ptr noundef %0) #3 {
+define internal fastcc void @_ZL12luau_executeILb0EEvP9lua_State(ptr noundef %0) unnamed_addr #3 {
   %2 = alloca %struct.lua_TValue, align 8
   %3 = alloca %struct.lua_TValue, align 8
   %4 = alloca %struct.lua_TValue, align 8

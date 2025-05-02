@@ -5782,7 +5782,7 @@ declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_ucs1_match(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) #6 {
+define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_ucs1_match(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !84
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -10247,7 +10247,7 @@ repeat_pool_free.exit1855:                        ; preds = %2349, %2350
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_ucs2_match(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) #6 {
+define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_ucs2_match(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !84
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -14689,7 +14689,7 @@ repeat_pool_free.exit1840:                        ; preds = %2361, %2362
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_ucs4_match(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) #6 {
+define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_ucs4_match(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !84
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224

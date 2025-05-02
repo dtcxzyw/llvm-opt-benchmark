@@ -1981,7 +1981,7 @@ declare ptr @onigenc_get_right_adjust_char_head(ptr noundef, ptr noundef, ptr no
 declare ptr @onigenc_step_back(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #4 {
+define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #4 {
   %7 = alloca ptr, align 8
   %8 = alloca [18 x i8], align 16
   %9 = alloca [18 x i8], align 16

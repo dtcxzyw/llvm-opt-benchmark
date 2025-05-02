@@ -7655,7 +7655,7 @@ define hidden noundef nonnull ptr @rb_vm_get_insns_address_table() local_unnamed
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @vm_exec_core(ptr noundef %0) #2 {
+define internal fastcc i64 @vm_exec_core(ptr noundef %0) unnamed_addr #2 {
   %2 = alloca %struct.RArray, align 8
   %3 = alloca [2 x i64], align 16
   %4 = alloca i64, align 8

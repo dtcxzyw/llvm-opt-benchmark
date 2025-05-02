@@ -2635,7 +2635,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit122: ; preds = %123
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden ptr @non_inline_func() #19 {
+define hidden ptr @non_inline_func() local_unnamed_addr #19 {
   br label %1
 
 1:                                                ; preds = %0
