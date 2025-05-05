@@ -1399,11 +1399,8 @@ switch.lookup:                                    ; preds = %1
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN6Assimp11MakeSubmeshEPK6aiMeshRKSt6vectorIjSaIjEEj(ptr noundef readonly captures(address) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(1320) ptr @_Znwm(i64 noundef 1320) #18
-  store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 224
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 1272
