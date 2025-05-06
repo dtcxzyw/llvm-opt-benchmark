@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @o_sig_init_ossl_ret_ = internal unnamed_addr global i32 0, align 4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OBJ_find_sigid_algs(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OBJ_find_sigid_algs(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @ossl_obj_find_sigid_algs(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
   ret i32 %4
 }

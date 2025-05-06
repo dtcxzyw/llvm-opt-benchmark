@@ -175,7 +175,7 @@ declare ptr @PEM_ASN1_read_bio(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @PEM_bytes_read_bio(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PEM_bytes_read_bio(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.evp_cipher_info_st, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
@@ -960,7 +960,7 @@ define hidden range(i32 0, 2) i32 @PEM_do_header(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @PEM_ASN1_write(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7, ptr noundef %8) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PEM_ASN1_write(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = tail call ptr @BIO_s_file() #12
   %11 = tail call ptr @BIO_new(ptr noundef %10) #12
   %12 = icmp eq ptr %11, null

@@ -72,7 +72,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_plane_cr
 @llvm.compiler.used = appending global [12 x ptr] [ptr @__UNIQUE_ID___addressable___drm_universal_plane_alloc396, ptr @__UNIQUE_ID___addressable___drmm_universal_plane_alloc391, ptr @__UNIQUE_ID___addressable_drm_any_plane_has_format410, ptr @__UNIQUE_ID___addressable_drm_mode_plane_set_obj_prop409, ptr @__UNIQUE_ID___addressable_drm_plane_cleanup404, ptr @__UNIQUE_ID___addressable_drm_plane_create_scaling_filter_property423, ptr @__UNIQUE_ID___addressable_drm_plane_enable_fb_damage_clips418, ptr @__UNIQUE_ID___addressable_drm_plane_force_disable408, ptr @__UNIQUE_ID___addressable_drm_plane_from_index405, ptr @__UNIQUE_ID___addressable_drm_plane_get_damage_clips420, ptr @__UNIQUE_ID___addressable_drm_plane_get_damage_clips_count419, ptr @__UNIQUE_ID___addressable_drm_universal_plane_init386], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_universal_plane_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef captures(address_is_null) %6, i32 noundef %7, ptr noundef %8, ...) #0 align 16 {
+define dso_local i32 @drm_universal_plane_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7, ptr noundef %8, ...) #0 align 16 {
   %10 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #13
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -605,7 +605,7 @@ define internal fastcc i32 @__drm_universal_plane_init(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__drmm_universal_plane_alloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6, ptr noundef captures(address_is_null) %7, i32 noundef %8, ptr noundef %9, ...) #0 align 16 {
+define dso_local ptr @__drmm_universal_plane_alloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7, i32 noundef %8, ptr noundef %9, ...) #0 align 16 {
   %11 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #13
   %12 = icmp eq ptr %4, null
@@ -682,7 +682,7 @@ define internal void @drmm_universal_plane_alloc_release(ptr readnone captures(n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__drm_universal_plane_alloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6, ptr noundef captures(address_is_null) %7, i32 noundef %8, ptr noundef %9, ...) #0 align 16 {
+define dso_local ptr @__drm_universal_plane_alloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7, i32 noundef %8, ptr noundef %9, ...) #0 align 16 {
   %11 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %11, i8 0, i64 24, i1 false), !annotation !10

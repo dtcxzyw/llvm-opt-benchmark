@@ -1698,7 +1698,7 @@ declare i8 @_ZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVCompu
 declare noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEb(ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i8 0, 64) i8 @_ZN5clang15LinkageComputer28getLVForTemplateArgumentListERKNS_20TemplateArgumentListENS_17LVComputationKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %1, i32 %2) local_unnamed_addr #2 align 2 {
+define dso_local range(i8 0, 64) i8 @_ZN5clang15LinkageComputer28getLVForTemplateArgumentListERKNS_20TemplateArgumentListENS_17LVComputationKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %1, i32 %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %1, align 8, !tbaa !466
   %6 = zext i32 %5 to i64

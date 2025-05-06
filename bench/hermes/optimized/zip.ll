@@ -10185,7 +10185,7 @@ return:                                           ; preds = %if.else.i, %while.e
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef captures(address_is_null) %pZip, i32 noundef %file_index, ptr noundef %pBuf, i64 noundef %buf_size, i32 noundef %flags, ptr noundef %pUser_read_buf, i64 noundef %user_read_buf_size) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef readonly captures(address_is_null) %pZip, i32 noundef %file_index, ptr noundef %pBuf, i64 noundef %buf_size, i32 noundef %flags, ptr noundef %pUser_read_buf, i64 noundef %user_read_buf_size) local_unnamed_addr #4 {
 entry:
   %file_stat = alloca %struct.mz_zip_archive_file_stat, align 8
   %local_header_u32 = alloca [8 x i32], align 16
@@ -10469,7 +10469,7 @@ return:                                           ; preds = %if.then2.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_mem_no_alloc(ptr noundef captures(address_is_null) %pZip, ptr noundef captures(address_is_null) %pFilename, ptr noundef %pBuf, i64 noundef %buf_size, i32 noundef %flags, ptr noundef %pUser_read_buf, i64 noundef %user_read_buf_size) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_mem_no_alloc(ptr noundef readonly captures(address_is_null) %pZip, ptr noundef readonly captures(address_is_null) %pFilename, ptr noundef %pBuf, i64 noundef %buf_size, i32 noundef %flags, ptr noundef %pUser_read_buf, i64 noundef %user_read_buf_size) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @mz_zip_reader_locate_file(ptr noundef %pZip, ptr noundef %pFilename, ptr noundef null, i32 noundef %flags)
   %cmp = icmp slt i32 %call, 0
@@ -10485,21 +10485,21 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @mz_zip_reader_extract_to_mem(ptr noundef captures(address_is_null) %pZip, i32 noundef %file_index, ptr noundef %pBuf, i64 noundef %buf_size, i32 noundef %flags) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mz_zip_reader_extract_to_mem(ptr noundef readonly captures(address_is_null) %pZip, i32 noundef %file_index, ptr noundef %pBuf, i64 noundef %buf_size, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef %pZip, i32 noundef %file_index, ptr noundef %pBuf, i64 noundef %buf_size, i32 noundef %flags, ptr noundef null, i64 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_mem(ptr noundef captures(address_is_null) %pZip, ptr noundef captures(address_is_null) %pFilename, ptr noundef %pBuf, i64 noundef %buf_size, i32 noundef %flags) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_mem(ptr noundef readonly captures(address_is_null) %pZip, ptr noundef readonly captures(address_is_null) %pFilename, ptr noundef %pBuf, i64 noundef %buf_size, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
-  %call.i = tail call i32 @mz_zip_reader_locate_file(ptr noundef %pZip, ptr noundef %pFilename, ptr noundef null, i32 noundef %flags)
+  %call.i = tail call i32 @mz_zip_reader_locate_file(ptr noundef readonly %pZip, ptr noundef readonly %pFilename, ptr noundef null, i32 noundef %flags)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %mz_zip_reader_extract_file_to_mem_no_alloc.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef %pZip, i32 noundef %call.i, ptr noundef %pBuf, i64 noundef %buf_size, i32 noundef %flags, ptr noundef null, i64 noundef 0)
+  %call1.i = tail call i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef readonly %pZip, i32 noundef %call.i, ptr noundef %pBuf, i64 noundef %buf_size, i32 noundef %flags, ptr noundef null, i64 noundef 0)
   br label %mz_zip_reader_extract_file_to_mem_no_alloc.exit
 
 mz_zip_reader_extract_file_to_mem_no_alloc.exit:  ; preds = %entry, %if.end.i
@@ -10508,7 +10508,7 @@ mz_zip_reader_extract_file_to_mem_no_alloc.exit:  ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mz_zip_reader_extract_to_heap(ptr noundef captures(address_is_null) %pZip, i32 noundef %file_index, ptr noundef writeonly captures(address_is_null) %pSize, i32 noundef %flags) local_unnamed_addr #4 {
+define hidden ptr @mz_zip_reader_extract_to_heap(ptr noundef readonly captures(address_is_null) %pZip, i32 noundef %file_index, ptr noundef writeonly captures(address_is_null) %pSize, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
   %tobool.i.not = icmp eq ptr %pZip, null
   br i1 %tobool.i.not, label %mz_zip_reader_get_cdh.exit, label %lor.lhs.false.i
@@ -10573,7 +10573,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end3
-  %call.i = tail call range(i32 0, 2) i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef nonnull %pZip, i32 noundef %file_index, ptr noundef nonnull %call7, i64 noundef %cond, i32 noundef %flags, ptr noundef null, i64 noundef 0)
+  %call.i = tail call range(i32 0, 2) i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef nonnull readonly %pZip, i32 noundef %file_index, ptr noundef nonnull %call7, i64 noundef %cond, i32 noundef %flags, ptr noundef null, i64 noundef 0)
   %tobool12.not = icmp eq i32 %call.i, 0
   br i1 %tobool12.not, label %if.then13, label %if.end15
 
@@ -10597,7 +10597,7 @@ return:                                           ; preds = %if.end15, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mz_zip_reader_extract_file_to_heap(ptr noundef captures(address_is_null) %pZip, ptr noundef captures(address_is_null) %pFilename, ptr noundef writeonly captures(address_is_null) %pSize, i32 noundef %flags) local_unnamed_addr #4 {
+define hidden ptr @mz_zip_reader_extract_file_to_heap(ptr noundef readonly captures(address_is_null) %pZip, ptr noundef readonly captures(address_is_null) %pFilename, ptr noundef writeonly captures(address_is_null) %pSize, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @mz_zip_reader_locate_file(ptr noundef %pZip, ptr noundef %pFilename, ptr noundef null, i32 noundef %flags)
   %cmp = icmp slt i32 %call, 0
@@ -10675,7 +10675,7 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %cmp.i, label %return, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end3.i
-  %call.i.i = tail call range(i32 0, 2) i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef nonnull %pZip, i32 noundef %call, ptr noundef nonnull %call7.i, i64 noundef %cond.i, i32 noundef %flags, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call range(i32 0, 2) i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef nonnull readonly %pZip, i32 noundef %call, ptr noundef nonnull %call7.i, i64 noundef %cond.i, i32 noundef %flags, ptr noundef null, i64 noundef 0)
   %tobool12.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool12.not.i, label %if.then13.i, label %if.end15.i
 
@@ -10699,7 +10699,7 @@ return:                                           ; preds = %if.then17.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @mz_zip_reader_extract_to_callback(ptr noundef captures(address_is_null) %pZip, i32 noundef %file_index, ptr noundef readonly captures(none) %pCallback, ptr noundef %pOpaque, i32 noundef %flags) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mz_zip_reader_extract_to_callback(ptr noundef readonly captures(address_is_null) %pZip, i32 noundef %file_index, ptr noundef readonly captures(none) %pCallback, ptr noundef %pOpaque, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
   %file_stat = alloca %struct.mz_zip_archive_file_stat, align 8
   %local_header_u32 = alloca [8 x i32], align 16
@@ -11071,7 +11071,7 @@ return:                                           ; preds = %if.then2.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_callback(ptr noundef captures(address_is_null) %pZip, ptr noundef captures(address_is_null) %pFilename, ptr noundef readonly captures(none) %pCallback, ptr noundef %pOpaque, i32 noundef %flags) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_callback(ptr noundef readonly captures(address_is_null) %pZip, ptr noundef readonly captures(address_is_null) %pFilename, ptr noundef readonly captures(none) %pCallback, ptr noundef %pOpaque, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @mz_zip_reader_locate_file(ptr noundef %pZip, ptr noundef %pFilename, ptr noundef null, i32 noundef %flags)
   %cmp = icmp slt i32 %call, 0
@@ -11087,7 +11087,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @mz_zip_reader_extract_to_file(ptr noundef captures(address_is_null) %pZip, i32 noundef %file_index, ptr noundef readonly captures(none) %pDst_filename, i32 noundef %flags) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mz_zip_reader_extract_to_file(ptr noundef readonly captures(address_is_null) %pZip, i32 noundef %file_index, ptr noundef readonly captures(none) %pDst_filename, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
   %t.i = alloca %struct.utimbuf, align 8
   %file_stat = alloca %struct.mz_zip_archive_file_stat, align 8
@@ -11132,7 +11132,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_file(ptr noundef captures(address_is_null) %pZip, ptr noundef captures(address_is_null) %pArchive_filename, ptr noundef readonly captures(none) %pDst_filename, i32 noundef %flags) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_file(ptr noundef readonly captures(address_is_null) %pZip, ptr noundef readonly captures(address_is_null) %pArchive_filename, ptr noundef readonly captures(none) %pDst_filename, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
   %t.i.i = alloca %struct.utimbuf, align 8
   %file_stat.i = alloca %struct.mz_zip_archive_file_stat, align 8
@@ -11142,7 +11142,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 584, ptr nonnull %file_stat.i)
-  %call.i = call i32 @mz_zip_reader_file_stat(ptr noundef %pZip, i32 noundef %call, ptr noundef nonnull %file_stat.i)
+  %call.i = call i32 @mz_zip_reader_file_stat(ptr noundef readonly %pZip, i32 noundef %call, ptr noundef nonnull %file_stat.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %mz_zip_reader_extract_to_file.exit, label %if.end.i
 
@@ -11152,7 +11152,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %tobool2.not.i, label %mz_zip_reader_extract_to_file.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  %call5.i = call i32 @mz_zip_reader_extract_to_callback(ptr noundef %pZip, i32 noundef %call, ptr noundef nonnull @mz_zip_file_write_callback, ptr noundef nonnull %call1.i, i32 noundef %flags)
+  %call5.i = call i32 @mz_zip_reader_extract_to_callback(ptr noundef readonly %pZip, i32 noundef %call, ptr noundef nonnull @mz_zip_file_write_callback, ptr noundef nonnull %call1.i, i32 noundef %flags)
   %call6.i = call i32 @fclose(ptr noundef nonnull %call1.i)
   %cmp.i = icmp eq i32 %call6.i, -1
   %tobool9.not.i = icmp eq i32 %call5.i, 0
@@ -11812,7 +11812,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @mz_zip_writer_add_mem_ex(ptr noundef %pZip, ptr noundef %pArchive_name, ptr noundef %pBuf, i64 noundef %buf_size, ptr noundef captures(address_is_null) %pComment, i16 noundef zeroext %comment_size, i32 noundef %level_and_flags, i64 noundef %uncomp_size, i32 noundef %uncomp_crc32) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mz_zip_writer_add_mem_ex(ptr noundef %pZip, ptr noundef %pArchive_name, ptr noundef %pBuf, i64 noundef %buf_size, ptr noundef readonly captures(address_is_null) %pComment, i16 noundef zeroext %comment_size, i32 noundef %level_and_flags, i64 noundef %uncomp_size, i32 noundef %uncomp_crc32) local_unnamed_addr #4 {
 entry:
   %in_buf_size.addr.i = alloca i64, align 8
   %dos_time = alloca i16, align 2
@@ -12735,7 +12735,7 @@ return:                                           ; preds = %if.end.i150, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @mz_zip_writer_add_file(ptr noundef %pZip, ptr noundef %pArchive_name, ptr noundef readonly captures(none) %pSrc_filename, ptr noundef captures(address_is_null) %pComment, i16 noundef zeroext %comment_size, i32 noundef %level_and_flags, i32 noundef %ext_attributes) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mz_zip_writer_add_file(ptr noundef %pZip, ptr noundef %pArchive_name, ptr noundef readonly captures(none) %pSrc_filename, ptr noundef readonly captures(address_is_null) %pComment, i16 noundef zeroext %comment_size, i32 noundef %level_and_flags, i32 noundef %ext_attributes) local_unnamed_addr #4 {
 entry:
   %in_buf_size.addr.i = alloca i64, align 8
   %file_stat.i = alloca %struct.stat, align 8
@@ -13758,7 +13758,7 @@ return:                                           ; preds = %if.end7, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @mz_zip_add_mem_to_archive_file_in_place(ptr noundef %pZip_filename, ptr noundef %pArchive_name, ptr noundef %pBuf, i64 noundef %buf_size, ptr noundef captures(address_is_null) %pComment, i16 noundef zeroext %comment_size, i32 noundef %level_and_flags) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mz_zip_add_mem_to_archive_file_in_place(ptr noundef %pZip_filename, ptr noundef %pArchive_name, ptr noundef %pBuf, i64 noundef %buf_size, ptr noundef readonly captures(address_is_null) %pComment, i16 noundef zeroext %comment_size, i32 noundef %level_and_flags) local_unnamed_addr #4 {
 entry:
   %zip_archive = alloca %struct.mz_zip_archive, align 8
   %file_stat = alloca %struct.stat, align 8
@@ -13933,7 +13933,7 @@ declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captu
 declare noundef i32 @remove(ptr noundef readonly captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mz_zip_extract_archive_file_to_heap(ptr noundef readonly captures(address_is_null) %pZip_filename, ptr noundef captures(address_is_null) %pArchive_name, ptr noundef writeonly captures(address_is_null) %pSize, i32 noundef %flags) local_unnamed_addr #4 {
+define hidden ptr @mz_zip_extract_archive_file_to_heap(ptr noundef readonly captures(address_is_null) %pZip_filename, ptr noundef readonly captures(address_is_null) %pArchive_name, ptr noundef writeonly captures(address_is_null) %pSize, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
   %zip_archive = alloca %struct.mz_zip_archive, align 8
   %tobool.not = icmp eq ptr %pSize, null
@@ -14016,7 +14016,7 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %cmp.i, label %if.end11, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end3.i
-  %call.i.i = call range(i32 0, 2) i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef nonnull %zip_archive, i32 noundef %call8, ptr noundef nonnull %call7.i, i64 noundef %cond.i, i32 noundef %flags, ptr noundef null, i64 noundef 0)
+  %call.i.i = call range(i32 0, 2) i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef nonnull readonly %zip_archive, i32 noundef %call8, ptr noundef nonnull %call7.i, i64 noundef %cond.i, i32 noundef %flags, ptr noundef null, i64 noundef 0)
   %tobool12.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool12.not.i, label %if.then13.i, label %if.end15.i
 
@@ -15296,7 +15296,7 @@ return:                                           ; preds = %if.end2, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 -17, 4294967296) i64 @zip_entry_read(ptr noundef captures(address_is_null) %zip, ptr noundef writeonly captures(none) %buf, ptr noundef writeonly captures(address_is_null) %bufsize) local_unnamed_addr #4 {
+define hidden range(i64 -17, 4294967296) i64 @zip_entry_read(ptr noundef readonly captures(address_is_null) %zip, ptr noundef writeonly captures(none) %buf, ptr noundef writeonly captures(address_is_null) %bufsize) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %zip, null
   br i1 %tobool.not, label %return, label %if.end
@@ -15390,7 +15390,7 @@ if.end3.i:                                        ; preds = %mz_zip_reader_get_c
   br i1 %cmp.i22, label %mz_zip_reader_extract_to_heap.exit.thread, label %if.end10.i23
 
 if.end10.i23:                                     ; preds = %if.end3.i
-  %call.i.i = tail call range(i32 0, 2) i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef nonnull %zip, i32 noundef %1, ptr noundef nonnull %call7.i, i64 noundef %cond.i, i32 noundef 0, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call range(i32 0, 2) i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef nonnull readonly %zip, i32 noundef %1, ptr noundef nonnull %call7.i, i64 noundef %cond.i, i32 noundef 0, ptr noundef null, i64 noundef 0)
   %tobool12.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool12.not.i, label %if.then13.i, label %mz_zip_reader_extract_to_heap.exit
 
@@ -15420,7 +15420,7 @@ return:                                           ; preds = %if.then2.i, %mz_zip
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @zip_entry_noallocread(ptr noundef captures(address_is_null) %zip, ptr noundef %buf, i64 noundef %bufsize) local_unnamed_addr #4 {
+define hidden i64 @zip_entry_noallocread(ptr noundef readonly captures(address_is_null) %zip, ptr noundef %buf, i64 noundef %bufsize) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %zip, null
   br i1 %tobool.not, label %return, label %if.end
@@ -15453,7 +15453,7 @@ return:                                           ; preds = %if.end4, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -20, 1) i32 @zip_entry_fread(ptr noundef captures(address_is_null) %zip, ptr noundef readonly captures(none) %filename) local_unnamed_addr #4 {
+define hidden range(i32 -20, 1) i32 @zip_entry_fread(ptr noundef readonly captures(address_is_null) %zip, ptr noundef readonly captures(none) %filename) local_unnamed_addr #4 {
 entry:
   %t.i.i = alloca %struct.utimbuf, align 8
   %file_stat.i = alloca %struct.mz_zip_archive_file_stat, align 8
@@ -15522,7 +15522,7 @@ mz_zip_reader_is_file_a_directory.exit:           ; preds = %if.end.i, %if.then2
 
 if.end9:                                          ; preds = %lor.lhs.false.i.i, %lor.lhs.false2.i.i, %mz_zip_reader_get_cdh.exit.i, %mz_zip_reader_is_file_a_directory.exit
   call void @llvm.lifetime.start.p0(i64 584, ptr nonnull %file_stat.i)
-  %call.i = call i32 @mz_zip_reader_file_stat(ptr noundef nonnull %zip, i32 noundef %1, ptr noundef nonnull %file_stat.i)
+  %call.i = call i32 @mz_zip_reader_file_stat(ptr noundef nonnull readonly %zip, i32 noundef %1, ptr noundef nonnull %file_stat.i)
   %tobool.not.i11 = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i11, label %mz_zip_reader_extract_to_file.exit.thread, label %if.end.i12
 
@@ -15532,7 +15532,7 @@ if.end.i12:                                       ; preds = %if.end9
   br i1 %tobool2.not.i, label %mz_zip_reader_extract_to_file.exit.thread, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i12
-  %call5.i = call i32 @mz_zip_reader_extract_to_callback(ptr noundef nonnull %zip, i32 noundef %1, ptr noundef nonnull @mz_zip_file_write_callback, ptr noundef nonnull %call1.i, i32 noundef 0)
+  %call5.i = call i32 @mz_zip_reader_extract_to_callback(ptr noundef nonnull readonly %zip, i32 noundef %1, ptr noundef nonnull @mz_zip_file_write_callback, ptr noundef nonnull %call1.i, i32 noundef 0)
   %call6.i = call i32 @fclose(ptr noundef nonnull %call1.i)
   %cmp.i13 = icmp eq i32 %call6.i, -1
   %tobool9.not.i = icmp eq i32 %call5.i, 0
@@ -15581,7 +15581,7 @@ return:                                           ; preds = %if.then2.i, %mz_zip
 declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -10, 1) i32 @zip_entry_extract(ptr noundef captures(address_is_null) %zip, ptr noundef readonly captures(none) %on_extract, ptr noundef %arg) local_unnamed_addr #4 {
+define hidden range(i32 -10, 1) i32 @zip_entry_extract(ptr noundef readonly captures(address_is_null) %zip, ptr noundef readonly captures(none) %on_extract, ptr noundef %arg) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %zip, null
   br i1 %tobool.not, label %return, label %if.end
@@ -16251,7 +16251,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -25, 1) i32 @zip_stream_extract(ptr noundef %stream, i64 noundef %size, ptr noundef readonly captures(address_is_null) %dir, ptr noundef captures(address_is_null) %on_extract, ptr noundef %arg) local_unnamed_addr #4 {
+define hidden range(i32 -25, 1) i32 @zip_stream_extract(ptr noundef %stream, i64 noundef %size, ptr noundef readonly captures(address_is_null) %dir, ptr noundef readonly captures(address_is_null) %on_extract, ptr noundef %arg) local_unnamed_addr #4 {
 entry:
   %zip_archive = alloca %struct.mz_zip_archive, align 8
   %tobool = icmp ne ptr %stream, null
@@ -16572,7 +16572,7 @@ mz_zip_reader_is_file_a_directory.exit:           ; preds = %if.end.i, %if.then2
 
 if.then71:                                        ; preds = %if.else, %lor.lhs.false2.i.i, %lor.lhs.false3.i.i, %mz_zip_reader_get_cdh.exit.i, %mz_zip_reader_is_file_a_directory.exit
   call void @llvm.lifetime.start.p0(i64 584, ptr nonnull %file_stat.i)
-  %call.i27 = call i32 @mz_zip_reader_file_stat(ptr noundef nonnull %zip_archive, i32 noundef %i.05364, ptr noundef nonnull %file_stat.i)
+  %call.i27 = call i32 @mz_zip_reader_file_stat(ptr noundef nonnull readonly %zip_archive, i32 noundef %i.05364, ptr noundef nonnull %file_stat.i)
   %tobool.not.i28 = icmp eq i32 %call.i27, 0
   br i1 %tobool.not.i28, label %mz_zip_reader_extract_to_file.exit.thread, label %if.end.i29
 
@@ -16582,7 +16582,7 @@ if.end.i29:                                       ; preds = %if.then71
   br i1 %tobool2.not.i, label %mz_zip_reader_extract_to_file.exit.thread, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i29
-  %call5.i = call i32 @mz_zip_reader_extract_to_callback(ptr noundef nonnull %zip_archive, i32 noundef %i.05364, ptr noundef nonnull @mz_zip_file_write_callback, ptr noundef nonnull %call1.i, i32 noundef 0)
+  %call5.i = call i32 @mz_zip_reader_extract_to_callback(ptr noundef nonnull readonly %zip_archive, i32 noundef %i.05364, ptr noundef nonnull @mz_zip_file_write_callback, ptr noundef nonnull %call1.i, i32 noundef 0)
   %call6.i = call i32 @fclose(ptr noundef nonnull %call1.i)
   %cmp.i30 = icmp eq i32 %call6.i, -1
   %tobool9.not.i = icmp eq i32 %call5.i, 0
@@ -17083,7 +17083,7 @@ return:                                           ; preds = %if.end23.i, %lor.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -25, 1) i32 @zip_extract(ptr noundef readonly captures(address_is_null) %zipname, ptr noundef readonly captures(address_is_null) %dir, ptr noundef captures(address_is_null) %on_extract, ptr noundef %arg) local_unnamed_addr #4 {
+define hidden range(i32 -25, 1) i32 @zip_extract(ptr noundef readonly captures(address_is_null) %zipname, ptr noundef readonly captures(address_is_null) %dir, ptr noundef readonly captures(address_is_null) %on_extract, ptr noundef %arg) local_unnamed_addr #4 {
 entry:
   %zip_archive = alloca %struct.mz_zip_archive, align 8
   %tobool = icmp ne ptr %zipname, null

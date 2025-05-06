@@ -42455,7 +42455,7 @@ _ZN7V3Error1sEv.exit:                             ; preds = %0, %3, %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK9V3Options13debugSrcLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(address) dereferenceable(1720) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZNK9V3Options13debugSrcLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1720) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #41
   call void @_ZN4V3Os17filenameNonDirExtERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -42708,7 +42708,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK9V3Options15dumpTreeAddridsEv(ptr noundef nonnull align 8 captures(address) dereferenceable(1720) %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK9V3Options15dumpTreeAddridsEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1720) %0) #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = load i32, ptr @_ZZNK9V3Options15dumpTreeAddridsEvE5level, align 4, !tbaa !170
@@ -48710,7 +48710,7 @@ define linkonce_odr dso_local void @_ZN10V3MutexImpISt5mutexE6unlockEv(ptr nound
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvPKcEZN9V3Options13parseOptsListEP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPPcE3$_0E9_M_invokeERKSt9_Any_dataOS1_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) #6 align 2 {
   %.val = load ptr, ptr %1, align 8, !tbaa !4
-  tail call void @"_ZZN9V3Options13parseOptsListEP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPPcENK3$_0clEPKc"(ptr noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %.val)
+  tail call void @"_ZZN9V3Options13parseOptsListEP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPPcENK3$_0clEPKc"(ptr noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %.val)
   ret void
 }
 
@@ -52034,7 +52034,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN9V3Options13
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvPKcEZN9V3Options13parseOptsListEP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPPcE4$_24E9_M_invokeERKSt9_Any_dataOS1_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) #6 align 2 {
   %.val = load ptr, ptr %1, align 8, !tbaa !4
-  tail call void @"_ZZN9V3Options13parseOptsListEP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPPcENK4$_24clEPKc"(ptr noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %.val)
+  tail call void @"_ZZN9V3Options13parseOptsListEP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPPcENK4$_24clEPKc"(ptr noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %.val)
   ret void
 }
 
@@ -53226,7 +53226,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcEZN9V3Options
 define internal void @"_ZNSt17_Function_handlerIFvPKcEZN9V3Options13parseOptsListEP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPPcE4$_37E9_M_invokeERKSt9_Any_dataOS1_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) #6 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !390
   %.val2 = load ptr, ptr %1, align 8, !tbaa !4
-  tail call void @"_ZZN9V3Options13parseOptsListEP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPPcENK4$_37clEPKc"(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val, ptr noundef %.val2)
+  tail call void @"_ZZN9V3Options13parseOptsListEP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPPcENK4$_37clEPKc"(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val, ptr noundef readonly %.val2)
   ret void
 }
 
@@ -53669,7 +53669,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcEZN9V3Options
 define internal void @"_ZNSt17_Function_handlerIFvPKcEZN9V3Options13parseOptsListEP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPPcE4$_39E9_M_invokeERKSt9_Any_dataOS1_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) #6 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !390
   %.val2 = load ptr, ptr %1, align 8, !tbaa !4
-  tail call void @"_ZZN9V3Options13parseOptsListEP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPPcENK4$_39clEPKc"(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val, ptr noundef %.val2)
+  tail call void @"_ZZN9V3Options13parseOptsListEP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPPcENK4$_39clEPKc"(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val, ptr noundef readonly %.val2)
   ret void
 }
 

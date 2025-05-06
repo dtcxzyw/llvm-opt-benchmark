@@ -78891,13 +78891,13 @@ _ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit: ; preds = %_ZN5clang13TypeLocR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang13TypeLocReader25VisitFunctionProtoTypeLocENS_20FunctionProtoTypeLocE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr captures(address_is_null) %1, ptr writeonly captures(none) initializes((0, 16)) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang13TypeLocReader25VisitFunctionProtoTypeLocENS_20FunctionProtoTypeLocE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readonly captures(address_is_null) %1, ptr writeonly captures(none) initializes((0, 16)) %2) local_unnamed_addr #0 align 2 {
   tail call void @_ZN5clang13TypeLocReader20VisitFunctionTypeLocENS_15FunctionTypeLocE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1, ptr %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang13TypeLocReader27VisitFunctionNoProtoTypeLocENS_22FunctionNoProtoTypeLocE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr captures(address_is_null) %1, ptr writeonly captures(none) initializes((0, 16)) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang13TypeLocReader27VisitFunctionNoProtoTypeLocENS_22FunctionNoProtoTypeLocE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readonly captures(address_is_null) %1, ptr writeonly captures(none) initializes((0, 16)) %2) local_unnamed_addr #0 align 2 {
   tail call void @_ZN5clang13TypeLocReader20VisitFunctionTypeLocENS_15FunctionTypeLocE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1, ptr %2)
   ret void
 }
@@ -85779,11 +85779,11 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 31:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang13TypeLocReader20VisitFunctionTypeLocENS_15FunctionTypeLocE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nonnull %1, ptr %2)
+  tail call void @_ZN5clang13TypeLocReader20VisitFunctionTypeLocENS_15FunctionTypeLocE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nonnull readonly %1, ptr %2)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 32:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang13TypeLocReader20VisitFunctionTypeLocENS_15FunctionTypeLocE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nonnull %1, ptr %2)
+  tail call void @_ZN5clang13TypeLocReader20VisitFunctionTypeLocENS_15FunctionTypeLocE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nonnull readonly %1, ptr %2)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 33:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit

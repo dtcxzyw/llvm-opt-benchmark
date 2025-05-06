@@ -1238,7 +1238,7 @@ declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #6
 declare void @VacuumUpdateCosts() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @vacuum_rel(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @vacuum_rel(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.LockRelId, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

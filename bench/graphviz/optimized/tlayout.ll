@@ -855,7 +855,7 @@ applyAttr.exit.i:                                 ; preds = %398, %392
 
 ._crit_edge53.i:                                  ; preds = %._crit_edge48.i, %._crit_edge.i41
   tail call void @walkGrid(ptr noundef %314, ptr noundef nonnull @gridRepulse) #7
-  tail call fastcc void @updatePos(ptr noundef %0, double noundef %325, ptr noundef %7)
+  tail call fastcc void @updatePos(ptr noundef %0, double noundef %325, ptr noundef readnone %7)
   %.pre = load double, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 56), align 8, !tbaa !30
   %.pre111 = load i32, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 20), align 4, !tbaa !26
   %.pre113 = load i32, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 100), align 4, !tbaa !66
@@ -1165,7 +1165,7 @@ applyAttr.exit.i55:                               ; preds = %578, %572
   br i1 %.not39.i57, label %._crit_edge68.i, label %.lr.ph67.i, !llvm.loop !115
 
 ._crit_edge68.i:                                  ; preds = %._crit_edge63.i, %._crit_edge.i45
-  tail call fastcc void @updatePos(ptr noundef %0, double noundef %438, ptr noundef %7)
+  tail call fastcc void @updatePos(ptr noundef %0, double noundef %438, ptr noundef readnone %7)
   %.pre114 = load double, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 56), align 8, !tbaa !30
   %.pre116 = load i32, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 20), align 4, !tbaa !26
   %.pre118 = load i32, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 100), align 4, !tbaa !66

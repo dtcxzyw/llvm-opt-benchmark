@@ -1642,7 +1642,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Bac_PtrTransformBoxes(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Bac_PtrTransformBoxes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 4
   %.val10 = load i32, ptr %3, align 4, !tbaa !15
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
@@ -1749,7 +1749,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Bac_PtrTransformNtk(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Bac_PtrTransformNtk(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val18 = load ptr, ptr %3, align 8, !tbaa !3
   %4 = load ptr, ptr %.val18, align 8, !tbaa !9

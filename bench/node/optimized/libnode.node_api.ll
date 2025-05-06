@@ -816,21 +816,21 @@ return:                                           ; preds = %if.else3, %entry, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL30node_api_context_register_funcILi9EEvN2v85LocalINS0_6ObjectEEENS1_INS0_5ValueEEENS1_INS0_7ContextEEEPv(ptr %exports.coerce, ptr %module.coerce, ptr %context.coerce, ptr noundef captures(address_is_null) %priv) #3 {
+define internal void @_ZL30node_api_context_register_funcILi9EEvN2v85LocalINS0_6ObjectEEENS1_INS0_5ValueEEENS1_INS0_7ContextEEEPv(ptr %exports.coerce, ptr %module.coerce, ptr %context.coerce, ptr noundef readonly captures(address_is_null) %priv) #3 {
 entry:
   tail call void @_Z30napi_module_register_by_symbolN2v85LocalINS_6ObjectEEENS0_INS_5ValueEEENS0_INS_7ContextEEEPFP12napi_value__P10napi_env__S8_Ei(ptr %exports.coerce, ptr %module.coerce, ptr %context.coerce, ptr noundef %priv, i32 noundef 9)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL30node_api_context_register_funcILi2147483647EEvN2v85LocalINS0_6ObjectEEENS1_INS0_5ValueEEENS1_INS0_7ContextEEEPv(ptr %exports.coerce, ptr %module.coerce, ptr %context.coerce, ptr noundef captures(address_is_null) %priv) #3 {
+define internal void @_ZL30node_api_context_register_funcILi2147483647EEvN2v85LocalINS0_6ObjectEEENS1_INS0_5ValueEEENS1_INS0_7ContextEEEPv(ptr %exports.coerce, ptr %module.coerce, ptr %context.coerce, ptr noundef readonly captures(address_is_null) %priv) #3 {
 entry:
   tail call void @_Z30napi_module_register_by_symbolN2v85LocalINS_6ObjectEEENS0_INS_5ValueEEENS0_INS_7ContextEEEPFP12napi_value__P10napi_env__S8_Ei(ptr %exports.coerce, ptr %module.coerce, ptr %context.coerce, ptr noundef %priv, i32 noundef 2147483647)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL30node_api_context_register_funcILi8EEvN2v85LocalINS0_6ObjectEEENS1_INS0_5ValueEEENS1_INS0_7ContextEEEPv(ptr %exports.coerce, ptr %module.coerce, ptr %context.coerce, ptr noundef captures(address_is_null) %priv) #3 {
+define internal void @_ZL30node_api_context_register_funcILi8EEvN2v85LocalINS0_6ObjectEEENS1_INS0_5ValueEEENS1_INS0_7ContextEEEPv(ptr %exports.coerce, ptr %module.coerce, ptr %context.coerce, ptr noundef readonly captures(address_is_null) %priv) #3 {
 entry:
   tail call void @_Z30napi_module_register_by_symbolN2v85LocalINS_6ObjectEEENS0_INS_5ValueEEENS0_INS_7ContextEEEPFP12napi_value__P10napi_env__S8_Ei(ptr %exports.coerce, ptr %module.coerce, ptr %context.coerce, ptr noundef %priv, i32 noundef 8)
   ret void

@@ -1874,7 +1874,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.i74.i.i: ; preds = %.outer.i.i.i72.i.i
   %.val.i.i.i = load i64, ptr %252, align 8
-  %297 = call fastcc noundef i32 @_ZN4absl18debugging_internalL10FindSymbolEPKvPNS0_12_GLOBAL__N_111CachingFileEPcmlPK10Elf64_ShdrS9_S9_S6_m(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %71, i64 noundef %.046.i.i, i64 %.val.i.i.i, ptr noundef %4, ptr noundef nonnull %246)
+  %297 = call fastcc noundef i32 @_ZN4absl18debugging_internalL10FindSymbolEPKvPNS0_12_GLOBAL__N_111CachingFileEPcmlPK10Elf64_ShdrS9_S9_S6_m(ptr noundef readnone %0, ptr noundef %6, ptr noundef nonnull %71, i64 noundef %.046.i.i, i64 %.val.i.i.i, ptr noundef %4, ptr noundef nonnull %246)
   %.not32.i.i.i = icmp eq i32 %297, 1
   br i1 %.not32.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread.i60.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.i.i
 

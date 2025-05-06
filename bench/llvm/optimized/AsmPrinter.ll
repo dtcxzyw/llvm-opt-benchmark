@@ -22026,7 +22026,7 @@ _ZNSt17_Temporary_bufferIPN4llvm10AsmPrinter8StructorES2_EC2ES3_l.exit.i.i.i: ; 
 declare noundef zeroext i1 @_ZNK4llvm8Constant11isNullValueEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10AsmPrinter18emitXXStructorListERKNS_10DataLayoutEPKNS_8ConstantEb(ptr noundef nonnull align 8 dereferenceable(777) %0, ptr noundef nonnull align 8 dereferenceable(496) %1, ptr noundef captures(address) %2, i1 noundef zeroext %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm10AsmPrinter18emitXXStructorListERKNS_10DataLayoutEPKNS_8ConstantEb(ptr noundef nonnull align 8 dereferenceable(777) %0, ptr noundef nonnull align 8 dereferenceable(496) %1, ptr noundef readonly captures(address) %2, i1 noundef zeroext %3) unnamed_addr #1 align 2 {
   %5 = alloca %"struct.llvm::AsmPrinter::Structor", align 8
   %6 = alloca %"class.llvm::SmallVector.1267", align 8
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #34

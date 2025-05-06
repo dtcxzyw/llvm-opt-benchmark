@@ -569,7 +569,7 @@ define dso_local noundef ptr @sema_find_extension_method_in_list(ptr noundef rea
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @sema_resolve_method_in_module(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5) local_unnamed_addr #4 {
+define dso_local ptr @sema_resolve_method_in_module(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5) local_unnamed_addr #4 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i16, ptr %7, align 8
   %9 = and i16 %8, 8
@@ -766,7 +766,7 @@ define dso_local ptr @sema_resolve_method(ptr noundef %0, ptr noundef readonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sema_resolve_type_method(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define dso_local ptr @sema_resolve_type_method(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %1, align 8

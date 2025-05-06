@@ -2452,7 +2452,7 @@ _ZNK2OT8GSUBGPOS17find_script_indexEjPj.exit.thread: ; preds = %_ZNK2OT8GSUBGPOS
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 2) i32 @hb_ot_layout_table_choose_script(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @hb_ot_layout_table_choose_script(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %wcslen = tail call i64 @wcslen(ptr %2)
   %6 = trunc i64 %wcslen to i32
   %7 = tail call i32 @hb_ot_layout_table_select_script(ptr noundef %0, i32 noundef %1, i32 noundef %6, ptr noundef %2, ptr noundef %3, ptr noundef %4)
@@ -3399,7 +3399,7 @@ _ZNK2OT6Script17get_lang_sys_tagsEjPjS1_.exit:    ; preds = %_ZN9hb_iter_tI10hb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 2) i32 @hb_ot_layout_script_find_language(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @hb_ot_layout_script_find_language(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   store i32 %3, ptr %6, align 4
   %7 = call range(i32 0, 2) i32 @hb_ot_layout_script_select_language2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 1, ptr noundef nonnull readonly %6, ptr noundef %4, ptr noundef null)
@@ -3407,7 +3407,7 @@ define hidden range(i32 0, 2) i32 @hb_ot_layout_script_find_language(ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 2) i32 @hb_ot_layout_script_select_language(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @hb_ot_layout_script_select_language(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = tail call i32 @hb_ot_layout_script_select_language2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef null)
   ret i32 %7
 }
@@ -3774,7 +3774,7 @@ _ZNK2OT6Script19find_lang_sys_indexEjPj.exit47.thread: ; preds = %_ZNK17hb_sorte
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 2) i32 @hb_ot_layout_language_get_required_feature_index(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @hb_ot_layout_language_get_required_feature_index(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = tail call i32 @hb_ot_layout_language_get_required_feature(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef null)
   ret i32 %6
 }
@@ -4952,7 +4952,7 @@ _ZNK2OT8GSUBGPOS16get_lookup_countEv.exit:        ; preds = %_ZL18get_gsubgpos_t
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_ot_layout_collect_features(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @hb_ot_layout_collect_features(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca %struct.hb_collect_features_context_t, align 8
   call void @_ZN29hb_collect_features_context_tC2EP9hb_face_tjP8hb_set_tPKj(ptr noundef nonnull align 8 dereferenceable(252) %7, ptr noundef %0, i32 noundef %1, ptr noundef %5, ptr noundef %4)
   %.not = icmp eq ptr %2, null
@@ -5928,7 +5928,7 @@ _ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit:       ; preds = %_ZL9hb_memsetPvij.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_ot_layout_collect_lookups(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @hb_ot_layout_collect_lookups(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.hb_bit_set_invertible_t::iter_t", align 8
   %8 = alloca %"struct.hb_bit_set_invertible_t::iter_t", align 8
   %9 = alloca %struct.hb_set_t, align 8

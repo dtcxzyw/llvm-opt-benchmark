@@ -3814,13 +3814,13 @@ declare noundef ptr @_ZN7datalog16relation_manager11mk_widen_fnERKNS_13relation_
 declare noundef ptr @_ZN7datalog16relation_manager11mk_union_fnERKNS_13relation_baseES3_PS2_(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(28), ptr noundef nonnull align 8 dereferenceable(28), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog23product_relation_plugin11mk_union_fnERKNS_13relation_baseES3_PS2_(ptr noundef nonnull align 8 captures(address) dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef %3) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN7datalog23product_relation_plugin11mk_union_fnERKNS_13relation_baseES3_PS2_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef %3) unnamed_addr #3 align 2 {
   %5 = tail call noundef ptr @_ZN7datalog23product_relation_plugin13mk_union_w_fnERKNS_13relation_baseES3_PS2_b(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef %3, i1 noundef zeroext false)
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog23product_relation_plugin11mk_widen_fnERKNS_13relation_baseES3_PS2_(ptr noundef nonnull align 8 captures(address) dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef %3) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN7datalog23product_relation_plugin11mk_widen_fnERKNS_13relation_baseES3_PS2_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef %3) unnamed_addr #3 align 2 {
   %5 = tail call noundef ptr @_ZN7datalog23product_relation_plugin13mk_union_w_fnERKNS_13relation_baseES3_PS2_b(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef %3, i1 noundef zeroext true)
   ret ptr %5
 }

@@ -43889,7 +43889,7 @@ declare noundef zeroext i1 @_ZN6duckdb14GZipFileSystem10CheckIsZipEPKcm(ptr noun
 declare void @_ZN6duckdb14GZipFileSystem20UncompressGZIPStringB5cxx11EPKcm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL31CheckExtensionMetadataOnInstallERNS_16DatabaseInstanceEPvmRNS_20ExtensionInstallInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1912) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL31CheckExtensionMetadataOnInstallERNS_16DatabaseInstanceEPvmRNS_20ExtensionInstallInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1912) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8

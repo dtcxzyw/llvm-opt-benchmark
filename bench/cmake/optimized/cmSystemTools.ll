@@ -5146,7 +5146,7 @@ _ZNSt6vectorIN23cmUVProcessChainBuilder20ProcessConfigurationESaIS1_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN13cmSystemTools16RunSingleCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S8_PiPKcNS_12OutputOptionENSt6chrono8durationIdSt5ratioILl1ELl1EEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5, double %6) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN13cmSystemTools16RunSingleCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S8_PiPKcNS_12OutputOptionENSt6chrono8durationIdSt5ratioILl1ELl1EEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, double %6) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::vector", align 8
   %9 = load i8, ptr @_ZN13cmSystemTools25s_DisableRunCommandOutputE, align 1, !tbaa !53, !range !150, !noundef !151
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #37
@@ -6547,7 +6547,7 @@ define dso_local void @_ZN13cmSystemTools15InitializeLibUVEv() local_unnamed_add
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @_ZN13cmSystemTools17MakeTempDirectoryERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #3 align 2 {
+define dso_local i64 @_ZN13cmSystemTools17MakeTempDirectoryERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !25
   %5 = icmp eq i64 %4, 0
@@ -23524,7 +23524,7 @@ define dso_local noundef zeroext i1 @_ZN13cmSystemTools23GuessLibraryInstallName
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN13cmSystemTools11ChangeRPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_bPS5_Pb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN13cmSystemTools11ChangeRPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_bPS5_Pb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca %class.anon.134, align 8
@@ -23849,7 +23849,7 @@ _ZL16ChangeRPathXCOFFRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN13cmSystemTools8SetRPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_PS5_Pb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN13cmSystemTools8SetRPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_PS5_Pb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca %class.anon.151, align 8
@@ -28295,7 +28295,7 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 declare noundef zeroext i1 @_ZNK5cmELF5ValidEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc i16 @_ZN12_GLOBAL__N_114AdjustRPathELFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8functionIFbPS5_RK5cmELFEERKS8_IFbRSt8optionalIS5_ES7_PKcS9_EES9_Pb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc i16 @_ZN12_GLOBAL__N_114AdjustRPathELFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8functionIFbPS5_RK5cmELFEERKS8_IFbRSt8optionalIS5_ES7_PKcS9_EES9_Pb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca i8, align 1
   %7 = alloca [3 x %"struct.std::pair.107"], align 8
   %8 = alloca ptr, align 8

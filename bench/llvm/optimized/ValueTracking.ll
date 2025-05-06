@@ -72452,7 +72452,7 @@ declare noundef i32 @_ZNK4llvm8CallBase34getNumSubclassExtraOperandsDynamicEv(pt
 declare { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal fastcc void @_ZL21getInvertibleOperandsPKN4llvm8OperatorES2_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((16, 17)) %0, ptr noundef captures(address) %1, ptr noundef %2) unnamed_addr #18 {
+define internal fastcc void @_ZL21getInvertibleOperandsPKN4llvm8OperatorES2_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((16, 17)) %0, ptr noundef readonly captures(address) %1, ptr noundef %2) unnamed_addr #18 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8

@@ -4840,7 +4840,7 @@ bugReportStart.exit:                              ; preds = %1, %6
   %.val42 = load ptr, ptr %38, align 8, !tbaa !179
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 1024
   store i32 0, ptr %39, align 8, !tbaa !180
-  call fastcc void @cmdTokenCollect(ptr noundef nonnull %3, ptr noundef %.val42, i32 noundef %.val)
+  call fastcc void @cmdTokenCollect(ptr noundef nonnull %3, ptr noundef readonly %.val42, i32 noundef %.val)
   br label %40
 
 40:                                               ; preds = %30, %36, %.thread46
@@ -5746,7 +5746,7 @@ define dso_local void @logCurrentClient(ptr noundef %0, ptr noundef %1) local_un
   %.val56 = load ptr, ptr %31, align 8, !tbaa !179
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 1024
   store i32 0, ptr %32, align 8, !tbaa !180
-  call fastcc void @cmdTokenCollect(ptr noundef nonnull %3, ptr noundef %.val56, i32 noundef %.val)
+  call fastcc void @cmdTokenCollect(ptr noundef nonnull %3, ptr noundef readonly %.val56, i32 noundef %.val)
   br label %33
 
 33:                                               ; preds = %23, %29, %21

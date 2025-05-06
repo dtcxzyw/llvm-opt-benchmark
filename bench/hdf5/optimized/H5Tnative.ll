@@ -342,7 +342,7 @@ declare i32 @H5E_clear_stack() local_unnamed_addr #3
 declare ptr @H5I_object_verify(i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @H5T__get_native_type(ptr noundef nonnull %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #0 {
+define internal fastcc ptr @H5T__get_native_type(ptr noundef nonnull %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -1227,7 +1227,6 @@ H5T__get_native_bitfield.exit:                    ; preds = %221, %214, %143
 
 502:                                              ; preds = %35
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
-  store i64 0, ptr %8, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
   store i64 0, ptr %9, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #9
@@ -1417,7 +1416,6 @@ H5T__get_native_bitfield.exit:                    ; preds = %221, %214, %143
 
 606:                                              ; preds = %35
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #9
-  store i64 0, ptr %12, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #9
   store i64 0, ptr %13, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #9

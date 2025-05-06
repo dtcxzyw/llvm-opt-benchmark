@@ -3725,7 +3725,7 @@ _ZNK6icu_7713UnicodeStringneERKS0_.exit.thread:   ; preds = %14, %18, %_ZNK6icu_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7714TimeZoneFormat6formatE20UTimeZoneFormatStyleRKNS_8TimeZoneEdRNS_13UnicodeStringEP23UTimeZoneFormatTimeType(ptr noundef nonnull align 8 dereferenceable(1024) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %2, double noundef %3, ptr noundef nonnull returned align 8 dereferenceable(64) %4, ptr noundef captures(address_is_null) %5) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7714TimeZoneFormat6formatE20UTimeZoneFormatStyleRKNS_8TimeZoneEdRNS_13UnicodeStringEP23UTimeZoneFormatTimeType(ptr noundef nonnull align 8 dereferenceable(1024) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %2, double noundef %3, ptr noundef nonnull returned align 8 dereferenceable(64) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4

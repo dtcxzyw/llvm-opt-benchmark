@@ -352,7 +352,7 @@ define i32 @EVP_MAC_update(ptr noundef readonly captures(none) %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_MAC_final(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
+define i32 @EVP_MAC_final(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @evp_mac_final(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, i64 noundef %3)
   ret i32 %5
 }
@@ -522,7 +522,7 @@ EVP_MAC_CTX_set_params.exit.thread:               ; preds = %50, %EVP_MAC_CTX_se
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_MAC_finalXOF(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define i32 @EVP_MAC_finalXOF(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @evp_mac_final(ptr noundef %0, i32 noundef 1, ptr noundef %1, ptr noundef null, i64 noundef %2)
   ret i32 %4
 }
@@ -759,7 +759,7 @@ EVP_MAC_init.exit:                                ; preds = %EVP_MAC_CTX_set_par
   br i1 %.not65, label %.thread82, label %55
 
 55:                                               ; preds = %49
-  %56 = call fastcc i32 @evp_mac_final(ptr noundef nonnull %31, i32 noundef 0, ptr noundef %9, ptr noundef nonnull %14, i64 noundef %10)
+  %56 = call fastcc i32 @evp_mac_final(ptr noundef nonnull readonly %31, i32 noundef 0, ptr noundef %9, ptr noundef nonnull %14, i64 noundef %10)
   %.not66 = icmp eq i32 %56, 0
   br i1 %.not66, label %.thread82, label %57
 
@@ -774,7 +774,7 @@ EVP_MAC_init.exit:                                ; preds = %EVP_MAC_CTX_set_par
   br i1 %.not67, label %.thread82, label %62
 
 62:                                               ; preds = %59
-  %63 = call fastcc i32 @evp_mac_final(ptr noundef nonnull %31, i32 noundef 0, ptr noundef nonnull %61, ptr noundef null, i64 noundef %60)
+  %63 = call fastcc i32 @evp_mac_final(ptr noundef nonnull readonly %31, i32 noundef 0, ptr noundef nonnull %61, ptr noundef null, i64 noundef %60)
   %.not68 = icmp eq i32 %63, 0
   br i1 %.not68, label %64, label %65
 

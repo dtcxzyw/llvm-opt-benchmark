@@ -1398,7 +1398,7 @@ define internal range(i32 -176, 80) i32 @def_to_int(ptr readnone captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @def_load(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) #1 {
+define internal range(i32 0, 2) i32 @def_load(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) #1 {
   %4 = tail call ptr @BIO_new_file(ptr noundef %1, ptr noundef nonnull @.str.24) #15
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %13

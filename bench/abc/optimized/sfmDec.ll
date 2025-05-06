@@ -6581,7 +6581,7 @@ define void @Abc_NtkUpdateIncLevel_rec(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NtkDfsCheck_rec(ptr noundef readonly captures(address) %0, ptr noundef captures(address) %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Abc_NtkDfsCheck_rec(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.critedge, label %4
 

@@ -10732,7 +10732,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9InventoryC2ERKS_(ptr noundef nonnull align 8 captures(address) dereferenceable(33) initializes((0, 24), (32, 33)) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(33) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9InventoryC2ERKS_(ptr noundef nonnull align 8 captures(address) dereferenceable(33) initializes((0, 24), (32, 33)) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(33) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %m_dirty = getelementptr inbounds nuw i8, ptr %this, i64 32

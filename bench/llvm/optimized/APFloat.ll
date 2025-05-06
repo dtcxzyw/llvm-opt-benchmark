@@ -14285,7 +14285,7 @@ define dso_local void @_ZN4llvm6detail9IEEEFloat12makeSmallestEb(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6detail9IEEEFloatC2ERKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8), (16, 20)) %0, ptr noundef nonnull align 4 captures(address) dereferenceable(26) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm6detail9IEEEFloatC2ERKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8), (16, 20)) %0, ptr noundef nonnull readnone align 4 captures(address) dereferenceable(26) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) unnamed_addr #3 align 2 {
   tail call void @_ZN4llvm6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(12) %2)
   ret void
 }

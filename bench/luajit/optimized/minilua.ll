@@ -23246,7 +23246,7 @@ define internal fastcc range(i32 -1, 256) i32 @luaZ_fill(ptr noundef captures(no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @llex(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc i32 @llex(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8

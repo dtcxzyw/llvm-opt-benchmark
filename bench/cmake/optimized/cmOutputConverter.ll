@@ -599,7 +599,7 @@ define dso_local void @_ZNK17cmOutputConverter26ConvertToOutputForExistingERKNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK17cmOutputConverter21ConvertToOutputFormatB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEENS_12OutputFormatEb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(108) %1, i64 %2, ptr captures(address_is_null) %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK17cmOutputConverter21ConvertToOutputFormatB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEENS_12OutputFormatEb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(108) %1, i64 %2, ptr readonly captures(address_is_null) %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1190,7 +1190,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK17cmOutputConverter14EscapeForShellB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEbbbbb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(108) %1, i64 %2, ptr captures(address) %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZNK17cmOutputConverter14EscapeForShellB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEbbbbb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(108) %1, i64 %2, ptr readonly captures(address) %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8) local_unnamed_addr #5 align 2 {
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = tail call noundef ptr @_ZNK15cmStateSnapshot8GetStateEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
   %12 = tail call noundef zeroext i1 @_ZNK7cmState15UseWindowsVSIDEEv(ptr noundef nonnull align 8 dereferenceable(705) %11)
@@ -1248,7 +1248,7 @@ declare noundef zeroext i1 @_ZNK7cmState8UseNMakeEv(ptr noundef nonnull align 8 
 declare noundef zeroext i1 @_ZNK7cmState8UseNinjaEv(ptr noundef nonnull align 8 dereferenceable(705)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17cmOutputConverter14EscapeForShellB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEi(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 %1, ptr captures(address) %2, i32 noundef %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17cmOutputConverter14EscapeForShellB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEi(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 %1, ptr readonly captures(address) %2, i32 noundef %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca [12 x %"class.std::basic_string_view"], align 8
   %7 = alloca %"struct.std::less", align 1
@@ -1415,7 +1415,7 @@ _ZL32cmOutputConverterIsShellOperatorSt17basic_string_viewIcSt11char_traitsIcEE.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17cmOutputConverter17Shell_GetArgumentB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEi(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 %1, ptr captures(address) %2, i32 noundef %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17cmOutputConverter17Shell_GetArgumentB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEi(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 %1, ptr readonly captures(address) %2, i32 noundef %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2631,7 +2631,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17cmOutputConverter26EscapeWindowsShellArgumentB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEi(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 %1, ptr captures(address) %2, i32 noundef %3) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN17cmOutputConverter26EscapeWindowsShellArgumentB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEi(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 %1, ptr readonly captures(address) %2, i32 noundef %3) local_unnamed_addr #5 align 2 {
   tail call void @_ZN17cmOutputConverter17Shell_GetArgumentB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEi(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 %1, ptr %2, i32 noundef %3)
   ret void
 }

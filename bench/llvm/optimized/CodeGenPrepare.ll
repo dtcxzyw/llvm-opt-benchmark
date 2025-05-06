@@ -60861,7 +60861,7 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit:      ; preds = %74, %81
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #27, !noalias !1678
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %109 = load ptr, ptr %108, align 8, !tbaa !1673, !noalias !1678
-  call fastcc void @_ZL14getIVIncrementPKN4llvm7PHINodeEPKNS_8LoopInfoE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %1, ptr noundef %109), !noalias !1678
+  call fastcc void @_ZL14getIVIncrementPKN4llvm7PHINodeEPKNS_8LoopInfoE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef readonly %1, ptr noundef %109), !noalias !1678
   %110 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %111 = load i8, ptr %110, align 8, !tbaa !976, !range !50, !noalias !1678, !noundef !51
   %112 = trunc nuw i8 %111 to i1

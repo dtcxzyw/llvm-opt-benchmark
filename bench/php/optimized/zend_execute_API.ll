@@ -4570,7 +4570,7 @@ declare void @_zend_bailout(ptr noundef, i32 noundef) local_unnamed_addr #11
 declare void @zend_destroy_static_vars(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @zend_eval_string(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @zend_eval_string(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
   %5 = tail call i32 @zend_eval_stringl(ptr noundef nonnull %0, i64 noundef %4, ptr noundef %1, ptr noundef %2)
   ret i32 %5
@@ -4580,7 +4580,7 @@ define dso_local range(i32 -1, 1) i32 @zend_eval_string(ptr noundef %0, ptr noun
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @zend_eval_stringl_ex(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local i32 @zend_eval_stringl_ex(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = tail call i32 @zend_eval_stringl(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3)
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8
   %8 = icmp ne ptr %7, null
@@ -4599,7 +4599,7 @@ define dso_local i32 @zend_eval_stringl_ex(ptr noundef %0, i64 noundef %1, ptr n
 declare i32 @zend_exception_error(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @zend_eval_string_ex(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local i32 @zend_eval_string_ex(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
   %6 = tail call i32 @zend_eval_stringl(ptr noundef nonnull %0, i64 noundef %5, ptr noundef %1, ptr noundef %2)
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8

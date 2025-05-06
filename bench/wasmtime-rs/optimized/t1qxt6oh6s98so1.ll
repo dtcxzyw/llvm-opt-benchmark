@@ -32016,7 +32016,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   %.val16.i.i = load i32, ptr %.sroa.0.07.i.i, align 4, !range !484, !noalias !8410, !noundef !4
   %107 = getelementptr i8, ptr %.sroa.0.07.i.i, i64 4
   %.val17.i.i = load i32, ptr %107, align 4, !noalias !8410
-  invoke fastcc void @"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$5trace17h406f08a97ae750bfE"(i32 %.val16.i.i, i32 %.val17.i.i, ptr nonnull %14)
+  invoke fastcc void @"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$5trace17h406f08a97ae750bfE"(i32 %.val16.i.i, i32 %.val17.i.i, ptr nonnull readonly %14)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i.i
@@ -32029,7 +32029,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   %.val.i.i = load i32, ptr %.sroa.01.08.i.i, align 4, !range !484, !noalias !8410, !noundef !4
   %110 = getelementptr i8, ptr %.sroa.01.08.i.i, i64 4
   %.val14.i.i = load i32, ptr %110, align 4, !noalias !8410
-  invoke fastcc void @"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$5trace17h406f08a97ae750bfE"(i32 %.val.i.i, i32 %.val14.i.i, ptr nonnull %14)
+  invoke fastcc void @"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$5trace17h406f08a97ae750bfE"(i32 %.val.i.i, i32 %.val14.i.i, ptr nonnull readonly %14)
           to label %.noexc49 unwind label %.loopexit
 
 .noexc49:                                         ; preds = %.lr.ph10.i.i

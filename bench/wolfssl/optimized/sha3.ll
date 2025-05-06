@@ -26,7 +26,7 @@ wc_InitSha3.exit:                                 ; preds = %3, %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha3_224_Update(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha3_224_Update(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call fastcc i32 @wc_Sha3Update(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext 18)
   ret i32 %4
 }
@@ -337,7 +337,7 @@ wc_InitSha3.exit:                                 ; preds = %3, %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha3_256_Update(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha3_256_Update(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call fastcc i32 @wc_Sha3Update(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext 17)
   ret i32 %4
 }
@@ -504,7 +504,7 @@ wc_InitSha3.exit:                                 ; preds = %3, %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha3_384_Update(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha3_384_Update(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call fastcc i32 @wc_Sha3Update(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext 13)
   ret i32 %4
 }
@@ -671,7 +671,7 @@ wc_InitSha3.exit:                                 ; preds = %3, %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha3_512_Update(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha3_512_Update(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call fastcc i32 @wc_Sha3Update(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext 9)
   ret i32 %4
 }

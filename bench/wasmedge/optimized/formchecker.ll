@@ -9901,7 +9901,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
 
 3882:                                             ; preds = %3873
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !248
-  call void @_ZN8WasmEdge9Validator11FormChecker9pushTypesEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %349, i64 1), !noalias !248
+  call void @_ZN8WasmEdge9Validator11FormChecker9pushTypesEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull readonly %349, i64 1), !noalias !248
   store i64 1, ptr %0, align 4, !alias.scope !248
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1266
 
@@ -9959,7 +9959,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
 
 3906:                                             ; preds = %3897
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !257
-  call void @_ZN8WasmEdge9Validator11FormChecker9pushTypesEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %351, i64 1), !noalias !257
+  call void @_ZN8WasmEdge9Validator11FormChecker9pushTypesEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull readonly %351, i64 1), !noalias !257
   store i64 1, ptr %0, align 4, !alias.scope !257
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1266
 
@@ -10823,7 +10823,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
 
 4297:                                             ; preds = %4288
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !266
-  call void @_ZN8WasmEdge9Validator11FormChecker9pushTypesEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %416, i64 1), !noalias !266
+  call void @_ZN8WasmEdge9Validator11FormChecker9pushTypesEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull readonly %416, i64 1), !noalias !266
   store i64 1, ptr %0, align 4, !alias.scope !266
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1266
 
@@ -10881,7 +10881,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
 
 4321:                                             ; preds = %4312
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !275
-  call void @_ZN8WasmEdge9Validator11FormChecker9pushTypesEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %418, i64 1), !noalias !275
+  call void @_ZN8WasmEdge9Validator11FormChecker9pushTypesEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull readonly %418, i64 1), !noalias !275
   store i64 1, ptr %0, align 4, !alias.scope !275
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1266
 
@@ -10995,7 +10995,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
 
 4371:                                             ; preds = %4362
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !284
-  call void @_ZN8WasmEdge9Validator11FormChecker9pushTypesEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %424, i64 1), !noalias !284
+  call void @_ZN8WasmEdge9Validator11FormChecker9pushTypesEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull readonly %424, i64 1), !noalias !284
   store i64 1, ptr %0, align 4, !alias.scope !284
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1266
 
@@ -14831,7 +14831,7 @@ _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit: ; preds = %19, %22
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected") align 4 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(360) %1, ptr readonly captures(address) %2, i64 %3, ptr captures(address) %4, i64 %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected") align 4 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(360) %1, ptr readonly captures(address) %2, i64 %3, ptr readonly captures(address) %4, i64 %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.cxx20::expected.119", align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %8 = getelementptr inbounds %"class.WasmEdge::ValType", ptr %2, i64 %3
@@ -15350,7 +15350,7 @@ define void @_ZN8WasmEdge9Validator11FormChecker11StackPopAnyEv(ptr dead_on_unwi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable writeonly align 4 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef range(i32 8, 129) %2, ptr captures(address) %3, i64 %4, ptr captures(address) %.0.val, i64 %.8.val, i1 noundef zeroext %5) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable writeonly align 4 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef range(i32 8, 129) %2, ptr readonly captures(address) %3, i64 %4, ptr readonly captures(address) %.0.val, i64 %.8.val, i1 noundef zeroext %5) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.cxx20::expected.119", align 4
   %8 = alloca %"struct.spdlog::source_loc", align 8
   %9 = alloca %"struct.spdlog::source_loc", align 8
@@ -15558,7 +15558,7 @@ _ZN8WasmEdge7ErrInfo12InfoMismatchD2Ev.exit:      ; preds = %_ZNSt6vectorIN8Wasm
 
 100:                                              ; preds = %91
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !363
-  tail call void @_ZN8WasmEdge9Validator11FormChecker9pushTypesEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(360) %16, ptr %.0.val, i64 %.8.val), !noalias !363
+  tail call void @_ZN8WasmEdge9Validator11FormChecker9pushTypesEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(360) %16, ptr readonly %.0.val, i64 %.8.val), !noalias !363
   store i64 1, ptr %0, align 4, !alias.scope !363
   br label %_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_.exit
 
@@ -15567,7 +15567,7 @@ _ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm1844
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_8clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable writeonly align 4 captures(none) %0, ptr captures(none) %.0.val, i32 %.8.val.0.val, ptr readonly captures(address) %1, i64 %2, ptr captures(address) %3, i64 %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_8clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable writeonly align 4 captures(none) %0, ptr captures(none) %.0.val, i32 %.8.val.0.val, ptr readonly captures(address) %1, i64 %2, ptr readonly captures(address) %3, i64 %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cxx20::expected.119", align 4
   %7 = alloca %"struct.spdlog::source_loc", align 8
   %8 = alloca %"struct.spdlog::source_loc", align 8
@@ -15633,7 +15633,7 @@ define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrER
 
 31:                                               ; preds = %22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !378
-  tail call void @_ZN8WasmEdge9Validator11FormChecker9pushTypesEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(360) %.0.val, ptr %3, i64 %4), !noalias !378
+  tail call void @_ZN8WasmEdge9Validator11FormChecker9pushTypesEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(360) %.0.val, ptr readonly %3, i64 %4), !noalias !378
   store i64 1, ptr %0, align 4, !alias.scope !378
   br label %_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_.exit
 
@@ -15642,7 +15642,7 @@ _ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm1844
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable writeonly align 4 captures(none) %0, ptr captures(none) %.0.val, i8 %.8.val.12.val, i32 noundef range(i32 1, 17) %1, ptr readonly captures(address) %2, i64 %3, ptr captures(address) %.0.val1, i64 %.8.val3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable writeonly align 4 captures(none) %0, ptr captures(none) %.0.val, i8 %.8.val.12.val, i32 noundef range(i32 1, 17) %1, ptr readonly captures(address) %2, i64 %3, ptr readonly captures(address) %.0.val1, i64 %.8.val3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cxx20::expected.119", align 4
   %6 = alloca %"struct.spdlog::source_loc", align 8
   %7 = alloca %"struct.spdlog::source_loc", align 8
@@ -15707,7 +15707,7 @@ define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrER
 
 29:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !393
-  tail call void @_ZN8WasmEdge9Validator11FormChecker9pushTypesEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(360) %.0.val, ptr %.0.val1, i64 %.8.val3), !noalias !393
+  tail call void @_ZN8WasmEdge9Validator11FormChecker9pushTypesEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(360) %.0.val, ptr readonly %.0.val1, i64 %.8.val3), !noalias !393
   store i64 1, ptr %0, align 4, !alias.scope !393
   br label %_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_.exit
 

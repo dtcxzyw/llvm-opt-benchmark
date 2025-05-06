@@ -1928,7 +1928,7 @@ define dso_local noundef i64 @bitoverlay(ptr noundef readonly captures(none) %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @bit_overlay(ptr noundef captures(address) %0, ptr noundef captures(address) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @bit_overlay(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = icmp slt i32 %2, 1
   br i1 %5, label %6, label %10
 

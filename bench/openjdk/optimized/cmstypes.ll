@@ -6780,7 +6780,7 @@ define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr noundef readonly 
   br label %100
 
 100:                                              ; preds = %97, %94
-  %101 = tail call i32 @Type_MLU_Write(ptr readnone poison, ptr noundef nonnull %1, ptr noundef nonnull %93, i32 poison)
+  %101 = tail call i32 @Type_MLU_Write(ptr readnone poison, ptr noundef nonnull %1, ptr noundef nonnull readonly %93, i32 poison)
   %.not23.i = icmp eq i32 %101, 0
   br i1 %.not23.i, label %WriteOneMLUC.exit, label %102
 
@@ -6813,7 +6813,7 @@ WriteOneMLUC.exit.thread:                         ; preds = %102, %103, %90
   br label %116
 
 116:                                              ; preds = %113, %110
-  %117 = tail call i32 @Type_MLU_Write(ptr readnone poison, ptr noundef nonnull %1, ptr noundef nonnull %109, i32 poison)
+  %117 = tail call i32 @Type_MLU_Write(ptr readnone poison, ptr noundef nonnull %1, ptr noundef nonnull readonly %109, i32 poison)
   %.not23.i111 = icmp eq i32 %117, 0
   br i1 %.not23.i111, label %WriteOneMLUC.exit, label %118
 

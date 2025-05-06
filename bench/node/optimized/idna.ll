@@ -114,7 +114,7 @@ return:                                           ; preds = %if.end48.i, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @uv__idna_toascii(ptr noundef %s, ptr noundef %se, ptr noundef %d, ptr noundef captures(address) %de) local_unnamed_addr #1 {
+define hidden i64 @uv__idna_toascii(ptr noundef %s, ptr noundef %se, ptr noundef %d, ptr noundef readnone captures(address) %de) local_unnamed_addr #1 {
 entry:
   %d.addr = alloca ptr, align 8
   store ptr %d, ptr %d.addr, align 8

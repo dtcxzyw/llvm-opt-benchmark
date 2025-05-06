@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @uriEscapeA(ptr noundef captures(address) %0, ptr noundef captures(address, ret: address, provenance) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define noundef ptr @uriEscapeA(ptr noundef readonly captures(address) %0, ptr noundef captures(address, ret: address, provenance) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @uriEscapeExA(ptr noundef %0, ptr noundef null, ptr noundef %1, i32 noundef %2, i32 noundef %3)
   ret ptr %5
 }
@@ -1157,7 +1157,7 @@ define ptr @uriUnescapeInPlaceExA(ptr noundef captures(address, ret: address, pr
 declare zeroext i8 @uriHexdigToIntA(i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @uriEscapeW(ptr noundef captures(address) %0, ptr noundef captures(address, ret: address, provenance) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define noundef ptr @uriEscapeW(ptr noundef readonly captures(address) %0, ptr noundef captures(address, ret: address, provenance) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @uriEscapeExW(ptr noundef %0, ptr noundef null, ptr noundef %1, i32 noundef %2, i32 noundef %3)
   ret ptr %5
 }

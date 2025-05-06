@@ -10271,7 +10271,7 @@ define hidden void @assimp_stbi_convert_iphone_png_to_rgb_thread(i32 noundef %0)
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 2) i32 @assimp_stbi_info(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @assimp_stbi_info(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.3)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8

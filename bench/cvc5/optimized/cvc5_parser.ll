@@ -8561,7 +8561,7 @@ _ZN4cvc56parser15ParserExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc56parser24ParserEndOfFileExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc56parser24ParserEndOfFileExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #3 align 2 {
   tail call void @_ZN4cvc56parser15ParserExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4cvc56parser24ParserEndOfFileExceptionE, i64 16), ptr %0, align 8, !tbaa !9
   ret void

@@ -3539,7 +3539,7 @@ _ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit: ; preds = %39, %7
   br i1 %79, label %80, label %_ZL12isAccessedByPKN5clang9ValueDeclEPKNS_4ExprE.exit.thread
 
 80:                                               ; preds = %74
-  %81 = tail call fastcc noundef zeroext i1 @_ZL12isAccessedByRKN5clang7VarDeclEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(100) %2, ptr noundef nonnull %.0)
+  %81 = tail call fastcc noundef zeroext i1 @_ZL12isAccessedByRKN5clang7VarDeclEPKNS_4StmtE(ptr noundef nonnull readonly align 8 dereferenceable(100) %2, ptr noundef nonnull %.0)
   br i1 %81, label %82, label %_ZL12isAccessedByPKN5clang9ValueDeclEPKNS_4ExprE.exit.thread
 
 _ZL12isAccessedByPKN5clang9ValueDeclEPKNS_4ExprE.exit: ; preds = %.critedge
@@ -9197,7 +9197,7 @@ declare noundef i32 @_ZNK5clang8QualType40isNonTrivialToPrimitiveDefaultInitiali
 declare void @_ZN5clang7CodeGen15CodeGenFunction31defaultInitNonTrivialCStructVarENS0_6LValueE(ptr noundef nonnull align 8 dereferenceable(6496), ptr noundef byval(%"class.clang::CodeGen::LValue") align 8) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL12isCapturedByRKN5clang7VarDeclEPKNS_4ExprE(ptr noundef nonnull align 8 captures(address) dereferenceable(100) %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL12isCapturedByRKN5clang7VarDeclEPKNS_4ExprE(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(100) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::iterator_range.1603", align 8
   %4 = alloca %"struct.clang::ConstStmtIterator", align 8
   %5 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #23
@@ -9411,7 +9411,7 @@ declare noundef ptr @_ZN5clang7CodeGen15ConstantEmitter29tryEmitAbstractForIniti
 declare noundef zeroext i1 @_ZNK4llvm8Constant11isZeroValueEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL12replaceUndefRN5clang7CodeGen13CodeGenModuleE9IsPatternPN4llvm8ConstantE(ptr noundef nonnull align 8 dereferenceable(3608) %0, i32 noundef range(i32 0, 2) %1, ptr noundef captures(address, ret: address, provenance) %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL12replaceUndefRN5clang7CodeGen13CodeGenModuleE9IsPatternPN4llvm8ConstantE(ptr noundef nonnull align 8 dereferenceable(3608) %0, i32 noundef range(i32 0, 2) %1, ptr noundef readonly captures(address, ret: address, provenance) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::SmallVector.1575", align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !666
@@ -9574,7 +9574,7 @@ declare noundef ptr @_ZN5clang7CodeGen12CodeGenTypes23convertTypeForLoadStoreENS
 declare noundef ptr @_ZN4llvm25ConstantFoldLoadFromConstEPNS_8ConstantEPNS_4TypeERKNS_5APIntERKNS_10DataLayoutE(ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(496)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL12isAccessedByRKN5clang7VarDeclEPKNS_4StmtE(ptr noundef nonnull align 8 captures(address) dereferenceable(100) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL12isAccessedByRKN5clang7VarDeclEPKNS_4StmtE(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(100) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::iterator_range.1603", align 8
   %4 = alloca %"struct.clang::ConstStmtIterator", align 8
   %5 = load i16, ptr %1, align 8
@@ -15952,7 +15952,7 @@ declare void @_ZN4llvm7PHINode12growOperandsEv(ptr noundef nonnull align 8 deref
 declare noundef ptr @_ZN4llvm13IRBuilderBase21CreateMemTransferInstEjPNS_5ValueENS_10MaybeAlignES2_S3_S2_bPNS_6MDNodeES5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(128), i32 noundef, ptr noundef, i16, ptr noundef, i16, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL12isCapturedByRKN5clang7VarDeclEPKNS_4StmtE(ptr noundef nonnull align 8 captures(none) dereferenceable(100) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL12isCapturedByRKN5clang7VarDeclEPKNS_4StmtE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(100) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::iterator_range.1603", align 8
   %4 = alloca %"struct.clang::ConstStmtIterator", align 8
   %5 = load i16, ptr %1, align 8

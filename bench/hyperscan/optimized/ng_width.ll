@@ -250,7 +250,7 @@ $_ZTVN5boost9exceptionE = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress uwtable
-define hidden i32 @_ZN3ue212findMinWidthERKNS_8NGHolderE(ptr noundef nonnull align 8 captures(address) dereferenceable(136) %0) local_unnamed_addr #0 {
+define hidden i32 @_ZN3ue212findMinWidthERKNS_8NGHolderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %0) local_unnamed_addr #0 {
   %.sroa.015.i = alloca i32, align 4
   %.sroa.0.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.015.i)
@@ -258,14 +258,14 @@ define hidden i32 @_ZN3ue212findMinWidthERKNS_8NGHolderE(ptr noundef nonnull ali
   %.sroa.01.0.copyload.i = load ptr, ptr %2, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8
-  %3 = tail call fastcc i32 @_ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nonnull %0, i64 0, ptr %.sroa.01.0.copyload.i, i64 %.sroa.22.0.copyload.i)
+  %3 = tail call fastcc i32 @_ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noundef nonnull readonly align 8 dereferenceable(136) %0, ptr nonnull %0, i64 0, ptr %.sroa.01.0.copyload.i, i64 %.sroa.22.0.copyload.i)
   store i32 %3, ptr %.sroa.015.i, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.sroa.0.0.copyload.i = load ptr, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %5 = tail call fastcc i32 @_ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nonnull %0, i64 0, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
+  %5 = tail call fastcc i32 @_ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noundef nonnull readonly align 8 dereferenceable(136) %0, ptr nonnull %0, i64 0, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
   store i32 %5, ptr %.sroa.0.i, align 4
   %6 = icmp eq i32 %3, -2147483648
   br i1 %6, label %_ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.exit, label %7
@@ -294,7 +294,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden i32 @_ZN3ue212findMinWidthERKNS_8NGHolderEj(ptr noundef nonnull align 8 captures(address) dereferenceable(136) %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden i32 @_ZN3ue212findMinWidthERKNS_8NGHolderEj(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.sroa.015.i = alloca i32, align 4
   %.sroa.0.i = alloca i32, align 4
   %.sroa.5.12.insert.ext = zext i32 %1 to i64
@@ -305,14 +305,14 @@ define hidden i32 @_ZN3ue212findMinWidthERKNS_8NGHolderEj(ptr noundef nonnull al
   %.sroa.01.0.copyload.i = load ptr, ptr %3, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8
-  %4 = tail call fastcc i32 @_ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nonnull %0, i64 %.sroa.5.12.insert.insert, ptr %.sroa.01.0.copyload.i, i64 %.sroa.22.0.copyload.i)
+  %4 = tail call fastcc i32 @_ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noundef nonnull readonly align 8 dereferenceable(136) %0, ptr nonnull %0, i64 %.sroa.5.12.insert.insert, ptr %.sroa.01.0.copyload.i, i64 %.sroa.22.0.copyload.i)
   store i32 %4, ptr %.sroa.015.i, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.sroa.0.0.copyload.i = load ptr, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %6 = tail call fastcc i32 @_ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nonnull %0, i64 %.sroa.5.12.insert.insert, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
+  %6 = tail call fastcc i32 @_ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noundef nonnull readonly align 8 dereferenceable(136) %0, ptr nonnull %0, i64 %.sroa.5.12.insert.insert, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
   store i32 %6, ptr %.sroa.0.i, align 4
   %7 = icmp eq i32 %4, -2147483648
   br i1 %7, label %_ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.exit, label %8

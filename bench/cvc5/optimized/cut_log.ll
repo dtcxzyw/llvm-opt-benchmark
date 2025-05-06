@@ -1492,7 +1492,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal6theory5arith6linearlsERSoRKNS3_7NodeLogE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(200) %1) local_unnamed_addr #13 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal6theory5arith6linearlsERSoRKNS3_7NodeLogE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(200) %1) local_unnamed_addr #13 {
   tail call void @_ZNK4cvc58internal6theory5arith6linear7NodeLog5printERSo(ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret ptr %0
 }

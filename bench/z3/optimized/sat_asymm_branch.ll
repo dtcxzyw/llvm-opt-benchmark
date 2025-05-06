@@ -967,7 +967,7 @@ _ZN3sat13scoped_detachC2ERNS_6solverERNS_6clauseE.exit: ; preds = %3, %12
   %15 = load i32, ptr %14, align 4, !tbaa !202
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds nuw %"class.sat::literal", ptr %13, i64 %16
-  invoke void @_ZN3sat12asymm_branch4sortERNS_3bigEPKNS_7literalES5_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull %13, ptr noundef nonnull %17)
+  invoke void @_ZN3sat12asymm_branch4sortERNS_3bigEPKNS_7literalES5_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %17)
           to label %_ZN3sat12asymm_branch4sortERNS_3bigERKNS_6clauseE.exit unwind label %66
 
 _ZN3sat12asymm_branch4sortERNS_3bigERKNS_6clauseE.exit: ; preds = %_ZN3sat13scoped_detachC2ERNS_6solverERNS_6clauseE.exit
@@ -2880,7 +2880,7 @@ define hidden noundef zeroext i1 @_ZNK3sat12asymm_branch10is_touchedEj(ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat12asymm_branch4sortERNS_3bigERKNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 4 captures(address) dereferenceable(20) %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3sat12asymm_branch4sortERNS_3bigERKNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !202

@@ -206,7 +206,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @cl_hash_file_fd(i32 noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
+define noundef ptr @cl_hash_file_fd(i32 noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = tail call ptr @EVP_get_digestbyname(ptr noundef %1) #12
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %11, label %5
@@ -320,7 +320,7 @@ declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unname
 declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @cl_hash_file_fp(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
+define noundef ptr @cl_hash_file_fp(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = tail call i32 @fileno(ptr noundef %0) #12
   %5 = tail call ptr @EVP_get_digestbyname(ptr noundef %1) #12
   %.not.i = icmp eq ptr %5, null
@@ -355,25 +355,25 @@ cl_hash_file_fd.exit:                             ; preds = %3, %6, %.sink.split
 declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @cl_sha512(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #1 {
+define noundef ptr @cl_sha512(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = tail call ptr @cl_hash_data(ptr noundef nonnull @.str, ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @cl_sha384(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #1 {
+define noundef ptr @cl_sha384(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = tail call ptr @cl_hash_data(ptr noundef nonnull @.str.1, ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @cl_sha256(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #1 {
+define noundef ptr @cl_sha256(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = tail call ptr @cl_hash_data(ptr noundef nonnull @.str.2, ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @cl_sha1(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #1 {
+define noundef ptr @cl_sha1(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = tail call ptr @cl_hash_data(ptr noundef nonnull @.str.3, ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3)
   ret ptr %5
 }

@@ -96223,7 +96223,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb19SimpleMultiFileList21DynamicFilterPushdownERNS_13ClientContextERKNS_22MultiFileReaderOptionsERKNS_6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEERKNS6_INS_11LogicalTypeELb1EEERKNS6_ImLb1EEERNS_14TableFilterSetE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr.1207") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %1, ptr noundef nonnull align 8 dereferenceable(648) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %7) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb19SimpleMultiFileList21DynamicFilterPushdownERNS_13ClientContextERKNS_22MultiFileReaderOptionsERKNS_6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEERKNS6_INS_11LogicalTypeELb1EEERKNS6_ImLb1EEERNS_14TableFilterSetE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr.1207") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %1, ptr noundef nonnull align 8 dereferenceable(648) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %7) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.duckdb::vector.33", align 8
   %10 = alloca %"class.duckdb::unique_ptr.1225", align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -96654,7 +96654,7 @@ define noundef zeroext i1 @_ZN6duckdb17GlobMultiFileList14ExpandNextPathEv(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb17GlobMultiFileList21DynamicFilterPushdownERNS_13ClientContextERKNS_22MultiFileReaderOptionsERKNS_6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEERKNS6_INS_11LogicalTypeELb1EEERKNS6_ImLb1EEERNS_14TableFilterSetE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr.1207") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(648) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %7) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb17GlobMultiFileList21DynamicFilterPushdownERNS_13ClientContextERKNS_22MultiFileReaderOptionsERKNS_6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEERKNS6_INS_11LogicalTypeELb1EEERKNS6_ImLb1EEERNS_14TableFilterSetE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr.1207") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(648) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %7) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca i64, align 8
   %10 = alloca %"class.duckdb::vector.33", align 8
   %11 = alloca %"class.duckdb::unique_ptr.1225", align 8
@@ -137708,7 +137708,7 @@ define void @_ZN6duckdb10RenderTree16CreateRenderTreeERKNS_15LogicalOperatorE(pt
   store ptr %5, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !147, !noalias !2394
   store ptr @_ZNSt17_Function_handlerIFvRKN6duckdb15LogicalOperatorEEZNS0_L18GetTreeWidthHeightIS1_EEvRKT_RmS9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %11, align 8, !tbaa !2398, !noalias !2394
   store ptr @_ZNSt17_Function_handlerIFvRKN6duckdb15LogicalOperatorEEZNS0_L18GetTreeWidthHeightIS1_EEvRKT_RmS9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %10, align 8, !tbaa !1360, !noalias !2394
-  invoke fastcc void @_ZN12_GLOBAL__N_120TreeChildrenIterator7IterateIN6duckdb15LogicalOperatorEEEvRKT_RKSt8functionIFvS6_EE(ptr %.val.i, ptr %.val4.i, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  invoke fastcc void @_ZN12_GLOBAL__N_120TreeChildrenIterator7IterateIN6duckdb15LogicalOperatorEEEvRKT_RKSt8functionIFvS6_EE(ptr readonly %.val.i, ptr readnone %.val4.i, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %12 unwind label %21, !noalias !2394
 
 12:                                               ; preds = %9
@@ -137870,7 +137870,7 @@ define void @_ZN6duckdb10RenderTree16CreateRenderTreeERKNS_13ProfilingNodeE(ptr 
   store ptr %5, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !147, !noalias !2413
   store ptr @_ZNSt17_Function_handlerIFvRKN6duckdb13ProfilingNodeEEZNS0_L18GetTreeWidthHeightIS1_EEvRKT_RmS9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %11, align 8, !tbaa !2418, !noalias !2413
   store ptr @_ZNSt17_Function_handlerIFvRKN6duckdb13ProfilingNodeEEZNS0_L18GetTreeWidthHeightIS1_EEvRKT_RmS9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %10, align 8, !tbaa !1360, !noalias !2413
-  invoke fastcc void @_ZN12_GLOBAL__N_120TreeChildrenIterator7IterateIN6duckdb13ProfilingNodeEEEvRKT_RKSt8functionIFvS6_EE(ptr %.val.i, ptr %.val4.i, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  invoke fastcc void @_ZN12_GLOBAL__N_120TreeChildrenIterator7IterateIN6duckdb13ProfilingNodeEEEvRKT_RKSt8functionIFvS6_EE(ptr readonly %.val.i, ptr readnone %.val4.i, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %12 unwind label %21, !noalias !2413
 
 12:                                               ; preds = %9
@@ -274149,7 +274149,7 @@ define internal void @_ZNSt17_Function_handlerIFvRKN6duckdb15LogicalOperatorEEZN
   store ptr %5, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8, !tbaa !147
   store ptr @_ZNSt17_Function_handlerIFvRKN6duckdb15LogicalOperatorEEZNS0_L18GetTreeWidthHeightIS1_EEvRKT_RmS9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %11, align 8, !tbaa !2398
   store ptr @_ZNSt17_Function_handlerIFvRKN6duckdb15LogicalOperatorEEZNS0_L18GetTreeWidthHeightIS1_EEvRKT_RmS9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %10, align 8, !tbaa !1360
-  invoke fastcc void @_ZN12_GLOBAL__N_120TreeChildrenIterator7IterateIN6duckdb15LogicalOperatorEEEvRKT_RKSt8functionIFvS6_EE(ptr %.val, ptr %.val2, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  invoke fastcc void @_ZN12_GLOBAL__N_120TreeChildrenIterator7IterateIN6duckdb15LogicalOperatorEEEvRKT_RKSt8functionIFvS6_EE(ptr readonly %.val, ptr readnone %.val2, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %12 unwind label %21
 
 12:                                               ; preds = %9
@@ -277102,7 +277102,7 @@ define internal void @_ZNSt17_Function_handlerIFvRKN6duckdb13ProfilingNodeEEZNS0
   store ptr %5, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8, !tbaa !147
   store ptr @_ZNSt17_Function_handlerIFvRKN6duckdb13ProfilingNodeEEZNS0_L18GetTreeWidthHeightIS1_EEvRKT_RmS9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %11, align 8, !tbaa !2418
   store ptr @_ZNSt17_Function_handlerIFvRKN6duckdb13ProfilingNodeEEZNS0_L18GetTreeWidthHeightIS1_EEvRKT_RmS9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %10, align 8, !tbaa !1360
-  invoke fastcc void @_ZN12_GLOBAL__N_120TreeChildrenIterator7IterateIN6duckdb13ProfilingNodeEEEvRKT_RKSt8functionIFvS6_EE(ptr %.val, ptr %.val2, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  invoke fastcc void @_ZN12_GLOBAL__N_120TreeChildrenIterator7IterateIN6duckdb13ProfilingNodeEEEvRKT_RKSt8functionIFvS6_EE(ptr readonly %.val, ptr readnone %.val2, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %12 unwind label %21
 
 12:                                               ; preds = %9

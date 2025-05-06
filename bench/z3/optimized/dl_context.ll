@@ -6119,7 +6119,7 @@ _ZNK7datalog7context15has_sort_domainEP4sort.exit.thread: ; preds = %.lr.ph.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZN7datalog7context22get_sort_size_estimateEP4sort(ptr noundef nonnull align 8 dereferenceable(3028) %0, ptr noundef captures(address) %1) local_unnamed_addr #3 align 2 {
+define hidden noundef i64 @_ZN7datalog7context22get_sort_size_estimateEP4sort(ptr noundef nonnull align 8 dereferenceable(3028) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = tail call noundef i32 @_ZNK7datalog12dl_decl_util13get_family_idEv(ptr noundef nonnull align 8 dereferenceable(28) %4)

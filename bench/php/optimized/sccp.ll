@@ -7034,7 +7034,7 @@ zend_symtable_del.exit:                           ; preds = %53, %_zend_handle_n
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_assign_dim(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_assign_dim(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8, !tbaa !41
   switch i8 %5, label %10 [

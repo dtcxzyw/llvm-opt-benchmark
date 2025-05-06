@@ -294,7 +294,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 declare void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z17gmx_gro_read_confRKNSt10filesystem7__cxx114pathEP8t_symtabPPcP7t_atomsPA3_fSB_SB_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(none) %6) local_unnamed_addr #0 {
+define void @_Z17gmx_gro_read_confRKNSt10filesystem7__cxx114pathEP8t_symtabPPcP7t_atomsPA3_fSB_SB_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca [4096 x i8], align 16
   %10 = tail call noundef ptr @_Z13gmx_fio_fopenRKNSt10filesystem7__cxx114pathEPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @.str)
@@ -2417,7 +2417,7 @@ declare void @_ZN12AtomIteratorC1ERK10gmx_mtop_ti(ptr noundef nonnull align 8 de
 declare noundef zeroext i1 @_ZNK12AtomIteratoreqERKS_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z13write_hconf_pP8_IO_FILEPKcPK7t_atomsPA3_KfS8_S8_(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
+define void @_Z13write_hconf_pP8_IO_FILEPKcPK7t_atomsPA3_KfS8_S8_(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = load i32, ptr %2, align 8, !tbaa !21
   %8 = sext i32 %7 to i64
   %9 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.2, i32 noundef 580, i64 noundef range(i64 -2147483648, 2147483648) %8, i64 noundef 4)
@@ -2444,7 +2444,7 @@ define void @_Z13write_hconf_pP8_IO_FILEPKcPK7t_atomsPA3_KfS8_S8_(ptr noundef ca
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z12write_conf_pRKNSt10filesystem7__cxx114pathEPKcPK7t_atomsPA3_KfSB_SB_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
+define void @_Z12write_conf_pRKNSt10filesystem7__cxx114pathEPKcPK7t_atomsPA3_KfSB_SB_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = tail call noundef ptr @_Z13gmx_fio_fopenRKNSt10filesystem7__cxx114pathEPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @.str.42)
   %8 = load i32, ptr %2, align 8, !tbaa !21
   %9 = sext i32 %8 to i64
@@ -2466,7 +2466,7 @@ define void @_Z12write_conf_pRKNSt10filesystem7__cxx114pathEPKcPK7t_atomsPA3_KfS
 
 _Z13write_hconf_pP8_IO_FILEPKcPK7t_atomsPA3_KfS8_S8_.exit: ; preds = %.lr.ph.i, %6
   %.lcssa.i = phi i32 [ %11, %6 ], [ %15, %.lr.ph.i ]
-  tail call void @_Z21write_hconf_indexed_pP8_IO_FILEPKcPK7t_atomsiPKiPA3_KfSA_SA_(ptr noundef %7, ptr noundef %1, ptr noundef nonnull readonly %2, i32 noundef %.lcssa.i, ptr noundef %10, ptr noundef readonly %3, ptr noundef %4, ptr noundef readonly %5)
+  tail call void @_Z21write_hconf_indexed_pP8_IO_FILEPKcPK7t_atomsiPKiPA3_KfSA_SA_(ptr noundef %7, ptr noundef %1, ptr noundef nonnull readonly %2, i32 noundef %.lcssa.i, ptr noundef %10, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5)
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.2, i32 noundef 586, ptr noundef %10)
   %18 = tail call noundef i32 @_Z14gmx_fio_fcloseP8_IO_FILE(ptr noundef %7)
   ret void

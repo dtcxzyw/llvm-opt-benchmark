@@ -3251,7 +3251,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %89, %91
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK7V3Graph9dumpEdgesERSoRK13V3GraphVertex(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(80) %2) #4 align 2 {
+define dso_local void @_ZNK7V3Graph9dumpEdgesERSoRK13V3GraphVertex(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %2) #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.sroa.020.026 = load ptr, ptr %4, align 8, !tbaa !37
   %.not27 = icmp eq ptr %.sroa.020.026, null

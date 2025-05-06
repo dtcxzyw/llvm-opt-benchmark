@@ -4433,7 +4433,7 @@ sdslen.exit:                                      ; preds = %38, %34, %30, %26, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hashTypeCurrentObject(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #1 {
+define dso_local void @hashTypeCurrentObject(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -2212,7 +2212,7 @@ declare i32 @dissect_ndr_float(ptr noundef, i32 noundef, ptr noundef, ptr nounde
 declare i32 @dissect_ndr_double(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @dissect_dcom_MInterfacePointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #2 {
+define i32 @dissect_dcom_MInterfacePointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #2 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #16
@@ -3012,7 +3012,7 @@ dissect_dcom_CUSTOBJREF.exit:                     ; preds = %53, %41, %dcom_get_
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @dissect_dcom_PMInterfacePointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #2 {
+define i32 @dissect_dcom_PMInterfacePointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #2 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4

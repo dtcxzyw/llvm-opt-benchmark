@@ -1605,7 +1605,7 @@ define void @dt_develop_blendif_rgb_hsl_blend(ptr noundef %0, ptr noalias nounde
   %.0287424.i = phi i64 [ %174, %170 ], [ 0, %160 ]
   %.0288423.i = phi i64 [ %173, %170 ], [ 0, %160 ]
   %164 = getelementptr inbounds nuw float, ptr %55, i64 %.0287424.i
-  %165 = call reassoc nsz arcp contract afn fastcc float @_rgb_luminance(ptr noundef readonly %164, ptr noundef %.), !noalias !159
+  %165 = call reassoc nsz arcp contract afn fastcc float @_rgb_luminance(ptr noundef readonly %164, ptr noundef readonly %.), !noalias !159
   %166 = fmul reassoc nsz arcp contract afn float %165, %163
   %167 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %166, float 0.000000e+00)
   %168 = call reassoc nsz arcp contract afn noundef float @llvm.minnum.f32(float %167, float 1.000000e+00)
@@ -1640,7 +1640,7 @@ define void @dt_develop_blendif_rgb_hsl_blend(ptr noundef %0, ptr noalias nounde
   %.0282418.i = phi i64 [ %191, %186 ], [ 0, %177 ]
   %.0283417.i = phi i64 [ %190, %186 ], [ 0, %177 ]
   %181 = getelementptr inbounds nuw float, ptr %56, i64 %.0282418.i
-  %182 = call reassoc nsz arcp contract afn fastcc float @_rgb_luminance(ptr noundef %181, ptr noundef %.), !noalias !158
+  %182 = call reassoc nsz arcp contract afn fastcc float @_rgb_luminance(ptr noundef %181, ptr noundef readonly %.), !noalias !158
   %183 = fmul reassoc nsz arcp contract afn float %182, %180
   %184 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %183, float 0.000000e+00)
   %185 = call reassoc nsz arcp contract afn noundef float @llvm.minnum.f32(float %184, float 1.000000e+00)

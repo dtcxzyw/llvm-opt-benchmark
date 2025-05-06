@@ -214,13 +214,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sdsnewlen(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @sdsnewlen(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @_sdsnewlen(ptr noundef %0, i64 noundef %1, i32 noundef 0)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sdstrynewlen(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @sdstrynewlen(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @_sdsnewlen(ptr noundef %0, i64 noundef %1, i32 noundef 1)
   ret ptr %3
 }
@@ -256,7 +256,7 @@ _sdsnewlen.exit:                                  ; preds = %0, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sdsnew(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define dso_local ptr @sdsnew(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.split3, label %.split
@@ -299,7 +299,7 @@ _sdsnewlen.exit:                                  ; preds = %.split3, %10
 
 .split:                                           ; preds = %1
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
-  %19 = tail call ptr @_sdsnewlen(ptr noundef nonnull %0, i64 noundef %18, i32 noundef 0)
+  %19 = tail call ptr @_sdsnewlen(ptr noundef nonnull readonly %0, i64 noundef %18, i32 noundef 0)
   br label %20
 
 20:                                               ; preds = %_sdsnewlen.exit, %.split
@@ -311,7 +311,7 @@ _sdsnewlen.exit:                                  ; preds = %.split3, %10
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sdsdup(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define dso_local ptr @sdsdup(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1
   %3 = load i8, ptr %2, align 1, !tbaa !13
   %4 = zext i8 %3 to i32
@@ -354,7 +354,7 @@ define dso_local ptr @sdsdup(ptr noundef captures(address) %0) local_unnamed_add
 
 sdslen.exit:                                      ; preds = %1, %6, %9, %13, %17, %21
   %.0.i = phi i64 [ %23, %21 ], [ %20, %17 ], [ %16, %13 ], [ %12, %9 ], [ %8, %6 ], [ 0, %1 ]
-  %24 = tail call ptr @_sdsnewlen(ptr noundef nonnull %0, i64 noundef %.0.i, i32 noundef 0)
+  %24 = tail call ptr @_sdsnewlen(ptr noundef nonnull readonly %0, i64 noundef %.0.i, i32 noundef 0)
   ret ptr %24
 }
 
@@ -2020,7 +2020,7 @@ define dso_local ptr @sdsfromlonglong(i64 noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %2) #25
   %3 = call i32 @ll2string(ptr noundef nonnull %2, i64 noundef 21, i64 noundef %0) #25
   %4 = sext i32 %3 to i64
-  %5 = call ptr @_sdsnewlen(ptr noundef nonnull %2, i64 noundef %4, i32 noundef 0)
+  %5 = call ptr @_sdsnewlen(ptr noundef nonnull readonly %2, i64 noundef %4, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %2) #25
   ret ptr %5
 }
@@ -3595,7 +3595,7 @@ sdslen.exit17:                                    ; preds = %sdslen.exit, %29, %
 declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sdssplitlen(ptr noundef captures(address) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
+define dso_local ptr @sdssplitlen(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = icmp slt i32 %3, 1
   %7 = icmp slt i64 %1, 1
   %or.cond = or i1 %7, %6
@@ -3654,7 +3654,7 @@ define dso_local ptr @sdssplitlen(ptr noundef captures(address) %0, i64 noundef 
 32:                                               ; preds = %30, %25
   %33 = getelementptr inbounds i8, ptr %0, i64 %.06379.us
   %34 = sub nsw i64 %.06180.us, %.06379.us
-  %35 = tail call ptr @_sdsnewlen(ptr noundef %33, i64 noundef %34, i32 noundef 0)
+  %35 = tail call ptr @_sdsnewlen(ptr noundef readonly %33, i64 noundef %34, i32 noundef 0)
   %36 = sext i32 %.06777.us to i64
   %37 = getelementptr inbounds ptr, ptr %.1.us, i64 %36
   store ptr %35, ptr %37, align 8, !tbaa !6
@@ -3702,7 +3702,7 @@ define dso_local ptr @sdssplitlen(ptr noundef captures(address) %0, i64 noundef 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds i8, ptr %0, i64 %.06379
   %57 = sub nsw i64 %.06180, %.06379
-  %58 = tail call ptr @_sdsnewlen(ptr noundef %56, i64 noundef %57, i32 noundef 0)
+  %58 = tail call ptr @_sdsnewlen(ptr noundef readonly %56, i64 noundef %57, i32 noundef 0)
   %59 = sext i32 %.06777 to i64
   %60 = getelementptr inbounds ptr, ptr %.1, i64 %59
   store ptr %58, ptr %60, align 8, !tbaa !6
@@ -3729,7 +3729,7 @@ define dso_local ptr @sdssplitlen(ptr noundef captures(address) %0, i64 noundef 
   %.060.lcssa = phi ptr [ %9, %.preheader ], [ %.1.us, %42 ], [ %.1, %65 ]
   %68 = getelementptr inbounds i8, ptr %0, i64 %.063.lcssa
   %69 = sub nsw i64 %1, %.063.lcssa
-  %70 = tail call ptr @_sdsnewlen(ptr noundef %68, i64 noundef %69, i32 noundef 0)
+  %70 = tail call ptr @_sdsnewlen(ptr noundef readonly %68, i64 noundef %69, i32 noundef 0)
   %71 = sext i32 %.067.lcssa to i64
   %72 = getelementptr inbounds ptr, ptr %.060.lcssa, i64 %71
   store ptr %70, ptr %72, align 8, !tbaa !6
@@ -6588,7 +6588,7 @@ sdssetlen.exit.i.i53:                             ; preds = %158, %155, %152, %1
   %164 = ptrtoint ptr %162 to i64
   %165 = ptrtoint ptr %113 to i64
   %166 = sub i64 %164, %165
-  %167 = call ptr @_sdsnewlen(ptr noundef nonnull %113, i64 noundef %166, i32 noundef 0)
+  %167 = call ptr @_sdsnewlen(ptr noundef nonnull readonly %113, i64 noundef %166, i32 noundef 0)
   %168 = call ptr %1(ptr noundef %167, ptr noundef %2) #25
   %169 = icmp eq ptr %167, null
   br i1 %169, label %sdsfree.exit, label %170

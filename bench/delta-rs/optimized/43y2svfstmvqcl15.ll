@@ -106297,7 +106297,7 @@ _ZN14deltalake_core6kernel8snapshot8log_data18DeletionVectorView17path_or_inline
   %240 = getelementptr inbounds nuw i64, ptr %.val.i.i.i, i64 %44
   %241 = load i64, ptr %240, align 8, !noalias !16200, !noundef !5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !16176
-  %242 = invoke fastcc { i32, i32 } @_ZN14deltalake_core6kernel8snapshot8log_data18DeletionVectorView6offset17h35f070c8d3715ed0E(ptr nonnull %158, i64 %44)
+  %242 = invoke fastcc { i32, i32 } @_ZN14deltalake_core6kernel8snapshot8log_data18DeletionVectorView6offset17h35f070c8d3715ed0E(ptr nonnull readonly %158, i64 %44)
           to label %268 unwind label %226, !noalias !16176
 
 243:                                              ; preds = %226

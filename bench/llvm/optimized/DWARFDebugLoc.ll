@@ -5316,7 +5316,7 @@ define linkonce_odr hidden void @_ZN4llvm13ErrorInfoBaseD2Ev(ptr noundef nonnull
 declare void @_ZNK4llvm15DWARFExpression5printERNS_11raw_ostreamENS_13DIDumpOptionsEPNS_9DWARFUnitEb(ptr noundef nonnull align 8 dereferenceable(27), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRKNS_18DWARFLocationEntryEEE11callback_fnIZNKS_18DWARFLocationTable25visitAbsoluteLocationListEmSt8optionalINS_6object16SectionedAddressEESt8functionIFSB_jEENS0_IFbNS_8ExpectedINS_23DWARFLocationExpressionEEEEEEE3$_0EEblS3_"(i64 noundef %0, ptr noundef nonnull align 8 captures(address) dereferenceable(64) %1) #0 align 2 {
+define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRKNS_18DWARFLocationEntryEEE11callback_fnIZNKS_18DWARFLocationTable25visitAbsoluteLocationListEmSt8optionalINS_6object16SectionedAddressEESt8functionIFSB_jEENS0_IFbNS_8ExpectedINS_23DWARFLocationExpressionEEEEEEE3$_0EEblS3_"(i64 noundef %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %1) #0 align 2 {
   %3 = alloca %"class.llvm::Expected.119", align 8
   %4 = alloca %"class.llvm::Expected.119", align 8
   %5 = alloca %"class.llvm::Expected", align 8
@@ -5325,7 +5325,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRKNS_18DWARFLocati
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #17
   %8 = load ptr, ptr %7, align 8, !tbaa !345
-  call fastcc void @_ZN12_GLOBAL__N_124DWARFLocationInterpreter9InterpretERKN4llvm18DWARFLocationEntryE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(64) %1)
+  call fastcc void @_ZN12_GLOBAL__N_124DWARFLocationInterpreter9InterpretERKN4llvm18DWARFLocationEntryE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull readonly align 8 dereferenceable(64) %1)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1

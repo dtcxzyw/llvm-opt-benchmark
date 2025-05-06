@@ -6767,7 +6767,7 @@ define internal fastcc void @set_file_stats_(ptr noundef %0, ptr noundef readonl
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_chain_write_new_file(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @FLAC__metadata_chain_write_new_file(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !109
   %.not = icmp eq i32 %5, 0

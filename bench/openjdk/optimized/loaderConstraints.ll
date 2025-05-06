@@ -1339,7 +1339,7 @@ define hidden noundef zeroext i1 @_ZN21LoaderConstraintTable15check_or_updateEP1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN21LoaderConstraintTable22find_constrained_klassEP6SymbolP15ClassLoaderData(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN21LoaderConstraintTable22find_constrained_klassEP6SymbolP15ClassLoaderData(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZN21LoaderConstraintTable22find_loader_constraintEP6SymbolP15ClassLoaderData(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %4
@@ -1362,7 +1362,7 @@ define hidden noundef ptr @_ZN21LoaderConstraintTable22find_constrained_klassEP6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21LoaderConstraintTable26remove_failed_loaded_klassEP13InstanceKlassP15ClassLoaderData(ptr noundef readonly captures(address) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN21LoaderConstraintTable26remove_failed_loaded_klassEP13InstanceKlassP15ClassLoaderData(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @SystemDictionary_lock, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %4

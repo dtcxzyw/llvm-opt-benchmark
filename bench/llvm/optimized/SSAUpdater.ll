@@ -2406,7 +2406,7 @@ _ZN4llvm11SmallVectorIPNS_14SSAUpdaterImplINS_10SSAUpdaterEE6BBInfoELj100EED2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20LoadAndStorePromoterC2ENS_8ArrayRefIPKNS_11InstructionEEERNS_10SSAUpdaterENS_9StringRefE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr readonly captures(none) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr captures(address_is_null) %4, i64 %5) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm20LoadAndStorePromoterC2ENS_8ArrayRefIPKNS_11InstructionEEERNS_10SSAUpdaterENS_9StringRefE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr readonly captures(none) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr readonly captures(address_is_null) %4, i64 %5) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm20LoadAndStorePromoterE, i64 16), ptr %0, align 8, !tbaa !184
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %7, align 8, !tbaa !186

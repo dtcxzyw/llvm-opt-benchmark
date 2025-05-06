@@ -2876,7 +2876,7 @@ define dso_local noundef range(i32 -14, 1) i32 @ip_generic_getfrag(ptr noundef %
 declare dso_local zeroext i1 @csum_and_copy_from_iter_full(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ip_append_data(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef captures(none) %7, i32 noundef %8) local_unnamed_addr #0 align 16 {
+define dso_local i32 @ip_append_data(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef captures(none) %7, i32 noundef %8) local_unnamed_addr #0 align 16 {
   %10 = and i32 %8, 16
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %35
@@ -5050,7 +5050,7 @@ define dso_local void @ip_flush_pending_frames(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @ip_make_skb(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef captures(none) %7, ptr noundef %8, i32 noundef %9) local_unnamed_addr #0 align 16 {
+define dso_local ptr @ip_make_skb(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef captures(none) %7, ptr noundef %8, i32 noundef %9) local_unnamed_addr #0 align 16 {
   %11 = alloca %struct.sk_buff_head, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #12
   %12 = and i32 %9, 16

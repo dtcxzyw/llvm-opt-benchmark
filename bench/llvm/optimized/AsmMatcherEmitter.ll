@@ -1935,7 +1935,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN12_GLOB
   %.083.i.i.i.i.i = phi ptr [ %.19.i.i.i.i.i, %.lr.ph.i.i.i.i.i624 ], [ %118, %.lr.ph._crit_edge.i ]
   %137 = getelementptr inbounds nuw i8, ptr %.04.i.i.i.i.i, i64 32
   %.val.i.i.i.i.i = load ptr, ptr %137, align 8, !tbaa !115
-  %138 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull align 8 dereferenceable(376) %.val.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(376) %.val5.i.pre.i)
+  %138 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(376) %.val.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(376) %.val5.i.pre.i)
   %.19.i.i.i.i.i = select i1 %138, ptr %.083.i.i.i.i.i, ptr %.04.i.i.i.i.i
   %.1.in.v.i.i.i.i.i = select i1 %138, i64 24, i64 16
   %.1.in.i.i.i.i.i = getelementptr i8, ptr %.04.i.i.i.i.i, i64 %.1.in.v.i.i.i.i.i
@@ -1951,7 +1951,7 @@ _ZNSt3mapIPN12_GLOBAL__N_19ClassInfoEjN4llvm5derefISt4lessIvEEESaISt4pairIKS2_jE
   %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %138, ptr %.083.i.i.i.i.i, ptr %.04.i.i.i.i.i
   %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %.val4.i.i = load ptr, ptr %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !115
-  %141 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull align 8 dereferenceable(376) %.val5.i.pre.i, ptr noundef nonnull align 8 dereferenceable(376) %.val4.i.i)
+  %141 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(376) %.val5.i.pre.i, ptr noundef nonnull readonly align 8 dereferenceable(376) %.val4.i.i)
   br i1 %141, label %157, label %_ZNSt3mapIPN12_GLOBAL__N_19ClassInfoEjN4llvm5derefISt4lessIvEEESaISt4pairIKS2_jEEEixERS9_.exit.i
 
 _ZNSt3mapIPN12_GLOBAL__N_19ClassInfoEjN4llvm5derefISt4lessIvEEESaISt4pairIKS2_jEEE11lower_boundERS9_.exit.thread.i.i: ; preds = %_ZNSt3mapIPN12_GLOBAL__N_19ClassInfoEjN4llvm5derefISt4lessIvEEESaISt4pairIKS2_jEEE11lower_boundERS9_.exit.i.i, %.lr.ph._crit_edge.i
@@ -1968,7 +1968,7 @@ _ZNSt3mapIPN12_GLOBAL__N_19ClassInfoEjN4llvm5derefISt4lessIvEEESaISt4pairIKS2_jE
   %146 = load ptr, ptr %121, align 8, !tbaa !117
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 32
   %.val19.i.i.i.i = load ptr, ptr %147, align 8, !tbaa !115
-  %148 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull align 8 dereferenceable(376) %.val19.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(376) %.val5.i.pre.i)
+  %148 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(376) %.val19.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(376) %.val5.i.pre.i)
   br i1 %148, label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_19ClassInfoESt4pairIKS2_jESt10_Select1stIS5_EN4llvm5derefISt4lessIvEEESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_.exit.thread.i.i.i, label %149
 
 149:                                              ; preds = %145, %_ZNSt3mapIPN12_GLOBAL__N_19ClassInfoEjN4llvm5derefISt4lessIvEEESaISt4pairIKS2_jEEE11lower_boundERS9_.exit.thread.i.i
@@ -1978,7 +1978,7 @@ _ZNSt3mapIPN12_GLOBAL__N_19ClassInfoEjN4llvm5derefISt4lessIvEEESaISt4pairIKS2_jE
   %.01115.i.i.i.i.i = phi ptr [ %.011.i.i.i.i.i, %.lr.ph.i.i.i12.i.i ], [ %.val.i.i.i.i, %149 ]
   %150 = getelementptr inbounds nuw i8, ptr %.01115.i.i.i.i.i, i64 32
   %.val11.i.i.i.i.i = load ptr, ptr %150, align 8, !tbaa !115
-  %151 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull align 8 dereferenceable(376) %.val5.i.pre.i, ptr noundef nonnull align 8 dereferenceable(376) %.val11.i.i.i.i.i)
+  %151 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(376) %.val5.i.pre.i, ptr noundef nonnull readonly align 8 dereferenceable(376) %.val11.i.i.i.i.i)
   %.in.v.i.i.i.i.i = select i1 %151, i64 16, i64 24
   %.in.i.i.i.i.i = getelementptr i8, ptr %.01115.i.i.i.i.i, i64 %.in.v.i.i.i.i.i
   %.011.i.i.i.i.i = load ptr, ptr %.in.i.i.i.i.i, align 8, !tbaa !117
@@ -2004,7 +2004,7 @@ _ZNSt3mapIPN12_GLOBAL__N_19ClassInfoEjN4llvm5derefISt4lessIvEEESaISt4pairIKS2_jE
   %.val8.i.i.i.i.i = phi ptr [ %.val8.i.pre.i.i.i.i, %153 ], [ %.val11.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.010.lcssa20.i.i.i.i.i = phi ptr [ %.010.lcssa19.i.i.i.i.i, %153 ], [ %.01115.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.sroa.01.0.i.i.i.i.i = phi ptr [ %154, %153 ], [ %.01115.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
-  %156 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull align 8 dereferenceable(376) %.val8.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(376) %.val5.i.pre.i)
+  %156 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(376) %.val8.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(376) %.val5.i.pre.i)
   br i1 %156, label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_19ClassInfoESt4pairIKS2_jESt10_Select1stIS5_EN4llvm5derefISt4lessIvEEESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_.exit.thread.i.i.i, label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_19ClassInfoESt4pairIKS2_jESt10_Select1stIS5_EN4llvm5derefISt4lessIvEEESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_.exit.thread13.i.i.i
 
 157:                                              ; preds = %140
@@ -2014,7 +2014,7 @@ _ZNSt3mapIPN12_GLOBAL__N_19ClassInfoEjN4llvm5derefISt4lessIvEEESaISt4pairIKS2_jE
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 40
   store i32 0, ptr %160, align 8, !tbaa !121
   %.val18.i.i.i.i = load ptr, ptr %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !115
-  %161 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull align 8 dereferenceable(376) %.val5.i.pre.i, ptr noundef nonnull align 8 dereferenceable(376) %.val18.i.i.i.i)
+  %161 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(376) %.val5.i.pre.i, ptr noundef nonnull readonly align 8 dereferenceable(376) %.val18.i.i.i.i)
   br i1 %161, label %162, label %179
 
 162:                                              ; preds = %157
@@ -2026,7 +2026,7 @@ _ZNSt3mapIPN12_GLOBAL__N_19ClassInfoEjN4llvm5derefISt4lessIvEEESaISt4pairIKS2_jE
   %166 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.19.i.i.i.i.i) #29
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 32
   %.val15.i.i.i.i = load ptr, ptr %167, align 8, !tbaa !115
-  %168 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull align 8 dereferenceable(376) %.val15.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(376) %.val5.i.pre.i)
+  %168 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(376) %.val15.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(376) %.val5.i.pre.i)
   br i1 %168, label %169, label %.lr.ph.i28.i.i.i.i
 
 169:                                              ; preds = %165
@@ -2041,7 +2041,7 @@ _ZNSt3mapIPN12_GLOBAL__N_19ClassInfoEjN4llvm5derefISt4lessIvEEESaISt4pairIKS2_jE
   %.01115.i29.i.i.i.i = phi ptr [ %.011.i33.i.i.i.i, %.lr.ph.i28.i.i.i.i ], [ %.val.i.i.i.i, %165 ]
   %172 = getelementptr inbounds nuw i8, ptr %.01115.i29.i.i.i.i, i64 32
   %.val11.i30.i.i.i.i = load ptr, ptr %172, align 8, !tbaa !115
-  %173 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull align 8 dereferenceable(376) %.val5.i.pre.i, ptr noundef nonnull align 8 dereferenceable(376) %.val11.i30.i.i.i.i)
+  %173 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(376) %.val5.i.pre.i, ptr noundef nonnull readonly align 8 dereferenceable(376) %.val11.i30.i.i.i.i)
   %.in.v.i31.i.i.i.i = select i1 %173, i64 16, i64 24
   %.in.i32.i.i.i.i = getelementptr i8, ptr %.01115.i29.i.i.i.i, i64 %.in.v.i31.i.i.i.i
   %.011.i33.i.i.i.i = load ptr, ptr %.in.i32.i.i.i.i, align 8, !tbaa !117
@@ -2064,11 +2064,11 @@ _ZNSt3mapIPN12_GLOBAL__N_19ClassInfoEjN4llvm5derefISt4lessIvEEESaISt4pairIKS2_jE
 177:                                              ; preds = %175, %._crit_edge.i35.i.i.i.i
   %.val8.i38.i.i.i.i = phi ptr [ %.val8.i38.pre.i.i.i.i, %175 ], [ %.val11.i30.i.i.i.i, %._crit_edge.i35.i.i.i.i ]
   %.sroa.01.0.i37.i.i.i.i = phi ptr [ %176, %175 ], [ %.01115.i29.i.i.i.i, %._crit_edge.i35.i.i.i.i ]
-  %178 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull align 8 dereferenceable(376) %.val8.i38.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(376) %.val5.i.pre.i)
+  %178 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(376) %.val8.i38.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(376) %.val5.i.pre.i)
   br i1 %178, label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_19ClassInfoESt4pairIKS2_jESt10_Select1stIS5_EN4llvm5derefISt4lessIvEEESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_.exit.thread.i.i.i, label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_19ClassInfoESt4pairIKS2_jESt10_Select1stIS5_EN4llvm5derefISt4lessIvEEESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_.exit.thread13.i.i.i
 
 179:                                              ; preds = %157
-  %180 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull align 8 dereferenceable(376) %.val18.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(376) %.val5.i.pre.i)
+  %180 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(376) %.val18.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(376) %.val5.i.pre.i)
   br i1 %180, label %181, label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_19ClassInfoESt4pairIKS2_jESt10_Select1stIS5_EN4llvm5derefISt4lessIvEEESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_.exit.thread13.i.i.i
 
 181:                                              ; preds = %179
@@ -2080,7 +2080,7 @@ _ZNSt3mapIPN12_GLOBAL__N_19ClassInfoEjN4llvm5derefISt4lessIvEEESaISt4pairIKS2_jE
   %185 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.19.i.i.i.i.i) #29
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 32
   %.val12.i.i.i.i = load ptr, ptr %186, align 8, !tbaa !115
-  %187 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull align 8 dereferenceable(376) %.val5.i.pre.i, ptr noundef nonnull align 8 dereferenceable(376) %.val12.i.i.i.i)
+  %187 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(376) %.val5.i.pre.i, ptr noundef nonnull readonly align 8 dereferenceable(376) %.val12.i.i.i.i)
   br i1 %187, label %188, label %.lr.ph.i51.i.i.i.i
 
 188:                                              ; preds = %184
@@ -2096,7 +2096,7 @@ _ZNSt3mapIPN12_GLOBAL__N_19ClassInfoEjN4llvm5derefISt4lessIvEEESaISt4pairIKS2_jE
   %.01115.i52.i.i.i.i = phi ptr [ %.011.i56.i.i.i.i, %.lr.ph.i51.i.i.i.i ], [ %.val.i.i.i.i, %184 ]
   %190 = getelementptr inbounds nuw i8, ptr %.01115.i52.i.i.i.i, i64 32
   %.val11.i53.i.i.i.i = load ptr, ptr %190, align 8, !tbaa !115
-  %191 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull align 8 dereferenceable(376) %.val5.i.pre.i, ptr noundef nonnull align 8 dereferenceable(376) %.val11.i53.i.i.i.i)
+  %191 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(376) %.val5.i.pre.i, ptr noundef nonnull readonly align 8 dereferenceable(376) %.val11.i53.i.i.i.i)
   %.in.v.i54.i.i.i.i = select i1 %191, i64 16, i64 24
   %.in.i55.i.i.i.i = getelementptr i8, ptr %.01115.i52.i.i.i.i, i64 %.in.v.i54.i.i.i.i
   %.011.i56.i.i.i.i = load ptr, ptr %.in.i55.i.i.i.i, align 8, !tbaa !117
@@ -2120,7 +2120,7 @@ _ZNSt3mapIPN12_GLOBAL__N_19ClassInfoEjN4llvm5derefISt4lessIvEEESaISt4pairIKS2_jE
 195:                                              ; preds = %193, %._crit_edge.i58.i.i.i.i
   %.val8.i61.i.i.i.i = phi ptr [ %.val8.i61.pre.i.i.i.i, %193 ], [ %.val11.i53.i.i.i.i, %._crit_edge.i58.i.i.i.i ]
   %.sroa.01.0.i60.i.i.i.i = phi ptr [ %194, %193 ], [ %.01115.i52.i.i.i.i, %._crit_edge.i58.i.i.i.i ]
-  %196 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull align 8 dereferenceable(376) %.val8.i61.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(376) %.val5.i.pre.i)
+  %196 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(376) %.val8.i61.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(376) %.val5.i.pre.i)
   br i1 %196, label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_19ClassInfoESt4pairIKS2_jESt10_Select1stIS5_EN4llvm5derefISt4lessIvEEESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_.exit.thread.i.i.i, label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_19ClassInfoESt4pairIKS2_jESt10_Select1stIS5_EN4llvm5derefISt4lessIvEEESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_.exit.thread13.i.i.i
 
 _ZNSt8_Rb_treeIPN12_GLOBAL__N_19ClassInfoESt4pairIKS2_jESt10_Select1stIS5_EN4llvm5derefISt4lessIvEEESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_.exit.i.i.i: ; preds = %181, %162
@@ -2141,7 +2141,7 @@ _ZNSt8_Rb_treeIPN12_GLOBAL__N_19ClassInfoESt4pairIKS2_jESt10_Select1stIS5_EN4llv
 199:                                              ; preds = %_ZNSt8_Rb_treeIPN12_GLOBAL__N_19ClassInfoESt4pairIKS2_jESt10_Select1stIS5_EN4llvm5derefISt4lessIvEEESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_.exit.thread.i.i.i
   %200 = getelementptr inbounds nuw i8, ptr %.sroa.12.2.i10.i.i.i, i64 32
   %.val8.i.i11.i.i.i = load ptr, ptr %200, align 8, !tbaa !115
-  %201 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull align 8 dereferenceable(376) %.val5.i.pre.i, ptr noundef nonnull align 8 dereferenceable(376) %.val8.i.i11.i.i.i)
+  %201 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(376) %.val5.i.pre.i, ptr noundef nonnull readonly align 8 dereferenceable(376) %.val8.i.i11.i.i.i)
   br label %202
 
 202:                                              ; preds = %199, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_19ClassInfoESt4pairIKS2_jESt10_Select1stIS5_EN4llvm5derefISt4lessIvEEESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_.exit.thread.i.i.i
@@ -35707,7 +35707,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113MatchableInfoESt14default_deleteIS2
 3774:                                             ; preds = %3770
   %3775 = getelementptr inbounds nuw i8, ptr %.250.us.i.i, i64 8
   %3776 = getelementptr inbounds nuw i8, ptr %.156.us.i.i, i64 8
-  %3777 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull align 8 dereferenceable(376) %3775, ptr noundef nonnull align 8 dereferenceable(376) %3776)
+  %3777 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_19ClassInfoltERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(376) %3775, ptr noundef nonnull readonly align 8 dereferenceable(376) %3776)
   br i1 %3777, label %3781, label %3778
 
 3778:                                             ; preds = %3774
@@ -47405,7 +47405,7 @@ _ZNSt8_Rb_treeIPKN4llvm6RecordESt4pairIKS3_PN12_GLOBAL__N_19ClassInfoEESt10_Sele
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_114AsmMatcherInfo13getTokenClassEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr captures(address) %1, i64 %2) unnamed_addr #1 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_114AsmMatcherInfo13getTokenClassEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr readonly captures(address) %1, i64 %2) unnamed_addr #1 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -50567,7 +50567,7 @@ _ZNSt8_Rb_treeIPKN4llvm6RecordESt4pairIKS3_St3setIS3_NS0_14LessRecordByIDESaIS3_
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc { ptr, ptr } @_ZNSt8_Rb_treeISt3setIPKN4llvm6RecordENS1_14LessRecordByIDESaIS4_EESt4pairIKS7_PN12_GLOBAL__N_19ClassInfoEESt10_Select1stISD_E15LessRegisterSetSaISD_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISD_ERS9_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %2) unnamed_addr #14 align 2 {
+define internal fastcc { ptr, ptr } @_ZNSt8_Rb_treeISt3setIPKN4llvm6RecordENS1_14LessRecordByIDESaIS4_EESt4pairIKS7_PN12_GLOBAL__N_19ClassInfoEESt10_Select1stISD_E15LessRegisterSetSaISD_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISD_ERS9_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %2) unnamed_addr #14 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40

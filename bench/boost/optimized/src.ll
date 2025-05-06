@@ -8503,7 +8503,7 @@ _ZN5boost4json11storage_ptrD2Ev.exit47:           ; preds = %157, %160, %167
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost4json6objectC2ESt16initializer_listISt4pairINS_4core17basic_string_viewIcEENS0_9value_refEEEmNS0_11storage_ptrE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 9), (16, 24)) %0, ptr captures(address) %1, i64 %2, i64 noundef %3, ptr noundef captures(none) %4) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost4json6objectC2ESt16initializer_listISt4pairINS_4core17basic_string_viewIcEENS0_9value_refEEEmNS0_11storage_ptrE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 9), (16, 24)) %0, ptr readonly captures(address) %1, i64 %2, i64 noundef %3, ptr noundef captures(none) %4) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.boost::json::object::revert_construct", align 8
   %7 = load i64, ptr %4, align 8, !tbaa !11
   store i64 0, ptr %4, align 8, !tbaa !11
@@ -9337,7 +9337,7 @@ _ZN5boost4json11storage_ptrD2Ev.exit6:            ; preds = %31, %35, %42
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5boost4json6objectaSESt16initializer_listISt4pairINS_4core17basic_string_viewIcEENS0_9value_refEEE(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr captures(address) %1, i64 %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5boost4json6objectaSESt16initializer_listISt4pairINS_4core17basic_string_viewIcEENS0_9value_refEEE(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::json::storage_ptr", align 8
   %5 = alloca %"class.boost::json::object", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #48
@@ -15914,7 +15914,7 @@ _ZN5boost4json11storage_ptrD2Ev.exit.i.i.i:       ; preds = %214, %.lr.ph.i.i.i
 232:                                              ; preds = %229
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
-  %233 = call noundef i64 @_ZN5boost4json6detail18parse_number_tokenENS_4core17basic_string_viewIcEERNS_6system10error_codeE(ptr %.sroa.060.0.i, i64 %.sroa.8.0.i, ptr noundef nonnull align 8 dereferenceable(24) %13) #48
+  %233 = call noundef i64 @_ZN5boost4json6detail18parse_number_tokenENS_4core17basic_string_viewIcEERNS_6system10error_codeE(ptr readonly %.sroa.060.0.i, i64 %.sroa.8.0.i, ptr noundef nonnull align 8 dereferenceable(24) %13) #48
   %234 = load i64, ptr %35, align 8, !tbaa !191
   %235 = and i64 %234, 1
   %.not.i.i36.i = icmp eq i64 %235, 0
@@ -26555,7 +26555,7 @@ _ZN5boost4json11storage_ptrD2Ev.exit29:           ; preds = %_ZN5boost4json11sto
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost4json5valueC2ESt16initializer_listINS0_9value_refEENS0_11storage_ptrE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr captures(address) %1, i64 %2, ptr noundef captures(none) %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost4json5valueC2ESt16initializer_listINS0_9value_refEENS0_11storage_ptrE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr readonly captures(address) %1, i64 %2, ptr noundef captures(none) %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.boost::json::storage_ptr", align 8
   %6 = alloca %"class.boost::json::value", align 8
   %7 = alloca %"class.boost::json::storage_ptr", align 8

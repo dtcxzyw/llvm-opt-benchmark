@@ -389,7 +389,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
 list_length.exit.i:                               ; preds = %146, %138
   %151 = phi i64 [ %150, %146 ], [ 0, %138 ]
   %152 = call ptr @palloc(i64 noundef %151) #10
-  call fastcc void @check_duplicates_in_publist(ptr noundef %72, ptr noundef %152)
+  call fastcc void @check_duplicates_in_publist(ptr noundef readonly %72, ptr noundef %152)
   store ptr %145, ptr @CurrentMemoryContext, align 8
   br i1 %.not.i.i, label %publicationListToArray.exit, label %153
 
@@ -2457,7 +2457,7 @@ define dso_local { i64, i32 } @AlterSubscription(ptr noundef %0, ptr noundef rea
 list_length.exit.i:                               ; preds = %238, %230
   %243 = phi i64 [ %242, %238 ], [ 0, %230 ]
   %244 = call ptr @palloc(i64 noundef %243) #10
-  call fastcc void @check_duplicates_in_publist(ptr noundef %234, ptr noundef %244)
+  call fastcc void @check_duplicates_in_publist(ptr noundef readonly %234, ptr noundef %244)
   store ptr %237, ptr @CurrentMemoryContext, align 8
   br i1 %.not.i.i, label %publicationListToArray.exit, label %245
 
@@ -2535,7 +2535,7 @@ publicationListToArray.exit:                      ; preds = %list_length.exit.i,
   %289 = load ptr, ptr %288, align 8
   %290 = load ptr, ptr %14, align 8
   %291 = call ptr @list_copy(ptr noundef %287) #10
-  call fastcc void @check_duplicates_in_publist(ptr noundef %289, ptr noundef null)
+  call fastcc void @check_duplicates_in_publist(ptr noundef readonly %289, ptr noundef null)
   %.not42.i = icmp eq ptr %289, null
   br i1 %.not42.i, label %._crit_edge82.i, label %.lr.ph81.i
 
@@ -2682,7 +2682,7 @@ publicationListToArray.exit154:                   ; preds = %._crit_edge82.i
   %355 = sext i32 %354 to i64
   %356 = shl nsw i64 %355, 3
   %357 = call ptr @palloc(i64 noundef %356) #10
-  call fastcc void @check_duplicates_in_publist(ptr noundef nonnull %.0.lcssa.i, ptr noundef %357)
+  call fastcc void @check_duplicates_in_publist(ptr noundef nonnull readonly %.0.lcssa.i, ptr noundef %357)
   store ptr %352, ptr @CurrentMemoryContext, align 8
   %358 = load i32, ptr %353, align 4
   %359 = call ptr @construct_array_builtin(ptr noundef %357, i32 noundef %358, i32 noundef 25) #10

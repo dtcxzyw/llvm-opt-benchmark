@@ -13269,14 +13269,14 @@ angle_diff_signed.exit.i.i.i.i:                   ; preds = %.lr.ph9.i.i.i.i.i, 
   %663 = fadd reassoc nsz arcp contract afn double %661, %662
   %664 = tail call reassoc nsz arcp contract afn double @llvm.sqrt.f64(double %663)
   %665 = fmul reassoc nsz arcp contract afn double %664, 2.000000e+00
-  call fastcc void @region_grow(i32 noundef %611, i32 noundef %613, ptr noundef nonnull readonly %412, ptr noundef nonnull %547, ptr noundef nonnull %6, ptr noundef %4, ptr noundef nonnull %536, double noundef %665)
+  call fastcc void @region_grow(i32 noundef %611, i32 noundef %613, ptr noundef nonnull readonly %412, ptr noundef nonnull %547, ptr noundef nonnull %6, ptr noundef %4, ptr noundef nonnull readonly %536, double noundef %665)
   %666 = load i32, ptr %6, align 4, !tbaa !71
   %667 = icmp slt i32 %666, 2
   br i1 %667, label %refine.exit.thread.i.i.i, label %668
 
 668:                                              ; preds = %655
   %669 = load double, ptr %4, align 8, !tbaa !358
-  call fastcc void @region2rect(ptr noundef nonnull %547, i32 noundef %666, ptr noundef %413, double noundef %669, ptr noundef nonnull %5)
+  call fastcc void @region2rect(ptr noundef nonnull %547, i32 noundef %666, ptr noundef readonly %413, double noundef %669, ptr noundef nonnull %5)
   %670 = uitofp nneg i32 %666 to double
   %671 = load double, ptr %5, align 8, !tbaa !567
   %672 = load double, ptr %549, align 8, !tbaa !569
@@ -13372,7 +13372,7 @@ angle_diff_signed.exit.i.i.i.i:                   ; preds = %.lr.ph9.i.i.i.i.i, 
   br i1 %736, label %refine.exit.thread.loopexit.i.i.i, label %737
 
 737:                                              ; preds = %._crit_edge.i.i.i.i.i
-  call fastcc void @region2rect(ptr noundef nonnull %547, i32 noundef %733, ptr noundef %413, double noundef %669, ptr noundef nonnull %5)
+  call fastcc void @region2rect(ptr noundef nonnull %547, i32 noundef %733, ptr noundef readonly %413, double noundef %669, ptr noundef nonnull %5)
   %738 = sitofp i32 %732 to double
   %739 = load double, ptr %5, align 8, !tbaa !567
   %740 = load double, ptr %549, align 8, !tbaa !569
@@ -13406,7 +13406,7 @@ refine.exit.thread.i.i.i:                         ; preds = %refine.exit.thread.
 753:                                              ; preds = %.loopexit.i.i.i, %668, %593
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #34
-  %754 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %5, ptr noundef nonnull %412, double noundef %529)
+  %754 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %5, ptr noundef nonnull readonly %412, double noundef %529)
   %755 = fcmp reassoc nsz arcp contract afn ogt double %754, 0.000000e+00
   br i1 %755, label %rect_improve.exit.i.i.i, label %756
 
@@ -13442,7 +13442,7 @@ refine.exit.thread.i.i.i:                         ; preds = %refine.exit.thread.
   store double %770, ptr %571, align 8, !tbaa !581
   %771 = fmul reassoc nsz arcp contract afn double %769, 0x3FF921FB54442D18
   store double %771, ptr %569, align 8, !tbaa !582
-  %772 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef %3, ptr noundef nonnull %412, double noundef %529)
+  %772 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef %3, ptr noundef nonnull readonly %412, double noundef %529)
   %773 = fcmp reassoc nsz arcp contract afn ogt double %772, %.08094.i.i.i.i
   br i1 %773, label %774, label %775
 
@@ -13507,7 +13507,7 @@ refine.exit.thread.i.i.i:                         ; preds = %refine.exit.thread.
 
 796:                                              ; preds = %792
   store double %794, ptr %557, align 8, !tbaa !572
-  %797 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef %3, ptr noundef nonnull %412, double noundef %529)
+  %797 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef %3, ptr noundef nonnull readonly %412, double noundef %529)
   %798 = fcmp reassoc nsz arcp contract afn ogt double %797, %.28296.i.i.i.i
   br i1 %798, label %799, label %800
 
@@ -13583,7 +13583,7 @@ refine.exit.thread.i.i.i:                         ; preds = %refine.exit.thread.
   %832 = fadd reassoc nsz arcp contract afn double %824, %819
   store double %832, ptr %556, align 8, !tbaa !571
   store double %826, ptr %557, align 8, !tbaa !572
-  %833 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef %3, ptr noundef nonnull %412, double noundef %529)
+  %833 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef %3, ptr noundef nonnull readonly %412, double noundef %529)
   %834 = fcmp reassoc nsz arcp contract afn ogt double %833, %.48498.i.i.i.i
   br i1 %834, label %835, label %836
 
@@ -13663,7 +13663,7 @@ refine.exit.thread.i.i.i:                         ; preds = %refine.exit.thread.
   %872 = fsub reassoc nsz arcp contract afn double %864, %859
   store double %872, ptr %556, align 8, !tbaa !571
   store double %866, ptr %557, align 8, !tbaa !572
-  %873 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef %3, ptr noundef nonnull %412, double noundef %529)
+  %873 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef %3, ptr noundef nonnull readonly %412, double noundef %529)
   %874 = fcmp reassoc nsz arcp contract afn ogt double %873, %.6100.i.i.i.i
   br i1 %874, label %875, label %876
 
@@ -13729,7 +13729,7 @@ refine.exit.thread.i.i.i:                         ; preds = %refine.exit.thread.
   store double %899, ptr %571, align 8, !tbaa !581
   %900 = fmul reassoc nsz arcp contract afn double %898, 0x3FF921FB54442D18
   store double %900, ptr %569, align 8, !tbaa !582
-  %901 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef %3, ptr noundef nonnull %412, double noundef %529)
+  %901 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef %3, ptr noundef nonnull readonly %412, double noundef %529)
   %902 = fcmp reassoc nsz arcp contract afn ogt double %901, %.8102.i.i.i.i
   br i1 %902, label %903, label %904
 

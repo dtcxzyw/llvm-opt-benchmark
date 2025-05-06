@@ -442,7 +442,7 @@ define void @ossl_cipher_generic_reset_ctx(ptr noundef captures(address_is_null)
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cipher_generic_einit(ptr noundef initializes((96, 104), (160, 164)) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_cipher_generic_einit(ptr noundef initializes((96, 104), (160, 164)) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = tail call fastcc i32 @cipher_generic_init_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef 1)
   ret i32 %7
 }
@@ -567,13 +567,13 @@ ossl_cipher_generic_initiv.exit:                  ; preds = %21
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cipher_generic_dinit(ptr noundef initializes((96, 104), (160, 164)) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_cipher_generic_dinit(ptr noundef initializes((96, 104), (160, 164)) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = tail call fastcc i32 @cipher_generic_init_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef 0)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cipher_generic_skey_einit(ptr noundef initializes((96, 104), (160, 164)) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_cipher_generic_skey_einit(ptr noundef initializes((96, 104), (160, 164)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -583,7 +583,7 @@ define range(i32 0, 2) i32 @ossl_cipher_generic_skey_einit(ptr noundef initializ
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cipher_generic_skey_dinit(ptr noundef initializes((96, 104), (160, 164)) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_cipher_generic_skey_dinit(ptr noundef initializes((96, 104), (160, 164)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24

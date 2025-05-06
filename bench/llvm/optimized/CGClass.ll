@@ -977,7 +977,7 @@ _ZNK5clang15ASTRecordLayout18getBaseClassOffsetEPKNS_13CXXRecordDeclE.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang7CodeGen13CodeGenModule28GetNonVirtualBaseClassOffsetEPKNS_13CXXRecordDeclEPKPKNS_16CXXBaseSpecifierES9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3608) %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef captures(address) %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang7CodeGen13CodeGenModule28GetNonVirtualBaseClassOffsetEPKNS_13CXXRecordDeclEPKPKNS_16CXXBaseSpecifierES9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3608) %0, ptr noundef %1, ptr noundef readonly captures(address) %2, ptr noundef readnone captures(address) %3) local_unnamed_addr #0 align 2 {
   %5 = tail call i64 @_ZN5clang7CodeGen13CodeGenModule32computeNonVirtualBaseClassOffsetEPKNS_13CXXRecordDeclEPKPKNS_16CXXBaseSpecifierES9_(ptr noundef nonnull align 8 dereferenceable(3608) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %15, label %7
@@ -1171,7 +1171,7 @@ _ZN5clang7CodeGen15CodeGenFunction11ConvertTypeEPKNS_8TypeDeclE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction21GetAddressOfBaseClassENS0_7AddressEPKNS_13CXXRecordDeclEPKPKNS_16CXXBaseSpecifierESA_bNS_14SourceLocationE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::CodeGen::Address") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef %3, ptr noundef captures(address) %4, ptr noundef captures(address) %5, i1 noundef zeroext %6, i32 %7) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction21GetAddressOfBaseClassENS0_7AddressEPKNS_13CXXRecordDeclEPKPKNS_16CXXBaseSpecifierESA_bNS_14SourceLocationE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::CodeGen::Address") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef %3, ptr noundef readonly captures(address) %4, ptr noundef readonly captures(address) %5, i1 noundef zeroext %6, i32 %7) local_unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"class.llvm::InsertPosition", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -2165,7 +2165,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_7PHINodeEEEPT_S4_RKNS_5TwineE.exit: ; preds =
 declare noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction24GetAddressOfDerivedClassENS0_7AddressEPKNS_13CXXRecordDeclEPKPKNS_16CXXBaseSpecifierESA_b(ptr dead_on_unwind noalias writable sret(%"class.clang::CodeGen::Address") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef readonly byval(%"class.clang::CodeGen::Address") align 8 captures(none) %2, ptr noundef %3, ptr noundef captures(address) %4, ptr noundef captures(address) %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction24GetAddressOfDerivedClassENS0_7AddressEPKNS_13CXXRecordDeclEPKPKNS_16CXXBaseSpecifierESA_b(ptr dead_on_unwind noalias writable sret(%"class.clang::CodeGen::Address") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef readonly byval(%"class.clang::CodeGen::Address") align 8 captures(none) %2, ptr noundef %3, ptr noundef readonly captures(address) %4, ptr noundef readnone captures(address) %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"class.llvm::Twine", align 8
@@ -2194,7 +2194,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction24GetAddressOfDerivedCl
   %32 = or i64 %30, %31
   %33 = tail call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction11ConvertTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6496) %1, i64 %32) #16
   %34 = load ptr, ptr %22, align 8, !tbaa !641
-  %35 = tail call i64 @_ZN5clang7CodeGen13CodeGenModule32computeNonVirtualBaseClassOffsetEPKNS_13CXXRecordDeclEPKPKNS_16CXXBaseSpecifierES9_(ptr noundef nonnull readonly align 8 dereferenceable(3608) %34, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %35 = tail call i64 @_ZN5clang7CodeGen13CodeGenModule32computeNonVirtualBaseClassOffsetEPKNS_13CXXRecordDeclEPKPKNS_16CXXBaseSpecifierES9_(ptr noundef nonnull readonly align 8 dereferenceable(3608) %34, ptr noundef %3, ptr noundef readonly %4, ptr noundef readnone %5)
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %_ZN5clang7CodeGen13CodeGenModule28GetNonVirtualBaseClassOffsetEPKNS_13CXXRecordDeclEPKPKNS_16CXXBaseSpecifierES9_.exit.thread, label %_ZN5clang7CodeGen13CodeGenModule28GetNonVirtualBaseClassOffsetEPKNS_13CXXRecordDeclEPKPKNS_16CXXBaseSpecifierES9_.exit
 

@@ -7492,7 +7492,7 @@ _ZN12btHashStringD2Ev.exit:                       ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN24btCollisionWorldImporter21createCollisionObjectERK11btTransformP16btCollisionShapePKc(ptr noundef nonnull align 8 dereferenceable(1336) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN24btCollisionWorldImporter21createCollisionObjectERK11btTransformP16btCollisionShapePKc(ptr noundef nonnull align 8 dereferenceable(1336) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8

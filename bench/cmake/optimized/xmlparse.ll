@@ -86,7 +86,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.XML_ErrorString = private unnamed_addr constant [43 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @XML_ParserCreate(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @XML_ParserCreate(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(912) ptr @malloc(i64 noundef 912) #24
   %.not87.i = icmp eq ptr %2, null
   br i1 %.not87.i, label %parserCreate.exit, label %3
@@ -224,7 +224,7 @@ define dso_local noundef ptr @XML_ParserCreate(ptr noundef captures(address_is_n
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 864
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %65, i8 0, i64 40, i1 false)
   store ptr %4, ptr %66, align 8, !tbaa !35
-  tail call fastcc void @parserInit(ptr noundef %2, ptr noundef %0)
+  tail call fastcc void @parserInit(ptr noundef %2, ptr noundef readonly %0)
   %.not90.i = icmp eq ptr %0, null
   br i1 %.not90.i, label %70, label %67
 
@@ -249,13 +249,13 @@ parserCreate.exit:                                ; preds = %1, %13, %18, %24, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @XML_ParserCreate_MM(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local ptr @XML_ParserCreate_MM(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @parserCreate(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @XML_ParserCreateNS(ptr noundef captures(address_is_null) %0, i8 noundef signext %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @XML_ParserCreateNS(ptr noundef readonly captures(address_is_null) %0, i8 noundef signext %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(912) ptr @malloc(i64 noundef 912) #24
   %.not87.i = icmp eq ptr %3, null
   br i1 %.not87.i, label %parserCreate.exit, label %4
@@ -393,7 +393,7 @@ define dso_local noundef ptr @XML_ParserCreateNS(ptr noundef captures(address_is
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 864
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %66, i8 0, i64 40, i1 false)
   store ptr %5, ptr %67, align 8, !tbaa !35
-  tail call fastcc void @parserInit(ptr noundef %3, ptr noundef %0)
+  tail call fastcc void @parserInit(ptr noundef %3, ptr noundef readonly %0)
   %.not90.i = icmp eq ptr %0, null
   br i1 %.not90.i, label %71, label %68
 
@@ -426,7 +426,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @parserCreate(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc ptr @parserCreate(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %15, label %4
 
@@ -647,7 +647,7 @@ define internal fastcc ptr @parserCreate(ptr noundef captures(address_is_null) %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext range(i8 0, 2) i8 @XML_ParserReset(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local zeroext range(i8 0, 2) i8 @XML_ParserReset(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %179, label %4
 
@@ -1209,7 +1209,7 @@ copyString.exit:                                  ; preds = %13
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @XML_ExternalEntityParserCreate(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local ptr @XML_ExternalEntityParserCreate(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca [2 x i8], align 1
   %5 = icmp eq ptr %0, null
   br i1 %5, label %897, label %6

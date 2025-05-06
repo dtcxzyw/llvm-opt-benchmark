@@ -2080,7 +2080,7 @@ define dso_local void @_ZN17b3PgsJacobiSolver23setupFrictionConstraintEP15b3Rigi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 16 dereferenceable(160) ptr @_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff(ptr noundef nonnull align 8 captures(none) dereferenceable(448) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(128) %7, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %8, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, float noundef %12, float noundef %13, float noundef %14) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 16 dereferenceable(160) ptr @_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff(ptr noundef nonnull align 8 captures(none) dereferenceable(448) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(128) %7, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %8, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, float noundef %12, float noundef %13, float noundef %14) local_unnamed_addr #6 align 2 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %17 = load i32, ptr %16, align 4, !tbaa !38
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -2500,7 +2500,7 @@ define dso_local void @_ZN17b3PgsJacobiSolver30setupRollingFrictionConstraintEP1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 16 dereferenceable(160) ptr @_ZN17b3PgsJacobiSolver28addRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff(ptr noundef nonnull align 8 captures(none) dereferenceable(448) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(128) %7, ptr nonnull readnone align 16 captures(none) %8, ptr nonnull readnone align 16 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, float %12, float noundef %13, float noundef %14) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 16 dereferenceable(160) ptr @_ZN17b3PgsJacobiSolver28addRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff(ptr noundef nonnull align 8 captures(none) dereferenceable(448) %0, ptr noundef readnone captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(128) %7, ptr nonnull readnone align 16 captures(none) %8, ptr nonnull readnone align 16 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, float %12, float noundef %13, float noundef %14) local_unnamed_addr #6 align 2 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %17 = load i32, ptr %16, align 4, !tbaa !38
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -2590,7 +2590,7 @@ _ZN20b3AlignedObjectArrayI18b3SolverConstraintE21expandNonInitializingEv.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN17b3PgsJacobiSolver19getOrInitSolverBodyEiP15b3RigidBodyDataP13b3InertiaData(ptr noundef nonnull align 8 dereferenceable(448) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr readnone captures(none) %3) local_unnamed_addr #6 align 2 {
+define dso_local noundef i32 @_ZN17b3PgsJacobiSolver19getOrInitSolverBodyEiP15b3RigidBodyDataP13b3InertiaData(ptr noundef nonnull align 8 dereferenceable(448) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr readnone captures(none) %3) local_unnamed_addr #6 align 2 {
   %5 = alloca %struct.b3SolverBody, align 16
   %6 = alloca %struct.b3SolverBody, align 16
   %7 = sext i32 %1 to i64
@@ -3855,7 +3855,7 @@ define dso_local void @_ZN17b3PgsJacobiSolver28setFrictionConstraintImpulseEP15b
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17b3PgsJacobiSolver14convertContactEP15b3RigidBodyDataP13b3InertiaDataP10b3Contact4RK19b3ContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(84) %4) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZN17b3PgsJacobiSolver14convertContactEP15b3RigidBodyDataP13b3InertiaDataP10b3Contact4RK19b3ContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(84) %4) local_unnamed_addr #14 align 2 {
   %6 = alloca %struct.b3ContactPoint, align 16
   %7 = alloca %class.b3Vector3, align 16
   %8 = alloca %class.b3Vector3, align 16

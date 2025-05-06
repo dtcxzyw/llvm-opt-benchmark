@@ -1679,7 +1679,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit10: ; preds = %70
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK3g2o7Factory9constructERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6bitsetILm5EE(ptr noundef nonnull align 8 captures(address) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK3g2o7Factory9constructERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6bitsetILm5EE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load i64, ptr %2, align 8, !tbaa !85
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %5, label %7

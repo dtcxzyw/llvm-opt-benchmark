@@ -2893,7 +2893,7 @@ next_arg.exit106.thread136:                       ; preds = %._crit_edge.i88, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @imap_exec(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ...) unnamed_addr #0 {
+define internal range(i32 0, 3) i32 @imap_exec(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ...) unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #22
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -4540,7 +4540,7 @@ declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare ptr @strbuf_detach(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -3, 1) i32 @imap_exec_m(ptr noundef nonnull %0, ptr noundef nonnull captures(address_is_null) %1, ptr readnone captures(none) %2, ...) unnamed_addr #0 {
+define internal range(i32 -3, 1) i32 @imap_exec_m(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(address_is_null) %1, ptr readnone captures(none) %2, ...) unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #22
   call void @llvm.va_start.p0(ptr nonnull %4)

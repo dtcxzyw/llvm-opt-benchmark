@@ -1681,7 +1681,7 @@ _ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev
 declare noundef i32 @_ZNK5clang12FunctionDecl21getOverloadedOperatorEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager27getSummaryForObjCOrCFObjectEPKNS_12FunctionDeclEN4llvm9StringRefENS_8QualTypeEPKNS_12FunctionTypeERb(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %1, ptr %2, i64 %3, i64 %4, ptr noundef captures(address_is_null) %5, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %6) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager27getSummaryForObjCOrCFObjectEPKNS_12FunctionDeclEN4llvm9StringRefENS_8QualTypeEPKNS_12FunctionTypeERb(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %1, ptr %2, i64 %3, i64 %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %6) local_unnamed_addr #2 align 2 {
   %8 = alloca %"class.llvm::StringRef", align 8
   %9 = alloca %"class.clang::ento::RetainSummary", align 8
   %10 = alloca %"class.clang::ento::RetainSummary", align 8

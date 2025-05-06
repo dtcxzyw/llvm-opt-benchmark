@@ -188,7 +188,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @CreateTupleDescCopy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 5) i32 @get_call_result_type(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @get_call_result_type(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
@@ -970,7 +970,7 @@ get_type_func_class.exit.thread:                  ; preds = %236, %select.unfold
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 5) i32 @get_expr_result_type(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @get_expr_result_type(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge105, label %4
 
@@ -1230,7 +1230,7 @@ declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #3
 declare ptr @lookup_rowtype_tupdesc_copy(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 5) i32 @get_func_result_type(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @get_func_result_type(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @internal_get_result_type(i32 noundef %0, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }

@@ -975,21 +975,21 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 311:                                              ; preds = %305, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29) #22
-  %312 = invoke fastcc noundef zeroext i1 @_ZL41checkSingleParameterArgumentPreconditionsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS4_St6vectorIS4_SaIS4_EESt4lessIS4_ESaISt4pairIS5_SA_EEERS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_117kPrefixOptionNameB5cxx11E, ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull align 8 dereferenceable(32) %35)
+  %312 = invoke fastcc noundef zeroext i1 @_ZL41checkSingleParameterArgumentPreconditionsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS4_St6vectorIS4_SaIS4_EESt4lessIS4_ESaISt4pairIS5_SA_EEERS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_117kPrefixOptionNameB5cxx11E, ptr noundef nonnull readonly align 8 dereferenceable(48) %34, ptr noundef nonnull align 8 dereferenceable(32) %35)
           to label %.noexc89 unwind label %317
 
 .noexc89:                                         ; preds = %311
   br i1 %312, label %313, label %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit129
 
 313:                                              ; preds = %.noexc89
-  %314 = invoke fastcc noundef zeroext i1 @_ZL41checkSingleParameterArgumentPreconditionsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS4_St6vectorIS4_SaIS4_EESt4lessIS4_ESaISt4pairIS5_SA_EEERS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_115kTreeOptionNameB5cxx11E, ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull align 8 dereferenceable(32) %35)
+  %314 = invoke fastcc noundef zeroext i1 @_ZL41checkSingleParameterArgumentPreconditionsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS4_St6vectorIS4_SaIS4_EESt4lessIS4_ESaISt4pairIS5_SA_EEERS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_115kTreeOptionNameB5cxx11E, ptr noundef nonnull readonly align 8 dereferenceable(48) %34, ptr noundef nonnull align 8 dereferenceable(32) %35)
           to label %.noexc90 unwind label %317
 
 .noexc90:                                         ; preds = %313
   br i1 %314, label %315, label %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit129
 
 315:                                              ; preds = %.noexc90
-  %316 = invoke fastcc noundef zeroext i1 @_ZL41checkSingleParameterArgumentPreconditionsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS4_St6vectorIS4_SaIS4_EESt4lessIS4_ESaISt4pairIS5_SA_EEERS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_116kRegexOptionNameB5cxx11E, ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull align 8 dereferenceable(32) %35)
+  %316 = invoke fastcc noundef zeroext i1 @_ZL41checkSingleParameterArgumentPreconditionsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS4_St6vectorIS4_SaIS4_EESt4lessIS4_ESaISt4pairIS5_SA_EEERS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_116kRegexOptionNameB5cxx11E, ptr noundef nonnull readonly align 8 dereferenceable(48) %34, ptr noundef nonnull align 8 dereferenceable(32) %35)
           to label %_ZL27checkArgumentsPreconditionsRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EESt4lessIS5_ESaISt4pairIKS5_S8_EEERS5_.exit unwind label %317
 
 _ZL27checkArgumentsPreconditionsRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EESt4lessIS5_ESaISt4pairIKS5_S8_EEERS5_.exit: ; preds = %315

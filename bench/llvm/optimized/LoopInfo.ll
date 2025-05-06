@@ -10342,25 +10342,25 @@ define dso_local noundef zeroext i1 @_ZNK4llvm4Loop11isLCSSAFormERKNS_13Dominato
   %.044.i.i.i.i.i = phi i64 [ %26, %24 ], [ %12, %3 ]
   %.02943.i.i.i.i.i = phi ptr [ %25, %24 ], [ %5, %3 ]
   %.029.val.i.i.i.i.i = load ptr, ptr %.02943.i.i.i.i.i, align 8, !tbaa !27
-  %14 = tail call fastcc noundef zeroext i1 @_ZL18isBlockInLCSSAFormRKN4llvm4LoopERKNS_10BasicBlockERKNS_13DominatorTreeEb(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(80) %.029.val.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %1, i1 noundef zeroext %2)
+  %14 = tail call fastcc noundef zeroext i1 @_ZL18isBlockInLCSSAFormRKN4llvm4LoopERKNS_10BasicBlockERKNS_13DominatorTreeEb(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull readonly align 8 dereferenceable(80) %.029.val.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %1, i1 noundef zeroext %2)
   br i1 %14, label %15, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKPNS_10BasicBlockEEEZNKS_4Loop11isLCSSAFormERKNS_13DominatorTreeEbE3$_0EEbOT_T0_.exit"
 
 15:                                               ; preds = %.lr.ph.i.i.i.i.i
   %16 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 8
   %.val.i.i.i.i.i = load ptr, ptr %16, align 8, !tbaa !27
-  %17 = tail call fastcc noundef zeroext i1 @_ZL18isBlockInLCSSAFormRKN4llvm4LoopERKNS_10BasicBlockERKNS_13DominatorTreeEb(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(80) %.val.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %1, i1 noundef zeroext %2)
+  %17 = tail call fastcc noundef zeroext i1 @_ZL18isBlockInLCSSAFormRKN4llvm4LoopERKNS_10BasicBlockERKNS_13DominatorTreeEb(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull readonly align 8 dereferenceable(80) %.val.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %1, i1 noundef zeroext %2)
   br i1 %17, label %18, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKPNS_10BasicBlockEEEZNKS_4Loop11isLCSSAFormERKNS_13DominatorTreeEbE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit"
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 16
   %.val30.i.i.i.i.i = load ptr, ptr %19, align 8, !tbaa !27
-  %20 = tail call fastcc noundef zeroext i1 @_ZL18isBlockInLCSSAFormRKN4llvm4LoopERKNS_10BasicBlockERKNS_13DominatorTreeEb(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(80) %.val30.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %1, i1 noundef zeroext %2)
+  %20 = tail call fastcc noundef zeroext i1 @_ZL18isBlockInLCSSAFormRKN4llvm4LoopERKNS_10BasicBlockERKNS_13DominatorTreeEb(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull readonly align 8 dereferenceable(80) %.val30.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %1, i1 noundef zeroext %2)
   br i1 %20, label %21, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKPNS_10BasicBlockEEEZNKS_4Loop11isLCSSAFormERKNS_13DominatorTreeEbE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit24"
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 24
   %.val31.i.i.i.i.i = load ptr, ptr %22, align 8, !tbaa !27
-  %23 = tail call fastcc noundef zeroext i1 @_ZL18isBlockInLCSSAFormRKN4llvm4LoopERKNS_10BasicBlockERKNS_13DominatorTreeEb(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(80) %.val31.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %1, i1 noundef zeroext %2)
+  %23 = tail call fastcc noundef zeroext i1 @_ZL18isBlockInLCSSAFormRKN4llvm4LoopERKNS_10BasicBlockERKNS_13DominatorTreeEb(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull readonly align 8 dereferenceable(80) %.val31.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %1, i1 noundef zeroext %2)
   br i1 %23, label %24, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKPNS_10BasicBlockEEEZNKS_4Loop11isLCSSAFormERKNS_13DominatorTreeEbE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit26"
 
 24:                                               ; preds = %21
@@ -10386,7 +10386,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm4Loop11isLCSSAFormERKNS_13Dominato
 
 29:                                               ; preds = %._crit_edge.i.i.i.i.i
   %.029.val32.i.i.i.i.i = load ptr, ptr %.029.lcssa.i.i.i.i.i, align 8, !tbaa !27
-  %30 = tail call fastcc noundef zeroext i1 @_ZL18isBlockInLCSSAFormRKN4llvm4LoopERKNS_10BasicBlockERKNS_13DominatorTreeEb(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(80) %.029.val32.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %1, i1 noundef zeroext %2)
+  %30 = tail call fastcc noundef zeroext i1 @_ZL18isBlockInLCSSAFormRKN4llvm4LoopERKNS_10BasicBlockERKNS_13DominatorTreeEb(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull readonly align 8 dereferenceable(80) %.029.val32.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %1, i1 noundef zeroext %2)
   br i1 %30, label %31, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKPNS_10BasicBlockEEEZNKS_4Loop11isLCSSAFormERKNS_13DominatorTreeEbE3$_0EEbOT_T0_.exit"
 
 31:                                               ; preds = %29
@@ -10396,7 +10396,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm4Loop11isLCSSAFormERKNS_13Dominato
 ._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %31, %._crit_edge.i.i.i.i.i
   %.1.i.i.i.i.i = phi ptr [ %32, %31 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !27
-  %33 = tail call fastcc noundef zeroext i1 @_ZL18isBlockInLCSSAFormRKN4llvm4LoopERKNS_10BasicBlockERKNS_13DominatorTreeEb(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(80) %.1.val.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %1, i1 noundef zeroext %2)
+  %33 = tail call fastcc noundef zeroext i1 @_ZL18isBlockInLCSSAFormRKN4llvm4LoopERKNS_10BasicBlockERKNS_13DominatorTreeEb(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull readonly align 8 dereferenceable(80) %.1.val.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %1, i1 noundef zeroext %2)
   br i1 %33, label %34, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKPNS_10BasicBlockEEEZNKS_4Loop11isLCSSAFormERKNS_13DominatorTreeEbE3$_0EEbOT_T0_.exit"
 
 34:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i.i
@@ -10406,7 +10406,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm4Loop11isLCSSAFormERKNS_13Dominato
 ._crit_edge._crit_edge52.i.i.i.i.i:               ; preds = %34, %._crit_edge.i.i.i.i.i
   %.2.i.i.i.i.i = phi ptr [ %35, %34 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !27
-  %36 = tail call fastcc noundef zeroext i1 @_ZL18isBlockInLCSSAFormRKN4llvm4LoopERKNS_10BasicBlockERKNS_13DominatorTreeEb(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(80) %.2.val.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %1, i1 noundef zeroext %2)
+  %36 = tail call fastcc noundef zeroext i1 @_ZL18isBlockInLCSSAFormRKN4llvm4LoopERKNS_10BasicBlockERKNS_13DominatorTreeEb(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull readonly align 8 dereferenceable(80) %.2.val.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %1, i1 noundef zeroext %2)
   br i1 %36, label %37, label %"_ZN4llvm6all_ofINS_14iterator_rangeIPKPNS_10BasicBlockEEEZNKS_4Loop11isLCSSAFormERKNS_13DominatorTreeEbE3$_0EEbOT_T0_.exit"
 
 37:                                               ; preds = %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge.i.i.i.i.i

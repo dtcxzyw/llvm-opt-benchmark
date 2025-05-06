@@ -848,7 +848,7 @@ define internal i32 @software_key_eds_op(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @public_key_verify_signature_2(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) #0 align 16 {
+define internal i32 @public_key_verify_signature_2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @public_key_verify_signature(ptr noundef %4, ptr noundef %1)

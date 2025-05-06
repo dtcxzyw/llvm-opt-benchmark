@@ -1799,7 +1799,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20widenShuffleMaskEltsENS_8ArrayRef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm20scaleShuffleMaskEltsEjNS_8ArrayRefIiEERNS_15SmallVectorImplIiEE(i32 noundef %0, ptr captures(address) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_ZN4llvm20scaleShuffleMaskEltsEjNS_8ArrayRefIiEERNS_15SmallVectorImplIiEE(i32 noundef %0, ptr readonly captures(address) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #1 {
   %5 = trunc i64 %2 to i32
   %6 = icmp eq i32 %0, %5
   br i1 %6, label %7, label %20

@@ -2183,7 +2183,7 @@ _ZN7globset14SuffixStrategy8is_match17heb7dd0419ee04fd6E.exit.i: ; preds = %"_ZN
   %.val10.i = load ptr, ptr %175, align 8, !alias.scope !285, !noalias !288, !nonnull !9, !noundef !9
   %176 = getelementptr inbounds nuw i8, ptr %.sroa.0.015, i64 40
   %.val11.i = load ptr, ptr %176, align 8, !alias.scope !285, !noalias !288
-  %177 = call fastcc noundef zeroext i1 @_ZN14regex_automata4meta5regex5Regex8is_match17hee1b11546fb0a8d4E(ptr nonnull %.val10.i, ptr %.val11.i, ptr noalias noundef nonnull readonly align 1 %.val12.i, i64 noundef %.val13.i), !noalias !388
+  %177 = call fastcc noundef zeroext i1 @_ZN14regex_automata4meta5regex5Regex8is_match17hee1b11546fb0a8d4E(ptr nonnull readonly %.val10.i, ptr %.val11.i, ptr noalias noundef nonnull readonly align 1 %.val12.i, i64 noundef %.val13.i), !noalias !388
   br i1 %177, label %_ZN7globset20GlobSetMatchStrategy8is_match17h3ba31e145b4cd393E.exit.thread, label %.backedge
 
 .backedge:                                        ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h9fea471afe4230c6E.exit._crit_edge.i.i.i.i.i", %168, %134, %132, %59, %57, %50, %48, %40, %174, %_ZN7globset14SuffixStrategy8is_match17heb7dd0419ee04fd6E.exit.i, %_ZN7globset14PrefixStrategy8is_match17h3e261617962f431bE.exit.i, %44, %54, %63

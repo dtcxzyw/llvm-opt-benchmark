@@ -4114,7 +4114,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit15: ; preds = %26, %_ZL1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @fstWriterSetSourceStem(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @fstWriterSetSourceStem(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   tail call fastcc void @_ZL24fstWriterSetSourceStem_2PvPKcjji(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 4)
   ret void
 }
@@ -4239,7 +4239,7 @@ _ZL32fstWriterSetAttrDoubleArgGenericPvimm.exit:  ; preds = %_ZL22fstCopyVarint6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @fstWriterSetSourceInstantiationStem(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @fstWriterSetSourceInstantiationStem(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   tail call fastcc void @_ZL24fstWriterSetSourceStem_2PvPKcjji(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 5)
   ret void
 }
@@ -4687,7 +4687,7 @@ define range(i32 0, 2) i32 @fstWriterGetFseekFailed(ptr noundef readonly capture
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @fstWriterCreateVar2(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define i32 @fstWriterCreateVar2(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = shl i32 %7, 10
   %11 = and i32 %8, 1023
   %12 = or disjoint i32 %11, %10
@@ -10314,7 +10314,7 @@ _ZL13tmpfile_closePP8_IO_FILEPPc.exit40:          ; preds = %50, %54
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @fstReaderIterBlocks(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @fstReaderIterBlocks(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #12 {
   %5 = tail call i32 @fstReaderIterBlocks2(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef %2, ptr noundef %3)
   ret i32 %5
 }

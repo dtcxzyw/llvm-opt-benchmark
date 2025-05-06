@@ -714,7 +714,7 @@ define range(i32 0, 2) i32 @dt_dev_pixelpipe_cache_get(ptr noundef captures(addr
 
 38:                                               ; preds = %34
   store i64 0, ptr %31, align 8, !tbaa !25
-  tail call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.116, ptr noundef nonnull %0, ptr noundef %5, i32 noundef -2, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.58)
+  tail call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.116, ptr noundef nonnull readonly %0, ptr noundef %5, i32 noundef -2, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.58)
   %.pre.i = load i32, ptr %0, align 8, !tbaa !6
   br label %44
 
@@ -1290,7 +1290,7 @@ declare ptr @dt_iop_colorspace_to_name(i32 noundef) local_unnamed_addr #3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define void @dt_dev_pixelpipe_cache_invalidate_later(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @dt_dev_pixelpipe_cache_invalidate_later(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8, !tbaa !6
   %4 = icmp sgt i32 %3, 2
   br i1 %4, label %.lr.ph, label %._crit_edge.thread
@@ -1353,7 +1353,7 @@ define void @dt_dev_pixelpipe_cache_invalidate_later(ptr noundef captures(addres
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dt_dev_pixelpipe_cache_flush(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @dt_dev_pixelpipe_cache_flush(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8, !tbaa !6
   %3 = icmp sgt i32 %2, 2
   br i1 %3, label %.lr.ph.i, label %dt_dev_pixelpipe_cache_invalidate_later.exit
@@ -1406,7 +1406,7 @@ define void @dt_dev_pixelpipe_cache_flush(ptr noundef captures(address_is_null) 
   br i1 %.not17.i, label %dt_dev_pixelpipe_cache_invalidate_later.exit, label %24
 
 24:                                               ; preds = %21
-  tail call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.9, ptr noundef nonnull %0, ptr noundef null, i32 noundef -2, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef %.1.i, i32 noundef 0)
+  tail call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.9, ptr noundef nonnull readonly %0, ptr noundef null, i32 noundef -2, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef %.1.i, i32 noundef 0)
   br label %dt_dev_pixelpipe_cache_invalidate_later.exit
 
 dt_dev_pixelpipe_cache_invalidate_later.exit:     ; preds = %1, %._crit_edge.i, %21, %24
@@ -3567,7 +3567,7 @@ switch.early.test:                                ; preds = %128
   br i1 %.not17.i.i, label %dt_dev_pixelpipe_usedetails.exit, label %157
 
 157:                                              ; preds = %154
-  tail call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.9, ptr noundef nonnull %0, ptr noundef null, i32 noundef -2, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef %.1.i.i, i32 noundef 0)
+  tail call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.9, ptr noundef nonnull readonly %0, ptr noundef null, i32 noundef -2, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef %.1.i.i, i32 noundef 0)
   br label %dt_dev_pixelpipe_usedetails.exit
 
 dt_dev_pixelpipe_usedetails.exit:                 ; preds = %134, %136, %._crit_edge.i.i, %154, %157
@@ -3893,7 +3893,7 @@ define void @dt_dev_pixelpipe_usedetails(ptr noundef captures(address_is_null) %
   br i1 %.not17.i, label %dt_dev_pixelpipe_cache_invalidate_later.exit, label %27
 
 27:                                               ; preds = %24
-  tail call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.9, ptr noundef nonnull %0, ptr noundef null, i32 noundef -2, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef %.1.i, i32 noundef 0)
+  tail call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.9, ptr noundef nonnull readonly %0, ptr noundef null, i32 noundef -2, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef %.1.i, i32 noundef 0)
   br label %dt_dev_pixelpipe_cache_invalidate_later.exit
 
 dt_dev_pixelpipe_cache_invalidate_later.exit:     ; preds = %27, %24, %._crit_edge.i, %4, %1
@@ -4092,7 +4092,7 @@ define range(i32 0, 2) i32 @dt_dev_pixelpipe_process(ptr noundef initializes((57
   br i1 %.not17.i.i, label %dt_dev_pixelpipe_cache_flush.exit, label %91
 
 91:                                               ; preds = %88
-  call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.9, ptr noundef nonnull %0, ptr noundef null, i32 noundef -2, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef %.1.i.i, i32 noundef 0)
+  call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.9, ptr noundef nonnull readonly %0, ptr noundef null, i32 noundef -2, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef %.1.i.i, i32 noundef 0)
   br label %dt_dev_pixelpipe_cache_flush.exit
 
 dt_dev_pixelpipe_cache_flush.exit:                ; preds = %91, %88, %._crit_edge.i.i, %70, %68
@@ -4116,7 +4116,7 @@ dt_dev_pixelpipe_cache_flush.exit:                ; preds = %91, %88, %._crit_ed
 97:                                               ; preds = %94, %dt_dev_pixelpipe_cache_flush.exit
   call void @dt_print_mem_usage(ptr noundef nonnull @.str.74) #27
   %98 = call i32 @pthread_mutex_lock(ptr noundef nonnull %67) #27
-  %99 = call fastcc i32 @_dev_pixelpipe_process_rec(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef nonnull %9, ptr noundef %56, ptr noundef readonly %59, i32 noundef %54)
+  %99 = call fastcc i32 @_dev_pixelpipe_process_rec(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef nonnull %9, ptr noundef readonly %56, ptr noundef readonly %59, i32 noundef %54)
   %100 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %67) #27
   %101 = load i32, ptr %25, align 4, !tbaa !137
   %.not127 = icmp eq i32 %99, 0
@@ -4210,7 +4210,7 @@ dt_dev_pixelpipe_cache_flush.exit:                ; preds = %91, %88, %._crit_ed
   br i1 %.not17.i.i146, label %dt_dev_pixelpipe_cache_flush.exit147, label %140
 
 140:                                              ; preds = %137
-  call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.9, ptr noundef nonnull %0, ptr noundef null, i32 noundef -2, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef %.1.i.i142, i32 noundef 0)
+  call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.9, ptr noundef nonnull readonly %0, ptr noundef null, i32 noundef -2, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef %.1.i.i142, i32 noundef 0)
   br label %dt_dev_pixelpipe_cache_flush.exit147
 
 dt_dev_pixelpipe_cache_flush.exit147:             ; preds = %119, %._crit_edge.i.i144, %137, %140

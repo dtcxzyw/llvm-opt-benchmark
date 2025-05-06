@@ -2638,11 +2638,11 @@ udcomplen_appears_present.exit.i:                 ; preds = %328
   ]
 
 386:                                              ; preds = %382
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %216, ptr noundef %49, ptr noundef %1, ptr noundef nonnull @.str.1192, i32 noundef %383)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %216, ptr noundef %49, ptr noundef readonly %1, ptr noundef nonnull @.str.1192, i32 noundef %383)
   br label %write_section_info.exit.i
 
 387:                                              ; preds = %382
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %216, ptr noundef %49, ptr noundef %1, ptr noundef nonnull @.str.1193, i32 noundef %383, i32 noundef %384)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %216, ptr noundef %49, ptr noundef readonly %1, ptr noundef nonnull @.str.1193, i32 noundef %383, i32 noundef %384)
   br label %write_section_info.exit.i
 
 388:                                              ; preds = %382
@@ -2653,7 +2653,7 @@ udcomplen_appears_present.exit.i:                 ; preds = %328
   %393 = add i32 %392, %384
   %.not.i279.i = icmp eq i32 %389, 0
   %394 = select i1 %.not.i279.i, ptr @.str.1165, ptr @.str.1195
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %216, ptr noundef %49, ptr noundef %1, ptr noundef nonnull @.str.1194, i32 noundef %383, i32 noundef %384, i32 noundef %393, ptr noundef nonnull %394)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %216, ptr noundef %49, ptr noundef readonly %1, ptr noundef nonnull @.str.1194, i32 noundef %383, i32 noundef %384, i32 noundef %393, ptr noundef nonnull %394)
   br label %write_section_info.exit.i
 
 write_section_info.exit.i:                        ; preds = %388, %387, %386
@@ -5958,11 +5958,11 @@ define internal fastcc noundef i32 @dissect_oran_c_section(ptr noundef %0, ptr n
   ]
 
 165:                                              ; preds = %161
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %105, ptr noundef %6, ptr noundef %2, ptr noundef nonnull @.str.1192, i32 noundef %162)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %105, ptr noundef %6, ptr noundef readonly %2, ptr noundef nonnull @.str.1192, i32 noundef %162)
   br label %write_section_info.exit
 
 166:                                              ; preds = %161
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %105, ptr noundef %6, ptr noundef %2, ptr noundef nonnull @.str.1193, i32 noundef %162, i32 noundef %163)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %105, ptr noundef %6, ptr noundef readonly %2, ptr noundef nonnull @.str.1193, i32 noundef %162, i32 noundef %163)
   br label %write_section_info.exit
 
 167:                                              ; preds = %161
@@ -5973,7 +5973,7 @@ define internal fastcc noundef i32 @dissect_oran_c_section(ptr noundef %0, ptr n
   %172 = add i32 %171, %163
   %.not.i = icmp eq i32 %168, 0
   %173 = select i1 %.not.i, ptr @.str.1165, ptr @.str.1195
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %105, ptr noundef %6, ptr noundef %2, ptr noundef nonnull @.str.1194, i32 noundef %162, i32 noundef %163, i32 noundef %172, ptr noundef nonnull %173)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %105, ptr noundef %6, ptr noundef readonly %2, ptr noundef nonnull @.str.1194, i32 noundef %162, i32 noundef %163, i32 noundef %172, ptr noundef nonnull %173)
   br label %write_section_info.exit
 
 write_section_info.exit:                          ; preds = %165, %166, %167
@@ -6003,11 +6003,11 @@ thread-pre-split:                                 ; preds = %127
   ]
 
 183:                                              ; preds = %179
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %105, ptr noundef %6, ptr noundef %2, ptr noundef nonnull @.str.1192, i32 noundef %181)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %105, ptr noundef %6, ptr noundef readonly %2, ptr noundef nonnull @.str.1192, i32 noundef %181)
   br label %.thread1951
 
 184:                                              ; preds = %179
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %105, ptr noundef %6, ptr noundef %2, ptr noundef nonnull @.str.1193, i32 noundef %181, i32 noundef %182)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %105, ptr noundef %6, ptr noundef readonly %2, ptr noundef nonnull @.str.1193, i32 noundef %181, i32 noundef %182)
   br label %.thread1951
 
 185:                                              ; preds = %179
@@ -6018,7 +6018,7 @@ thread-pre-split:                                 ; preds = %127
   %190 = add i32 %189, %182
   %.not.i1562 = icmp eq i32 %186, 0
   %191 = select i1 %.not.i1562, ptr @.str.1165, ptr @.str.1195
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %105, ptr noundef %6, ptr noundef %2, ptr noundef nonnull @.str.1194, i32 noundef %181, i32 noundef %182, i32 noundef %190, ptr noundef nonnull %191)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %105, ptr noundef %6, ptr noundef readonly %2, ptr noundef nonnull @.str.1194, i32 noundef %181, i32 noundef %182, i32 noundef %190, ptr noundef nonnull %191)
   br label %.thread1951
 
 .thread1951:                                      ; preds = %185, %184, %183
@@ -6291,13 +6291,13 @@ proto_item_set_hidden.exit1568:                   ; preds = %306, %315, %318
   ]
 
 327:                                              ; preds = %proto_item_set_hidden.exit1568
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %105, ptr noundef null, ptr noundef %2, ptr noundef nonnull @.str.1340, i32 noundef %323, i32 noundef %324, i32 noundef %325, i32 noundef %322)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %105, ptr noundef null, ptr noundef readonly %2, ptr noundef nonnull @.str.1340, i32 noundef %323, i32 noundef %324, i32 noundef %325, i32 noundef %322)
   br label %write_channel_section_info.exit
 
 328:                                              ; preds = %proto_item_set_hidden.exit1568
   %329 = add i32 %325, -1
   %330 = add i32 %329, %326
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %105, ptr noundef null, ptr noundef %2, ptr noundef nonnull @.str.1341, i32 noundef %323, i32 noundef %324, i32 noundef %325, i32 noundef %330, i32 noundef %322)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %105, ptr noundef null, ptr noundef readonly %2, ptr noundef nonnull @.str.1341, i32 noundef %323, i32 noundef %324, i32 noundef %325, i32 noundef %330, i32 noundef %322)
   br label %write_channel_section_info.exit
 
 write_channel_section_info.exit:                  ; preds = %proto_item_set_hidden.exit1568, %327, %328

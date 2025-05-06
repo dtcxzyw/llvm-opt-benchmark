@@ -545,7 +545,7 @@ declare dso_local void @down_write(ptr noundef) local_unnamed_addr #2
 declare dso_local void @up_write(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @snd_ctl_remove_id(ptr noundef %0, ptr noundef captures(address_is_null) %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_ctl_remove_id(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   tail call void @down_write(ptr noundef nonnull %3) #17
   %4 = tail call ptr @snd_ctl_find_id_locked(ptr noundef %0, ptr noundef %1)
@@ -896,7 +896,7 @@ define internal fastcc i32 @snd_ctl_get_ioff(ptr noundef readonly captures(none)
 declare dso_local void @downgrade_write(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -2, 1) i32 @snd_ctl_rename_id(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2) #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @snd_ctl_rename_id(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   tail call void @down_write(ptr noundef nonnull %4) #17
   %5 = tail call ptr @snd_ctl_find_id_locked(ptr noundef %0, ptr noundef %1)
@@ -1199,7 +1199,7 @@ define dso_local ptr @snd_ctl_find_numid(ptr noundef %0, i32 noundef %1) #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @snd_ctl_find_id(ptr noundef %0, ptr noundef captures(address_is_null) %1) #0 align 16 {
+define dso_local ptr @snd_ctl_find_id(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   tail call void @down_read(ptr noundef nonnull %3) #17
   %4 = tail call ptr @snd_ctl_find_id_locked(ptr noundef %0, ptr noundef %1)

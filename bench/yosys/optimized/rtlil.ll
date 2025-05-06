@@ -144485,7 +144485,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitES3_NS0_8hash_opsIS3_EEE9do_lookupERKS3_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys5RTLIL7SigSpec7replaceERKSt3mapINS0_6SigBitES3_St4lessIS3_ESaISt4pairIKS3_S3_EEE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #5 align 2 {
+define void @_ZN5Yosys5RTLIL7SigSpec7replaceERKSt3mapINS0_6SigBitES3_St4lessIS3_ESaISt4pairIKS3_S3_EEE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #5 align 2 {
   tail call void @_ZNK5Yosys5RTLIL7SigSpec7replaceERKSt3mapINS0_6SigBitES3_St4lessIS3_ESaISt4pairIKS3_S3_EEEPS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %0)
   ret void
 }
@@ -148285,7 +148285,7 @@ define noundef zeroext i1 @_ZNK5Yosys5RTLIL7SigSpec15has_marked_bitsEv(ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK5Yosys5RTLIL7SigSpec9is_onehotEPi(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK5Yosys5RTLIL7SigSpec9is_onehotEPi(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::RTLIL::Const", align 8
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZNK5Yosys5RTLIL7SigSpec9is_onehotEPiE3__d, i64 28), align 1, !tbaa !105
   %5 = add nsw i32 %4, 1

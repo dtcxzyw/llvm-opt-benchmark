@@ -10771,7 +10771,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm18CodeGenSchedModels14findOrInsertRWENS_8ArrayRefIjEEb(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr captures(address) %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm18CodeGenSchedModels14findOrInsertRWENS_8ArrayRefIjEEb(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr readonly captures(address) %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i64, align 8
   %6 = alloca %"struct.llvm::CodeGenSchedRW", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11292,7 +11292,7 @@ _ZNSt16allocator_traitsISaIN4llvm17CodeGenSchedClassEEE9constructIS1_JiRA13_KcPK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm18CodeGenSchedModels13addSchedClassEPKNS_6RecordENS_8ArrayRefIjEES5_S5_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %1, ptr captures(address) %2, i64 %3, ptr %4, i64 %5, ptr noundef readonly byval(%"class.llvm::ArrayRef.205") align 8 captures(none) %6) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm18CodeGenSchedModels13addSchedClassEPKNS_6RecordENS_8ArrayRefIjEES5_S5_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %1, ptr readonly captures(address) %2, i64 %3, ptr %4, i64 %5, ptr noundef readonly byval(%"class.llvm::ArrayRef.205") align 8 captures(none) %6) local_unnamed_addr #0 align 2 {
   %.sroa.2 = alloca %union.anon, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4

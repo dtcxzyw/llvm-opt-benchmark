@@ -519,7 +519,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7tooling11ReplacementC2ERKNS_13SourceManagerENS_14SourceLocationEjN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(696) %1, i32 %2, i32 noundef %3, ptr captures(address_is_null) %4, i64 %5) unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang7tooling11ReplacementC2ERKNS_13SourceManagerENS_14SourceLocationEjN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(696) %1, i32 %2, i32 noundef %3, ptr readonly captures(address_is_null) %4, i64 %5) unnamed_addr #2 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %0, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -892,7 +892,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZN
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7tooling11ReplacementC2ERKNS_13SourceManagerERKNS_15CharSourceRangeEN4llvm9StringRefERKNS_11LangOptionsE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(9) %2, ptr captures(address_is_null) %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(849) %5) unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang7tooling11ReplacementC2ERKNS_13SourceManagerERKNS_15CharSourceRangeEN4llvm9StringRefERKNS_11LangOptionsE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(9) %2, ptr readonly captures(address_is_null) %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(849) %5) unnamed_addr #2 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %0, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -913,7 +913,7 @@ define dso_local void @_ZN5clang7tooling11ReplacementC2ERKNS_13SourceManagerERKN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7tooling11Replacement18setFromSourceRangeERKNS_13SourceManagerERKNS_15CharSourceRangeEN4llvm9StringRefERKNS_11LangOptionsE(ptr noundef nonnull align 8 captures(address) dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(9) %2, ptr captures(address_is_null) %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(849) %5) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang7tooling11Replacement18setFromSourceRangeERKNS_13SourceManagerERKNS_15CharSourceRangeEN4llvm9StringRefERKNS_11LangOptionsE(ptr noundef nonnull align 8 captures(address) dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(9) %2, ptr readonly captures(address_is_null) %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(849) %5) local_unnamed_addr #2 align 2 {
   %.sroa.0.0.copyload.i.i = load i32, ptr %2, align 4, !tbaa !25
   %7 = icmp sgt i32 %.sroa.0.0.copyload.i.i, -1
   br i1 %7, label %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.i, label %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit
@@ -2661,7 +2661,7 @@ _ZNSt8_Rb_treeIN5clang7tooling11ReplacementES2_St9_IdentityIS2_ESt4lessIS2_ESaIS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang7tooling12Replacements23mergeIfOrderIndependentERKNS0_11ReplacementE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected") align 8 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZNK5clang7tooling12Replacements23mergeIfOrderIndependentERKNS0_11ReplacementE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected") align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %"struct.std::_Rb_tree<clang::tooling::Replacement, clang::tooling::Replacement, std::_Identity<clang::tooling::Replacement>, std::less<clang::tooling::Replacement>>::_Alloc_node", align 8
   %5 = alloca %"class.clang::tooling::Replacements", align 8
   %6 = alloca %"class.clang::tooling::Replacements", align 8
@@ -4492,7 +4492,7 @@ _ZNSt8_Rb_treeIN5clang7tooling11ReplacementES2_St9_IdentityIS2_ESt4lessIS2_ESaIS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7tooling32calculateRangesAfterReplacementsERKNS0_12ReplacementsERKSt6vectorINS0_5RangeESaIS5_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.161") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #2 {
+define dso_local void @_ZN5clang7tooling32calculateRangesAfterReplacementsERKNS0_12ReplacementsERKSt6vectorINS0_5RangeESaIS5_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.161") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #2 {
   %4 = alloca %"class.std::vector.161", align 8
   %5 = alloca %"class.std::vector.161", align 8
   %6 = alloca %"class.clang::tooling::Replacements", align 8

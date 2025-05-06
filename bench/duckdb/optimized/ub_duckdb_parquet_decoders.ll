@@ -6278,7 +6278,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb17DictionaryDecoder6FilterEPhmRNS_6VectorERKNS_11TableFilterERNS_15SelectionVectorERm(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(9) %4, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %5, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %6) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb17DictionaryDecoder6FilterEPhmRNS_6VectorERKNS_11TableFilterERNS_15SelectionVectorERm(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(9) %4, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %5, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %6) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.duckdb::SelectionVector", align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8, !tbaa !259

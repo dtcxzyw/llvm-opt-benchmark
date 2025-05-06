@@ -1438,7 +1438,7 @@ define internal fastcc ptr @sslow(ptr noundef nonnull readonly captures(none) %0
 declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @sdissect(ptr noundef nonnull %0, ptr noundef %1, ptr noundef captures(address) %2, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %3, i64 noundef %4) unnamed_addr #6 {
+define internal fastcc ptr @sdissect(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readnone captures(address) %2, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %3, i64 noundef %4) unnamed_addr #6 {
   %6 = icmp slt i64 %3, %4
   br i1 %6, label %.lr.ph171, label %._crit_edge172
 
@@ -2653,7 +2653,7 @@ define internal fastcc ptr @lslow(ptr noundef nonnull readonly captures(none) %0
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @ldissect(ptr noundef nonnull %0, ptr noundef %1, ptr noundef captures(address) %2, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %3, i64 noundef %4) unnamed_addr #7 {
+define internal fastcc ptr @ldissect(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readnone captures(address) %2, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %3, i64 noundef %4) unnamed_addr #7 {
   %6 = icmp slt i64 %3, %4
   br i1 %6, label %.lr.ph171, label %._crit_edge172
 

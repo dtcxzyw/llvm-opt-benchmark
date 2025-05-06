@@ -419,7 +419,7 @@ dissect_matter_payload.exit:                      ; preds = %87, %89
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_matter_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal i32 @dissect_matter_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8

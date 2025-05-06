@@ -16402,7 +16402,7 @@ PACKET_memdup.exit:                               ; preds = %38
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_bytes_to_cipher_list(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_bytes_to_cipher_list(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.PACKET, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #20
   %8 = icmp eq ptr %0, null

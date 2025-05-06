@@ -904,7 +904,7 @@ v9fs_string_size.exit:                            ; preds = %8, %17
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_rversion(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
+define dso_local void @v9fs_rversion(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
   store i32 0, ptr %4, align 4, !annotation !4

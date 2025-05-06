@@ -463,7 +463,7 @@ _ZN4Node7add_outEPS_.exit:                        ; preds = %57, %_ZN4Node7del_o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16PhaseMacroExpand12migrate_outsEP4NodeS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16PhaseMacroExpand12migrate_outsEP4NodeS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32

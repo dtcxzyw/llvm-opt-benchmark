@@ -2716,7 +2716,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h18d85715d28df727E.exit.i: ; preds = %526
   store ptr %528, ptr %83, align 8, !alias.scope !253, !noalias !250
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.566.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %28), !noalias !255
-  invoke fastcc void @_ZN15actix_multipart6server6Safety5clone17hfcca6ee5fc69adf9E(ptr noalias noundef align 8 captures(none) dereferenceable(40) %28, ptr noundef nonnull readonly align 8 %49, ptr %.val49)
+  invoke fastcc void @_ZN15actix_multipart6server6Safety5clone17hfcca6ee5fc69adf9E(ptr noalias noundef align 8 captures(none) dereferenceable(40) %28, ptr noundef nonnull readonly align 8 %49, ptr readonly %.val49)
           to label %539 unwind label %534, !noalias !250
 
 539:                                              ; preds = %538

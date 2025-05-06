@@ -2144,7 +2144,7 @@ define ptr @oid_resolved_from_string(ptr noundef %0, ptr noundef %1) local_unnam
 declare noalias ptr @wmem_strconcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @oid_both(ptr noundef %0, i32 noundef %1, ptr noundef captures(address) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
+define void @oid_both(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = tail call ptr @oid_resolved(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   store ptr %6, ptr %3, align 8
   %7 = icmp eq ptr %2, null

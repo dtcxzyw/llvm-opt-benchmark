@@ -7022,7 +7022,7 @@ declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noun
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @Kit_TruthPrintProfile_int(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #8 {
+define void @Kit_TruthPrintProfile_int(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = alloca [20 x i32], align 16
   %4 = alloca [20 x i32], align 16
   %5 = alloca [20 x i32], align 16
@@ -8317,7 +8317,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define void @Kit_TruthPrintProfile(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #8 {
+define void @Kit_TruthPrintProfile(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = alloca [2 x i32], align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
   %4 = icmp sgt i32 %1, 5

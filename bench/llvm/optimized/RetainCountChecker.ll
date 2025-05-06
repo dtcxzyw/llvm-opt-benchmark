@@ -9173,7 +9173,7 @@ _ZN5clang7AnyCall7forDeclEPKNS_4DeclE.exit:       ; preds = %.thread.sink.split.
 declare noundef zeroext i1 @_ZN5clang4ento20RetainSummaryManager37isTrustedReferenceCountImplementationEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(304), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang4ento18retaincountchecker18RetainCountChecker16checkEndFunctionEPKNS_10ReturnStmtERNS0_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(107) %0, ptr noundef captures(address_is_null) %1, ptr noundef nonnull align 8 dereferenceable(81) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK5clang4ento18retaincountchecker18RetainCountChecker16checkEndFunctionEPKNS_10ReturnStmtERNS0_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(107) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull align 8 dereferenceable(81) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::ImmutableMap<const clang::ento::SymExpr *, clang::ento::retaincountchecker::RefVal>::iterator", align 8
   %5 = alloca %"class.llvm::ImmutableMap<const clang::ento::SymExpr *, clang::ento::retaincountchecker::RefVal>::iterator", align 8
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8

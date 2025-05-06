@@ -575,7 +575,7 @@ define dso_local void @acpi_set_modalias(ptr noundef readonly captures(none) %0,
 declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local ptr @acpi_match_acpi_device(ptr noundef %0, ptr noundef captures(address) %1) #6 align 16 {
+define dso_local ptr @acpi_match_acpi_device(ptr noundef %0, ptr noundef readonly captures(address) %1) #6 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
   store ptr null, ptr %3, align 8
@@ -911,7 +911,7 @@ define dso_local ptr @acpi_device_get_match_data(ptr noundef readonly captures(a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -2, 1) i32 @acpi_match_device_ids(ptr noundef captures(address) %0, ptr noundef %1) #6 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @acpi_match_device_ids(ptr noundef readonly captures(address) %0, ptr noundef %1) #6 align 16 {
   %3 = tail call fastcc zeroext i1 @__acpi_match_device(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef null)
   %4 = select i1 %3, i32 0, i32 -2
   ret i32 %4
@@ -1129,7 +1129,7 @@ define dso_local void @acpi_bus_unregister_driver(ptr noundef %0) #0 align 16 {
 declare dso_local void @driver_unregister(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @acpi_bus_match(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) #6 align 16 {
+define internal noundef range(i32 0, 2) i32 @acpi_bus_match(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1) #6 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -500
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 16

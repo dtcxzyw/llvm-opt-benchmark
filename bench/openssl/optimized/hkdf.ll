@@ -1099,7 +1099,7 @@ declare i32 @OSSL_PARAM_set_size_t(ptr noundef, i64 noundef) local_unnamed_addr 
 declare i32 @OSSL_PARAM_set_octet_string(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @prov_tls13_hkdf_expand(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef captures(address_is_null) %9, i64 noundef %10) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @prov_tls13_hkdf_expand(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef writeonly captures(address_is_null) %9, i64 noundef %10) unnamed_addr #0 {
   %12 = alloca i64, align 8
   %13 = alloca [2048 x i8], align 16
   %14 = alloca %struct.wpacket_st, align 8

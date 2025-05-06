@@ -3171,7 +3171,7 @@ declare ptr @llvm_emit_expect_false_raw(ptr noundef, ptr noundef) local_unnamed_
 declare void @llvm_emit_any_from_value(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_panic_on_true(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_panic_on_true(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca %struct.BEValue, align 8
   %9 = load ptr, ptr @type_bool, align 8
   call void @llvm_value_set(ptr noundef nonnull %8, ptr noundef %1, ptr noundef %9) #9

@@ -1139,7 +1139,7 @@ define dso_local void @_ZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSamp
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt6Camera2WeERKNS_3RayERNS_18SampledWavelengthsEPNS_6Point2IfEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(32) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #1 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt6Camera2WeERKNS_3RayERNS_18SampledWavelengthsEPNS_6Point2IfEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(32) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #1 align 2 {
   %.val = load i64, ptr %0, align 8, !tbaa !52
   %5 = lshr i64 %.val, 57
   %6 = trunc nuw nsw i64 %5 to i32

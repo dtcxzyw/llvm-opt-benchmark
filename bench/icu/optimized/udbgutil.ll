@@ -1460,7 +1460,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_St3setIS5_St
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11KnownIssues3addEPKcS1_PKDsPaS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11KnownIssues3addEPKcS1_PKDsPaS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -2787,7 +2787,7 @@ declare void @_ZN6icu_774CStrD1Ev(ptr noundef nonnull align 8 dereferenceable(72
 declare void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11KnownIssues3addEPKcS1_S1_PaS2_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11KnownIssues3addEPKcS1_S1_PaS2_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -4065,7 +4065,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @udbg_knownIssue_openU(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @udbg_knownIssue_openU(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %8, label %12
 
@@ -4093,7 +4093,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #19
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @udbg_knownIssue_open(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @udbg_knownIssue_open(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %8, label %12
 
@@ -4115,7 +4115,7 @@ define noundef nonnull ptr @udbg_knownIssue_open(ptr noundef %0, ptr noundef cap
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @udbg_knownIssue_print(ptr noundef captures(address) %0) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @udbg_knownIssue_print(ptr noundef readonly captures(address) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 

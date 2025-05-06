@@ -8793,7 +8793,7 @@ define void @DrawFPS(i32 noundef %0, i32 noundef %1) local_unnamed_addr #6 {
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %11, i64 0
   %12 = sitofp i32 %1 to float
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %12, i64 1
-  tail call void @DrawTextEx(ptr noundef nonnull byval(%struct.Font) align 8 @defaultFont, ptr noundef nonnull %9, <2 x float> %.sroa.0.4.vec.insert.i, float noundef 2.000000e+01, float noundef 2.000000e+00, i32 %.sroa.09.0.insert.insert)
+  tail call void @DrawTextEx(ptr noundef nonnull byval(%struct.Font) align 8 @defaultFont, ptr noundef nonnull readonly %9, <2 x float> %.sroa.0.4.vec.insert.i, float noundef 2.000000e+01, float noundef 2.000000e+00, i32 %.sroa.09.0.insert.insert)
   br label %DrawText.exit
 
 DrawText.exit:                                    ; preds = %8, %10
@@ -8803,7 +8803,7 @@ DrawText.exit:                                    ; preds = %8, %10
 declare i32 @GetFPS() local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define void @DrawText(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4) local_unnamed_addr #6 {
+define void @DrawText(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4) local_unnamed_addr #6 {
   %.sroa.1.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 12), align 4
   %.not = icmp eq i32 %.sroa.1.0.copyload, 0
   br i1 %.not, label %12, label %6
@@ -9457,7 +9457,7 @@ GetGlyphIndex.exit:                               ; preds = %5, %25, %.thread.i
 declare float @llvm.fmuladd.f32(float, float, float) #20
 
 ; Function Attrs: nounwind uwtable
-define void @DrawTextPro(ptr noundef readonly byval(%struct.Font) align 8 captures(none) %0, ptr noundef captures(address_is_null) %1, <2 x float> %2, <2 x float> %3, float noundef %4, float noundef %5, float noundef %6, i32 %7) local_unnamed_addr #6 {
+define void @DrawTextPro(ptr noundef readonly byval(%struct.Font) align 8 captures(none) %0, ptr noundef readonly captures(address_is_null) %1, <2 x float> %2, <2 x float> %3, float noundef %4, float noundef %5, float noundef %6, i32 %7) local_unnamed_addr #6 {
   tail call void @rlPushMatrix() #44
   %.sroa.07.0.vec.extract = extractelement <2 x float> %2, i64 0
   %.sroa.07.4.vec.extract = extractelement <2 x float> %2, i64 1
@@ -9677,7 +9677,7 @@ define void @SetTextLineSpacing(i32 noundef %0) local_unnamed_addr #22 {
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @MeasureText(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #23 {
+define i32 @MeasureText(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #23 {
   %.sroa.1.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 12), align 4
   %.not = icmp eq i32 %.sroa.1.0.copyload, 0
   br i1 %.not, label %8, label %3
@@ -15262,7 +15262,7 @@ stbtt__csctx_v.exit:                              ; preds = %stbtt__track_vertex
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @stbtt__tesselate_curve(ptr noundef captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) unnamed_addr #40 {
+define internal fastcc void @stbtt__tesselate_curve(ptr noundef writeonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) unnamed_addr #40 {
   %11 = icmp sgt i32 %9, 16
   br i1 %11, label %.loopexit, label %.lr.ph.preheader
 
@@ -15334,7 +15334,7 @@ stbtt__add_point.exit:                            ; preds = %36, %37
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @stbtt__tesselate_cubic(ptr noundef captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, i32 noundef %11) unnamed_addr #40 {
+define internal fastcc void @stbtt__tesselate_cubic(ptr noundef writeonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, i32 noundef %11) unnamed_addr #40 {
   %smax = tail call i32 @llvm.smax.i32(i32 %11, i32 17)
   %exitcond107 = icmp sgt i32 %11, 16
   br i1 %exitcond107, label %.loopexit, label %.lr.ph

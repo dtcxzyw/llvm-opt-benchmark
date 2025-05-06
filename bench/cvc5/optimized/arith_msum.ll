@@ -6251,7 +6251,7 @@ _ZN10__gmp_exprIA1_12__mpq_structS1_ED2Ev.exit4:  ; preds = %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4cvc58internal6theory9ArithMSum7isolateENS0_12NodeTemplateILb1EEERKSt3mapIS4_S4_St4lessIS4_ESaISt4pairIKS4_S4_EEERS4_NS0_4kind6Kind_tEb(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN4cvc58internal6theory9ArithMSum7isolateENS0_12NodeTemplateILb1EEERKSt3mapIS4_S4_St4lessIS4_ESaISt4pairIKS4_S4_EEERS4_NS0_4kind6Kind_tEb(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %7 = alloca %"class.cvc5::internal::NodeTemplate.78", align 8
   %8 = alloca %"class.cvc5::internal::NodeTemplate.78", align 8

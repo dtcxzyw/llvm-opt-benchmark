@@ -1079,7 +1079,7 @@ define dso_local void @fwnode_remove_software_node(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @fwnode_create_software_node(ptr noundef captures(address_is_null) %0, ptr noundef %1) #1 align 16 {
+define dso_local ptr @fwnode_create_software_node(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #1 align 16 {
   %3 = icmp ugt ptr %1, inttoptr (i64 -4096 to ptr)
   br i1 %3, label %32, label %4
 
@@ -1487,7 +1487,7 @@ define dso_local void @software_node_notify_remove(ptr noundef %0) local_unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @device_create_managed_software_node(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readnone captures(address) %2) #1 align 16 {
+define dso_local i32 @device_create_managed_software_node(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readnone captures(address) %2) #1 align 16 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %.thread3, label %5
 

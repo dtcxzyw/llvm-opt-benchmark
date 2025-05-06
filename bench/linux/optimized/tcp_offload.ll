@@ -951,7 +951,7 @@ define dso_local void @tcp_gro_complete(ptr noundef captures(none) initializes((
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @tcp4_gro_receive(ptr noundef captures(address) %0, ptr noundef %1) #0 align 16 {
+define dso_local ptr @tcp4_gro_receive(ptr noundef readonly captures(address) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %4 = load i16, ptr %3, align 4
   %5 = icmp eq i16 %4, 0

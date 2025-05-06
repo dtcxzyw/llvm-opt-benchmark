@@ -133836,7 +133836,7 @@ add_arguments_var.exit268.i:                      ; preds = %528, %add_var.exit.
   %553 = and i32 %552, 1
   %554 = lshr i32 %548, 4
   %555 = and i32 %554, 15
-  %556 = tail call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %377, i32 noundef 1, i32 noundef 0, i32 noundef %.0149277.i, i32 noundef %550, i32 noundef range(i32 0, 2) %551, i32 noundef range(i32 0, 2) %553, i32 noundef range(i32 0, 16) %555)
+  %556 = tail call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readnone %377, i32 noundef 1, i32 noundef 0, i32 noundef %.0149277.i, i32 noundef %550, i32 noundef range(i32 0, 2) %551, i32 noundef range(i32 0, 2) %553, i32 noundef range(i32 0, 16) %555)
   %557 = getelementptr inbounds nuw i8, ptr %546, i64 8
   %.0149.i = load i32, ptr %557, align 4, !tbaa !67
   %558 = icmp sgt i32 %.0149.i, -1
@@ -133892,7 +133892,7 @@ add_arguments_var.exit268.i:                      ; preds = %528, %add_var.exit.
   %580 = lshr i32 %579, 1
   %581 = and i32 %580, 1
   %582 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %583 = tail call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %377, i32 noundef 1, i32 noundef 1, i32 noundef %582, i32 noundef %576, i32 noundef 0, i32 noundef range(i32 0, 2) %581, i32 noundef 0)
+  %583 = tail call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readnone %377, i32 noundef 1, i32 noundef 1, i32 noundef %582, i32 noundef %576, i32 noundef 0, i32 noundef range(i32 0, 2) %581, i32 noundef 0)
   %.pre.i = load i32, ptr %560, align 4, !tbaa !1001
   br label %584
 
@@ -133926,7 +133926,7 @@ add_arguments_var.exit268.i:                      ; preds = %528, %add_var.exit.
   %600 = lshr i32 %599, 1
   %601 = and i32 %600, 1
   %602 = trunc nuw nsw i64 %indvars.iv295.i to i32
-  %603 = tail call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %377, i32 noundef 1, i32 noundef 0, i32 noundef %602, i32 noundef %596, i32 noundef 0, i32 noundef range(i32 0, 2) %601, i32 noundef 0)
+  %603 = tail call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readnone %377, i32 noundef 1, i32 noundef 0, i32 noundef %602, i32 noundef %596, i32 noundef 0, i32 noundef range(i32 0, 2) %601, i32 noundef 0)
   %.pre304.i = load i32, ptr %568, align 4, !tbaa !655
   br label %604
 
@@ -133970,7 +133970,7 @@ is_var_in_arg_scope.exit.thread.i:                ; preds = %is_var_in_arg_scope
   %622 = lshr i32 %621, 1
   %623 = and i32 %622, 1
   %624 = trunc nuw nsw i64 %indvars.iv298.i to i32
-  %625 = tail call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %377, i32 noundef 1, i32 noundef 0, i32 noundef %624, i32 noundef %616, i32 noundef 0, i32 noundef range(i32 0, 2) %623, i32 noundef 0)
+  %625 = tail call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readnone %377, i32 noundef 1, i32 noundef 0, i32 noundef %624, i32 noundef %616, i32 noundef 0, i32 noundef range(i32 0, 2) %623, i32 noundef 0)
   %.pre305.i = load i32, ptr %564, align 4, !tbaa !655
   br label %626
 
@@ -138961,7 +138961,7 @@ token_is_pseudo_keyword.exit40.thread:            ; preds = %88, %91, %token_is_
 JS_DupAtom.exit36:                                ; preds = %118, %token_is_pseudo_keyword.exit40.thread, %JS_DupAtom.exit37
   %.2.i = phi i32 [ %105, %JS_DupAtom.exit37 ], [ %76, %token_is_pseudo_keyword.exit40.thread ], [ %76, %118 ]
   %127 = load ptr, ptr %0, align 8, !tbaa !467
-  %128 = tail call fastcc noundef ptr @add_export_entry2(ptr noundef %127, ptr noundef nonnull %0, ptr noundef %37, i32 noundef %76, i32 noundef %.2.i, i32 noundef 0)
+  %128 = tail call fastcc noundef ptr @add_export_entry2(ptr noundef %127, ptr noundef nonnull readonly %0, ptr noundef %37, i32 noundef %76, i32 noundef %.2.i, i32 noundef 0)
   tail call void @JS_FreeAtom(ptr noundef %34, i32 noundef %76)
   tail call void @JS_FreeAtom(ptr noundef %34, i32 noundef %.2.i)
   %.not151.i = icmp eq ptr %128, null
@@ -139101,7 +139101,7 @@ JS_DupAtom.exit:                                  ; preds = %177, %180
 
 197:                                              ; preds = %194
   %198 = load ptr, ptr %0, align 8, !tbaa !467
-  %199 = tail call fastcc noundef ptr @add_export_entry2(ptr noundef %198, ptr noundef nonnull %0, ptr noundef %37, i32 noundef 126, i32 noundef %178, i32 noundef 1)
+  %199 = tail call fastcc noundef ptr @add_export_entry2(ptr noundef %198, ptr noundef nonnull readonly %0, ptr noundef %37, i32 noundef 126, i32 noundef %178, i32 noundef 1)
   tail call void @JS_FreeAtom(ptr noundef %34, i32 noundef %178)
   %.not143.i = icmp eq ptr %199, null
   br i1 %.not143.i, label %js_parse_export.exit.thread, label %200
@@ -139195,7 +139195,7 @@ token_is_pseudo_keyword.exit31.thread:            ; preds = %209, %213, %219, %t
   %238 = call i32 @dbuf_put(ptr noundef nonnull %237, ptr noundef nonnull %5, i64 noundef 2) #41
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   %239 = load ptr, ptr %0, align 8, !tbaa !467
-  %240 = call fastcc noundef ptr @add_export_entry2(ptr noundef %239, ptr noundef nonnull %0, ptr noundef %37, i32 noundef 125, i32 noundef 22, i32 noundef 0)
+  %240 = call fastcc noundef ptr @add_export_entry2(ptr noundef %239, ptr noundef nonnull readonly %0, ptr noundef %37, i32 noundef 125, i32 noundef 22, i32 noundef 0)
   %.not138.i = icmp eq ptr %240, null
   br i1 %.not138.i, label %js_parse_export.exit.thread, label %token_is_pseudo_keyword.exit35.thread
 
@@ -146209,7 +146209,7 @@ reparse_ident_token.exit:                         ; preds = %1089, %1095
   %1195 = icmp eq i32 %5, 1
   %1196 = select i1 %1195, i32 %.628, i32 22
   %1197 = load ptr, ptr %0, align 8, !tbaa !467
-  %1198 = call fastcc noundef ptr @add_export_entry2(ptr noundef %1197, ptr noundef nonnull %0, ptr noundef %1194, i32 noundef %.628, i32 noundef %1196, i32 noundef 0)
+  %1198 = call fastcc noundef ptr @add_export_entry2(ptr noundef %1197, ptr noundef nonnull readonly %0, ptr noundef %1194, i32 noundef %.628, i32 noundef %1196, i32 noundef 0)
   %.not617 = icmp eq ptr %1198, null
   br i1 %.not617, label %.thread773, label %JS_FreeAtom.exit
 
@@ -159267,7 +159267,7 @@ JS_FreeAtom.exit:                                 ; preds = %458, %460, %JS_Free
   %615 = icmp eq i32 %2, 1
   %616 = select i1 %615, i32 %.1386, i32 22
   %617 = load ptr, ptr %0, align 8, !tbaa !467
-  %618 = call fastcc noundef ptr @add_export_entry2(ptr noundef %617, ptr noundef nonnull %0, ptr noundef %614, i32 noundef %.1386, i32 noundef %616, i32 noundef 0)
+  %618 = call fastcc noundef ptr @add_export_entry2(ptr noundef %617, ptr noundef nonnull readonly %0, ptr noundef %614, i32 noundef %.1386, i32 noundef %616, i32 noundef 0)
   %.not431 = icmp eq ptr %618, null
   br i1 %.not431, label %JS_FreeAtom.exit527, label %619
 
@@ -164406,7 +164406,7 @@ JS_DupAtom.exit:                                  ; preds = %47
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 536
   %69 = load ptr, ptr %68, align 8, !tbaa !648
   %70 = load ptr, ptr %0, align 8, !tbaa !467
-  %71 = call fastcc noundef ptr @add_export_entry2(ptr noundef %70, ptr noundef nonnull %0, ptr noundef %69, i32 noundef %48, i32 noundef %48, i32 noundef 0)
+  %71 = call fastcc noundef ptr @add_export_entry2(ptr noundef %70, ptr noundef nonnull readonly %0, ptr noundef %69, i32 noundef %48, i32 noundef %48, i32 noundef 0)
   %.not79 = icmp eq ptr %71, null
   br i1 %.not79, label %.loopexit, label %72
 
@@ -170538,7 +170538,7 @@ add_var.exit.thread:                              ; preds = %js_resize_array.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(address) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7, i32 noundef range(i32 0, 2) %8, i32 noundef range(i32 0, 16) %9) unnamed_addr #0 {
+define internal fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7, i32 noundef range(i32 0, 2) %8, i32 noundef range(i32 0, 16) %9) unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !973
   %.not = icmp eq ptr %2, %12
@@ -171478,7 +171478,7 @@ switch.early.test529:                             ; preds = %390
   %392 = load i32, ptr %391, align 4
   %393 = or i32 %392, 4
   store i32 %393, ptr %391, align 4
-  %394 = call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %347, i32 noundef 1, i32 noundef 0, i32 noundef %.3466671, i32 noundef 85, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %394 = call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readnone %347, i32 noundef 1, i32 noundef 0, i32 noundef %.3466671, i32 noundef 85, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %395 = icmp sgt i32 %394, -1
   br i1 %395, label %396, label %400
 
@@ -171692,7 +171692,7 @@ switch.early.test530:                             ; preds = %484
   store i32 %495, ptr %493, align 4
   %496 = load i32, ptr %485, align 4, !tbaa !1017
   %497 = load i32, ptr %492, align 4, !tbaa !445
-  %498 = call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %347, i32 noundef 1, i32 noundef 0, i32 noundef %496, i32 noundef %497, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %498 = call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readnone %347, i32 noundef 1, i32 noundef 0, i32 noundef %496, i32 noundef %497, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %499 = call i32 @dbuf_putc(ptr noundef nonnull %5, i8 noundef zeroext 94) #41
   %500 = trunc i32 %498 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %25)
@@ -171728,7 +171728,7 @@ switch.early.test531:                             ; preds = %502
   store i32 %513, ptr %511, align 4
   %514 = load i32, ptr %503, align 8, !tbaa !1018
   %515 = load i32, ptr %510, align 4, !tbaa !445
-  %516 = call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %347, i32 noundef 1, i32 noundef 0, i32 noundef %514, i32 noundef %515, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %516 = call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readnone %347, i32 noundef 1, i32 noundef 0, i32 noundef %514, i32 noundef %515, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %517 = call i32 @dbuf_putc(ptr noundef nonnull %5, i8 noundef zeroext 94) #41
   %518 = trunc i32 %516 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %24)
@@ -171877,7 +171877,7 @@ switch.early.test533:                             ; preds = %554
   %582 = load i32, ptr %581, align 4
   %583 = or i32 %582, 4
   store i32 %583, ptr %581, align 4
-  %584 = call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef %spec.select532596621, i32 noundef 1, i32 noundef 1, i32 noundef %579, i32 noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %584 = call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef readnone %spec.select532596621, i32 noundef 1, i32 noundef 1, i32 noundef %579, i32 noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   br label %601
 
 585:                                              ; preds = %.thread618
@@ -171896,7 +171896,7 @@ switch.early.test533:                             ; preds = %554
   %597 = and i32 %596, 1
   %598 = lshr i32 %594, 4
   %599 = and i32 %598, 15
-  %600 = call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef %spec.select532596621, i32 noundef 1, i32 noundef 0, i32 noundef %.7595622, i32 noundef %2, i32 noundef range(i32 0, 2) %595, i32 noundef range(i32 0, 2) %597, i32 noundef range(i32 0, 16) %599)
+  %600 = call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef readnone %spec.select532596621, i32 noundef 1, i32 noundef 0, i32 noundef %.7595622, i32 noundef %2, i32 noundef range(i32 0, 2) %595, i32 noundef range(i32 0, 2) %597, i32 noundef range(i32 0, 16) %599)
   br label %601
 
 601:                                              ; preds = %585, %576
@@ -173419,7 +173419,7 @@ find_private_class_field_all.exit:                ; preds = %19
   br i1 %.not69, label %.thread, label %28
 
 28:                                               ; preds = %find_private_class_field_all.exit
-  %29 = tail call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %.056, i32 noundef 1, i32 noundef 0, i32 noundef %.02.i, i32 noundef %4, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %29 = tail call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %3, ptr noundef nonnull readnone %.056, i32 noundef 1, i32 noundef 0, i32 noundef %.02.i, i32 noundef %4, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %.thread75, label %.thread
 

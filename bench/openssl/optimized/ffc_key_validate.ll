@@ -99,7 +99,7 @@ declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ffc_validate_public_key(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ffc_validate_public_key(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @ossl_ffc_validate_public_key_partial(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %27, label %5

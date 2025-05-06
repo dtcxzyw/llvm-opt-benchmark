@@ -2571,7 +2571,7 @@ _ZNK5vcpkg11DllMetadata28try_get_image_data_directoryEm.exit: ; preds = %13
   %.val5 = load ptr, ptr %18, align 8, !tbaa !109
   tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #25, !noalias !140
-  call fastcc void @_ZN12_GLOBAL__N_115try_seek_to_rvaERKN5vcpkg11DllMetadataERNS0_15ReadFilePointerEj(ptr dead_on_unwind noalias writable align 8 %6, ptr %.val, ptr %.val5, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %14), !noalias !140
+  call fastcc void @_ZN12_GLOBAL__N_115try_seek_to_rvaERKN5vcpkg11DllMetadataERNS0_15ReadFilePointerEj(ptr dead_on_unwind noalias writable align 8 %6, ptr readonly %.val, ptr readnone %.val5, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %14), !noalias !140
   call void @llvm.experimental.noalias.scope.decl(metadata !143)
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %20 = load i8, ptr %19, align 8, !tbaa !110, !range !56, !noalias !146, !noundef !57
@@ -3357,7 +3357,7 @@ _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit50.i.i.i.i.i: ; pred
   %.val43.i.i.i.i.i = load ptr, ptr %30, align 8, !tbaa !109
   call void @llvm.experimental.noalias.scope.decl(metadata !198)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #25, !noalias !201
-  invoke fastcc void @_ZN12_GLOBAL__N_115try_seek_to_rvaERKN5vcpkg11DllMetadataERNS0_15ReadFilePointerEj(ptr dead_on_unwind noalias writable align 8 %7, ptr %.val.i.i.i.i.i, ptr %.val43.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %177)
+  invoke fastcc void @_ZN12_GLOBAL__N_115try_seek_to_rvaERKN5vcpkg11DllMetadataERNS0_15ReadFilePointerEj(ptr dead_on_unwind noalias writable align 8 %7, ptr readonly %.val.i.i.i.i.i, ptr readnone %.val43.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %177)
           to label %.noexc51.i.i.i.i.i unwind label %306
 
 .noexc51.i.i.i.i.i:                               ; preds = %176

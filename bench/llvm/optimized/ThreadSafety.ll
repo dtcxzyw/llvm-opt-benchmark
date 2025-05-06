@@ -7257,135 +7257,135 @@ _ZN12_GLOBAL__N_17FactSetaSERKS0_.exit434:        ; preds = %._crit_edge679, %.s
   ]
 
 2392:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2393:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2394:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2395:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2396:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2397:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2398:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2399:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2400:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2401:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2402:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2403:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2404:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2405:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2406:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2407:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2408:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2409:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2410:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2411:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2412:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2413:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2414:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2415:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2416:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2417:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2418:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2419:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2420:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2421:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2422:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2423:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2424:                                             ; preds = %2387
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2425:                                             ; preds = %2382
@@ -7933,7 +7933,7 @@ _ZN12_GLOBAL__N_17FactSetaSERKS0_.exit434:        ; preds = %._crit_edge679, %.s
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2541:                                             ; preds = %.critedge.i440
-  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull %2384)
+  call fastcc void @_ZN12_GLOBAL__N_112BuildLockset19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(60) %59, ptr noundef nonnull readonly %2384)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetEvJEE5VisitEPKNS_4StmtE.exit
 
 2542:                                             ; preds = %.critedge.i440

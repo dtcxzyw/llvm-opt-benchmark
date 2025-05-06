@@ -1706,7 +1706,7 @@ define dso_local noundef ptr @rb_parser_st_copy(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @rb_parser_st_delete(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @rb_parser_st_delete(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @st_general_delete(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }
@@ -2008,7 +2008,7 @@ update_range_for_deleted.exit:                    ; preds = %.critedge.i, %118, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @rb_parser_st_delete_safe(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @rb_parser_st_delete_safe(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @st_general_delete(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %5
 }
@@ -2698,7 +2698,7 @@ update_range_for_deleted.exit:                    ; preds = %.critedge.i, %set_b
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @rb_parser_st_foreach_with_replace(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @rb_parser_st_foreach_with_replace(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @st_general_foreach(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 1)
   ret i32 %5
 }

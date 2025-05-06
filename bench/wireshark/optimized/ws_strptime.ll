@@ -80,7 +80,7 @@ define ptr @ws_strptime_p(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
 declare ptr @strptime(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @ws_strptime(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #2 {
+define ptr @ws_strptime(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8

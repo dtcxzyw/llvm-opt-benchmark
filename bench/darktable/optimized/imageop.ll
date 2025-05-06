@@ -3033,7 +3033,7 @@ define void @dt_iop_request_focus(ptr noundef %0) local_unnamed_addr #0 {
 47:                                               ; preds = %39
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 944
   %49 = load ptr, ptr %48, align 16, !tbaa !42
-  %50 = tail call ptr @dt_iop_get_module_preferred_instance(ptr noundef %49)
+  %50 = tail call ptr @dt_iop_get_module_preferred_instance(ptr noundef readnone %49)
   %.not5.i = icmp eq ptr %50, null
   br i1 %.not5.i, label %dt_iop_connect_accels_multi.exit, label %51
 
@@ -3084,7 +3084,7 @@ dt_iop_connect_accels_multi.exit:                 ; preds = %39, %47, %51, %54
 73:                                               ; preds = %65
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %75 = load ptr, ptr %74, align 16, !tbaa !42
-  %76 = tail call ptr @dt_iop_get_module_preferred_instance(ptr noundef %75)
+  %76 = tail call ptr @dt_iop_get_module_preferred_instance(ptr noundef readnone %75)
   %.not5.i56 = icmp eq ptr %76, null
   br i1 %.not5.i56, label %dt_iop_connect_accels_multi.exit58, label %77
 
@@ -5806,7 +5806,7 @@ define ptr @dt_iop_gui_get_pluginui(ptr noundef readonly captures(none) %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dt_iop_connect_accels_multi(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define void @dt_iop_connect_accels_multi(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !284
   %3 = load i32, ptr %2, align 16, !tbaa !240
   %.not = icmp eq i32 %3, 0
@@ -6759,7 +6759,7 @@ define internal range(i32 0, 2) i32 @_gui_multiinstance_callback(ptr noundef %0,
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 944
   %19 = load ptr, ptr %18, align 16, !tbaa !42
-  %20 = tail call ptr @dt_iop_get_module_preferred_instance(ptr noundef %19)
+  %20 = tail call ptr @dt_iop_get_module_preferred_instance(ptr noundef readnone %19)
   %.not5.i.i = icmp eq ptr %20, null
   br i1 %.not5.i.i, label %dt_iop_connect_accels_multi.exit.i, label %21
 
@@ -7072,7 +7072,7 @@ dt_iop_gui_set_expanded.exit:                     ; preds = %45, %42, %37, %38, 
 65:                                               ; preds = %54
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 944
   %67 = load ptr, ptr %66, align 16, !tbaa !42
-  %68 = call ptr @dt_iop_get_module_preferred_instance(ptr noundef %67)
+  %68 = call ptr @dt_iop_get_module_preferred_instance(ptr noundef readnone %67)
   %.not5.i = icmp eq ptr %68, null
   br i1 %.not5.i, label %dt_iop_connect_accels_multi.exit, label %69
 
@@ -7224,7 +7224,7 @@ dt_iop_gui_reset.exit:                            ; preds = %28, %38, %41, %49, 
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 944
   %63 = load ptr, ptr %62, align 16, !tbaa !42
-  %64 = tail call ptr @dt_iop_get_module_preferred_instance(ptr noundef %63)
+  %64 = tail call ptr @dt_iop_get_module_preferred_instance(ptr noundef readnone %63)
   %.not5.i = icmp eq ptr %64, null
   br i1 %.not5.i, label %dt_iop_connect_accels_multi.exit, label %65
 
@@ -7478,7 +7478,7 @@ define internal noundef i32 @_on_drag_motion(ptr noundef %0, ptr noundef %1, i32
 94:                                               ; preds = %91
   %95 = getelementptr inbounds nuw i8, ptr %spec.select, i64 944
   %96 = load ptr, ptr %95, align 16, !tbaa !42
-  %97 = call ptr @dt_iop_get_module_preferred_instance(ptr noundef %96)
+  %97 = call ptr @dt_iop_get_module_preferred_instance(ptr noundef readnone %96)
   %.not5.i = icmp eq ptr %97, null
   br i1 %.not5.i, label %dt_iop_connect_accels_multi.exit, label %98
 
@@ -7643,7 +7643,7 @@ define internal range(i32 0, 2) i32 @_iop_plugin_header_button_release(ptr readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_header_motion_notify_show_callback(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2) #0 {
+define internal noundef i32 @_header_motion_notify_show_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !352
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 588
   store i32 0, ptr %5, align 4, !tbaa !353
@@ -7652,7 +7652,7 @@ define internal noundef i32 @_header_motion_notify_show_callback(ptr readnone ca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_header_motion_notify_hide_callback(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2) #0 {
+define internal noundef i32 @_header_motion_notify_hide_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call i32 @dt_iop_show_hide_header_buttons(ptr noundef %2, ptr noundef %1, i32 noundef 0, i32 noundef 0)
   ret i32 1
 }
@@ -8618,7 +8618,7 @@ dt_iop_connect_accels_multi.exit.us:              ; preds = %.lr.ph, %dt_iop_con
   %13 = load ptr, ptr %.06, align 8, !tbaa !40
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 944
   %15 = load ptr, ptr %14, align 16, !tbaa !42
-  %16 = tail call ptr @dt_iop_get_module_preferred_instance(ptr noundef %15)
+  %16 = tail call ptr @dt_iop_get_module_preferred_instance(ptr noundef readnone %15)
   %.not5.i = icmp eq ptr %16, null
   br i1 %.not5.i, label %dt_iop_connect_accels_multi.exit, label %17
 
@@ -9267,7 +9267,7 @@ dt_iop_shown_in_group.exit.thread.i:              ; preds = %dt_iop_shown_in_gro
 
 56:                                               ; preds = %53
   %57 = load ptr, ptr %30, align 16, !tbaa !42
-  %58 = tail call ptr @dt_iop_get_module_preferred_instance(ptr noundef %57)
+  %58 = tail call ptr @dt_iop_get_module_preferred_instance(ptr noundef readnone %57)
   %.not5.i.i = icmp eq ptr %58, null
   br i1 %.not5.i.i, label %_enable_module_callback.exit, label %59
 
@@ -9303,7 +9303,7 @@ dt_iop_shown_in_group.exit.thread.i:              ; preds = %dt_iop_shown_in_gro
 74:                                               ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %76 = load ptr, ptr %75, align 16, !tbaa !42
-  %77 = tail call ptr @dt_iop_get_module_preferred_instance(ptr noundef %76)
+  %77 = tail call ptr @dt_iop_get_module_preferred_instance(ptr noundef readnone %76)
   %.not5.i.i62 = icmp eq ptr %77, null
   br i1 %.not5.i.i62, label %dt_iop_connect_accels_multi.exit.i, label %78
 
@@ -9344,7 +9344,7 @@ dt_iop_connect_accels_multi.exit.i:               ; preds = %81, %78, %74, %70
 92:                                               ; preds = %88
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %94 = load ptr, ptr %93, align 16, !tbaa !42
-  %95 = tail call ptr @dt_iop_get_module_preferred_instance(ptr noundef %94)
+  %95 = tail call ptr @dt_iop_get_module_preferred_instance(ptr noundef readnone %94)
   %.not5.i.i66 = icmp eq ptr %95, null
   br i1 %.not5.i.i66, label %dt_iop_connect_accels_multi.exit.i68, label %96
 
@@ -10238,7 +10238,7 @@ define internal void @_gui_copy_callback(ptr readnone captures(none) %0, ptr nou
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 944
   %8 = load ptr, ptr %7, align 16, !tbaa !42
-  %9 = tail call ptr @dt_iop_get_module_preferred_instance(ptr noundef %8)
+  %9 = tail call ptr @dt_iop_get_module_preferred_instance(ptr noundef readnone %8)
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %dt_iop_connect_accels_multi.exit, label %10
 
@@ -10288,7 +10288,7 @@ define internal void @_gui_duplicate_callback(ptr readnone captures(none) %0, pt
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 944
   %8 = load ptr, ptr %7, align 16, !tbaa !42
-  %9 = tail call ptr @dt_iop_get_module_preferred_instance(ptr noundef %8)
+  %9 = tail call ptr @dt_iop_get_module_preferred_instance(ptr noundef readnone %8)
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %dt_iop_connect_accels_multi.exit, label %10
 
@@ -10419,7 +10419,7 @@ dt_iop_gui_get_next_visible_module.exit:          ; preds = %.lr.ph.i, %22
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 944
   %55 = load ptr, ptr %54, align 16, !tbaa !42
-  %56 = call ptr @dt_iop_get_module_preferred_instance(ptr noundef %55)
+  %56 = call ptr @dt_iop_get_module_preferred_instance(ptr noundef readnone %55)
   %.not5.i = icmp eq ptr %56, null
   br i1 %.not5.i, label %dt_iop_connect_accels_multi.exit, label %57
 
@@ -10567,7 +10567,7 @@ dt_iop_gui_get_previous_visible_module.exit:      ; preds = %.lr.ph.i, %20
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 944
   %52 = load ptr, ptr %51, align 16, !tbaa !42
-  %53 = call ptr @dt_iop_get_module_preferred_instance(ptr noundef %52)
+  %53 = call ptr @dt_iop_get_module_preferred_instance(ptr noundef readnone %52)
   %.not5.i = icmp eq ptr %53, null
   br i1 %.not5.i, label %dt_iop_connect_accels_multi.exit, label %54
 
@@ -10900,7 +10900,7 @@ dt_iop_update_multi_priority.exit:                ; preds = %.loopexit.i, %.thre
 
 120:                                              ; preds = %117
   %121 = load ptr, ptr %47, align 16, !tbaa !42
-  %122 = call ptr @dt_iop_get_module_preferred_instance(ptr noundef %121)
+  %122 = call ptr @dt_iop_get_module_preferred_instance(ptr noundef readnone %121)
   %.not5.i = icmp eq ptr %122, null
   br i1 %.not5.i, label %dt_iop_connect_accels_multi.exit, label %123
 

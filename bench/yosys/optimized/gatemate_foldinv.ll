@@ -4543,7 +4543,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i314:       ; preds = %139, %_ZNK12_GLOBAL
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i325:       ; preds = %175, %174
   store i32 %.val288, ptr %4, align 8, !tbaa !79
   %181 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  invoke fastcc void @_ZN12_GLOBAL__N_17LUTTypeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(60) %181, ptr noundef nonnull align 8 dereferenceable(60) %6)
+  invoke fastcc void @_ZN12_GLOBAL__N_17LUTTypeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(60) %181, ptr noundef nonnull readonly align 8 dereferenceable(60) %6)
           to label %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_17LUTTypeEEC2IS2_S4_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS8_S9_EEEbE4typeELb1EEERKS2_RKS4_.exit unwind label %182
 
 182:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i325
@@ -5123,7 +5123,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i392:       ; preds = %398, %_ZNK12_GLOBAL
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i403:       ; preds = %434, %433
   store i32 %.val289, ptr %184, align 8, !tbaa !79
   %440 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  invoke fastcc void @_ZN12_GLOBAL__N_17LUTTypeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(60) %440, ptr noundef nonnull align 8 dereferenceable(60) %11)
+  invoke fastcc void @_ZN12_GLOBAL__N_17LUTTypeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(60) %440, ptr noundef nonnull readonly align 8 dereferenceable(60) %11)
           to label %_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_17LUTTypeEEC2IS2_S4_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS8_S9_EEEbE4typeELb1EEERKS2_RKS4_.exit406 unwind label %441
 
 441:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i403
@@ -5818,7 +5818,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i487:       ; preds = %710, %_ZNK12_GLOBAL
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i498:       ; preds = %746, %745
   store i32 %.val290, ptr %443, align 8, !tbaa !79
   %752 = getelementptr inbounds nuw i8, ptr %4, i64 152
-  invoke fastcc void @_ZN12_GLOBAL__N_17LUTTypeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(60) %752, ptr noundef nonnull align 8 dereferenceable(60) %18)
+  invoke fastcc void @_ZN12_GLOBAL__N_17LUTTypeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(60) %752, ptr noundef nonnull readonly align 8 dereferenceable(60) %18)
           to label %.lr.ph.i unwind label %753
 
 753:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i498
@@ -5884,7 +5884,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i498:       ; preds = %746, %745
 _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_17LUTTypeENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i.i: ; preds = %778, %776, %762, %760
   %.0.i.i.i = phi i32 [ 0, %760 ], [ %773, %762 ], [ %773, %776 ], [ %773, %778 ]
   store i32 %.0.i.i.i, ptr %3, align 4, !tbaa !83, !noalias !275
-  %782 = invoke fastcc noundef i32 @_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_17LUTTypeENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj(ptr noundef nonnull align 8 dereferenceable(49) %32, ptr noundef nonnull align 8 dereferenceable(72) %.025.i.ptr, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %782 = invoke fastcc noundef i32 @_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_17LUTTypeENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj(ptr noundef nonnull align 8 dereferenceable(49) %32, ptr noundef nonnull readonly align 8 dereferenceable(72) %.025.i.ptr, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %.noexc.i unwind label %.loopexit.i
 
 .noexc.i:                                         ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_17LUTTypeENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i.i
@@ -5921,7 +5921,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i.i.i.i.i.i: ; preds = %793, %791
   store i32 %792, ptr %789, align 4, !tbaa !79, !noalias !275
   %799 = getelementptr inbounds nuw i8, ptr %789, i64 8
   %800 = getelementptr inbounds nuw i8, ptr %.025.i.ptr, i64 8
-  invoke fastcc void @_ZN12_GLOBAL__N_17LUTTypeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(60) %799, ptr noundef nonnull align 8 dereferenceable(60) %800)
+  invoke fastcc void @_ZN12_GLOBAL__N_17LUTTypeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(60) %799, ptr noundef nonnull readonly align 8 dereferenceable(60) %800)
           to label %_ZNSt16allocator_traitsISaIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_17LUTTypeENS1_8hash_opsIS4_EEE7entry_tEEE9constructISA_JRKSt4pairIS4_S6_EiEEEvRSB_PT_DpOT0_.exit.i.i.i.i unwind label %801, !noalias !275
 
 common.resume.sink.split.i.i.i:                   ; preds = %907, %801
@@ -5994,7 +5994,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i.i.i.i.i.i.i: ; preds = %823, %_ZNSt1
   store i32 %822, ptr %821, align 4, !tbaa !79, !noalias !275
   %829 = getelementptr inbounds nuw i8, ptr %821, i64 8
   %830 = getelementptr inbounds nuw i8, ptr %.025.i.ptr, i64 8
-  invoke fastcc void @_ZN12_GLOBAL__N_17LUTTypeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(60) %829, ptr noundef nonnull align 8 dereferenceable(60) %830)
+  invoke fastcc void @_ZN12_GLOBAL__N_17LUTTypeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(60) %829, ptr noundef nonnull readonly align 8 dereferenceable(60) %830)
           to label %834 unwind label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_17LUTTypeENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit59.i.i.i.i.i, !noalias !275
 
 _ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_17LUTTypeENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit59.i.i.i.i.i: ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i.i.i.i.i.i.i
@@ -6034,7 +6034,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %837,
   store i32 %836, ptr %.016.i.i.i.i.i.i.i.i.i.i, align 4, !tbaa !79, !noalias !275
   %843 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i.i.i.i.i.i, i64 8
   %844 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i.i.i.i.i.i.i, i64 8
-  invoke fastcc void @_ZN12_GLOBAL__N_17LUTTypeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(60) %843, ptr noundef nonnull align 8 dereferenceable(60) %844)
+  invoke fastcc void @_ZN12_GLOBAL__N_17LUTTypeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(60) %843, ptr noundef nonnull readonly align 8 dereferenceable(60) %844)
           to label %848 unwind label %.body.i.i.i.i.i.i.i.i.i.i, !noalias !275
 
 .body.i.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -6209,7 +6209,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i.i.i18.i.i.i: ; preds = %899, %897
   store i32 %898, ptr %895, align 4, !tbaa !79, !noalias !275
   %905 = getelementptr inbounds nuw i8, ptr %895, i64 8
   %906 = getelementptr inbounds nuw i8, ptr %.025.i.ptr, i64 8
-  invoke fastcc void @_ZN12_GLOBAL__N_17LUTTypeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(60) %905, ptr noundef nonnull align 8 dereferenceable(60) %906)
+  invoke fastcc void @_ZN12_GLOBAL__N_17LUTTypeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(60) %905, ptr noundef nonnull readonly align 8 dereferenceable(60) %906)
           to label %_ZNSt16allocator_traitsISaIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_17LUTTypeENS1_8hash_opsIS4_EEE7entry_tEEE9constructISA_JRKSt4pairIS4_S6_ERiEEEvRSB_PT_DpOT0_.exit.i.i.i.i unwind label %907, !noalias !275
 
 907:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i.i.i18.i.i.i
@@ -6270,7 +6270,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i.i.i.i26.i.i.i: ; preds = %929, %_ZNS
   store i32 %928, ptr %927, align 4, !tbaa !79, !noalias !275
   %935 = getelementptr inbounds nuw i8, ptr %927, i64 8
   %936 = getelementptr inbounds nuw i8, ptr %.025.i.ptr, i64 8
-  invoke fastcc void @_ZN12_GLOBAL__N_17LUTTypeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(60) %935, ptr noundef nonnull align 8 dereferenceable(60) %936)
+  invoke fastcc void @_ZN12_GLOBAL__N_17LUTTypeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(60) %935, ptr noundef nonnull readonly align 8 dereferenceable(60) %936)
           to label %940 unwind label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_17LUTTypeENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit59.i.i27.i.i.i, !noalias !275
 
 _ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_17LUTTypeENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit59.i.i27.i.i.i: ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i.i.i.i26.i.i.i
@@ -6310,7 +6310,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i.i.i.i.i.i.i.i33.i.i.i: ; preds = %94
   store i32 %942, ptr %.016.i.i.i.i.i.i.i30.i.i.i, align 4, !tbaa !79, !noalias !275
   %949 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i.i.i30.i.i.i, i64 8
   %950 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i.i.i.i31.i.i.i, i64 8
-  invoke fastcc void @_ZN12_GLOBAL__N_17LUTTypeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(60) %949, ptr noundef nonnull align 8 dereferenceable(60) %950)
+  invoke fastcc void @_ZN12_GLOBAL__N_17LUTTypeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(60) %949, ptr noundef nonnull readonly align 8 dereferenceable(60) %950)
           to label %954 unwind label %.body.i.i.i.i.i.i.i34.i.i.i, !noalias !275
 
 .body.i.i.i.i.i.i.i34.i.i.i:                      ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i.i.i.i.i.i.i.i33.i.i.i

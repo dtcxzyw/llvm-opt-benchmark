@@ -8126,7 +8126,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3mbp10term_graph17mk_all_equalitiesERNS_4termER10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(244) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3mbp10term_graph17mk_all_equalitiesERNS_4termER10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(244) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 68

@@ -5187,7 +5187,7 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   br i1 %.not34.i.i156.i, label %spa_pod_builder_bytes.exit.i, label %.lr.ph.i.i153.i, !llvm.loop !19
 
 spa_pod_builder_bytes.exit.i:                     ; preds = %.lr.ph.i.i153.i, %.critedge.thread.i.i149.i
-  call fastcc void @spa_pod_builder_raw_padded(ptr noundef nonnull %0, ptr noundef %371, i32 noundef %373)
+  call fastcc void @spa_pod_builder_raw_padded(ptr noundef nonnull %0, ptr noundef readonly %371, i32 noundef %373)
   br label %spa_pod_builder_primitive.exit.i
 
 397:                                              ; preds = %.lr.ph.i
@@ -5412,7 +5412,7 @@ spa_pod_builder_bytes.exit.i:                     ; preds = %.lr.ph.i.i153.i, %.
   br i1 %.not34.i.i172.i, label %spa_pod_builder_array.exit.i, label %.lr.ph.i.i169.i, !llvm.loop !19
 
 spa_pod_builder_array.exit.i:                     ; preds = %.lr.ph.i.i169.i, %.critedge.thread.i.i165.i
-  call fastcc void @spa_pod_builder_raw_padded(ptr noundef nonnull %0, ptr noundef %480, i32 noundef %481)
+  call fastcc void @spa_pod_builder_raw_padded(ptr noundef nonnull %0, ptr noundef readonly %480, i32 noundef %481)
   br label %spa_pod_builder_primitive.exit.i
 
 506:                                              ; preds = %.lr.ph.i

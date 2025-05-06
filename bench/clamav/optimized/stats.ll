@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [37 x i8] c"5b585e8f-3be5-11e3-bf0b-18037319526c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @clamav_stats_add_sample(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) #0 {
+define void @clamav_stats_add_sample(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %106, label %6
 

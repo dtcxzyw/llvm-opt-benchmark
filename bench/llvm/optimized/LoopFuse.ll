@@ -10608,9 +10608,9 @@ _ZN4llvm23SmallVectorTemplateBaseISt3setIN12_GLOBAL__N_115FusionCandidateENS2_22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_115FusionCandidateES1_St9_IdentityIS1_ENS0_22FusionCandidateCompareESaIS1_EE7_M_copyILb0ENS6_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS1_ESB_PSt18_Rb_tree_node_baseRT0_(ptr noundef captures(address) %0, ptr noundef nonnull %1) unnamed_addr #1 align 2 {
+define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_115FusionCandidateES1_St9_IdentityIS1_ENS0_22FusionCandidateCompareESaIS1_EE7_M_copyILb0ENS6_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS1_ESB_PSt18_Rb_tree_node_baseRT0_(ptr noundef readonly captures(address) %0, ptr noundef nonnull %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = tail call fastcc noundef nonnull ptr @_ZNKSt8_Rb_treeIN12_GLOBAL__N_115FusionCandidateES1_St9_IdentityIS1_ENS0_22FusionCandidateCompareESaIS1_EE11_Alloc_nodeclIRKS1_EEPSt13_Rb_tree_nodeIS1_EOT_(ptr noundef nonnull align 8 dereferenceable(392) %3)
+  %4 = tail call fastcc noundef nonnull ptr @_ZNKSt8_Rb_treeIN12_GLOBAL__N_115FusionCandidateES1_St9_IdentityIS1_ENS0_22FusionCandidateCompareESaIS1_EE11_Alloc_nodeclIRKS1_EEPSt13_Rb_tree_nodeIS1_EOT_(ptr noundef nonnull readonly align 8 dereferenceable(392) %3)
   %5 = load i32, ptr %0, align 8, !tbaa !421
   store i32 %5, ptr %4, align 8, !tbaa !421
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -10638,7 +10638,7 @@ define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_115Fusi
   %.05 = phi ptr [ %.0, %25 ], [ %.02, %13 ]
   %.0274 = phi ptr [ %15, %25 ], [ %4, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.05, i64 32
-  %15 = tail call fastcc noundef nonnull ptr @_ZNKSt8_Rb_treeIN12_GLOBAL__N_115FusionCandidateES1_St9_IdentityIS1_ENS0_22FusionCandidateCompareESaIS1_EE11_Alloc_nodeclIRKS1_EEPSt13_Rb_tree_nodeIS1_EOT_(ptr noundef nonnull align 8 dereferenceable(392) %14)
+  %15 = tail call fastcc noundef nonnull ptr @_ZNKSt8_Rb_treeIN12_GLOBAL__N_115FusionCandidateES1_St9_IdentityIS1_ENS0_22FusionCandidateCompareESaIS1_EE11_Alloc_nodeclIRKS1_EEPSt13_Rb_tree_nodeIS1_EOT_(ptr noundef nonnull readonly align 8 dereferenceable(392) %14)
   %16 = load i32, ptr %.05, align 8, !tbaa !421
   store i32 %16, ptr %15, align 8, !tbaa !421
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16

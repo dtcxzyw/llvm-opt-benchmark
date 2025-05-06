@@ -1956,7 +1956,7 @@ _ZNK4llvm26BlockFrequencyInfoImplBase11WorkingData12isLoopHeaderEv.exit.thread: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm26BlockFrequencyInfoImplBase23addLoopSuccessorsToDistEPKNS0_8LoopDataERS1_RNS0_12DistributionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef captures(address) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %2, ptr noundef nonnull align 8 dereferenceable(89) %3) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm26BlockFrequencyInfoImplBase23addLoopSuccessorsToDistEPKNS0_8LoopDataERS1_RNS0_12DistributionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(address) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %2, ptr noundef nonnull align 8 dereferenceable(89) %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"struct.llvm::BlockFrequencyInfoImplBase::BlockNode", align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !25

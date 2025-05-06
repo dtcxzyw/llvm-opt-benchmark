@@ -8276,7 +8276,7 @@ dt_dev_invalidate_preview.exit:                   ; preds = %24, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dt_dev_get_zoom_bounds(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dt_dev_get_zoom_bounds(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 60

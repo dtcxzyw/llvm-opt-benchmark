@@ -33738,7 +33738,7 @@ _ZN5clang30MultiLevelTemplateArgumentListD2Ev.exit: ; preds = %_ZN5clang24Templa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang4Sema19SubstTemplateParamsEPNS_21TemplateParameterListEPNS_11DeclContextERKNS_30MultiLevelTemplateArgumentListEb(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef captures(address) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(117) %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang4Sema19SubstTemplateParamsEPNS_21TemplateParameterListEPNS_11DeclContextERKNS_30MultiLevelTemplateArgumentListEb(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef readonly captures(address) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(117) %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::TemplateDeclInstantiator", align 8
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6) #26
   store ptr %0, ptr %6, align 8, !tbaa !937

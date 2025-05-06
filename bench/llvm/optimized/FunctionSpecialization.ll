@@ -5148,7 +5148,7 @@ define dso_local noundef ptr @_ZN4llvm19FunctionSpecializer20getCandidateConstan
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm19FunctionSpecializer21getConstantStackValueEPNS_8CallInstEPNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(764) %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN4llvm19FunctionSpecializer21getConstantStackValueEPNS_8CallInstEPNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(764) %0, ptr noundef readnone captures(address) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %16, label %4
 
@@ -5593,7 +5593,7 @@ _ZNK4llvm8CallBase15onlyReadsMemoryEj.exit.thread: ; preds = %146, %_ZNK4llvm8Ca
   br i1 %238, label %_ZN4llvm19FunctionSpecializer21getConstantStackValueEPNS_8CallInstEPNS_5ValueE.exit, label %_ZN4llvm19FunctionSpecializer21getConstantStackValueEPNS_8CallInstEPNS_5ValueE.exit.thread
 
 _ZN4llvm19FunctionSpecializer21getConstantStackValueEPNS_8CallInstEPNS_5ValueE.exit: ; preds = %232
-  %239 = call noundef ptr @_ZN4llvm19FunctionSpecializer19getPromotableAllocaEPNS_10AllocaInstEPNS_8CallInstE(ptr noundef nonnull readonly align 8 dereferenceable(764) %0, ptr noundef nonnull %230, ptr noundef nonnull %12)
+  %239 = call noundef ptr @_ZN4llvm19FunctionSpecializer19getPromotableAllocaEPNS_10AllocaInstEPNS_8CallInstE(ptr noundef nonnull readonly align 8 dereferenceable(764) %0, ptr noundef nonnull %230, ptr noundef nonnull readnone %12)
   %.not37 = icmp eq ptr %239, null
   br i1 %.not37, label %_ZN4llvm19FunctionSpecializer21getConstantStackValueEPNS_8CallInstEPNS_5ValueE.exit.thread, label %_ZN4llvmplERKNS_5TwineES2_.exit
 

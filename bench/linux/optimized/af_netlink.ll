@@ -2075,7 +2075,7 @@ define internal fastcc void @netlink_unlock_table() unnamed_addr #7 align 16 {
 declare dso_local void @yield() local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -105, 1) i32 @netlink_broadcast(ptr noundef captures(address) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #1 align 16 {
+define dso_local noundef range(i32 -105, 1) i32 @netlink_broadcast(ptr noundef readonly captures(address) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #1 align 16 {
   %6 = tail call i32 @netlink_broadcast_filtered(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef null, ptr noundef null), !range !46
   ret i32 %6
 }

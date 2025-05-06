@@ -94964,7 +94964,7 @@ _ZNKSt14default_deleteI29cmCompiledGeneratorExpressionEclEPS0_.exit: ; preds = %
 declare void @_ZN21cmGeneratorExpressionD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 4) i32 @_ZNK17cmGeneratorTarget20HaveCxxModuleSupportERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(address) dereferenceable(2912) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 4) i32 @_ZNK17cmGeneratorTarget20HaveCxxModuleSupportERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(2912) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 ._crit_edge.i.i:
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
@@ -106822,7 +106822,7 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
 declare void @_ZNK23cmStandardLevelResolver20GetEffectiveStandardEPK17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK17cmGeneratorTarget20NeedCxxModuleSupportERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 captures(address) dereferenceable(2912) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK17cmGeneratorTarget20NeedCxxModuleSupportERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(2912) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !24
   %6 = icmp eq i64 %5, 3
@@ -106856,7 +106856,7 @@ _ZStneIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK17cmGeneratorTarget10NeedDyndepERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 captures(address) dereferenceable(2912) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK17cmGeneratorTarget10NeedDyndepERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(2912) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !24
@@ -106876,7 +106876,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %3
   br i1 %8, label %_ZStneIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit.i, label %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit
 
 _ZStneIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %9 = tail call noundef i32 @_ZNK17cmGeneratorTarget20HaveCxxModuleSupportERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2912) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %9 = tail call noundef i32 @_ZNK17cmGeneratorTarget20HaveCxxModuleSupportERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(2912) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %10 = icmp eq i32 %9, 3
   br i1 %10, label %11, label %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit
 

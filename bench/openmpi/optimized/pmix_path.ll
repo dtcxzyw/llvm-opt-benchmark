@@ -254,7 +254,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @pmix_path_findv(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #1 {
+define noalias ptr @pmix_path_findv(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14

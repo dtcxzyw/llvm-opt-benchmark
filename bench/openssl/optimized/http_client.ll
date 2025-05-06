@@ -2235,7 +2235,7 @@ define range(i32 0, 2) i32 @OSSL_HTTP_set1_request(ptr noundef captures(address_
   %53 = load ptr, ptr %52, align 8, !tbaa !57
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !59
-  %56 = tail call i32 @OSSL_HTTP_REQ_CTX_add1_header(ptr noundef nonnull %0, ptr noundef %53, ptr noundef %55)
+  %56 = tail call i32 @OSSL_HTTP_REQ_CTX_add1_header(ptr noundef nonnull readonly %0, ptr noundef %53, ptr noundef %55)
   %.not21.i = icmp eq i32 %56, 0
   br i1 %.not21.i, label %add1_headers.exit.thread, label %41
 
@@ -2245,7 +2245,7 @@ define range(i32 0, 2) i32 @OSSL_HTTP_set1_request(ptr noundef captures(address_
   br i1 %.not18.i, label %add1_headers.exit, label %57
 
 57:                                               ; preds = %._crit_edge.i
-  %58 = tail call i32 @OSSL_HTTP_REQ_CTX_add1_header(ptr noundef nonnull %0, ptr noundef nonnull @.str.58, ptr noundef %32)
+  %58 = tail call i32 @OSSL_HTTP_REQ_CTX_add1_header(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.58, ptr noundef %32)
   %.not19.i = icmp eq i32 %58, 0
   br i1 %.not19.i, label %add1_headers.exit.thread, label %add1_headers.exit
 

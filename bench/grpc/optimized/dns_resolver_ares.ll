@@ -7648,7 +7648,7 @@ _ZN9grpc_core12_GLOBAL__N_115AresDNSResolverD2Ev.exit: ; preds = %_ZN4absl12lts_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal { i64, i64 } @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver14LookupHostnameESt8functionIFvN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS7_EEEEEESt17basic_string_viewIcSt11char_traitsIcEESG_NS_8DurationEP16grpc_pollset_setSG_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef captures(none) %1, i64 %2, ptr captures(address_is_null) %3, i64 %4, ptr readonly captures(address_is_null) %5, i64 %6, ptr noundef %7, ptr noundef readonly byval(%"class.std::basic_string_view") align 8 captures(none) %8) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal { i64, i64 } @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver14LookupHostnameESt8functionIFvN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS7_EEEEEESt17basic_string_viewIcSt11char_traitsIcEESG_NS_8DurationEP16grpc_pollset_setSG_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef captures(none) %1, i64 %2, ptr readonly captures(address_is_null) %3, i64 %4, ptr readonly captures(address_is_null) %5, i64 %6, ptr noundef %7, ptr noundef readonly byval(%"class.std::basic_string_view") align 8 captures(none) %8) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca i64, align 8
   %11 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
   %12 = alloca %"struct.grpc_core::DNSResolver::LookupTaskHandle", align 8
@@ -7685,7 +7685,7 @@ _ZNSt8functionIFvN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_address
   %26 = load i64, ptr %25, align 8, !tbaa !28
   %27 = add nsw i64 %26, 1
   store i64 %27, ptr %25, align 8, !tbaa !28
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestC2ESt17basic_string_viewIcSt11char_traitsIcEES6_NS_8DurationEP16grpc_pollset_setPS1_l(ptr noundef nonnull align 8 dereferenceable(240) %16, i64 %2, ptr %3, i64 %.sroa.0.0.copyload, ptr %.sroa.2.0.copyload, i64 %6, ptr noundef %7, ptr noundef nonnull %0, i64 noundef %26)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestC2ESt17basic_string_viewIcSt11char_traitsIcEES6_NS_8DurationEP16grpc_pollset_setPS1_l(ptr noundef nonnull align 8 dereferenceable(240) %16, i64 %2, ptr readonly %3, i64 %.sroa.0.0.copyload, ptr readonly %.sroa.2.0.copyload, i64 %6, ptr noundef %7, ptr noundef nonnull %0, i64 noundef %26)
           to label %.noexc unwind label %115
 
 .noexc:                                           ; preds = %_ZNSt8functionIFvN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS4_EEEEEEC2EOS9_.exit
@@ -8012,7 +8012,7 @@ define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver22LookupHostna
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal { i64, i64 } @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver9LookupSRVESt8functionIFvN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS7_EEEEEESt17basic_string_viewIcSt11char_traitsIcEENS_8DurationEP16grpc_pollset_setSG_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef captures(none) %1, i64 %2, ptr captures(address_is_null) %3, i64 %4, ptr noundef %5, ptr noundef readonly byval(%"class.std::basic_string_view") align 8 captures(none) %6) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal { i64, i64 } @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver9LookupSRVESt8functionIFvN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS7_EEEEEESt17basic_string_viewIcSt11char_traitsIcEENS_8DurationEP16grpc_pollset_setSG_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef captures(none) %1, i64 %2, ptr readonly captures(address_is_null) %3, i64 %4, ptr noundef %5, ptr noundef readonly byval(%"class.std::basic_string_view") align 8 captures(none) %6) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
   %9 = alloca %"struct.grpc_core::DNSResolver::LookupTaskHandle", align 8
   %10 = alloca %"class.std::function.271", align 8
@@ -8048,7 +8048,7 @@ _ZNSt8functionIFvN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_address
   %23 = load i64, ptr %22, align 8, !tbaa !28
   %24 = add nsw i64 %23, 1
   store i64 %24, ptr %22, align 8, !tbaa !28
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestC2ESt17basic_string_viewIcSt11char_traitsIcEES6_NS_8DurationEP16grpc_pollset_setPS1_l(ptr noundef nonnull align 8 dereferenceable(208) %13, i64 %2, ptr %3, i64 %.sroa.01.0.copyload, ptr %.sroa.2.0.copyload, i64 %4, ptr noundef %5, ptr noundef nonnull %0, i64 noundef %23)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestC2ESt17basic_string_viewIcSt11char_traitsIcEES6_NS_8DurationEP16grpc_pollset_setPS1_l(ptr noundef nonnull align 8 dereferenceable(208) %13, i64 %2, ptr readonly %3, i64 %.sroa.01.0.copyload, ptr readonly %.sroa.2.0.copyload, i64 %4, ptr noundef %5, ptr noundef nonnull %0, i64 noundef %23)
           to label %.noexc unwind label %86
 
 .noexc:                                           ; preds = %_ZNSt8functionIFvN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS4_EEEEEEC2EOS9_.exit
@@ -8286,7 +8286,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit17:      ; preds = %97
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal { i64, i64 } @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver9LookupTXTESt8functionIFvN4absl12lts_202407228StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt17basic_string_viewIcS9_ENS_8DurationEP16grpc_pollset_setSG_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef captures(none) %1, i64 %2, ptr captures(address_is_null) %3, i64 %4, ptr noundef %5, ptr noundef readonly byval(%"class.std::basic_string_view") align 8 captures(none) %6) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal { i64, i64 } @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver9LookupTXTESt8functionIFvN4absl12lts_202407228StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt17basic_string_viewIcS9_ENS_8DurationEP16grpc_pollset_setSG_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef captures(none) %1, i64 %2, ptr readonly captures(address_is_null) %3, i64 %4, ptr noundef %5, ptr noundef readonly byval(%"class.std::basic_string_view") align 8 captures(none) %6) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
   %9 = alloca %"struct.grpc_core::DNSResolver::LookupTaskHandle", align 8
   %10 = alloca %"class.std::function.282", align 8
@@ -8322,7 +8322,7 @@ _ZNSt8functionIFvN4absl12lts_202407228StatusOrINSt7__cxx1112basic_stringIcSt11ch
   %23 = load i64, ptr %22, align 8, !tbaa !28
   %24 = add nsw i64 %23, 1
   store i64 %24, ptr %22, align 8, !tbaa !28
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestC2ESt17basic_string_viewIcSt11char_traitsIcEES6_NS_8DurationEP16grpc_pollset_setPS1_l(ptr noundef nonnull align 8 dereferenceable(208) %13, i64 %2, ptr %3, i64 %.sroa.01.0.copyload, ptr %.sroa.2.0.copyload, i64 %4, ptr noundef %5, ptr noundef nonnull %0, i64 noundef %23)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestC2ESt17basic_string_viewIcSt11char_traitsIcEES6_NS_8DurationEP16grpc_pollset_setPS1_l(ptr noundef nonnull align 8 dereferenceable(208) %13, i64 %2, ptr readonly %3, i64 %.sroa.01.0.copyload, ptr readonly %.sroa.2.0.copyload, i64 %4, ptr noundef %5, ptr noundef nonnull %0, i64 noundef %23)
           to label %.noexc unwind label %86
 
 .noexc:                                           ; preds = %_ZNSt8functionIFvN4absl12lts_202407228StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEC2EOSB_.exit

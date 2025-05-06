@@ -7115,7 +7115,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm8Constant14isConstantUsedEv(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm8Constant22needsDynamicRelocationEv(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm8Constant22needsDynamicRelocationEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call noundef i32 @_ZNK4llvm8Constant17getRelocationInfoEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %3 = icmp eq i32 %2, 2
   ret i1 %3
@@ -7290,7 +7290,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %82, %85
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm8Constant15needsRelocationEv(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm8Constant15needsRelocationEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call noundef i32 @_ZNK4llvm8Constant17getRelocationInfoEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %3 = icmp ne i32 %2, 0
   ret i1 %3
@@ -10094,7 +10094,7 @@ define dso_local noundef ptr @_ZN4llvm13ConstantArray3getEPNS_9ArrayTypeENS_8Arr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm13ConstantArray7getImplEPNS_9ArrayTypeENS_8ArrayRefIPNS_8ConstantEEE(ptr noundef %0, ptr captures(address) %1, i64 %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN4llvm13ConstantArray7getImplEPNS_9ArrayTypeENS_8ArrayRefIPNS_8ConstantEEE(ptr noundef %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::SmallVector.593", align 8
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::SmallVector.588", align 8
@@ -10926,7 +10926,7 @@ _ZL28getFPSequenceIfElementsMatchIN4llvm17ConstantDataArrayEjEPNS0_8ConstantENS0
   br label %_ZN4llvm22ConstantDataSequential23isElementTypeCompatibleEPNS_4TypeE.exit
 
 359:                                              ; preds = %263
-  %360 = tail call fastcc noundef ptr @_ZL28getFPSequenceIfElementsMatchIN4llvm17ConstantDataArrayEmEPNS0_8ConstantENS0_8ArrayRefIS3_EE(ptr nonnull %1, i64 %2)
+  %360 = tail call fastcc noundef ptr @_ZL28getFPSequenceIfElementsMatchIN4llvm17ConstantDataArrayEmEPNS0_8ConstantENS0_8ArrayRefIS3_EE(ptr nonnull readonly %1, i64 %2)
   br label %_ZN4llvm22ConstantDataSequential23isElementTypeCompatibleEPNS_4TypeE.exit
 
 _ZN4llvm22ConstantDataSequential23isElementTypeCompatibleEPNS_4TypeE.exit: ; preds = %_ZN4llvm11PoisonValue3getEPNS_4TypeE.exit, %_ZN4llvm10UndefValue3getEPNS_4TypeE.exit, %_ZN4llvm21ConstantAggregateZero3getEPNS_4TypeE.exit37, %105, %106, %110, %_ZL29getIntSequenceIfElementsMatchIN4llvm17ConstantDataArrayEhEPNS0_8ConstantENS0_8ArrayRefIS3_EE.exit.i, %_ZL29getIntSequenceIfElementsMatchIN4llvm17ConstantDataArrayEtEPNS0_8ConstantENS0_8ArrayRefIS3_EE.exit.i, %_ZL29getIntSequenceIfElementsMatchIN4llvm17ConstantDataArrayEjEPNS0_8ConstantENS0_8ArrayRefIS3_EE.exit.i, %224, %_ZL29getIntSequenceIfElementsMatchIN4llvm17ConstantDataArrayEmEPNS0_8ConstantENS0_8ArrayRefIS3_EE.exit.i, %263, %_ZL28getFPSequenceIfElementsMatchIN4llvm17ConstantDataArrayEtEPNS0_8ConstantENS0_8ArrayRefIS3_EE.exit.i, %_ZL28getFPSequenceIfElementsMatchIN4llvm17ConstantDataArrayEjEPNS0_8ConstantENS0_8ArrayRefIS3_EE.exit.i, %359, %_ZN4llvm21ConstantAggregateZero3getEPNS_4TypeE.exit
@@ -11852,7 +11852,7 @@ _ZN4llvm17ConstantAggregateC2EPNS_4TypeENS_5Value7ValueTyENS_8ArrayRefIPNS_8Cons
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm14ConstantVector7getImplENS_8ArrayRefIPNS_8ConstantEEE(ptr captures(address) %0, i64 %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN4llvm14ConstantVector7getImplENS_8ArrayRefIPNS_8ConstantEEE(ptr readonly captures(address) %0, i64 %1) local_unnamed_addr #1 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -12283,7 +12283,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_14ConstantVectorENS_6detail13DenseSetEmp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL26getSequenceIfElementsMatchIN4llvm18ConstantDataVectorEEPNS0_8ConstantES3_NS0_8ArrayRefIS3_EE(ptr noundef readonly captures(none) %0, ptr captures(address) %1, i64 %2) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL26getSequenceIfElementsMatchIN4llvm18ConstantDataVectorEEPNS0_8ConstantES3_NS0_8ArrayRefIS3_EE(ptr noundef readonly captures(none) %0, ptr readonly captures(address) %1, i64 %2) unnamed_addr #1 {
   %4 = alloca %"class.llvm::SmallVector.593", align 8
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::SmallVector.588", align 8

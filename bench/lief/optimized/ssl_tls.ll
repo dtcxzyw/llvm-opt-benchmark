@@ -3524,7 +3524,7 @@ define hidden i32 @mbedtls_ssl_get_session(ptr noundef readonly captures(address
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -28928, 1) i32 @mbedtls_ssl_session_save(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #17 {
+define hidden range(i32 -28928, 1) i32 @mbedtls_ssl_session_save(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #17 {
   %5 = tail call fastcc i32 @ssl_session_save(ptr noundef %0, i8 noundef zeroext 0, ptr noundef %1, i64 noundef %2, ptr noundef %3)
   ret i32 %5
 }

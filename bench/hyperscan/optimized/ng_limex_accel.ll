@@ -1839,7 +1839,7 @@ _ZN3ue2L29blowoutPathsLessStrictSegmentERSt6vectorIS0_INS_9CharReachESaIS1_EESaI
   store i32 5, ptr %191, align 8, !alias.scope !171
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #24, !noalias !171
   store i64 0, ptr %6, align 8, !noalias !171
-  invoke fastcc void @_ZN3ue2L16findBestInternalEN9__gnu_cxx17__normal_iteratorIPKSt6vectorINS_9CharReachESaIS3_EES2_IS5_SaIS5_EEEESA_PmRKNS_12_GLOBAL__N_112SAccelSchemeEPSD_(ptr %183, ptr %182, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 8 %18)
+  invoke fastcc void @_ZN3ue2L16findBestInternalEN9__gnu_cxx17__normal_iteratorIPKSt6vectorINS_9CharReachESaIS3_EES2_IS5_SaIS5_EEEESA_PmRKNS_12_GLOBAL__N_112SAccelSchemeEPSD_(ptr readonly %183, ptr readnone %182, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 8 %18)
           to label %192 unwind label %195
 
 192:                                              ; preds = %189
@@ -3433,7 +3433,7 @@ _ZNK3ue29CharReach3allEv.exit:                    ; preds = %53
 declare { ptr, i64 } @_ZN3ue217getSoleDestVertexERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(136), ptr, i64) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3ue213nfaCheckAccelERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKSt6vectorINS_9CharReachESaISB_EERKSt3mapIS9_NS_20BoundedRepeatSummaryESt4lessIS9_ESaISt4pairIKS9_SH_EEEPNS_11AccelSchemeEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr %1, i64 %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN3ue213nfaCheckAccelERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKSt6vectorINS_9CharReachESaISB_EERKSt3mapIS9_NS_20BoundedRepeatSummaryESt4lessIS9_ESaISt4pairIKS9_SH_EEEPNS_11AccelSchemeEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr %1, i64 %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.std::less.123", align 1
   %9 = alloca %"class.std::allocator.59", align 1
   %10 = alloca %"struct.std::less.123", align 1
@@ -5439,7 +5439,7 @@ _ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EE5eraseEN9__gnu_cxx17__normal_ite
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L14findDoubleBestEN9__gnu_cxx17__normal_iteratorIPKSt6vectorINS_9CharReachESaIS3_EES2_IS5_SaIS5_EEEESA_RKNS_12_GLOBAL__N_112DAccelSchemeEPSC_(ptr captures(address) %0, ptr captures(address) %1, ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L14findDoubleBestEN9__gnu_cxx17__normal_iteratorIPKSt6vectorINS_9CharReachESaIS3_EES2_IS5_SaIS5_EEEESA_RKNS_12_GLOBAL__N_112DAccelSchemeEPSC_(ptr readonly captures(address) %0, ptr readnone captures(address) %1, ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.boost::container::vec_iterator.138", align 8
   %6 = alloca %"class.boost::container::vec_iterator.126", align 8
   %7 = alloca %"class.boost::container::vec_iterator.139", align 8
@@ -10862,7 +10862,7 @@ _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit4:  ; preds = %40, %_ZNK9__gnu_cxx
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L16findBestInternalEN9__gnu_cxx17__normal_iteratorIPKSt6vectorINS_9CharReachESaIS3_EES2_IS5_SaIS5_EEEESA_PmRKNS_12_GLOBAL__N_112SAccelSchemeEPSD_(ptr captures(address) %0, ptr captures(address) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L16findBestInternalEN9__gnu_cxx17__normal_iteratorIPKSt6vectorINS_9CharReachESaIS3_EES2_IS5_SaIS5_EEEESA_PmRKNS_12_GLOBAL__N_112SAccelSchemeEPSD_(ptr readonly captures(address) %0, ptr readnone captures(address) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.boost::container::vec_iterator.167", align 8
   %7 = alloca %"struct.ue2::(anonymous namespace)::SAccelScheme", align 8
   %8 = alloca %"class.boost::container::vec_iterator.167", align 8

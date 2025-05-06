@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @DGifDecompressInput.CodeMasks = internal unnamed_addr constant [13 x i16] [i16 0, i16 1, i16 3, i16 7, i16 15, i16 31, i16 63, i16 127, i16 255, i16 511, i16 1023, i16 2047, i16 4095], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @DGifOpenFileName(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden noundef ptr @DGifOpenFileName(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %0, i32 noundef 0) #14
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %5, label %7

@@ -21545,7 +21545,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit19:                  ; preds = %_ZNSt6vectorIdSaIdE
 declare void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(5), ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z12read_tpx_topRKNSt10filesystem7__cxx114pathEP10t_inputrecPA3_fPiS7_S7_P10t_topology(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_Z12read_tpx_topRKNSt10filesystem7__cxx114pathEP10t_inputrecPA3_fPiS7_S7_P10t_topology(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %8 = alloca %struct.gmx_mtop_t, align 8
   %9 = alloca %struct.t_topology, align 8
   call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %8) #28

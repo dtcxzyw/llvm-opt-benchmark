@@ -896,7 +896,7 @@ declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unname
 declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @usrc_writeUTrie2Arrays(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #13 {
+define void @usrc_writeUTrie2Arrays(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #13 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !24
   %8 = icmp eq ptr %7, null
@@ -988,7 +988,7 @@ define void @usrc_writeUTrie2Struct(ptr noundef captures(none) %0, ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @usrc_writeUCPTrieArrays(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #13 {
+define void @usrc_writeUCPTrieArrays(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #13 {
   %7 = icmp eq i32 %5, 1
   %8 = select i1 %7, ptr @.str.14, ptr @.str.10
   %9 = load ptr, ptr %3, align 8, !tbaa !38
@@ -1132,7 +1132,7 @@ define void @usrc_writeUCPTrie(ptr noundef captures(none) %0, ptr noundef %1, pt
   %25 = load ptr, ptr %2, align 8, !tbaa !38
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %27 = load i32, ptr %26, align 8, !tbaa !40
-  call void @usrc_writeArray(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %25, i32 noundef 16, i32 noundef %27, ptr noundef nonnull %24, ptr noundef nonnull %7)
+  call void @usrc_writeArray(ptr noundef %0, ptr noundef nonnull readonly %5, ptr noundef %25, i32 noundef 16, i32 noundef %27, ptr noundef nonnull %24, ptr noundef nonnull readonly %7)
   %28 = load i8, ptr %9, align 1, !tbaa !41
   switch i8 %28, label %29 [
     i8 0, label %usrc_writeUCPTrieArrays.exit
@@ -1153,7 +1153,7 @@ usrc_writeUCPTrieArrays.exit:                     ; preds = %22, %29, %.fold.spl
   %34 = load ptr, ptr %33, align 8, !tbaa !15
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %36 = load i32, ptr %35, align 4, !tbaa !42
-  call void @usrc_writeArray(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %34, i32 noundef %32, i32 noundef %36, ptr noundef nonnull %24, ptr noundef nonnull %7)
+  call void @usrc_writeArray(ptr noundef %0, ptr noundef nonnull readonly %6, ptr noundef %34, i32 noundef %32, i32 noundef %36, ptr noundef nonnull %24, ptr noundef nonnull readonly %7)
   %switch = icmp eq i32 %3, 0
   br i1 %switch, label %39, label %37
 

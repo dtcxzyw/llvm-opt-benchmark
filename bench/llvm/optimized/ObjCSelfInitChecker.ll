@@ -2545,7 +2545,7 @@ _ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_112SelfFlagEnumENS_1
   store ptr %14, ptr %8, align 8, !tbaa !106, !noalias !566
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %40, ptr %51, align 8, !tbaa !569, !noalias !566
-  %52 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_112SelfFlagEnumEEEE12add_internalERKSt4pairIS6_S8_EPNS_11ImutAVLTreeIS9_EE(ptr noundef nonnull align 8 dereferenceable(81) %43, ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef %.sroa.0.015.i.i), !noalias !566
+  %52 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_112SelfFlagEnumEEEE12add_internalERKSt4pairIS6_S8_EPNS_11ImutAVLTreeIS9_EE(ptr noundef nonnull align 8 dereferenceable(81) %43, ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef readonly %.sroa.0.015.i.i), !noalias !566
   call fastcc void @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_112SelfFlagEnumEEEE13markImmutableEPNS_11ImutAVLTreeIS9_EE(ptr noundef %52), !noalias !566
   %53 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %.val.i.i.i.i.i.i = load ptr, ptr %53, align 8, !tbaa !95, !noalias !566
@@ -5205,7 +5205,7 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_18SelfFlagEEENS0_17ProgramStateT
 _ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_112SelfFlagEnumENS_16ImutKeyValueInfoIS5_S7_EEEC2ERKSA_.exit.i.i.i.i: ; preds = %82, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_18SelfFlagEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.thread.i.i.i
   %.not.i.i.i.i16.i.i.i = phi i1 [ true, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_18SelfFlagEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.thread.i.i.i ], [ false, %82 ]
   %.sroa.0.015.i.i.i = phi ptr [ null, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_18SelfFlagEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.thread.i.i.i ], [ %81, %82 ]
-  %86 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_112SelfFlagEnumEEEE15remove_internalERKS6_PNS_11ImutAVLTreeIS9_EE(ptr noundef nonnull align 8 dereferenceable(81) %78, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %.sroa.0.015.i.i.i), !noalias !707
+  %86 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_112SelfFlagEnumEEEE15remove_internalERKS6_PNS_11ImutAVLTreeIS9_EE(ptr noundef nonnull align 8 dereferenceable(81) %78, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef readonly %.sroa.0.015.i.i.i), !noalias !707
   call fastcc void @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_112SelfFlagEnumEEEE13markImmutableEPNS_11ImutAVLTreeIS9_EE(ptr noundef %86), !noalias !707
   %87 = getelementptr inbounds nuw i8, ptr %78, i64 32
   %.val.i.i.i.i.i.i.i = load ptr, ptr %87, align 8, !tbaa !95, !noalias !707

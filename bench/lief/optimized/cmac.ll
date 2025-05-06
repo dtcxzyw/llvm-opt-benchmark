@@ -668,7 +668,7 @@ define hidden range(i32 -24832, 1) i32 @mbedtls_cipher_cmac_reset(ptr noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_cipher_cmac(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, i64 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_cipher_cmac(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.mbedtls_cipher_context_t, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7) #13
   %8 = icmp eq ptr %0, null
@@ -749,7 +749,7 @@ declare i32 @mbedtls_cipher_setup(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @mbedtls_cipher_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_aes_cmac_prf_128(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_aes_cmac_prf_128(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca [16 x i8], align 16
   %7 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #13

@@ -920,7 +920,7 @@ define void @_ZN2cv4UMatC2ENS_5Size_IiEEiRKNS_7Scalar_IdEENS_14UMatUsageFlagsE(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4UMatC2EiPKiiNS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 28), (32, 48)) %0, i32 noundef %1, ptr noundef captures(address) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 align 2 {
+define void @_ZN2cv4UMatC2EiPKiiNS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 28), (32, 48)) %0, i32 noundef %1, ptr noundef readonly captures(address) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 align 2 {
   store i32 1124007936, ptr %0, align 8, !tbaa !43
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -940,7 +940,7 @@ define void @_ZN2cv4UMatC2EiPKiiNS_14UMatUsageFlagsE(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4UMat6createEiPKiiNS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1, ptr noundef captures(address) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4UMat6createEiPKiiNS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1, ptr noundef readonly captures(address) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca [32 x i32], align 16
@@ -1488,7 +1488,7 @@ _ZN2cv4UMat6addrefEv.exit:                        ; preds = %230, %_ZN2cv11final
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4UMatC2EiPKiiRKNS_7Scalar_IdEENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 28), (32, 48)) %0, i32 noundef %1, ptr noundef captures(address) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4UMatC2EiPKiiRKNS_7Scalar_IdEENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 28), (32, 48)) %0, i32 noundef %1, ptr noundef readonly captures(address) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.cv::_InputArray", align 8
   store i32 1124007936, ptr %0, align 8, !tbaa !43
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -4516,7 +4516,7 @@ _ZN2cv4UMat7releaseEv.exit:                       ; preds = %136, %132
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4UMatC2ERKS0_PKNS_5RangeE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 28), (32, 48)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(80) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4UMatC2ERKS0_PKNS_5RangeE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 28), (32, 48)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4735,7 +4735,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4UMatC2ERKS0_RKSt6vectorINS_5RangeESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 28), (32, 48)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(80) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4UMatC2ERKS0_RKSt6vectorINS_5RangeESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 28), (32, 48)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -1699,7 +1699,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @cvCreateMatND(i32 noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @cvCreateMatND(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = add i32 %0, -33
@@ -1742,7 +1742,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 cvCreateMatNDHeader.exit:                         ; preds = %3
   %17 = tail call ptr @cvAlloc(i64 noundef 288)
-  %18 = tail call ptr @cvInitMatNDHeader(ptr noundef %17, i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef null)
+  %18 = tail call ptr @cvInitMatNDHeader(ptr noundef %17, i32 noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef null)
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 1, ptr %19, align 8, !tbaa !49
   tail call void @cvCreateData(ptr noundef %17)
@@ -1750,7 +1750,7 @@ cvCreateMatNDHeader.exit:                         ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @cvCreateMatNDHeader(i32 noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @cvCreateMatNDHeader(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = add i32 %0, -33
@@ -1964,7 +1964,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 cvCreateMatNDHeader.exit:                         ; preds = %66
   %61 = tail call ptr @cvAlloc(i64 noundef 288)
-  %62 = call ptr @cvInitMatNDHeader(ptr noundef %61, i32 noundef %33, ptr noundef nonnull %8, i32 noundef %15, ptr noundef null)
+  %62 = call ptr @cvInitMatNDHeader(ptr noundef %61, i32 noundef %33, ptr noundef nonnull readonly %8, i32 noundef %15, ptr noundef null)
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store i32 1, ptr %63, align 8, !tbaa !49
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2862,7 +2862,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit188: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZL10cvGetMatNDPKvP7CvMatNDPi(ptr noundef nonnull captures(address_is_null, ret: address, provenance) %0, ptr noundef nonnull writeonly captures(ret: address, provenance) %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZL10cvGetMatNDPKvP7CvMatNDPi(ptr noundef nonnull captures(address_is_null, ret: address, provenance) %0, ptr noundef nonnull writeonly captures(ret: address, provenance) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %struct.CvMat, align 8
@@ -4792,7 +4792,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @cvPtr2D(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define ptr @cvPtr2D(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8223,7 +8223,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @cvPtr1D(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define ptr @cvPtr1D(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -9154,7 +9154,7 @@ _ZL8cvSetNewP5CvSet.exit:                         ; preds = %184, %192
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @cvPtr3D(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define ptr @cvPtr3D(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca [3 x i32], align 4
@@ -9334,7 +9334,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @cvPtrND(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define ptr @cvPtrND(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9578,7 +9578,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @cvGet1D(ptr dead_on_unwind noalias writable sret(%struct.CvScalar) align 8 captures(address_is_null) initializes((0, 32)) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @cvGet1D(ptr dead_on_unwind noalias writable writeonly sret(%struct.CvScalar) align 8 captures(address_is_null) initializes((0, 32)) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9710,7 +9710,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @cvGet2D(ptr dead_on_unwind noalias writable sret(%struct.CvScalar) align 8 captures(address_is_null) initializes((0, 32)) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @cvGet2D(ptr dead_on_unwind noalias writable writeonly sret(%struct.CvScalar) align 8 captures(address_is_null) initializes((0, 32)) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca i32, align 4
@@ -9906,7 +9906,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174.i: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @cvGet3D(ptr dead_on_unwind noalias writable sret(%struct.CvScalar) align 8 captures(address_is_null) initializes((0, 32)) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @cvGet3D(ptr dead_on_unwind noalias writable writeonly sret(%struct.CvScalar) align 8 captures(address_is_null) initializes((0, 32)) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca i32, align 4
@@ -9997,7 +9997,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53.i: ; preds = %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @cvGetND(ptr dead_on_unwind noalias writable sret(%struct.CvScalar) align 8 captures(address_is_null) initializes((0, 32)) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define void @cvGetND(ptr dead_on_unwind noalias writable writeonly sret(%struct.CvScalar) align 8 captures(address_is_null) initializes((0, 32)) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !173
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
@@ -10762,7 +10762,7 @@ _ZL10icvGetRealPKvi.exit:                         ; preds = %69, %66, %63, %60, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define double @cvGetRealND(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define double @cvGetRealND(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -10887,7 +10887,7 @@ _ZL10icvGetRealPKvi.exit:                         ; preds = %47, %44, %41, %38, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @cvSet1D(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef byval(%struct.CvScalar) align 8 captures(address_is_null) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @cvSet1D(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly byval(%struct.CvScalar) align 8 captures(address_is_null) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11011,7 +11011,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @cvSet2D(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef byval(%struct.CvScalar) align 8 captures(address_is_null) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @cvSet2D(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly byval(%struct.CvScalar) align 8 captures(address_is_null) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca i32, align 4
@@ -11199,7 +11199,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174.i: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @cvSet3D(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef byval(%struct.CvScalar) align 8 captures(address_is_null) %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @cvSet3D(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly byval(%struct.CvScalar) align 8 captures(address_is_null) %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca i32, align 4
@@ -11282,7 +11282,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53.i: ; preds = %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @cvSetND(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef byval(%struct.CvScalar) align 8 captures(address_is_null) %2) local_unnamed_addr #0 {
+define void @cvSetND(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly byval(%struct.CvScalar) align 8 captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
   store i32 0, ptr %4, align 4, !tbaa !26
@@ -12087,7 +12087,7 @@ _ZL10icvSetRealdPKvi.exit:                        ; preds = %77, %75, %74, %73, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @cvSetRealND(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, double noundef %2) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define void @cvSetRealND(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, double noundef %2) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -12228,7 +12228,7 @@ _ZL10icvSetRealdPKvi.exit:                        ; preds = %54, %52, %51, %50, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @cvClearND(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @cvClearND(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca i32, align 4

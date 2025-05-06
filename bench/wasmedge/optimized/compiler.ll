@@ -4900,7 +4900,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7Conte
   %12 = ptrtoint ptr %8 to i64
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 3
-  call fastcc void @_ZN12_GLOBAL__N_116toLLVMTypeVectorEN8WasmEdge4LLVM7ContextEN5cxx204spanIKNS0_7ValTypeELm18446744073709551615EEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %1, ptr %8, i64 %14) #16
+  call fastcc void @_ZN12_GLOBAL__N_116toLLVMTypeVectorEN8WasmEdge4LLVM7ContextEN5cxx204spanIKNS0_7ValTypeELm18446744073709551615EEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %1, ptr readonly %8, i64 %14) #16
   %15 = load ptr, ptr %5, align 8, !alias.scope !697
   %16 = call ptr @_ZNSt6vectorIN8WasmEdge4LLVM4TypeESaIS2_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EERS7_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %15, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -8340,7 +8340,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler7ControlaSEOS1_.exit: ; preds = %_ZSt8_Destro
 972:                                              ; preds = %967
   %973 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %.sroa.025.0.copyload.i = load ptr, ptr %973, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116toLLVMTypeVectorEN8WasmEdge4LLVM7ContextEN5cxx204spanIKNS0_7ValTypeELm18446744073709551615EEE(ptr dead_on_unwind noalias writable align 8 %3, ptr %.sroa.025.0.copyload.i, ptr %955, i64 %961) #16
+  call fastcc void @_ZN12_GLOBAL__N_116toLLVMTypeVectorEN8WasmEdge4LLVM7ContextEN5cxx204spanIKNS0_7ValTypeELm18446744073709551615EEE(ptr dead_on_unwind noalias writable align 8 %3, ptr %.sroa.025.0.copyload.i, ptr readonly %955, i64 %961) #16
   %974 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %975 = load ptr, ptr %974, align 8
   %976 = load ptr, ptr %3, align 8
@@ -8477,7 +8477,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backEOS2_.exit.i: ; preds = %_Z
 1028:                                             ; preds = %967
   %1029 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %.sroa.0.0.copyload.i = load ptr, ptr %1029, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116toLLVMTypeVectorEN8WasmEdge4LLVM7ContextEN5cxx204spanIKNS0_7ValTypeELm18446744073709551615EEE(ptr dead_on_unwind noalias writable align 8 %4, ptr %.sroa.0.0.copyload.i, ptr %955, i64 %961) #16
+  call fastcc void @_ZN12_GLOBAL__N_116toLLVMTypeVectorEN8WasmEdge4LLVM7ContextEN5cxx204spanIKNS0_7ValTypeELm18446744073709551615EEE(ptr dead_on_unwind noalias writable align 8 %4, ptr %.sroa.0.0.copyload.i, ptr readonly %955, i64 %961) #16
   %1030 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %1031 = load ptr, ptr %1030, align 8
   %1032 = load ptr, ptr %4, align 8

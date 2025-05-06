@@ -281,7 +281,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.val22.i = load i64, ptr %23, align 8, !noalias !45
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3), !noalias !51
-  invoke fastcc void @"_ZN123_$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$5embed28_$u7b$$u7b$closure$u7d$$u7d$17h4212fe4a6f7ae777E"(ptr noalias noundef align 8 captures(none) dereferenceable(144) %3, ptr noalias noundef align 8 dereferenceable(24) %9, ptr %.val21.i, i64 %.val22.i)
+  invoke fastcc void @"_ZN123_$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$5embed28_$u7b$$u7b$closure$u7d$$u7d$17h4212fe4a6f7ae777E"(ptr noalias noundef align 8 captures(none) dereferenceable(144) %3, ptr noalias noundef align 8 dereferenceable(24) %9, ptr readonly %.val21.i, i64 %.val22.i)
           to label %24 unwind label %30
 
 24:                                               ; preds = %21
@@ -699,7 +699,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.val22.i.i = load i64, ptr %19, align 8, !noalias !186
   tail call void @llvm.experimental.noalias.scope.decl(metadata !187)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3), !noalias !190
-  invoke fastcc void @"_ZN123_$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$5embed28_$u7b$$u7b$closure$u7d$$u7d$17h4212fe4a6f7ae777E"(ptr noalias noundef align 8 captures(none) dereferenceable(144) %3, ptr noalias noundef align 8 dereferenceable(24) %5, ptr %.val21.i.i, i64 %.val22.i.i)
+  invoke fastcc void @"_ZN123_$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$5embed28_$u7b$$u7b$closure$u7d$$u7d$17h4212fe4a6f7ae777E"(ptr noalias noundef align 8 captures(none) dereferenceable(144) %3, ptr noalias noundef align 8 dereferenceable(24) %5, ptr readonly %.val21.i.i, i64 %.val22.i.i)
           to label %20 unwind label %26, !noalias !178
 
 20:                                               ; preds = %17
@@ -985,7 +985,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.val22.i.i.i = load i64, ptr %19, align 8, !noalias !258
   tail call void @llvm.experimental.noalias.scope.decl(metadata !259)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3), !noalias !262
-  invoke fastcc void @"_ZN123_$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$5embed28_$u7b$$u7b$closure$u7d$$u7d$17h4212fe4a6f7ae777E"(ptr noalias noundef align 8 captures(none) dereferenceable(144) %3, ptr noalias noundef align 8 dereferenceable(24) %5, ptr %.val21.i.i.i, i64 %.val22.i.i.i)
+  invoke fastcc void @"_ZN123_$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$5embed28_$u7b$$u7b$closure$u7d$$u7d$17h4212fe4a6f7ae777E"(ptr noalias noundef align 8 captures(none) dereferenceable(144) %3, ptr noalias noundef align 8 dereferenceable(24) %5, ptr readonly %.val21.i.i.i, i64 %.val22.i.i.i)
           to label %20 unwind label %26, !noalias !247
 
 20:                                               ; preds = %17
@@ -19628,7 +19628,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !4700
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %10, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8), !noalias !4700
-  invoke fastcc void @"_ZN123_$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$5embed28_$u7b$$u7b$closure$u7d$$u7d$17h4212fe4a6f7ae777E"(ptr noalias noundef align 8 captures(none) dereferenceable(144) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4, ptr %.val, i64 %.val16)
+  invoke fastcc void @"_ZN123_$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$5embed28_$u7b$$u7b$closure$u7d$$u7d$17h4212fe4a6f7ae777E"(ptr noalias noundef align 8 captures(none) dereferenceable(144) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4, ptr readonly %.val, i64 %.val16)
           to label %26 unwind label %33, !noalias !4705
 
 26:                                               ; preds = %23
@@ -20405,7 +20405,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %.val22 = load i64, ptr %20, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4905)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4), !noalias !4905
-  invoke fastcc void @"_ZN123_$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$5embed28_$u7b$$u7b$closure$u7d$$u7d$17h4212fe4a6f7ae777E"(ptr noalias noundef align 8 captures(none) dereferenceable(144) %4, ptr noalias noundef align 8 dereferenceable(24) %12, ptr %.val21, i64 %.val22)
+  invoke fastcc void @"_ZN123_$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$5embed28_$u7b$$u7b$closure$u7d$$u7d$17h4212fe4a6f7ae777E"(ptr noalias noundef align 8 captures(none) dereferenceable(144) %4, ptr noalias noundef align 8 dereferenceable(24) %12, ptr readonly %.val21, i64 %.val22)
           to label %21 unwind label %28
 
 21:                                               ; preds = %18

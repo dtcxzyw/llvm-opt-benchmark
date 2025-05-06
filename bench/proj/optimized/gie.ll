@@ -313,7 +313,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_Z9opt_givenP7OPTARGSPKc(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #5 {
+define hidden noundef i32 @_Z9opt_givenP7OPTARGSPKc(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = tail call fastcc noundef i32 @_ZL11opt_ordinalP7OPTARGSPKc(ptr noundef %0, ptr noundef %1)
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %25, label %5
@@ -505,7 +505,7 @@ define internal fastcc noundef range(i32 -128, 256) i32 @_ZL11opt_ordinalP7OPTAR
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_Z7opt_argP7OPTARGSPKc(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #5 {
+define hidden noundef ptr @_Z7opt_argP7OPTARGSPKc(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = tail call fastcc noundef i32 @_ZL11opt_ordinalP7OPTARGSPKc(ptr noundef %0, ptr noundef %1)
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %10, label %5
@@ -1390,7 +1390,7 @@ _Z9opt_givenP7OPTARGSPKc.exit67:                  ; preds = %141
   br i1 %.not88, label %_Z9opt_givenP7OPTARGSPKc.exit67.thread, label %159
 
 159:                                              ; preds = %150, %_Z9opt_givenP7OPTARGSPKc.exit67
-  %160 = call fastcc noundef i32 @_ZL11opt_ordinalP7OPTARGSPKc(ptr noundef nonnull %35, ptr noundef nonnull @.str.26)
+  %160 = call fastcc noundef i32 @_ZL11opt_ordinalP7OPTARGSPKc(ptr noundef nonnull readonly %35, ptr noundef nonnull @.str.26)
   %161 = icmp eq i32 %160, 0
   br i1 %161, label %_Z7opt_argP7OPTARGSPKc.exit, label %162
 
@@ -1415,7 +1415,7 @@ _Z9opt_givenP7OPTARGSPKc.exit67.thread:           ; preds = %_Z9opt_givenP7OPTAR
   %170 = load ptr, ptr @stderr, align 8, !tbaa !21
   %171 = getelementptr inbounds nuw i8, ptr %35, i64 64
   %172 = load ptr, ptr %171, align 8, !tbaa !30
-  %173 = call fastcc noundef i32 @_ZL11opt_ordinalP7OPTARGSPKc(ptr noundef nonnull %35, ptr noundef nonnull @.str.26)
+  %173 = call fastcc noundef i32 @_ZL11opt_ordinalP7OPTARGSPKc(ptr noundef nonnull readonly %35, ptr noundef nonnull @.str.26)
   %174 = icmp eq i32 %173, 0
   br i1 %174, label %_Z7opt_argP7OPTARGSPKc.exit70, label %175
 

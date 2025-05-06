@@ -631,7 +631,7 @@ define hidden i32 @exr_attr_list_find_by_name(ptr noundef %0, ptr noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_list_add_by_type(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #3 {
+define hidden i32 @exr_attr_list_add_by_type(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #3 {
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
   store ptr null, ptr %8, align 8, !tbaa !28
@@ -1538,7 +1538,7 @@ exr_attr_list_find_by_name.exit.thread:           ; preds = %13, %17, %38, %._cr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_list_add(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #3 {
+define hidden i32 @exr_attr_list_add(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %100, label %8
 
@@ -1729,7 +1729,7 @@ create_attr_block.exit.thread:                    ; preds = %create_attr_block.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_list_add_static_name(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #3 {
+define hidden i32 @exr_attr_list_add_static_name(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %90, label %8
 

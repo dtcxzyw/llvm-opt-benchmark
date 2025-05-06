@@ -30178,7 +30178,7 @@ define internal fastcc ptr @_ZN4llvm9StringMapIN12_GLOBAL__N_110StructInfoENS_15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MasmParser25parseDirectiveStructValueERKNS_10StructInfoEN4llvm9StringRefENS4_5SMLocE(ptr noundef nonnull align 8 dereferenceable(1144) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(88) %1, ptr %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MasmParser25parseDirectiveStructValueERKNS_10StructInfoEN4llvm9StringRefENS4_5SMLocE(ptr noundef nonnull align 8 dereferenceable(1144) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %1, ptr %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::vector.299", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -30248,12 +30248,12 @@ _ZN12_GLOBAL__N_110MasmParser16emitStructValuesERKNS_10StructInfoEPj.exit: ; pre
   %28 = tail call fastcc noundef nonnull align 8 dereferenceable(136) ptr @_ZN12_GLOBAL__N_110StructInfo8addFieldEN4llvm9StringRefENS_9FieldTypeEj(ptr noundef nonnull align 8 dereferenceable(88) %25, ptr nonnull @.str.101, i64 0, i32 noundef 2, i32 noundef %27)
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  %31 = tail call fastcc noundef nonnull align 8 dereferenceable(88) ptr @_ZN12_GLOBAL__N_110StructInfoaSERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %30, ptr noundef nonnull align 8 dereferenceable(88) %1)
+  %31 = tail call fastcc noundef nonnull align 8 dereferenceable(88) ptr @_ZN12_GLOBAL__N_110StructInfoaSERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %30, ptr noundef nonnull readonly align 8 dereferenceable(88) %1)
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %33 = load i32, ptr %32, align 8, !tbaa !528
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 12
   store i32 %33, ptr %34, align 4, !tbaa !890
-  %35 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MasmParser19parseStructInstListERKNS_10StructInfoERSt6vectorINS_17StructInitializerESaIS5_EEN4llvm8AsmToken9TokenKindE(ptr noundef nonnull align 8 dereferenceable(1144) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(24) %29, i32 noundef 9)
+  %35 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MasmParser19parseStructInstListERKNS_10StructInfoERSt6vectorINS_17StructInitializerESaIS5_EEN4llvm8AsmToken9TokenKindE(ptr noundef nonnull align 8 dereferenceable(1144) %0, ptr noundef nonnull readonly align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(24) %29, i32 noundef 9)
   br i1 %35, label %_ZN4llvmplERKNS_5TwineES2_.exit18, label %36
 
 36:                                               ; preds = %21
@@ -33771,7 +33771,7 @@ _ZNSt6vectorIN4llvm19MCAsmMacroParameterESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Des
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MasmParser30parseDirectiveNamedStructValueERKNS_10StructInfoEN4llvm9StringRefENS4_5SMLocES5_(ptr noundef nonnull align 8 dereferenceable(1144) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(88) %1, ptr %2, i64 %3, ptr noundef byval(%"class.llvm::StringRef") align 8 %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MasmParser30parseDirectiveNamedStructValueERKNS_10StructInfoEN4llvm9StringRefENS4_5SMLocES5_(ptr noundef nonnull align 8 dereferenceable(1144) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %1, ptr %2, i64 %3, ptr noundef byval(%"class.llvm::StringRef") align 8 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::vector.299", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %.sroa.01 = alloca %"class.llvm::StringRef", align 8
@@ -33929,12 +33929,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %74 = tail call fastcc noundef nonnull align 8 dereferenceable(136) ptr @_ZN12_GLOBAL__N_110StructInfo8addFieldEN4llvm9StringRefENS_9FieldTypeEj(ptr noundef nonnull align 8 dereferenceable(88) %71, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, i32 noundef 2, i32 noundef %73)
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 48
-  %77 = tail call fastcc noundef nonnull align 8 dereferenceable(88) ptr @_ZN12_GLOBAL__N_110StructInfoaSERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %76, ptr noundef nonnull align 8 dereferenceable(88) %1)
+  %77 = tail call fastcc noundef nonnull align 8 dereferenceable(88) ptr @_ZN12_GLOBAL__N_110StructInfoaSERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %76, ptr noundef nonnull readonly align 8 dereferenceable(88) %1)
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %79 = load i32, ptr %78, align 8, !tbaa !528
   %80 = getelementptr inbounds nuw i8, ptr %74, i64 12
   store i32 %79, ptr %80, align 4, !tbaa !890
-  %81 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MasmParser19parseStructInstListERKNS_10StructInfoERSt6vectorINS_17StructInitializerESaIS5_EEN4llvm8AsmToken9TokenKindE(ptr noundef nonnull align 8 dereferenceable(1144) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(24) %75, i32 noundef 9)
+  %81 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MasmParser19parseStructInstListERKNS_10StructInfoERSt6vectorINS_17StructInitializerESaIS5_EEN4llvm8AsmToken9TokenKindE(ptr noundef nonnull align 8 dereferenceable(1144) %0, ptr noundef nonnull readonly align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(24) %75, i32 noundef 9)
   br i1 %81, label %_ZN4llvmplERKNS_5TwineES2_.exit25, label %82
 
 82:                                               ; preds = %67
@@ -42876,7 +42876,7 @@ _ZNSt6vectorIN12_GLOBAL__N_19FieldInfoESaIS1_EE12emplace_backIJRNS0_9FieldTypeEE
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(88) ptr @_ZN12_GLOBAL__N_110StructInfoaSERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(88) initializes((0, 36)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(88) %1) unnamed_addr #15 align 2 {
+define internal fastcc noundef nonnull align 8 dereferenceable(88) ptr @_ZN12_GLOBAL__N_110StructInfoaSERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(88) initializes((0, 36)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %1) unnamed_addr #15 align 2 {
   %3 = alloca %"class.llvm::StringMap.285", align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i64 36, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -55506,7 +55506,7 @@ _ZNSt6vectorIN12_GLOBAL__N_117StructInitializerESaIS1_EE6insertIN9__gnu_cxx17__n
   store ptr %.val.i.i, ptr %94, align 8, !tbaa !666
   store ptr %1197, ptr %100, align 8, !tbaa !669
   store ptr %1196, ptr %101, align 8, !tbaa !670
-  %1199 = call fastcc noundef nonnull align 8 dereferenceable(88) ptr @_ZN12_GLOBAL__N_110StructInfoaSERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %95, ptr noundef nonnull align 8 dereferenceable(88) %30)
+  %1199 = call fastcc noundef nonnull align 8 dereferenceable(88) ptr @_ZN12_GLOBAL__N_110StructInfoaSERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %95, ptr noundef nonnull readonly align 8 dereferenceable(88) %30)
   %1200 = load i32, ptr %103, align 4, !tbaa !319
   %1201 = icmp eq i32 %1200, 0
   br i1 %1201, label %_ZN4llvm9StringMapImNS_15MallocAllocatorEED2Ev.exit.i.i.i, label %1202

@@ -29164,7 +29164,7 @@ define hidden noalias noundef ptr @_ZN8wasmtime7runtime9component4func5typed13lo
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 60
   %79 = load i32, ptr %78, align 4, !noalias !3861
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call fastcc void @"_ZN94_$LT$$LP$A1$C$A2$C$A3$C$A4$RP$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h41806d20db6cc571E"(ptr noalias noundef nonnull readonly align 2 dereferenceable(6) %36, ptr nonnull %18, i32 noundef %77, i32 %79, ptr noalias noundef align 8 dereferenceable(64) %80)
+  tail call fastcc void @"_ZN94_$LT$$LP$A1$C$A2$C$A3$C$A4$RP$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h41806d20db6cc571E"(ptr noalias noundef nonnull readonly align 2 dereferenceable(6) %36, ptr nonnull readonly %18, i32 noundef %77, i32 %79, ptr noalias noundef align 8 dereferenceable(64) %80)
   br label %81
 
 81:                                               ; preds = %81, %"_ZN143_$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..IpSocketAddress$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17hf32ec513cf9dad28E.exit.i.i.i"
@@ -29286,7 +29286,7 @@ define hidden noalias noundef ptr @_ZN8wasmtime7runtime9component4func5typed13lo
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 92
   %134 = load i32, ptr %133, align 4, !noalias !3897
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call fastcc void @"_ZN114_$LT$$LP$A1$C$A2$C$A3$C$A4$C$A5$C$A6$C$A7$C$A8$RP$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h35ddb4ee6ab521d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %84, ptr nonnull %18, i32 noundef %132, i32 %134, ptr noalias noundef align 8 dereferenceable(128) %135)
+  tail call fastcc void @"_ZN114_$LT$$LP$A1$C$A2$C$A3$C$A4$C$A5$C$A6$C$A7$C$A8$RP$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h35ddb4ee6ab521d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %84, ptr nonnull readonly %18, i32 noundef %132, i32 %134, ptr noalias noundef align 8 dereferenceable(128) %135)
   %136 = load i64, ptr %110, align 8, !noalias !3897, !noundef !5
   %137 = icmp ugt i64 %136, 3
   br i1 %137, label %_ZN8wasmtime7runtime9component4func5typed13lower_payload17h3a194593d4217ccbE.exit.i.i, label %139

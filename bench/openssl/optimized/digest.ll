@@ -1135,7 +1135,7 @@ declare i32 @EVP_DigestSignUpdate(ptr noundef, ptr noundef, i64 noundef) local_u
 declare i32 @EVP_DigestVerifyUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_DigestFinal(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define i32 @EVP_DigestFinal(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @EVP_DigestFinal_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %5 = icmp eq ptr %0, null
   br i1 %5, label %EVP_MD_CTX_reset.exit, label %6
@@ -2068,7 +2068,7 @@ declare i32 @ENGINE_init(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_Digest(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_Digest(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 72, ptr noundef nonnull @.str, i32 noundef 131) #8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %23, label %9

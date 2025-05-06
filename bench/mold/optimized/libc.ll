@@ -1070,7 +1070,7 @@ mi_out_alignright.exit.thread321:                 ; preds = %mi_out_alignright.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define hidden void @_mi_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ...) local_unnamed_addr #8 {
+define hidden void @_mi_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ...) local_unnamed_addr #8 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #14
   call void @llvm.va_start.p0(ptr nonnull %4)

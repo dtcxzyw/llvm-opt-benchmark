@@ -15008,7 +15008,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %17
 declare void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden i32 @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKN11opencv_onnx9NodeProtoEi(ptr noundef nonnull align 8 captures(address) dereferenceable(585) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden i32 @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKN11opencv_onnx9NodeProtoEi(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(585) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.6", align 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -53326,7 +53326,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 156:                                              ; preds = %._crit_edge.i.i76
   %157 = load ptr, ptr %120, align 8, !tbaa !28
-  %158 = invoke i32 @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(32) %157)
+  %158 = invoke i32 @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(32) %157)
           to label %_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKN11opencv_onnx9NodeProtoEi.exit unwind label %.loopexit
 
 _ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKN11opencv_onnx9NodeProtoEi.exit: ; preds = %156
@@ -54557,7 +54557,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i81: ; preds = %_
 
 196:                                              ; preds = %._crit_edge.i.i
   %197 = load ptr, ptr %160, align 8, !tbaa !28
-  %198 = invoke i32 @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(32) %197)
+  %198 = invoke i32 @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(32) %197)
           to label %_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKN11opencv_onnx9NodeProtoEi.exit unwind label %.loopexit
 
 _ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKN11opencv_onnx9NodeProtoEi.exit: ; preds = %196
@@ -59949,7 +59949,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i131: ; preds = %
   br label %.body134
 
 166:                                              ; preds = %149
-  %167 = invoke i32 @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(32) %126)
+  %167 = invoke i32 @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(32) %126)
           to label %_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKN11opencv_onnx9NodeProtoEi.exit unwind label %198
 
 _ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKN11opencv_onnx9NodeProtoEi.exit: ; preds = %166
@@ -62480,7 +62480,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i179: ; preds = %
   br label %.body182
 
 197:                                              ; preds = %184
-  %198 = invoke i32 @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(32) %158)
+  %198 = invoke i32 @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(32) %158)
           to label %_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKN11opencv_onnx9NodeProtoEi.exit unwind label %202
 
 _ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKN11opencv_onnx9NodeProtoEi.exit: ; preds = %197
@@ -64481,7 +64481,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i102: ; preds = %
   br label %.body105
 
 168:                                              ; preds = %155
-  %169 = invoke i32 @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(32) %109)
+  %169 = invoke i32 @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(32) %109)
           to label %_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKN11opencv_onnx9NodeProtoEi.exit unwind label %180
 
 _ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKN11opencv_onnx9NodeProtoEi.exit: ; preds = %168
@@ -65510,7 +65510,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i211: ; preds = %
   br label %.body214
 
 266:                                              ; preds = %253
-  %267 = invoke i32 @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(32) %227)
+  %267 = invoke i32 @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(32) %227)
           to label %_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKN11opencv_onnx9NodeProtoEi.exit unwind label %302
 
 _ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKN11opencv_onnx9NodeProtoEi.exit: ; preds = %266
@@ -67088,7 +67088,7 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   br label %110
 
 101:                                              ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v2024122312ONNXImporter10TensorInfoESt4lessIS5_ESaISt4pairIKS5_SA_EEE4findERSE_.exit
-  %102 = tail call i32 @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(32) %34)
+  %102 = tail call i32 @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(32) %34)
   %.fr = freeze i32 %102
   %103 = icmp eq i32 %.fr, 1
   %104 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 72
@@ -67702,7 +67702,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i61: ; preds = %_
   br label %.body
 
 104:                                              ; preds = %87
-  %105 = invoke i32 @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(32) %64)
+  %105 = invoke i32 @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(32) %64)
           to label %_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKN11opencv_onnx9NodeProtoEi.exit unwind label %128
 
 _ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKN11opencv_onnx9NodeProtoEi.exit: ; preds = %104
@@ -70523,7 +70523,7 @@ _ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKN11opencv_onnx9Node
   %99 = load ptr, ptr %98, align 8, !tbaa !27
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8, !tbaa !28
-  %102 = tail call i32 @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(32) %64)
+  %102 = tail call i32 @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(32) %64)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !914)
   %103 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %103, ptr %11, align 8, !tbaa !46, !alias.scope !914
@@ -78594,7 +78594,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i211: ; preds = %
   br label %.body214
 
 406:                                              ; preds = %393
-  %407 = invoke i32 @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(32) %369)
+  %407 = invoke i32 @_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(32) %369)
           to label %_ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKN11opencv_onnx9NodeProtoEi.exit unwind label %.loopexit261
 
 _ZN2cv3dnn14dnn4_v2024122312ONNXImporter16getBlobExtraInfoERKN11opencv_onnx9NodeProtoEi.exit: ; preds = %406

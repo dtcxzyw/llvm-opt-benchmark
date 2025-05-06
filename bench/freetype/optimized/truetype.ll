@@ -10810,7 +10810,7 @@ declare hidden ptr @ft_service_list_lookup(ptr noundef, ptr noundef) local_unnam
 declare ptr @FT_Get_Module(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @TT_Set_MM_Blend(ptr noundef initializes((1209, 1210)) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) #2 {
+define internal i32 @TT_Set_MM_Blend(ptr noundef initializes((1209, 1210)) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) #2 {
   %4 = tail call fastcc i32 @tt_set_mm_blend(ptr noundef %0, i32 noundef %1, ptr noundef %2, i8 noundef zeroext 1)
   ret i32 %4
 }

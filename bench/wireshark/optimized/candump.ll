@@ -154,7 +154,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare ptr @g_strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @candump_read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) #0 {
+define internal noundef zeroext i1 @candump_read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) #0 {
   %6 = alloca %struct.msg_t, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6) #8
   %7 = load ptr, ptr %0, align 8

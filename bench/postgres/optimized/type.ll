@@ -259,7 +259,7 @@ ECPGmake_struct_member.exit:                      ; preds = %79, %.critedge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ECPGmake_struct_type(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @ECPGmake_struct_type(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @mm_alloc(i64 noundef 48) #7
   store i32 %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8

@@ -3877,7 +3877,7 @@ ssl_data_alloc.exit.thread:                       ; preds = %9, %ssl_md_init.exi
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc zeroext i1 @prf(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(none) %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc zeroext i1 @prf(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef captures(none) %5, i32 noundef %6) unnamed_addr #1 {
   %8 = alloca %struct._StringInfo, align 8
   %9 = alloca %struct._StringInfo, align 8
   %10 = alloca %struct._StringInfo, align 8
@@ -9835,7 +9835,7 @@ define hidden void @ssl_check_record_length(ptr noundef %0, ptr noundef %1, i32 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @ssl_dissect_hnd_cli_hello(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef readonly captures(address_is_null) %8, ptr noundef captures(address_is_null) %9) local_unnamed_addr #1 {
+define hidden i32 @ssl_dissect_hnd_cli_hello(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef readonly captures(address_is_null) %8, ptr noundef readonly captures(address_is_null) %9) local_unnamed_addr #1 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
@@ -10691,7 +10691,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @ssl_dissect_hnd_extension(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i8 noundef zeroext range(i8 1, 14) %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9, ptr noundef %10, ptr noundef captures(address_is_null) %11, ptr noundef captures(address_is_null) %12, i32 noundef %13, i32 noundef %14) unnamed_addr #1 {
+define internal fastcc i32 @ssl_dissect_hnd_extension(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i8 noundef zeroext range(i8 1, 14) %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9, ptr noundef %10, ptr noundef captures(address_is_null) %11, ptr noundef readonly captures(address_is_null) %12, i32 noundef %13, i32 noundef %14) unnamed_addr #1 {
   %16 = alloca i32, align 4
   %17 = alloca %struct._asn1_ctx_t, align 8
   %18 = alloca i32, align 4
@@ -11276,7 +11276,7 @@ ssl_dissect_hnd_hello_ext_srp.exit:               ; preds = %397, %400
   br label %ssl_dissect_hnd_ext_delegated_credentials.exit
 
 406:                                              ; preds = %320
-  %407 = call fastcc i32 @ssl_dissect_hash_alg_list(ptr noundef %0, ptr noundef %1, ptr noundef %306, ptr noundef %3, i32 noundef %321, i32 noundef %323, ptr noundef %11)
+  %407 = call fastcc i32 @ssl_dissect_hash_alg_list(ptr noundef %0, ptr noundef %1, ptr noundef %306, ptr noundef %3, i32 noundef %321, i32 noundef %323, ptr noundef readonly %11)
   br label %ssl_dissect_hnd_ext_delegated_credentials.exit
 
 408:                                              ; preds = %320
@@ -15193,7 +15193,7 @@ define hidden void @ssl_dissect_hnd_cert_req(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @ssl_dissect_hash_alg_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6) unnamed_addr #1 {
+define internal fastcc i32 @ssl_dissect_hash_alg_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6) unnamed_addr #1 {
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #31
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 304

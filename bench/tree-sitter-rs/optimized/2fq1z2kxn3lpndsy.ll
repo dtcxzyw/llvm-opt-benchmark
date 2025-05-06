@@ -1045,7 +1045,7 @@ define hidden void @"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$G
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4987c462e88119fE.llvm.11948190557966450743"(ptr noundef nonnull captures(address) %0, ptr noundef captures(address) %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4987c462e88119fE.llvm.11948190557966450743"(ptr noundef nonnull readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   tail call void @_ZN4core4iter6traits8iterator8Iterator4fold17hca60760a9f4c29bbE.llvm.11948190557966450743(ptr noundef nonnull %0, ptr noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   ret void
 }
@@ -17481,8 +17481,8 @@ _ZN5alloc6string6String4push17hda7d9bb0deee805fE.exit: ; preds = %55, %59
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core4iter6traits8iterator8Iterator8for_each17h44299817a4bf1aadE.llvm.11948190557966450743(ptr noundef nonnull captures(address) %0, ptr noundef captures(address) %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
-  tail call void @_ZN4core4iter6traits8iterator8Iterator4fold17hca60760a9f4c29bbE.llvm.11948190557966450743(ptr noundef nonnull %0, ptr noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+define hidden void @_ZN4core4iter6traits8iterator8Iterator8for_each17h44299817a4bf1aadE.llvm.11948190557966450743(ptr noundef nonnull readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
+  tail call void @_ZN4core4iter6traits8iterator8Iterator4fold17hca60760a9f4c29bbE.llvm.11948190557966450743(ptr noundef nonnull readonly %0, ptr noundef readnone %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   ret void
 }
 
@@ -29848,11 +29848,11 @@ define hidden void @"_ZN88_$LT$regex_automata..util..search..Input$u20$as$u20$co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..Extend$LT$char$GT$$GT$6extend17he93b28a679bccb2fE.llvm.11948190557966450743"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noundef nonnull captures(address) %1, ptr noundef captures(address) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..Extend$LT$char$GT$$GT$6extend17he93b28a679bccb2fE.llvm.11948190557966450743"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noundef nonnull readonly captures(address) %1, ptr noundef readnone captures(address) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h44e3af6f0c18641bE.exit":
   %3 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %3)
-  tail call void @_ZN4core4iter6traits8iterator8Iterator4fold17hca60760a9f4c29bbE.llvm.11948190557966450743(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  tail call void @_ZN4core4iter6traits8iterator8Iterator4fold17hca60760a9f4c29bbE.llvm.11948190557966450743(ptr noundef nonnull readonly %1, ptr noundef nonnull readnone %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   ret void
 }
 
@@ -39323,7 +39323,7 @@ define hidden void @"_ZN93_$LT$serde_json..value..de..BorrowedCowStrDeserializer
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..FromIterator$LT$char$GT$$GT$9from_iter17h7ebdd32e30a19190E"(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull captures(address) %1, ptr noundef captures(address) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @"_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..FromIterator$LT$char$GT$$GT$9from_iter17h7ebdd32e30a19190E"(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly captures(address) %1, ptr noundef readnone captures(address) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca { { { i64, ptr }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store i64 0, ptr %4, align 8
@@ -39333,7 +39333,7 @@ define hidden void @"_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
-  invoke void @_ZN4core4iter6traits8iterator8Iterator4fold17hca60760a9f4c29bbE.llvm.11948190557966450743(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  invoke void @_ZN4core4iter6traits8iterator8Iterator4fold17hca60760a9f4c29bbE.llvm.11948190557966450743(ptr noundef nonnull readonly %1, ptr noundef nonnull readnone %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..Extend$LT$char$GT$$GT$6extend17he93b28a679bccb2fE.llvm.11948190557966450743.exit" unwind label %6
 
 6:                                                ; preds = %3

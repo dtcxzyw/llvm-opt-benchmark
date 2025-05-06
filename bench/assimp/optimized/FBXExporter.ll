@@ -55001,7 +55001,7 @@ _ZN6Assimp3FBX4NodeD2Ev.exit:                     ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_Z11count_nodesPK6aiNodeS1_(ptr noundef readonly captures(address) %0, ptr noundef captures(address) %1) local_unnamed_addr #13 {
+define hidden noundef i64 @_Z11count_nodesPK6aiNodeS1_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #13 {
   %3 = icmp eq ptr %0, %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %5 = load i32, ptr %4, align 8

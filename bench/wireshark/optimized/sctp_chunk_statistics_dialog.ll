@@ -106,7 +106,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN25SCTPChunkStatisticsDialogD1Ev = unnamed_addr alias void (ptr), ptr @_ZN25SCTPChunkStatisticsDialogD2Ev
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define void @_ZN25SCTPChunkStatisticsDialogC2EP7QWidgetPK16_sctp_assoc_infoP13_capture_file(ptr noundef align 8 dereferenceable_or_null(128) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN25SCTPChunkStatisticsDialogC2EP7QWidgetPK16_sctp_assoc_infoP13_capture_file(ptr noundef align 8 dereferenceable_or_null(128) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8

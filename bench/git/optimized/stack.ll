@@ -2042,7 +2042,7 @@ define dso_local i64 @reftable_stack_next_update_index(ptr noundef readonly capt
 declare i64 @reftable_reader_max_update_index(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @reftable_stack_compact_all(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local i32 @reftable_stack_compact_all(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load ptr, ptr %3, align 8, !tbaa !34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2053,7 +2053,7 @@ define dso_local i32 @reftable_stack_compact_all(ptr noundef %0, ptr noundef cap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @stack_compact_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc i32 @stack_compact_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca %struct.reftable_buf, align 8
   %7 = alloca %struct.reftable_buf, align 8
   %8 = alloca %struct.reftable_buf, align 8

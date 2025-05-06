@@ -329,7 +329,7 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit:      ; preds = %80, %87
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm42findDevirtualizableCallsForTypeCheckedLoadERNS_15SmallVectorImplINS_14DevirtCallSiteEEERNS0_IPNS_11InstructionEEES7_RbPKNS_8CallInstERNS_13DominatorTreeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 1 captures(address_is_null) dereferenceable(1) %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(124) %5) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm42findDevirtualizableCallsForTypeCheckedLoadERNS_15SmallVectorImplINS_14DevirtCallSiteEEERNS0_IPNS_11InstructionEEES7_RbPKNS_8CallInstERNS_13DominatorTreeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull writeonly align 1 captures(address_is_null) dereferenceable(1) %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(124) %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 134217727
@@ -476,7 +476,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit48: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL25findCallsAtConstantOffsetRN4llvm15SmallVectorImplINS_14DevirtCallSiteEEEPbPNS_5ValueEmPKNS_8CallInstERNS_13DominatorTreeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(124) %5) unnamed_addr #0 {
+define internal fastcc void @_ZL25findCallsAtConstantOffsetRN4llvm15SmallVectorImplINS_14DevirtCallSiteEEEPbPNS_5ValueEmPKNS_8CallInstERNS_13DominatorTreeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(124) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.041.050 = load ptr, ptr %7, align 8, !tbaa !37
   %.not4551 = icmp eq ptr %.sroa.041.050, null

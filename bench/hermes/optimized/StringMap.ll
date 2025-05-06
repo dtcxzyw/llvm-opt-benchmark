@@ -286,7 +286,7 @@ return:                                           ; preds = %while.body, %land.r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN4llvh13StringMapImpl9RemoveKeyEPNS_18StringMapEntryBaseE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef captures(address) %V) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN4llvh13StringMapImpl9RemoveKeyEPNS_18StringMapEntryBaseE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef readonly captures(address) %V) local_unnamed_addr #2 align 2 {
 entry:
   %ItemSize = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr %ItemSize, align 4

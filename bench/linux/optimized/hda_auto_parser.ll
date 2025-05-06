@@ -1113,7 +1113,7 @@ define internal i32 @compare_input_type(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @hda_get_autocfg_input_label(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) #0 align 16 {
+define dso_local ptr @hda_get_autocfg_input_label(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = sext i32 %2 to i64
   %6 = getelementptr [18 x %struct.auto_pin_cfg_item], ptr %4, i64 0, i64 %5
@@ -1373,7 +1373,7 @@ define internal fastcc ptr @hda_get_input_pin_label(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 2) i32 @snd_hda_get_pin_label(ptr noundef %0, i16 noundef zeroext %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @snd_hda_get_pin_label(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) #0 align 16 {
   %7 = tail call i32 @snd_hda_codec_get_pincfg(ptr noundef %0, i16 noundef zeroext %1) #11
   %8 = icmp ne ptr %5, null
   br i1 %8, label %9, label %10

@@ -1585,7 +1585,7 @@ _ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.thread: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson24yyjson_mut_doc_imut_copyEPNS_14yyjson_mut_docEPKNS_10yyjson_alcE(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #10 {
+define noundef ptr @_ZN13duckdb_yyjson24yyjson_mut_doc_imut_copyEPNS_14yyjson_mut_docEPKNS_10yyjson_alcE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -4524,7 +4524,7 @@ _ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN13duckdb_yyjson30unsafe_yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #15 {
+define noundef ptr @_ZN13duckdb_yyjson30unsafe_yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #15 {
   %7 = alloca %"struct.duckdb_yyjson::yyjson_ptr_ctx", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
@@ -4797,7 +4797,7 @@ _ZN13duckdb_yyjsonL18yyjson_mut_obj_putEPNS_14yyjson_mut_valES1_S1_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN13duckdb_yyjson29unsafe_yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #15 {
+define noundef ptr @_ZN13duckdb_yyjson29unsafe_yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #15 {
   %6 = alloca %"struct.duckdb_yyjson::yyjson_ptr_ctx", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -32606,7 +32606,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit173: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_fileEPKcjPKNS_10yyjson_alcEPNS_15yyjson_read_errE(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #10 {
+define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_fileEPKcjPKNS_10yyjson_alcEPNS_15yyjson_read_errE(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #10 {
   %5 = alloca %"struct.duckdb_yyjson::yyjson_read_err", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #31
   %.not = icmp eq ptr %3, null
@@ -47773,7 +47773,7 @@ _ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson17yyjson_write_optsEPKNS_10yyjson_docEjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #10 {
+define noundef ptr @_ZN13duckdb_yyjson17yyjson_write_optsEPKNS_10yyjson_docEjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %6
 
@@ -47788,7 +47788,7 @@ define noundef ptr @_ZN13duckdb_yyjson17yyjson_write_optsEPKNS_10yyjson_docEjPKN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson21yyjson_val_write_fileEPKcPKNS_10yyjson_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #10 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson21yyjson_val_write_fileEPKcPKNS_10yyjson_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
   %6 = alloca %"struct.duckdb_yyjson::yyjson_write_err", align 8
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #31
@@ -47873,7 +47873,7 @@ _ZN13duckdb_yyjsonL17write_dat_to_fileEPKcPhmPNS_16yyjson_write_errE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson19yyjson_val_write_fpEP8_IO_FILEPKNS_10yyjson_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #10 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson19yyjson_val_write_fpEP8_IO_FILEPKNS_10yyjson_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
   %6 = alloca %"struct.duckdb_yyjson::yyjson_write_err", align 8
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #31
@@ -47927,7 +47927,7 @@ _ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson17yyjson_write_fileEPKcPKNS_10yyjson_docEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #10 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson17yyjson_write_fileEPKcPKNS_10yyjson_docEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %6
 
@@ -47942,7 +47942,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson17yyjson_write_fileEPKcPKNS_10yyjso
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson15yyjson_write_fpEP8_IO_FILEPKNS_10yyjson_docEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #10 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson15yyjson_write_fpEP8_IO_FILEPKNS_10yyjson_docEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
   %6 = alloca %"struct.duckdb_yyjson::yyjson_write_err", align 8
   %7 = alloca i64, align 8
   %.not = icmp eq ptr %1, null
@@ -47972,7 +47972,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson15yyjson_write_fpEP8_IO_FILEPKNS_10
   br label %_ZN13duckdb_yyjson19yyjson_val_write_fpEP8_IO_FILEPKNS_10yyjson_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE.exit
 
 15:                                               ; preds = %10
-  %16 = call noundef ptr @_ZN13duckdb_yyjson21yyjson_val_write_optsEPKNS_10yyjson_valEjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef %11, i32 noundef %2, ptr noundef nonnull %12, ptr noundef nonnull %7, ptr noundef nonnull %13)
+  %16 = call noundef ptr @_ZN13duckdb_yyjson21yyjson_val_write_optsEPKNS_10yyjson_valEjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef readonly %11, i32 noundef %2, ptr noundef nonnull %12, ptr noundef nonnull %7, ptr noundef nonnull %13)
   %.not22.i = icmp eq ptr %16, null
   br i1 %.not22.i, label %_ZN13duckdb_yyjson19yyjson_val_write_fpEP8_IO_FILEPKNS_10yyjson_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE.exit, label %17, !prof !3
 
@@ -48005,7 +48005,7 @@ _ZN13duckdb_yyjson19yyjson_val_write_fpEP8_IO_FILEPKNS_10yyjson_valEjPKNS_10yyjs
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson25yyjson_mut_val_write_optsEPKNS_14yyjson_mut_valEjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #10 {
+define noundef ptr @_ZN13duckdb_yyjson25yyjson_mut_val_write_optsEPKNS_14yyjson_mut_valEjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
   %6 = tail call fastcc noundef ptr @_ZN13duckdb_yyjsonL26yyjson_mut_write_opts_implEPKNS_14yyjson_mut_valEmjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef %0, i64 noundef 0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret ptr %6
 }
@@ -60452,7 +60452,7 @@ _ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_a
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson21yyjson_mut_write_optsEPKNS_14yyjson_mut_docEjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #10 {
+define noundef ptr @_ZN13duckdb_yyjson21yyjson_mut_write_optsEPKNS_14yyjson_mut_docEjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZN13duckdb_yyjsonL32yyjson_mut_doc_estimated_val_numEPKNS_14yyjson_mut_docE.exit, label %6, !prof !3
 
@@ -60503,7 +60503,7 @@ _ZN13duckdb_yyjsonL32yyjson_mut_doc_estimated_val_numEPKNS_14yyjson_mut_docE.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson25yyjson_mut_val_write_fileEPKcPKNS_14yyjson_mut_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #10 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson25yyjson_mut_val_write_fileEPKcPKNS_14yyjson_mut_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
   %6 = alloca %"struct.duckdb_yyjson::yyjson_write_err", align 8
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #31
@@ -60529,7 +60529,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson25yyjson_mut_val_write_fileEPKcPKNS
   br label %30
 
 12:                                               ; preds = %10
-  %13 = call fastcc noundef ptr @_ZN13duckdb_yyjsonL26yyjson_mut_write_opts_implEPKNS_14yyjson_mut_valEmjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef %1, i64 noundef 0, i32 noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %9)
+  %13 = call fastcc noundef ptr @_ZN13duckdb_yyjsonL26yyjson_mut_write_opts_implEPKNS_14yyjson_mut_valEmjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef %1, i64 noundef 0, i32 noundef %2, ptr noundef nonnull readonly %8, ptr noundef nonnull %7, ptr noundef nonnull %9)
   %.not25 = icmp eq ptr %13, null
   br i1 %.not25, label %30, label %14, !prof !3
 
@@ -60588,7 +60588,7 @@ _ZN13duckdb_yyjsonL17write_dat_to_fileEPKcPhmPNS_16yyjson_write_errE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson23yyjson_mut_val_write_fpEP8_IO_FILEPKNS_14yyjson_mut_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #10 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson23yyjson_mut_val_write_fpEP8_IO_FILEPKNS_14yyjson_mut_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
   %6 = alloca %"struct.duckdb_yyjson::yyjson_write_err", align 8
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #31
@@ -60609,7 +60609,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson23yyjson_mut_val_write_fpEP8_IO_FIL
   br label %21
 
 11:                                               ; preds = %5
-  %12 = call fastcc noundef ptr @_ZN13duckdb_yyjsonL26yyjson_mut_write_opts_implEPKNS_14yyjson_mut_valEmjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef %1, i64 noundef 0, i32 noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %9)
+  %12 = call fastcc noundef ptr @_ZN13duckdb_yyjsonL26yyjson_mut_write_opts_implEPKNS_14yyjson_mut_valEmjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef %1, i64 noundef 0, i32 noundef %2, ptr noundef nonnull readonly %8, ptr noundef nonnull %7, ptr noundef nonnull %9)
   %.not22 = icmp eq ptr %12, null
   br i1 %.not22, label %21, label %13, !prof !3
 
@@ -60642,7 +60642,7 @@ _ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson21yyjson_mut_write_fileEPKcPKNS_14yyjson_mut_docEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #10 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson21yyjson_mut_write_fileEPKcPKNS_14yyjson_mut_docEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %6
 
@@ -60657,7 +60657,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson21yyjson_mut_write_fileEPKcPKNS_14y
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson19yyjson_mut_write_fpEP8_IO_FILEPKNS_14yyjson_mut_docEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #10 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson19yyjson_mut_write_fpEP8_IO_FILEPKNS_14yyjson_mut_docEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
   %6 = alloca %"struct.duckdb_yyjson::yyjson_write_err", align 8
   %7 = alloca i64, align 8
   %.not = icmp eq ptr %1, null
@@ -60687,7 +60687,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson19yyjson_mut_write_fpEP8_IO_FILEPKN
   br label %_ZN13duckdb_yyjson23yyjson_mut_val_write_fpEP8_IO_FILEPKNS_14yyjson_mut_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE.exit
 
 15:                                               ; preds = %10
-  %16 = call fastcc noundef ptr @_ZN13duckdb_yyjsonL26yyjson_mut_write_opts_implEPKNS_14yyjson_mut_valEmjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef %11, i64 noundef 0, i32 noundef %2, ptr noundef nonnull %12, ptr noundef nonnull %7, ptr noundef nonnull %13)
+  %16 = call fastcc noundef ptr @_ZN13duckdb_yyjsonL26yyjson_mut_write_opts_implEPKNS_14yyjson_mut_valEmjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef %11, i64 noundef 0, i32 noundef %2, ptr noundef nonnull readonly %12, ptr noundef nonnull %7, ptr noundef nonnull %13)
   %.not22.i = icmp eq ptr %16, null
   br i1 %.not22.i, label %_ZN13duckdb_yyjson23yyjson_mut_val_write_fpEP8_IO_FILEPKNS_14yyjson_mut_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE.exit, label %17, !prof !3
 

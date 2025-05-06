@@ -671,7 +671,7 @@ _ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E19SimpleItertatorImplIS0_Lb0EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN16GraphPathChecker18pathExistsInternalEPK13V3GraphVertexS2_Pj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(address) %1, ptr noundef captures(address) %2, ptr noundef captures(address_is_null) %3) #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN16GraphPathChecker18pathExistsInternalEPK13V3GraphVertexS2_Pj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef captures(address_is_null) %3) #3 align 2 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %7 = load ptr, ptr %6, align 8, !tbaa !32
@@ -795,7 +795,7 @@ define dso_local noundef zeroext i1 @_ZN16GraphPathChecker18pathExistsInternalEP
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN16GraphPathChecker14pathExistsFromEPK13V3GraphVertexS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN16GraphPathChecker14pathExistsFromEPK13V3GraphVertexS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !43
   %6 = add i64 %5, 1

@@ -77831,7 +77831,7 @@ common.resume:                                    ; preds = %75, %25, %56
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN14datafusion_sql7planner17SqlToRel$LT$S$GT$17convert_data_type17h89a1afe43a97a8ddE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr captures(address_is_null) %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN14datafusion_sql7planner17SqlToRel$LT$S$GT$17convert_data_type17h89a1afe43a97a8ddE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr readonly captures(address_is_null) %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8

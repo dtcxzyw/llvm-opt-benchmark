@@ -876,7 +876,7 @@ _ZNSt6vectorIP4NodeSaIS1_EE9push_backERKS1_.exit: ; preds = %41, %_ZNSt6vectorIP
 .lr.ph.i:                                         ; preds = %182, %185
   %.sroa.014.018.i = phi ptr [ %186, %185 ], [ %183, %182 ]
   %188 = load ptr, ptr %.sroa.014.018.i, align 8, !tbaa !35
-  %189 = invoke noundef zeroext i1 @_ZN14DependencyScan20RecomputeOutputDirtyEPK4EdgePK4NodeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS3_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %8, ptr noundef %.061.lcssa, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %188)
+  %189 = invoke noundef zeroext i1 @_ZN14DependencyScan20RecomputeOutputDirtyEPK4EdgePK4NodeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS3_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %8, ptr noundef readonly %.061.lcssa, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %188)
           to label %190 unwind label %191
 
 190:                                              ; preds = %.lr.ph.i
@@ -1451,7 +1451,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN14DependencyScan21RecomputeOutputsDirtyEP4EdgeP4NodePbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(none) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN14DependencyScan21RecomputeOutputsDirtyEP4EdgeP4NodePbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(none) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #27
   call void @_ZNK4Edge15EvaluateCommandB5cxx11Eb(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(168) %1, i1 noundef zeroext true)

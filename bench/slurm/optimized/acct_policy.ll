@@ -3018,7 +3018,7 @@ _apply_limit_factor.exit199:                      ; preds = %136, %158, %170
   %175 = load ptr, ptr %174, align 8
   %176 = load ptr, ptr %101, align 8
   %177 = load ptr, ptr %102, align 8
-  %178 = call fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noundef nonnull %5, ptr noundef readonly %175, ptr noundef %176, ptr noundef nonnull readonly %16, ptr noundef nonnull %15, ptr noundef nonnull %14, ptr noundef %177, i1 noundef zeroext %.not183, i1 noundef zeroext false)
+  %178 = call fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noundef nonnull %5, ptr noundef readonly %175, ptr noundef %176, ptr noundef nonnull readonly %16, ptr noundef nonnull readonly %15, ptr noundef nonnull readonly %14, ptr noundef readonly %177, i1 noundef zeroext %.not183, i1 noundef zeroext false)
   switch i32 %178, label %default.unreachable [
     i32 1, label %179
     i32 2, label %227
@@ -3936,7 +3936,7 @@ define internal fastcc range(i32 0, 2) i32 @_qos_job_runnable_post_select(ptr no
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %84 = load ptr, ptr %83, align 8
-  %85 = call fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noundef nonnull %6, ptr noundef readonly %80, ptr noundef %82, ptr noundef nonnull readonly %4, ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef %84, i1 noundef zeroext %.not248, i1 noundef zeroext true)
+  %85 = call fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noundef nonnull %6, ptr noundef readonly %80, ptr noundef %82, ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %9, ptr noundef readonly %84, i1 noundef zeroext %.not248, i1 noundef zeroext true)
   switch i32 %85, label %default.unreachable [
     i32 1, label %86
     i32 2, label %128
@@ -4841,7 +4841,7 @@ _validate_tres_limits_for_qos.exit283:            ; preds = %560
   %595 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %596 = load ptr, ptr %595, align 8
   %597 = load ptr, ptr %83, align 8
-  %598 = call fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noundef nonnull %6, ptr noundef readonly %592, ptr noundef %594, ptr noundef readonly %3, ptr noundef %596, ptr noundef null, ptr noundef %597, i1 noundef zeroext true, i1 noundef zeroext true)
+  %598 = call fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noundef nonnull %6, ptr noundef readonly %592, ptr noundef %594, ptr noundef readonly %3, ptr noundef readonly %596, ptr noundef null, ptr noundef readonly %597, i1 noundef zeroext true, i1 noundef zeroext true)
   store i64 %588, ptr %220, align 8
   switch i32 %598, label %644 [
     i32 3, label %620
@@ -4918,7 +4918,7 @@ _validate_tres_limits_for_qos.exit283:            ; preds = %560
   %651 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %652 = load ptr, ptr %651, align 8
   %653 = load ptr, ptr %83, align 8
-  %654 = call fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noundef nonnull %6, ptr noundef readonly %648, ptr noundef %650, ptr noundef nonnull readonly %3, ptr noundef %652, ptr noundef null, ptr noundef %653, i1 noundef zeroext true, i1 noundef zeroext true)
+  %654 = call fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noundef nonnull %6, ptr noundef readonly %648, ptr noundef %650, ptr noundef nonnull readonly %3, ptr noundef readonly %652, ptr noundef null, ptr noundef readonly %653, i1 noundef zeroext true, i1 noundef zeroext true)
   store i64 %588, ptr %220, align 8
   switch i32 %654, label %696 [
     i32 3, label %674
@@ -4985,7 +4985,7 @@ _validate_tres_limits_for_qos.exit283:            ; preds = %560
   %698 = load ptr, ptr %697, align 8
   %699 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %700 = load ptr, ptr %699, align 8
-  %701 = call fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noundef nonnull %6, ptr noundef readonly %698, ptr noundef %700, ptr noundef nonnull readonly %4, ptr noundef nonnull %11, ptr noundef null, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true)
+  %701 = call fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noundef nonnull %6, ptr noundef readonly %698, ptr noundef %700, ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %11, ptr noundef null, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true)
   switch i32 %701, label %742 [
     i32 3, label %721
     i32 2, label %702
@@ -5050,7 +5050,7 @@ _validate_tres_limits_for_qos.exit283:            ; preds = %560
   %744 = load ptr, ptr %743, align 8
   %745 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %746 = load ptr, ptr %745, align 8
-  %747 = call fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noundef nonnull %6, ptr noundef readonly %744, ptr noundef %746, ptr noundef nonnull readonly %4, ptr noundef nonnull %12, ptr noundef null, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true)
+  %747 = call fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noundef nonnull %6, ptr noundef readonly %744, ptr noundef %746, ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %12, ptr noundef null, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true)
   switch i32 %747, label %790 [
     i32 3, label %767
     i32 2, label %748
@@ -9537,7 +9537,7 @@ declare void @bit_clear(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @assoc_mgr_fill_in_assoc(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @_acct_policy_validate(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, i1 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_acct_policy_validate(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, i1 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca %struct.slurmdb_qos_rec_t, align 8
   %10 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %9) #15

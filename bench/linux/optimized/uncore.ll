@@ -4952,7 +4952,7 @@ define internal noundef range(i32 0, 2) i32 @uncore_pci_bus_notify(ptr readnone 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @uncore_bus_notify(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address) %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @uncore_bus_notify(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2) unnamed_addr #0 align 16 {
   %4 = icmp eq i64 %0, 1
   br i1 %4, label %5, label %62
 

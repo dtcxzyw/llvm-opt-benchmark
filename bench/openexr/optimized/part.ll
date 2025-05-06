@@ -1312,7 +1312,7 @@ define i32 @exr_get_chunk_count(ptr noundef %0, i32 noundef %1, ptr noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_get_chunk_table(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define i32 @exr_get_chunk_table(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %38, label %6

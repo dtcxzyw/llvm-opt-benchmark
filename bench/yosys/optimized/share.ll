@@ -15148,7 +15148,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %2745 = load ptr, ptr %84, align 8, !tbaa !421
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %47) #30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %47, i8 0, i64 48, i1 false)
-  %2746 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111ShareWorker25find_in_input_cone_workerEPN5Yosys5RTLIL4CellES4_RNS1_7hashlib4poolIS4_NS5_8hash_opsIS4_EEEE(ptr noundef nonnull align 8 dereferenceable(1408) %0, ptr noundef %2744, ptr noundef %2745, ptr noundef nonnull align 8 dereferenceable(49) %47)
+  %2746 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111ShareWorker25find_in_input_cone_workerEPN5Yosys5RTLIL4CellES4_RNS1_7hashlib4poolIS4_NS5_8hash_opsIS4_EEEE(ptr noundef nonnull align 8 dereferenceable(1408) %0, ptr noundef %2744, ptr noundef readnone %2745, ptr noundef nonnull align 8 dereferenceable(49) %47)
           to label %2747 unwind label %2760
 
 2747:                                             ; preds = %2743
@@ -15204,7 +15204,7 @@ _ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit682: ; preds = %2764
   %2771 = load ptr, ptr %80, align 8, !tbaa !421
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %46) #30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %46, i8 0, i64 48, i1 false)
-  %2772 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111ShareWorker25find_in_input_cone_workerEPN5Yosys5RTLIL4CellES4_RNS1_7hashlib4poolIS4_NS5_8hash_opsIS4_EEEE(ptr noundef nonnull align 8 dereferenceable(1408) %0, ptr noundef %2763, ptr noundef %2771, ptr noundef nonnull align 8 dereferenceable(49) %46)
+  %2772 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111ShareWorker25find_in_input_cone_workerEPN5Yosys5RTLIL4CellES4_RNS1_7hashlib4poolIS4_NS5_8hash_opsIS4_EEEE(ptr noundef nonnull align 8 dereferenceable(1408) %0, ptr noundef %2763, ptr noundef readnone %2771, ptr noundef nonnull align 8 dereferenceable(49) %46)
           to label %2773 unwind label %2786
 
 2773:                                             ; preds = %2770
@@ -156348,7 +156348,7 @@ declare noundef i32 @_ZN5ezSAT10expressionENS_4OpIdEiiiiii(ptr noundef nonnull a
 declare noundef i32 @_ZN5ezSAT14frozen_literalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(284), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111ShareWorker25find_in_input_cone_workerEPN5Yosys5RTLIL4CellES4_RNS1_7hashlib4poolIS4_NS5_8hash_opsIS4_EEEE(ptr noundef nonnull align 8 dereferenceable(1408) %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef nonnull align 8 dereferenceable(49) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111ShareWorker25find_in_input_cone_workerEPN5Yosys5RTLIL4CellES4_RNS1_7hashlib4poolIS4_NS5_8hash_opsIS4_EEEE(ptr noundef nonnull align 8 dereferenceable(1408) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull align 8 dereferenceable(49) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::tuple.829", align 8
   %6 = alloca %"class.std::tuple.791", align 1
   %7 = alloca ptr, align 8

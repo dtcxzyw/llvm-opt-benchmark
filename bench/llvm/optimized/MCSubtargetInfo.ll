@@ -280,7 +280,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL11getFeaturesRN4llvm15MCSubtargetInfoENS_9StringRefES2_S2_NS_8ArrayRefIS2_EENS3_INS_18SubtargetSubTypeKVEEENS3_INS_18SubtargetFeatureKVEEE(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) initializes((0, 40)) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val, ptr captures(address) %.0.val1, i64 %.8.val3, ptr readonly captures(address) %.0.val5, i64 %.8.val7, ptr captures(address) %.0.val9, i64 %.8.val11) unnamed_addr #0 {
+define internal fastcc void @_ZL11getFeaturesRN4llvm15MCSubtargetInfoENS_9StringRefES2_S2_NS_8ArrayRefIS2_EENS3_INS_18SubtargetSubTypeKVEEENS3_INS_18SubtargetFeatureKVEEE(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) initializes((0, 40)) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val, ptr readonly captures(address) %.0.val1, i64 %.8.val3, ptr readonly captures(address) %.0.val5, i64 %.8.val7, ptr readonly captures(address) %.0.val9, i64 %.8.val11) unnamed_addr #0 {
   %6 = alloca %"class.llvm::SubtargetFeatures", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #23
   call void @_ZN4llvm17SubtargetFeaturesC1ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %.0.val, i64 %.8.val) #23
@@ -1336,7 +1336,7 @@ define dso_local void @_ZN4llvm15MCSubtargetInfo26SetFeatureBitsTransitivelyERKN
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL14SetImpliedBitsRN4llvm13FeatureBitsetERKS0_NS_8ArrayRefINS_18SubtargetFeatureKVEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, ptr captures(address) %2, i64 %3) unnamed_addr #6 {
+define internal fastcc void @_ZL14SetImpliedBitsRN4llvm13FeatureBitsetERKS0_NS_8ArrayRefINS_18SubtargetFeatureKVEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, ptr readonly captures(address) %2, i64 %3) unnamed_addr #6 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -1427,7 +1427,7 @@ define dso_local void @_ZN4llvm15MCSubtargetInfo28ClearFeatureBitsTransitivelyER
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL16ClearImpliedBitsRN4llvm13FeatureBitsetEjNS_8ArrayRefINS_18SubtargetFeatureKVEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, ptr captures(address) %2, i64 %3) unnamed_addr #6 {
+define internal fastcc void @_ZL16ClearImpliedBitsRN4llvm13FeatureBitsetEjNS_8ArrayRefINS_18SubtargetFeatureKVEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, ptr readonly captures(address) %2, i64 %3) unnamed_addr #6 {
   %5 = getelementptr inbounds nuw %"struct.llvm::SubtargetFeatureKV", ptr %2, i64 %3
   %.not14 = icmp eq i64 %3, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
@@ -1739,7 +1739,7 @@ define dso_local void @_ZN4llvm15MCSubtargetInfo16ApplyFeatureFlagENS_9StringRef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16ApplyFeatureFlagRN4llvm13FeatureBitsetENS_9StringRefENS_8ArrayRefINS_18SubtargetFeatureKVEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr %1, i64 %2, ptr captures(address) %3, i64 %4) unnamed_addr #0 {
+define internal fastcc void @_ZL16ApplyFeatureFlagRN4llvm13FeatureBitsetENS_9StringRefENS_8ArrayRefINS_18SubtargetFeatureKVEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr %1, i64 %2, ptr readonly captures(address) %3, i64 %4) unnamed_addr #0 {
   %6 = load i8, ptr %1, align 1, !tbaa !17
   switch i8 %6, label %_ZN4llvm17SubtargetFeatures9StripFlagENS_9StringRefE.exit [
     i8 45, label %7

@@ -386,7 +386,7 @@ _ZNKSt9type_infoneERKS_.exit.thread:              ; preds = %16, %48, %40, %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6icu_7718TimeZoneTransitionneERKS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(32) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7718TimeZoneTransitionneERKS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #1 align 2 {
   %3 = tail call noundef zeroext i1 @_ZNK6icu_7718TimeZoneTransitioneqERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %4 = xor i1 %3, true
   ret i1 %4

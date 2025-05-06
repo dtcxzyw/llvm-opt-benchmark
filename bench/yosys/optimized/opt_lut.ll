@@ -1210,7 +1210,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_18dlogic_tESaIS1_EE11_M_allocateEm.exit.i.i.i:
           to label %.noexc174 unwind label %.loopexit.split-lp
 
 .noexc174:                                        ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_18dlogic_tESaIS1_EE11_M_allocateEm.exit.i.i.i
-  %294 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN12_GLOBAL__N_18dlogic_tEPS1_S1_ET0_T_S6_S5_RSaIT1_E(ptr noundef nonnull %11, ptr noundef nonnull %46, ptr noundef nonnull %293)
+  %294 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN12_GLOBAL__N_18dlogic_tEPS1_S1_ET0_T_S6_S5_RSaIT1_E(ptr noundef nonnull %11, ptr noundef nonnull readnone %46, ptr noundef nonnull %293)
           to label %_ZNSt6vectorIN12_GLOBAL__N_18dlogic_tESaIS1_EE20_M_allocate_and_copyIPKS1_EEPS1_mT_S8_.exit.i.i unwind label %_ZNSt12_Vector_baseIN12_GLOBAL__N_18dlogic_tESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i
 
 _ZNSt12_Vector_baseIN12_GLOBAL__N_18dlogic_tESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i: ; preds = %.noexc174

@@ -383,7 +383,7 @@ realpath_cache_key.exit:                          ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @realpath_cache_lookup(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @realpath_cache_lookup(ptr noundef readonly captures(address) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @realpath_cache_find(ptr noundef %0, i64 noundef %1, i64 noundef %2)
   ret ptr %4
 }
@@ -1477,7 +1477,7 @@ define dso_local noundef ptr @virtual_realpath(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @virtual_filepath_ex(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @virtual_filepath_ex(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct._cwd_state, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #22
   %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 8), align 8, !tbaa !13

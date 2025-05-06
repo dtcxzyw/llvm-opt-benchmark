@@ -2490,7 +2490,7 @@ qctx_lock_for_io.exit:                            ; preds = %10, %13, %15, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @quic_do_handshake(ptr noundef nonnull captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @quic_do_handshake(ptr noundef nonnull readonly captures(address_is_null) %0) unnamed_addr #0 {
   %2 = alloca %struct.quic_handshake_wait_args, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !134
@@ -2615,7 +2615,7 @@ quic_mutation_allowed.exit:                       ; preds = %12
   br i1 %.not.i.not.i, label %67, label %68
 
 67:                                               ; preds = %62
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %0, ptr nonnull poison, i32 noundef 1795, ptr noundef nonnull @__func__.ensure_channel_started, i32 noundef 786691, ptr noundef nonnull @.str.7)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull readonly %0, ptr nonnull poison, i32 noundef 1795, ptr noundef nonnull @__func__.ensure_channel_started, i32 noundef 786691, ptr noundef nonnull @.str.7)
   br label %quic_raise_normal_error.exit82
 
 68:                                               ; preds = %62
@@ -2627,7 +2627,7 @@ quic_mutation_allowed.exit:                       ; preds = %12
 71:                                               ; preds = %68
   %72 = load ptr, ptr %63, align 8, !tbaa !113
   tail call void @ossl_quic_channel_restore_err_state(ptr noundef %72) #12
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %0, ptr nonnull poison, i32 noundef 1802, ptr noundef nonnull @__func__.ensure_channel_started, i32 noundef 786691, ptr noundef nonnull @.str.8)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull readonly %0, ptr nonnull poison, i32 noundef 1802, ptr noundef nonnull @__func__.ensure_channel_started, i32 noundef 786691, ptr noundef nonnull @.str.8)
   br label %quic_raise_normal_error.exit82
 
 73:                                               ; preds = %68
@@ -2648,7 +2648,7 @@ quic_mutation_allowed.exit:                       ; preds = %12
   br label %81
 
 80:                                               ; preds = %76
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %0, ptr nonnull poison, i32 noundef 1810, ptr noundef nonnull @__func__.ensure_channel_started, i32 noundef 786691, ptr noundef nonnull @.str.9)
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull readonly %0, ptr nonnull poison, i32 noundef 1810, ptr noundef nonnull @__func__.ensure_channel_started, i32 noundef 786691, ptr noundef nonnull @.str.9)
   br label %quic_raise_normal_error.exit82
 
 81:                                               ; preds = %._crit_edge.i, %73, %57
@@ -2940,7 +2940,7 @@ define ptr @ossl_quic_conn_stream_new(ptr noundef %0, i64 noundef %1) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @quic_conn_stream_new(ptr noundef nonnull captures(address_is_null) %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc ptr @quic_conn_stream_new(ptr noundef nonnull readonly captures(address_is_null) %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca %struct.quic_new_stream_wait_args, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !134
@@ -3422,7 +3422,7 @@ quic_validate_for_write.exit:                     ; preds = %73
 
 99:                                               ; preds = %96
   store i64 0, ptr %4, align 8, !tbaa !160
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %8, ptr nonnull poison, i32 noundef 2526, ptr noundef nonnull @__func__.quic_write_blocking, i32 noundef 786691, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull readonly %8, ptr nonnull poison, i32 noundef 2526, ptr noundef nonnull @__func__.quic_write_blocking, i32 noundef 786691, ptr noundef null)
   br label %quic_write_blocking.exit
 
 100:                                              ; preds = %96
@@ -3513,12 +3513,12 @@ quic_post_write.exit.i:                           ; preds = %113, %111
   br i1 %.not6.i.i, label %150, label %quic_mutation_allowed.exit.i
 
 150:                                              ; preds = %147, %143, %138
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %8, ptr nonnull poison, i32 noundef 2556, ptr noundef nonnull @__func__.quic_write_blocking, i32 noundef 207, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull readonly %8, ptr nonnull poison, i32 noundef 2556, ptr noundef nonnull @__func__.quic_write_blocking, i32 noundef 207, ptr noundef null)
   br label %quic_write_blocking.exit
 
 quic_mutation_allowed.exit.i:                     ; preds = %147
   %151 = load i32, ptr %132, align 8, !tbaa !187
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %8, ptr nonnull poison, i32 noundef 2558, ptr noundef nonnull @__func__.quic_write_blocking, i32 noundef %151, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull readonly %8, ptr nonnull poison, i32 noundef 2558, ptr noundef nonnull @__func__.quic_write_blocking, i32 noundef %151, ptr noundef null)
   br label %quic_write_blocking.exit
 
 152:                                              ; preds = %126
@@ -3642,7 +3642,7 @@ define internal fastcc void @quic_post_write(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @quic_write_nonblocking_epw(ptr noundef nonnull captures(address_is_null) %0, ptr noundef %1, i64 noundef range(i64 1, 0) %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @quic_write_nonblocking_epw(ptr noundef nonnull readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef range(i64 1, 0) %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !130
   %8 = tail call fastcc i32 @xso_sstream_append(ptr noundef %7, ptr noundef %1, i64 noundef %2, ptr noundef %4)
@@ -3761,7 +3761,7 @@ quic_raise_normal_error.exit:                     ; preds = %60, %57, %55, %53, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @quic_write_nonblocking_aon(ptr noundef nonnull captures(address_is_null) %0, ptr noundef %1, i64 noundef range(i64 1, 0) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @quic_write_nonblocking_aon(ptr noundef nonnull readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef range(i64 1, 0) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !130
@@ -5325,7 +5325,7 @@ qc_update_reject_policy.exit:                     ; preds = %15, %22, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_get_value_uint(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_get_value_uint(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.qctx_st, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #12
   %.off.i = add i32 %2, -6
@@ -5365,7 +5365,7 @@ define range(i32 0, 2) i32 @ossl_quic_get_value_uint(ptr noundef %0, i32 noundef
   br i1 %.not.i, label %15, label %14
 
 14:                                               ; preds = %13
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %5, ptr nonnull poison, i32 noundef 3591, ptr noundef nonnull @__func__.qc_get_stream_avail, i32 noundef 415, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull readonly %5, ptr nonnull poison, i32 noundef 3591, ptr noundef nonnull @__func__.qc_get_stream_avail, i32 noundef 415, ptr noundef null)
   br label %qc_get_stream_avail.exit
 
 15:                                               ; preds = %13
@@ -5392,7 +5392,7 @@ define range(i32 0, 2) i32 @ossl_quic_get_value_uint(ptr noundef %0, i32 noundef
   br i1 %.not.i23, label %27, label %26
 
 26:                                               ; preds = %25
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %5, ptr nonnull poison, i32 noundef 3591, ptr noundef nonnull @__func__.qc_get_stream_avail, i32 noundef 415, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull readonly %5, ptr nonnull poison, i32 noundef 3591, ptr noundef nonnull @__func__.qc_get_stream_avail, i32 noundef 415, ptr noundef null)
   br label %qc_get_stream_avail.exit
 
 27:                                               ; preds = %25
@@ -5419,7 +5419,7 @@ define range(i32 0, 2) i32 @ossl_quic_get_value_uint(ptr noundef %0, i32 noundef
   br i1 %.not.i30, label %39, label %38
 
 38:                                               ; preds = %37
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %5, ptr nonnull poison, i32 noundef 3591, ptr noundef nonnull @__func__.qc_get_stream_avail, i32 noundef 415, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull readonly %5, ptr nonnull poison, i32 noundef 3591, ptr noundef nonnull @__func__.qc_get_stream_avail, i32 noundef 415, ptr noundef null)
   br label %qc_get_stream_avail.exit
 
 39:                                               ; preds = %37
@@ -5446,7 +5446,7 @@ define range(i32 0, 2) i32 @ossl_quic_get_value_uint(ptr noundef %0, i32 noundef
   br i1 %.not.i37, label %51, label %50
 
 50:                                               ; preds = %49
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %5, ptr nonnull poison, i32 noundef 3591, ptr noundef nonnull @__func__.qc_get_stream_avail, i32 noundef 415, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull readonly %5, ptr nonnull poison, i32 noundef 3591, ptr noundef nonnull @__func__.qc_get_stream_avail, i32 noundef 415, ptr noundef null)
   br label %qc_get_stream_avail.exit
 
 51:                                               ; preds = %49
@@ -5478,7 +5478,7 @@ define range(i32 0, 2) i32 @ossl_quic_get_value_uint(ptr noundef %0, i32 noundef
   br i1 %.not.i46, label %65, label %64
 
 64:                                               ; preds = %61
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %5, ptr nonnull poison, i32 noundef 3639, ptr noundef nonnull @__func__.qc_getset_event_handling, i32 noundef 415, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull readonly %5, ptr nonnull poison, i32 noundef 3639, ptr noundef nonnull @__func__.qc_getset_event_handling, i32 noundef 415, ptr noundef null)
   %.val20.i.pre = load ptr, ptr %5, align 8, !tbaa !157
   br label %72
 
@@ -5515,7 +5515,7 @@ define range(i32 0, 2) i32 @ossl_quic_get_value_uint(ptr noundef %0, i32 noundef
   br i1 %.not.i50, label %80, label %79
 
 79:                                               ; preds = %76
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %5, ptr nonnull poison, i32 noundef 3682, ptr noundef nonnull @__func__.qc_get_stream_write_buf_stat, i32 noundef 415, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull readonly %5, ptr nonnull poison, i32 noundef 3682, ptr noundef nonnull @__func__.qc_get_stream_write_buf_stat, i32 noundef 415, ptr noundef null)
   br label %qc_get_stream_write_buf_stat.exit
 
 80:                                               ; preds = %76
@@ -5525,7 +5525,7 @@ define range(i32 0, 2) i32 @ossl_quic_get_value_uint(ptr noundef %0, i32 noundef
   br i1 %83, label %84, label %85
 
 84:                                               ; preds = %80
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %5, ptr nonnull poison, i32 noundef 3687, ptr noundef nonnull @__func__.qc_get_stream_write_buf_stat, i32 noundef 355, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull readonly %5, ptr nonnull poison, i32 noundef 3687, ptr noundef nonnull @__func__.qc_get_stream_write_buf_stat, i32 noundef 355, ptr noundef null)
   br label %qc_get_stream_write_buf_stat.exit
 
 85:                                               ; preds = %80
@@ -5538,7 +5538,7 @@ define range(i32 0, 2) i32 @ossl_quic_get_value_uint(ptr noundef %0, i32 noundef
   br i1 %.not20.i, label %90, label %91
 
 90:                                               ; preds = %85
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %5, ptr nonnull poison, i32 noundef 3692, ptr noundef nonnull @__func__.qc_get_stream_write_buf_stat, i32 noundef 366, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull readonly %5, ptr nonnull poison, i32 noundef 3692, ptr noundef nonnull @__func__.qc_get_stream_write_buf_stat, i32 noundef 366, ptr noundef null)
   br label %qc_get_stream_write_buf_stat.exit
 
 91:                                               ; preds = %85
@@ -5575,7 +5575,7 @@ qc_get_stream_write_buf_stat.exit:                ; preds = %79, %84, %90, %91, 
   br i1 %.not.i54, label %104, label %103
 
 103:                                              ; preds = %100
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %5, ptr nonnull poison, i32 noundef 3682, ptr noundef nonnull @__func__.qc_get_stream_write_buf_stat, i32 noundef 415, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull readonly %5, ptr nonnull poison, i32 noundef 3682, ptr noundef nonnull @__func__.qc_get_stream_write_buf_stat, i32 noundef 415, ptr noundef null)
   br label %qc_get_stream_write_buf_stat.exit63
 
 104:                                              ; preds = %100
@@ -5585,7 +5585,7 @@ qc_get_stream_write_buf_stat.exit:                ; preds = %79, %84, %90, %91, 
   br i1 %107, label %108, label %109
 
 108:                                              ; preds = %104
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %5, ptr nonnull poison, i32 noundef 3687, ptr noundef nonnull @__func__.qc_get_stream_write_buf_stat, i32 noundef 355, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull readonly %5, ptr nonnull poison, i32 noundef 3687, ptr noundef nonnull @__func__.qc_get_stream_write_buf_stat, i32 noundef 355, ptr noundef null)
   br label %qc_get_stream_write_buf_stat.exit63
 
 109:                                              ; preds = %104
@@ -5598,7 +5598,7 @@ qc_get_stream_write_buf_stat.exit:                ; preds = %79, %84, %90, %91, 
   br i1 %.not20.i60, label %114, label %115
 
 114:                                              ; preds = %109
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %5, ptr nonnull poison, i32 noundef 3692, ptr noundef nonnull @__func__.qc_get_stream_write_buf_stat, i32 noundef 366, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull readonly %5, ptr nonnull poison, i32 noundef 3692, ptr noundef nonnull @__func__.qc_get_stream_write_buf_stat, i32 noundef 366, ptr noundef null)
   br label %qc_get_stream_write_buf_stat.exit63
 
 115:                                              ; preds = %109
@@ -5635,7 +5635,7 @@ qc_get_stream_write_buf_stat.exit63:              ; preds = %103, %108, %114, %1
   br i1 %.not.i66, label %128, label %127
 
 127:                                              ; preds = %124
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %5, ptr nonnull poison, i32 noundef 3682, ptr noundef nonnull @__func__.qc_get_stream_write_buf_stat, i32 noundef 415, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull readonly %5, ptr nonnull poison, i32 noundef 3682, ptr noundef nonnull @__func__.qc_get_stream_write_buf_stat, i32 noundef 415, ptr noundef null)
   br label %qc_get_stream_write_buf_stat.exit75
 
 128:                                              ; preds = %124
@@ -5645,7 +5645,7 @@ qc_get_stream_write_buf_stat.exit63:              ; preds = %103, %108, %114, %1
   br i1 %131, label %132, label %133
 
 132:                                              ; preds = %128
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %5, ptr nonnull poison, i32 noundef 3687, ptr noundef nonnull @__func__.qc_get_stream_write_buf_stat, i32 noundef 355, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull readonly %5, ptr nonnull poison, i32 noundef 3687, ptr noundef nonnull @__func__.qc_get_stream_write_buf_stat, i32 noundef 355, ptr noundef null)
   br label %qc_get_stream_write_buf_stat.exit75
 
 133:                                              ; preds = %128
@@ -5658,7 +5658,7 @@ qc_get_stream_write_buf_stat.exit63:              ; preds = %103, %108, %114, %1
   br i1 %.not20.i72, label %138, label %139
 
 138:                                              ; preds = %133
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %5, ptr nonnull poison, i32 noundef 3692, ptr noundef nonnull @__func__.qc_get_stream_write_buf_stat, i32 noundef 366, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull readonly %5, ptr nonnull poison, i32 noundef 3692, ptr noundef nonnull @__func__.qc_get_stream_write_buf_stat, i32 noundef 366, ptr noundef null)
   br label %qc_get_stream_write_buf_stat.exit75
 
 139:                                              ; preds = %133
@@ -5696,7 +5696,7 @@ qc_get_stream_avail.exit:                         ; preds = %75, %72, %51, %50, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @qc_getset_idle_timeout(ptr noundef nonnull captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @qc_getset_idle_timeout(ptr noundef nonnull readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
   %.val = load ptr, ptr %0, align 8, !tbaa !157
   %5 = getelementptr i8, ptr %.val, i64 88
   %.val.val = load ptr, ptr %5, align 8, !tbaa !143
@@ -5845,7 +5845,7 @@ define range(i32 0, 2) i32 @ossl_quic_set_value_uint(ptr noundef %0, i32 noundef
   br i1 %.not.i, label %15, label %14
 
 14:                                               ; preds = %11
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %6, ptr nonnull poison, i32 noundef 3639, ptr noundef nonnull @__func__.qc_getset_event_handling, i32 noundef 415, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull readonly %6, ptr nonnull poison, i32 noundef 3639, ptr noundef nonnull @__func__.qc_getset_event_handling, i32 noundef 415, ptr noundef null)
   br label %qc_getset_event_handling.exit
 
 15:                                               ; preds = %11
@@ -5853,7 +5853,7 @@ define range(i32 0, 2) i32 @ossl_quic_set_value_uint(ptr noundef %0, i32 noundef
   br i1 %switch.i5, label %17, label %16
 
 16:                                               ; preds = %15
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %6, ptr nonnull poison, i32 noundef 3651, ptr noundef nonnull @__func__.qc_getset_event_handling, i32 noundef 524550, ptr noundef null)
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull readonly %6, ptr nonnull poison, i32 noundef 3651, ptr noundef nonnull @__func__.qc_getset_event_handling, i32 noundef 524550, ptr noundef null)
   br label %qc_getset_event_handling.exit
 
 17:                                               ; preds = %15
@@ -6470,7 +6470,7 @@ quic_get_stream_state.exit:                       ; preds = %1, %quic_classify_s
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @ossl_quic_get_stream_read_error_code(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @ossl_quic_get_stream_read_error_code(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc i32 @quic_get_stream_error_code(ptr noundef %0, ptr noundef %1)
   ret i32 %3
 }
@@ -6568,7 +6568,7 @@ define internal fastcc range(i32 -1, 2) i32 @quic_get_stream_error_code(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @ossl_quic_get_stream_write_error_code(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @ossl_quic_get_stream_write_error_code(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc i32 @quic_get_stream_error_code(ptr noundef %0, ptr noundef %1)
   ret i32 %3
 }
@@ -7725,7 +7725,7 @@ ossl_quic_free_peer_token.exit:                   ; preds = %CRYPTO_DOWN_REF.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_set_peer_token(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_set_peer_token(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1760
   %6 = load ptr, ptr %5, align 8, !tbaa !228
   %7 = icmp eq ptr %6, null
@@ -9427,7 +9427,7 @@ quic_raise_normal_error.exit:                     ; preds = %65, %63, %61, %58, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @qc_try_create_default_xso_for_write(ptr noundef nonnull captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @qc_try_create_default_xso_for_write(ptr noundef nonnull readonly captures(address_is_null) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !134
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 336
@@ -9933,7 +9933,7 @@ declare i64 @ossl_quic_txfc_get_cwm(ptr noundef) local_unnamed_addr #2
 declare i32 @ossl_quic_sstream_append(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @quic_read_actual(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @quic_read_actual(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca %struct.ossl_rtt_info_st, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12

@@ -25217,7 +25217,7 @@ tailrecurse:                                      ; preds = %_ZNK9func_decl19is_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK11ast_manager11check_sortsEPK3ast(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK11ast_manager11check_sortsEPK3ast(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZNK11ast_manager16check_sorts_coreEPK3ast(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef %1)
           to label %18 unwind label %3
 

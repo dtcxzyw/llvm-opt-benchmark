@@ -9106,7 +9106,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2e47a278c0caedb0E.exit.i.i.i.i": ; preds = %386
   %.0.sroa.speculated.i13.i.i.i.i = call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.i3.i.i.i, i64 1)
   %392 = sub i64 %.0.sroa.speculated.i.i.i.i.i, %.0147.i.i.i
-  invoke fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h4428de8e42833f19E(ptr noalias noundef nonnull align 8 %327, i64 noundef %392, i64 noundef %.0.sroa.speculated.i13.i.i.i.i, ptr nonnull align 8 dereferenceable(8) %23)
+  invoke fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h4428de8e42833f19E(ptr noalias noundef nonnull align 8 %327, i64 noundef %392, i64 noundef %.0.sroa.speculated.i13.i.i.i.i, ptr nonnull readonly align 8 dereferenceable(8) %23)
           to label %_ZN4core5slice4sort20provide_sorted_batch17h0ef387e5ff14f491E.exit.i.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i
 
 393:                                              ; preds = %.loopexit34.i.i.i, %.thread4.i.i.i
@@ -9875,7 +9875,7 @@ select.unfold21.i.i.i:                            ; preds = %654
   unreachable
 
 698:                                              ; preds = %310
-  invoke fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h4428de8e42833f19E(ptr noalias noundef nonnull align 8 %268, i64 noundef %267, i64 noundef 1, ptr nonnull align 8 dereferenceable(8) %23)
+  invoke fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h4428de8e42833f19E(ptr noalias noundef nonnull align 8 %268, i64 noundef %267, i64 noundef 1, ptr nonnull readonly align 8 dereferenceable(8) %23)
           to label %702 unwind label %259
 
 699:                                              ; preds = %312

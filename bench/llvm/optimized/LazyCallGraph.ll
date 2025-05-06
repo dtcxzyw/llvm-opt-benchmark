@@ -23582,7 +23582,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13LazyCallGraph3SCCEiLj4ENS_12Dens
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm13LazyCallGraph3SCCES4_N9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_SW_SZ_S11_ST_S11_"(ptr noundef %0, ptr noundef captures(address) %1, ptr %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm13LazyCallGraph3SCCES4_N9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E_EElESW_SW_SW_SZ_S11_ST_S11_"(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = ptrtoint ptr %0 to i64
   %8 = ptrtoint ptr %1 to i64
   %9 = icmp eq i64 %3, 1
@@ -23997,7 +23997,7 @@ _ZSt11swap_rangesIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit: ; preds = %.
 declare void @_ZN4llvm19SmallPtrSetImplBase16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(21)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm13LazyCallGraph3SCCES4_N9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_SW_SZ_S11_ST_S11_"(ptr noundef %0, ptr noundef captures(address) %1, ptr %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm13LazyCallGraph3SCCES4_N9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj4EEENS0_13SmallDenseMapIS3_iLj4ENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS1_6RefSCC24switchInternalEdgeToCallERNS1_4NodeESK_NS0_12function_refIFvNS0_8ArrayRefIS3_EEEEEE3$_0ZNSI_24switchInternalEdgeToCallESK_SK_SP_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SX_RST_RT1_T2_T3_EUlS3_E0_EElESW_SW_SW_SZ_S11_ST_S11_"(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = icmp eq i64 %3, 1
   br i1 %7, label %_ZSt4moveIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit, label %8
 
@@ -24819,7 +24819,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph6RefSCCEiNS_12DenseMapInf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm13LazyCallGraph6RefSCCES4_N9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SQ_ST_SV_SN_SV_"(ptr noundef %0, ptr noundef captures(address) %1, ptr %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm13LazyCallGraph6RefSCCES4_N9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E_EElESQ_SQ_SQ_ST_SV_SN_SV_"(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = ptrtoint ptr %0 to i64
   %8 = ptrtoint ptr %1 to i64
   %9 = icmp eq i64 %3, 1
@@ -25229,7 +25229,7 @@ _ZSt11swap_rangesIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm13LazyCallGraph6RefSCCES4_N9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SQ_ST_SV_SN_SV_"(ptr noundef %0, ptr noundef captures(address) %1, ptr %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPN4llvm13LazyCallGraph6RefSCCES4_N9__gnu_cxx5__ops10_Iter_predIZL39updatePostorderSequenceForEdgeInsertionIS2_NS0_11SmallVectorIS3_Lj16EEENS0_8DenseMapIS3_iNS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_iEEEEZNS2_21insertIncomingRefEdgeERNS1_4NodeESJ_E3$_0ZNS2_21insertIncomingRefEdgeESJ_SJ_E3$_1ENS0_14iterator_rangeINT0_8iteratorEEERT_SR_RSN_RT1_T2_T3_EUlS3_E0_EElESQ_SQ_SQ_ST_SV_SN_SV_"(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = icmp eq i64 %3, 1
   br i1 %7, label %_ZSt4moveIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit, label %8
 

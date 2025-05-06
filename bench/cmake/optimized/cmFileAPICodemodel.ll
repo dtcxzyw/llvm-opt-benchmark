@@ -11200,7 +11200,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 .thread9.i.i.i.i:                                 ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_111CompileDataEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE24_M_get_insert_unique_posERS7_.exit.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit22.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit45.i.i.i.i.i
   %.sroa.01.0.ph.i.i.i.i = phi ptr [ %.sroa.021.2.i.i.i.i.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_111CompileDataEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE24_M_get_insert_unique_posERS7_.exit.i.i.i ], [ %.08.lcssa.i.i.i30.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit45.i.i.i.i.i ], [ %.sroa.01.0.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit22.i.i.i.i ]
-  call fastcc void @_ZN12_GLOBAL__N_111CompileDataD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %1515) #28
+  call fastcc void @_ZN12_GLOBAL__N_111CompileDataD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(240) %1515) #28
   %1614 = load ptr, ptr %1491, align 8, !tbaa !79
   %1615 = icmp eq ptr %1614, %1492
   br i1 %1615, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i.i
@@ -16569,13 +16569,13 @@ _ZNSt10_HashtableIN12_GLOBAL__N_111CompileDataESt4pairIKS1_jESaIS4_ENSt8__detail
 
 _ZNKSt10_HashtableIN12_GLOBAL__N_111CompileDataESt4pairIKS1_jESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit.i.i.i.i.i.i: ; preds = %3404, %_ZNKSt8__detail15_Hashtable_baseIN12_GLOBAL__N_111CompileDataESt4pairIKS2_jENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS5_Lb1EEE.exit.i.i.i.i.i.i.i.i
   %.sroa.057.0.ph.i.i.i.i.i.i = phi ptr [ %3415, %_ZNKSt8__detail15_Hashtable_baseIN12_GLOBAL__N_111CompileDataESt4pairIKS2_jENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS5_Lb1EEE.exit.i.i.i.i.i.i.i.i ], [ %.sroa.052.0.i.i.i.i.i.i, %3404 ]
-  call fastcc void @_ZN12_GLOBAL__N_111CompileDataD2Ev(ptr noundef nonnull align 8 dereferenceable(244) %3333) #28
+  call fastcc void @_ZN12_GLOBAL__N_111CompileDataD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(244) %3333) #28
   call void @_ZdlPvm(ptr noundef nonnull %3332, i64 noundef 264) #29
   br label %3485
 
 .body.i.i.i.i.i.i:                                ; preds = %3480, %3458
   %.pn.pn.pn.i.i.i.i.i.i = phi { ptr, i32 } [ %3481, %3480 ], [ %3459, %3458 ]
-  call fastcc void @_ZN12_GLOBAL__N_111CompileDataD2Ev(ptr noundef nonnull align 8 dereferenceable(244) %3333) #28
+  call fastcc void @_ZN12_GLOBAL__N_111CompileDataD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(244) %3333) #28
   call void @_ZdlPvm(ptr noundef nonnull %3332, i64 noundef 264) #29
   br label %.body.i.i.i301
 
@@ -17322,7 +17322,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_trai
           to label %.noexc127.i.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i.loopexit.i
 
 .noexc127.i.i.i:                                  ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE11_M_allocateEm.exit.i.i.i.i.i
-  %3733 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEEPSA_SA_ET0_T_SJ_SI_RSaIT1_E(ptr %.val32.i.i.i.i, ptr %.val33.i.i.i.i, ptr noundef nonnull %3732)
+  %3733 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEEPSA_SA_ET0_T_SJ_SI_RSaIT1_E(ptr readonly %.val32.i.i.i.i, ptr readnone %.val33.i.i.i.i, ptr noundef nonnull %3732)
           to label %_ZNSt6vectorIN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS8_SA_EEEEPS8_mT_SI_.exit.i.i.i.i unwind label %_ZNSt12_Vector_baseIN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE13_M_deallocateEPS8_m.exit.i.i.i.i.i
 
 _ZNSt12_Vector_baseIN12_GLOBAL__N_13JBTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE13_M_deallocateEPS8_m.exit.i.i.i.i.i: ; preds = %.noexc127.i.i.i
@@ -20345,7 +20345,7 @@ _ZNSt6vectorIN12_GLOBAL__N_16Target12CompileGroupESaIS2_EED2Ev.exit: ; preds = %
   %.02.i.i.i.i = phi ptr [ %.0.val.i.i.i.i, %.lr.ph.i.i.i.i1 ], [ %.val.i.i.i, %_ZNSt6vectorIN12_GLOBAL__N_16Target12CompileGroupESaIS2_EED2Ev.exit ]
   %.0.val.i.i.i.i = load ptr, ptr %.02.i.i.i.i, align 8, !tbaa !463
   %15 = getelementptr inbounds nuw i8, ptr %.02.i.i.i.i, i64 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111CompileDataD2Ev(ptr noundef nonnull align 8 dereferenceable(244) %15) #28
+  tail call fastcc void @_ZN12_GLOBAL__N_111CompileDataD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(244) %15) #28
   tail call void @_ZdlPvm(ptr noundef nonnull %.02.i.i.i.i, i64 noundef 264) #29
   %.not.i.i.i.i2 = icmp eq ptr %.0.val.i.i.i.i, null
   br i1 %.not.i.i.i.i2, label %_ZNSt10_HashtableIN12_GLOBAL__N_111CompileDataESt4pairIKS1_jESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i1, !llvm.loop !934
@@ -21156,7 +21156,7 @@ define internal fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_
   %.0.val6 = load ptr, ptr %3, align 8, !tbaa !772
   %4 = getelementptr inbounds nuw i8, ptr %.02, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %.02, i64 64
-  tail call fastcc void @_ZN12_GLOBAL__N_111CompileDataD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %5) #28
+  tail call fastcc void @_ZN12_GLOBAL__N_111CompileDataD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(240) %5) #28
   %6 = load ptr, ptr %4, align 8, !tbaa !79
   %7 = getelementptr inbounds nuw i8, ptr %.02, i64 48
   %8 = icmp eq ptr %6, %7

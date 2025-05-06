@@ -1270,7 +1270,7 @@ _ZN4llvm15SmallVectorImplINS_15CodeViewContext8FileInfoEE6resizeEm.exit: ; preds
 declare void @_ZN4llvm10MCStreamer15emitSymbolValueEPKNS_8MCSymbolEjb(ptr noundef nonnull align 8 dereferenceable(296), ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15CodeViewContext22getFunctionLineEntriesEj(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(305) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15CodeViewContext22getFunctionLineEntriesEj(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(305) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = tail call { i64, i64 } @_ZN4llvm15CodeViewContext30getLineExtentIncludingInlineesEj(ptr noundef nonnull align 8 dereferenceable(305) %1, i32 noundef %2)
   %5 = extractvalue { i64, i64 } %4, 0
@@ -1807,7 +1807,7 @@ define dso_local { ptr, i64 } @_ZN4llvm15CodeViewContext17getLinesForExtentEmm(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15CodeViewContext24emitLineTableForFunctionERNS_16MCObjectStreamerEjPKNS_8MCSymbolES5_(ptr noundef nonnull align 8 captures(address) dereferenceable(305) %0, ptr noundef nonnull align 8 dereferenceable(432) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15CodeViewContext24emitLineTableForFunctionERNS_16MCObjectStreamerEjPKNS_8MCSymbolES5_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(305) %0, ptr noundef nonnull align 8 dereferenceable(432) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.std::vector", align 8
@@ -2341,7 +2341,7 @@ _ZN4llvm9MCContext13allocFragmentINS_20MCCVDefRangeFragmentEJRNS_8ArrayRefISt4pa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15CodeViewContext21encodeInlineLineTableERKNS_11MCAssemblerERNS_27MCCVInlineLineTableFragmentE(ptr noundef nonnull align 8 captures(address) dereferenceable(305) %0, ptr noundef nonnull align 8 dereferenceable(364) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15CodeViewContext21encodeInlineLineTableERKNS_11MCAssemblerERNS_27MCCVInlineLineTableFragmentE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(305) %0, ptr noundef nonnull align 8 dereferenceable(364) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8

@@ -40,7 +40,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.1cdc96e39f77113e3c478edf34f1b310.5.llvm.5005701920350073521 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1babb05a7bb84399E.llvm.13602880533186600580"(ptr noundef nonnull captures(address) %0, ptr noundef captures(address) %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #0 {
+define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1babb05a7bb84399E.llvm.13602880533186600580"(ptr noundef nonnull readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #0 {
   tail call void @_ZN4core4iter6traits8iterator8Iterator4fold17h07f64e720b9dfda3E.llvm.13602880533186600580(ptr noundef nonnull %0, ptr noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   ret void
 }
@@ -5495,8 +5495,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17hb2fd871fb811ae
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core4iter6traits8iterator8Iterator8for_each17h0c285b0550d983a3E.llvm.13602880533186600580(ptr noundef nonnull captures(address) %0, ptr noundef captures(address) %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #9 {
-  tail call void @_ZN4core4iter6traits8iterator8Iterator4fold17h07f64e720b9dfda3E.llvm.13602880533186600580(ptr noundef nonnull %0, ptr noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+define hidden void @_ZN4core4iter6traits8iterator8Iterator8for_each17h0c285b0550d983a3E.llvm.13602880533186600580(ptr noundef nonnull readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #9 {
+  tail call void @_ZN4core4iter6traits8iterator8Iterator4fold17h07f64e720b9dfda3E.llvm.13602880533186600580(ptr noundef nonnull readonly %0, ptr noundef readnone %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   ret void
 }
 
@@ -6434,7 +6434,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17hc8e2ba16eff215cfE(p
   %18 = getelementptr inbounds i8, ptr %.sroa.7.2, i64 -8
   %.val12.i = load i64, ptr %18, align 8, !noalias !1460, !noundef !12
   %.val13.i = load i64, ptr %17, align 8, !noalias !1460
-  %19 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h9efab2eab285808eE"(ptr nonnull %.val, i64 %.val12.i, i64 %.val13.i)
+  %19 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h9efab2eab285808eE"(ptr nonnull readonly %.val, i64 %.val12.i, i64 %.val13.i)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.preheader
@@ -6458,7 +6458,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17hc8e2ba16eff215cfE(p
   %.sroa.0.02.i = phi ptr [ %35, %.noexc24 ], [ %13, %12 ]
   %.sroa.0.0.val.i = load i64, ptr %.sroa.0.02.i, align 8, !noalias !1463, !noundef !12
   %.val6.i = load i64, ptr %.sroa.0.2, align 8, !noalias !1463
-  %29 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h9efab2eab285808eE"(ptr nonnull %.val, i64 %.sroa.0.0.val.i, i64 %.val6.i)
+  %29 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h9efab2eab285808eE"(ptr nonnull readonly %.val, i64 %.sroa.0.0.val.i, i64 %.val6.i)
           to label %.noexc24 unwind label %.loopexit.split-lp
 
 .noexc24:                                         ; preds = %.lr.ph.i
@@ -10976,7 +10976,7 @@ define hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   br i1 %13, label %15, label %14
 
 14:                                               ; preds = %15, %3
-  tail call void @_ZN4core4iter6traits8iterator8Iterator4fold17h07f64e720b9dfda3E.llvm.13602880533186600580(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  tail call void @_ZN4core4iter6traits8iterator8Iterator4fold17h07f64e720b9dfda3E.llvm.13602880533186600580(ptr noundef nonnull readonly %1, ptr noundef nonnull readnone %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   ret void
 
 15:                                               ; preds = %3
@@ -11098,7 +11098,7 @@ define hidden void @"_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   br i1 %.not, label %.noexc3, label %9
 
 .noexc3:                                          ; preds = %9, %3
-  invoke void @_ZN4core4iter6traits8iterator8Iterator4fold17h07f64e720b9dfda3E.llvm.13602880533186600580(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  invoke void @_ZN4core4iter6traits8iterator8Iterator4fold17h07f64e720b9dfda3E.llvm.13602880533186600580(ptr noundef nonnull readonly %1, ptr noundef nonnull readnone %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..Extend$LT$char$GT$$GT$6extend17haa9addc09da00cffE.llvm.13602880533186600580.exit" unwind label %11
 
 9:                                                ; preds = %3

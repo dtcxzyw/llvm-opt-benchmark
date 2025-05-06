@@ -1416,7 +1416,7 @@ CORD_substr_closure.exit:                         ; preds = %79, %89, %162, %155
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @CORD_iter5(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #2 {
+define i32 @CORD_iter5(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #2 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %.loopexit, label %.lr.ph
 
@@ -1717,7 +1717,7 @@ tailrecurse:                                      ; preds = %tailrecurse.outer, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CORD_riter(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @CORD_riter(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %CORD_len.exit.thread, label %5
 

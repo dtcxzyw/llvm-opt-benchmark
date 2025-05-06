@@ -6264,7 +6264,7 @@ cmp.exit.thread84:                                ; preds = %58, %cmp.exit, %.cr
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define hidden noundef ptr @ruby_hdtoa(double noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #12 {
+define hidden noundef ptr @ruby_hdtoa(double noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #12 {
   %7 = bitcast double %0 to i64
   %.not = icmp slt i64 %7, 0
   %8 = tail call double @llvm.fabs.f64(double %0)

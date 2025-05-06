@@ -3532,7 +3532,7 @@ declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 declare dso_local ptr @strnchr(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @drm_mode_create_from_cmdline_mode(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
+define dso_local noundef ptr @drm_mode_create_from_cmdline_mode(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0

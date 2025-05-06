@@ -1793,7 +1793,7 @@ _ZNKSt3setIN4llvm27DeadArgumentEliminationPass8RetOrArgESt4lessIS2_ESaIS2_EE5cou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 2) i32 @_ZN4llvm27DeadArgumentEliminationPass9surveyUseEPKNS_3UseERNS_11SmallVectorINS0_8RetOrArgELj5EEEj(ptr noundef nonnull align 8 captures(address) dereferenceable(145) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN4llvm27DeadArgumentEliminationPass9surveyUseEPKNS_3UseERNS_11SmallVectorINS0_8RetOrArgELj5EEEj(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(145) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !107
   %7 = load i8, ptr %6, align 8, !tbaa !34
@@ -2057,7 +2057,7 @@ _ZNK4llvm8CallBase15isBundleOperandEj.exit:       ; preds = %49, %42, %_ZNK4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 2) i32 @_ZN4llvm27DeadArgumentEliminationPass10surveyUsesEPKNS_5ValueERNS_11SmallVectorINS0_8RetOrArgELj5EEE(ptr noundef nonnull align 8 captures(address) dereferenceable(145) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN4llvm27DeadArgumentEliminationPass10surveyUsesEPKNS_5ValueERNS_11SmallVectorINS0_8RetOrArgELj5EEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(145) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.010.015 = load ptr, ptr %4, align 8, !tbaa !139
   %.not1416 = icmp eq ptr %.sroa.010.015, null
@@ -2469,7 +2469,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_4UserEEEDcPT0_.exit: ; preds = %118, %118, %11
 
 .lr.ph.i:                                         ; preds = %141, %145
   %.sroa.010.017.i = phi ptr [ %.sroa.010.0.i, %145 ], [ %.sroa.010.015.i, %141 ]
-  %147 = call noundef i32 @_ZN4llvm27DeadArgumentEliminationPass9surveyUseEPKNS_3UseERNS_11SmallVectorINS0_8RetOrArgELj5EEEj(ptr noundef nonnull align 8 dereferenceable(145) %0, ptr noundef nonnull %.sroa.010.017.i, ptr noundef nonnull align 8 dereferenceable(96) %143, i32 noundef -1)
+  %147 = call noundef i32 @_ZN4llvm27DeadArgumentEliminationPass9surveyUseEPKNS_3UseERNS_11SmallVectorINS0_8RetOrArgELj5EEEj(ptr noundef nonnull readonly align 8 dereferenceable(145) %0, ptr noundef nonnull %.sroa.010.017.i, ptr noundef nonnull align 8 dereferenceable(96) %143, i32 noundef -1)
   %.not.i143 = icmp eq i32 %147, 0
   br i1 %.not.i143, label %150, label %145
 
@@ -2732,7 +2732,7 @@ _ZN4llvm11SmallVectorINS_27DeadArgumentEliminationPass8RetOrArgELj5EED2Ev.exit15
 
 .lr.ph.i154:                                      ; preds = %235, %237
   %.sroa.010.017.i155 = phi ptr [ %.sroa.010.0.i157, %237 ], [ %.sroa.010.015.i152, %235 ]
-  %239 = call noundef i32 @_ZN4llvm27DeadArgumentEliminationPass9surveyUseEPKNS_3UseERNS_11SmallVectorINS0_8RetOrArgELj5EEEj(ptr noundef nonnull align 8 dereferenceable(145) %0, ptr noundef nonnull %.sroa.010.017.i155, ptr noundef nonnull align 8 dereferenceable(96) %9, i32 noundef -1)
+  %239 = call noundef i32 @_ZN4llvm27DeadArgumentEliminationPass9surveyUseEPKNS_3UseERNS_11SmallVectorINS0_8RetOrArgELj5EEEj(ptr noundef nonnull readonly align 8 dereferenceable(145) %0, ptr noundef nonnull %.sroa.010.017.i155, ptr noundef nonnull align 8 dereferenceable(96) %9, i32 noundef -1)
   %.not.i156 = icmp eq i32 %239, 0
   br i1 %.not.i156, label %_ZN4llvm27DeadArgumentEliminationPass10surveyUsesEPKNS_5ValueERNS_11SmallVectorINS0_8RetOrArgELj5EEE.exit160, label %237
 

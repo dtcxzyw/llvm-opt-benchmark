@@ -3127,7 +3127,7 @@ _ZN3tbb6detail2r18governor15get_thread_dataEv.exit: ; preds = %1, %6
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
+define noundef i32 @_ZN3tbb6detail2r115max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = tail call noundef i32 @_ZN3tbb6detail2r115task_arena_impl15max_concurrencyEPKNS0_2d115task_arena_baseE(ptr noundef %0)
   ret i32 %2
 }

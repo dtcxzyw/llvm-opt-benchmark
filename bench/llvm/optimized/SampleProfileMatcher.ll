@@ -3608,7 +3608,7 @@ _ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20SampleProfileMatcher23runStaleProfileMatchingERKNS_8FunctionERKSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEESG_RSt13unordered_mapIS6_S6_NS5_16LineLocationHashESt8equal_toIS6_ESaISA_ISB_S6_EEEbb(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %2, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(56) %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm20SampleProfileMatcher23runStaleProfileMatchingERKNS_8FunctionERKSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEESG_RSt13unordered_mapIS6_S6_NS5_16LineLocationHashESt8equal_toIS6_ESaISA_ISB_S6_EEEbb(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(56) %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #1 align 2 {
   %8 = alloca %"class.std::vector", align 8
   %9 = alloca %"class.std::vector", align 8
   %10 = alloca %"class.std::unordered_map.158", align 8

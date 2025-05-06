@@ -27378,19 +27378,19 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb12LocalStorage
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb9DataTable24FinalizeOptimisticWriterERNS_13ClientContextERNS_20OptimisticDataWriterE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(648) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %2) local_unnamed_addr #0 align 2 {
+define void @_ZN6duckdb9DataTable24FinalizeOptimisticWriterERNS_13ClientContextERNS_20OptimisticDataWriterE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(648) %1, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(16) %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !623
   %5 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZN6duckdb15DuckTransaction3GetERNS_13ClientContextERNS_16AttachedDatabaseE(ptr noundef nonnull align 8 dereferenceable(648) %1, ptr noundef nonnull align 8 dereferenceable(274) %4)
   %6 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN6duckdb15DuckTransaction15GetLocalStorageEv(ptr noundef nonnull align 8 dereferenceable(392) %5)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %6, align 8, !tbaa !1067
   %9 = tail call noundef nonnull align 8 dereferenceable(234) ptr @_ZN6duckdb17LocalTableManager18GetOrCreateStorageERNS_13ClientContextERNS_9DataTableE(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(648) %8, ptr noundef nonnull align 8 dereferenceable(105) %0)
-  tail call void @_ZN6duckdb17LocalTableStorage24FinalizeOptimisticWriterERNS_20OptimisticDataWriterE(ptr noundef nonnull align 8 dereferenceable(234) %9, ptr noundef nonnull align 8 dereferenceable(16) %2)
+  tail call void @_ZN6duckdb17LocalTableStorage24FinalizeOptimisticWriterERNS_20OptimisticDataWriterE(ptr noundef nonnull align 8 dereferenceable(234) %9, ptr noundef nonnull readnone align 8 dereferenceable(16) %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb12LocalStorage24FinalizeOptimisticWriterERNS_9DataTableERNS_20OptimisticDataWriterE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %2) local_unnamed_addr #0 align 2 {
+define void @_ZN6duckdb12LocalStorage24FinalizeOptimisticWriterERNS_9DataTableERNS_20OptimisticDataWriterE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(16) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %0, align 8, !tbaa !1067
   %6 = tail call noundef nonnull align 8 dereferenceable(234) ptr @_ZN6duckdb17LocalTableManager18GetOrCreateStorageERNS_13ClientContextERNS_9DataTableE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(648) %5, ptr noundef nonnull align 8 dereferenceable(105) %1)

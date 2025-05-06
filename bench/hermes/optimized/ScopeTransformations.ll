@@ -288,7 +288,7 @@ declare void @_ZN6hermes5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull alig
 declare void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZN6hermes11ScopeMerger13optimizeScopeEPNS_8FunctionEPNS_9ScopeDescE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef captures(address) %F, ptr noundef %scopeDesc) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes11ScopeMerger13optimizeScopeEPNS_8FunctionEPNS_9ScopeDescE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef readnone captures(address) %F, ptr noundef %scopeDesc) local_unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr i8, ptr %scopeDesc, i64 152
   %scopeDesc.val = load ptr, ptr %0, align 8
@@ -664,7 +664,7 @@ for.end31:                                        ; preds = %while.body.i6.i12.i
 declare void @_ZN6hermes5Value7destroyEPS0_(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes11ScopeMerger13runOnFunctionEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef captures(address) %F) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes11ScopeMerger13runOnFunctionEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef readonly captures(address) %F) unnamed_addr #0 align 2 {
 entry:
   %mergedMap_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %NumEntries.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40

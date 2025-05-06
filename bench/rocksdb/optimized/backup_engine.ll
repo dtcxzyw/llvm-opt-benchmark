@@ -8555,7 +8555,7 @@ _ZN7rocksdb9WriteLockD2Ev.exit3:                  ; preds = %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_126BackupEngineImplThreadSafe12DeleteBackupEj(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::IOStatus") align 8 captures(address) %0, ptr noundef nonnull align 8 dereferenceable(904) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_126BackupEngineImplThreadSafe12DeleteBackupEj(ptr dead_on_unwind noalias writable writeonly sret(%"class.rocksdb::IOStatus") align 8 captures(address) %0, ptr noundef nonnull align 8 dereferenceable(904) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @_ZN7rocksdb4port7RWMutex9WriteLockEv(ptr noundef nonnull align 8 dereferenceable(56) %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -8594,7 +8594,7 @@ _ZN7rocksdb9WriteLockD2Ev.exit3:                  ; preds = %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_126BackupEngineImplThreadSafe27CreateNewBackupWithMetadataERKNS_19CreateBackupOptionsEPNS_2DBERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPj(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::IOStatus") align 8 %0, ptr noundef nonnull align 8 dereferenceable(904) %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef captures(address_is_null) %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_126BackupEngineImplThreadSafe27CreateNewBackupWithMetadataERKNS_19CreateBackupOptionsEPNS_2DBERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPj(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::IOStatus") align 8 %0, ptr noundef nonnull align 8 dereferenceable(904) %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @_ZN7rocksdb4port7RWMutex9WriteLockEv(ptr noundef nonnull align 8 dereferenceable(56) %7)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -8694,7 +8694,7 @@ define internal void @_ZThn8_N7rocksdb12_GLOBAL__N_126BackupEngineImplThreadSafe
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn8_N7rocksdb12_GLOBAL__N_126BackupEngineImplThreadSafe27CreateNewBackupWithMetadataERKNS_19CreateBackupOptionsEPNS_2DBERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPj(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::IOStatus") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef captures(address_is_null) %5) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn8_N7rocksdb12_GLOBAL__N_126BackupEngineImplThreadSafe27CreateNewBackupWithMetadataERKNS_19CreateBackupOptionsEPNS_2DBERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPj(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::IOStatus") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN7rocksdb4port7RWMutex9WriteLockEv(ptr noundef nonnull align 8 dereferenceable(56) %7), !noalias !400
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 72

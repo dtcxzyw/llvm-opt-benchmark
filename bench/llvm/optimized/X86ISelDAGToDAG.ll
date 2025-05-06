@@ -17925,7 +17925,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16SelectionDAGISel30Chec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_115X86DAGToDAGISel19CheckComplexPatternEPN4llvm6SDNodeES3_NS1_7SDValueEjRNS1_15SmallVectorImplISt4pairIS4_S3_EEE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr readnone captures(none) %1, ptr noundef captures(address_is_null) %2, ptr %3, i32 %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(16) %6) unnamed_addr #1 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_115X86DAGToDAGISel19CheckComplexPatternEPN4llvm6SDNodeES3_NS1_7SDValueEjRNS1_15SmallVectorImplISt4pairIS4_S3_EEE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr %3, i32 %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(16) %6) unnamed_addr #1 align 2 {
   %8 = alloca %"class.std::optional.595", align 8
   %9 = alloca %"class.llvm::APInt", align 8
   %10 = alloca %"class.llvm::SDLoc", align 8

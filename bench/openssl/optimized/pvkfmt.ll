@@ -1008,7 +1008,7 @@ define range(i32 0, 2) i32 @ossl_do_PVK_header(ptr noundef captures(none) %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @b2i_DSA_PVK_bio_ex(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define ptr @b2i_DSA_PVK_bio_ex(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
@@ -1248,21 +1248,21 @@ do_PVK_body_key.exit:                             ; preds = %85, %86
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @b2i_DSA_PVK_bio(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @b2i_DSA_PVK_bio(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
   store i32 1, ptr %4, align 4, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
   store i32 0, ptr %5, align 4, !tbaa !9
-  %6 = call fastcc ptr @do_PVK_key_bio(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef %5, ptr noundef null, ptr noundef null)
+  %6 = call fastcc ptr @do_PVK_key_bio(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %4, ptr noundef %5, ptr noundef null, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
   ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @b2i_RSA_PVK_bio_ex(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define ptr @b2i_RSA_PVK_bio_ex(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
@@ -1276,21 +1276,21 @@ define ptr @b2i_RSA_PVK_bio_ex(ptr noundef %0, ptr noundef captures(address_is_n
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @b2i_RSA_PVK_bio(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @b2i_RSA_PVK_bio(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
   store i32 0, ptr %4, align 4, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
   store i32 0, ptr %5, align 4, !tbaa !9
-  %6 = call fastcc ptr @do_PVK_key_bio(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef %5, ptr noundef null, ptr noundef null)
+  %6 = call fastcc ptr @do_PVK_key_bio(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %4, ptr noundef %5, ptr noundef null, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
   ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @b2i_PVK_bio_ex(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
+define ptr @b2i_PVK_bio_ex(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
@@ -1310,14 +1310,14 @@ define ptr @b2i_PVK_bio_ex(ptr noundef %0, ptr noundef captures(address_is_null)
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @b2i_PVK_bio(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @b2i_PVK_bio(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
   store i32 -1, ptr %4, align 4, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
   store i32 -1, ptr %5, align 4, !tbaa !9
-  %6 = call fastcc ptr @do_PVK_key_bio(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef %5, ptr noundef null, ptr noundef null)
+  %6 = call fastcc ptr @do_PVK_key_bio(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %4, ptr noundef %5, ptr noundef null, ptr noundef null)
   %7 = load i32, ptr %4, align 4, !tbaa !9
   %8 = icmp eq i32 %7, 0
   %9 = icmp eq i32 %7, 1
@@ -1547,7 +1547,7 @@ i2b_PVK.exit:                                     ; preds = %90, %92
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @i2b_PVK_bio(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @i2b_PVK_bio(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @i2b_PVK_bio_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, ptr noundef null)
   ret i32 %6
 }

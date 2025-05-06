@@ -668,7 +668,7 @@ define dso_local void @_ZN5clang6driver13SanitizerArgsC2ERKNS0_9ToolChainERKN4ll
   %.val705 = load ptr, ptr %147, align 8, !tbaa !119, !noalias !120
   %148 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val706 = load i32, ptr %148, align 8, !tbaa !123, !noalias !120
-  %149 = tail call fastcc { i64, i64 } @_ZL17parseSanitizeArgsRKN5clang6driver6DriverERKN4llvm3opt7ArgListEbNS_13SanitizerMaskES9_S9_ii(ptr noundef nonnull readonly align 8 dereferenceable(1224) %146, ptr %.val705, i32 %.val706, i1 noundef zeroext %3, i64 35465847065542656, i64 128, i64 0, i64 0, i64 504842962917130239, i64 -1536, i32 noundef 1730, i32 noundef 1349)
+  %149 = tail call fastcc { i64, i64 } @_ZL17parseSanitizeArgsRKN5clang6driver6DriverERKN4llvm3opt7ArgListEbNS_13SanitizerMaskES9_S9_ii(ptr noundef nonnull readonly align 8 dereferenceable(1224) %146, ptr readonly %.val705, i32 %.val706, i1 noundef zeroext %3, i64 35465847065542656, i64 128, i64 0, i64 0, i64 504842962917130239, i64 -1536, i32 noundef 1730, i32 noundef 1349)
   %150 = extractvalue { i64, i64 } %149, 0
   %151 = and i64 %150, 17592186044416
   %152 = load i8, ptr %125, align 8, !tbaa !124, !range !3, !noundef !31

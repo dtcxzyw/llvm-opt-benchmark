@@ -122,7 +122,7 @@ declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 derefe
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ClassListWriter5writeEPK13InstanceKlassPK15ClassFileStream(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15ClassListWriter5writeEPK13InstanceKlassPK15ClassFileStream(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN11ClassLoader10_jrt_entryE, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %8

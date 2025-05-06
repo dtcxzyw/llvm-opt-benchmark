@@ -1881,7 +1881,7 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4YAML5Utils10WriteAliasERNS_15ostream_wrapperEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN4YAML5Utils10WriteAliasERNS_15ostream_wrapperEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull @.str.20, i64 noundef 1)
   %4 = tail call fastcc noundef zeroext i1 @_ZN4YAML5Utils12_GLOBAL__N_114WriteAliasNameERNS_15ostream_wrapperEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %1, i64 noundef %2)
   ret i1 %4
@@ -2028,7 +2028,7 @@ _ZN4YAML5Utils12_GLOBAL__N_112IsAnchorCharEi.exit.thread: ; preds = %_ZN4YAML5Ut
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4YAML5Utils11WriteAnchorERNS_15ostream_wrapperEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN4YAML5Utils11WriteAnchorERNS_15ostream_wrapperEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull @.str.21, i64 noundef 1)
   %4 = tail call fastcc noundef zeroext i1 @_ZN4YAML5Utils12_GLOBAL__N_114WriteAliasNameERNS_15ostream_wrapperEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %1, i64 noundef %2)
   ret i1 %4

@@ -686,7 +686,7 @@ define internal fastcc ptr @lib_find(ptr noundef %0, ptr noundef %1) unnamed_add
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @file_get_dir_and_filename_from_full(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #5 {
+define dso_local void @file_get_dir_and_filename_from_full(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #5 {
   %4 = tail call zeroext i1 @file_namesplit(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %4, label %6, label %5
 

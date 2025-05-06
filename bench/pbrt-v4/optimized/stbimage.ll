@@ -2190,7 +2190,7 @@ define dso_local void @stbi_hdr_to_ldr_scale(float noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 0, 2) i32 @stbi_info(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @stbi_info(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #5 {
   %5 = alloca %struct.stbi__context, align 8
   %6 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %6, null
@@ -2263,7 +2263,7 @@ stbi_info_from_file.exit:                         ; preds = %30, %32
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 2) i32 @stbi_info_from_file(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #5 {
+define dso_local noundef range(i32 0, 2) i32 @stbi_info_from_file(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #5 {
   %5 = alloca %struct.stbi__context, align 8
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %5) #40
   %6 = tail call i64 @ftell(ptr noundef %0)
@@ -2321,7 +2321,7 @@ _ZL16stbi__start_fileP13stbi__contextP8_IO_FILE.exit: ; preds = %26, %28
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL15stbi__info_mainP13stbi__contextPiS1_S1_(ptr noundef nonnull %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) unnamed_addr #5 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL15stbi__info_mainP13stbi__contextPiS1_S1_(ptr noundef nonnull %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #5 {
   %5 = alloca %struct.stbi__bmp_data, align 4
   %6 = tail call noalias noundef dereferenceable_or_null(18568) ptr @malloc(i64 noundef 18568) #42
   %.not.i = icmp eq ptr %6, null
@@ -2839,7 +2839,7 @@ _ZL14stbi__psd_is16P13stbi__context.exit:         ; preds = %32, %34
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 2) i32 @stbi_info_from_memory(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #5 {
+define dso_local noundef range(i32 0, 2) i32 @stbi_info_from_memory(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #5 {
   %6 = alloca %struct.stbi__context, align 8
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6) #40
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -2864,7 +2864,7 @@ define dso_local noundef range(i32 0, 2) i32 @stbi_info_from_memory(ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 2) i32 @stbi_info_from_callbacks(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #5 {
+define dso_local noundef range(i32 0, 2) i32 @stbi_info_from_callbacks(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #5 {
   %6 = alloca %struct.stbi__context, align 8
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6) #40
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -15312,7 +15312,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #5 {
+define internal fastcc noundef ptr @_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !39
   %.not181 = icmp eq ptr %6, null

@@ -817,7 +817,7 @@ _ZNSt7__cxx114listIN12_GLOBAL__N_110VectorInfoESaIS2_EE12emplace_backIJPN4llvm15
 
 220:                                              ; preds = %213
   %221 = getelementptr inbounds nuw i8, ptr %214, i64 16
-  %222 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(112) %37, ptr noundef nonnull align 8 dereferenceable(112) %221)
+  %222 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(112) %37, ptr noundef nonnull readonly align 8 dereferenceable(112) %221)
   br label %_ZN4llvm11SmallVectorISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELj4EEC2ERKS7_.exit.i.i.i
 
 _ZN4llvm11SmallVectorISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELj4EEC2ERKS7_.exit.i.i.i: ; preds = %220, %213
@@ -1022,7 +1022,7 @@ _ZNSt6vectorISt14_List_iteratorIN12_GLOBAL__N_110VectorInfoEESaIS3_EEC2EmRKS3_RK
 
 300:                                              ; preds = %293
   %301 = getelementptr inbounds nuw i8, ptr %295, i64 16
-  %302 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(112) %46, ptr noundef nonnull align 8 dereferenceable(112) %301)
+  %302 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(112) %46, ptr noundef nonnull readonly align 8 dereferenceable(112) %301)
   br label %_ZN4llvm11SmallVectorISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELj4EEC2ERKS7_.exit.i.i.i44
 
 _ZN4llvm11SmallVectorISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELj4EEC2ERKS7_.exit.i.i.i44: ; preds = %300, %293
@@ -3262,7 +3262,7 @@ _ZN12_GLOBAL__N_110PolynomialD2Ev.exit:           ; preds = %_ZN4llvm23SmallVect
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %259, ptr noundef nonnull align 8 dereferenceable(152) %257, i64 16, i1 false)
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 16
   %261 = getelementptr inbounds nuw i8, ptr %257, i64 16
-  %262 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(112) %260, ptr noundef nonnull align 8 dereferenceable(112) %261)
+  %262 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(112) %260, ptr noundef nonnull readonly align 8 dereferenceable(112) %261)
   %263 = getelementptr inbounds nuw i8, ptr %259, i64 128
   %264 = getelementptr inbounds nuw i8, ptr %257, i64 128
   %265 = getelementptr inbounds nuw i8, ptr %259, i64 136
@@ -3448,7 +3448,7 @@ _ZN12_GLOBAL__N_110PolynomialD2Ev.exit112:        ; preds = %_ZN4llvm23SmallVect
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %326, ptr noundef nonnull align 8 dereferenceable(152) %324, i64 16, i1 false)
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 16
   %328 = getelementptr inbounds nuw i8, ptr %324, i64 16
-  %329 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(112) %327, ptr noundef nonnull align 8 dereferenceable(112) %328)
+  %329 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(112) %327, ptr noundef nonnull readonly align 8 dereferenceable(112) %328)
   %330 = getelementptr inbounds nuw i8, ptr %326, i64 128
   %331 = getelementptr inbounds nuw i8, ptr %324, i64 128
   %332 = getelementptr inbounds nuw i8, ptr %326, i64 136
@@ -5445,7 +5445,7 @@ _ZNSt3setIPN4llvm11InstructionESt4lessIS2_ESaIS2_EE6insertEOS2_.exit: ; preds = 
   br i1 %.not.i.i.i.i44, label %_ZN4llvm11SmallVectorISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELj4EEC2ERKS7_.exit.i.i, label %481
 
 481:                                              ; preds = %471
-  %482 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(112) %457, ptr noundef nonnull align 8 dereferenceable(112) %22)
+  %482 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(112) %457, ptr noundef nonnull readonly align 8 dereferenceable(112) %22)
   br label %_ZN4llvm11SmallVectorISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELj4EEC2ERKS7_.exit.i.i
 
 _ZN4llvm11SmallVectorISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELj4EEC2ERKS7_.exit.i.i: ; preds = %481, %471
@@ -5476,7 +5476,7 @@ _ZNK12_GLOBAL__N_110PolynomialplEm.exit:          ; preds = %485, %487
   br i1 %.not.i.i.i.i45, label %_ZN4llvm11SmallVectorISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELj4EEC2ERKS7_.exit.i.i46, label %492
 
 492:                                              ; preds = %_ZNK12_GLOBAL__N_110PolynomialplEm.exit
-  %493 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(112) %463, ptr noundef nonnull align 8 dereferenceable(112) %457)
+  %493 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(112) %463, ptr noundef nonnull readonly align 8 dereferenceable(112) %457)
   br label %_ZN4llvm11SmallVectorISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELj4EEC2ERKS7_.exit.i.i46
 
 _ZN4llvm11SmallVectorISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELj4EEC2ERKS7_.exit.i.i46: ; preds = %492, %_ZNK12_GLOBAL__N_110PolynomialplEm.exit
@@ -5917,7 +5917,7 @@ _ZN12_GLOBAL__N_110VectorInfo7computeEPN4llvm5ValueERS0_RKNS1_10DataLayoutE.exit
 
 126:                                              ; preds = %118
   %127 = getelementptr inbounds nuw i8, ptr %120, i64 16
-  %128 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(112) %101, ptr noundef nonnull align 8 dereferenceable(112) %127)
+  %128 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(112) %101, ptr noundef nonnull readonly align 8 dereferenceable(112) %127)
   br label %_ZN4llvm11SmallVectorISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELj4EEC2ERKS7_.exit.i.i.us
 
 _ZN4llvm11SmallVectorISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELj4EEC2ERKS7_.exit.i.i.us: ; preds = %126, %118
@@ -5959,7 +5959,7 @@ _ZNK12_GLOBAL__N_110PolynomialplEm.exit.us:       ; preds = %134, %133
   br i1 %.not.i.i.i.i67.us, label %_ZN4llvm11SmallVectorISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELj4EEC2ERKS7_.exit.i.i68.us, label %145
 
 145:                                              ; preds = %142
-  %146 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(112) %107, ptr noundef nonnull align 8 dereferenceable(112) %101)
+  %146 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(112) %107, ptr noundef nonnull readonly align 8 dereferenceable(112) %101)
   br label %_ZN4llvm11SmallVectorISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELj4EEC2ERKS7_.exit.i.i68.us
 
 _ZN4llvm11SmallVectorISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELj4EEC2ERKS7_.exit.i.i68.us: ; preds = %145, %142

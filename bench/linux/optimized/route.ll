@@ -2781,7 +2781,7 @@ define dso_local void @rt6_flush_exceptions(ptr noundef %0) local_unnamed_addr #
 declare dso_local i32 @nexthop_for_each_fib6_nh(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @rt6_nh_flush_exceptions(ptr noundef %0, ptr noundef captures(address) %1) #1 align 16 {
+define internal noundef i32 @rt6_nh_flush_exceptions(ptr noundef %0, ptr noundef readnone captures(address) %1) #1 align 16 {
   tail call fastcc void @fib6_nh_flush_exceptions(ptr noundef %0, ptr noundef %1)
   ret i32 0
 }
@@ -5455,7 +5455,7 @@ define internal noundef range(i32 0, 2) i32 @fib6_nh_redirect_match(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @ip6_redirect_nh_match(ptr %.0.val, ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #1 align 16 {
+define internal fastcc noundef zeroext i1 @ip6_redirect_nh_match(ptr %.0.val, ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #1 align 16 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 15
   %6 = load i8, ptr %5, align 1
@@ -6001,7 +6001,7 @@ define dso_local i32 @ip6_mtu(ptr noundef readonly captures(none) %0) #1 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ip6_mtu_from_fib6(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 align 16 {
+define dso_local i32 @ip6_mtu_from_fib6(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 align 16 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7851,7 +7851,7 @@ define dso_local ptr @rt6_get_dflt_router(ptr noundef %0, ptr noundef readonly c
 declare dso_local ptr @fib6_get_table(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @rt6_add_dflt_router(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 16 {
+define dso_local ptr @rt6_add_dflt_router(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 16 {
   %6 = alloca %struct.fib6_config, align 8
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %6) #22
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -13560,7 +13560,7 @@ declare dso_local void @dst_blackhole_update_pmtu(ptr noundef, ptr noundef, ptr 
 declare dso_local void @dst_blackhole_redirect(ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @ip6_dst_neigh_lookup(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) #1 align 16 {
+define internal ptr @ip6_dst_neigh_lookup(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 2
@@ -14237,7 +14237,7 @@ declare dso_local void @neigh_destroy(ptr noundef) local_unnamed_addr #0
 declare dso_local ptr @fib6_locate(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -22, 1) i32 @ip6_del_cached_rt(ptr noundef captures(address_is_null) %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @ip6_del_cached_rt(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22

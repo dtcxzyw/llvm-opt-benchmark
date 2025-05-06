@@ -993,7 +993,7 @@ define hidden noundef ptr @_ZN15PerfDataManager10name_spaceEPKci(ptr noundef %0,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN15PerfDataManager22create_string_constantE9CounterNSPKcS2_P10JavaThread(i32 noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN15PerfDataManager22create_string_constantE9CounterNSPKcS2_P10JavaThread(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext 9, i32 noundef 0) #15
   tail call void @_ZN18PerfStringConstantC2E9CounterNSPKcS2_(ptr noundef nonnull align 8 dereferenceable(52) %5, i32 noundef %0, ptr noundef %1, ptr noundef %2)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40

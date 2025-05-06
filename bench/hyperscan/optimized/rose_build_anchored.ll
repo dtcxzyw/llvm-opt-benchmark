@@ -2861,7 +2861,7 @@ _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGH
 declare void @_ZN3ue28NGHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(136)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 0, 3) i32 @_ZN3ue220addToAnchoredMatcherERNS_13RoseBuildImplERKNS_8NGHolderEjPj(ptr noundef nonnull align 8 dereferenceable(780) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 3) i32 @_ZN3ue220addToAnchoredMatcherERNS_13RoseBuildImplERKNS_8NGHolderEjPj(ptr noundef nonnull align 8 dereferenceable(780) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = alloca %"class.ue2::NGHolder", align 8
   %7 = alloca %"struct.std::pair.119", align 8

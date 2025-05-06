@@ -60966,7 +60966,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys3AST7AstN
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN5YosysL27node_contains_assignment_toEPKNS_3AST7AstNodeES3_(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1) unnamed_addr #18 {
+define internal fastcc noundef zeroext i1 @_ZN5YosysL27node_contains_assignment_toEPKNS_3AST7AstNodeES3_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) unnamed_addr #18 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !49
   %.off = add i32 %4, -83

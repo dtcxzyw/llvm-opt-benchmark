@@ -177,7 +177,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ProcGlobal = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @CheckIndexCompatible(i32 noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local zeroext i1 @CheckIndexCompatible(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %struct.FmgrInfo, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8

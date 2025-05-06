@@ -709,7 +709,7 @@ define i32 @exr_attr_declare(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32
 declare i32 @exr_attr_list_add(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_initialize_required_attr(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, float noundef %4, ptr noundef captures(address_is_null) %5, float noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define i32 @exr_initialize_required_attr(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, float noundef %4, ptr noundef readonly captures(address_is_null) %5, float noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = tail call i32 @exr_set_compression(ptr noundef %0, i32 noundef %1, i32 noundef %8)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %23
@@ -4545,7 +4545,7 @@ define i32 @exr_attr_get_box2i(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_attr_set_box2i(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define i32 @exr_attr_set_box2i(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.critedge, label %6
@@ -11822,7 +11822,7 @@ define i32 @exr_attr_get_v2f(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_attr_set_v2f(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define i32 @exr_attr_set_v2f(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %11, label %6

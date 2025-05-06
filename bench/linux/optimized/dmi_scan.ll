@@ -1550,7 +1550,7 @@ define internal fastcc void @dmi_format_ids() unnamed_addr #0 section ".init.tex
 declare dso_local void @add_device_randomness(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @dmi_save_ident(ptr noundef captures(address) %0, i32 noundef range(i32 1, 23) %1, i32 noundef range(i32 4, 27) %2) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @dmi_save_ident(ptr noundef readonly captures(address) %0, i32 noundef range(i32 1, 23) %1, i32 noundef range(i32 4, 27) %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = zext nneg i32 %1 to i64
   %5 = getelementptr [23 x ptr], ptr @dmi_ident, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
@@ -1748,7 +1748,7 @@ define internal fastcc void @dmi_save_system_slot(ptr noundef readonly captures(
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @dmi_save_devices(ptr noundef captures(address_is_null) %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @dmi_save_devices(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i64
@@ -1790,7 +1790,7 @@ define internal fastcc void @dmi_save_devices(ptr noundef captures(address_is_nu
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @dmi_save_oem_strings_devices(ptr noundef captures(address) %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @dmi_save_oem_strings_devices(ptr noundef readonly captures(address) %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %4 = icmp ult i8 %3, 5
@@ -1880,7 +1880,7 @@ define internal fastcc void @dmi_save_ipmi_device(ptr noundef readonly captures(
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @dmi_save_extended_devices(ptr noundef captures(address_is_null) %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @dmi_save_extended_devices(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %4 = icmp ult i8 %3, 11
@@ -2151,7 +2151,7 @@ define internal void @count_mem_devices(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal void @save_mem_devices(ptr noundef captures(address) %0, ptr readnone captures(none) %1) #0 section ".init.text" align 16 {
+define internal void @save_mem_devices(ptr noundef readonly captures(address) %0, ptr readnone captures(none) %1) #0 section ".init.text" align 16 {
   %3 = load i8, ptr %0, align 1
   %4 = icmp eq i8 %3, 17
   br i1 %4, label %5, label %64

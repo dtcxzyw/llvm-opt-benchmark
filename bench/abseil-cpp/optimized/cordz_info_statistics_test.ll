@@ -9675,7 +9675,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_19RefHelper10NeedsUnrefINS0_7CordRepEEEPT_S6
   %263 = add i64 %182, 200
   %264 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %263, ptr %264, align 8, !tbaa !37
-  %265 = call fastcc noundef double @_ZN4absl13cord_internal12_GLOBAL__N_113FairShareImplEPNS0_7CordRepEm(ptr noundef nonnull %194, i64 noundef 1)
+  %265 = call fastcc noundef double @_ZN4absl13cord_internal12_GLOBAL__N_113FairShareImplEPNS0_7CordRepEm(ptr noundef nonnull readonly %194, i64 noundef 1)
   %266 = fptoui double %265 to i64
   %267 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 %266, ptr %267, align 8, !tbaa !38

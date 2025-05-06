@@ -655,7 +655,7 @@ wc_Poly1305Update.exit:                           ; preds = %.preheader.i, %19, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Poly1305_MAC(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wc_Poly1305_MAC(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #2 {
   %8 = alloca [16 x i8], align 16
   %9 = icmp eq ptr %0, null
   %10 = icmp eq ptr %3, null

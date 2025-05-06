@@ -71,7 +71,7 @@ declare void @SharpYuvInitDsp() local_unnamed_addr #3
 declare void @SharpYuvInitGammaTables() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SharpYuvConvert(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6, i32 noundef %7, ptr noundef captures(address_is_null) %8, i32 noundef %9, ptr noundef captures(address_is_null) %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef %15) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @SharpYuvConvert(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, i32 noundef %7, ptr noundef writeonly captures(address_is_null) %8, i32 noundef %9, ptr noundef writeonly captures(address_is_null) %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef %15) local_unnamed_addr #1 {
   %17 = alloca %struct.SharpYuvOptions, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #11
   store ptr %15, ptr %17, align 8, !tbaa !7

@@ -277,7 +277,7 @@ _ZN6icu_7718CurrencyPluralInfo10initializeERKNS_6LocaleER10UErrorCode.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7718CurrencyPluralInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(36) initializes((0, 36)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(36) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7718CurrencyPluralInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(36) initializes((0, 36)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(36) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7718CurrencyPluralInfoE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 0, i64 28, i1 false)

@@ -1783,7 +1783,7 @@ define range(i32 -1, 1) i32 @H5O_msg_remove(ptr noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5O__msg_remove_real(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5O__msg_remove_real(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = alloca %struct.H5O_iter_rm_t, align 8
   %9 = alloca %struct.H5O_mesg_operator_t, align 8
   %10 = zext i1 %6 to i8

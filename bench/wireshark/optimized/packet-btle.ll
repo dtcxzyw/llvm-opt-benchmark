@@ -1676,7 +1676,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef i32 @dissect_btle(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address) %3) #0 {
+define internal noundef i32 @dissect_btle(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -4354,7 +4354,7 @@ proto_item_set_hidden.exit:                       ; preds = %adv_pdu_type_str_ge
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_btle_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @dissect_btle_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4

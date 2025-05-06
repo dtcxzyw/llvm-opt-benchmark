@@ -2281,7 +2281,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_fchown(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @finish_open(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) #0 align 16 {
+define dso_local i32 @finish_open(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 524288

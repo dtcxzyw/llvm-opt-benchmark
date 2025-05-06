@@ -933,7 +933,7 @@ declare i32 @EC_POINT_is_at_infinity(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @EC_POINT_is_on_curve(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ec_key_public_check(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_key_public_check(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = tail call ptr @EC_GROUP_get0_cofactor(ptr noundef %4) #7
@@ -1120,7 +1120,7 @@ define range(i32 0, 2) i32 @ossl_ec_key_pairwise_check(ptr noundef readonly capt
 declare i32 @EC_POINT_cmp(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ec_key_simple_check_key(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_key_simple_check_key(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 

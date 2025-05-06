@@ -770,7 +770,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_btl2cap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #1 {
+define internal i32 @dissect_btl2cap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [8 x %struct._wmem_tree_key_t], align 16
@@ -1708,7 +1708,7 @@ dissect_configrequest.exit:                       ; preds = %.thread67.i, %377
   br label %dissect_comrej.exit
 
 576:                                              ; preds = %271
-  %577 = call fastcc range(i32 -2147483636, 65551) i32 @dissect_connresponse(ptr noundef %0, i32 noundef range(i32 -2147483644, 65543) %289, ptr noundef readonly %1, ptr noundef %275, ptr noundef %3)
+  %577 = call fastcc range(i32 -2147483636, 65551) i32 @dissect_connresponse(ptr noundef %0, i32 noundef range(i32 -2147483644, 65543) %289, ptr noundef readonly %1, ptr noundef %275, ptr noundef readonly %3)
   br label %dissect_comrej.exit
 
 578:                                              ; preds = %271

@@ -424,7 +424,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #2
 declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @arkResizeVectors(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @arkResizeVectors(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !52
   %.not.i = icmp eq ptr %8, null
@@ -3930,7 +3930,7 @@ define i32 @arkCompleteStep(ptr noundef initializes((752, 760)) %0, double nound
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -99, -2) i32 @arkHandleFailure(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -99, -2) i32 @arkHandleFailure(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   switch i32 %1, label %73 [
     i32 -3, label %3
     i32 -4, label %8
@@ -6011,7 +6011,7 @@ define i32 @arkPredict_CutoffOrder(ptr noundef %0, double noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -28, 1) i32 @arkPredict_Bootstrap(ptr noundef captures(address_is_null) %0, double noundef %1, double noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define range(i32 -28, 1) i32 @arkPredict_Bootstrap(ptr noundef readonly captures(address_is_null) %0, double noundef %1, double noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = icmp eq ptr %0, null
   br i1 %8, label %9, label %10
 

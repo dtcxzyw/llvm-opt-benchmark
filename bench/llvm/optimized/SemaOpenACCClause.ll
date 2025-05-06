@@ -16118,7 +16118,7 @@ _ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit: ; preds = %257, %260, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang11SemaOpenACC13CheckGangExprEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS_20OpenACCDirectiveKindENS_15OpenACCGangKindEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr captures(address) %1, i64 %2, i8 noundef zeroext %3, i8 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang11SemaOpenACC13CheckGangExprEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS_20OpenACCDirectiveKindENS_15OpenACCGangKindEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr readonly captures(address) %1, i64 %2, i8 noundef zeroext %3, i8 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
   switch i8 %3, label %49 [
     i8 9, label %7
     i8 10, label %11

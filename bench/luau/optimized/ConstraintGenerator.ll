@@ -10310,7 +10310,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 declare noundef zeroext i1 @_ZN4Luau29containsSubscriptedDefinitionENS_7NotNullIKNS_3DefEEE(ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau19ConstraintGenerator16applyRefinementsERKSt10shared_ptrINS_5ScopeEENS_8LocationEPNS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 %2, i64 %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau19ConstraintGenerator16applyRefinementsERKSt10shared_ptrINS_5ScopeEENS_8LocationEPNS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 %2, i64 %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.Luau::(anonymous namespace)::FindSimplificationBlockers", align 8
   %7 = alloca %"struct.Luau::(anonymous namespace)::FindSimplificationBlockers", align 8
   %8 = alloca %"struct.Luau::Location", align 8

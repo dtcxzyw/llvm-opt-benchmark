@@ -1665,13 +1665,13 @@ _brush_falloff_roi.exit:                          ; preds = %258, %189, %167, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_brush_get_area(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6) #1 {
+define internal range(i32 0, 2) i32 @_brush_get_area(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6) #1 {
   %8 = tail call fastcc i32 @_get_area(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef 0)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_brush_get_source_area(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6) #1 {
+define internal range(i32 0, 2) i32 @_brush_get_source_area(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6) #1 {
   %8 = tail call fastcc i32 @_get_area(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef 1)
   ret i32 %8
 }

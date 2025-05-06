@@ -196,7 +196,7 @@ ExtractSetVariableArgs.exit:                      ; preds = %18, %22, %26
   %64 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %63) #7
   %65 = load i8, ptr %3, align 1, !range !4, !noundef !5
   %66 = zext nneg i8 %65 to i32
-  %67 = tail call fastcc ptr @flatten_set_variable_args(ptr noundef nonnull %.str.6.sink97, ptr noundef %64)
+  %67 = tail call fastcc ptr @flatten_set_variable_args(ptr noundef nonnull %.str.6.sink97, ptr noundef readonly %64)
   %68 = tail call zeroext i1 @superuser() #7
   %69 = select i1 %68, i32 5, i32 6
   %70 = tail call i32 @set_config_option(ptr noundef nonnull %.str.6.sink97, ptr noundef %67, i32 noundef %69, i32 noundef 13, i32 noundef %66, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false) #7
@@ -261,7 +261,7 @@ ExtractSetVariableArgs.exit:                      ; preds = %18, %22, %26
   %105 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %104) #7
   %106 = load i8, ptr %3, align 1, !range !4, !noundef !5
   %107 = zext nneg i8 %106 to i32
-  %108 = tail call fastcc ptr @flatten_set_variable_args(ptr noundef nonnull %.str.11.sink103, ptr noundef %105)
+  %108 = tail call fastcc ptr @flatten_set_variable_args(ptr noundef nonnull %.str.11.sink103, ptr noundef readonly %105)
   %109 = tail call zeroext i1 @superuser() #7
   %110 = select i1 %109, i32 5, i32 6
   %111 = tail call i32 @set_config_option(ptr noundef nonnull %.str.11.sink103, ptr noundef %108, i32 noundef %110, i32 noundef 13, i32 noundef %107, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false) #7
@@ -401,7 +401,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SetPGVariable(ptr noundef %0, ptr noundef captures(address_is_null) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local void @SetPGVariable(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @flatten_set_variable_args(ptr noundef %0, ptr noundef %1)
   %5 = tail call zeroext i1 @superuser() #7
   %6 = select i1 %5, i32 5, i32 6

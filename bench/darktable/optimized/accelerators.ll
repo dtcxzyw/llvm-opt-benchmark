@@ -5099,7 +5099,7 @@ declare i32 @dt_ui_panel_ancestor(ptr noundef, i32 noundef, ptr noundef) local_u
 declare ptr @dt_ui_get_container(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_add_actions_to_tree(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_add_actions_to_tree(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca %struct._GtkTreeIter, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
   %.not33 = icmp eq ptr %1, null

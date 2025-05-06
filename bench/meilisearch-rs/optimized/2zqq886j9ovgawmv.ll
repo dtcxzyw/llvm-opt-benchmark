@@ -10586,7 +10586,7 @@ _ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h0f521473f7b3f025E.exit: 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17heda922b95f5a6141E(ptr dead_on_unwind noalias noundef writable writeonly sret([440 x i8]) align 8 captures(none) dereferenceable(440) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noundef nonnull captures(address) %2, ptr noundef captures(address) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17heda922b95f5a6141E(ptr dead_on_unwind noalias noundef writable writeonly sret([440 x i8]) align 8 captures(none) dereferenceable(440) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noundef nonnull readonly captures(address) %2, ptr noundef readnone captures(address) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
@@ -10801,7 +10801,7 @@ define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17heda922b
 95:                                               ; preds = %92
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !1494
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !1494
-  invoke fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17hed0bf7ba9166c934E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull align 16 dereferenceable(960) %17, ptr noundef nonnull %2, ptr noundef %3)
+  invoke fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17hed0bf7ba9166c934E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull align 16 dereferenceable(960) %17, ptr noundef nonnull readonly %2, ptr noundef readnone %3)
           to label %97 unwind label %30, !noalias !1478
 
 96:                                               ; preds = %92

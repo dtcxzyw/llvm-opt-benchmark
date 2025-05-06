@@ -1894,7 +1894,7 @@ define dso_local void @_ZNK5clang6driver11Compilation11ExecuteJobsERKNS0_7JobLis
   %15 = load ptr, ptr %.sroa.013.021, align 8, !tbaa !155
   %16 = getelementptr i8, ptr %15, i64 8
   %.val = load ptr, ptr %16, align 8, !tbaa !244
-  %17 = tail call fastcc noundef zeroext i1 @_ZL12ActionFailedPKN5clang6driver6ActionERKN4llvm15SmallVectorImplISt4pairIiPKNS0_7CommandEEEE(ptr noundef nonnull %.val, ptr noundef nonnull readonly align 8 dereferenceable(16) %2)
+  %17 = tail call fastcc noundef zeroext i1 @_ZL12ActionFailedPKN5clang6driver6ActionERKN4llvm15SmallVectorImplISt4pairIiPKNS0_7CommandEEEE(ptr noundef nonnull readonly %.val, ptr noundef nonnull readonly align 8 dereferenceable(16) %2)
   br i1 %17, label %.thread, label %18
 
 18:                                               ; preds = %14

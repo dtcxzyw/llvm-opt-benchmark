@@ -856,7 +856,7 @@ bn_x2bn.exit:                                     ; preds = %2, %4, %17, %24, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @BN_asc2bn(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_asc2bn(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = load i8, ptr %1, align 1, !tbaa !14
   %4 = icmp eq i8 %3, 45
   %spec.select.idx = zext i1 %4 to i64

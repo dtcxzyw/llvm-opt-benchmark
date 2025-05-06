@@ -2076,7 +2076,7 @@ netlbl_domhsh_remove.exit:                        ; preds = %.loopexit10.i, %13,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local ptr @netlbl_domhsh_getentry(ptr noundef captures(address_is_null) %0, i16 noundef zeroext %1) local_unnamed_addr #3 align 16 {
+define dso_local ptr @netlbl_domhsh_getentry(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1) local_unnamed_addr #3 align 16 {
   %3 = icmp eq i16 %1, 0
   br i1 %3, label %6, label %4
 
@@ -2090,7 +2090,7 @@ define dso_local ptr @netlbl_domhsh_getentry(ptr noundef captures(address_is_nul
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @netlbl_domhsh_getentry_af4(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local ptr @netlbl_domhsh_getentry_af4(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = tail call fastcc ptr @netlbl_domhsh_search_def(ptr noundef %0, i16 noundef zeroext 2)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %16, label %5
@@ -2119,7 +2119,7 @@ define dso_local ptr @netlbl_domhsh_getentry_af4(ptr noundef captures(address_is
 declare dso_local ptr @netlbl_af4list_search(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @netlbl_domhsh_getentry_af6(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local ptr @netlbl_domhsh_getentry_af6(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = tail call fastcc ptr @netlbl_domhsh_search_def(ptr noundef %0, i16 noundef zeroext 10)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %17, label %5

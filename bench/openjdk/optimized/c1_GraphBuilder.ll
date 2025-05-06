@@ -2236,11 +2236,11 @@ _ZNK16ciBytecodeStream8get_destEv.exit101:        ; preds = %477, %481
   br i1 %502, label %503, label %505
 
 503:                                              ; preds = %_ZNK16ciBytecodeStream8get_destEv.exit101
-  %504 = call noundef ptr @_ZN16BlockListBuilder13make_block_atEiP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(140) %0, i32 noundef %496, ptr noundef %.1)
+  %504 = call noundef ptr @_ZN16BlockListBuilder13make_block_atEiP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(140) %0, i32 noundef %496, ptr noundef readonly %.1)
   br label %505
 
 505:                                              ; preds = %503, %_ZNK16ciBytecodeStream8get_destEv.exit101
-  %506 = call noundef ptr @_ZN16BlockListBuilder13make_block_atEiP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(140) %0, i32 noundef %491, ptr noundef %.1)
+  %506 = call noundef ptr @_ZN16BlockListBuilder13make_block_atEiP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(140) %0, i32 noundef %491, ptr noundef readonly %.1)
   %507 = getelementptr inbounds nuw i8, ptr %506, i64 132
   %508 = load i32, ptr %507, align 4
   %509 = and i32 %508, 8
@@ -2288,11 +2288,11 @@ _ZNK16ciBytecodeStream12get_far_destEv.exit105:   ; preds = %512, %516
   br i1 %536, label %537, label %539
 
 537:                                              ; preds = %_ZNK16ciBytecodeStream12get_far_destEv.exit105
-  %538 = call noundef ptr @_ZN16BlockListBuilder13make_block_atEiP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(140) %0, i32 noundef %530, ptr noundef %.1)
+  %538 = call noundef ptr @_ZN16BlockListBuilder13make_block_atEiP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(140) %0, i32 noundef %530, ptr noundef readonly %.1)
   br label %539
 
 539:                                              ; preds = %537, %_ZNK16ciBytecodeStream12get_far_destEv.exit105
-  %540 = call noundef ptr @_ZN16BlockListBuilder13make_block_atEiP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(140) %0, i32 noundef %525, ptr noundef %.1)
+  %540 = call noundef ptr @_ZN16BlockListBuilder13make_block_atEiP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(140) %0, i32 noundef %525, ptr noundef readonly %.1)
   %541 = getelementptr inbounds nuw i8, ptr %540, i64 132
   %542 = load i32, ptr %541, align 4
   %543 = and i32 %542, 8
@@ -3078,7 +3078,7 @@ _ZN16BlockListBuilder12is_successorEP10BlockBeginS1_.exit._crit_edge: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16BlockListBuilder10handle_jsrEP10BlockBeginii(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16BlockListBuilder10handle_jsrEP10BlockBeginii(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24

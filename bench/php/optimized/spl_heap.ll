@@ -373,7 +373,7 @@ spl_heap_elem_copy.exit32:                        ; preds = %66, %67
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplHeap_extract(ptr noundef %0, ptr noundef captures(address_is_null) %1) #0 {
+define hidden void @zim_SplHeap_extract(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !4

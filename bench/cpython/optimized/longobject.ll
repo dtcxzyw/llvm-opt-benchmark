@@ -4043,7 +4043,7 @@ Py_DECREF.exit:                                   ; preds = %53, %50, %48, %47, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @_PyLong_UnsignedShort_Converter(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_PyLong_UnsignedShort_Converter(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %3, align 8, !tbaa !26
   %4 = getelementptr i8, ptr %.val, i64 168
@@ -4094,7 +4094,7 @@ define dso_local range(i32 0, 2) i32 @_PyLong_UnsignedShort_Converter(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @_PyLong_UnsignedInt_Converter(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_PyLong_UnsignedInt_Converter(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %3, align 8, !tbaa !26
   %4 = getelementptr i8, ptr %.val, i64 168
@@ -4145,7 +4145,7 @@ define dso_local range(i32 0, 2) i32 @_PyLong_UnsignedInt_Converter(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @_PyLong_UnsignedLong_Converter(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_PyLong_UnsignedLong_Converter(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %3, align 8, !tbaa !26
   %4 = getelementptr i8, ptr %.val, i64 168
@@ -4263,7 +4263,7 @@ PyLong_AsUnsignedLongLong.exit:                   ; preds = %24, %.critedge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @_PyLong_Size_t_Converter(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_PyLong_Size_t_Converter(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %3, align 8, !tbaa !26
   %4 = getelementptr i8, ptr %.val, i64 168
@@ -7519,13 +7519,13 @@ x_add.exit60:                                     ; preds = %31, %.sink.split.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_PyLong_Multiply(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @_PyLong_Multiply(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @long_mul(ptr noundef %0, ptr noundef %1)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @long_mul(ptr noundef captures(address) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @long_mul(ptr noundef readonly captures(address) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 16
   %.val15 = load i64, ptr %3, align 8, !tbaa !30
   %4 = getelementptr i8, ptr %1, i64 16
@@ -11811,7 +11811,7 @@ long_normalize.exit:                              ; preds = %.critedge.i, %.crit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @k_mul(ptr noundef captures(address) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @k_mul(ptr noundef readonly captures(address) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -13814,7 +13814,7 @@ define internal ptr @long_sub_method(ptr noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @long_mul_method(ptr noundef captures(address) %0, ptr noundef %1) #0 {
+define internal ptr @long_mul_method(ptr noundef readonly captures(address) %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val6 = load ptr, ptr %3, align 8, !tbaa !26
   %4 = getelementptr i8, ptr %.val6, i64 168
@@ -15829,7 +15829,7 @@ define internal ptr @long_or(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @long_float(ptr noundef captures(address_is_null) %0) #0 {
+define internal ptr @long_float(ptr noundef readonly captures(address_is_null) %0) #0 {
   %2 = tail call double @PyLong_AsDouble(ptr noundef %0)
   %3 = fcmp oeq double %2, -1.000000e+00
   br i1 %3, label %4, label %6

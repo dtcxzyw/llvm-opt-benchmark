@@ -1675,7 +1675,7 @@ cpuiddump_find_by_input.exit:                     ; preds = %._crit_edge.i, %.cr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @look_proc(ptr noundef captures(none) %0, ptr noundef nonnull captures(none) initializes((0, 4)) %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3, ptr noundef nonnull readonly captures(none) %4, i32 noundef range(i32 0, 5) %5, ptr noundef captures(address_is_null) %6) unnamed_addr #0 {
+define internal fastcc void @look_proc(ptr noundef captures(none) %0, ptr noundef nonnull captures(none) initializes((0, 4)) %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3, ptr noundef nonnull readonly captures(none) %4, i32 noundef range(i32 0, 5) %5, ptr noundef readonly captures(address_is_null) %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4

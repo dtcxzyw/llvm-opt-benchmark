@@ -3624,13 +3624,13 @@ define dso_local range(i32 -4, 1) i32 @schedule_hrtimeout_range_clock(ptr nounde
 declare dso_local void @schedule() local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -4, 1) i32 @schedule_hrtimeout_range(ptr noundef captures(address_is_null) %0, i64 noundef %1, i32 noundef %2) #5 section ".sched.text" align 16 {
+define dso_local range(i32 -4, 1) i32 @schedule_hrtimeout_range(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, i32 noundef %2) #5 section ".sched.text" align 16 {
   %4 = tail call i32 @schedule_hrtimeout_range_clock(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef 1), !range !107
   ret i32 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -4, 1) i32 @schedule_hrtimeout(ptr noundef captures(address_is_null) %0, i32 noundef %1) #5 section ".sched.text" align 16 {
+define dso_local range(i32 -4, 1) i32 @schedule_hrtimeout(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #5 section ".sched.text" align 16 {
   %3 = tail call i32 @schedule_hrtimeout_range_clock(ptr noundef %0, i64 noundef 0, i32 noundef %1, i32 noundef 1), !range !107
   ret i32 %3
 }

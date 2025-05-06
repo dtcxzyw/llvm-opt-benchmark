@@ -249,7 +249,7 @@ declare i64 @je_malloc_usable_size(ptr noundef) local_unnamed_addr #5
 declare ptr @zrealloc_usable(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @lpNextWithBytes(ptr noundef captures(address) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
+define dso_local noundef ptr @lpNextWithBytes(ptr noundef readnone captures(address) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %6, !prof !12
@@ -352,7 +352,7 @@ lpSkip.exit:                                      ; preds = %switch.lookup, %6, 
 50:                                               ; preds = %lpSkip.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %47, ptr %4, align 8, !tbaa !13
-  %51 = call i32 @lpValidateNext(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %2)
+  %51 = call i32 @lpValidateNext(ptr noundef readnone %0, ptr noundef nonnull %4, i64 noundef %2)
   %.not.i = icmp eq i32 %51, 0
   br i1 %.not.i, label %52, label %lpAssertValidEntry.exit, !prof !12
 
@@ -376,7 +376,7 @@ declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 declare void @abort() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @lpNext(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #3 {
+define dso_local noundef ptr @lpNext(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %5, !prof !12
@@ -481,7 +481,7 @@ lpSkip.exit:                                      ; preds = %switch.lookup, %5, 
   %51 = zext i32 %50 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %46, ptr %3, align 8, !tbaa !13
-  %52 = call i32 @lpValidateNext(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %51)
+  %52 = call i32 @lpValidateNext(ptr noundef nonnull readnone %0, ptr noundef nonnull %3, i64 noundef %51)
   %.not.i = icmp eq i32 %52, 0
   br i1 %.not.i, label %53, label %lpAssertValidEntry.exit, !prof !12
 
@@ -569,7 +569,7 @@ lpEncodeBacklenBytes.exit:                        ; preds = %15, %23, %lpDecodeB
   %27 = zext i32 %26 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %25, ptr %3, align 8, !tbaa !13
-  %28 = call i32 @lpValidateNext(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %27)
+  %28 = call i32 @lpValidateNext(ptr noundef nonnull readnone %0, ptr noundef nonnull %3, i64 noundef %27)
   %.not.i15 = icmp eq i32 %28, 0
   br i1 %.not.i15, label %29, label %lpAssertValidEntry.exit, !prof !12
 
@@ -600,7 +600,7 @@ define dso_local noundef ptr @lpFirst(ptr noundef %0) local_unnamed_addr #3 {
   %8 = zext i32 %7 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %3, ptr %2, align 8, !tbaa !13
-  %9 = call i32 @lpValidateNext(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef %8)
+  %9 = call i32 @lpValidateNext(ptr noundef nonnull readnone %0, ptr noundef nonnull %2, i64 noundef %8)
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %10, label %lpAssertValidEntry.exit, !prof !12
 
@@ -691,7 +691,7 @@ lpEncodeBacklenBytes.exit.i:                      ; preds = %31, %39, %37, %35, 
   %43 = zext i32 %42 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %41, ptr %2, align 8, !tbaa !13
-  %44 = call i32 @lpValidateNext(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef %43)
+  %44 = call i32 @lpValidateNext(ptr noundef nonnull readnone %0, ptr noundef nonnull %2, i64 noundef %43)
   %.not.i15.i = icmp eq i32 %44, 0
   br i1 %.not.i15.i, label %45, label %lpAssertValidEntry.exit.i, !prof !12
 
@@ -734,7 +734,7 @@ define dso_local range(i64 0, 4294967296) i64 @lpLength(ptr noundef %0) local_un
   %17 = zext i32 %16 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %12, ptr %2, align 8, !tbaa !13
-  %18 = call i32 @lpValidateNext(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef %17)
+  %18 = call i32 @lpValidateNext(ptr noundef nonnull readnone %0, ptr noundef nonnull %2, i64 noundef %17)
   %.not.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i, label %19, label %.lr.ph.preheader, !prof !12
 
@@ -983,7 +983,7 @@ define internal fastcc ptr @lpFindCbInternal(ptr noundef %0, ptr noundef %1, ptr
 14:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %11, ptr %7, align 8, !tbaa !13
-  %15 = call i32 @lpValidateNext(ptr noundef nonnull %0, ptr noundef nonnull %7, i64 noundef %9)
+  %15 = call i32 @lpValidateNext(ptr noundef nonnull readnone %0, ptr noundef nonnull %7, i64 noundef %9)
   %.not.i.i = icmp eq i32 %15, 0
   br i1 %.not.i.i, label %16, label %lpAssertValidEntry.exit.i, !prof !12
 
@@ -1284,7 +1284,7 @@ lpSkip.exit:                                      ; preds = %switch.lookup, %118
 163:                                              ; preds = %161
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %.2, ptr %6, align 8, !tbaa !13
-  %164 = call i32 @lpValidateNext(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %9)
+  %164 = call i32 @lpValidateNext(ptr noundef nonnull readnone %0, ptr noundef nonnull %6, i64 noundef %9)
   %.not.i45 = icmp eq i32 %164, 0
   br i1 %.not.i45, label %165, label %lpAssertValidEntry.exit, !prof !12
 
@@ -3134,13 +3134,13 @@ lpEncodeString.exit:                              ; preds = %381, %386, %392
 declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @lpInsertString(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #3 {
+define dso_local ptr @lpInsertString(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #3 {
   %7 = tail call ptr @lpInsert(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5)
   ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @lpInsertInteger(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #3 {
+define dso_local ptr @lpInsertInteger(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #3 {
   %6 = alloca [9 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %6) #20
   %or.cond.i = icmp ult i64 %1, 128
@@ -3258,7 +3258,7 @@ lpEncodeIntegerGetType.exit:                      ; preds = %7, %11, %21, %32, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @lpPrepend(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #3 {
+define dso_local ptr @lpPrepend(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %6 = load i8, ptr %5, align 1, !tbaa !5
@@ -3270,7 +3270,7 @@ define dso_local ptr @lpPrepend(ptr noundef %0, ptr noundef captures(address_is_
   %10 = zext i32 %9 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !13
-  %11 = call i32 @lpValidateNext(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef %10)
+  %11 = call i32 @lpValidateNext(ptr noundef nonnull readnone %0, ptr noundef nonnull %4, i64 noundef %10)
   %.not.i.i = icmp eq i32 %11, 0
   br i1 %.not.i.i, label %12, label %33, !prof !12
 
@@ -3312,7 +3312,7 @@ define dso_local ptr @lpPrepend(ptr noundef %0, ptr noundef captures(address_is_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @lpAppend(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #3 {
+define dso_local ptr @lpAppend(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = load i8, ptr %0, align 1, !tbaa !5
   %5 = zext i8 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -3349,7 +3349,7 @@ define dso_local ptr @lpPrependInteger(ptr noundef %0, i64 noundef %1) local_unn
   %9 = zext i32 %8 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %4, ptr %3, align 8, !tbaa !13
-  %10 = call i32 @lpValidateNext(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %9)
+  %10 = call i32 @lpValidateNext(ptr noundef nonnull readnone %0, ptr noundef nonnull %3, i64 noundef %9)
   %.not.i.i = icmp eq i32 %10, 0
   br i1 %.not.i.i, label %11, label %32, !prof !12
 
@@ -3416,7 +3416,7 @@ define dso_local ptr @lpAppendInteger(ptr noundef %0, i64 noundef %1) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @lpBatchAppend(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #3 {
+define dso_local ptr @lpBatchAppend(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = load i8, ptr %0, align 1, !tbaa !5
   %5 = zext i8 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -3442,7 +3442,7 @@ define dso_local ptr @lpBatchAppend(ptr noundef %0, ptr noundef captures(address
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @lpReplace(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #3 {
+define dso_local ptr @lpReplace(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = load ptr, ptr %1, align 8, !tbaa !13
   %6 = tail call ptr @lpInsert(ptr noundef %0, ptr noundef %2, ptr noundef null, i32 noundef %3, ptr noundef %5, i32 noundef 2, ptr noundef nonnull %1)
   ret ptr %6
@@ -3456,7 +3456,7 @@ define dso_local ptr @lpReplaceInteger(ptr noundef %0, ptr noundef captures(addr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @lpDelete(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 {
+define dso_local ptr @lpDelete(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = tail call ptr @lpInsert(ptr noundef %0, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef %1, i32 noundef 2, ptr noundef %2)
   ret ptr %4
 }
@@ -3570,7 +3570,7 @@ lpSkip.exit:                                      ; preds = %switch.lookup, %.pr
 56:                                               ; preds = %lpSkip.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %53, ptr %4, align 8, !tbaa !13
-  %57 = call i32 @lpValidateNext(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef %6)
+  %57 = call i32 @lpValidateNext(ptr noundef nonnull readnone %0, ptr noundef nonnull %4, i64 noundef %6)
   %.not.i = icmp eq i32 %57, 0
   br i1 %.not.i, label %58, label %lpAssertValidEntry.exit, !prof !12
 
@@ -3786,7 +3786,7 @@ define dso_local ptr @lpSeek(ptr noundef %0, i64 noundef %1) local_unnamed_addr 
   %29 = zext i32 %28 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %24, ptr %4, align 8, !tbaa !13
-  %30 = call i32 @lpValidateNext(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef %29)
+  %30 = call i32 @lpValidateNext(ptr noundef nonnull readnone %0, ptr noundef nonnull %4, i64 noundef %29)
   %.not.i.i = icmp eq i32 %30, 0
   br i1 %.not.i.i, label %31, label %lpFirst.exit, !prof !12
 
@@ -3875,7 +3875,7 @@ lpEncodeBacklenBytes.exit.i:                      ; preds = %52, %60, %58, %56, 
   %64 = zext i32 %63 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %62, ptr %3, align 8, !tbaa !13
-  %65 = call i32 @lpValidateNext(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %64)
+  %65 = call i32 @lpValidateNext(ptr noundef nonnull readnone %0, ptr noundef nonnull %3, i64 noundef %64)
   %.not.i15.i = icmp eq i32 %65, 0
   br i1 %.not.i15.i, label %66, label %lpPrev.exit, !prof !12
 
@@ -4173,7 +4173,7 @@ define dso_local ptr @lpMerge(ptr noundef captures(address_is_null) %0, ptr noun
 29:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %26, ptr %4, align 8, !tbaa !13
-  %30 = call i32 @lpValidateNext(ptr noundef nonnull %7, ptr noundef nonnull %4, i64 noundef %16)
+  %30 = call i32 @lpValidateNext(ptr noundef nonnull readnone %7, ptr noundef nonnull %4, i64 noundef %16)
   %.not.i.i.i = icmp eq i32 %30, 0
   br i1 %.not.i.i.i, label %31, label %.lr.ph.preheader.i, !prof !12
 
@@ -4233,7 +4233,7 @@ lpLength.exit:                                    ; preds = %14, %._crit_edge.i,
 53:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %50, ptr %3, align 8, !tbaa !13
-  %54 = call i32 @lpValidateNext(ptr noundef nonnull %38, ptr noundef nonnull %3, i64 noundef %40)
+  %54 = call i32 @lpValidateNext(ptr noundef nonnull readnone %38, ptr noundef nonnull %3, i64 noundef %40)
   %.not.i.i.i85 = icmp eq i32 %54, 0
   br i1 %.not.i.i.i85, label %55, label %.lr.ph.preheader.i86, !prof !12
 
@@ -5260,7 +5260,7 @@ define dso_local void @lpRandomEntries(ptr noundef %0, i32 noundef %1, ptr nound
   %24 = zext i32 %23 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %19, ptr %6, align 8, !tbaa !13
-  %25 = call i32 @lpValidateNext(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %24)
+  %25 = call i32 @lpValidateNext(ptr noundef nonnull readnone %0, ptr noundef nonnull %6, i64 noundef %24)
   %.not.i.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i.i, label %26, label %.lr.ph.preheader.i, !prof !12
 
@@ -5321,7 +5321,7 @@ lpLength.exit:                                    ; preds = %3, %._crit_edge.thr
   %39 = zext i32 %38 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %34, ptr %5, align 8, !tbaa !13
-  %40 = call i32 @lpValidateNext(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef %39)
+  %40 = call i32 @lpValidateNext(ptr noundef nonnull readnone %0, ptr noundef nonnull %5, i64 noundef %39)
   %.not.i.i = icmp eq i32 %40, 0
   br i1 %.not.i.i, label %41, label %lpAssertValidEntry.exit.i, !prof !12
 
@@ -5702,7 +5702,7 @@ define dso_local void @lpRandomPairs(ptr noundef %0, i32 noundef %1, ptr noundef
   %27 = zext i32 %26 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %22, ptr %6, align 8, !tbaa !13
-  %28 = call i32 @lpValidateNext(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %27)
+  %28 = call i32 @lpValidateNext(ptr noundef nonnull readnone %0, ptr noundef nonnull %6, i64 noundef %27)
   %.not.i.i.i = icmp eq i32 %28, 0
   br i1 %.not.i.i.i, label %29, label %.lr.ph.preheader.i, !prof !12
 
@@ -6398,7 +6398,7 @@ define dso_local i32 @lpRandomPairsUnique(ptr noundef %0, i32 noundef %1, ptr no
   %26 = zext i32 %25 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %21, ptr %7, align 8, !tbaa !13
-  %27 = call i32 @lpValidateNext(ptr noundef nonnull %0, ptr noundef nonnull %7, i64 noundef %26)
+  %27 = call i32 @lpValidateNext(ptr noundef nonnull readnone %0, ptr noundef nonnull %7, i64 noundef %26)
   %.not.i.i.i = icmp eq i32 %27, 0
   br i1 %.not.i.i.i, label %28, label %.lr.ph.preheader.i, !prof !12
 
@@ -6448,7 +6448,7 @@ lpLength.exit:                                    ; preds = %11, %._crit_edge.i,
   %41 = zext i32 %40 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %36, ptr %6, align 8, !tbaa !13
-  %42 = call i32 @lpValidateNext(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %41)
+  %42 = call i32 @lpValidateNext(ptr noundef nonnull readnone %0, ptr noundef nonnull %6, i64 noundef %41)
   %.not.i.i = icmp eq i32 %42, 0
   br i1 %.not.i.i, label %43, label %lpFirst.exit, !prof !12
 
@@ -6797,7 +6797,7 @@ define dso_local noundef ptr @lpNextRandom(ptr noundef %0, ptr noundef %1, ptr n
   %25 = zext i32 %24 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %20, ptr %6, align 8, !tbaa !13
-  %26 = call i32 @lpValidateNext(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %25)
+  %26 = call i32 @lpValidateNext(ptr noundef nonnull readnone %0, ptr noundef nonnull %6, i64 noundef %25)
   %.not.i.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i.i, label %27, label %.lr.ph.preheader.i, !prof !12
 
@@ -6905,7 +6905,7 @@ define dso_local void @lpRepr(ptr noundef %0) local_unnamed_addr #3 {
 19:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %16, ptr %3, align 8, !tbaa !13
-  %20 = call i32 @lpValidateNext(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %6)
+  %20 = call i32 @lpValidateNext(ptr noundef nonnull readnone %0, ptr noundef nonnull %3, i64 noundef %6)
   %.not.i.i.i = icmp eq i32 %20, 0
   br i1 %.not.i.i.i, label %21, label %.lr.ph.preheader.i, !prof !12
 
@@ -6953,7 +6953,7 @@ lpLength.exit:                                    ; preds = %1, %._crit_edge.i, 
   %34 = zext i32 %33 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %29, ptr %2, align 8, !tbaa !13
-  %35 = call i32 @lpValidateNext(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef %34)
+  %35 = call i32 @lpValidateNext(ptr noundef nonnull readnone %0, ptr noundef nonnull %2, i64 noundef %34)
   %.not.i.i = icmp eq i32 %35, 0
   br i1 %.not.i.i, label %36, label %.lr.ph, !prof !12
 

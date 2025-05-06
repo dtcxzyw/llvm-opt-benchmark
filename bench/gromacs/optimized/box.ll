@@ -839,7 +839,7 @@ declare void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_Impl
 declare float @sqrtf(float noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z12set_ddbox_cr6DDRoleP10tmpi_comm_PKN3gmx11BasicVectorIiEERK10t_inputrecPA3_KfNS2_8ArrayRefIKNS3_IfEEEEP11gmx_ddbox_t(i32 noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef nonnull align 8 dereferenceable(880) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %5, ptr noundef %6) local_unnamed_addr #0 {
+define void @_Z12set_ddbox_cr6DDRoleP10tmpi_comm_PKN3gmx11BasicVectorIiEERK10t_inputrecPA3_KfNS2_8ArrayRefIKNS3_IfEEEEP11gmx_ddbox_t(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull align 8 dereferenceable(880) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = icmp eq i32 %0, 0
   br i1 %8, label %9, label %21
 
@@ -870,7 +870,7 @@ declare noundef i32 @_Z20inputrec2nboundeddimPK10t_inputrec(ptr noundef) local_u
 declare void @_Z9gmx_bcastmPvP10tmpi_comm_(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z9get_ddboxRKN3gmx11BasicVectorIiEERK10t_inputrecPA3_KfNS_8ArrayRefIKNS0_IfEEEE(ptr dead_on_unwind noalias writable sret(%struct.gmx_ddbox_t) align 4 initializes((0, 56)) %0, ptr noundef nonnull align 4 captures(address_is_null) dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(880) %2, ptr noundef readonly captures(none) %3, ptr %4, ptr %5) local_unnamed_addr #0 {
+define void @_Z9get_ddboxRKN3gmx11BasicVectorIiEERK10t_inputrecPA3_KfNS_8ArrayRefIKNS0_IfEEEE(ptr dead_on_unwind noalias writable sret(%struct.gmx_ddbox_t) align 4 initializes((0, 56)) %0, ptr noundef nonnull readonly align 4 captures(address_is_null) dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(880) %2, ptr noundef readonly captures(none) %3, ptr %4, ptr %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 176

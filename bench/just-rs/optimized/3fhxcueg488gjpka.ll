@@ -1181,14 +1181,14 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h16796444bc8cdb0eE(ptr noal
   %.val28.i = load ptr, ptr %54, align 8, !alias.scope !354, !nonnull !17, !align !84, !noundef !17
   %.val29.i = load ptr, ptr %51, align 8, !alias.scope !354
   %.val4.i.i = load ptr, ptr %.val, align 8, !noalias !354, !nonnull !17, !align !84, !noundef !17
-  %55 = invoke fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val4.i.i, ptr nonnull %.val28.i)
+  %55 = invoke fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val4.i.i, ptr nonnull readonly %.val28.i)
           to label %.noexc43 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc43:                                         ; preds = %53
   %.val.i.i = load ptr, ptr %.val, align 8, !noalias !354, !nonnull !17, !align !84, !noundef !17
   %56 = icmp ne ptr %.val29.i, null
   tail call void @llvm.assume(i1 %56)
-  %57 = invoke fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val.i.i, ptr nonnull %.val29.i)
+  %57 = invoke fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val.i.i, ptr nonnull readonly %.val29.i)
           to label %.noexc44 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc44:                                         ; preds = %.noexc43
@@ -1215,12 +1215,12 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h16796444bc8cdb0eE(ptr noal
   %65 = getelementptr inbounds ptr, ptr %51, i64 %.13.i
   %.val31.i = load ptr, ptr %65, align 8, !alias.scope !354, !nonnull !17, !align !84, !noundef !17
   %.val4.i36.i = load ptr, ptr %.val, align 8, !noalias !354, !nonnull !17, !align !84, !noundef !17
-  %66 = invoke fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val4.i36.i, ptr nonnull %.val31.i)
+  %66 = invoke fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val4.i36.i, ptr nonnull readonly %.val31.i)
           to label %.noexc45 unwind label %.loopexit.split-lp.loopexit
 
 .noexc45:                                         ; preds = %.lr.ph.i
   %.val.i37.i = load ptr, ptr %.val, align 8, !noalias !354, !nonnull !17, !align !84, !noundef !17
-  %67 = invoke fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val.i37.i, ptr nonnull %.val32.i)
+  %67 = invoke fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val.i37.i, ptr nonnull readonly %.val32.i)
           to label %.noexc46 unwind label %.loopexit.split-lp.loopexit
 
 .noexc46:                                         ; preds = %.noexc45
@@ -1245,12 +1245,12 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h16796444bc8cdb0eE(ptr noal
   %77 = getelementptr inbounds ptr, ptr %51, i64 %.06.i
   %.val34.i = load ptr, ptr %77, align 8, !alias.scope !354, !nonnull !17, !align !84, !noundef !17
   %.val4.i39.i = load ptr, ptr %.val, align 8, !noalias !354, !nonnull !17, !align !84, !noundef !17
-  %78 = invoke fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val4.i39.i, ptr nonnull %.val34.i)
+  %78 = invoke fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val4.i39.i, ptr nonnull readonly %.val34.i)
           to label %.noexc47 unwind label %.loopexit84
 
 .noexc47:                                         ; preds = %.lr.ph7.i
   %.val.i40.i = load ptr, ptr %.val, align 8, !noalias !354, !nonnull !17, !align !84, !noundef !17
-  %79 = invoke fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val.i40.i, ptr nonnull %.val35.i)
+  %79 = invoke fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val.i40.i, ptr nonnull readonly %.val35.i)
           to label %.noexc48 unwind label %.loopexit84
 
 .noexc48:                                         ; preds = %.noexc47
@@ -1343,7 +1343,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h16796444bc8cdb0eE(ptr noal
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hfd96a2b4f356b8f9E.exit.i": ; preds = %97
   %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 range(i64 0, 10) %.sroa.0.0.i77, i64 1)
   %103 = sub i64 %.0.sroa.speculated.i.i, %.0135
-  invoke fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h51260b060883f41bE(ptr noalias noundef nonnull align 8 %51, i64 noundef %103, i64 noundef %.0.sroa.speculated.i13.i, ptr %.val)
+  invoke fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h51260b060883f41bE(ptr noalias noundef nonnull align 8 %51, i64 noundef %103, i64 noundef %.0.sroa.speculated.i13.i, ptr readonly %.val)
           to label %_ZN4core5slice4sort20provide_sorted_batch17hd6956dd5a1d7ed18E.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .loopexit85:                                      ; preds = %.noexc48, %87, %.preheader.i
@@ -1602,14 +1602,14 @@ _ZN4core5slice4sort20provide_sorted_batch17hd6956dd5a1d7ed18E.exit: ; preds = %.
   %.val35.i67 = load ptr, ptr %207, align 8, !noalias !378, !nonnull !17, !align !84, !noundef !17
   %.val36.i = load ptr, ptr %208, align 8, !alias.scope !378
   %.val4.i.i68 = load ptr, ptr %.val, align 8, !noalias !378, !nonnull !17, !align !84, !noundef !17
-  %209 = invoke fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val4.i.i68, ptr nonnull %.val35.i67)
+  %209 = invoke fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val4.i.i68, ptr nonnull readonly %.val35.i67)
           to label %.noexc.i unwind label %.loopexit15.i
 
 .noexc.i:                                         ; preds = %206
   %.val.i.i69 = load ptr, ptr %.val, align 8, !noalias !378, !nonnull !17, !align !84, !noundef !17
   %210 = icmp ne ptr %.val36.i, null
   tail call void @llvm.assume(i1 %210)
-  %211 = invoke fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val.i.i69, ptr nonnull %.val36.i)
+  %211 = invoke fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val.i.i69, ptr nonnull readonly %.val36.i)
           to label %212 unwind label %.loopexit15.i
 
 212:                                              ; preds = %.noexc.i
@@ -1642,14 +1642,14 @@ _ZN4core5slice4sort20provide_sorted_batch17hd6956dd5a1d7ed18E.exit: ; preds = %.
   %.028.val.i = load ptr, ptr %.02824.i, align 8, !alias.scope !378, !nonnull !17, !align !84, !noundef !17
   %.val38.i = load ptr, ptr %.sroa.0.223.i, align 8, !noalias !378
   %.val4.i40.i = load ptr, ptr %.val, align 8, !noalias !378, !nonnull !17, !align !84, !noundef !17
-  %228 = invoke fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val4.i40.i, ptr nonnull %.028.val.i)
+  %228 = invoke fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val4.i40.i, ptr nonnull readonly %.028.val.i)
           to label %.noexc43.i unwind label %.loopexit.split-lp.i
 
 .noexc43.i:                                       ; preds = %227
   %.val.i41.i = load ptr, ptr %.val, align 8, !noalias !378, !nonnull !17, !align !84, !noundef !17
   %229 = icmp ne ptr %.val38.i, null
   tail call void @llvm.assume(i1 %229)
-  %230 = invoke fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val.i41.i, ptr nonnull %.val38.i)
+  %230 = invoke fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val.i41.i, ptr nonnull readonly %.val38.i)
           to label %231 unwind label %.loopexit.split-lp.i
 
 231:                                              ; preds = %.noexc43.i
@@ -7101,13 +7101,13 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h51
   %.val10.i = load ptr, ptr %9, align 8, !alias.scope !1033, !nonnull !17, !align !84, !noundef !17
   %.val11.i = load ptr, ptr %10, align 8, !alias.scope !1033
   %.val4.i.i = load ptr, ptr %.0.val, align 8, !noalias !1033, !nonnull !17, !align !84, !noundef !17
-  %11 = tail call fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val4.i.i, ptr nonnull %.val10.i), !noalias !1033
+  %11 = tail call fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val4.i.i, ptr nonnull readonly %.val10.i), !noalias !1033
   %12 = extractvalue { i64, i64 } %11, 0
   %13 = extractvalue { i64, i64 } %11, 1
   %.val.i.i = load ptr, ptr %.0.val, align 8, !noalias !1033, !nonnull !17, !align !84, !noundef !17
   %14 = icmp ne ptr %.val11.i, null
   tail call void @llvm.assume(i1 %14)
-  %15 = tail call fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val.i.i, ptr nonnull %.val11.i), !noalias !1033
+  %15 = tail call fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val.i.i, ptr nonnull readonly %.val11.i), !noalias !1033
   %16 = extractvalue { i64, i64 } %15, 0
   %17 = extractvalue { i64, i64 } %15, 1
   %18 = icmp eq i64 %12, %16
@@ -7137,14 +7137,14 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h51
   %.val14.i = load ptr, ptr %26, align 8, !alias.scope !1033
   %.val4.i19.i = load ptr, ptr %.0.val, align 8, !noalias !1033, !nonnull !17, !align !84, !noundef !17
   %27 = ptrtoint ptr %.val14.i to i64
-  %28 = invoke fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val4.i19.i, ptr nonnull %.val10.i)
+  %28 = invoke fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val4.i19.i, ptr nonnull readonly %.val10.i)
           to label %.noexc.i unwind label %40, !noalias !1033
 
 .noexc.i:                                         ; preds = %.lr.ph.i
   %.val.i20.i = load ptr, ptr %.0.val, align 8, !noalias !1033, !nonnull !17, !align !84, !noundef !17
   %29 = icmp ne ptr %.val14.i, null
   tail call void @llvm.assume(i1 %29)
-  %30 = invoke fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val.i20.i, ptr nonnull %.val14.i)
+  %30 = invoke fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$17h63b001acad595682E"(ptr nonnull %.val.i20.i, ptr nonnull readonly %.val14.i)
           to label %31 unwind label %40, !noalias !1033
 
 31:                                               ; preds = %.noexc.i

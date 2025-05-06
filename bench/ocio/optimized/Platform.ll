@@ -298,7 +298,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev8Platform8UnsetenvEPKc(ptr noundef r
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev20IsEnvVariablePresentEPKc(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev20IsEnvVariablePresentEPKc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev8Platform12isEnvPresentEPKc(ptr noundef %0)
   ret i1 %2
 }

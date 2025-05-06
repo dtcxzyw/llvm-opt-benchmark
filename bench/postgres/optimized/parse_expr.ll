@@ -3930,7 +3930,7 @@ define internal fastcc noundef ptr @transformJsonObjectConstructor(ptr noundef %
   %.0 = phi ptr [ null, %2 ], [ null, %.preheader ], [ %19, %8 ]
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call fastcc ptr @transformJsonOutput(ptr noundef %0, ptr noundef %23, i1 noundef zeroext true)
+  %24 = tail call fastcc ptr @transformJsonOutput(ptr noundef %0, ptr noundef readonly %23, i1 noundef zeroext true)
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8
   %.not.i = icmp eq i32 %26, 0
@@ -4023,7 +4023,7 @@ define internal fastcc noundef ptr @transformJsonArrayConstructor(ptr noundef %0
   %.0 = phi ptr [ null, %2 ], [ null, %.preheader ], [ %13, %8 ]
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call fastcc ptr @transformJsonOutput(ptr noundef %0, ptr noundef %17, i1 noundef zeroext true)
+  %18 = tail call fastcc ptr @transformJsonOutput(ptr noundef %0, ptr noundef readonly %17, i1 noundef zeroext true)
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i32, ptr %19, align 8
   %.not.i = icmp eq i32 %20, 0
@@ -4211,7 +4211,7 @@ define internal fastcc noundef ptr @transformJsonObjectAgg(ptr noundef %0, ptr n
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call fastcc ptr @transformJsonOutput(ptr noundef %0, ptr noundef %16, i1 noundef zeroext true)
+  %17 = tail call fastcc ptr @transformJsonOutput(ptr noundef %0, ptr noundef readonly %16, i1 noundef zeroext true)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i32, ptr %18, align 8
   %.not.i = icmp eq i32 %19, 0
@@ -4311,7 +4311,7 @@ define internal fastcc noundef ptr @transformJsonArrayAgg(ptr noundef %0, ptr no
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %5) #9
-  %11 = tail call fastcc ptr @transformJsonOutput(ptr noundef %0, ptr noundef %9, i1 noundef zeroext true)
+  %11 = tail call fastcc ptr @transformJsonOutput(ptr noundef %0, ptr noundef readonly %9, i1 noundef zeroext true)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 8
   %.not.i = icmp eq i32 %13, 0
@@ -5959,7 +5959,7 @@ define internal fastcc ptr @transformJsonValueExpr(ptr noundef %0, ptr noundef %
   br i1 %or.cond14, label %64, label %69
 
 64:                                               ; preds = %61
-  %65 = call fastcc ptr @getJsonEncodingConst(ptr noundef nonnull %20)
+  %65 = call fastcc ptr @getJsonEncodingConst(ptr noundef nonnull readonly %20)
   %66 = call ptr @list_make2_impl(i32 noundef 1, ptr %.089, ptr %65) #9
   %67 = call ptr @makeFuncExpr(i32 noundef 1714, i32 noundef 25, ptr noundef %66, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
@@ -6472,7 +6472,7 @@ define internal fastcc ptr @transformJsonParseArg(ptr noundef %0, ptr noundef %1
 
 10:                                               ; preds = %4
   %11 = tail call i32 @exprLocation(ptr noundef %7) #9
-  %12 = tail call fastcc ptr @getJsonEncodingConst(ptr noundef %2)
+  %12 = tail call fastcc ptr @getJsonEncodingConst(ptr noundef readonly %2)
   %13 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %7, ptr %12) #9
   %14 = tail call ptr @makeFuncExpr(i32 noundef 1714, i32 noundef 25, ptr noundef %13, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -6528,7 +6528,7 @@ define internal fastcc ptr @transformJsonParseArg(ptr noundef %0, ptr noundef %1
 declare ptr @makeJsonIsPredicate(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformJsonReturning(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @transformJsonReturning(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %20, label %4
 

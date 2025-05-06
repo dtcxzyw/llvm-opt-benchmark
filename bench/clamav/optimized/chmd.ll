@@ -627,7 +627,7 @@ define internal ptr @chmd_fast_open(ptr noundef captures(address_is_null) %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @chmd_fast_find(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4) #0 {
+define internal i32 @chmd_fast_find(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(address) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12

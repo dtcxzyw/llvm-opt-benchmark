@@ -1038,7 +1038,7 @@ define linkonce_odr void @_ZN9grpc_core14UniqueTypeName7FactoryC2ESt17basic_stri
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core24CertificateProviderStore30CreateOrGetCertificateProviderESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.grpc_core::RefCountedPtr.77") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 %2, ptr captures(address_is_null) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core24CertificateProviderStore30CreateOrGetCertificateProviderESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.grpc_core::RefCountedPtr.77") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 %2, ptr readonly captures(address_is_null) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN4absl12lts_202407229MutexLockC2EPNS0_5MutexE.exit:
   %4 = alloca %"class.grpc_core::RefCountedPtr.78", align 8
   %5 = alloca %"struct.std::pair.91", align 8

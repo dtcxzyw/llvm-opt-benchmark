@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [17 x i8] c"0123456789abcdef\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @curl_escape(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @curl_escape(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @curl_easy_escape(ptr poison, ptr noundef %0, i32 noundef %1)
   ret ptr %3
 }

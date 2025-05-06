@@ -2653,7 +2653,7 @@ while.end:                                        ; preds = %while.cond.backedge
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @uv_print_all_handles(ptr noundef captures(address) %loop, ptr noundef captures(address_is_null) %stream) local_unnamed_addr #0 {
+define dso_local void @uv_print_all_handles(ptr noundef readonly captures(address) %loop, ptr noundef captures(address_is_null) %stream) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @uv__print_handles(ptr noundef %loop, i32 noundef 0, ptr noundef %stream)
   ret void
@@ -2787,7 +2787,7 @@ for.end:                                          ; preds = %for.inc, %sw.epilog
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @uv_print_active_handles(ptr noundef captures(address) %loop, ptr noundef captures(address_is_null) %stream) local_unnamed_addr #0 {
+define dso_local void @uv_print_active_handles(ptr noundef readonly captures(address) %loop, ptr noundef captures(address_is_null) %stream) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @uv__print_handles(ptr noundef %loop, i32 noundef 1, ptr noundef %stream)
   ret void

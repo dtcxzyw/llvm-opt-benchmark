@@ -288,7 +288,7 @@ define dso_local void @_ZN5clang11SemaOpenACCC2ERNS_4SemaE(ptr noundef nonnull a
 declare void @_ZN5clang8SemaBaseC2ERNS_4SemaE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(17504)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang11SemaOpenACC18AssociatedStmtRAIIC2ERS0_NS_20OpenACCDirectiveKindENS_14SourceLocationEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS6_IPS7_EE(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 33), (36, 60)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, i8 noundef zeroext %2, i32 %3, ptr captures(address) %4, i64 %5, ptr noundef readonly byval(%"class.llvm::ArrayRef") align 8 captures(none) %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang11SemaOpenACC18AssociatedStmtRAIIC2ERS0_NS_20OpenACCDirectiveKindENS_14SourceLocationEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS6_IPS7_EE(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 33), (36, 60)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, i8 noundef zeroext %2, i32 %3, ptr readonly captures(address) %4, i64 %5, ptr noundef readonly byval(%"class.llvm::ArrayRef") align 8 captures(none) %6) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8, !tbaa !45
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8

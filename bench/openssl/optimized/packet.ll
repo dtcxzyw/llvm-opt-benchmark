@@ -228,7 +228,7 @@ WPACKET_get_curr.exit:                            ; preds = %39, %46
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @WPACKET_sub_allocate_bytes__(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_sub_allocate_bytes__(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1719,7 +1719,7 @@ WPACKET_start_quic_sub_packet_bound.exit:         ; preds = %11, %29, %1, %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @WPACKET_quic_sub_allocate_bytes(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @WPACKET_quic_sub_allocate_bytes(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = icmp ult i64 %1, 64
   br i1 %5, label %select.unfold.i, label %6

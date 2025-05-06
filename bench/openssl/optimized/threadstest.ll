@@ -1261,7 +1261,7 @@ declare void @CRYPTO_THREAD_lock_free(ptr noundef) local_unnamed_addr #3
 declare i32 @test_skip(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @thread_run_test(ptr noundef readonly captures(address_is_null) %0, i64 noundef range(i64 2, 11) %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @thread_run_test(ptr noundef readonly captures(address_is_null) %0, i64 noundef range(i64 2, 11) %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #1 {
   store i1 true, ptr @multi_success, align 4
   store ptr null, ptr @multi_libctx, align 8, !tbaa !16
   store i64 0, ptr @multi_num_threads, align 8, !tbaa !12

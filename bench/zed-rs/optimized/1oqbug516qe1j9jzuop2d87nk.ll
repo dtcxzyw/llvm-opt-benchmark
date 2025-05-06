@@ -19074,19 +19074,19 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 17:                                               ; preds = %11
   %18 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %1
   %.val27 = load ptr, ptr %4, align 8, !nonnull !9, !align !126, !noundef !9
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hec59376cb8071b9cE(ptr noundef nonnull readonly %0, ptr noundef nonnull %18, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hec59376cb8071b9cE(ptr noundef nonnull readonly %0, ptr noundef nonnull %18, ptr nonnull readonly %.val27)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hec59376cb8071b9cE(ptr noundef readonly %19, ptr noundef %20, ptr nonnull %.val27)
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hd82b0cfac6ea955fE(ptr noalias noundef nonnull readonly align 8 %18, i64 noundef 8, ptr noundef nonnull %2, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hec59376cb8071b9cE(ptr noundef readonly %19, ptr noundef %20, ptr nonnull readonly %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hd82b0cfac6ea955fE(ptr noalias noundef nonnull readonly align 8 %18, i64 noundef 8, ptr noundef nonnull %2, ptr nonnull readonly %.val27)
   %21 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %12
   %22 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %12
   %23 = getelementptr i8, ptr %18, i64 128
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hec59376cb8071b9cE(ptr noundef nonnull readonly %21, ptr noundef nonnull %23, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hec59376cb8071b9cE(ptr noundef nonnull readonly %21, ptr noundef nonnull %23, ptr nonnull readonly %.val27)
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %25 = getelementptr i8, ptr %18, i64 192
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hec59376cb8071b9cE(ptr noundef readonly %24, ptr noundef %25, ptr nonnull %.val27)
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hd82b0cfac6ea955fE(ptr noalias noundef nonnull readonly align 8 %23, i64 noundef 8, ptr noundef nonnull %22, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hec59376cb8071b9cE(ptr noundef readonly %24, ptr noundef %25, ptr nonnull readonly %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hd82b0cfac6ea955fE(ptr noalias noundef nonnull readonly align 8 %23, i64 noundef 8, ptr noundef nonnull %22, ptr nonnull readonly %.val27)
   br label %32
 
 26:                                               ; preds = %15
@@ -19978,19 +19978,19 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 17:                                               ; preds = %11
   %18 = getelementptr inbounds { ptr, { i32, [1 x i32] } }, ptr %2, i64 %1
   %.val27 = load ptr, ptr %4, align 8, !nonnull !9, !align !126, !noundef !9
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h62e3f2376a252f0eE(ptr noundef nonnull readonly %0, ptr noundef nonnull %18, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h62e3f2376a252f0eE(ptr noundef nonnull readonly %0, ptr noundef nonnull %18, ptr nonnull readonly %.val27)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h62e3f2376a252f0eE(ptr noundef readonly %19, ptr noundef %20, ptr nonnull %.val27)
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h1ea08a844ade8a51E(ptr noalias noundef nonnull readonly align 8 %18, i64 noundef 8, ptr noundef nonnull %2, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h62e3f2376a252f0eE(ptr noundef readonly %19, ptr noundef %20, ptr nonnull readonly %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h1ea08a844ade8a51E(ptr noalias noundef nonnull readonly align 8 %18, i64 noundef 8, ptr noundef nonnull %2, ptr nonnull readonly %.val27)
   %21 = getelementptr inbounds nuw { ptr, { i32, [1 x i32] } }, ptr %0, i64 %12
   %22 = getelementptr inbounds nuw { ptr, { i32, [1 x i32] } }, ptr %2, i64 %12
   %23 = getelementptr i8, ptr %18, i64 128
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h62e3f2376a252f0eE(ptr noundef nonnull readonly %21, ptr noundef nonnull %23, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h62e3f2376a252f0eE(ptr noundef nonnull readonly %21, ptr noundef nonnull %23, ptr nonnull readonly %.val27)
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %25 = getelementptr i8, ptr %18, i64 192
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h62e3f2376a252f0eE(ptr noundef readonly %24, ptr noundef %25, ptr nonnull %.val27)
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h1ea08a844ade8a51E(ptr noalias noundef nonnull readonly align 8 %23, i64 noundef 8, ptr noundef nonnull %22, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h62e3f2376a252f0eE(ptr noundef readonly %24, ptr noundef %25, ptr nonnull readonly %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h1ea08a844ade8a51E(ptr noalias noundef nonnull readonly align 8 %23, i64 noundef 8, ptr noundef nonnull %22, ptr nonnull readonly %.val27)
   br label %32
 
 26:                                               ; preds = %15
@@ -20313,19 +20313,19 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 17:                                               ; preds = %11
   %18 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %1
   %.val27 = load ptr, ptr %4, align 8, !nonnull !9, !align !126, !noundef !9
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h7d251f5143f5922aE(ptr noundef nonnull readonly %0, ptr noundef nonnull %18, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h7d251f5143f5922aE(ptr noundef nonnull readonly %0, ptr noundef nonnull %18, ptr nonnull readonly %.val27)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h7d251f5143f5922aE(ptr noundef readonly %19, ptr noundef %20, ptr nonnull %.val27)
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h474a0cd397ed1e87E(ptr noalias noundef nonnull readonly align 8 %18, i64 noundef 8, ptr noundef nonnull %2, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h7d251f5143f5922aE(ptr noundef readonly %19, ptr noundef %20, ptr nonnull readonly %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h474a0cd397ed1e87E(ptr noalias noundef nonnull readonly align 8 %18, i64 noundef 8, ptr noundef nonnull %2, ptr nonnull readonly %.val27)
   %21 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %12
   %22 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %12
   %23 = getelementptr i8, ptr %18, i64 128
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h7d251f5143f5922aE(ptr noundef nonnull readonly %21, ptr noundef nonnull %23, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h7d251f5143f5922aE(ptr noundef nonnull readonly %21, ptr noundef nonnull %23, ptr nonnull readonly %.val27)
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %25 = getelementptr i8, ptr %18, i64 192
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h7d251f5143f5922aE(ptr noundef readonly %24, ptr noundef %25, ptr nonnull %.val27)
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h474a0cd397ed1e87E(ptr noalias noundef nonnull readonly align 8 %23, i64 noundef 8, ptr noundef nonnull %22, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h7d251f5143f5922aE(ptr noundef readonly %24, ptr noundef %25, ptr nonnull readonly %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h474a0cd397ed1e87E(ptr noalias noundef nonnull readonly align 8 %23, i64 noundef 8, ptr noundef nonnull %22, ptr nonnull readonly %.val27)
   br label %32
 
 26:                                               ; preds = %15
@@ -20424,19 +20424,19 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 17:                                               ; preds = %11
   %18 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %1
   %.val27 = load ptr, ptr %4, align 8, !nonnull !9, !align !126, !noundef !9
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h3eced3c44f4f9a1bE(ptr noundef nonnull readonly %0, ptr noundef nonnull %18, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h3eced3c44f4f9a1bE(ptr noundef nonnull readonly %0, ptr noundef nonnull %18, ptr nonnull readonly %.val27)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h3eced3c44f4f9a1bE(ptr noundef readonly %19, ptr noundef %20, ptr nonnull %.val27)
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hb1c0d00eccff44ecE(ptr noalias noundef nonnull readonly align 8 %18, i64 noundef 8, ptr noundef nonnull %2, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h3eced3c44f4f9a1bE(ptr noundef readonly %19, ptr noundef %20, ptr nonnull readonly %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hb1c0d00eccff44ecE(ptr noalias noundef nonnull readonly align 8 %18, i64 noundef 8, ptr noundef nonnull %2, ptr nonnull readonly %.val27)
   %21 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %12
   %22 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %12
   %23 = getelementptr i8, ptr %18, i64 128
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h3eced3c44f4f9a1bE(ptr noundef nonnull readonly %21, ptr noundef nonnull %23, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h3eced3c44f4f9a1bE(ptr noundef nonnull readonly %21, ptr noundef nonnull %23, ptr nonnull readonly %.val27)
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %25 = getelementptr i8, ptr %18, i64 192
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h3eced3c44f4f9a1bE(ptr noundef readonly %24, ptr noundef %25, ptr nonnull %.val27)
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hb1c0d00eccff44ecE(ptr noalias noundef nonnull readonly align 8 %23, i64 noundef 8, ptr noundef nonnull %22, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h3eced3c44f4f9a1bE(ptr noundef readonly %24, ptr noundef %25, ptr nonnull readonly %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hb1c0d00eccff44ecE(ptr noalias noundef nonnull readonly align 8 %23, i64 noundef 8, ptr noundef nonnull %22, ptr nonnull readonly %.val27)
   br label %32
 
 26:                                               ; preds = %15
@@ -21118,19 +21118,19 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 17:                                               ; preds = %11
   %18 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %1
   %.val27 = load ptr, ptr %4, align 8, !nonnull !9, !align !126, !noundef !9
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h3db01b226bb88f4cE(ptr noundef nonnull readonly %0, ptr noundef nonnull %18, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h3db01b226bb88f4cE(ptr noundef nonnull readonly %0, ptr noundef nonnull %18, ptr nonnull readonly %.val27)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h3db01b226bb88f4cE(ptr noundef readonly %19, ptr noundef %20, ptr nonnull %.val27)
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hfb04b5d6c560c963E(ptr noalias noundef nonnull readonly align 8 %18, i64 noundef 8, ptr noundef nonnull %2, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h3db01b226bb88f4cE(ptr noundef readonly %19, ptr noundef %20, ptr nonnull readonly %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hfb04b5d6c560c963E(ptr noalias noundef nonnull readonly align 8 %18, i64 noundef 8, ptr noundef nonnull %2, ptr nonnull readonly %.val27)
   %21 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %12
   %22 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %12
   %23 = getelementptr i8, ptr %18, i64 128
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h3db01b226bb88f4cE(ptr noundef nonnull readonly %21, ptr noundef nonnull %23, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h3db01b226bb88f4cE(ptr noundef nonnull readonly %21, ptr noundef nonnull %23, ptr nonnull readonly %.val27)
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %25 = getelementptr i8, ptr %18, i64 192
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h3db01b226bb88f4cE(ptr noundef readonly %24, ptr noundef %25, ptr nonnull %.val27)
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hfb04b5d6c560c963E(ptr noalias noundef nonnull readonly align 8 %23, i64 noundef 8, ptr noundef nonnull %22, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h3db01b226bb88f4cE(ptr noundef readonly %24, ptr noundef %25, ptr nonnull readonly %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hfb04b5d6c560c963E(ptr noalias noundef nonnull readonly align 8 %23, i64 noundef 8, ptr noundef nonnull %22, ptr nonnull readonly %.val27)
   br label %32
 
 26:                                               ; preds = %15
@@ -21229,19 +21229,19 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 17:                                               ; preds = %11
   %18 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %1
   %.val27 = load ptr, ptr %4, align 8, !nonnull !9, !align !126, !noundef !9
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h8ea20a950fc67456E(ptr noundef nonnull readonly %0, ptr noundef nonnull %18, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h8ea20a950fc67456E(ptr noundef nonnull readonly %0, ptr noundef nonnull %18, ptr nonnull readonly %.val27)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h8ea20a950fc67456E(ptr noundef readonly %19, ptr noundef %20, ptr nonnull %.val27)
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h3902b37421c9b4f5E(ptr noalias noundef nonnull readonly align 8 %18, i64 noundef 8, ptr noundef nonnull %2, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h8ea20a950fc67456E(ptr noundef readonly %19, ptr noundef %20, ptr nonnull readonly %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h3902b37421c9b4f5E(ptr noalias noundef nonnull readonly align 8 %18, i64 noundef 8, ptr noundef nonnull %2, ptr nonnull readonly %.val27)
   %21 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %12
   %22 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %12
   %23 = getelementptr i8, ptr %18, i64 128
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h8ea20a950fc67456E(ptr noundef nonnull readonly %21, ptr noundef nonnull %23, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h8ea20a950fc67456E(ptr noundef nonnull readonly %21, ptr noundef nonnull %23, ptr nonnull readonly %.val27)
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %25 = getelementptr i8, ptr %18, i64 192
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h8ea20a950fc67456E(ptr noundef readonly %24, ptr noundef %25, ptr nonnull %.val27)
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h3902b37421c9b4f5E(ptr noalias noundef nonnull readonly align 8 %23, i64 noundef 8, ptr noundef nonnull %22, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h8ea20a950fc67456E(ptr noundef readonly %24, ptr noundef %25, ptr nonnull readonly %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h3902b37421c9b4f5E(ptr noalias noundef nonnull readonly align 8 %23, i64 noundef 8, ptr noundef nonnull %22, ptr nonnull readonly %.val27)
   br label %32
 
 26:                                               ; preds = %15
@@ -21340,19 +21340,19 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 17:                                               ; preds = %11
   %18 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %1
   %.val27 = load ptr, ptr %4, align 8, !nonnull !9, !align !126, !noundef !9
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h5bc3c0daa4ad6a59E(ptr noundef nonnull readonly %0, ptr noundef nonnull %18, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h5bc3c0daa4ad6a59E(ptr noundef nonnull readonly %0, ptr noundef nonnull %18, ptr nonnull readonly %.val27)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h5bc3c0daa4ad6a59E(ptr noundef readonly %19, ptr noundef %20, ptr nonnull %.val27)
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h1392c00254238bbeE(ptr noalias noundef nonnull readonly align 8 %18, i64 noundef 8, ptr noundef nonnull %2, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h5bc3c0daa4ad6a59E(ptr noundef readonly %19, ptr noundef %20, ptr nonnull readonly %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h1392c00254238bbeE(ptr noalias noundef nonnull readonly align 8 %18, i64 noundef 8, ptr noundef nonnull %2, ptr nonnull readonly %.val27)
   %21 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %12
   %22 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %12
   %23 = getelementptr i8, ptr %18, i64 128
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h5bc3c0daa4ad6a59E(ptr noundef nonnull readonly %21, ptr noundef nonnull %23, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h5bc3c0daa4ad6a59E(ptr noundef nonnull readonly %21, ptr noundef nonnull %23, ptr nonnull readonly %.val27)
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %25 = getelementptr i8, ptr %18, i64 192
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h5bc3c0daa4ad6a59E(ptr noundef readonly %24, ptr noundef %25, ptr nonnull %.val27)
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h1392c00254238bbeE(ptr noalias noundef nonnull readonly align 8 %23, i64 noundef 8, ptr noundef nonnull %22, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h5bc3c0daa4ad6a59E(ptr noundef readonly %24, ptr noundef %25, ptr nonnull readonly %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h1392c00254238bbeE(ptr noalias noundef nonnull readonly align 8 %23, i64 noundef 8, ptr noundef nonnull %22, ptr nonnull readonly %.val27)
   br label %32
 
 26:                                               ; preds = %15
@@ -21451,19 +21451,19 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 17:                                               ; preds = %11
   %18 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %1
   %.val27 = load ptr, ptr %4, align 8, !nonnull !9, !align !126, !noundef !9
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h4cb6ce5144677e24E(ptr noundef nonnull readonly %0, ptr noundef nonnull %18, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h4cb6ce5144677e24E(ptr noundef nonnull readonly %0, ptr noundef nonnull %18, ptr nonnull readonly %.val27)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h4cb6ce5144677e24E(ptr noundef readonly %19, ptr noundef %20, ptr nonnull %.val27)
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h1665849c915e8a31E(ptr noalias noundef nonnull readonly align 8 %18, i64 noundef 8, ptr noundef nonnull %2, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h4cb6ce5144677e24E(ptr noundef readonly %19, ptr noundef %20, ptr nonnull readonly %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h1665849c915e8a31E(ptr noalias noundef nonnull readonly align 8 %18, i64 noundef 8, ptr noundef nonnull %2, ptr nonnull readonly %.val27)
   %21 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %12
   %22 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %12
   %23 = getelementptr i8, ptr %18, i64 128
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h4cb6ce5144677e24E(ptr noundef nonnull readonly %21, ptr noundef nonnull %23, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h4cb6ce5144677e24E(ptr noundef nonnull readonly %21, ptr noundef nonnull %23, ptr nonnull readonly %.val27)
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %25 = getelementptr i8, ptr %18, i64 192
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h4cb6ce5144677e24E(ptr noundef readonly %24, ptr noundef %25, ptr nonnull %.val27)
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h1665849c915e8a31E(ptr noalias noundef nonnull readonly align 8 %23, i64 noundef 8, ptr noundef nonnull %22, ptr nonnull %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h4cb6ce5144677e24E(ptr noundef readonly %24, ptr noundef %25, ptr nonnull readonly %.val27)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h1665849c915e8a31E(ptr noalias noundef nonnull readonly align 8 %23, i64 noundef 8, ptr noundef nonnull %22, ptr nonnull readonly %.val27)
   br label %32
 
 26:                                               ; preds = %15

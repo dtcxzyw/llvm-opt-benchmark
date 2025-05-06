@@ -4085,7 +4085,7 @@ nfs_name_snoop_fh.exit:                           ; preds = %105, %proto_item_se
 declare void @tvb_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noundef i32 @dissect_fhandle(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_fhandle(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
   %8 = load i32, ptr @ett_nfs_fhandle, align 4
   %9 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 32, i32 noundef %8, ptr noundef null, ptr noundef %4)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -4297,7 +4297,7 @@ define internal fastcc noundef i32 @dissect_timeval(ptr noundef %0, i32 noundef 
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
+define hidden i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
   %8 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1)
   %9 = tail call i32 @rpc_roundup(i32 noundef %8)
   %10 = add i32 %9, 4
@@ -7395,7 +7395,7 @@ declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noun
 declare ptr @proto_tree_add_time_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6, ptr noundef readonly captures(none) %7) unnamed_addr #0 {
+define internal fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef %6, ptr noundef readonly captures(none) %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
   %10 = load i32, ptr @ett_nfs2_diropargs, align 4
@@ -10024,7 +10024,7 @@ dissect_pre_op_attr.exit:                         ; preds = %5, %18
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6, ptr noundef readonly captures(none) %7) unnamed_addr #0 {
+define internal fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef %6, ptr noundef readonly captures(none) %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
   %10 = load i32, ptr @ett_nfs3_diropargs, align 4

@@ -1061,7 +1061,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17hc1c34d0f3beea
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17h4f824a3f3200f82cE(ptr noalias noundef nonnull align 8 captures(none) %0, i64 noundef range(i64 21, 0) %1, ptr captures(address_is_null) %.0.val) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17h4f824a3f3200f82cE(ptr noalias noundef nonnull align 8 captures(none) %0, i64 noundef range(i64 21, 0) %1, ptr readonly captures(address_is_null) %.0.val) unnamed_addr #5 personality ptr @rust_eh_personality {
   %.sroa.6.i.i = alloca [2 x i64], align 8
   %.sroa.8.i.i = alloca [12 x i8], align 4
   %.sroa.0.i = alloca [6 x i64], align 8

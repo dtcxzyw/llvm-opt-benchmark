@@ -37195,7 +37195,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.i.i.i120: ; preds 
 _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE17calleeMatchesFuncES5_PKS3_S8_RSt6vectorISt4pairIS5_PS3_ESaISC_EE.exit.i: ; preds = %1635, %1634
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #28
   store i8 0, ptr %5, align 1, !tbaa !63
-  %1639 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126ModuleCallsiteContextGraph34findProfiledCalleeThroughTailCallsEPKN4llvm8FunctionEPNS1_5ValueEjRSt6vectorISt4pairIPNS1_11InstructionEPS2_ESaISC_EERb(ptr noundef %1619, ptr noundef nonnull %1630, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %1639 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126ModuleCallsiteContextGraph34findProfiledCalleeThroughTailCallsEPKN4llvm8FunctionEPNS1_5ValueEjRSt6vectorISt4pairIPNS1_11InstructionEPS2_ESaISC_EERb(ptr noundef readnone %1619, ptr noundef nonnull %1630, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 1 dereferenceable(1) %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #28
   %.pr.pre89.i = load ptr, ptr %6, align 8, !tbaa !1640
   %.pre87.i = load ptr, ptr %.phi.trans.insert.i123, align 8
@@ -53859,7 +53859,7 @@ _ZNSt12__shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126ModuleCallsiteContextGraph34findProfiledCalleeThroughTailCallsEPKN4llvm8FunctionEPNS1_5ValueEjRSt6vectorISt4pairIPNS1_11InstructionEPS2_ESaISC_EERb(ptr noundef captures(address) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %4) unnamed_addr #1 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126ModuleCallsiteContextGraph34findProfiledCalleeThroughTailCallsEPKN4llvm8FunctionEPNS1_5ValueEjRSt6vectorISt4pairIPNS1_11InstructionEPS2_ESaISC_EERb(ptr noundef readnone captures(address) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %4) unnamed_addr #1 align 2 {
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL19TailCallSearchDepth, i64 120), align 8, !tbaa !66
   %7 = icmp ugt i32 %2, %6
   br i1 %7, label %110, label %8

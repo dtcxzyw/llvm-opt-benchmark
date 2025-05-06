@@ -488,7 +488,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %5
   br i1 %.not.i, label %_ZN10Exceptions17debug_check_abortE6HandlePKc.exit, label %26
 
 26:                                               ; preds = %24
-  tail call void @_ZN10Exceptions24debug_check_abort_helperE6HandlePKc(ptr %3, ptr noundef %4)
+  tail call void @_ZN10Exceptions24debug_check_abort_helperE6HandlePKc(ptr readonly %3, ptr noundef %4)
   br label %_ZN10Exceptions17debug_check_abortE6HandlePKc.exit
 
 _ZN10Exceptions17debug_check_abortE6HandlePKc.exit: ; preds = %24, %26
@@ -697,7 +697,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %126, %128
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10Exceptions17debug_check_abortE6HandlePKc(ptr captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN10Exceptions17debug_check_abortE6HandlePKc(ptr readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr @AbortVMOnException, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4

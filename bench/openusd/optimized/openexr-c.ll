@@ -810,7 +810,7 @@ exr_get_attribute_count.exit:                     ; preds = %24, %33, %2, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nanoexr_attr_set_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #1 {
+define void @nanoexr_attr_set_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
@@ -932,7 +932,7 @@ define void @nanoexr_attr_set_string(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %exr_attr_set_string.exit
 
 77:                                               ; preds = %68
-  %78 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #52
+  %78 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #52
   %79 = icmp ugt i64 %78, 2147483646
   br i1 %79, label %80, label %85
 
@@ -963,7 +963,7 @@ define void @nanoexr_attr_set_string(ptr noundef %0, i32 noundef %1, ptr noundef
 96:                                               ; preds = %92
   %97 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %98 = load ptr, ptr %97, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %98, ptr nonnull align 1 %2, i64 %78, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %98, ptr nonnull readonly align 1 %2, i64 %78, i1 false)
   br label %109
 
 99:                                               ; preds = %92, %86
@@ -981,7 +981,7 @@ define void @nanoexr_attr_set_string(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %exr_attr_set_string.exit
 
 108:                                              ; preds = %99
-  tail call fastcc void @exr_attr_string_set_with_length(ptr noundef nonnull %0, ptr noundef nonnull %88, ptr noundef nonnull %2, i32 noundef %90)
+  tail call fastcc void @exr_attr_string_set_with_length(ptr noundef nonnull %0, ptr noundef nonnull %88, ptr noundef nonnull readonly %2, i32 noundef %90)
   br label %109
 
 109:                                              ; preds = %108, %96, %85
@@ -1098,7 +1098,7 @@ exr_attr_list_find_by_name.exit.i:                ; preds = %165, %160, %._crit_
   br i1 %.not89.i, label %.thread.i, label %167
 
 167:                                              ; preds = %exr_attr_list_find_by_name.exit.i
-  %168 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #52
+  %168 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #52
   %169 = icmp ugt i64 %168, 2147483647
   br i1 %169, label %170, label %.thread.i
 
@@ -1135,7 +1135,7 @@ exr_attr_list_find_by_name.exit.i:                ; preds = %165, %160, %._crit_
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 24
   %186 = load ptr, ptr %185, align 8
   %187 = trunc nuw nsw i64 %175 to i32
-  %188 = call fastcc i32 @exr_attr_string_create_with_length(ptr noundef nonnull %0, ptr noundef %186, ptr noundef %3, i32 noundef %187)
+  %188 = call fastcc i32 @exr_attr_string_create_with_length(ptr noundef nonnull %0, ptr noundef %186, ptr noundef readonly %3, i32 noundef %187)
   br label %223
 
 189:                                              ; preds = %.thread.i
@@ -1173,7 +1173,7 @@ exr_attr_list_find_by_name.exit.i:                ; preds = %165, %160, %._crit_
 210:                                              ; preds = %209
   %211 = getelementptr inbounds nuw i8, ptr %201, i64 8
   %212 = load ptr, ptr %211, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %212, ptr nonnull align 1 %3, i64 %175, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %212, ptr nonnull readonly align 1 %3, i64 %175, i1 false)
   br label %223
 
 213:                                              ; preds = %205, %199
@@ -1191,7 +1191,7 @@ exr_attr_list_find_by_name.exit.i:                ; preds = %165, %160, %._crit_
   br label %exr_attr_set_string.exit
 
 222:                                              ; preds = %213
-  tail call fastcc void @exr_attr_string_set_with_length(ptr noundef nonnull %0, ptr noundef nonnull %201, ptr noundef %3, i32 noundef %203)
+  tail call fastcc void @exr_attr_string_set_with_length(ptr noundef nonnull %0, ptr noundef nonnull %201, ptr noundef readonly %3, i32 noundef %203)
   br label %223
 
 223:                                              ; preds = %222, %210, %209, %183, %180, %.thread.i
@@ -9417,7 +9417,7 @@ define void @nanoexr_release_image_data(ptr noundef captures(none) %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nanoexr_read_tiled_exr(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #1 {
+define i32 @nanoexr_read_tiled_exr(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #1 {
   %7 = alloca [6 x i32], align 16
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8
@@ -10382,7 +10382,7 @@ exr_get_level_sizes.exit.thread:                  ; preds = %.loopexit149.us, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_nanoexr_rgba_decoding_initialize(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef nonnull %5, ptr noundef writeonly captures(none) %6) unnamed_addr #1 {
+define internal fastcc i32 @_nanoexr_rgba_decoding_initialize(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef nonnull %5, ptr noundef writeonly captures(none) %6) unnamed_addr #1 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %exr_decoding_initialize.exit.thread, label %8
 
@@ -11512,7 +11512,7 @@ exr_decoding_destroy.exit:                        ; preds = %internal_decode_fre
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nanoexr_read_scanline_exr(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #1 {
+define i32 @nanoexr_read_scanline_exr(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #1 {
   %6 = alloca [3 x i32], align 4
   %7 = alloca [3 x i64], align 16
   %8 = alloca i64, align 8
@@ -12522,7 +12522,7 @@ define void @copy_channel_float(ptr noundef readonly captures(none) %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nanoexr_read_exr(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #1 {
+define i32 @nanoexr_read_exr(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #1 {
   %9 = alloca %struct.stat, align 8
   %10 = alloca [2 x i32], align 4
   %11 = alloca i64, align 8
@@ -13638,7 +13638,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exr_attr_list_add(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef range(i32 1, 25) %3, i32 noundef range(i32 -2147483647, -2147483648) %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) unnamed_addr #1 {
+define internal fastcc i32 @exr_attr_list_add(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef range(i32 1, 25) %3, i32 noundef range(i32 -2147483647, -2147483648) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %90, label %8
 
@@ -17372,7 +17372,7 @@ define internal fastcc i32 @validate_deep_data(ptr noundef %0, ptr noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exr_attr_list_add_static_name(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef range(i32 1, 25) %3, i32 noundef range(i32 -2147483647, -2147483648) %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) unnamed_addr #1 {
+define internal fastcc i32 @exr_attr_list_add_static_name(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef range(i32 1, 25) %3, i32 noundef range(i32 -2147483647, -2147483648) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %80, label %8
 
@@ -26709,7 +26709,7 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
   store i32 %319, ptr %18, align 32
   tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull readonly %16, ptr noundef nonnull %20, ptr noundef nonnull %19)
   tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull readonly %17, ptr noundef nonnull %21, ptr noundef nonnull %22)
-  tail call fastcc void @deflate_flush_block(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %.0598, i32 noundef %316, ptr noundef nonnull %.ptr713, i1 noundef zeroext %317)
+  tail call fastcc void @deflate_flush_block(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %.0598, i32 noundef %316, ptr noundef nonnull readonly %.ptr713, i1 noundef zeroext %317)
   br i1 %317, label %320, label %23, !llvm.loop !158
 
 320:                                              ; preds = %.loopexit729
@@ -27578,7 +27578,7 @@ do_end_block_check.exit:                          ; preds = %410
   store i32 %421, ptr %26, align 32
   tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull readonly %18, ptr noundef nonnull %28, ptr noundef nonnull %27)
   tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull readonly %22, ptr noundef nonnull %29, ptr noundef nonnull %30)
-  tail call fastcc void @deflate_flush_block(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %.0575, i32 noundef %.pre-phi792, ptr noundef nonnull %.ptr709, i1 noundef zeroext %419)
+  tail call fastcc void @deflate_flush_block(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %.0575, i32 noundef %.pre-phi792, ptr noundef nonnull readonly %.ptr709, i1 noundef zeroext %419)
   br i1 %419, label %422, label %31, !llvm.loop !165
 
 422:                                              ; preds = %.critedge7
@@ -29164,7 +29164,7 @@ do_end_block_check.exit:                          ; preds = %746
   store i32 %757, ptr %26, align 32
   tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull readonly %18, ptr noundef nonnull %28, ptr noundef nonnull %27)
   tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull readonly %23, ptr noundef nonnull %29, ptr noundef nonnull %30)
-  tail call fastcc void @deflate_flush_block(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %.01599, i32 noundef %.pre-phi2172, ptr noundef nonnull %.ptr1961, i1 noundef zeroext %755)
+  tail call fastcc void @deflate_flush_block(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %.01599, i32 noundef %.pre-phi2172, ptr noundef nonnull readonly %.ptr1961, i1 noundef zeroext %755)
   br i1 %755, label %758, label %31, !llvm.loop !172
 
 758:                                              ; preds = %.critedge15
@@ -31232,7 +31232,7 @@ do_end_block_check.exit:                          ; preds = %956
   store i32 %967, ptr %26, align 32
   tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull readonly %18, ptr noundef nonnull %28, ptr noundef nonnull %27)
   tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull readonly %23, ptr noundef nonnull %29, ptr noundef nonnull %30)
-  tail call fastcc void @deflate_flush_block(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %.01599, i32 noundef %.pre-phi2265, ptr noundef nonnull %.ptr1991, i1 noundef zeroext %965)
+  tail call fastcc void @deflate_flush_block(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %.01599, i32 noundef %.pre-phi2265, ptr noundef nonnull readonly %.ptr1991, i1 noundef zeroext %965)
   br i1 %965, label %968, label %31, !llvm.loop !172
 
 968:                                              ; preds = %.critedge15
@@ -36367,7 +36367,7 @@ hufPackEncTable.exit:                             ; preds = %375, %._crit_edge16
   %389 = getelementptr inbounds nuw i64, ptr %5, i64 %388
   %390 = load i64, ptr %389, align 8
   %391 = load i64, ptr %279, align 8
-  %392 = call fastcc i32 @sendCode(i64 noundef %390, i32 noundef %.03149.i, i64 noundef %391, ptr noundef %9, ptr noundef %10, ptr noundef %8, ptr noundef nonnull %13)
+  %392 = call fastcc i32 @sendCode(i64 noundef %390, i32 noundef %.03149.i, i64 noundef %391, ptr noundef %9, ptr noundef %10, ptr noundef %8, ptr noundef nonnull readnone %13)
   %.not.i61 = icmp eq i32 %392, 0
   br i1 %.not.i61, label %._crit_edge54.i, label %hufEncode.exit.thread
 
@@ -36389,7 +36389,7 @@ hufPackEncTable.exit:                             ; preds = %375, %._crit_edge16
   %396 = getelementptr inbounds nuw i64, ptr %5, i64 %395
   %397 = load i64, ptr %396, align 8
   %398 = load i64, ptr %279, align 8
-  %399 = call fastcc i32 @sendCode(i64 noundef %397, i32 noundef %.031.lcssa.i, i64 noundef %398, ptr noundef %9, ptr noundef %10, ptr noundef %8, ptr noundef nonnull %13)
+  %399 = call fastcc i32 @sendCode(i64 noundef %397, i32 noundef %.031.lcssa.i, i64 noundef %398, ptr noundef %9, ptr noundef %10, ptr noundef %8, ptr noundef nonnull readnone %13)
   %400 = icmp eq i32 %399, 0
   br i1 %400, label %401, label %hufEncode.exit.thread
 

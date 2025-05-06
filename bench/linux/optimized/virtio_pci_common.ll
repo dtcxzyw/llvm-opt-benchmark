@@ -290,7 +290,7 @@ declare dso_local void @pci_free_irq_vectors(ptr noundef) local_unnamed_addr #2
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @vp_find_vqs(ptr noundef initializes((960, 968)) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #0 align 16 {
+define dso_local i32 @vp_find_vqs(ptr noundef initializes((960, 968)) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #0 align 16 {
   %8 = tail call fastcc i32 @vp_find_vqs_msix(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext true, ptr noundef %5, ptr noundef %6)
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %.loopexit8, label %10

@@ -6784,13 +6784,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit249: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL7DFT_32fERKNS_13OcvDftOptionsEPKNS_7ComplexIfEEPS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef captures(address) %1, ptr noundef %2) #0 {
+define internal void @_ZN2cvL7DFT_32fERKNS_13OcvDftOptionsEPKNS_7ComplexIfEEPS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef readonly captures(address) %1, ptr noundef %2) #0 {
   tail call fastcc void @_ZN2cvL3DFTIfEEvRKNS_13OcvDftOptionsEPKNS_7ComplexIT_EEPS6_(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL11RealDFT_32fERKNS_13OcvDftOptionsEPKfPf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef captures(address) %1, ptr noundef %2) #0 {
+define internal void @_ZN2cvL11RealDFT_32fERKNS_13OcvDftOptionsEPKfPf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef readonly captures(address) %1, ptr noundef %2) #0 {
   tail call fastcc void @_ZN2cvL7RealDFTIfEEvRKNS_13OcvDftOptionsEPKT_PS4_(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef %2)
   ret void
 }
@@ -6802,13 +6802,13 @@ define internal void @_ZN2cvL11CCSIDFT_32fERKNS_13OcvDftOptionsEPKfPf(ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL7DFT_64fERKNS_13OcvDftOptionsEPKNS_7ComplexIdEEPS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef captures(address) %1, ptr noundef %2) #0 {
+define internal void @_ZN2cvL7DFT_64fERKNS_13OcvDftOptionsEPKNS_7ComplexIdEEPS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef readonly captures(address) %1, ptr noundef %2) #0 {
   tail call fastcc void @_ZN2cvL3DFTIdEEvRKNS_13OcvDftOptionsEPKNS_7ComplexIT_EEPS6_(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL11RealDFT_64fERKNS_13OcvDftOptionsEPKdPd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef captures(address) %1, ptr noundef %2) #0 {
+define internal void @_ZN2cvL11RealDFT_64fERKNS_13OcvDftOptionsEPKdPd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef readonly captures(address) %1, ptr noundef %2) #0 {
   tail call fastcc void @_ZN2cvL7RealDFTIdEEvRKNS_13OcvDftOptionsEPKT_PS4_(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef %2)
   ret void
 }
@@ -8531,7 +8531,7 @@ define linkonce_odr hidden void @_ZNK2cv6DFT_R5IfEclEPNS_7ComplexIfEEiiiPKS3_(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7RealDFTIfEEvRKNS_13OcvDftOptionsEPKT_PS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef captures(address) %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7RealDFTIfEEvRKNS_13OcvDftOptionsEPKT_PS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef readonly captures(address) %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"struct.cv::OcvDftOptions", align 8
@@ -10981,7 +10981,7 @@ define linkonce_odr hidden void @_ZNK2cv6DFT_R5IdEclEPNS_7ComplexIdEEiiiPKS3_(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7RealDFTIdEEvRKNS_13OcvDftOptionsEPKT_PS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef captures(address) %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7RealDFTIdEEvRKNS_13OcvDftOptionsEPKT_PS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef readonly captures(address) %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"struct.cv::OcvDftOptions", align 8

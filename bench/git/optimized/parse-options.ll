@@ -769,7 +769,7 @@ build_cmdmode_list.exit:                          ; preds = %.critedge.i, %parse
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -3, 4) i32 @parse_options_step(ptr noundef initializes((32, 40)) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -3, 4) i32 @parse_options_step(ptr noundef initializes((32, 40)) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !18
   %6 = and i32 %5, 16
@@ -1557,7 +1557,7 @@ define internal fastcc ptr @_(ptr noundef %0) unnamed_addr #4 {
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local void @usage_with_options(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+define dso_local void @usage_with_options(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   tail call fastcc void @usage_with_options_internal(ptr noundef null, ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 1)
   %3 = tail call i32 @common_exit(ptr noundef nonnull @.str.1, i32 noundef 1319, i32 noundef 129) #19
   tail call void @exit(i32 noundef %3) #18
@@ -2535,7 +2535,7 @@ move_array.exit:                                  ; preds = %11, %st_mult.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @parse_options(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local i32 @parse_options(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.strbuf, align 8
   %8 = alloca %struct.parse_opt_ctx_t, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #19
@@ -2934,7 +2934,7 @@ declare i32 @common_exit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_ad
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @show_usage_with_options_if_asked(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
+define dso_local void @show_usage_with_options_if_asked(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp eq i32 %0, 2
   br i1 %5, label %sub_0, label %.tail.thread
 
@@ -2968,7 +2968,7 @@ sub_1:                                            ; preds = %sub_0
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local void @usage_msg_opt(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #5 {
+define dso_local void @usage_msg_opt(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #5 {
   %4 = tail call i32 (ptr, ...) @die_message(ptr noundef nonnull @.str.17, ptr noundef %0) #19
   tail call void @usage_with_options(ptr noundef %1, ptr noundef %2) #21
   unreachable
@@ -2977,7 +2977,7 @@ define dso_local void @usage_msg_opt(ptr noundef %0, ptr noundef captures(addres
 declare i32 @die_message(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local void @usage_msg_optf(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ...) local_unnamed_addr #5 {
+define dso_local void @usage_msg_optf(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ...) local_unnamed_addr #5 {
   %4 = alloca %struct.strbuf, align 8
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #19

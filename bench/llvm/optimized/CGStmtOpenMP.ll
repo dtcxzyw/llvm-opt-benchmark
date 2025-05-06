@@ -17861,7 +17861,7 @@ declare void @_ZN5clang7CodeGen15CodeGenFunction20EmitBranchOnBoolExprEPKNS_4Exp
 declare void @_ZN5clang7CodeGen15CodeGenFunction10EmitBranchEPN4llvm10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(6496), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL8emitBodyRN5clang7CodeGen15CodeGenFunctionEPKNS_4StmtES5_ii(ptr noundef nonnull align 8 dereferenceable(6496) %0, ptr noundef nonnull %1, ptr noundef captures(address) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL8emitBodyRN5clang7CodeGen15CodeGenFunctionEPKNS_4StmtES5_ii(ptr noundef nonnull align 8 dereferenceable(6496) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %"class.clang::PrettyStackTraceLoc", align 8
   %7 = alloca %"class.clang::CodeGen::CodeGenFunction::LexicalScope", align 8
   %8 = tail call noundef ptr @_ZN5clang4Stmt16IgnoreContainersEb(ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext false) #22

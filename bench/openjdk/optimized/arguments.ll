@@ -3624,7 +3624,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments12add_propertyEPKcNS_17PropertyWr
   %.020.i = phi ptr [ %.0.i, %43 ], [ %.018.i, %33 ]
   %34 = getelementptr inbounds nuw i8, ptr %.020.i, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(1) %35) #30
+  %36 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(1) %35) #30
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %43
 
@@ -3635,7 +3635,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments12add_propertyEPKcNS_17PropertyWr
   br i1 %41, label %42, label %_ZN9Arguments23PropertyList_unique_addEPP14SystemPropertyPKcS4_NS_18PropertyAppendableENS_17PropertyWriteableENS_16PropertyInternalE.exit
 
 42:                                               ; preds = %38
-  tail call void @_ZN10PathString12append_valueEPKc(ptr noundef nonnull align 8 dereferenceable(26) %.020.i, ptr noundef %.036)
+  tail call void @_ZN10PathString12append_valueEPKc(ptr noundef nonnull align 8 dereferenceable(26) %.020.i, ptr noundef readonly %.036)
   br label %_ZN9Arguments23PropertyList_unique_addEPP14SystemPropertyPKcS4_NS_18PropertyAppendableENS_17PropertyWriteableENS_16PropertyInternalE.exit
 
 43:                                               ; preds = %.lr.ph.i
@@ -3734,7 +3734,7 @@ declare void @_ZN9CDSConfig27check_incompatible_propertyEPKcS1_(ptr noundef, ptr
 declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Arguments23PropertyList_unique_addEPP14SystemPropertyPKcS4_NS_18PropertyAppendableENS_17PropertyWriteableENS_16PropertyInternalE(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Arguments23PropertyList_unique_addEPP14SystemPropertyPKcS4_NS_18PropertyAppendableENS_17PropertyWriteableENS_16PropertyInternalE(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %_ZN14SystemProperty22append_writeable_valueEPKc.exit, label %.preheader
 
@@ -3799,7 +3799,7 @@ define hidden void @_ZN9Arguments23PropertyList_unique_addEPP14SystemPropertyPKc
   %31 = icmp eq i32 %4, 0
   %32 = icmp eq i32 %5, 0
   %33 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 19, i32 noundef 0) #31
-  tail call void @_ZN14SystemPropertyC2EPKcS1_bb(ptr noundef nonnull align 8 dereferenceable(26) %33, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %31, i1 noundef zeroext %32)
+  tail call void @_ZN14SystemPropertyC2EPKcS1_bb(ptr noundef nonnull align 8 dereferenceable(26) %33, ptr noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %31, i1 noundef zeroext %32)
   %34 = load ptr, ptr %0, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %.preheader.i.i
@@ -7143,7 +7143,7 @@ define hidden noundef range(i32 -4, 1) i32 @_ZN9Arguments24process_patch_mod_opt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Arguments20add_patch_mod_prefixEPKcS1_Pb(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Arguments20add_patch_mod_prefixEPKcS1_Pb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(10) @.str.250) #30
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %11
@@ -9636,7 +9636,7 @@ define hidden noundef ptr @_ZN9Arguments31PropertyList_get_readable_valueEP14Sys
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Arguments16PropertyList_addEPP14SystemPropertyPKcS4_bb(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Arguments16PropertyList_addEPP14SystemPropertyPKcS4_bb(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit, label %7
 

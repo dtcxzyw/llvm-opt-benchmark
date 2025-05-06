@@ -4944,7 +4944,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @cvSeqInsert(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define ptr @cvSeqInsert(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14336,7 +14336,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @cvFindGraphEdge(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define ptr @cvFindGraphEdge(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %.not = icmp eq ptr %0, null
@@ -14532,7 +14532,7 @@ _ZL12cvGetSetElemPK5CvSeti.exit31:                ; preds = %55, %cvGetSeqElem.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @cvGraphAddEdgeByPtr(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @cvGraphAddEdgeByPtr(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca ptr, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
@@ -14812,7 +14812,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit81: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @cvGraphAddEdge(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @cvGraphAddEdge(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %.not = icmp eq ptr %0, null
@@ -15008,7 +15008,7 @@ _ZL12cvGetSetElemPK5CvSeti.exit33:                ; preds = %57, %cvGetSeqElem.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @cvGraphRemoveEdge(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @cvGraphRemoveEdge(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %.not = icmp eq ptr %0, null
@@ -17451,25 +17451,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN2cv7seqPushEP5CvSeqPKv(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define noundef ptr @_ZN2cv7seqPushEP5CvSeqPKv(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @cvSeqPush(ptr noundef %0, ptr noundef %1)
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN2cv12seqPushFrontEP5CvSeqPKv(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define noundef ptr @_ZN2cv12seqPushFrontEP5CvSeqPKv(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @cvSeqPushFront(ptr noundef %0, ptr noundef %1)
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv6seqPopEP5CvSeqPv(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @_ZN2cv6seqPopEP5CvSeqPv(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   tail call void @cvSeqPop(ptr noundef %0, ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv11seqPopFrontEP5CvSeqPv(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @_ZN2cv11seqPopFrontEP5CvSeqPv(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   tail call void @cvSeqPopFront(ptr noundef %0, ptr noundef %1)
   ret void
 }

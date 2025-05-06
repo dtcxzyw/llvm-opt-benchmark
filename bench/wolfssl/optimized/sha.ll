@@ -1467,7 +1467,7 @@ define void @wc_ShaFree(ptr noundef readnone captures(none) %0) local_unnamed_ad
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -192, 1) i32 @wc_ShaGetHash(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 {
+define range(i32 -192, 1) i32 @wc_ShaGetHash(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = alloca [1 x %struct.wc_Sha], align 16
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #8
   %4 = icmp eq ptr %0, null

@@ -37070,7 +37070,7 @@ _ZNSt5dequeIPN4llvm5SUnitESaIS2_EE9push_backERKS2_.exit: ; preds = %581, %579, %
 declare i16 @_ZNK4llvm12MachineInstr26readsWritesVirtualRegisterENS_8RegisterEPNS_15SmallVectorImplIjEE(ptr noundef nonnull align 8 dereferenceable(70), i32, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm10SMSchedule21isLoopCarriedDefOfUseEPKNS_17SwingSchedulerDAGEPNS_12MachineInstrERNS_14MachineOperandE(ptr noundef nonnull align 8 captures(address) dereferenceable(592) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm10SMSchedule21isLoopCarriedDefOfUseEPKNS_17SwingSchedulerDAGEPNS_12MachineInstrERNS_14MachineOperandE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(592) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3) local_unnamed_addr #1 align 2 {
   %5 = load i32, ptr %3, align 8
   %6 = and i32 %5, 255
   %7 = icmp eq i32 %6, 0

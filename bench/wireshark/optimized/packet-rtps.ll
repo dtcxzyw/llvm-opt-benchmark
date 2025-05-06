@@ -11561,7 +11561,7 @@ declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, 
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @rtps_add_zlib_compressed_typeobject(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, -2147483647) %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6) unnamed_addr #0 {
+define internal fastcc void @rtps_add_zlib_compressed_typeobject(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, -2147483647) %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #0 {
   %8 = tail call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef 0, i32 noundef %5)
   %9 = tail call ptr @tvb_child_uncompress_zlib(ptr noundef %2, ptr noundef %8, i32 noundef 0, i32 noundef %4)
   %.not = icmp eq ptr %9, null

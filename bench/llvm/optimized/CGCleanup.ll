@@ -4559,7 +4559,7 @@ declare noundef zeroext i1 @_ZNK4llvm10AllocaInst14isStaticAllocaEv(ptr noundef 
 declare void @_ZN5clang7CodeGen15CodeGenFunction28CreateDefaultAlignTempAllocaEPN4llvm4TypeERKNS2_5TwineE(ptr dead_on_unwind writable sret(%"class.clang::CodeGen::RawAddress") align 8, ptr noundef nonnull align 8 dereferenceable(6496), ptr noundef, ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction16PopCleanupBlocksENS0_12EHScopeStack15stable_iteratorEmSt16initializer_listIPPN4llvm5ValueEE(ptr noundef nonnull align 8 dereferenceable(6496) %0, i64 %1, i64 noundef %2, ptr captures(address) %3, i64 %4) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction16PopCleanupBlocksENS0_12EHScopeStack15stable_iteratorEmSt16initializer_listIPPN4llvm5ValueEE(ptr noundef nonnull align 8 dereferenceable(6496) %0, i64 %1, i64 noundef %2, ptr readonly captures(address) %3, i64 %4) local_unnamed_addr #1 align 2 {
   %.sroa.8.i.i = alloca [23 x i8], align 1
   tail call void @_ZN5clang7CodeGen15CodeGenFunction16PopCleanupBlocksENS0_12EHScopeStack15stable_iteratorESt16initializer_listIPPN4llvm5ValueEE(ptr noundef nonnull align 8 dereferenceable(6496) %0, i64 %1, ptr %3, i64 %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2544

@@ -532,13 +532,13 @@ _ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit.thread: ; preds = %14, %
 declare i32 @hb_segment_properties_equal(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden nonnull ptr @hb_shape_plan_create(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define hidden nonnull ptr @hb_shape_plan_create(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = tail call ptr @hb_shape_plan_create2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef null, i32 noundef 0, ptr noundef %4)
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden nonnull ptr @hb_shape_plan_create2(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
+define hidden nonnull ptr @hb_shape_plan_create2(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = load i32, ptr %1, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %_ZL16hb_object_createI15hb_shape_plan_tJEEPT_DpT0_.exit.thread, label %10
@@ -905,13 +905,13 @@ _ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tP
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden ptr @hb_shape_plan_create_cached(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define hidden ptr @hb_shape_plan_create_cached(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = tail call ptr @hb_shape_plan_create_cached2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef null, i32 noundef 0, ptr noundef %4)
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden ptr @hb_shape_plan_create_cached2(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
+define hidden ptr @hb_shape_plan_create_cached2(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca %struct.hb_shape_plan_key_t, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %10 = load atomic i64, ptr %9 acquire, align 8

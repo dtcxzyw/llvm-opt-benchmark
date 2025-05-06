@@ -31068,7 +31068,7 @@ declare i64 @rb_to_array_type(i64 noundef) local_unnamed_addr #1
 declare void @rb_out_of_int(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @rb_io_open_generic(i64 noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull captures(address_is_null) %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i64 @rb_io_open_generic(i64 noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
   %9 = load i64, ptr @rb_cIO, align 8, !tbaa !23
@@ -31165,7 +31165,7 @@ RSTRING_PTR.exit.i.i:                             ; preds = %45, %41
 
 pipe_open_s.exit:                                 ; preds = %RSTRING_PTR.exit.i.i, %48
   %.0.i13 = phi i64 [ %49, %48 ], [ 4, %RSTRING_PTR.exit.i.i ]
-  %50 = call fastcc noundef i64 @pipe_open(i64 noundef %.0.i13, i32 noundef %3, ptr noundef nonnull %4)
+  %50 = call fastcc noundef i64 @pipe_open(i64 noundef %.0.i13, i32 noundef %3, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %56
 

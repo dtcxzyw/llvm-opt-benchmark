@@ -677,7 +677,7 @@ define noundef ptr @byte_array_dup(ptr noundef readonly captures(address_is_null
 declare ptr @g_byte_array_new() local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @oid_str_to_bytes(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef zeroext i1 @oid_str_to_bytes(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = tail call zeroext i1 @rel_oid_str_to_bytes(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
   ret i1 %3
 }

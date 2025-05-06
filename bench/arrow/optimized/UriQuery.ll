@@ -141,7 +141,7 @@ uriComposeQueryEngineA.exit:                      ; preds = %25, %27, %4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 5) i32 @uriComposeQueryA(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #2 {
+define range(i32 0, 5) i32 @uriComposeQueryA(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = tail call i32 @uriComposeQueryExA(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef 1, i32 noundef 1)
   ret i32 %5
 }
@@ -270,19 +270,19 @@ uriComposeQueryEngineA.exit:                      ; preds = %50, %33, %31, %64, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriComposeQueryMallocA(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 {
-  %3 = tail call range(i32 0, 11) i32 @uriComposeQueryMallocExMmA(ptr noundef %0, ptr noundef %1, i32 noundef 1, i32 noundef 1, ptr noundef null)
+define range(i32 0, 11) i32 @uriComposeQueryMallocA(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
+  %3 = tail call range(i32 0, 11) i32 @uriComposeQueryMallocExMmA(ptr noundef %0, ptr noundef readonly %1, i32 noundef 1, i32 noundef 1, ptr noundef null)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriComposeQueryMallocExA(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 11) i32 @uriComposeQueryMallocExA(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = tail call i32 @uriComposeQueryMallocExMmA(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef null)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriComposeQueryMallocExMmA(ptr noundef writeonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define range(i32 0, 11) i32 @uriComposeQueryMallocExMmA(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %uriComposeQueryCharsRequiredExA.exit.thread, label %7
 
@@ -447,13 +447,13 @@ define range(i32 0, 11) i32 @uriFreeQueryListMmA(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriDissectQueryMallocA(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(address) %3) local_unnamed_addr #2 {
-  %5 = tail call range(i32 0, 11) i32 @uriDissectQueryMallocExMmA(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 1, i32 noundef 3, ptr noundef null)
+define range(i32 0, 11) i32 @uriDissectQueryMallocA(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) local_unnamed_addr #2 {
+  %5 = tail call range(i32 0, 11) i32 @uriDissectQueryMallocExMmA(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i32 noundef 1, i32 noundef 3, ptr noundef null)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriDissectQueryMallocExA(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(address) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define range(i32 0, 11) i32 @uriDissectQueryMallocExA(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = tail call i32 @uriDissectQueryMallocExMmA(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef null)
   ret i32 %7
 }
@@ -1006,7 +1006,7 @@ uriComposeQueryEngineW.exit:                      ; preds = %25, %27, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 5) i32 @uriComposeQueryW(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #2 {
+define range(i32 0, 5) i32 @uriComposeQueryW(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = tail call i32 @uriComposeQueryExW(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef 1, i32 noundef 1)
   ret i32 %5
 }
@@ -1138,19 +1138,19 @@ uriComposeQueryEngineW.exit:                      ; preds = %51, %33, %31, %67, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriComposeQueryMallocW(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 {
-  %3 = tail call range(i32 0, 11) i32 @uriComposeQueryMallocExMmW(ptr noundef %0, ptr noundef %1, i32 noundef 1, i32 noundef 1, ptr noundef null)
+define range(i32 0, 11) i32 @uriComposeQueryMallocW(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
+  %3 = tail call range(i32 0, 11) i32 @uriComposeQueryMallocExMmW(ptr noundef %0, ptr noundef readonly %1, i32 noundef 1, i32 noundef 1, ptr noundef null)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriComposeQueryMallocExW(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 11) i32 @uriComposeQueryMallocExW(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = tail call i32 @uriComposeQueryMallocExMmW(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef null)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriComposeQueryMallocExMmW(ptr noundef writeonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define range(i32 0, 11) i32 @uriComposeQueryMallocExMmW(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %uriComposeQueryCharsRequiredExW.exit.thread, label %7
 
@@ -1314,13 +1314,13 @@ define range(i32 0, 11) i32 @uriFreeQueryListMmW(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriDissectQueryMallocW(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(address) %3) local_unnamed_addr #2 {
-  %5 = tail call range(i32 0, 11) i32 @uriDissectQueryMallocExMmW(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 1, i32 noundef 3, ptr noundef null)
+define range(i32 0, 11) i32 @uriDissectQueryMallocW(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) local_unnamed_addr #2 {
+  %5 = tail call range(i32 0, 11) i32 @uriDissectQueryMallocExMmW(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i32 noundef 1, i32 noundef 3, ptr noundef null)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriDissectQueryMallocExW(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(address) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define range(i32 0, 11) i32 @uriDissectQueryMallocExW(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = tail call i32 @uriDissectQueryMallocExMmW(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef null)
   ret i32 %7
 }

@@ -10391,7 +10391,7 @@ _ZN7rocksdb6StatusD2Ev.exit27:                    ; preds = %52, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb19FindMetaBlockInFileEPNS_22RandomAccessFileReaderEmmRKNS_16ImmutableOptionsERKNS_11ReadOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_11BlockHandleEPNS_15MemoryAllocatorEPNS_18FilePrefetchBufferEPNS_6FooterE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(849) %4, ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef captures(address_is_null) %10) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb19FindMetaBlockInFileEPNS_22RandomAccessFileReaderEmmRKNS_16ImmutableOptionsERKNS_11ReadOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_11BlockHandleEPNS_15MemoryAllocatorEPNS_18FilePrefetchBufferEPNS_6FooterE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(849) %4, ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef writeonly captures(address_is_null) %10) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %12 = alloca %"struct.rocksdb::BlockContents", align 8
   %13 = alloca %"class.rocksdb::Status", align 8
   %14 = alloca %"class.rocksdb::Block", align 8

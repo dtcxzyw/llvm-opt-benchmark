@@ -933,7 +933,7 @@ matches_regex.exit:                               ; preds = %149, %151
   br i1 %199, label %200, label %extcap_parse_arg_sentence.exit.thread
 
 200:                                              ; preds = %196
-  %201 = tail call fastcc ptr @extcap_parse_value_sentence(ptr noundef nonnull %3)
+  %201 = tail call fastcc ptr @extcap_parse_value_sentence(ptr noundef nonnull readonly %3)
   %202 = icmp eq ptr %201, null
   br i1 %202, label %extcap_parse_arg_sentence.exit.thread, label %203
 

@@ -541,7 +541,7 @@ make_aux_edge.exit.i.i:                           ; preds = %223, %gv_alloc.exit
   %283 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 %.idx217.i.i
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 56
   %285 = load ptr, ptr %284, align 8, !tbaa !86
-  %286 = tail call fastcc noundef zeroext i1 @go(ptr noundef readonly %285, ptr noundef readonly %281)
+  %286 = tail call fastcc noundef zeroext i1 @go(ptr noundef readonly %285, ptr noundef readnone %281)
   br i1 %286, label %321, label %287
 
 287:                                              ; preds = %238
@@ -622,7 +622,7 @@ make_aux_edge.exit203.i.i:                        ; preds = %315, %gv_alloc.exit
   %329 = getelementptr inbounds i8, ptr %spec.select195.i.i, i64 %.idx219.i.i
   %330 = getelementptr inbounds nuw i8, ptr %329, i64 56
   %331 = load ptr, ptr %330, align 8, !tbaa !86
-  %332 = tail call fastcc noundef zeroext i1 @go(ptr noundef readonly %331, ptr noundef readonly %327)
+  %332 = tail call fastcc noundef zeroext i1 @go(ptr noundef readonly %331, ptr noundef readnone %327)
   br i1 %332, label %368, label %333
 
 333:                                              ; preds = %321
@@ -2267,7 +2267,7 @@ declare double @selfRightSpace(ptr noundef) local_unnamed_addr #1
 declare ptr @find_fast_edge(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @go(ptr noundef readonly captures(address) %0, ptr noundef captures(address) %1) unnamed_addr #10 {
+define internal fastcc noundef zeroext i1 @go(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #10 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.loopexit, label %.preheader
 

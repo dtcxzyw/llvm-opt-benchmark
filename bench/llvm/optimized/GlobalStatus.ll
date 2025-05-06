@@ -208,7 +208,7 @@ define dso_local void @_ZN4llvm12GlobalStatusC2Ev(ptr noundef nonnull writeonly 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm12GlobalStatus13analyzeGlobalEPKNS_5ValueERS0_(ptr noundef captures(address) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm12GlobalStatus13analyzeGlobalEPKNS_5ValueERS0_(ptr noundef readonly captures(address) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SmallPtrSet.0", align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3) #9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24

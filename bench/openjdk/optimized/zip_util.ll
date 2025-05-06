@@ -166,7 +166,7 @@ InitializeZip.exit:                               ; preds = %11, %6, %16, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @ZIP_Put_In_Cache(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
+define hidden noundef ptr @ZIP_Put_In_Cache(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @ZIP_Put_In_Cache0(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i8 noundef zeroext 1)
   ret ptr %5
 }

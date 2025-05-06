@@ -10736,7 +10736,7 @@ define hidden void @"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h0e73b2a085ca24c8E.llvm.5997636334944773990"(ptr dead_on_unwind noalias noundef writable writeonly sret([680 x i8]) align 8 captures(none) dereferenceable(680) %0, ptr noundef nonnull %1, ptr noundef captures(address) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h0e73b2a085ca24c8E.llvm.5997636334944773990"(ptr dead_on_unwind noalias noundef writable writeonly sret([680 x i8]) align 8 captures(none) dereferenceable(680) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [680 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 680, ptr nonnull %4)
   store i32 0, ptr %4, align 8
@@ -10971,7 +10971,7 @@ define hidden void @"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h1af843fb99a4f35eE.llvm.5997636334944773990"(ptr dead_on_unwind noalias noundef writable writeonly sret([1256 x i8]) align 8 captures(none) dereferenceable(1256) %0, ptr noundef nonnull %1, ptr noundef captures(address) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h1af843fb99a4f35eE.llvm.5997636334944773990"(ptr dead_on_unwind noalias noundef writable writeonly sret([1256 x i8]) align 8 captures(none) dereferenceable(1256) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [1256 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 1256, ptr nonnull %4)
   store i32 0, ptr %4, align 8
@@ -15202,7 +15202,7 @@ define hidden void @"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17hcca9a148eacbe3eaE.llvm.5997636334944773990"(ptr dead_on_unwind noalias noundef writable writeonly sret([1256 x i8]) align 8 captures(none) dereferenceable(1256) %0, ptr noundef nonnull %1, ptr noundef captures(address) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17hcca9a148eacbe3eaE.llvm.5997636334944773990"(ptr dead_on_unwind noalias noundef writable writeonly sret([1256 x i8]) align 8 captures(none) dereferenceable(1256) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [1256 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 1256, ptr nonnull %4)
   store i32 0, ptr %4, align 8
@@ -15323,7 +15323,7 @@ define hidden void @"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17hcf1846ee70ce3e48E.llvm.5997636334944773990"(ptr dead_on_unwind noalias noundef writable writeonly sret([584 x i8]) align 8 captures(none) dereferenceable(584) %0, ptr noundef nonnull %1, ptr noundef captures(address) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17hcf1846ee70ce3e48E.llvm.5997636334944773990"(ptr dead_on_unwind noalias noundef writable writeonly sret([584 x i8]) align 8 captures(none) dereferenceable(584) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [584 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 584, ptr nonnull %4)
   store i32 0, ptr %4, align 8
@@ -77931,7 +77931,7 @@ define hidden void @"_ZN80_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$
   %7 = getelementptr inbounds nuw { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i64, { { { [4 x i64] }, i64 } }, i32, [1 x i32] }, ptr %6, i64 %5
   call void @llvm.lifetime.start.p0(i64 1256, ptr nonnull %3), !noalias !21627
   store i32 0, ptr %3, align 8, !noalias !21627
-  invoke void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_iter17h17b9ef134b2a171dE"(ptr noalias noundef nonnull align 8 dereferenceable(1256) %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.056909d58185468a4c5e660ab0f52ad7.55.llvm.5997636334944773990)
+  invoke void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_iter17h17b9ef134b2a171dE"(ptr noalias noundef nonnull align 8 dereferenceable(1256) %3, ptr noundef nonnull %6, ptr noundef nonnull readnone %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.056909d58185468a4c5e660ab0f52ad7.55.llvm.5997636334944773990)
           to label %"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17hcca9a148eacbe3eaE.llvm.5997636334944773990.exit" unwind label %8, !noalias !21627
 
 8:                                                ; preds = %2
@@ -78408,7 +78408,7 @@ define hidden void @"_ZN80_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$
   %7 = getelementptr inbounds nuw { { i32, i16, [1 x i16] }, i64, { { { [4 x i64] }, i64 } } }, ptr %6, i64 %5
   call void @llvm.lifetime.start.p0(i64 680, ptr nonnull %3), !noalias !21826
   store i32 0, ptr %3, align 8, !noalias !21826
-  invoke void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_iter17h6435c96abebd1758E"(ptr noalias noundef nonnull align 8 dereferenceable(680) %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.056909d58185468a4c5e660ab0f52ad7.55.llvm.5997636334944773990)
+  invoke void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_iter17h6435c96abebd1758E"(ptr noalias noundef nonnull align 8 dereferenceable(680) %3, ptr noundef nonnull %6, ptr noundef nonnull readnone %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.056909d58185468a4c5e660ab0f52ad7.55.llvm.5997636334944773990)
           to label %"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h0e73b2a085ca24c8E.llvm.5997636334944773990.exit" unwind label %8, !noalias !21826
 
 8:                                                ; preds = %2
@@ -78851,7 +78851,7 @@ define hidden void @"_ZN80_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$
   call void @llvm.lifetime.start.p0(i64 1256, ptr nonnull %3), !noalias !21984
   store i32 0, ptr %3, align 8, !noalias !21984
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  invoke void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_iter17hd4392b8cbcb581f7E"(ptr noalias noundef nonnull align 8 dereferenceable(1256) %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.056909d58185468a4c5e660ab0f52ad7.55.llvm.5997636334944773990)
+  invoke void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_iter17hd4392b8cbcb581f7E"(ptr noalias noundef nonnull align 8 dereferenceable(1256) %3, ptr noundef nonnull %6, ptr noundef nonnull readnone %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.056909d58185468a4c5e660ab0f52ad7.55.llvm.5997636334944773990)
           to label %"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h1af843fb99a4f35eE.llvm.5997636334944773990.exit" unwind label %9, !noalias !21984
 
 9:                                                ; preds = %2
@@ -78891,7 +78891,7 @@ define hidden void @"_ZN80_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$
   %7 = getelementptr inbounds nuw { i64, { { { [4 x i64] }, i64 } } }, ptr %6, i64 %5
   call void @llvm.lifetime.start.p0(i64 584, ptr nonnull %3), !noalias !21999
   store i32 0, ptr %3, align 8, !noalias !21999
-  invoke void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_iter17h515fbbb20a91b8c5E"(ptr noalias noundef nonnull align 8 dereferenceable(584) %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.056909d58185468a4c5e660ab0f52ad7.55.llvm.5997636334944773990)
+  invoke void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_iter17h515fbbb20a91b8c5E"(ptr noalias noundef nonnull align 8 dereferenceable(584) %3, ptr noundef nonnull %6, ptr noundef nonnull readnone %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.056909d58185468a4c5e660ab0f52ad7.55.llvm.5997636334944773990)
           to label %"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17hcf1846ee70ce3e48E.llvm.5997636334944773990.exit" unwind label %8, !noalias !21999
 
 8:                                                ; preds = %2

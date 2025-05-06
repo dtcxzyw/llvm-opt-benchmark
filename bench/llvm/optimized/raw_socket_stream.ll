@@ -457,7 +457,7 @@ _ZN4llvm5ErrorD2Ev.exit38:                        ; preds = %96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL11getSocketFDN4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) initializes((0, 4)) %0, ptr captures(address_is_null) %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZL11getSocketFDN4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) initializes((0, 4)) %0, ptr readonly captures(address_is_null) %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %struct.sockaddr_un, align 2
@@ -1036,7 +1036,7 @@ define dso_local void @_ZN4llvm17raw_socket_streamD0Ev(ptr noundef nonnull align
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17raw_socket_stream19createConnectedUnixENS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.6") align 8 captures(none) initializes((0, 8)) %0, ptr captures(address_is_null) %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17raw_socket_stream19createConnectedUnixENS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.6") align 8 captures(none) initializes((0, 8)) %0, ptr readonly captures(address_is_null) %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Expected.2", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
   call fastcc void @_ZL11getSocketFDN4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %4, ptr %1, i64 %2)

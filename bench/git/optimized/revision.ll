@@ -1091,7 +1091,7 @@ declare ptr @lookup_tree(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare ptr @hashmap_iter_next(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mark_parents_uninteresting(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+define dso_local void @mark_parents_uninteresting(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca %struct.commit_stack, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
@@ -4716,7 +4716,7 @@ define dso_local void @revision_opts_finish(ptr noundef captures(none) %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_revisions(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #2 {
+define dso_local i32 @setup_revisions(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.object_id, align 4
   %7 = alloca %struct.strbuf, align 8

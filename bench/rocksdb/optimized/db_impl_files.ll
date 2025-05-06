@@ -8928,7 +8928,7 @@ _ZNK7rocksdb10JobContext21HaveSomethingToDeleteEv.exit.thread: ; preds = %_ZN7ro
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb39GetDBRecoveryEditForObsoletingMemTablesEPNS_10VersionSetERKNS_16ColumnFamilyDataERKNS_10autovectorIPNS_11VersionEditELm8EEERKNS5_IPNS_16ReadOnlyMemTableELm8EEEPNS_19LogsWithPrepTrackerE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::VersionEdit") align 8 initializes((0, 4)) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(2712) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %3, ptr noundef nonnull align 8 dereferenceable(104) %4, ptr noundef %5) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb39GetDBRecoveryEditForObsoletingMemTablesEPNS_10VersionSetERKNS_16ColumnFamilyDataERKNS_10autovectorIPNS_11VersionEditELm8EEERKNS5_IPNS_16ReadOnlyMemTableELm8EEEPNS_19LogsWithPrepTrackerE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::VersionEdit") align 8 initializes((0, 4)) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(2712) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %3, ptr noundef nonnull align 8 dereferenceable(104) %4, ptr noundef %5) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   store i32 0, ptr %0, align 8, !tbaa !848
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24

@@ -1920,7 +1920,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_bESaIS6_ENSt8_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers18EmbeddingConverter7processENS0_12NodeTemplateILb1EEERKSt3mapIS5_S5_St4lessIS5_ESaISt4pairIKS5_S5_EEESF_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %3, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers18EmbeddingConverter7processENS0_12NodeTemplateILb1EEERKSt3mapIS5_S5_St4lessIS5_ESaISt4pairIKS5_S5_EEESF_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %3, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::map.414", align 8
   %7 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %8 = alloca %"class.std::map.414", align 8

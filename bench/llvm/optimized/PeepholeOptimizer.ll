@@ -2178,7 +2178,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15TargetInstrInfo13RegSubRegPairELb1EE9push
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43)
   %513 = load ptr, ptr %76, align 8, !tbaa !217
   %514 = load ptr, ptr %67, align 8, !tbaa !214
-  %515 = call fastcc i64 @_ZL12getNewSourcePN4llvm19MachineRegisterInfoEPKNS_15TargetInstrInfoENS2_13RegSubRegPairERKNS_13SmallDenseMapIS5_N12_GLOBAL__N_118ValueTrackerResultELj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEEb(ptr noundef %513, ptr noundef %514, i64 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(200) %44, i1 noundef zeroext true)
+  %515 = call fastcc i64 @_ZL12getNewSourcePN4llvm19MachineRegisterInfoEPKNS_15TargetInstrInfoENS2_13RegSubRegPairERKNS_13SmallDenseMapIS5_N12_GLOBAL__N_118ValueTrackerResultELj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEEb(ptr noundef %513, ptr noundef %514, i64 %.sroa.0.0.copyload.i, ptr noundef nonnull readonly align 8 dereferenceable(200) %44, i1 noundef zeroext true)
   %.sroa.014.0.extract.trunc.i.i = trunc i64 %515 to i32
   %516 = load ptr, ptr %76, align 8, !tbaa !217
   %517 = getelementptr inbounds nuw i8, ptr %516, i64 48
@@ -5199,13 +5199,13 @@ define internal void @_ZN12_GLOBAL__N_117PeepholeOptimizer18MF_HandleInsertionER
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117PeepholeOptimizer16MF_HandleRemovalERN4llvm12MachineInstrE(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(70) %1) unnamed_addr #1 align 2 {
+define internal void @_ZN12_GLOBAL__N_117PeepholeOptimizer16MF_HandleRemovalERN4llvm12MachineInstrE(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(70) %1) unnamed_addr #1 align 2 {
   tail call fastcc void @_ZN12_GLOBAL__N_117PeepholeOptimizer17deleteChangedCopyERN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(70) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117PeepholeOptimizer19MF_HandleChangeDescERN4llvm12MachineInstrERKNS1_11MCInstrDescE(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(70) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #1 align 2 {
+define internal void @_ZN12_GLOBAL__N_117PeepholeOptimizer19MF_HandleChangeDescERN4llvm12MachineInstrERKNS1_11MCInstrDescE(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(70) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #1 align 2 {
   tail call fastcc void @_ZN12_GLOBAL__N_117PeepholeOptimizer17deleteChangedCopyERN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(70) %1)
   ret void
 }
@@ -8170,7 +8170,7 @@ _ZN12_GLOBAL__N_118ValueTrackerResultD2Ev.exit:   ; preds = %94, %_ZN12_GLOBAL__
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i64 @_ZL12getNewSourcePN4llvm19MachineRegisterInfoEPKNS_15TargetInstrInfoENS2_13RegSubRegPairERKNS_13SmallDenseMapIS5_N12_GLOBAL__N_118ValueTrackerResultELj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEEb(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef nonnull align 8 captures(address) dereferenceable(200) %3, i1 noundef zeroext %4) unnamed_addr #1 {
+define internal fastcc i64 @_ZL12getNewSourcePN4llvm19MachineRegisterInfoEPKNS_15TargetInstrInfoENS2_13RegSubRegPairERKNS_13SmallDenseMapIS5_N12_GLOBAL__N_118ValueTrackerResultELj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEEb(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(200) %3, i1 noundef zeroext %4) unnamed_addr #1 {
   %6 = alloca %"class.llvm::MachineOperand", align 8
   %7 = alloca %"class.llvm::MachineOperand", align 8
   %8 = alloca %"class.llvm::MIMetadata", align 8

@@ -2800,7 +2800,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %199, %196, %194
 204:                                              ; preds = %proto_item_set_generated.exit155
   %205 = load i16, ptr %171, align 2
   %206 = zext i16 %205 to i32
-  tail call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %27, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.1206, i32 noundef %206)
+  tail call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %27, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.1206, i32 noundef %206)
   %207 = load i32, ptr @hf_mac_nr_rar, align 4
   %208 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %207, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %.not.i.i156 = icmp eq ptr %208, null
@@ -2847,7 +2847,7 @@ proto_item_set_hidden.exit.i158:                  ; preds = %212, %209, %204
   %232 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %221, i32 noundef %231, ptr noundef %0, i32 noundef %.0.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %19)
   %233 = add i32 %.0.i, 1
   %234 = load i32, ptr %19, align 4
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %27, ptr noundef %219, ptr noundef %1, ptr noundef nonnull @.str.1207, i32 noundef %234)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %27, ptr noundef %219, ptr noundef readonly %1, ptr noundef nonnull @.str.1207, i32 noundef %234)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #15
   br label %256
 
@@ -2873,7 +2873,7 @@ proto_item_set_hidden.exit.i158:                  ; preds = %212, %209, %204
   %251 = add i32 %.0.i, 8
   %252 = load i32, ptr %15, align 4
   %253 = load i32, ptr %16, align 4
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %27, ptr noundef %219, ptr noundef %1, ptr noundef nonnull @.str.1208, i32 noundef %239, i32 noundef %252, i32 noundef %253)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %27, ptr noundef %219, ptr noundef readonly %1, ptr noundef nonnull @.str.1208, i32 noundef %239, i32 noundef %252, i32 noundef %253)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #15
   %254 = load i8, ptr %216, align 4
@@ -2985,7 +2985,7 @@ proto_item_set_hidden.exit.i162:                  ; preds = %279, %276, %271
   %313 = add i32 %.0.i163, 8
   %314 = load i32, ptr %5, align 4
   %315 = load i32, ptr %6, align 4
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %27, ptr noundef %285, ptr noundef %1, ptr noundef nonnull @.str.1208, i32 noundef %301, i32 noundef %314, i32 noundef %315)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %27, ptr noundef %285, ptr noundef readonly %1, ptr noundef nonnull @.str.1208, i32 noundef %301, i32 noundef %314, i32 noundef %315)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #15

@@ -1943,7 +1943,7 @@ define hidden ptr @_PyPegen_get_patterns(ptr noundef readonly captures(none) %0,
 declare ptr @_Py_asdl_pattern_seq_new(i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyPegen_name_default_pair(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #1 {
+define hidden ptr @_PyPegen_name_default_pair(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = tail call ptr @_PyArena_Malloc(ptr noundef %6, i64 noundef 16) #11

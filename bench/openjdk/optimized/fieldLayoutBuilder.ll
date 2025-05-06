@@ -473,7 +473,7 @@ define hidden noundef ptr @_ZN11FieldLayout6insertEP14LayoutRawBlockS1_(ptr noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11FieldLayout26initialize_instance_layoutEPK13InstanceKlass(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11FieldLayout26initialize_instance_layoutEPK13InstanceKlass(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %43
 

@@ -909,7 +909,7 @@ define zeroext i1 @H5F_is_mount(ptr noundef readonly captures(none) %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @H5F__mount_count_ids(ptr noundef captures(address) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
+define noundef i32 @H5F__mount_count_ids(ptr noundef readonly captures(address) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = load i8, ptr @H5F_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1, !range !7

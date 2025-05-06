@@ -9799,7 +9799,7 @@ define hidden void @_ZN19pyo3_macros_backend8pymethod2Ty8ffi_type17h5d7d5396af8c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN19pyo3_macros_backend8pymethod7SlotDef18generate_type_slot17ha78e61cb325f19deE(ptr writeonly sret([64 x i8]) align 8 captures(none) %0, ptr align 8 captures(address_is_null) %1, ptr align 8 %2, ptr align 8 %3, ptr align 1 %4, i64 %5, ptr align 8 %6) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN19pyo3_macros_backend8pymethod7SlotDef18generate_type_slot17ha78e61cb325f19deE(ptr writeonly sret([64 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(address_is_null) %1, ptr align 8 %2, ptr align 8 %3, ptr align 1 %4, i64 %5, ptr align 8 %6) unnamed_addr #0 personality ptr @rust_eh_personality {
   %8 = alloca [24 x i8], align 8
   %9 = alloca [24 x i8], align 8
   %10 = alloca [24 x i8], align 8

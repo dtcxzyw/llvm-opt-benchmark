@@ -2489,7 +2489,7 @@ add_sdnv64_to_tree.exit.i208:                     ; preds = %762, %754
   %781 = load i64, ptr %8, align 8
   %782 = load i32, ptr @hf_ltp_rpt_ack_ref, align 4
   %783 = load i32, ptr @hf_ltp_rpt_ack_time, align 4
-  call fastcc void @ltp_ref_use(ptr noundef %780, i64 noundef %781, ptr noundef %2, ptr noundef %772, i32 noundef %782, ptr noundef nonnull @ei_ltp_rpt_ack_norpt, i32 noundef %783, ptr noundef %52)
+  call fastcc void @ltp_ref_use(ptr noundef %780, i64 noundef %781, ptr noundef %2, ptr noundef %772, i32 noundef %782, ptr noundef nonnull @ei_ltp_rpt_ack_norpt, i32 noundef %783, ptr noundef readonly %52)
   br label %dissect_report_ack_segment.exit
 
 dissect_report_ack_segment.exit:                  ; preds = %add_sdnv64_to_tree.exit.i208, %770
@@ -2567,7 +2567,7 @@ dissect_report_ack_segment.exit:                  ; preds = %add_sdnv64_to_tree.
   %829 = load ptr, ptr %828, align 8
   %830 = load i32, ptr @hf_ltp_cancel_ack_ref, align 4
   %831 = load i32, ptr @hf_ltp_cancel_ack_time, align 4
-  call fastcc void @ltp_ref_use(ptr noundef %829, i64 noundef %823, ptr noundef %2, ptr noundef %816, i32 noundef %830, ptr noundef nonnull @ei_ltp_cancel_ack_nocancel, i32 noundef %831, ptr noundef %52)
+  call fastcc void @ltp_ref_use(ptr noundef %829, i64 noundef %823, ptr noundef %2, ptr noundef %816, i32 noundef %830, ptr noundef nonnull @ei_ltp_cancel_ack_nocancel, i32 noundef %831, ptr noundef readonly %52)
   br label %dissect_cancel_segment.exit
 
 dissect_cancel_segment.exit:                      ; preds = %787, %820, %811, %800, %789, %dissect_report_segment.exit, %dissect_report_ack_segment.exit, %dissect_data_segment.exit

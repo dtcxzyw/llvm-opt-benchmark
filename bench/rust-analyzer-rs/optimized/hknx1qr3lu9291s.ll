@@ -1563,7 +1563,7 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h40d093470d549cb7E"(ptr noundef nonnull %0, ptr noundef captures(address) %1, i64 noundef %2) unnamed_addr #1 {
+define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h40d093470d549cb7E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #1 {
   %4 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hd34d2adcacca8e4bE.llvm.4370348610037963988(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2)
   ret i64 %4
 }
@@ -3157,7 +3157,7 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he4021bfe6ea671e3E"(ptr noundef nonnull %0, ptr noundef captures(address) %1, i64 noundef %2) unnamed_addr #1 {
+define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he4021bfe6ea671e3E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #1 {
   %4 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hfeb7111063010429E.llvm.4370348610037963988(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2)
   ret i64 %4
 }
@@ -5029,7 +5029,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16), !noalias !1973
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %24, i64 40, i1 false)
-  invoke fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h246bab2af5e1be6dE"(ptr nonnull align 8 dereferenceable(8) %19, ptr noalias noundef align 8 captures(none) dereferenceable(40) %16)
+  invoke fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h246bab2af5e1be6dE"(ptr nonnull readonly align 8 dereferenceable(8) %19, ptr noalias noundef align 8 captures(none) dereferenceable(40) %16)
           to label %80 unwind label %106, !noalias !1974
 
 25:                                               ; preds = %80, %21
@@ -5180,7 +5180,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   store i64 %spec.select.i.i.i.i.i.i.i.i.i, ptr %.sroa.6.0..sroa_idx6.i.i.i.i.i.i.i.i.i, align 8, !noalias !2017
   store i64 0, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2023
   store i64 %.sink4.i.i.i.i.i.i.i.i.i.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2023
-  invoke fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h246bab2af5e1be6dE"(ptr nonnull align 8 dereferenceable(8) %19, ptr noalias noundef align 8 captures(none) dereferenceable(40) %11)
+  invoke fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h246bab2af5e1be6dE"(ptr nonnull readonly align 8 dereferenceable(8) %19, ptr noalias noundef align 8 captures(none) dereferenceable(40) %11)
           to label %.noexc4.i.i.i.i.i.i.i unwind label %35, !noalias !2016
 
 .noexc4.i.i.i.i.i.i.i:                            ; preds = %.noexc3.i.i.i.i.i.i.i
@@ -5252,7 +5252,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %84 = getelementptr inbounds nuw i8, ptr %17, i64 56
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15), !noalias !1973
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %84, i64 40, i1 false), !noalias !1971
-  invoke fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h246bab2af5e1be6dE"(ptr nonnull align 8 dereferenceable(8) %19, ptr noalias noundef align 8 captures(none) dereferenceable(40) %15)
+  invoke fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h246bab2af5e1be6dE"(ptr nonnull readonly align 8 dereferenceable(8) %19, ptr noalias noundef align 8 captures(none) dereferenceable(40) %15)
           to label %85 unwind label %.body.thread33.i.i.i, !noalias !1974
 
 85:                                               ; preds = %83
@@ -16127,7 +16127,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
-define hidden noundef i8 @_ZN4core4iter6traits8iterator8Iterator6cmp_by17he53fdbb6da086322E(ptr noundef nonnull captures(address) %0, ptr noundef captures(address) %1, ptr noundef nonnull captures(address) %2, ptr noundef captures(address) %3) unnamed_addr #23 personality ptr @rust_eh_personality {
+define hidden noundef i8 @_ZN4core4iter6traits8iterator8Iterator6cmp_by17he53fdbb6da086322E(ptr noundef nonnull readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull readonly captures(address) %2, ptr noundef readnone captures(address) %3) unnamed_addr #23 personality ptr @rust_eh_personality {
   %5 = tail call { i1, i8 } @_ZN4core4iter6traits8iterator12iter_compare17h1a6675c57c9e8d25E.llvm.4370348610037963988(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3)
   %6 = extractvalue { i1, i8 } %5, 1
   ret i8 %6

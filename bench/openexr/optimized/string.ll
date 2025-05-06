@@ -559,7 +559,7 @@ define hidden range(i32 0, 3) i32 @exr_attr_string_destroy(ptr noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_string_set(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_string_set(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.split, label %28
 

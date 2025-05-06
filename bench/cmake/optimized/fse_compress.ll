@@ -997,7 +997,7 @@ define dso_local noundef i64 @FSE_buildCTable_rle(ptr noundef writeonly captures
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @FSE_compress_usingCTable(ptr noundef %0, i64 noundef %1, ptr noundef captures(address) %2, i64 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 {
+define dso_local i64 @FSE_compress_usingCTable(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address) %2, i64 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 {
   %6 = lshr i64 %3, 7
   %7 = add i64 %3, 12
   %8 = add i64 %7, %6

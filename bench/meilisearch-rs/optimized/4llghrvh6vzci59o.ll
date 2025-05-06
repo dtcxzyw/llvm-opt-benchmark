@@ -46099,7 +46099,7 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serializ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5serde3ser12SerializeMap15serialize_entry17h7fd8e56ebaa41b1bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #4 {
+define internal fastcc void @_ZN5serde3ser12SerializeMap15serialize_entry17h7fd8e56ebaa41b1bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #4 {
   %2 = alloca [40 x i8], align 1
   tail call fastcc void @"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hcda522f1fad0fb0cE"(ptr noalias noundef align 8 dereferenceable(16) %0, ptr %.0.val)
   %.val3 = load ptr, ptr %0, align 8, !nonnull !11, !align !21, !noundef !11

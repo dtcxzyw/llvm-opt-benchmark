@@ -1400,7 +1400,7 @@ ossl_asn1_time_from_tm.exit:                      ; preds = %41, %17, %9, %.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2, 2) i32 @ASN1_TIME_compare(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
+define dso_local range(i32 -2, 2) i32 @ASN1_TIME_compare(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8

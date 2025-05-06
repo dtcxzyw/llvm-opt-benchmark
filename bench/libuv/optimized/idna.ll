@@ -113,7 +113,7 @@ uv__utf8_decode1_slow.exit:                       ; preds = %54, %43, %39, %34, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @uv__idna_toascii(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address) %3) local_unnamed_addr #1 {
+define hidden i64 @uv__idna_toascii(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address) %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   store ptr %2, ptr %5, align 8
   %6 = icmp eq ptr %0, %1

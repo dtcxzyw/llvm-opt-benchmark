@@ -419,7 +419,7 @@ define dso_local i32 @backlight_unregister_notifier(ptr noundef %0) #0 align 16 
 declare dso_local i32 @blocking_notifier_chain_unregister(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @devm_backlight_device_register(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) #0 align 16 {
+define dso_local ptr @devm_backlight_device_register(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5) #0 align 16 {
   %7 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @devm_backlight_device_release, i64 noundef 8, i32 noundef 3264, i32 noundef -1, ptr noundef nonnull @.str.7) #12
   %8 = icmp eq ptr %7, null
   br i1 %8, label %14, label %9

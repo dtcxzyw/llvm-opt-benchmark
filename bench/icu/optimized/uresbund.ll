@@ -1327,7 +1327,7 @@ define noundef ptr @ures_getNextString_77(ptr noundef captures(address) %0, ptr 
 declare i32 @res_getTableItemByIndex_77(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL23ures_getStringWithAliasPK15UResourceBundlejiPiP10UErrorCode(ptr noundef nonnull captures(address) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL23ures_getStringWithAliasPK15UResourceBundlejiPiP10UErrorCode(ptr noundef nonnull readonly captures(address) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #1 {
   %.mask = and i32 %1, -268435456
   %6 = icmp eq i32 %.mask, 805306368
   br i1 %6, label %7, label %21
@@ -1469,7 +1469,7 @@ define noundef ptr @ures_getNextResource_77(ptr noundef captures(address) %0, pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ures_getByIndex_77(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define noundef ptr @ures_getByIndex_77(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
   store ptr null, ptr %5, align 8, !tbaa !38
@@ -1558,7 +1558,7 @@ define noundef ptr @ures_getByIndex_77(ptr noundef captures(address) %0, i32 nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ures_getStringByIndex_77(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define noundef ptr @ures_getStringByIndex_77(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
   store ptr null, ptr %5, align 8, !tbaa !38
@@ -1652,7 +1652,7 @@ define noundef ptr @ures_getStringByIndex_77(ptr noundef captures(address) %0, i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ures_getUTF8StringByIndex_77(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef signext %4, ptr noundef %5) local_unnamed_addr #1 {
+define noundef ptr @ures_getUTF8StringByIndex_77(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef signext %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #24
   %8 = call ptr @ures_getStringByIndex_77(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %7, ptr noundef %5)
@@ -1875,7 +1875,7 @@ define noundef ptr @ures_findSubResource_77(ptr noundef readonly captures(none) 
 declare i32 @res_findResource_77(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ures_getStringByKeyWithFallback_77(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #1 {
+define noundef ptr @ures_getStringByKeyWithFallback_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.UResourceBundle, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5) #24
@@ -2558,7 +2558,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare ptr @uloc_getDefault_77() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @ures_getAllChildrenWithFallback_77(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @ures_getAllChildrenWithFallback_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.(anonymous namespace)::GetAllChildrenSink", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #24
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_118GetAllChildrenSinkE, i64 16), ptr %5, align 8, !tbaa !57
@@ -2581,7 +2581,7 @@ define void @ures_getAllChildrenWithFallback_77(ptr noundef captures(address_is_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ures_getAllItemsWithFallback_77(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @ures_getAllItemsWithFallback_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.icu_77::StackUResourceBundle", align 8
   %6 = alloca %"class.icu_77::ResourceDataValue", align 8
   %7 = load i32, ptr %3, align 4, !tbaa !13
@@ -2659,7 +2659,7 @@ define void @ures_getAllItemsWithFallback_77(ptr noundef captures(address_is_nul
 declare void @_ZN6icu_7712ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define void @ures_getValueWithFallback_77(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(29) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 {
+define void @ures_getValueWithFallback_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(29) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 {
   %6 = load i32, ptr %4, align 4, !tbaa !13
   %7 = icmp slt i32 %6, 1
   br i1 %7, label %8, label %29
@@ -3097,7 +3097,7 @@ define internal fastcc noundef ptr @_ZL15getFallbackDataPK15UResourceBundlePPKcP
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ures_getStringByKey_77(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define noundef ptr @ures_getStringByKey_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -3216,7 +3216,7 @@ define noundef ptr @ures_getStringByKey_77(ptr noundef captures(address_is_null)
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ures_getUTF8StringByKey_77(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef signext %4, ptr noundef %5) local_unnamed_addr #1 {
+define noundef ptr @ures_getUTF8StringByKey_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef signext %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #24
   %8 = call ptr @ures_getStringByKey_77(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %7, ptr noundef %5)
@@ -4094,7 +4094,7 @@ define void @ures_openDirectFillIn_77(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ures_countArrayItems_77(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define i32 @ures_countArrayItems_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.UResourceBundle, align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4, i8 0, i64 136, i1 false)
@@ -5559,7 +5559,7 @@ declare void @uenum_close_77(ptr noundef) local_unnamed_addr #9
 declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString20appendInvariantCharsEPKDsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL32getParentForFunctionalEquivalentPKcP15UResourceBundleS2_RN6icu_7710CharStringE(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(60) initializes((56, 60)) %3) unnamed_addr #1 {
+define internal fastcc void @_ZL32getParentForFunctionalEquivalentPKcP15UResourceBundleS2_RN6icu_7710CharStringE(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(60) initializes((56, 60)) %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca %"class.icu_77::CharString", align 8
@@ -5814,7 +5814,7 @@ declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64
 declare ptr @uloc_openKeywordList_77(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @ures_getVersionByKey_77(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define void @ures_getVersionByKey_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #24
   %6 = call ptr @ures_getStringByKey_77(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, ptr noundef %3)

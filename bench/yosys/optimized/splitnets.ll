@@ -5008,7 +5008,7 @@ _ZN5Yosys5RTLIL4Cell16rewrite_sigspecsIN12_GLOBAL__N_115SplitnetsWorkerEEEvRT_.e
   %1581 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::RTLIL::Process *>::entry_t", ptr %1580, i64 %indvars.iv.next245.i, i32 0, i32 1
   %1582 = load ptr, ptr %1581, align 8, !tbaa !200
   %1583 = getelementptr inbounds nuw i8, ptr %1582, i64 72
-  invoke fastcc void @_ZN5Yosys5RTLIL8CaseRule16rewrite_sigspecsIN12_GLOBAL__N_115SplitnetsWorkerEEEvRT_(ptr noundef nonnull readonly align 8 dereferenceable(128) %1583, ptr noundef nonnull align 8 dereferenceable(48) %15)
+  invoke fastcc void @_ZN5Yosys5RTLIL8CaseRule16rewrite_sigspecsIN12_GLOBAL__N_115SplitnetsWorkerEEEvRT_(ptr noundef nonnull readonly align 8 dereferenceable(128) %1583, ptr noundef nonnull readonly align 8 dereferenceable(48) %15)
           to label %.noexc539 unwind label %.loopexit.split-lp1627.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc539:                                        ; preds = %1579
@@ -5915,7 +5915,7 @@ _ZNKSt3mapIPN5Yosys5RTLIL4WireESt6vectorINS1_6SigBitESaIS5_EESt4lessIS3_ESaISt4p
 
 .noexc564:                                        ; preds = %_ZNKSt3mapIPN5Yosys5RTLIL4WireESt6vectorINS1_6SigBitESaIS5_EESt4lessIS3_ESaISt4pairIKS3_S7_EEE5countERSB_.exit.thread.i898, %.lr.ph179.i
   %1908 = getelementptr inbounds nuw i8, ptr %.sroa.087.0177.i, i64 56
-  invoke fastcc void @_ZN12_GLOBAL__N_115SplitnetsWorkerclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(56) %1908)
+  invoke fastcc void @_ZN12_GLOBAL__N_115SplitnetsWorkerclERN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull readonly align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(56) %1908)
           to label %.noexc565 unwind label %.loopexit.split-lp1627.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc565:                                        ; preds = %.noexc564
@@ -79228,7 +79228,7 @@ _ZNSt8_Rb_treeIPN5Yosys5RTLIL4WireESt4pairIKS3_St6vectorINS1_6SigBitESaIS7_EEESt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5Yosys5RTLIL8CaseRule16rewrite_sigspecsIN12_GLOBAL__N_115SplitnetsWorkerEEEvRT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %1) unnamed_addr #5 align 2 {
+define internal fastcc void @_ZN5Yosys5RTLIL8CaseRule16rewrite_sigspecsIN12_GLOBAL__N_115SplitnetsWorkerEEEvRT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !789
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64

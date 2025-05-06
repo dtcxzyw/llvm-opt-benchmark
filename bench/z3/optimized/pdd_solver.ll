@@ -1601,7 +1601,7 @@ _ZNK6vectorIPN2dd6solver8equationELb0EjE4sizeEv.exit.thread.i.i.i: ; preds = %_Z
   store ptr %36, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !42
   store ptr @"_ZNSt17_Function_handlerIFbRN2dd6solver8equationERbEZNS1_14simplify_usingER10ptr_vectorIS2_ERKS2_E3$_0E9_M_invokeERKSt9_Any_dataS3_S4_", ptr %86, align 8, !tbaa !102
   store ptr @"_ZNSt17_Function_handlerIFbRN2dd6solver8equationERbEZNS1_14simplify_usingER10ptr_vectorIS2_ERKS2_E3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %85, align 8, !tbaa !40
-  invoke void @_ZN2dd6solver14simplify_usingER10ptr_vectorINS0_8equationEERSt8functionIFbRS2_RbEE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  invoke void @_ZN2dd6solver14simplify_usingER10ptr_vectorINS0_8equationEERSt8functionIFbRS2_RbEE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %87 unwind label %94
 
 87:                                               ; preds = %83
@@ -1746,7 +1746,7 @@ _ZN2dd6solver9superposeERKNS0_8equationE.exit:    ; preds = %.noexc17, %_ZN6vect
   store ptr %36, ptr %.sroa.4.0..sroa_idx.i18, align 8, !tbaa !42
   store ptr @"_ZNSt17_Function_handlerIFbRN2dd6solver8equationERbEZNS1_14simplify_usingER10ptr_vectorIS2_ERKS2_E3$_0E9_M_invokeERKSt9_Any_dataS3_S4_", ptr %152, align 8, !tbaa !102
   store ptr @"_ZNSt17_Function_handlerIFbRN2dd6solver8equationERbEZNS1_14simplify_usingER10ptr_vectorIS2_ERKS2_E3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %151, align 8, !tbaa !40
-  invoke void @_ZN2dd6solver14simplify_usingER10ptr_vectorINS0_8equationEERSt8functionIFbRS2_RbEE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %103, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  invoke void @_ZN2dd6solver14simplify_usingER10ptr_vectorINS0_8equationEERSt8functionIFbRS2_RbEE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %103, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %153 unwind label %160
 
 153:                                              ; preds = %_ZN2dd6solver9superposeERKNS0_8equationE.exit
@@ -3756,7 +3756,7 @@ _ZN6vectorIPN2dd6solver8equationELb0EjE9push_backEOS3_.exit: ; preds = %11, %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2dd6solver14simplify_usingER10ptr_vectorINS0_8equationEERKS2_(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2dd6solver14simplify_usingER10ptr_vectorINS0_8equationEERKS2_(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::function.21", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #28
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -6106,7 +6106,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRN2dd6solver8equ
   %.val = load ptr, ptr %0, align 8, !tbaa !162
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3 = load ptr, ptr %4, align 8, !tbaa !164
-  %5 = tail call noundef zeroext i1 @_ZN2dd6solver18try_simplify_usingERNS0_8equationERKS1_Rb(ptr noundef nonnull align 8 dereferenceable(208) %.val, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %.val3, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  %5 = tail call noundef zeroext i1 @_ZN2dd6solver18try_simplify_usingERNS0_8equationERKS1_Rb(ptr noundef nonnull align 8 dereferenceable(208) %.val, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val3, ptr noundef nonnull align 1 dereferenceable(1) %2)
   ret i1 %5
 }
 

@@ -1034,7 +1034,7 @@ declare ptr @inet_ntop(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @php_network_get_peer_name(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @php_network_get_peer_name(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.sockaddr_storage, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #19
@@ -1061,7 +1061,7 @@ define dso_local range(i32 -1, 1) i32 @php_network_get_peer_name(i32 noundef %0,
 declare i32 @getpeername(i32 noundef, ptr, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @php_network_get_sock_name(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @php_network_get_sock_name(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.sockaddr_storage, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #19
@@ -1088,7 +1088,7 @@ define dso_local range(i32 -1, 1) i32 @php_network_get_sock_name(i32 noundef %0,
 declare i32 @getsockname(i32 noundef, ptr, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @php_network_accept_incoming(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #0 {
+define dso_local i32 @php_network_accept_incoming(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.pollfd, align 4
   %10 = alloca i32, align 4
   %11 = alloca %struct.sockaddr_storage, align 8
@@ -1202,7 +1202,7 @@ php_socket_error_str.exit:                        ; preds = %43
 declare i32 @accept(i32 noundef, ptr, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @php_network_connect_socket_to_host(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, ptr noundef %7, i16 noundef zeroext %8, i64 noundef %9) local_unnamed_addr #0 {
+define dso_local i32 @php_network_connect_socket_to_host(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef %7, i16 noundef zeroext %8, i64 noundef %9) local_unnamed_addr #0 {
   %11 = alloca ptr, align 8
   %12 = alloca %struct.timeval, align 8
   %13 = alloca %struct.timeval, align 8

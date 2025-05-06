@@ -471,7 +471,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @sqlite3_set_authorizer(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @php_sqlite3_authorizer(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
+define internal range(i32 0, 3) i32 @php_sqlite3_authorizer(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca [5 x %struct._zval_struct], align 16
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 88), align 8, !tbaa !65
@@ -2254,7 +2254,7 @@ declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #6
 declare i32 @sqlite3_create_function(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @php_sqlite3_callback_func(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) #0 {
+define internal void @php_sqlite3_callback_func(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %4 = tail call ptr @sqlite3_user_data(ptr noundef %0) #17
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   tail call fastcc void @sqlite3_do_callback(ptr noundef nonnull %5, i32 noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 0)
@@ -2447,7 +2447,7 @@ zend_fcc_addref.exit22:                           ; preds = %75, %78
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @php_sqlite3_callback_step(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) #0 {
+define internal void @php_sqlite3_callback_step(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %4 = tail call ptr @sqlite3_user_data(ptr noundef %0) #17
   %5 = tail call ptr @sqlite3_aggregate_context(ptr noundef %0, i32 noundef 24) #17
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16

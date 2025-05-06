@@ -1522,7 +1522,7 @@ define ptr @lv_anim_get_user_data(ptr noundef readonly captures(none) %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @lv_anim_custom_delete(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
+define zeroext i1 @lv_anim_custom_delete(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 

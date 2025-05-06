@@ -86,7 +86,7 @@ strdict_free.exit:                                ; preds = %refdict.exit.thread
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define ptr @agstrbind(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address) %1) local_unnamed_addr #1 {
+define ptr @agstrbind(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #1 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %7, label %3
 
@@ -119,7 +119,7 @@ strdict_new.exit.i:                               ; preds = %10
 
 refdict.exit:                                     ; preds = %7, %strdict_new.exit.i
   %16 = phi ptr [ %8, %7 ], [ %11, %strdict_new.exit.i ]
-  %17 = tail call fastcc i64 @strdict_hash(ptr noundef %1, i1 noundef zeroext false)
+  %17 = tail call fastcc i64 @strdict_hash(ptr noundef readonly %1, i1 noundef zeroext false)
   %18 = load ptr, ptr %16, align 8, !tbaa !23
   %19 = icmp eq ptr %18, null
   br i1 %19, label %refstrbind.exit, label %.lr.ph.i.i
@@ -168,13 +168,13 @@ refstrbind.exit:                                  ; preds = %24, %refstr_eq.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @agstrdup(ptr noundef captures(address_is_null) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
+define ptr @agstrdup(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @agstrdup_internal(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @agstrdup_internal(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address) %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc ptr @agstrdup_internal(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %62, label %5
 
@@ -211,7 +211,7 @@ strdict_new.exit.i:                               ; preds = %13
 
 refdict.exit:                                     ; preds = %10, %strdict_new.exit.i
   %19 = phi ptr [ %11, %10 ], [ %14, %strdict_new.exit.i ]
-  %20 = tail call fastcc i64 @strdict_hash(ptr noundef nonnull %1, i1 noundef zeroext %2)
+  %20 = tail call fastcc i64 @strdict_hash(ptr noundef nonnull readonly %1, i1 noundef zeroext %2)
   %21 = load ptr, ptr %19, align 8, !tbaa !23
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.loopexit, label %.lr.ph.i
@@ -311,13 +311,13 @@ gv_calloc.exit:                                   ; preds = %47, %.thread.i, %53
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @agstrdup_html(ptr noundef captures(address_is_null) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
+define ptr @agstrdup_html(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @agstrdup_internal(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @agstrfree(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @agstrfree(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %strdict_remove.exit, label %5
 
@@ -354,7 +354,7 @@ strdict_new.exit.i:                               ; preds = %13
 
 refdict.exit:                                     ; preds = %10, %strdict_new.exit.i
   %19 = phi ptr [ %11, %10 ], [ %14, %strdict_new.exit.i ]
-  %20 = tail call fastcc i64 @strdict_hash(ptr noundef nonnull %1, i1 noundef zeroext %2)
+  %20 = tail call fastcc i64 @strdict_hash(ptr noundef nonnull readonly %1, i1 noundef zeroext %2)
   %21 = load ptr, ptr %19, align 8, !tbaa !23
   %22 = icmp eq ptr %21, null
   br i1 %22, label %strdict_remove.exit, label %.lr.ph.i
@@ -411,7 +411,7 @@ strdict_find.exit:                                ; preds = %refstr_eq.exit.i
 
 47:                                               ; preds = %40
   %48 = icmp slt i64 %33, 0
-  %49 = tail call fastcc i64 @strdict_hash(ptr noundef nonnull %35, i1 noundef zeroext %48)
+  %49 = tail call fastcc i64 @strdict_hash(ptr noundef nonnull readonly %35, i1 noundef zeroext %48)
   %50 = load ptr, ptr %19, align 8, !tbaa !23
   %51 = icmp eq ptr %50, null
   br i1 %51, label %strdict_remove.exit, label %.lr.ph.i16

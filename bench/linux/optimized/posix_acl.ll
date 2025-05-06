@@ -2787,7 +2787,7 @@ select.unfold.split:                              ; preds = %select.unfold, %113
 declare dso_local i32 @security_inode_remove_acl(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @do_set_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address) %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local i32 @do_set_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address) %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = icmp eq i64 %4, 0
   br i1 %6, label %.thread, label %8
 

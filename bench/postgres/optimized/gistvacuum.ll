@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @BufferBlocks = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @gistbulkdelete(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null, ret: address, provenance) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @gistbulkdelete(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null, ret: address, provenance) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %8
 

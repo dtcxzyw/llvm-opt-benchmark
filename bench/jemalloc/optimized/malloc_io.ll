@@ -1947,7 +1947,7 @@ define hidden void @je_malloc_vcprintf(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: cold nounwind uwtable
-define hidden void @je_malloc_cprintf(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ...) local_unnamed_addr #10 {
+define hidden void @je_malloc_cprintf(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ...) local_unnamed_addr #10 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #14
   call void @llvm.va_start.p0(ptr nonnull %4)

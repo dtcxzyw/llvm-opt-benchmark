@@ -359,7 +359,7 @@ define i32 @Aig_NodeRefLabel_rec(ptr noundef %0, ptr noundef captures(none) %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Aig_NodeMffcSupp_rec(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, ptr noundef captures(address) %5) local_unnamed_addr #3 {
+define void @Aig_NodeMffcSupp_rec(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, ptr noundef readnone captures(address) %5) local_unnamed_addr #3 {
   %7 = getelementptr i8, ptr %0, i64 312
   %.val3342 = load i32, ptr %7, align 8, !tbaa !14
   %8 = getelementptr i8, ptr %1, i64 32

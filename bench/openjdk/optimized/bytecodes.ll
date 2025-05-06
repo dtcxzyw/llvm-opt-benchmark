@@ -450,7 +450,7 @@ define hidden noundef i32 @_ZN9Bytecodes21raw_special_length_atEPhS0_(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Bytecodes9def_flagsENS_4CodeEPKcS2_bS0_(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i1 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN9Bytecodes9def_flagsENS_4CodeEPKcS2_bS0_(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
   %spec.select = zext i1 %3 to i16
   %.not = icmp eq i32 %4, %0
   %6 = or disjoint i16 %spec.select, 2

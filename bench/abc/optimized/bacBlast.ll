@@ -3293,7 +3293,7 @@ Vec_IntPush.exit28:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Bac_NtkInsertGia(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @Bac_NtkInsertGia(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8, !tbaa !61
   %5 = icmp sgt i32 %4, 0
@@ -4239,7 +4239,7 @@ Bac_NtkCreateAndConnectBuffer.exit188:            ; preds = %Bac_ObjAlloc.exit21
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Bac_ManInsertGia(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define noundef ptr @Bac_ManInsertGia(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @Bac_ManDupUserBoxes(ptr noundef %0)
   tail call void @Bac_ManMarkNodesGia(ptr noundef %0, ptr noundef %1)
   tail call void @Bac_ManRemapBarbufs(ptr noundef %3, ptr noundef %0)
@@ -5989,9 +5989,9 @@ Bac_NtkMoveNames.exit:                            ; preds = %305, %.preheader.i
 define noundef ptr @Bac_ManBlastTest(ptr noundef captures(none) initializes((68, 72), (84, 88), (100, 104), (116, 120)) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @Bac_ManExtract(ptr noundef %0, i32 noundef 1, i32 poison)
   %3 = tail call fastcc ptr @Bac_ManDupUserBoxes(ptr noundef readonly %0)
-  tail call void @Bac_ManMarkNodesGia(ptr noundef readonly %0, ptr noundef %2)
+  tail call void @Bac_ManMarkNodesGia(ptr noundef readonly %0, ptr noundef readonly %2)
   tail call void @Bac_ManRemapBarbufs(ptr noundef %3, ptr noundef readonly %0)
-  tail call void @Bac_NtkInsertGia(ptr noundef %3, ptr noundef %2)
+  tail call void @Bac_NtkInsertGia(ptr noundef %3, ptr noundef readonly %2)
   tail call fastcc void @Bac_ManMoveNames(ptr noundef %3, ptr noundef readonly %0)
   tail call void @Gia_ManStop(ptr noundef %2) #19
   ret ptr %3

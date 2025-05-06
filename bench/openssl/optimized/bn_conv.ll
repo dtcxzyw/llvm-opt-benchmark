@@ -573,7 +573,7 @@ declare i32 @BN_mul_word(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @BN_add_word(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_asc2bn(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_asc2bn(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = load i8, ptr %1, align 1, !tbaa !11
   %4 = icmp eq i8 %3, 45
   %spec.select.idx = zext i1 %4 to i64

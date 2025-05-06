@@ -575,7 +575,7 @@ define internal fastcc i32 @hash_dense(i64 noundef %0, i32 noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_str_new(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #4 {
+define hidden ptr @lj_str_new(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !16
   %6 = inttoptr i64 %5 to ptr
@@ -755,7 +755,7 @@ hash_sparse.exit:                                 ; preds = %17, %35
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc ptr @lj_str_rehash_chain(ptr noundef %0, i32 noundef %1, ptr noundef captures(address) %2, i32 noundef %3) unnamed_addr #8 {
+define internal fastcc ptr @lj_str_rehash_chain(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address) %2, i32 noundef %3) unnamed_addr #8 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !16
   %7 = inttoptr i64 %6 to ptr

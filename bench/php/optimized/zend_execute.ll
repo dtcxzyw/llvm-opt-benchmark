@@ -6902,7 +6902,7 @@ zval_ptr_dtor_nogc.exit68:                        ; preds = %.loopexit, %10, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_unfinished_execution_gc(ptr noundef captures(address) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local ptr @zend_unfinished_execution_gc(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = tail call ptr @zend_unfinished_execution_gc_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 zeroext poison)
   ret ptr %4
 }

@@ -3216,7 +3216,7 @@ define range(i32 -1, 1) i32 @hwloc_distances_get_by_depth(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_distances_get_by_name(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, i64 noundef %4) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @hwloc_distances_get_by_name(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, i64 noundef %4) local_unnamed_addr #1 {
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %6, label %10
 

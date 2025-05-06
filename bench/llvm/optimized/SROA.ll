@@ -13165,7 +13165,7 @@ _ZN4llvm2at23getDVRAssignmentMarkersEPKNS_11InstructionE.exit: ; preds = %1304, 
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 16
   store ptr %84, ptr %.sroa.3.0..sroa_idx, align 8
   %1312 = getelementptr inbounds nuw ptr, ptr %.val171, i64 %.val172
-  call fastcc void @"_ZSt8for_eachIPPN4llvm17DbgVariableRecordEZN12_GLOBAL__N_14SROA11splitAllocaERNS0_10AllocaInstERNS4_12AllocaSlicesEE3$_0ET0_T_SC_SB_"(ptr dead_on_unwind noalias nonnull writable align 8 %78, ptr noundef %.val171, ptr noundef %1312, ptr noundef nonnull byval(%class.anon.538) align 8 %36)
+  call fastcc void @"_ZSt8for_eachIPPN4llvm17DbgVariableRecordEZN12_GLOBAL__N_14SROA11splitAllocaERNS0_10AllocaInstERNS4_12AllocaSlicesEE3$_0ET0_T_SC_SB_"(ptr dead_on_unwind noalias nonnull writable align 8 %78, ptr noundef readonly %.val171, ptr noundef readonly %1312, ptr noundef nonnull byval(%class.anon.538) align 8 %36)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %78) #28
   %1313 = load ptr, ptr %77, align 8, !tbaa !25

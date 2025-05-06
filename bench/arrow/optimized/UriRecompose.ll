@@ -1025,7 +1025,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 5) i32 @uriToStringA(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 0, 5) i32 @uriToStringA(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @uriToStringEngineA(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef null)
   ret i32 %5
 }
@@ -2075,7 +2075,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 5) i32 @uriToStringW(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 0, 5) i32 @uriToStringW(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @uriToStringEngineW(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef null)
   ret i32 %5
 }

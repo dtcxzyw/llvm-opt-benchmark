@@ -590,7 +590,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare dso_local i32 @acpi_ut_walk_package_tree(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 4098) i32 @acpi_ut_copy_ielement_to_eelement(i8 noundef zeroext %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) #0 align 16 {
+define internal noundef range(i32 0, 4098) i32 @acpi_ut_copy_ielement_to_eelement(i8 noundef zeroext %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16

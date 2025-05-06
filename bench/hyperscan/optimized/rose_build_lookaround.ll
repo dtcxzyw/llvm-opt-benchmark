@@ -6725,7 +6725,7 @@ define internal fastcc void @_ZNSt14priority_queueIiSt6vectorIiSaIiEEN3ue212_GLO
   %24 = getelementptr inbounds i32, ptr %2, i64 %23
   %25 = load i32, ptr %22, align 4
   %26 = load i32, ptr %24, align 4
-  %27 = tail call fastcc noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_112LookPriorityclEii(ptr %.sroa.0.0.copyload, i32 noundef %25, i32 noundef %26)
+  %27 = tail call fastcc noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_112LookPriorityclEii(ptr readonly %.sroa.0.0.copyload, i32 noundef %25, i32 noundef %26)
   %spec.select.i.i.i = select i1 %27, i64 %23, i64 %21
   %28 = getelementptr inbounds i32, ptr %2, i64 %spec.select.i.i.i
   %29 = load i32, ptr %28, align 4
@@ -6769,7 +6769,7 @@ define internal fastcc void @_ZNSt14priority_queueIiSt6vectorIiSaIiEEN3ue212_GLO
   %.0921.i.i56.i.i = lshr i64 %.0921.in.i.i.i.i, 1
   %44 = getelementptr inbounds nuw i32, ptr %2, i64 %.0921.i.i56.i.i
   %45 = load i32, ptr %44, align 4
-  %46 = tail call fastcc noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_112LookPriorityclEii(ptr %.sroa.0.0.copyload, i32 noundef %45, i32 noundef %12)
+  %46 = tail call fastcc noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_112LookPriorityclEii(ptr readonly %.sroa.0.0.copyload, i32 noundef %45, i32 noundef %12)
   br i1 %46, label %47, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_112LookPriorityEEEEvT_SD_SD_RT0_.exit.i
 
 47:                                               ; preds = %.lr.ph.i.i.i.i

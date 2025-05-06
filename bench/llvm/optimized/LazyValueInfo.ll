@@ -16844,7 +16844,7 @@ _ZN4llvm19ValueLatticeElementD2Ev.exit44:         ; preds = %97, %_ZN4llvm5APInt
 declare noundef ptr @_ZNK4llvm19ValueLatticeElement10getCompareENS_7CmpInst9PredicateEPNS_4TypeERKS0_RKNS_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(496)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13LazyValueInfo10threadEdgeEPNS_10BasicBlockES2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef captures(address) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13LazyValueInfo10threadEdgeEPNS_10BasicBlockES2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !433
   %.not = icmp eq ptr %6, null

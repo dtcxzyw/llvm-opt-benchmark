@@ -3906,7 +3906,7 @@ define internal noundef i64 @ractore_require_func(ptr noundef %0) #0 {
   %11 = inttoptr i64 %9 to ptr
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !111
-  %14 = tail call fastcc i64 @ractor_send(ptr %.val.i, ptr noundef %13, i64 noundef 20, i64 noundef 0)
+  %14 = tail call fastcc i64 @ractor_send(ptr readonly %.val.i, ptr noundef %13, i64 noundef 20, i64 noundef 0)
   ret i64 4
 }
 
@@ -4004,7 +4004,7 @@ define internal noundef i64 @ractor_autoload_load_func(ptr noundef %0) #0 {
   %11 = inttoptr i64 %9 to ptr
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !111
-  %14 = tail call fastcc i64 @ractor_send(ptr %.val.i, ptr noundef %13, i64 noundef 20, i64 noundef 0)
+  %14 = tail call fastcc i64 @ractor_send(ptr readonly %.val.i, ptr noundef %13, i64 noundef 20, i64 noundef 0)
   ret i64 4
 }
 
@@ -9018,7 +9018,7 @@ define internal fastcc void @ractor_wait_take_cleanup(ptr noundef readonly captu
   br i1 %5, label %.lr.ph.i, label %ractor_take_cleanup.exit
 
 .lr.ph.i:                                         ; preds = %1, %7
-  %6 = tail call fastcc zeroext i1 @ractor_deregister_take(ptr noundef %2, ptr noundef nonnull %4)
+  %6 = tail call fastcc zeroext i1 @ractor_deregister_take(ptr noundef %2, ptr noundef nonnull readonly %4)
   br i1 %6, label %ractor_take_cleanup.exit, label %7
 
 7:                                                ; preds = %.lr.ph.i

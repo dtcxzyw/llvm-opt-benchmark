@@ -892,7 +892,7 @@ define void @_ZN7Imf_3_46HeaderC2ERKN9Imath_3_23BoxINS1_4Vec2IiEEEES7_fRKNS3_IfE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_46HeaderC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 24)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(49) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_46HeaderC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -1624,7 +1624,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(49) ptr @_ZN7Imf_3_46HeaderaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(49) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(49) ptr @_ZN7Imf_3_46HeaderaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(49) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, %1
   br i1 %.not, label %33, label %3
 
@@ -2178,14 +2178,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit6: ; preds = %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_46HeaderixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_46HeaderixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !61
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef %3)
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !61
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef %3)
   ret ptr %4
@@ -2392,119 +2392,119 @@ _ZNK7Imf_3_46Header4findEPKc.exit:                ; preds = %2, %_ZNKSt8_Rb_tree
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZN7Imf_3_46Header13displayWindowEv(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZN7Imf_3_46Header13displayWindowEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.16)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_46Header13displayWindowEv(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_46Header13displayWindowEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.16)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZN7Imf_3_46Header10dataWindowEv(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZN7Imf_3_46Header10dataWindowEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.17)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_46Header10dataWindowEv(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_46Header10dataWindowEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.17)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Imf_3_46Header16pixelAspectRatioEv(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Imf_3_46Header16pixelAspectRatioEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.18)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_46Header16pixelAspectRatioEv(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_46Header16pixelAspectRatioEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.18)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(8) ptr @_ZN7Imf_3_46Header18screenWindowCenterEv(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 4 dereferenceable(8) ptr @_ZN7Imf_3_46Header18screenWindowCenterEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.19)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(8) ptr @_ZNK7Imf_3_46Header18screenWindowCenterEv(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 4 dereferenceable(8) ptr @_ZNK7Imf_3_46Header18screenWindowCenterEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.19)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Imf_3_46Header17screenWindowWidthEv(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Imf_3_46Header17screenWindowWidthEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.20)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_46Header17screenWindowWidthEv(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_46Header17screenWindowWidthEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.20)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZN7Imf_3_46Header8channelsEv(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZN7Imf_3_46Header8channelsEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.21)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_46Header8channelsEv(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_46Header8channelsEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.21)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Imf_3_46Header9lineOrderEv(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Imf_3_46Header9lineOrderEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.22)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_46Header9lineOrderEv(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_46Header9lineOrderEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.22)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Imf_3_46Header11compressionEv(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Imf_3_46Header11compressionEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.23)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_46Header11compressionEv(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_46Header11compressionEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.23)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_46Header29resetDefaultCompressionLevelsEv(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
+define void @_ZN7Imf_3_46Header29resetDefaultCompressionLevelsEv(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
   tail call fastcc void @_ZN7Imf_3_412_GLOBAL__N_122clearCompressionRecordEPNS_6HeaderE(ptr noundef %0)
   ret void
 }
@@ -2611,7 +2611,7 @@ _ZN7Imf_3_412_GLOBAL__N_117CompressionRecordC2Ev.exit: ; preds = %.noexc
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_46Header19zipCompressionLevelEv(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK7Imf_3_46Header19zipCompressionLevelEv(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
   %2 = tail call fastcc i64 @_ZN7Imf_3_412_GLOBAL__N_125retrieveCompressionRecordEPKNS_6HeaderE(ptr noundef %0)
   %.sroa.0.0.extract.trunc = trunc i64 %2 to i32
   ret i32 %.sroa.0.0.extract.trunc
@@ -2705,7 +2705,7 @@ _ZNSt3mapIPKvN7Imf_3_412_GLOBAL__N_117CompressionRecordESt4lessIS1_ESaISt4pairIK
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK7Imf_3_46Header19dwaCompressionLevelEv(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
+define noundef float @_ZNK7Imf_3_46Header19dwaCompressionLevelEv(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 {
   %2 = tail call fastcc i64 @_ZN7Imf_3_412_GLOBAL__N_125retrieveCompressionRecordEPKNS_6HeaderE(ptr noundef %0)
   %.sroa.3.0.extract.shift = lshr i64 %2, 32
   %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
@@ -2797,7 +2797,7 @@ _ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_s
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN7Imf_3_46Header4nameB5cxx11Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN7Imf_3_46Header4nameB5cxx11Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.24)
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %2, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0) #29
   %4 = icmp eq ptr %3, null
@@ -2824,7 +2824,7 @@ _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_string
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7Imf_3_46Header4nameB5cxx11Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7Imf_3_46Header4nameB5cxx11Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.24)
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %2, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0) #29
   %4 = icmp eq ptr %3, null
@@ -3699,7 +3699,7 @@ _ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_s
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN7Imf_3_46Header4typeB5cxx11Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN7Imf_3_46Header4typeB5cxx11Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.30)
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %2, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0) #29
   %4 = icmp eq ptr %3, null
@@ -3726,7 +3726,7 @@ _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_string
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7Imf_3_46Header4typeB5cxx11Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7Imf_3_46Header4typeB5cxx11Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.30)
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %2, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0) #29
   %4 = icmp eq ptr %3, null
@@ -3831,7 +3831,7 @@ _ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_s
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN7Imf_3_46Header4viewB5cxx11Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN7Imf_3_46Header4viewB5cxx11Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.31)
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %2, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0) #29
   %4 = icmp eq ptr %3, null
@@ -3858,7 +3858,7 @@ _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_string
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7Imf_3_46Header4viewB5cxx11Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7Imf_3_46Header4viewB5cxx11Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.31)
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %2, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0) #29
   %4 = icmp eq ptr %3, null
@@ -3892,7 +3892,7 @@ declare void @_ZN7Imf_3_414TypedAttributeIiEC1ERKi(ptr noundef nonnull align 8 d
 declare void @_ZN7Imf_3_414TypedAttributeIiED1Ev(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Imf_3_46Header7versionEv(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Imf_3_46Header7versionEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.33)
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %2, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeIiEE, i64 0) #29
   %4 = icmp eq ptr %3, null
@@ -3919,7 +3919,7 @@ _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIiEEEERT_PKc.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_46Header7versionEv(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_46Header7versionEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.33)
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %2, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeIiEE, i64 0) #29
   %4 = icmp eq ptr %3, null
@@ -4026,7 +4026,7 @@ _ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeIiEEEEPKT_PKc.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Imf_3_46Header10chunkCountEv(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Imf_3_46Header10chunkCountEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.34)
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %2, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeIiEE, i64 0) #29
   %4 = icmp eq ptr %3, null
@@ -4053,7 +4053,7 @@ _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIiEEEERT_PKc.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_46Header10chunkCountEv(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_46Header10chunkCountEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.34)
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %2, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeIiEE, i64 0) #29
   %4 = icmp eq ptr %3, null
@@ -4163,7 +4163,7 @@ _ZNK7Imf_3_46Header18findTypedAttributeINS_14TypedAttributeINS_15TileDescription
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZN7Imf_3_46Header15tileDescriptionEv(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZN7Imf_3_46Header15tileDescriptionEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.35)
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %2, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeINS_15TileDescriptionEEE, i64 0) #29
   %4 = icmp eq ptr %3, null
@@ -4190,7 +4190,7 @@ _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeINS_15TileDescriptionEEEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_46Header15tileDescriptionEv(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_46Header15tileDescriptionEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.35)
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %2, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeINS_15TileDescriptionEEE, i64 0) #29
   %4 = icmp eq ptr %3, null
@@ -4243,7 +4243,7 @@ declare void @_ZN7Imf_3_414TypedAttributeINS_12PreviewImageEEC1ERKS1_(ptr nounde
 declare void @_ZN7Imf_3_414TypedAttributeINS_12PreviewImageEED1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN7Imf_3_46Header12previewImageEv(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN7Imf_3_46Header12previewImageEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.36)
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %2, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeINS_12PreviewImageEEE, i64 0) #29
   %4 = icmp eq ptr %3, null
@@ -4270,7 +4270,7 @@ _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeINS_12PreviewImageEEEEERT_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK7Imf_3_46Header12previewImageEv(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK7Imf_3_46Header12previewImageEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.36)
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %2, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeINS_12PreviewImageEEE, i64 0) #29
   %4 = icmp eq ptr %3, null
@@ -4378,7 +4378,7 @@ define void @_ZNK7Imf_3_46Header11sanityCheckEbb(ptr noundef nonnull align 8 der
   %24 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %25 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %26 = alloca %"class.std::__cxx11::basic_stringstream", align 8
-  %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.16)
+  %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull readonly align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.16)
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !69
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -4418,7 +4418,7 @@ define void @_ZNK7Imf_3_46Header11sanityCheckEbb(ptr noundef nonnull align 8 der
   br label %common.resume
 
 48:                                               ; preds = %33
-  %49 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.17)
+  %49 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull readonly align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.17)
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i32, ptr %50, align 8, !tbaa !69
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 16
@@ -4616,7 +4616,7 @@ _ZNK7Imf_3_46Header13hasChunkCountEv.exit:        ; preds = %122
   br i1 %.not392, label %.thread, label %127
 
 127:                                              ; preds = %_ZNK7Imf_3_46Header13hasChunkCountEv.exit
-  %128 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.34)
+  %128 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull readonly align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.34)
   %129 = call ptr @__dynamic_cast(ptr nonnull %128, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeIiEE, i64 0) #29
   %130 = icmp eq ptr %129, null
   br i1 %130, label %131, label %_ZNK7Imf_3_46Header10chunkCountEv.exit
@@ -4700,7 +4700,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit244: ; preds = %_ZNS
   br label %common.resume
 
 .thread:                                          ; preds = %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.thread.i.i, %122, %_ZNKSt3mapIN7Imf_3_44NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i.i, %88, %_ZNK7Imf_3_46Header10chunkCountEv.exit, %_ZNK7Imf_3_46Header13hasChunkCountEv.exit, %107
-  %162 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.18)
+  %162 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull readonly align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.18)
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %164 = load float, ptr %163, align 8, !tbaa !26
   %165 = call noundef i1 @llvm.is.fpclass.f32(float %164, i32 759)
@@ -4726,7 +4726,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit244: ; preds = %_ZNS
   br label %common.resume
 
 173:                                              ; preds = %.thread
-  %174 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.20)
+  %174 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull readonly align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.20)
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %176 = load float, ptr %175, align 8, !tbaa !26
   %177 = fcmp olt float %176, 0.000000e+00
@@ -4947,7 +4947,7 @@ _ZNK7Imf_3_46Header7hasTypeEv.exit281:            ; preds = %246
   br i1 %.not394, label %_ZNK7Imf_3_46Header7hasTypeEv.exit281.thread, label %251
 
 251:                                              ; preds = %_ZNK7Imf_3_46Header7hasTypeEv.exit281
-  %252 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.30)
+  %252 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull readonly align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.30)
   %253 = call ptr @__dynamic_cast(ptr nonnull %252, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0) #29
   %254 = icmp eq ptr %253, null
   br i1 %254, label %255, label %_ZNK7Imf_3_46Header4typeB5cxx11Ev.exit
@@ -5046,7 +5046,7 @@ _ZNK7Imf_3_46Header7hasTypeEv.exit281.thread:     ; preds = %_ZNKSt3mapIN7Imf_3_
           to label %291 unwind label %313
 
 291:                                              ; preds = %289
-  %292 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.22)
+  %292 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull readonly align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.22)
           to label %293 unwind label %315
 
 293:                                              ; preds = %291
@@ -5124,7 +5124,7 @@ _ZNK7Imf_3_46Header18hasTileDescriptionEv.exit.thread: ; preds = %_ZNKSt3mapIN7I
   br label %.body
 
 319:                                              ; preds = %_ZNK7Imf_3_46Header18hasTileDescriptionEv.exit
-  %320 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.35)
+  %320 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull readonly align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.35)
           to label %.noexc297 unwind label %341
 
 .noexc297:                                        ; preds = %319
@@ -5382,7 +5382,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit306: ; preds = %379
   br label %.body
 
 417:                                              ; preds = %410, %412
-  %418 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.23)
+  %418 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull readonly align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.23)
           to label %419 unwind label %315
 
 419:                                              ; preds = %417
@@ -5409,7 +5409,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit306: ; preds = %379
   br i1 %290, label %429, label %441
 
 429:                                              ; preds = %428
-  %430 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.23)
+  %430 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull readonly align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.23)
           to label %431 unwind label %315
 
 431:                                              ; preds = %429
@@ -5441,7 +5441,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit306: ; preds = %379
   br label %.body
 
 441:                                              ; preds = %435, %428
-  %442 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.21)
+  %442 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_46HeaderixEPKc(ptr noundef nonnull readonly align 8 dereferenceable(49) %0, ptr noundef nonnull @.str.21)
           to label %443 unwind label %457
 
 443:                                              ; preds = %441

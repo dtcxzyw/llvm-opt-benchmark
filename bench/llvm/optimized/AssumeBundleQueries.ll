@@ -2154,7 +2154,7 @@ _ZL16getBundleFromUsePKN4llvm3UseE.exit.thread:   ; preds = %._crit_edge._crit_e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm26getKnowledgeValidInContextEPKNS_5ValueENS_8ArrayRefINS_9Attribute8AttrKindEEEPKNS_11InstructionEPKNS_13DominatorTreeEPNS_15AssumptionCacheE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::RetainedKnowledge") align 8 captures(none) %0, ptr noundef %1, ptr captures(address) %2, i64 %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm26getKnowledgeValidInContextEPKNS_5ValueENS_8ArrayRefINS_9Attribute8AttrKindEEEPKNS_11InstructionEPKNS_13DominatorTreeEPNS_15AssumptionCacheE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::RetainedKnowledge") align 8 captures(none) %0, ptr noundef %1, ptr readonly captures(address) %2, i64 %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca %"class.llvm::function_ref", align 8

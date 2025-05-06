@@ -1762,7 +1762,7 @@ _ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8eq
   br label %_ZN3net11QuicSession14IsClosedStreamEj.exit.thread12
 
 _ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread46: ; preds = %.loopexit, %24, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE4findERSA_.exit
-  %55 = tail call noundef zeroext i1 @_ZN3net11QuicSession12IsOpenStreamEj(ptr noundef nonnull align 8 dereferenceable(2044) %0, i32 noundef %1)
+  %55 = tail call noundef zeroext i1 @_ZN3net11QuicSession12IsOpenStreamEj(ptr noundef nonnull readonly align 8 dereferenceable(2044) %0, i32 noundef %1)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 936
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !211
   %.pre28 = xor i32 %.pre, %1
@@ -4335,7 +4335,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %_ZNK
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3net11QuicSession33HandleRstOnValidNonexistentStreamERKNS_18QuicRstStreamFrameE(ptr noundef nonnull align 8 dereferenceable(2044) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8, !tbaa !273
-  %4 = tail call noundef zeroext i1 @_ZN3net11QuicSession12IsOpenStreamEj(ptr noundef nonnull align 8 dereferenceable(2044) %0, i32 noundef %3)
+  %4 = tail call noundef zeroext i1 @_ZN3net11QuicSession12IsOpenStreamEj(ptr noundef nonnull readonly align 8 dereferenceable(2044) %0, i32 noundef %3)
   br i1 %4, label %_ZN3net11QuicSession14IsClosedStreamEj.exit, label %5
 
 5:                                                ; preds = %2
@@ -4429,7 +4429,7 @@ _ZN3net11QuicSession14IsClosedStreamEj.exit:      ; preds = %39, %21, %12, %2, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN3net11QuicSession14IsClosedStreamEj(ptr noundef nonnull align 8 captures(address) dereferenceable(2044) %0, i32 noundef %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN3net11QuicSession14IsClosedStreamEj(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(2044) %0, i32 noundef %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef zeroext i1 @_ZN3net11QuicSession12IsOpenStreamEj(ptr noundef nonnull align 8 dereferenceable(2044) %0, i32 noundef %1)
   br i1 %3, label %46, label %4
 

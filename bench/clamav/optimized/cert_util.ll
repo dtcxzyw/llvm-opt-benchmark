@@ -811,7 +811,7 @@ declare i32 @X509_cmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @X509_dup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 9) i32 @cert_store_set_trusted(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 9) i32 @cert_store_set_trusted(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @_cert_store) #15
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4

@@ -8480,7 +8480,7 @@ define internal fastcc noundef zeroext i1 @__skb_splice_bits(ptr noundef readonl
 declare dso_local i64 @splice_to_pipe(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @skb_send_sock_locked(ptr noundef %0, ptr noundef captures(address) %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local i32 @skb_send_sock_locked(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = tail call fastcc i32 @__skb_send_sock(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull @sendmsg_locked)
   ret i32 %5
 }
@@ -8889,7 +8889,7 @@ define internal i32 @sendmsg_locked(ptr noundef %0, ptr noundef %1) #0 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @skb_send_sock(ptr noundef %0, ptr noundef captures(address) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local i32 @skb_send_sock(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = tail call fastcc i32 @__skb_send_sock(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull @sendmsg_unlocked)
   ret i32 %5
 }
@@ -15348,7 +15348,7 @@ define dso_local void @__skb_tstamp_tx(ptr noundef %0, ptr noundef %1, ptr nound
 declare dso_local ptr @tcp_get_timestamping_opt_stats(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @skb_tstamp_tx(ptr noundef %0, ptr noundef captures(address_is_null) %1) #0 align 16 {
+define dso_local void @skb_tstamp_tx(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call void @__skb_tstamp_tx(ptr noundef %0, ptr noundef null, ptr noundef %1, ptr noundef %4, i32 noundef 0)

@@ -3129,7 +3129,7 @@ define internal void @zend_extension_op_array_dtor_handler(ptr noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_recalc_live_ranges(ptr noundef initializes((144, 148)) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local void @zend_recalc_live_ranges(ptr noundef initializes((144, 148)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8, !tbaa !56, !nonnull !41, !noundef !41
   tail call void @_efree(ptr noundef nonnull %4) #14
@@ -3141,7 +3141,7 @@ define dso_local void @zend_recalc_live_ranges(ptr noundef initializes((144, 148
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_calc_live_ranges(ptr noundef %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc void @zend_calc_live_ranges(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load i32, ptr %3, align 8, !tbaa !26
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104

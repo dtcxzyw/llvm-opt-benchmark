@@ -118,7 +118,7 @@ declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local noundef i32 @crypto_sign_ed25519_detached(ptr noundef nonnull %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4) local_unnamed_addr #0 {
+define dso_local noundef i32 @crypto_sign_ed25519_detached(ptr noundef nonnull %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4) local_unnamed_addr #0 {
   %6 = tail call i32 @_crypto_sign_ed25519_detached(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4, i32 noundef 0)
   ret i32 0
 }

@@ -1195,7 +1195,7 @@ define noundef range(i64 0, -9223372036854775808) i64 @_ZN6casadi16SparsityInter
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6casadi16SparsityInternal7qr_initEPKxS2_PxS3_S3_S3_S3_S3_S3_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(address_is_null) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef captures(none) %8) local_unnamed_addr #5 align 2 {
+define void @_ZN6casadi16SparsityInternal7qr_initEPKxS2_PxS3_S3_S3_S3_S3_S3_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef captures(none) %8) local_unnamed_addr #5 align 2 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !3
   tail call void @_ZN6casadi16SparsityInternal5etreeEPKxPxS3_x(ptr noundef %0, ptr noundef %3, ptr noundef %8, i64 noundef 1)
@@ -26102,7 +26102,7 @@ _ZNK6casadi16SparsityInternal8is_equalExxPKxS2_.exit: ; preds = %24, %_ZSt5equal
 declare void @_ZNK6casadi8Sparsity5uniteERKS0_RSt6vectorIhSaIhEE(ptr dead_on_unwind writable sret(%"class.casadi::Sparsity") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6casadi16SparsityInternal10is_stackedERKNS_8SparsityEx(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK6casadi16SparsityInternal10is_stackedERKNS_8SparsityEx(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = icmp eq i64 %2, 1
   br i1 %4, label %5, label %7
 

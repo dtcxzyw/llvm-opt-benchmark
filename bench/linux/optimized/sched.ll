@@ -19029,7 +19029,7 @@ define dso_local void @rpc_wake_up_queued_task_set_status(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @rpc_wake_up_first_on_wq(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #1 align 16 {
+define dso_local noundef ptr @rpc_wake_up_first_on_wq(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #1 align 16 {
   tail call void @_raw_spin_lock(ptr noundef %1) #18
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %6 = load i8, ptr %5, align 8
@@ -19351,7 +19351,7 @@ define internal fastcc noundef ptr @rpc_wake_up_task_on_wq_queue_action_locked(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @rpc_wake_up_first(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) #1 align 16 {
+define dso_local noundef ptr @rpc_wake_up_first(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #1 align 16 {
   %4 = load ptr, ptr @rpciod_workqueue, align 8
   %5 = tail call ptr @rpc_wake_up_first_on_wq(ptr noundef %4, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret ptr %5

@@ -34739,7 +34739,7 @@ declare void @_ZN5clang7CodeGen13CGObjCRuntime22GetRuntimeProtocolListEPKPNS_16O
 declare noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU22GenerateClassStructureEPN4llvm8ConstantES3_jPKcS3_S3_S3_S3_S3_S3_S3_S3_S3_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1184) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 17, 19) %3, ptr noundef captures(address_is_null) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, i1 noundef zeroext %13) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU22GenerateClassStructureEPN4llvm8ConstantES3_jPKcS3_S3_S3_S3_S3_S3_S3_S3_S3_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1184) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 17, 19) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, i1 noundef zeroext %13) unnamed_addr #0 align 2 {
   %15 = alloca %"class.llvm::Twine", align 8
   %16 = alloca i64, align 8
   %17 = alloca [18 x ptr], align 8
@@ -36908,7 +36908,7 @@ declare noundef zeroext i1 @_ZNK5clang16ObjCProtocolDecl20isNonRuntimeProtocolEv
 declare noundef ptr @_ZN4llvm12ConstantExpr11getIntToPtrEPNS_8ConstantEPNS_4TypeEb(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL17FindIvarInterfaceRN5clang10ASTContextEPKNS_17ObjCInterfaceDeclEPKNS_12ObjCIvarDeclE(ptr noundef nonnull %0, ptr noundef captures(address) %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL17FindIvarInterfaceRN5clang10ASTContextEPKNS_17ObjCInterfaceDeclEPKNS_12ObjCIvarDeclE(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %._crit_edge, %2

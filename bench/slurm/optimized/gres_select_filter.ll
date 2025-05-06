@@ -2164,7 +2164,7 @@ _init_gres_per_bit_select.exit:                   ; preds = %589, %592
   %613 = getelementptr inbounds nuw i8, ptr %612, i64 32
   %614 = load i64, ptr %613, align 8
   store i64 %614, ptr %5, align 8
-  call fastcc void @_pick_shared_gres(ptr noundef %5, ptr noundef readonly %606, ptr noundef nonnull readonly %0, i32 noundef %23, i1 noundef zeroext %609, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext %43, i32 noundef %35, i32 noundef %.0250, ptr noundef %607, i32 noundef %.0249, ptr noundef %6)
+  call fastcc void @_pick_shared_gres(ptr noundef %5, ptr noundef readonly %606, ptr noundef nonnull readonly %0, i32 noundef %23, i1 noundef zeroext %609, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext %43, i32 noundef %35, i32 noundef %.0250, ptr noundef readonly %607, i32 noundef %.0249, ptr noundef %6)
   %615 = load i64, ptr %5, align 8
   %.not.i221 = icmp eq i64 %615, 0
   %616 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
@@ -2174,7 +2174,7 @@ _init_gres_per_bit_select.exit:                   ; preds = %589, %592
 
 617:                                              ; preds = %604
   store i8 1, ptr %6, align 1
-  call fastcc void @_pick_shared_gres(ptr noundef %5, ptr noundef readonly %606, ptr noundef nonnull readonly %0, i32 noundef %23, i1 noundef zeroext %609, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext %43, i32 noundef %35, i32 noundef %.0250, ptr noundef %607, i32 noundef %.0249, ptr noundef %6)
+  call fastcc void @_pick_shared_gres(ptr noundef %5, ptr noundef readonly %606, ptr noundef nonnull readonly %0, i32 noundef %23, i1 noundef zeroext %609, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext %43, i32 noundef %35, i32 noundef %.0250, ptr noundef readonly %607, i32 noundef %.0249, ptr noundef %6)
   br label %618
 
 618:                                              ; preds = %617, %604
@@ -2533,7 +2533,7 @@ declare ptr @slurm_bit_alloc(i64 noundef) local_unnamed_addr #2
 declare zeroext i1 @gres_id_shared(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2073) i32 @_set_shared_task_bits(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, ptr noundef captures(address_is_null) %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2073) i32 @_set_shared_task_bits(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7, i32 noundef %8) unnamed_addr #0 {
   %10 = alloca i8, align 1
   %11 = alloca i64, align 8
   %12 = alloca ptr, align 8

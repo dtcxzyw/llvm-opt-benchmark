@@ -783,7 +783,7 @@ declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i6
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define i32 @wolfSSL_CertManagerLoadCA(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @wolfSSL_CertManagerLoadCA(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %.not = icmp eq ptr %0, null
@@ -837,7 +837,7 @@ wolfSSL_CTX_set_verify.exit:                      ; preds = %6
 
 28:                                               ; preds = %wolfSSL_CTX_set_verify.exit, %27
   store ptr %0, ptr %17, align 8, !tbaa !26
-  %29 = call i32 @wolfSSL_CTX_load_verify_locations_ex(ptr noundef nonnull %11, ptr noundef %1, ptr noundef %2, i32 noundef 0)
+  %29 = call i32 @wolfSSL_CTX_load_verify_locations_ex(ptr noundef nonnull %11, ptr noundef readonly %1, ptr noundef %2, i32 noundef 0)
   store ptr null, ptr %17, align 8, !tbaa !26
   call void @FreeSSL_Ctx(ptr noundef nonnull %11) #22
   br label %wolfSSL_CTX_free.exit
@@ -848,7 +848,7 @@ wolfSSL_CTX_free.exit:                            ; preds = %3, %6, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wolfSSL_CTX_load_verify_locations(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @wolfSSL_CTX_load_verify_locations(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @wolfSSL_CTX_load_verify_locations_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   ret i32 %4
 }
@@ -7909,7 +7909,7 @@ ProcessBufferResetSuites.exit:                    ; preds = %150, %419, %421, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ProcessFile(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr readnone captures(none) %6, i32 noundef %7) local_unnamed_addr #0 {
+define i32 @ProcessFile(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr readnone captures(none) %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i64, align 8
   %10 = alloca [1024 x i8], align 16
   %11 = alloca %struct.StaticBuffer, align 8
@@ -8154,7 +8154,7 @@ declare i32 @wc_PemGetHeaderFooter(i32 noundef, ptr noundef, ptr noundef) local_
 declare ptr @mystrnstr(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @wolfSSL_CTX_load_verify_locations_ex(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @wolfSSL_CTX_load_verify_locations_ex(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -8220,7 +8220,7 @@ define i32 @wolfSSL_CTX_load_verify_locations_ex(ptr noundef %0, ptr noundef cap
 
 .lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.split.us.i
   %33 = phi ptr [ %39, %.lr.ph.split.us.split.us.i ], [ %28, %.lr.ph.split.us.i ]
-  %34 = call i32 @ProcessFile(ptr noundef nonnull %0, ptr noundef nonnull %33, i32 noundef 1, i32 noundef 6, ptr noundef null, i32 noundef 0, ptr poison, i32 noundef range(i32 0, 513) %spec.store.select)
+  %34 = call i32 @ProcessFile(ptr noundef nonnull %0, ptr noundef nonnull readonly %33, i32 noundef 1, i32 noundef 6, ptr noundef null, i32 noundef 0, ptr poison, i32 noundef range(i32 0, 513) %spec.store.select)
   %.not.i.us.us.i = icmp eq i32 %34, 1
   %spec.select.i = select i1 %.not.i.us.us.i, ptr %5, ptr %7
   %35 = load i32, ptr %spec.select.i, align 4, !tbaa !3
@@ -8235,7 +8235,7 @@ define i32 @wolfSSL_CTX_load_verify_locations_ex(ptr noundef %0, ptr noundef cap
 
 .lr.ph.split.us.split.i:                          ; preds = %.lr.ph.split.us.i, %wolfssl_ctx_load_path_file.exit.us.i
   %42 = phi ptr [ %48, %wolfssl_ctx_load_path_file.exit.us.i ], [ %28, %.lr.ph.split.us.i ]
-  %43 = call i32 @ProcessFile(ptr noundef nonnull %0, ptr noundef nonnull %42, i32 noundef 1, i32 noundef 6, ptr noundef null, i32 noundef 0, ptr poison, i32 noundef range(i32 0, 513) %spec.store.select)
+  %43 = call i32 @ProcessFile(ptr noundef nonnull %0, ptr noundef nonnull readonly %42, i32 noundef 1, i32 noundef 6, ptr noundef null, i32 noundef 0, ptr poison, i32 noundef range(i32 0, 513) %spec.store.select)
   switch i32 %43, label %.sink.split.i.us.fold.split.i [
     i32 1, label %.sink.split.i.us.i
     i32 -162, label %wolfssl_ctx_load_path_file.exit.us.i
@@ -8262,7 +8262,7 @@ wolfssl_ctx_load_path_file.exit.us.i:             ; preds = %.sink.split.i.us.i,
 wolfssl_ctx_load_path_file.exit.i:                ; preds = %.lr.ph.i, %wolfssl_ctx_load_path_file.exit.i
   %51 = phi i32 [ %55, %wolfssl_ctx_load_path_file.exit.i ], [ %.023, %.lr.ph.i ]
   %52 = phi ptr [ %58, %wolfssl_ctx_load_path_file.exit.i ], [ %28, %.lr.ph.i ]
-  %53 = call i32 @ProcessFile(ptr noundef nonnull %0, ptr noundef nonnull %52, i32 noundef 1, i32 noundef 6, ptr noundef null, i32 noundef 0, ptr poison, i32 noundef range(i32 0, 513) %spec.store.select)
+  %53 = call i32 @ProcessFile(ptr noundef nonnull %0, ptr noundef nonnull readonly %52, i32 noundef 1, i32 noundef 6, ptr noundef null, i32 noundef 0, ptr poison, i32 noundef range(i32 0, 513) %spec.store.select)
   %.not.i.i = icmp eq i32 %53, 1
   %54 = zext i1 %.not.i.i to i32
   %55 = add nuw nsw i32 %51, %54
@@ -8306,7 +8306,7 @@ wolfssl_ctx_load_path.exit:                       ; preds = %._crit_edge.i, %61
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wolfSSL_CTX_load_verify_locations_compat(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @wolfSSL_CTX_load_verify_locations_compat(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @wolfSSL_CTX_load_verify_locations_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
   ret i32 %4
 }
@@ -8350,7 +8350,7 @@ LoadSystemCaCertsNix.exit:                        ; preds = %.lr.ph.split.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @wolfSSL_CTX_use_certificate_file(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wolfSSL_CTX_use_certificate_file(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca %struct.StaticBuffer, align 8
   %6 = alloca i64, align 8
@@ -8369,7 +8369,7 @@ define range(i32 0, 2) i32 @wolfSSL_CTX_use_certificate_file(ptr noundef %0, ptr
   store i32 1024, ptr %10, align 8, !tbaa !216
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 0, ptr %11, align 4, !tbaa !217
-  %12 = call fastcc i32 @wolfssl_read_file_static(ptr noundef %1, ptr noundef %8, ptr noundef %9)
+  %12 = call fastcc i32 @wolfssl_read_file_static(ptr noundef readonly %1, ptr noundef %8, ptr noundef %9)
   %13 = icmp eq i32 %12, 0
   %14 = load ptr, ptr %8, align 8
   br i1 %13, label %15, label %ProcessChainBuffer.exit.i
@@ -8408,7 +8408,7 @@ ProcessFile.exit:                                 ; preds = %ProcessChainBuffer.
   store i32 1024, ptr %21, align 8, !tbaa !216
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %22, align 4, !tbaa !217
-  %23 = call fastcc i32 @wolfssl_read_file_static(ptr noundef %1, ptr noundef %5, ptr noundef %6)
+  %23 = call fastcc i32 @wolfssl_read_file_static(ptr noundef readonly %1, ptr noundef %5, ptr noundef %6)
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %.ProcessChainBuffer.exit_crit_edge.i8
 
@@ -8452,7 +8452,7 @@ ProcessFile.exit32:                               ; preds = %ProcessChainBuffer.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @wolfSSL_CTX_use_PrivateKey_file(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wolfSSL_CTX_use_PrivateKey_file(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca %struct.StaticBuffer, align 8
   %6 = alloca i64, align 8
@@ -8471,7 +8471,7 @@ define range(i32 0, 2) i32 @wolfSSL_CTX_use_PrivateKey_file(ptr noundef %0, ptr 
   store i32 1024, ptr %10, align 8, !tbaa !216
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 0, ptr %11, align 4, !tbaa !217
-  %12 = call fastcc i32 @wolfssl_read_file_static(ptr noundef %1, ptr noundef %8, ptr noundef %9)
+  %12 = call fastcc i32 @wolfssl_read_file_static(ptr noundef readonly %1, ptr noundef %8, ptr noundef %9)
   %13 = icmp eq i32 %12, 0
   %14 = load ptr, ptr %8, align 8
   br i1 %13, label %15, label %ProcessChainBuffer.exit.i
@@ -8510,7 +8510,7 @@ ProcessFile.exit:                                 ; preds = %ProcessChainBuffer.
   store i32 1024, ptr %21, align 8, !tbaa !216
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %22, align 4, !tbaa !217
-  %23 = call fastcc i32 @wolfssl_read_file_static(ptr noundef %1, ptr noundef %5, ptr noundef %6)
+  %23 = call fastcc i32 @wolfssl_read_file_static(ptr noundef readonly %1, ptr noundef %5, ptr noundef %6)
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %.ProcessChainBuffer.exit_crit_edge.i8
 
@@ -8554,7 +8554,7 @@ ProcessFile.exit32:                               ; preds = %ProcessChainBuffer.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @wolfSSL_CTX_use_certificate_chain_file(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wolfSSL_CTX_use_certificate_chain_file(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = alloca %struct.StaticBuffer, align 8
   %5 = alloca i64, align 8
@@ -8573,7 +8573,7 @@ define range(i32 0, 2) i32 @wolfSSL_CTX_use_certificate_chain_file(ptr noundef %
   store i32 1024, ptr %9, align 8, !tbaa !216
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 0, ptr %10, align 4, !tbaa !217
-  %11 = call fastcc i32 @wolfssl_read_file_static(ptr noundef %1, ptr noundef %7, ptr noundef %8)
+  %11 = call fastcc i32 @wolfssl_read_file_static(ptr noundef readonly %1, ptr noundef %7, ptr noundef %8)
   %12 = icmp eq i32 %11, 0
   %13 = load ptr, ptr %7, align 8
   br i1 %12, label %14, label %ProcessChainBuffer.exit.i
@@ -8612,7 +8612,7 @@ ProcessFile.exit:                                 ; preds = %ProcessChainBuffer.
   store i32 1024, ptr %20, align 8, !tbaa !216
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 0, ptr %21, align 4, !tbaa !217
-  %22 = call fastcc i32 @wolfssl_read_file_static(ptr noundef %1, ptr noundef %4, ptr noundef %5)
+  %22 = call fastcc i32 @wolfssl_read_file_static(ptr noundef readonly %1, ptr noundef %4, ptr noundef %5)
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %.ProcessChainBuffer.exit_crit_edge.i7
 
@@ -8656,7 +8656,7 @@ ProcessFile.exit30:                               ; preds = %ProcessChainBuffer.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @wolfSSL_CTX_use_certificate_chain_file_format(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wolfSSL_CTX_use_certificate_chain_file_format(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca %struct.StaticBuffer, align 8
   %6 = alloca i64, align 8
@@ -8675,7 +8675,7 @@ define range(i32 0, 2) i32 @wolfSSL_CTX_use_certificate_chain_file_format(ptr no
   store i32 1024, ptr %10, align 8, !tbaa !216
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 0, ptr %11, align 4, !tbaa !217
-  %12 = call fastcc i32 @wolfssl_read_file_static(ptr noundef %1, ptr noundef %8, ptr noundef %9)
+  %12 = call fastcc i32 @wolfssl_read_file_static(ptr noundef readonly %1, ptr noundef %8, ptr noundef %9)
   %13 = icmp eq i32 %12, 0
   %14 = load ptr, ptr %8, align 8
   br i1 %13, label %15, label %ProcessChainBuffer.exit.i
@@ -8714,7 +8714,7 @@ ProcessFile.exit:                                 ; preds = %ProcessChainBuffer.
   store i32 1024, ptr %21, align 8, !tbaa !216
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %22, align 4, !tbaa !217
-  %23 = call fastcc i32 @wolfssl_read_file_static(ptr noundef %1, ptr noundef %5, ptr noundef %6)
+  %23 = call fastcc i32 @wolfssl_read_file_static(ptr noundef readonly %1, ptr noundef %5, ptr noundef %6)
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %.ProcessChainBuffer.exit_crit_edge.i8
 
@@ -8785,7 +8785,7 @@ define range(i32 0, 2) i32 @wolfSSL_use_certificate_ASN1(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 2) i32 @wolfSSL_use_certificate_file(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -173, 2) i32 @wolfSSL_use_certificate_file(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca %struct.StaticBuffer, align 8
   %6 = alloca i64, align 8
@@ -8804,7 +8804,7 @@ define range(i32 -173, 2) i32 @wolfSSL_use_certificate_file(ptr noundef %0, ptr 
   store i32 1024, ptr %12, align 8, !tbaa !216
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %13, align 4, !tbaa !217
-  %14 = call fastcc i32 @wolfssl_read_file_static(ptr noundef %1, ptr noundef %5, ptr noundef %6)
+  %14 = call fastcc i32 @wolfssl_read_file_static(ptr noundef readonly %1, ptr noundef %5, ptr noundef %6)
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %.ProcessChainBuffer.exit_crit_edge.i
 
@@ -8848,7 +8848,7 @@ ProcessFile.exit:                                 ; preds = %ProcessChainBuffer.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 2) i32 @wolfSSL_use_PrivateKey_file(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -173, 2) i32 @wolfSSL_use_PrivateKey_file(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca %struct.StaticBuffer, align 8
   %6 = alloca i64, align 8
@@ -8867,7 +8867,7 @@ define range(i32 -173, 2) i32 @wolfSSL_use_PrivateKey_file(ptr noundef %0, ptr n
   store i32 1024, ptr %12, align 8, !tbaa !216
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %13, align 4, !tbaa !217
-  %14 = call fastcc i32 @wolfssl_read_file_static(ptr noundef %1, ptr noundef %5, ptr noundef %6)
+  %14 = call fastcc i32 @wolfssl_read_file_static(ptr noundef readonly %1, ptr noundef %5, ptr noundef %6)
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %.ProcessChainBuffer.exit_crit_edge.i
 
@@ -8911,7 +8911,7 @@ ProcessFile.exit:                                 ; preds = %ProcessChainBuffer.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 2) i32 @wolfSSL_use_certificate_chain_file(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -173, 2) i32 @wolfSSL_use_certificate_chain_file(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = alloca %struct.StaticBuffer, align 8
   %5 = alloca i64, align 8
@@ -8930,7 +8930,7 @@ define range(i32 -173, 2) i32 @wolfSSL_use_certificate_chain_file(ptr noundef %0
   store i32 1024, ptr %11, align 8, !tbaa !216
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 0, ptr %12, align 4, !tbaa !217
-  %13 = call fastcc i32 @wolfssl_read_file_static(ptr noundef %1, ptr noundef %4, ptr noundef %5)
+  %13 = call fastcc i32 @wolfssl_read_file_static(ptr noundef readonly %1, ptr noundef %4, ptr noundef %5)
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %.ProcessChainBuffer.exit_crit_edge.i
 
@@ -8974,7 +8974,7 @@ ProcessFile.exit:                                 ; preds = %ProcessChainBuffer.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 2) i32 @wolfSSL_use_certificate_chain_file_format(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -173, 2) i32 @wolfSSL_use_certificate_chain_file_format(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca %struct.StaticBuffer, align 8
   %6 = alloca i64, align 8
@@ -8993,7 +8993,7 @@ define range(i32 -173, 2) i32 @wolfSSL_use_certificate_chain_file_format(ptr nou
   store i32 1024, ptr %12, align 8, !tbaa !216
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %13, align 4, !tbaa !217
-  %14 = call fastcc i32 @wolfssl_read_file_static(ptr noundef %1, ptr noundef %5, ptr noundef %6)
+  %14 = call fastcc i32 @wolfssl_read_file_static(ptr noundef readonly %1, ptr noundef %5, ptr noundef %6)
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %.ProcessChainBuffer.exit_crit_edge.i
 
@@ -9837,13 +9837,13 @@ define i32 @wolfSSL_CTX_SetTmpDH_buffer(ptr noundef captures(address_is_null) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wolfSSL_SetTmpDH_file(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @wolfSSL_SetTmpDH_file(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @ws_ctx_ssl_set_tmp_dh_file(ptr noundef null, ptr noundef %0, ptr noundef %1, i32 noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ws_ctx_ssl_set_tmp_dh_file(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @ws_ctx_ssl_set_tmp_dh_file(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca [1024 x i8], align 16
   %6 = alloca %struct.StaticBuffer, align 8
   %7 = alloca i64, align 8
@@ -9906,7 +9906,7 @@ static_buffer_free.exit:                          ; preds = %.thread36, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wolfSSL_CTX_SetTmpDH_file(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @wolfSSL_CTX_SetTmpDH_file(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca %struct.StaticBuffer, align 8
   %6 = alloca i64, align 8
@@ -9924,7 +9924,7 @@ define i32 @wolfSSL_CTX_SetTmpDH_file(ptr noundef captures(address_is_null) %0, 
   br i1 %or.cond3.not.i, label %11, label %.thread36.i
 
 11:                                               ; preds = %3
-  %12 = call fastcc i32 @wolfssl_read_file_static(ptr noundef nonnull %1, ptr noundef %5, ptr noundef %6)
+  %12 = call fastcc i32 @wolfssl_read_file_static(ptr noundef nonnull readonly %1, ptr noundef %5, ptr noundef %6)
   %.not31.i = icmp eq i32 %12, 0
   %13 = load ptr, ptr %5, align 8
   br i1 %.not31.i, label %.thread.i, label %.thread36.i

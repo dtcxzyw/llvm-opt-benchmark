@@ -158,7 +158,7 @@ define hidden ptr @cmsGetToneCurveEstimatedTable(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsBuildTabulatedToneCurve16(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden ptr @cmsBuildTabulatedToneCurve16(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @AllocateToneCurveStruct(ptr noundef %0, i32 noundef %1, i32 noundef 0, ptr noundef null, ptr noundef %2)
   ret ptr %4
 }
@@ -484,7 +484,7 @@ GetParametricCurveByType.exit:                    ; preds = %91, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca float, align 4
   %5 = alloca float, align 4
   %6 = icmp eq i32 %1, 1

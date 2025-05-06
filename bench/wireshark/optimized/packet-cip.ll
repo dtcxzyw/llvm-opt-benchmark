@@ -7066,7 +7066,7 @@ define hidden void @reset_cip_request_info(ptr noundef writeonly captures(none) 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @dissect_epath(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7, ptr noundef captures(address_is_null) %8, ptr noundef captures(address_is_null) %9, i32 noundef %10, ptr noundef %11, i1 noundef zeroext %12) local_unnamed_addr #3 {
+define hidden void @dissect_epath(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7, ptr noundef captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9, i32 noundef %10, ptr noundef %11, i1 noundef zeroext %12) local_unnamed_addr #3 {
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %16, label %14
 
@@ -11149,7 +11149,7 @@ proto_item_set_generated.exit.i.i.i:              ; preds = %327, %324, %320
 
 mark_cip_connection.exit.i.i.i:                   ; preds = %342, %339, %334, %proto_item_set_generated.exit.i.i.i
   %346 = load i32, ptr @hf_cip_cm_conn_path_size, align 4
-  call fastcc void @display_previous_route_connection_path(ptr noundef %45, ptr noundef %322, ptr noundef %0, ptr noundef %1, i32 noundef %346, i32 noundef 1)
+  call fastcc void @display_previous_route_connection_path(ptr noundef readonly %45, ptr noundef %322, ptr noundef %0, ptr noundef %1, i32 noundef %346, i32 noundef 1)
   br i1 %.not.i, label %display_connection_information_fwd_open_rsp.exit.thread.i.i, label %347
 
 display_connection_information_fwd_open_rsp.exit.thread.i.i: ; preds = %mark_cip_connection.exit.i.i.i

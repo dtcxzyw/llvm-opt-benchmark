@@ -381,7 +381,7 @@ define dso_local range(i32 -1, 1) i32 @repo_get_merge_bases_many_dirty(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @repo_is_descendant_of(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @repo_is_descendant_of(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %1, ptr %4, align 8, !tbaa !15
@@ -846,7 +846,7 @@ define dso_local range(i32 -1, 2) i32 @repo_in_merge_bases(ptr noundef %0, ptr n
   store ptr null, ptr %5, align 8, !tbaa !12
   %12 = call ptr @commit_list_insert(ptr noundef %2, ptr noundef nonnull %5) #13
   %13 = load ptr, ptr %5, align 8, !tbaa !12
-  %14 = call i32 @can_all_from_reach(ptr noundef %13, ptr noundef nonnull %8, i32 noundef 0)
+  %14 = call i32 @can_all_from_reach(ptr noundef %13, ptr noundef nonnull readonly %8, i32 noundef 0)
   %15 = load ptr, ptr %5, align 8, !tbaa !12
   call void @free_commit_list(ptr noundef %15) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
@@ -1600,7 +1600,7 @@ define dso_local range(i32 0, 2) i32 @ref_newer(ptr noundef %0, ptr noundef %1) 
   store ptr null, ptr %4, align 8, !tbaa !12
   %30 = call ptr @commit_list_insert(ptr noundef nonnull %15, ptr noundef nonnull %4) #13
   %31 = load ptr, ptr %4, align 8, !tbaa !12
-  %32 = call i32 @can_all_from_reach(ptr noundef %31, ptr noundef nonnull %26, i32 noundef 0)
+  %32 = call i32 @can_all_from_reach(ptr noundef %31, ptr noundef nonnull readonly %26, i32 noundef 0)
   %33 = load ptr, ptr %4, align 8, !tbaa !12
   call void @free_commit_list(ptr noundef %33) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
@@ -1656,7 +1656,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #4
 declare i32 @common_exit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @commit_contains(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @commit_contains(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1684,7 +1684,7 @@ define dso_local range(i32 -1, 2) i32 @commit_contains(ptr noundef readonly capt
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %10
   %.034.lcssa.i = phi i64 [ 9223372036854775807, %10 ], [ %spec.select.i, %.lr.ph.i ]
-  %16 = tail call fastcc i32 @contains_test(ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %.034.lcssa.i)
+  %16 = tail call fastcc i32 @contains_test(ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, i64 noundef %.034.lcssa.i)
   %.not40.i = icmp eq i32 %16, 0
   br i1 %.not40.i, label %push_to_contains_stack.exit.i, label %contains_tag_algo.exit
 
@@ -1788,7 +1788,7 @@ contains_cache_at.exit.i:                         ; preds = %51, %46
 
 66:                                               ; preds = %24
   %67 = load ptr, ptr %30, align 8, !tbaa !4
-  %68 = tail call fastcc i32 @contains_test(ptr noundef %67, ptr noundef %2, ptr noundef %3, i64 noundef %.034.lcssa.i)
+  %68 = tail call fastcc i32 @contains_test(ptr noundef %67, ptr noundef readonly %2, ptr noundef %3, i64 noundef %.034.lcssa.i)
   switch i32 %68, label %121 [
     i32 2, label %69
     i32 1, label %104
@@ -1919,7 +1919,7 @@ push_to_contains_stack.exit65.i:                  ; preds = %st_mult.exit.i60.i,
 
 122:                                              ; preds = %121
   tail call void @free(ptr noundef nonnull %.sroa.18.1.i) #13
-  %123 = tail call fastcc i32 @contains_test(ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %.034.lcssa.i)
+  %123 = tail call fastcc i32 @contains_test(ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, i64 noundef %.034.lcssa.i)
   br label %contains_tag_algo.exit
 
 contains_tag_algo.exit:                           ; preds = %._crit_edge.i, %122
@@ -1945,7 +1945,7 @@ contains_tag_algo.exit:                           ; preds = %._crit_edge.i, %122
   store ptr null, ptr %6, align 8, !tbaa !12
   %131 = call ptr @commit_list_insert(ptr noundef %1, ptr noundef nonnull %6) #13
   %132 = load ptr, ptr %6, align 8, !tbaa !12
-  %133 = call i32 @can_all_from_reach(ptr noundef %132, ptr noundef nonnull %2, i32 noundef 0)
+  %133 = call i32 @can_all_from_reach(ptr noundef %132, ptr noundef nonnull readonly %2, i32 noundef 0)
   %134 = load ptr, ptr %6, align 8, !tbaa !12
   call void @free_commit_list(ptr noundef %134) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13

@@ -4232,7 +4232,7 @@ declare void @clear_shallow_info(ptr noundef) local_unnamed_addr #3
 declare void @oid_array_clear(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @negotiate_using_fetch(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local void @negotiate_using_fetch(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.fetch_negotiator, align 8
   %7 = alloca %struct.packet_reader, align 8
   %8 = alloca %struct.object_array, align 8

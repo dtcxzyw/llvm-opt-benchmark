@@ -4028,7 +4028,7 @@ define void @If_CluSwapVars(ptr noundef captures(none) %0, i32 noundef %1, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @If_CluReverseOrder(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #10 {
+define void @If_CluReverseOrder(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #10 {
   %6 = sub nsw i32 %1, %4
   %7 = sdiv i32 %6, 2
   %8 = icmp sgt i32 %6, 1
@@ -9010,7 +9010,7 @@ If_CluMoveGroupToMsb.exit:                        ; preds = %57, %._crit_edge153
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @If_CluCheckExt(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) initializes((0, 18)) %5, ptr noundef writeonly captures(none) initializes((0, 18)) %6, ptr noundef captures(address_is_null) %7, ptr noundef captures(address_is_null) %8) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @If_CluCheckExt(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) initializes((0, 18)) %5, ptr noundef writeonly captures(none) initializes((0, 18)) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8) local_unnamed_addr #2 {
   %.sroa.5 = alloca { i8, [16 x i8] }, align 8
   %10 = alloca %struct.If_Grp_t_, align 1
   %11 = alloca %struct.If_Grp_t_, align 1
@@ -9034,7 +9034,7 @@ define range(i32 0, 2) i32 @If_CluCheckExt(ptr noundef captures(address_is_null)
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @If_CluCheckExt3(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(none) initializes((0, 18)) %6, ptr noundef writeonly captures(none) initializes((0, 18)) %7, ptr noundef writeonly captures(none) initializes((0, 18)) %8, ptr noundef captures(address_is_null) %9, ptr noundef captures(address_is_null) %10, ptr noundef captures(address_is_null) %11) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @If_CluCheckExt3(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(none) initializes((0, 18)) %6, ptr noundef writeonly captures(none) initializes((0, 18)) %7, ptr noundef writeonly captures(none) initializes((0, 18)) %8, ptr noundef writeonly captures(address_is_null) %9, ptr noundef writeonly captures(address_is_null) %10, ptr noundef writeonly captures(address_is_null) %11) local_unnamed_addr #2 {
   %.sroa.5 = alloca { i8, [16 x i8] }, align 8
   %13 = alloca %struct.If_Grp_t_, align 1
   %14 = alloca %struct.If_Grp_t_, align 1

@@ -2193,7 +2193,7 @@ _ZN4llvm10sampleprof15FunctionSamples9getOffsetEPKNS_10DILocationE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4llvm10sampleprof15FunctionSamples19findFunctionSamplesEPKNS_10DILocationEPNS0_34SampleProfileReaderItaniumRemapperEPKNS0_10HashKeyMapISt13unordered_mapNS0_10FunctionIdES9_JEEE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZNK4llvm10sampleprof15FunctionSamples19findFunctionSamplesEPKNS_10DILocationEPNS0_34SampleProfileReaderItaniumRemapperEPKNS0_10HashKeyMapISt13unordered_mapNS0_10FunctionIdES9_JEEE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.llvm::SmallVector.84", align 8
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = alloca %"struct.llvm::sampleprof::LineLocation", align 8
@@ -6140,7 +6140,7 @@ _ZNKSt4lessIN4llvm10sampleprof10FunctionIdEEclERKS2_S5_.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10sampleprof16ProfileConverter17convertCSProfilesEv(ptr noundef nonnull align 8 captures(address) dereferenceable(88) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm10sampleprof16ProfileConverter17convertCSProfilesEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN4llvm10sampleprof16ProfileConverter17convertCSProfilesERNS1_9FrameNodeE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(80) %2)
   ret void

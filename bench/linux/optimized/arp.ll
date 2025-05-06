@@ -520,7 +520,7 @@ define dso_local noundef range(i32 -22, 1) i32 @arp_mc_map(i32 noundef %0, ptr n
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @arp_send(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7) #1 align 16 {
+define dso_local void @arp_send(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly captures(address_is_null) %7) #1 align 16 {
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 128
@@ -552,7 +552,7 @@ define dso_local void @arp_send(i32 noundef %0, i32 noundef %1, i32 noundef %2, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @arp_send_dst(i32 noundef range(i32 1, 3) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6, ptr noundef %7) unnamed_addr #1 align 16 {
+define internal fastcc void @arp_send_dst(i32 noundef range(i32 1, 3) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef %7) unnamed_addr #1 align 16 {
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 128

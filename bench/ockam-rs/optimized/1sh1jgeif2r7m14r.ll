@@ -370,7 +370,7 @@ define internal void @"_ZN4core3ptr109drop_in_place$LT$$RF$alloc..collections..v
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17he391cc7c36889501E"(ptr %.0.val, ptr captures(address_is_null) %.8.val) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17he391cc7c36889501E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #2 personality ptr @rust_eh_personality {
   %1 = icmp eq ptr %.0.val, null
   br i1 %1, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hd2d749e277a12ba0E.exit", label %2
 
@@ -387,7 +387,7 @@ define internal fastcc void @"_ZN4core3ptr146drop_in_place$LT$core..option..Opti
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8606ba920a15fc21E"(ptr nonnull %.0.val, ptr nonnull %.8.val) #31
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8606ba920a15fc21E"(ptr nonnull %.0.val, ptr nonnull readonly %.8.val) #31
   resume { ptr, i32 } %6
 
 7:                                                ; preds = %2

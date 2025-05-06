@@ -2053,7 +2053,7 @@ define dso_local noundef zeroext i1 @inet_ehash_insert(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @inet_ehash_nolisten(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) #0 align 16 {
+define dso_local noundef zeroext i1 @inet_ehash_nolisten(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) #0 align 16 {
   %4 = tail call zeroext i1 @inet_ehash_insert(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %4, label %5, label %17
 

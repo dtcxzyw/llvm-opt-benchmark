@@ -21,13 +21,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [10 x i8] c"*\86H\86\F7\0D\01\09\0E\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_x509_csr_parse_der(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_x509_csr_parse_der(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @mbedtls_x509_csr_parse_der_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef null)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mbedtls_x509_csr_parse_der_internal(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @mbedtls_x509_csr_parse_der_internal(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %struct.mbedtls_asn1_buf, align 8
@@ -311,7 +311,7 @@ x509_csr_get_version.exit.thread.thread:          ; preds = %63, %x509_csr_get_v
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_x509_csr_parse_der_with_ext_cb(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_x509_csr_parse_der_with_ext_cb(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i32 @mbedtls_x509_csr_parse_der_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4)
   ret i32 %6
 }
@@ -355,7 +355,7 @@ define hidden i32 @mbedtls_x509_csr_parse(ptr noundef %0, ptr noundef %1, i64 no
   %22 = load ptr, ptr %5, align 8, !tbaa !30
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !32
-  %25 = call fastcc i32 @mbedtls_x509_csr_parse_der_internal(ptr noundef nonnull %0, ptr noundef %22, i64 noundef %24, ptr noundef null, ptr noundef null)
+  %25 = call fastcc i32 @mbedtls_x509_csr_parse_der_internal(ptr noundef nonnull %0, ptr noundef readonly %22, i64 noundef %24, ptr noundef null, ptr noundef null)
   br label %26
 
 26:                                               ; preds = %21, %19
@@ -365,7 +365,7 @@ define hidden i32 @mbedtls_x509_csr_parse(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %.not, label %27, label %29
 
 27:                                               ; preds = %26, %9
-  %28 = call fastcc i32 @mbedtls_x509_csr_parse_der_internal(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef null, ptr noundef null)
+  %28 = call fastcc i32 @mbedtls_x509_csr_parse_der_internal(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i64 noundef %2, ptr noundef null, ptr noundef null)
   br label %29
 
 29:                                               ; preds = %26, %3, %27

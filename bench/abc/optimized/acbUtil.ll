@@ -7598,7 +7598,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Acb_NtkUpdateNode(ptr noundef initializes((484, 488)) %0, i32 noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define void @Acb_NtkUpdateNode(ptr noundef initializes((484, 488)) %0, i32 noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   tail call void @Acb_NtkSaveSupport(ptr noundef %0, i32 noundef %1)
   tail call void @Acb_NtkResetNode(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3)
   %5 = getelementptr i8, ptr %0, i64 136

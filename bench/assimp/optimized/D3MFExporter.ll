@@ -5586,7 +5586,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4D3MF12D3MFExporter9writeMeshEP6aiMesh(ptr noundef nonnull align 8 dereferenceable(1224) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp4D3MF12D3MFExporter9writeMeshEP6aiMesh(ptr noundef nonnull align 8 dereferenceable(1224) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %33, label %4
 

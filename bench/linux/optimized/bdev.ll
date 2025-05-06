@@ -134,7 +134,7 @@ declare dso_local i64 @invalidate_mapping_pages(ptr noundef, i64 noundef, i64 no
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @truncate_bdev_range(ptr noundef captures(address) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
+define dso_local i32 @truncate_bdev_range(ptr noundef readonly captures(address) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
   %5 = and i32 %1, 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %24

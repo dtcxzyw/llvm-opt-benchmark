@@ -426,7 +426,7 @@ define hidden void @"_ZN4core3ptr1018drop_in_place$LT$core..iter..adapters..map.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h58c7d889c8c57952E"(ptr %.0.val, ptr captures(address_is_null) %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h58c7d889c8c57952E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !4, !nonnull !4

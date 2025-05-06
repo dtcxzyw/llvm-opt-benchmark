@@ -1058,7 +1058,7 @@ define i32 @Gia_ManCountDepth(ptr noundef readonly captures(none) %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Gia_ManAnalyzeResult(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Gia_ManAnalyzeResult(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   %.pre = load ptr, ptr %0, align 8, !tbaa !3
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 16

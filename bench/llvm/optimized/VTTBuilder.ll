@@ -666,7 +666,7 @@ _ZNK5clang13CXXRecordDecl9bases_endEv.exit:       ; preds = %_ZNK5clang13LazyOff
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10VTTBuilder30LayoutSecondaryVirtualPointersENS_13BaseSubobjectEbmPKNS_13CXXRecordDeclERN4llvm11SmallPtrSetIS4_Lj4EEE(ptr noundef nonnull align 8 dereferenceable(2665) %0, ptr %1, i64 %2, i1 noundef zeroext %3, i64 noundef %4, ptr noundef captures(address) %5, ptr noundef nonnull align 8 dereferenceable(56) %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10VTTBuilder30LayoutSecondaryVirtualPointersENS_13BaseSubobjectEbmPKNS_13CXXRecordDeclERN4llvm11SmallPtrSetIS4_Lj4EEE(ptr noundef nonnull align 8 dereferenceable(2665) %0, ptr %1, i64 %2, i1 noundef zeroext %3, i64 noundef %4, ptr noundef readnone captures(address) %5, ptr noundef nonnull align 8 dereferenceable(56) %6) local_unnamed_addr #0 align 2 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 104

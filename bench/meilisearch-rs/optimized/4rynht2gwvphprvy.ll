@@ -16755,7 +16755,7 @@ _ZN3csv11byte_record6Bounds6expand17h39abda014d17f5cbE.exit: ; preds = %115, %12
   %173 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val54 = load ptr, ptr %173, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3860)
-  %174 = tail call fastcc noundef nonnull align 8 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he765457c55dd974bE"(ptr %.val54), !noalias !3860
+  %174 = tail call fastcc noundef nonnull align 8 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he765457c55dd974bE"(ptr readonly %.val54), !noalias !3860
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3863)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3866)
   %175 = load ptr, ptr %2, align 8, !alias.scope !3869, !noundef !12
@@ -60780,7 +60780,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h57f6063216f4d2b6E"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef captures(address) %2) unnamed_addr #1 {
+define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h57f6063216f4d2b6E"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 {
   tail call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hc4da7d846f8ab99dE.llvm.3021571406010367114"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef %2)
   ret void
 }
@@ -60977,7 +60977,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hd99c561892d972c8E"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef captures(address) %2) unnamed_addr #1 {
+define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hd99c561892d972c8E"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 {
   tail call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h8f9b5b468a117422E.llvm.3021571406010367114"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef %2)
   ret void
 }

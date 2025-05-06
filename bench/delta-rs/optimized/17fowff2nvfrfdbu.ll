@@ -14356,7 +14356,7 @@ define hidden void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9fold_impl17h1965ad
   %47 = getelementptr i8, ptr %43, i64 -32
   %.val2.i = load i64, ptr %47, align 8, !noalias !2645, !noundef !14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13), !noalias !2649
-  invoke fastcc void @"_ZN108_$LT$deltalake_aws..storage..S3ObjectStoreFactory$u20$as$u20$deltalake_core..storage..ObjectStoreFactory$GT$14parse_url_opts28_$u7b$$u7b$closure$u7d$$u7d$17h8d47e42c57fa6800E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %13, ptr nonnull %.val.i, i64 %.val2.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %45)
+  invoke fastcc void @"_ZN108_$LT$deltalake_aws..storage..S3ObjectStoreFactory$u20$as$u20$deltalake_core..storage..ObjectStoreFactory$GT$14parse_url_opts28_$u7b$$u7b$closure$u7d$$u7d$17h8d47e42c57fa6800E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %13, ptr nonnull readonly %.val.i, i64 %.val2.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %45)
           to label %48 unwind label %83, !noalias !2654
 
 48:                                               ; preds = %37
@@ -14605,7 +14605,7 @@ define hidden void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9fold_impl17h45f62d
   %48 = getelementptr i8, ptr %44, i64 -32
   %.val2.i = load i64, ptr %48, align 8, !noalias !2689, !noundef !14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13), !noalias !2693
-  invoke fastcc void @"_ZN108_$LT$deltalake_aws..storage..S3ObjectStoreFactory$u20$as$u20$deltalake_core..storage..ObjectStoreFactory$GT$14parse_url_opts28_$u7b$$u7b$closure$u7d$$u7d$17h8d47e42c57fa6800E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %13, ptr nonnull %.val.i, i64 %.val2.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %46)
+  invoke fastcc void @"_ZN108_$LT$deltalake_aws..storage..S3ObjectStoreFactory$u20$as$u20$deltalake_core..storage..ObjectStoreFactory$GT$14parse_url_opts28_$u7b$$u7b$closure$u7d$$u7d$17h8d47e42c57fa6800E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %13, ptr nonnull readonly %.val.i, i64 %.val2.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %46)
           to label %49 unwind label %85, !noalias !2698
 
 49:                                               ; preds = %38
@@ -14913,7 +14913,7 @@ define hidden void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9fold_impl17ha7ad00
   %47 = getelementptr i8, ptr %43, i64 -32
   %.val2.i = load i64, ptr %47, align 8, !noalias !2740, !noundef !14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13), !noalias !2744
-  invoke fastcc void @"_ZN108_$LT$deltalake_aws..storage..S3ObjectStoreFactory$u20$as$u20$deltalake_core..storage..ObjectStoreFactory$GT$14parse_url_opts28_$u7b$$u7b$closure$u7d$$u7d$17h8d47e42c57fa6800E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %13, ptr nonnull %.val.i, i64 %.val2.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %45)
+  invoke fastcc void @"_ZN108_$LT$deltalake_aws..storage..S3ObjectStoreFactory$u20$as$u20$deltalake_core..storage..ObjectStoreFactory$GT$14parse_url_opts28_$u7b$$u7b$closure$u7d$$u7d$17h8d47e42c57fa6800E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %13, ptr nonnull readonly %.val.i, i64 %.val2.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %45)
           to label %48 unwind label %83, !noalias !2749
 
 48:                                               ; preds = %37

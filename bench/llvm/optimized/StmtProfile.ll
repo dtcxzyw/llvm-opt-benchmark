@@ -9140,7 +9140,7 @@ declare noundef zeroext i1 @_ZNK5clang4Expr17isImplicitCXXThisEv(ptr noundef non
 declare noundef ptr @_ZN5clang10SwitchStmt20getConditionVariableEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OpenACCClauseVisitorIN12_GLOBAL__N_121OpenACCClauseProfilerEE5VisitEPKNS_13OpenACCClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OpenACCClauseVisitorIN12_GLOBAL__N_121OpenACCClauseProfilerEE5VisitEPKNS_13OpenACCClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %3
 

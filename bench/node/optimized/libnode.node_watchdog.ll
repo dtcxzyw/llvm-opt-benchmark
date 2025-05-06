@@ -482,7 +482,7 @@ cleanup:                                          ; preds = %do.end39, %entry, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14SigintWatchdogD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14SigintWatchdogD2Ev(ptr noundef nonnull writeonly align 8 captures(address) dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14SigintWatchdogE, i64 16), ptr %this, align 8
   tail call void @uv_mutex_lock(ptr noundef nonnull @_ZN4node20SigintWatchdogHelper22instance_action_mutex_E) #16

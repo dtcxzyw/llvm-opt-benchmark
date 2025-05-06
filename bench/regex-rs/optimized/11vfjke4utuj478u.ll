@@ -6368,7 +6368,7 @@ _ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit298
 
 .lr.ph.i:                                         ; preds = %.noexc160, %.noexc162
   %600 = phi i32 [ %601, %.noexc162 ], [ %597, %.noexc160 ]
-  invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy14set_transition17hb44bc0a909428fcdE(ptr nonnull %.val33, ptr nonnull %.val34, i32 noundef -2147483648, i32 %600, i32 noundef -2147483648)
+  invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy14set_transition17hb44bc0a909428fcdE(ptr nonnull %.val33, ptr nonnull readonly %.val34, i32 noundef -2147483648, i32 %600, i32 noundef -2147483648)
           to label %.noexc161 unwind label %.body.thread341.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc161:                                        ; preds = %.lr.ph.i
@@ -6408,7 +6408,7 @@ _ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit298
 
 609:                                              ; preds = %.noexc169, %.lr.ph.i166
   %610 = phi i32 [ %605, %.lr.ph.i166 ], [ %611, %.noexc169 ]
-  invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy14set_transition17hb44bc0a909428fcdE(ptr nonnull %.val46, ptr nonnull %.val47, i32 noundef %spec.select.i70, i32 %610, i32 noundef %spec.select.i70)
+  invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy14set_transition17hb44bc0a909428fcdE(ptr nonnull %.val46, ptr nonnull readonly %.val47, i32 noundef %spec.select.i70, i32 %610, i32 noundef %spec.select.i70)
           to label %.noexc168 unwind label %.body.thread341.loopexit.split-lp.loopexit
 
 .noexc168:                                        ; preds = %609
@@ -6448,7 +6448,7 @@ _ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit298
 
 619:                                              ; preds = %.noexc177, %.lr.ph.i174
   %620 = phi i32 [ %615, %.lr.ph.i174 ], [ %621, %.noexc177 ]
-  invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy14set_transition17hb44bc0a909428fcdE(ptr nonnull %.val48, ptr nonnull %.val49, i32 noundef %spec.select.i123, i32 %620, i32 noundef %spec.select.i123)
+  invoke fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy14set_transition17hb44bc0a909428fcdE(ptr nonnull %.val48, ptr nonnull readonly %.val49, i32 noundef %spec.select.i123, i32 %620, i32 noundef %spec.select.i123)
           to label %.noexc176 unwind label %.body.thread341.loopexit
 
 .noexc176:                                        ; preds = %619

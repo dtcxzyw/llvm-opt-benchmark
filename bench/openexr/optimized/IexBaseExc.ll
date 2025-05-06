@@ -3235,7 +3235,7 @@ define void @_ZN7Iex_3_46ArgExcC2Ev(ptr noundef nonnull align 8 dereferenceable(
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_46ArgExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
+define void @_ZN7Iex_3_46ArgExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
   tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_46ArgExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
@@ -3431,7 +3431,7 @@ define void @_ZN7Iex_3_48LogicExcC2Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_48LogicExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
+define void @_ZN7Iex_3_48LogicExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
   tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_48LogicExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
@@ -3615,7 +3615,7 @@ define void @_ZN7Iex_3_48InputExcC2Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_48InputExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
+define void @_ZN7Iex_3_48InputExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
   tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_48InputExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
@@ -3799,7 +3799,7 @@ define void @_ZN7Iex_3_45IoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_45IoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
+define void @_ZN7Iex_3_45IoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
   tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_45IoExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
@@ -3983,7 +3983,7 @@ define void @_ZN7Iex_3_47MathExcC2Ev(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_47MathExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
+define void @_ZN7Iex_3_47MathExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
   tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_47MathExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
@@ -4167,7 +4167,7 @@ define void @_ZN7Iex_3_48ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_48ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
+define void @_ZN7Iex_3_48ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
   tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_48ErrnoExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
@@ -4351,7 +4351,7 @@ define void @_ZN7Iex_3_49NoImplExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49NoImplExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
+define void @_ZN7Iex_3_49NoImplExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
   tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49NoImplExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
@@ -4535,7 +4535,7 @@ define void @_ZN7Iex_3_47NullExcC2Ev(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_47NullExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
+define void @_ZN7Iex_3_47NullExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
   tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_47NullExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
@@ -4719,7 +4719,7 @@ define void @_ZN7Iex_3_47TypeExcC2Ev(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_47TypeExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
+define void @_ZN7Iex_3_47TypeExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
   tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_47TypeExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
@@ -4903,8 +4903,8 @@ define void @_ZN7Iex_3_48EpermExcC2Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_48EpermExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_48EpermExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_48EpermExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -5087,8 +5087,8 @@ define void @_ZN7Iex_3_49EnoentExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EnoentExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EnoentExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EnoentExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -5271,8 +5271,8 @@ define void @_ZN7Iex_3_48EsrchExcC2Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_48EsrchExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_48EsrchExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_48EsrchExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -5455,8 +5455,8 @@ define void @_ZN7Iex_3_48EintrExcC2Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_48EintrExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_48EintrExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_48EintrExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -5639,8 +5639,8 @@ define void @_ZN7Iex_3_46EioExcC2Ev(ptr noundef nonnull align 8 dereferenceable(
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_46EioExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_46EioExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_46EioExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -5823,8 +5823,8 @@ define void @_ZN7Iex_3_48EnxioExcC2Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_48EnxioExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_48EnxioExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_48EnxioExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -6007,8 +6007,8 @@ define void @_ZN7Iex_3_48E2bigExcC2Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_48E2bigExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_48E2bigExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_48E2bigExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -6191,8 +6191,8 @@ define void @_ZN7Iex_3_410EnoexecExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410EnoexecExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410EnoexecExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410EnoexecExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -6375,8 +6375,8 @@ define void @_ZN7Iex_3_48EbadfExcC2Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_48EbadfExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_48EbadfExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_48EbadfExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -6559,8 +6559,8 @@ define void @_ZN7Iex_3_49EchildExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EchildExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EchildExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EchildExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -6743,8 +6743,8 @@ define void @_ZN7Iex_3_49EagainExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EagainExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EagainExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EagainExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -6927,8 +6927,8 @@ define void @_ZN7Iex_3_49EnomemExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EnomemExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EnomemExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EnomemExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -7111,8 +7111,8 @@ define void @_ZN7Iex_3_49EaccesExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EaccesExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EaccesExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EaccesExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -7295,8 +7295,8 @@ define void @_ZN7Iex_3_49EfaultExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EfaultExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EfaultExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EfaultExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -7479,8 +7479,8 @@ define void @_ZN7Iex_3_410EnotblkExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410EnotblkExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410EnotblkExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410EnotblkExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -7663,8 +7663,8 @@ define void @_ZN7Iex_3_48EbusyExcC2Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_48EbusyExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_48EbusyExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_48EbusyExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -7847,8 +7847,8 @@ define void @_ZN7Iex_3_49EexistExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EexistExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EexistExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EexistExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -8031,8 +8031,8 @@ define void @_ZN7Iex_3_48ExdevExcC2Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_48ExdevExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_48ExdevExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_48ExdevExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -8215,8 +8215,8 @@ define void @_ZN7Iex_3_49EnodevExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EnodevExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EnodevExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EnodevExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -8399,8 +8399,8 @@ define void @_ZN7Iex_3_410EnotdirExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410EnotdirExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410EnotdirExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410EnotdirExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -8583,8 +8583,8 @@ define void @_ZN7Iex_3_49EisdirExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EisdirExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EisdirExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EisdirExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -8767,8 +8767,8 @@ define void @_ZN7Iex_3_49EinvalExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EinvalExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EinvalExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EinvalExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -8951,8 +8951,8 @@ define void @_ZN7Iex_3_49EnfileExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EnfileExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EnfileExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EnfileExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -9135,8 +9135,8 @@ define void @_ZN7Iex_3_49EmfileExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EmfileExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EmfileExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EmfileExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -9319,8 +9319,8 @@ define void @_ZN7Iex_3_49EnottyExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EnottyExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EnottyExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EnottyExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -9503,8 +9503,8 @@ define void @_ZN7Iex_3_410EtxtbsyExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410EtxtbsyExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410EtxtbsyExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410EtxtbsyExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -9687,8 +9687,8 @@ define void @_ZN7Iex_3_48EfbigExcC2Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_48EfbigExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_48EfbigExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_48EfbigExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -9871,8 +9871,8 @@ define void @_ZN7Iex_3_49EnospcExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EnospcExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EnospcExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EnospcExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -10055,8 +10055,8 @@ define void @_ZN7Iex_3_49EspipeExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EspipeExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EspipeExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EspipeExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -10239,8 +10239,8 @@ define void @_ZN7Iex_3_48ErofsExcC2Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_48ErofsExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_48ErofsExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_48ErofsExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -10423,8 +10423,8 @@ define void @_ZN7Iex_3_49EmlinkExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EmlinkExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EmlinkExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EmlinkExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -10607,8 +10607,8 @@ define void @_ZN7Iex_3_48EpipeExcC2Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_48EpipeExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_48EpipeExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_48EpipeExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -10791,8 +10791,8 @@ define void @_ZN7Iex_3_47EdomExcC2Ev(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_47EdomExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_47EdomExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_47EdomExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -10975,8 +10975,8 @@ define void @_ZN7Iex_3_49ErangeExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49ErangeExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49ErangeExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49ErangeExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -11159,8 +11159,8 @@ define void @_ZN7Iex_3_49EnomsgExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EnomsgExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EnomsgExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EnomsgExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -11343,8 +11343,8 @@ define void @_ZN7Iex_3_48EidrmExcC2Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_48EidrmExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_48EidrmExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_48EidrmExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -11527,8 +11527,8 @@ define void @_ZN7Iex_3_49EchrngExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EchrngExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EchrngExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EchrngExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -11711,8 +11711,8 @@ define void @_ZN7Iex_3_411El2nsyncExcC2Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_411El2nsyncExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_411El2nsyncExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_411El2nsyncExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -11895,8 +11895,8 @@ define void @_ZN7Iex_3_49El3hltExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49El3hltExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49El3hltExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49El3hltExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -12079,8 +12079,8 @@ define void @_ZN7Iex_3_49El3rstExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49El3rstExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49El3rstExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49El3rstExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -12263,8 +12263,8 @@ define void @_ZN7Iex_3_49ElnrngExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49ElnrngExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49ElnrngExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49ElnrngExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -12447,8 +12447,8 @@ define void @_ZN7Iex_3_410EunatchExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410EunatchExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410EunatchExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410EunatchExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -12631,8 +12631,8 @@ define void @_ZN7Iex_3_49EnocsiExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EnocsiExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EnocsiExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EnocsiExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -12815,8 +12815,8 @@ define void @_ZN7Iex_3_49El2hltExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49El2hltExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49El2hltExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49El2hltExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -12999,8 +12999,8 @@ define void @_ZN7Iex_3_410EdeadlkExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410EdeadlkExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410EdeadlkExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410EdeadlkExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -13183,8 +13183,8 @@ define void @_ZN7Iex_3_49EnolckExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EnolckExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EnolckExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EnolckExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -13367,8 +13367,8 @@ define void @_ZN7Iex_3_48EbadeExcC2Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_48EbadeExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_48EbadeExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_48EbadeExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -13551,8 +13551,8 @@ define void @_ZN7Iex_3_48EbadrExcC2Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_48EbadrExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_48EbadrExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_48EbadrExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -13735,8 +13735,8 @@ define void @_ZN7Iex_3_49ExfullExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49ExfullExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49ExfullExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49ExfullExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -13919,8 +13919,8 @@ define void @_ZN7Iex_3_49EnoanoExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EnoanoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EnoanoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EnoanoExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -14103,8 +14103,8 @@ define void @_ZN7Iex_3_410EbadrqcExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410EbadrqcExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410EbadrqcExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410EbadrqcExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -14287,8 +14287,8 @@ define void @_ZN7Iex_3_410EbadsltExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410EbadsltExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410EbadsltExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410EbadsltExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -14471,8 +14471,8 @@ define void @_ZN7Iex_3_412EdeadlockExcC2Ev(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_412EdeadlockExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_412EdeadlockExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_412EdeadlockExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -14655,8 +14655,8 @@ define void @_ZN7Iex_3_49EbfontExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EbfontExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EbfontExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EbfontExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -14839,8 +14839,8 @@ define void @_ZN7Iex_3_49EnostrExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EnostrExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EnostrExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EnostrExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -15023,8 +15023,8 @@ define void @_ZN7Iex_3_410EnodataExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410EnodataExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410EnodataExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410EnodataExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -15207,8 +15207,8 @@ define void @_ZN7Iex_3_48EtimeExcC2Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_48EtimeExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_48EtimeExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_48EtimeExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -15391,8 +15391,8 @@ define void @_ZN7Iex_3_48EnosrExcC2Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_48EnosrExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_48EnosrExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_48EnosrExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -15575,8 +15575,8 @@ define void @_ZN7Iex_3_49EnonetExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EnonetExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EnonetExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EnonetExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -15759,8 +15759,8 @@ define void @_ZN7Iex_3_49EnopkgExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EnopkgExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EnopkgExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EnopkgExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -15943,8 +15943,8 @@ define void @_ZN7Iex_3_410EremoteExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410EremoteExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410EremoteExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410EremoteExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -16127,8 +16127,8 @@ define void @_ZN7Iex_3_410EnolinkExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410EnolinkExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410EnolinkExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410EnolinkExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -16311,8 +16311,8 @@ define void @_ZN7Iex_3_47EadvExcC2Ev(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_47EadvExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_47EadvExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_47EadvExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -16495,8 +16495,8 @@ define void @_ZN7Iex_3_49EsrmntExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EsrmntExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EsrmntExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EsrmntExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -16679,8 +16679,8 @@ define void @_ZN7Iex_3_48EcommExcC2Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_48EcommExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_48EcommExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_48EcommExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -16863,8 +16863,8 @@ define void @_ZN7Iex_3_49EprotoExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EprotoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EprotoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EprotoExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -17047,8 +17047,8 @@ define void @_ZN7Iex_3_412EmultihopExcC2Ev(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_412EmultihopExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_412EmultihopExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_412EmultihopExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -17231,8 +17231,8 @@ define void @_ZN7Iex_3_410EbadmsgExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410EbadmsgExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410EbadmsgExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410EbadmsgExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -17415,8 +17415,8 @@ define void @_ZN7Iex_3_415EnametoolongExcC2Ev(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_415EnametoolongExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_415EnametoolongExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_415EnametoolongExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -17599,8 +17599,8 @@ define void @_ZN7Iex_3_412EoverflowExcC2Ev(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_412EoverflowExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_412EoverflowExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_412EoverflowExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -17783,8 +17783,8 @@ define void @_ZN7Iex_3_411EnotuniqExcC2Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_411EnotuniqExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_411EnotuniqExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_411EnotuniqExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -17967,8 +17967,8 @@ define void @_ZN7Iex_3_49EbadfdExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EbadfdExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EbadfdExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EbadfdExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -18151,8 +18151,8 @@ define void @_ZN7Iex_3_410EremchgExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410EremchgExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410EremchgExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410EremchgExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -18335,8 +18335,8 @@ define void @_ZN7Iex_3_410ElibaccExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410ElibaccExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410ElibaccExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410ElibaccExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -18519,8 +18519,8 @@ define void @_ZN7Iex_3_410ElibbadExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410ElibbadExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410ElibbadExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410ElibbadExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -18703,8 +18703,8 @@ define void @_ZN7Iex_3_410ElibscnExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410ElibscnExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410ElibscnExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410ElibscnExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -18887,8 +18887,8 @@ define void @_ZN7Iex_3_410ElibmaxExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410ElibmaxExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410ElibmaxExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410ElibmaxExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -19071,8 +19071,8 @@ define void @_ZN7Iex_3_411ElibexecExcC2Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_411ElibexecExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_411ElibexecExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_411ElibexecExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -19255,8 +19255,8 @@ define void @_ZN7Iex_3_49EilseqExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EilseqExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EilseqExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EilseqExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -19439,8 +19439,8 @@ define void @_ZN7Iex_3_49EnosysExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EnosysExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EnosysExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EnosysExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -19623,8 +19623,8 @@ define void @_ZN7Iex_3_48EloopExcC2Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_48EloopExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_48EloopExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_48EloopExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -19807,8 +19807,8 @@ define void @_ZN7Iex_3_411ErestartExcC2Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_411ErestartExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_411ErestartExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_411ErestartExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -19991,8 +19991,8 @@ define void @_ZN7Iex_3_411EstrpipeExcC2Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_411EstrpipeExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_411EstrpipeExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_411EstrpipeExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -20175,8 +20175,8 @@ define void @_ZN7Iex_3_412EnotemptyExcC2Ev(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_412EnotemptyExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_412EnotemptyExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_412EnotemptyExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -20359,8 +20359,8 @@ define void @_ZN7Iex_3_49EusersExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EusersExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EusersExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EusersExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -20543,8 +20543,8 @@ define void @_ZN7Iex_3_411EnotsockExcC2Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_411EnotsockExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_411EnotsockExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_411EnotsockExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -20727,8 +20727,8 @@ define void @_ZN7Iex_3_415EdestaddrreqExcC2Ev(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_415EdestaddrreqExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_415EdestaddrreqExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_415EdestaddrreqExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -20911,8 +20911,8 @@ define void @_ZN7Iex_3_411EmsgsizeExcC2Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_411EmsgsizeExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_411EmsgsizeExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_411EmsgsizeExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -21095,8 +21095,8 @@ define void @_ZN7Iex_3_413EprototypeExcC2Ev(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_413EprototypeExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_413EprototypeExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_413EprototypeExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -21279,8 +21279,8 @@ define void @_ZN7Iex_3_414EnoprotooptExcC2Ev(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_414EnoprotooptExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_414EnoprotooptExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_414EnoprotooptExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -21463,8 +21463,8 @@ define void @_ZN7Iex_3_418EprotonosupportExcC2Ev(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_418EprotonosupportExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_418EprotonosupportExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_418EprotonosupportExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -21647,8 +21647,8 @@ define void @_ZN7Iex_3_418EsocktnosupportExcC2Ev(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_418EsocktnosupportExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_418EsocktnosupportExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_418EsocktnosupportExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -21831,8 +21831,8 @@ define void @_ZN7Iex_3_413EopnotsuppExcC2Ev(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_413EopnotsuppExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_413EopnotsuppExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_413EopnotsuppExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -22015,8 +22015,8 @@ define void @_ZN7Iex_3_415EpfnosupportExcC2Ev(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_415EpfnosupportExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_415EpfnosupportExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_415EpfnosupportExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -22199,8 +22199,8 @@ define void @_ZN7Iex_3_415EafnosupportExcC2Ev(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_415EafnosupportExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_415EafnosupportExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_415EafnosupportExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -22383,8 +22383,8 @@ define void @_ZN7Iex_3_413EaddrinuseExcC2Ev(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_413EaddrinuseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_413EaddrinuseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_413EaddrinuseExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -22567,8 +22567,8 @@ define void @_ZN7Iex_3_416EaddrnotavailExcC2Ev(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_416EaddrnotavailExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_416EaddrnotavailExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_416EaddrnotavailExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -22751,8 +22751,8 @@ define void @_ZN7Iex_3_411EnetdownExcC2Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_411EnetdownExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_411EnetdownExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_411EnetdownExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -22935,8 +22935,8 @@ define void @_ZN7Iex_3_414EnetunreachExcC2Ev(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_414EnetunreachExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_414EnetunreachExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_414EnetunreachExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -23119,8 +23119,8 @@ define void @_ZN7Iex_3_412EnetresetExcC2Ev(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_412EnetresetExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_412EnetresetExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_412EnetresetExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -23303,8 +23303,8 @@ define void @_ZN7Iex_3_415EconnabortedExcC2Ev(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_415EconnabortedExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_415EconnabortedExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_415EconnabortedExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -23487,8 +23487,8 @@ define void @_ZN7Iex_3_413EconnresetExcC2Ev(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_413EconnresetExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_413EconnresetExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_413EconnresetExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -23671,8 +23671,8 @@ define void @_ZN7Iex_3_410EnobufsExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410EnobufsExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410EnobufsExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410EnobufsExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -23855,8 +23855,8 @@ define void @_ZN7Iex_3_410EisconnExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410EisconnExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410EisconnExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410EisconnExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -24039,8 +24039,8 @@ define void @_ZN7Iex_3_411EnotconnExcC2Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_411EnotconnExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_411EnotconnExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_411EnotconnExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -24223,8 +24223,8 @@ define void @_ZN7Iex_3_412EshutdownExcC2Ev(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_412EshutdownExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_412EshutdownExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_412EshutdownExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -24407,8 +24407,8 @@ define void @_ZN7Iex_3_415EtoomanyrefsExcC2Ev(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_415EtoomanyrefsExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_415EtoomanyrefsExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_415EtoomanyrefsExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -24591,8 +24591,8 @@ define void @_ZN7Iex_3_412EtimedoutExcC2Ev(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_412EtimedoutExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_412EtimedoutExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_412EtimedoutExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -24775,8 +24775,8 @@ define void @_ZN7Iex_3_415EconnrefusedExcC2Ev(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_415EconnrefusedExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_415EconnrefusedExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_415EconnrefusedExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -24959,8 +24959,8 @@ define void @_ZN7Iex_3_412EhostdownExcC2Ev(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_412EhostdownExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_412EhostdownExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_412EhostdownExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -25143,8 +25143,8 @@ define void @_ZN7Iex_3_415EhostunreachExcC2Ev(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_415EhostunreachExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_415EhostunreachExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_415EhostunreachExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -25327,8 +25327,8 @@ define void @_ZN7Iex_3_411EalreadyExcC2Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_411EalreadyExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_411EalreadyExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_411EalreadyExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -25511,8 +25511,8 @@ define void @_ZN7Iex_3_414EinprogressExcC2Ev(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_414EinprogressExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_414EinprogressExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_414EinprogressExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -25695,8 +25695,8 @@ define void @_ZN7Iex_3_49EstaleExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EstaleExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EstaleExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EstaleExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -25879,8 +25879,8 @@ define void @_ZN7Iex_3_411EioresidExcC2Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_411EioresidExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_411EioresidExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_411EioresidExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -26063,8 +26063,8 @@ define void @_ZN7Iex_3_410EucleanExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410EucleanExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410EucleanExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410EucleanExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -26247,8 +26247,8 @@ define void @_ZN7Iex_3_410EnotnamExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410EnotnamExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410EnotnamExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410EnotnamExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -26431,8 +26431,8 @@ define void @_ZN7Iex_3_410EnavailExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410EnavailExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410EnavailExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410EnavailExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -26615,8 +26615,8 @@ define void @_ZN7Iex_3_49EisnamExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EisnamExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EisnamExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EisnamExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -26799,8 +26799,8 @@ define void @_ZN7Iex_3_412EremoteioExcC2Ev(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_412EremoteioExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_412EremoteioExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_412EremoteioExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -26983,8 +26983,8 @@ define void @_ZN7Iex_3_48EinitExcC2Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_48EinitExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_48EinitExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_48EinitExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -27167,8 +27167,8 @@ define void @_ZN7Iex_3_410EremdevExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410EremdevExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410EremdevExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410EremdevExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -27351,8 +27351,8 @@ define void @_ZN7Iex_3_412EcanceledExcC2Ev(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_412EcanceledExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_412EcanceledExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_412EcanceledExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -27535,8 +27535,8 @@ define void @_ZN7Iex_3_413EnolimfileExcC2Ev(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_413EnolimfileExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_413EnolimfileExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_413EnolimfileExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -27719,8 +27719,8 @@ define void @_ZN7Iex_3_411EproclimExcC2Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_411EproclimExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_411EproclimExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_411EproclimExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -27903,8 +27903,8 @@ define void @_ZN7Iex_3_412EdisjointExcC2Ev(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_412EdisjointExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_412EdisjointExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_412EdisjointExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -28087,8 +28087,8 @@ define void @_ZN7Iex_3_411EnologinExcC2Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_411EnologinExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_411EnologinExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_411EnologinExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -28271,8 +28271,8 @@ define void @_ZN7Iex_3_412EloginlimExcC2Ev(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_412EloginlimExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_412EloginlimExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_412EloginlimExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -28455,8 +28455,8 @@ define void @_ZN7Iex_3_413EgrouploopExcC2Ev(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_413EgrouploopExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_413EgrouploopExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_413EgrouploopExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -28639,8 +28639,8 @@ define void @_ZN7Iex_3_412EnoattachExcC2Ev(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_412EnoattachExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_412EnoattachExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_412EnoattachExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -28823,8 +28823,8 @@ define void @_ZN7Iex_3_410EnotsupExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410EnotsupExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410EnotsupExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410EnotsupExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -29007,8 +29007,8 @@ define void @_ZN7Iex_3_410EnoattrExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410EnoattrExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410EnoattrExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410EnoattrExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -29191,8 +29191,8 @@ define void @_ZN7Iex_3_416EdircorruptedExcC2Ev(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_416EdircorruptedExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_416EdircorruptedExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_416EdircorruptedExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -29375,8 +29375,8 @@ define void @_ZN7Iex_3_49EdquotExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EdquotExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EdquotExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EdquotExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -29559,8 +29559,8 @@ define void @_ZN7Iex_3_413EnfsremoteExcC2Ev(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_413EnfsremoteExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_413EnfsremoteExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_413EnfsremoteExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -29743,8 +29743,8 @@ define void @_ZN7Iex_3_414EcontrollerExcC2Ev(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_414EcontrollerExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_414EcontrollerExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_414EcontrollerExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -29927,8 +29927,8 @@ define void @_ZN7Iex_3_417EnotcontrollerExcC2Ev(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_417EnotcontrollerExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_417EnotcontrollerExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_417EnotcontrollerExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -30111,8 +30111,8 @@ define void @_ZN7Iex_3_412EenqueuedExcC2Ev(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_412EenqueuedExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_412EenqueuedExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_412EenqueuedExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -30295,8 +30295,8 @@ define void @_ZN7Iex_3_415EnotenqueuedExcC2Ev(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_415EnotenqueuedExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_415EnotenqueuedExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_415EnotenqueuedExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -30479,8 +30479,8 @@ define void @_ZN7Iex_3_410EjoinedExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410EjoinedExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410EjoinedExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410EjoinedExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -30663,8 +30663,8 @@ define void @_ZN7Iex_3_413EnotjoinedExcC2Ev(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_413EnotjoinedExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_413EnotjoinedExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_413EnotjoinedExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -30847,8 +30847,8 @@ define void @_ZN7Iex_3_410EnoprocExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410EnoprocExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410EnoprocExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410EnoprocExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -31031,8 +31031,8 @@ define void @_ZN7Iex_3_411EmustrunExcC2Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_411EmustrunExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_411EmustrunExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_411EmustrunExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -31215,8 +31215,8 @@ define void @_ZN7Iex_3_414EnotstoppedExcC2Ev(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_414EnotstoppedExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_414EnotstoppedExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_414EnotstoppedExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -31399,8 +31399,8 @@ define void @_ZN7Iex_3_412EclockcpuExcC2Ev(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_412EclockcpuExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_412EclockcpuExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_412EclockcpuExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -31583,8 +31583,8 @@ define void @_ZN7Iex_3_414EinvalstateExcC2Ev(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_414EinvalstateExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_414EinvalstateExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_414EinvalstateExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -31767,8 +31767,8 @@ define void @_ZN7Iex_3_411EnoexistExcC2Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_411EnoexistExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_411EnoexistExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_411EnoexistExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -31951,8 +31951,8 @@ define void @_ZN7Iex_3_414EendofminorExcC2Ev(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_414EendofminorExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_414EendofminorExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_414EendofminorExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -32135,8 +32135,8 @@ define void @_ZN7Iex_3_411EbufsizeExcC2Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_411EbufsizeExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_411EbufsizeExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_411EbufsizeExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -32319,8 +32319,8 @@ define void @_ZN7Iex_3_49EemptyExcC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_49EemptyExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_49EemptyExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_49EemptyExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -32503,8 +32503,8 @@ define void @_ZN7Iex_3_415EnointrgroupExcC2Ev(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_415EnointrgroupExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_415EnointrgroupExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_415EnointrgroupExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -32687,8 +32687,8 @@ define void @_ZN7Iex_3_413EinvalmodeExcC2Ev(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_413EinvalmodeExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_413EinvalmodeExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_413EinvalmodeExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -32871,8 +32871,8 @@ define void @_ZN7Iex_3_414EcantextentExcC2Ev(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_414EcantextentExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_414EcantextentExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_414EcantextentExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -33055,8 +33055,8 @@ define void @_ZN7Iex_3_413EinvaltimeExcC2Ev(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_413EinvaltimeExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_413EinvaltimeExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_413EinvaltimeExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -33239,8 +33239,8 @@ define void @_ZN7Iex_3_413EdestroyedExcC2Ev(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_413EdestroyedExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_413EdestroyedExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_413EdestroyedExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -33423,8 +33423,8 @@ define void @_ZN7Iex_3_411OverflowExcC2Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_411OverflowExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_411OverflowExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_411OverflowExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -33607,8 +33607,8 @@ define void @_ZN7Iex_3_412UnderflowExcC2Ev(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_412UnderflowExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_412UnderflowExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_412UnderflowExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -33791,8 +33791,8 @@ define void @_ZN7Iex_3_410DivzeroExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410DivzeroExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410DivzeroExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410DivzeroExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -33975,8 +33975,8 @@ define void @_ZN7Iex_3_410InexactExcC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_410InexactExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_410InexactExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_410InexactExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }
@@ -34159,8 +34159,8 @@ define void @_ZN7Iex_3_414InvalidFpOpExcC2Ev(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_414InvalidFpOpExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 2 {
-  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1)
+define void @_ZN7Iex_3_414InvalidFpOpExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+  tail call void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_414InvalidFpOpExcE, i64 16), ptr %0, align 8, !tbaa !7
   ret void
 }

@@ -2984,7 +2984,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hd594727d848f5481E(ptr noal
   tail call void @llvm.assume(i1 %23)
   %.val28.i = load i64, ptr %49, align 8, !alias.scope !394, !noundef !14
   %.val29.i = load i64, ptr %46, align 8, !alias.scope !394
-  %50 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3cffaf3ac2dcf968E"(ptr nonnull %.val, i64 %.val28.i, i64 %.val29.i)
+  %50 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3cffaf3ac2dcf968E"(ptr nonnull readonly %.val, i64 %.val28.i, i64 %.val29.i)
           to label %.noexc49 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc49:                                         ; preds = %48
@@ -3010,7 +3010,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hd594727d848f5481E(ptr noal
   %.13.i = phi i64 [ %56, %55 ], [ 2, %.preheader1.i ]
   %53 = getelementptr inbounds i64, ptr %46, i64 %.13.i
   %.val31.i = load i64, ptr %53, align 8, !alias.scope !394, !noundef !14
-  %54 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3cffaf3ac2dcf968E"(ptr nonnull %.val, i64 %.val31.i, i64 %.val32.i)
+  %54 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3cffaf3ac2dcf968E"(ptr nonnull readonly %.val, i64 %.val31.i, i64 %.val32.i)
           to label %.noexc50 unwind label %.loopexit.split-lp.loopexit
 
 .noexc50:                                         ; preds = %.lr.ph.i
@@ -3026,7 +3026,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hd594727d848f5481E(ptr noal
   %.06.i = phi i64 [ %60, %59 ], [ 2, %.preheader.i ]
   %57 = getelementptr inbounds i64, ptr %46, i64 %.06.i
   %.val34.i = load i64, ptr %57, align 8, !alias.scope !394, !noundef !14
-  %58 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3cffaf3ac2dcf968E"(ptr nonnull %.val, i64 %.val34.i, i64 %.val35.i)
+  %58 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3cffaf3ac2dcf968E"(ptr nonnull readonly %.val, i64 %.val34.i, i64 %.val35.i)
           to label %.noexc51 unwind label %.loopexit132
 
 .noexc51:                                         ; preds = %.lr.ph7.i
@@ -3114,7 +3114,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hd594727d848f5481E(ptr noal
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2e4fa4a253c1fd94E.exit.i": ; preds = %71
   %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 range(i64 0, 10) %.sroa.0.0.i118, i64 1)
   %77 = sub i64 %.0.sroa.speculated.i.i, %.0236
-  invoke fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h5dc71c6ed5ac8f68E(ptr noalias noundef nonnull align 8 %46, i64 noundef %77, i64 noundef %.0.sroa.speculated.i13.i, ptr %.val)
+  invoke fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h5dc71c6ed5ac8f68E(ptr noalias noundef nonnull align 8 %46, i64 noundef %77, i64 noundef %.0.sroa.speculated.i13.i, ptr readonly %.val)
           to label %_ZN4core5slice4sort20provide_sorted_batch17h53851a68df0d412dE.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 78:                                               ; preds = %.thread119, %.loopexit136
@@ -6422,7 +6422,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17he14c4bc513dc7
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17h00c3dbaa0a8d829bE(ptr noalias noundef nonnull align 8 captures(none) %0, i64 noundef range(i64 21, 0) %1, ptr captures(address_is_null) %.0.val) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17h00c3dbaa0a8d829bE(ptr noalias noundef nonnull align 8 captures(none) %0, i64 noundef range(i64 21, 0) %1, ptr readonly captures(address_is_null) %.0.val) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = icmp ne ptr %.0.val, null
   %4 = icmp ult i64 %1, 50
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6856,7 +6856,7 @@ _ZN4core5slice4sort26insertion_sort_shift_right17h024c24cc68f77be8E.exit: ; pred
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17h08d4acdb02e33dc8E(ptr noalias noundef nonnull align 8 captures(none) %0, i64 noundef range(i64 21, 0) %1, ptr captures(address_is_null) %.0.val) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17h08d4acdb02e33dc8E(ptr noalias noundef nonnull align 8 captures(none) %0, i64 noundef range(i64 21, 0) %1, ptr readonly captures(address_is_null) %.0.val) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { i64, i64, i64, i64 }, align 8
   %4 = alloca [8 x i8], align 8
   %5 = alloca [8 x i8], align 8
@@ -8104,7 +8104,7 @@ _ZN4core5slice4sort26insertion_sort_shift_right17hf261c5f802d1549dE.exit: ; pred
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17h295661b5f3de1752E(ptr noalias noundef nonnull align 8 captures(none) %0, i64 noundef range(i64 21, 0) %1, ptr captures(address_is_null) %.0.val) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17h295661b5f3de1752E(ptr noalias noundef nonnull align 8 captures(none) %0, i64 noundef range(i64 21, 0) %1, ptr readonly captures(address_is_null) %.0.val) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = icmp ne ptr %.0.val, null
   %4 = icmp ult i64 %1, 50
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10365,7 +10365,7 @@ _ZN4core5slice4sort26insertion_sort_shift_right17h97392fb89ff0e9f4E.exit: ; pred
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17hf37b13a1d975d0fbE(ptr noalias noundef nonnull align 8 captures(none) %0, i64 noundef range(i64 21, 0) %1, ptr captures(address_is_null) %.0.val) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17hf37b13a1d975d0fbE(ptr noalias noundef nonnull align 8 captures(none) %0, i64 noundef range(i64 21, 0) %1, ptr readonly captures(address_is_null) %.0.val) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { i64, i64, i64, i64 }, align 8
   %4 = alloca [8 x i8], align 8
   %5 = alloca [8 x i8], align 8
@@ -13008,7 +13008,7 @@ _ZN4core5slice4sort11insert_tail17hcfe20f45356d5232E.exit: ; preds = %34, %"_ZN4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h5dc71c6ed5ac8f68E(ptr noalias noundef nonnull align 8 captures(none) %0, i64 noundef %1, i64 noundef %2, ptr captures(address_is_null) %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h5dc71c6ed5ac8f68E(ptr noalias noundef nonnull align 8 captures(none) %0, i64 noundef %1, i64 noundef %2, ptr readonly captures(address_is_null) %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = add i64 %2, -1
   %or.cond = icmp ult i64 %4, %1
   br i1 %or.cond, label %.preheader, label %7
@@ -13037,7 +13037,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h5d
   %10 = getelementptr i8, ptr %9, i64 -8
   %.val10.i = load i64, ptr %9, align 8, !alias.scope !2593, !noundef !14
   %.val11.i = load i64, ptr %10, align 8, !alias.scope !2593
-  %11 = tail call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3cffaf3ac2dcf968E"(ptr nonnull %.0.val, i64 %.val10.i, i64 %.val11.i), !noalias !2593
+  %11 = tail call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3cffaf3ac2dcf968E"(ptr nonnull readonly %.0.val, i64 %.val10.i, i64 %.val11.i), !noalias !2593
   br i1 %11, label %12, label %_ZN4core5slice4sort11insert_tail17h37efb81e85713cc6E.exit
 
 12:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h22240272a361f30aE.exit"

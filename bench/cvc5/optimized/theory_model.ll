@@ -15295,7 +15295,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit41: ; preds = %_ZNSt6vectorIN4cvc5
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11TheoryModel25getAssignmentExclusionSetENS0_12NodeTemplateILb0EEERSt6vectorINS3_ILb1EEESaIS6_EES9_(ptr noundef nonnull align 8 captures(address) dereferenceable(968) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11TheoryModel25getAssignmentExclusionSetENS0_12NodeTemplateILb0EEERSt6vectorINS3_ILb1EEESaIS6_EES9_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(968) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cvc5::internal::NodeTemplate.580", align 8
   %6 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %7 = load ptr, ptr %1, align 8, !tbaa !122

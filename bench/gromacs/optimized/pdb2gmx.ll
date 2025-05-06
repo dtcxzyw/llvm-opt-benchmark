@@ -15971,7 +15971,7 @@ _ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_110t_pdbindexEN9__gnu_cxx5__ops14
 .lr.ph.i.i.i.i:                                   ; preds = %5207, %5236
   %.043.i.i.i.i = phi i64 [ %5238, %5236 ], [ %5224, %5207 ]
   %.sroa.032.042.i.i.i.i = phi ptr [ %5237, %5236 ], [ %5218, %5207 ]
-  %5226 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_113sort_pdbatomsEN3gmx8ArrayRefIK17PreprocessResidueEEiPP7t_atomsSA_PSt6vectorINS3_11BasicVectorIfEESaISD_EEE3$_0EclINS_17__normal_iteratorIPKPPcSB_ISM_SaISM_EEEEEEbT_"(ptr %5212, ptr %.sroa.032.042.i.i.i.i)
+  %5226 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_113sort_pdbatomsEN3gmx8ArrayRefIK17PreprocessResidueEEiPP7t_atomsSA_PSt6vectorINS3_11BasicVectorIfEESaISD_EEE3$_0EclINS_17__normal_iteratorIPKPPcSB_ISM_SaISM_EEEEEEbT_"(ptr readonly %5212, ptr %.sroa.032.042.i.i.i.i)
           to label %.noexc99.i unwind label %.loopexit168.i, !noalias !395
 
 .noexc99.i:                                       ; preds = %.lr.ph.i.i.i.i
@@ -15979,7 +15979,7 @@ _ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_110t_pdbindexEN9__gnu_cxx5__ops14
 
 5227:                                             ; preds = %.noexc99.i
   %5228 = getelementptr inbounds nuw i8, ptr %.sroa.032.042.i.i.i.i, i64 8
-  %5229 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_113sort_pdbatomsEN3gmx8ArrayRefIK17PreprocessResidueEEiPP7t_atomsSA_PSt6vectorINS3_11BasicVectorIfEESaISD_EEE3$_0EclINS_17__normal_iteratorIPKPPcSB_ISM_SaISM_EEEEEEbT_"(ptr %5212, ptr nonnull %5228)
+  %5229 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_113sort_pdbatomsEN3gmx8ArrayRefIK17PreprocessResidueEEiPP7t_atomsSA_PSt6vectorINS3_11BasicVectorIfEESaISD_EEE3$_0EclINS_17__normal_iteratorIPKPPcSB_ISM_SaISM_EEEEEEbT_"(ptr readonly %5212, ptr nonnull %5228)
           to label %.noexc100.i unwind label %.loopexit168.i, !noalias !395
 
 .noexc100.i:                                      ; preds = %5227
@@ -15987,7 +15987,7 @@ _ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_110t_pdbindexEN9__gnu_cxx5__ops14
 
 5230:                                             ; preds = %.noexc100.i
   %5231 = getelementptr inbounds nuw i8, ptr %.sroa.032.042.i.i.i.i, i64 16
-  %5232 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_113sort_pdbatomsEN3gmx8ArrayRefIK17PreprocessResidueEEiPP7t_atomsSA_PSt6vectorINS3_11BasicVectorIfEESaISD_EEE3$_0EclINS_17__normal_iteratorIPKPPcSB_ISM_SaISM_EEEEEEbT_"(ptr %5212, ptr nonnull %5231)
+  %5232 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_113sort_pdbatomsEN3gmx8ArrayRefIK17PreprocessResidueEEiPP7t_atomsSA_PSt6vectorINS3_11BasicVectorIfEESaISD_EEE3$_0EclINS_17__normal_iteratorIPKPPcSB_ISM_SaISM_EEEEEEbT_"(ptr readonly %5212, ptr nonnull %5231)
           to label %.noexc101.i unwind label %.loopexit168.i, !noalias !395
 
 .noexc101.i:                                      ; preds = %5230
@@ -15995,7 +15995,7 @@ _ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_110t_pdbindexEN9__gnu_cxx5__ops14
 
 5233:                                             ; preds = %.noexc101.i
   %5234 = getelementptr inbounds nuw i8, ptr %.sroa.032.042.i.i.i.i, i64 24
-  %5235 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_113sort_pdbatomsEN3gmx8ArrayRefIK17PreprocessResidueEEiPP7t_atomsSA_PSt6vectorINS3_11BasicVectorIfEESaISD_EEE3$_0EclINS_17__normal_iteratorIPKPPcSB_ISM_SaISM_EEEEEEbT_"(ptr %5212, ptr nonnull %5234)
+  %5235 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_113sort_pdbatomsEN3gmx8ArrayRefIK17PreprocessResidueEEiPP7t_atomsSA_PSt6vectorINS3_11BasicVectorIfEESaISD_EEE3$_0EclINS_17__normal_iteratorIPKPPcSB_ISM_SaISM_EEEEEEbT_"(ptr readonly %5212, ptr nonnull %5234)
           to label %.noexc102.i unwind label %.loopexit168.i, !noalias !395
 
 .noexc102.i:                                      ; preds = %5233
@@ -16023,7 +16023,7 @@ _ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_110t_pdbindexEN9__gnu_cxx5__ops14
   ]
 
 5241:                                             ; preds = %._crit_edge.i.i.i.i1509
-  %5242 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_113sort_pdbatomsEN3gmx8ArrayRefIK17PreprocessResidueEEiPP7t_atomsSA_PSt6vectorINS3_11BasicVectorIfEESaISD_EEE3$_0EclINS_17__normal_iteratorIPKPPcSB_ISM_SaISM_EEEEEEbT_"(ptr %5212, ptr %.sroa.032.0.lcssa.i.i.i.i)
+  %5242 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_113sort_pdbatomsEN3gmx8ArrayRefIK17PreprocessResidueEEiPP7t_atomsSA_PSt6vectorINS3_11BasicVectorIfEESaISD_EEE3$_0EclINS_17__normal_iteratorIPKPPcSB_ISM_SaISM_EEEEEEbT_"(ptr readonly %5212, ptr %.sroa.032.0.lcssa.i.i.i.i)
           to label %.noexc103.i unwind label %.loopexit.split-lp169.i, !noalias !395
 
 .noexc103.i:                                      ; preds = %5241
@@ -16035,7 +16035,7 @@ _ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_110t_pdbindexEN9__gnu_cxx5__ops14
 
 5245:                                             ; preds = %5243, %._crit_edge.i.i.i.i1509
   %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i1509 ], [ %5244, %5243 ]
-  %5246 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_113sort_pdbatomsEN3gmx8ArrayRefIK17PreprocessResidueEEiPP7t_atomsSA_PSt6vectorINS3_11BasicVectorIfEESaISD_EEE3$_0EclINS_17__normal_iteratorIPKPPcSB_ISM_SaISM_EEEEEEbT_"(ptr %5212, ptr %.sroa.032.1.i.i.i.i)
+  %5246 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_113sort_pdbatomsEN3gmx8ArrayRefIK17PreprocessResidueEEiPP7t_atomsSA_PSt6vectorINS3_11BasicVectorIfEESaISD_EEE3$_0EclINS_17__normal_iteratorIPKPPcSB_ISM_SaISM_EEEEEEbT_"(ptr readonly %5212, ptr %.sroa.032.1.i.i.i.i)
           to label %.noexc104.i unwind label %.loopexit.split-lp169.i, !noalias !395
 
 .noexc104.i:                                      ; preds = %5245
@@ -16047,7 +16047,7 @@ _ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_110t_pdbindexEN9__gnu_cxx5__ops14
 
 5249:                                             ; preds = %5247, %._crit_edge.i.i.i.i1509
   %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i1509 ], [ %5248, %5247 ]
-  %5250 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_113sort_pdbatomsEN3gmx8ArrayRefIK17PreprocessResidueEEiPP7t_atomsSA_PSt6vectorINS3_11BasicVectorIfEESaISD_EEE3$_0EclINS_17__normal_iteratorIPKPPcSB_ISM_SaISM_EEEEEEbT_"(ptr %5212, ptr %.sroa.032.2.i.i.i.i)
+  %5250 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_113sort_pdbatomsEN3gmx8ArrayRefIK17PreprocessResidueEEiPP7t_atomsSA_PSt6vectorINS3_11BasicVectorIfEESaISD_EEE3$_0EclINS_17__normal_iteratorIPKPPcSB_ISM_SaISM_EEEEEEbT_"(ptr readonly %5212, ptr %.sroa.032.2.i.i.i.i)
           to label %.noexc105.i unwind label %.loopexit.split-lp169.i, !noalias !395
 
 .noexc105.i:                                      ; preds = %5249

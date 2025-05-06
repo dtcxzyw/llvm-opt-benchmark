@@ -5323,7 +5323,7 @@ zsetConvert.exit:                                 ; preds = %22, %27
 declare i32 @lpSafeToAdd(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @zsetScore(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @zsetScore(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -8288,7 +8288,7 @@ sdslen.exit:                                      ; preds = %8, %13, %16, %20, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @zuiFind(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @zuiFind(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !157
   %5 = icmp eq ptr %4, null
   br i1 %5, label %87, label %6

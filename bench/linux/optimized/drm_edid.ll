@@ -11283,7 +11283,7 @@ default.unreachable5:                             ; preds = %24
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @drm_mode_std(ptr noundef readonly captures(address) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2) unnamed_addr #3 align 16 {
+define internal fastcc ptr @drm_mode_std(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) unnamed_addr #3 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i8, ptr %5, align 1
@@ -14143,7 +14143,7 @@ define internal void @do_inferred_modes(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @mode_in_range(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2) unnamed_addr #3 align 16 {
+define internal fastcc noundef zeroext i1 @mode_in_range(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) unnamed_addr #3 align 16 {
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8

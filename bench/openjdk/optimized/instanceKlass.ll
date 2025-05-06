@@ -4409,7 +4409,7 @@ _ZNK5Klass12class_loaderEv.exit183:               ; preds = %384, %389
   %394 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %395 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %396 = load ptr, ptr %395, align 8
-  %397 = call noundef i32 @_ZN13InstanceKlass17find_method_indexEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef readonly %396, ptr noundef %393, ptr noundef %394, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %397 = call noundef i32 @_ZN13InstanceKlass17find_method_indexEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef readonly %396, ptr noundef readnone %393, ptr noundef readnone %394, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %398 = icmp sgt i32 %397, -1
   br i1 %398, label %_ZNK13InstanceKlass11find_methodEPK6SymbolS2_.exit.i, label %419
 
@@ -5861,7 +5861,7 @@ define hidden noundef ptr @_ZNK13InstanceKlass17class_initializerEv(ptr noundef 
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call noundef i32 @_ZN13InstanceKlass17find_method_indexEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef readonly %5, ptr noundef %2, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %6 = tail call noundef i32 @_ZN13InstanceKlass17find_method_indexEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef readonly %5, ptr noundef readnone %2, ptr noundef readnone %3, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %7 = icmp sgt i32 %6, -1
   br i1 %7, label %_ZNK13InstanceKlass11find_methodEPK6SymbolS2_.exit, label %_ZNK13InstanceKlass11find_methodEPK6SymbolS2_.exit.thread
 
@@ -5938,7 +5938,7 @@ _ZNK5Klass12class_loaderEv.exit.thread:           ; preds = %14, %_ZNK5Klass12cl
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call noundef i32 @_ZN13InstanceKlass17find_method_indexEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef readonly %34, ptr noundef %31, ptr noundef %32, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %35 = tail call noundef i32 @_ZN13InstanceKlass17find_method_indexEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef readonly %34, ptr noundef readnone %31, ptr noundef readnone %32, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %36 = icmp sgt i32 %35, -1
   br i1 %36, label %_ZNK13InstanceKlass11find_methodEPK6SymbolS2_.exit.i, label %_ZNK13InstanceKlass17class_initializerEv.exit.thread
 
@@ -7213,10 +7213,10 @@ define hidden noundef ptr @_ZN13InstanceKlass19array_klass_or_nullEv(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13InstanceKlass11find_methodEPK6SymbolS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK13InstanceKlass11find_methodEPK6SymbolS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call noundef i32 @_ZN13InstanceKlass17find_method_indexEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef readonly %5, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %6 = tail call noundef i32 @_ZN13InstanceKlass17find_method_indexEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef readonly %5, ptr noundef readnone %1, ptr noundef readnone %2, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %7 = icmp sgt i32 %6, -1
   br i1 %7, label %8, label %_ZNK13InstanceKlass16find_method_implEPK6SymbolS2_N5Klass18OverpassLookupModeENS3_16StaticLookupModeENS3_17PrivateLookupModeE.exit
 
@@ -7508,7 +7508,7 @@ _ZN15FieldStreamBase4nextEv.exit:                 ; preds = %60, %62
 declare void @_ZN15fieldDescriptor12reinitializeEP13InstanceKlassi(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK13InstanceKlass20find_interface_fieldEP6SymbolS1_P15fieldDescriptor(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK13InstanceKlass20find_interface_fieldEP6SymbolS1_P15fieldDescriptor(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
@@ -7572,7 +7572,7 @@ define hidden noundef ptr @_ZNK13InstanceKlass10find_fieldEP6SymbolS1_P15fieldDe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK13InstanceKlass10find_fieldEP6SymbolS1_bP15fieldDescriptor(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK13InstanceKlass10find_fieldEP6SymbolS1_bP15fieldDescriptor(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
   br i1 %3, label %tailrecurse.us, label %tailrecurse
 
@@ -8331,10 +8331,10 @@ define hidden noundef range(i32 -2147483648, 2147483647) i32 @_Z13linear_searchP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13InstanceKlass16find_method_implEPK6SymbolS2_N5Klass18OverpassLookupModeENS3_16StaticLookupModeENS3_17PrivateLookupModeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK13InstanceKlass16find_method_implEPK6SymbolS2_N5Klass18OverpassLookupModeENS3_16StaticLookupModeENS3_17PrivateLookupModeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call noundef i32 @_ZN13InstanceKlass17find_method_indexEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef readonly %8, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
+  %9 = tail call noundef i32 @_ZN13InstanceKlass17find_method_indexEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef readonly %8, ptr noundef readnone %1, ptr noundef readnone %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   %10 = icmp sgt i32 %9, -1
   br i1 %10, label %11, label %_ZN13InstanceKlass16find_method_implEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE.exit
 
@@ -8351,7 +8351,7 @@ _ZN13InstanceKlass16find_method_implEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18Over
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN13InstanceKlass16find_method_implEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN13InstanceKlass16find_method_implEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 align 2 {
   %7 = tail call noundef i32 @_ZN13InstanceKlass17find_method_indexEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   %8 = icmp sgt i32 %7, -1
   br i1 %8, label %9, label %14
@@ -8369,8 +8369,8 @@ define hidden noundef ptr @_ZN13InstanceKlass16find_method_implEPK5ArrayIP6Metho
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN13InstanceKlass20find_instance_methodEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass17PrivateLookupModeE(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
-  %5 = tail call noundef i32 @_ZN13InstanceKlass17find_method_indexEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 1, i32 noundef %3)
+define hidden noundef ptr @_ZN13InstanceKlass20find_instance_methodEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass17PrivateLookupModeE(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+  %5 = tail call noundef i32 @_ZN13InstanceKlass17find_method_indexEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef readnone %2, i32 noundef 0, i32 noundef 1, i32 noundef %3)
   %6 = icmp sgt i32 %5, -1
   br i1 %6, label %7, label %_ZN13InstanceKlass16find_method_implEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE.exit
 
@@ -8387,10 +8387,10 @@ _ZN13InstanceKlass16find_method_implEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18Over
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13InstanceKlass20find_instance_methodEPK6SymbolS2_N5Klass17PrivateLookupModeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK13InstanceKlass20find_instance_methodEPK6SymbolS2_N5Klass17PrivateLookupModeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noundef i32 @_ZN13InstanceKlass17find_method_indexEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef readonly %6, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 1, i32 noundef %3)
+  %7 = tail call noundef i32 @_ZN13InstanceKlass17find_method_indexEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef readonly %6, ptr noundef readnone %1, ptr noundef readnone %2, i32 noundef 0, i32 noundef 1, i32 noundef %3)
   %8 = icmp sgt i32 %7, -1
   br i1 %8, label %9, label %_ZN13InstanceKlass20find_instance_methodEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass17PrivateLookupModeE.exit
 
@@ -8407,10 +8407,10 @@ _ZN13InstanceKlass20find_instance_methodEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13InstanceKlass17find_local_methodEPK6SymbolS2_N5Klass18OverpassLookupModeENS3_16StaticLookupModeENS3_17PrivateLookupModeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK13InstanceKlass17find_local_methodEPK6SymbolS2_N5Klass18OverpassLookupModeENS3_16StaticLookupModeENS3_17PrivateLookupModeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call noundef i32 @_ZN13InstanceKlass17find_method_indexEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef readonly %8, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
+  %9 = tail call noundef i32 @_ZN13InstanceKlass17find_method_indexEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef readonly %8, ptr noundef readnone %1, ptr noundef readnone %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   %10 = icmp sgt i32 %9, -1
   br i1 %10, label %11, label %_ZN13InstanceKlass16find_method_implEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE.exit
 
@@ -8427,8 +8427,8 @@ _ZN13InstanceKlass16find_method_implEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18Over
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN13InstanceKlass17find_local_methodEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 align 2 {
-  %7 = tail call noundef i32 @_ZN13InstanceKlass17find_method_indexEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
+define hidden noundef ptr @_ZN13InstanceKlass17find_local_methodEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 align 2 {
+  %7 = tail call noundef i32 @_ZN13InstanceKlass17find_method_indexEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef readnone %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   %8 = icmp sgt i32 %7, -1
   br i1 %8, label %9, label %_ZN13InstanceKlass16find_method_implEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE.exit
 
@@ -8445,8 +8445,8 @@ _ZN13InstanceKlass16find_method_implEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18Over
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN13InstanceKlass11find_methodEPK5ArrayIP6MethodEPK6SymbolS8_(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #3 align 2 {
-  %4 = tail call noundef i32 @_ZN13InstanceKlass17find_method_indexEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+define hidden noundef ptr @_ZN13InstanceKlass11find_methodEPK5ArrayIP6MethodEPK6SymbolS8_(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #3 align 2 {
+  %4 = tail call noundef i32 @_ZN13InstanceKlass17find_method_indexEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef readnone %2, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %5 = icmp sgt i32 %4, -1
   br i1 %5, label %6, label %_ZN13InstanceKlass16find_method_implEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE.exit
 
@@ -9216,7 +9216,7 @@ _ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.thread: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13InstanceKlass22uncached_lookup_methodEPK6SymbolS2_N5Klass18OverpassLookupModeENS3_17PrivateLookupModeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK13InstanceKlass22uncached_lookup_methodEPK6SymbolS2_N5Klass18OverpassLookupModeENS3_17PrivateLookupModeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 align 2 {
   br label %6
 
 6:                                                ; preds = %5, %_ZNK13InstanceKlass16find_method_implEPK6SymbolS2_N5Klass18OverpassLookupModeENS3_16StaticLookupModeENS3_17PrivateLookupModeE.exit.thread
@@ -9224,7 +9224,7 @@ define hidden noundef ptr @_ZNK13InstanceKlass22uncached_lookup_methodEPK6Symbol
   %.01216 = phi i32 [ %3, %5 ], [ 1, %_ZNK13InstanceKlass16find_method_implEPK6SymbolS2_N5Klass18OverpassLookupModeENS3_16StaticLookupModeENS3_17PrivateLookupModeE.exit.thread ]
   %7 = getelementptr inbounds nuw i8, ptr %.01117, i64 400
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call noundef i32 @_ZN13InstanceKlass17find_method_indexEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef readonly %8, ptr noundef %1, ptr noundef %2, i32 noundef %.01216, i32 noundef 0, i32 noundef %4)
+  %9 = tail call noundef i32 @_ZN13InstanceKlass17find_method_indexEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef readonly %8, ptr noundef readnone %1, ptr noundef readnone %2, i32 noundef %.01216, i32 noundef 0, i32 noundef %4)
   %10 = icmp sgt i32 %9, -1
   br i1 %10, label %_ZNK13InstanceKlass16find_method_implEPK6SymbolS2_N5Klass18OverpassLookupModeENS3_16StaticLookupModeENS3_17PrivateLookupModeE.exit, label %_ZNK13InstanceKlass16find_method_implEPK6SymbolS2_N5Klass18OverpassLookupModeENS3_16StaticLookupModeENS3_17PrivateLookupModeE.exit.thread
 
@@ -9255,7 +9255,7 @@ define hidden noundef ptr @_ZNK13InstanceKlass35lookup_method_in_ordered_interfa
   br i1 %.not, label %_ZN13InstanceKlass11find_methodEPK5ArrayIP6MethodEPK6SymbolS8_.exit.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call noundef i32 @_ZN13InstanceKlass17find_method_indexEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef nonnull readonly %5, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %7 = tail call noundef i32 @_ZN13InstanceKlass17find_method_indexEPK5ArrayIP6MethodEPK6SymbolS8_N5Klass18OverpassLookupModeENS9_16StaticLookupModeENS9_17PrivateLookupModeE(ptr noundef nonnull readonly %5, ptr noundef readnone %1, ptr noundef readnone %2, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %8 = icmp sgt i32 %7, -1
   br i1 %8, label %_ZN13InstanceKlass11find_methodEPK5ArrayIP6MethodEPK6SymbolS8_.exit, label %_ZN13InstanceKlass11find_methodEPK5ArrayIP6MethodEPK6SymbolS8_.exit.thread
 

@@ -334,7 +334,7 @@ define internal fastcc i32 @block_cipher_df(ptr noundef nonnull %0, ptr noundef 
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ctr_drbg_reseed(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_ctr_drbg_reseed(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @mbedtls_ctr_drbg_reseed_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef 0)
   ret i32 %4
 }
@@ -484,7 +484,7 @@ ctr_drbg_update_internal.exit.thread:             ; preds = %mbedtls_ctr_increme
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ctr_drbg_seed(ptr noundef initializes((328, 344)) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, i64 noundef %4) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_ctr_drbg_seed(ptr noundef initializes((328, 344)) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false)
@@ -530,7 +530,7 @@ define hidden i32 @mbedtls_ctr_drbg_seed(ptr noundef initializes((328, 344)) %0,
 declare i32 @mbedtls_aes_setkey_enc(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ctr_drbg_random_with_add(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, i64 noundef %4) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_ctr_drbg_random_with_add(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [48 x i8], align 16
   %7 = alloca [48 x i8], align 16
   %8 = alloca %struct.anon, align 1
@@ -558,7 +558,7 @@ define hidden i32 @mbedtls_ctr_drbg_random_with_add(ptr noundef %0, ptr noundef 
   br i1 %.not, label %23, label %21
 
 21:                                               ; preds = %18, %12
-  %22 = tail call fastcc i32 @mbedtls_ctr_drbg_reseed_internal(ptr noundef nonnull %0, ptr noundef %3, i64 noundef %4, i64 noundef 0)
+  %22 = tail call fastcc i32 @mbedtls_ctr_drbg_reseed_internal(ptr noundef nonnull %0, ptr noundef readonly %3, i64 noundef %4, i64 noundef 0)
   %.not41 = icmp eq i32 %22, 0
   br i1 %.not41, label %.thread, label %85
 

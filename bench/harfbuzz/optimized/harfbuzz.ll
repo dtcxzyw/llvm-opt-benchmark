@@ -13233,7 +13233,7 @@ _ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.exit: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN11hb_buffer_t6verifyEPS_P9hb_font_tPK12hb_feature_tjPKPKc(ptr noundef nonnull align 8 dereferenceable(236) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN11hb_buffer_t6verifyEPS_P9hb_font_tPK12hb_feature_tjPKPKc(ptr noundef nonnull align 8 dereferenceable(236) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %struct.hb_glyph_position_t, align 4
   %8 = alloca %struct.hb_glyph_info_t, align 4
   %9 = alloca [1024 x i8], align 16
@@ -45217,7 +45217,7 @@ _ZNK2OT8GSUBGPOS17find_script_indexEjPj.exit.thread: ; preds = %_ZNK2OT8GSUBGPOS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @hb_ot_layout_table_choose_script(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @hb_ot_layout_table_choose_script(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %wcslen = tail call i64 @wcslen(ptr %2)
   %6 = trunc i64 %wcslen to i32
   %7 = tail call i32 @hb_ot_layout_table_select_script(ptr noundef %0, i32 noundef %1, i32 noundef %6, ptr noundef %2, ptr noundef %3, ptr noundef %4)
@@ -45849,7 +45849,7 @@ _ZNK2OT6Script17get_lang_sys_tagsEjPjS1_.exit:    ; preds = %_ZNK2OT8GSUBGPOS10g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @hb_ot_layout_script_find_language(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @hb_ot_layout_script_find_language(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   store i32 %3, ptr %6, align 4, !tbaa !127
   %7 = call range(i32 0, 2) i32 @hb_ot_layout_script_select_language2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 1, ptr noundef nonnull readonly %6, ptr noundef %4, ptr noundef null)
@@ -45857,7 +45857,7 @@ define dso_local range(i32 0, 2) i32 @hb_ot_layout_script_find_language(ptr noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @hb_ot_layout_script_select_language(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @hb_ot_layout_script_select_language(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = tail call i32 @hb_ot_layout_script_select_language2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef null)
   ret i32 %7
 }
@@ -47017,7 +47017,7 @@ _ZNK2OT8GSUBGPOS16get_lookup_countEv.exit:        ; preds = %2, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @hb_ot_layout_collect_features(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local void @hb_ot_layout_collect_features(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.hb_collect_features_context_t, align 8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #61
   %8 = tail call fastcc noundef nonnull align 1 dereferenceable(14) ptr @_ZL18get_gsubgpos_tableP9hb_face_tj(ptr noundef %0, i32 noundef %1)
@@ -47734,7 +47734,7 @@ _ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit:       ; preds = %_ZL9hb_memsetPvij.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @hb_ot_layout_collect_lookups(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local void @hb_ot_layout_collect_lookups(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca %"struct.hb_bit_set_invertible_t::iter_t", align 8
@@ -53186,7 +53186,7 @@ _ZNK2OT4BASE12get_baselineEP9hb_font_tj14hb_direction_tjjPi.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @hb_ot_layout_get_baseline2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @hb_ot_layout_get_baseline2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca [3 x i32], align 4
   %8 = alloca i32, align 4
   %9 = alloca [3 x i32], align 4
@@ -77700,7 +77700,7 @@ define dso_local void @hb_ot_shape_glyphs_closure(ptr noundef %0, ptr noundef re
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !33
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %11 = call ptr @hb_shape_plan_create_cached2(ptr noundef %9, ptr noundef nonnull readonly %10, ptr noundef %2, i32 noundef %3, ptr noundef null, i32 noundef 0, ptr noundef nonnull %7)
+  %11 = call ptr @hb_shape_plan_create_cached2(ptr noundef %9, ptr noundef nonnull readonly %10, ptr noundef %2, i32 noundef %3, ptr noundef null, i32 noundef 0, ptr noundef nonnull readonly %7)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %13 = load i32, ptr %12, align 4, !tbaa !401
   %14 = call i32 @hb_script_get_horizontal_direction(i32 noundef %13)
@@ -77990,7 +77990,7 @@ _ZL8add_charP9hb_font_tP18hb_unicode_funcs_tijP8hb_set_t.exit: ; preds = %_ZN14h
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @hb_shape_plan_create_cached(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local ptr @hb_shape_plan_create_cached(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = tail call ptr @hb_shape_plan_create_cached2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef null, i32 noundef 0, ptr noundef %4)
   ret ptr %6
 }
@@ -100968,13 +100968,13 @@ hb_segment_properties_equal.exit.thread:          ; preds = %68, %44, %39, %_ZN1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local nonnull ptr @hb_shape_plan_create(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local nonnull ptr @hb_shape_plan_create(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = tail call ptr @hb_shape_plan_create2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef null, i32 noundef 0, ptr noundef %4)
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local nonnull ptr @hb_shape_plan_create2(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
+define dso_local nonnull ptr @hb_shape_plan_create2(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = load i32, ptr %1, align 8, !tbaa !342
   %9 = and i32 %8, -4
   %.not = icmp eq i32 %9, 4
@@ -101262,7 +101262,7 @@ _ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @hb_shape_plan_create_cached2(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
+define dso_local ptr @hb_shape_plan_create_cached2(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca %struct.hb_shape_plan_key_t, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %10 = load atomic i64, ptr %9 acquire, align 8
@@ -101536,7 +101536,7 @@ _ZNK16hb_lazy_loader_tIPKc28hb_shaper_list_lazy_loader_tvLj0ES1_E11get_unconstEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @hb_shape_full(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @hb_shape_full(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %7 = load i32, ptr %6, align 8, !tbaa !195
   %.not = icmp eq i32 %7, 0
@@ -123412,7 +123412,7 @@ _ZNK16hb_lazy_loader_tIN3AAT4trakE22hb_table_lazy_loader_tIS1_Lj32ELb0EE9hb_face
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL24hb_ot_get_font_v_extentsP9hb_font_tPvP17hb_font_extents_tS1_(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(address_is_null) %2, ptr readnone captures(none) %3) #0 {
+define internal noundef range(i32 0, 2) i32 @_ZL24hb_ot_get_font_v_extentsP9hb_font_tPvP17hb_font_extents_tS1_(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call noundef zeroext i1 @_Z34_hb_ot_metrics_get_position_commonP9hb_font_t19hb_ot_metrics_tag_tPi(ptr noundef %0, i32 noundef 1986098019, ptr noundef %2)
   br i1 %5, label %6, label %13
 

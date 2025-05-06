@@ -2609,7 +2609,7 @@ declare ptr @__errno_location() local_unnamed_addr #4
 declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @find_length(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %3) unnamed_addr #0 {
+define internal fastcc i64 @find_length(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23
   store i64 0, ptr %5, align 8, !tbaa !3

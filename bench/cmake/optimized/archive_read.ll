@@ -1592,7 +1592,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_read_register_bidder(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @__archive_read_ahead(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local ptr @__archive_read_ahead(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %5 = load ptr, ptr %4, align 8, !tbaa !53
   %6 = tail call ptr @__archive_read_filter_ahead(ptr noundef %5, i64 noundef %1, ptr noundef %2)

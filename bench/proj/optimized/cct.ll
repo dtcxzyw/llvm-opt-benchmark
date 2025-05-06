@@ -270,7 +270,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_Z9opt_givenP7OPTARGSPKc(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #8 {
+define hidden noundef i32 @_Z9opt_givenP7OPTARGSPKc(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #8 {
   %3 = tail call fastcc noundef i32 @_ZL11opt_ordinalP7OPTARGSPKc(ptr noundef %0, ptr noundef %1)
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %25, label %5
@@ -462,7 +462,7 @@ define internal fastcc noundef range(i32 -128, 256) i32 @_ZL11opt_ordinalP7OPTAR
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_Z7opt_argP7OPTARGSPKc(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #8 {
+define hidden noundef ptr @_Z7opt_argP7OPTARGSPKc(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #8 {
   %3 = tail call fastcc noundef i32 @_ZL11opt_ordinalP7OPTARGSPKc(ptr noundef %0, ptr noundef %1)
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %10, label %5
@@ -1328,7 +1328,7 @@ _Z9opt_givenP7OPTARGSPKc.exit315:                 ; preds = %126
   br i1 %.not406, label %thread-pre-split, label %144
 
 144:                                              ; preds = %135, %_Z9opt_givenP7OPTARGSPKc.exit315
-  %145 = call fastcc noundef i32 @_ZL11opt_ordinalP7OPTARGSPKc(ptr noundef nonnull %21, ptr noundef nonnull @.str.31)
+  %145 = call fastcc noundef i32 @_ZL11opt_ordinalP7OPTARGSPKc(ptr noundef nonnull readonly %21, ptr noundef nonnull @.str.31)
   %146 = icmp eq i32 %145, 0
   br i1 %146, label %_Z7opt_argP7OPTARGSPKc.exit, label %147
 
@@ -1356,7 +1356,7 @@ thread-pre-split:                                 ; preds = %135, %_Z9opt_givenP
   br i1 %154, label %157, label %165
 
 157:                                              ; preds = %152
-  %158 = call fastcc noundef i32 @_ZL11opt_ordinalP7OPTARGSPKc(ptr noundef nonnull %21, ptr noundef nonnull @.str.31)
+  %158 = call fastcc noundef i32 @_ZL11opt_ordinalP7OPTARGSPKc(ptr noundef nonnull readonly %21, ptr noundef nonnull @.str.31)
   %159 = icmp eq i32 %158, 0
   br i1 %159, label %_Z7opt_argP7OPTARGSPKc.exit318, label %160
 
@@ -1562,7 +1562,7 @@ _Z9opt_givenP7OPTARGSPKc.exit341:                 ; preds = %255
 
 .preheader415.preheader:                          ; preds = %264, %_Z9opt_givenP7OPTARGSPKc.exit341
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false), !tbaa !41
-  %273 = call fastcc noundef i32 @_ZL11opt_ordinalP7OPTARGSPKc(ptr noundef nonnull %21, ptr noundef nonnull @.str.39)
+  %273 = call fastcc noundef i32 @_ZL11opt_ordinalP7OPTARGSPKc(ptr noundef nonnull readonly %21, ptr noundef nonnull @.str.39)
   %274 = icmp eq i32 %273, 0
   br i1 %274, label %_Z7opt_argP7OPTARGSPKc.exit343, label %275
 
@@ -1583,7 +1583,7 @@ _Z7opt_argP7OPTARGSPKc.exit343:                   ; preds = %.preheader415.prehe
 
 283:                                              ; preds = %_Z7opt_argP7OPTARGSPKc.exit343
   %284 = load ptr, ptr %155, align 8, !tbaa !30
-  %285 = call fastcc noundef i32 @_ZL11opt_ordinalP7OPTARGSPKc(ptr noundef nonnull %21, ptr noundef nonnull @.str.39)
+  %285 = call fastcc noundef i32 @_ZL11opt_ordinalP7OPTARGSPKc(ptr noundef nonnull readonly %21, ptr noundef nonnull @.str.39)
   %286 = icmp eq i32 %285, 0
   br i1 %286, label %_Z7opt_argP7OPTARGSPKc.exit345, label %287
 

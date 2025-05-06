@@ -3162,7 +3162,7 @@ _ZNSt8_Rb_treeIP4EdgeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Plan16UnmarkDependentsEPK4NodePSt3setIPS0_St4lessIS4_ESaIS4_EE(ptr noundef nonnull align 8 captures(address) dereferenceable(120) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4Plan16UnmarkDependentsEPK4NodePSt3setIPS0_St4lessIS4_ESaIS4_EE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(120) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %5 = load ptr, ptr %4, align 8, !tbaa !135
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72

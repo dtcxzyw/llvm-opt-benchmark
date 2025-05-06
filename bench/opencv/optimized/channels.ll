@@ -706,7 +706,7 @@ define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv11mixChannelsERKNS_11_InputArrayERKNS_17_InputOutputArrayEPKim(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv11mixChannelsERKNS_11_InputArrayERKNS_17_InputOutputArrayEPKim(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1

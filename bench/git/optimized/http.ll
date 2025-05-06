@@ -3969,13 +3969,13 @@ write_accept_language.exit._crit_edge:            ; preds = %write_accept_langua
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 7) i32 @http_get_strbuf(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 {
+define dso_local range(i32 0, 7) i32 @http_get_strbuf(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = tail call fastcc i32 @http_request_reauth(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 7) i32 @http_request_reauth(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef captures(address_is_null) %3) unnamed_addr #3 {
+define internal fastcc range(i32 0, 7) i32 @http_request_reauth(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #3 {
   %5 = load i32, ptr @http_proactive_auth, align 4, !tbaa !38
   %6 = icmp ult i32 %5, 2
   br i1 %6, label %9, label %7
@@ -4150,7 +4150,7 @@ strbuf_setlen.exit:                               ; preds = %70, %68
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 7) i32 @http_get_file(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 {
+define dso_local range(i32 0, 7) i32 @http_get_file(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = alloca %struct.strbuf, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.fetch_pack_index.buf, i64 24, i1 false)
@@ -4271,7 +4271,7 @@ strbuf_addch.exit.i:                              ; preds = %strbuf_avail.exit.t
 quote_ref_url.exit:                               ; preds = %26, %2
   %29 = call ptr @strbuf_detach(ptr noundef nonnull %3, ptr noundef null) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #23
-  %30 = call fastcc range(i32 0, 7) i32 @http_request_reauth(ptr noundef %29, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %4)
+  %30 = call fastcc range(i32 0, 7) i32 @http_request_reauth(ptr noundef %29, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull readonly %4)
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %53
 
@@ -4337,7 +4337,7 @@ define dso_local range(i32 0, 7) i32 @http_get_info_packs(ptr noundef %0, ptr no
   call void @strbuf_add(ptr noundef nonnull %6, ptr noundef nonnull @.str.43, i64 noundef 18) #23
   %8 = call ptr @strbuf_detach(ptr noundef nonnull %6, ptr noundef null) #23
   store i8 1, ptr %4, align 8
-  %9 = call fastcc range(i32 0, 7) i32 @http_request_reauth(ptr noundef %8, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull %4)
+  %9 = call fastcc range(i32 0, 7) i32 @http_request_reauth(ptr noundef %8, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull readonly %4)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %.loopexit
 

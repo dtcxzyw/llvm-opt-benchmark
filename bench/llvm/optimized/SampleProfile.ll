@@ -30718,7 +30718,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread.i: ; preds 
   %.val2.i.i.i = load ptr, ptr %484, align 8
   %485 = getelementptr i8, ptr %483, i64 16
   %.val3.i.i.i = load i64, ptr %485, align 8, !tbaa !1330
-  %486 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117CandidateComparerclERKNS_15InlineCandidateES3_(ptr %.val2.i.i.i, i64 %.val3.i.i.i, ptr %.sroa.4131.0.copyload, i64 %.sroa.5132.0.copyload)
+  %486 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117CandidateComparerclERKNS_15InlineCandidateES3_(ptr %.val2.i.i.i, i64 %.val3.i.i.i, ptr readonly %.sroa.4131.0.copyload, i64 %.sroa.5132.0.copyload)
   br i1 %486, label %487, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_115InlineCandidateESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterINS2_17CandidateComparerEEEEvT_T0_SE_T1_T2_.exit
 
 487:                                              ; preds = %.lr.ph.i.i127
@@ -31669,7 +31669,7 @@ _ZNSt6vectorIN12_GLOBAL__N_115InlineCandidateESaIS1_EE12emplace_backIJRS1_EEES5_
   %.val2.i.i.i.i173.i = load ptr, ptr %828, align 8
   %829 = getelementptr i8, ptr %827, i64 16
   %.val3.i.i.i.i174.i = load i64, ptr %829, align 8, !tbaa !1330
-  %830 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117CandidateComparerclERKNS_15InlineCandidateES3_(ptr %.val2.i.i.i.i173.i, i64 %.val3.i.i.i.i174.i, ptr %.sroa.418.0.copyload.i.i160.i, i64 %.sroa.519.0.copyload.i.i162.i)
+  %830 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117CandidateComparerclERKNS_15InlineCandidateES3_(ptr %.val2.i.i.i.i173.i, i64 %.val3.i.i.i.i174.i, ptr readonly %.sroa.418.0.copyload.i.i160.i, i64 %.sroa.519.0.copyload.i.i162.i)
   br i1 %830, label %831, label %_ZNSt14priority_queueIN12_GLOBAL__N_115InlineCandidateESt6vectorIS1_SaIS1_EENS0_17CandidateComparerEE7emplaceIJRS1_EEEvDpOT_.exit183.i
 
 831:                                              ; preds = %.lr.ph.i.i.i169.i

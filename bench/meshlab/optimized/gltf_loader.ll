@@ -26363,7 +26363,7 @@ _ZL13stbi__get16leP13stbi__context.exit173:       ; preds = %373, %376, %_ZL19st
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #10 {
+define internal fastcc noundef ptr @_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #10 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not168 = icmp eq ptr %6, null
@@ -33240,7 +33240,7 @@ define void @stbi_convert_iphone_png_to_rgb(i32 noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @stbi_info(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @stbi_info(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #10 {
   %5 = alloca %struct.stbi__context, align 8
   %6 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.6)
   %.not = icmp eq ptr %6, null
@@ -33300,7 +33300,7 @@ stbi_info_from_file.exit:                         ; preds = %19, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @stbi_info_from_file(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #10 {
+define noundef range(i32 0, 2) i32 @stbi_info_from_file(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #10 {
   %5 = alloca %struct.stbi__context, align 8
   %6 = tail call i64 @ftell(ptr noundef %0)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -33344,7 +33344,7 @@ _ZL16stbi__start_fileP13stbi__contextP8_IO_FILE.exit: ; preds = %16, %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL15stbi__info_mainP13stbi__contextPiS1_S1_(ptr noundef nonnull %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) unnamed_addr #10 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL15stbi__info_mainP13stbi__contextPiS1_S1_(ptr noundef nonnull %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #10 {
   %5 = alloca %struct.stbi__bmp_data, align 4
   %6 = alloca %struct.stbi__png, align 8
   %7 = tail call noalias noundef dereferenceable_or_null(18568) ptr @malloc(i64 noundef 18568) #59
@@ -36290,7 +36290,7 @@ _ZL14stbi__psd_is16P13stbi__context.exit:         ; preds = %_ZL13stbi__get16beP
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @stbi_info_from_memory(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #10 {
+define noundef range(i32 0, 2) i32 @stbi_info_from_memory(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
   %6 = alloca %struct.stbi__context, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %7, align 8
@@ -36311,7 +36311,7 @@ define noundef range(i32 0, 2) i32 @stbi_info_from_memory(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @stbi_info_from_callbacks(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #10 {
+define noundef range(i32 0, 2) i32 @stbi_info_from_callbacks(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
   %6 = alloca %struct.stbi__context, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
@@ -37308,7 +37308,7 @@ define range(i32 0, 2) i32 @stbi_write_tga(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @stbi_write_hdr_to_func(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #10 {
+define noundef range(i32 0, 2) i32 @stbi_write_hdr_to_func(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #10 {
   %7 = tail call fastcc noundef i32 @_ZL19stbi_write_hdr_coreP19stbi__write_contextiiiPf(ptr %0, ptr %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5)
   ret i32 %7
 }
@@ -37743,7 +37743,7 @@ declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr n
 declare { float, i32 } @llvm.frexp.f32.i32(float) #30
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @stbi_write_hdr(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @stbi_write_hdr(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #10 {
   %6 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.108)
   %.not8 = icmp eq ptr %6, null
   br i1 %.not8, label %10, label %7
@@ -39965,7 +39965,7 @@ define range(i32 0, 2) i32 @stbi_write_png_to_func(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @stbi_write_jpg_to_func(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #10 {
+define noundef range(i32 0, 2) i32 @stbi_write_jpg_to_func(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #10 {
   %8 = alloca %struct.stbi__write_context, align 8
   store ptr %0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -41057,7 +41057,7 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit192: ; preds = %326,
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @stbi_write_jpg(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @stbi_write_jpg(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #10 {
   %7 = alloca %struct.stbi__write_context, align 8
   %8 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.108)
   store ptr @_ZL17stbi__stdio_writePvS_i, ptr %7, align 8
@@ -47859,7 +47859,7 @@ define noundef zeroext i1 @_ZN8tinygltf14WriteImageDataEPKNSt7__cxx1112basic_str
   store ptr @_ZN8tinygltfL18WriteToMemory_stbiEPvS0_i, ptr %7, align 8
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %11, ptr %61, align 8
-  %62 = invoke fastcc noundef range(i32 0, 2) i32 @_ZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKvi(ptr noundef %7, i32 noundef %54, i32 noundef %56, i32 noundef %58, ptr noundef nonnull %60, i32 noundef 100)
+  %62 = invoke fastcc noundef range(i32 0, 2) i32 @_ZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKvi(ptr noundef %7, i32 noundef %54, i32 noundef %56, i32 noundef %58, ptr noundef nonnull readonly %60, i32 noundef 100)
           to label %63 unwind label %24
 
 63:                                               ; preds = %52
@@ -50807,7 +50807,7 @@ _ZN8tinygltf12_GLOBAL__N_18GetValueERN8nlohmann6detail9iter_implIKNS1_10basic_js
 
 .noexc8.i.i:                                      ; preds = %597
   %598 = load i64, ptr %12, align 8
-  %599 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL16LoadExternalFileEPSt6vectorIhSaIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKS9_SC_bmbPNS_11FsCallbacksE(ptr noundef %483, ptr noundef %521, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %6, i1 noundef zeroext true, i64 noundef %598, i1 noundef zeroext true, ptr noundef nonnull %510)
+  %599 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL16LoadExternalFileEPSt6vectorIhSaIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKS9_SC_bmbPNS_11FsCallbacksE(ptr noundef %483, ptr noundef %521, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %6, i1 noundef zeroext true, i64 noundef %598, i1 noundef zeroext true, ptr noundef nonnull readonly %510)
           to label %602 unwind label %600
 
 600:                                              ; preds = %.noexc8.i.i
@@ -51093,7 +51093,7 @@ _ZNSt6vectorIhSaIhEE2atEm.exit.i.i.i:             ; preds = %.noexc11.i.i
 
 .noexc14.i.i:                                     ; preds = %698
   %699 = load i64, ptr %12, align 8
-  %700 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL16LoadExternalFileEPSt6vectorIhSaIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKS9_SC_bmbPNS_11FsCallbacksE(ptr noundef %483, ptr noundef %521, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %6, i1 noundef zeroext true, i64 noundef %699, i1 noundef zeroext true, ptr noundef nonnull %510)
+  %700 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL16LoadExternalFileEPSt6vectorIhSaIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKS9_SC_bmbPNS_11FsCallbacksE(ptr noundef %483, ptr noundef %521, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %6, i1 noundef zeroext true, i64 noundef %699, i1 noundef zeroext true, ptr noundef nonnull readonly %510)
           to label %703 unwind label %701
 
 701:                                              ; preds = %.noexc14.i.i
@@ -60335,7 +60335,7 @@ _ZN8tinygltfL19ParseExtrasPropertyEPNS_5ValueERKN8nlohmann10basic_jsonISt3mapSt6
           to label %441 unwind label %.loopexit6
 
 441:                                              ; preds = %440
-  %442 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL16LoadExternalFileEPSt6vectorIhSaIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKS9_SC_bmbPNS_11FsCallbacksE(ptr noundef %58, ptr noundef %191, ptr noundef %193, ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull align 8 dereferenceable(32) %197, i1 noundef zeroext false, i64 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %198)
+  %442 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL16LoadExternalFileEPSt6vectorIhSaIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKS9_SC_bmbPNS_11FsCallbacksE(ptr noundef %58, ptr noundef %191, ptr noundef %193, ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull align 8 dereferenceable(32) %197, i1 noundef zeroext false, i64 noundef 0, i1 noundef zeroext false, ptr noundef nonnull readonly %198)
           to label %443 unwind label %455
 
 443:                                              ; preds = %441
@@ -117863,7 +117863,7 @@ define noundef i32 @_ZN4gltf8internal15getNumberMeshesERKN8tinygltf5ModelEj(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4gltf10loadMeshesERKNSt7__cxx114listIP9MeshModelSaIS3_EEERNS1_IiSaIiEEERKN8tinygltf5ModelEbPFbiPKcE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1048) %2, i1 noundef zeroext %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define void @_ZN4gltf10loadMeshesERKNSt7__cxx114listIP9MeshModelSaIS3_EEERNS1_IiSaIiEEERKN8tinygltf5ModelEbPFbiPKcE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1048) %2, i1 noundef zeroext %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.CallBackProgress, align 8
   %7 = alloca i32, align 4
   %8 = alloca %"struct.std::_List_const_iterator", align 8
@@ -118049,7 +118049,7 @@ _ZNSt7__cxx114listIiSaIiEE5eraseESt20_List_const_iteratorIiES4_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4gltf8internal30loadMeshesWhileTraversingNodesERKN8tinygltf5ModelERSt20_List_const_iteratorIP9MeshModelERSt14_List_iteratorIiEN3vcg8Matrix44IfEEjbPFbiPKcER16CallBackProgress(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1048) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2, ptr noundef captures(none) %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef captures(address_is_null) %6, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %7) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define void @_ZN4gltf8internal30loadMeshesWhileTraversingNodesERKN8tinygltf5ModelERSt20_List_const_iteratorIP9MeshModelERSt14_List_iteratorIiEN3vcg8Matrix44IfEEjbPFbiPKcER16CallBackProgress(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1048) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2, ptr noundef captures(none) %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %7) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.vcg::Matrix44", align 4
   %10 = alloca %"class.vcg::Matrix44", align 4
   %11 = alloca %"class.vcg::Matrix44", align 4
@@ -118577,7 +118577,7 @@ _ZN3vcg8Matrix44IfE9ConstructIdEES1_RKNS0_IT_EE.exit: ; preds = %165, %39
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4gltf8internal8loadMeshER9MeshModelRiRKN8tinygltf4MeshERKNS4_5ModelEbRKN3vcg8Matrix44IfEEPFbiPKcER16CallBackProgress(ptr noundef nonnull align 8 dereferenceable(1288) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(344) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1048) %3, i1 noundef zeroext %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %5, ptr noundef captures(address_is_null) %6, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %7) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define void @_ZN4gltf8internal8loadMeshER9MeshModelRiRKN8tinygltf4MeshERKNS4_5ModelEbRKN3vcg8Matrix44IfEEPFbiPKcER16CallBackProgress(ptr noundef nonnull align 8 dereferenceable(1288) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(344) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1048) %3, i1 noundef zeroext %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %7) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %9 = alloca %class.QString, align 8
   %10 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #54
   br i1 %10, label %_ZN7QStringD2Ev.exit, label %11

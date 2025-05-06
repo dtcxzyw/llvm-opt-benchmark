@@ -2377,7 +2377,7 @@ define hidden noalias ptr @uat_unesc(ptr noundef readonly captures(address) %0, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noalias ptr @uat_undquote(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden noalias ptr @uat_undquote(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 1
   %5 = add i32 %1, -2
   %6 = tail call ptr @uat_unesc(ptr noundef %4, i32 noundef %5, ptr noundef %2)

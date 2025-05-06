@@ -6653,7 +6653,7 @@ _ZN4llvm4json5ArrayD2Ev.exit25:                   ; preds = %_ZSt8_DestroyIPN4ll
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14createLocationON4llvm4json6ObjectENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 20)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr captures(address_is_null) %2, i64 %3) unnamed_addr #0 {
+define internal fastcc void @_ZL14createLocationON4llvm4json6ObjectENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 20)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr readonly captures(address_is_null) %2, i64 %3) unnamed_addr #0 {
 .lr.ph.i:
   %4 = alloca ptr, align 8
   %5 = alloca [1 x %"struct.llvm::json::Object::KV"], align 8
@@ -6811,7 +6811,7 @@ _ZN4llvm4json6Object2KVD2Ev.exit8:                ; preds = %39, %_ZNKSt14defaul
 declare void @_ZN4llvm4json5ArrayC1ESt16initializer_listINS0_5ValueEE(ptr noundef nonnull align 8 dereferenceable(24), ptr, i64) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang19SarifDocumentWriter14createCodeFlowEN4llvm8ArrayRefINS_10ThreadFlowEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::json::Object") align 8 initializes((0, 20)) %0, ptr noundef nonnull align 8 dereferenceable(4720) %1, ptr captures(address) %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang19SarifDocumentWriter14createCodeFlowEN4llvm8ArrayRefINS_10ThreadFlowEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::json::Object") align 8 initializes((0, 20)) %0, ptr noundef nonnull align 8 dereferenceable(4720) %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #0 align 2 {
 .lr.ph.i:
   %4 = alloca ptr, align 8
   %5 = alloca [1 x %"struct.llvm::json::Object::KV"], align 8

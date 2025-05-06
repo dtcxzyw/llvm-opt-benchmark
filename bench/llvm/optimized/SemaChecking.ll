@@ -81393,7 +81393,7 @@ _ZNK5clang4Sema20isUnevaluatedContextEv.exit.thread: ; preds = %3, %3, %3, %_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema16CheckArrayAccessEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema16CheckArrayAccessEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %140, %2
@@ -118169,7 +118169,7 @@ declare void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind writable sret(%"class
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23CheckConditionalOperandRN5clang4SemaEPNS_4ExprENS_8QualTypeENS_14SourceLocationERb(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %1, i64 %2, i32 %3, ptr noundef nonnull align 1 captures(address_is_null) dereferenceable(1) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL23CheckConditionalOperandRN5clang4SemaEPNS_4ExprENS_8QualTypeENS_14SourceLocationERb(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %1, i64 %2, i32 %3, ptr noundef nonnull writeonly align 1 captures(address_is_null) dereferenceable(1) %4) unnamed_addr #0 {
   %6 = tail call noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #31
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %8 = load ptr, ptr %7, align 8, !tbaa !676

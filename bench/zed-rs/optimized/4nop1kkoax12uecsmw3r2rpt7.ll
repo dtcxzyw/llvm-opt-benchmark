@@ -5803,7 +5803,7 @@ define hidden { i64, ptr } @"_ZN113_$LT$futures_util..stream..stream..split..Spl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1171)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1174)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4), !noalias !1177
-  invoke void @"_ZN17async_tungstenite24WebSocketStream$LT$S$GT$12with_context17h401105197cd63415E.llvm.5396057584344544046"(ptr noalias noundef nonnull sret([136 x i8]) align 8 captures(none) dereferenceable(136) %4, ptr noalias noundef nonnull align 8 dereferenceable(824) %28, i8 noundef 1, ptr nonnull align 8 dereferenceable(32) %1)
+  invoke void @"_ZN17async_tungstenite24WebSocketStream$LT$S$GT$12with_context17h401105197cd63415E.llvm.5396057584344544046"(ptr noalias noundef nonnull sret([136 x i8]) align 8 captures(none) dereferenceable(136) %4, ptr noalias noundef nonnull align 8 dereferenceable(824) %28, i8 noundef 1, ptr nonnull readonly align 8 dereferenceable(32) %1)
           to label %.noexc16 unwind label %13
 
 .noexc16:                                         ; preds = %27
@@ -5944,7 +5944,7 @@ define hidden { i64, ptr } @"_ZN113_$LT$futures_util..stream..stream..split..Spl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1217)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1220)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4), !noalias !1223
-  invoke void @"_ZN17async_tungstenite24WebSocketStream$LT$S$GT$12with_context17ha26517bdd1526b91E.llvm.5396057584344544046"(ptr noalias noundef nonnull sret([136 x i8]) align 8 captures(none) dereferenceable(136) %4, ptr noalias noundef nonnull align 8 dereferenceable(304) %28, i8 noundef 1, ptr nonnull align 8 dereferenceable(32) %1)
+  invoke void @"_ZN17async_tungstenite24WebSocketStream$LT$S$GT$12with_context17ha26517bdd1526b91E.llvm.5396057584344544046"(ptr noalias noundef nonnull sret([136 x i8]) align 8 captures(none) dereferenceable(136) %4, ptr noalias noundef nonnull align 8 dereferenceable(304) %28, i8 noundef 1, ptr nonnull readonly align 8 dereferenceable(32) %1)
           to label %.noexc16 unwind label %13
 
 .noexc16:                                         ; preds = %27
@@ -9954,7 +9954,7 @@ switch.early.test:                                ; preds = %87, %55
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN129_$LT$async_tungstenite..WebSocketStream$LT$T$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$10poll_flush17h754d5d5ad1ece650E"(ptr dead_on_unwind noalias noundef writable writeonly sret([136 x i8]) align 8 captures(none) dereferenceable(136) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(816) %1, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(32) %2) unnamed_addr #0 {
+define hidden void @"_ZN129_$LT$async_tungstenite..WebSocketStream$LT$T$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$10poll_flush17h754d5d5ad1ece650E"(ptr dead_on_unwind noalias noundef writable writeonly sret([136 x i8]) align 8 captures(none) dereferenceable(136) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(816) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(32) %2) unnamed_addr #0 {
   %4 = alloca [136 x i8], align 8
   %.sroa.5 = alloca [128 x i8], align 8
   %5 = alloca [136 x i8], align 8
@@ -10002,7 +10002,7 @@ define hidden void @"_ZN129_$LT$async_tungstenite..WebSocketStream$LT$T$GT$$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN129_$LT$async_tungstenite..WebSocketStream$LT$T$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$10poll_flush17hc483947da7ea479eE"(ptr dead_on_unwind noalias noundef writable writeonly sret([136 x i8]) align 8 captures(none) dereferenceable(136) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(296) %1, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(32) %2) unnamed_addr #0 {
+define hidden void @"_ZN129_$LT$async_tungstenite..WebSocketStream$LT$T$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$10poll_flush17hc483947da7ea479eE"(ptr dead_on_unwind noalias noundef writable writeonly sret([136 x i8]) align 8 captures(none) dereferenceable(136) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(296) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(32) %2) unnamed_addr #0 {
   %4 = alloca [136 x i8], align 8
   %.sroa.5 = alloca [128 x i8], align 8
   %5 = alloca [136 x i8], align 8
@@ -10196,7 +10196,7 @@ _ZN11tungstenite8protocol16WebSocketContext5flush17h3e1122ae4af97988E.llvm.53960
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN129_$LT$async_tungstenite..WebSocketStream$LT$T$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$10poll_ready17had3e49eb26ff5a73E"(ptr dead_on_unwind noalias noundef writable writeonly sret([136 x i8]) align 8 captures(none) dereferenceable(136) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(296) %1, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(32) %2) unnamed_addr #0 {
+define hidden void @"_ZN129_$LT$async_tungstenite..WebSocketStream$LT$T$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$10poll_ready17had3e49eb26ff5a73E"(ptr dead_on_unwind noalias noundef writable writeonly sret([136 x i8]) align 8 captures(none) dereferenceable(136) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(296) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(32) %2) unnamed_addr #0 {
   %4 = alloca [136 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 290
   %6 = load i8, ptr %5, align 2, !range !45, !noundef !4
@@ -10232,7 +10232,7 @@ define hidden void @"_ZN129_$LT$async_tungstenite..WebSocketStream$LT$T$GT$$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN129_$LT$async_tungstenite..WebSocketStream$LT$T$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$10poll_ready17hb3aab294a82d761bE"(ptr dead_on_unwind noalias noundef writable writeonly sret([136 x i8]) align 8 captures(none) dereferenceable(136) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(816) %1, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(32) %2) unnamed_addr #0 {
+define hidden void @"_ZN129_$LT$async_tungstenite..WebSocketStream$LT$T$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$10poll_ready17hb3aab294a82d761bE"(ptr dead_on_unwind noalias noundef writable writeonly sret([136 x i8]) align 8 captures(none) dereferenceable(136) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(816) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(32) %2) unnamed_addr #0 {
   %4 = alloca [136 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 810
   %6 = load i8, ptr %5, align 2, !range !45, !noundef !4
@@ -10790,7 +10790,7 @@ _ZN4core10intrinsics10typed_swap17hb903124d9bc9807cE.exit: ; preds = %.preheader
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc { i64, ptr } @"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17h603b5a813836f9c1E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %1, ptr noalias noundef nonnull align 8 captures(address_is_null) dereferenceable(32) %2) unnamed_addr #0 {
+define internal fastcc { i64, ptr } @"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17h603b5a813836f9c1E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %1, ptr noalias noundef nonnull readonly align 8 captures(address_is_null) dereferenceable(32) %2) unnamed_addr #0 {
   %4 = alloca [136 x i8], align 8
   %5 = alloca [136 x i8], align 8
   %6 = alloca [136 x i8], align 8
@@ -10815,7 +10815,7 @@ define internal fastcc { i64, ptr } @"_ZN12futures_util6stream6stream5split25Spl
 
 15:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %6), !noalias !2171
-  call void @"_ZN17async_tungstenite24WebSocketStream$LT$S$GT$12with_context17h2b8b78eedef35802E.llvm.5396057584344544046"(ptr noalias noundef nonnull sret([136 x i8]) align 8 captures(none) dereferenceable(136) %6, ptr noalias noundef nonnull align 8 dereferenceable(824) %0, i8 noundef 1, ptr nonnull align 8 dereferenceable(32) %2), !noalias !2172
+  call void @"_ZN17async_tungstenite24WebSocketStream$LT$S$GT$12with_context17h2b8b78eedef35802E.llvm.5396057584344544046"(ptr noalias noundef nonnull sret([136 x i8]) align 8 captures(none) dereferenceable(136) %6, ptr noalias noundef nonnull align 8 dereferenceable(824) %0, i8 noundef 1, ptr nonnull readonly align 8 dereferenceable(32) %2), !noalias !2172
   %16 = load i64, ptr %6, align 8, !range !1145, !noalias !2171, !noundef !4
   %17 = icmp eq i64 %16, 16
   br i1 %17, label %"_ZN104_$LT$futures_util..sink..map_err..SinkMapErr$LT$Si$C$F$GT$$u20$as$u20$futures_sink..Sink$LT$Item$GT$$GT$10poll_ready17h5260263da2edef56E.exit", label %"_ZN106_$LT$futures_util..stream..try_stream..MapErr$LT$St$C$F$GT$$u20$as$u20$futures_sink..Sink$LT$_Item$GT$$GT$10poll_ready17h20dc09659280a1f1E.exit.i"
@@ -10879,7 +10879,7 @@ define internal fastcc { i64, ptr } @"_ZN12futures_util6stream6stream5split25Spl
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc { i64, ptr } @"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17he807fc65fcc7cc5fE"(ptr noalias noundef nonnull align 8 dereferenceable(304) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %1, ptr noalias noundef nonnull align 8 captures(address_is_null) dereferenceable(32) %2) unnamed_addr #0 {
+define internal fastcc { i64, ptr } @"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17he807fc65fcc7cc5fE"(ptr noalias noundef nonnull align 8 dereferenceable(304) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %1, ptr noalias noundef nonnull readonly align 8 captures(address_is_null) dereferenceable(32) %2) unnamed_addr #0 {
   %4 = alloca [136 x i8], align 8
   %5 = alloca [136 x i8], align 8
   %6 = alloca [136 x i8], align 8
@@ -10904,7 +10904,7 @@ define internal fastcc { i64, ptr } @"_ZN12futures_util6stream6stream5split25Spl
 
 15:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %6), !noalias !2206
-  call void @"_ZN17async_tungstenite24WebSocketStream$LT$S$GT$12with_context17hfb9c58fe1040fb1cE.llvm.5396057584344544046"(ptr noalias noundef nonnull sret([136 x i8]) align 8 captures(none) dereferenceable(136) %6, ptr noalias noundef nonnull align 8 dereferenceable(304) %0, i8 noundef 1, ptr nonnull align 8 dereferenceable(32) %2), !noalias !2207
+  call void @"_ZN17async_tungstenite24WebSocketStream$LT$S$GT$12with_context17hfb9c58fe1040fb1cE.llvm.5396057584344544046"(ptr noalias noundef nonnull sret([136 x i8]) align 8 captures(none) dereferenceable(136) %6, ptr noalias noundef nonnull align 8 dereferenceable(304) %0, i8 noundef 1, ptr nonnull readonly align 8 dereferenceable(32) %2), !noalias !2207
   %16 = load i64, ptr %6, align 8, !range !1145, !noalias !2206, !noundef !4
   %17 = icmp eq i64 %16, 16
   br i1 %17, label %"_ZN104_$LT$futures_util..sink..map_err..SinkMapErr$LT$Si$C$F$GT$$u20$as$u20$futures_sink..Sink$LT$Item$GT$$GT$10poll_ready17h049df5623d4dbbb7E.exit", label %"_ZN106_$LT$futures_util..stream..try_stream..MapErr$LT$St$C$F$GT$$u20$as$u20$futures_sink..Sink$LT$_Item$GT$$GT$10poll_ready17hb1e41821982ba5e7E.exit.i"

@@ -4350,7 +4350,7 @@ _ZN4llvm5ErrorD2Ev.exit151:                       ; preds = %58, %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object21WindowsResourceParser9printTreeERNS_11raw_ostreamE(ptr noundef nonnull align 8 captures(address) dereferenceable(201) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm6object21WindowsResourceParser9printTreeERNS_11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(201) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::ScopedPrinter", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #28
   store ptr getelementptr inbounds nuw inrange(-16, 376) (i8, ptr @_ZTVN4llvm13ScopedPrinterE, i64 16), ptr %3, align 8, !tbaa !3

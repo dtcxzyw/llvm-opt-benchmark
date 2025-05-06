@@ -2655,7 +2655,7 @@ _ZNSt6vectorIPKN6Assimp7Collada4NodeESaIS4_EED2Ev.exit89: ; preds = %190, %192
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp13ColladaLoader13FillMaterialsERKNS_13ColladaParserEP7aiScene(ptr noundef nonnull align 8 captures(none) dereferenceable(380) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(772) %1, ptr readnone captures(none) %2) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN6Assimp13ColladaLoader13FillMaterialsERKNS_13ColladaParserEP7aiScene(ptr noundef nonnull align 8 captures(none) dereferenceable(380) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(772) %1, ptr readnone captures(none) %2) local_unnamed_addr #5 align 2 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %6 = load ptr, ptr %5, align 8
@@ -17839,7 +17839,7 @@ _ZNSt12_Vector_baseIN6Assimp7Collada12ChannelEntryESaIS2_EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp13ColladaLoader10AddTextureER10aiMaterialRKNS_13ColladaParserERKNS_7Collada6EffectERKNS6_7SamplerE13aiTextureTypej(ptr noundef nonnull align 8 captures(none) dereferenceable(380) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(772) %2, ptr noundef nonnull align 8 dereferenceable(963) %3, ptr noundef nonnull align 8 dereferenceable(108) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN6Assimp13ColladaLoader10AddTextureER10aiMaterialRKNS_13ColladaParserERKNS_7Collada6EffectERKNS6_7SamplerE13aiTextureTypej(ptr noundef nonnull align 8 captures(none) dereferenceable(380) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(772) %2, ptr noundef nonnull align 8 dereferenceable(963) %3, ptr noundef nonnull align 8 dereferenceable(108) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #5 align 2 {
   %8 = alloca %struct.aiString, align 4
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %8) #33

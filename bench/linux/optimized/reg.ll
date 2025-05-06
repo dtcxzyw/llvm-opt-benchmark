@@ -3702,7 +3702,7 @@ define internal fastcc void @update_all_wiphy_regulatory(i32 noundef %0) unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @regulatory_set_wiphy_regd(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) #2 align 16 {
+define dso_local i32 @regulatory_set_wiphy_regd(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) #2 align 16 {
   %3 = tail call fastcc i32 @__regulatory_set_wiphy_regd(ptr noundef %0, ptr noundef %1)
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %8
@@ -3852,7 +3852,7 @@ define internal fastcc i32 @__regulatory_set_wiphy_regd(ptr noundef captures(add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @regulatory_set_wiphy_regd_sync(ptr noundef %0, ptr noundef captures(address_is_null) %1) #2 align 16 {
+define dso_local i32 @regulatory_set_wiphy_regd_sync(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #2 align 16 {
   %3 = tail call i32 @rtnl_is_locked() #23
   %4 = icmp ne i32 %3, 0
   %5 = load i1, ptr @regulatory_set_wiphy_regd_sync.__already_done, align 1
@@ -7560,7 +7560,7 @@ define internal fastcc noundef zeroext i1 @reg_is_world_roaming(ptr noundef %0) 
 declare dso_local void @nl80211_send_beacon_hint_event(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noalias ptr @regdom_intersect(ptr noundef nonnull captures(address) %0, ptr noundef captures(address) %1) unnamed_addr #2 align 16 {
+define internal fastcc noalias ptr @regdom_intersect(ptr noundef nonnull readonly captures(address) %0, ptr noundef readonly captures(address) %1) unnamed_addr #2 align 16 {
   %3 = alloca %struct.ieee80211_reg_rule, align 4
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8

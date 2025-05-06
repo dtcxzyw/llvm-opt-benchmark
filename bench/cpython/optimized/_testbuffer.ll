@@ -3154,7 +3154,7 @@ declare ptr @PyObject_CallObject(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @copy_rec(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(address_is_null) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef captures(address_is_null) %8, ptr noundef captures(none) %9) unnamed_addr #3 {
+define internal fastcc void @copy_rec(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(address_is_null) %8, ptr noundef captures(none) %9) unnamed_addr #3 {
   %11 = icmp eq i64 %1, 1
   br i1 %11, label %57, label %.preheader95
 
@@ -4422,7 +4422,7 @@ define internal ptr @ndarray_memoryview_from_buffer(ptr noundef readonly capture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @unpack_rec(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(address_is_null) %6, i64 noundef %7, i64 noundef %8) unnamed_addr #0 {
+define internal fastcc ptr @unpack_rec(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(address_is_null) %6, i64 noundef %7, i64 noundef %8) unnamed_addr #0 {
   %10 = icmp eq i64 %7, 0
   br i1 %10, label %11, label %28
 

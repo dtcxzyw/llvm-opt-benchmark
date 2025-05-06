@@ -509,7 +509,7 @@ _build_shared_list.exit:                          ; preds = %_build_sharing_list
   %227 = phi ptr [ %223, %.lr.ph.i.i ], [ %233, %226 ]
   %.01417.i.i = phi i64 [ %221, %.lr.ph.i.i ], [ %232, %226 ]
   %228 = load ptr, ptr %224, align 8
-  %229 = tail call fastcc ptr @_create_shared_rec(ptr noundef %227, ptr noundef %228, ptr noundef nonnull %216)
+  %229 = tail call fastcc ptr @_create_shared_rec(ptr noundef %227, ptr noundef %228, ptr noundef nonnull readonly %216)
   %230 = udiv i64 %.01417.i.i, %indvars.iv.i.i
   %231 = getelementptr inbounds nuw i8, ptr %229, i64 8
   store i64 %230, ptr %231, align 8

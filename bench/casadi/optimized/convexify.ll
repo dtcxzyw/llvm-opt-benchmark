@@ -425,7 +425,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi9ConvexifyC2ERKNS_2MXERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessISA_ESaISt4pairIKSA_SB_EEE(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi9ConvexifyC2ERKNS_2MXERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessISA_ESaISt4pairIKSA_SB_EEE(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.casadi::Sparsity", align 8
   tail call void @_ZN6casadi6MXNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0)
   store ptr getelementptr inbounds nuw inrange(-16, 888) (i8, ptr @_ZTVN6casadi9ConvexifyE, i64 16), ptr %0, align 8, !tbaa !15

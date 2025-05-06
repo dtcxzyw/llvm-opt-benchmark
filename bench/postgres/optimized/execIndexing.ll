@@ -954,7 +954,7 @@ index_recheck_constraint.exit:                    ; preds = %142, %138, %123
 declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @ExecCheckIndexConstraints(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) initializes((0, 6)) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @ExecCheckIndexConstraints(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) initializes((0, 6)) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca i8, align 1
   %8 = alloca [32 x i64], align 16
   %9 = alloca [32 x i8], align 16

@@ -2196,7 +2196,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb17LoadLatestOptionsERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_9DBOptionsEPSt6vectorINS_22ColumnFamilyDescriptorESaISE_EEPSt10shared_ptrINS_5CacheEE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 captures(address) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb17LoadLatestOptionsERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_9DBOptionsEPSt6vectorINS_22ColumnFamilyDescriptorESaISE_EEPSt10shared_ptrINS_5CacheEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.rocksdb::Status") align 8 captures(address) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.rocksdb::Status", align 8

@@ -1425,7 +1425,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex26FaceIndicesMatchAcrossEdgeEiiPKi.exit75
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -32768, 32768) i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex21FindFaceVaryingSubsetEPNS1_16FaceVertexSubsetEPKiRKS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %0, ptr noundef captures(none) initializes((0, 12)) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 4 captures(address_is_null) dereferenceable(12) %3) local_unnamed_addr #1 align 2 {
+define noundef range(i32 -32768, 32768) i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex21FindFaceVaryingSubsetEPNS1_16FaceVertexSubsetEPKiRKS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %0, ptr noundef captures(none) initializes((0, 12)) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 4 captures(address_is_null) dereferenceable(12) %3) local_unnamed_addr #1 align 2 {
   %5 = tail call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20findFVarSubsetExtentERKNS1_16FaceVertexSubsetEPS3_PKi(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef %1, ptr noundef %2)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %7 = load i16, ptr %6, align 2

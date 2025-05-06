@@ -2650,7 +2650,7 @@ thread-pre-split:                                 ; preds = %120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN3hir11term_search11LookupTable6insert17h5ce538b65c6314a7E(ptr noalias noundef align 8 dereferenceable(200) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef captures(address) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN3hir11term_search11LookupTable6insert17h5ce538b65c6314a7E(ptr noalias noundef align 8 dereferenceable(200) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef readnone captures(address) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { { ptr, ptr }, {} }, i64 }, align 8
   %7 = alloca i64, align 8
   %8 = alloca { ptr, [1 x i64] }, align 8
@@ -2786,7 +2786,7 @@ select.unfold:                                    ; preds = %.noexc12.select.unf
   %58 = load i64, ptr %57, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !715
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) @anon.1145d5c957543f8b5e2076501e23a0b1.138.llvm.14187311439413012207, i64 32, i1 false), !noalias !715
-  invoke fastcc void @_ZN3hir11term_search16AlternativeExprs21extend_with_threshold17haae669b8c588feb6E(ptr noalias noundef align 8 dereferenceable(32) %10, i64 noundef %58, ptr noundef nonnull %3, ptr noundef %4)
+  invoke fastcc void @_ZN3hir11term_search16AlternativeExprs21extend_with_threshold17haae669b8c588feb6E(ptr noalias noundef align 8 dereferenceable(32) %10, i64 noundef %58, ptr noundef nonnull %3, ptr noundef readnone %4)
           to label %64 unwind label %59, !noalias !715
 
 59:                                               ; preds = %55

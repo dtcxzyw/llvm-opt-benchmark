@@ -97,7 +97,7 @@ define ptr @N_VNewEmpty_SensWrapper(i32 noundef %0, ptr noundef %1) local_unname
 declare ptr @N_VNewEmpty(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @N_VClone_SensWrapper(ptr noundef captures(address_is_null) %0) #0 {
+define noundef ptr @N_VClone_SensWrapper(ptr noundef readonly captures(address_is_null) %0) #0 {
   %2 = tail call ptr @N_VCloneEmpty_SensWrapper(ptr noundef %0)
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %4

@@ -5202,10 +5202,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h539f4e419b0
 24:                                               ; preds = %20
   %25 = icmp ne ptr %.val29, null
   call void @llvm.assume(i1 %25)
-  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h98dd526828bc8a92E(ptr noundef nonnull align 8 %.sroa.0.0.ph.lcssa164, ptr noundef nonnull align 8 %2, ptr nonnull %.val29)
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h98dd526828bc8a92E(ptr noundef nonnull align 8 %.sroa.0.0.ph.lcssa164, ptr noundef nonnull align 8 %2, ptr nonnull readonly %.val29)
   %26 = getelementptr inbounds nuw { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, ptr %.sroa.0.0.ph.lcssa164, i64 %21
   %27 = getelementptr inbounds nuw { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, ptr %2, i64 %21
-  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h98dd526828bc8a92E(ptr noundef %26, ptr noundef %27, ptr nonnull %.val29)
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h98dd526828bc8a92E(ptr noundef %26, ptr noundef %27, ptr nonnull readonly %.val29)
   br label %31
 
 28:                                               ; preds = %20

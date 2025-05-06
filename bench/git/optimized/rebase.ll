@@ -3235,7 +3235,7 @@ can_fast_forward.exit.thread:                     ; preds = %1286, %.critedge.i
   br label %1338
 
 can_fast_forward.exit:                            ; preds = %1286
-  %1290 = call fastcc i32 @is_linear_history(ptr noundef nonnull %1261, ptr noundef %1267)
+  %1290 = call fastcc i32 @is_linear_history(ptr noundef nonnull readonly %1261, ptr noundef %1267)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #19
   %.not189 = icmp eq i32 %1290, 0
   br i1 %.not189, label %1338, label %1291

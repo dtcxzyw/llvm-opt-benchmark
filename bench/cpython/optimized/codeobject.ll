@@ -2621,8 +2621,8 @@ declare i32 @_PyBytes_Resize(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyUnstable_Code_New(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef captures(address_is_null) %8, ptr noundef captures(address_is_null) %9, ptr noundef captures(address_is_null) %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16) local_unnamed_addr #0 {
-  %18 = tail call ptr @PyUnstable_Code_NewWithPosOnlyArgs(i32 noundef %0, i32 noundef 0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16)
+define dso_local ptr @PyUnstable_Code_New(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef readonly captures(address_is_null) %8, ptr noundef readonly captures(address_is_null) %9, ptr noundef readonly captures(address_is_null) %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16) local_unnamed_addr #0 {
+  %18 = tail call ptr @PyUnstable_Code_NewWithPosOnlyArgs(i32 noundef %0, i32 noundef 0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef readonly %8, ptr noundef readonly %9, ptr noundef readonly %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16)
   ret ptr %18
 }
 
@@ -7322,7 +7322,7 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 277:                                              ; preds = %272, %270
   %.069.i = phi ptr [ %.0141, %270 ], [ %275, %272 ]
   %.1.i = phi ptr [ null, %270 ], [ %275, %272 ]
-  %278 = call ptr @PyUnstable_Code_NewWithPosOnlyArgs(i32 noundef %.0163, i32 noundef range(i32 0, -2147483648) %.0161, i32 noundef %.0159, i32 noundef %.0157, i32 noundef %.0155, i32 noundef %.0153, ptr noundef nonnull %.067.i, ptr noundef %.0147, ptr noundef %.0145, ptr noundef nonnull %.068.i, ptr noundef nonnull %.069.i, ptr noundef nonnull %.070.i, ptr noundef %.0137, ptr noundef %.0135, ptr noundef %.0133, i32 noundef %.0151, ptr noundef %.0132, ptr noundef %.0)
+  %278 = call ptr @PyUnstable_Code_NewWithPosOnlyArgs(i32 noundef %.0163, i32 noundef range(i32 0, -2147483648) %.0161, i32 noundef %.0159, i32 noundef %.0157, i32 noundef %.0155, i32 noundef %.0153, ptr noundef nonnull %.067.i, ptr noundef %.0147, ptr noundef %.0145, ptr noundef nonnull readonly %.068.i, ptr noundef nonnull readonly %.069.i, ptr noundef nonnull readonly %.070.i, ptr noundef %.0137, ptr noundef %.0135, ptr noundef %.0133, i32 noundef %.0151, ptr noundef %.0132, ptr noundef %.0)
   br label %279
 
 279:                                              ; preds = %277, %272, %265, %259
@@ -7935,7 +7935,7 @@ define internal fastcc ptr @code_new_impl(i32 noundef %0, i32 noundef %1, i32 no
   br i1 %56, label %59, label %57
 
 57:                                               ; preds = %55
-  %58 = tail call ptr @PyUnstable_Code_NewWithPosOnlyArgs(i32 noundef %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %38, ptr noundef nonnull %41, ptr noundef nonnull %.146, ptr noundef nonnull %.1, ptr noundef %10, ptr noundef %11, ptr noundef %12, i32 noundef %13, ptr noundef %14, ptr noundef %15)
+  %58 = tail call ptr @PyUnstable_Code_NewWithPosOnlyArgs(i32 noundef %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %38, ptr noundef nonnull readonly %41, ptr noundef nonnull readonly %.146, ptr noundef nonnull readonly %.1, ptr noundef %10, ptr noundef %11, ptr noundef %12, i32 noundef %13, ptr noundef %14, ptr noundef %15)
   br label %59
 
 59:                                               ; preds = %57, %40, %48, %55

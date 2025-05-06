@@ -52062,7 +52062,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit1357:                ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZN8LightGBM7CommonCL13StringToArrayIdEESt6vectorIT_SaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr captures(address_is_null) %.0.val, i32 noundef %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8LightGBM7CommonCL13StringToArrayIdEESt6vectorIT_SaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr readonly captures(address_is_null) %.0.val, i32 noundef %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.41", align 8
   %4 = alloca %"struct.LightGBM::CommonC::__StringToTHelper", align 1
   %5 = icmp eq i32 %1, 0
@@ -52821,7 +52821,7 @@ _ZN8LightGBM6CommonL4AtofEPKcPd.exit:             ; preds = %146
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZN8LightGBM6CommonL13StringToArrayIdEESt6vectorIT_SaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr captures(address_is_null) %.0.val, i32 noundef %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8LightGBM6CommonL13StringToArrayIdEESt6vectorIT_SaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr readonly captures(address_is_null) %.0.val, i32 noundef %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %"class.std::vector.41", align 8
   %5 = icmp eq i32 %1, 0

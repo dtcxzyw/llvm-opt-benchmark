@@ -961,7 +961,7 @@ define internal fastcc noundef ptr @_ZN5clang6format12_GLOBAL__N_110LineJoiner17
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %61
-  %66 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner19tryMergeSimpleBlockEPKPNS0_13AnnotatedLineES6_j(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull %11, ptr noundef %12, i32 noundef %52)
+  %66 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner19tryMergeSimpleBlockEPKPNS0_13AnnotatedLineES6_j(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull readonly %11, ptr noundef readonly %12, i32 noundef %52)
   br label %_ZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_.exit
 
 67:                                               ; preds = %61, %57, %54, %47
@@ -1031,7 +1031,7 @@ _ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.i: ; preds = %90, %86
   br i1 %or.cond.i, label %100, label %_ZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_.exit.thread..loopexit_crit_edge
 
 100:                                              ; preds = %95
-  %101 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner19tryMergeSimpleBlockEPKPNS0_13AnnotatedLineES6_j(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull %11, ptr noundef %12, i32 noundef %52)
+  %101 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner19tryMergeSimpleBlockEPKPNS0_13AnnotatedLineES6_j(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull readonly %11, ptr noundef readonly %12, i32 noundef %52)
   br label %_ZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_.exit
 
 102:                                              ; preds = %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.i
@@ -1105,7 +1105,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_PNS_14Identif
   br i1 %or.cond10.i, label %124, label %_ZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_.exit.thread..loopexit_crit_edge
 
 124:                                              ; preds = %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_PNS_14IdentifierInfoEEEEbT_T0_DpT1_.exit.thread.i
-  %125 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner19tryMergeSimpleBlockEPKPNS0_13AnnotatedLineES6_j(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull %11, ptr noundef %12, i32 noundef %52)
+  %125 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner19tryMergeSimpleBlockEPKPNS0_13AnnotatedLineES6_j(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull readonly %11, ptr noundef readonly %12, i32 noundef %52)
   br label %_ZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_.exit
 
 _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_PNS_14IdentifierInfoEEEEbT_T0_DpT1_.exit.thread400.i: ; preds = %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_PNS_14IdentifierInfoEEEEbT_T0_DpT1_.exit.i, %115
@@ -1286,7 +1286,7 @@ _ZZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18Lev
   br i1 %207, label %208, label %210
 
 208:                                              ; preds = %203
-  %209 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner17tryMergeNamespaceEPKPNS0_13AnnotatedLineES6_j(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull %11, ptr noundef %12, i32 noundef %52)
+  %209 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner17tryMergeNamespaceEPKPNS0_13AnnotatedLineES6_j(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull readonly %11, ptr noundef readonly %12, i32 noundef %52)
   %.not225.i = icmp eq i32 %209, 0
   br i1 %.not225.i, label %210, label %_ZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_.exit.thread28
 
@@ -1638,7 +1638,7 @@ _ZNK5clang6format13AnnotatedLine17getLastNonCommentEv.exit.i: ; preds = %.prehea
   br i1 %.0.i269.i, label %354, label %_ZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_.exit.thread..loopexit_crit_edge
 
 354:                                              ; preds = %353
-  %355 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner19tryMergeSimpleBlockEPKPNS0_13AnnotatedLineES6_j(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull %11, ptr noundef %12, i32 noundef %52)
+  %355 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner19tryMergeSimpleBlockEPKPNS0_13AnnotatedLineES6_j(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull readonly %11, ptr noundef readonly %12, i32 noundef %52)
   br label %_ZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_.exit
 
 356:                                              ; preds = %351, %_ZNK5clang6format13AnnotatedLine17getLastNonCommentEv.exit.i
@@ -1675,7 +1675,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_NS0_9TokenTypeEE
   br i1 %.not242.i, label %_ZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_.exit.thread..loopexit_crit_edge, label %371
 
 371:                                              ; preds = %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_NS0_9TokenTypeEEEEbT_T0_DpT1_.exit.thread.i
-  %372 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner19tryMergeSimpleBlockEPKPNS0_13AnnotatedLineES6_j(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull %11, ptr noundef %12, i32 noundef %52)
+  %372 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner19tryMergeSimpleBlockEPKPNS0_13AnnotatedLineES6_j(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull readonly %11, ptr noundef readonly %12, i32 noundef %52)
   br label %_ZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_.exit
 
 373:                                              ; preds = %366, %356
@@ -1782,7 +1782,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_NS0_9TokenTyp
   br i1 %422, label %423, label %_ZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_.exit.thread..loopexit_crit_edge
 
 423:                                              ; preds = %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_NS0_9TokenTypeEEEEbT_T0_DpT1_.exit.thread.i
-  %424 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner19tryMergeSimpleBlockEPKPNS0_13AnnotatedLineES6_j(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull %11, ptr noundef %12, i32 noundef %52)
+  %424 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner19tryMergeSimpleBlockEPKPNS0_13AnnotatedLineES6_j(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull readonly %11, ptr noundef readonly %12, i32 noundef %52)
   br label %_ZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_.exit
 
 425:                                              ; preds = %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_NS0_9TokenTypeEEEEbT_T0_DpT1_.exit.i
@@ -1928,7 +1928,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread432.i: ; pred
   br i1 %494, label %495, label %_ZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_.exit.thread..loopexit_crit_edge
 
 495:                                              ; preds = %490
-  %496 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner23tryMergeShortCaseLabelsEPKPNS0_13AnnotatedLineES6_j(ptr noundef nonnull %11, ptr noundef %12, i32 noundef %52)
+  %496 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner23tryMergeShortCaseLabelsEPKPNS0_13AnnotatedLineES6_j(ptr noundef nonnull readonly %11, ptr noundef readonly %12, i32 noundef %52)
   br label %_ZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_.exit
 
 497:                                              ; preds = %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread432.i
@@ -2020,7 +2020,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread432.i: ; pred
   br i1 %548, label %.thread439.i, label %_ZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_.exit.thread..loopexit_crit_edge
 
 .thread439.i:                                     ; preds = %547, %533, %513
-  %549 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner19tryMergeSimpleBlockEPKPNS0_13AnnotatedLineES6_j(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull %11, ptr noundef %12, i32 noundef %52)
+  %549 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner19tryMergeSimpleBlockEPKPNS0_13AnnotatedLineES6_j(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull readonly %11, ptr noundef readonly %12, i32 noundef %52)
   br label %_ZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_.exit
 
 550:                                              ; preds = %497
@@ -2093,7 +2093,7 @@ _ZN5clang6format12_GLOBAL__N_110LineJoiner17containsMustBreakEPKNS0_13AnnotatedL
   br i1 %588, label %589, label %_ZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_.exit.thread..loopexit_crit_edge
 
 589:                                              ; preds = %583, %_ZN5clang6format12_GLOBAL__N_110LineJoiner17containsMustBreakEPKNS0_13AnnotatedLineE.exit.i
-  %590 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner19tryMergeSimpleBlockEPKPNS0_13AnnotatedLineES6_j(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull %14, ptr noundef %12, i32 noundef %575)
+  %590 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner19tryMergeSimpleBlockEPKPNS0_13AnnotatedLineES6_j(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull readonly %14, ptr noundef readonly %12, i32 noundef %575)
   %.not241.i = icmp eq i32 %590, 0
   %591 = add i32 %590, 1
   br i1 %.not241.i, label %_ZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_.exit.thread..loopexit_crit_edge, label %_ZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_.exit
@@ -2137,7 +2137,7 @@ _ZZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18Lev
 
 .thread528.i:                                     ; preds = %605, %_ZZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_ENKUlvE0_clEv.exit.thread442.i
   %607 = phi ptr [ %.pre525.i, %605 ], [ %601, %_ZZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_ENKUlvE0_clEv.exit.thread442.i ]
-  %608 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner30tryMergeSimpleControlStatementEPKPNS0_13AnnotatedLineES6_j(ptr nonnull %607, ptr noundef nonnull %11, ptr noundef %12, i32 noundef %52)
+  %608 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner30tryMergeSimpleControlStatementEPKPNS0_13AnnotatedLineES6_j(ptr nonnull %607, ptr noundef nonnull readonly %11, ptr noundef readonly %12, i32 noundef %52)
   br label %_ZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_.exit
 
 _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_NS0_9TokenTypeEEEEbT_T0_DpT1_.exit317.i: ; preds = %_ZZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_ENKUlvE0_clEv.exit.thread442.i, %_ZZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_ENKUlvE0_clEv.exit.i, %595, %592
@@ -2154,7 +2154,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_NS0_9TokenTypeEE
   br i1 %615, label %616, label %_ZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_.exit.thread..loopexit_crit_edge
 
 616:                                              ; preds = %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_NS0_9TokenTypeEEEEbT_T0_DpT1_.exit317.thread.i
-  %617 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner30tryMergeSimpleControlStatementEPKPNS0_13AnnotatedLineES6_j(ptr nonnull %612, ptr noundef nonnull %11, ptr noundef %12, i32 noundef %52)
+  %617 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner30tryMergeSimpleControlStatementEPKPNS0_13AnnotatedLineES6_j(ptr nonnull %612, ptr noundef nonnull readonly %11, ptr noundef readonly %12, i32 noundef %52)
   br label %_ZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_.exit
 
 618:                                              ; preds = %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_NS0_9TokenTypeEEEEbT_T0_DpT1_.exit317.i
@@ -2171,7 +2171,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_NS0_9TokenTypeEE
   br i1 %623, label %624, label %_ZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_.exit.thread..loopexit_crit_edge
 
 624:                                              ; preds = %619
-  %625 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner23tryMergeShortCaseLabelsEPKPNS0_13AnnotatedLineES6_j(ptr noundef nonnull %11, ptr noundef %12, i32 noundef %52)
+  %625 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner23tryMergeShortCaseLabelsEPKPNS0_13AnnotatedLineES6_j(ptr noundef nonnull readonly %11, ptr noundef readonly %12, i32 noundef %52)
   br label %_ZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_.exit
 
 626:                                              ; preds = %618
@@ -2187,7 +2187,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_NS0_9TokenTypeEE
   br i1 %or.cond252.i, label %_ZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_.exit.thread..loopexit_crit_edge, label %633
 
 633:                                              ; preds = %629
-  %634 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner25tryMergeSimplePPDirectiveEPKPNS0_13AnnotatedLineES6_j(ptr noundef nonnull %11, ptr noundef %12, i32 noundef %52)
+  %634 = tail call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner25tryMergeSimplePPDirectiveEPKPNS0_13AnnotatedLineES6_j(ptr noundef nonnull readonly %11, ptr noundef readonly %12, i32 noundef %52)
   br label %_ZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18LevelIndentTrackerEPKPNS0_13AnnotatedLineES8_.exit
 
 _ZNK5clang6format13AnnotatedLine18getFirstNonCommentEv.exit.loopexit501.i: ; preds = %329, %_ZN4llvmeqENS_9StringRefES0_.exit292.thread.i, %_ZN4llvmeqENS_9StringRefES0_.exit292.i, %_ZN5clang6format12_GLOBAL__N_129getMatchingNamespaceTokenTextEPKNS0_13AnnotatedLineERKN4llvm8ArrayRefIPS2_EE.exit.i
@@ -3969,7 +3969,7 @@ _ZNK5clang6format12_GLOBAL__N_118LevelIndentTracker9getIndentEj.exit: ; preds = 
 declare noundef zeroext i1 @_ZNK5clang5Token15isObjCAtKeywordENS_3tok15ObjCKeywordKindE(ptr noundef nonnull align 8 dereferenceable(20), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner19tryMergeSimpleBlockEPKPNS0_13AnnotatedLineES6_j(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_110LineJoiner19tryMergeSimpleBlockEPKPNS0_13AnnotatedLineES6_j(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2, i32 noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !46
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32

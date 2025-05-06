@@ -10901,7 +10901,7 @@ _ZNK5clang8QualType19getNonReferenceTypeEv.exit105: ; preds = %123, %_ZNK5clang4
   %.idx.i.i = and i64 %179, 65535
   %194 = getelementptr inbounds nuw i8, ptr %172, i64 48
   %.idx.i6.i = and i64 %182, 65535
-  %195 = call noundef zeroext i1 @_ZN5clang4Sema26FunctionParamTypesAreEqualEN4llvm8ArrayRefINS_8QualTypeEEES4_Pjb(ptr noundef nonnull readonly align 8 dereferenceable(17504) %0, ptr nonnull %193, i64 %.idx.i.i, ptr nonnull readonly %194, i64 %.idx.i6.i, ptr noundef nonnull %5, i1 noundef zeroext false)
+  %195 = call noundef zeroext i1 @_ZN5clang4Sema26FunctionParamTypesAreEqualEN4llvm8ArrayRefINS_8QualTypeEEES4_Pjb(ptr noundef nonnull readonly align 8 dereferenceable(17504) %0, ptr nonnull readonly %193, i64 %.idx.i.i, ptr nonnull readonly %194, i64 %.idx.i6.i, ptr noundef nonnull %5, i1 noundef zeroext false)
   br i1 %195, label %203, label %196
 
 196:                                              ; preds = %192
@@ -11159,7 +11159,7 @@ _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread25: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4Sema26FunctionParamTypesAreEqualEPKNS_17FunctionProtoTypeES3_Pjb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17504) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3, i1 noundef zeroext %4) local_unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4Sema26FunctionParamTypesAreEqualEPKNS_17FunctionProtoTypeES3_Pjb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17504) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, i1 noundef zeroext %4) local_unnamed_addr #5 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 16
@@ -11341,7 +11341,7 @@ _ZNK5clang8QualType18getUnqualifiedTypeEv.exit33: ; preds = %_ZNK5clang8QualType
 declare i64 @_ZNK5clang10ASTContext22removePtrSizeAddrSpaceENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216), i64) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4Sema35FunctionNonObjectParamTypesAreEqualEPKNS_12FunctionDeclES3_Pjb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17504) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, i1 noundef zeroext %4) local_unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4Sema35FunctionNonObjectParamTypesAreEqualEPKNS_12FunctionDeclES3_Pjb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17504) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, i1 noundef zeroext %4) local_unnamed_addr #5 align 2 {
   %6 = tail call noundef i32 @_ZNK5clang12FunctionDecl21getNumNonObjectParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %1) #30
   %7 = tail call noundef i32 @_ZNK5clang12FunctionDecl21getNumNonObjectParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %2) #30
   %.not = icmp eq i32 %6, %7
@@ -61514,7 +61514,7 @@ _ZN4llvm15SmallVectorImplIPN5clang21TemplateSpecCandidateEE7reserveEm.exit: ; pr
   %29 = load ptr, ptr %.024.i.i.i.i.i.i, align 8, !tbaa !2012
   %.011.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.024.i.i.i.i.i.i, i64 -8
   %.0.val12.i.i.i.i.i.i.i = load ptr, ptr %.011.i.i.i.i.i.i.i, align 8, !tbaa !2012
-  %30 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_(ptr nonnull readonly %1, ptr noundef %29, ptr noundef %.0.val12.i.i.i.i.i.i.i)
+  %30 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_(ptr nonnull readonly %1, ptr noundef readonly %29, ptr noundef readonly %.0.val12.i.i.i.i.i.i.i)
   br i1 %30, label %.lr.ph.i.preheader.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_.exit.i.i.i.i.i.i
 
 .lr.ph.i.preheader.i.i.i.i.i.i:                   ; preds = %28
@@ -68563,7 +68563,7 @@ declare noundef zeroext i1 @_ZNK5clang12FunctionDecl23isTemplateInstantiationEv(
 declare noundef ptr @_ZNK5clang12FunctionDecl31getTemplateInstantiationPatternEb(ptr noundef nonnull align 8 dereferenceable(168), i1 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i64 @_ZL24FinishOverloadedCallExprRN5clang4SemaEPNS_5ScopeEPNS_4ExprEPNS_20UnresolvedLookupExprENS_14SourceLocationEN4llvm15MutableArrayRefIS5_EES8_S5_PNS_20OverloadCandidateSetEPPNS_17OverloadCandidateENS_17OverloadingResultEb(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 %4, ptr noundef readonly byval(%"class.llvm::MutableArrayRef.1325") align 8 captures(none) %5, i32 %6, ptr noundef %7, ptr noundef readonly captures(none) %8, ptr captures(address) %.0.val, i32 noundef range(i32 0, 4) %9, i1 noundef zeroext %10) unnamed_addr #5 {
+define internal fastcc i64 @_ZL24FinishOverloadedCallExprRN5clang4SemaEPNS_5ScopeEPNS_4ExprEPNS_20UnresolvedLookupExprENS_14SourceLocationEN4llvm15MutableArrayRefIS5_EES8_S5_PNS_20OverloadCandidateSetEPPNS_17OverloadCandidateENS_17OverloadingResultEb(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 %4, ptr noundef readonly byval(%"class.llvm::MutableArrayRef.1325") align 8 captures(none) %5, i32 %6, ptr noundef %7, ptr noundef readonly captures(none) %8, ptr readonly captures(address) %.0.val, i32 noundef range(i32 0, 4) %9, i1 noundef zeroext %10) unnamed_addr #5 {
   %12 = alloca %"class.clang::CharSourceRange", align 8
   %13 = alloca %"class.clang::CharSourceRange", align 8
   %14 = alloca %"class.(anonymous namespace)::BuildRecoveryCallExprRAII", align 8
@@ -110298,7 +110298,7 @@ declare i64 @_ZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRef
 declare noundef i32 @_ZN5clang13DiagnosticIDs15getCustomDiagIDENS0_14CustomDiagDescE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPKN5clang14DiagnoseIfAttrES4_N9__gnu_cxx5__ops10_Iter_predIZL27diagnoseDiagnoseIfAttrsWithIZNS0_4Sema35diagnoseArgDependentDiagnoseIfAttrsEPKNS0_12FunctionDeclEPKNS0_4ExprEN4llvm8ArrayRefISF_EENS0_14SourceLocationEE3$_0EbRS9_PKNS0_9NamedDeclEbSJ_OT_EUlS3_E_EElESP_SP_SP_T1_T2_T0_SU_"(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #5 {
+define internal fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPKN5clang14DiagnoseIfAttrES4_N9__gnu_cxx5__ops10_Iter_predIZL27diagnoseDiagnoseIfAttrsWithIZNS0_4Sema35diagnoseArgDependentDiagnoseIfAttrsEPKNS0_12FunctionDeclEPKNS0_4ExprEN4llvm8ArrayRefISF_EENS0_14SourceLocationEE3$_0EbRS9_PKNS0_9NamedDeclEbSJ_OT_EUlS3_E_EElESP_SP_SP_T1_T2_T0_SU_"(ptr noundef %0, ptr noundef readnone captures(address) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #5 {
   %6 = icmp eq i64 %2, 1
   br i1 %6, label %_ZSt4moveIPPKN5clang14DiagnoseIfAttrES4_ET0_T_S6_S5_.exit, label %7
 
@@ -110574,7 +110574,7 @@ _ZSt11swap_rangesIPPKN5clang14DiagnoseIfAttrES4_ET0_T_S6_S5_.exit: ; preds = %._
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPKN5clang14DiagnoseIfAttrES4_N9__gnu_cxx5__ops10_Iter_predIZL27diagnoseDiagnoseIfAttrsWithIZNS0_4Sema37diagnoseArgIndependentDiagnoseIfAttrsEPKNS0_9NamedDeclENS0_14SourceLocationEE3$_0EbRS9_SC_bSD_OT_EUlS3_E_EElESG_SG_SG_T1_T2_T0_SL_"(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #5 {
+define internal fastcc noundef ptr @"_ZSt27__stable_partition_adaptiveIPPKN5clang14DiagnoseIfAttrES4_N9__gnu_cxx5__ops10_Iter_predIZL27diagnoseDiagnoseIfAttrsWithIZNS0_4Sema37diagnoseArgIndependentDiagnoseIfAttrsEPKNS0_9NamedDeclENS0_14SourceLocationEE3$_0EbRS9_SC_bSD_OT_EUlS3_E_EElESG_SG_SG_T1_T2_T0_SL_"(ptr noundef %0, ptr noundef readnone captures(address) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #5 {
   %6 = icmp eq i64 %2, 1
   br i1 %6, label %_ZSt4moveIPPKN5clang14DiagnoseIfAttrES4_ET0_T_S6_S5_.exit, label %7
 
@@ -113682,13 +113682,13 @@ _ZSt10__pop_heapIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_
   %176 = getelementptr inbounds i8, ptr %.040, i64 -8
   %.val34.i.i = load ptr, ptr %9, align 8, !tbaa !2012
   %.val35.i.i = load ptr, ptr %175, align 8, !tbaa !2012
-  %177 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_(ptr readonly %3, ptr noundef %.val34.i.i, ptr noundef %.val35.i.i)
+  %177 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_(ptr readonly %3, ptr noundef readonly %.val34.i.i, ptr noundef readonly %.val35.i.i)
   %.val32.i.i = load ptr, ptr %176, align 8, !tbaa !2012
   br i1 %177, label %178, label %190
 
 178:                                              ; preds = %172
   %.val31.i.i = load ptr, ptr %175, align 8, !tbaa !2012
-  %179 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_(ptr readonly %3, ptr noundef %.val31.i.i, ptr noundef %.val32.i.i)
+  %179 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_(ptr readonly %3, ptr noundef readonly %.val31.i.i, ptr noundef readonly %.val32.i.i)
   br i1 %179, label %180, label %183
 
 180:                                              ; preds = %178
@@ -113701,7 +113701,7 @@ _ZSt10__pop_heapIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_
 183:                                              ; preds = %178
   %.val28.i.i = load ptr, ptr %9, align 8, !tbaa !2012
   %.val29.i.i = load ptr, ptr %176, align 8, !tbaa !2012
-  %184 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_(ptr readonly %3, ptr noundef %.val28.i.i, ptr noundef %.val29.i.i)
+  %184 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_(ptr readonly %3, ptr noundef readonly %.val28.i.i, ptr noundef readonly %.val29.i.i)
   %185 = load ptr, ptr %0, align 8, !tbaa !2012
   br i1 %184, label %186, label %188
 
@@ -113719,7 +113719,7 @@ _ZSt10__pop_heapIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_
 
 190:                                              ; preds = %172
   %.val25.i.i = load ptr, ptr %9, align 8, !tbaa !2012
-  %191 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_(ptr readonly %3, ptr noundef %.val25.i.i, ptr noundef %.val32.i.i)
+  %191 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_(ptr readonly %3, ptr noundef readonly %.val25.i.i, ptr noundef readonly %.val32.i.i)
   br i1 %191, label %192, label %195
 
 192:                                              ; preds = %190
@@ -113732,7 +113732,7 @@ _ZSt10__pop_heapIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_
 195:                                              ; preds = %190
   %.val22.i.i = load ptr, ptr %175, align 8, !tbaa !2012
   %.val23.i.i = load ptr, ptr %176, align 8, !tbaa !2012
-  %196 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_(ptr readonly %3, ptr noundef %.val22.i.i, ptr noundef %.val23.i.i)
+  %196 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_(ptr readonly %3, ptr noundef readonly %.val22.i.i, ptr noundef readonly %.val23.i.i)
   %197 = load ptr, ptr %0, align 8, !tbaa !2012
   br i1 %196, label %198, label %200
 
@@ -114024,7 +114024,7 @@ define internal fastcc void @_ZSt16__insertion_sortIPPN5clang21TemplateSpecCandi
   %.pn37 = phi ptr [ %0, %.lr.ph40 ], [ %.038, %_ZSt25__unguarded_linear_insertIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_.exit ]
   %.0.val = load ptr, ptr %.038, align 8, !tbaa !2012
   %.val18 = load ptr, ptr %0, align 8, !tbaa !2012
-  %8 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_(ptr readonly %2, ptr noundef %.0.val, ptr noundef %.val18)
+  %8 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_(ptr readonly %2, ptr noundef readonly %.0.val, ptr noundef readonly %.val18)
   %9 = load ptr, ptr %.038, align 8, !tbaa !2012
   br i1 %8, label %10, label %17
 
@@ -114040,7 +114040,7 @@ define internal fastcc void @_ZSt16__insertion_sortIPPN5clang21TemplateSpecCandi
 
 17:                                               ; preds = %7
   %.0.val12.i = load ptr, ptr %.pn37, align 8, !tbaa !2012
-  %18 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_(ptr readonly %2, ptr noundef %9, ptr noundef %.0.val12.i)
+  %18 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_(ptr readonly %2, ptr noundef readonly %9, ptr noundef readonly %.0.val12.i)
   br i1 %18, label %.lr.ph.i.preheader, label %_ZSt25__unguarded_linear_insertIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_.exit
 
 .lr.ph.i.preheader:                               ; preds = %17

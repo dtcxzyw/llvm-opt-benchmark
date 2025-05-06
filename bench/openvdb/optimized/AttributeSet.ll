@@ -13026,7 +13026,7 @@ return:                                           ; preds = %if.then.i.i.i29, %c
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK7openvdb5v11_06points12AttributeSet10Descriptor17requiresGroupMoveERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERmSB_(ptr noundef nonnull align 8 captures(address) dereferenceable(240) %this, ptr noundef nonnull align 8 dereferenceable(32) %sourceName, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %sourceOffset, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %targetOffset) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK7openvdb5v11_06points12AttributeSet10Descriptor17requiresGroupMoveERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERmSB_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(240) %this, ptr noundef nonnull align 8 dereferenceable(32) %sourceName, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %sourceOffset, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %targetOffset) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call2 = tail call noundef i64 @_ZNK7openvdb5v11_06points12AttributeSet10Descriptor17unusedGroupOffsetEm(ptr noundef nonnull align 8 dereferenceable(240) %this, i64 noundef -1)
   store i64 %call2, ptr %targetOffset, align 8

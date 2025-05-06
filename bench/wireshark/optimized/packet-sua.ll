@@ -1438,7 +1438,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_parameters(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc void @dissect_parameters(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
@@ -2729,7 +2729,7 @@ define internal fastcc void @dissect_affected_destinations_parameter(ptr noundef
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_source_address_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_source_address_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 {
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4)
   store i16 %5, ptr @sua_ri, align 2
   %.not = icmp eq ptr %2, null
@@ -2758,7 +2758,7 @@ define internal fastcc void @dissect_source_address_parameter(ptr noundef %0, pt
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_destination_address_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_destination_address_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 {
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4)
   store i16 %5, ptr @sua_ri, align 2
   %.not = icmp eq ptr %2, null

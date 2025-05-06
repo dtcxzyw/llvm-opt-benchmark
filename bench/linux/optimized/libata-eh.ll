@@ -2809,7 +2809,7 @@ define internal fastcc void @ata_eh_clear_action(ptr noundef %0, ptr noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ata_eh_about_to_do(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @ata_eh_about_to_do(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %0, align 64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %6 = icmp eq ptr %1, null
@@ -2892,7 +2892,7 @@ define dso_local void @ata_eh_about_to_do(ptr noundef %0, ptr noundef captures(a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ata_eh_done(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @ata_eh_done(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %8, label %5
 
@@ -6974,7 +6974,7 @@ define dso_local i32 @ata_link_nr_enabled(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ata_eh_recover(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address) %2, ptr noundef captures(address) %3, ptr noundef captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 align 16 {
+define dso_local i32 @ata_eh_recover(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(address) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 align 16 {
   %7 = alloca %struct.ata_taskfile, align 8
   %8 = alloca %struct.ata_taskfile, align 8
   %9 = alloca [16 x i8], align 16
@@ -9591,7 +9591,7 @@ define internal fastcc range(i32 -94, -95) i32 @ata_eh_set_lpm(ptr noundef nonnu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ata_do_eh(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address) %2, ptr noundef captures(address) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 align 16 {
+define dso_local void @ata_do_eh(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(address) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 align 16 {
   tail call void @ata_eh_autopsy(ptr noundef %0)
   tail call void @ata_eh_report(ptr noundef %0)
   %6 = tail call i32 @ata_eh_recover(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null)

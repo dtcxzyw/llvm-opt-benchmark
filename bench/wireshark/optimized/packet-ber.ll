@@ -1942,7 +1942,7 @@ define noundef i32 @get_ber_identifier(ptr noundef %0, i32 noundef %1, ptr nound
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef i32 @get_ber_length(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define noundef i32 @get_ber_length(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @try_get_ber_length(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 1)
   ret i32 %5
 }
@@ -2091,7 +2091,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %36, 
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @dissect_ber_constrained_octet_string(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef captures(address_is_null) %8) local_unnamed_addr #0 {
+define hidden i32 @dissect_ber_constrained_octet_string(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly captures(address_is_null) %8) local_unnamed_addr #0 {
   %10 = tail call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef 0, i32 noundef 0)
   ret i32 %10
 }
@@ -2479,13 +2479,13 @@ ber_check_length.exit:                            ; preds = %.sink.split.i, %174
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
+define i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = tail call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i32 noundef %5, ptr noundef %6, i32 noundef 0, i32 noundef 0)
   ret i32 %8
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @dissect_ber_octet_string_with_encoding(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #0 {
+define i32 @dissect_ber_octet_string_with_encoding(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = tail call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i32 noundef %5, ptr noundef %6, i32 noundef 0, i32 noundef %7)
   ret i32 %9
 }
@@ -4695,7 +4695,7 @@ define hidden i32 @dissect_ber_GeneralString(ptr noundef %0, ptr noundef %1, ptr
 declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @dissect_ber_relative_oid(i1 noundef zeroext %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
+define i32 @dissect_ber_relative_oid(i1 noundef zeroext %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = tail call fastcc i32 @dissect_ber_any_oid(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i1 noundef zeroext false)
   ret i32 %8
 }
@@ -4880,7 +4880,7 @@ dissect_ber_any_oid_str.exit:                     ; preds = %7, %.sink.split.i
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @dissect_ber_object_identifier(i1 noundef zeroext %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
+define i32 @dissect_ber_object_identifier(i1 noundef zeroext %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = tail call fastcc i32 @dissect_ber_any_oid(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i1 noundef zeroext true)
   ret i32 %8
 }
@@ -6137,7 +6137,7 @@ declare void @proto_tree_add_bitmask_list_value(ptr noundef, ptr noundef, i32 no
 declare ptr @bytes_to_str_maxlen(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @dissect_ber_bitstring(i1 noundef zeroext %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef captures(address_is_null) %9) local_unnamed_addr #0 {
+define i32 @dissect_ber_bitstring(i1 noundef zeroext %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #0 {
   %11 = tail call i32 @dissect_ber_constrained_bitstring(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9)
   ret i32 %11
 }

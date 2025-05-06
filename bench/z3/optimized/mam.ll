@@ -14578,7 +14578,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %202, %208
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #23
   store i32 0, ptr %7, align 4, !tbaa !576
   store i32 0, ptr %8, align 4, !tbaa !576
-  call fastcc void @_ZN12_GLOBAL__N_18compiler14get_stats_coreEP3appRjS3_(ptr noundef nonnull readonly align 8 dereferenceable(176) %0, ptr noundef %37, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  call fastcc void @_ZN12_GLOBAL__N_18compiler14get_stats_coreEP3appRjS3_(ptr noundef nonnull readonly align 8 dereferenceable(176) %0, ptr noundef readonly %37, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %216 = load i32, ptr %8, align 4, !tbaa !576
   %217 = icmp eq i32 %216, 0
   br i1 %217, label %225, label %218
@@ -14670,7 +14670,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit104:         ; preds = %245, %251
 259:                                              ; preds = %195
   store i32 0, ptr %5, align 4, !tbaa !576
   store i32 0, ptr %6, align 4, !tbaa !576
-  call fastcc void @_ZN12_GLOBAL__N_18compiler14get_stats_coreEP3appRjS3_(ptr noundef nonnull readonly align 8 dereferenceable(176) %0, ptr noundef %37, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  call fastcc void @_ZN12_GLOBAL__N_18compiler14get_stats_coreEP3appRjS3_(ptr noundef nonnull readonly align 8 dereferenceable(176) %0, ptr noundef readonly %37, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   br label %260
 
 260:                                              ; preds = %_ZN6vectorIPN12_GLOBAL__N_111instructionELb0EjE9push_backEOS2_.exit90, %_ZN6vectorIjLb0EjE9push_backERKj.exit, %258, %259, %_ZN6vectorIPN12_GLOBAL__N_111instructionELb0EjE9push_backEOS2_.exit, %71, %_ZN6vectorIPN12_GLOBAL__N_111instructionELb0EjE9push_backEOS2_.exit86

@@ -120,7 +120,7 @@ define internal void @evdev_event(ptr noundef readonly captures(none) %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @evdev_events(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1, i32 noundef %2) #2 align 16 {
+define internal void @evdev_events(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) #2 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8

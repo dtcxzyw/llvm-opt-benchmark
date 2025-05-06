@@ -3050,7 +3050,7 @@ declare ptr @make_andclause(ptr noundef) local_unnamed_addr #3
 declare void @ProcessInterrupts() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @is_simple_subquery(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc zeroext i1 @is_simple_subquery(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
   %5 = load i32, ptr %1, align 4
   %6 = icmp eq i32 %5, 67
   br i1 %6, label %7, label %10
@@ -3195,7 +3195,7 @@ define internal fastcc zeroext i1 @is_simple_subquery(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pull_up_simple_subquery(ptr noundef %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 {
+define internal fastcc ptr @pull_up_simple_subquery(ptr noundef %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca %struct.substitute_phv_relids_context, align 8
   %7 = alloca %struct.substitute_phv_relids_context, align 8
   %8 = alloca ptr, align 8
@@ -4982,7 +4982,7 @@ find_dependent_phvs_walker.exit.thread:           ; preds = %.critedge, %find_de
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @remove_result_refs(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc void @remove_result_refs(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = alloca %struct.substitute_phv_relids_context, align 8
   %5 = alloca %struct.substitute_phv_relids_context, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16

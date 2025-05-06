@@ -12410,19 +12410,19 @@ _ZNSt6vectorIS_IN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_9RoseGra
   store float 1.000000e+00, ptr %4161, align 8
   %4162 = getelementptr inbounds nuw i8, ptr %47, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4162, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN3ue2L18buildIncludedIdMapERSt13unordered_mapIjSt4pairIjhESt4hashIjESt8equal_toIjESaIS1_IKjS2_EEEPKNS_8LitProtoE(ptr noundef nonnull align 8 dereferenceable(56) %46, ptr noundef %4149)
+  invoke fastcc void @_ZN3ue2L18buildIncludedIdMapERSt13unordered_mapIjSt4pairIjhESt4hashIjESt8equal_toIjESaIS1_IKjS2_EEEPKNS_8LitProtoE(ptr noundef nonnull align 8 dereferenceable(56) %46, ptr noundef readonly %4149)
           to label %4163 unwind label %4175
 
 4163:                                             ; preds = %.noexc576
-  invoke fastcc void @_ZN3ue2L18buildIncludedIdMapERSt13unordered_mapIjSt4pairIjhESt4hashIjESt8equal_toIjESaIS1_IKjS2_EEEPKNS_8LitProtoE(ptr noundef nonnull align 8 dereferenceable(56) %47, ptr noundef %4150)
+  invoke fastcc void @_ZN3ue2L18buildIncludedIdMapERSt13unordered_mapIjSt4pairIjhESt4hashIjESt8equal_toIjESaIS1_IKjS2_EEEPKNS_8LitProtoE(ptr noundef nonnull align 8 dereferenceable(56) %47, ptr noundef readonly %4150)
           to label %4164 unwind label %4175
 
 4164:                                             ; preds = %4163
-  invoke fastcc void @_ZN3ue2L18buildIncludedIdMapERSt13unordered_mapIjSt4pairIjhESt4hashIjESt8equal_toIjESaIS1_IKjS2_EEEPKNS_8LitProtoE(ptr noundef nonnull align 8 dereferenceable(56) %46, ptr noundef %4151)
+  invoke fastcc void @_ZN3ue2L18buildIncludedIdMapERSt13unordered_mapIjSt4pairIjhESt4hashIjESt8equal_toIjESaIS1_IKjS2_EEEPKNS_8LitProtoE(ptr noundef nonnull align 8 dereferenceable(56) %46, ptr noundef readonly %4151)
           to label %4165 unwind label %4175
 
 4165:                                             ; preds = %4164
-  invoke fastcc void @_ZN3ue2L18buildIncludedIdMapERSt13unordered_mapIjSt4pairIjhESt4hashIjESt8equal_toIjESaIS1_IKjS2_EEEPKNS_8LitProtoE(ptr noundef nonnull align 8 dereferenceable(56) %46, ptr noundef %4152)
+  invoke fastcc void @_ZN3ue2L18buildIncludedIdMapERSt13unordered_mapIjSt4pairIjhESt4hashIjESt8equal_toIjESaIS1_IKjS2_EEEPKNS_8LitProtoE(ptr noundef nonnull align 8 dereferenceable(56) %46, ptr noundef readonly %4152)
           to label %4166 unwind label %4175
 
 4166:                                             ; preds = %4165
@@ -26065,7 +26065,7 @@ _ZNKSt3mapIjSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_
   %956 = load i32, ptr %955, align 4
   store i32 %956, ptr %667, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %42) #27
-  invoke fastcc void @_ZN3ue2L11makeLeftNfaERKNS_13RoseBuildImplERNS_7left_idEbbRKSt3mapIS3_St3setINS_12_GLOBAL__N_111PredTopPairESt4lessIS8_ESaIS8_EES9_IS3_ESaISt4pairIKS3_SC_EEERKNS_14CompileContextE(ptr dead_on_unwind noalias writable align 8 %42, ptr noundef nonnull align 8 dereferenceable(780) %0, ptr noundef nonnull align 8 dereferenceable(40) %41, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(48) %57, ptr noundef nonnull align 8 dereferenceable(320) %657)
+  invoke fastcc void @_ZN3ue2L11makeLeftNfaERKNS_13RoseBuildImplERNS_7left_idEbbRKSt3mapIS3_St3setINS_12_GLOBAL__N_111PredTopPairESt4lessIS8_ESaIS8_EES9_IS3_ESaISt4pairIKS3_SC_EEERKNS_14CompileContextE(ptr dead_on_unwind noalias writable align 8 %42, ptr noundef nonnull align 8 dereferenceable(780) %0, ptr noundef nonnull align 8 dereferenceable(40) %41, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull readonly align 8 dereferenceable(48) %57, ptr noundef nonnull align 8 dereferenceable(320) %657)
           to label %957 unwind label %1036
 
 957:                                              ; preds = %943
@@ -29860,7 +29860,7 @@ _ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit.i:        ; preds = %_ZN3ue28containsISt
 
 _ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit122.i:     ; preds = %_ZN3ue28containsISt3mapINS_7left_idENS_10eager_infoESt4lessIS2_ESaISt4pairIKS2_S3_EEEEEbRKT_RKNSB_8key_typeE.exit.thread.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #27
-  invoke fastcc void @_ZN3ue2L11makeLeftNfaERKNS_13RoseBuildImplERNS_7left_idEbbRKSt3mapIS3_St3setINS_12_GLOBAL__N_111PredTopPairESt4lessIS8_ESaIS8_EES9_IS3_ESaISt4pairIKS3_SC_EEERKNS_14CompileContextE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(780) %0, ptr noundef nonnull align 8 dereferenceable(40) %21, i1 noundef zeroext %5, i1 noundef zeroext %2184, ptr noundef nonnull align 8 dereferenceable(48) %57, ptr noundef nonnull align 8 dereferenceable(320) %2181)
+  invoke fastcc void @_ZN3ue2L11makeLeftNfaERKNS_13RoseBuildImplERNS_7left_idEbbRKSt3mapIS3_St3setINS_12_GLOBAL__N_111PredTopPairESt4lessIS8_ESaIS8_EES9_IS3_ESaISt4pairIKS3_SC_EEERKNS_14CompileContextE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(780) %0, ptr noundef nonnull align 8 dereferenceable(40) %21, i1 noundef zeroext %5, i1 noundef zeroext %2184, ptr noundef nonnull readonly align 8 dereferenceable(48) %57, ptr noundef nonnull align 8 dereferenceable(320) %2181)
           to label %.noexc318 unwind label %.loopexit368
 
 .noexc318:                                        ; preds = %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit122.i
@@ -41152,7 +41152,7 @@ _ZNSt16allocator_traitsISaISt6vectorIN3ue29CharReachESaIS2_EEEE8allocateERS5_m.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L11makeLeftNfaERKNS_13RoseBuildImplERNS_7left_idEbbRKSt3mapIS3_St3setINS_12_GLOBAL__N_111PredTopPairESt4lessIS8_ESaIS8_EES9_IS3_ESaISt4pairIKS3_SC_EEERKNS_14CompileContextE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(780) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(320) %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L11makeLeftNfaERKNS_13RoseBuildImplERNS_7left_idEbbRKSt3mapIS3_St3setINS_12_GLOBAL__N_111PredTopPairESt4lessIS8_ESaIS8_EES9_IS3_ESaISt4pairIKS3_SC_EEERKNS_14CompileContextE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(780) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(320) %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::map.308", align 8
   %9 = alloca %"class.std::map.576", align 8
   %10 = alloca %"class.ue2::bytecode_ptr.534", align 8

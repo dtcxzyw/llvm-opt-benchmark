@@ -8018,7 +8018,7 @@ return:                                           ; preds = %if.end15, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN2EA4StdC8StrtoI32EPKcPPci(ptr noundef %pValue, ptr noundef captures(address_is_null) %ppEnd, i32 noundef %nBase) local_unnamed_addr #2 {
+define dso_local noundef i32 @_ZN2EA4StdC8StrtoI32EPKcPPci(ptr noundef %pValue, ptr noundef writeonly captures(address_is_null) %ppEnd, i32 noundef %nBase) local_unnamed_addr #2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN2EA4StdCL14StrtoU64CommonEPKcPPcib(ptr noundef %pValue, ptr noundef %ppEnd, i32 noundef %nBase, i1 noundef zeroext false)
   %cmp = icmp slt i64 %call, -2147483648
@@ -8167,7 +8167,7 @@ return:                                           ; preds = %if.end15, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN2EA4StdC8StrtoI32EPKDsPPDsi(ptr noundef %pValue, ptr noundef captures(address_is_null) %ppEnd, i32 noundef %nBase) local_unnamed_addr #2 {
+define dso_local noundef i32 @_ZN2EA4StdC8StrtoI32EPKDsPPDsi(ptr noundef %pValue, ptr noundef writeonly captures(address_is_null) %ppEnd, i32 noundef %nBase) local_unnamed_addr #2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN2EA4StdCL14StrtoU64CommonEPKDsPPDsib(ptr noundef %pValue, ptr noundef %ppEnd, i32 noundef %nBase, i1 noundef zeroext false)
   %cmp = icmp slt i64 %call, -2147483648
@@ -11572,7 +11572,7 @@ return:                                           ; preds = %if.then10, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN2EA4StdC8StrtoI32EPKDiPPDii(ptr noundef %pValue, ptr noundef captures(address_is_null) %ppEnd, i32 noundef %nBase) local_unnamed_addr #2 {
+define dso_local noundef i32 @_ZN2EA4StdC8StrtoI32EPKDiPPDii(ptr noundef %pValue, ptr noundef writeonly captures(address_is_null) %ppEnd, i32 noundef %nBase) local_unnamed_addr #2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN2EA4StdCL14StrtoU64CommonEPKDiPPDiib(ptr noundef %pValue, ptr noundef %ppEnd, i32 noundef %nBase, i1 noundef zeroext false)
   %cmp = icmp slt i64 %call, -2147483648
@@ -11814,7 +11814,7 @@ return:                                           ; preds = %if.then9, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN2EA4StdC8StrtoU32EPKcPPci(ptr noundef %pValue, ptr noundef captures(address_is_null) %ppEnd, i32 noundef %nBase) local_unnamed_addr #2 {
+define dso_local noundef i32 @_ZN2EA4StdC8StrtoU32EPKcPPci(ptr noundef %pValue, ptr noundef writeonly captures(address_is_null) %ppEnd, i32 noundef %nBase) local_unnamed_addr #2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN2EA4StdCL14StrtoU64CommonEPKcPPcib(ptr noundef %pValue, ptr noundef %ppEnd, i32 noundef %nBase, i1 noundef zeroext true)
   %cmp = icmp ugt i64 %call, 4294967295
@@ -11836,7 +11836,7 @@ return:                                           ; preds = %if.end4, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN2EA4StdC8StrtoU32EPKDsPPDsi(ptr noundef %pValue, ptr noundef captures(address_is_null) %ppEnd, i32 noundef %nBase) local_unnamed_addr #2 {
+define dso_local noundef i32 @_ZN2EA4StdC8StrtoU32EPKDsPPDsi(ptr noundef %pValue, ptr noundef writeonly captures(address_is_null) %ppEnd, i32 noundef %nBase) local_unnamed_addr #2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN2EA4StdCL14StrtoU64CommonEPKDsPPDsib(ptr noundef %pValue, ptr noundef %ppEnd, i32 noundef %nBase, i1 noundef zeroext true)
   %cmp = icmp ugt i64 %call, 4294967295
@@ -11858,7 +11858,7 @@ return:                                           ; preds = %if.end4, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN2EA4StdC8StrtoU32EPKDiPPDii(ptr noundef %pValue, ptr noundef captures(address_is_null) %ppEnd, i32 noundef %nBase) local_unnamed_addr #2 {
+define dso_local noundef i32 @_ZN2EA4StdC8StrtoU32EPKDiPPDii(ptr noundef %pValue, ptr noundef writeonly captures(address_is_null) %ppEnd, i32 noundef %nBase) local_unnamed_addr #2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN2EA4StdCL14StrtoU64CommonEPKDiPPDiib(ptr noundef %pValue, ptr noundef %ppEnd, i32 noundef %nBase, i1 noundef zeroext true)
   %cmp = icmp ugt i64 %call, 4294967295
@@ -11880,42 +11880,42 @@ return:                                           ; preds = %if.end4, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN2EA4StdC8StrtoI64EPKcPPci(ptr noundef %pString, ptr noundef captures(address_is_null) %ppStringEnd, i32 noundef %nBase) local_unnamed_addr #31 {
+define dso_local noundef i64 @_ZN2EA4StdC8StrtoI64EPKcPPci(ptr noundef %pString, ptr noundef writeonly captures(address_is_null) %ppStringEnd, i32 noundef %nBase) local_unnamed_addr #31 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN2EA4StdCL14StrtoU64CommonEPKcPPcib(ptr noundef %pString, ptr noundef %ppStringEnd, i32 noundef %nBase, i1 noundef zeroext false)
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2EA4StdC8StrtoI64EPKDsPPDsi(ptr noundef %pString, ptr noundef captures(address_is_null) %ppStringEnd, i32 noundef %nBase) local_unnamed_addr #2 {
+define dso_local noundef i64 @_ZN2EA4StdC8StrtoI64EPKDsPPDsi(ptr noundef %pString, ptr noundef writeonly captures(address_is_null) %ppStringEnd, i32 noundef %nBase) local_unnamed_addr #2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN2EA4StdCL14StrtoU64CommonEPKDsPPDsib(ptr noundef %pString, ptr noundef %ppStringEnd, i32 noundef %nBase, i1 noundef zeroext false)
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2EA4StdC8StrtoI64EPKDiPPDii(ptr noundef %pString, ptr noundef captures(address_is_null) %ppStringEnd, i32 noundef %nBase) local_unnamed_addr #2 {
+define dso_local noundef i64 @_ZN2EA4StdC8StrtoI64EPKDiPPDii(ptr noundef %pString, ptr noundef writeonly captures(address_is_null) %ppStringEnd, i32 noundef %nBase) local_unnamed_addr #2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN2EA4StdCL14StrtoU64CommonEPKDiPPDiib(ptr noundef %pString, ptr noundef %ppStringEnd, i32 noundef %nBase, i1 noundef zeroext false)
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN2EA4StdC8StrtoU64EPKcPPci(ptr noundef %pString, ptr noundef captures(address_is_null) %ppStringEnd, i32 noundef %nBase) local_unnamed_addr #31 {
+define dso_local noundef i64 @_ZN2EA4StdC8StrtoU64EPKcPPci(ptr noundef %pString, ptr noundef writeonly captures(address_is_null) %ppStringEnd, i32 noundef %nBase) local_unnamed_addr #31 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN2EA4StdCL14StrtoU64CommonEPKcPPcib(ptr noundef %pString, ptr noundef %ppStringEnd, i32 noundef %nBase, i1 noundef zeroext true)
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2EA4StdC8StrtoU64EPKDsPPDsi(ptr noundef %pString, ptr noundef captures(address_is_null) %ppStringEnd, i32 noundef %nBase) local_unnamed_addr #2 {
+define dso_local noundef i64 @_ZN2EA4StdC8StrtoU64EPKDsPPDsi(ptr noundef %pString, ptr noundef writeonly captures(address_is_null) %ppStringEnd, i32 noundef %nBase) local_unnamed_addr #2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN2EA4StdCL14StrtoU64CommonEPKDsPPDsib(ptr noundef %pString, ptr noundef %ppStringEnd, i32 noundef %nBase, i1 noundef zeroext true)
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2EA4StdC8StrtoU64EPKDiPPDii(ptr noundef %pString, ptr noundef captures(address_is_null) %ppStringEnd, i32 noundef %nBase) local_unnamed_addr #2 {
+define dso_local noundef i64 @_ZN2EA4StdC8StrtoU64EPKDiPPDii(ptr noundef %pString, ptr noundef writeonly captures(address_is_null) %ppStringEnd, i32 noundef %nBase) local_unnamed_addr #2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN2EA4StdCL14StrtoU64CommonEPKDiPPDiib(ptr noundef %pString, ptr noundef %ppStringEnd, i32 noundef %nBase, i1 noundef zeroext true)
   ret i64 %call

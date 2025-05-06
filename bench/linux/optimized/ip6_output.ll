@@ -3769,7 +3769,7 @@ declare dso_local ptr @sk_dst_check(ptr noundef, i32 noundef) local_unnamed_addr
 declare dso_local void @ip6_sk_dst_store_flow(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ip6_append_data(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef %7, i32 noundef %8) #0 align 16 {
+define dso_local i32 @ip6_append_data(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef %7, i32 noundef %8) #0 align 16 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %11 = load volatile i8, ptr %10, align 2
   %12 = zext nneg i8 %11 to i32
@@ -6178,7 +6178,7 @@ ip6_cork_release.exit:                            ; preds = %65, %69
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @ip6_make_skb(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef captures(none) %5, ptr noundef %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #0 align 16 {
+define dso_local ptr @ip6_make_skb(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef captures(none) %5, ptr noundef %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #0 align 16 {
   %10 = alloca %struct.inet6_cork, align 8
   %11 = alloca %struct.sk_buff_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13

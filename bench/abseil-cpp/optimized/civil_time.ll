@@ -2292,13 +2292,13 @@ _ZN4absl12_GLOBAL__N_112ParseYearAndINS_13time_internal4cctz6detail10civil_timeI
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl21ParseLenientCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10second_tagEEE(i64 %0, ptr captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4absl21ParseLenientCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10second_tagEEE(i64 %0, ptr readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::time_internal::cctz::detail::civil_time.0", align 8
   %5 = alloca %"class.absl::time_internal::cctz::detail::civil_time.3", align 8
   %6 = alloca %"class.absl::time_internal::cctz::detail::civil_time.1", align 8
   %7 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
   %8 = alloca %"class.absl::time_internal::cctz::detail::civil_time.2", align 8
-  %9 = tail call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10second_tagEEE(i64 %0, ptr %1, ptr noundef %2)
+  %9 = tail call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10second_tagEEE(i64 %0, ptr readonly %1, ptr noundef %2)
   br i1 %9, label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit, label %10
 
 10:                                               ; preds = %3
@@ -2314,7 +2314,7 @@ define dso_local noundef zeroext i1 @_ZN4absl21ParseLenientCivilTimeESt17basic_s
   store i8 0, ptr %14, align 1, !tbaa !36
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i8 0, ptr %15, align 4, !tbaa !37
-  %16 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_7day_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %8)
+  %16 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_7day_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %8)
   br i1 %16, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %17
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %10
@@ -2341,7 +2341,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7d
   store i8 0, ptr %21, align 1
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i8 0, ptr %22, align 4
-  %23 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10second_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %7)
+  %23 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10second_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %7)
   br i1 %23, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %24
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %17
@@ -2363,7 +2363,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10
   store i8 0, ptr %28, align 1, !tbaa !36
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i8 0, ptr %29, align 4, !tbaa !37
-  %30 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8hour_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %6)
+  %30 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8hour_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %6)
   br i1 %30, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %31
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %24
@@ -2390,7 +2390,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8h
   store i8 0, ptr %35, align 1, !tbaa !36
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 0, ptr %36, align 4, !tbaa !37
-  %37 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_9month_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %5)
+  %37 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_9month_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %5)
   br i1 %37, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %38
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %31
@@ -2417,7 +2417,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9m
   store i8 0, ptr %42, align 1, !tbaa !36
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 0, ptr %43, align 4, !tbaa !37
-  %44 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10minute_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %4)
+  %44 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10minute_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %4)
   br i1 %44, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %45
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %38
@@ -2432,7 +2432,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10
 
 45:                                               ; preds = %38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
-  %46 = tail call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %0, ptr %1, ptr noundef %2)
+  %46 = tail call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %0, ptr readonly %1, ptr noundef %2)
   br label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit
 
 _ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit: ; preds = %3, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %45
@@ -2441,13 +2441,13 @@ _ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeI
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl21ParseLenientCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10minute_tagEEE(i64 %0, ptr captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4absl21ParseLenientCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10minute_tagEEE(i64 %0, ptr readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::time_internal::cctz::detail::civil_time.0", align 8
   %5 = alloca %"class.absl::time_internal::cctz::detail::civil_time.3", align 8
   %6 = alloca %"class.absl::time_internal::cctz::detail::civil_time.1", align 8
   %7 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
   %8 = alloca %"class.absl::time_internal::cctz::detail::civil_time.2", align 8
-  %9 = tail call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10minute_tagEEE(i64 %0, ptr %1, ptr noundef %2)
+  %9 = tail call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10minute_tagEEE(i64 %0, ptr readonly %1, ptr noundef %2)
   br i1 %9, label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit, label %10
 
 10:                                               ; preds = %3
@@ -2463,7 +2463,7 @@ define dso_local noundef zeroext i1 @_ZN4absl21ParseLenientCivilTimeESt17basic_s
   store i8 0, ptr %14, align 1, !tbaa !36
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i8 0, ptr %15, align 4, !tbaa !37
-  %16 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_7day_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %8)
+  %16 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_7day_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %8)
   br i1 %16, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEENS5_INS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %17
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEENS5_INS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %10
@@ -2491,7 +2491,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7d
   store i8 0, ptr %21, align 1, !tbaa !36
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i8 0, ptr %22, align 4, !tbaa !37
-  %23 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10second_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %7)
+  %23 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10second_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %7)
   br i1 %23, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEENS5_INS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %24
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEENS5_INS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %17
@@ -2519,7 +2519,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10
   store i8 0, ptr %28, align 1, !tbaa !36
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i8 0, ptr %29, align 4, !tbaa !37
-  %30 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8hour_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %6)
+  %30 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8hour_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %6)
   br i1 %30, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEENS5_INS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %31
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEENS5_INS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %24
@@ -2547,7 +2547,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8h
   store i8 0, ptr %35, align 1, !tbaa !36
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 0, ptr %36, align 4, !tbaa !37
-  %37 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_9month_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %5)
+  %37 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_9month_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %5)
   br i1 %37, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEENS5_INS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %38
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEENS5_INS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %31
@@ -2575,7 +2575,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9m
   store i8 0, ptr %42, align 1
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 0, ptr %43, align 4
-  %44 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10minute_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %4)
+  %44 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10minute_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %4)
   br i1 %44, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %45
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %38
@@ -2585,7 +2585,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10
 
 45:                                               ; preds = %38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %46 = tail call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %0, ptr %1, ptr noundef %2)
+  %46 = tail call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %0, ptr readonly %1, ptr noundef %2)
   br label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit
 
 _ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit: ; preds = %3, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEENS5_INS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEENS5_INS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEENS5_INS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEENS5_INS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %45
@@ -2594,13 +2594,13 @@ _ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeI
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl21ParseLenientCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8hour_tagEEE(i64 %0, ptr captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4absl21ParseLenientCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8hour_tagEEE(i64 %0, ptr readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::time_internal::cctz::detail::civil_time.0", align 8
   %5 = alloca %"class.absl::time_internal::cctz::detail::civil_time.3", align 8
   %6 = alloca %"class.absl::time_internal::cctz::detail::civil_time.1", align 8
   %7 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
   %8 = alloca %"class.absl::time_internal::cctz::detail::civil_time.2", align 8
-  %9 = tail call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8hour_tagEEE(i64 %0, ptr %1, ptr noundef %2)
+  %9 = tail call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8hour_tagEEE(i64 %0, ptr readonly %1, ptr noundef %2)
   br i1 %9, label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit, label %10
 
 10:                                               ; preds = %3
@@ -2616,7 +2616,7 @@ define dso_local noundef zeroext i1 @_ZN4absl21ParseLenientCivilTimeESt17basic_s
   store i8 0, ptr %14, align 1, !tbaa !36
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i8 0, ptr %15, align 4, !tbaa !37
-  %16 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_7day_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %8)
+  %16 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_7day_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %8)
   br i1 %16, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEENS5_INS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %17
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEENS5_INS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %10
@@ -2644,7 +2644,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7d
   store i8 0, ptr %21, align 1, !tbaa !36
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i8 0, ptr %22, align 4, !tbaa !37
-  %23 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10second_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %7)
+  %23 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10second_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %7)
   br i1 %23, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEENS5_INS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %24
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEENS5_INS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %17
@@ -2672,7 +2672,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10
   store i8 0, ptr %28, align 1
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i8 0, ptr %29, align 4
-  %30 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8hour_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %6)
+  %30 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8hour_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %6)
   br i1 %30, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %31
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %24
@@ -2694,7 +2694,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8h
   store i8 0, ptr %35, align 1, !tbaa !36
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 0, ptr %36, align 4, !tbaa !37
-  %37 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_9month_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %5)
+  %37 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_9month_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %5)
   br i1 %37, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEENS5_INS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %38
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEENS5_INS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %31
@@ -2722,7 +2722,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9m
   store i8 0, ptr %42, align 1, !tbaa !36
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 0, ptr %43, align 4, !tbaa !37
-  %44 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10minute_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %4)
+  %44 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10minute_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %4)
   br i1 %44, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEENS5_INS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %45
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEENS5_INS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %38
@@ -2738,7 +2738,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10
 
 45:                                               ; preds = %38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
-  %46 = tail call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %0, ptr %1, ptr noundef %2)
+  %46 = tail call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %0, ptr readonly %1, ptr noundef %2)
   br label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit
 
 _ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit: ; preds = %3, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEENS5_INS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEENS5_INS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEENS5_INS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEENS5_INS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %45
@@ -2747,13 +2747,13 @@ _ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeI
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl21ParseLenientCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_7day_tagEEE(i64 %0, ptr captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4absl21ParseLenientCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_7day_tagEEE(i64 %0, ptr readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::time_internal::cctz::detail::civil_time.0", align 8
   %5 = alloca %"class.absl::time_internal::cctz::detail::civil_time.3", align 8
   %6 = alloca %"class.absl::time_internal::cctz::detail::civil_time.1", align 8
   %7 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
   %8 = alloca %"class.absl::time_internal::cctz::detail::civil_time.2", align 8
-  %9 = tail call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_7day_tagEEE(i64 %0, ptr %1, ptr noundef %2)
+  %9 = tail call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_7day_tagEEE(i64 %0, ptr readonly %1, ptr noundef %2)
   br i1 %9, label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit, label %10
 
 10:                                               ; preds = %3
@@ -2769,7 +2769,7 @@ define dso_local noundef zeroext i1 @_ZN4absl21ParseLenientCivilTimeESt17basic_s
   store i8 0, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i8 0, ptr %15, align 4
-  %16 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_7day_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %8)
+  %16 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_7day_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %8)
   br i1 %16, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %17
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %10
@@ -2791,7 +2791,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7d
   store i8 0, ptr %21, align 1, !tbaa !36
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i8 0, ptr %22, align 4, !tbaa !37
-  %23 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10second_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %7)
+  %23 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10second_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %7)
   br i1 %23, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEENS5_INS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %24
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEENS5_INS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %17
@@ -2819,7 +2819,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10
   store i8 0, ptr %28, align 1, !tbaa !36
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i8 0, ptr %29, align 4, !tbaa !37
-  %30 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8hour_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %6)
+  %30 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8hour_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %6)
   br i1 %30, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEENS5_INS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %31
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEENS5_INS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %24
@@ -2847,7 +2847,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8h
   store i8 0, ptr %35, align 1, !tbaa !36
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 0, ptr %36, align 4, !tbaa !37
-  %37 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_9month_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %5)
+  %37 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_9month_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %5)
   br i1 %37, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEENS5_INS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %38
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEENS5_INS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %31
@@ -2875,7 +2875,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9m
   store i8 0, ptr %42, align 1, !tbaa !36
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 0, ptr %43, align 4, !tbaa !37
-  %44 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10minute_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %4)
+  %44 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10minute_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %4)
   br i1 %44, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEENS5_INS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %45
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEENS5_INS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %38
@@ -2891,7 +2891,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10
 
 45:                                               ; preds = %38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
-  %46 = tail call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %0, ptr %1, ptr noundef %2)
+  %46 = tail call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %0, ptr readonly %1, ptr noundef %2)
   br label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit
 
 _ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit: ; preds = %3, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEENS5_INS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEENS5_INS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEENS5_INS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEENS5_INS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %45
@@ -2900,13 +2900,13 @@ _ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeI
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl21ParseLenientCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_9month_tagEEE(i64 %0, ptr captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4absl21ParseLenientCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_9month_tagEEE(i64 %0, ptr readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::time_internal::cctz::detail::civil_time.0", align 8
   %5 = alloca %"class.absl::time_internal::cctz::detail::civil_time.3", align 8
   %6 = alloca %"class.absl::time_internal::cctz::detail::civil_time.1", align 8
   %7 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
   %8 = alloca %"class.absl::time_internal::cctz::detail::civil_time.2", align 8
-  %9 = tail call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_9month_tagEEE(i64 %0, ptr %1, ptr noundef %2)
+  %9 = tail call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_9month_tagEEE(i64 %0, ptr readonly %1, ptr noundef %2)
   br i1 %9, label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit, label %10
 
 10:                                               ; preds = %3
@@ -2922,7 +2922,7 @@ define dso_local noundef zeroext i1 @_ZN4absl21ParseLenientCivilTimeESt17basic_s
   store i8 0, ptr %14, align 1, !tbaa !36
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i8 0, ptr %15, align 4, !tbaa !37
-  %16 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_7day_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %8)
+  %16 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_7day_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %8)
   br i1 %16, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEENS5_INS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %17
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEENS5_INS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %10
@@ -2951,7 +2951,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7d
   store i8 0, ptr %21, align 1, !tbaa !36
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i8 0, ptr %22, align 4, !tbaa !37
-  %23 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10second_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %7)
+  %23 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10second_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %7)
   br i1 %23, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEENS5_INS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %24
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEENS5_INS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %17
@@ -2980,7 +2980,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10
   store i8 0, ptr %28, align 1, !tbaa !36
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i8 0, ptr %29, align 4, !tbaa !37
-  %30 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8hour_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %6)
+  %30 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8hour_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %6)
   br i1 %30, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEENS5_INS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %31
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEENS5_INS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %24
@@ -3009,7 +3009,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8h
   store i8 0, ptr %35, align 1
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 0, ptr %36, align 4
-  %37 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_9month_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %5)
+  %37 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_9month_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %5)
   br i1 %37, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %38
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %31
@@ -3031,7 +3031,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9m
   store i8 0, ptr %42, align 1, !tbaa !36
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 0, ptr %43, align 4, !tbaa !37
-  %44 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10minute_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %4)
+  %44 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10minute_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %4)
   br i1 %44, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEENS5_INS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %45
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEENS5_INS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %38
@@ -3048,7 +3048,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10
 
 45:                                               ; preds = %38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
-  %46 = tail call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %0, ptr %1, ptr noundef %2)
+  %46 = tail call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %0, ptr readonly %1, ptr noundef %2)
   br label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit
 
 _ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit: ; preds = %3, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEENS5_INS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEENS5_INS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEENS5_INS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEENS5_INS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %45
@@ -3057,19 +3057,19 @@ _ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeI
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl21ParseLenientCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8year_tagEEE(i64 %0, ptr captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4absl21ParseLenientCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8year_tagEEE(i64 %0, ptr readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::time_internal::cctz::detail::civil_time.0", align 8
   %5 = alloca %"class.absl::time_internal::cctz::detail::civil_time.3", align 8
   %6 = alloca %"class.absl::time_internal::cctz::detail::civil_time.1", align 8
   %7 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
   %8 = alloca %"class.absl::time_internal::cctz::detail::civil_time.2", align 8
-  %9 = tail call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8year_tagEEE(i64 %0, ptr %1, ptr noundef %2)
+  %9 = tail call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8year_tagEEE(i64 %0, ptr readonly %1, ptr noundef %2)
   br i1 %9, label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit, label %10
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #12
   store i64 1970, ptr %8, align 8, !tbaa !31
-  %11 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_7day_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %8)
+  %11 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_7day_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %8)
   br i1 %11, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEENS5_INS2_8year_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %12
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEENS5_INS2_8year_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %10
@@ -3084,7 +3084,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7d
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
   store i64 1970, ptr %7, align 8, !tbaa !31
-  %13 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10second_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %7)
+  %13 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10second_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %7)
   br i1 %13, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEENS5_INS2_8year_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %14
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEENS5_INS2_8year_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %12
@@ -3099,7 +3099,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
   store i64 1970, ptr %6, align 8, !tbaa !31
-  %15 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8hour_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %6)
+  %15 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8hour_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %6)
   br i1 %15, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEENS5_INS2_8year_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %16
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEENS5_INS2_8year_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %14
@@ -3114,7 +3114,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8h
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
   store i64 1970, ptr %5, align 8, !tbaa !31
-  %17 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_9month_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %5)
+  %17 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_9month_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %5)
   br i1 %17, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEENS5_INS2_8year_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %18
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEENS5_INS2_8year_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %16
@@ -3129,7 +3129,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9m
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
   store i64 1970, ptr %4, align 8, !tbaa !31
-  %19 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10minute_tagEEE(i64 %0, ptr %1, ptr noundef nonnull %4)
+  %19 = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10minute_tagEEE(i64 %0, ptr readonly %1, ptr noundef nonnull %4)
   br i1 %19, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEENS5_INS2_8year_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %20
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEENS5_INS2_8year_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %18
@@ -3142,7 +3142,7 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10
 
 20:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
-  %21 = tail call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %0, ptr %1, ptr noundef %2)
+  %21 = tail call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %0, ptr readonly %1, ptr noundef %2)
   br label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit
 
 _ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit: ; preds = %3, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEENS5_INS2_8year_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEENS5_INS2_8year_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEENS5_INS2_8year_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEENS5_INS2_8year_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEENS5_INS2_8year_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, %20
@@ -3512,37 +3512,37 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl13time_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPNS0_4cctz6detail10civil_timeINS0_10second_tagEEEPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %0, ptr captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl13time_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPNS0_4cctz6detail10civil_timeINS0_10second_tagEEEPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %0, ptr readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call noundef zeroext i1 @_ZN4absl21ParseLenientCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10second_tagEEE(i64 %0, ptr %1, ptr noundef %2)
   ret i1 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl13time_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPNS0_4cctz6detail10civil_timeINS0_10minute_tagEEEPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %0, ptr captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl13time_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPNS0_4cctz6detail10civil_timeINS0_10minute_tagEEEPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %0, ptr readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call noundef zeroext i1 @_ZN4absl21ParseLenientCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10minute_tagEEE(i64 %0, ptr %1, ptr noundef %2)
   ret i1 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl13time_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPNS0_4cctz6detail10civil_timeINS0_8hour_tagEEEPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %0, ptr captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl13time_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPNS0_4cctz6detail10civil_timeINS0_8hour_tagEEEPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %0, ptr readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call noundef zeroext i1 @_ZN4absl21ParseLenientCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8hour_tagEEE(i64 %0, ptr %1, ptr noundef %2)
   ret i1 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl13time_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPNS0_4cctz6detail10civil_timeINS0_7day_tagEEEPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %0, ptr captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl13time_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPNS0_4cctz6detail10civil_timeINS0_7day_tagEEEPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %0, ptr readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call noundef zeroext i1 @_ZN4absl21ParseLenientCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_7day_tagEEE(i64 %0, ptr %1, ptr noundef %2)
   ret i1 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl13time_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPNS0_4cctz6detail10civil_timeINS0_9month_tagEEEPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %0, ptr captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl13time_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPNS0_4cctz6detail10civil_timeINS0_9month_tagEEEPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %0, ptr readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call noundef zeroext i1 @_ZN4absl21ParseLenientCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_9month_tagEEE(i64 %0, ptr %1, ptr noundef %2)
   ret i1 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl13time_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPNS0_4cctz6detail10civil_timeINS0_8year_tagEEEPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %0, ptr captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl13time_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPNS0_4cctz6detail10civil_timeINS0_8year_tagEEEPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %0, ptr readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call noundef zeroext i1 @_ZN4absl21ParseLenientCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8year_tagEEE(i64 %0, ptr %1, ptr noundef %2)
   ret i1 %5
 }
@@ -4092,7 +4092,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 declare void @_ZNK4absl8TimeZone2AtENS_4TimeE(ptr dead_on_unwind writable sret(%"struct.absl::TimeZone::CivilInfo") align 8, ptr noundef nonnull align 8 dereferenceable(8), i64, i32) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %0, ptr captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %0, ptr readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::time_internal::cctz::detail::civil_time.4", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
   store i64 1970, ptr %4, align 8, !tbaa !31
@@ -4124,7 +4124,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %0, ptr captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_10minute_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %0, ptr readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::time_internal::cctz::detail::civil_time.4", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
   store i64 1970, ptr %4, align 8, !tbaa !31
@@ -4157,7 +4157,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %0, ptr captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_8hour_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %0, ptr readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::time_internal::cctz::detail::civil_time.4", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
   store i64 1970, ptr %4, align 8, !tbaa !31
@@ -4190,7 +4190,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %0, ptr captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_7day_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %0, ptr readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::time_internal::cctz::detail::civil_time.4", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
   store i64 1970, ptr %4, align 8, !tbaa !31
@@ -4223,7 +4223,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %0, ptr captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_9month_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %0, ptr readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::time_internal::cctz::detail::civil_time.4", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
   store i64 1970, ptr %4, align 8, !tbaa !31
@@ -4257,7 +4257,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %0, ptr captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEES7_EEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %0, ptr readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::time_internal::cctz::detail::civil_time.4", align 8
   store i64 1970, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8

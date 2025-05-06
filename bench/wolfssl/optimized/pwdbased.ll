@@ -186,7 +186,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare i32 @wc_HashFree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_PBKDF1(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define i32 @wc_PBKDF1(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = tail call i32 @wc_PBKDF1_ex(ptr noundef %0, i32 noundef %6, ptr noundef null, i32 noundef 0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %7, ptr noundef null)
   ret i32 %9
 }
@@ -405,7 +405,7 @@ define i32 @wc_PBKDF2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_PKCS12_PBKDF(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define i32 @wc_PKCS12_PBKDF(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = tail call i32 @wc_PKCS12_PBKDF_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr poison)
   ret i32 %10
 }

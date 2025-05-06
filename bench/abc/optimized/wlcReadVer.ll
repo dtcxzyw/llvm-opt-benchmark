@@ -9611,7 +9611,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Wlc_ReadVer(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @Wlc_ReadVer(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @Wlc_PrsStart(ptr noundef %0, ptr noundef %1)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %105, label %6

@@ -3023,7 +3023,7 @@ define hidden void @zif_preg_match_all(ptr noundef %0, ptr noundef writeonly cap
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @php_pcre_replace(ptr noundef %0, ptr noundef captures(address_is_null, ret: address, provenance) %1, ptr noundef %2, i64 noundef %3, ptr noundef captures(address) %4, i64 noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
+define dso_local ptr @php_pcre_replace(ptr noundef %0, ptr noundef captures(address_is_null, ret: address, provenance) %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(address) %4, i64 noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !68
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %19, !prof !55
@@ -4160,7 +4160,7 @@ define hidden void @zflf_preg_replace_3(ptr noundef writeonly captures(none) %0,
 declare zeroext i1 @zend_flf_parse_arg_str_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_preg_replace_common(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6, i64 noundef %7, ptr noundef readonly captures(address_is_null) %8, i1 noundef zeroext %9) unnamed_addr #0 {
+define internal fastcc void @_preg_replace_common(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6, i64 noundef %7, ptr noundef readonly captures(address_is_null) %8, i1 noundef zeroext %9) unnamed_addr #0 {
   %11 = alloca i64, align 8
   %12 = alloca %struct._zval_struct, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #24
@@ -4205,7 +4205,7 @@ define internal fastcc void @_preg_replace_common(ptr noundef writeonly captures
   %31 = load i32, ptr %30, align 8, !tbaa !63
   %32 = add i32 %31, 1
   store i32 %32, ptr %30, align 8, !tbaa !63
-  %33 = call ptr @php_pcre_replace_impl(ptr noundef nonnull %27, ptr noundef nonnull %6, ptr noundef nonnull %22, i64 noundef %24, ptr noundef nonnull %4, i64 noundef %7, ptr noundef nonnull %11)
+  %33 = call ptr @php_pcre_replace_impl(ptr noundef nonnull %27, ptr noundef nonnull %6, ptr noundef nonnull %22, i64 noundef %24, ptr noundef nonnull readonly %4, i64 noundef %7, ptr noundef nonnull %11)
   %34 = load i32, ptr %30, align 8, !tbaa !63
   %35 = add i32 %34, -1
   store i32 %35, ptr %30, align 8, !tbaa !63
@@ -4363,7 +4363,7 @@ zval_get_tmp_string.exit:                         ; preds = %91, %93
   %105 = load i32, ptr %104, align 8, !tbaa !63
   %106 = add i32 %105, 1
   store i32 %106, ptr %104, align 8, !tbaa !63
-  %107 = call ptr @php_pcre_replace_impl(ptr noundef nonnull %101, ptr noundef nonnull %.0.i, ptr noundef nonnull %96, i64 noundef %98, ptr noundef nonnull %4, i64 noundef %7, ptr noundef nonnull %11)
+  %107 = call ptr @php_pcre_replace_impl(ptr noundef nonnull %101, ptr noundef nonnull %.0.i, ptr noundef nonnull %96, i64 noundef %98, ptr noundef nonnull readonly %4, i64 noundef %7, ptr noundef nonnull %11)
   %108 = load i32, ptr %104, align 8, !tbaa !63
   %109 = add i32 %108, -1
   store i32 %109, ptr %104, align 8, !tbaa !63
@@ -4692,7 +4692,7 @@ declare void @zend_wrong_parameters_count_error(i32 noundef, i32 noundef) local_
 declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @php_preg_replace_func_impl(ptr noundef writeonly captures(none) initializes((8, 12)) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef readonly captures(address_is_null) %6, i64 noundef %7, i64 noundef %8) unnamed_addr #0 {
+define internal fastcc i64 @php_preg_replace_func_impl(ptr noundef writeonly captures(none) initializes((8, 12)) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef readonly captures(address_is_null) %6, i64 noundef %7, i64 noundef %8) unnamed_addr #0 {
   %10 = alloca i64, align 8
   %11 = alloca %struct._zval_struct, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #24
@@ -7219,7 +7219,7 @@ declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_a
 declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @php_pcre_replace_array(ptr noundef nonnull readonly captures(none) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i64 noundef %4, ptr noundef nonnull captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc ptr @php_pcre_replace_array(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i64 noundef %4, ptr noundef nonnull captures(address_is_null) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !11
   %9 = and i32 %8, 64
@@ -7339,7 +7339,7 @@ zval_get_tmp_string.exit75:                       ; preds = %54, %52, %37
   %65 = load i32, ptr %64, align 8, !tbaa !63
   %66 = add i32 %65, 1
   store i32 %66, ptr %64, align 8, !tbaa !63
-  %67 = tail call ptr @php_pcre_replace_impl(ptr noundef nonnull %61, ptr noundef nonnull %.0111, ptr noundef nonnull %56, i64 noundef %58, ptr noundef %.063, i64 noundef %4, ptr noundef nonnull %5)
+  %67 = tail call ptr @php_pcre_replace_impl(ptr noundef nonnull %61, ptr noundef nonnull %.0111, ptr noundef nonnull %56, i64 noundef %58, ptr noundef readonly %.063, i64 noundef %4, ptr noundef nonnull %5)
   %68 = load i32, ptr %64, align 8, !tbaa !63
   %69 = add i32 %68, -1
   store i32 %69, ptr %64, align 8, !tbaa !63
@@ -7485,7 +7485,7 @@ zval_get_tmp_string.exit:                         ; preds = %119, %121
   %132 = load i32, ptr %131, align 8, !tbaa !63
   %133 = add i32 %132, 1
   store i32 %133, ptr %131, align 8, !tbaa !63
-  %134 = tail call ptr @php_pcre_replace_impl(ptr noundef nonnull %128, ptr noundef nonnull %.4117, ptr noundef nonnull %123, i64 noundef %125, ptr noundef nonnull %1, i64 noundef %4, ptr noundef nonnull %5)
+  %134 = tail call ptr @php_pcre_replace_impl(ptr noundef nonnull %128, ptr noundef nonnull %.4117, ptr noundef nonnull %123, i64 noundef %125, ptr noundef nonnull readonly %1, i64 noundef %4, ptr noundef nonnull %5)
   %135 = load i32, ptr %131, align 8, !tbaa !63
   %136 = add i32 %135, -1
   store i32 %136, ptr %131, align 8, !tbaa !63
@@ -7884,7 +7884,7 @@ define internal fastcc ptr @php_pcre_replace_func_impl(ptr noundef nonnull captu
   %90 = call ptr @_zend_new_array(i32 noundef %89) #24
   store ptr %90, ptr %9, align 8, !tbaa !11
   store i32 775, ptr %57, align 8, !tbaa !11
-  call fastcc void @populate_subpat_array(ptr noundef %90, ptr noundef nonnull readonly %53, ptr noundef nonnull readonly %31, ptr noundef %.0151, i32 noundef %12, i32 noundef %.3, ptr noundef %87, i64 noundef %6)
+  call fastcc void @populate_subpat_array(ptr noundef %90, ptr noundef nonnull readonly %53, ptr noundef nonnull readonly %31, ptr noundef readonly %.0151, i32 noundef %12, i32 noundef %.3, ptr noundef readonly %87, i64 noundef %6)
   store ptr %8, ptr %58, align 8, !tbaa !123
   store i32 1, ptr %59, align 8, !tbaa !124
   store ptr %9, ptr %60, align 8, !tbaa !125

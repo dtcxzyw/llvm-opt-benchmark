@@ -1492,7 +1492,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z7reset_xiPKiiS0_PA3_fPKf(i32 noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #4 {
+define void @_Z7reset_xiPKiiS0_PA3_fPKf(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #4 {
   tail call void @_Z12reset_x_ndimiiPKiiS0_PA3_fPKf(i32 noundef 3, i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   ret void
 }

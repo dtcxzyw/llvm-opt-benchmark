@@ -3790,7 +3790,7 @@ _ZN16IndexSetIterator4nextEv.exit34.thread:       ; preds = %_ZN16IndexSetIterat
 declare noundef i32 @_ZNK3LRG14compute_degreeERS_(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN25PhaseConservativeCoalesce9copy_copyEP4NodeS1_P5Blockj(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN25PhaseConservativeCoalesce9copy_copyEP4NodeS1_P5Blockj(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %1, ptr noundef readonly captures(address) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.RegMask, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %8 = load i32, ptr %7, align 4

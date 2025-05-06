@@ -663,13 +663,13 @@ define internal void @rtp_dyn_payload_add_fmtp_int(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @rtp_dyn_payload_insert(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define void @rtp_dyn_payload_insert(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   tail call void @rtp_dyn_payload_insert_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @rtp_dyn_payload_add_fmtp(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define void @rtp_dyn_payload_add_fmtp(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %22, label %5
 
@@ -686,7 +686,7 @@ define void @rtp_dyn_payload_add_fmtp(ptr noundef captures(address_is_null) %0, 
   br i1 %.not15, label %11, label %14
 
 11:                                               ; preds = %7
-  tail call void @rtp_dyn_payload_insert_full(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull @.str.2, i32 noundef 0, i32 noundef 1, ptr noundef null)
+  tail call void @rtp_dyn_payload_insert_full(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef nonnull @.str.2, i32 noundef 0, i32 noundef 1, ptr noundef null)
   %12 = load ptr, ptr %0, align 8
   %13 = tail call ptr @g_hash_table_lookup(ptr noundef %12, ptr noundef %9)
   br label %14

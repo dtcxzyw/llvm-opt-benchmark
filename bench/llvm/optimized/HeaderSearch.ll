@@ -4495,7 +4495,7 @@ define dso_local { ptr, i64 } @_ZNK5clang15DirectoryLookup7getNameEv(ptr noundef
 declare { ptr, i64 } @_ZNK5clang13HeaderMapImpl11getFileNameEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN5clang12HeaderSearch23getFileAndSuggestModuleEN4llvm9StringRefENS_14SourceLocationEPKNS_14DirectoryEntryEbPNS_6ModuleEPNS_9ModuleMap11KnownHeaderEbb(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr %1, i64 %2, i32 %3, ptr noundef captures(address) %4, i1 noundef zeroext %5, ptr noundef %6, ptr noundef captures(address_is_null) %7, i1 noundef zeroext %8, i1 noundef zeroext %9) local_unnamed_addr #0 align 2 {
+define dso_local ptr @_ZN5clang12HeaderSearch23getFileAndSuggestModuleEN4llvm9StringRefENS_14SourceLocationEPKNS_14DirectoryEntryEbPNS_6ModuleEPNS_9ModuleMap11KnownHeaderEbb(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr %1, i64 %2, i32 %3, ptr noundef readnone captures(address) %4, i1 noundef zeroext %5, ptr noundef %6, ptr noundef writeonly captures(address_is_null) %7, i1 noundef zeroext %8, i1 noundef zeroext %9) local_unnamed_addr #0 align 2 {
   %11 = alloca %"class.llvm::Expected", align 8
   %12 = alloca %"class.llvm::Error", align 8
   %13 = alloca %"class.clang::DiagnosticBuilder", align 8
@@ -4670,7 +4670,7 @@ _ZL16needModuleLookupPN5clang6ModuleEb.exit.i:    ; preds = %86
 _ZN5clang12HeaderSearch25findUsableModuleForHeaderENS_12FileEntryRefEPKNS_14DirectoryEntryEPNS_6ModuleEPNS_9ModuleMap11KnownHeaderEb.exit: ; preds = %84, %_ZL16needModuleLookupPN5clang6ModuleEb.exit.i
   %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 32
   %91 = load i64, ptr %.sroa.0.0.copyload, align 8, !tbaa !361
-  %92 = call noundef zeroext i1 @_ZN5clang12HeaderSearch12hasModuleMapEN4llvm9StringRefEPKNS_14DirectoryEntryEb(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr nonnull %90, i64 %91, ptr noundef %85, i1 noundef zeroext %5)
+  %92 = call noundef zeroext i1 @_ZN5clang12HeaderSearch12hasModuleMapEN4llvm9StringRefEPKNS_14DirectoryEntryEb(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr nonnull %90, i64 %91, ptr noundef readnone %85, i1 noundef zeroext %5)
   %93 = call fastcc noundef zeroext i1 @_ZL13suggestModuleRN5clang12HeaderSearchENS_12FileEntryRefEPNS_6ModuleEPNS_9ModuleMap11KnownHeaderE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr nonnull %.sroa.0.0.copyload, ptr noundef %6, ptr noundef %7)
   br i1 %93, label %_ZN5clang12HeaderSearch25findUsableModuleForHeaderENS_12FileEntryRefEPKNS_14DirectoryEntryEPNS_6ModuleEPNS_9ModuleMap11KnownHeaderEb.exit._ZN5clang12HeaderSearch25findUsableModuleForHeaderENS_12FileEntryRefEPKNS_14DirectoryEntryEPNS_6ModuleEPNS_9ModuleMap11KnownHeaderEb.exit.thread_crit_edge, label %.critedge
 
@@ -4707,7 +4707,7 @@ declare void @_ZN5clang11FileManager10getFileRefEN4llvm9StringRefEbbb(ptr dead_o
 declare { i32, ptr } @_ZN4llvm16errorToErrorCodeENS_5ErrorE(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang12HeaderSearch25findUsableModuleForHeaderENS_12FileEntryRefEPKNS_14DirectoryEntryEPNS_6ModuleEPNS_9ModuleMap11KnownHeaderEb(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr %1, ptr noundef captures(address) %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang12HeaderSearch25findUsableModuleForHeaderENS_12FileEntryRefEPKNS_14DirectoryEntryEPNS_6ModuleEPNS_9ModuleMap11KnownHeaderEb(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr %1, ptr noundef readnone captures(address) %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %_ZL16needModuleLookupPN5clang6ModuleEb.exit.thread
 
@@ -4735,7 +4735,7 @@ _ZL16needModuleLookupPN5clang6ModuleEb.exit.thread8: ; preds = %7, %_ZL16needMod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK5clang15DirectoryLookup10LookupFileERN4llvm9StringRefERNS_12HeaderSearchENS_14SourceLocationEPNS1_15SmallVectorImplIcEES9_PNS_6ModuleEPNS_9ModuleMap11KnownHeaderERbSF_SF_RS8_b(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(2296) %2, i32 %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %8, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %9, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %10, ptr noundef nonnull align 8 dereferenceable(24) initializes((8, 16)) %11, i1 noundef zeroext %12) local_unnamed_addr #0 align 2 {
+define dso_local ptr @_ZNK5clang15DirectoryLookup10LookupFileERN4llvm9StringRefERNS_12HeaderSearchENS_14SourceLocationEPNS1_15SmallVectorImplIcEES9_PNS_6ModuleEPNS_9ModuleMap11KnownHeaderERbSF_SF_RS8_b(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(2296) %2, i32 %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %8, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %9, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %10, ptr noundef nonnull align 8 dereferenceable(24) initializes((8, 16)) %11, i1 noundef zeroext %12) local_unnamed_addr #0 align 2 {
   %14 = alloca %"class.llvm::Error", align 8
   %15 = alloca %"class.llvm::Error", align 8
   %16 = alloca %class.anon.699, align 1
@@ -5200,7 +5200,7 @@ _ZL16needModuleLookupPN5clang6ModuleEb.exit.i.i:  ; preds = %202
 _ZN5clang12HeaderSearch25findUsableModuleForHeaderENS_12FileEntryRefEPKNS_14DirectoryEntryEPNS_6ModuleEPNS_9ModuleMap11KnownHeaderEb.exit.i: ; preds = %_ZL16needModuleLookupPN5clang6ModuleEb.exit.i.i, %_ZNK5clang12FileEntryRef12getFileEntryEv.exit.i
   %206 = getelementptr inbounds nuw i8, ptr %148, i64 32
   %207 = load i64, ptr %148, align 8, !tbaa !361
-  %208 = call noundef zeroext i1 @_ZN5clang12HeaderSearch12hasModuleMapEN4llvm9StringRefEPKNS_14DirectoryEntryEb(ptr noundef nonnull align 8 dereferenceable(2296) %2, ptr nonnull %206, i64 %207, ptr noundef %198, i1 noundef zeroext %201)
+  %208 = call noundef zeroext i1 @_ZN5clang12HeaderSearch12hasModuleMapEN4llvm9StringRefEPKNS_14DirectoryEntryEb(ptr noundef nonnull align 8 dereferenceable(2296) %2, ptr nonnull %206, i64 %207, ptr noundef readnone %198, i1 noundef zeroext %201)
   %209 = call fastcc noundef zeroext i1 @_ZL13suggestModuleRN5clang12HeaderSearchENS_12FileEntryRefEPNS_6ModuleEPNS_9ModuleMap11KnownHeaderE(ptr noundef nonnull align 8 dereferenceable(2296) %2, ptr nonnull %148, ptr noundef %6, ptr noundef %7)
   br i1 %209, label %_ZN5clang12HeaderSearch25findUsableModuleForHeaderENS_12FileEntryRefEPKNS_14DirectoryEntryEPNS_6ModuleEPNS_9ModuleMap11KnownHeaderEb.exit.thread.i, label %"_ZZNK5clang15DirectoryLookup10LookupFileERN4llvm9StringRefERNS_12HeaderSearchENS_14SourceLocationEPNS1_15SmallVectorImplIcEES9_PNS_6ModuleEPNS_9ModuleMap11KnownHeaderERbSF_SF_RS8_bENK3$_0clENS_12FileEntryRefE.exit"
 
@@ -5248,7 +5248,7 @@ _ZN4llvm11SmallVectorIcLj1024EED2Ev.exit68:       ; preds = %220, %223
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK5clang15DirectoryLookup17DoFrameworkLookupEN4llvm9StringRefERNS_12HeaderSearchEPNS1_15SmallVectorImplIcEES7_PNS_6ModuleEPNS_9ModuleMap11KnownHeaderERbSD_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(2296) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %8, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %9) local_unnamed_addr #0 align 2 {
+define dso_local ptr @_ZNK5clang15DirectoryLookup17DoFrameworkLookupEN4llvm9StringRefERNS_12HeaderSearchEPNS1_15SmallVectorImplIcEES7_PNS_6ModuleEPNS_9ModuleMap11KnownHeaderERbSD_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(2296) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %8, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %9) local_unnamed_addr #0 align 2 {
   %11 = alloca %"class.llvm::Error", align 8
   %12 = alloca %"class.llvm::Error", align 8
   %13 = alloca %class.anon.699, align 1
@@ -6042,7 +6042,7 @@ _ZL16needModuleLookupPN5clang6ModuleEb.exit.i:    ; preds = %335
 _ZN5clang12HeaderSearch25findUsableModuleForHeaderENS_12FileEntryRefEPKNS_14DirectoryEntryEPNS_6ModuleEPNS_9ModuleMap11KnownHeaderEb.exit: ; preds = %_ZNK5clang15DirectoryLookup6getDirEv.exit, %_ZL16needModuleLookupPN5clang6ModuleEb.exit.i
   %339 = getelementptr inbounds nuw i8, ptr %.sroa.0181.0213, i64 32
   %340 = load i64, ptr %.sroa.0181.0213, align 8, !tbaa !361
-  %341 = call noundef zeroext i1 @_ZN5clang12HeaderSearch12hasModuleMapEN4llvm9StringRefEPKNS_14DirectoryEntryEb(ptr noundef nonnull align 8 dereferenceable(2296) %3, ptr nonnull %339, i64 %340, ptr noundef %334, i1 noundef zeroext %327)
+  %341 = call noundef zeroext i1 @_ZN5clang12HeaderSearch12hasModuleMapEN4llvm9StringRefEPKNS_14DirectoryEntryEb(ptr noundef nonnull align 8 dereferenceable(2296) %3, ptr nonnull %339, i64 %340, ptr noundef readnone %334, i1 noundef zeroext %327)
   %342 = call fastcc noundef zeroext i1 @_ZL13suggestModuleRN5clang12HeaderSearchENS_12FileEntryRefEPNS_6ModuleEPNS_9ModuleMap11KnownHeaderE(ptr noundef nonnull align 8 dereferenceable(2296) %3, ptr nonnull %.sroa.0181.0213, ptr noundef %6, ptr noundef %7)
   br i1 %342, label %.thread239, label %.critedge88
 
@@ -6383,7 +6383,7 @@ declare { ptr, i64 } @_ZN4llvm3sys4path9extensionENS_9StringRefENS1_5StyleE(ptr,
 declare { ptr, i64 } @_ZN4llvm3sys4path11parent_pathENS_9StringRefENS1_5StyleE(ptr, i64, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang12HeaderSearch34findUsableModuleForFrameworkHeaderENS_12FileEntryRefEN4llvm9StringRefEPNS_6ModuleEPNS_9ModuleMap11KnownHeaderEb(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr %1, ptr %2, i64 %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang12HeaderSearch34findUsableModuleForFrameworkHeaderENS_12FileEntryRefEN4llvm9StringRefEPNS_6ModuleEPNS_9ModuleMap11KnownHeaderEb(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr %1, ptr %2, i64 %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
   %8 = alloca i64, align 8
   %9 = alloca %"class.llvm::Error", align 8
   %10 = alloca %"class.llvm::Error", align 8
@@ -8718,7 +8718,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN5clang12HeaderSearch24LookupSubframeworkHeaderEN4llvm9StringRefENS_12FileEntryRefEPNS1_15SmallVectorImplIcEES6_PNS_6ModuleEPNS_9ModuleMap11KnownHeaderE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr %1, i64 %2, ptr %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 align 2 {
+define dso_local ptr @_ZN5clang12HeaderSearch24LookupSubframeworkHeaderEN4llvm9StringRefENS_12FileEntryRefEPNS1_15SmallVectorImplIcEES6_PNS_6ModuleEPNS_9ModuleMap11KnownHeaderE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr %1, i64 %2, ptr %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::Error", align 8
   %10 = alloca %"class.llvm::Error", align 8
   %11 = alloca %class.anon.699, align 1
@@ -13090,7 +13090,7 @@ define dso_local void @_ZN5clang12HeaderSearch25loadTopLevelSystemModulesEv(ptr 
 declare noundef zeroext i1 @_ZNK5clang11FileManager16makeAbsolutePathERN4llvm15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(808), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang12HeaderSearch31suggestPathToFileForDiagnosticsB5cxx11ENS_12FileEntryRefEN4llvm9StringRefEPb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2296) %1, ptr %2, ptr %3, i64 %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK5clang12HeaderSearch31suggestPathToFileForDiagnosticsB5cxx11ENS_12FileEntryRefEN4llvm9StringRefEPb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2296) %1, ptr %2, ptr %3, i64 %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::StringRef", align 8
   br label %8
 

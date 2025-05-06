@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.17 = private unnamed_addr constant [3 x i8] c"[]\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @LookupTypeName(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local ptr @LookupTypeName(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = tail call ptr @LookupTypeNameExtended(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i1 noundef zeroext %3)
   ret ptr %5
 }
@@ -573,7 +573,7 @@ define dso_local i32 @LookupTypeNameOid(ptr noundef %0, ptr noundef readonly cap
 declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @typenameType(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local nonnull ptr @typenameType(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @LookupTypeNameExtended(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i1 noundef zeroext true, i1 noundef zeroext false)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %14
@@ -633,7 +633,7 @@ define dso_local i32 @typenameTypeId(ptr noundef %0, ptr noundef readonly captur
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @typenameTypeIdAndMod(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local void @typenameTypeIdAndMod(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call ptr @typenameType(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   %6 = getelementptr i8, ptr %5, i64 16
   %.val = load ptr, ptr %6, align 8
@@ -1127,7 +1127,7 @@ declare zeroext i1 @errsave_start(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @parseTypeString(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @parseTypeString(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.StringInfoData, align 8
   %6 = alloca %struct.StringInfoData, align 8
   %7 = tail call ptr @typeStringToTypeName(ptr noundef %0, ptr noundef %3)

@@ -835,7 +835,7 @@ define dso_local void @_ZN4llvm14TailDuplicator6initMFERNS_15MachineFunctionEbPK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm14TailDuplicator22tailDuplicateAndUpdateEbPNS_17MachineBasicBlockES2_PNS_15SmallVectorImplIS2_EEPNS_12function_refIFvS2_EEES5_(ptr noundef nonnull align 8 dereferenceable(168) %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm14TailDuplicator22tailDuplicateAndUpdateEbPNS_17MachineBasicBlockES2_PNS_15SmallVectorImplIS2_EEPNS_12function_refIFvS2_EEES5_(ptr noundef nonnull align 8 dereferenceable(168) %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #1 align 2 {
   %8 = alloca %"class.llvm::SmallSetVector", align 8
   %9 = alloca %"class.llvm::SmallVector.164", align 8
   %10 = alloca %"class.llvm::SmallVector.204", align 8

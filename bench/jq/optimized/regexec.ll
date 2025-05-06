@@ -11430,7 +11430,7 @@ define internal fastcc noalias noundef ptr @history_node_new() unnamed_addr #24 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -5, 2) i32 @make_capture_history_tree(ptr noundef captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef captures(address) %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #4 {
+define internal fastcc range(i32 -5, 2) i32 @make_capture_history_tree(ptr noundef captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #4 {
   %6 = load ptr, ptr %1, align 8, !tbaa !106
   %7 = icmp ult ptr %6, %2
   br i1 %7, label %.lr.ph, label %history_tree_add_child.exit

@@ -1899,7 +1899,7 @@ define hidden void @_ZN4llvm13X86AsmPrinter13PrintPCRelImmEPKNS_12MachineInstrEj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm13X86AsmPrinter20PrintLeaMemReferenceEPKNS_12MachineInstrEjRNS_11raw_ostreamEPKc(ptr noundef nonnull align 8 dereferenceable(888) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm13X86AsmPrinter20PrintLeaMemReferenceEPKNS_12MachineInstrEjRNS_11raw_ostreamEPKc(ptr noundef nonnull align 8 dereferenceable(888) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !715
   %8 = zext i32 %2 to i64
@@ -2205,7 +2205,7 @@ declare hidden void @_ZN4llvm13X86AsmPrinter21StackMapShadowTracker17emitShadowP
 declare noundef nonnull align 8 dereferenceable(304) ptr @_ZNK4llvm10AsmPrinter16getSubtargetInfoEv(ptr noundef nonnull align 8 dereferenceable(777)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm13X86AsmPrinter17PrintMemReferenceEPKNS_12MachineInstrEjRNS_11raw_ostreamEPKc(ptr noundef nonnull align 8 dereferenceable(888) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm13X86AsmPrinter17PrintMemReferenceEPKNS_12MachineInstrEjRNS_11raw_ostreamEPKc(ptr noundef nonnull align 8 dereferenceable(888) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
   %6 = add i32 %2, 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !715

@@ -1359,7 +1359,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK9MXNetNode7attr_aiEPKc(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(208) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK9MXNetNode7attr_aiEPKc(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(208) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca i32, align 4
@@ -1692,7 +1692,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK9MXNetNode7attr_afEPKc(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.6") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(208) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK9MXNetNode7attr_afEPKc(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.6") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(208) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca float, align 4

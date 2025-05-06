@@ -5648,7 +5648,7 @@ decode_smb2_name.exit:                            ; preds = %95, %100
   br i1 %.not75.i, label %143, label %145
 
 143:                                              ; preds = %133
-  %144 = call fastcc ptr @smb2_get_session(i64 noundef %134, ptr noundef %1, ptr noundef %35)
+  %144 = call fastcc ptr @smb2_get_session(i64 noundef %134, ptr noundef readonly %1, ptr noundef %35)
   store ptr %144, ptr %142, align 8
   br label %dissect_smb2_tid_sesid.exit
 
@@ -7586,7 +7586,7 @@ declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef rea
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_smb2_negotiate_protocol_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) #0 {
+define internal i32 @dissect_smb2_negotiate_protocol_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #13

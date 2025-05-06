@@ -8686,7 +8686,7 @@ declare ptr @new_phs_t(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @protohierstat_packet(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @sharkd_session_process_tap_phs_cb(ptr noundef captures(address_is_null) %0) #0 {
+define internal void @sharkd_session_process_tap_phs_cb(ptr noundef readonly captures(address_is_null) %0) #0 {
   tail call void @json_dumper_begin_object(ptr noundef nonnull @dumper)
   tail call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.20)
   tail call void @json_dumper_value_string(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.155)
@@ -10646,7 +10646,7 @@ declare i32 @g_slist_length(ptr noundef) local_unnamed_addr #2
 declare ptr @get_data_source_tvb(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @sharkd_session_process_frame_cb_tree(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef captures(address_is_null) %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @sharkd_session_process_frame_cb_tree(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca [240 x i8], align 16
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %sharkd_json_array_open.exit, label %7

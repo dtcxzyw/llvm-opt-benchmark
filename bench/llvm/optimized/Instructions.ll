@@ -11977,7 +11977,7 @@ _ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i.i: ; preds = %_ZN4llvm3UseaSEPNS
   %.pre8.i.i6.i = phi i64 [ %65, %_ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i.thread.i ], [ 0, %_ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i.i ]
   %67 = load ptr, ptr %21, align 8, !tbaa !25
   %68 = getelementptr inbounds nuw i32, ptr %67, i64 %.pre8.i.i6.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %68, ptr align 4 %60, i64 %.idx.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %68, ptr readonly align 4 %60, i64 %.idx.i, i1 false)
   %.pre.i.i.i = load i32, ptr %23, align 8, !tbaa !26
   br label %_ZN4llvm17ShuffleVectorInst14setShuffleMaskENS_8ArrayRefIiEE.exit
 
@@ -11987,7 +11987,7 @@ _ZN4llvm17ShuffleVectorInst14setShuffleMaskENS_8ArrayRefIiEE.exit: ; preds = %_Z
   store i32 %70, ptr %23, align 8, !tbaa !26
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !89
-  %73 = call noundef ptr @_ZN4llvm17ShuffleVectorInst28convertShuffleMaskForBitcodeENS_8ArrayRefIiEEPNS_4TypeE(ptr %60, i64 %62, ptr noundef %72)
+  %73 = call noundef ptr @_ZN4llvm17ShuffleVectorInst28convertShuffleMaskForBitcodeENS_8ArrayRefIiEEPNS_4TypeE(ptr readonly %60, i64 %62, ptr noundef %72)
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %73, ptr %74, align 8, !tbaa !277
   call void @_ZN4llvm5Value7setNameERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(34) %4) #32
@@ -12005,7 +12005,7 @@ _ZN4llvm11SmallVectorIiLj16EED2Ev.exit:           ; preds = %_ZN4llvm17ShuffleVe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17ShuffleVectorInstC2EPNS_5ValueENS_8ArrayRefIiEERKNS_5TwineENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1, ptr captures(address) %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef readonly byval(%"class.llvm::InsertPosition") align 8 captures(none) %5) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm17ShuffleVectorInstC2EPNS_5ValueENS_8ArrayRefIiEERKNS_5TwineENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1, ptr readonly captures(address) %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef readonly byval(%"class.llvm::InsertPosition") align 8 captures(none) %5) unnamed_addr #1 align 2 {
   %7 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %7, align 8, !tbaa !89
   %8 = tail call noundef ptr @_ZN4llvm11PoisonValue3getEPNS_4TypeE(ptr noundef %.val) #32
@@ -12014,7 +12014,7 @@ define dso_local void @_ZN4llvm17ShuffleVectorInstC2EPNS_5ValueENS_8ArrayRefIiEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17ShuffleVectorInstC2EPNS_5ValueES2_NS_8ArrayRefIiEERKNS_5TwineENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef %2, ptr captures(address) %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr noundef readonly byval(%"class.llvm::InsertPosition") align 8 captures(none) %6) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm17ShuffleVectorInstC2EPNS_5ValueES2_NS_8ArrayRefIiEERKNS_5TwineENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef %2, ptr readonly captures(address) %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr noundef readonly byval(%"class.llvm::InsertPosition") align 8 captures(none) %6) unnamed_addr #1 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !89
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -12139,7 +12139,7 @@ _ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i.i: ; preds = %_ZN4llvm3UseaSEPNS
   %56 = phi ptr [ %.pre, %_ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i.thread.i ], [ %18, %_ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i.i ]
   %.pre8.i.i6.i = phi i64 [ %54, %_ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i.thread.i ], [ 0, %_ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i.i ]
   %57 = getelementptr inbounds nuw i32, ptr %56, i64 %.pre8.i.i6.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %57, ptr align 4 %3, i64 %.idx.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %57, ptr readonly align 4 %3, i64 %.idx.i, i1 false)
   %.pre.i.i.i = load i32, ptr %19, align 8, !tbaa !26
   br label %_ZN4llvm17ShuffleVectorInst14setShuffleMaskENS_8ArrayRefIiEE.exit
 
@@ -12150,7 +12150,7 @@ _ZN4llvm17ShuffleVectorInst14setShuffleMaskENS_8ArrayRefIiEE.exit: ; preds = %_Z
   store i32 %60, ptr %19, align 8, !tbaa !26
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !89
-  %63 = tail call noundef ptr @_ZN4llvm17ShuffleVectorInst28convertShuffleMaskForBitcodeENS_8ArrayRefIiEEPNS_4TypeE(ptr %3, i64 %4, ptr noundef %62)
+  %63 = tail call noundef ptr @_ZN4llvm17ShuffleVectorInst28convertShuffleMaskForBitcodeENS_8ArrayRefIiEEPNS_4TypeE(ptr readonly %3, i64 %4, ptr noundef %62)
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %63, ptr %64, align 8, !tbaa !277
   tail call void @_ZN4llvm5Value7setNameERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(34) %5) #32
@@ -12382,7 +12382,7 @@ _ZN4llvm15SmallVectorImplIiE6resizeEmi.exit:      ; preds = %_ZN4llvm23SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17ShuffleVectorInst14setShuffleMaskENS_8ArrayRefIiEE(ptr noundef nonnull align 8 dereferenceable(112) initializes((80, 84)) %0, ptr captures(address) %1, i64 %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm17ShuffleVectorInst14setShuffleMaskENS_8ArrayRefIiEE(ptr noundef nonnull align 8 dereferenceable(112) initializes((80, 84)) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %5, align 8, !tbaa !26
@@ -12502,7 +12502,7 @@ _ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i.i17: ; preds = %._crit_edge
   %.pre8.i.i6.i = phi i64 [ %31, %_ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i.thread.i ], [ 0, %_ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i.i17 ]
   %33 = load ptr, ptr %9, align 8, !tbaa !25
   %34 = getelementptr inbounds nuw i32, ptr %33, i64 %.pre8.i.i6.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr nonnull align 4 %.pre22.pre, i64 %.idx.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr nonnull readonly align 4 %.pre22.pre, i64 %.idx.i, i1 false)
   %.pre.i.i.i18 = load i32, ptr %10, align 8, !tbaa !26
   br label %_ZN4llvm17ShuffleVectorInst14setShuffleMaskENS_8ArrayRefIiEE.exit
 
@@ -12515,7 +12515,7 @@ _ZN4llvm17ShuffleVectorInst14setShuffleMaskENS_8ArrayRefIiEE.exit: ; preds = %1,
   store i32 %38, ptr %10, align 8, !tbaa !26
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !89
-  %41 = call noundef ptr @_ZN4llvm17ShuffleVectorInst28convertShuffleMaskForBitcodeENS_8ArrayRefIiEEPNS_4TypeE(ptr nonnull %.pre2732, i64 %35, ptr noundef %40)
+  %41 = call noundef ptr @_ZN4llvm17ShuffleVectorInst28convertShuffleMaskForBitcodeENS_8ArrayRefIiEEPNS_4TypeE(ptr nonnull readonly %.pre2732, i64 %35, ptr noundef %40)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %41, ptr %42, align 8, !tbaa !277
   %43 = getelementptr inbounds i8, ptr %0, i64 -32

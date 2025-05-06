@@ -388,7 +388,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm14isAllocationFnEPKNS_5ValueEPKNS_17TargetLibraryInfoE(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_ZN4llvm14isAllocationFnEPKNS_5ValueEPKNS_17TargetLibraryInfoE(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = alloca %"class.llvm::AttributeList", align 8
   %4 = alloca %"class.llvm::Attribute", align 8
   %5 = alloca %"class.std::optional", align 4
@@ -398,7 +398,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm14isAllocationFnEPKNS_5ValueEPKNS_1
   br i1 %.not.not.i, label %_ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit.thread, label %_ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit
 
 _ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit: ; preds = %2
-  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nonnull writable align 4 %5, ptr noundef %6, i8 noundef zeroext 7, ptr noundef %1)
+  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nonnull writable align 4 %5, ptr noundef %6, i8 noundef zeroext 7, ptr noundef readonly %1)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.pre = load i8, ptr %.phi.trans.insert, align 4, !tbaa !59, !range !52
   %7 = trunc nuw i8 %.pre to i1
@@ -526,7 +526,7 @@ _ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit: ; preds = %.thread.s
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm11isNewLikeFnEPKNS_5ValueEPKNS_17TargetLibraryInfoE(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_ZN4llvm11isNewLikeFnEPKNS_5ValueEPKNS_17TargetLibraryInfoE(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = alloca %"class.std::optional", align 4
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %3) #22
   %4 = tail call fastcc noundef ptr @_ZL17getCalledFunctionPKN4llvm5ValueE(ptr noundef %0), !noalias !70
@@ -534,7 +534,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm11isNewLikeFnEPKNS_5ValueEPKNS_17Ta
   br i1 %.not.not.i, label %_ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit, label %5
 
 5:                                                ; preds = %2
-  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nonnull writable align 4 %3, ptr noundef %4, i8 noundef zeroext 1, ptr noundef %1)
+  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nonnull writable align 4 %3, ptr noundef %4, i8 noundef zeroext 1, ptr noundef readonly %1)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.pre = load i8, ptr %.phi.trans.insert, align 4, !tbaa !59, !range !52
   %6 = trunc nuw i8 %.pre to i1
@@ -547,7 +547,7 @@ _ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm22isMallocOrCallocLikeFnEPKNS_5ValueEPKNS_17TargetLibraryInfoE(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_ZN4llvm22isMallocOrCallocLikeFnEPKNS_5ValueEPKNS_17TargetLibraryInfoE(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = alloca %"class.std::optional", align 4
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %3) #22
   %4 = tail call fastcc noundef ptr @_ZL17getCalledFunctionPKN4llvm5ValueE(ptr noundef %0), !noalias !73
@@ -555,7 +555,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm22isMallocOrCallocLikeFnEPKNS_5Valu
   br i1 %.not.not.i, label %_ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit, label %5
 
 5:                                                ; preds = %2
-  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nonnull writable align 4 %3, ptr noundef %4, i8 noundef zeroext 3, ptr noundef %1)
+  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nonnull writable align 4 %3, ptr noundef %4, i8 noundef zeroext 3, ptr noundef readonly %1)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.pre = load i8, ptr %.phi.trans.insert, align 4, !tbaa !59, !range !52
   %6 = trunc nuw i8 %.pre to i1
@@ -568,7 +568,7 @@ _ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm13isAllocLikeFnEPKNS_5ValueEPKNS_17TargetLibraryInfoE(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_ZN4llvm13isAllocLikeFnEPKNS_5ValueEPKNS_17TargetLibraryInfoE(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = alloca %"class.llvm::AttributeList", align 8
   %4 = alloca %"class.llvm::Attribute", align 8
   %5 = alloca %"class.std::optional", align 4
@@ -578,7 +578,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13isAllocLikeFnEPKNS_5ValueEPKNS_17
   br i1 %.not.not.i, label %_ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit.thread, label %_ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit
 
 _ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit: ; preds = %2
-  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nonnull writable align 4 %5, ptr noundef %6, i8 noundef zeroext 7, ptr noundef %1)
+  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nonnull writable align 4 %5, ptr noundef %6, i8 noundef zeroext 7, ptr noundef readonly %1)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.pre = load i8, ptr %.phi.trans.insert, align 4, !tbaa !59, !range !52
   %7 = trunc nuw i8 %.pre to i1
@@ -707,13 +707,13 @@ _ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit.thread: ; preds = %1,
 declare noundef ptr @_ZNK4llvm8CallBase26getArgOperandWithAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(88), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16isRemovableAllocEPKNS_8CallBaseEPKNS_17TargetLibraryInfoE(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_ZN4llvm16isRemovableAllocEPKNS_8CallBaseEPKNS_17TargetLibraryInfoE(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = tail call noundef zeroext i1 @_ZN4llvm13isAllocLikeFnEPKNS_5ValueEPKNS_17TargetLibraryInfoE(ptr noundef %0, ptr noundef %1)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm17getAllocAlignmentEPKNS_8CallBaseEPKNS_17TargetLibraryInfoE(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
+define dso_local noundef ptr @_ZN4llvm17getAllocAlignmentEPKNS_8CallBaseEPKNS_17TargetLibraryInfoE(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = alloca %"class.std::optional", align 4
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %3) #22
   %4 = tail call fastcc noundef ptr @_ZL17getCalledFunctionPKN4llvm5ValueE(ptr noundef %0), !noalias !79
@@ -721,7 +721,7 @@ define dso_local noundef ptr @_ZN4llvm17getAllocAlignmentEPKNS_8CallBaseEPKNS_17
   br i1 %.not.not.i, label %_ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit.thread, label %_ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit
 
 _ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit: ; preds = %2
-  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nonnull writable align 4 %3, ptr noundef %4, i8 noundef zeroext 7, ptr noundef %1)
+  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nonnull writable align 4 %3, ptr noundef %4, i8 noundef zeroext 7, ptr noundef readonly %1)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.pre = load i8, ptr %.phi.trans.insert, align 4, !tbaa !59, !range !52
   %5 = trunc nuw i8 %.pre to i1
@@ -756,7 +756,7 @@ _ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12getAllocSizeEPKNS_8CallBaseEPKNS_17TargetLibraryInfoENS_12function_refIFPKNS_5ValueES9_EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional.1") align 8 captures(none) initializes((16, 17)) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr readonly captures(none) %3, i64 %4) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm12getAllocSizeEPKNS_8CallBaseEPKNS_17TargetLibraryInfoENS_12function_refIFPKNS_5ValueES9_EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional.1") align 8 captures(none) initializes((16, 17)) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr readonly captures(none) %3, i64 %4) local_unnamed_addr #1 {
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.llvm::APInt", align 8
   %8 = alloca %"class.std::optional", align 4
@@ -1280,7 +1280,7 @@ _ZN4llvm5APIntD2Ev.exit41:                        ; preds = %.thread60, %237, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17getAllocationSizePKN4llvm8CallBaseEPKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nonnull writable align 4 captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #1 {
+define internal fastcc void @_ZL17getAllocationSizePKN4llvm8CallBaseEPKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nonnull writable align 4 captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #1 {
   %4 = alloca %"class.llvm::AttributeList", align 8
   %5 = alloca %"class.llvm::Attribute", align 8
   %6 = tail call fastcc noundef ptr @_ZL17getCalledFunctionPKN4llvm5ValueE(ptr noundef %1)
@@ -1369,7 +1369,7 @@ declare void @_ZNK4llvm5APInt4zextEj(ptr dead_on_unwind writable sret(%"class.ll
 declare void @_ZNK4llvm5APInt7umul_ovERKS0_Rb(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm27getInitialValueOfAllocationEPKNS_5ValueEPKNS_17TargetLibraryInfoEPNS_4TypeE(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local noundef ptr @_ZN4llvm27getInitialValueOfAllocationEPKNS_5ValueEPKNS_17TargetLibraryInfoEPNS_4TypeE(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca %"class.llvm::AttributeList", align 8
   %5 = alloca %"class.llvm::Attribute", align 8
   %6 = alloca %"class.std::optional", align 4
@@ -1395,7 +1395,7 @@ _ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit.th
   br label %14
 
 _ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit: ; preds = %_ZN4llvm8dyn_castINS_8CallBaseEKNS_5ValueEEEDcPT0_.exit
-  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nonnull writable align 4 %6, ptr noundef %10, i8 noundef zeroext 3, ptr noundef %1)
+  call fastcc void @_ZL28getAllocationDataForFunctionPKN4llvm8FunctionE9AllocTypePKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nonnull writable align 4 %6, ptr noundef %10, i8 noundef zeroext 3, ptr noundef readonly %1)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.pre = load i8, ptr %.phi.trans.insert, align 4, !tbaa !59, !range !52
   %11 = trunc nuw i8 %.pre to i1
@@ -1540,7 +1540,7 @@ define dso_local { i64, i8 } @_Z30getFreeFunctionDataForFunctionPKN4llvm8Functio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional.46") align 8 captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional.46") align 8 captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = alloca %"class.llvm::AttributeList", align 8
   %5 = alloca %"class.llvm::AttributeList", align 8
   %6 = alloca %"class.llvm::Attribute", align 8

@@ -589,7 +589,7 @@ define dso_local void @swiotlb_update_mem_attributes() local_unnamed_addr #4 sec
 declare dso_local i32 @set_memory_decrypted(i64 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local void @swiotlb_init_remap(i1 noundef zeroext %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 section ".init.text" align 16 {
+define dso_local void @swiotlb_init_remap(i1 noundef zeroext %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 section ".init.text" align 16 {
   br i1 %0, label %6, label %4
 
 4:                                                ; preds = %3

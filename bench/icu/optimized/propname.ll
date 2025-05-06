@@ -825,13 +825,13 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6icu_779BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7712PropNameData15getPropertyEnumEPKc(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN6icu_7712PropNameData15getPropertyEnumEPKc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef i32 @_ZN6icu_7712PropNameData22getPropertyOrValueEnumEiPKc(i32 noundef 0, ptr noundef %0)
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7712PropNameData20getPropertyValueEnumEiPKc(i32 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN6icu_7712PropNameData20getPropertyValueEnumEiPKc(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
   br label %3
 
 3:                                                ; preds = %15, %2
@@ -967,8 +967,8 @@ _ZN6icu_7712PropNameData15getPropertyNameEii.exit: ; preds = %3, %15, %_ZN6icu_7
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @u_getPropertyEnum_77(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
-  %2 = tail call noundef i32 @_ZN6icu_7712PropNameData22getPropertyOrValueEnumEiPKc(i32 noundef 0, ptr noundef %0)
+define noundef i32 @u_getPropertyEnum_77(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+  %2 = tail call noundef i32 @_ZN6icu_7712PropNameData22getPropertyOrValueEnumEiPKc(i32 noundef 0, ptr noundef readonly %0)
   ret i32 %2
 }
 
@@ -979,7 +979,7 @@ define noundef ptr @u_getPropertyValueName_77(i32 noundef %0, i32 noundef %1, i3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @u_getPropertyValueEnum_77(i32 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define noundef i32 @u_getPropertyValueEnum_77(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %15, %2
@@ -1027,7 +1027,7 @@ _ZN6icu_7712PropNameData12findPropertyEi.exit.i:  ; preds = %13
   %32 = sext i32 %29 to i64
   %33 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !10
-  %35 = tail call noundef i32 @_ZN6icu_7712PropNameData22getPropertyOrValueEnumEiPKc(i32 noundef %34, ptr noundef %1)
+  %35 = tail call noundef i32 @_ZN6icu_7712PropNameData22getPropertyOrValueEnumEiPKc(i32 noundef %34, ptr noundef readonly %1)
   br label %_ZN6icu_7712PropNameData20getPropertyValueEnumEiPKc.exit
 
 _ZN6icu_7712PropNameData20getPropertyValueEnumEiPKc.exit: ; preds = %3, %15, %_ZN6icu_7712PropNameData12findPropertyEi.exit.i, %25, %31

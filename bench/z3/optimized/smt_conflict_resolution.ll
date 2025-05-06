@@ -2506,7 +2506,7 @@ _ZN3smt19conflict_resolution20mark_enodes_in_transILb1EEEvPNS_5enodeE.exit.i.i: 
 
 _ZN3smt19conflict_resolution21visit_eq_justicationsEPNS_5enodeES2_.exit: ; preds = %.lr.ph.i7.i.i
   %147 = call noundef zeroext i1 @_ZN3smt19conflict_resolution17visit_trans_proofEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(356) %0, ptr noundef nonnull %77, ptr noundef nonnull %.0.lcssa.i.i)
-  %148 = call noundef zeroext i1 @_ZN3smt19conflict_resolution17visit_trans_proofEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(356) %0, ptr noundef nonnull %79, ptr noundef nonnull %.0.lcssa.i.i)
+  %148 = call noundef zeroext i1 @_ZN3smt19conflict_resolution17visit_trans_proofEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(356) %0, ptr noundef nonnull readonly %79, ptr noundef nonnull %.0.lcssa.i.i)
   %149 = and i1 %147, %148
   br i1 %149, label %150, label %291
 
@@ -5995,7 +5995,7 @@ declare noundef ptr @_ZN11ast_manager12mk_iff_falseEP3app(ptr noundef nonnull al
 declare noundef ptr @_ZN11ast_manager11mk_symmetryEP3app(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN3smt19conflict_resolution9get_proofEPNS_5enodeES2_NS_16eq_justificationE(ptr noundef nonnull align 8 dereferenceable(356) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address) %2, ptr %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN3smt19conflict_resolution9get_proofEPNS_5enodeES2_NS_16eq_justificationE(ptr noundef nonnull align 8 dereferenceable(356) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2, ptr %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [2 x ptr], align 16
   %6 = alloca %class.ptr_buffer, align 8
   %7 = alloca %class.ptr_buffer, align 8
@@ -8432,7 +8432,7 @@ _ZN3smt19conflict_resolution9get_proofEPNS_5enodeES2_.exit: ; preds = %_ZN6vecto
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3smt19conflict_resolution21visit_eq_justicationsEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(356) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN3smt19conflict_resolution21visit_eq_justicationsEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(356) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #4 align 2 {
   %.not3.i.i = icmp eq ptr %1, null
   br i1 %.not3.i.i, label %_ZN3smt19conflict_resolution20mark_enodes_in_transILb1EEEvPNS_5enodeE.exit.i, label %.lr.ph.i.i
 

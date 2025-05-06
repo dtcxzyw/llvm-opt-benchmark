@@ -1526,8 +1526,8 @@ _ZN6dmg_fpL3cmpEPNS_6BigintES1_.exit532.thread608._crit_edge: ; preds = %_ZN6dmg
 685:                                              ; preds = %607
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #16
-  %686 = call fastcc noundef double @_ZN6dmg_fpL3b2dEPNS_6BigintEPi(ptr noundef nonnull %586, ptr noundef %5)
-  %687 = call fastcc noundef double @_ZN6dmg_fpL3b2dEPNS_6BigintEPi(ptr noundef %.1317, ptr noundef %6)
+  %686 = call fastcc noundef double @_ZN6dmg_fpL3b2dEPNS_6BigintEPi(ptr noundef nonnull readonly %586, ptr noundef %5)
+  %687 = call fastcc noundef double @_ZN6dmg_fpL3b2dEPNS_6BigintEPi(ptr noundef readonly %.1317, ptr noundef %6)
   %688 = load i32, ptr %5, align 4, !tbaa !20
   %689 = load i32, ptr %6, align 4, !tbaa !20
   %690 = sub nsw i32 %688, %689

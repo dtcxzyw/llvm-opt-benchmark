@@ -7498,7 +7498,7 @@ declare void @slurm_init_resv_desc_msg(ptr noundef) local_unnamed_addr #2
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_validate_reservation_access_update(ptr noundef %0, ptr noundef captures(address_is_null) %1) #0 {
+define internal range(i32 0, 2) i32 @_validate_reservation_access_update(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

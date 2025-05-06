@@ -369,7 +369,7 @@ define internal range(i32 -128, 2097152) i32 @lv_text_utf8_next(ptr noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal range(i32 -128, 2097152) i32 @lv_text_utf8_prev(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1) #4 {
+define internal range(i32 -128, 2097152) i32 @lv_text_utf8_prev(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) #4 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr %1, align 4, !tbaa !6
   %5 = add i32 %4, -1
@@ -468,7 +468,7 @@ lv_text_utf8_size.exit:                           ; preds = %6, %9, %12, %15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal i32 @lv_text_utf8_get_char_id(ptr noundef captures(address_is_null) %0, i32 noundef %1) #4 {
+define internal i32 @lv_text_utf8_get_char_id(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #4 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
   store i32 0, ptr %3, align 4, !tbaa !6
@@ -490,7 +490,7 @@ define internal i32 @lv_text_utf8_get_char_id(ptr noundef captures(address_is_nu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal i32 @lv_text_utf8_get_length(ptr noundef captures(address_is_null) %0) #4 {
+define internal i32 @lv_text_utf8_get_length(ptr noundef readonly captures(address_is_null) %0) #4 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
   store i32 0, ptr %2, align 4, !tbaa !6
@@ -516,7 +516,7 @@ define internal i32 @lv_text_utf8_get_length(ptr noundef captures(address_is_nul
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_text_get_size(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
+define void @lv_text_get_size(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
   %8 = alloca i32, align 4
   store i32 0, ptr %0, align 4, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -569,7 +569,7 @@ define void @lv_text_get_size(ptr noundef captures(none) initializes((0, 8)) %0,
 
 .lr.ph.i:                                         ; preds = %32, %lv_text_encoded_letter_next_2.exit.i
   %.122.i = phi i32 [ %.2.i, %lv_text_encoded_letter_next_2.exit.i ], [ 0, %32 ]
-  %33 = call i32 @lv_text_utf8_next(ptr noundef nonnull %21, ptr noundef nonnull %8)
+  %33 = call i32 @lv_text_utf8_next(ptr noundef nonnull readonly %21, ptr noundef nonnull %8)
   %.not.i.i = icmp eq i32 %33, 0
   %.pre.i = load i32, ptr %8, align 4, !tbaa !6
   br i1 %.not.i.i, label %lv_text_encoded_letter_next_2.exit.i, label %34
@@ -577,7 +577,7 @@ define void @lv_text_get_size(ptr noundef captures(none) initializes((0, 8)) %0,
 34:                                               ; preds = %.lr.ph.i
   %35 = zext i32 %.pre.i to i64
   %36 = getelementptr inbounds nuw i8, ptr %21, i64 %35
-  %37 = call i32 @lv_text_utf8_next(ptr noundef nonnull %36, ptr noundef null)
+  %37 = call i32 @lv_text_utf8_next(ptr noundef nonnull readonly %36, ptr noundef null)
   br label %lv_text_encoded_letter_next_2.exit.i
 
 lv_text_encoded_letter_next_2.exit.i:             ; preds = %34, %.lr.ph.i
@@ -654,7 +654,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 declare i32 @lv_font_get_line_height(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_text_get_next_line(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #2 {
+define i32 @lv_text_get_next_line(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #2 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -747,7 +747,7 @@ define i32 @lv_text_get_next_line(ptr noundef captures(address_is_null) %0, i32 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
   store i32 0, ptr %8, align 4, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #11
-  %38 = call i32 @lv_text_utf8_next(ptr noundef nonnull %34, ptr noundef nonnull %8)
+  %38 = call i32 @lv_text_utf8_next(ptr noundef nonnull readonly %34, ptr noundef nonnull %8)
   %39 = load i32, ptr %8, align 4, !tbaa !6
   store i32 %39, ptr %9, align 4, !tbaa !6
   %40 = and i32 %spec.select80, 8
@@ -768,7 +768,7 @@ define i32 @lv_text_get_next_line(ptr noundef captures(address_is_null) %0, i32 
   br i1 %.not83.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
-  %42 = call i32 @lv_text_utf8_next(ptr noundef nonnull %34, ptr noundef nonnull %9)
+  %42 = call i32 @lv_text_utf8_next(ptr noundef nonnull readonly %34, ptr noundef nonnull %9)
   %43 = add i32 %.064.ph175.i, 1
   br label %lv_text_is_cmd.exit.i
 
@@ -779,7 +779,7 @@ define i32 @lv_text_get_next_line(ptr noundef captures(address_is_null) %0, i32 
   %.072149.i = phi i32 [ %46, %.thread17.i.i ], [ %.072.ph173.i, %.lr.ph.i ]
   %.073148.i = phi i32 [ %45, %.thread17.i.i ], [ %.073.ph172.i, %.lr.ph.i ]
   %45 = phi i32 [ %55, %.thread17.i.i ], [ %.promoted166171.i, %.lr.ph.i ]
-  %46 = call i32 @lv_text_utf8_next(ptr noundef nonnull %34, ptr noundef nonnull %9)
+  %46 = call i32 @lv_text_utf8_next(ptr noundef nonnull readonly %34, ptr noundef nonnull %9)
   %47 = add i32 %.064150.i, 1
   %48 = icmp eq i32 %.072149.i, 35
   br i1 %48, label %49, label %50
@@ -1055,7 +1055,7 @@ lv_text_get_next_word.exit:                       ; preds = %106, %109, %110
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_text_get_width(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define i32 @lv_text_get_width(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %2, null
@@ -1075,7 +1075,7 @@ define i32 @lv_text_get_width(ptr noundef captures(address_is_null) %0, i32 noun
 
 .lr.ph:                                           ; preds = %11, %lv_text_encoded_letter_next_2.exit
   %.122 = phi i32 [ %.2, %lv_text_encoded_letter_next_2.exit ], [ 0, %11 ]
-  %12 = call i32 @lv_text_utf8_next(ptr noundef nonnull %0, ptr noundef nonnull %5)
+  %12 = call i32 @lv_text_utf8_next(ptr noundef nonnull readonly %0, ptr noundef nonnull %5)
   %.not.i = icmp eq i32 %12, 0
   %.pre = load i32, ptr %5, align 4, !tbaa !6
   br i1 %.not.i, label %lv_text_encoded_letter_next_2.exit, label %13
@@ -1083,7 +1083,7 @@ define i32 @lv_text_get_width(ptr noundef captures(address_is_null) %0, i32 noun
 13:                                               ; preds = %.lr.ph
   %14 = zext i32 %.pre to i64
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %14
-  %16 = call i32 @lv_text_utf8_next(ptr noundef nonnull %15, ptr noundef null)
+  %16 = call i32 @lv_text_utf8_next(ptr noundef nonnull readonly %15, ptr noundef null)
   br label %lv_text_encoded_letter_next_2.exit
 
 lv_text_encoded_letter_next_2.exit:               ; preds = %.lr.ph, %13
@@ -1160,7 +1160,7 @@ define noundef zeroext i1 @lv_text_is_cmd(ptr noundef captures(none) %0, i32 nou
 declare zeroext i16 @lv_font_get_glyph_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @lv_text_encoded_letter_next_2(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #8 {
+define void @lv_text_encoded_letter_next_2(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #8 {
   %5 = tail call i32 @lv_text_utf8_next(ptr noundef %0, ptr noundef %3)
   store i32 %5, ptr %1, align 4, !tbaa !6
   %.not = icmp eq i32 %5, 0
@@ -1180,7 +1180,7 @@ define void @lv_text_encoded_letter_next_2(ptr noundef captures(address_is_null)
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_text_get_width_with_flags(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define i32 @lv_text_get_width_with_flags(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i32, align 4
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %2, null
@@ -1205,7 +1205,7 @@ define i32 @lv_text_get_width_with_flags(ptr noundef captures(address_is_null) %
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph, %lv_text_is_cmd.exit.us.us
   %.139.us.us = phi i32 [ %.3.us.us, %lv_text_is_cmd.exit.us.us ], [ 0, %.lr.ph ]
-  %14 = call i32 @lv_text_utf8_next(ptr noundef nonnull %0, ptr noundef nonnull %6)
+  %14 = call i32 @lv_text_utf8_next(ptr noundef nonnull readonly %0, ptr noundef nonnull %6)
   %.not.i.us.us = icmp eq i32 %14, 0
   %.pre = load i32, ptr %6, align 4, !tbaa !6
   %.pre59 = zext i32 %.pre to i64
@@ -1213,7 +1213,7 @@ define i32 @lv_text_get_width_with_flags(ptr noundef captures(address_is_null) %
 
 lv_text_encoded_letter_next_2.exit.us.us:         ; preds = %.lr.ph.split.us.split.us
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %.pre59
-  %16 = call i32 @lv_text_utf8_next(ptr noundef nonnull %15, ptr noundef null)
+  %16 = call i32 @lv_text_utf8_next(ptr noundef nonnull readonly %15, ptr noundef null)
   br label %lv_text_is_cmd.exit.us.us
 
 lv_text_is_cmd.exit.us.us:                        ; preds = %.lr.ph.split.us.split.us, %lv_text_encoded_letter_next_2.exit.us.us
@@ -1234,7 +1234,7 @@ lv_text_is_cmd.exit.us.us:                        ; preds = %.lr.ph.split.us.spl
 .lr.ph.split.split:                               ; preds = %.lr.ph, %lv_text_is_cmd.exit.thread
   %.139 = phi i32 [ %.2, %lv_text_is_cmd.exit.thread ], [ 0, %.lr.ph ]
   %.02738 = phi i32 [ %.229, %lv_text_is_cmd.exit.thread ], [ 0, %.lr.ph ]
-  %27 = call i32 @lv_text_utf8_next(ptr noundef nonnull %0, ptr noundef nonnull %6)
+  %27 = call i32 @lv_text_utf8_next(ptr noundef nonnull readonly %0, ptr noundef nonnull %6)
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %lv_text_encoded_letter_next_2.exit.thread, label %lv_text_encoded_letter_next_2.exit
 
@@ -1242,7 +1242,7 @@ lv_text_encoded_letter_next_2.exit:               ; preds = %.lr.ph.split.split
   %28 = load i32, ptr %6, align 4, !tbaa !6
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 %29
-  %31 = call i32 @lv_text_utf8_next(ptr noundef nonnull %30, ptr noundef null)
+  %31 = call i32 @lv_text_utf8_next(ptr noundef nonnull readonly %30, ptr noundef null)
   %32 = icmp eq i32 %27, 35
   br i1 %32, label %34, label %35
 

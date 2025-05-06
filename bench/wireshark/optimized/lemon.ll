@@ -7453,7 +7453,7 @@ argindex.exit.thread:                             ; preds = %.tail.i, %.preheade
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @Symbol_new(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden ptr @Symbol_new(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @x2a, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %Symbol_find.exit.thread, label %4

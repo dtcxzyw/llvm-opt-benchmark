@@ -13895,7 +13895,7 @@ iq3_data_index.exit:                              ; preds = %1, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_iq3_xxs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #6 {
+define i64 @quantize_iq3_xxs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
   %6 = and i64 %3, 255
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %9, label %8
@@ -17382,7 +17382,7 @@ quantize_row_iq1_m_impl.exit.loopexit.us:         ; preds = %506
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_iq4_nl(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #6 {
+define i64 @quantize_iq4_nl(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x float], align 16
   %8 = alloca i16, align 2
@@ -18072,7 +18072,7 @@ define void @quantize_row_iq4_nl_ref(ptr noalias noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_iq4_xs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #6 {
+define i64 @quantize_iq4_xs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
   %6 = alloca [256 x i8], align 16
   %7 = alloca [32 x float], align 16
   %8 = alloca [8 x float], align 16

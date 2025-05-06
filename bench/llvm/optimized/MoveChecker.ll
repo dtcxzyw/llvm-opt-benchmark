@@ -4233,7 +4233,7 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_116TrackedRegionMapEEENS0_17Prog
 _ZN4llvm12ImmutableMapIPKN5clang4ento9MemRegionEN12_GLOBAL__N_111RegionStateENS_16ImutKeyValueInfoIS5_S7_EEEC2ERKSA_.exit.i.i: ; preds = %12, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_116TrackedRegionMapEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.thread.i
   %.not.i.i.i.i16.i = phi i1 [ true, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_116TrackedRegionMapEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.thread.i ], [ false, %12 ]
   %.sroa.0.015.i = phi ptr [ null, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_116TrackedRegionMapEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.thread.i ], [ %11, %12 ]
-  %16 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_111RegionStateEEEE15remove_internalERKS6_PNS_11ImutAVLTreeIS9_EE(ptr noundef nonnull align 8 dereferenceable(81) %8, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sroa.0.015.i), !noalias !491
+  %16 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_111RegionStateEEEE15remove_internalERKS6_PNS_11ImutAVLTreeIS9_EE(ptr noundef nonnull align 8 dereferenceable(81) %8, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef readonly %.sroa.0.015.i), !noalias !491
   call fastcc void @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_111RegionStateEEEE13markImmutableEPNS_11ImutAVLTreeIS9_EE(ptr noundef %16), !noalias !491
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.val.i.i.i.i.i = load ptr, ptr %17, align 8, !tbaa !232, !noalias !491
@@ -5509,7 +5509,7 @@ _ZN4llvm12ImmutableMapIPKN5clang4ento9MemRegionEN12_GLOBAL__N_111RegionStateENS_
   store ptr %2, ptr %5, align 8, !tbaa !249, !noalias !547
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %3, ptr %17, align 8, !tbaa !52, !noalias !547
-  %18 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_111RegionStateEEEE12add_internalERKSt4pairIS6_S8_EPNS_11ImutAVLTreeIS9_EE(ptr noundef nonnull align 8 dereferenceable(81) %9, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef %.sroa.0.016.i), !noalias !547
+  %18 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_111RegionStateEEEE12add_internalERKSt4pairIS6_S8_EPNS_11ImutAVLTreeIS9_EE(ptr noundef nonnull align 8 dereferenceable(81) %9, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef readonly %.sroa.0.016.i), !noalias !547
   call fastcc void @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_111RegionStateEEEE13markImmutableEPNS_11ImutAVLTreeIS9_EE(ptr noundef %18), !noalias !547
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %.val.i.i.i.i.i = load ptr, ptr %19, align 8, !tbaa !232, !noalias !547

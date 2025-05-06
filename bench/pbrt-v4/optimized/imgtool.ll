@@ -63378,7 +63378,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit310: ; preds = %_Z
 
 575:                                              ; preds = %572
   %.val = load ptr, ptr %41, align 8, !tbaa !15
-  invoke void (ptr, ptr, ...) @_ZL5usagePKcS0_z(ptr noundef nonnull @.str.236, ptr noundef %.val)
+  invoke void (ptr, ptr, ...) @_ZL5usagePKcS0_z(ptr noundef nonnull @.str.236, ptr noundef readonly %.val)
           to label %.noexc312 unwind label %578
 
 .noexc312:                                        ; preds = %575
@@ -131563,7 +131563,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @"_ZNSt17_Function_handlerIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZ4mainE3$_0E9_M_invokeERKSt9_Any_dataOS5_"(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) #8 align 2 {
   %.val = load ptr, ptr %1, align 8, !tbaa !15
-  tail call void (ptr, ptr, ...) @_ZL5usagePKcS0_z(ptr noundef nonnull @.str.236, ptr noundef %.val)
+  tail call void (ptr, ptr, ...) @_ZL5usagePKcS0_z(ptr noundef nonnull @.str.236, ptr noundef readonly %.val)
   unreachable
 }
 

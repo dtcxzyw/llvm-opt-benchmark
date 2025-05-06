@@ -598,7 +598,7 @@ declare ptr @MuxImageDelete(ptr noundef) local_unnamed_addr #2
 declare void @WebPMuxDelete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 2) i32 @WebPMuxGetCanvasSize(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @WebPMuxGetCanvasSize(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -735,7 +735,7 @@ define internal fastcc range(i32 -2, 2) i32 @MuxGetCanvasInfo(ptr noundef nonnul
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 2) i32 @WebPMuxGetFeatures(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @WebPMuxGetFeatures(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4

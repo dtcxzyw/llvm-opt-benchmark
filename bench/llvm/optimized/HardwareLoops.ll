@@ -1910,7 +1910,7 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit.i.i.i.i:     ; preds = %253
   br i1 %265, label %_ZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueE.exit.i.i, label %"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.exit.thread.i.i.i"
 
 "_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.exit.thread.i.i.i": ; preds = %"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.exit.i.i.i", %_ZNK4llvm11ConstantInt6isZeroEv.exit.i.i.i.i, %258, %248
-  %266 = call fastcc noundef zeroext i1 @"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j"(ptr noundef nonnull %234, ptr noundef nonnull %217, i32 noundef 1)
+  %266 = call fastcc noundef zeroext i1 @"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j"(ptr noundef nonnull %234, ptr noundef nonnull readonly %217, i32 noundef 1)
   br i1 %266, label %_ZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueE.exit.i.i, label %267
 
 267:                                              ; preds = %"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.exit.thread.i.i.i"

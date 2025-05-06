@@ -2043,7 +2043,7 @@ _ZNSt16allocator_traitsISaI7patternEE9constructIS0_JRNSt7__cxx1112basic_stringIc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z17buildDBAndScratchPKcjjjPP10hs_scratch(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_Z17buildDBAndScratchPKcjjjPP10hs_scratch(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.testing::AssertionResult", align 8
   %7 = alloca %"class.testing::Message", align 8
   %8 = alloca %"class.testing::internal::AssertHelper", align 8

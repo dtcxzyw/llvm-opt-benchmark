@@ -21545,7 +21545,7 @@ ParseCipherList.exit:                             ; preds = %InitSuitesHashSigAl
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @SetCipherList(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @SetCipherList(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #22 {
   %4 = tail call i32 @SetCipherList_ex(ptr noundef %0, ptr noundef null, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }

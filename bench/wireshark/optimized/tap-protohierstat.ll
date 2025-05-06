@@ -414,7 +414,7 @@ declare i32 @proto_get_id_by_filter_name(ptr noundef) local_unnamed_addr #3
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @protohierstat_draw(ptr noundef captures(address_is_null) %0) #0 {
+define internal void @protohierstat_draw(ptr noundef readonly captures(address_is_null) %0) #0 {
   %2 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.8)
   %3 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.9)
   %4 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.10)

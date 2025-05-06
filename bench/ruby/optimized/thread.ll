@@ -3708,7 +3708,7 @@ queue_length.exit.i:                              ; preds = %35, %32
 
 41:                                               ; preds = %queue_length.exit.i
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  tail call fastcc void @sync_wakeup(ptr noundef nonnull %42, i64 noundef 1)
+  tail call fastcc void @sync_wakeup(ptr noundef nonnull readonly %42, i64 noundef 1)
   br label %szqueue_do_pop.exit
 
 szqueue_do_pop.exit:                              ; preds = %queue_length.exit.i, %41
@@ -3967,7 +3967,7 @@ queue_length.exit40:                              ; preds = %88, %91
 
 queue_do_push.exit:                               ; preds = %117
   %119 = call i64 @rb_ary_push(i64 noundef %.val3452, i64 noundef %2) #17
-  call fastcc void @sync_wakeup(ptr noundef nonnull %8, i64 noundef 1)
+  call fastcc void @sync_wakeup(ptr noundef nonnull readonly %8, i64 noundef 1)
   br label %120
 
 120:                                              ; preds = %queue_do_push.exit, %116, %44
@@ -16640,7 +16640,7 @@ rb_ractor_thread_switch.exit:                     ; preds = %rb_native_mutex_unl
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @thread_sched_wait_events(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, -1) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 {
+define internal fastcc zeroext i1 @thread_sched_wait_events(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, -1) %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
@@ -21339,7 +21339,7 @@ queue_ptr.exit:                                   ; preds = %1, %9
   br label %RB_FL_SET.exit
 
 RB_FL_SET.exit:                                   ; preds = %15, %21
-  tail call fastcc void @sync_wakeup(ptr noundef nonnull %2, i64 noundef 9223372036854775807)
+  tail call fastcc void @sync_wakeup(ptr noundef nonnull readonly %2, i64 noundef 9223372036854775807)
   br label %23
 
 23:                                               ; preds = %RB_FL_SET.exit, %queue_ptr.exit
@@ -21410,7 +21410,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %rbimpl_RB_TYPE_P_fa
 
 queue_do_push.exit:                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i
   %29 = tail call i64 @rb_ary_push(i64 noundef %19, i64 noundef %1) #17
-  tail call fastcc void @sync_wakeup(ptr noundef nonnull %3, i64 noundef 1)
+  tail call fastcc void @sync_wakeup(ptr noundef nonnull readonly %3, i64 noundef 1)
   ret i64 %0
 }
 
@@ -21794,9 +21794,9 @@ RB_FL_ABLE.exit.i:                                ; preds = %szqueue_ptr.exit
   br label %RB_FL_SET.exit
 
 RB_FL_SET.exit:                                   ; preds = %szqueue_ptr.exit, %RB_FL_ABLE.exit.i, %25
-  tail call fastcc void @sync_wakeup(ptr noundef nonnull %6, i64 noundef 9223372036854775807)
+  tail call fastcc void @sync_wakeup(ptr noundef nonnull readonly %6, i64 noundef 9223372036854775807)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  tail call fastcc void @sync_wakeup(ptr noundef nonnull %27, i64 noundef 9223372036854775807)
+  tail call fastcc void @sync_wakeup(ptr noundef nonnull readonly %27, i64 noundef 9223372036854775807)
   br label %28
 
 28:                                               ; preds = %RB_FL_SET.exit, %1
@@ -22030,7 +22030,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 check_array.exit:                                 ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   %26 = tail call i64 @rb_ary_clear(i64 noundef %16) #17
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  tail call fastcc void @sync_wakeup(ptr noundef nonnull %27, i64 noundef 9223372036854775807)
+  tail call fastcc void @sync_wakeup(ptr noundef nonnull readonly %27, i64 noundef 9223372036854775807)
   ret i64 %0
 }
 
@@ -22302,7 +22302,7 @@ define internal noundef i64 @rb_condvar_signal(i64 noundef returned %0) #0 {
   br label %condvar_ptr.exit
 
 condvar_ptr.exit:                                 ; preds = %1, %8
-  tail call fastcc void @sync_wakeup(ptr noundef nonnull %5, i64 noundef 1)
+  tail call fastcc void @sync_wakeup(ptr noundef nonnull readonly %5, i64 noundef 1)
   ret i64 %0
 }
 
@@ -22325,7 +22325,7 @@ define internal noundef i64 @rb_condvar_broadcast(i64 noundef returned %0) #0 {
   br label %condvar_ptr.exit
 
 condvar_ptr.exit:                                 ; preds = %1, %8
-  tail call fastcc void @sync_wakeup(ptr noundef nonnull %5, i64 noundef 9223372036854775807)
+  tail call fastcc void @sync_wakeup(ptr noundef nonnull readonly %5, i64 noundef 9223372036854775807)
   ret i64 %0
 }
 

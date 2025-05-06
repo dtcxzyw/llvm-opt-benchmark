@@ -2516,7 +2516,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17ha22a3f1e59ee12b3E(p
   %.sroa.0.0.i = phi ptr [ %20, %.noexc ], [ %14, %12 ]
   %17 = getelementptr inbounds i8, ptr %.sroa.13.2, i64 -40
   %18 = getelementptr inbounds i8, ptr %.sroa.7.2, i64 -40
-  %19 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull %.val, ptr noalias noundef readonly align 8 dereferenceable(40) %18, ptr noalias noundef readonly align 8 dereferenceable(40) %17)
+  %19 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull readonly %.val, ptr noalias noundef readonly align 8 dereferenceable(40) %18, ptr noalias noundef readonly align 8 dereferenceable(40) %17)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.preheader
@@ -2537,7 +2537,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17ha22a3f1e59ee12b3E(p
   %.sroa.13.3 = phi ptr [ %34, %.noexc24 ], [ %0, %12 ]
   %.sroa.0.2 = phi ptr [ %31, %.noexc24 ], [ %2, %12 ]
   %.sroa.0.02.i = phi ptr [ %33, %.noexc24 ], [ %13, %12 ]
-  %28 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull %.val, ptr noalias noundef readonly align 8 dereferenceable(40) %.sroa.0.02.i, ptr noalias noundef readonly align 8 dereferenceable(40) %.sroa.0.2)
+  %28 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull readonly %.val, ptr noalias noundef readonly align 8 dereferenceable(40) %.sroa.0.02.i, ptr noalias noundef readonly align 8 dereferenceable(40) %.sroa.0.2)
           to label %.noexc24 unwind label %.loopexit.split-lp
 
 .noexc24:                                         ; preds = %.lr.ph.i

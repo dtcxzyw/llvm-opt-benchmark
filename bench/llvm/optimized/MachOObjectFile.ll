@@ -20096,7 +20096,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm6object15MachOObjectFile18getSegmentCont
 
 28:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #31
-  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO15segment_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %.sroa.010.0.copyload)
+  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO15segment_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef readonly %.sroa.010.0.copyload)
   %29 = load i8, ptr %23, align 8
   %30 = trunc i8 %29 to i1
   br i1 %30, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i, label %40
@@ -20165,7 +20165,7 @@ _ZN12_GLOBAL__N_118getSegmentContentsIN4llvm5MachO15segment_commandEEENS1_8Array
 
 55:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #31
-  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO18segment_command_64EENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %.sroa.010.0.copyload)
+  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO18segment_command_64EENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef readonly %.sroa.010.0.copyload)
   %56 = load i8, ptr %18, align 8
   %57 = trunc i8 %56 to i1
   br i1 %57, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i34, label %67
@@ -20299,7 +20299,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm6object15MachOObjectFile18getSegmentCont
 19:                                               ; preds = %17
   %.sroa.03.0.copyload.le = load ptr, ptr %.01946, align 8, !tbaa !189
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #31
-  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO15segment_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %.sroa.03.0.copyload.le)
+  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO15segment_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef readonly %.sroa.03.0.copyload.le)
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %21 = load i8, ptr %20, align 8
   %22 = trunc i8 %21 to i1
@@ -20362,7 +20362,7 @@ _ZN12_GLOBAL__N_118getSegmentContentsIN4llvm5MachO15segment_commandEEENS1_8Array
 47:                                               ; preds = %45
   %.sroa.03.0.copyload.le43 = load ptr, ptr %.01946, align 8, !tbaa !189
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #31
-  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO18segment_command_64EENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %.sroa.03.0.copyload.le43)
+  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO18segment_command_64EENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef readonly %.sroa.03.0.copyload.le43)
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %49 = load i8, ptr %48, align 8
   %50 = trunc i8 %49 to i1
@@ -23428,7 +23428,7 @@ _ZN4llvm6object15MachOObjectFile7getArchEjj.exit: ; preds = %1, %3, %4, %5, %6, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object15MachOObjectFile13getArchTripleEPPKc(ptr dead_on_unwind noalias writable sret(%"class.llvm::Triple") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm6object15MachOObjectFile13getArchTripleEPPKc(ptr dead_on_unwind noalias writable sret(%"class.llvm::Triple") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4, !tbaa !229
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56

@@ -303,7 +303,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Acec_ParseSignatureOne(ptr noundef captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Acec_ParseSignatureOne(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4, !tbaa !17
@@ -981,7 +981,7 @@ Vec_IntPush.exit100:                              ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Acec_ParseSignature(ptr noundef %0) local_unnamed_addr #0 {
+define noalias noundef ptr @Acec_ParseSignature(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1, !tbaa !3
   %3 = icmp eq i8 %2, 40
   br i1 %3, label %4, label %27

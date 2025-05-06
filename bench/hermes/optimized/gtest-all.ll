@@ -6873,7 +6873,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(pt
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St13_Setprecision(ptr noundef nonnull align 8 dereferenceable(8), i32) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7testing7MessagelsEPKw(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %this, ptr noundef captures(address_is_null) %wide_c_str) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7testing7MessagelsEPKw(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %this, ptr noundef readonly captures(address_is_null) %wide_c_str) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %OS.i.i = alloca %"class.llvh::raw_os_ostream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6956,7 +6956,7 @@ return:                                           ; preds = %if.end, %invoke.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7testing7MessagelsEPw(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %this, ptr noundef captures(address_is_null) %wide_c_str) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7testing7MessagelsEPw(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %this, ptr noundef readonly captures(address_is_null) %wide_c_str) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %OS.i.i = alloca %"class.llvh::raw_os_ostream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12875,7 +12875,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing12_GLOBAL__N_115IsSubstringImplIPKwEENS_15AssertionResultEbPKcS6_RKT_S9_(ptr noalias align 8 %agg.result, i1 noundef zeroext %expected_to_be_substring, ptr noundef %needle_expr, ptr noundef %haystack_expr, ptr %needle.0.val, ptr %haystack.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing12_GLOBAL__N_115IsSubstringImplIPKwEENS_15AssertionResultEbPKcS6_RKT_S9_(ptr noalias align 8 %agg.result, i1 noundef zeroext %expected_to_be_substring, ptr noundef %needle_expr, ptr noundef %haystack_expr, ptr readonly %needle.0.val, ptr readonly %haystack.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i6 = alloca %"class.testing::Message", align 8
   %ref.tmp.i = alloca %"class.testing::Message", align 8

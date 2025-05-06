@@ -1030,7 +1030,7 @@ while.end:                                        ; preds = %if.end89, %while.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 0, 4) i32 @_ZN4llvh25ConvertUTF8toUTF32PartialEPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr noundef captures(none) %sourceStart, ptr noundef %sourceEnd, ptr noundef captures(none) %targetStart, ptr noundef captures(address) %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 4) i32 @_ZN4llvh25ConvertUTF8toUTF32PartialEPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr noundef captures(none) %sourceStart, ptr noundef %sourceEnd, ptr noundef captures(none) %targetStart, ptr noundef readnone captures(address) %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc noundef i32 @_ZN4llvhL22ConvertUTF8toUTF32ImplEPPKhS1_PPjS3_NS_15ConversionFlagsEh(ptr noundef %sourceStart, ptr noundef %sourceEnd, ptr noundef %targetStart, ptr noundef %targetEnd, i32 noundef %flags, i8 noundef zeroext 1)
   ret i32 %call
@@ -1410,7 +1410,7 @@ while.end:                                        ; preds = %while.cond.backedge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 0, 4) i32 @_ZN4llvh18ConvertUTF8toUTF32EPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr noundef captures(none) %sourceStart, ptr noundef %sourceEnd, ptr noundef captures(none) %targetStart, ptr noundef captures(address) %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 4) i32 @_ZN4llvh18ConvertUTF8toUTF32EPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr noundef captures(none) %sourceStart, ptr noundef %sourceEnd, ptr noundef captures(none) %targetStart, ptr noundef readnone captures(address) %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc noundef i32 @_ZN4llvhL22ConvertUTF8toUTF32ImplEPPKhS1_PPjS3_NS_15ConversionFlagsEh(ptr noundef %sourceStart, ptr noundef %sourceEnd, ptr noundef %targetStart, ptr noundef %targetEnd, i32 noundef %flags, i8 noundef zeroext 0)
   ret i32 %call

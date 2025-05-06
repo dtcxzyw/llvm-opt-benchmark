@@ -1550,7 +1550,7 @@ declare dso_local void @machine_crash_shutdown(ptr noundef) local_unnamed_addr #
 declare dso_local void @machine_kexec(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @crash_kexec(ptr noundef captures(address_is_null) %0) #2 align 16 {
+define dso_local void @crash_kexec(ptr noundef readonly captures(address_is_null) %0) #2 align 16 {
   %2 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #17, !srcloc !52
   %3 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @panic_cpu, i32 %2, ptr nonnull elementtype(i32) @panic_cpu, i32 -1) #17, !srcloc !53
   %4 = extractvalue { i8, i32 } %3, 0

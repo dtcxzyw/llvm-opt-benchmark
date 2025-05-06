@@ -1788,7 +1788,7 @@ declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @basebackup_progress_estimate_backup_size() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @sendDir(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef captures(address_is_null) %4, i1 noundef zeroext %5, ptr noundef %6, i32 noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc i64 @sendDir(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef readonly captures(address_is_null) %4, i1 noundef zeroext %5, ptr noundef %6, i32 noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca [2048 x i8], align 16
   %11 = alloca %struct.stat, align 8
   %12 = alloca i32, align 4

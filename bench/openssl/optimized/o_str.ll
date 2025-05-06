@@ -322,7 +322,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OPENSSL_hexstr2buf_ex(ptr noundef captures(address) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef readonly captures(none) %3, i8 noundef signext %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OPENSSL_hexstr2buf_ex(ptr noundef writeonly captures(address) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, i8 noundef signext %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i32 @hexstr2buf_sep(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef signext %4)
   ret i32 %6
 }
@@ -476,13 +476,13 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @OPENSSL_hexstr2buf(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define ptr @OPENSSL_hexstr2buf(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @ossl_hexstr2buf_sep(ptr noundef %0, ptr noundef %1, i8 noundef signext 58)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OPENSSL_buf2hexstr_ex(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i8 noundef signext %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OPENSSL_buf2hexstr_ex(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i8 noundef signext %5) local_unnamed_addr #0 {
   %7 = tail call fastcc i32 @buf2hexstr_sep(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i8 noundef signext %5)
   ret i32 %7
 }

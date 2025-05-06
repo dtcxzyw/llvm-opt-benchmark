@@ -1603,7 +1603,7 @@ declare noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSize
 declare void @_ZN6google8protobuf7Message17CopyWithSizeCheckEPS1_RKS1_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17opencv_tensorflow8GraphDef9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN17opencv_tensorflow8GraphDef9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN17opencv_tensorflow8GraphDef9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1)
   ret void
 }
@@ -1772,7 +1772,7 @@ declare void @_ZN17opencv_tensorflow18FunctionDefLibrary9MergeFromERKS0_(ptr nou
 declare void @_ZN17opencv_tensorflow10VersionDef9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17opencv_tensorflow8GraphDef8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(64) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17opencv_tensorflow8GraphDef8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %5, label %4
 

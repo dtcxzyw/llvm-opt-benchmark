@@ -1321,7 +1321,7 @@ declare i64 @ws_label_strcpy(ptr noundef, i64 noundef, i64 noundef, ptr noundef,
 declare void @llvm.va_end.p0(ptr) #12
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @col_append_str_uint(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define void @col_append_str_uint(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #17
   %7 = icmp eq ptr %0, null
@@ -1413,7 +1413,7 @@ col_get_writable.exit.thread:                     ; preds = %25, %10, %.preheade
 declare void @uint32_to_str_buf(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @col_append_ports(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define void @col_append_ports(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #17

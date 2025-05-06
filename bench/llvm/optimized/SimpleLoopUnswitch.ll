@@ -38568,7 +38568,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_10BasicBlockENS_15InstructionCostE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i64, i32 } @_ZL21computeDomSubtreeCostRN4llvm15DomTreeNodeBaseINS_10BasicBlockEEERKNS_13SmallDenseMapIPS1_NS_15InstructionCostELj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEERNS4_IPS2_S6_Lj4ENS7_ISF_vEENSA_ISF_S6_EEEE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2) unnamed_addr #1 {
+define internal fastcc { i64, i32 } @_ZL21computeDomSubtreeCostRN4llvm15DomTreeNodeBaseINS_10BasicBlockEEERKNS_13SmallDenseMapIPS1_NS_15InstructionCostELj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEERNS4_IPS2_S6_Lj4ENS7_ISF_vEENSA_ISF_S6_EEEE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2) unnamed_addr #1 {
   %4 = alloca %"struct.std::pair.724", align 8
   %5 = alloca %"struct.std::pair.708", align 8
   %6 = load ptr, ptr %0, align 8, !tbaa !489
@@ -43277,7 +43277,7 @@ _ZN4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_N
 declare void @_ZN4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE13addBlockEntryEPS1_(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef) local_unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL13cloneLoopNestRN4llvm4LoopEPS0_RKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS6_NS_3sys10SmartMutexILb0EEEEEEERNS_8LoopInfoE(ptr noundef nonnull align 8 captures(address) dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %2, ptr noundef nonnull align 8 dereferenceable(144) %3) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL13cloneLoopNestRN4llvm4LoopEPS0_RKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS6_NS_3sys10SmartMutexILb0EEEEEEERNS_8LoopInfoE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %2, ptr noundef nonnull align 8 dereferenceable(144) %3) unnamed_addr #1 {
   %5 = alloca %"class.llvm::SmallVector.945", align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 128
@@ -45687,7 +45687,7 @@ _ZN4llvm19SmallPtrSetIteratorIPNS_10BasicBlockEEppEv.exit: ; preds = %.lr.ph.i4.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @"_ZSt27__stable_partition_adaptiveIN9__gnu_cxx17__normal_iteratorIPPN4llvm10BasicBlockESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops10_Iter_predIZL24rebuildLoopAfterUnswitchRNS2_4LoopENS2_8ArrayRefIS4_EERNS2_8LoopInfoERNS2_15SmallVectorImplIPSC_EEPNS2_15ScalarEvolutionEE3$_1EElET_SQ_SQ_T1_T2_T0_SS_"(ptr %0, ptr captures(address) %1, ptr %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #1 {
+define internal fastcc ptr @"_ZSt27__stable_partition_adaptiveIN9__gnu_cxx17__normal_iteratorIPPN4llvm10BasicBlockESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops10_Iter_predIZL24rebuildLoopAfterUnswitchRNS2_4LoopENS2_8ArrayRefIS4_EERNS2_8LoopInfoERNS2_15SmallVectorImplIPSC_EEPNS2_15ScalarEvolutionEE3$_1EElET_SQ_SQ_T1_T2_T0_SS_"(ptr %0, ptr readnone captures(address) %1, ptr %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #1 {
   %7 = icmp eq i64 %3, 1
   br i1 %7, label %_ZSt4moveIPPN4llvm10BasicBlockEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit, label %8
 
@@ -48113,7 +48113,7 @@ _ZSt4moveIPPN4llvm10BasicBlockES3_ET0_T_S5_S4_.exit23: ; preds = %_ZSt4moveIPPN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @"_ZSt27__stable_partition_adaptiveIN9__gnu_cxx17__normal_iteratorIPPN4llvm4LoopESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops10_Iter_predIZL24rebuildLoopAfterUnswitchRS3_NS2_8ArrayRefIPNS2_10BasicBlockEEERNS2_8LoopInfoERNS2_15SmallVectorImplIS4_EEPNS2_15ScalarEvolutionEE3$_4EElET_SQ_SQ_T1_T2_T0_SS_"(ptr %0, ptr captures(address) %1, ptr %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #1 {
+define internal fastcc ptr @"_ZSt27__stable_partition_adaptiveIN9__gnu_cxx17__normal_iteratorIPPN4llvm4LoopESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops10_Iter_predIZL24rebuildLoopAfterUnswitchRS3_NS2_8ArrayRefIPNS2_10BasicBlockEEERNS2_8LoopInfoERNS2_15SmallVectorImplIS4_EEPNS2_15ScalarEvolutionEE3$_4EElET_SQ_SQ_T1_T2_T0_SS_"(ptr %0, ptr readnone captures(address) %1, ptr %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #1 {
   %7 = icmp eq i64 %3, 1
   br i1 %7, label %_ZSt4moveIPPN4llvm4LoopEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit, label %8
 

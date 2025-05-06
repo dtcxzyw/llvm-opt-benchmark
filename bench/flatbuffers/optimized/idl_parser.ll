@@ -52458,7 +52458,7 @@ define internal fastcc void @"_ZN11flatbuffers12_GLOBAL__N_111SimpleQsortIhZNS_6
   %.val34.val.us.us.us = load i32, ptr %10, align 8, !tbaa !483
   %.val34.val35.us.us.us = load ptr, ptr %11, align 8
   %19 = getelementptr inbounds nuw i8, ptr %.054.us.us.us, i64 %12
-  %20 = tail call fastcc noundef zeroext i1 @_ZN11flatbuffers12_GLOBAL__N_124CompareSerializedScalarsEPKhS2_RKNS_8FieldDefE(ptr noundef %18, ptr noundef %19, i32 %.val34.val.us.us.us, ptr %.val34.val35.us.us.us)
+  %20 = tail call fastcc noundef zeroext i1 @_ZN11flatbuffers12_GLOBAL__N_124CompareSerializedScalarsEPKhS2_RKNS_8FieldDefE(ptr noundef readonly %18, ptr noundef readonly %19, i32 %.val34.val.us.us.us, ptr %.val34.val35.us.us.us)
   %.132.us.us.us.idx = select i1 %20, i64 %13, i64 0
   %.132.us.us.us = getelementptr inbounds i8, ptr %.03153.us.us.us, i64 %.132.us.us.us.idx
   %.1.us.us.us.idx = select i1 %20, i64 0, i64 %2
@@ -52482,7 +52482,7 @@ define internal fastcc void @"_ZN11flatbuffers12_GLOBAL__N_111SimpleQsortIhZNS_6
   %.val34.val = load i32, ptr %10, align 8, !tbaa !483
   %.val34.val35 = load ptr, ptr %11, align 8
   %26 = getelementptr inbounds nuw i8, ptr %.054, i64 %12
-  %27 = tail call fastcc noundef zeroext i1 @_ZN11flatbuffers12_GLOBAL__N_124CompareSerializedScalarsEPKhS2_RKNS_8FieldDefE(ptr noundef %24, ptr noundef %26, i32 %.val34.val, ptr %.val34.val35)
+  %27 = tail call fastcc noundef zeroext i1 @_ZN11flatbuffers12_GLOBAL__N_124CompareSerializedScalarsEPKhS2_RKNS_8FieldDefE(ptr noundef readonly %24, ptr noundef readonly %26, i32 %.val34.val, ptr %.val34.val35)
   br i1 %27, label %.lr.ph.i.preheader, label %34
 
 .lr.ph.i.preheader:                               ; preds = %25
@@ -88598,7 +88598,7 @@ _ZNSt6vectorIN11flatbuffers6OffsetIN10reflection4EnumEEESaIS4_EED2Ev.exit190: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @_ZNK11flatbuffers9StructDef9SerializeEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull align 8 captures(address) dereferenceable(328) %0, ptr noundef %1, ptr noundef nonnull align 8 captures(address) dereferenceable(1920) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local i32 @_ZNK11flatbuffers9StructDef9SerializeEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(328) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1920) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.443", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -88751,7 +88751,7 @@ _ZNSt6vectorIN11flatbuffers6OffsetIN10reflection5FieldEEESaIS4_EE9push_backEOS4_
 
 _ZN11flatbuffers21FlatBufferBuilderImplILb0EE26CreateVectorOfSortedTablesIN10reflection5FieldESaINS_6OffsetIS4_EEEEENS5_INS_6VectorINS5_IT_EEjEEEEPSt6vectorISA_T0_E.exit: ; preds = %.noexc46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %60 = invoke fastcc i32 @_ZN11flatbuffersL25SerializeAttributesCommonERKNS_11SymbolTableINS_5ValueEEEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull align 8 dereferenceable(72) %59, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(1920) %2)
+  %60 = invoke fastcc i32 @_ZN11flatbuffersL25SerializeAttributesCommonERKNS_11SymbolTableINS_5ValueEEEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull readonly align 8 dereferenceable(72) %59, ptr noundef nonnull %1, ptr noundef nonnull readonly align 8 dereferenceable(1920) %2)
           to label %_ZNK11flatbuffers10Definition19SerializeAttributesEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE.exit unwind label %130
 
 _ZNK11flatbuffers10Definition19SerializeAttributesEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE.exit: ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE26CreateVectorOfSortedTablesIN10reflection5FieldESaINS_6OffsetIS4_EEEEENS5_INS_6VectorINS5_IT_EEjEEEEPSt6vectorISA_T0_E.exit
@@ -89004,7 +89004,7 @@ _ZNSt6vectorIN11flatbuffers6OffsetIN10reflection5FieldEEESaIS4_EED2Ev.exit65: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @_ZNK11flatbuffers7EnumDef9SerializeEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull align 8 captures(address) dereferenceable(312) %0, ptr noundef %1, ptr noundef nonnull align 8 captures(address) dereferenceable(1920) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local i32 @_ZNK11flatbuffers7EnumDef9SerializeEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(312) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1920) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -89045,12 +89045,12 @@ define dso_local i32 @_ZNK11flatbuffers7EnumDef9SerializeEPNS_21FlatBufferBuilde
 .noexc:                                           ; preds = %15
   %20 = load i32, ptr %11, align 8, !tbaa !608
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %22 = invoke i32 @_ZNK11flatbuffers4Type9SerializeEPNS_21FlatBufferBuilderImplILb0EEE(ptr noundef nonnull align 8 dereferenceable(26) %21, ptr noundef nonnull %1)
+  %22 = invoke i32 @_ZNK11flatbuffers4Type9SerializeEPNS_21FlatBufferBuilderImplILb0EEE(ptr noundef nonnull readonly align 8 dereferenceable(26) %21, ptr noundef nonnull %1)
           to label %.noexc49 unwind label %.loopexit
 
 .noexc49:                                         ; preds = %.noexc
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 88
-  %24 = invoke fastcc i32 @_ZN11flatbuffersL25SerializeAttributesCommonERKNS_11SymbolTableINS_5ValueEEEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(1920) %2)
+  %24 = invoke fastcc i32 @_ZN11flatbuffersL25SerializeAttributesCommonERKNS_11SymbolTableINS_5ValueEEEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull readonly align 8 dereferenceable(72) %23, ptr noundef nonnull %1, ptr noundef nonnull readonly align 8 dereferenceable(1920) %2)
           to label %.noexc50 unwind label %.loopexit
 
 .noexc50:                                         ; preds = %.noexc49
@@ -89190,7 +89190,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateVectorINS_6OffsetIN10reflec
 
 75:                                               ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateVectorINS_6OffsetIN10reflection7EnumValEEESaIS6_EEENS3_INS_6VectorIT_jEEEERKSt6vectorIS9_T0_E.exit
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %77 = invoke fastcc i32 @_ZN11flatbuffersL25SerializeAttributesCommonERKNS_11SymbolTableINS_5ValueEEEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull align 8 dereferenceable(72) %76, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(1920) %2)
+  %77 = invoke fastcc i32 @_ZN11flatbuffersL25SerializeAttributesCommonERKNS_11SymbolTableINS_5ValueEEEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull readonly align 8 dereferenceable(72) %76, ptr noundef nonnull %1, ptr noundef nonnull readonly align 8 dereferenceable(1920) %2)
           to label %_ZNK11flatbuffers10Definition19SerializeAttributesEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE.exit unwind label %143
 
 _ZNK11flatbuffers10Definition19SerializeAttributesEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE.exit: ; preds = %75
@@ -89442,7 +89442,7 @@ _ZNSt6vectorIN11flatbuffers6OffsetIN10reflection7EnumValEEESaIS4_EED2Ev.exit74: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @_ZNK11flatbuffers10ServiceDef9SerializeEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull align 8 captures(address) dereferenceable(272) %0, ptr noundef %1, ptr noundef nonnull align 8 captures(address) dereferenceable(1920) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local i32 @_ZNK11flatbuffers10ServiceDef9SerializeEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(272) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1920) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -89483,7 +89483,7 @@ define dso_local i32 @_ZNK11flatbuffers10ServiceDef9SerializeEPNS_21FlatBufferBu
 .noexc:                                           ; preds = %15
   %20 = load i32, ptr %11, align 8, !tbaa !608
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 88
-  %22 = invoke fastcc i32 @_ZN11flatbuffersL25SerializeAttributesCommonERKNS_11SymbolTableINS_5ValueEEEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull align 8 dereferenceable(72) %21, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(1920) %2)
+  %22 = invoke fastcc i32 @_ZN11flatbuffersL25SerializeAttributesCommonERKNS_11SymbolTableINS_5ValueEEEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull readonly align 8 dereferenceable(72) %21, ptr noundef nonnull %1, ptr noundef nonnull readonly align 8 dereferenceable(1920) %2)
           to label %.noexc44 unwind label %.loopexit
 
 .noexc44:                                         ; preds = %.noexc
@@ -89624,7 +89624,7 @@ _ZNSt6vectorIN11flatbuffers6OffsetIN10reflection7RPCCallEEESaIS4_EE9push_backEOS
 
 _ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateVectorINS_6OffsetIN10reflection7RPCCallEEESaIS6_EEENS3_INS_6VectorIT_jEEEERKSt6vectorIS9_T0_E.exit: ; preds = %68
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %78 = invoke fastcc i32 @_ZN11flatbuffersL25SerializeAttributesCommonERKNS_11SymbolTableINS_5ValueEEEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull align 8 dereferenceable(72) %77, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(1920) %2)
+  %78 = invoke fastcc i32 @_ZN11flatbuffersL25SerializeAttributesCommonERKNS_11SymbolTableINS_5ValueEEEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull readonly align 8 dereferenceable(72) %77, ptr noundef nonnull %1, ptr noundef nonnull readonly align 8 dereferenceable(1920) %2)
           to label %_ZNK11flatbuffers10Definition19SerializeAttributesEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE.exit unwind label %139
 
 _ZNK11flatbuffers10Definition19SerializeAttributesEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE.exit: ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateVectorINS_6OffsetIN10reflection7RPCCallEEESaIS6_EEENS3_INS_6VectorIT_jEEEERKSt6vectorIS9_T0_E.exit
@@ -90519,7 +90519,7 @@ _ZN10reflection13SchemaBuilder11add_objectsEN11flatbuffers6OffsetINS1_6VectorINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @_ZNK11flatbuffers8FieldDef9SerializeEPNS_21FlatBufferBuilderImplILb0EEEtRKNS_6ParserE(ptr noundef nonnull align 8 captures(address) dereferenceable(312) %0, ptr noundef nonnull %1, i16 noundef zeroext %2, ptr noundef nonnull align 8 captures(address) dereferenceable(1920) %3) local_unnamed_addr #4 align 2 {
+define dso_local i32 @_ZNK11flatbuffers8FieldDef9SerializeEPNS_21FlatBufferBuilderImplILb0EEEtRKNS_6ParserE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(312) %0, ptr noundef nonnull %1, i16 noundef zeroext %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1920) %3) local_unnamed_addr #4 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = load ptr, ptr %0, align 8, !tbaa !14
@@ -90531,7 +90531,7 @@ define dso_local i32 @_ZNK11flatbuffers8FieldDef9SerializeEPNS_21FlatBufferBuild
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %13 = tail call i32 @_ZNK11flatbuffers4Type9SerializeEPNS_21FlatBufferBuilderImplILb0EEE(ptr noundef nonnull align 8 dereferenceable(26) %12, ptr noundef nonnull %1)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %15 = tail call fastcc i32 @_ZN11flatbuffersL25SerializeAttributesCommonERKNS_11SymbolTableINS_5ValueEEEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(1920) %3)
+  %15 = tail call fastcc i32 @_ZN11flatbuffersL25SerializeAttributesCommonERKNS_11SymbolTableINS_5ValueEEEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull readonly align 8 dereferenceable(72) %14, ptr noundef nonnull %1, ptr noundef nonnull readonly align 8 dereferenceable(1920) %3)
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 1249
   %17 = load i8, ptr %16, align 1, !tbaa !1903, !range !160, !noundef !161
   %18 = trunc nuw i8 %17 to i1
@@ -90636,7 +90636,7 @@ _ZN11flatbuffers14StringToNumberIdEEbPKcPT_.exit: ; preds = %27, %33, %.critedge
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @_ZNK11flatbuffers10Definition19SerializeAttributesEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull align 8 captures(address) dereferenceable(200) %0, ptr noundef %1, ptr noundef nonnull align 8 captures(address) dereferenceable(1920) %2) local_unnamed_addr #4 align 2 {
+define dso_local i32 @_ZNK11flatbuffers10Definition19SerializeAttributesEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(200) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1920) %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = tail call fastcc i32 @_ZN11flatbuffersL25SerializeAttributesCommonERKNS_11SymbolTableINS_5ValueEEEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(1920) %2)
   ret i32 %5
@@ -91083,7 +91083,7 @@ _ZN10reflection13ObjectBuilder13add_is_structEb.exit: ; preds = %_ZN10reflection
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN11flatbuffers9StructDef11DeserializeERNS_6ParserEPKN10reflection6ObjectE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN11flatbuffers9StructDef11DeserializeERNS_6ParserEPKN10reflection6ObjectE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -91113,7 +91113,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i: ; preds = %3
 _ZNK10reflection6Object10attributesEv.exit:       ; preds = %3, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i, %16
   %22 = phi ptr [ %21, %16 ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i ], [ null, %3 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %24 = tail call fastcc noundef zeroext i1 @_ZN11flatbuffersL27DeserializeAttributesCommonERNS_11SymbolTableINS_5ValueEEERNS_6ParserEPKNS_6VectorINS_6OffsetIN10reflection8KeyValueEEEjEE(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef %22)
+  %24 = tail call fastcc noundef zeroext i1 @_ZN11flatbuffersL27DeserializeAttributesCommonERNS_11SymbolTableINS_5ValueEEERNS_6ParserEPKNS_6VectorINS_6OffsetIN10reflection8KeyValueEEEjEE(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef readonly %22)
   br i1 %24, label %25, label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 25:                                               ; preds = %_ZNK10reflection6Object10attributesEv.exit
@@ -91773,7 +91773,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit100:                 ; preds = %.thread121, %_ZNSt7
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN11flatbuffers10Definition21DeserializeAttributesERNS_6ParserEPKNS_6VectorINS_6OffsetIN10reflection8KeyValueEEEjEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN11flatbuffers10Definition21DeserializeAttributesERNS_6ParserEPKNS_6VectorINS_6OffsetIN10reflection8KeyValueEEEjEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = tail call fastcc noundef zeroext i1 @_ZN11flatbuffersL27DeserializeAttributesCommonERNS_11SymbolTableINS_5ValueEEERNS_6ParserEPKNS_6VectorINS_6OffsetIN10reflection8KeyValueEEEjEE(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef %2)
   ret i1 %5
@@ -91943,7 +91943,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN11flatbuffers8FieldDef11DeserializeERNS_6ParserEPKN10reflection5FieldE(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN11flatbuffers8FieldDef11DeserializeERNS_6ParserEPKN10reflection5FieldE(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i:
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
@@ -92604,7 +92604,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i90: ; preds = %_ZNK1
 _ZNK10reflection5Field10attributesEv.exit:        ; preds = %_ZNK10reflection5Field8offset64Ev.exit.thread199, %_ZNK10reflection5Field8offset64Ev.exit, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i90, %291
   %297 = phi ptr [ %296, %291 ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i90 ], [ null, %_ZNK10reflection5Field8offset64Ev.exit ], [ null, %_ZNK10reflection5Field8offset64Ev.exit.thread199 ]
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %299 = call fastcc noundef zeroext i1 @_ZN11flatbuffersL27DeserializeAttributesCommonERNS_11SymbolTableINS_5ValueEEERNS_6ParserEPKNS_6VectorINS_6OffsetIN10reflection8KeyValueEEEjEE(ptr noundef nonnull align 8 dereferenceable(72) %298, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef %297)
+  %299 = call fastcc noundef zeroext i1 @_ZN11flatbuffersL27DeserializeAttributesCommonERNS_11SymbolTableINS_5ValueEEERNS_6ParserEPKNS_6VectorINS_6OffsetIN10reflection8KeyValueEEEjEE(ptr noundef nonnull align 8 dereferenceable(72) %298, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef readonly %297)
   br i1 %299, label %._crit_edge.i.i, label %455
 
 ._crit_edge.i.i:                                  ; preds = %_ZNK10reflection5Field10attributesEv.exit
@@ -94326,7 +94326,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @_ZNK11flatbuffers7RPCCall9SerializeEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull align 8 captures(address) dereferenceable(216) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 captures(address) dereferenceable(1920) %2) local_unnamed_addr #4 align 2 {
+define dso_local i32 @_ZNK11flatbuffers7RPCCall9SerializeEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(216) %0, ptr noundef nonnull %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1920) %2) local_unnamed_addr #4 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !4
@@ -94334,7 +94334,7 @@ define dso_local i32 @_ZNK11flatbuffers7RPCCall9SerializeEPNS_21FlatBufferBuilde
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %8 = load i32, ptr %7, align 8, !tbaa !608
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %10 = tail call fastcc i32 @_ZN11flatbuffersL25SerializeAttributesCommonERKNS_11SymbolTableINS_5ValueEEEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(1920) %2)
+  %10 = tail call fastcc i32 @_ZN11flatbuffersL25SerializeAttributesCommonERKNS_11SymbolTableINS_5ValueEEEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull readonly align 8 dereferenceable(72) %9, ptr noundef nonnull %1, ptr noundef nonnull readonly align 8 dereferenceable(1920) %2)
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 1249
   %12 = load i8, ptr %11, align 1, !tbaa !1903, !range !160, !noundef !161
   %13 = trunc nuw i8 %12 to i1
@@ -94726,7 +94726,7 @@ _ZN10reflection14RPCCallBuilder8add_nameEN11flatbuffers6OffsetINS1_6StringEEE.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN11flatbuffers7RPCCall11DeserializeERNS_6ParserEPKN10reflection7RPCCallE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN11flatbuffers7RPCCall11DeserializeERNS_6ParserEPKN10reflection7RPCCallE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i:
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
@@ -94920,7 +94920,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i15: ; preds = %_ZNSt
 _ZNK10reflection7RPCCall10attributesEv.exit:      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i15, %82
   %88 = phi ptr [ %87, %82 ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i15 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %90 = call fastcc noundef zeroext i1 @_ZN11flatbuffersL27DeserializeAttributesCommonERNS_11SymbolTableINS_5ValueEEERNS_6ParserEPKNS_6VectorINS_6OffsetIN10reflection8KeyValueEEEjEE(ptr noundef nonnull align 8 dereferenceable(72) %89, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef %88)
+  %90 = call fastcc noundef zeroext i1 @_ZN11flatbuffersL27DeserializeAttributesCommonERNS_11SymbolTableINS_5ValueEEERNS_6ParserEPKNS_6VectorINS_6OffsetIN10reflection8KeyValueEEEjEE(ptr noundef nonnull align 8 dereferenceable(72) %89, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef readonly %88)
   br i1 %90, label %91, label %260
 
 91:                                               ; preds = %_ZNK10reflection7RPCCall10attributesEv.exit
@@ -95687,7 +95687,7 @@ _ZN10reflection14ServiceBuilder8add_nameEN11flatbuffers6OffsetINS1_6StringEEE.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN11flatbuffers10ServiceDef11DeserializeERNS_6ParserEPKN10reflection7ServiceE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN11flatbuffers10ServiceDef11DeserializeERNS_6ParserEPKN10reflection7ServiceE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i:
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -96128,7 +96128,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i38: ; preds = %_ZNK1
 _ZNK10reflection7Service10attributesEv.exit:      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26, %_ZNK10reflection7Service5callsEv.exit.thread, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i38, %199
   %205 = phi ptr [ %204, %199 ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i38 ], [ null, %_ZNK10reflection7Service5callsEv.exit.thread ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26 ]
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %207 = call fastcc noundef zeroext i1 @_ZN11flatbuffersL27DeserializeAttributesCommonERNS_11SymbolTableINS_5ValueEEERNS_6ParserEPKNS_6VectorINS_6OffsetIN10reflection8KeyValueEEEjEE(ptr noundef nonnull align 8 dereferenceable(72) %206, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef %205)
+  %207 = call fastcc noundef zeroext i1 @_ZN11flatbuffersL27DeserializeAttributesCommonERNS_11SymbolTableINS_5ValueEEERNS_6ParserEPKNS_6VectorINS_6OffsetIN10reflection8KeyValueEEEjEE(ptr noundef nonnull align 8 dereferenceable(72) %206, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef readonly %205)
   br i1 %207, label %208, label %225
 
 208:                                              ; preds = %_ZNK10reflection7Service10attributesEv.exit
@@ -96166,7 +96166,7 @@ _ZNK10reflection7Service13documentationEv.exit:   ; preds = %208, %_ZNK11flatbuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @_ZNK11flatbuffers7EnumVal9SerializeEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull align 8 captures(address) dereferenceable(168) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 captures(address) dereferenceable(1920) %2) local_unnamed_addr #4 align 2 {
+define dso_local i32 @_ZNK11flatbuffers7EnumVal9SerializeEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(168) %0, ptr noundef nonnull %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1920) %2) local_unnamed_addr #4 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !4
@@ -96176,7 +96176,7 @@ define dso_local i32 @_ZNK11flatbuffers7EnumVal9SerializeEPNS_21FlatBufferBuilde
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = tail call i32 @_ZNK11flatbuffers4Type9SerializeEPNS_21FlatBufferBuilderImplILb0EEE(ptr noundef nonnull align 8 dereferenceable(26) %9, ptr noundef nonnull %1)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %12 = tail call fastcc i32 @_ZN11flatbuffersL25SerializeAttributesCommonERKNS_11SymbolTableINS_5ValueEEEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(1920) %2)
+  %12 = tail call fastcc i32 @_ZN11flatbuffersL25SerializeAttributesCommonERKNS_11SymbolTableINS_5ValueEEEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull readonly align 8 dereferenceable(72) %11, ptr noundef nonnull %1, ptr noundef nonnull readonly align 8 dereferenceable(1920) %2)
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 1249
   %14 = load i8, ptr %13, align 1, !tbaa !1903, !range !160, !noundef !161
   %15 = trunc nuw i8 %14 to i1
@@ -96711,7 +96711,7 @@ _ZN10reflection11EnumBuilder12add_is_unionEb.exit: ; preds = %_ZN10reflection11E
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN11flatbuffers7EnumDef11DeserializeERNS_6ParserEPKN10reflection4EnumE(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN11flatbuffers7EnumDef11DeserializeERNS_6ParserEPKN10reflection4EnumE(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i:
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -97173,7 +97173,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i42: ; preds = %205
 _ZNK10reflection4Enum10attributesEv.exit:         ; preds = %205, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i42, %214
   %220 = phi ptr [ %219, %214 ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i42 ], [ null, %205 ]
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %222 = call fastcc noundef zeroext i1 @_ZN11flatbuffersL27DeserializeAttributesCommonERNS_11SymbolTableINS_5ValueEEERNS_6ParserEPKNS_6VectorINS_6OffsetIN10reflection8KeyValueEEEjEE(ptr noundef nonnull align 8 dereferenceable(72) %221, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef %220)
+  %222 = call fastcc noundef zeroext i1 @_ZN11flatbuffersL27DeserializeAttributesCommonERNS_11SymbolTableINS_5ValueEEERNS_6ParserEPKNS_6VectorINS_6OffsetIN10reflection8KeyValueEEEjEE(ptr noundef nonnull align 8 dereferenceable(72) %221, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef readonly %220)
   br i1 %222, label %223, label %240
 
 223:                                              ; preds = %_ZNK10reflection4Enum10attributesEv.exit
@@ -97211,7 +97211,7 @@ _ZNK10reflection4Enum13documentationEv.exit:      ; preds = %223, %_ZNK11flatbuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN11flatbuffers7EnumVal11DeserializeERNS_6ParserEPKN10reflection7EnumValE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN11flatbuffers7EnumVal11DeserializeERNS_6ParserEPKN10reflection7EnumValE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i:
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -97454,7 +97454,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i11: ; preds = %97
 _ZNK10reflection7EnumVal10attributesEv.exit:      ; preds = %97, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i11, %106
   %112 = phi ptr [ %111, %106 ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i11 ], [ null, %97 ]
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %114 = call fastcc noundef zeroext i1 @_ZN11flatbuffersL27DeserializeAttributesCommonERNS_11SymbolTableINS_5ValueEEERNS_6ParserEPKNS_6VectorINS_6OffsetIN10reflection8KeyValueEEEjEE(ptr noundef nonnull align 8 dereferenceable(72) %113, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef %112)
+  %114 = call fastcc noundef zeroext i1 @_ZN11flatbuffersL27DeserializeAttributesCommonERNS_11SymbolTableINS_5ValueEEERNS_6ParserEPKNS_6VectorINS_6OffsetIN10reflection8KeyValueEEEjEE(ptr noundef nonnull align 8 dereferenceable(72) %113, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef readonly %112)
   br i1 %114, label %115, label %132
 
 115:                                              ; preds = %_ZNK10reflection7EnumVal10attributesEv.exit
@@ -97642,7 +97642,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN11flatbuffers7En
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @_ZNK11flatbuffers7EnumVal19SerializeAttributesEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull align 8 captures(address) dereferenceable(168) %0, ptr noundef %1, ptr noundef nonnull align 8 captures(address) dereferenceable(1920) %2) local_unnamed_addr #4 align 2 {
+define dso_local i32 @_ZNK11flatbuffers7EnumVal19SerializeAttributesEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(168) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1920) %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = tail call fastcc i32 @_ZN11flatbuffersL25SerializeAttributesCommonERKNS_11SymbolTableINS_5ValueEEEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(1920) %2)
   ret i32 %5
@@ -97938,7 +97938,7 @@ _ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EED2Ev.exit28:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN11flatbuffers7EnumVal21DeserializeAttributesERNS_6ParserEPKNS_6VectorINS_6OffsetIN10reflection8KeyValueEEEjEE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN11flatbuffers7EnumVal21DeserializeAttributesERNS_6ParserEPKNS_6VectorINS_6OffsetIN10reflection8KeyValueEEEjEE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = tail call fastcc noundef zeroext i1 @_ZN11flatbuffersL27DeserializeAttributesCommonERNS_11SymbolTableINS_5ValueEEERNS_6ParserEPKNS_6VectorINS_6OffsetIN10reflection8KeyValueEEEjEE(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef %2)
   ret i1 %5
@@ -98957,7 +98957,7 @@ _ZN10reflection18VerifySchemaBufferERN11flatbuffers16VerifierTemplateILb0EEE.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN11flatbuffers6Parser11DeserializeEPKN10reflection6SchemaE(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN11flatbuffers6Parser11DeserializeEPKN10reflection6SchemaE(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef readonly %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::tuple.337", align 8
   %4 = alloca %"class.std::tuple.340", align 1
   %5 = alloca i64, align 8

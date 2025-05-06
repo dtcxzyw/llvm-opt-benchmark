@@ -1212,7 +1212,7 @@ define dso_local void @_ZN4llvm14MemoryLocation10getForDestEPKNS_18AtomicMemIntr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14MemoryLocation10getForDestEPKNS_8CallBaseERKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional.15") align 8 captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(80) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14MemoryLocation10getForDestEPKNS_8CallBaseERKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional.15") align 8 captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull readonly align 8 captures(address_is_null) dereferenceable(80) %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef zeroext i1 @_ZNK4llvm8CallBase21onlyAccessesArgMemoryEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #7
   br i1 %4, label %5, label %.critedge.thread
 

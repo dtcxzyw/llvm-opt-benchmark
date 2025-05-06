@@ -159,7 +159,7 @@ declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #3
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @pmix_os_dirpath_destroy(ptr noundef %0, i1 noundef zeroext %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @pmix_os_dirpath_destroy(ptr noundef %0, i1 noundef zeroext %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %74, label %5
 

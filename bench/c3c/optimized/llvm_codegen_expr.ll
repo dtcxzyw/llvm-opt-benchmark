@@ -18215,7 +18215,7 @@ declare ptr @LLVMConstReal(ptr noundef, double noundef) local_unnamed_addr #1
 declare ptr @LLVMBuildFAdd(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_bitstruct_member(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address) %3) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_bitstruct_member(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -20705,7 +20705,7 @@ define internal fastcc void @llvm_emit_array_bounds_check(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_member_addr(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address) %3) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_member_addr(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16

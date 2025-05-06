@@ -1080,7 +1080,7 @@ define hidden void @opj_destroy_cstr_index(ptr noundef captures(none) %0) local_
 declare void @j2k_destroy_cstr_index(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @opj_stream_create_default_file_stream(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
+define hidden ptr @opj_stream_create_default_file_stream(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = tail call ptr @opj_stream_create_file_stream(ptr noundef %0, i64 noundef 1048576, i32 noundef %1)
   ret ptr %3
 }

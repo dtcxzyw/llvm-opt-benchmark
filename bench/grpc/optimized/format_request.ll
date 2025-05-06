@@ -54,7 +54,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z31grpc_httpcli_format_get_requestPK17grpc_http_requestPKcS3_(ptr dead_on_unwind noalias writable sret(%struct.grpc_slice) align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z31grpc_httpcli_format_get_requestPK17grpc_http_requestPKcS3_(ptr dead_on_unwind noalias writable sret(%struct.grpc_slice) align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1761,7 +1761,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z32grpc_httpcli_format_post_requestPK17grpc_http_requestPKcS3_(ptr dead_on_unwind noalias writable sret(%struct.grpc_slice) align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z32grpc_httpcli_format_post_requestPK17grpc_http_requestPKcS3_(ptr dead_on_unwind noalias writable sret(%struct.grpc_slice) align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca [1 x %"class.absl::lts_20240722::str_format_internal::FormatArgImpl"], align 8
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::vector", align 8
@@ -2405,7 +2405,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare void @_ZN4absl12lts_202407229StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z31grpc_httpcli_format_put_requestPK17grpc_http_requestPKcS3_(ptr dead_on_unwind noalias writable sret(%struct.grpc_slice) align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z31grpc_httpcli_format_put_requestPK17grpc_http_requestPKcS3_(ptr dead_on_unwind noalias writable sret(%struct.grpc_slice) align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca [1 x %"class.absl::lts_20240722::str_format_internal::FormatArgImpl"], align 8
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::vector", align 8
@@ -3044,7 +3044,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i91
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z35grpc_httpcli_format_connect_requestPK17grpc_http_requestPKcS3_(ptr dead_on_unwind noalias writable sret(%struct.grpc_slice) align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z35grpc_httpcli_format_connect_requestPK17grpc_http_requestPKcS3_(ptr dead_on_unwind noalias writable sret(%struct.grpc_slice) align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

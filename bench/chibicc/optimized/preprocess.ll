@@ -1851,7 +1851,7 @@ hideset_union.exit:                               ; preds = %.lr.ph.i83, %hidese
 find_arg.exit.i:                                  ; preds = %191
   %196 = getelementptr inbounds nuw i8, ptr %.01015.i.i, i64 24
   %197 = load ptr, ptr %196, align 8, !tbaa !111
-  %198 = call fastcc ptr @join_tokens(ptr noundef %197, ptr noundef null)
+  %198 = call fastcc ptr @join_tokens(ptr noundef readonly %197, ptr noundef null)
   br label %199
 
 199:                                              ; preds = %207, %find_arg.exit.i

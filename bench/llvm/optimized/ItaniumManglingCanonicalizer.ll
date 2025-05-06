@@ -3513,7 +3513,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseNameEPNS6_9NameStateE(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseNameEPNS6_9NameStateE(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::SaveTemplateParams", align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -5938,7 +5938,7 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.sroa.2.0.copyload.i.i183.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i182.i.i.i, align 8, !tbaa !108
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %121 = load ptr, ptr %120, align 8, !tbaa !226
-  tail call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayES4_EEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef %118, ptr %.sroa.0.0.copyload.i.i181.i.i.i, i64 %.sroa.2.0.copyload.i.i183.i.i.i, ptr noundef %121)
+  tail call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayES4_EEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef %118, ptr readonly %.sroa.0.0.copyload.i.i181.i.i.i, i64 %.sroa.2.0.copyload.i.i183.i.i.i, ptr noundef %121)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 122:                                              ; preds = %2
@@ -5976,7 +5976,7 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.sroa.2.0.copyload.i.i186.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i185.i.i.i, align 8, !tbaa !108
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %135 = load ptr, ptr %134, align 8, !tbaa !231
-  tail call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEPNS2_4NodeEEEEvRNS1_16FoldingSetNodeIDENS4_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr %.sroa.0.0.copyload.i.i184.i.i.i, i64 %.sroa.2.0.copyload.i.i186.i.i.i, ptr noundef %135)
+  tail call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEPNS2_4NodeEEEEvRNS1_16FoldingSetNodeIDENS4_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr readonly %.sroa.0.0.copyload.i.i184.i.i.i, i64 %.sroa.2.0.copyload.i.i186.i.i.i, ptr noundef %135)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 136:                                              ; preds = %2
@@ -6222,7 +6222,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle13NodeArrayNodeEEEvPKT_(ptr %.0.val, ptr captures(address) %.16.val, i64 %.24.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle13NodeArrayNodeEEEvPKT_(ptr %.0.val, ptr readonly captures(address) %.16.val, i64 %.24.val) unnamed_addr #0 align 2 {
   %1 = alloca %"struct.(anonymous namespace)::FoldingSetNodeIDBuilder", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #22
   store ptr %.0.val, ptr %1, align 8, !tbaa !259
@@ -6271,7 +6271,7 @@ _ZNK4llvm16itanium_demangle13NodeArrayNode5matchIN12_GLOBAL__N_119ProfileSpecifi
   %25 = load i32, ptr %2, align 8, !tbaa !60
   %26 = add i32 %25, 1
   store i32 %26, ptr %2, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr %.16.val, i64 %.24.val)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr readonly %.16.val, i64 %.24.val)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #22
   ret void
 }
@@ -6578,7 +6578,7 @@ _ZNK4llvm16itanium_demangle8QualType5matchIN12_GLOBAL__N_119ProfileSpecificNodeI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle12EnableIfAttrEEEvPKT_(ptr %.0.val, ptr captures(address) %.16.val, i64 %.24.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle12EnableIfAttrEEEvPKT_(ptr %.0.val, ptr readonly captures(address) %.16.val, i64 %.24.val) unnamed_addr #0 align 2 {
   %1 = alloca %"struct.(anonymous namespace)::FoldingSetNodeIDBuilder", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #22
   store ptr %.0.val, ptr %1, align 8, !tbaa !259
@@ -6627,7 +6627,7 @@ _ZNK4llvm16itanium_demangle12EnableIfAttr5matchIN12_GLOBAL__N_119ProfileSpecific
   %25 = load i32, ptr %2, align 8, !tbaa !60
   %26 = add i32 %25, 1
   store i32 %26, ptr %2, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr %.16.val, i64 %.24.val)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr readonly %.16.val, i64 %.24.val)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #22
   ret void
 }
@@ -7021,7 +7021,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %61 = load i32, ptr %12, align 8, !tbaa !60
   %62 = add i32 %61, 1
   store i32 %62, ptr %12, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
   %63 = load i32, ptr %12, align 8, !tbaa !60
   %64 = load i32, ptr %14, align 4, !tbaa !61
   %.not.i.i.not.i.i.i.i12.i.i.i = icmp ult i32 %63, %64
@@ -7159,7 +7159,7 @@ _ZNK4llvm16itanium_demangle12FunctionType5matchIN12_GLOBAL__N_119ProfileSpecific
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle20DynamicExceptionSpecEEEvPKT_(ptr %.0.val, ptr captures(address) %.16.val, i64 %.24.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle20DynamicExceptionSpecEEEvPKT_(ptr %.0.val, ptr readonly captures(address) %.16.val, i64 %.24.val) unnamed_addr #0 align 2 {
   %1 = alloca %"struct.(anonymous namespace)::FoldingSetNodeIDBuilder", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #22
   store ptr %.0.val, ptr %1, align 8, !tbaa !259
@@ -7208,7 +7208,7 @@ _ZNK4llvm16itanium_demangle20DynamicExceptionSpec5matchIN12_GLOBAL__N_119Profile
   %25 = load i32, ptr %2, align 8, !tbaa !60
   %26 = add i32 %25, 1
   store i32 %26, ptr %2, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr %.16.val, i64 %.24.val)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr readonly %.16.val, i64 %.24.val)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #22
   ret void
 }
@@ -7371,7 +7371,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %91 = load i32, ptr %16, align 8, !tbaa !60
   %92 = add i32 %91, 1
   store i32 %92, ptr %16, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
   %93 = ptrtoint ptr %9 to i64
   %94 = trunc i64 %93 to i32
   %95 = load i32, ptr %16, align 8, !tbaa !60
@@ -7810,7 +7810,7 @@ _ZNK4llvm16itanium_demangle10BitIntType5matchIN12_GLOBAL__N_119ProfileSpecificNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle13ParameterPackEEEvPKT_(ptr %.0.val, ptr captures(address) %.16.val, i64 %.24.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle13ParameterPackEEEvPKT_(ptr %.0.val, ptr readonly captures(address) %.16.val, i64 %.24.val) unnamed_addr #0 align 2 {
   %1 = alloca %"struct.(anonymous namespace)::FoldingSetNodeIDBuilder", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #22
   store ptr %.0.val, ptr %1, align 8, !tbaa !259
@@ -7859,13 +7859,13 @@ _ZNK4llvm16itanium_demangle13ParameterPack5matchIN12_GLOBAL__N_119ProfileSpecifi
   %25 = load i32, ptr %2, align 8, !tbaa !60
   %26 = add i32 %25, 1
   store i32 %26, ptr %2, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr %.16.val, i64 %.24.val)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr readonly %.16.val, i64 %.24.val)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle20TemplateArgumentPackEEEvPKT_(ptr %.0.val, ptr captures(address) %.16.val, i64 %.24.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle20TemplateArgumentPackEEEvPKT_(ptr %.0.val, ptr readonly captures(address) %.16.val, i64 %.24.val) unnamed_addr #0 align 2 {
   %1 = alloca %"struct.(anonymous namespace)::FoldingSetNodeIDBuilder", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #22
   store ptr %.0.val, ptr %1, align 8, !tbaa !259
@@ -7914,7 +7914,7 @@ _ZNK4llvm16itanium_demangle20TemplateArgumentPack5matchIN12_GLOBAL__N_119Profile
   %25 = load i32, ptr %2, align 8, !tbaa !60
   %26 = add i32 %25, 1
   store i32 %26, ptr %2, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr %.16.val, i64 %.24.val)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr readonly %.16.val, i64 %.24.val)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #22
   ret void
 }
@@ -8173,7 +8173,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %33 = load i32, ptr %10, align 8, !tbaa !60
   %34 = add i32 %33, 1
   store i32 %34, ptr %10, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.sroa.01.0.copyload.i, i64 %.sroa.22.0.copyload.i)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.sroa.01.0.copyload.i, i64 %.sroa.22.0.copyload.i)
   %35 = ptrtoint ptr %5 to i64
   %36 = trunc i64 %35 to i32
   %37 = load i32, ptr %10, align 8, !tbaa !60
@@ -8221,7 +8221,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %60 = load i32, ptr %10, align 8, !tbaa !60
   %61 = add i32 %60, 1
   store i32 %61, ptr %10, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
   %62 = ptrtoint ptr %8 to i64
   %63 = trunc i64 %62 to i32
   %64 = load i32, ptr %10, align 8, !tbaa !60
@@ -8286,7 +8286,7 @@ _ZNK4llvm16itanium_demangle15ClosureTypeName5matchIN12_GLOBAL__N_119ProfileSpeci
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle21StructuredBindingNameEEEvPKT_(ptr %.0.val, ptr captures(address) %.16.val, i64 %.24.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle21StructuredBindingNameEEEvPKT_(ptr %.0.val, ptr readonly captures(address) %.16.val, i64 %.24.val) unnamed_addr #0 align 2 {
   %1 = alloca %"struct.(anonymous namespace)::FoldingSetNodeIDBuilder", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #22
   store ptr %.0.val, ptr %1, align 8, !tbaa !259
@@ -8335,7 +8335,7 @@ _ZNK4llvm16itanium_demangle21StructuredBindingName5matchIN12_GLOBAL__N_119Profil
   %25 = load i32, ptr %2, align 8, !tbaa !60
   %26 = add i32 %25, 1
   store i32 %26, ptr %2, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr %.16.val, i64 %.24.val)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr readonly %.16.val, i64 %.24.val)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #22
   ret void
 }
@@ -9146,7 +9146,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   br label %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i
 
 _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i: ; preds = %91, %90
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.sroa.02.0.copyload.i, i64 %.sroa.2.0.copyload4.i)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.sroa.02.0.copyload.i, i64 %.sroa.2.0.copyload4.i)
   %92 = load i32, ptr %12, align 8, !tbaa !60
   %93 = load i32, ptr %14, align 4, !tbaa !61
   %.not.i.i.not.i.i.i.i19.i.i.i = icmp ult i32 %92, %93
@@ -9678,7 +9678,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %63 = load i32, ptr %14, align 8, !tbaa !60
   %64 = add i32 %63, 1
   store i32 %64, ptr %14, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
   %65 = load i32, ptr %14, align 8, !tbaa !60
   %66 = load i32, ptr %16, align 4, !tbaa !61
   %.not.i.i.not.i.i.i.i10.i.i.i = icmp ult i32 %65, %66
@@ -9792,7 +9792,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_de
   %14 = shl i16 %13, 10
   %15 = ashr exact i16 %14, 10
   %16 = sext i16 %15 to i32
-  tail call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEPNS2_4NodeES3_bbNS4_4PrecEEEEvRNS1_16FoldingSetNodeIDENS4_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %.0.val, ptr %.sroa.01.0.copyload.i, i64 %.sroa.22.0.copyload.i, ptr noundef %4, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, i1 noundef zeroext %8, i1 noundef zeroext %11, i32 noundef %16)
+  tail call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEPNS2_4NodeES3_bbNS4_4PrecEEEEvRNS1_16FoldingSetNodeIDENS4_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %.0.val, ptr readonly %.sroa.01.0.copyload.i, i64 %.sroa.22.0.copyload.i, ptr noundef %4, ptr readonly %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, i1 noundef zeroext %8, i1 noundef zeroext %11, i32 noundef %16)
   ret void
 }
 
@@ -9939,7 +9939,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %60 = load i32, ptr %11, align 8, !tbaa !60
   %61 = add i32 %60, 1
   store i32 %61, ptr %11, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
   %62 = load i32, ptr %11, align 8, !tbaa !60
   %63 = load i32, ptr %13, align 4, !tbaa !61
   %.not.i.i.not.i.i.i.i8.i.i.i = icmp ult i32 %62, %63
@@ -10301,7 +10301,7 @@ _ZNK4llvm16itanium_demangle12InitListExpr5matchIN12_GLOBAL__N_119ProfileSpecific
   %55 = load i32, ptr %6, align 8, !tbaa !60
   %56 = add i32 %55, 1
   store i32 %56, ptr %6, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
   ret void
 }
@@ -11051,8 +11051,8 @@ _ZNK4llvm16itanium_demangle12RequiresExpr5matchIN12_GLOBAL__N_119ProfileSpecific
   %28 = load i32, ptr %5, align 8, !tbaa !60
   %29 = add i32 %28, 1
   store i32 %29, ptr %5, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.sroa.01.0.copyload.i, i64 %.sroa.22.0.copyload.i)
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.sroa.01.0.copyload.i, i64 %.sroa.22.0.copyload.i)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
   ret void
 }
@@ -12698,7 +12698,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayES4_EEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, ptr captures(address) %2, i64 %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayES4_EEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, ptr readonly captures(address) %2, i64 %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %"struct.(anonymous namespace)::FoldingSetNodeIDBuilder", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
   store ptr %0, ptr %6, align 8, !tbaa !259
@@ -12846,7 +12846,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEPNS2_4NodeEEEEvRNS1_16FoldingSetNodeIDENS4_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr captures(address) %1, i64 %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEPNS2_4NodeEEEEvRNS1_16FoldingSetNodeIDENS4_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr readonly captures(address) %1, i64 %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %"struct.(anonymous namespace)::FoldingSetNodeIDBuilder", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
   store ptr %0, ptr %5, align 8, !tbaa !259
@@ -13241,7 +13241,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4PrecE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEPNS2_4NodeES3_bbNS4_4PrecEEEEvRNS1_16FoldingSetNodeIDENS4_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr captures(address) %1, i64 %2, ptr noundef %3, ptr captures(address) %.0.val, i64 %.8.val, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEPNS2_4NodeES3_bbNS4_4PrecEEEEvRNS1_16FoldingSetNodeIDENS4_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr readonly captures(address) %1, i64 %2, ptr noundef %3, ptr readonly captures(address) %.0.val, i64 %.8.val, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca %"struct.(anonymous namespace)::FoldingSetNodeIDBuilder", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
   store ptr %0, ptr %8, align 8, !tbaa !259
@@ -15016,7 +15016,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %222 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 0, ptr %222, align 4
   store i32 2, ptr %220, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr %.0.i.i.i.i.i, i64 %214)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr readonly %.0.i.i.i.i.i, i64 %214)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 904
@@ -15419,7 +15419,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %415 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 %414, ptr %415, align 4
   store i32 4, ptr %407, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.0.i.i.i.i.i101, i64 %400)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.0.i.i.i.i.i101, i64 %400)
   %416 = load i32, ptr %407, align 8, !tbaa !60
   %417 = load i32, ptr %408, align 4, !tbaa !61
   %.not.i.i.not.i.i.i.i12.i.i.i.i.i.i = icmp ult i32 %416, %417
@@ -24603,7 +24603,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   store i32 40, ptr %71, align 8
   store i32 0, ptr %74, align 4
   store i32 2, ptr %72, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr %.sroa.0.0.copyload.i.us, i64 %.sroa.2.0.copyload.i.us)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr readonly %.sroa.0.0.copyload.i.us, i64 %.sroa.2.0.copyload.i.us)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
   %126 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
@@ -26059,7 +26059,7 @@ _ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle20Pos
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E17parseUnscopedNameEPNS6_9NameStateEPb(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef captures(address_is_null) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E17parseUnscopedNameEPNS6_9NameStateEPb(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !86
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !87
@@ -28691,7 +28691,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 %18, ptr %19, align 4
   store i32 4, ptr %10, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.0.val1, i64 %.8.val)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.0.val1, i64 %.8.val)
   %20 = load i32, ptr %10, align 8, !tbaa !60
   %21 = load i32, ptr %11, align 4, !tbaa !61
   %.not.i.i.not.i.i.i.i10.i.i.i.i.i = icmp ult i32 %20, %21
@@ -28969,7 +28969,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 %18, ptr %19, align 4
   store i32 4, ptr %11, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %.sroa.05.0.copyload.i.i.i.i, i64 %.sroa.26.0.copyload.i.i.i.i)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr readonly %.sroa.05.0.copyload.i.i.i.i, i64 %.sroa.26.0.copyload.i.i.i.i)
   %20 = load i32, ptr %11, align 8, !tbaa !60
   %21 = load i32, ptr %12, align 4, !tbaa !61
   %.not.i.i.not.i.i.i.i8.i.i.i.i.i = icmp ult i32 %20, %21
@@ -31344,7 +31344,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 0, ptr %13, align 4
   store i32 4, ptr %9, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.0.val, i64 %.8.val)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.0.val, i64 %.8.val)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
@@ -32995,8 +32995,8 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %460 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 0, ptr %460, align 4
   store i32 2, ptr %458, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.sroa.0133.1, i64 %.sroa.6.1)
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.0.i.i.i.i.i106, i64 %453)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.sroa.0133.1, i64 %.sroa.6.1)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.0.i.i.i.i.i106, i64 %453)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
   %461 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
@@ -33479,7 +33479,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br label %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i.i.i.i
 
 _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i.i.i.i: ; preds = %154, %153
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.0.i.i.i.i.i, i64 %129)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.0.i.i.i.i.i, i64 %129)
   %155 = load i32, ptr %136, align 8, !tbaa !60
   %156 = load i32, ptr %137, align 4, !tbaa !61
   %.not.i.i.not.i.i.i.i19.i.i.i.i.i.i = icmp ult i32 %155, %156
@@ -34242,7 +34242,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %110 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %110, align 4
   store i32 2, ptr %108, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr %.0.i.i.i.i.i, i64 %102)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr readonly %.0.i.i.i.i.i, i64 %102)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 904
@@ -34664,7 +34664,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 0, ptr %11, align 4
   store i32 2, ptr %9, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.0.val, i64 %.8.val)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.0.val, i64 %.8.val)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 904
@@ -34850,7 +34850,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 %16, ptr %17, align 4
   store i32 4, ptr %9, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.0.val1, i64 %.8.val)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.0.val1, i64 %.8.val)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 904
@@ -42073,7 +42073,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 0, ptr %15, align 4
   store i32 2, ptr %13, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr %.sroa.07.0.copyload.i.i.i.i, i64 %.sroa.28.0.copyload.i.i.i.i)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr readonly %.sroa.07.0.copyload.i.i.i.i, i64 %.sroa.28.0.copyload.i.i.i.i)
   %16 = ptrtoint ptr %.0.val to i64
   %17 = trunc i64 %16 to i32
   %18 = load i32, ptr %13, align 8, !tbaa !60
@@ -42119,7 +42119,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %39 = load i32, ptr %13, align 8, !tbaa !60
   %40 = add i32 %39, 1
   store i32 %40, ptr %13, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr %.0.val1, i64 %.8.val)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr readonly %.0.val1, i64 %.8.val)
   %41 = ptrtoint ptr %.0.val3 to i64
   %42 = trunc i64 %41 to i32
   %43 = load i32, ptr %13, align 8, !tbaa !60
@@ -56005,7 +56005,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_tra
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parseUnqualifiedNameEPNS6_9NameStateEPNS0_4NodeEPNS0_10ModuleNameE(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parseUnqualifiedNameEPNS6_9NameStateEPNS0_4NodeEPNS0_10ModuleNameE(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"class.llvm::FoldingSetNodeID", align 8
@@ -56372,7 +56372,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %166 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 0, ptr %166, align 4
   store i32 2, ptr %164, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr %.0.i.i.i.i.i, i64 %158)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr readonly %.0.i.i.i.i.i, i64 %158)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 904
@@ -59230,7 +59230,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 0, ptr %11, align 4
   store i32 2, ptr %9, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.0.val, i64 %.8.val)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr readonly %.0.val, i64 %.8.val)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 904
@@ -59430,7 +59430,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 36
   store i32 %28, ptr %29, align 4
   store i32 6, ptr %13, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr %.sroa.05.0.copyload.i.i.i.i, i64 %.sroa.26.0.copyload.i.i.i.i)
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr readonly %.sroa.05.0.copyload.i.i.i.i, i64 %.sroa.26.0.copyload.i.i.i.i)
   %30 = ptrtoint ptr %.0.val3 to i64
   %31 = trunc i64 %30 to i32
   %32 = load i32, ptr %13, align 8, !tbaa !60

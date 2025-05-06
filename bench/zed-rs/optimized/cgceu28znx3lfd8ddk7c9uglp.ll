@@ -10625,19 +10625,19 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5a
 27:                                               ; preds = %19
   %28 = getelementptr inbounds nuw i64, ptr %2, i64 %.sroa.12.0.lcssa
   %.val27.i = load ptr, ptr %6, align 8, !alias.scope !2975, !noalias !2977, !nonnull !4, !align !5, !noundef !4
-  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hd6951784fae247d6E(ptr noundef nonnull readonly align 8 %.sroa.0.0.ph.lcssa172, ptr noundef nonnull %28, ptr nonnull %.val27.i), !noalias !2975
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hd6951784fae247d6E(ptr noundef nonnull readonly align 8 %.sroa.0.0.ph.lcssa172, ptr noundef nonnull %28, ptr nonnull readonly %.val27.i), !noalias !2975
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph.lcssa172, i64 32
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hd6951784fae247d6E(ptr noundef readonly %29, ptr noundef %30, ptr nonnull %.val27.i), !noalias !2975
-  call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h4886bbe99e900e41E(ptr noalias noundef nonnull readonly align 8 %28, i64 noundef 8, ptr noundef nonnull align 8 %2, ptr nonnull %.val27.i), !noalias !2978
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hd6951784fae247d6E(ptr noundef readonly %29, ptr noundef %30, ptr nonnull readonly %.val27.i), !noalias !2975
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h4886bbe99e900e41E(ptr noalias noundef nonnull readonly align 8 %28, i64 noundef 8, ptr noundef nonnull align 8 %2, ptr nonnull readonly %.val27.i), !noalias !2978
   %31 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.ph.lcssa172, i64 %20
   %32 = getelementptr inbounds nuw i64, ptr %2, i64 %20
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 64
-  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hd6951784fae247d6E(ptr noundef nonnull readonly %31, ptr noundef nonnull %33, ptr nonnull %.val27.i), !noalias !2975
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hd6951784fae247d6E(ptr noundef nonnull readonly %31, ptr noundef nonnull %33, ptr nonnull readonly %.val27.i), !noalias !2975
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 96
-  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hd6951784fae247d6E(ptr noundef readonly %34, ptr noundef %35, ptr nonnull %.val27.i), !noalias !2975
-  call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h4886bbe99e900e41E(ptr noalias noundef nonnull readonly align 8 %33, i64 noundef 8, ptr noundef nonnull %32, ptr nonnull %.val27.i), !noalias !2978
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hd6951784fae247d6E(ptr noundef readonly %34, ptr noundef %35, ptr nonnull readonly %.val27.i), !noalias !2975
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h4886bbe99e900e41E(ptr noalias noundef nonnull readonly align 8 %33, i64 noundef 8, ptr noundef nonnull %32, ptr nonnull readonly %.val27.i), !noalias !2978
   br label %40
 
 36:                                               ; preds = %23

@@ -358,7 +358,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @codegen_src(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
+define i64 @codegen_src(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [1024 x i8], align 16
   %6 = alloca [1026 x i8], align 16
   %7 = alloca i64, align 8

@@ -8816,50 +8816,50 @@ _ZNKSt8_Rb_treeImSt4pairIKmPN6Assimp3FBX10LazyObjectEESt10_Select1stIS6_ESt4less
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp3FBX8Document31GetConnectionsBySourceSequencedEm(ptr dead_on_unwind noalias writable sret(%"class.std::vector.181") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(336) %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK6Assimp3FBX8Document31GetConnectionsBySourceSequencedEm(ptr dead_on_unwind noalias writable sret(%"class.std::vector.181") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(336) %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
   tail call void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEE(ptr dead_on_unwind writable sret(%"class.std::vector.181") align 8 %0, ptr nonnull align 8 poison, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(48) %4)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp3FBX8Document31GetConnectionsBySourceSequencedEmPKc(ptr dead_on_unwind noalias writable sret(%"class.std::vector.181") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(336) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK6Assimp3FBX8Document31GetConnectionsBySourceSequencedEmPKc(ptr dead_on_unwind noalias writable sret(%"class.std::vector.181") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(336) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
   %5 = alloca [1 x ptr], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
   store ptr %3, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  call void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmbRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEEPKPKcm(ptr dead_on_unwind writable sret(%"class.std::vector.181") align 8 %0, ptr nonnull align 8 poison, i64 noundef %2, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull readonly %5, i64 noundef 1)
+  call void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmbRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEEPKPKcm(ptr dead_on_unwind writable sret(%"class.std::vector.181") align 8 %0, ptr nonnull readonly align 8 poison, i64 noundef %2, i1 noundef zeroext true, ptr noundef nonnull readonly align 8 dereferenceable(48) %6, ptr noundef nonnull readonly %5, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp3FBX8Document31GetConnectionsBySourceSequencedEmPKPKcm(ptr dead_on_unwind noalias writable sret(%"class.std::vector.181") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(336) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK6Assimp3FBX8Document31GetConnectionsBySourceSequencedEmPKPKcm(ptr dead_on_unwind noalias writable sret(%"class.std::vector.181") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(336) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 112
   tail call void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmbRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEEPKPKcm(ptr dead_on_unwind writable sret(%"class.std::vector.181") align 8 %0, ptr nonnull align 8 poison, i64 noundef %2, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %3, i64 noundef %4)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp3FBX8Document36GetConnectionsByDestinationSequencedEmPKc(ptr dead_on_unwind noalias writable sret(%"class.std::vector.181") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(336) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK6Assimp3FBX8Document36GetConnectionsByDestinationSequencedEmPKc(ptr dead_on_unwind noalias writable sret(%"class.std::vector.181") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(336) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
   %5 = alloca [1 x ptr], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
   store ptr %3, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  call void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmbRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEEPKPKcm(ptr dead_on_unwind writable sret(%"class.std::vector.181") align 8 %0, ptr nonnull align 8 poison, i64 noundef %2, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull readonly %5, i64 noundef 1)
+  call void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmbRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEEPKPKcm(ptr dead_on_unwind writable sret(%"class.std::vector.181") align 8 %0, ptr nonnull readonly align 8 poison, i64 noundef %2, i1 noundef zeroext false, ptr noundef nonnull readonly align 8 dereferenceable(48) %6, ptr noundef nonnull readonly %5, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp3FBX8Document36GetConnectionsByDestinationSequencedEmPKPKcm(ptr dead_on_unwind noalias writable sret(%"class.std::vector.181") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(336) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK6Assimp3FBX8Document36GetConnectionsByDestinationSequencedEmPKPKcm(ptr dead_on_unwind noalias writable sret(%"class.std::vector.181") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(336) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 160
   tail call void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmbRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEEPKPKcm(ptr dead_on_unwind writable sret(%"class.std::vector.181") align 8 %0, ptr nonnull align 8 poison, i64 noundef %2, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %3, i64 noundef %4)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp3FBX8Document36GetConnectionsByDestinationSequencedEm(ptr dead_on_unwind noalias writable sret(%"class.std::vector.181") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(336) %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK6Assimp3FBX8Document36GetConnectionsByDestinationSequencedEm(ptr dead_on_unwind noalias writable sret(%"class.std::vector.181") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(336) %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 160
   tail call void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEE(ptr dead_on_unwind writable sret(%"class.std::vector.181") align 8 %0, ptr nonnull align 8 poison, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(48) %4)
   ret void

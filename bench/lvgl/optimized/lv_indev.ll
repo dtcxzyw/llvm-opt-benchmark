@@ -1837,7 +1837,7 @@ define zeroext i1 @lv_indev_get_press_moved(ptr noundef readonly captures(addres
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_indev_reset(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
+define void @lv_indev_reset(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %3
 

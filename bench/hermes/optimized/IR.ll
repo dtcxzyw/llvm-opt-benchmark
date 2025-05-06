@@ -4152,7 +4152,7 @@ _ZN6hermes11Instruction10setOperandEPNS_5ValueEj.exit: ; preds = %if.then, %if.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden void @_ZN6hermes5Value13removeAllUsesEv(ptr noundef nonnull align 8 captures(address) dereferenceable(40) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN6hermes5Value13removeAllUsesEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %this) local_unnamed_addr #3 align 2 {
 entry:
   %Size.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %Size.i, align 8

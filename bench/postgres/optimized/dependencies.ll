@@ -2007,7 +2007,7 @@ is_notclause.exit.thread:                         ; preds = %is_opclause.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @dependency_is_compatible_expression(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @dependency_is_compatible_expression(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr %0, align 4
   %6 = icmp eq i32 %5, 317

@@ -3994,7 +3994,7 @@ return:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11conformance18ConformanceRequest8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(64) %from) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN11conformance18ConformanceRequest8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %from) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq ptr %from, %this
   br i1 %cmp, label %return, label %if.end

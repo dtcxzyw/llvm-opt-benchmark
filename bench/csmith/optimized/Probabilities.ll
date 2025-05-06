@@ -2888,7 +2888,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13Probabilities15set_single_nameEPKc8ProbNamej(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN13Probabilities15set_single_nameEPKc8ProbNamej(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = alloca i32, align 4
   store i32 %2, ptr %5, align 4, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96

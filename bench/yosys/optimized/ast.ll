@@ -9695,7 +9695,7 @@ define noundef zeroext i1 @_ZNK5Yosys3AST7AstNodeneERKS1_(ptr noundef nonnull re
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK5Yosys3AST7AstNode8containsEPKS1_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(284) %0, ptr noundef captures(address) %1) local_unnamed_addr #15 align 2 {
+define noundef zeroext i1 @_ZNK5Yosys3AST7AstNode8containsEPKS1_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(284) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #15 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.loopexit, label %4
 

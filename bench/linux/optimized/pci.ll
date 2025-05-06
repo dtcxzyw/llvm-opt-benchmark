@@ -9196,7 +9196,7 @@ define dso_local noundef i32 @pci_try_reset_function(ptr noundef %0) #5 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pci_probe_reset_slot(ptr noundef captures(address) %0) #5 align 16 {
+define dso_local i32 @pci_probe_reset_slot(ptr noundef readonly captures(address) %0) #5 align 16 {
   %2 = tail call fastcc i32 @pci_slot_reset(ptr noundef %0, i1 noundef zeroext true)
   ret i32 %2
 }

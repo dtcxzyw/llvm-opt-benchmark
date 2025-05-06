@@ -4855,7 +4855,7 @@ _ZNK20eliminate_predicates6clause4sizeEv.exit:    ; preds = %101
 
 "_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_0clERNS_6clauseEPS7_.exit.i": ; preds = %129, %127
   %.0.i.i.i = phi i32 [ %131, %129 ], [ 0, %127 ]
-  %132 = invoke noundef zeroext i1 @_ZN20eliminate_predicates17can_be_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %.val10.i, ptr noundef nonnull %112, i32 noundef %.0.i.i.i)
+  %132 = invoke noundef zeroext i1 @_ZN20eliminate_predicates17can_be_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %.val10.i, ptr noundef nonnull readonly %112, i32 noundef %.0.i.i.i)
           to label %.noexc87 unwind label %192
 
 .noexc87:                                         ; preds = %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_0clERNS_6clauseEPS7_.exit.i"
@@ -4946,7 +4946,7 @@ _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.i: ; preds 
 
 "_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_0clERNS_6clauseEPS7_.exit.i93": ; preds = %169, %167
   %.0.i.i.i94 = phi i32 [ %171, %169 ], [ 0, %167 ]
-  %172 = invoke noundef zeroext i1 @_ZN20eliminate_predicates17can_be_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %.val10.i90, ptr noundef nonnull %152, i32 noundef %.0.i.i.i94)
+  %172 = invoke noundef zeroext i1 @_ZN20eliminate_predicates17can_be_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %.val10.i90, ptr noundef nonnull readonly %152, i32 noundef %.0.i.i.i94)
           to label %.noexc105 unwind label %192
 
 .noexc105:                                        ; preds = %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_0clERNS_6clauseEPS7_.exit.i93"
@@ -5212,7 +5212,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates26try_find
 
 "_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_0clERNS_6clauseEPS7_.exit": ; preds = %30, %32
   %.0.i.i = phi i32 [ %34, %32 ], [ 0, %30 ]
-  %35 = tail call noundef zeroext i1 @_ZN20eliminate_predicates17can_be_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %.val30, ptr noundef nonnull %19, i32 noundef %.0.i.i)
+  %35 = tail call noundef zeroext i1 @_ZN20eliminate_predicates17can_be_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %.val30, ptr noundef nonnull readonly %19, i32 noundef %.0.i.i)
   br i1 %35, label %36, label %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_0clERNS_6clauseEPS7_.exit.thread"
 
 36:                                               ; preds = %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_0clERNS_6clauseEPS7_.exit"
@@ -6589,7 +6589,7 @@ _ZNK11ast_manager5is_eqEPK4expr.exit.i:           ; preds = %33
 
 _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i:           ; preds = %60, %57
   %.0.i.i72 = phi i32 [ %62, %60 ], [ 0, %57 ]
-  %63 = tail call noundef zeroext i1 @_ZN20eliminate_predicates17can_be_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull %50, i32 noundef %.0.i.i72)
+  %63 = tail call noundef zeroext i1 @_ZN20eliminate_predicates17can_be_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull readonly %50, i32 noundef %.0.i.i72)
   br i1 %63, label %64, label %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_0clEP4exprS4_.exit.thread"
 
 64:                                               ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i
@@ -6645,7 +6645,7 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit10.i:         ; preds = %71, %66
 
 _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i74:         ; preds = %88, %85
   %.0.i.i75 = phi i32 [ %90, %88 ], [ 0, %85 ]
-  %91 = tail call noundef zeroext i1 @_ZN20eliminate_predicates17can_be_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull %52, i32 noundef %.0.i.i75)
+  %91 = tail call noundef zeroext i1 @_ZN20eliminate_predicates17can_be_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull readonly %52, i32 noundef %.0.i.i75)
   br i1 %91, label %92, label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread
 
 92:                                               ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i74
@@ -6759,7 +6759,7 @@ _ZNK11ast_manager6is_iffEPK4exprRPS0_S4_.exit:    ; preds = %136
 
 _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i82:         ; preds = %153, %150
   %.0.i.i83 = phi i32 [ %155, %153 ], [ 0, %150 ]
-  %156 = tail call noundef zeroext i1 @_ZN20eliminate_predicates17can_be_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull %141, i32 noundef %.0.i.i83)
+  %156 = tail call noundef zeroext i1 @_ZN20eliminate_predicates17can_be_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull readonly %141, i32 noundef %.0.i.i83)
   br i1 %156, label %157, label %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_0clEP4exprS4_.exit86.thread"
 
 157:                                              ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i82
@@ -6817,7 +6817,7 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit10.i84:       ; preds = %164, %159
 
 _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i88:         ; preds = %183, %180
   %.0.i.i89 = phi i32 [ %185, %183 ], [ 0, %180 ]
-  %186 = tail call noundef zeroext i1 @_ZN20eliminate_predicates17can_be_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull %143, i32 noundef %.0.i.i89)
+  %186 = tail call noundef zeroext i1 @_ZN20eliminate_predicates17can_be_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull readonly %143, i32 noundef %.0.i.i89)
   br i1 %186, label %187, label %_ZNK20eliminate_predicates6clause7is_unitEv.exit80.thread
 
 187:                                              ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i88
@@ -6967,7 +6967,7 @@ _ZNK11ast_manager5is_eqEPK4expr.exit.i100:        ; preds = %247
 
 _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i.i:         ; preds = %274, %271
   %.0.i.i.i = phi i32 [ %276, %274 ], [ 0, %271 ]
-  %277 = tail call noundef zeroext i1 @_ZN20eliminate_predicates17can_be_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull %264, i32 noundef %.0.i.i.i)
+  %277 = tail call noundef zeroext i1 @_ZN20eliminate_predicates17can_be_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull readonly %264, i32 noundef %.0.i.i.i)
   br i1 %277, label %278, label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit101.thread
 
 278:                                              ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i.i
@@ -7311,7 +7311,7 @@ _ZNK6vectorIP4sortLb0EjE5emptyEv.exit:            ; preds = %451
   br i1 %469, label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i127, label %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_9clEP4exprS4_.exit.thread"
 
 _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i127:        ; preds = %465
-  %470 = call noundef zeroext i1 @_ZN20eliminate_predicates23can_be_quasi_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull %453, i32 noundef %459)
+  %470 = call noundef zeroext i1 @_ZN20eliminate_predicates23can_be_quasi_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull readonly %453, i32 noundef %459)
   br i1 %470, label %471, label %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_9clEP4exprS4_.exit.thread"
 
 471:                                              ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i127
@@ -7426,7 +7426,7 @@ _ZNK6vectorIP4sortLb0EjE5emptyEv.exit131:         ; preds = %511
   br i1 %527, label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i133, label %.critedge45
 
 _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i133:        ; preds = %517
-  %528 = call noundef zeroext i1 @_ZN20eliminate_predicates23can_be_quasi_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull %523, i32 noundef %515)
+  %528 = call noundef zeroext i1 @_ZN20eliminate_predicates23can_be_quasi_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull readonly %523, i32 noundef %515)
   br i1 %528, label %529, label %.critedge45
 
 529:                                              ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i133
@@ -7463,7 +7463,7 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i133:        ; preds = %517
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_1clEP4exprS4_S4_"(ptr readonly captures(none) %.0.val, ptr %.8.val, ptr noundef captures(address) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #8 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_1clEP4exprS4_S4_"(ptr readonly captures(none) %.0.val, ptr %.8.val, ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #8 align 2 {
   %4 = load ptr, ptr %.0.val, align 8, !tbaa !268
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
@@ -7485,7 +7485,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find
 
 _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i:           ; preds = %14, %9
   %.0.i.i = phi i32 [ %16, %14 ], [ 0, %9 ]
-  %17 = tail call noundef zeroext i1 @_ZN20eliminate_predicates17can_be_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %4, ptr noundef nonnull %0, i32 noundef %.0.i.i)
+  %17 = tail call noundef zeroext i1 @_ZN20eliminate_predicates17can_be_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %4, ptr noundef nonnull readonly %0, i32 noundef %.0.i.i)
   br i1 %17, label %18, label %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_0clEP4exprS4_.exit.thread"
 
 18:                                               ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i
@@ -8637,7 +8637,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %._ZN7obj_refI4expr1
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_9clEP4exprS4_"(ptr %.0.val, ptr readonly captures(none) %.8.val, ptr noundef captures(address) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_9clEP4exprS4_"(ptr %.0.val, ptr readonly captures(none) %.8.val, ptr noundef readonly captures(address) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 65535

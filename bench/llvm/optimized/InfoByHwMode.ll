@@ -1135,9 +1135,9 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %90, %_ZN4llvm11raw_
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define dso_local void @_ZNK4llvm17ValueTypeByHwMode4dumpEv(ptr noundef nonnull align 8 captures(address) dereferenceable(52) %0) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZNK4llvm17ValueTypeByHwMode4dumpEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(52) %0) local_unnamed_addr #5 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #19
-  tail call void @_ZNK4llvm17ValueTypeByHwMode13writeToStreamERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(48) %2)
+  tail call void @_ZNK4llvm17ValueTypeByHwMode13writeToStreamERNS_11raw_ostreamE(ptr noundef nonnull readonly align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(48) %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !114
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -1160,7 +1160,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %7, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS_11raw_ostreamERKNS_17ValueTypeByHwModeE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(52) %1) local_unnamed_addr #0 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS_11raw_ostreamERKNS_17ValueTypeByHwModeE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(52) %1) local_unnamed_addr #0 {
   tail call void @_ZNK4llvm17ValueTypeByHwMode13writeToStreamERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(52) %1, ptr noundef nonnull align 8 dereferenceable(48) %0)
   ret ptr %0
 }
@@ -2387,7 +2387,7 @@ _ZNSt3mapIjPKN4llvm6RecordESt4lessIjESaISt4pairIKjS3_EEE6insertEOS8_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS_11raw_ostreamERKNS_19RegSizeInfoByHwModeE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #0 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS_11raw_ostreamERKNS_19RegSizeInfoByHwModeE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #0 {
   tail call void @_ZNK4llvm19RegSizeInfoByHwMode13writeToStreamERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %0)
   ret ptr %0
 }

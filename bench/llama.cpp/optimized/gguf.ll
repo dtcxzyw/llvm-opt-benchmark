@@ -4980,7 +4980,7 @@ declare void @ggml_set_no_alloc(ptr noundef, i1 noundef zeroext) local_unnamed_a
 declare ptr @ggml_new_tensor(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @gguf_init_from_file(ptr noundef %0, i8 %1, ptr captures(address_is_null) %2) local_unnamed_addr #2 {
+define noundef ptr @gguf_init_from_file(ptr noundef %0, i8 %1, ptr writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = tail call ptr @ggml_fopen(ptr noundef %0, ptr noundef nonnull @.str.51)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %8

@@ -3596,7 +3596,7 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %35, %38, %26
 declare noundef ptr @_ZN8nanobind6detail11capsule_newEPKvPKcPDoFvPvE(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %9
 
@@ -4002,7 +4002,7 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %60, %66
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN8nanobind6detail13nb_type_put_pEPKSt9type_infoS3_PvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN8nanobind6detail13nb_type_put_pEPKSt9type_infoS3_PvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %10
 
@@ -4303,7 +4303,7 @@ _Z14nb_try_inc_refP7_object.exit48:               ; preds = %95, %94, %89
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN8nanobind6detail18nb_type_put_uniqueEPKSt9type_infoPvPNS0_12cleanup_listEb(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i1 noundef zeroext %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN8nanobind6detail18nb_type_put_uniqueEPKSt9type_infoPvPNS0_12cleanup_listEb(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca i8, align 1
   %6 = select i1 %3, i32 2, i32 7
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #29
@@ -4372,7 +4372,7 @@ _ZN8nanobind6detailL27nb_type_put_unique_finalizeEP7_objectPKSt9type_infobb.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN8nanobind6detail20nb_type_put_unique_pEPKSt9type_infoS3_PvPNS0_12cleanup_listEb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, i1 noundef zeroext %4) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN8nanobind6detail20nb_type_put_unique_pEPKSt9type_infoS3_PvPNS0_12cleanup_listEb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i1 noundef zeroext %4) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %6 = alloca i8, align 1
   %7 = select i1 %4, i32 2, i32 7
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #29

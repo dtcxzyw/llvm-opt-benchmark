@@ -525,7 +525,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_bitset_is_compact(ptr noun
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address) %3, ptr noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address) %3, ptr noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #2 align 16 {
   %7 = alloca i8, align 1
   %8 = alloca i32, align 4
   %9 = alloca [6 x ptr], align 16
@@ -1191,7 +1191,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @ethnl_compact_sanity_check
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @ethnl_parse_bitset(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef captures(address) %4, ptr noundef %5) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @ethnl_parse_bitset(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(address) %4, ptr noundef %5) local_unnamed_addr #2 align 16 {
   %7 = alloca [6 x ptr], align 16
   %8 = alloca i32, align 4
   %9 = alloca i8, align 1
@@ -1815,13 +1815,13 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset_size(ptr noundef readonly ca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -90, 1) i32 @ethnl_put_bitset(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, ptr noundef captures(address) %5, i1 noundef zeroext %6) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -90, 1) i32 @ethnl_put_bitset(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, ptr noundef readonly captures(address) %5, i1 noundef zeroext %6) local_unnamed_addr #2 align 16 {
   %8 = tail call i32 @ethnl_put_bitset32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6)
   ret i32 %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address) %3, ptr noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address) %3, ptr noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #2 align 16 {
   %7 = tail call i32 @ethnl_update_bitset32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   ret i32 %7
 }

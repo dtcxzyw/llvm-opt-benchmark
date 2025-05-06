@@ -2758,7 +2758,7 @@ define dso_local void @_ZN5clang18EmitMveBuiltinSemaERKN4llvm12RecordKeeperERNS0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_110MveEmitter15EmitBuiltinSemaERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 captures(address) dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_110MveEmitter15EmitBuiltinSemaERN4llvm11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::map.443", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #27
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -9432,7 +9432,7 @@ define dso_local void @_ZN5clang18EmitCdeBuiltinSemaERKN4llvm12RecordKeeperERNS0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_110CdeEmitter15EmitBuiltinSemaERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 captures(address) dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_110CdeEmitter15EmitBuiltinSemaERN4llvm11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::map.443", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #27
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -15178,7 +15178,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread32:       ; preds = %12, %_ZN4llvmeqENS_
   %.015.val.val = load ptr, ptr %19, align 8, !tbaa !109
   %20 = getelementptr i8, ptr %.015.val, i64 32
   %.015.val.val16 = load i64, ptr %20, align 8, !tbaa !74
-  %21 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_111EmitterBase13getScalarTypeEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr %.015.val.val, i64 %.015.val.val16)
+  %21 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_111EmitterBase13getScalarTypeEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr readonly %.015.val.val, i64 %.015.val.val16)
   br label %35
 
 22:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread32
@@ -21084,7 +21084,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111EmitterBase13getCodeForDagEPKN4llvm7DagInitERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_6ResultEESt4lessIvESaISt4pairIKSB_SE_EEEPKNS_4TypeE(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(312) %1, ptr noundef %2, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111EmitterBase13getCodeForDagEPKN4llvm7DagInitERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_6ResultEESt4lessIvESaISt4pairIKSB_SE_EEEPKNS_4TypeE(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(312) %1, ptr noundef %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::tuple.194", align 8
   %7 = alloca %"class.std::tuple.139", align 1
   %8 = alloca i64, align 8
@@ -26986,7 +26986,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111EmitterBase16getCodeForDagArgEPKN4llvm7DagInitEjRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_6ResultEESt4lessIvESaISt4pairIKSB_SE_EEEPKNS_4TypeE(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(312) %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111EmitterBase16getCodeForDagArgEPKN4llvm7DagInitEjRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_6ResultEESt4lessIvESaISt4pairIKSB_SE_EEEPKNS_4TypeE(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(312) %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %4, ptr noundef %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::Twine", align 8
@@ -27726,7 +27726,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %0, %6,
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0 align 2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_sharedIN12_GLOBAL__N_117IRIntrinsicResultEJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIPKNS0_4TypeESaISC_EERS9_ISt10shared_ptrINS0_6ResultEESaISI_EEEESG_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESN_E4typeEEDpOT0_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((0, 16)) %0, ptr captures(address_is_null) %.0.val, i64 %.8.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #2 {
+define internal fastcc void @_ZSt11make_sharedIN12_GLOBAL__N_117IRIntrinsicResultEJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIPKNS0_4TypeESaISC_EERS9_ISt10shared_ptrINS0_6ResultEESaISI_EEEESG_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESN_E4typeEEDpOT0_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((0, 16)) %0, ptr readonly captures(address_is_null) %.0.val, i64 %.8.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #31, !noalias !713
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -27735,7 +27735,7 @@ define internal fastcc void @_ZSt11make_sharedIN12_GLOBAL__N_117IRIntrinsicResul
   store i32 1, ptr %7, align 4, !tbaa !332
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117IRIntrinsicResultESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  tail call fastcc void @_ZN12_GLOBAL__N_117IRIntrinsicResultC2EN4llvm9StringRefERKSt6vectorIPKNS_4TypeESaIS6_EERKS3_ISt10shared_ptrINS_6ResultEESaISD_EE(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr %.0.val, i64 %.8.val, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 dereferenceable(24) %2)
+  tail call fastcc void @_ZN12_GLOBAL__N_117IRIntrinsicResultC2EN4llvm9StringRefERKSt6vectorIPKNS_4TypeESaIS6_EERKS3_ISt10shared_ptrINS_6ResultEESaISD_EE(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr readonly %.0.val, i64 %.8.val, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 dereferenceable(24) %2)
   store ptr %5, ptr %4, align 8, !tbaa !350
   store ptr %8, ptr %0, align 8, !tbaa !716
   ret void

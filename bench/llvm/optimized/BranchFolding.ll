@@ -4181,7 +4181,7 @@ _ZNSt6vectorIN4llvm12BranchFolder11SameTailEltESaIS2_EE9push_backEOS2_.exit37: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm12BranchFolder20RemoveBlocksWithHashEjPNS_17MachineBasicBlockES2_RKNS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(240) %0, i32 noundef %1, ptr noundef %2, ptr noundef readnone captures(address) %3, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %4) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN4llvm12BranchFolder20RemoveBlocksWithHashEjPNS_17MachineBasicBlockES2_RKNS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(240) %0, i32 noundef %1, ptr noundef %2, ptr noundef readnone captures(address) %3, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %4) local_unnamed_addr #1 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !451
   %8 = load ptr, ptr %0, align 8, !tbaa !451
@@ -5785,7 +5785,7 @@ _ZN4llvm14array_pod_sortIN9__gnu_cxx17__normal_iteratorIPNS_12BranchFolder18Merg
 
 43:                                               ; preds = %40
   %44 = load ptr, ptr %21, align 8, !tbaa !311
-  tail call fastcc void @_ZL7FixTailPN4llvm17MachineBasicBlockES1_PKNS_15TargetInstrInfoERKNS_8DebugLocE(ptr noundef %42, ptr noundef %1, ptr noundef %44, ptr noundef nonnull align 8 dereferenceable(8) %26)
+  tail call fastcc void @_ZL7FixTailPN4llvm17MachineBasicBlockES1_PKNS_15TargetInstrInfoERKNS_8DebugLocE(ptr noundef %42, ptr noundef %1, ptr noundef %44, ptr noundef nonnull readonly align 8 dereferenceable(8) %26)
   br label %45
 
 45:                                               ; preds = %43, %40
@@ -6033,7 +6033,7 @@ _ZN4llvm12BranchFolder20RemoveBlocksWithHashEjPNS_17MachineBasicBlockES2_RKNS_8D
 
 179:                                              ; preds = %176
   %180 = load ptr, ptr %21, align 8, !tbaa !311
-  tail call fastcc void @_ZL7FixTailPN4llvm17MachineBasicBlockES1_PKNS_15TargetInstrInfoERKNS_8DebugLocE(ptr noundef %178, ptr noundef %1, ptr noundef %180, ptr noundef nonnull align 8 dereferenceable(8) %26)
+  tail call fastcc void @_ZL7FixTailPN4llvm17MachineBasicBlockES1_PKNS_15TargetInstrInfoERKNS_8DebugLocE(ptr noundef %178, ptr noundef %1, ptr noundef %180, ptr noundef nonnull readonly align 8 dereferenceable(8) %26)
   br label %181
 
 181:                                              ; preds = %179, %176

@@ -28584,7 +28584,7 @@ _ZNSt14_Function_base13_Base_managerIZNK7rocksdb12experimental12_GLOBAL__N_132Ss
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZNK7rocksdb12experimental12_GLOBAL__N_132SstQueryFilterConfigsManagerImpl22RangeQueryFilterReader8MayMatchENS_5SliceEPNS3_5StateE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 %2, ptr noundef captures(address_is_null) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZNK7rocksdb12experimental12_GLOBAL__N_132SstQueryFilterConfigsManagerImpl22RangeQueryFilterReader8MayMatchENS_5SliceEPNS3_5StateE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = alloca %"class.rocksdb::Slice", align 8
   %7 = alloca %"class.rocksdb::Slice", align 8

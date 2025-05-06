@@ -1011,7 +1011,7 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_110DivZeroMapEEENS0_17ProgramSta
 _ZN4llvm12ImmutableSetIN12_GLOBAL__N_19ZeroStateENS_17ImutContainerInfoIS2_EEEC2ERKS5_.exit.i.i.i.i.i: ; preds = %67, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_110DivZeroMapEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.thread.i.i.i.i
   %.not.i.i.i.i15.i.i.i.i = phi i1 [ true, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_110DivZeroMapEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.thread.i.i.i.i ], [ false, %67 ]
   %.sroa.0.014.i.i.i.i = phi ptr [ null, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_110DivZeroMapEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.thread.i.i.i.i ], [ %66, %67 ]
-  %71 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE12add_internalERKS3_PNS_11ImutAVLTreeIS4_EE(ptr noundef nonnull align 8 dereferenceable(81) %63, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %.sroa.0.014.i.i.i.i), !noalias !130
+  %71 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE12add_internalERKS3_PNS_11ImutAVLTreeIS4_EE(ptr noundef nonnull align 8 dereferenceable(81) %63, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef readonly %.sroa.0.014.i.i.i.i), !noalias !130
   call fastcc void @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE13markImmutableEPNS_11ImutAVLTreeIS4_EE(ptr noundef %71), !noalias !130
   %72 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %.val.i.i.i.i.i.i.i.i = load ptr, ptr %72, align 8, !tbaa !133, !noalias !130
@@ -4419,7 +4419,7 @@ _ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableSetIN12_
   br label %_ZN4llvm12ImmutableSetIN12_GLOBAL__N_19ZeroStateENS_17ImutContainerInfoIS2_EEEC2ERKS5_.exit35.i
 
 _ZN4llvm12ImmutableSetIN12_GLOBAL__N_19ZeroStateENS_17ImutContainerInfoIS2_EEEC2ERKS5_.exit35.i: ; preds = %119, %118
-  %123 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE15remove_internalERKS3_PNS_11ImutAVLTreeIS4_EE(ptr noundef nonnull align 8 dereferenceable(81) %23, ptr noundef nonnull align 8 dereferenceable(24) %111, ptr noundef %.sroa.03.1.i), !noalias !346
+  %123 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE15remove_internalERKS3_PNS_11ImutAVLTreeIS4_EE(ptr noundef nonnull align 8 dereferenceable(81) %23, ptr noundef nonnull align 8 dereferenceable(24) %111, ptr noundef readonly %.sroa.03.1.i), !noalias !346
   call fastcc void @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE13markImmutableEPNS_11ImutAVLTreeIS4_EE(ptr noundef %123), !noalias !346
   %.val.i.i.i.i = load ptr, ptr %47, align 8, !tbaa !133, !noalias !346
   %.val7.i.i.i.i = load ptr, ptr %48, align 8, !tbaa !136, !noalias !346

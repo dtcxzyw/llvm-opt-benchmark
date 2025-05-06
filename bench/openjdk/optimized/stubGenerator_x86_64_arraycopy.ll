@@ -222,7 +222,7 @@ define hidden void @_ZN13StubGenerator24generate_arraycopy_stubsEv(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13StubGenerator27generate_disjoint_byte_copyEbPPhPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN13StubGenerator27generate_disjoint_byte_copyEbPPhPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.Address, align 8
   %6 = alloca %class.Address, align 8
   %7 = alloca %class.StubCodeMark, align 8
@@ -604,7 +604,7 @@ define hidden noundef ptr @_ZN13StubGenerator27generate_disjoint_byte_copyEbPPhP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13StubGenerator27generate_conjoint_byte_copyEbPhPS0_PKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN13StubGenerator27generate_conjoint_byte_copyEbPhPS0_PKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.StubCodeMark, align 8
   %7 = alloca %class.Label, align 8
   %8 = alloca %class.Label, align 8
@@ -908,7 +908,7 @@ define hidden noundef ptr @_ZN13StubGenerator27generate_conjoint_byte_copyEbPhPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13StubGenerator28generate_disjoint_short_copyEbPPhPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN13StubGenerator28generate_disjoint_short_copyEbPPhPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.Address, align 8
   %6 = alloca %class.Address, align 8
   %7 = alloca %class.StubCodeMark, align 8
@@ -1232,7 +1232,7 @@ define hidden noundef ptr @_ZN13StubGenerator28generate_disjoint_short_copyEbPPh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13StubGenerator28generate_conjoint_short_copyEbPhPS0_PKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN13StubGenerator28generate_conjoint_short_copyEbPhPS0_PKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.StubCodeMark, align 8
   %7 = alloca %class.Label, align 8
   %8 = alloca %class.Label, align 8
@@ -1480,7 +1480,7 @@ define hidden noundef ptr @_ZN13StubGenerator28generate_conjoint_short_copyEbPhP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13StubGenerator30generate_disjoint_int_oop_copyEbbPPhPKcb(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN13StubGenerator30generate_disjoint_int_oop_copyEbbPPhPKcb(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %class.Address, align 8
   %8 = alloca %class.Address, align 8
   %9 = alloca %class.StubCodeMark, align 8
@@ -1772,7 +1772,7 @@ define hidden noundef ptr @_ZN13StubGenerator30generate_disjoint_int_oop_copyEbb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13StubGenerator30generate_conjoint_int_oop_copyEbbPhPS0_PKcb(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN13StubGenerator30generate_conjoint_int_oop_copyEbbPhPS0_PKcb(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %class.StubCodeMark, align 8
   %9 = alloca %class.Label, align 8
   %10 = alloca %class.Label, align 8
@@ -2011,7 +2011,7 @@ define hidden noundef ptr @_ZN13StubGenerator30generate_conjoint_int_oop_copyEbb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13StubGenerator31generate_disjoint_long_oop_copyEbbPPhPKcb(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN13StubGenerator31generate_disjoint_long_oop_copyEbbPPhPKcb(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %class.Address, align 8
   %8 = alloca %class.Address, align 8
   %9 = alloca %class.StubCodeMark, align 8
@@ -2265,7 +2265,7 @@ define hidden noundef ptr @_ZN13StubGenerator31generate_disjoint_long_oop_copyEb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13StubGenerator31generate_conjoint_long_oop_copyEbbPhPS0_PKcb(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN13StubGenerator31generate_conjoint_long_oop_copyEbbPhPS0_PKcb(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %class.StubCodeMark, align 8
   %9 = alloca %class.Label, align 8
   %10 = alloca %class.Label, align 8

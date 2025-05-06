@@ -20612,7 +20612,7 @@ tailrecurse:                                      ; preds = %63, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK13IdealLoopTree17est_loop_clone_szEj(ptr noundef nonnull align 8 captures(address) dereferenceable(113) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZNK13IdealLoopTree17est_loop_clone_szEj(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(113) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, 7
@@ -20853,7 +20853,7 @@ _ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit.thread: ; preds = %49, %_ZNK13IdealLo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK13IdealLoopTree18est_loop_unroll_szEj(ptr noundef nonnull align 8 captures(address) dereferenceable(113) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZNK13IdealLoopTree18est_loop_unroll_szEj(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(113) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, -7

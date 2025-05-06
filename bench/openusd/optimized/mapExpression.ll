@@ -415,7 +415,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionC2ERKS0_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression8ConstantERKNS_14PcpMapFunctionE(ptr dead_on_unwind noalias writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::PcpMapExpression") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression8ConstantERKNS_14PcpMapFunctionE(ptr dead_on_unwind noalias writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::PcpMapExpression") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfDelegatedCountPtr", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfDelegatedCountPtr", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfDelegatedCountPtr", align 8

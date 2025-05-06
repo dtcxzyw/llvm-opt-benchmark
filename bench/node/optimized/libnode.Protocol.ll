@@ -4359,7 +4359,7 @@ entry:
 declare void @llvm.trap() #16
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol14DispatcherBase19reportProtocolErrorEiNS1_16DispatchResponse9ErrorCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12ErrorSupportE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i32 noundef %callId, i32 noundef %code, ptr noundef nonnull align 8 dereferenceable(32) %errorMessage, ptr noundef captures(address_is_null) %errors) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4node9inspector8protocol14DispatcherBase19reportProtocolErrorEiNS1_16DispatchResponse9ErrorCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12ErrorSupportE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i32 noundef %callId, i32 noundef %code, ptr noundef nonnull align 8 dereferenceable(32) %errorMessage, ptr noundef readonly captures(address_is_null) %errors) local_unnamed_addr #1 align 2 {
 entry:
   %m_frontendChannel = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_frontendChannel, align 8

@@ -1177,7 +1177,7 @@ define dso_local range(i32 -2147483646, 2147483647) i32 @cbuf_rewind(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cbuf_write(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local i32 @cbuf_write(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr %1, ptr %5, align 8
   %.not = icmp eq ptr %3, null
@@ -2780,7 +2780,7 @@ cbuf_replayer.exit:                               ; preds = %.loopexit.i, %22, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cbuf_write_from_fd(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local i32 @cbuf_write_from_fd(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 %1, ptr %5, align 4
   %.not = icmp eq ptr %3, null
@@ -2875,7 +2875,7 @@ define internal noundef i32 @cbuf_get_fd(ptr noundef captures(none) %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cbuf_copy(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local i32 @cbuf_copy(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %5
 
@@ -3223,7 +3223,7 @@ cbuf_grow.exit:                                   ; preds = %20, %55
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cbuf_move(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local i32 @cbuf_move(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %5
 

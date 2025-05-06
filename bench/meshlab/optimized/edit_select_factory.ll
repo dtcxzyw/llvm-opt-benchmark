@@ -1326,7 +1326,7 @@ define noundef ptr @_ZN17EditSelectFactory11getEditToolEPK7QAction(ptr noundef n
 declare void @_ZN16EditSelectPluginC1Ei(ptr noundef nonnull align 16 dereferenceable(501), i32 noundef) unnamed_addr #0
 
 ; Function Attrs: uwtable
-define noundef ptr @_ZThn16_N17EditSelectFactory11getEditToolEPK7QAction(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1) unnamed_addr #13 align 2 {
+define noundef ptr @_ZThn16_N17EditSelectFactory11getEditToolEPK7QAction(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -16
   %4 = tail call noundef ptr @_ZN17EditSelectFactory11getEditToolEPK7QAction(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef %1)
   ret ptr %4

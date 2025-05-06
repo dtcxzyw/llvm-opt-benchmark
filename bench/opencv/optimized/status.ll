@@ -958,7 +958,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf4util15status_internal9IsUn
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf4util15status_internal12AbortedErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
+define hidden void @_ZN6google8protobuf4util15status_internal12AbortedErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr readonly captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
   tail call void @_ZN6google8protobuf4util15status_internal6StatusC2ENS2_10StatusCodeENS0_20stringpiece_internal11StringPieceE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 10, ptr %1, i64 %2)
   ret void
 }
@@ -967,91 +967,91 @@ define hidden void @_ZN6google8protobuf4util15status_internal12AbortedErrorENS0_
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf4util15status_internal18AlreadyExistsErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
+define hidden void @_ZN6google8protobuf4util15status_internal18AlreadyExistsErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr readonly captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
   tail call void @_ZN6google8protobuf4util15status_internal6StatusC2ENS2_10StatusCodeENS0_20stringpiece_internal11StringPieceE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 6, ptr %1, i64 %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf4util15status_internal14CancelledErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
+define hidden void @_ZN6google8protobuf4util15status_internal14CancelledErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr readonly captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
   tail call void @_ZN6google8protobuf4util15status_internal6StatusC2ENS2_10StatusCodeENS0_20stringpiece_internal11StringPieceE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 1, ptr %1, i64 %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf4util15status_internal13DataLossErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
+define hidden void @_ZN6google8protobuf4util15status_internal13DataLossErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr readonly captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
   tail call void @_ZN6google8protobuf4util15status_internal6StatusC2ENS2_10StatusCodeENS0_20stringpiece_internal11StringPieceE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 15, ptr %1, i64 %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf4util15status_internal21DeadlineExceededErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
+define hidden void @_ZN6google8protobuf4util15status_internal21DeadlineExceededErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr readonly captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
   tail call void @_ZN6google8protobuf4util15status_internal6StatusC2ENS2_10StatusCodeENS0_20stringpiece_internal11StringPieceE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 4, ptr %1, i64 %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf4util15status_internal23FailedPreconditionErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
+define hidden void @_ZN6google8protobuf4util15status_internal23FailedPreconditionErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr readonly captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
   tail call void @_ZN6google8protobuf4util15status_internal6StatusC2ENS2_10StatusCodeENS0_20stringpiece_internal11StringPieceE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 9, ptr %1, i64 %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf4util15status_internal13InternalErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
+define hidden void @_ZN6google8protobuf4util15status_internal13InternalErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr readonly captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
   tail call void @_ZN6google8protobuf4util15status_internal6StatusC2ENS2_10StatusCodeENS0_20stringpiece_internal11StringPieceE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 13, ptr %1, i64 %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf4util15status_internal20InvalidArgumentErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
+define hidden void @_ZN6google8protobuf4util15status_internal20InvalidArgumentErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr readonly captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
   tail call void @_ZN6google8protobuf4util15status_internal6StatusC2ENS2_10StatusCodeENS0_20stringpiece_internal11StringPieceE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 3, ptr %1, i64 %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf4util15status_internal13NotFoundErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
+define hidden void @_ZN6google8protobuf4util15status_internal13NotFoundErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr readonly captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
   tail call void @_ZN6google8protobuf4util15status_internal6StatusC2ENS2_10StatusCodeENS0_20stringpiece_internal11StringPieceE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 5, ptr %1, i64 %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf4util15status_internal15OutOfRangeErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
+define hidden void @_ZN6google8protobuf4util15status_internal15OutOfRangeErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr readonly captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
   tail call void @_ZN6google8protobuf4util15status_internal6StatusC2ENS2_10StatusCodeENS0_20stringpiece_internal11StringPieceE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 11, ptr %1, i64 %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf4util15status_internal21PermissionDeniedErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
+define hidden void @_ZN6google8protobuf4util15status_internal21PermissionDeniedErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr readonly captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
   tail call void @_ZN6google8protobuf4util15status_internal6StatusC2ENS2_10StatusCodeENS0_20stringpiece_internal11StringPieceE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 7, ptr %1, i64 %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf4util15status_internal22ResourceExhaustedErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
+define hidden void @_ZN6google8protobuf4util15status_internal22ResourceExhaustedErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr readonly captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
   tail call void @_ZN6google8protobuf4util15status_internal6StatusC2ENS2_10StatusCodeENS0_20stringpiece_internal11StringPieceE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 8, ptr %1, i64 %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf4util15status_internal20UnauthenticatedErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
+define hidden void @_ZN6google8protobuf4util15status_internal20UnauthenticatedErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr readonly captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
   tail call void @_ZN6google8protobuf4util15status_internal6StatusC2ENS2_10StatusCodeENS0_20stringpiece_internal11StringPieceE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 16, ptr %1, i64 %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf4util15status_internal16UnavailableErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
+define hidden void @_ZN6google8protobuf4util15status_internal16UnavailableErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr readonly captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
   tail call void @_ZN6google8protobuf4util15status_internal6StatusC2ENS2_10StatusCodeENS0_20stringpiece_internal11StringPieceE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 14, ptr %1, i64 %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf4util15status_internal18UnimplementedErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
+define hidden void @_ZN6google8protobuf4util15status_internal18UnimplementedErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr readonly captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
   tail call void @_ZN6google8protobuf4util15status_internal6StatusC2ENS2_10StatusCodeENS0_20stringpiece_internal11StringPieceE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 12, ptr %1, i64 %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf4util15status_internal12UnknownErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
+define hidden void @_ZN6google8protobuf4util15status_internal12UnknownErrorENS0_20stringpiece_internal11StringPieceE(ptr dead_on_unwind noalias nonnull writable sret(%"class.google::protobuf::util::status_internal::Status") align 8 initializes((0, 4)) %0, ptr readonly captures(address_is_null) %1, i64 %2) local_unnamed_addr #1 {
   tail call void @_ZN6google8protobuf4util15status_internal6StatusC2ENS2_10StatusCodeENS0_20stringpiece_internal11StringPieceE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 2, ptr %1, i64 %2)
   ret void
 }

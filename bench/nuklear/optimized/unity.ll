@@ -580,7 +580,7 @@ define double @nk_strtod(ptr noundef %0, ptr noundef writeonly captures(address_
 declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define float @nk_strtof(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #9 {
+define float @nk_strtof(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #9 {
   %3 = tail call double @nk_strtod(ptr noundef %0, ptr noundef %1)
   %4 = fptrunc double %3 to float
   ret float %4
@@ -984,7 +984,7 @@ define range(i32 0, 2) i32 @nk_strmatch_fuzzy_text(ptr noundef readonly captures
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_strmatch_fuzzy_string(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @nk_strmatch_fuzzy_string(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #11 {
   %.not5.i = icmp eq ptr %0, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
 
@@ -4475,7 +4475,7 @@ nk_utf_decode.exit58:                             ; preds = %51, %._crit_edge.lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @nk_utf_at(ptr noundef captures(address_is_null, ret: address, provenance) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #8 {
+define ptr @nk_utf_at(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #8 {
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %3, null
   %or.cond = and i1 %6, %7
@@ -6379,7 +6379,7 @@ nk_str_append_text_char.exit:                     ; preds = %33, %30, %nk_str_ge
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @nk_str_at_rune(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #21 {
+define ptr @nk_str_at_rune(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #21 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %2, null
   %or.cond = and i1 %5, %6
@@ -7675,7 +7675,7 @@ define ptr @nk_str_at_char_const(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @nk_str_at_const(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #21 {
+define ptr @nk_str_at_const(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #21 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %2, null
   %or.cond = and i1 %5, %6
@@ -17986,7 +17986,7 @@ stbtt__GetGlyfOffset.exit.thread:                 ; preds = %141, %140, %104, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbtt_GetCodepointBox(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #21 {
+define range(i32 0, 2) i32 @stbtt_GetCodepointBox(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #21 {
   %7 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %1)
   %8 = tail call i32 @stbtt_GetGlyphBox(ptr noundef %0, i32 noundef %7, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   ret i32 %8
@@ -20102,7 +20102,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %23, %46, %.sink.spl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetCodepointBitmapBox(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #21 {
+define void @stbtt_GetCodepointBitmapBox(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #21 {
   tail call void @stbtt_GetCodepointBitmapBoxSubpixel(ptr noundef %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   ret void
 }
@@ -22731,7 +22731,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %24, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbtt_GetGlyphBitmap(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #19 {
+define ptr @stbtt_GetGlyphBitmap(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #19 {
   %9 = tail call ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef %0, float noundef %1, float noundef %2, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   ret ptr %9
 }
@@ -22813,7 +22813,7 @@ define void @stbtt_MakeGlyphBitmap(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbtt_GetCodepointBitmapSubpixel(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(address_is_null) %7, ptr noundef captures(address_is_null) %8, ptr noundef captures(address_is_null) %9) local_unnamed_addr #19 {
+define ptr @stbtt_GetCodepointBitmapSubpixel(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #19 {
   %11 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %5)
   %12 = tail call ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %11, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   ret ptr %12
@@ -22936,7 +22936,7 @@ define void @stbtt_MakeCodepointBitmapSubpixel(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbtt_GetCodepointBitmap(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #19 {
+define ptr @stbtt_GetCodepointBitmap(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #19 {
   %9 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef readonly %0, i32 noundef %3)
   %10 = tail call ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef readonly %0, float noundef %1, float noundef %2, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %9, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   ret ptr %10
@@ -28104,7 +28104,7 @@ stbtt__solve_cubic.exit.us:                       ; preds = %462, %460, %453, %4
 declare double @sqrt(double noundef) local_unnamed_addr #30
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbtt_GetCodepointSDF(ptr noundef readonly captures(none) %0, float noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, float noundef %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(address_is_null) %7, ptr noundef captures(address_is_null) %8, ptr noundef captures(address_is_null) %9) local_unnamed_addr #19 {
+define ptr @stbtt_GetCodepointSDF(ptr noundef readonly captures(none) %0, float noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, float noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #19 {
   %11 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %2)
   %12 = tail call ptr @stbtt_GetGlyphSDF(ptr noundef %0, float noundef %1, i32 noundef %11, i32 noundef %3, i8 noundef zeroext %4, float noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   ret ptr %12
@@ -30037,7 +30037,7 @@ nk_decompress.exit:                               ; preds = %nk_decompress_token
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @nk_font_atlas_add_compressed_base85(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, float noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #19 {
+define ptr @nk_font_atlas_add_compressed_base85(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, float noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #19 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %6
@@ -30168,7 +30168,7 @@ nk_decode_85.exit:                                ; preds = %.lr.ph.i30, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @nk_font_atlas_add_default(ptr noundef captures(address_is_null) %0, float noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #19 {
+define ptr @nk_font_atlas_add_default(ptr noundef captures(address_is_null) %0, float noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #19 {
   %4 = tail call ptr @nk_font_atlas_add_compressed_base85(ptr noundef %0, ptr noundef nonnull @nk_proggy_clean_ttf_compressed_data_base85, float noundef %1, ptr noundef %2)
   ret ptr %4
 }
@@ -40856,7 +40856,7 @@ nk_find_window.exit:                              ; preds = %nk_stricmpn.exit.i,
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_window_close(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #40 {
+define void @nk_window_close(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #40 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %3
 
@@ -40883,7 +40883,7 @@ define void @nk_window_close(ptr noundef readonly captures(address_is_null) %0, 
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_window_set_bounds(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #41 {
+define void @nk_window_set_bounds(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #41 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %5
 
@@ -40904,7 +40904,7 @@ define void @nk_window_set_bounds(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_window_set_position(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, <2 x float> %2) local_unnamed_addr #41 {
+define void @nk_window_set_position(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, <2 x float> %2) local_unnamed_addr #41 {
   %4 = tail call ptr @nk_window_find(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
@@ -40923,7 +40923,7 @@ define void @nk_window_set_position(ptr noundef readonly captures(none) %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_window_set_size(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, <2 x float> %2) local_unnamed_addr #41 {
+define void @nk_window_set_size(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, <2 x float> %2) local_unnamed_addr #41 {
   %4 = tail call ptr @nk_window_find(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
@@ -41078,7 +41078,7 @@ nk_find_window.exit.thread:                       ; preds = %nk_stricmpn.exit.i,
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_window_collapse_if(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #40 {
+define void @nk_window_collapse_if(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #40 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne i32 %3, 0
   %or.cond = and i1 %5, %6
@@ -41207,7 +41207,7 @@ nk_find_window.exit.thread:                       ; preds = %nk_stricmpn.exit.i,
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_window_show_if(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #40 {
+define void @nk_window_show_if(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #40 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne i32 %3, 0
   %or.cond = and i1 %5, %6
@@ -41445,7 +41445,7 @@ nk_insert_window.exit:                            ; preds = %nk_stricmpn.exit.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_rule_horizontal(ptr noundef captures(address_is_null) %0, i32 %1, i32 noundef %2) local_unnamed_addr #22 {
+define void @nk_rule_horizontal(ptr noundef readonly captures(address_is_null) %0, i32 %1, i32 noundef %2) local_unnamed_addr #22 {
   %4 = alloca %struct.nk_rect, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #55
   %5 = call i32 @nk_widget(ptr noundef nonnull %4, ptr noundef %0)
@@ -41485,7 +41485,7 @@ nk_window_get_canvas.exit:                        ; preds = %3, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @nk_widget(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #19 {
+define range(i32 0, 4) i32 @nk_widget(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #19 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %73, label %3
 
@@ -42622,7 +42622,7 @@ define range(i32 0, 2) i32 @nk_contextual_item_text(ptr noundef captures(address
 nk_widget_fitting.exit:                           ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %14 = call i32 @nk_widget(ptr noundef nonnull %5, ptr noundef nonnull %0)
+  %14 = call i32 @nk_widget(ptr noundef nonnull %5, ptr noundef nonnull readonly %0)
   switch i32 %14, label %15 [
     i32 0, label %nk_contextual_close.exit
     i32 2, label %20
@@ -42674,7 +42674,7 @@ nk_contextual_close.exit:                         ; preds = %nk_popup_close.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @nk_widget_fitting(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, <2 x float> %2) local_unnamed_addr #22 {
+define range(i32 0, 4) i32 @nk_widget_fitting(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, <2 x float> %2) local_unnamed_addr #22 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %4
 
@@ -42700,7 +42700,7 @@ define range(i32 0, 4) i32 @nk_widget_fitting(ptr noundef captures(none) %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @nk_do_button_text(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, <2 x float> %2, <2 x float> %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull captures(none) %8, ptr noundef captures(address_is_null) %9, ptr noundef %10) unnamed_addr #22 {
+define internal fastcc i32 @nk_do_button_text(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, <2 x float> %2, <2 x float> %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull captures(none) %8, ptr noundef readonly captures(address_is_null) %9, ptr noundef %10) unnamed_addr #22 {
   %12 = alloca %struct.nk_rect, align 8
   store <2 x float> %2, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -42747,7 +42747,7 @@ define internal fastcc i32 @nk_do_button_text(ptr noundef nonnull captures(none)
   %.sroa.5.8.vec.insert.i = insertelement <2 x float> poison, float %43, i64 0
   %44 = tail call float @llvm.fmuladd.f32(float %41, float 2.000000e+00, float %.sroa.532.12.vec.extract.i)
   %.sroa.5.12.vec.insert.i = insertelement <2 x float> %.sroa.5.8.vec.insert.i, float %44, i64 1
-  %45 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %0, <2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.5.12.vec.insert.i, ptr noundef %9, i32 noundef %7)
+  %45 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %0, <2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.5.12.vec.insert.i, ptr noundef readonly %9, i32 noundef %7)
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 200
   %47 = load ptr, ptr %46, align 8, !tbaa !989
   %.not = icmp eq ptr %47, null
@@ -43010,7 +43010,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader6
 nk_widget_fitting.exit.i:                         ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %16 = call i32 @nk_widget(ptr noundef nonnull %4, ptr noundef nonnull %0)
+  %16 = call i32 @nk_widget(ptr noundef nonnull %4, ptr noundef nonnull readonly %0)
   switch i32 %16, label %17 [
     i32 0, label %nk_contextual_item_text.exit
     i32 2, label %22
@@ -43083,7 +43083,7 @@ define range(i32 0, 2) i32 @nk_contextual_item_image_text(ptr noundef captures(a
 nk_widget_fitting.exit:                           ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %15 = call i32 @nk_widget(ptr noundef nonnull %6, ptr noundef nonnull %0)
+  %15 = call i32 @nk_widget(ptr noundef nonnull %6, ptr noundef nonnull readonly %0)
   switch i32 %15, label %16 [
     i32 0, label %nk_contextual_close.exit
     i32 2, label %21
@@ -43135,7 +43135,7 @@ nk_contextual_close.exit:                         ; preds = %nk_popup_close.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @nk_do_button_text_image(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, <2 x float> %2, <2 x float> %3, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef captures(address_is_null) %9, ptr noundef %10, ptr noundef captures(address_is_null) %11) unnamed_addr #22 {
+define internal fastcc i32 @nk_do_button_text_image(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, <2 x float> %2, <2 x float> %3, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef captures(address_is_null) %9, ptr noundef %10, ptr noundef readonly captures(address_is_null) %11) unnamed_addr #22 {
   %13 = alloca %struct.nk_rect, align 8
   store <2 x float> %2, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -43187,7 +43187,7 @@ define internal fastcc i32 @nk_do_button_text_image(ptr noundef nonnull captures
   %.sroa.5.8.vec.insert.i = insertelement <2 x float> poison, float %48, i64 0
   %49 = tail call float @llvm.fmuladd.f32(float %46, float 2.000000e+00, float %.sroa.532.12.vec.extract.i)
   %.sroa.5.12.vec.insert.i = insertelement <2 x float> %.sroa.5.8.vec.insert.i, float %49, i64 1
-  %50 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %0, <2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.5.12.vec.insert.i, ptr noundef %11, i32 noundef %8)
+  %50 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %0, <2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.5.12.vec.insert.i, ptr noundef readonly %11, i32 noundef %8)
   %51 = load float, ptr %31, align 4, !tbaa !986
   %52 = fadd float %21, %51
   %53 = tail call float @llvm.fmuladd.f32(float %51, float -2.000000e+00, float %20)
@@ -43397,7 +43397,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader6
 nk_widget_fitting.exit.i:                         ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %17 = call i32 @nk_widget(ptr noundef nonnull %5, ptr noundef nonnull %0)
+  %17 = call i32 @nk_widget(ptr noundef nonnull %5, ptr noundef nonnull readonly %0)
   switch i32 %17, label %18 [
     i32 0, label %nk_contextual_item_image_text.exit
     i32 2, label %23
@@ -43470,7 +43470,7 @@ define range(i32 0, 2) i32 @nk_contextual_item_symbol_text(ptr noundef captures(
 nk_widget_fitting.exit:                           ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %15 = call i32 @nk_widget(ptr noundef nonnull %6, ptr noundef nonnull %0)
+  %15 = call i32 @nk_widget(ptr noundef nonnull %6, ptr noundef nonnull readonly %0)
   switch i32 %15, label %16 [
     i32 0, label %nk_contextual_close.exit
     i32 2, label %21
@@ -43522,7 +43522,7 @@ nk_contextual_close.exit:                         ; preds = %nk_popup_close.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @nk_do_button_text_symbol(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, <2 x float> %2, <2 x float> %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef captures(address_is_null) %9, ptr noundef %10, ptr noundef captures(address_is_null) %11) unnamed_addr #22 {
+define internal fastcc i32 @nk_do_button_text_symbol(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, <2 x float> %2, <2 x float> %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef captures(address_is_null) %9, ptr noundef %10, ptr noundef readonly captures(address_is_null) %11) unnamed_addr #22 {
   %13 = alloca %struct.nk_rect, align 8
   store <2 x float> %2, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -43569,7 +43569,7 @@ define internal fastcc i32 @nk_do_button_text_symbol(ptr noundef nonnull capture
   %.sroa.5.8.vec.insert.i = insertelement <2 x float> poison, float %44, i64 0
   %45 = tail call float @llvm.fmuladd.f32(float %42, float 2.000000e+00, float %.sroa.532.12.vec.extract.i)
   %.sroa.5.12.vec.insert.i = insertelement <2 x float> %.sroa.5.8.vec.insert.i, float %45, i64 1
-  %46 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %0, <2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.5.12.vec.insert.i, ptr noundef %11, i32 noundef %8)
+  %46 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %0, <2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.5.12.vec.insert.i, ptr noundef readonly %11, i32 noundef %8)
   %47 = fmul float %37, 5.000000e-01
   %48 = fadd float %31, %47
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -43764,7 +43764,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader7
 nk_widget_fitting.exit.i:                         ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %17 = call i32 @nk_widget(ptr noundef nonnull %5, ptr noundef nonnull %0)
+  %17 = call i32 @nk_widget(ptr noundef nonnull %5, ptr noundef nonnull readonly %0)
   switch i32 %17, label %18 [
     i32 0, label %nk_contextual_item_symbol_text.exit
     i32 2, label %23
@@ -44209,7 +44209,7 @@ define range(i32 0, 2) i32 @nk_menu_begin_text(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @nk_menu_begin(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1, ptr noundef captures(address_is_null) %2, i32 noundef range(i32 0, 2) %3, <2 x float> %4, <2 x float> %5, <2 x float> %6) unnamed_addr #22 {
+define internal fastcc range(i32 0, 2) i32 @nk_menu_begin(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef range(i32 0, 2) %3, <2 x float> %4, <2 x float> %5, <2 x float> %6) unnamed_addr #22 {
   %.not5.i = icmp eq ptr %2, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
 
@@ -44309,7 +44309,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader6
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_begin_image(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %2, <2 x float> %3) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_menu_begin_image(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %2, <2 x float> %3) local_unnamed_addr #22 {
   %5 = alloca %struct.nk_rect, align 8
   %6 = alloca %struct.nk_rect, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
@@ -44392,7 +44392,7 @@ define range(i32 0, 2) i32 @nk_menu_begin_image(ptr noundef %0, ptr noundef capt
   %.sroa.5.8.vec.insert.i.i = insertelement <2 x float> poison, float %55, i64 0
   %56 = tail call float @llvm.fmuladd.f32(float %53, float 2.000000e+00, float %.sroa.532.12.vec.extract.i.i)
   %.sroa.5.12.vec.insert.i.i = insertelement <2 x float> %.sroa.5.8.vec.insert.i.i, float %56, i64 1
-  %57 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %22, <2 x float> %.sroa.0.4.vec.insert.i.i, <2 x float> %.sroa.5.12.vec.insert.i.i, ptr noundef %21, i32 noundef 0)
+  %57 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %22, <2 x float> %.sroa.0.4.vec.insert.i.i, <2 x float> %.sroa.5.12.vec.insert.i.i, ptr noundef readonly %21, i32 noundef 0)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %59 = load float, ptr %58, align 8, !tbaa !991
   %60 = fadd float %37, %59
@@ -44454,7 +44454,7 @@ nk_do_button_image.exit:                          ; preds = %73, %86
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_begin_symbol(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, <2 x float> %3) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_menu_begin_symbol(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, <2 x float> %3) local_unnamed_addr #22 {
   %5 = alloca %struct.nk_rect, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #55
   %.not = icmp eq ptr %0, null
@@ -44511,7 +44511,7 @@ define range(i32 0, 2) i32 @nk_menu_begin_symbol(ptr noundef %0, ptr noundef cap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @nk_do_button_symbol(ptr noundef nonnull captures(none) %0, ptr noundef %1, <2 x float> %2, <2 x float> %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(address_is_null) %7, ptr noundef %8) unnamed_addr #22 {
+define internal fastcc i32 @nk_do_button_symbol(ptr noundef nonnull captures(none) %0, ptr noundef %1, <2 x float> %2, <2 x float> %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef %8) unnamed_addr #22 {
   %10 = alloca %struct.nk_rect, align 8
   store <2 x float> %2, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -44564,7 +44564,7 @@ define internal fastcc i32 @nk_do_button_symbol(ptr noundef nonnull captures(non
   %.sroa.5.8.vec.insert.i = insertelement <2 x float> poison, float %42, i64 0
   %43 = tail call float @llvm.fmuladd.f32(float %40, float 2.000000e+00, float %.sroa.532.12.vec.extract.i)
   %.sroa.5.12.vec.insert.i = insertelement <2 x float> %.sroa.5.8.vec.insert.i, float %43, i64 1
-  %44 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %0, <2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.5.12.vec.insert.i, ptr noundef %7, i32 noundef %5)
+  %44 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %0, <2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.5.12.vec.insert.i, ptr noundef readonly %7, i32 noundef %5)
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 200
   %46 = load ptr, ptr %45, align 8, !tbaa !989
   %.not = icmp eq ptr %46, null
@@ -44884,7 +44884,7 @@ define range(i32 0, 2) i32 @nk_menu_item_text(ptr noundef captures(address_is_nu
 nk_widget_fitting.exit.i:                         ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %14 = call i32 @nk_widget(ptr noundef nonnull %5, ptr noundef nonnull %0)
+  %14 = call i32 @nk_widget(ptr noundef nonnull %5, ptr noundef nonnull readonly %0)
   switch i32 %14, label %15 [
     i32 0, label %nk_contextual_item_text.exit
     i32 2, label %20
@@ -44969,7 +44969,7 @@ define range(i32 0, 2) i32 @nk_menu_item_image_text(ptr noundef captures(address
 nk_widget_fitting.exit.i:                         ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %15 = call i32 @nk_widget(ptr noundef nonnull %6, ptr noundef nonnull %0)
+  %15 = call i32 @nk_widget(ptr noundef nonnull %6, ptr noundef nonnull readonly %0)
   switch i32 %15, label %16 [
     i32 0, label %nk_contextual_item_image_text.exit
     i32 2, label %21
@@ -45042,7 +45042,7 @@ define range(i32 0, 2) i32 @nk_menu_item_symbol_text(ptr noundef captures(addres
 nk_widget_fitting.exit.i:                         ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %15 = call i32 @nk_widget(ptr noundef nonnull %6, ptr noundef nonnull %0)
+  %15 = call i32 @nk_widget(ptr noundef nonnull %6, ptr noundef nonnull readonly %0)
   switch i32 %15, label %16 [
     i32 0, label %nk_contextual_item_symbol_text.exit
     i32 2, label %21
@@ -46524,7 +46524,7 @@ define { <2 x float>, <2 x float> } @nk_layout_space_rect_to_local(ptr noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_spacer(ptr noundef captures(address_is_null) %0) local_unnamed_addr #19 {
+define void @nk_spacer(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
   %2 = alloca %struct.nk_rect, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #55
   call fastcc void @nk_panel_alloc_space(ptr noundef nonnull %2, ptr noundef %0)
@@ -47137,7 +47137,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_tree_state_image_push(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef byval(%struct.nk_image) align 8 captures(address_is_null) %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_tree_state_image_push(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly byval(%struct.nk_image) align 8 captures(address_is_null) %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #19 {
   %6 = call fastcc i32 @nk_tree_state_base(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
   ret i32 %6
 }
@@ -47189,13 +47189,13 @@ define void @nk_tree_state_pop(ptr noundef readonly captures(address_is_null) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_tree_push_hashed(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_tree_push_hashed(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #19 {
   %8 = tail call fastcc i32 @nk_tree_base(ptr noundef %0, i32 noundef %1, ptr noundef null, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @nk_tree_base(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, i32 noundef %6, i32 noundef %7) unnamed_addr #19 {
+define internal fastcc range(i32 0, 2) i32 @nk_tree_base(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, i32 noundef %7) unnamed_addr #19 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %10 = load ptr, ptr %9, align 8, !tbaa !824
   %.not = icmp eq ptr %5, null
@@ -47282,7 +47282,7 @@ nk_find_value.exit:                               ; preds = %24
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_tree_image_push_hashed(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef byval(%struct.nk_image) align 8 captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_tree_image_push_hashed(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly byval(%struct.nk_image) align 8 captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #19 {
   %9 = call fastcc i32 @nk_tree_base(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7)
   ret i32 %9
 }
@@ -47334,13 +47334,13 @@ nk_tree_state_pop.exit:                           ; preds = %1, %2, %5, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_tree_element_push_hashed(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_tree_element_push_hashed(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #19 {
   %9 = tail call fastcc i32 @nk_tree_element_base(ptr noundef %0, i32 noundef %1, ptr noundef null, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7)
   ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @nk_tree_element_base(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, i32 noundef %7, i32 noundef %8) unnamed_addr #22 {
+define internal fastcc range(i32 0, 2) i32 @nk_tree_element_base(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7, i32 noundef %8) unnamed_addr #22 {
   %10 = alloca %struct.nk_rect, align 8
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -47817,7 +47817,7 @@ nk_strlen.exit.i:                                 ; preds = %.lr.ph.i.preheader1
   br i1 %.not143.i, label %239, label %237
 
 237:                                              ; preds = %nk_strlen.exit.i
-  %238 = call fastcc i32 @nk_do_selectable_image(ptr noundef %12, ptr noundef %47, <2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.6.12.vec.insert.i, ptr noundef %3, i32 noundef %.0.lcssa.i33, i32 noundef 17, ptr noundef %5, ptr noundef nonnull %2, ptr noundef %50, ptr noundef %188, ptr noundef nonnull %234)
+  %238 = call fastcc i32 @nk_do_selectable_image(ptr noundef %12, ptr noundef %47, <2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.6.12.vec.insert.i, ptr noundef %3, i32 noundef %.0.lcssa.i33, i32 noundef 17, ptr noundef %5, ptr noundef nonnull readonly %2, ptr noundef %50, ptr noundef %188, ptr noundef nonnull %234)
   br label %nk_do_selectable.exit.i
 
 239:                                              ; preds = %nk_strlen.exit.i
@@ -47842,7 +47842,7 @@ nk_strlen.exit.i:                                 ; preds = %.lr.ph.i.preheader1
   %.sroa.5.8.vec.insert.i.i = insertelement <2 x float> poison, float %251, i64 0
   %252 = tail call float @llvm.fmuladd.f32(float %249, float 2.000000e+00, float %236)
   %.sroa.5.12.vec.insert.i.i = insertelement <2 x float> %.sroa.5.8.vec.insert.i.i, float %252, i64 1
-  %253 = call fastcc i32 @nk_button_behavior(ptr noundef nonnull %12, <2 x float> %.sroa.0.4.vec.insert.i.i, <2 x float> %.sroa.5.12.vec.insert.i.i, ptr noundef %188, i32 noundef 0)
+  %253 = call fastcc i32 @nk_button_behavior(ptr noundef nonnull %12, <2 x float> %.sroa.0.4.vec.insert.i.i, <2 x float> %.sroa.5.12.vec.insert.i.i, ptr noundef readonly %188, i32 noundef 0)
   %.not.i190.i = icmp eq i32 %253, 0
   br i1 %.not.i190.i, label %256, label %254
 
@@ -47920,7 +47920,7 @@ nk_tree_element_image_push_hashed_base.exit:      ; preds = %nk_strlen.exit34, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_tree_element_image_push_hashed(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef byval(%struct.nk_image) align 8 captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_tree_element_image_push_hashed(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly byval(%struct.nk_image) align 8 captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #19 {
   %10 = call fastcc i32 @nk_tree_element_base(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8)
   ret i32 %10
 }
@@ -48353,7 +48353,7 @@ define range(i32 0, 32769) i32 @nk_group_scrolled_begin(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 32769) i32 @nk_group_begin_titled(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #19 {
+define range(i32 0, 32769) i32 @nk_group_begin_titled(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %50, label %5
 
@@ -48672,7 +48672,7 @@ define void @nk_group_end(ptr noundef %0) local_unnamed_addr #19 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_group_get_scroll(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #19 {
+define void @nk_group_get_scroll(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %54, label %5
 
@@ -48823,7 +48823,7 @@ nk_find_value.exit60:                             ; preds = %._crit_edge.i55, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_group_set_scroll(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #19 {
+define void @nk_group_set_scroll(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %49, label %5
 
@@ -49849,7 +49849,7 @@ nk_input_has_mouse_click_down_in_rect.exit:       ; preds = %71, %nk_input_has_m
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_spacing(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #22 {
+define void @nk_spacing(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #22 {
   %3 = alloca %struct.nk_rect, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #55
   %.not = icmp eq ptr %0, null
@@ -50266,7 +50266,7 @@ define void @nk_widget_disable_end(ptr noundef captures(address_is_null) %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_text_colored(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 %4) local_unnamed_addr #22 {
+define void @nk_text_colored(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 %4) local_unnamed_addr #22 {
   %6 = alloca %struct.nk_rect, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
   %.not = icmp eq ptr %0, null
@@ -50469,7 +50469,7 @@ nk_widget_text.exit:                              ; preds = %106, %80, %5, %7, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_text_wrap_colored(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 %3) local_unnamed_addr #22 {
+define void @nk_text_wrap_colored(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 %3) local_unnamed_addr #22 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca %struct.nk_rect, align 8
@@ -50851,7 +50851,7 @@ nk_widget_text_wrap.exit:                         ; preds = %nk_text_clamp.exit1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_text(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #19 {
+define void @nk_text(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %5
 
@@ -50866,7 +50866,7 @@ define void @nk_text(ptr noundef captures(address_is_null) %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_text_wrap(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #19 {
+define void @nk_text_wrap(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %4
 
@@ -50881,7 +50881,7 @@ define void @nk_text_wrap(ptr noundef captures(address_is_null) %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_label(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #19 {
+define void @nk_label(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #19 {
   %.not5.i = icmp eq ptr %1, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
 
@@ -50905,7 +50905,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader6
 7:                                                ; preds = %nk_strlen.exit
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 444
   %9 = load i32, ptr %8, align 4
-  tail call void @nk_text_colored(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.0.lcssa.i, i32 noundef %2, i32 %9)
+  tail call void @nk_text_colored(ptr noundef nonnull readonly %0, ptr noundef %1, i32 noundef %.0.lcssa.i, i32 noundef %2, i32 %9)
   br label %nk_text.exit
 
 nk_text.exit:                                     ; preds = %nk_strlen.exit, %7
@@ -50913,7 +50913,7 @@ nk_text.exit:                                     ; preds = %nk_strlen.exit, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_label_colored(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 %3) local_unnamed_addr #19 {
+define void @nk_label_colored(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 %3) local_unnamed_addr #19 {
   %.not5.i = icmp eq ptr %1, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
 
@@ -50936,7 +50936,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader6
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_label_wrap(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #19 {
+define void @nk_label_wrap(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #19 {
   %.not5.i = icmp eq ptr %1, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
 
@@ -50960,7 +50960,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader6
 6:                                                ; preds = %nk_strlen.exit
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 444
   %8 = load i32, ptr %7, align 4
-  tail call void @nk_text_wrap_colored(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.0.lcssa.i, i32 %8)
+  tail call void @nk_text_wrap_colored(ptr noundef nonnull readonly %0, ptr noundef %1, i32 noundef %.0.lcssa.i, i32 %8)
   br label %nk_text_wrap.exit
 
 nk_text_wrap.exit:                                ; preds = %nk_strlen.exit, %6
@@ -50968,7 +50968,7 @@ nk_text_wrap.exit:                                ; preds = %nk_strlen.exit, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_label_colored_wrap(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 %2) local_unnamed_addr #19 {
+define void @nk_label_colored_wrap(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 %2) local_unnamed_addr #19 {
   %.not5.i = icmp eq ptr %1, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
 
@@ -51116,7 +51116,7 @@ define void @nk_image_id(ptr dead_on_unwind noalias writable writeonly sret(%str
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_image(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1) local_unnamed_addr #22 {
+define void @nk_image(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1) local_unnamed_addr #22 {
   %3 = alloca %struct.nk_rect, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #55
   %.not = icmp eq ptr %0, null
@@ -51153,7 +51153,7 @@ define void @nk_image(ptr noundef captures(address_is_null) %0, ptr noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_image_color(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, i32 %2) local_unnamed_addr #22 {
+define void @nk_image_color(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, i32 %2) local_unnamed_addr #22 {
   %4 = alloca %struct.nk_rect, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #55
   %.not = icmp eq ptr %0, null
@@ -51792,7 +51792,7 @@ define i32 @nk_button_color(ptr noundef captures(address_is_null) %0, i32 %1) lo
   %.sroa.5.8.vec.insert.i = insertelement <2 x float> poison, float %35, i64 0
   %36 = tail call float @llvm.fmuladd.f32(float %33, float 2.000000e+00, float %.sroa.532.12.vec.extract.i)
   %.sroa.5.12.vec.insert.i = insertelement <2 x float> %.sroa.5.8.vec.insert.i, float %36, i64 1
-  %37 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %22, <2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.5.12.vec.insert.i, ptr noundef %18, i32 noundef %25)
+  %37 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %22, <2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.5.12.vec.insert.i, ptr noundef readonly %18, i32 noundef %25)
   %38 = load i32, ptr %22, align 8, !tbaa !877
   %39 = call fastcc ptr @nk_draw_button(ptr noundef %23, ptr noundef %4, i32 noundef %38, ptr noundef %3)
   br label %40
@@ -52165,7 +52165,7 @@ define i32 @nk_button_image_styled(ptr noundef captures(address_is_null) %0, ptr
   %.sroa.5.8.vec.insert.i.i = insertelement <2 x float> poison, float %55, i64 0
   %56 = tail call float @llvm.fmuladd.f32(float %53, float 2.000000e+00, float %.sroa.532.12.vec.extract.i.i)
   %.sroa.5.12.vec.insert.i.i = insertelement <2 x float> %.sroa.5.8.vec.insert.i.i, float %56, i64 1
-  %57 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %20, <2 x float> %.sroa.0.4.vec.insert.i.i, <2 x float> %.sroa.5.12.vec.insert.i.i, ptr noundef %19, i32 noundef %23)
+  %57 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %20, <2 x float> %.sroa.0.4.vec.insert.i.i, <2 x float> %.sroa.5.12.vec.insert.i.i, ptr noundef readonly %19, i32 noundef %23)
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %59 = load float, ptr %58, align 8, !tbaa !991
   %60 = fadd float %37, %59
@@ -52808,7 +52808,7 @@ define i32 @nk_check_text(ptr noundef captures(address_is_null) %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_do_toggle(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, <2 x float> %2, <2 x float> %3, ptr noundef nonnull captures(none) %4, ptr noundef %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7, ptr noundef nonnull readonly captures(none) %8, ptr noundef captures(address_is_null) %9, ptr noundef %10, i32 noundef %11, i32 noundef %12) unnamed_addr #22 {
+define internal fastcc void @nk_do_toggle(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, <2 x float> %2, <2 x float> %3, ptr noundef nonnull captures(none) %4, ptr noundef %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7, ptr noundef nonnull readonly captures(none) %8, ptr noundef readonly captures(address_is_null) %9, ptr noundef %10, i32 noundef %11, i32 noundef %12) unnamed_addr #22 {
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %447, label %14
 
@@ -52946,7 +52946,7 @@ define internal fastcc void @nk_do_toggle(ptr noundef nonnull captures(none) %0,
   %91 = and i32 %90, 2
   %..i = or disjoint i32 %91, 4
   store i32 %..i, ptr %0, align 4, !tbaa !7
-  %92 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %0, <2 x float> %.sroa.0.4.vec.insert, <2 x float> %.sroa.5.12.vec.insert, ptr noundef %9, i32 noundef 0)
+  %92 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %0, <2 x float> %.sroa.0.4.vec.insert, <2 x float> %.sroa.5.12.vec.insert, ptr noundef readonly %9, i32 noundef 0)
   %.not16.i = icmp eq i32 %92, 0
   br i1 %.not16.i, label %94, label %.thread41.i
 
@@ -55061,7 +55061,7 @@ define range(i32 0, 2) i32 @nk_selectable_text(ptr noundef captures(address_is_n
   %.sroa.4.12.vec.extract.i = extractelement <2 x float> %30, i64 1
   %43 = tail call float @llvm.fmuladd.f32(float %40, float 2.000000e+00, float %.sroa.4.12.vec.extract.i)
   %.sroa.5.12.vec.insert.i = insertelement <2 x float> %.sroa.5.8.vec.insert.i, float %43, i64 1
-  %44 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %24, <2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.5.12.vec.insert.i, ptr noundef %23, i32 noundef 0)
+  %44 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %24, <2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.5.12.vec.insert.i, ptr noundef readonly %23, i32 noundef 0)
   %.not.i = icmp eq i32 %44, 0
   br i1 %.not.i, label %48, label %45
 
@@ -55112,7 +55112,7 @@ nk_do_selectable.exit:                            ; preds = %62, %22, %15, %5, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_selectable_image_text(ptr noundef captures(address_is_null) %0, ptr noundef byval(%struct.nk_image) align 8 captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_selectable_image_text(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #22 {
   %7 = alloca %struct.nk_rect, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #55
   %.not = icmp eq ptr %0, null
@@ -55167,7 +55167,7 @@ define range(i32 0, 2) i32 @nk_selectable_image_text(ptr noundef captures(addres
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @nk_do_selectable_image(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, <2 x float> %2, <2 x float> %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7, ptr noundef captures(address_is_null) %8, ptr noundef nonnull readonly captures(none) %9, ptr noundef captures(address_is_null) %10, ptr noundef %11) unnamed_addr #22 {
+define internal fastcc range(i32 0, 2) i32 @nk_do_selectable_image(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, <2 x float> %2, <2 x float> %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7, ptr noundef readonly captures(address_is_null) %8, ptr noundef nonnull readonly captures(none) %9, ptr noundef readonly captures(address_is_null) %10, ptr noundef %11) unnamed_addr #22 {
   %13 = alloca %struct.nk_rect, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #55
   %14 = icmp ne ptr %4, null
@@ -55361,7 +55361,7 @@ define range(i32 0, 2) i32 @nk_selectable_symbol_text(ptr noundef captures(addre
   %.sroa.7.12.vec.extract77.i = extractelement <2 x float> %32, i64 1
   %45 = tail call float @llvm.fmuladd.f32(float %42, float 2.000000e+00, float %.sroa.7.12.vec.extract77.i)
   %.sroa.5.12.vec.insert.i = insertelement <2 x float> %.sroa.5.8.vec.insert.i, float %45, i64 1
-  %46 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %26, <2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.5.12.vec.insert.i, ptr noundef %25, i32 noundef 0)
+  %46 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %26, <2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.5.12.vec.insert.i, ptr noundef readonly %25, i32 noundef 0)
   %.not.i = icmp eq i32 %46, 0
   br i1 %.not.i, label %50, label %47
 
@@ -55548,7 +55548,7 @@ define i32 @nk_select_text(ptr noundef captures(address_is_null) %0, ptr noundef
   %.sroa.4.12.vec.extract.i.i = extractelement <2 x float> %28, i64 1
   %40 = tail call float @llvm.fmuladd.f32(float %37, float 2.000000e+00, float %.sroa.4.12.vec.extract.i.i)
   %.sroa.5.12.vec.insert.i.i = insertelement <2 x float> %.sroa.5.8.vec.insert.i.i, float %40, i64 1
-  %41 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %22, <2 x float> %.sroa.0.4.vec.insert.i.i, <2 x float> %.sroa.5.12.vec.insert.i.i, ptr noundef %21, i32 noundef 0)
+  %41 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %22, <2 x float> %.sroa.0.4.vec.insert.i.i, <2 x float> %.sroa.5.12.vec.insert.i.i, ptr noundef readonly %21, i32 noundef 0)
   %.not.i.i = icmp eq i32 %41, 0
   %.not51.i.i = icmp eq i32 %4, 0
   %42 = zext i1 %.not51.i.i to i32
@@ -55673,7 +55673,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader7
   %32 = load <2 x float>, ptr %6, align 8
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %34 = load <2 x float>, ptr %33, align 8
-  %35 = call fastcc i32 @nk_do_selectable_image(ptr noundef %28, ptr noundef %29, <2 x float> %32, <2 x float> %34, ptr noundef %2, i32 noundef %.0.lcssa.i, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull align 8 %7, ptr noundef %30, ptr noundef %27, ptr noundef %31)
+  %35 = call fastcc i32 @nk_do_selectable_image(ptr noundef %28, ptr noundef %29, <2 x float> %32, <2 x float> %34, ptr noundef %2, i32 noundef %.0.lcssa.i, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull readonly align 8 %7, ptr noundef %30, ptr noundef %27, ptr noundef %31)
   br label %nk_selectable_image_text.exit
 
 nk_selectable_image_text.exit:                    ; preds = %nk_strlen.exit, %11, %14, %19, %26
@@ -55768,7 +55768,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader1
   %.sroa.4.12.vec.extract.i.i = extractelement <2 x float> %30, i64 1
   %42 = tail call float @llvm.fmuladd.f32(float %39, float 2.000000e+00, float %.sroa.4.12.vec.extract.i.i)
   %.sroa.5.12.vec.insert.i.i = insertelement <2 x float> %.sroa.5.8.vec.insert.i.i, float %42, i64 1
-  %43 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %24, <2 x float> %.sroa.0.4.vec.insert.i.i, <2 x float> %.sroa.5.12.vec.insert.i.i, ptr noundef %23, i32 noundef 0)
+  %43 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %24, <2 x float> %.sroa.0.4.vec.insert.i.i, <2 x float> %.sroa.5.12.vec.insert.i.i, ptr noundef readonly %23, i32 noundef 0)
   %.not.i.i = icmp eq i32 %43, 0
   %.not51.i.i = icmp eq i32 %3, 0
   %44 = zext i1 %.not51.i.i to i32
@@ -55870,7 +55870,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader6
   %31 = load <2 x float>, ptr %6, align 8
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %33 = load <2 x float>, ptr %32, align 8
-  %34 = call fastcc i32 @nk_do_selectable_image(ptr noundef %27, ptr noundef %28, <2 x float> %31, <2 x float> %33, ptr noundef %2, i32 noundef %.0.lcssa.i, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull align 8 %7, ptr noundef %29, ptr noundef %26, ptr noundef %30)
+  %34 = call fastcc i32 @nk_do_selectable_image(ptr noundef %27, ptr noundef %28, <2 x float> %31, <2 x float> %33, ptr noundef %2, i32 noundef %.0.lcssa.i, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull readonly align 8 %7, ptr noundef %29, ptr noundef %26, ptr noundef %30)
   %.pre = load i32, ptr %8, align 4, !tbaa !7
   br label %nk_selectable_image_text.exit
 
@@ -55930,7 +55930,7 @@ define i32 @nk_select_image_text(ptr noundef captures(address_is_null) %0, ptr n
   %29 = load <2 x float>, ptr %7, align 8
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %31 = load <2 x float>, ptr %30, align 8
-  %32 = call fastcc i32 @nk_do_selectable_image(ptr noundef %25, ptr noundef %26, <2 x float> %29, <2 x float> %31, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull align 8 %8, ptr noundef %27, ptr noundef %24, ptr noundef %28)
+  %32 = call fastcc i32 @nk_do_selectable_image(ptr noundef %25, ptr noundef %26, <2 x float> %29, <2 x float> %31, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull readonly align 8 %8, ptr noundef %27, ptr noundef %24, ptr noundef %28)
   %.pre = load i32, ptr %9, align 4, !tbaa !7
   br label %nk_selectable_image_text.exit
 
@@ -61122,7 +61122,7 @@ nk_input_is_mouse_hovering_rect.exit793:          ; preds = %137
   br i1 %.not738, label %180, label %174
 
 174:                                              ; preds = %171
-  %175 = tail call fastcc i32 @nk_textedit_locate_coord(ptr noundef nonnull %6, float noundef %152, float noundef %158, ptr noundef %9, float noundef %50)
+  %175 = tail call fastcc i32 @nk_textedit_locate_coord(ptr noundef nonnull %6, float noundef %152, float noundef %158, ptr noundef readonly %9, float noundef %50)
   %176 = getelementptr inbounds nuw i8, ptr %6, i64 168
   store i32 %175, ptr %176, align 8, !tbaa !1167
   %177 = getelementptr inbounds nuw i8, ptr %6, i64 172
@@ -61146,7 +61146,7 @@ nk_input_is_mouse_hovering_rect.exit793:          ; preds = %137
   br i1 %187, label %188, label %.critedge
 
 188:                                              ; preds = %184, %180
-  %189 = tail call fastcc i32 @nk_textedit_locate_coord(ptr noundef nonnull %6, float noundef %152, float noundef %158, ptr noundef %9, float noundef %50)
+  %189 = tail call fastcc i32 @nk_textedit_locate_coord(ptr noundef nonnull %6, float noundef %152, float noundef %158, ptr noundef readonly %9, float noundef %50)
   %190 = getelementptr inbounds nuw i8, ptr %6, i64 172
   %191 = load i32, ptr %190, align 4, !tbaa !1165
   %192 = getelementptr inbounds nuw i8, ptr %6, i64 176
@@ -63760,7 +63760,7 @@ nk_string_float_limit.exit440.i:                  ; preds = %177, %181
   br label %.thread54.i.i
 
 211:                                              ; preds = %210
-  %212 = call fastcc i32 @nk_button_behavior(ptr noundef nonnull %63, <2 x float> %.sroa.03.4.vec.insert.i, <2 x float> %.sroa.7.12.vec.insert.i, ptr noundef nonnull %62, i32 noundef 0)
+  %212 = call fastcc i32 @nk_button_behavior(ptr noundef nonnull %63, <2 x float> %.sroa.03.4.vec.insert.i, <2 x float> %.sroa.7.12.vec.insert.i, ptr noundef nonnull readonly %62, i32 noundef 0)
   %.not26.i.i = icmp eq i32 %212, 0
   br i1 %.not26.i.i, label %213, label %.sink.split.i.i
 
@@ -65178,7 +65178,7 @@ define double @nk_propertyd(ptr noundef %0, ptr noundef %1, double noundef %2, d
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_chart_begin_colored(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 %2, i32 %3, i32 noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_chart_begin_colored(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 %2, i32 %3, i32 noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #22 {
   %8 = alloca %struct.nk_rect, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #55
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
@@ -65511,7 +65511,7 @@ nk_zero.exit:                                     ; preds = %.loopexit46.i.i, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_chart_begin(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_chart_begin(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #19 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 5936
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 5932
   %8 = load i32, ptr %6, align 8
@@ -66143,7 +66143,7 @@ nk_chart_push_column.exit:                        ; preds = %265, %175, %nk_char
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @nk_chart_push(ptr noundef captures(address_is_null) %0, float noundef %1) local_unnamed_addr #19 {
+define range(i32 0, 4) i32 @nk_chart_push(ptr noundef readonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #19 {
   %3 = tail call i32 @nk_chart_push_slot(ptr noundef %0, float noundef %1, i32 noundef 0)
   ret i32 %3
 }
@@ -66186,7 +66186,7 @@ nk_memset.exit:                                   ; preds = %.loopexit46.i, %.lo
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_plot(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #19 {
+define void @nk_plot(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #19 {
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %2, null
   %or.cond = and i1 %6, %7
@@ -66227,7 +66227,7 @@ define void @nk_plot(ptr noundef captures(address_is_null) %0, i32 noundef %1, p
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 5932
   %20 = load i32, ptr %18, align 8
   %21 = load i32, ptr %19, align 4
-  %22 = tail call range(i32 0, 2) i32 @nk_chart_begin_colored(ptr noundef nonnull %0, i32 noundef %1, i32 %20, i32 %21, i32 noundef %3, float noundef %.041.lcssa, float noundef %.0.lcssa)
+  %22 = tail call range(i32 0, 2) i32 @nk_chart_begin_colored(ptr noundef nonnull readonly %0, i32 noundef %1, i32 %20, i32 %21, i32 noundef %3, float noundef %.041.lcssa, float noundef %.0.lcssa)
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %nk_chart_end.exit, label %.preheader
 
@@ -66243,7 +66243,7 @@ define void @nk_plot(ptr noundef captures(address_is_null) %0, i32 noundef %1, p
   %indvars.iv56 = phi i64 [ 0, %.lr.ph53.preheader ], [ %indvars.iv.next57, %.lr.ph53 ]
   %gep62 = getelementptr float, ptr %invariant.gep61, i64 %indvars.iv56
   %23 = load float, ptr %gep62, align 4, !tbaa !3
-  %24 = tail call range(i32 0, 4) i32 @nk_chart_push_slot(ptr noundef nonnull %0, float noundef %23, i32 noundef 0)
+  %24 = tail call range(i32 0, 4) i32 @nk_chart_push_slot(ptr noundef nonnull readonly %0, float noundef %23, i32 noundef 0)
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
   br i1 %exitcond60.not, label %._crit_edge54, label %.lr.ph53, !llvm.loop !1241
@@ -66281,7 +66281,7 @@ nk_chart_end.exit:                                ; preds = %.loopexit46.i.i, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_plot_function(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #19 {
+define void @nk_plot_function(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #19 {
   %7 = icmp ne ptr %0, null
   %8 = icmp ne ptr %3, null
   %or.cond = and i1 %7, %8
@@ -66315,7 +66315,7 @@ define void @nk_plot_function(ptr noundef captures(address_is_null) %0, i32 noun
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 5932
   %22 = load i32, ptr %20, align 8
   %23 = load i32, ptr %21, align 4
-  %24 = tail call range(i32 0, 2) i32 @nk_chart_begin_colored(ptr noundef nonnull %0, i32 noundef %1, i32 %22, i32 %23, i32 noundef %4, float noundef %.038.lcssa, float noundef %.037.lcssa)
+  %24 = tail call range(i32 0, 2) i32 @nk_chart_begin_colored(ptr noundef nonnull readonly %0, i32 noundef %1, i32 %22, i32 %23, i32 noundef %4, float noundef %.038.lcssa, float noundef %.037.lcssa)
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %nk_chart_end.exit, label %.preheader
 
@@ -66326,7 +66326,7 @@ define void @nk_plot_function(ptr noundef captures(address_is_null) %0, i32 noun
   %.146 = phi i32 [ %28, %.lr.ph47 ], [ 0, %.preheader ]
   %25 = add nsw i32 %.146, %5
   %26 = tail call float %3(ptr noundef %2, i32 noundef %25) #55
-  %27 = tail call range(i32 0, 4) i32 @nk_chart_push_slot(ptr noundef nonnull %0, float noundef %26, i32 noundef 0)
+  %27 = tail call range(i32 0, 4) i32 @nk_chart_push_slot(ptr noundef nonnull readonly %0, float noundef %26, i32 noundef 0)
   %28 = add nuw nsw i32 %.146, 1
   %exitcond50.not = icmp eq i32 %28, %4
   br i1 %exitcond50.not, label %._crit_edge48, label %.lr.ph47, !llvm.loop !1243
@@ -66469,7 +66469,7 @@ define range(i32 0, 2) i32 @nk_color_pick(ptr noundef captures(address) %0, ptr 
   %55 = fadd float %.sroa.0.0.vec.extract18.i.i.i.i, 0x3BC79CA100000000
   %56 = fdiv float %47, %55
   %.sroa.18.12.vec.extract.i.i.i.i = extractelement <2 x float> %.sroa.18.0.i.i.i.i, i64 1
-  %57 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %22, <2 x float> %.sroa.081.4.vec.insert.i, <2 x float> %.sroa.12.8.vec.insert.i, ptr noundef %21, i32 noundef 1)
+  %57 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %22, <2 x float> %.sroa.081.4.vec.insert.i, <2 x float> %.sroa.12.8.vec.insert.i, ptr noundef readonly %21, i32 noundef 1)
   %.not.i.i = icmp eq i32 %57, 0
   br i1 %.not.i.i, label %80, label %58
 
@@ -66505,7 +66505,7 @@ define range(i32 0, 2) i32 @nk_color_pick(ptr noundef captures(address) %0, ptr 
   %.sroa.8.0.i.i = phi float [ %.sroa.0.0.vec.extract18.i.i.i.i, %25 ], [ %79, %58 ]
   %.sroa.5.0.i.i = phi float [ %56, %25 ], [ %68, %58 ]
   %.0.i.i = phi i32 [ 0, %25 ], [ 1, %58 ]
-  %81 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %22, <2 x float> %.sroa.0.0.vec.insert.i, <2 x float> %.sroa.10.12.vec.insert.i, ptr noundef %21, i32 noundef 1)
+  %81 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %22, <2 x float> %.sroa.0.0.vec.insert.i, <2 x float> %.sroa.10.12.vec.insert.i, ptr noundef readonly %21, i32 noundef 1)
   %.not89.i.i = icmp eq i32 %81, 0
   br i1 %.not89.i.i, label %93, label %82
 
@@ -66532,7 +66532,7 @@ define range(i32 0, 2) i32 @nk_color_pick(ptr noundef captures(address) %0, ptr 
   br i1 %.not130.i, label %94, label %108
 
 94:                                               ; preds = %93
-  %95 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %22, <2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.10.12.vec.insert.i, ptr noundef %21, i32 noundef 1)
+  %95 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %22, <2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.10.12.vec.insert.i, ptr noundef readonly %21, i32 noundef 1)
   %.not91.i.i = icmp eq i32 %95, 0
   br i1 %.not91.i.i, label %108, label %96
 
@@ -70353,7 +70353,7 @@ define range(i32 0, 2) i32 @nk_combo_item_text(ptr noundef captures(address_is_n
 nk_widget_fitting.exit.i:                         ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %14 = call i32 @nk_widget(ptr noundef nonnull %5, ptr noundef nonnull %0)
+  %14 = call i32 @nk_widget(ptr noundef nonnull %5, ptr noundef nonnull readonly %0)
   switch i32 %14, label %15 [
     i32 0, label %nk_contextual_item_text.exit
     i32 2, label %20
@@ -70432,7 +70432,7 @@ define range(i32 0, 2) i32 @nk_combo_item_image_text(ptr noundef captures(addres
 nk_widget_fitting.exit.i:                         ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %15 = call i32 @nk_widget(ptr noundef nonnull %6, ptr noundef nonnull %0)
+  %15 = call i32 @nk_widget(ptr noundef nonnull %6, ptr noundef nonnull readonly %0)
   switch i32 %15, label %16 [
     i32 0, label %nk_contextual_item_image_text.exit
     i32 2, label %21
@@ -70511,7 +70511,7 @@ define range(i32 0, 2) i32 @nk_combo_item_symbol_text(ptr noundef captures(addre
 nk_widget_fitting.exit.i:                         ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %15 = call i32 @nk_widget(ptr noundef nonnull %6, ptr noundef nonnull %0)
+  %15 = call i32 @nk_widget(ptr noundef nonnull %6, ptr noundef nonnull readonly %0)
   switch i32 %15, label %16 [
     i32 0, label %nk_contextual_item_symbol_text.exit
     i32 2, label %21
@@ -71301,7 +71301,7 @@ nk_layout_row_dynamic.exit:                       ; preds = %53, %56, %nk_panel_
   br i1 %.not24.i.i, label %nk_combo_item_text.exit, label %nk_widget_fitting.exit.i.i
 
 nk_widget_fitting.exit.i.i:                       ; preds = %105
-  %108 = call i32 @nk_widget(ptr noundef nonnull %8, ptr noundef nonnull %0)
+  %108 = call i32 @nk_widget(ptr noundef nonnull %8, ptr noundef nonnull readonly %0)
   switch i32 %108, label %109 [
     i32 0, label %nk_combo_item_text.exit
     i32 2, label %114
@@ -71831,7 +71831,7 @@ nk_combo_end.exit:                                ; preds = %149, %._crit_edge, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_combobox(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4, <2 x float> %5) local_unnamed_addr #22 {
+define void @nk_combobox(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4, <2 x float> %5) local_unnamed_addr #22 {
   %7 = load i32, ptr %3, align 4, !tbaa !7
   %8 = tail call i32 @nk_combo(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %7, i32 noundef %4, <2 x float> %5)
   store i32 %8, ptr %3, align 4, !tbaa !7
@@ -71855,7 +71855,7 @@ define void @nk_combobox_separator(ptr noundef %0, ptr noundef %1, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_combobox_callback(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5, <2 x float> %6) local_unnamed_addr #22 {
+define void @nk_combobox_callback(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5, <2 x float> %6) local_unnamed_addr #22 {
   %8 = load i32, ptr %3, align 4, !tbaa !7
   %9 = tail call i32 @nk_combo_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %4, i32 noundef %5, <2 x float> %6)
   store i32 %9, ptr %3, align 4, !tbaa !7
@@ -72144,7 +72144,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader,
   br label %nk_popup_close.exit.i
 
 78:                                               ; preds = %74
-  call fastcc void @nk_panel_alloc_space(ptr noundef nonnull %3, ptr noundef nonnull %0)
+  call fastcc void @nk_panel_alloc_space(ptr noundef nonnull %3, ptr noundef nonnull readonly %0)
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %.sroa.01.0.copyload.i = load float, ptr %79, align 4, !tbaa !3
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 452
@@ -75474,7 +75474,7 @@ define internal fastcc range(i32 -1, 65536) i32 @stbtt__GetGlyphClass(ptr nounde
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @stbtt__tesselate_curve(ptr noundef captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) unnamed_addr #46 {
+define internal fastcc void @stbtt__tesselate_curve(ptr noundef writeonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) unnamed_addr #46 {
   %11 = icmp sgt i32 %9, 16
   br i1 %11, label %.loopexit, label %.lr.ph.preheader
 
@@ -75545,7 +75545,7 @@ stbtt__add_point.exit:                            ; preds = %36, %38
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @stbtt__tesselate_cubic(ptr noundef captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, i32 noundef %11) unnamed_addr #46 {
+define internal fastcc void @stbtt__tesselate_cubic(ptr noundef writeonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, i32 noundef %11) unnamed_addr #46 {
   %smax = tail call i32 @llvm.smax.i32(i32 %11, i32 17)
   %exitcond107 = icmp sgt i32 %11, 16
   br i1 %exitcond107, label %.loopexit, label %.lr.ph
@@ -78258,7 +78258,7 @@ nk_memcopy.exit:                                  ; preds = %.preheader.i, %.loo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_textedit_key(ptr noundef %0, i32 noundef range(i32 -2147483648, 30) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, float noundef %4) unnamed_addr #19 {
+define internal fastcc void @nk_textedit_key(ptr noundef %0, i32 noundef range(i32 -2147483648, 30) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, float noundef %4) unnamed_addr #19 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -81061,7 +81061,7 @@ nk_utf_decode.exit.thread:                        ; preds = %._crit_edge.i147, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @nk_textedit_locate_coord(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, ptr noundef captures(address_is_null) %3, float noundef %4) unnamed_addr #19 {
+define internal fastcc i32 @nk_textedit_locate_coord(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, ptr noundef readonly captures(address_is_null) %3, float noundef %4) unnamed_addr #19 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca %struct.nk_text_edit_row, align 4
@@ -81257,7 +81257,7 @@ nk_str_rune_at.exit:                              ; preds = %.lr.ph.i.i58, %86, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_textedit_layout_row(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, float noundef %3, ptr noundef captures(address_is_null) %4) unnamed_addr #22 {
+define internal fastcc void @nk_textedit_layout_row(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, float noundef %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #22 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
@@ -81435,7 +81435,7 @@ define internal fastcc i32 @nk_textedit_move_to_word_next(ptr noundef readonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_textedit_find_charpos(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef range(i32 0, 256) %3, ptr noundef captures(address_is_null) %4, float noundef %5) unnamed_addr #19 {
+define internal fastcc void @nk_textedit_find_charpos(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef range(i32 0, 256) %3, ptr noundef readonly captures(address_is_null) %4, float noundef %5) unnamed_addr #19 {
 .loopexit46.i.i.thread:
   %6 = alloca i32, align 4
   %7 = alloca %struct.nk_text_edit_row, align 4

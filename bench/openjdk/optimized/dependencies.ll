@@ -7161,7 +7161,7 @@ define hidden noundef zeroext i1 @_ZN12Dependencies23is_concrete_root_methodEP6M
 declare noundef zeroext i1 @_ZNK5Klass14is_subclass_ofEPKS_(ptr noundef nonnull align 8 dereferenceable(196), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12Dependencies28check_unique_concrete_methodEP13InstanceKlassP6MethodP17NewKlassDepChange(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN12Dependencies28check_unique_concrete_methodEP13InstanceKlassP6MethodP17NewKlassDepChange(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.ConcreteMethodFinder, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8

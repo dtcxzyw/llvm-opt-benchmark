@@ -4779,7 +4779,7 @@ _ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge.i:    ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4)
-  call void @_ZN3tev11ImageCanvas16textureToNanoguiEPKNS_5ImageE(ptr dead_on_unwind nonnull writable sret(%"struct.nanogui::Matrix") align 4 %3, ptr noundef nonnull readonly align 8 dereferenceable(376) %0, ptr noundef nonnull %11), !noalias !131
+  call void @_ZN3tev11ImageCanvas16textureToNanoguiEPKNS_5ImageE(ptr dead_on_unwind nonnull writable sret(%"struct.nanogui::Matrix") align 4 %3, ptr noundef nonnull readonly align 8 dereferenceable(376) %0, ptr noundef nonnull readonly %11), !noalias !131
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 236
   %22 = load i32, ptr %21, align 4, !noalias !131
   %23 = sub nsw i32 0, %22
@@ -4862,7 +4862,7 @@ _ZN3tev11ImageCanvas22displayWindowToNanoguiEPKNS_5ImageE.exit: ; preds = %44
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev11ImageCanvas22displayWindowToNanoguiEPKNS_5ImageE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.nanogui::Matrix") align 4 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(376) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN3tev11ImageCanvas22displayWindowToNanoguiEPKNS_5ImageE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.nanogui::Matrix") align 4 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(376) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %"struct.nanogui::Array.40", align 4
   %5 = alloca %"struct.nanogui::Matrix", align 4
   %6 = alloca %"struct.nanogui::Matrix", align 4
@@ -5479,7 +5479,7 @@ _ZN7nanogui6MatrixIfLm3EE5scaleERKNS_5ArrayIfLm2EEE.exit.i: ; preds = %15
   br label %_ZN3tev11ImageCanvas22displayWindowToNanoguiEPKNS_5ImageE.exit
 
 _ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge.i:    ; preds = %13
-  call void @_ZN3tev11ImageCanvas16textureToNanoguiEPKNS_5ImageE(ptr dead_on_unwind nonnull writable sret(%"struct.nanogui::Matrix") align 4 %4, ptr noundef nonnull readonly align 8 dereferenceable(376) %0, ptr noundef nonnull %14), !noalias !151
+  call void @_ZN3tev11ImageCanvas16textureToNanoguiEPKNS_5ImageE(ptr dead_on_unwind nonnull writable sret(%"struct.nanogui::Matrix") align 4 %4, ptr noundef nonnull readonly align 8 dereferenceable(376) %0, ptr noundef nonnull readonly %14), !noalias !151
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 236
   %22 = load i32, ptr %21, align 4, !noalias !151
   %23 = sub nsw i32 0, %22
@@ -7357,7 +7357,7 @@ define dso_local noundef float @_ZNK3tev11ImageCanvas22applyExposureAndOffsetEf(
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @_ZN3tev11ImageCanvas14getImageCoordsEPKNS_5ImageEN7nanogui5ArrayIiLm2EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(376) %0, ptr noundef captures(address_is_null) %1, i64 %2) local_unnamed_addr #7 align 2 {
+define dso_local i64 @_ZN3tev11ImageCanvas14getImageCoordsEPKNS_5ImageEN7nanogui5ArrayIiLm2EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(376) %0, ptr noundef readonly captures(address_is_null) %1, i64 %2) local_unnamed_addr #7 align 2 {
   %4 = alloca %"struct.nanogui::Array.40", align 4
   %5 = alloca %"struct.nanogui::Matrix", align 4
   %6 = alloca %"struct.nanogui::Matrix", align 8
@@ -7515,7 +7515,7 @@ _ZN7nanoguimlIfLm3EEENS_5ArrayIT_XmiT0_Li1EEEERKNS_6MatrixIS2_XT0_EEERKS3_.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @_ZN3tev11ImageCanvas22getDisplayWindowCoordsEPKNS_5ImageEN7nanogui5ArrayIiLm2EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(376) %0, ptr noundef captures(address_is_null) %1, i64 %2) local_unnamed_addr #3 align 2 {
+define dso_local i64 @_ZN3tev11ImageCanvas22getDisplayWindowCoordsEPKNS_5ImageEN7nanogui5ArrayIiLm2EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(376) %0, ptr noundef readonly captures(address_is_null) %1, i64 %2) local_unnamed_addr #3 align 2 {
 _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge:
   %3 = tail call i64 @_ZN3tev11ImageCanvas14getImageCoordsEPKNS_5ImageEN7nanogui5ArrayIiLm2EEE(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef %1, i64 %2)
   %.sroa.017.0.extract.trunc = trunc i64 %3 to i32

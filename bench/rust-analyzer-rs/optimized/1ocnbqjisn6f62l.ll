@@ -59584,7 +59584,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h498437bfd5ce5404E.llvm.6579604558243679033"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h498437bfd5ce5404E.llvm.6579604558243679033"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   store i64 0, ptr %3, align 8
@@ -59706,7 +59706,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h498437bfd5ce5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h71820b168d2f791fE.llvm.6579604558243679033"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h71820b168d2f791fE.llvm.6579604558243679033"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   store i64 0, ptr %3, align 8
@@ -59828,7 +59828,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h71820b168d2f7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h84f9c3db99d520faE.llvm.6579604558243679033"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h84f9c3db99d520faE.llvm.6579604558243679033"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   store i64 0, ptr %3, align 8
@@ -59950,7 +59950,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h84f9c3db99d52
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h8b013af6c3938545E.llvm.6579604558243679033"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h8b013af6c3938545E.llvm.6579604558243679033"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   store i64 0, ptr %3, align 8
@@ -60072,7 +60072,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h8b013af6c3938
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h8ff8a36d4059c9d4E.llvm.6579604558243679033"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h8ff8a36d4059c9d4E.llvm.6579604558243679033"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   store i64 0, ptr %3, align 8
@@ -60423,7 +60423,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h9247924552f15
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17hde32e4ba670e1680E.llvm.6579604558243679033"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17hde32e4ba670e1680E.llvm.6579604558243679033"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   store i64 0, ptr %3, align 8
@@ -84565,7 +84565,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h69c9017fcc9224e9E"(ptr noalias noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull captures(address) %1, ptr noundef captures(address) %2) unnamed_addr #2 {
+define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h69c9017fcc9224e9E"(ptr noalias noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly captures(address) %1, ptr noundef readnone captures(address) %2) unnamed_addr #2 {
   tail call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h47d7179b101b7ef7E.llvm.6579604558243679033"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef %2)
   ret void
 }

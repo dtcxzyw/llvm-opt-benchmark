@@ -9438,7 +9438,7 @@ _ZN8tinyxml27XMLNode14InsertEndChildEPS0_.exit:   ; preds = %2, %61
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8tinyxml210XMLElement20InsertNewDeclarationEPKc(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #4 align 2 {
+define noundef ptr @_ZN8tinyxml210XMLElement20InsertNewDeclarationEPKc(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !71
   %5 = tail call noundef ptr @_ZN8tinyxml211XMLDocument14NewDeclarationEPKc(ptr noundef nonnull align 8 dereferenceable(776) %4, ptr noundef %1)

@@ -12421,7 +12421,7 @@ define internal void @_ZL15_vl_vsss_setbitPjiiij(ptr noundef captures(none) %0, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z11_vl_vsscanfP8_IO_FILEiPKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_P13__va_list_tag(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %4, ptr noundef captures(none) %5) #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_Z11_vl_vsscanfP8_IO_FILEiPKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_P13__va_list_tag(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %4, ptr noundef captures(none) %5) #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca i32, align 4
   %9 = alloca %struct.VlWide.34, align 4
@@ -17027,7 +17027,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z14VL_SSCANF_IWNXiPKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiz(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, i32 %3, ...) #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_Z14VL_SSCANF_IWNXiPKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiz(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, i32 %3, ...) #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -28267,7 +28267,7 @@ _ZNSt7__cxx114listISt4pairIPFvPvES2_ESaIS5_EE6spliceESt20_List_const_iteratorIS5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9Verilated13removeFlushCbEPFvPvES0_(ptr noundef captures(address) %0, ptr noundef captures(address) %1) #0 align 2 {
+define dso_local void @_ZN9Verilated13removeFlushCbEPFvPvES0_(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) #0 align 2 {
   tail call void @_ZL13removeCbFlushPFvPvES_(ptr noundef %0, ptr noundef %1)
   ret void
 }
@@ -28513,7 +28513,7 @@ _ZNSt7__cxx114listISt4pairIPFvPvES2_ESaIS5_EE6spliceESt20_List_const_iteratorIS5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9Verilated12removeExitCbEPFvPvES0_(ptr noundef captures(address) %0, ptr noundef captures(address) %1) #0 align 2 {
+define dso_local void @_ZN9Verilated12removeExitCbEPFvPvES0_(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) #0 align 2 {
   tail call void @_ZL12removeCbExitPFvPvES_(ptr noundef %0, ptr noundef %1)
   ret void
 }

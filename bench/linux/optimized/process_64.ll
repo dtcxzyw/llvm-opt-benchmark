@@ -804,7 +804,7 @@ define dso_local void @x86_gsbase_write_task(ptr noundef writeonly captures(addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @start_thread(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef %2) #4 align 16 {
+define dso_local void @start_thread(ptr noundef writeonly captures(address) %0, i64 noundef %1, i64 noundef %2) #4 align 16 {
   tail call fastcc void @start_thread_common(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef 51, i32 noundef 0)
   ret void
 }
@@ -903,7 +903,7 @@ define internal fastcc void @start_thread_common(ptr noundef writeonly captures(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @compat_start_thread(ptr noundef captures(address) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #4 align 16 {
+define dso_local void @compat_start_thread(ptr noundef writeonly captures(address) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #4 align 16 {
   %5 = zext i32 %1 to i64
   %6 = zext i32 %2 to i64
   %7 = select i1 %3, i32 51, i32 35

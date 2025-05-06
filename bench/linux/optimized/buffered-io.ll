@@ -2449,7 +2449,7 @@ define dso_local range(i32 -2147483648, 1) i32 @iomap_zero_range(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @iomap_truncate_page(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @iomap_truncate_page(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 142
   %6 = load i8, ptr %5, align 2
   %7 = zext nneg i8 %6 to i32

@@ -4352,7 +4352,7 @@ _ZN4llvm13IRBuilderBase13CreateRetVoidEv.exit:    ; preds = %.lr.ph.i.i.i11, %29
 declare noundef ptr @_ZN4llvm9sandboxir7Context16createReturnInstEPNS_10ReturnInstE(ptr noundef nonnull align 8 dereferenceable(432), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm9sandboxir10ReturnInst6createEPNS0_5ValueENS0_14InsertPositionERNS0_7ContextE(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%"class.llvm::sandboxir::InsertPosition") align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(432) %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN4llvm9sandboxir10ReturnInst6createEPNS0_5ValueENS0_14InsertPositionERNS0_7ContextE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly byval(%"class.llvm::sandboxir::InsertPosition") align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(432) %2) local_unnamed_addr #1 align 2 {
   %4 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN4llvm9sandboxir11Instruction12setInsertPosENS0_14InsertPositionE(ptr noundef nonnull byval(%"class.llvm::sandboxir::InsertPosition") align 8 %1)
   %5 = tail call noundef ptr @_ZN4llvm9sandboxir10ReturnInst12createCommonEPNS0_5ValueERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERNS0_7ContextE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(432) %2)
   ret ptr %5

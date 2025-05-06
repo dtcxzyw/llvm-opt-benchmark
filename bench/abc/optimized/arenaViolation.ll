@@ -524,7 +524,7 @@ define ptr @Aig_Xor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unname
 declare ptr @Aig_And(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @createArenaViolation(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7) local_unnamed_addr #0 {
+define ptr @createArenaViolation(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7) local_unnamed_addr #0 {
   %9 = getelementptr i8, ptr %1, i64 48
   %.val45 = load ptr, ptr %9, align 8, !tbaa !20
   %10 = ptrtoint ptr %.val45 to i64
@@ -1147,7 +1147,7 @@ define ptr @createAndGateForMonotonicityVerification(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @createNewAigWith0LivePoWithDSC(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
+define noundef ptr @createNewAigWith0LivePoWithDSC(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = getelementptr i8, ptr %0, i64 32
   %.val187 = load ptr, ptr %8, align 8, !tbaa !59
   %9 = getelementptr i8, ptr %.val187, i64 4
@@ -1714,7 +1714,7 @@ declare void @Aig_ManSetRegNum(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @Aig_ManCleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @generateWorkingAigWithDSC(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define noundef ptr @generateWorkingAigWithDSC(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call ptr @collectCSSignalsWithDSC(ptr noundef %1, ptr noundef %0)
   %6 = getelementptr i8, ptr %0, i64 112
   %.val911.i = load i32, ptr %6, align 8, !tbaa !42

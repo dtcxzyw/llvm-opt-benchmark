@@ -674,7 +674,7 @@ _ZN13RelocIterator19advance_over_prefixEv.exit.i: ; preds = %49, %43
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN13RelocIteratorC2EP11CodeSectionPhS2_(ptr noundef nonnull align 8 dereferenceable(152) initializes((8, 40), (56, 58), (64, 132)) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address) %2, ptr noundef %3) unnamed_addr #7 align 2 {
+define hidden void @_ZN13RelocIteratorC2EP11CodeSectionPhS2_(ptr noundef nonnull align 8 dereferenceable(152) initializes((8, 40), (56, 58), (64, 132)) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef %3) unnamed_addr #7 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120

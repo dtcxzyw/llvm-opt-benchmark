@@ -600,7 +600,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #6 {
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkDontCareWinSweepLeafTfo_rec(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #0 {
+define void @Abc_NtkDontCareWinSweepLeafTfo_rec(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 20
   %.val = load i32, ptr %4, align 4
   %5 = and i32 %.val, 15

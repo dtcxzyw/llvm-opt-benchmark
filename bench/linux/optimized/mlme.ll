@@ -17912,7 +17912,7 @@ declare dso_local i32 @__SCT__tp_func_drv_event_callback(ptr noundef, ptr nounde
 declare dso_local zeroext i16 @ieee80211_encode_usf(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr noundef nonnull %1, ptr noundef captures(none) %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7, ptr noundef captures(none) %8) unnamed_addr #0 align 16 {
+define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr noundef nonnull %1, ptr noundef captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7, ptr noundef captures(none) %8) unnamed_addr #0 align 16 {
   %10 = alloca i16, align 2
   %11 = alloca [8 x i16], align 16
   %12 = alloca %struct.ieee80211_sta_vht_cap, align 4

@@ -8449,7 +8449,7 @@ _ZN4llvm9SetVectorINS_12ElementCountENS_11SmallVectorIS1_Lj2EEENS_8DenseSetIS1_N
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7VPValue18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm7VPValue18replaceAllUsesWithEPS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.anon.342, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #25
   %4 = ptrtoint ptr %3 to i64

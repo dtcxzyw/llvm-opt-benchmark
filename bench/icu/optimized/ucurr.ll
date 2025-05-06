@@ -1897,7 +1897,7 @@ declare ptr @ures_getByKeyWithFallback_77(ptr noundef, ptr noundef, ptr noundef,
 declare ptr @ures_getStringByIndex_77(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucurr_getPluralName_77(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define ptr @ucurr_getPluralName_77(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %7 = alloca i32, align 4
   %8 = alloca %"class.icu_77::CharString", align 8
   %9 = alloca [4 x i8], align 1

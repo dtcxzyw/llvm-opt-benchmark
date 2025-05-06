@@ -1030,7 +1030,7 @@ declare void @hi_sdsfree(ptr noundef) local_unnamed_addr #2
 declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @redisFormatCommand(ptr noundef captures(address_is_null) %0, ptr noundef %1, ...) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @redisFormatCommand(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
   call void @llvm.va_start.p0(ptr nonnull %3)
@@ -2868,7 +2868,7 @@ redisvAppendCommand.exit:                         ; preds = %6, %10, %21, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisAppendCommandArgv(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisAppendCommandArgv(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
   %6 = call i64 @redisFormatSdsCommandArgv(ptr noundef nonnull %5, i32 noundef %1, ptr noundef %2, ptr noundef %3)
@@ -3007,11 +3007,11 @@ define ptr @redisCommand(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @redisCommandArgv(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define ptr @redisCommandArgv(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
-  %7 = call i64 @redisFormatSdsCommandArgv(ptr noundef nonnull %6, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3)
+  %7 = call i64 @redisFormatSdsCommandArgv(ptr noundef nonnull %6, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3)
   %8 = icmp eq i64 %7, -1
   br i1 %8, label %9, label %13
 

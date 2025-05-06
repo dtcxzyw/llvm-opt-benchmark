@@ -788,7 +788,7 @@ define dso_local noundef range(i32 -14, 1) i32 @skb_copy_and_hash_datagram_iter(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -14, 1) i32 @__skb_datagram_iter(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef captures(address) %5, ptr noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -14, 1) i32 @__skb_datagram_iter(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef readonly captures(address) %5, ptr noundef %6) unnamed_addr #0 align 16 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 116

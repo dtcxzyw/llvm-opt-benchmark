@@ -20365,7 +20365,7 @@ _ZNSt6vectorIN12_GLOBAL__N_17rules_t7match_tESaIS2_EED2Ev.exit: ; preds = %_ZSt8
   %55 = load ptr, ptr %54, align 8, !tbaa !232
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %57 = load ptr, ptr %56, align 8, !tbaa !233
-  tail call fastcc void @_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_17rules_t6bram_tESaIS8_EENS1_8hash_opsIS4_EEE7entry_tEEvT_SG_(ptr noundef %55, ptr noundef %57)
+  tail call fastcc void @_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_17rules_t6bram_tESaIS8_EENS1_8hash_opsIS4_EEE7entry_tEEvT_SG_(ptr noundef readonly %55, ptr noundef readnone %57)
   %.val.i.i = load ptr, ptr %54, align 8, !tbaa !232
   %.not.i.i.i.i18 = icmp eq ptr %.val.i.i, null
   br i1 %.not.i.i.i.i18, label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringES_IN12_GLOBAL__N_17rules_t6bram_tESaIS7_EENS1_8hash_opsIS4_EEE7entry_tESaISD_EED2Ev.exit.i, label %58
@@ -20443,7 +20443,7 @@ define internal fastcc void @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringESt6vector
   %3 = load ptr, ptr %2, align 8, !tbaa !232
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !233
-  tail call fastcc void @_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_17rules_t6bram_tESaIS8_EENS1_8hash_opsIS4_EEE7entry_tEEvT_SG_(ptr noundef %3, ptr noundef %5)
+  tail call fastcc void @_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_17rules_t6bram_tESaIS8_EENS1_8hash_opsIS4_EEE7entry_tEEvT_SG_(ptr noundef readonly %3, ptr noundef readnone %5)
   %.val.i = load ptr, ptr %2, align 8, !tbaa !232
   %.not.i.i.i = icmp eq ptr %.val.i, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringES_IN12_GLOBAL__N_17rules_t6bram_tESaIS7_EENS1_8hash_opsIS4_EEE7entry_tESaISD_EED2Ev.exit, label %6
@@ -23984,7 +23984,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringES_IN12_GLOBAL__N_17rules_
 
 77:                                               ; preds = %.noexc18.i
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 40
-  tail call fastcc void @_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_17rules_t6bram_tESaIS8_EENS1_8hash_opsIS4_EEE7entry_tEEvT_SG_(ptr noundef %.val29.i.i.i, ptr noundef %52)
+  tail call fastcc void @_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_17rules_t6bram_tESaIS8_EENS1_8hash_opsIS4_EEE7entry_tEEvT_SG_(ptr noundef readonly %.val29.i.i.i, ptr noundef readnone %52)
   %.not.i34.i.i.i = icmp eq ptr %.val29.i.i.i, null
   br i1 %.not.i34.i.i.i, label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringES_IN12_GLOBAL__N_17rules_t6bram_tESaIS7_EENS1_8hash_opsIS4_EEE7entry_tESaISD_EE17_M_realloc_insertIJSt4pairIS4_S9_EiEEEvN9__gnu_cxx17__normal_iteratorIPSD_SF_EEDpOT_.exit.i.i, label %79
 
@@ -24193,7 +24193,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringES_IN12_GLOBAL__N_17rules_
 
 158:                                              ; preds = %.noexc17
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 40
-  tail call fastcc void @_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_17rules_t6bram_tESaIS8_EENS1_8hash_opsIS4_EEE7entry_tEEvT_SG_(ptr noundef %.val.i.i.i, ptr noundef %133)
+  tail call fastcc void @_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_17rules_t6bram_tESaIS8_EENS1_8hash_opsIS4_EEE7entry_tEEvT_SG_(ptr noundef readonly %.val.i.i.i, ptr noundef readnone %133)
   %.not.i34.i.i24.i = icmp eq ptr %.val.i.i.i, null
   br i1 %.not.i34.i.i24.i, label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringES_IN12_GLOBAL__N_17rules_t6bram_tESaIS7_EENS1_8hash_opsIS4_EEE7entry_tESaISD_EE17_M_realloc_insertIJSt4pairIS4_S9_ERiEEEvN9__gnu_cxx17__normal_iteratorIPSD_SF_EEDpOT_.exit.i.i, label %160
 

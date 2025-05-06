@@ -1268,7 +1268,7 @@ define dso_local void @prb_final_commit(ptr noundef readonly captures(none) %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @prb_read_valid(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext i1 @prb_read_valid(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 align 16 {
   %4 = alloca i64, align 8
   store i64 %1, ptr %4, align 8
   %5 = call fastcc zeroext i1 @_prb_read_valid(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %2, ptr noundef null)
@@ -1588,7 +1588,7 @@ define internal fastcc noundef zeroext i1 @_prb_read_valid(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @prb_read_valid_info(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext i1 @prb_read_valid_info(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca %struct.printk_record, align 8
   store i64 %1, ptr %5, align 8

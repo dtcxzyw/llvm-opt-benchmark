@@ -3842,7 +3842,7 @@ define hidden void @_ZNK18ImmutableOopMapSet8print_onEP12outputStream(ptr nounde
 declare void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK18ImmutableOopMapSet5printEv(ptr noundef nonnull align 4 captures(address) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZNK18ImmutableOopMapSet5printEv(ptr noundef nonnull readonly align 4 captures(address) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr @tty, align 8
   tail call void @_ZNK18ImmutableOopMapSet8print_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef %2)
   ret void

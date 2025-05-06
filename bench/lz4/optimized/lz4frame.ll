@@ -300,14 +300,14 @@ LZ4F_compressFrameBound.exit:                     ; preds = %35, %LZ4F_getBlockS
   br i1 %60, label %LZ4F_compressEnd.exit.thread, label %61
 
 61:                                               ; preds = %LZ4F_compressFrameBound.exit
-  %62 = call i64 @LZ4F_compressBegin_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef 0, ptr noundef %5, ptr noundef nonnull %8)
+  %62 = call i64 @LZ4F_compressBegin_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef 0, ptr noundef %5, ptr noundef nonnull readonly %8)
   %63 = icmp ult i64 %62, -23
   br i1 %63, label %64, label %LZ4F_compressEnd.exit.thread
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 %62
   %gepdiff = sub nsw i64 %2, %62
-  %66 = call fastcc i64 @LZ4F_compressUpdateImpl(ptr noundef %0, ptr noundef %65, i64 noundef %gepdiff, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %9, i32 noundef 0)
+  %66 = call fastcc i64 @LZ4F_compressUpdateImpl(ptr noundef %0, ptr noundef %65, i64 noundef %gepdiff, ptr noundef %3, i64 noundef %4, ptr noundef nonnull readonly %9, i32 noundef 0)
   %67 = icmp ult i64 %66, -23
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 %66
   br i1 %67, label %69, label %LZ4F_compressEnd.exit.thread
@@ -392,13 +392,13 @@ LZ4F_compressEnd.exit.thread:                     ; preds = %103, %84, %75, %69,
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @LZ4F_compressBegin_usingCDict(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #5 {
+define i64 @LZ4F_compressBegin_usingCDict(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #5 {
   %6 = tail call i64 @LZ4F_compressBegin_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef 0, ptr noundef %3, ptr noundef %4)
   ret i64 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @LZ4F_compressUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #5 {
+define i64 @LZ4F_compressUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #5 {
   %7 = tail call fastcc i64 @LZ4F_compressUpdateImpl(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef 0)
   ret i64 %7
 }
@@ -474,7 +474,7 @@ define i64 @LZ4F_compressEnd(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @LZ4F_compressFrame(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #5 {
+define i64 @LZ4F_compressFrame(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #5 {
   %6 = alloca %struct.LZ4F_cctx_s, align 8
   %7 = alloca %union.LZ4_stream_u, align 8
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6) #13
@@ -1374,20 +1374,20 @@ declare void @LZ4_favorDecompressionSpeed(ptr noundef, i32 noundef) local_unname
 declare i32 @LZ4_loadDict(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define i64 @LZ4F_compressBegin(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #5 {
+define i64 @LZ4F_compressBegin(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #5 {
   %5 = tail call i64 @LZ4F_compressBegin_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef 0, ptr noundef null, ptr noundef %3)
   ret i64 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @LZ4F_compressBegin_usingDictOnce(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #5 {
+define i64 @LZ4F_compressBegin_usingDictOnce(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #5 {
   %7 = tail call i64 @LZ4F_compressBegin_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef null, ptr noundef %5)
   ret i64 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @LZ4F_compressBegin_usingDict(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #5 {
-  %7 = tail call i64 @LZ4F_compressBegin_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef null, ptr noundef %5)
+define i64 @LZ4F_compressBegin_usingDict(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #5 {
+  %7 = tail call i64 @LZ4F_compressBegin_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef null, ptr noundef readonly %5)
   ret i64 %7
 }
 
@@ -2083,7 +2083,7 @@ LZ4F_localSaveDict.exit157:                       ; preds = %304, %306
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @LZ4F_uncompressedUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #5 {
+define i64 @LZ4F_uncompressedUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #5 {
   %7 = tail call fastcc i64 @LZ4F_compressUpdateImpl(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef 1)
   ret i64 %7
 }
@@ -3957,7 +3957,7 @@ declare i32 @LZ4_XXH32(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr
 declare i32 @LZ4_decompress_safe_usingDict(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define i64 @LZ4F_decompress_usingDict(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef %5, i64 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #5 {
+define i64 @LZ4F_decompress_usingDict(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef %5, i64 noundef %6, ptr noundef readonly captures(address_is_null) %7) local_unnamed_addr #5 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %10 = load i32, ptr %9, align 4, !tbaa !72
   %11 = icmp ult i32 %10, 3

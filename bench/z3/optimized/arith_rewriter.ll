@@ -29541,7 +29541,7 @@ _ZN14arith_rewriter13is_mul_factorEP4exprS1_.exit: ; preds = %"_Z6any_ofI3appZN1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN14arith_rewriter13remove_factorEP4exprS1_(ptr dead_on_unwind noalias writable writeonly sret(%class.obj_ref) align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN14arith_rewriter13remove_factorEP4exprS1_(ptr dead_on_unwind noalias writable writeonly sret(%class.obj_ref) align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef readnone captures(address) %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.ptr_buffer, align 8
   %6 = alloca %class.rational, align 8
   %7 = alloca %class.ref_vector, align 8

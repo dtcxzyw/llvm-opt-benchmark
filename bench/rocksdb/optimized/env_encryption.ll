@@ -5251,7 +5251,7 @@ _ZN7rocksdb6StatusD2Ev.exit19:                    ; preds = %_ZN7rocksdb6StatusC
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb15CTRCipherStream12DecryptBlockEmPcS1_(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 captures(address) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, i64 noundef %2, ptr noundef captures(none) %3, ptr noundef initializes((0, 8)) %4) unnamed_addr #3 align 2 {
+define void @_ZN7rocksdb15CTRCipherStream12DecryptBlockEmPcS1_(ptr dead_on_unwind noalias writable writeonly sret(%"class.rocksdb::Status") align 8 captures(address) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, i64 noundef %2, ptr noundef captures(none) %3, ptr noundef initializes((0, 8)) %4) unnamed_addr #3 align 2 {
   tail call void @_ZN7rocksdb15CTRCipherStream12EncryptBlockEmPcS1_(ptr dead_on_unwind writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4)
   ret void
 }

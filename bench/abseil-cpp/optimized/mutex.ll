@@ -299,7 +299,7 @@ define dso_local void @_ZN4absl5Mutex45InternalAttemptToUseMutexInFatalSignalHan
 declare noundef ptr @_ZN4absl13base_internal30CurrentThreadIdentityIfPresentEv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl5Mutex14EnableDebugLogEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl5Mutex14EnableDebugLogEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca { i64, i64 }, align 8
   %4 = tail call fastcc noundef ptr @_ZN4abslL16EnsureSynchEventEPSt6atomicIlEPKcll(ptr noundef %0, ptr noundef %1, i64 noundef 16, i64 noundef 64)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -3707,7 +3707,7 @@ _ZN4absl13base_internal8SpinLock6UnlockEv.exit:   ; preds = %.critedge9, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl7CondVar14EnableDebugLogEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl7CondVar14EnableDebugLogEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call fastcc noundef ptr @_ZN4abslL16EnsureSynchEventEPSt6atomicIlEPKcll(ptr noundef %0, ptr noundef %1, i64 noundef 2, i64 noundef 1)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i8 1, ptr %4, align 8, !tbaa !41

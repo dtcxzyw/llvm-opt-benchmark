@@ -18042,7 +18042,7 @@ LZ4_decompress_fast.exit.thread:                  ; preds = %186, %214, %211, %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @LZ4_decompress_safe_usingDict(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address) %4, i32 noundef %5) local_unnamed_addr #1 {
+define i32 @LZ4_decompress_safe_usingDict(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address) %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp eq i32 %5, 0
   br i1 %7, label %8, label %10
 
@@ -18078,7 +18078,7 @@ define i32 @LZ4_decompress_safe_usingDict(ptr noundef %0, ptr noundef %1, i32 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @LZ4_decompress_safe_partial_usingDict(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address) %5, i32 noundef %6) local_unnamed_addr #1 {
+define i32 @LZ4_decompress_safe_partial_usingDict(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(address) %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = icmp eq i32 %6, 0
   br i1 %8, label %9, label %11
 

@@ -842,7 +842,7 @@ _ZN6vectorIN3sat7literalELb0EjED2Ev.exit:         ; preds = %97, %99
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden i32 @_ZN2pb6solver13convert_pb_leEP3appbb(ptr noundef nonnull align 8 dereferenceable(1049) %0, ptr noundef captures(address) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden i32 @_ZN2pb6solver13convert_pb_leEP3appbb(ptr noundef nonnull align 8 dereferenceable(1049) %0, ptr noundef readonly captures(address) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.rational, align 8
   %6 = alloca %class.svector.17, align 8
   %7 = alloca %class.rational, align 8
@@ -1122,7 +1122,7 @@ _ZN8rationalD2Ev.exit48:                          ; preds = %.noexc.i47
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden i32 @_ZN2pb6solver13convert_pb_geEP3appbb(ptr noundef nonnull align 8 dereferenceable(1049) %0, ptr noundef captures(address) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden i32 @_ZN2pb6solver13convert_pb_geEP3appbb(ptr noundef nonnull align 8 dereferenceable(1049) %0, ptr noundef readonly captures(address) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.rational, align 8
   %6 = alloca %class.svector.17, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #18

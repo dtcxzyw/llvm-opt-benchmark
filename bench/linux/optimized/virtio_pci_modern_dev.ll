@@ -998,7 +998,7 @@ define dso_local zeroext i16 @vp_modern_get_num_queues(ptr noundef readonly capt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @vp_modern_map_vq_notify(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, ptr noundef captures(address_is_null) %2) #0 align 16 {
+define dso_local ptr @vp_modern_map_vq_notify(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, ptr noundef writeonly captures(address_is_null) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 22

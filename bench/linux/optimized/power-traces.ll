@@ -1987,7 +1987,7 @@ define internal void @perf_trace_cpu_frequency_limits(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_device_pm_callback_start(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) #1 align 16 {
+define internal void @trace_event_raw_event_device_pm_callback_start(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) #1 align 16 {
   %5 = alloca %struct.trace_event_data_offsets_device_pm_callback_start, align 4
   %6 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
@@ -2107,7 +2107,7 @@ define internal void @trace_event_raw_event_device_pm_callback_start(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_device_pm_callback_start(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) #1 align 16 {
+define internal void @perf_trace_device_pm_callback_start(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) #1 align 16 {
   %5 = alloca %struct.trace_event_data_offsets_device_pm_callback_start, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4

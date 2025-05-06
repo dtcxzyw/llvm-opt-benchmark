@@ -703,7 +703,7 @@ declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) loc
 declare zeroext i1 @bms_equal(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @build_join_rel(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
+define dso_local ptr @build_join_rel(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca i8, align 1
   %9 = tail call ptr @find_join_rel(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq ptr %9, null

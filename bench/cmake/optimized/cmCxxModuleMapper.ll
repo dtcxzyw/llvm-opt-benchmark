@@ -2957,7 +2957,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z19CxxModuleMapContentB5cxx1118CxxModuleMapFormatRK18CxxModuleLocationsRK13cmScanDepInfoRK14CxxModuleUsage(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %3, ptr noundef nonnull align 8 captures(address) dereferenceable(96) %4) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z19CxxModuleMapContentB5cxx1118CxxModuleMapFormatRK18CxxModuleLocationsRK13cmScanDepInfoRK14CxxModuleUsage(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %3, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %4) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
@@ -3165,7 +3165,7 @@ _ZN14CxxBmiLocationD2Ev.exit.i:                   ; preds = %_ZNKSt7__cxx1112bas
   %.val29.i = load ptr, ptr %98, align 8, !tbaa !96, !noalias !119
   %99 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %.val30.i = load ptr, ptr %99, align 8, !tbaa !96, !noalias !119
-  invoke fastcc void @_ZN12_GLOBAL__N_119GetTransitiveUsagesERK18CxxModuleLocationsRKSt6vectorI15cmSourceReqInfoSaIS4_EERK14CxxModuleUsage(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr %.val29.i, ptr %.val30.i, ptr noundef nonnull align 8 dereferenceable(96) %4)
+  invoke fastcc void @_ZN12_GLOBAL__N_119GetTransitiveUsagesERK18CxxModuleLocationsRKSt6vectorI15cmSourceReqInfoSaIS4_EERK14CxxModuleUsage(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr %.val29.i, ptr %.val30.i, ptr noundef nonnull readonly align 8 dereferenceable(96) %4)
           to label %100 unwind label %127, !noalias !119
 
 100:                                              ; preds = %.loopexit.i
@@ -3972,7 +3972,7 @@ _ZN12_GLOBAL__N_122CxxModuleMapContentGccB5cxx11ERK18CxxModuleLocationsRK13cmSca
   %.val30.i39 = load ptr, ptr %442, align 8, !tbaa !96, !noalias !164
   %443 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %.val31.i = load ptr, ptr %443, align 8, !tbaa !96, !noalias !164
-  invoke fastcc void @_ZN12_GLOBAL__N_119GetTransitiveUsagesERK18CxxModuleLocationsRKSt6vectorI15cmSourceReqInfoSaIS4_EERK14CxxModuleUsage(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr %.val30.i39, ptr %.val31.i, ptr noundef nonnull align 8 dereferenceable(96) %4)
+  invoke fastcc void @_ZN12_GLOBAL__N_119GetTransitiveUsagesERK18CxxModuleLocationsRKSt6vectorI15cmSourceReqInfoSaIS4_EERK14CxxModuleUsage(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr %.val30.i39, ptr %.val31.i, ptr noundef nonnull readonly align 8 dereferenceable(96) %4)
           to label %502 unwind label %529, !noalias !164
 
 .invoke.i:                                        ; preds = %_ZN14CxxBmiLocationD2Ev.exit40.i, %.lr.ph.i34

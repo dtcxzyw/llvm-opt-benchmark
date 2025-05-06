@@ -825,7 +825,7 @@ declare void @nghttp2_frame_priority_update_init(ptr noundef, i32 noundef, ptr n
 declare void @nghttp2_frame_priority_update_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @nghttp2_submit_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local i32 @nghttp2_submit_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2844
   %8 = load i8, ptr %7, align 4, !tbaa !45
   %.not = icmp eq i8 %8, 0
@@ -881,7 +881,7 @@ set_request_flags.exit:                           ; preds = %21, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @nghttp2_submit_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local i32 @nghttp2_submit_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = icmp slt i32 %1, 1
   br i1 %6, label %18, label %7
 

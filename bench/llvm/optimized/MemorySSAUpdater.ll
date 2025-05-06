@@ -9750,7 +9750,7 @@ _ZN4llvm16MemorySSAUpdater18applyInsertUpdatesENS_8ArrayRefINS_3cfg6UpdateIPNS_1
   store i32 0, ptr %25, align 8, !tbaa !118
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 612
   store i32 4, ptr %26, align 4, !tbaa !153
-  call void @_ZN4llvm16MemorySSAUpdater18applyInsertUpdatesENS_8ArrayRefINS_3cfg6UpdateIPNS_10BasicBlockEEEEERNS_13DominatorTreeEPKNS_9GraphDiffIS5_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(624) %0, ptr %18, i64 %17, ptr noundef nonnull align 8 dereferenceable(124) %5, ptr noundef nonnull %7)
+  call void @_ZN4llvm16MemorySSAUpdater18applyInsertUpdatesENS_8ArrayRefINS_3cfg6UpdateIPNS_10BasicBlockEEEEERNS_13DominatorTreeEPKNS_9GraphDiffIS5_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(624) %0, ptr readonly %18, i64 %17, ptr noundef nonnull align 8 dereferenceable(124) %5, ptr noundef nonnull %7)
   call void @_ZN4llvm9GraphDiffIPNS_10BasicBlockELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(680) %7) #17
   call void @llvm.lifetime.end.p0(i64 680, ptr nonnull %7) #17
   %27 = load ptr, ptr %8, align 8, !tbaa !119
@@ -9986,7 +9986,7 @@ _ZN4llvm16MemorySSAUpdater18applyInsertUpdatesENS_8ArrayRefINS_3cfg6UpdateIPNS_1
   store i32 0, ptr %26, align 8, !tbaa !118
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 612
   store i32 4, ptr %27, align 4, !tbaa !153
-  call void @_ZN4llvm16MemorySSAUpdater18applyInsertUpdatesENS_8ArrayRefINS_3cfg6UpdateIPNS_10BasicBlockEEEEERNS_13DominatorTreeEPKNS_9GraphDiffIS5_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(624) %0, ptr %19, i64 %18, ptr noundef nonnull align 8 dereferenceable(124) %5, ptr noundef nonnull %7)
+  call void @_ZN4llvm16MemorySSAUpdater18applyInsertUpdatesENS_8ArrayRefINS_3cfg6UpdateIPNS_10BasicBlockEEEEERNS_13DominatorTreeEPKNS_9GraphDiffIS5_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(624) %0, ptr readonly %19, i64 %18, ptr noundef nonnull align 8 dereferenceable(124) %5, ptr noundef nonnull %7)
   call void @_ZN4llvm9GraphDiffIPNS_10BasicBlockELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(680) %7) #17
   call void @llvm.lifetime.end.p0(i64 680, ptr nonnull %7) #17
   %28 = load ptr, ptr %8, align 8, !tbaa !119
@@ -16284,7 +16284,7 @@ _ZN4llvm13SmallDenseMapIPNS_10BasicBlockENS_9GraphDiffIS2_Lb0EE14DeletesInsertsE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16MemorySSAUpdater18applyInsertUpdatesENS_8ArrayRefINS_3cfg6UpdateIPNS_10BasicBlockEEEEERNS_13DominatorTreeE(ptr noundef nonnull align 8 dereferenceable(624) %0, ptr captures(address) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(124) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16MemorySSAUpdater18applyInsertUpdatesENS_8ArrayRefINS_3cfg6UpdateIPNS_10BasicBlockEEEEERNS_13DominatorTreeE(ptr noundef nonnull align 8 dereferenceable(624) %0, ptr readonly captures(address) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(124) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::GraphDiff", align 8
   call void @llvm.lifetime.start.p0(i64 680, ptr nonnull %5) #17
   store i32 1, ptr %5, align 8

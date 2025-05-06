@@ -7426,7 +7426,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google9SendEmailEPKcS1_S1_(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN6google9SendEmailEPKcS1_S1_(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc noundef zeroext i1 @_ZN6googleL17SendEmailInternalEPKcS1_S1_b(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true)
   ret i1 %4
 }

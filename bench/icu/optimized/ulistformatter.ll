@@ -713,7 +713,7 @@ _ZN6icu_7713IcuCApiHelperI14UFormattedListNS_18UFormattedListImplELi1179407188EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ulistfmt_format_77(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef i32 @ulistfmt_format_77(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %8 = alloca [4 x %"class.icu_77::UnicodeString"], align 16
   %9 = alloca %"class.icu_77::LocalArray", align 8
   %10 = alloca %"class.icu_77::UnicodeString", align 8
@@ -1118,7 +1118,7 @@ define linkonce_odr void @_ZN6icu_7710LocalArrayINS_13UnicodeStringEED2Ev(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ulistfmt_formatStringsToResult_77(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @ulistfmt_formatStringsToResult_77(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %7 = alloca [4 x %"class.icu_77::UnicodeString"], align 16
   %8 = alloca %"class.icu_77::LocalArray", align 8
   %9 = alloca %"class.icu_77::FormattedList", align 8

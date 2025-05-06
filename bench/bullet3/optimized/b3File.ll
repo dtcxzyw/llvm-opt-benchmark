@@ -3265,7 +3265,7 @@ _ZN6bParse4bDNA14getElementSizeEss.exit:          ; preds = %30, %33
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6bParse5bFile18getMatchingFileDNAEPsPKcS3_PcS4_b(ptr noundef nonnull align 8 captures(none) dereferenceable(540) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, i1 noundef zeroext %6) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN6bParse5bFile18getMatchingFileDNAEPsPKcS3_PcS4_b(ptr noundef nonnull align 8 captures(none) dereferenceable(540) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, i1 noundef zeroext %6) local_unnamed_addr #3 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %9 = load i16, ptr %8, align 2, !tbaa !81
   %10 = sext i16 %9 to i32

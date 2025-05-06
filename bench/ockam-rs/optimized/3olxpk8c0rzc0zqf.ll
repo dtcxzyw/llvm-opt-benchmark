@@ -11161,7 +11161,7 @@ define internal noundef i64 @_ZN7openssl3ssl3bio4ctrl17h898c454a355a7744E(ptr no
 .body:                                            ; preds = %27
   %30 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h45ec29a67d099ba8E"(ptr nonnull %.val, ptr nonnull %.val8) #34, !noalias !2379
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h45ec29a67d099ba8E"(ptr nonnull %.val, ptr nonnull readonly %.val8) #34, !noalias !2379
   %31 = load ptr, ptr %7, align 8, !nonnull !13, !align !40, !noundef !13
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
   store ptr %20, ptr %32, align 8
@@ -11320,7 +11320,7 @@ define internal noundef i32 @_ZN7openssl3ssl3bio5bread17hbc9982b1fdeac74aE(ptr n
 .body:                                            ; preds = %23
   %26 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h45ec29a67d099ba8E"(ptr nonnull %.val, ptr nonnull %.val20) #34, !noalias !2407
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h45ec29a67d099ba8E"(ptr nonnull %.val, ptr nonnull readonly %.val20) #34, !noalias !2407
   %27 = load ptr, ptr %8, align 8, !nonnull !13, !align !40, !noundef !13
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   store ptr %17, ptr %28, align 8
@@ -11507,7 +11507,7 @@ define internal noundef i32 @_ZN7openssl3ssl3bio6bwrite17hfe71de824c8c3750E(ptr 
 .body:                                            ; preds = %23
   %26 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h45ec29a67d099ba8E"(ptr nonnull %.val, ptr nonnull %.val20) #34, !noalias !2427
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h45ec29a67d099ba8E"(ptr nonnull %.val, ptr nonnull readonly %.val20) #34, !noalias !2427
   %27 = load ptr, ptr %8, align 8, !nonnull !13, !align !40, !noundef !13
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   store ptr %17, ptr %28, align 8

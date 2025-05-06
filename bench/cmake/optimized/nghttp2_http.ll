@@ -1227,13 +1227,13 @@ define dso_local void @nghttp2_http_record_request_method(ptr noundef captures(n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @nghttp2_sf_parse_item(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define dso_local noundef i64 @nghttp2_sf_parse_item(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = tail call fastcc i64 @sf_parse_item(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i64 %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i64 @sf_parse_item(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 {
+define internal fastcc noundef i64 @sf_parse_item(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 {
   %4 = tail call fastcc i64 @sf_parse_bare_item(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %5 = icmp slt i64 %4, 0
   br i1 %5, label %sf_parse_params.exit.thread, label %6
@@ -1346,7 +1346,7 @@ sf_parse_params.exit.thread:                      ; preds = %15, %35, %32, %sf_p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @nghttp2_sf_parse_inner_list(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define dso_local noundef i64 @nghttp2_sf_parse_inner_list(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = tail call fastcc i64 @sf_parse_inner_list(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i64 %4
 }

@@ -10840,7 +10840,7 @@ define dso_local range(i32 2, 1) i32 @zend_array_element_type(i32 noundef %0, i8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1073741824, 1073741824) i32 @zend_fetch_arg_info_type(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1073741824, 1073741824) i32 @zend_fetch_arg_info_type(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -10927,7 +10927,7 @@ zend_string_release_ex.exit:                      ; preds = %33, %28, %22, %19, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @zend_update_type_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5, i64 noundef %6) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @zend_update_type_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef readonly %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i8, align 1
@@ -25230,7 +25230,7 @@ _zend_update_type_info.exit:                      ; preds = %6826, %6745, %6070,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @zend_get_return_info_from_signature_only(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define hidden i32 @zend_get_return_info_from_signature_only(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !28
   %8 = and i32 %7, 8192
@@ -29322,7 +29322,7 @@ zend_func_return_info.exit:                       ; preds = %51, %304
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 29
   %8 = load i8, ptr %7, align 1, !tbaa !73
   %9 = icmp eq i8 %8, 8
@@ -30742,7 +30742,7 @@ _ssa_op2_has_range.exit314.thread:                ; preds = %.thread470, %.threa
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @zend_may_throw(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
+define dso_local zeroext i1 @zend_may_throw(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 29
   %6 = load i8, ptr %5, align 1, !tbaa !73
   %7 = icmp eq i8 %6, 1

@@ -86,7 +86,7 @@ define dso_local i32 @ieee80211_chanctx_refcount(ptr noundef readnone captures(n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_recalc_chanctx_min_def(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #1 align 16 {
+define dso_local void @ieee80211_recalc_chanctx_min_def(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #1 align 16 {
   %4 = tail call fastcc i32 @_ieee80211_recalc_chanctx_min_def(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !10
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %7, label %6
@@ -4507,7 +4507,7 @@ declare dso_local void @__rcu_read_lock() local_unnamed_addr #4
 declare dso_local void @__rcu_read_unlock() local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @_ieee80211_change_chanctx(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef nonnull %3, ptr noundef captures(address) %4) unnamed_addr #1 align 16 {
+define internal fastcc void @_ieee80211_change_chanctx(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address) %2, ptr noundef nonnull %3, ptr noundef readnone captures(address) %4) unnamed_addr #1 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %8 [

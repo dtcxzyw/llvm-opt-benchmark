@@ -374,7 +374,7 @@ define internal fastcc i64 @H5FD__extend(ptr noundef %0, i32 noundef %1, i64 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @H5FD_alloc(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
+define i64 @H5FD_alloc(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = load i8, ptr @H5FD_init_g, align 1, !tbaa !7, !range !9, !noundef !10
   %8 = trunc nuw i8 %7 to i1
   %9 = load i8, ptr @H5_libterm_g, align 1, !range !9

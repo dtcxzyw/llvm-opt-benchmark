@@ -8514,7 +8514,7 @@ icl_wa_init_mcr.exit:                             ; preds = %28, %44
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @cfl_gt_workarounds_init(ptr captures(address_is_null) %.0.val, ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
+define internal fastcc void @cfl_gt_workarounds_init(ptr readonly captures(address_is_null) %.0.val, ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   tail call fastcc void @gen9_gt_workarounds_init(ptr %.0.val, ptr noundef %0)

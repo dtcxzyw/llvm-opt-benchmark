@@ -3296,7 +3296,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h179ab9fd333869d8E.llvm.8353825
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h9f46f20f238cb64fE"(ptr noalias noundef align 8 dereferenceable(56) %0, ptr noalias noundef align 8 dereferenceable(16) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17h4697b81ef4b0783eE.llvm.835382560586912698"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
+  tail call void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17h4697b81ef4b0783eE.llvm.835382560586912698"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
   ret void
 }
 
@@ -4949,7 +4949,7 @@ define hidden void @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h0bb35afb60d91302E.llvm.835382560586912698"(ptr noalias noundef align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %2) unnamed_addr #0 {
+define hidden void @"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h0bb35afb60d91302E.llvm.835382560586912698"(ptr noalias noundef align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(8) %2) unnamed_addr #0 {
   tail call void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17h4697b81ef4b0783eE.llvm.835382560586912698"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   ret void
 }
@@ -15209,7 +15209,7 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17h4697b81ef4b0783eE.llvm.835382560586912698"(ptr noalias noundef align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17h4697b81ef4b0783eE.llvm.835382560586912698"(ptr noalias noundef align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !range !6022, !noundef !4
@@ -15310,7 +15310,7 @@ common.resume:                                    ; preds = %18, %46, %61, %31, 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !6054
   store i64 1, ptr %5, align 8, !alias.scope !6073, !noalias !6076
   store ptr %24, ptr %20, align 8, !alias.scope !6073, !noalias !6076
-  call fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2478964d3223d07cE"(ptr nonnull %1, ptr nonnull %2, ptr noalias noundef align 8 dereferenceable(8) %20), !noalias !6076
+  call fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2478964d3223d07cE"(ptr nonnull %1, ptr nonnull readonly %2, ptr noalias noundef align 8 dereferenceable(8) %20), !noalias !6076
   store ptr null, ptr %23, align 8, !alias.scope !6049, !noalias !6052
   %.val21.pre = load i64, ptr %5, align 8, !range !6022
   %38 = icmp eq i64 %.val21.pre, 0

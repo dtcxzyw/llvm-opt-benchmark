@@ -8183,7 +8183,7 @@ define dso_local i32 @regmap_noinc_write(ptr noundef %0, i32 noundef %1, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @regmap_field_update_bits_base(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i1 noundef zeroext %4, i1 noundef zeroext %5) #1 align 16 {
+define dso_local i32 @regmap_field_update_bits_base(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, i1 noundef zeroext %4, i1 noundef zeroext %5) #1 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = shl i32 %1, %8
@@ -8212,7 +8212,7 @@ define dso_local i32 @regmap_field_update_bits_base(ptr noundef readonly capture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @regmap_update_bits_base(ptr noundef initializes((184, 185)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, i1 noundef zeroext %5, i1 noundef zeroext %6) #1 align 16 {
+define dso_local i32 @regmap_update_bits_base(ptr noundef initializes((184, 185)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, i1 noundef zeroext %5, i1 noundef zeroext %6) #1 align 16 {
   %8 = zext i1 %5 to i8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
@@ -8330,7 +8330,7 @@ define dso_local i32 @regmap_field_read(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @regmap_fields_update_bits_base(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, i1 noundef zeroext %5, i1 noundef zeroext %6) #1 align 16 {
+define dso_local i32 @regmap_fields_update_bits_base(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, i1 noundef zeroext %5, i1 noundef zeroext %6) #1 align 16 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4
   %10 = icmp ugt i32 %9, %1

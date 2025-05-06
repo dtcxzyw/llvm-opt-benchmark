@@ -1488,7 +1488,7 @@ onas_free_hashnode.exit98:                        ; preds = %onas_free_hashnode.
 declare noalias ptr @strndup(ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef range(i32 0, 21) i32 @onas_ht_rm_hierarchy(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 21) i32 @onas_ht_rm_hierarchy(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond.not54 = or i1 %5, %6

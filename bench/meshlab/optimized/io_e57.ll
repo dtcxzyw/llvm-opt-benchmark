@@ -4060,7 +4060,7 @@ define linkonce_odr void @_ZN3e577E57RootD2Ev(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N11E57IOPlugin4openERK7QStringS2_RKNSt7__cxx114listIP9MeshModelSaIS6_EEERNS4_IiSaIiEEERK17RichParameterListPFbiPKcE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %5, ptr noundef captures(address_is_null) %6) unnamed_addr #13 align 2 {
+define void @_ZThn16_N11E57IOPlugin4openERK7QStringS2_RKNSt7__cxx114listIP9MeshModelSaIS6_EEERNS4_IiSaIiEEERK17RichParameterListPFbiPKcE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %5, ptr noundef readonly captures(address_is_null) %6) unnamed_addr #13 align 2 {
   %8 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN11E57IOPlugin4openERK7QStringS2_RKNSt7__cxx114listIP9MeshModelSaIS6_EEERNS4_IiSaIiEEERK17RichParameterListPFbiPKcE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
   ret void

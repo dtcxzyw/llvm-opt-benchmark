@@ -1421,7 +1421,7 @@ declare noalias ptr @hwloc_bitmap_alloc() local_unnamed_addr #3
 declare i32 @hwloc_bitmap_andnot(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_cpukinds_register(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i64 noundef %4) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @hwloc_cpukinds_register(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4) local_unnamed_addr #1 {
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %8, label %6
 

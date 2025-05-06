@@ -796,7 +796,7 @@ declare ptr @tvbparse_not_chars(i32 noundef, i32 noundef, i32 noundef, ptr nound
 declare ptr @tvbparse_chars(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @after_value(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(address) %2) #0 {
+define internal void @after_value(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(address) %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @wmem_stack_peek(ptr noundef %4)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -1151,7 +1151,7 @@ thread-pre-split:                                 ; preds = %193
 declare ptr @tvbparse_string(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @before_array(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(address) %2) #0 {
+define internal void @before_array(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(address) %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @wmem_stack_peek(ptr noundef %4)
   %6 = load i32, ptr @hf_json_array, align 4
@@ -1416,7 +1416,7 @@ define internal void @after_array(ptr noundef captures(none) %0, ptr readnone ca
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @before_member(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(address) %2) #0 {
+define internal void @before_member(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(address) %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @wmem_stack_peek(ptr noundef %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32

@@ -740,7 +740,7 @@ declare i64 @__ctype_get_mb_cur_max() local_unnamed_addr #8
 declare i64 @wcrtomb(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @archive_string_conversion_to_charset(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
+define dso_local ptr @archive_string_conversion_to_charset(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %7
 
@@ -1006,7 +1006,7 @@ find_sconv_object.exit:                           ; preds = %12, %95, %add_sconv
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @archive_string_conversion_from_charset(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
+define dso_local ptr @archive_string_conversion_from_charset(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %7
 

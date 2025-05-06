@@ -1916,7 +1916,7 @@ define dso_local i64 @heap_copy_tuple_as_datum(ptr noundef readonly captures(non
 declare i64 @toast_flatten_tuple_to_datum(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @heap_form_tuple(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @heap_form_tuple(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %5 = icmp sgt i32 %4, 1664
   br i1 %5, label %7, label %.preheader
@@ -2441,7 +2441,7 @@ define dso_local void @heap_freetuple(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @heap_form_minimal_tuple(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @heap_form_minimal_tuple(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %5 = icmp sgt i32 %4, 1664
   br i1 %5, label %7, label %.preheader

@@ -21252,7 +21252,7 @@ declare void @_efree(ptr noundef) local_unnamed_addr #3
 declare noalias ptr @_emalloc_112() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @php_dom_create_nullable_object(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @php_dom_create_nullable_object(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %6
 
@@ -22429,7 +22429,7 @@ dom_reconcile_ns_internal.exit:                   ; preds = %30, %7
 declare i32 @xmlReconciliateNs(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dom_reconcile_ns_list(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #1 {
+define hidden void @dom_reconcile_ns_list(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !161
   tail call fastcc void @dom_reconcile_ns_list_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5)

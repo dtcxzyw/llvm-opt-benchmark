@@ -871,7 +871,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__16HfPluginRegist
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__16HfPluginRegistry18AddPluginReferenceEPNS_12HfPluginBaseE(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef captures(address) %1) local_unnamed_addr #4 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__16HfPluginRegistry18AddPluginReferenceEPNS_12HfPluginBaseE(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 align 2 {
   %3 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HfPluginRegistry18_GetEntryForPluginEPNS_12HfPluginBaseE(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -1026,7 +1026,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit10: ; preds = %62, %58, %1
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntry11IncRefCountEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__16HfPluginRegistry13ReleasePluginEPNS_12HfPluginBaseE(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef captures(address) %1) local_unnamed_addr #4 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__16HfPluginRegistry13ReleasePluginEPNS_12HfPluginBaseE(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %8, label %4
 

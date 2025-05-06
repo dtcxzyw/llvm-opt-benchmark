@@ -8280,7 +8280,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6google8protobuf14DescriptorPool21FindExtensionByNumberEPKNS0_10DescriptorEi(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef captures(address) %extendee, i32 noundef %number) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK6google8protobuf14DescriptorPool21FindExtensionByNumberEPKNS0_10DescriptorEi(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef readonly captures(address) %extendee, i32 noundef %number) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lock11 = alloca %"class.absl::lts_20230802::MutexLockMaybe", align 8
   %extension_range_count_.i = getelementptr inbounds nuw i8, ptr %extendee, i64 136
@@ -27272,17 +27272,17 @@ _ZN6google8protobufL18PlanAllocationSizeERKNS0_16RepeatedPtrFieldINS0_21MethodDe
 
 _ZN6google8protobufL18PlanAllocationSizeERKNS0_16RepeatedPtrFieldINS0_22ServiceDescriptorProtoEEERNS0_8internal13FlatAllocatorE.exit.i: ; preds = %_ZN6google8protobufL18PlanAllocationSizeERKNS0_16RepeatedPtrFieldINS0_21MethodDescriptorProtoEEERNS0_8internal13FlatAllocatorE.exit.i.i, %_ZN6google8protobuf12_GLOBAL__N_117FlatAllocatorImplIJcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14SourceCodeInfoENS0_20FileDescriptorTablesENS0_10FeatureSetENS0_14MessageOptionsENS0_12FieldOptionsENS0_11EnumOptionsENS0_16EnumValueOptionsENS0_21ExtensionRangeOptionsENS0_12OneofOptionsENS0_14ServiceOptionsENS0_13MethodOptionsENS0_11FileOptionsEEE9PlanArrayIS8_EEvi.exit.i.i
   %message_type_.i.i.i = getelementptr inbounds nuw i8, ptr %original_proto, i64 48
-  invoke fastcc void @_ZN6google8protobufL18PlanAllocationSizeERKNS0_16RepeatedPtrFieldINS0_15DescriptorProtoEEERNS0_8internal13FlatAllocatorE(ptr noundef nonnull align 8 dereferenceable(24) %message_type_.i.i.i, ptr noundef nonnull align 8 dereferenceable(224) %call.i75)
+  invoke fastcc void @_ZN6google8protobufL18PlanAllocationSizeERKNS0_16RepeatedPtrFieldINS0_15DescriptorProtoEEERNS0_8internal13FlatAllocatorE(ptr noundef nonnull readonly align 8 dereferenceable(24) %message_type_.i.i.i, ptr noundef nonnull align 8 dereferenceable(224) %call.i75)
           to label %.noexc83 unwind label %_ZNSt10unique_ptrIN6google8protobuf8internal13FlatAllocatorESt14default_deleteIS3_EED2Ev.exit
 
 .noexc83:                                         ; preds = %_ZN6google8protobufL18PlanAllocationSizeERKNS0_16RepeatedPtrFieldINS0_22ServiceDescriptorProtoEEERNS0_8internal13FlatAllocatorE.exit.i
   %enum_type_.i.i.i = getelementptr inbounds nuw i8, ptr %original_proto, i64 72
-  invoke fastcc void @_ZN6google8protobufL18PlanAllocationSizeERKNS0_16RepeatedPtrFieldINS0_19EnumDescriptorProtoEEERNS0_8internal13FlatAllocatorE(ptr noundef nonnull align 8 dereferenceable(24) %enum_type_.i.i.i, ptr noundef nonnull align 8 dereferenceable(224) %call.i75)
+  invoke fastcc void @_ZN6google8protobufL18PlanAllocationSizeERKNS0_16RepeatedPtrFieldINS0_19EnumDescriptorProtoEEERNS0_8internal13FlatAllocatorE(ptr noundef nonnull readonly align 8 dereferenceable(24) %enum_type_.i.i.i, ptr noundef nonnull align 8 dereferenceable(224) %call.i75)
           to label %.noexc84 unwind label %_ZNSt10unique_ptrIN6google8protobuf8internal13FlatAllocatorESt14default_deleteIS3_EED2Ev.exit
 
 .noexc84:                                         ; preds = %.noexc83
   %extension_.i.i.i = getelementptr inbounds nuw i8, ptr %original_proto, i64 120
-  invoke fastcc void @_ZN6google8protobufL18PlanAllocationSizeERKNS0_16RepeatedPtrFieldINS0_20FieldDescriptorProtoEEERNS0_8internal13FlatAllocatorE(ptr noundef nonnull align 8 dereferenceable(24) %extension_.i.i.i, ptr noundef nonnull align 8 dereferenceable(224) %call.i75)
+  invoke fastcc void @_ZN6google8protobufL18PlanAllocationSizeERKNS0_16RepeatedPtrFieldINS0_20FieldDescriptorProtoEEERNS0_8internal13FlatAllocatorE(ptr noundef nonnull readonly align 8 dereferenceable(24) %extension_.i.i.i, ptr noundef nonnull align 8 dereferenceable(224) %call.i75)
           to label %.noexc85 unwind label %_ZNSt10unique_ptrIN6google8protobuf8internal13FlatAllocatorESt14default_deleteIS3_EED2Ev.exit
 
 .noexc85:                                         ; preds = %.noexc84
@@ -40977,7 +40977,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit13:                  ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf17DescriptorBuilder28CheckFieldJsonNameUniquenessERKNS0_15DescriptorProtoEPKNS0_10DescriptorE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(232) %proto, ptr noundef readonly captures(none) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf17DescriptorBuilder28CheckFieldJsonNameUniquenessERKNS0_15DescriptorProtoEPKNS0_10DescriptorE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(232) %proto, ptr noundef readonly captures(none) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %message_name = alloca %"class.std::__cxx11::basic_string", align 8
   %all_names_.i = getelementptr inbounds nuw i8, ptr %result, i64 8
@@ -48564,12 +48564,12 @@ lpad.i:                                           ; preds = %invoke.cont11.invok
   resume { ptr, i32 } %7
 
 if.else.i:                                        ; preds = %invoke.cont3.i
-  invoke void @_ZN6google8protobuf17DescriptorBuilder28CheckFieldJsonNameUniquenessERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15DescriptorProtoEPKNS0_10DescriptorEb(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(32) %message_name.i, ptr noundef nonnull align 8 dereferenceable(232) %proto, ptr noundef nonnull readonly %message, i1 noundef zeroext false)
+  invoke void @_ZN6google8protobuf17DescriptorBuilder28CheckFieldJsonNameUniquenessERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15DescriptorProtoEPKNS0_10DescriptorEb(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(32) %message_name.i, ptr noundef nonnull readonly align 8 dereferenceable(232) %proto, ptr noundef nonnull readonly %message, i1 noundef zeroext false)
           to label %invoke.cont11.invoke.i unwind label %lpad.i
 
 invoke.cont11.invoke.i:                           ; preds = %if.else.i, %if.then.i
   %8 = phi i1 [ true, %if.else.i ], [ false, %if.then.i ]
-  invoke void @_ZN6google8protobuf17DescriptorBuilder28CheckFieldJsonNameUniquenessERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15DescriptorProtoEPKNS0_10DescriptorEb(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(32) %message_name.i, ptr noundef nonnull align 8 dereferenceable(232) %proto, ptr noundef nonnull readonly %message, i1 noundef zeroext %8)
+  invoke void @_ZN6google8protobuf17DescriptorBuilder28CheckFieldJsonNameUniquenessERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15DescriptorProtoEPKNS0_10DescriptorEb(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(32) %message_name.i, ptr noundef nonnull readonly align 8 dereferenceable(232) %proto, ptr noundef nonnull readonly %message, i1 noundef zeroext %8)
           to label %_ZN6google8protobuf17DescriptorBuilder28CheckFieldJsonNameUniquenessERKNS0_15DescriptorProtoEPKNS0_10DescriptorE.exit unwind label %lpad.i
 
 _ZN6google8protobuf17DescriptorBuilder28CheckFieldJsonNameUniquenessERKNS0_15DescriptorProtoEPKNS0_10DescriptorE.exit: ; preds = %if.then.i, %invoke.cont11.invoke.i

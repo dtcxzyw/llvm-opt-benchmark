@@ -2194,7 +2194,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_121compareKeywordStructsEPKvS1_S1_(
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uloc_getKeywordValue_77(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define i32 @uloc_getKeywordValue_77(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.icu_77::CheckedArrayByteSink", align 8
   %7 = load i32, ptr %4, align 4, !tbaa !13
   %8 = icmp slt i32 %7, 1
@@ -2216,8 +2216,8 @@ define i32 @uloc_getKeywordValue_77(ptr noundef %0, ptr noundef captures(address
 15:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #20
   call void @_ZN6icu_7720CheckedArrayByteSinkC1EPci(ptr noundef nonnull align 8 dereferenceable(29) %6, ptr noundef %2, i32 noundef %3)
-  %16 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
-  invoke void @_Z26ulocimp_getKeywordValue_77PKcSt17basic_string_viewIcSt11char_traitsIcEERN6icu_778ByteSinkER10UErrorCode(ptr noundef %0, i64 %16, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %16 = call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #20
+  invoke void @_Z26ulocimp_getKeywordValue_77PKcSt17basic_string_viewIcSt11char_traitsIcEERN6icu_778ByteSinkER10UErrorCode(ptr noundef %0, i64 %16, ptr nonnull readonly %1, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %"_ZZ23uloc_getKeywordValue_77ENK3$_0clERN6icu_778ByteSinkER10UErrorCode.exit.i" unwind label %19
 
 "_ZZ23uloc_getKeywordValue_77ENK3$_0clERN6icu_778ByteSinkER10UErrorCode.exit.i": ; preds = %15
@@ -2269,7 +2269,7 @@ define i32 @uloc_getKeywordValue_77(ptr noundef %0, ptr noundef captures(address
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z26ulocimp_getKeywordValue_77PKcSt17basic_string_viewIcSt11char_traitsIcEER10UErrorCode(ptr dead_on_unwind noalias writable sret(%"class.icu_77::CharString") align 8 %0, ptr noundef %1, i64 %2, ptr captures(address) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_Z26ulocimp_getKeywordValue_77PKcSt17basic_string_viewIcSt11char_traitsIcEER10UErrorCode(ptr dead_on_unwind noalias writable sret(%"class.icu_77::CharString") align 8 %0, ptr noundef %1, i64 %2, ptr readonly captures(address) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.icu_77::CharStringByteSink", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   %7 = load i32, ptr %4, align 4, !tbaa !13, !noalias !39
@@ -2287,7 +2287,7 @@ define void @_Z26ulocimp_getKeywordValue_77PKcSt17basic_string_viewIcSt11char_tr
           to label %12 unwind label %13
 
 12:                                               ; preds = %11
-  invoke void @_Z26ulocimp_getKeywordValue_77PKcSt17basic_string_viewIcSt11char_traitsIcEERN6icu_778ByteSinkER10UErrorCode(ptr noundef %1, i64 %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  invoke void @_Z26ulocimp_getKeywordValue_77PKcSt17basic_string_viewIcSt11char_traitsIcEERN6icu_778ByteSinkER10UErrorCode(ptr noundef %1, i64 %2, ptr readonly %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %"_ZZ26ulocimp_getKeywordValue_77PKcSt17basic_string_viewIcSt11char_traitsIcEER10UErrorCodeENK3$_0clERN6icu_778ByteSinkES6_.exit.i" unwind label %15
 
 "_ZZ26ulocimp_getKeywordValue_77PKcSt17basic_string_viewIcSt11char_traitsIcEER10UErrorCodeENK3$_0clERN6icu_778ByteSinkES6_.exit.i": ; preds = %12
@@ -2317,7 +2317,7 @@ define void @_Z26ulocimp_getKeywordValue_77PKcSt17basic_string_viewIcSt11char_tr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z26ulocimp_getKeywordValue_77PKcSt17basic_string_viewIcSt11char_traitsIcEERN6icu_778ByteSinkER10UErrorCode(ptr noundef %0, i64 %1, ptr captures(address) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_Z26ulocimp_getKeywordValue_77PKcSt17basic_string_viewIcSt11char_traitsIcEERN6icu_778ByteSinkER10UErrorCode(ptr noundef %0, i64 %1, ptr readonly captures(address) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.icu_77::CharString", align 8
   %7 = alloca %"class.icu_77::CharString", align 8
   %8 = alloca %"class.icu_77::CharString", align 8
@@ -2827,7 +2827,7 @@ declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uloc_setKeywordValue_77(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define i32 @uloc_setKeywordValue_77(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.icu_77::CheckedArrayByteSink", align 8
   %7 = load i32, ptr %4, align 4, !tbaa !13
   %8 = icmp slt i32 %7, 1
@@ -2958,7 +2958,7 @@ locale_getKeywordsStart_77.exit:                  ; preds = %_ZNSt11char_traitsI
 declare void @_ZN6icu_7720CheckedArrayByteSinkC1EPci(ptr noundef nonnull align 8 dereferenceable(29), ptr noundef, i32 noundef) unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z26ulocimp_setKeywordValue_77St17basic_string_viewIcSt11char_traitsIcEES2_S2_RN6icu_778ByteSinkER10UErrorCode(i64 %0, ptr %1, i64 %2, ptr captures(address) %3, i64 %4, ptr readonly captures(address) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_Z26ulocimp_setKeywordValue_77St17basic_string_viewIcSt11char_traitsIcEES2_S2_RN6icu_778ByteSinkER10UErrorCode(i64 %0, ptr %1, i64 %2, ptr readonly captures(address) %3, i64 %4, ptr readonly captures(address) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.icu_77::CharString", align 8
   %10 = alloca %"class.icu_77::CharString", align 8
   %11 = alloca %"class.icu_77::CharString", align 8
@@ -3577,7 +3577,7 @@ declare i32 @u_terminateChars_77(ptr noundef, i32 noundef, i32 noundef, ptr noun
 declare void @_ZN6icu_7720CheckedArrayByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(29)) unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z26ulocimp_setKeywordValue_77St17basic_string_viewIcSt11char_traitsIcEES2_RN6icu_7710CharStringER10UErrorCode(i64 %0, ptr captures(address) %1, i64 %2, ptr captures(address) %3, ptr noundef nonnull align 8 dereferenceable(60) %4, ptr noundef nonnull align 4 dereferenceable(4) %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_Z26ulocimp_setKeywordValue_77St17basic_string_viewIcSt11char_traitsIcEES2_RN6icu_7710CharStringER10UErrorCode(i64 %0, ptr readonly captures(address) %1, i64 %2, ptr readonly captures(address) %3, ptr noundef nonnull align 8 dereferenceable(60) %4, ptr noundef nonnull align 4 dereferenceable(4) %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.icu_77::CharStringByteSink", align 8
   %8 = load i32, ptr %5, align 4, !tbaa !13
   %9 = icmp slt i32 %8, 1
@@ -3932,7 +3932,7 @@ define void @_Z21ulocimp_getVariant_77St17basic_string_viewIcSt11char_traitsIcEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z21ulocimp_getSubtags_77St17basic_string_viewIcSt11char_traitsIcEEPN6icu_7710CharStringES5_S5_S5_PPKcR10UErrorCode(i64 %0, ptr %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %7) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_Z21ulocimp_getSubtags_77St17basic_string_viewIcSt11char_traitsIcEEPN6icu_7710CharStringES5_S5_S5_PPKcR10UErrorCode(i64 %0, ptr %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %7) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::optional.6", align 8
   %10 = alloca %"class.std::optional.6", align 8
   %11 = alloca %"class.std::optional.6", align 8

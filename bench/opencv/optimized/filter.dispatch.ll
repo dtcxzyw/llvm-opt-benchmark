@@ -8605,7 +8605,7 @@ define hidden noundef i32 @_ZNK2cv12FilterEngine19remainingOutputRowsEv(ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN2cv12FilterEngine7proceedEPKhiiPhi(ptr noundef nonnull align 8 captures(none) dereferenceable(304) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN2cv12FilterEngine7proceedEPKhiiPhi(ptr noundef nonnull align 8 captures(none) dereferenceable(304) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.cv::utils::trace::details::Region", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.18", align 1

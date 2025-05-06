@@ -1350,13 +1350,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62.i: ; preds = %_
   br i1 %466, label %467, label %505
 
 467:                                              ; preds = %457
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(160) %461, ptr noundef %370, ptr noundef nonnull readonly align 8 dereferenceable(34) %10)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(160) %461, ptr noundef readonly %370, ptr noundef nonnull readonly align 8 dereferenceable(34) %10)
           to label %.noexc102 unwind label %.loopexit.split-lp.loopexit
 
 .noexc102:                                        ; preds = %467
   %468 = load ptr, ptr %458, align 8, !tbaa !90
   %469 = getelementptr inbounds nuw i8, ptr %468, i64 160
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(160) %469, ptr noundef %370, ptr noundef nonnull readonly align 8 dereferenceable(34) %10)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(160) %469, ptr noundef readonly %370, ptr noundef nonnull readonly align 8 dereferenceable(34) %10)
           to label %.noexc103 unwind label %.loopexit.split-lp.loopexit
 
 .noexc103:                                        ; preds = %.noexc102
@@ -1421,7 +1421,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit67.i: ; preds = %
 .noexc111:                                        ; preds = %.noexc110
   %496 = load ptr, ptr %459, align 8, !tbaa !41
   %497 = getelementptr inbounds i8, ptr %496, i64 -160
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(160) %497, ptr noundef %370, ptr noundef nonnull readonly align 8 dereferenceable(34) %10)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(160) %497, ptr noundef readonly %370, ptr noundef nonnull readonly align 8 dereferenceable(34) %10)
           to label %.noexc112 unwind label %.loopexit.split-lp.loopexit
 
 .noexc112:                                        ; preds = %.noexc111
@@ -1487,7 +1487,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i74.i: ; preds = %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %505, %.noexc119
   %.sroa.078.093.i = phi ptr [ %521, %.noexc119 ], [ %507, %505 ]
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.078.093.i, ptr noundef %370, ptr noundef nonnull readonly align 8 dereferenceable(34) %10)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.078.093.i, ptr noundef readonly %370, ptr noundef nonnull readonly align 8 dereferenceable(34) %10)
           to label %.noexc119 unwind label %.loopexit
 
 .noexc119:                                        ; preds = %.lr.ph.i
@@ -7447,7 +7447,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef captures(address_is_null) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(34) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_114GenerateRegionERSoRKNS_12BinaryRegionERKNS_13BinarySectionEPKhRKNS0_12OutputConfigE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(34) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca i8, align 1
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -8470,7 +8470,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit120.i: ; preds = %426,
   %431 = add i64 %402, 3
   store i64 %431, ptr %30, align 8, !tbaa !279
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #16
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_113ToValueStringB5cxx11ERKNS_12BinaryRegionEPKhRKNS0_12OutputConfigE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef %2, ptr noundef nonnull readonly align 8 dereferenceable(34) %3)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_113ToValueStringB5cxx11ERKNS_12BinaryRegionEPKhRKNS0_12OutputConfigE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef readonly %2, ptr noundef nonnull readonly align 8 dereferenceable(34) %3)
           to label %.noexc91 unwind label %.loopexit1
 
 .noexc91:                                         ; preds = %430
@@ -9002,7 +9002,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit187.i: ; preds = %
   %614 = or disjoint i32 %613, 32
   store i32 %614, ptr %gep146, align 4, !tbaa !258
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #16
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_113ToValueStringB5cxx11ERKNS_12BinaryRegionEPKhRKNS0_12OutputConfigE(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef %2, ptr noundef nonnull readonly align 8 dereferenceable(34) %3)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_113ToValueStringB5cxx11ERKNS_12BinaryRegionEPKhRKNS0_12OutputConfigE(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef readonly %2, ptr noundef nonnull readonly align 8 dereferenceable(34) %3)
           to label %615 unwind label %662
 
 615:                                              ; preds = %.noexc92

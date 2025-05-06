@@ -3876,7 +3876,7 @@ for.end:                                          ; preds = %for.body, %entry
   %size.i = getelementptr inbounds nuw i8, ptr %rootAcceptor, i64 104
   %9 = load i64, ptr %size.i, align 8
   call void (ptr, ptr, ...) @_ZN6hermes9hermesLogEPKcS1_z(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.82, i64 noundef %9) #27
-  call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmENK14DiagnosticStat14printBreakdownEm(ptr noundef nonnull align 8 dereferenceable(64) %stats, i64 noundef 1)
+  call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmENK14DiagnosticStat14printBreakdownEm(ptr noundef nonnull readonly align 8 dereferenceable(64) %stats, i64 noundef 1)
   %call4.i = call ptr @setlocale(i32 noundef 1, ptr noundef %call.i7) #27
   call void (ptr, ptr, ...) @_ZN6hermes9hermesLogEPKcS1_z(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.60) #27
   %10 = load ptr, ptr %pointerBase_.i, align 8
@@ -3965,7 +3965,7 @@ for.end42:                                        ; preds = %for.body31, %_ZNSt8
   %numVariableSizedObject.i = getelementptr inbounds nuw i8, ptr %acceptor, i64 88
   %19 = load i64, ptr %numVariableSizedObject.i, align 8
   call void (ptr, ptr, ...) @_ZN6hermes9hermesLogEPKcS1_z(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.87, i64 noundef %19) #27
-  call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmENK14DiagnosticStat14printBreakdownEm(ptr noundef nonnull align 8 dereferenceable(64) %stats21, i64 noundef 1)
+  call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmENK14DiagnosticStat14printBreakdownEm(ptr noundef nonnull readonly align 8 dereferenceable(64) %stats21, i64 noundef 1)
   %call4.i32 = call ptr @setlocale(i32 noundef 1, ptr noundef %call.i28) #27
   %diagnostic.val.i = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i18, align 8
   call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %diagnostic.val.i)

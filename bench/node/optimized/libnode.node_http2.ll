@@ -15601,7 +15601,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef range(i32 -4095, 1) i32 @_ZThn56_N4node5http211Http2Stream7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_s(ptr noundef %this, ptr noundef %req_wrap, ptr noundef readonly captures(none) %bufs, i64 noundef %nbufs, ptr noundef captures(address_is_null) %send_handle) unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 -4095, 1) i32 @_ZThn56_N4node5http211Http2Stream7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_s(ptr noundef %this, ptr noundef %req_wrap, ptr noundef readonly captures(none) %bufs, i64 noundef %nbufs, ptr noundef readnone captures(address_is_null) %send_handle) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   %call = tail call noundef i32 @_ZN4node5http211Http2Stream7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_s(ptr noundef nonnull align 8 dereferenceable(368) %0, ptr noundef %req_wrap, ptr noundef %bufs, i64 noundef %nbufs, ptr noundef %send_handle)

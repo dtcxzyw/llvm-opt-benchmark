@@ -252,7 +252,7 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %38, %_ZN5draco13Enc
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5draco15MetadataEncoder23EncodeAttributeMetadataEPNS_13EncoderBufferEPKNS_17AttributeMetadataE(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN5draco15MetadataEncoder23EncodeAttributeMetadataEPNS_13EncoderBufferEPKNS_17AttributeMetadataE(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #3 align 2 {
   %.not = icmp ne ptr %2, null
   br i1 %.not, label %4, label %9
 
@@ -268,7 +268,7 @@ define noundef zeroext i1 @_ZN5draco15MetadataEncoder23EncodeAttributeMetadataEP
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5draco15MetadataEncoder22EncodeGeometryMetadataEPNS_13EncoderBufferEPKNS_16GeometryMetadataE(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN5draco15MetadataEncoder22EncodeGeometryMetadataEPNS_13EncoderBufferEPKNS_16GeometryMetadataE(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #3 align 2 {
   %.not = icmp ne ptr %2, null
   br i1 %.not, label %4, label %25
 
@@ -302,7 +302,7 @@ define noundef zeroext i1 @_ZN5draco15MetadataEncoder22EncodeGeometryMetadataEPN
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 96
   %21 = load i32, ptr %20, align 8, !tbaa !39
   %22 = tail call noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13EncoderBufferE(i32 noundef %21, ptr noundef %1)
-  %23 = tail call noundef zeroext i1 @_ZN5draco15MetadataEncoder14EncodeMetadataEPNS_13EncoderBufferEPKNS_8MetadataE(ptr noundef nonnull readnone align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull %18)
+  %23 = tail call noundef zeroext i1 @_ZN5draco15MetadataEncoder14EncodeMetadataEPNS_13EncoderBufferEPKNS_8MetadataE(ptr noundef nonnull readnone align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull readonly %18)
   br label %_ZN5draco15MetadataEncoder23EncodeAttributeMetadataEPNS_13EncoderBufferEPKNS_17AttributeMetadataE.exit
 
 _ZN5draco15MetadataEncoder23EncodeAttributeMetadataEPNS_13EncoderBufferEPKNS_17AttributeMetadataE.exit: ; preds = %.lr.ph, %19

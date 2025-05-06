@@ -1411,7 +1411,7 @@ for.end135:                                       ; preds = %if.end119
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @sdissect(ptr noundef nonnull %m, ptr noundef %start, ptr noundef captures(address) %stop, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %startst, i64 noundef %stopst) unnamed_addr #5 {
+define internal fastcc ptr @sdissect(ptr noundef nonnull %m, ptr noundef %start, ptr noundef readnone captures(address) %stop, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %startst, i64 noundef %stopst) unnamed_addr #5 {
 entry:
   %cmp132 = icmp slt i64 %startst, %stopst
   br i1 %cmp132, label %for.body.lr.ph, label %for.end119
@@ -2636,7 +2636,7 @@ for.end142:                                       ; preds = %if.end121
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @ldissect(ptr noundef nonnull %m, ptr noundef %start, ptr noundef captures(address) %stop, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %startst, i64 noundef %stopst) unnamed_addr #6 {
+define internal fastcc ptr @ldissect(ptr noundef nonnull %m, ptr noundef %start, ptr noundef readnone captures(address) %stop, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %startst, i64 noundef %stopst) unnamed_addr #6 {
 entry:
   %cmp132 = icmp slt i64 %startst, %stopst
   br i1 %cmp132, label %for.body.lr.ph, label %for.end119

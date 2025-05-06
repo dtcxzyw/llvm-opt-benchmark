@@ -263,7 +263,7 @@ declare void @Wlc_NtkPrintNode(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_NtkAbsGetSupp_rec(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #1 {
+define void @Wlc_NtkAbsGetSupp_rec(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #1 {
   %6 = load i16, ptr %1, align 8
   %7 = and i16 %6, 128
   %.not = icmp eq i16 %7, 0
@@ -426,7 +426,7 @@ Wlc_ObjFaninId.exit:                              ; preds = %69, %Wlc_ObjHasArra
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_NtkAbsGetSupp(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #1 {
+define void @Wlc_NtkAbsGetSupp(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #1 {
   tail call void @Wlc_NtkCleanMarks(ptr noundef %0) #24
   tail call void @Wlc_NtkAbsGetSupp_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret void
@@ -804,7 +804,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %151 = sext i32 %150 to i64
   %152 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val108, i64 %151
   tail call void @Wlc_NtkCleanMarks(ptr noundef nonnull %0) #24
-  tail call void @Wlc_NtkAbsGetSupp_rec(ptr noundef nonnull %0, ptr noundef %152, ptr noundef nonnull readonly %12, ptr noundef nonnull %50, ptr noundef null)
+  tail call void @Wlc_NtkAbsGetSupp_rec(ptr noundef nonnull %0, ptr noundef %152, ptr noundef nonnull readonly %12, ptr noundef nonnull readonly %50, ptr noundef null)
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %.val114 = load i32, ptr %96, align 4, !tbaa !11
   %153 = sext i32 %.val114 to i64
@@ -825,7 +825,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %158 = sext i32 %157 to i64
   %159 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val100, i64 %158
   tail call void @Wlc_NtkCleanMarks(ptr noundef nonnull %0) #24
-  tail call void @Wlc_NtkAbsGetSupp_rec(ptr noundef nonnull %0, ptr noundef %159, ptr noundef nonnull readonly %21, ptr noundef nonnull %50, ptr noundef null)
+  tail call void @Wlc_NtkAbsGetSupp_rec(ptr noundef nonnull %0, ptr noundef %159, ptr noundef nonnull readonly %21, ptr noundef nonnull readonly %50, ptr noundef null)
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count162
   br i1 %exitcond163.not, label %.lr.ph151, label %.critedge4, !llvm.loop !51
@@ -2114,7 +2114,7 @@ define range(i32 -1, 2) i32 @Wla_ManShrinkAbs(ptr noundef readonly captures(none
 Abc_Clock.exit.i:                                 ; preds = %11, %3
   %.0.i.neg.i = phi i64 [ %.neg2.i, %11 ], [ 1, %3 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #24
-  %15 = call ptr @Wlc_NtkIntroduceChoices(ptr noundef %8, ptr noundef readonly %6, ptr noundef %7)
+  %15 = call ptr @Wlc_NtkIntroduceChoices(ptr noundef %8, ptr noundef readonly %6, ptr noundef readonly %7)
   %16 = getelementptr i8, ptr %15, i64 20
   %.val.i.i = load i32, ptr %16, align 4, !tbaa !11
   %17 = icmp sgt i32 %.val.i.i, 0

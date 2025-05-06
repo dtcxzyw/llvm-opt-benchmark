@@ -8207,7 +8207,7 @@ define internal fastcc void @rec_for_loop(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not.i, label %31, label %fori_arg.exit
 
 31:                                               ; preds = %24
-  %32 = tail call fastcc i32 @find_kinit(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef range(i32 1, 258) %27, i32 noundef %26)
+  %32 = tail call fastcc i32 @find_kinit(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i32 noundef range(i32 1, 258) %27, i32 noundef %26)
   %.not14.i = icmp eq i32 %32, 0
   br i1 %.not14.i, label %33, label %.fori_arg.exit_crit_edge
 
@@ -8249,7 +8249,7 @@ fori_arg.exit:                                    ; preds = %.fori_arg.exit_crit
   br i1 %.not.i72, label %55, label %fori_arg.exit75
 
 55:                                               ; preds = %fori_arg.exit
-  %56 = tail call fastcc i32 @find_kinit(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef range(i32 1, 258) %51, i32 noundef %26)
+  %56 = tail call fastcc i32 @find_kinit(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i32 noundef range(i32 1, 258) %51, i32 noundef %26)
   %.not14.i74 = icmp eq i32 %56, 0
   br i1 %.not14.i74, label %57, label %fori_arg.exit75
 

@@ -1116,7 +1116,7 @@ define hidden void @hwloc_internal_memattrs_need_refresh(ptr noundef readonly ca
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_memattr_get_targets(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @hwloc_memattr_get_targets(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #3 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %10, label %8
 
@@ -1963,7 +1963,7 @@ define internal fastcc ptr @hwloc__memattr_get_target(ptr noundef captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_memattr_get_value(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, i64 noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @hwloc_memattr_get_value(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #3 {
   %7 = icmp eq i64 %4, 0
   %8 = icmp ne ptr %2, null
   %or.cond = and i1 %8, %7
@@ -2173,7 +2173,7 @@ hwloc__memattr_get_target.exit:                   ; preds = %80, %76, %67, %58
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @hwloc_internal_memattr_set_value(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, i64 noundef %6) local_unnamed_addr #3 {
+define hidden range(i32 -1, 1) i32 @hwloc_internal_memattr_set_value(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, i64 noundef %6) local_unnamed_addr #3 {
   %8 = tail call fastcc i32 @hwloc__internal_memattr_set_value(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6)
   ret i32 %8
 }
@@ -2345,7 +2345,7 @@ to_internal_location.exit:                        ; preds = %25, %20, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_memattr_get_best_target(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @hwloc_memattr_get_best_target(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #3 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %9, label %7
 

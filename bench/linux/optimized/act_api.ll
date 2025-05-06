@@ -2897,7 +2897,7 @@ declare dso_local i32 @gnet_stats_copy_queue(ptr noundef, ptr noundef, ptr nound
 declare dso_local i32 @gnet_stats_finish_copy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @tcf_action_reoffload_cb(ptr noundef captures(address_is_null) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @tcf_action_reoffload_cb(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.flow_offload_action, align 8
   %5 = alloca [32 x ptr], align 16
   %6 = alloca i64, align 8

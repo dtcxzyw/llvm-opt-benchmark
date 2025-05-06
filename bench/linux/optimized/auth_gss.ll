@@ -1669,7 +1669,7 @@ declare void @llvm.write_register.i64(metadata, i64) #11
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @gss_fill_context(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc ptr @gss_fill_context(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #2 align 16 {
   %5 = load volatile i64, ptr @jiffies, align 64
   %6 = getelementptr i8, ptr %0, i64 4
   %7 = icmp ugt ptr %6, %1

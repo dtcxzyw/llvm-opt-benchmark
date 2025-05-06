@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [6 x i8] c"name=\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_NAME_get_text_by_NID(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden i32 @X509_NAME_get_text_by_NID(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @OBJ_nid2obj(i32 noundef %1) #7
   %6 = icmp eq ptr %5, null
   br i1 %6, label %9, label %7

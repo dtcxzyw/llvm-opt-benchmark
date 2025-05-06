@@ -1235,7 +1235,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @dissect_u3v_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @dissect_u3v_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %6 = icmp ult i32 %5, 4
   br i1 %6, label %23, label %7
@@ -1419,7 +1419,7 @@ declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare ptr @wmem_packet_scope() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_u3v_read_mem_cmd(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef captures(address_is_null) %4, ptr noundef writeonly captures(none) initializes((32, 44)) %5) unnamed_addr #0 {
+define internal fastcc void @dissect_u3v_read_mem_cmd(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef writeonly captures(none) initializes((32, 44)) %5) unnamed_addr #0 {
   %7 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #7
   %8 = tail call i64 @tvb_get_letoh64(ptr noundef %1, i32 noundef 12)
@@ -1525,7 +1525,7 @@ is_known_bootstrap_register.exit:                 ; preds = %44, %48
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_u3v_write_mem_cmd(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef captures(address_is_null) %4, ptr noundef writeonly captures(none) initializes((32, 44)) %5) unnamed_addr #0 {
+define internal fastcc void @dissect_u3v_write_mem_cmd(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef writeonly captures(none) initializes((32, 44)) %5) unnamed_addr #0 {
   %7 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #7
   %8 = tail call i64 @tvb_get_letoh64(ptr noundef %1, i32 noundef 12)
@@ -1808,7 +1808,7 @@ is_known_bootstrap_register.exit:                 ; preds = %59, %63
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_u3v_write_mem_ack(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef captures(address_is_null) %4, i32 %.0.val, i64 %.32.val) unnamed_addr #0 {
+define internal fastcc void @dissect_u3v_write_mem_ack(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef readonly captures(address_is_null) %4, i32 %.0.val, i64 %.32.val) unnamed_addr #0 {
   %6 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #7
   %.not = icmp eq i32 %.0.val, 0

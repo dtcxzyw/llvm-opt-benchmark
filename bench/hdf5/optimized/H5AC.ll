@@ -254,7 +254,7 @@ define zeroext i1 @H5AC_cache_image_pending(ptr noundef readonly captures(none) 
 declare zeroext i1 @H5C_cache_image_pending(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5AC_create(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @H5AC_create(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = alloca %struct.H5C_cache_image_ctl_t, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) @__const.H5AC_validate_cache_image_config.internal_config, i64 16, i1 false)
@@ -407,7 +407,7 @@ define range(i32 -1, 1) i32 @H5AC_create(ptr noundef %0, ptr noundef %1, ptr nou
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5AC_validate_config(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @H5AC_validate_config(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = alloca %struct.H5C_auto_size_ctl_t, align 8
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %2) #8
   %3 = load i8, ptr @H5AC_init_g, align 1, !tbaa !3, !range !7, !noundef !8

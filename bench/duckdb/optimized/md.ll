@@ -469,7 +469,7 @@ declare i32 @mbedtls_sha1(ptr noundef, i64 noundef, ptr noundef) local_unnamed_a
 declare i32 @mbedtls_sha256(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden i32 @mbedtls_md_hmac_starts(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #5 {
+define hidden i32 @mbedtls_md_hmac_starts(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #12
   %5 = icmp eq ptr %0, null
@@ -744,7 +744,7 @@ mbedtls_md_update.exit:                           ; preds = %23, %19, %15, %12, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden i32 @mbedtls_md_hmac_finish(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #5 {
+define hidden i32 @mbedtls_md_hmac_finish(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #12
   %4 = icmp eq ptr %0, null

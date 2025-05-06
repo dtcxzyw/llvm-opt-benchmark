@@ -2325,7 +2325,7 @@ _sp_sub_off.exit:                                 ; preds = %_sp_sub_off.exit.si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -98, 1) i32 @sp_addmod(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address) %3) local_unnamed_addr #11 {
+define range(i32 -98, 1) i32 @sp_addmod(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address) %3) local_unnamed_addr #11 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -2355,7 +2355,7 @@ define range(i32 -98, 1) i32 @sp_addmod(ptr noundef captures(address_is_null) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -98, 1) i32 @_sp_addmod(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address) %3) unnamed_addr #11 {
+define internal fastcc range(i32 -98, 1) i32 @_sp_addmod(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address) %3) unnamed_addr #11 {
   %5 = load i16, ptr %0, align 8, !tbaa !12
   %6 = load i16, ptr %1, align 8, !tbaa !12
   %. = tail call i16 @llvm.umax.i16(i16 %5, i16 %6)
@@ -2388,7 +2388,7 @@ define internal fastcc range(i32 -98, 1) i32 @_sp_addmod(ptr noundef captures(ad
   br i1 %23, label %24, label %sp_mod.exit
 
 24:                                               ; preds = %21
-  %25 = call i32 @sp_div(ptr noundef nonnull %13, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %3)
+  %25 = call i32 @sp_div(ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %2, ptr noundef null, ptr noundef nonnull %3)
   br label %sp_mod.exit
 
 sp_mod.exit:                                      ; preds = %4, %24, %21, %18, %.critedge
@@ -2397,7 +2397,7 @@ sp_mod.exit:                                      ; preds = %4, %24, %21, %18, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -98, 1) i32 @sp_submod(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #11 {
+define range(i32 -98, 1) i32 @sp_submod(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #11 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -2432,7 +2432,7 @@ define range(i32 -98, 1) i32 @sp_submod(ptr noundef captures(address) %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -98, 1) i32 @_sp_submod(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) unnamed_addr #11 {
+define internal fastcc range(i32 -98, 1) i32 @_sp_submod(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) unnamed_addr #11 {
   %5 = load i16, ptr %0, align 8, !tbaa !12
   %6 = load i16, ptr %2, align 8, !tbaa !12
   %.not = icmp ult i16 %5, %6
@@ -2499,7 +2499,7 @@ define internal fastcc range(i32 -98, 1) i32 @_sp_submod(ptr noundef captures(ad
   br i1 %36, label %.critedge59, label %sp_sub.exit
 
 .critedge59:                                      ; preds = %.loopexit122
-  %37 = call i32 @sp_div(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %15)
+  %37 = call i32 @sp_div(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %2, ptr noundef null, ptr noundef nonnull %15)
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %.critedge59..critedge59.thread_crit_edge, label %sp_sub.exit
 
@@ -2548,7 +2548,7 @@ define internal fastcc range(i32 -98, 1) i32 @_sp_submod(ptr noundef captures(ad
   br i1 %57, label %_sp_cmp.exit64, label %sp_sub.exit
 
 _sp_cmp.exit64:                                   ; preds = %.loopexit121
-  %58 = call i32 @sp_div(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %19)
+  %58 = call i32 @sp_div(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, ptr noundef null, ptr noundef nonnull %19)
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %_sp_cmp.exit64._sp_cmp.exit64.thread103_crit_edge, label %sp_sub.exit
 
@@ -3167,7 +3167,7 @@ define range(i32 -98, 1) i32 @sp_rshb(ptr noundef readonly captures(address) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -98, 1) i32 @sp_div(ptr noundef captures(address) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address) %3) local_unnamed_addr #11 {
+define range(i32 -98, 1) i32 @sp_div(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address) %3) local_unnamed_addr #11 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -4352,7 +4352,7 @@ sp_lshb.exit.thread242:                           ; preds = %sp_lshb.exit.thread
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -98, 1) i32 @sp_mod(ptr noundef captures(address) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address) %2) local_unnamed_addr #11 {
+define range(i32 -98, 1) i32 @sp_mod(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address) %2) local_unnamed_addr #11 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -4716,7 +4716,7 @@ define internal fastcc void @_sp_mul(ptr noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -98, 1) i32 @sp_mulmod(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address) %2, ptr noundef captures(address) %3) local_unnamed_addr #11 {
+define range(i32 -98, 1) i32 @sp_mulmod(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address) %2, ptr noundef captures(address) %3) local_unnamed_addr #11 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond.not25 = and i1 %5, %6
@@ -4743,7 +4743,7 @@ define range(i32 -98, 1) i32 @sp_mulmod(ptr noundef captures(address_is_null) %0
   br i1 %19, label %_sp_mulmod.exit, label %.thread
 
 .thread:                                          ; preds = %10
-  %20 = tail call i32 @sp_mul(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %3)
+  %20 = tail call i32 @sp_mul(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef nonnull %3)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %_sp_mulmod.exit
 
@@ -4753,11 +4753,11 @@ define range(i32 -98, 1) i32 @sp_mulmod(ptr noundef captures(address_is_null) %0
   br i1 %24, label %25, label %_sp_mulmod.exit
 
 25:                                               ; preds = %22
-  %26 = tail call i32 @sp_div(ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %3)
+  %26 = tail call i32 @sp_div(ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %2, ptr noundef null, ptr noundef nonnull %3)
   br label %_sp_mulmod.exit
 
 27:                                               ; preds = %9
-  %28 = tail call fastcc i32 @_sp_mulmod_tmp(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  %28 = tail call fastcc i32 @_sp_mulmod_tmp(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, ptr noundef nonnull %3)
   br label %_sp_mulmod.exit
 
 _sp_mulmod.exit:                                  ; preds = %4, %10, %27, %25, %22, %.thread
@@ -4766,7 +4766,7 @@ _sp_mulmod.exit:                                  ; preds = %4, %10, %27, %25, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -98, 1) i32 @sp_invmod(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #11 {
+define range(i32 -98, 1) i32 @sp_invmod(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #11 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond.not78 = and i1 %4, %5
@@ -4824,7 +4824,7 @@ define range(i32 -98, 1) i32 @sp_invmod(ptr noundef captures(address) %0, ptr no
   br i1 %33, label %_sp_cmp_abs.exit, label %.critedge
 
 _sp_cmp_abs.exit:                                 ; preds = %.loopexit
-  %34 = tail call i32 @sp_div(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %2)
+  %34 = tail call i32 @sp_div(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef null, ptr noundef nonnull %2)
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %_sp_cmp_abs.exit._sp_cmp_abs.exit.thread54thread-pre-split_crit_edge, label %.critedge
 
@@ -4879,7 +4879,7 @@ _sp_cmp_abs.exit.thread54:                        ; preds = %31, %_sp_cmp_abs.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -98, 1) i32 @_sp_invmod(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address_is_null) %2) unnamed_addr #11 {
+define internal fastcc range(i32 -98, 1) i32 @_sp_invmod(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef captures(address_is_null) %2) unnamed_addr #11 {
   %4 = alloca [3 x ptr], align 16
   %5 = load i16, ptr %1, align 8, !tbaa !12
   %6 = icmp ne i16 %5, 0
@@ -4981,7 +4981,7 @@ define internal fastcc range(i32 -98, 1) i32 @_sp_invmod(ptr noundef captures(ad
 
 sp_mod.exit:                                      ; preds = %48, %49
   store i16 %46, ptr %10, align 16, !tbaa !12
-  %53 = call i32 @sp_div(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %.pre)
+  %53 = call i32 @sp_div(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %0, ptr noundef null, ptr noundef nonnull %.pre)
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %sp_sub.exit
 
@@ -6528,7 +6528,7 @@ sp_sub.exit:                                      ; preds = %108, %sp_sub.exit.s
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -98, 1) i32 @sp_invmod_mont_ct(ptr noundef captures(address_is_null) %0, ptr noundef captures(address) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #13 {
+define range(i32 -98, 1) i32 @sp_invmod_mont_ct(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #13 {
   %5 = alloca [10 x ptr], align 16
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
@@ -6653,13 +6653,13 @@ _sp_copy.exit.i:                                  ; preds = %51, %.thread.i
   br i1 %66, label %67, label %.thread186.i
 
 67:                                               ; preds = %56
-  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %59, ptr noundef nonnull %1, i64 noundef %3, i32 noundef 0)
-  %68 = tail call i32 @sp_mul(ptr noundef nonnull %59, ptr noundef nonnull %0, ptr noundef nonnull %59)
+  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %59, ptr noundef nonnull readonly %1, i64 noundef %3, i32 noundef 0)
+  %68 = tail call i32 @sp_mul(ptr noundef nonnull %59, ptr noundef nonnull readonly %0, ptr noundef nonnull %59)
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %.thread159.i, label %.thread186.i
 
 .thread159.i:                                     ; preds = %67
-  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %59, ptr noundef nonnull %1, i64 noundef %3, i32 noundef 0)
+  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %59, ptr noundef nonnull readonly %1, i64 noundef %3, i32 noundef 0)
   %indvars.iv.next236.i = add nuw nsw i64 %indvars.iv235.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next236.i, 8
   br i1 %exitcond.not, label %.loopexit.i, label %56, !llvm.loop !80
@@ -6931,7 +6931,7 @@ sp_is_bit_set.exit147.i:                          ; preds = %154, %.lr.ph218.i
   br i1 %174, label %175, label %.thread186.i
 
 175:                                              ; preds = %.lr.ph212.i
-  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %40, ptr noundef nonnull %1, i64 noundef %3, i32 noundef 0)
+  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %40, ptr noundef nonnull readonly %1, i64 noundef %3, i32 noundef 0)
   %176 = add nsw i32 %.3124211.i, -1
   %177 = icmp samesign ugt i32 %.3124211.i, 1
   br i1 %177, label %.lr.ph212.i, label %.loopexit280.i, !llvm.loop !82
@@ -6946,7 +6946,7 @@ sp_is_bit_set.exit147.i:                          ; preds = %154, %.lr.ph218.i
   br i1 %183, label %184, label %.thread186.i
 
 184:                                              ; preds = %.loopexit280.i
-  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %40, ptr noundef nonnull %1, i64 noundef %3, i32 noundef 0)
+  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %40, ptr noundef nonnull readonly %1, i64 noundef %3, i32 noundef 0)
   br label %.thread174.i
 
 .thread174.i:                                     ; preds = %184, %166
@@ -6967,7 +6967,7 @@ sp_is_bit_set.exit147.i:                          ; preds = %154, %.lr.ph218.i
   br i1 %189, label %190, label %.thread186.i
 
 190:                                              ; preds = %.lr.ph224.i
-  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %40, ptr noundef nonnull %1, i64 noundef %3, i32 noundef 0)
+  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %40, ptr noundef nonnull readonly %1, i64 noundef %3, i32 noundef 0)
   %191 = add nsw i32 %.4125223.i, -1
   %192 = icmp samesign ugt i32 %.4125223.i, 1
   br i1 %192, label %.lr.ph224.i, label %.loopexit278.i, !llvm.loop !84
@@ -6986,7 +6986,7 @@ sp_is_bit_set.exit147.i:                          ; preds = %154, %.lr.ph218.i
   br i1 %200, label %201, label %.thread186.i
 
 201:                                              ; preds = %194
-  tail call fastcc void @_sp_mont_red(ptr noundef %2, ptr noundef nonnull %1, i64 noundef %3, i32 noundef 0)
+  tail call fastcc void @_sp_mont_red(ptr noundef %2, ptr noundef nonnull readonly %1, i64 noundef %3, i32 noundef 0)
   br label %.thread186.i
 
 thread-pre-split.i:                               ; preds = %.loopexit278.i
@@ -7032,7 +7032,7 @@ _sp_invmod_mont_ct.exit:                          ; preds = %.thread25.thread, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -98, 1) i32 @sp_exptmod_ex(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef captures(address) %3, ptr noundef captures(address) %4) local_unnamed_addr #11 {
+define range(i32 -98, 1) i32 @sp_exptmod_ex(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef readonly captures(address) %3, ptr noundef captures(address) %4) local_unnamed_addr #11 {
 sp_count_bits.exit:
   %.not.i126 = icmp eq ptr %1, null
   br i1 %.not.i126, label %sp_count_bits.exit139.thread, label %sp_count_bits.exit139
@@ -7139,7 +7139,7 @@ sp_count_bits.exit139:                            ; preds = %sp_count_bits.exit
   br i1 %or.cond173.not, label %_sp_cmp_abs.exit, label %49
 
 49:                                               ; preds = %47
-  %50 = tail call i32 @sp_div(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %4)
+  %50 = tail call i32 @sp_div(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %3, ptr noundef null, ptr noundef nonnull %4)
   %51 = freeze i32 %50
   br label %sp_mod.exit
 
@@ -7249,7 +7249,7 @@ _sp_cmp_abs.exit:                                 ; preds = %43, %sp_mod.exit, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -98, 1) i32 @_sp_exptmod_base_2(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(address) %2, ptr noundef writeonly captures(none) %3) unnamed_addr #11 {
+define internal fastcc range(i32 -98, 1) i32 @_sp_exptmod_base_2(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address) %2, ptr noundef writeonly captures(none) %3) unnamed_addr #11 {
   %5 = load i16, ptr %2, align 8, !tbaa !12
   %.fr252 = freeze i16 %5
   %6 = zext i16 %.fr252 to i64
@@ -7357,7 +7357,7 @@ define internal fastcc range(i32 -98, 1) i32 @_sp_exptmod_base_2(ptr noundef rea
   br i1 %62, label %sp_mod.exit, label %.loopexit
 
 sp_mod.exit:                                      ; preds = %60
-  %63 = call i32 @sp_div(ptr noundef nonnull %18, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %18)
+  %63 = call i32 @sp_div(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %2, ptr noundef null, ptr noundef nonnull %18)
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %.lr.ph, label %.loopexit
 
@@ -7443,7 +7443,7 @@ sp_mod.exit149.us:                                ; preds = %.split.us
   br i1 %106, label %sp_mod.exit149, label %.loopexit
 
 sp_mod.exit149:                                   ; preds = %104
-  %107 = call i32 @sp_div(ptr noundef nonnull %18, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %18)
+  %107 = call i32 @sp_div(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %2, ptr noundef null, ptr noundef nonnull %18)
   %108 = add nuw nsw i32 %.0236, 1
   %109 = icmp samesign ult i32 %.0236, 4
   %110 = icmp eq i32 %107, 0
@@ -7476,7 +7476,7 @@ sp_mod.exit149:                                   ; preds = %104
   br i1 %120, label %121, label %.loopexit
 
 121:                                              ; preds = %118
-  %122 = call i32 @sp_div(ptr noundef nonnull %18, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %18)
+  %122 = call i32 @sp_div(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %2, ptr noundef null, ptr noundef nonnull %18)
   br label %sp_mod.exit152
 
 sp_mod.exit152:                                   ; preds = %.split238.us, %121
@@ -7519,7 +7519,7 @@ _sp_copy.exit:                                    ; preds = %128, %130
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -98, 1) i32 @_sp_exptmod_mont_ex(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(none) %4) unnamed_addr #11 {
+define internal fastcc range(i32 -98, 1) i32 @_sp_exptmod_mont_ex(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(none) %4) unnamed_addr #11 {
   %6 = alloca [4 x ptr], align 16
   %7 = load i16, ptr %3, align 8, !tbaa !12
   %8 = zext i16 %7 to i64
@@ -7614,7 +7614,7 @@ define internal fastcc range(i32 -98, 1) i32 @_sp_exptmod_mont_ex(ptr noundef ca
   br i1 %55, label %sp_mod.exit, label %.thread102
 
 sp_mod.exit:                                      ; preds = %.loopexit
-  %56 = call i32 @sp_div(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %11)
+  %56 = call i32 @sp_div(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %3, ptr noundef null, ptr noundef nonnull %11)
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %.thread102
 
@@ -7909,7 +7909,7 @@ _sp_copy.exit86:                                  ; preds = %176, %177
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -98, 1) i32 @_sp_exptmod_ex(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(address) %3, ptr noundef writeonly captures(none) %4) unnamed_addr #11 {
+define internal fastcc range(i32 -98, 1) i32 @_sp_exptmod_ex(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address) %3, ptr noundef writeonly captures(none) %4) unnamed_addr #11 {
   %6 = alloca [3 x ptr], align 16
   %7 = load i16, ptr %3, align 8, !tbaa !12
   %8 = zext i16 %7 to i64
@@ -7997,7 +7997,7 @@ define internal fastcc range(i32 -98, 1) i32 @_sp_exptmod_ex(ptr noundef capture
   br i1 %51, label %sp_mod.exit, label %.critedge.thread.thread
 
 sp_mod.exit:                                      ; preds = %.loopexit
-  %52 = call i32 @sp_div(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %11)
+  %52 = call i32 @sp_div(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %3, ptr noundef null, ptr noundef nonnull %11)
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %.critedge.thread.thread
 
@@ -8109,7 +8109,7 @@ _sp_copy.exit66:                                  ; preds = %67, %69
   br i1 %105, label %sp_sqrmod.exit.thread, label %.thread.i.thread.thread
 
 .thread.i:                                        ; preds = %98
-  %106 = call i32 @sp_sqr(ptr noundef nonnull %31, ptr noundef nonnull %31)
+  %106 = call i32 @sp_sqr(ptr noundef nonnull readonly %31, ptr noundef nonnull %31)
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %108, label %sp_sqrmod.exit
 
@@ -8119,11 +8119,11 @@ _sp_copy.exit66:                                  ; preds = %67, %69
   br i1 %110, label %111, label %sp_sqrmod.exit.thread
 
 111:                                              ; preds = %108
-  %112 = call i32 @sp_div(ptr noundef nonnull %31, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %31)
+  %112 = call i32 @sp_div(ptr noundef nonnull readonly %31, ptr noundef nonnull readonly %3, ptr noundef null, ptr noundef nonnull %31)
   br label %sp_sqrmod.exit
 
 .thread.i.thread.thread:                          ; preds = %.thread, %.thread.i.thread
-  %113 = call fastcc i32 @_sp_sqrmod(ptr noundef nonnull %31, ptr noundef nonnull %3, ptr noundef nonnull %31)
+  %113 = call fastcc i32 @_sp_sqrmod(ptr noundef nonnull readonly %31, ptr noundef nonnull readonly %3, ptr noundef nonnull %31)
   br label %sp_sqrmod.exit
 
 sp_sqrmod.exit:                                   ; preds = %98, %.thread.i, %111, %.thread.i.thread.thread
@@ -8199,7 +8199,7 @@ _sp_copy.exit73:                                  ; preds = %148, %149
   br i1 %.not.i, label %162, label %154
 
 154:                                              ; preds = %_sp_copy.exit73
-  %155 = call i32 @sp_mul(ptr noundef nonnull %31, ptr noundef nonnull %0, ptr noundef nonnull %31)
+  %155 = call i32 @sp_mul(ptr noundef nonnull readonly %31, ptr noundef nonnull readonly %0, ptr noundef nonnull %31)
   %156 = icmp eq i32 %155, 0
   br i1 %156, label %157, label %_sp_mulmod.exit
 
@@ -8209,11 +8209,11 @@ _sp_copy.exit73:                                  ; preds = %148, %149
   br i1 %159, label %160, label %_sp_mulmod.exit.thread
 
 160:                                              ; preds = %157
-  %161 = call i32 @sp_div(ptr noundef nonnull %31, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %31)
+  %161 = call i32 @sp_div(ptr noundef nonnull readonly %31, ptr noundef nonnull readonly %3, ptr noundef null, ptr noundef nonnull %31)
   br label %_sp_mulmod.exit
 
 162:                                              ; preds = %_sp_copy.exit73
-  %163 = call fastcc i32 @_sp_mulmod_tmp(ptr noundef nonnull %31, ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %31)
+  %163 = call fastcc i32 @_sp_mulmod_tmp(ptr noundef nonnull readonly %31, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %3, ptr noundef nonnull %31)
   br label %_sp_mulmod.exit
 
 _sp_mulmod.exit:                                  ; preds = %154, %160, %162
@@ -8285,7 +8285,7 @@ _sp_mulmod.exit.thread:                           ; preds = %157, %_sp_mulmod.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -98, 1) i32 @sp_exptmod(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef captures(address) %3) local_unnamed_addr #11 {
+define range(i32 -98, 1) i32 @sp_exptmod(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef captures(address) %3) local_unnamed_addr #11 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond.not19 = and i1 %5, %6
@@ -8307,7 +8307,7 @@ define range(i32 -98, 1) i32 @sp_exptmod(ptr noundef captures(address) %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -98, 1) i32 @sp_exptmod_nct(ptr noundef captures(address) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #13 {
+define range(i32 -98, 1) i32 @sp_exptmod_nct(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #13 {
   %5 = alloca [34 x ptr], align 16
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %1, null
@@ -8564,7 +8564,7 @@ sp_count_bits.exit.i:                             ; preds = %.lr.ph36.i.i, %61, 
   br i1 %130, label %sp_mod.exit.i, label %.thread375.i
 
 sp_mod.exit.i:                                    ; preds = %.loopexit.i
-  %131 = tail call i32 @sp_div(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %103)
+  %131 = tail call i32 @sp_div(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %2, ptr noundef null, ptr noundef nonnull %103)
   %132 = icmp eq i32 %131, 0
   br i1 %132, label %133, label %.thread375.i
 
@@ -8612,7 +8612,7 @@ _sp_copy.exit.i:                                  ; preds = %139, %_sp_cmp_abs.e
   %157 = mul i64 %154, %154
   %.neg.i.i = xor i64 %157, -1
   %.neg19.i.i = mul i64 %156, %.neg.i.i
-  %158 = tail call i32 @sp_mont_norm(ptr noundef nonnull %82, ptr noundef nonnull %2)
+  %158 = tail call i32 @sp_mont_norm(ptr noundef nonnull %82, ptr noundef nonnull readonly %2)
   %159 = icmp eq i32 %158, 0
   br i1 %159, label %160, label %.thread375.i
 
@@ -8625,7 +8625,7 @@ _sp_copy.exit.i:                                  ; preds = %139, %_sp_cmp_abs.e
   %164 = load i16, ptr %103, align 8, !tbaa !12
   %165 = zext i16 %164 to i32
   %166 = add nuw nsw i32 %165, 1
-  %167 = tail call fastcc i32 @_sp_div(ptr noundef nonnull %103, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %103, i32 noundef %166)
+  %167 = tail call fastcc i32 @_sp_div(ptr noundef nonnull %103, ptr noundef nonnull readonly %2, ptr noundef null, ptr noundef nonnull %103, i32 noundef %166)
   %168 = icmp eq i32 %167, 0
   br i1 %168, label %169, label %.thread375.i
 
@@ -8668,7 +8668,7 @@ _sp_copy.exit.i:                                  ; preds = %139, %_sp_cmp_abs.e
   br i1 %181, label %182, label %.thread375.i
 
 182:                                              ; preds = %.lr.ph.i
-  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %82, ptr noundef nonnull %2, i64 noundef %.neg19.i.i, i32 noundef 0)
+  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %82, ptr noundef nonnull readonly %2, i64 noundef %.neg19.i.i, i32 noundef 0)
   %183 = add nuw nsw i32 %.1398.i, 1
   %exitcond.not = icmp eq i32 %183, %.0231.i
   br i1 %exitcond.not, label %.lr.ph400.preheader.i, label %.lr.ph.i, !llvm.loop !93
@@ -8683,7 +8683,7 @@ _sp_copy.exit.i:                                  ; preds = %139, %_sp_cmp_abs.e
   br i1 %188, label %189, label %.thread375.i
 
 189:                                              ; preds = %.lr.ph400.i
-  tail call fastcc void @_sp_mont_red(ptr noundef %186, ptr noundef nonnull %2, i64 noundef %.neg19.i.i, i32 noundef 0)
+  tail call fastcc void @_sp_mont_red(ptr noundef %186, ptr noundef nonnull readonly %2, i64 noundef %.neg19.i.i, i32 noundef 0)
   %indvars.iv.next429.i = add nuw nsw i64 %indvars.iv428.i, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next429.i, %umax
   br i1 %exitcond66.not, label %._crit_edge.thread446.i, label %.lr.ph400.i, !llvm.loop !94
@@ -8764,7 +8764,7 @@ _sp_copy.exit.i:                                  ; preds = %139, %_sp_cmp_abs.e
   br label %.lr.ph412.i
 
 236:                                              ; preds = %._crit_edge.thread446.i
-  %237 = tail call i32 @sp_mont_norm(ptr noundef nonnull %99, ptr noundef nonnull %2)
+  %237 = tail call i32 @sp_mont_norm(ptr noundef nonnull %99, ptr noundef nonnull readonly %2)
   %238 = icmp eq i32 %237, 0
   br i1 %238, label %..lr.ph412.i_crit_edge, label %.thread375.i
 
@@ -8842,7 +8842,7 @@ _sp_copy.exit.i:                                  ; preds = %139, %_sp_cmp_abs.e
   br i1 %261, label %262, label %.thread375.i
 
 262:                                              ; preds = %.lr.ph404.i
-  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %99, ptr noundef nonnull %2, i64 noundef %.neg19.i.i, i32 noundef 0)
+  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %99, ptr noundef nonnull readonly %2, i64 noundef %.neg19.i.i, i32 noundef 0)
   %263 = add nsw i32 %.3230403.i, -1
   %264 = icmp samesign ugt i32 %.3230403.i, 1
   br i1 %264, label %.lr.ph404.i, label %._crit_edge405.i, !llvm.loop !96
@@ -8899,7 +8899,7 @@ _sp_copy.exit.i:                                  ; preds = %139, %_sp_cmp_abs.e
   br i1 %296, label %.thread350.i, label %.thread375.i
 
 .thread350.i:                                     ; preds = %291
-  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %99, ptr noundef nonnull %2, i64 noundef %.neg19.i.i, i32 noundef 0)
+  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %99, ptr noundef nonnull readonly %2, i64 noundef %.neg19.i.i, i32 noundef 0)
   %297 = icmp sgt i32 %.10.i, -1
   %298 = icmp sge i32 %.9250.i, %.0231.i
   %299 = select i1 %297, i1 true, i1 %298
@@ -8923,7 +8923,7 @@ _sp_copy.exit.i:                                  ; preds = %139, %_sp_cmp_abs.e
   br i1 %306, label %307, label %.thread375.i
 
 307:                                              ; preds = %304
-  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %99, ptr noundef nonnull %2, i64 noundef %.neg19.i.i, i32 noundef 0)
+  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %99, ptr noundef nonnull readonly %2, i64 noundef %.neg19.i.i, i32 noundef 0)
   %308 = shl nuw i64 1, %indvars.iv.next432.i
   %309 = and i64 %308, %302
   %.not290.i = icmp eq i64 %309, 0
@@ -8935,7 +8935,7 @@ _sp_copy.exit.i:                                  ; preds = %139, %_sp_cmp_abs.e
   br i1 %312, label %313, label %.thread375.i
 
 313:                                              ; preds = %310
-  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %99, ptr noundef nonnull %2, i64 noundef %.neg19.i.i, i32 noundef 0)
+  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %99, ptr noundef nonnull readonly %2, i64 noundef %.neg19.i.i, i32 noundef 0)
   br label %314
 
 314:                                              ; preds = %313, %307
@@ -8943,7 +8943,7 @@ _sp_copy.exit.i:                                  ; preds = %139, %_sp_cmp_abs.e
   br i1 %315, label %304, label %.thread372.i, !llvm.loop !97
 
 .thread372.i:                                     ; preds = %314, %.critedge.i
-  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %99, ptr noundef nonnull %2, i64 noundef %.neg19.i.i, i32 noundef 0)
+  tail call fastcc void @_sp_mont_red(ptr noundef nonnull %99, ptr noundef nonnull readonly %2, i64 noundef %.neg19.i.i, i32 noundef 0)
   %316 = load i16, ptr %99, align 8, !tbaa !12
   %317 = icmp eq i16 %316, 0
   br i1 %317, label %318, label %320
@@ -9900,7 +9900,7 @@ define internal fastcc void @_sp_sqr(ptr noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -98, 1) i32 @sp_sqrmod(ptr noundef captures(address_is_null) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #11 {
+define range(i32 -98, 1) i32 @sp_sqrmod(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #11 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond.not34 = and i1 %4, %5
@@ -9945,7 +9945,7 @@ define range(i32 -98, 1) i32 @sp_sqrmod(ptr noundef captures(address_is_null) %0
   br i1 %24, label %25, label %sp_mod.exit
 
 25:                                               ; preds = %22
-  %26 = tail call i32 @sp_div(ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %2)
+  %26 = tail call i32 @sp_div(ptr noundef nonnull readonly %2, ptr noundef nonnull readonly %1, ptr noundef null, ptr noundef nonnull %2)
   br label %sp_mod.exit
 
 27:                                               ; preds = %.thread
@@ -9961,7 +9961,7 @@ sp_mod.exit:                                      ; preds = %3, %9, %25, %22, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -98, 1) i32 @_sp_sqrmod(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address) %2) unnamed_addr #11 {
+define internal fastcc range(i32 -98, 1) i32 @_sp_sqrmod(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address) %2) unnamed_addr #11 {
   %4 = load i16, ptr %0, align 8, !tbaa !12
   %5 = icmp eq i16 %4, 0
   %6 = zext i16 %4 to i64
@@ -10002,7 +10002,7 @@ sp_init_size.exit:                                ; preds = %14
   br i1 %27, label %28, label %sp_mod.exit
 
 28:                                               ; preds = %25
-  %29 = call i32 @sp_div(ptr noundef nonnull %12, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %2)
+  %29 = call i32 @sp_div(ptr noundef nonnull readonly %12, ptr noundef nonnull readonly %1, ptr noundef null, ptr noundef nonnull %2)
   br label %sp_mod.exit
 
 sp_mod.exit:                                      ; preds = %3, %14, %28, %25, %22, %sp_init_size.exit
@@ -10011,7 +10011,7 @@ sp_mod.exit:                                      ; preds = %3, %14, %28, %25, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -98, 1) i32 @sp_mont_red_ex(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #8 {
+define range(i32 -98, 1) i32 @sp_mont_red_ex(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #8 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -12385,7 +12385,7 @@ sp_div_d.exit:                                    ; preds = %.critedge.split.loo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define range(i32 -98, 1) i32 @sp_toradix(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #15 {
+define range(i32 -98, 1) i32 @sp_toradix(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #15 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -12725,7 +12725,7 @@ _sp_copy.exit.thread:                             ; preds = %54, %._crit_edge
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -98, 1) i32 @sp_prime_is_prime(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #11 {
+define range(i32 -98, 1) i32 @sp_prime_is_prime(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #11 {
   %4 = alloca i64, align 8
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %2, null
@@ -12803,7 +12803,7 @@ sp_cmp_primes.exit:                               ; preds = %sp_cmp_d.exit.threa
   %.01624.i = phi i32 [ %.11720.i, %.loopexit.i ], [ 0, %sp_cmp_primes.exit ]
   %29 = getelementptr inbounds nuw [38 x i64], ptr @sp_comp, i64 0, i64 %indvars.iv32.i
   %30 = load i64, ptr %29, align 8, !tbaa !8
-  %31 = call i32 @sp_mod_d(ptr noundef nonnull %0, i64 noundef %30, ptr noundef nonnull %4)
+  %31 = call i32 @sp_mod_d(ptr noundef nonnull readonly %0, i64 noundef %30, ptr noundef nonnull %4)
   %32 = icmp ne i32 %31, 0
   %33 = load i64, ptr %4, align 8
   %34 = icmp eq i64 %33, 0
@@ -12869,7 +12869,7 @@ sp_cmp_primes.exit.thread:                        ; preds = %9, %7, %8, %14, %20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -98, 1) i32 @_sp_prime_trials(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef captures(none) %2) unnamed_addr #11 {
+define internal fastcc range(i32 -98, 1) i32 @_sp_prime_trials(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef captures(none) %2) unnamed_addr #11 {
   %4 = load i16, ptr %0, align 8, !tbaa !12
   %5 = zext i16 %4 to i64
   %6 = shl nuw nsw i64 %5, 4
@@ -12937,7 +12937,7 @@ define internal fastcc range(i32 -98, 1) i32 @_sp_prime_trials(ptr noundef captu
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sp_prime_is_prime_ex(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #13 {
+define i32 @sp_prime_is_prime_ex(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #13 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #19
@@ -13028,7 +13028,7 @@ sp_cmp_primes.exit:                               ; preds = %sp_cmp_d.exit.threa
   %.01624.i = phi i32 [ %.11720.i, %.loopexit.i ], [ 0, %36 ]
   %37 = getelementptr inbounds nuw [38 x i64], ptr @sp_comp, i64 0, i64 %indvars.iv32.i
   %38 = load i64, ptr %37, align 8, !tbaa !8
-  %39 = call i32 @sp_mod_d(ptr noundef %0, i64 noundef %38, ptr noundef nonnull %5)
+  %39 = call i32 @sp_mod_d(ptr noundef readonly %0, i64 noundef %38, ptr noundef nonnull %5)
   %40 = icmp ne i32 %39, 0
   %41 = load i64, ptr %5, align 8
   %42 = icmp eq i64 %41, 0
@@ -13104,7 +13104,7 @@ sp_div_primes.exit:                               ; preds = %.loopexit.i, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_sp_prime_random_trials(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef %3) unnamed_addr #13 {
+define internal fastcc i32 @_sp_prime_random_trials(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef %3) unnamed_addr #13 {
   %.pr.pre = load i16, ptr %0, align 8, !tbaa !12
   %.not25.i = icmp eq i16 %.pr.pre, 0
   br i1 %.not25.i, label %sp_count_bits.exit, label %5
@@ -13731,7 +13731,7 @@ _sp_sub_off.exit:                                 ; preds = %49, %.critedge2.i, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -98, 1) i32 @_sp_mulmod_tmp(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address) %3) unnamed_addr #11 {
+define internal fastcc range(i32 -98, 1) i32 @_sp_mulmod_tmp(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address) %3) unnamed_addr #11 {
   %5 = load i16, ptr %0, align 8, !tbaa !12
   %6 = zext i16 %5 to i32
   %7 = load i16, ptr %1, align 8, !tbaa !12
@@ -13775,7 +13775,7 @@ sp_init_size.exit:                                ; preds = %18
   br i1 %31, label %32, label %sp_mod.exit
 
 32:                                               ; preds = %29
-  %33 = call i32 @sp_div(ptr noundef nonnull %16, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %3)
+  %33 = call i32 @sp_div(ptr noundef nonnull readonly %16, ptr noundef nonnull readonly %2, ptr noundef null, ptr noundef nonnull %3)
   br label %sp_mod.exit
 
 sp_mod.exit:                                      ; preds = %4, %18, %32, %29, %26, %sp_init_size.exit
@@ -14713,7 +14713,7 @@ declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #16
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -98, 1) i32 @sp_prime_miller_rabin(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef captures(address) %3, ptr noundef captures(address) %4) unnamed_addr #11 {
+define internal fastcc range(i32 -98, 1) i32 @sp_prime_miller_rabin(ptr noundef readonly captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef captures(address) %3, ptr noundef captures(address) %4) unnamed_addr #11 {
   store i32 0, ptr %2, align 4, !tbaa !123
   %6 = icmp eq ptr %1, null
   br i1 %6, label %_sp_cmp.exit69, label %7
@@ -14949,7 +14949,7 @@ sp_rshb.exit:                                     ; preds = %sp_cnt_lsb.exit, %6
 125:                                              ; preds = %sp_rshb.exit
   %126 = load i16, ptr %4, align 8, !tbaa !12
   %127 = zext i16 %126 to i32
-  %128 = tail call i32 @sp_exptmod_ex(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef %127, ptr noundef nonnull %0, ptr noundef nonnull %1)
+  %128 = tail call i32 @sp_exptmod_ex(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %4, i32 noundef %127, ptr noundef nonnull readonly %0, ptr noundef nonnull %1)
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %130, label %_sp_cmp.exit69
 
@@ -15040,7 +15040,7 @@ _sp_cmp.exit:                                     ; preds = %140, %sp_cmp_d.exit
   br i1 %164, label %.critedge, label %172
 
 .thread.i60:                                      ; preds = %158
-  %165 = tail call i32 @sp_sqr(ptr noundef nonnull %1, ptr noundef nonnull %1)
+  %165 = tail call i32 @sp_sqr(ptr noundef nonnull readonly %1, ptr noundef nonnull %1)
   %166 = icmp eq i32 %165, 0
   br i1 %166, label %167, label %.critedge
 
@@ -15050,11 +15050,11 @@ _sp_cmp.exit:                                     ; preds = %140, %sp_cmp_d.exit
   br i1 %169, label %170, label %.critedge
 
 170:                                              ; preds = %167
-  %171 = tail call i32 @sp_div(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %1)
+  %171 = tail call i32 @sp_div(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %0, ptr noundef null, ptr noundef nonnull %1)
   br label %sp_sqrmod.exit
 
 172:                                              ; preds = %.thread.i60.thread
-  %173 = tail call fastcc i32 @_sp_sqrmod(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %1)
+  %173 = tail call fastcc i32 @_sp_sqrmod(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %0, ptr noundef nonnull %1)
   br label %sp_sqrmod.exit
 
 sp_sqrmod.exit:                                   ; preds = %170, %172

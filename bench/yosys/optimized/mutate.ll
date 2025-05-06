@@ -15830,7 +15830,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit779: ; preds = %_Z
 
 .lr.ph.i.i.i.i780:                                ; preds = %._crit_edge3213, %.lr.ph.i.i.i.i780
   %.05.i.i.i.i = phi ptr [ %3036, %.lr.ph.i.i.i.i780 ], [ %3035, %._crit_edge3213 ]
-  call fastcc void @_ZN12_GLOBAL__N_18mutate_tD2Ev(ptr noundef nonnull align 8 dereferenceable(117) %.05.i.i.i.i) #30
+  call fastcc void @_ZN12_GLOBAL__N_18mutate_tD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(117) %.05.i.i.i.i) #30
   %3036 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 120
   %.not.i.i.i.i781 = icmp eq ptr %3036, %2820
   br i1 %.not.i.i.i.i781, label %_ZSt8_DestroyIPN12_GLOBAL__N_18mutate_tES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i780, !llvm.loop !275
@@ -17069,7 +17069,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit928: ; preds = %_Z
 
 .lr.ph.i.i.i.i930:                                ; preds = %3453, %.lr.ph.i.i.i.i930
   %.05.i.i.i.i931 = phi ptr [ %3457, %.lr.ph.i.i.i.i930 ], [ %3454, %3453 ]
-  call fastcc void @_ZN12_GLOBAL__N_18mutate_tD2Ev(ptr noundef nonnull align 8 dereferenceable(117) %.05.i.i.i.i931) #30
+  call fastcc void @_ZN12_GLOBAL__N_18mutate_tD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(117) %.05.i.i.i.i931) #30
   %3457 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i931, i64 120
   %.not.i.i.i.i932 = icmp eq ptr %3457, %3456
   br i1 %.not.i.i.i.i932, label %_ZSt8_DestroyIPN12_GLOBAL__N_18mutate_tES1_EvT_S3_RSaIT0_E.exit.i935, label %.lr.ph.i.i.i.i930, !llvm.loop !275
@@ -32087,7 +32087,7 @@ _ZNSt6vectorIN5Yosys7hashlib4dictISt5tupleIJNS0_5RTLIL8IdStringES5_EEN12_GLOBAL_
 
 .lr.ph.i.i.i.i832:                                ; preds = %4401, %.lr.ph.i.i.i.i832
   %.05.i.i.i.i = phi ptr [ %4402, %.lr.ph.i.i.i.i832 ], [ %.pre3591, %4401 ]
-  call fastcc void @_ZN12_GLOBAL__N_18mutate_tD2Ev(ptr noundef nonnull align 8 dereferenceable(117) %.05.i.i.i.i) #30
+  call fastcc void @_ZN12_GLOBAL__N_18mutate_tD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(117) %.05.i.i.i.i) #30
   %4402 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 120
   %.not.i.i.i.i833 = icmp eq ptr %4402, %.pre3593
   br i1 %.not.i.i.i.i833, label %_ZSt8_DestroyIPN12_GLOBAL__N_18mutate_tES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i832, !llvm.loop !275
@@ -32388,7 +32388,7 @@ _ZN12_GLOBAL__N_119mutate_once_queue_tISt5tupleIJN5Yosys5RTLIL8IdStringES4_EENS_
 
 .lr.ph.i.i.i.i880:                                ; preds = %_ZN12_GLOBAL__N_119mutate_once_queue_tISt5tupleIJN5Yosys5RTLIL8IdStringES4_EENS_14mutate_queue_tEED2Ev.exit878, %.lr.ph.i.i.i.i880
   %.05.i.i.i.i881 = phi ptr [ %4506, %.lr.ph.i.i.i.i880 ], [ %4503, %_ZN12_GLOBAL__N_119mutate_once_queue_tISt5tupleIJN5Yosys5RTLIL8IdStringES4_EENS_14mutate_queue_tEED2Ev.exit878 ]
-  call fastcc void @_ZN12_GLOBAL__N_18mutate_tD2Ev(ptr noundef nonnull align 8 dereferenceable(117) %.05.i.i.i.i881) #30
+  call fastcc void @_ZN12_GLOBAL__N_18mutate_tD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(117) %.05.i.i.i.i881) #30
   %4506 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i881, i64 120
   %.not.i.i.i.i882 = icmp eq ptr %4506, %4505
   br i1 %.not.i.i.i.i882, label %_ZSt8_DestroyIPN12_GLOBAL__N_18mutate_tES1_EvT_S3_RSaIT0_E.exit.i885, label %.lr.ph.i.i.i.i880, !llvm.loop !275
@@ -34678,7 +34678,7 @@ _ZSt10_ConstructIN12_GLOBAL__N_18mutate_tEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ;
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %27, %.lr.ph.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i.i.i.i.i ], [ %23, %27 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_18mutate_tD2Ev(ptr noundef nonnull align 8 dereferenceable(117) %.05.i.i.i.i.i.i.i.i) #30
+  tail call fastcc void @_ZN12_GLOBAL__N_18mutate_tD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(117) %.05.i.i.i.i.i.i.i.i) #30
   %31 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i, i64 120
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %31, %.016.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_18mutate_tEEvT_S3_.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !275
@@ -34705,7 +34705,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_18mutate_tEEvT_S3_.exit.i.i.i.i.i.i: ; preds = %.lr
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt10_ConstructIN12_GLOBAL__N_18mutate_tEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i ], [ %.val.i, %_ZSt10_ConstructIN12_GLOBAL__N_18mutate_tEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
-  tail call fastcc void @_ZN12_GLOBAL__N_18mutate_tD2Ev(ptr noundef nonnull align 8 dereferenceable(117) %.05.i.i.i.i) #30
+  tail call fastcc void @_ZN12_GLOBAL__N_18mutate_tD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(117) %.05.i.i.i.i) #30
   %38 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 120
   %.not.i.i.i.i = icmp eq ptr %38, %4
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_18mutate_tES1_EvT_S3_RSaIT0_E.exit.i.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !275
@@ -34736,7 +34736,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_18mutate_tES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_Z
 _ZSt8_DestroyIPN12_GLOBAL__N_18mutate_tES1_EvT_S3_RSaIT0_E.exit53.thread.i: ; preds = %32
   %46 = extractvalue { ptr, i32 } %33, 0
   %47 = tail call ptr @__cxa_begin_catch(ptr %46) #30
-  tail call fastcc void @_ZN12_GLOBAL__N_18mutate_tD2Ev(ptr noundef nonnull align 8 dereferenceable(117) %24) #30
+  tail call fastcc void @_ZN12_GLOBAL__N_18mutate_tD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(117) %24) #30
   br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_18mutate_tESaIS1_EE13_M_deallocateEPS1_m.exit55.i
 
 48:                                               ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_18mutate_tESaIS1_EE13_M_deallocateEPS1_m.exit55.i
@@ -38213,7 +38213,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINSt7__cxx1112basi
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %191, %_ZSt10_ConstructIN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_114mutate_queue_tENS1_8hash_opsIS8_EEE7entry_tEJRKSE_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i
   %.016.i.i.i.i.i.i.i.i.i = phi ptr [ %209, %_ZSt10_ConstructIN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_114mutate_queue_tENS1_8hash_opsIS8_EEE7entry_tEJRKSE_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i ], [ %181, %191 ]
   %.01215.i.i.i.i.i.i.i.i.i = phi ptr [ %208, %_ZSt10_ConstructIN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_114mutate_queue_tENS1_8hash_opsIS8_EEE7entry_tEJRKSE_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i ], [ %.val29.i.i.i.i, %191 ]
-  invoke fastcc void @_ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_114mutate_queue_tENS0_8hash_opsIS7_EEE7entry_tC2ERKSD_(ptr noundef nonnull align 8 dereferenceable(92) %.016.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(92) %.01215.i.i.i.i.i.i.i.i.i)
+  invoke fastcc void @_ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_114mutate_queue_tENS0_8hash_opsIS7_EEE7entry_tC2ERKSD_(ptr noundef nonnull align 8 dereferenceable(92) %.016.i.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(92) %.01215.i.i.i.i.i.i.i.i.i)
           to label %_ZSt10_ConstructIN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_114mutate_queue_tENS1_8hash_opsIS8_EEE7entry_tEJRKSE_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i unwind label %210
 
 _ZSt10_ConstructIN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_114mutate_queue_tENS1_8hash_opsIS8_EEE7entry_tEJRKSE_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
@@ -38564,7 +38564,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINSt7__cxx1112basi
 .lr.ph.i.i.i.i.i.i.i33.i.i:                       ; preds = %332, %_ZSt10_ConstructIN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_114mutate_queue_tENS1_8hash_opsIS8_EEE7entry_tEJRKSE_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i37.i.i
   %.016.i.i.i.i.i.i.i34.i.i = phi ptr [ %340, %_ZSt10_ConstructIN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_114mutate_queue_tENS1_8hash_opsIS8_EEE7entry_tEJRKSE_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i37.i.i ], [ %322, %332 ]
   %.01215.i.i.i.i.i.i.i35.i.i = phi ptr [ %339, %_ZSt10_ConstructIN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_114mutate_queue_tENS1_8hash_opsIS8_EEE7entry_tEJRKSE_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i37.i.i ], [ %.val.i.i.i.i, %332 ]
-  invoke fastcc void @_ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_114mutate_queue_tENS0_8hash_opsIS7_EEE7entry_tC2ERKSD_(ptr noundef nonnull align 8 dereferenceable(92) %.016.i.i.i.i.i.i.i34.i.i, ptr noundef nonnull align 8 dereferenceable(92) %.01215.i.i.i.i.i.i.i35.i.i)
+  invoke fastcc void @_ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_114mutate_queue_tENS0_8hash_opsIS7_EEE7entry_tC2ERKSD_(ptr noundef nonnull align 8 dereferenceable(92) %.016.i.i.i.i.i.i.i34.i.i, ptr noundef nonnull readonly align 8 dereferenceable(92) %.01215.i.i.i.i.i.i.i35.i.i)
           to label %_ZSt10_ConstructIN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_114mutate_queue_tENS1_8hash_opsIS8_EEE7entry_tEJRKSE_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i37.i.i unwind label %341
 
 _ZSt10_ConstructIN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_114mutate_queue_tENS1_8hash_opsIS8_EEE7entry_tEJRKSE_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i37.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i33.i.i
@@ -46866,7 +46866,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %24, %26, %28, %30
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictISt5tupleIJNS0_5RTLIL8IdStringES5_EEN12_GLOBAL__N_114mutate_queue_tENS1_8hash_opsIS6_EEE7entry_tESD_SaISC_EET0_T_SG_SF_RT1_(ptr noundef captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef %2) unnamed_addr #13 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictISt5tupleIJNS0_5RTLIL8IdStringES5_EEN12_GLOBAL__N_114mutate_queue_tENS1_8hash_opsIS6_EEE7entry_tESD_SaISC_EET0_T_SG_SF_RT1_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef %2) unnamed_addr #13 personality ptr @__gxx_personality_v0 {
   %.not15.i.i.i.i = icmp eq ptr %0, %1
   br i1 %.not15.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN5Yosys7hashlib4dictISt5tupleIJNS0_5RTLIL8IdStringES5_EEN12_GLOBAL__N_114mutate_queue_tENS1_8hash_opsIS6_EEE7entry_tEPSC_SC_ET0_T_SH_SG_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 
@@ -46909,7 +46909,7 @@ _ZNSt5tupleIJN5Yosys5RTLIL8IdStringES2_EEC2ERKS3_.exit.i.i.i.i.i.i.i: ; preds = 
   %21 = getelementptr inbounds nuw i8, ptr %.017.i.i.i.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.01216.i.i.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, i8 0, i64 48, i1 false)
-  %23 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_18mutate_tENS1_8hash_opsIS5_EEE7entry_tESaIS9_EEaSERKSB_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %22)
+  %23 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_18mutate_tENS1_8hash_opsIS5_EEE7entry_tESaIS9_EEaSERKSB_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull readonly align 8 dereferenceable(24) %22)
           to label %24 unwind label %25
 
 24:                                               ; preds = %_ZNSt5tupleIJN5Yosys5RTLIL8IdStringES2_EEC2ERKS3_.exit.i.i.i.i.i.i.i
@@ -47574,7 +47574,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %24, %26, %28, %30
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictISt5tupleIJNS0_5RTLIL8IdStringES5_iEEN12_GLOBAL__N_114mutate_queue_tENS1_8hash_opsIS6_EEE7entry_tESD_SaISC_EET0_T_SG_SF_RT1_(ptr noundef captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef %2) unnamed_addr #13 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictISt5tupleIJNS0_5RTLIL8IdStringES5_iEEN12_GLOBAL__N_114mutate_queue_tENS1_8hash_opsIS6_EEE7entry_tESD_SaISC_EET0_T_SG_SF_RT1_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef %2) unnamed_addr #13 personality ptr @__gxx_personality_v0 {
   %.not15.i.i.i.i = icmp eq ptr %0, %1
   br i1 %.not15.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN5Yosys7hashlib4dictISt5tupleIJNS0_5RTLIL8IdStringES5_iEEN12_GLOBAL__N_114mutate_queue_tENS1_8hash_opsIS6_EEE7entry_tEPSC_SC_ET0_T_SH_SG_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 
@@ -47621,7 +47621,7 @@ _ZNSt5tupleIJN5Yosys5RTLIL8IdStringES2_iEEC2ERKS3_.exit.i.i.i.i.i.i.i: ; preds =
   %24 = getelementptr inbounds nuw i8, ptr %.017.i.i.i.i, i64 40
   %25 = getelementptr inbounds nuw i8, ptr %.01216.i.i.i.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, i8 0, i64 48, i1 false)
-  %26 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_18mutate_tENS1_8hash_opsIS5_EEE7entry_tESaIS9_EEaSERKSB_(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %25)
+  %26 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_18mutate_tENS1_8hash_opsIS5_EEE7entry_tESaIS9_EEaSERKSB_(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull readonly align 8 dereferenceable(24) %25)
           to label %27 unwind label %28
 
 27:                                               ; preds = %_ZNSt5tupleIJN5Yosys5RTLIL8IdStringES2_iEEC2ERKS3_.exit.i.i.i.i.i.i.i
@@ -49162,7 +49162,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_114mutate_queue_tENS0_8
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_114mutate_queue_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_(ptr noundef captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef %2) unnamed_addr #13 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_114mutate_queue_tENS1_8hash_opsIS4_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef %2) unnamed_addr #13 personality ptr @__gxx_personality_v0 {
   %.not15.i.i.i.i = icmp eq ptr %0, %1
   br i1 %.not15.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_114mutate_queue_tENS1_8hash_opsIS4_EEE7entry_tEPSA_SA_ET0_T_SF_SE_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 
@@ -49188,7 +49188,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i.i.i.i.i: ; preds = %5, %.lr.ph.i.i.i
   %12 = getelementptr inbounds nuw i8, ptr %.017.i.i.i.i, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %.01216.i.i.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, i8 0, i64 48, i1 false)
-  %14 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_18mutate_tENS1_8hash_opsIS5_EEE7entry_tESaIS9_EEaSERKSB_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_18mutate_tENS1_8hash_opsIS5_EEE7entry_tESaIS9_EEaSERKSB_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull readonly align 8 dereferenceable(24) %13)
           to label %15 unwind label %16
 
 15:                                               ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i.i.i.i.i
@@ -50910,7 +50910,7 @@ _ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit:    ; preds = %.thread, %24, %28, 
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictISt4pairINS0_5RTLIL8IdStringEiEN12_GLOBAL__N_114mutate_queue_tENS1_8hash_opsIS6_EEE7entry_tESD_SaISC_EET0_T_SG_SF_RT1_(ptr noundef captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef %2) unnamed_addr #13 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictISt4pairINS0_5RTLIL8IdStringEiEN12_GLOBAL__N_114mutate_queue_tENS1_8hash_opsIS6_EEE7entry_tESD_SaISC_EET0_T_SG_SF_RT1_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef %2) unnamed_addr #13 personality ptr @__gxx_personality_v0 {
   %.not15.i.i.i.i = icmp eq ptr %0, %1
   br i1 %.not15.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN5Yosys7hashlib4dictISt4pairINS0_5RTLIL8IdStringEiEN12_GLOBAL__N_114mutate_queue_tENS1_8hash_opsIS6_EEE7entry_tEPSC_SC_ET0_T_SH_SG_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 
@@ -50940,7 +50940,7 @@ _ZNSt4pairIN5Yosys5RTLIL8IdStringEiEC2ERKS3_.exit.i.i.i.i.i.i.i: ; preds = %5, %
   %15 = getelementptr inbounds nuw i8, ptr %.017.i.i.i.i, i64 32
   %16 = getelementptr inbounds nuw i8, ptr %.01216.i.i.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false)
-  %17 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_18mutate_tENS1_8hash_opsIS5_EEE7entry_tESaIS9_EEaSERKSB_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16)
+  %17 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_18mutate_tENS1_8hash_opsIS5_EEE7entry_tESaIS9_EEaSERKSB_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull readonly align 8 dereferenceable(24) %16)
           to label %18 unwind label %19
 
 18:                                               ; preds = %_ZNSt4pairIN5Yosys5RTLIL8IdStringEiEC2ERKS3_.exit.i.i.i.i.i.i.i
@@ -51406,7 +51406,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPN5Yosys7hashlib4dictINSt7__cxx1112basic_str
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_114mutate_queue_tENS0_8hash_opsIS7_EEE7entry_tC2ERKSD_(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(92) %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_114mutate_queue_tENS0_8hash_opsIS7_EEE7entry_tC2ERKSD_(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(92) %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %0, align 8, !tbaa !30
@@ -51453,7 +51453,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, i8 0, i64 48, i1 false)
-  %22 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_18mutate_tENS1_8hash_opsIS5_EEE7entry_tESaIS9_EEaSERKSB_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  %22 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_18mutate_tENS1_8hash_opsIS5_EEE7entry_tESaIS9_EEaSERKSB_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull readonly align 8 dereferenceable(24) %21)
           to label %23 unwind label %24
 
 23:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i

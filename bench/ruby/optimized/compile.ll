@@ -46813,7 +46813,7 @@ nd_line.exit125:                                  ; preds = %229, %230
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @compile_super(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef nonnull captures(address_is_null) %2, i32 noundef %3, i32 noundef range(i32 0, 128) %4) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @compile_super(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef nonnull readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef range(i32 0, 128) %4) unnamed_addr #1 {
 ISEQ_COMPILE_DATA.exit198:
   %5 = alloca [1 x %struct.iseq_link_anchor], align 16
   %6 = alloca i32, align 4
@@ -49839,7 +49839,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %116
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @compile_lvar(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) unnamed_addr #1 {
+define internal fastcc void @compile_lvar(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !45
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
@@ -51730,7 +51730,7 @@ nd_line.exit106:                                  ; preds = %iseq_compile_each.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @compile_errinfo(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef nonnull captures(address_is_null) %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @compile_errinfo(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef nonnull readonly captures(address_is_null) %2, i32 noundef %3) unnamed_addr #1 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %55
 
@@ -59422,7 +59422,7 @@ nd_line.exit2122:                                 ; preds = %nd_line.exit
 declare noalias ptr @rb_xmalloc_mul_add(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @iseq_compile_pattern_constant(ptr noundef %0, ptr noundef nonnull %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @iseq_compile_pattern_constant(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef %5) unnamed_addr #1 {
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !1050
   %.not = icmp eq ptr %8, null
@@ -59545,7 +59545,7 @@ nd_line.exit43:                                   ; preds = %nd_line.exit40, %nd
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @iseq_compile_array_deconstruct(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7, i32 noundef %8, i1 noundef zeroext %9) unnamed_addr #1 {
+define internal fastcc void @iseq_compile_array_deconstruct(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7, i32 noundef %8, i1 noundef zeroext %9) unnamed_addr #1 {
   %.not.i = icmp eq ptr %2, null
   br i1 %9, label %11, label %84
 
@@ -66493,7 +66493,7 @@ rbimpl_intern_const.exit18:                       ; preds = %.lr.ph.i16, %16
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @compile_builtin_function_call(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(address) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, ptr noundef readnone captures(address_is_null) %5, ptr noundef nonnull %6, ptr noundef nonnull %7) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @compile_builtin_function_call(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, ptr noundef readnone captures(address_is_null) %5, ptr noundef nonnull %6, ptr noundef nonnull %7) unnamed_addr #1 {
   %9 = alloca [14 x i8], align 1
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
@@ -67403,7 +67403,7 @@ declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @compile_builtin_arg(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @compile_builtin_arg(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #1 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %33, label %6
 

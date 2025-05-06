@@ -1792,7 +1792,7 @@ _ZN9CryptData9Decrypt13EPhm.exit:                 ; preds = %.lr.ph, %26, %10, %
 declare void @_ZN8Rijndael12blockDecryptEPKhmPh(ptr noundef nonnull align 4 dereferenceable(264), ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN9CryptData12SetCryptKeysEb12CRYPT_METHODP11SecPasswordPKhS4_jPhS5_(ptr noundef nonnull align 8 dereferenceable(2516) %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7, ptr noundef captures(address_is_null) %8) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN9CryptData12SetCryptKeysEb12CRYPT_METHODP11SecPasswordPKhS4_jPhS5_(ptr noundef nonnull align 8 dereferenceable(2516) %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5, i32 noundef %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef captures(address_is_null) %8) local_unnamed_addr #2 align 2 {
   %10 = alloca [512 x i32], align 16
   %11 = alloca [512 x i8], align 16
   %12 = icmp eq i32 %2, 0

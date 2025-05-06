@@ -752,7 +752,7 @@ declare i32 @ref_transaction_abort(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_cmd_update(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2) #0 {
+define internal void @parse_cmd_update(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.strbuf, align 8
   %6 = alloca %struct.object_id, align 4
@@ -823,7 +823,7 @@ define internal void @parse_cmd_update(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_cmd_create(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2) #0 {
+define internal void @parse_cmd_create(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.strbuf, align 8
   %6 = alloca %struct.object_id, align 4
@@ -897,7 +897,7 @@ define internal void @parse_cmd_create(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_cmd_delete(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2) #0 {
+define internal void @parse_cmd_delete(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.strbuf, align 8
   %6 = alloca %struct.object_id, align 4
@@ -966,7 +966,7 @@ define internal void @parse_cmd_delete(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_cmd_verify(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2) #0 {
+define internal void @parse_cmd_verify(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.strbuf, align 8
   %6 = alloca %struct.object_id, align 4

@@ -1919,7 +1919,7 @@ define void @_ZN5folly5IOBufC2EOS0_(ptr noundef nonnull align 8 dereferenceable(
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly5IOBufC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 32)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(56) %1) unnamed_addr #9 align 2 {
+define void @_ZN5folly5IOBufC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1) unnamed_addr #9 align 2 {
   %3 = alloca %"class.folly::IOBuf", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
@@ -2690,7 +2690,7 @@ _ZN5folly5IOBufnwEm.exit:                         ; preds = %_ZN5folly13checkedM
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly5IOBuf14cloneCoalescedEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly5IOBuf14cloneCoalescedEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.folly::IOBuf", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #39
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2714,7 +2714,7 @@ define void @_ZNK5folly5IOBuf14cloneCoalescedEv(ptr dead_on_unwind noalias writa
   %22 = ptrtoint ptr %17 to i64
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
-  call void @_ZNK5folly5IOBuf41cloneCoalescedAsValueWithHeadroomTailroomEmm(ptr dead_on_unwind nonnull writable sret(%"class.folly::IOBuf") align 8 %3, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %10, i64 noundef %24)
+  call void @_ZNK5folly5IOBuf41cloneCoalescedAsValueWithHeadroomTailroomEmm(ptr dead_on_unwind nonnull writable sret(%"class.folly::IOBuf") align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 noundef %10, i64 noundef %24)
   call void @llvm.experimental.noalias.scope.decl(metadata !142)
   %25 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #42
   %.not.i.i.i = icmp eq ptr %25, null
@@ -2757,7 +2757,7 @@ _ZN5folly13checkedMallocEm.exit.i.i:              ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly5IOBuf21cloneCoalescedAsValueEv(ptr dead_on_unwind noalias writable sret(%"class.folly::IOBuf") align 8 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #9 align 2 {
+define void @_ZNK5folly5IOBuf21cloneCoalescedAsValueEv(ptr dead_on_unwind noalias writable sret(%"class.folly::IOBuf") align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !69
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2784,7 +2784,7 @@ define void @_ZNK5folly5IOBuf21cloneCoalescedAsValueEv(ptr dead_on_unwind noalia
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly5IOBuf34cloneCoalescedWithHeadroomTailroomEmm(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(56) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly5IOBuf34cloneCoalescedWithHeadroomTailroomEmm(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.folly::IOBuf", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #39
   call void @_ZNK5folly5IOBuf41cloneCoalescedAsValueWithHeadroomTailroomEmm(ptr dead_on_unwind nonnull writable sret(%"class.folly::IOBuf") align 8 %5, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %2, i64 noundef %3)

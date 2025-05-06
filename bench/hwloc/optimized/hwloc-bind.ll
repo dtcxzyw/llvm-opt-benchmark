@@ -1247,7 +1247,7 @@ hwloc_calc_parse_level_size.exit.i:               ; preds = %368, %362
   br i1 %.not38.i.i.i, label %433, label %436
 
 433:                                              ; preds = %431
-  call fastcc void @hwloc_calc_process_location_set_cb(ptr noundef nonnull readonly %20, ptr noundef nonnull readonly %17, ptr noundef %427)
+  call fastcc void @hwloc_calc_process_location_set_cb(ptr noundef nonnull readonly %20, ptr noundef nonnull readonly %17, ptr noundef readonly %427)
   %434 = add nsw i32 %423, -1
   %.not40.i.i.i = icmp eq i32 %434, 0
   br i1 %.not40.i.i.i, label %hwloc_calc_append_iodev_by_index.exit.i.i, label %435
@@ -1507,7 +1507,7 @@ hwloc_calc_process_location.exit.thread.i:        ; preds = %518, %532, %._crit_
 
 hwloc_calc_process_location.exit.thread108.i:     ; preds = %524, %510, %491
   %.0.i.i.i.i.i.lcssa.sink.i = phi ptr [ %.0.i.i.i.i.i.i, %491 ], [ %.0.i.i.i.i, %510 ], [ %.17.i.i, %524 ]
-  call fastcc void @hwloc_calc_process_location_set_cb(ptr noundef nonnull readonly %20, ptr noundef nonnull readonly %17, ptr noundef nonnull %.0.i.i.i.i.i.lcssa.sink.i)
+  call fastcc void @hwloc_calc_process_location_set_cb(ptr noundef nonnull readonly %20, ptr noundef nonnull readonly %17, ptr noundef nonnull readonly %.0.i.i.i.i.i.lcssa.sink.i)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %16) #27
   br label %hwloc_calc_process_location_as_set.exit
 

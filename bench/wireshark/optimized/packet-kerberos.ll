@@ -2562,7 +2562,7 @@ declare i32 @krb5_kt_end_seq_get(ptr noundef, ptr noundef, ptr noundef) local_un
 declare i32 @krb5_kt_close(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @decrypt_krb5_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
+define hidden ptr @decrypt_krb5_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = tail call fastcc ptr @kerberos_new_private_data(ptr noundef %1)
   %8 = tail call fastcc ptr @decrypt_krb5_data_private(ptr noundef %0, ptr noundef %1, ptr noundef %7, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5)
   ret ptr %8

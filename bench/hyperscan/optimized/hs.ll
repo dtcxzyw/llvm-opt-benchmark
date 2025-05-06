@@ -2558,7 +2558,7 @@ _ZN3ue214CompileContextD2Ev.exit176:              ; preds = %_ZNKSt7__cxx1112bas
 declare void @_ZN3ue216addLitExpressionERNS_2NGEjPKcjPK11hs_expr_extjm(ptr noundef nonnull align 8 dereferenceable(1104), i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 -11, 1) i32 @hs_compile(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local range(i32 -11, 1) i32 @hs_compile(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
@@ -2708,7 +2708,7 @@ _ZN3ue24GreyD2Ev.exit19:                          ; preds = %_ZNKSt7__cxx1112bas
 declare void @_ZN3ue24GreyC1Ev(ptr noundef nonnull align 8 dereferenceable(292)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -11, 1) i32 @hs_compile_multi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -11, 1) i32 @hs_compile_multi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.ue2::Grey", align 8
   call void @llvm.lifetime.start.p0(i64 296, ptr nonnull %9) #15
   call void @_ZN3ue24GreyC1Ev(ptr noundef nonnull align 8 dereferenceable(292) %9)
@@ -2763,7 +2763,7 @@ _ZN3ue24GreyD2Ev.exit12:                          ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -11, 1) i32 @hs_compile_ext_multi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7, ptr noundef captures(address_is_null) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -11, 1) i32 @hs_compile_ext_multi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"struct.ue2::Grey", align 8
   call void @llvm.lifetime.start.p0(i64 296, ptr nonnull %10) #15
   call void @_ZN3ue24GreyC1Ev(ptr noundef nonnull align 8 dereferenceable(292) %10)
@@ -2818,7 +2818,7 @@ _ZN3ue24GreyD2Ev.exit12:                          ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 -11, 1) i32 @hs_compile_lit(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local range(i32 -11, 1) i32 @hs_compile_lit(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca i64, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -2968,7 +2968,7 @@ _ZN3ue24GreyD2Ev.exit19:                          ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -11, 1) i32 @hs_compile_lit_multi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7, ptr noundef captures(address_is_null) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -11, 1) i32 @hs_compile_lit_multi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"struct.ue2::Grey", align 8
   call void @llvm.lifetime.start.p0(i64 296, ptr nonnull %10) #15
   call void @_ZN3ue24GreyC1Ev(ptr noundef nonnull align 8 dereferenceable(292) %10)
@@ -3023,7 +3023,7 @@ _ZN3ue24GreyD2Ev.exit13:                          ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -11, 1) i32 @hs_expression_info(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local noundef range(i32 -11, 1) i32 @hs_expression_info(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call fastcc noundef i32 @_ZL22hs_expression_info_intPKcjPK11hs_expr_extjPP12hs_expr_infoPP16hs_compile_error(ptr noundef %0, i32 noundef %1, ptr noundef null, ptr noundef %2, ptr noundef %3)
   ret i32 %5
 }
@@ -3858,7 +3858,7 @@ _ZN3ue214CompileContextD2Ev.exit148:              ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -11, 1) i32 @hs_expression_ext_info(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local noundef range(i32 -11, 1) i32 @hs_expression_ext_info(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = tail call fastcc noundef i32 @_ZL22hs_expression_info_intPKcjPK11hs_expr_extjPP12hs_expr_infoPP16hs_compile_error(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret i32 %6
 }

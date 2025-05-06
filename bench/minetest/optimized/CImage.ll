@@ -952,7 +952,7 @@ return:                                           ; preds = %sw.bb37, %sw.bb23, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video6CImage6copyToEPNS0_6IImageERKNS_4core8vector2dIiEE(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr noundef captures(address_is_null) %target, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %pos) unnamed_addr #5 align 2 {
+define void @_ZN3irr5video6CImage6copyToEPNS0_6IImageERKNS_4core8vector2dIiEE(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr noundef readonly captures(address_is_null) %target, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %pos) unnamed_addr #5 align 2 {
 if.end:
   %pos.val = load <2 x i32>, ptr %pos, align 4
   %call2 = tail call fastcc noundef i32 @_ZN3irrL4BlitENS_8eBlitterEPNS_5video6IImageEPKNS_4core4rectIiEEPKNS4_8vector2dIiEES3_S8_j(i32 noundef 3, ptr noundef %target, ptr noundef null, <2 x i32> %pos.val, ptr noundef nonnull %this, ptr noundef null, i32 noundef 0)
@@ -1244,7 +1244,7 @@ cleanup92:                                        ; preds = %if.end27.us.i, %if.
 declare noundef zeroext i1 @_ZN3irr5video15CColorConverter16canConvertFormatENS0_13ECOLOR_FORMATES2_(i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video6CImage6copyToEPNS0_6IImageERKNS_4core8vector2dIiEERKNS4_4rectIiEEPSB_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %this, ptr noundef captures(address_is_null) %target, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %pos, ptr noundef nonnull align 4 captures(address_is_null) dereferenceable(16) %sourceRect, ptr noundef captures(address_is_null) %clipRect) unnamed_addr #5 align 2 {
+define void @_ZN3irr5video6CImage6copyToEPNS0_6IImageERKNS_4core8vector2dIiEERKNS4_4rectIiEEPSB_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %this, ptr noundef readonly captures(address_is_null) %target, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %pos, ptr noundef nonnull readonly align 4 captures(address_is_null) dereferenceable(16) %sourceRect, ptr noundef readonly captures(address_is_null) %clipRect) unnamed_addr #5 align 2 {
 return:
   %pos.val = load <2 x i32>, ptr %pos, align 4
   %0 = tail call fastcc noundef i32 @_ZN3irrL4BlitENS_8eBlitterEPNS_5video6IImageEPKNS_4core4rectIiEEPKNS4_8vector2dIiEES3_S8_j(i32 noundef 3, ptr noundef %target, ptr noundef %clipRect, <2 x i32> %pos.val, ptr noundef nonnull %this, ptr noundef nonnull %sourceRect, i32 noundef 0)
@@ -1252,7 +1252,7 @@ return:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video6CImage15copyToWithAlphaEPNS0_6IImageERKNS_4core8vector2dIiEERKNS4_4rectIiEERKNS0_6SColorEPSB_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %this, ptr noundef captures(address_is_null) %target, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %pos, ptr noundef nonnull align 4 captures(address_is_null) dereferenceable(16) %sourceRect, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %color, ptr noundef captures(address_is_null) %clipRect, i1 noundef zeroext %combineAlpha) unnamed_addr #5 align 2 {
+define void @_ZN3irr5video6CImage15copyToWithAlphaEPNS0_6IImageERKNS_4core8vector2dIiEERKNS4_4rectIiEERKNS0_6SColorEPSB_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %this, ptr noundef readonly captures(address_is_null) %target, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %pos, ptr noundef nonnull readonly align 4 captures(address_is_null) dereferenceable(16) %sourceRect, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %color, ptr noundef readonly captures(address_is_null) %clipRect, i1 noundef zeroext %combineAlpha) unnamed_addr #5 align 2 {
 return:
   %0 = load i32, ptr %color, align 4
   %cmp = icmp eq i32 %0, -1

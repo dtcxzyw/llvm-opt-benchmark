@@ -1271,7 +1271,7 @@ define internal fastcc noundef zeroext i8 @_ZN6icu_77L10getCharCatEi(i32 noundef
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_77L9enumNamesEPNS_10UCharNamesEiiPFaPvi15UCharNameChoicePKciES2_S3_(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, i32 noundef range(i32 -2147483648, 4) %5) unnamed_addr #0 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_77L9enumNamesEPNS_10UCharNamesEiiPFaPvi15UCharNameChoicePKciES2_S3_(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, i32 noundef range(i32 -2147483648, 4) %5) unnamed_addr #0 {
   %7 = alloca [200 x i8], align 16
   %8 = alloca [200 x i8], align 16
   %9 = alloca [200 x i8], align 16
@@ -1651,7 +1651,7 @@ _ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit210: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @u_enumCharNames_77(i32 noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define void @u_enumCharNames_77(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = icmp eq ptr %5, null
   br i1 %7, label %.loopexit, label %8
 

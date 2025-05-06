@@ -89,7 +89,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare noundef i32 @_ZN9benchmark8internal17InitializeStreamsEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN9benchmark11BoolFromEnvEPKcb(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN9benchmark11BoolFromEnvEPKcb(ptr noundef readonly captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -543,7 +543,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN9benchmark12Int32FromEnvEPKci(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN9benchmark12Int32FromEnvEPKci(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca i32, align 4
@@ -831,7 +831,7 @@ define internal fastcc noundef zeroext i1 @_ZN9benchmark12_GLOBAL__N_110ParseInt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN9benchmark13DoubleFromEnvEPKcd(ptr noundef captures(address_is_null) %0, double noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZN9benchmark13DoubleFromEnvEPKcd(ptr noundef readonly captures(address_is_null) %0, double noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca double, align 8
@@ -1099,7 +1099,7 @@ define internal fastcc noundef zeroext i1 @_ZN9benchmark12_GLOBAL__N_111ParseDou
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN9benchmark13StringFromEnvEPKcS1_(ptr noundef captures(address_is_null) %0, ptr noundef readnone captures(ret: address, provenance) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN9benchmark13StringFromEnvEPKcS1_(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(ret: address, provenance) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #21
   call fastcc void @_ZN9benchmark12_GLOBAL__N_112FlagToEnvVarB5cxx11EPKc(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %0)
@@ -1130,7 +1130,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9benchmark14KvPairsFromEnvEPKcSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEE(ptr dead_on_unwind noalias writable sret(%"class.std::map") align 8 %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN9benchmark14KvPairsFromEnvEPKcSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEE(ptr dead_on_unwind noalias writable sret(%"class.std::map") align 8 %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::map", align 8
   %6 = alloca %"class.std::vector", align 8
@@ -2263,7 +2263,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44: ; preds = %_ZN
 declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN9benchmark13ParseBoolFlagEPKcS1_Pb(ptr noundef captures(address) %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN9benchmark13ParseBoolFlagEPKcS1_Pb(ptr noundef captures(address) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = tail call noundef ptr @_ZN9benchmark14ParseFlagValueEPKcS1_b(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
@@ -2709,7 +2709,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN9benchmark15ParseStringFlagEPKcS1_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #3 {
+define noundef zeroext i1 @_ZN9benchmark15ParseStringFlagEPKcS1_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = tail call noundef ptr @_ZN9benchmark14ParseFlagValueEPKcS1_b(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false)
   %5 = icmp ne ptr %4, null
   br i1 %5, label %6, label %11
@@ -2726,7 +2726,7 @@ define noundef zeroext i1 @_ZN9benchmark15ParseStringFlagEPKcS1_PNSt7__cxx1112ba
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN9benchmark17ParseKeyValueFlagEPKcS1_PSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEE(ptr noundef captures(address) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN9benchmark17ParseKeyValueFlagEPKcS1_PSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEE(ptr noundef captures(address) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::vector", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3195,7 +3195,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN9benchmark6IsFlagEPKcS1_(ptr noundef captures(address) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #3 {
+define noundef zeroext i1 @_ZN9benchmark6IsFlagEPKcS1_(ptr noundef captures(address) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = tail call noundef ptr @_ZN9benchmark14ParseFlagValueEPKcS1_b(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
   %4 = icmp ne ptr %3, null
   ret i1 %4

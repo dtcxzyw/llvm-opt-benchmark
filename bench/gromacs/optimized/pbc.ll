@@ -344,7 +344,7 @@ declare void @_Z8pr_rvecsP8_IO_FILEiPKcPA3_Kfi(ptr noundef, i32 noundef, ptr nou
 declare void @_Z8pr_ivecsP8_IO_FILEiPKcPA3_Kiib(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z9check_box7PbcTypePA3_Kf(i32 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
+define noundef ptr @_Z9check_box7PbcTypePA3_Kf(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq i32 %0, 4
   br i1 %3, label %4, label %6
 

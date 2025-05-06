@@ -5658,7 +5658,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZN2v811ArrayBuffer15NewBackingStoreEPNS_7IsolateEm(ptr sret(%"class.std::unique_ptr.12") align 8, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef range(i32 -71, 1) i32 @_ZThn56_N4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_s(ptr noundef %this, ptr noundef %w, ptr noundef %bufs, i64 noundef %count, ptr noundef captures(address_is_null) %send_handle) unnamed_addr #6 align 2 {
+define dso_local noundef range(i32 -71, 1) i32 @_ZThn56_N4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_s(ptr noundef %this, ptr noundef %w, ptr noundef %bufs, i64 noundef %count, ptr noundef readnone captures(address_is_null) %send_handle) unnamed_addr #6 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   %call = tail call noundef i32 @_ZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_s(ptr noundef nonnull align 8 dereferenceable(457) %0, ptr noundef %w, ptr noundef %bufs, i64 noundef %count, ptr noundef %send_handle)

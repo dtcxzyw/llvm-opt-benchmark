@@ -22751,7 +22751,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13colvarbias_tiC1EPKc(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13colvarbias_tiC1EPKc(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 400
   tail call void @_ZN11colvarparseC2Ev(ptr noundef nonnull align 8 dereferenceable(320) %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 720

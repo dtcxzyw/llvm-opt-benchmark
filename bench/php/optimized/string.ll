@@ -16428,7 +16428,7 @@ declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 nounde
 declare i32 @ap_php_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @php_addcslashes(ptr noundef captures(address) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @php_addcslashes(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !16
@@ -17325,7 +17325,7 @@ define hidden void @zflf_str_replace_3(ptr noundef captures(none) %0, ptr nounde
 declare zeroext i1 @zend_flf_parse_arg_str_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_php_str_replace_common(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6, ptr noundef readonly captures(address_is_null) %7, i1 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @_php_str_replace_common(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6, ptr noundef readonly captures(address_is_null) %7, i1 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca %struct._zval_struct, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #28
   %11 = icmp ne ptr %2, null

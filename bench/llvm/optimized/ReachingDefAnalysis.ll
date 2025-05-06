@@ -5540,7 +5540,7 @@ _ZN4llvm12LiveRegUnitsD2Ev.exit:                  ; preds = %_ZNK4llvm12LiveRegU
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm19ReachingDefAnalysis13getGlobalUsesEPNS_12MachineInstrENS_8RegisterERNS_15SmallPtrSetImplIS2_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(484) %0, ptr noundef captures(address) %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(21) %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm19ReachingDefAnalysis13getGlobalUsesEPNS_12MachineInstrENS_8RegisterERNS_15SmallPtrSetImplIS2_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(484) %0, ptr noundef readonly captures(address) %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(21) %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.llvm::SmallVector.9", align 8
   %6 = alloca %"class.llvm::SmallPtrSet.220", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24

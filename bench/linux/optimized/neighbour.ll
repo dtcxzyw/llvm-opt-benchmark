@@ -408,7 +408,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @neigh_changeaddr(ptr noundef %0, ptr noundef captures(address) %1) #0 align 16 {
+define dso_local void @neigh_changeaddr(ptr noundef %0, ptr noundef readnone captures(address) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 560
   tail call void @_raw_write_lock_bh(ptr noundef nonnull %3) #21
   %4 = getelementptr i8, ptr %0, i64 584
@@ -711,13 +711,13 @@ neigh_cleanup_and_release.exit:                   ; preds = %139, %141, %142
 declare dso_local void @_raw_write_unlock_bh(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @neigh_carrier_down(ptr noundef %0, ptr noundef captures(address) %1) #0 align 16 {
+define dso_local noundef i32 @neigh_carrier_down(ptr noundef %0, ptr noundef readonly captures(address) %1) #0 align 16 {
   tail call fastcc void @__neigh_ifdown(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__neigh_ifdown(ptr noundef %0, ptr noundef captures(address) %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc void @__neigh_ifdown(ptr noundef %0, ptr noundef readonly captures(address) %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 560
   tail call void @_raw_write_lock_bh(ptr noundef nonnull %4) #21
   %5 = getelementptr i8, ptr %0, i64 584
@@ -859,7 +859,7 @@ define internal fastcc void @__neigh_ifdown(ptr noundef %0, ptr noundef captures
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @neigh_ifdown(ptr noundef %0, ptr noundef captures(address) %1) #0 align 16 {
+define dso_local noundef i32 @neigh_ifdown(ptr noundef %0, ptr noundef readonly captures(address) %1) #0 align 16 {
   tail call fastcc void @__neigh_ifdown(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false)
   ret i32 0
 }
@@ -7976,7 +7976,7 @@ define internal i32 @neigh_add(ptr noundef readonly captures(none) %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -97, 1) i32 @neigh_delete(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) #0 align 16 {
+define internal noundef range(i32 -97, 1) i32 @neigh_delete(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48

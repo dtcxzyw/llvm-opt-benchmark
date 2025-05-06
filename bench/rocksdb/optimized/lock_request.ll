@@ -2002,7 +2002,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %44, %_ZNSt6vectorIm
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku12lock_request23retry_all_lock_requestsEPNS_8locktreeEPFvPvPSt6vectorINS_14lock_wait_infoESaIS5_EEES3_PFvvE(ptr noundef nonnull %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4toku12lock_request23retry_all_lock_requestsEPNS_8locktreeEPFvPvPSt6vectorINS_14lock_wait_infoESaIS5_EEES3_PFvvE(ptr noundef nonnull %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = tail call noundef ptr @_ZN4toku8locktree21get_lock_request_infoEv(ptr noundef nonnull align 8 dereferenceable(400) %0)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load atomic i8, ptr %6 seq_cst, align 1

@@ -51,7 +51,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.33 = private unnamed_addr constant [24 x i8] c"config error: %s %s %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @gvconfig_plugin_install_from_library(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define void @gvconfig_plugin_install_from_library(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %2, align 8, !tbaa !3
   %5 = tail call fastcc ptr @gvplugin_package_record(ptr noundef %0, ptr noundef %1, ptr noundef %4)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -709,7 +709,7 @@ is_plugin.exit.i:                                 ; preds = %.critedge.i.i
   %201 = getelementptr inbounds nuw ptr, ptr %200, i64 %.04078.i
   %202 = load ptr, ptr %201, align 8, !tbaa !47
   %203 = load ptr, ptr %198, align 8, !tbaa !3
-  %204 = call fastcc ptr @gvplugin_package_record(ptr noundef %0, ptr noundef %202, ptr noundef %203)
+  %204 = call fastcc ptr @gvplugin_package_record(ptr noundef %0, ptr noundef readonly %202, ptr noundef %203)
   %205 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %206 = load ptr, ptr %205, align 8, !tbaa !9
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 8

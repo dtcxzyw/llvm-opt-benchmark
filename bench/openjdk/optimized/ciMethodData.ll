@@ -1862,7 +1862,7 @@ define hidden noundef ptr @_ZN12ciMethodData17bci_to_extra_dataEiP8ciMethodRb(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12ciMethodData11bci_to_dataEiP8ciMethod(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %0, i32 noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN12ciMethodData11bci_to_dataEiP8ciMethod(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %0, i32 noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48

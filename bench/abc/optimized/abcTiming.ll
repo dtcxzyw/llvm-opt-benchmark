@@ -2625,7 +2625,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 declare i32 @Abc_NtkGetTotalFanins(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NtkDelayTraceCritPath_rec(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Abc_NtkDelayTraceCritPath_rec(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #3 {
   %5 = getelementptr i8, ptr %1, i64 20
   %.val41 = load i32, ptr %5, align 4
   %6 = and i32 %.val41, 15

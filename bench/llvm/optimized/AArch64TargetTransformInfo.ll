@@ -19356,7 +19356,7 @@ _ZN4llvm16DenseMapIteratorIPNS_4UserEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseM
 declare noundef i32 @_ZNK4llvm16AArch64Subtarget30getVectorInsertExtractBaseCostEv(ptr noundef nonnull align 8 dereferenceable(413888)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i64, i32 } @_ZN4llvm14AArch64TTIImpl18getVectorInstrCostEjPNS_4TypeENS_19TargetTransformInfo14TargetCostKindEjPNS_5ValueENS_8ArrayRefISt5tupleIJS6_PNS_4UserEiEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef readonly byval(%"class.llvm::ArrayRef.204") align 8 captures(none) %6) local_unnamed_addr #1 align 2 {
+define dso_local { i64, i32 } @_ZN4llvm14AArch64TTIImpl18getVectorInstrCostEjPNS_4TypeENS_19TargetTransformInfo14TargetCostKindEjPNS_5ValueENS_8ArrayRefISt5tupleIJS6_PNS_4UserEiEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef readonly byval(%"class.llvm::ArrayRef.204") align 8 captures(none) %6) local_unnamed_addr #1 align 2 {
   %8 = tail call { i64, i32 } @_ZN4llvm14AArch64TTIImpl24getVectorInstrCostHelperEjPNS_4TypeEjbPKNS_11InstructionEPNS_5ValueENS_8ArrayRefISt5tupleIJS7_PNS_4UserEiEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2, i32 noundef %4, i1 noundef zeroext false, ptr noundef null, ptr noundef %5, ptr noundef nonnull byval(%"class.llvm::ArrayRef.204") align 8 %6)
   ret { i64, i32 } %8
 }

@@ -113,7 +113,7 @@ define hidden range(i32 0, 3) i32 @mlib_ImageClippingMxN(ptr noundef %0, ptr nou
 declare ptr @mlib_ImageSetSubimage(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @mlib_ImageClipping(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @mlib_ImageClipping(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = add nsw i32 %7, -1
   %10 = sdiv i32 %9, 2
   %11 = tail call i32 @mlib_ImageClippingMxN(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %7, i32 noundef %10, i32 noundef %10)

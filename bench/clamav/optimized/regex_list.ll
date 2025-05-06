@@ -62,7 +62,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.53 = private unnamed_addr constant [37 x i8] c"add_newsuffix: Unable to add filter\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
+define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca %struct.cli_ac_data, align 8
   %10 = alloca ptr, align 8
@@ -256,7 +256,7 @@ define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 
 97:                                               ; preds = %95
   %98 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %96) #15
-  %99 = call fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef %3, ptr noundef nonnull %46, i64 noundef %45)
+  %99 = call fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef readonly %3, ptr noundef nonnull %46, i64 noundef %45)
   switch i8 %99, label %117 [
     i8 63, label %100
     i8 47, label %100
@@ -274,7 +274,7 @@ define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 
 104:                                              ; preds = %102
   %105 = sub nuw i64 %42, %98
-  %106 = call fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef %3, ptr noundef nonnull %46, i64 noundef %105)
+  %106 = call fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef readonly %3, ptr noundef nonnull %46, i64 noundef %105)
   switch i8 %106, label %117 [
     i8 46, label %107
     i8 32, label %107

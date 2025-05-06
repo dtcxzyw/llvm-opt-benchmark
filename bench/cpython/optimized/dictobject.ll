@@ -5487,7 +5487,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit29, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @PyDict_Pop(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @PyDict_Pop(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %4, align 8, !tbaa !25
   %5 = getelementptr i8, ptr %.val.i, i64 168
@@ -5558,7 +5558,7 @@ pop_lock_held.exit:                               ; preds = %9, %14, %15, %23, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @PyDict_PopString(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @PyDict_PopString(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @PyUnicode_FromString(ptr noundef %1) #23
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
@@ -8352,7 +8352,7 @@ define dso_local i64 @PyDict_Size(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @PyDict_SetDefaultRef(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @PyDict_SetDefaultRef(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @dict_setdefault_ref_lock_held(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 1)
   ret i32 %5
 }

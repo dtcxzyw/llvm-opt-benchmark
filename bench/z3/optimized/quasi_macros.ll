@@ -1510,7 +1510,7 @@ _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %_ZN8obj_markI4expr1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK12quasi_macros12is_quasi_defEP10quantifierP4exprS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(560) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK12quasi_macros12is_quasi_defEP10quantifierP4exprS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(560) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 65535

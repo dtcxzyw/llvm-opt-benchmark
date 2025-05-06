@@ -419,7 +419,7 @@ H5LD_get_dset_dims.exit:                          ; preds = %26, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @H5LDget_dset_type_size(i64 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define i64 @H5LDget_dset_type_size(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc i64 @H5LD_get_dset_type_size(i64 noundef %0, ptr noundef %1)
   ret i64 %3
 }

@@ -2824,7 +2824,7 @@ declare dso_local zeroext i1 @prb_reserve(ptr noundef, ptr noundef, ptr noundef)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 65547) i32 @vprintk_emit(i32 noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
+define dso_local range(i32 0, 65547) i32 @vprintk_emit(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = load i32, ptr @suppress_printk, align 4

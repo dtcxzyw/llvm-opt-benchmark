@@ -507,7 +507,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define hidden void @_ZN6hermes2vm8Metadata7Builder5buildEv(ptr noalias nonnull writeonly sret(%"struct.hermes::vm::Metadata") align 8 captures(none) initializes((0, 17), (24, 96)) %agg.result, ptr noundef nonnull align 8 captures(address) dereferenceable(224) %this) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes2vm8Metadata7Builder5buildEv(ptr noalias nonnull writeonly sret(%"struct.hermes::vm::Metadata") align 8 captures(none) initializes((0, 17), (24, 96)) %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(224) %this) local_unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6hermes2vm8MetadataC2EONS1_7BuilderE(ptr noundef nonnull align 8 dereferenceable(96) %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %this)
   ret void

@@ -10223,7 +10223,7 @@ _ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit:     ; preds = %26
 declare noundef zeroext i1 @_ZN3net16SpdyFrameBuilder15OverwriteLengthERKNS_10SpdyFramerEm(ptr noundef nonnull align 8 dereferenceable(36), ptr noundef nonnull align 8 dereferenceable(259), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3net10SpdyFramer18SerializeSynStreamERKNS_15SpdySynStreamIRE(ptr dead_on_unwind noalias writable sret(%"class.net::SpdySerializedFrame") align 8 %0, ptr noundef nonnull align 8 dereferenceable(259) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(110) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3net10SpdyFramer18SerializeSynStreamERKNS_15SpdySynStreamIRE(ptr dead_on_unwind noalias writable sret(%"class.net::SpdySerializedFrame") align 8 %0, ptr noundef nonnull align 8 dereferenceable(259) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(110) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i32, align 4
@@ -10463,7 +10463,7 @@ _ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeader
 declare noundef zeroext i1 @_ZN3net16SpdyFrameBuilder23WriteControlFrameHeaderERKNS_10SpdyFramerENS_13SpdyFrameTypeEh(ptr noundef nonnull align 8 dereferenceable(36), ptr noundef nonnull align 8 dereferenceable(259), i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3net10SpdyFramer20SerializeHeaderBlockEPNS_16SpdyFrameBuilderERKNS_26SpdyFrameWithHeaderBlockIRE(ptr noundef nonnull align 8 dereferenceable(259) %0, ptr noundef %1, ptr noundef nonnull align 8 captures(address) dereferenceable(104) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3net10SpdyFramer20SerializeHeaderBlockEPNS_16SpdyFrameBuilderERKNS_26SpdyFrameWithHeaderBlockIRE(ptr noundef nonnull align 8 dereferenceable(259) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(104) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca %"class.net::SpdyFrameBuilder", align 8
@@ -10720,7 +10720,7 @@ _ZN3net19SpdySerializedFrameD2Ev.exit53:          ; preds = %97, %94, %90, %54
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3net10SpdyFramer17SerializeSynReplyERKNS_14SpdySynReplyIRE(ptr dead_on_unwind noalias writable sret(%"class.net::SpdySerializedFrame") align 8 %0, ptr noundef nonnull align 8 dereferenceable(259) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(104) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3net10SpdyFramer17SerializeSynReplyERKNS_14SpdySynReplyIRE(ptr dead_on_unwind noalias writable sret(%"class.net::SpdySerializedFrame") align 8 %0, ptr noundef nonnull align 8 dereferenceable(259) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(104) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca %"class.net::SpdyFrameBuilder", align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -13652,7 +13652,7 @@ declare i16 @llvm.bswap.i16(i16) #18
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitor14VisitSynStreamERKNS_15SpdySynStreamIRE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((24, 32)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(110) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitor14VisitSynStreamERKNS_15SpdySynStreamIRE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((24, 32)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(110) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.net::SpdySerializedFrame", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13688,7 +13688,7 @@ _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %13, %10, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitor13VisitSynReplyERKNS_14SpdySynReplyIRE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((24, 32)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(104) %1) unnamed_addr #0 align 2 {
+define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitor13VisitSynReplyERKNS_14SpdySynReplyIRE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((24, 32)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(104) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.net::SpdySerializedFrame", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13760,7 +13760,7 @@ _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %13, %10, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitor13VisitSettingsERKNS_14SpdySettingsIRE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((24, 32)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(58) %1) unnamed_addr #0 align 2 {
+define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitor13VisitSettingsERKNS_14SpdySettingsIRE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((24, 32)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(58) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.net::SpdySerializedFrame", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

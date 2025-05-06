@@ -997,7 +997,7 @@ define noundef i64 @_ZN11duckdb_zstd19FSE_buildCTable_rleEPjh(ptr noundef writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN11duckdb_zstd24FSE_compress_usingCTableEPvmPKvmPKj(ptr noundef %0, i64 noundef %1, ptr noundef captures(address) %2, i64 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 {
+define noundef i64 @_ZN11duckdb_zstd24FSE_compress_usingCTableEPvmPKvmPKj(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address) %2, i64 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 {
   %6 = lshr i64 %3, 7
   %7 = add i64 %3, 12
   %8 = add i64 %7, %6

@@ -434,7 +434,7 @@ declare void @LockBuffer(i32 noundef, i32 noundef) local_unnamed_addr #3
 declare zeroext i1 @CheckForSerializableConflictOutNeeded(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @heap_beginscan(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local noundef ptr @heap_beginscan(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #2 {
   tail call void @RelationIncrementReferenceCount(ptr noundef %0) #13
   %7 = and i32 %5, 2
   %.not = icmp eq i32 %7, 0
@@ -900,7 +900,7 @@ heapgettup_advance_block.exit:                    ; preds = %27, %34, %37, %38, 
 declare ptr @read_stream_begin_relation(i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_rescan(ptr noundef captures(none) initializes((64, 68), (72, 77), (80, 84), (100, 106), (112, 120), (128, 136), (144, 152)) %0, ptr noundef captures(address_is_null) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #2 {
+define dso_local void @heap_rescan(ptr noundef captures(none) initializes((64, 68), (72, 77), (80, 84), (100, 106), (112, 120), (128, 136), (144, 152)) %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #2 {
   br i1 %2, label %7, label %24
 
 7:                                                ; preds = %6

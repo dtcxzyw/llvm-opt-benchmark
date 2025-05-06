@@ -26585,7 +26585,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit.i:      ; preds = %_ZNSt8optionalIN4ab
           to label %.noexc34.i unwind label %133
 
 .noexc34.i:                                       ; preds = %118
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher41PendingFilterChainMatchManagerReadyLockedEPNS2_23FilterChainMatchManagerE(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.040.1.i, ptr noundef nonnull align 8 dereferenceable(416) %.val)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher41PendingFilterChainMatchManagerReadyLockedEPNS2_23FilterChainMatchManagerE(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.040.1.i, ptr noundef nonnull readnone align 8 dereferenceable(416) %.val)
           to label %120 unwind label %124
 
 120:                                              ; preds = %.noexc34.i

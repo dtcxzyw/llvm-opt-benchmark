@@ -4229,10 +4229,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 16:                                               ; preds = %12
   %.val24 = load ptr, ptr %4, align 8, !nonnull !8, !align !902, !noundef !8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %18 = tail call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull %.val24, ptr noalias noundef readonly align 8 dereferenceable(40) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
+  %18 = tail call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull readonly %.val24, ptr noalias noundef readonly align 8 dereferenceable(40) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %21 = tail call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull %.val24, ptr noalias noundef readonly align 8 dereferenceable(40) %19, ptr noalias noundef readonly align 8 dereferenceable(40) %20)
+  %21 = tail call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull readonly %.val24, ptr noalias noundef readonly align 8 dereferenceable(40) %19, ptr noalias noundef readonly align 8 dereferenceable(40) %20)
   %22 = zext i1 %18 to i64
   %23 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %0, i64 %22
   %24 = xor i1 %18, true
@@ -4242,15 +4242,15 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %28 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %0, i64 %27
   %29 = select i1 %21, i64 2, i64 3
   %30 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %0, i64 %29
-  %31 = tail call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull %.val24, ptr noalias noundef readonly align 8 dereferenceable(40) %28, ptr noalias noundef readonly align 8 dereferenceable(40) %23)
-  %32 = tail call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull %.val24, ptr noalias noundef readonly align 8 dereferenceable(40) %30, ptr noalias noundef readonly align 8 dereferenceable(40) %26)
+  %31 = tail call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull readonly %.val24, ptr noalias noundef readonly align 8 dereferenceable(40) %28, ptr noalias noundef readonly align 8 dereferenceable(40) %23)
+  %32 = tail call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull readonly %.val24, ptr noalias noundef readonly align 8 dereferenceable(40) %30, ptr noalias noundef readonly align 8 dereferenceable(40) %26)
   %..i = select i1 %31, ptr %28, ptr %23
   %.sroa.01.0.i = select i1 %32, ptr %26, ptr %30
   %.sroa.05.0.i = select i1 %32, ptr %28, ptr %26
   %.sroa.02.0.i = select i1 %31, ptr %23, ptr %.sroa.05.0.i
   %.sroa.09.0.i = select i1 %31, ptr %26, ptr %28
   %.sroa.06.0.i = select i1 %32, ptr %30, ptr %.sroa.09.0.i
-  %33 = tail call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull %.val24, ptr noalias noundef readonly align 8 dereferenceable(40) %.sroa.06.0.i, ptr noalias noundef readonly align 8 dereferenceable(40) %.sroa.02.0.i)
+  %33 = tail call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull readonly %.val24, ptr noalias noundef readonly align 8 dereferenceable(40) %.sroa.06.0.i, ptr noalias noundef readonly align 8 dereferenceable(40) %.sroa.02.0.i)
   %.sroa.010.0.i = select i1 %33, ptr %.sroa.06.0.i, ptr %.sroa.02.0.i
   %.sroa.011.0.i = select i1 %33, ptr %.sroa.02.0.i, ptr %.sroa.06.0.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %..i, i64 40, i1 false)
@@ -4263,10 +4263,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %37 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %0, i64 %13
   %38 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %2, i64 %13
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  %40 = tail call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull %.val24, ptr noalias noundef readonly align 8 dereferenceable(40) %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %37)
+  %40 = tail call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull readonly %.val24, ptr noalias noundef readonly align 8 dereferenceable(40) %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %37)
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 120
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 80
-  %43 = tail call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull %.val24, ptr noalias noundef readonly align 8 dereferenceable(40) %41, ptr noalias noundef readonly align 8 dereferenceable(40) %42)
+  %43 = tail call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull readonly %.val24, ptr noalias noundef readonly align 8 dereferenceable(40) %41, ptr noalias noundef readonly align 8 dereferenceable(40) %42)
   %44 = zext i1 %40 to i64
   %45 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %37, i64 %44
   %46 = xor i1 %40, true
@@ -4276,15 +4276,15 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %50 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %37, i64 %49
   %51 = select i1 %43, i64 2, i64 3
   %52 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %37, i64 %51
-  %53 = tail call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull %.val24, ptr noalias noundef readonly align 8 dereferenceable(40) %50, ptr noalias noundef readonly align 8 dereferenceable(40) %45)
-  %54 = tail call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull %.val24, ptr noalias noundef readonly align 8 dereferenceable(40) %52, ptr noalias noundef readonly align 8 dereferenceable(40) %48)
+  %53 = tail call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull readonly %.val24, ptr noalias noundef readonly align 8 dereferenceable(40) %50, ptr noalias noundef readonly align 8 dereferenceable(40) %45)
+  %54 = tail call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull readonly %.val24, ptr noalias noundef readonly align 8 dereferenceable(40) %52, ptr noalias noundef readonly align 8 dereferenceable(40) %48)
   %..i26 = select i1 %53, ptr %50, ptr %45
   %.sroa.01.0.i27 = select i1 %54, ptr %48, ptr %52
   %.sroa.05.0.i28 = select i1 %54, ptr %50, ptr %48
   %.sroa.02.0.i29 = select i1 %53, ptr %45, ptr %.sroa.05.0.i28
   %.sroa.09.0.i30 = select i1 %53, ptr %48, ptr %50
   %.sroa.06.0.i31 = select i1 %54, ptr %52, ptr %.sroa.09.0.i30
-  %55 = tail call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull %.val24, ptr noalias noundef readonly align 8 dereferenceable(40) %.sroa.06.0.i31, ptr noalias noundef readonly align 8 dereferenceable(40) %.sroa.02.0.i29)
+  %55 = tail call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull readonly %.val24, ptr noalias noundef readonly align 8 dereferenceable(40) %.sroa.06.0.i31, ptr noalias noundef readonly align 8 dereferenceable(40) %.sroa.02.0.i29)
   %.sroa.010.0.i32 = select i1 %55, ptr %.sroa.06.0.i31, ptr %.sroa.02.0.i29
   %.sroa.011.0.i33 = select i1 %55, ptr %.sroa.02.0.i29, ptr %.sroa.06.0.i31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %..i26, i64 40, i1 false)
@@ -4343,13 +4343,13 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %.sroa.017.05.i = phi ptr [ %69, %64 ], [ %87, %.noexc34 ]
   %.sroa.018.04.i = phi i64 [ 0, %64 ], [ %75, %.noexc34 ]
   %75 = add nuw nsw i64 %.sroa.018.04.i, 1
-  %76 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull %.val25, ptr noalias noundef readonly align 8 dereferenceable(40) %.sroa.06.09.i, ptr noalias noundef readonly align 8 dereferenceable(40) %.sroa.0.010.i)
+  %76 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull readonly %.val25, ptr noalias noundef readonly align 8 dereferenceable(40) %.sroa.06.09.i, ptr noalias noundef readonly align 8 dereferenceable(40) %.sroa.0.010.i)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %74
   %..i23.i = select i1 %76, ptr %.sroa.06.09.i, ptr %.sroa.0.010.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.010.08.i, ptr noundef nonnull align 8 dereferenceable(40) %..i23.i, i64 40, i1 false), !noalias !1410
-  %77 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull %.val25, ptr noalias noundef readonly align 8 dereferenceable(40) %.sroa.015.06.i, ptr noalias noundef readonly align 8 dereferenceable(40) %.sroa.013.07.i)
+  %77 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull readonly %.val25, ptr noalias noundef readonly align 8 dereferenceable(40) %.sroa.015.06.i, ptr noalias noundef readonly align 8 dereferenceable(40) %.sroa.013.07.i)
           to label %.noexc34 unwind label %.loopexit
 
 .noexc34:                                         ; preds = %.noexc

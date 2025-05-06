@@ -3651,7 +3651,7 @@ _ZN4llvm11SmallVectorIN12_GLOBAL__N_135PartiallyConstructedSafepointRecordELj64E
   store i32 0, ptr %249, align 8, !tbaa !26
   %250 = getelementptr inbounds nuw i8, ptr %75, i64 156
   store i32 0, ptr %250, align 4, !tbaa !27
-  call fastcc void @_ZL19computeLiveInValuesRN4llvm13DominatorTreeERNS_8FunctionERN12_GLOBAL__N_117GCPtrLivenessDataEPNS_10GCStrategyE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(160) %75, ptr noundef %237)
+  call fastcc void @_ZL19computeLiveInValuesRN4llvm13DominatorTreeERNS_8FunctionERN12_GLOBAL__N_117GCPtrLivenessDataEPNS_10GCStrategyE(ptr noundef nonnull readonly align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(160) %75, ptr noundef %237)
   %.not.i180 = icmp eq i32 %.val160, 0
   br i1 %.not.i180, label %_ZL18findLiveReferencesRN4llvm8FunctionERNS_13DominatorTreeENS_8ArrayRefIPNS_8CallBaseEEENS_15MutableArrayRefIN12_GLOBAL__N_135PartiallyConstructedSafepointRecordEEEPNS_10GCStrategyE.exit, label %.lr.ph.i
 
@@ -5083,7 +5083,7 @@ _ZN4llvm15SmallVectorImplIPNS_8CallInstEE7reserveEm.exit: ; preds = %.loopexit13
   store i32 0, ptr %965, align 8, !tbaa !26
   %966 = getelementptr inbounds nuw i8, ptr %72, i64 156
   store i32 0, ptr %966, align 4, !tbaa !27
-  call fastcc void @_ZL19computeLiveInValuesRN4llvm13DominatorTreeERNS_8FunctionERN12_GLOBAL__N_117GCPtrLivenessDataEPNS_10GCStrategyE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(160) %72, ptr noundef %953)
+  call fastcc void @_ZL19computeLiveInValuesRN4llvm13DominatorTreeERNS_8FunctionERN12_GLOBAL__N_117GCPtrLivenessDataEPNS_10GCStrategyE(ptr noundef nonnull readonly align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(160) %72, ptr noundef %953)
   br i1 %.lcssa1584, label %_ZL21recomputeLiveInValuesRN4llvm8FunctionERNS_13DominatorTreeENS_8ArrayRefIPNS_8CallBaseEEENS_15MutableArrayRefIN12_GLOBAL__N_135PartiallyConstructedSafepointRecordEEERNS_9MapVectorIPNS_5ValueESE_NS_8DenseMapISE_jNS_12DenseMapInfoISE_vEENS_6detail12DenseMapPairISE_jEEEENS_11SmallVectorISt4pairISE_SE_ELj0EEEEEPNS_10GCStrategyE.exit, label %.lr.ph.i214
 
 .lr.ph.i214:                                      ; preds = %._crit_edge1638

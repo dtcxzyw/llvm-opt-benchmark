@@ -1748,7 +1748,7 @@ _ZNSt6vectorIPN4llvm8CallInstESaIS2_EE5clearEv.exit.i.i: ; preds = %353, %_ZN4ll
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #20, !noalias !226
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #20, !noalias !226
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
-  call fastcc void @_ZL9scanOneBBPN4llvm11InstructionES1_RSt6vectorIPNS_8CallInstESaIS4_EERNS_8DenseSetIPNS_10BasicBlockENS_12DenseMapInfoISA_vEEEERS2_ISA_SaISA_EE(ptr noundef nonnull %359, ptr noundef nonnull %360, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  call fastcc void @_ZL9scanOneBBPN4llvm11InstructionES1_RSt6vectorIPNS_8CallInstESaIS4_EERNS_8DenseSetIPNS_10BasicBlockENS_12DenseMapInfoISA_vEEEERS2_ISA_SaISA_EE(ptr noundef nonnull %359, ptr noundef nonnull readnone %360, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %363 = load ptr, ptr %6, align 8, !tbaa !229
   %364 = load ptr, ptr %304, align 8, !tbaa !229
   %365 = icmp eq ptr %363, %364
@@ -1762,7 +1762,7 @@ _ZNSt6vectorIPN4llvm8CallInstESaIS2_EE5clearEv.exit.i.i: ; preds = %353, %_ZN4ll
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 56
   %370 = load ptr, ptr %369, align 8, !tbaa !178
   %371 = getelementptr inbounds i8, ptr %370, i64 -24
-  call fastcc void @_ZL9scanOneBBPN4llvm11InstructionES1_RSt6vectorIPNS_8CallInstESaIS4_EERNS_8DenseSetIPNS_10BasicBlockENS_12DenseMapInfoISA_vEEEERS2_ISA_SaISA_EE(ptr noundef %371, ptr noundef nonnull %360, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  call fastcc void @_ZL9scanOneBBPN4llvm11InstructionES1_RSt6vectorIPNS_8CallInstESaIS4_EERNS_8DenseSetIPNS_10BasicBlockENS_12DenseMapInfoISA_vEEEERS2_ISA_SaISA_EE(ptr noundef %371, ptr noundef nonnull readnone %360, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %372 = load ptr, ptr %6, align 8, !tbaa !229
   %373 = load ptr, ptr %304, align 8, !tbaa !229
   %374 = icmp eq ptr %372, %373

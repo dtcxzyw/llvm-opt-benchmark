@@ -14861,7 +14861,7 @@ _ZN4llvm7GVNPass9LeaderMap10getLeadersEj.exit:    ; preds = %19, %10, %.loopexit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm7GVNPass10ValueTable12phiTranslateEPKNS_10BasicBlockES4_jRS0_(ptr noundef nonnull align 8 dereferenceable(180) %0, ptr noundef %1, ptr noundef captures(address) %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(768) %4) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZN4llvm7GVNPass10ValueTable12phiTranslateEPKNS_10BasicBlockES4_jRS0_(ptr noundef nonnull align 8 dereferenceable(180) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(768) %4) local_unnamed_addr #1 align 2 {
   %6 = alloca %"struct.std::pair.398", align 8
   %7 = alloca %"struct.std::pair.402", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -14959,7 +14959,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjPKNS_10BasicBlockEEjNS_12DenseMapIn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm7GVNPass10ValueTable16phiTranslateImplEPKNS_10BasicBlockES4_jRS0_(ptr noundef nonnull align 8 dereferenceable(180) %0, ptr noundef %1, ptr noundef captures(address) %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(768) %4) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZN4llvm7GVNPass10ValueTable16phiTranslateImplEPKNS_10BasicBlockES4_jRS0_(ptr noundef nonnull align 8 dereferenceable(180) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(768) %4) local_unnamed_addr #1 align 2 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca %"struct.llvm::GVNPass::Expression", align 8
@@ -18211,7 +18211,7 @@ declare noundef zeroext i1 @_ZN4llvm16salvageKnowledgeEPNS_11InstructionEPNS_15A
 declare void @_ZN4llvm16salvageDebugInfoERNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm7GVNPass25performScalarPREInsertionEPNS_11InstructionEPNS_10BasicBlockES4_j(ptr noundef nonnull align 8 dereferenceable(768) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address) %3, i32 %4) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm7GVNPass25performScalarPREInsertionEPNS_11InstructionEPNS_10BasicBlockES4_j(ptr noundef nonnull align 8 dereferenceable(768) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i32 %4) local_unnamed_addr #1 align 2 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca %"struct.std::pair.71", align 8

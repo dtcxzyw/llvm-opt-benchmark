@@ -1105,7 +1105,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @skl_dram_get_channel_info(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) initializes((0, 4)) %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @skl_dram_get_channel_info(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) initializes((0, 4)) %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = trunc i32 %3 to i16
   tail call fastcc void @skl_dram_get_dimm_info(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext 76, i16 noundef zeroext %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4

@@ -1584,7 +1584,7 @@ object_lookup.exit.thread:                        ; preds = %.object_lookup.exit
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noundef zeroext i1 @epl_profile_object_mapping_add(ptr noundef captures(address_is_null) %0, i16 noundef zeroext %1, i8 noundef zeroext %2, i64 noundef %3) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @epl_profile_object_mapping_add(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, i8 noundef zeroext %2, i64 noundef %3) local_unnamed_addr #3 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23
   %6 = load i8, ptr @use_xdc_mappings, align 1, !range !8, !noundef !9

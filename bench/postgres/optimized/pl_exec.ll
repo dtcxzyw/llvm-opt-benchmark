@@ -11372,7 +11372,7 @@ define internal fastcc ptr @format_preparedparamsdata(ptr noundef nonnull readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @exec_dynquery_with_params(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc nonnull ptr @exec_dynquery_with_params(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1

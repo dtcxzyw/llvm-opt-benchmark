@@ -50,7 +50,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [21 x i8] c"pthread_mutex_lock()\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMIx_Data_pack(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define i32 @PMIx_Data_pack(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %struct.pmix_buffer_t, align 8
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %6) #13
   %7 = tail call fastcc ptr @find_peer(ptr noundef %0)
@@ -1079,7 +1079,7 @@ declare ptr @PMIx_Data_type_string(i16 noundef zeroext) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMIx_Data_unpack(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define i32 @PMIx_Data_unpack(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %struct.pmix_buffer_t, align 8
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %6) #13
   %7 = tail call fastcc ptr @find_peer(ptr noundef %0)

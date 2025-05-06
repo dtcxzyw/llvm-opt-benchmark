@@ -1684,7 +1684,7 @@ declare ptr @fmap_check_empty(i32 noundef, i64 noundef, i64 noundef, ptr noundef
 declare i32 @cli_recursion_stack_push(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_scan_fmap(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
+define i32 @cli_scan_fmap(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca [3 x i8], align 1
   %9 = alloca %struct.cli_ac_data, align 8
   %10 = alloca %struct.cli_ac_data, align 8

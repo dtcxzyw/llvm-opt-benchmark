@@ -29281,7 +29281,7 @@ define internal fastcc void @markreachable(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @markcanreach(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(address) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @markcanreach(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
@@ -29868,7 +29868,7 @@ breakconstraintloop.exit:                         ; preds = %isconstraintarc.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @clonesuccessorstates(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @clonesuccessorstates(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7) unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8

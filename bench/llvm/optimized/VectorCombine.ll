@@ -31491,7 +31491,7 @@ _ZNK4llvm4User10getOperandEj.exit.i.i79.i.i.i.i:  ; preds = %337, %334
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL19generateNewInstTreeN4llvm8ArrayRefISt4pairIPNS_3UseEiEEEPNS_15FixedVectorTypeERKNS_11SmallPtrSetIS3_Lj4EEESB_SB_RNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPKNS_19TargetTransformInfoE(ptr captures(address) %0, i64 %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef %7) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL19generateNewInstTreeN4llvm8ArrayRefISt4pairIPNS_3UseEiEEEPNS_15FixedVectorTypeERKNS_11SmallPtrSetIS3_Lj4EEESB_SB_RNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPKNS_19TargetTransformInfoE(ptr readonly captures(address) %0, i64 %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef %7) unnamed_addr #1 {
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"class.llvm::InsertPosition", align 8
   %11 = alloca %"class.llvm::SmallVector.146", align 8

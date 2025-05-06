@@ -12554,7 +12554,7 @@ define hidden void @_ZN3sls15datatype_plugin23repair_down_constructorEP3appP4exp
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sls15datatype_plugin20repair_down_accessorEP3appP4exprS4_(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef captures(address) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3sls15datatype_plugin20repair_down_accessorEP3appP4exprS4_(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef readonly captures(address) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.obj_ref, align 8
   %6 = alloca %class.ref_vector, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16

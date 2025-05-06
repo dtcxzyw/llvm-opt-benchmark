@@ -156,7 +156,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6format22MacroCallReconstructor7addLineERKNS0_13UnwrappedLineE(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(68) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6format22MacroCallReconstructor7addLineERKNS0_13UnwrappedLineE(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(68) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.anon, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
   store ptr %0, ptr %3, align 8, !tbaa !25

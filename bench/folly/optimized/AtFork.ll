@@ -2146,7 +2146,7 @@ _ZN5folly8FunctionIFvvEED2Ev.exit14:              ; preds = %_ZN5folly8FunctionI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6AtFork17unregisterHandlerEPKv(ptr noundef captures(address) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6AtFork17unregisterHandlerEPKv(ptr noundef readnone captures(address) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN5folly12_GLOBAL__N_119AtForkListSingleton3getEvE8instance acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %_ZN5folly12_GLOBAL__N_119AtForkListSingleton3getEv.exit, !prof !56

@@ -736,7 +736,7 @@ define i32 @ucptrie_internalGetRange_77(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucptrie_getRange_77(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
+define i32 @ucptrie_getRange_77(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = icmp eq i32 %2, 0
@@ -1556,14 +1556,14 @@ define i32 @ucpmap_get_77(ptr noundef readonly captures(none) %0, i32 noundef %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucpmap_getRange_77(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
+define i32 @ucpmap_getRange_77(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = icmp eq i32 %2, 0
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %7
-  %12 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj(ptr noundef readonly %0, i32 noundef %1, ptr noundef %4, ptr noundef %5, ptr noundef %6)
+  %12 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %4, ptr noundef %5, ptr noundef %6)
   br label %ucptrie_getRange_77.exit
 
 13:                                               ; preds = %7
@@ -1572,7 +1572,7 @@ define i32 @ucpmap_getRange_77(ptr noundef readonly captures(none) %0, i32 nound
   %spec.store.select.i.i = select i1 %14, ptr %8, ptr %6
   %15 = icmp eq i32 %2, 2
   %16 = select i1 %15, i32 57343, i32 56319
-  %17 = call fastcc noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj(ptr noundef readonly %0, i32 noundef %1, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %spec.store.select.i.i)
+  %17 = call fastcc noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %4, ptr noundef %5, ptr noundef nonnull %spec.store.select.i.i)
   %18 = icmp slt i32 %17, 55295
   %19 = icmp sgt i32 %1, %16
   %or.cond.i.i = or i1 %19, %18
@@ -1599,7 +1599,7 @@ define i32 @ucpmap_getRange_77(ptr noundef readonly captures(none) %0, i32 nound
 28:                                               ; preds = %26, %23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #10
   %29 = add nuw nsw i32 %16, 1
-  %30 = call fastcc noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj(ptr noundef readonly %0, i32 noundef %29, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %9)
+  %30 = call fastcc noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj(ptr noundef readonly %0, i32 noundef %29, ptr noundef readonly %4, ptr noundef %5, ptr noundef nonnull %9)
   %31 = load i32, ptr %9, align 4, !tbaa !23
   %32 = icmp eq i32 %31, %3
   %..i.i = select i1 %32, i32 %30, i32 %16

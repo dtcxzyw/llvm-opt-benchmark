@@ -20155,7 +20155,7 @@ declare noundef ptr @_ZN5clang7CodeGen15CodeGenFunction18EmitX86CpuSupportsEN4ll
 declare noundef ptr @_ZN5clang7CodeGen15CodeGenFunction12EmitX86CpuIsEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(6496), ptr, i64) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction24EmitMultiVersionResolverEPN4llvm8FunctionENS2_8ArrayRefINS1_17FMVResolverOptionEEE(ptr noundef nonnull align 8 dereferenceable(6496) %0, ptr noundef %1, ptr captures(address) %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction24EmitMultiVersionResolverEPN4llvm8FunctionENS2_8ArrayRefINS1_17FMVResolverOptionEEE(ptr noundef nonnull align 8 dereferenceable(6496) %0, ptr noundef %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load ptr, ptr %5, align 8, !tbaa !714
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 144

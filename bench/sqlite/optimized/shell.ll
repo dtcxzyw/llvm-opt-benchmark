@@ -9074,7 +9074,7 @@ idxFindConstraint.exit.i.i:                       ; preds = %.lr.ph.i.i.i, %.lr.
 
 ._crit_edge.i.i25:                                ; preds = %idxFindConstraint.exit.i.i, %149
   %.029.lcssa.i.i = phi ptr [ null, %149 ], [ %.130.i.i, %idxFindConstraint.exit.i.i ]
-  %164 = call fastcc i32 @idxCreateFromCons(ptr noundef %0, ptr noundef nonnull readonly %.017.i, ptr noundef %.029.lcssa.i.i, ptr noundef nonnull %148)
+  %164 = call fastcc i32 @idxCreateFromCons(ptr noundef %0, ptr noundef nonnull readonly %.017.i, ptr noundef %.029.lcssa.i.i, ptr noundef nonnull readonly %148)
   br label %idxCreateFromWhere.exit.i
 
 idxCreateFromWhere.exit.i:                        ; preds = %._crit_edge.i.i25, %146
@@ -24542,7 +24542,7 @@ shell_check_oom.exit3094:                         ; preds = %.critedge2827
   store ptr @.str.1025, ptr %32, align 16, !tbaa !29
   %2666 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr null, ptr %2666, align 8, !tbaa !29
-  call fastcc void @shell_callback(ptr noundef nonnull %29, i32 noundef 1, ptr noundef nonnull %31, ptr noundef nonnull readonly %32, ptr noundef null)
+  call fastcc void @shell_callback(ptr noundef nonnull %29, i32 noundef 1, ptr noundef nonnull readonly %31, ptr noundef nonnull readonly %32, ptr noundef null)
   call void @sqlite3_free(ptr noundef nonnull %2662) #43
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32) #43
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #43
@@ -54036,7 +54036,7 @@ define internal fastcc void @expertDotCommand(ptr noundef nonnull captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @callback(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef readonly captures(none) %3) #2 {
+define internal noundef i32 @callback(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3) #2 {
   tail call fastcc void @shell_callback(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef null)
   ret i32 0
 }

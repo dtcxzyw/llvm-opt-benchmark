@@ -5665,7 +5665,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h560bd509ab41aa62E.exit.i: ; 
   %.val1.i.i = load ptr, ptr %36, align 8, !alias.scope !3346, !noalias !3324, !nonnull !13, !noundef !13
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val2.i.i = load i64, ptr %37, align 8, !alias.scope !3346, !noalias !3324, !noundef !13
-  %38 = tail call fastcc noalias noundef align 8 ptr @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h265589788beef961E"(ptr nonnull %.val1.i.i, i64 %.val2.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9), !noalias !3349
+  %38 = tail call fastcc noalias noundef align 8 ptr @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h265589788beef961E"(ptr nonnull readonly %.val1.i.i, i64 %.val2.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9), !noalias !3349
   %39 = icmp eq ptr %38, null
   br i1 %39, label %41, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hdf7689c4c859087dE.llvm.4014076693086273623.exit"
 
@@ -16166,7 +16166,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h560bd509ab41aa62E.exit: ; pr
   %.val1.i = load ptr, ptr %33, align 8, !alias.scope !10200, !noalias !10177, !nonnull !13, !noundef !13
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val2.i = load i64, ptr %34, align 8, !alias.scope !10200, !noalias !10177, !noundef !13
-  %35 = tail call fastcc noalias noundef align 8 ptr @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h265589788beef961E"(ptr nonnull %.val1.i, i64 %.val2.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6), !noalias !10174
+  %35 = tail call fastcc noalias noundef align 8 ptr @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h265589788beef961E"(ptr nonnull readonly %.val1.i, i64 %.val2.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6), !noalias !10174
   %36 = icmp eq ptr %35, null
   br i1 %36, label %38, label %39
 

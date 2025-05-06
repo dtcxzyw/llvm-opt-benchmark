@@ -1315,7 +1315,7 @@ define void @Cnf_DataWriteIntoFileInvGz(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Cnf_DataWriteIntoFile(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define void @Cnf_DataWriteIntoFile(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
 sub_0:
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
@@ -1515,7 +1515,7 @@ declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noun
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define void @Cnf_DataWriteIntoFileInv(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
+define void @Cnf_DataWriteIntoFileInv(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 {
 sub_0:
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6

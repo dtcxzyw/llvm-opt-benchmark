@@ -6600,7 +6600,7 @@ _ZN5clang8DeclStmt5declsEv.exit.i:                ; preds = %2241, %2237
 
 2254:                                             ; preds = %.lr.ph.i
   %.val15.i = load ptr, ptr %0, align 8, !tbaa !102
-  %2255 = call fastcc noundef zeroext i1 @_ZL12isTrackedVarPKN5clang7VarDeclEPKNS_11DeclContextE(ptr noundef nonnull %2248, ptr noundef %.val15.i)
+  %2255 = call fastcc noundef zeroext i1 @_ZL12isTrackedVarPKN5clang7VarDeclEPKNS_11DeclContextE(ptr noundef nonnull %2248, ptr noundef readnone %.val15.i)
   br i1 %2255, label %2256, label %2260
 
 2256:                                             ; preds = %2254
@@ -9783,7 +9783,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang11DeclRefExprEN12_GLOBAL__N_112Cla
 
 41:                                               ; preds = %33
   %.val.i = load ptr, ptr %5, align 8, !tbaa !102
-  %42 = tail call fastcc noundef zeroext i1 @_ZL12isTrackedVarPKN5clang7VarDeclEPKNS_11DeclContextE(ptr noundef nonnull %35, ptr noundef %.val.i)
+  %42 = tail call fastcc noundef zeroext i1 @_ZL12isTrackedVarPKN5clang7VarDeclEPKNS_11DeclContextE(ptr noundef nonnull %35, ptr noundef readnone %.val.i)
   br i1 %42, label %_ZNK12_GLOBAL__N_112ClassifyRefs3getEPKN5clang11DeclRefExprE.exit.thread11, label %_ZN4llvm12PackedVectorI5ValueLj2ENS_14SmallBitVectorEE9referenceaSES1_.exit
 
 _ZNK12_GLOBAL__N_112ClassifyRefs3getEPKN5clang11DeclRefExprE.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang11DeclRefExprEN12_GLOBAL__N_112ClassifyRefs5ClassENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E4findES5_.exit.i

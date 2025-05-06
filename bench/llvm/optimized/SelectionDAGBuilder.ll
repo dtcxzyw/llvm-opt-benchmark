@@ -32792,7 +32792,7 @@ _ZN4llvm9MapVectorIPKNS_11InstructionEbNS_13SmallDenseMapIS3_jLj8ENS_12DenseMapI
 declare noundef zeroext i1 @_ZNK4llvm21BranchProbabilityInfo9isEdgeHotEPKNS_10BasicBlockES3_(ptr noundef nonnull align 8 dereferenceable(248), ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL22collectInstructionDepsPN4llvm14SmallMapVectorIPKNS_11InstructionEbLj8EEEPKNS_5ValueES5_j(ptr noundef nonnull %0, ptr noundef %1, ptr noundef captures(address) %2, i32 noundef range(i32 0, 7) %3) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZL22collectInstructionDepsPN4llvm14SmallMapVectorIPKNS_11InstructionEbLj8EEEPKNS_5ValueES5_j(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly captures(address) %2, i32 noundef range(i32 0, 7) %3) unnamed_addr #1 {
   %5 = alloca %"struct.std::pair.1558", align 8
   %6 = alloca %"struct.std::pair.1403", align 8
   %7 = alloca %"class.std::tuple.1565", align 8
@@ -43432,7 +43432,7 @@ _ZN4llvm11SmallVectorIN12_GLOBAL__N_120SDISelAsmOperandInfoELj16EED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19SelectionDAGBuilder15visitPatchpointERKNS_8CallBaseEPKNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm19SelectionDAGBuilder15visitPatchpointERKNS_8CallBaseEPKNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.llvm::TypeSize", align 8
@@ -44396,7 +44396,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder30LowerCallSiteWithPtrAuthBu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19SelectionDAGBuilder11LowerCallToERKNS_8CallBaseENS_7SDValueEbbPKNS_10BasicBlockEPKNS_14TargetLowering11PtrAuthInfoE(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr %2, i32 %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef captures(address_is_null) %6, ptr noundef readonly captures(address_is_null) %7) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm19SelectionDAGBuilder11LowerCallToERKNS_8CallBaseENS_7SDValueEbbPKNS_10BasicBlockEPKNS_14TargetLowering11PtrAuthInfoE(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr %2, i32 %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef readonly captures(address_is_null) %7) local_unnamed_addr #1 align 2 {
   %9 = alloca %"class.llvm::SDValue", align 8
   %10 = alloca %"class.llvm::SDValue", align 8
   %11 = alloca ptr, align 8

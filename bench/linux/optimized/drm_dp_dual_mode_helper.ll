@@ -798,7 +798,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_lspcon_get_mode(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @drm_lspcon_set_mode(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @drm_lspcon_set_mode(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca %struct.i2c_msg, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9

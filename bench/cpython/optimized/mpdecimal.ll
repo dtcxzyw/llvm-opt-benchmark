@@ -2797,13 +2797,13 @@ mpd_seterror.exit:                                ; preds = %8, %11, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @mpd_qget_uint(ptr noundef captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #10 {
+define hidden i64 @mpd_qget_uint(ptr noundef readonly captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #10 {
   %3 = tail call fastcc i64 @_mpd_qget_uint(i32 noundef 1, ptr noundef %0, ptr noundef %1)
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @_mpd_qget_uint(i32 noundef range(i32 0, 2) %0, ptr noundef captures(address) %1, ptr noundef captures(none) %2) unnamed_addr #10 {
+define internal fastcc i64 @_mpd_qget_uint(i32 noundef range(i32 0, 2) %0, ptr noundef readonly captures(address) %1, ptr noundef captures(none) %2) unnamed_addr #10 {
   %4 = alloca %struct.mpd_t, align 8
   %5 = alloca [2 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #33
@@ -2926,17 +2926,17 @@ _mpd_get_msdigits.exit.thread:                    ; preds = %33, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @mpd_qabs_uint(ptr noundef captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #10 {
+define hidden i64 @mpd_qabs_uint(ptr noundef readonly captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #10 {
   %3 = tail call fastcc i64 @_mpd_qget_uint(i32 noundef 0, ptr noundef %0, ptr noundef %1)
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @mpd_qget_ssize(ptr noundef captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #10 {
+define hidden i64 @mpd_qget_ssize(ptr noundef readonly captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #10 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #33
   store i32 0, ptr %3, align 4, !tbaa !23
-  %4 = call fastcc i64 @_mpd_qget_uint(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %3)
+  %4 = call fastcc i64 @_mpd_qget_uint(i32 noundef 0, ptr noundef readonly %0, ptr noundef nonnull %3)
   %5 = load i32, ptr %3, align 4, !tbaa !23
   %6 = and i32 %5, 256
   %.not = icmp eq i32 %6, 0
@@ -2979,17 +2979,17 @@ define hidden i64 @mpd_qget_ssize(ptr noundef captures(address) %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @mpd_qget_u64(ptr noundef captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #10 {
-  %3 = tail call fastcc i64 @_mpd_qget_uint(i32 noundef 1, ptr noundef %0, ptr noundef %1)
+define hidden i64 @mpd_qget_u64(ptr noundef readonly captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #10 {
+  %3 = tail call fastcc i64 @_mpd_qget_uint(i32 noundef 1, ptr noundef readonly %0, ptr noundef %1)
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @mpd_qget_i64(ptr noundef captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #10 {
+define hidden i64 @mpd_qget_i64(ptr noundef readonly captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #10 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #33
   store i32 0, ptr %3, align 4, !tbaa !23
-  %4 = call fastcc i64 @_mpd_qget_uint(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %3)
+  %4 = call fastcc i64 @_mpd_qget_uint(i32 noundef 0, ptr noundef readonly %0, ptr noundef nonnull %3)
   %5 = load i32, ptr %3, align 4, !tbaa !23
   %6 = and i32 %5, 256
   %.not.i = icmp eq i32 %6, 0
@@ -3032,11 +3032,11 @@ mpd_qget_ssize.exit:                              ; preds = %7, %14, %17, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qget_u32(ptr noundef captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #10 {
+define hidden i32 @mpd_qget_u32(ptr noundef readonly captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #10 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #33
   store i32 0, ptr %3, align 4, !tbaa !23
-  %4 = call fastcc i64 @_mpd_qget_uint(i32 noundef 1, ptr noundef %0, ptr noundef nonnull %3)
+  %4 = call fastcc i64 @_mpd_qget_uint(i32 noundef 1, ptr noundef readonly %0, ptr noundef nonnull %3)
   %5 = load i32, ptr %3, align 4, !tbaa !23
   %6 = and i32 %5, 256
   %.not = icmp eq i32 %6, 0
@@ -3069,11 +3069,11 @@ define hidden i32 @mpd_qget_u32(ptr noundef captures(address) %0, ptr noundef ca
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qget_i32(ptr noundef captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #10 {
+define hidden i32 @mpd_qget_i32(ptr noundef readonly captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #10 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #33
   store i32 0, ptr %3, align 4, !tbaa !23
-  %4 = call fastcc i64 @_mpd_qget_uint(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %3)
+  %4 = call fastcc i64 @_mpd_qget_uint(i32 noundef 0, ptr noundef readonly %0, ptr noundef nonnull %3)
   %5 = load i32, ptr %3, align 4, !tbaa !23
   %6 = and i32 %5, 256
   %.not.i = icmp eq i32 %6, 0
@@ -4650,7 +4650,7 @@ define internal fastcc range(i32 -1, 2) i32 @_mpd_cmp(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, -2147483648) i32 @mpd_qcompare(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden range(i32 -1, -2147483648) i32 @mpd_qcompare(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = load i8, ptr %1, align 8, !tbaa !19
   %7 = and i8 %6, 14
   %.not = icmp eq i8 %7, 0
@@ -4682,7 +4682,7 @@ define hidden range(i32 -1, -2147483648) i32 @mpd_qcompare(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, -2147483648) i32 @mpd_qcompare_signal(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden range(i32 -1, -2147483648) i32 @mpd_qcompare_signal(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = load i8, ptr %1, align 8, !tbaa !19
   %7 = and i8 %6, 14
   %.not = icmp eq i8 %7, 0
@@ -5056,7 +5056,7 @@ define internal fastcc range(i32 -1, 2) i32 @_mpd_cmp_abs(ptr noundef readonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @mpd_compare_total(ptr noundef captures(none) initializes((8, 32)) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #10 {
+define hidden range(i32 -1, 2) i32 @mpd_compare_total(ptr noundef captures(none) initializes((8, 32)) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #10 {
   %4 = tail call i32 @mpd_cmp_total(ptr noundef %1, ptr noundef %2)
   %.lobit = lshr i32 %4, 31
   %5 = trunc nuw nsw i32 %.lobit to i8
@@ -6904,7 +6904,7 @@ mpd_seterror.exit60:                              ; preds = %108, %111, %121
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qlogb(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
+define hidden void @mpd_qlogb(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -7525,7 +7525,7 @@ mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qrotate(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qrotate(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
@@ -7639,7 +7639,7 @@ mpd_seterror.exit:                                ; preds = %37, %40, %52
 59:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #33
   store i32 0, ptr %7, align 4, !tbaa !23
-  %60 = call fastcc i64 @_mpd_qget_uint(i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %7)
+  %60 = call fastcc i64 @_mpd_qget_uint(i32 noundef 0, ptr noundef nonnull readonly %2, ptr noundef nonnull %7)
   %61 = load i32, ptr %7, align 4, !tbaa !23
   %62 = and i32 %61, 256
   %.not.i75 = icmp eq i32 %62, 0
@@ -7781,7 +7781,7 @@ mpd_seterror.exit79:                              ; preds = %mpd_qget_ssize.exit
 120:                                              ; preds = %116
   %121 = load i8, ptr %14, align 8, !tbaa !19
   %122 = and i8 %121, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %14, i8 noundef zeroext %122, ptr noundef nonnull readonly %3, ptr noundef %4)
+  call fastcc void @_mpd_qaddsub(ptr noundef %0, ptr noundef nonnull readonly %12, ptr noundef nonnull readonly %14, i8 noundef zeroext %122, ptr noundef nonnull readonly %3, ptr noundef %4)
   br label %123
 
 123:                                              ; preds = %120, %119, %115, %111
@@ -7867,7 +7867,7 @@ mpd_del.exit:                                     ; preds = %149, %146, %29, %10
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qscaleb(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qscaleb(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i32, align 4
@@ -7948,7 +7948,7 @@ mpd_seterror.exit:                                ; preds = %22, %25, %37
   br label %96
 
 44:                                               ; preds = %19
-  %45 = call fastcc i64 @_mpd_qget_uint(i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %8)
+  %45 = call fastcc i64 @_mpd_qget_uint(i32 noundef 0, ptr noundef nonnull readonly %2, ptr noundef nonnull %8)
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %47 = load i64, ptr %46, align 8, !tbaa !16
   %48 = load i64, ptr %3, align 8, !tbaa !15
@@ -8043,7 +8043,7 @@ mpd_seterror.exit45:                              ; preds = %55, %58, %70
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qshiftn(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qshiftn(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = alloca i8, align 1
   %7 = load i8, ptr %1, align 8, !tbaa !19
   %8 = and i8 %7, 14
@@ -8268,7 +8268,7 @@ mpd_qcopy.exit:                                   ; preds = %mpd_qresize.exit.i3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qshift(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qshift(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
@@ -8349,7 +8349,7 @@ mpd_seterror.exit:                                ; preds = %22, %25, %37
 44:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #33
   store i32 0, ptr %7, align 4, !tbaa !23
-  %45 = call fastcc i64 @_mpd_qget_uint(i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %7)
+  %45 = call fastcc i64 @_mpd_qget_uint(i32 noundef 0, ptr noundef nonnull readonly %2, ptr noundef nonnull %7)
   %46 = load i32, ptr %7, align 4, !tbaa !23
   %47 = and i32 %46, 256
   %.not.i = icmp eq i32 %47, 0
@@ -8913,7 +8913,7 @@ mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qabs(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
+define hidden void @mpd_qabs(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
   %5 = load i8, ptr %1, align 8, !tbaa !19
   %6 = and i8 %5, 14
   %.not = icmp eq i8 %6, 0
@@ -8947,7 +8947,7 @@ define hidden void @mpd_qabs(ptr noundef %0, ptr noundef captures(address) %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qminus(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
+define hidden void @mpd_qminus(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
   %5 = load i8, ptr %1, align 8, !tbaa !19
   %6 = and i8 %5, 14
   %.not = icmp eq i8 %6, 0
@@ -9147,7 +9147,7 @@ mpd_qcopy_abs.exit:                               ; preds = %mpd_qcopy_abs.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qplus(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
+define hidden void @mpd_qplus(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
   %5 = load i8, ptr %1, align 8, !tbaa !19
   %6 = and i8 %5, 14
   %.not = icmp eq i8 %6, 0
@@ -9338,7 +9338,7 @@ mpd_qcopy_abs.exit:                               ; preds = %mpd_qresize.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qadd(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qadd(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = load i8, ptr %1, align 8, !tbaa !19
   %7 = and i8 %6, 14
   %.not = icmp eq i8 %7, 0
@@ -9531,7 +9531,7 @@ mpd_setspecial.exit17:                            ; preds = %57, %60, %72
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qaddsub(ptr noundef initializes((8, 16)) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, i8 noundef zeroext range(i8 0, 2) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) unnamed_addr #10 {
+define internal fastcc void @_mpd_qaddsub(ptr noundef initializes((8, 16)) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, i8 noundef zeroext range(i8 0, 2) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) unnamed_addr #10 {
   %7 = alloca i8, align 1
   %8 = alloca [64 x i64], align 16
   %9 = alloca %struct.mpd_t, align 8
@@ -10099,7 +10099,7 @@ mpd_del.exit:                                     ; preds = %304, %307
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsub(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qsub(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = load i8, ptr %1, align 8, !tbaa !19
   %7 = and i8 %6, 14
   %.not = icmp eq i8 %7, 0
@@ -10136,7 +10136,7 @@ define hidden void @mpd_qsub(ptr noundef %0, ptr noundef captures(address) %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qadd_ssize(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qadd_ssize(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = alloca %struct.mpd_context_t, align 8
   %7 = alloca [64 x i64], align 16
   %8 = alloca %struct.mpd_t, align 8
@@ -10177,7 +10177,7 @@ mpd_qsset_ssize.exit:                             ; preds = %.split11.i, %.split
   br i1 %.not21.i, label %24, label %19
 
 19:                                               ; preds = %16, %mpd_qsset_ssize.exit
-  %20 = call i32 @mpd_qcheck_nans(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef readonly %3, ptr noundef %4)
+  %20 = call i32 @mpd_qcheck_nans(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %8, ptr noundef readonly %3, ptr noundef %4)
   %.not22.i = icmp eq i32 %20, 0
   br i1 %.not22.i, label %21, label %mpd_qadd.exit
 
@@ -10185,12 +10185,12 @@ mpd_qsset_ssize.exit:                             ; preds = %.split11.i, %.split
   %22 = load i8, ptr %8, align 8, !tbaa !19
   %23 = and i8 %22, 1
   %.val.i = load i8, ptr %1, align 8, !tbaa !19
-  call fastcc void @_mpd_qaddsub_inf(ptr noundef %0, i8 %.val.i, ptr noundef nonnull %8, i8 noundef zeroext %23, ptr noundef %4)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef %0, i8 %.val.i, ptr noundef nonnull readonly %8, i8 noundef zeroext %23, ptr noundef %4)
   br label %mpd_qadd.exit
 
 24:                                               ; preds = %16
   %25 = and i8 %17, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %8, i8 noundef zeroext %25, ptr noundef readonly %3, ptr noundef %4)
+  call fastcc void @_mpd_qaddsub(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %8, i8 noundef zeroext %25, ptr noundef readonly %3, ptr noundef %4)
   call void @mpd_qfinalize(ptr noundef %0, ptr noundef readonly %3, ptr noundef %4)
   br label %mpd_qadd.exit
 
@@ -10225,7 +10225,7 @@ mpd_del.exit:                                     ; preds = %30, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qadd_uint(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qadd_uint(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = alloca %struct.mpd_context_t, align 8
   %7 = alloca [64 x i64], align 16
   %8 = alloca %struct.mpd_t, align 8
@@ -10254,7 +10254,7 @@ define hidden void @mpd_qadd_uint(ptr noundef %0, ptr noundef captures(address) 
   br i1 %.not21.i, label %22, label %17
 
 17:                                               ; preds = %14, %5
-  %18 = call i32 @mpd_qcheck_nans(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef readonly %3, ptr noundef %4)
+  %18 = call i32 @mpd_qcheck_nans(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %8, ptr noundef readonly %3, ptr noundef %4)
   %.not22.i = icmp eq i32 %18, 0
   br i1 %.not22.i, label %19, label %mpd_qadd.exit
 
@@ -10262,12 +10262,12 @@ define hidden void @mpd_qadd_uint(ptr noundef %0, ptr noundef captures(address) 
   %20 = load i8, ptr %8, align 8, !tbaa !19
   %21 = and i8 %20, 1
   %.val.i = load i8, ptr %1, align 8, !tbaa !19
-  call fastcc void @_mpd_qaddsub_inf(ptr noundef %0, i8 %.val.i, ptr noundef nonnull %8, i8 noundef zeroext %21, ptr noundef %4)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef %0, i8 %.val.i, ptr noundef nonnull readonly %8, i8 noundef zeroext %21, ptr noundef %4)
   br label %mpd_qadd.exit
 
 22:                                               ; preds = %14
   %23 = and i8 %15, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %8, i8 noundef zeroext %23, ptr noundef readonly %3, ptr noundef %4)
+  call fastcc void @_mpd_qaddsub(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %8, i8 noundef zeroext %23, ptr noundef readonly %3, ptr noundef %4)
   call void @mpd_qfinalize(ptr noundef %0, ptr noundef readonly %3, ptr noundef %4)
   br label %mpd_qadd.exit
 
@@ -10302,7 +10302,7 @@ mpd_del.exit:                                     ; preds = %28, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsub_ssize(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qsub_ssize(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = alloca %struct.mpd_context_t, align 8
   %7 = alloca [64 x i64], align 16
   %8 = alloca %struct.mpd_t, align 8
@@ -10343,7 +10343,7 @@ mpd_qsset_ssize.exit:                             ; preds = %.split11.i, %.split
   br i1 %.not21.i, label %25, label %19
 
 19:                                               ; preds = %16, %mpd_qsset_ssize.exit
-  %20 = call i32 @mpd_qcheck_nans(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef readonly %3, ptr noundef %4)
+  %20 = call i32 @mpd_qcheck_nans(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %8, ptr noundef readonly %3, ptr noundef %4)
   %.not23.i = icmp eq i32 %20, 0
   br i1 %.not23.i, label %21, label %mpd_qsub.exit
 
@@ -10352,13 +10352,13 @@ mpd_qsset_ssize.exit:                             ; preds = %.split11.i, %.split
   %23 = and i8 %22, 1
   %24 = xor i8 %23, 1
   %.val.i = load i8, ptr %1, align 8, !tbaa !19
-  call fastcc void @_mpd_qaddsub_inf(ptr noundef %0, i8 %.val.i, ptr noundef nonnull %8, i8 noundef zeroext %24, ptr noundef %4)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef %0, i8 %.val.i, ptr noundef nonnull readonly %8, i8 noundef zeroext %24, ptr noundef %4)
   br label %mpd_qsub.exit
 
 25:                                               ; preds = %16
   %26 = and i8 %17, 1
   %27 = xor i8 %26, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %8, i8 noundef zeroext %27, ptr noundef readonly %3, ptr noundef %4)
+  call fastcc void @_mpd_qaddsub(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %8, i8 noundef zeroext %27, ptr noundef readonly %3, ptr noundef %4)
   call void @mpd_qfinalize(ptr noundef %0, ptr noundef readonly %3, ptr noundef %4)
   br label %mpd_qsub.exit
 
@@ -10393,7 +10393,7 @@ mpd_del.exit:                                     ; preds = %32, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsub_uint(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qsub_uint(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = alloca %struct.mpd_context_t, align 8
   %7 = alloca [64 x i64], align 16
   %8 = alloca %struct.mpd_t, align 8
@@ -10422,7 +10422,7 @@ define hidden void @mpd_qsub_uint(ptr noundef %0, ptr noundef captures(address) 
   br i1 %.not21.i, label %23, label %17
 
 17:                                               ; preds = %14, %5
-  %18 = call i32 @mpd_qcheck_nans(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef readonly %3, ptr noundef %4)
+  %18 = call i32 @mpd_qcheck_nans(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %8, ptr noundef readonly %3, ptr noundef %4)
   %.not23.i = icmp eq i32 %18, 0
   br i1 %.not23.i, label %19, label %mpd_qsub.exit
 
@@ -10431,13 +10431,13 @@ define hidden void @mpd_qsub_uint(ptr noundef %0, ptr noundef captures(address) 
   %21 = and i8 %20, 1
   %22 = xor i8 %21, 1
   %.val.i = load i8, ptr %1, align 8, !tbaa !19
-  call fastcc void @_mpd_qaddsub_inf(ptr noundef %0, i8 %.val.i, ptr noundef nonnull %8, i8 noundef zeroext %22, ptr noundef %4)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef %0, i8 %.val.i, ptr noundef nonnull readonly %8, i8 noundef zeroext %22, ptr noundef %4)
   br label %mpd_qsub.exit
 
 23:                                               ; preds = %14
   %24 = and i8 %15, 1
   %25 = xor i8 %24, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %8, i8 noundef zeroext %25, ptr noundef readonly %3, ptr noundef %4)
+  call fastcc void @_mpd_qaddsub(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %8, i8 noundef zeroext %25, ptr noundef readonly %3, ptr noundef %4)
   call void @mpd_qfinalize(ptr noundef %0, ptr noundef readonly %3, ptr noundef %4)
   br label %mpd_qsub.exit
 
@@ -10472,59 +10472,59 @@ mpd_del.exit:                                     ; preds = %30, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qadd_i32(ptr noundef %0, ptr noundef captures(address) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qadd_i32(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = sext i32 %2 to i64
   tail call void @mpd_qadd_ssize(ptr noundef %0, ptr noundef %1, i64 noundef %6, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qadd_u32(ptr noundef %0, ptr noundef captures(address) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qadd_u32(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = zext i32 %2 to i64
   tail call void @mpd_qadd_uint(ptr noundef %0, ptr noundef %1, i64 noundef %6, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qadd_i64(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qadd_i64(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   tail call void @mpd_qadd_ssize(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qadd_u64(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qadd_u64(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   tail call void @mpd_qadd_uint(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsub_i32(ptr noundef %0, ptr noundef captures(address) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qsub_i32(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = sext i32 %2 to i64
   tail call void @mpd_qsub_ssize(ptr noundef %0, ptr noundef %1, i64 noundef %6, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsub_u32(ptr noundef %0, ptr noundef captures(address) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qsub_u32(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = zext i32 %2 to i64
   tail call void @mpd_qsub_uint(ptr noundef %0, ptr noundef %1, i64 noundef %6, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsub_i64(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qsub_i64(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   tail call void @mpd_qsub_ssize(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsub_u64(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qsub_u64(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   tail call void @mpd_qsub_uint(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qdiv(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qdiv(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
@@ -10926,7 +10926,7 @@ mpd_del.exit:                                     ; preds = %181, %184
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qdiv(i32 noundef range(i32 0, 2) %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef captures(address) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) unnamed_addr #10 {
+define internal fastcc void @_mpd_qdiv(i32 noundef range(i32 0, 2) %0, ptr noundef %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(address) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) unnamed_addr #10 {
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
@@ -11555,7 +11555,7 @@ _mpd_qdiv_inf.exit:                               ; preds = %76, %mpd_setspecial
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qdivmod(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef captures(address) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #10 {
+define hidden void @mpd_qdivmod(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(address) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #10 {
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
@@ -12115,7 +12115,7 @@ mpd_qcopy.exit:                                   ; preds = %mpd_qresize.exit.th
 declare void @abort() local_unnamed_addr #21
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qdivmod(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef captures(address) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) unnamed_addr #10 {
+define internal fastcc void @_mpd_qdivmod(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(address) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) unnamed_addr #10 {
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
   %9 = alloca [64 x i64], align 16
@@ -12876,7 +12876,7 @@ mpd_del.exit:                                     ; preds = %353, %350, %mpd_qco
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qdivint(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qdivint(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
@@ -13165,7 +13165,7 @@ mpd_del.exit:                                     ; preds = %137, %140
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qdiv_ssize(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qdiv_ssize(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = alloca %struct.mpd_context_t, align 8
   %7 = alloca [64 x i64], align 16
   %8 = alloca %struct.mpd_t, align 8
@@ -13225,7 +13225,7 @@ mpd_del.exit:                                     ; preds = %18, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qdiv_uint(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qdiv_uint(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = alloca %struct.mpd_context_t, align 8
   %7 = alloca [64 x i64], align 16
   %8 = alloca %struct.mpd_t, align 8
@@ -13273,14 +13273,14 @@ mpd_del.exit:                                     ; preds = %16, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qdiv_i32(ptr noundef %0, ptr noundef captures(address) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qdiv_i32(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = sext i32 %2 to i64
   tail call void @mpd_qdiv_ssize(ptr noundef %0, ptr noundef %1, i64 noundef %6, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qdiv_u32(ptr noundef %0, ptr noundef captures(address) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qdiv_u32(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = alloca %struct.mpd_context_t, align 8
   %7 = alloca [64 x i64], align 16
   %8 = alloca %struct.mpd_t, align 8
@@ -13298,7 +13298,7 @@ define hidden void @mpd_qdiv_u32(ptr noundef %0, ptr noundef captures(address) %
   call void @mpd_maxcontext(ptr noundef nonnull %6) #33
   call fastcc void @_ssettriple(ptr noundef nonnull %8, i8 noundef zeroext 0, i64 noundef %9, i64 noundef 0)
   call void @mpd_qfinalize(ptr noundef nonnull %8, ptr noundef nonnull readonly %6, ptr noundef %4)
-  call void @mpd_qdiv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %8, ptr noundef readonly %3, ptr noundef %4)
+  call void @mpd_qdiv(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull %8, ptr noundef readonly %3, ptr noundef %4)
   %13 = load i8, ptr %8, align 8, !tbaa !19
   %.not.i5.i.i = icmp ugt i8 %13, 31
   br i1 %.not.i5.i.i, label %17, label %14
@@ -13329,13 +13329,13 @@ mpd_qdiv_uint.exit:                               ; preds = %17, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qdiv_i64(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qdiv_i64(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   tail call void @mpd_qdiv_ssize(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qdiv_u64(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qdiv_u64(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = alloca %struct.mpd_context_t, align 8
   %7 = alloca [64 x i64], align 16
   %8 = alloca %struct.mpd_t, align 8
@@ -13352,7 +13352,7 @@ define hidden void @mpd_qdiv_u64(ptr noundef %0, ptr noundef captures(address) %
   call void @mpd_maxcontext(ptr noundef nonnull %6) #33
   call fastcc void @_ssettriple(ptr noundef nonnull %8, i8 noundef zeroext 0, i64 noundef %2, i64 noundef 0)
   call void @mpd_qfinalize(ptr noundef nonnull %8, ptr noundef nonnull readonly %6, ptr noundef %4)
-  call void @mpd_qdiv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %8, ptr noundef readonly %3, ptr noundef %4)
+  call void @mpd_qdiv(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull %8, ptr noundef readonly %3, ptr noundef %4)
   %12 = load i8, ptr %8, align 8, !tbaa !19
   %.not.i5.i.i = icmp ugt i8 %12, 31
   br i1 %.not.i5.i.i, label %16, label %13
@@ -13383,7 +13383,7 @@ mpd_qdiv_uint.exit:                               ; preds = %16, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qexp(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
+define hidden void @mpd_qexp(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
   %5 = alloca i8, align 1
   %6 = alloca %struct.mpd_context_t, align 8
   %7 = alloca [64 x i64], align 16
@@ -13629,7 +13629,7 @@ mpd_qcopy.exit.thread:                            ; preds = %74, %mpd_qresize.ex
   br i1 %.not21.i, label %123, label %118
 
 118:                                              ; preds = %115, %102
-  %119 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %8, ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull readonly %6, ptr noundef nonnull %100)
+  %119 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %8, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %12, ptr noundef nonnull readonly %6, ptr noundef nonnull %100)
   %.not22.i = icmp eq i32 %119, 0
   br i1 %.not22.i, label %120, label %mpd_qadd.exit
 
@@ -13637,12 +13637,12 @@ mpd_qcopy.exit.thread:                            ; preds = %74, %mpd_qresize.ex
   %121 = load i8, ptr %12, align 8, !tbaa !19
   %122 = and i8 %121, 1
   %.val.i = load i8, ptr %0, align 8, !tbaa !19
-  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %8, i8 %.val.i, ptr noundef nonnull %12, i8 noundef zeroext %122, ptr noundef nonnull %100)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %8, i8 %.val.i, ptr noundef nonnull readonly %12, i8 noundef zeroext %122, ptr noundef nonnull %100)
   br label %mpd_qadd.exit
 
 123:                                              ; preds = %115
   %124 = and i8 %116, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %8, ptr noundef nonnull %0, ptr noundef nonnull %12, i8 noundef zeroext %124, ptr noundef nonnull readonly %6, ptr noundef nonnull %100)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %8, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %12, i8 noundef zeroext %124, ptr noundef nonnull readonly %6, ptr noundef nonnull %100)
   call void @mpd_qfinalize(ptr noundef nonnull %8, ptr noundef nonnull readonly %6, ptr noundef nonnull %100)
   br label %mpd_qadd.exit
 
@@ -13659,7 +13659,7 @@ mpd_qadd.exit:                                    ; preds = %118, %120, %123
   br i1 %.not21.i90, label %136, label %130
 
 130:                                              ; preds = %127, %mpd_qadd.exit
-  %131 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %10, ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull readonly %6, ptr noundef nonnull %100)
+  %131 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %10, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %12, ptr noundef nonnull readonly %6, ptr noundef nonnull %100)
   %.not23.i = icmp eq i32 %131, 0
   br i1 %.not23.i, label %132, label %mpd_qsub.exit
 
@@ -13668,13 +13668,13 @@ mpd_qadd.exit:                                    ; preds = %118, %120, %123
   %134 = and i8 %133, 1
   %135 = xor i8 %134, 1
   %.val.i89 = load i8, ptr %0, align 8, !tbaa !19
-  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %10, i8 %.val.i89, ptr noundef nonnull %12, i8 noundef zeroext %135, ptr noundef nonnull %100)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %10, i8 %.val.i89, ptr noundef nonnull readonly %12, i8 noundef zeroext %135, ptr noundef nonnull %100)
   br label %mpd_qsub.exit
 
 136:                                              ; preds = %127
   %137 = and i8 %128, 1
   %138 = xor i8 %137, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %10, ptr noundef nonnull %0, ptr noundef nonnull %12, i8 noundef zeroext %138, ptr noundef nonnull readonly %6, ptr noundef nonnull %100)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %10, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %12, i8 noundef zeroext %138, ptr noundef nonnull readonly %6, ptr noundef nonnull %100)
   call void @mpd_qfinalize(ptr noundef nonnull %10, ptr noundef nonnull readonly %6, ptr noundef nonnull %100)
   br label %mpd_qsub.exit
 
@@ -14439,182 +14439,174 @@ mpd_seterror.exit:                                ; preds = %_mpd_get_exp_iterat
 243:                                              ; preds = %.lr.ph, %mpd_setdigits.exit
   %.069.in = phi i64 [ %241, %.lr.ph ], [ %.069, %mpd_setdigits.exit ]
   %.069 = add nsw i64 %.069.in, -1
-  %244 = load ptr, ptr %27, align 8, !tbaa !17
-  store i64 %.069, ptr %244, align 8, !tbaa !3
-  %245 = load i64, ptr %25, align 8, !tbaa !18
-  %246 = getelementptr i64, ptr %244, i64 %245
-  %247 = getelementptr i8, ptr %246, i64 -8
-  %248 = load i64, ptr %247, align 8, !tbaa !3
-  %249 = icmp ult i64 %248, %143
-  br i1 %249, label %250, label %278
+  store i64 %.069, ptr %15, align 8, !tbaa !3
+  %244 = icmp ult i64 %.069, %143
+  br i1 %244, label %245, label %273
 
-250:                                              ; preds = %243
-  %251 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 32), align 8, !tbaa !3
-  %252 = icmp ult i64 %248, %251
-  br i1 %252, label %253, label %264
+245:                                              ; preds = %243
+  %246 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 32), align 8, !tbaa !3
+  %247 = icmp ult i64 %.069, %246
+  br i1 %247, label %248, label %259
 
-253:                                              ; preds = %250
-  %254 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 16), align 8, !tbaa !3
-  %255 = icmp ult i64 %248, %254
-  br i1 %255, label %256, label %260
+248:                                              ; preds = %245
+  %249 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 16), align 8, !tbaa !3
+  %250 = icmp ult i64 %.069, %249
+  br i1 %250, label %251, label %255
 
-256:                                              ; preds = %253
-  %257 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 8), align 8, !tbaa !3
-  %258 = icmp ult i64 %248, %257
-  %259 = select i1 %258, i64 1, i64 2
+251:                                              ; preds = %248
+  %252 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 8), align 8, !tbaa !3
+  %253 = icmp ult i64 %.069, %252
+  %254 = select i1 %253, i64 1, i64 2
   br label %mpd_setdigits.exit
 
-260:                                              ; preds = %253
-  %261 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 24), align 8, !tbaa !3
-  %262 = icmp ult i64 %248, %261
-  %263 = select i1 %262, i64 3, i64 4
+255:                                              ; preds = %248
+  %256 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 24), align 8, !tbaa !3
+  %257 = icmp ult i64 %.069, %256
+  %258 = select i1 %257, i64 3, i64 4
   br label %mpd_setdigits.exit
 
-264:                                              ; preds = %250
-  %265 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 48), align 8, !tbaa !3
-  %266 = icmp ult i64 %248, %265
-  br i1 %266, label %267, label %271
+259:                                              ; preds = %245
+  %260 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 48), align 8, !tbaa !3
+  %261 = icmp ult i64 %.069, %260
+  br i1 %261, label %262, label %266
 
-267:                                              ; preds = %264
-  %268 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 40), align 8, !tbaa !3
-  %269 = icmp ult i64 %248, %268
-  %270 = select i1 %269, i64 5, i64 6
+262:                                              ; preds = %259
+  %263 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 40), align 8, !tbaa !3
+  %264 = icmp ult i64 %.069, %263
+  %265 = select i1 %264, i64 5, i64 6
   br label %mpd_setdigits.exit
 
-271:                                              ; preds = %264
-  %272 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 64), align 8, !tbaa !3
-  %273 = icmp ult i64 %248, %272
-  br i1 %273, label %274, label %mpd_setdigits.exit
+266:                                              ; preds = %259
+  %267 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 64), align 8, !tbaa !3
+  %268 = icmp ult i64 %.069, %267
+  br i1 %268, label %269, label %mpd_setdigits.exit
 
-274:                                              ; preds = %271
-  %275 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 56), align 8, !tbaa !3
-  %276 = icmp ult i64 %248, %275
-  %277 = select i1 %276, i64 7, i64 8
+269:                                              ; preds = %266
+  %270 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 56), align 8, !tbaa !3
+  %271 = icmp ult i64 %.069, %270
+  %272 = select i1 %271, i64 7, i64 8
   br label %mpd_setdigits.exit
 
-278:                                              ; preds = %243
-  %279 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 112), align 8, !tbaa !3
-  %280 = icmp ult i64 %248, %279
-  br i1 %280, label %281, label %295
+273:                                              ; preds = %243
+  %274 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 112), align 8, !tbaa !3
+  %275 = icmp ult i64 %.069, %274
+  br i1 %275, label %276, label %290
 
-281:                                              ; preds = %278
-  %282 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 88), align 8, !tbaa !3
-  %283 = icmp ult i64 %248, %282
-  br i1 %283, label %284, label %288
+276:                                              ; preds = %273
+  %277 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 88), align 8, !tbaa !3
+  %278 = icmp ult i64 %.069, %277
+  br i1 %278, label %279, label %283
 
-284:                                              ; preds = %281
-  %285 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 80), align 8, !tbaa !3
-  %286 = icmp ult i64 %248, %285
-  %287 = select i1 %286, i64 10, i64 11
+279:                                              ; preds = %276
+  %280 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 80), align 8, !tbaa !3
+  %281 = icmp ult i64 %.069, %280
+  %282 = select i1 %281, i64 10, i64 11
   br label %mpd_setdigits.exit
 
-288:                                              ; preds = %281
-  %289 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 104), align 8, !tbaa !3
-  %290 = icmp ult i64 %248, %289
-  br i1 %290, label %291, label %mpd_setdigits.exit
+283:                                              ; preds = %276
+  %284 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 104), align 8, !tbaa !3
+  %285 = icmp ult i64 %.069, %284
+  br i1 %285, label %286, label %mpd_setdigits.exit
 
-291:                                              ; preds = %288
-  %292 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 96), align 8, !tbaa !3
-  %293 = icmp ult i64 %248, %292
-  %294 = select i1 %293, i64 12, i64 13
+286:                                              ; preds = %283
+  %287 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 96), align 8, !tbaa !3
+  %288 = icmp ult i64 %.069, %287
+  %289 = select i1 %288, i64 12, i64 13
   br label %mpd_setdigits.exit
 
-295:                                              ; preds = %278
-  %296 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 144), align 8, !tbaa !3
-  %297 = icmp ult i64 %248, %296
-  br i1 %297, label %298, label %309
+290:                                              ; preds = %273
+  %291 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 144), align 8, !tbaa !3
+  %292 = icmp ult i64 %.069, %291
+  br i1 %292, label %293, label %304
 
-298:                                              ; preds = %295
-  %299 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 128), align 8, !tbaa !3
-  %300 = icmp ult i64 %248, %299
-  br i1 %300, label %301, label %305
+293:                                              ; preds = %290
+  %294 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 128), align 8, !tbaa !3
+  %295 = icmp ult i64 %.069, %294
+  br i1 %295, label %296, label %300
 
-301:                                              ; preds = %298
-  %302 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 120), align 8, !tbaa !3
-  %303 = icmp ult i64 %248, %302
-  %304 = select i1 %303, i64 15, i64 16
+296:                                              ; preds = %293
+  %297 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 120), align 8, !tbaa !3
+  %298 = icmp ult i64 %.069, %297
+  %299 = select i1 %298, i64 15, i64 16
   br label %mpd_setdigits.exit
 
-305:                                              ; preds = %298
-  %306 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 136), align 8, !tbaa !3
-  %307 = icmp ult i64 %248, %306
-  %308 = select i1 %307, i64 17, i64 18
+300:                                              ; preds = %293
+  %301 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 136), align 8, !tbaa !3
+  %302 = icmp ult i64 %.069, %301
+  %303 = select i1 %302, i64 17, i64 18
   br label %mpd_setdigits.exit
 
-309:                                              ; preds = %295
-  %310 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 152), align 8, !tbaa !3
-  %311 = icmp ult i64 %248, %310
-  %312 = select i1 %311, i64 19, i64 20
+304:                                              ; preds = %290
+  %305 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 152), align 8, !tbaa !3
+  %306 = icmp ult i64 %.069, %305
+  %307 = select i1 %306, i64 19, i64 20
   br label %mpd_setdigits.exit
 
-mpd_setdigits.exit:                               ; preds = %256, %260, %267, %271, %274, %284, %288, %291, %301, %305, %309
-  %.0.i.i58 = phi i64 [ %259, %256 ], [ %263, %260 ], [ %270, %267 ], [ %277, %274 ], [ %287, %284 ], [ %294, %291 ], [ %304, %301 ], [ %308, %305 ], [ %312, %309 ], [ 9, %271 ], [ 14, %288 ]
-  %313 = mul i64 %245, 19
-  %314 = add i64 %313, -19
-  %315 = add i64 %314, %.0.i.i58
-  store i64 %315, ptr %24, align 8, !tbaa !11
+mpd_setdigits.exit:                               ; preds = %251, %255, %262, %266, %269, %279, %283, %286, %296, %300, %304
+  %.0.i.i58 = phi i64 [ %254, %251 ], [ %258, %255 ], [ %265, %262 ], [ %272, %269 ], [ %282, %279 ], [ %289, %286 ], [ %299, %296 ], [ %303, %300 ], [ %307, %304 ], [ 9, %266 ], [ 14, %283 ]
+  store i64 %.0.i.i58, ptr %24, align 8, !tbaa !11
   call void @mpd_qdiv(ptr noundef nonnull %12, ptr noundef %0, ptr noundef nonnull %16, ptr noundef nonnull %10, ptr noundef nonnull %242)
   call void @mpd_qfma(ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull @one, ptr noundef nonnull %10, ptr noundef nonnull %242)
-  %316 = icmp samesign ugt i64 %.069.in, 2
-  br i1 %316, label %243, label %._crit_edge, !llvm.loop !55
+  %308 = icmp samesign ugt i64 %.069.in, 2
+  br i1 %308, label %243, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %mpd_setdigits.exit
-  %317 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %42
-  %318 = load i64, ptr %317, align 8, !tbaa !3
-  call fastcc void @_mpd_qpow_uint(ptr noundef %0, ptr noundef %14, i64 noundef %318, i8 noundef zeroext 0, ptr noundef %10, ptr noundef %3)
-  %319 = load i8, ptr %12, align 8, !tbaa !19
-  %.not.i5.i42 = icmp ugt i8 %319, 31
-  br i1 %.not.i5.i42, label %323, label %320
+  %309 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %42
+  %310 = load i64, ptr %309, align 8, !tbaa !3
+  call fastcc void @_mpd_qpow_uint(ptr noundef %0, ptr noundef %14, i64 noundef %310, i8 noundef zeroext 0, ptr noundef %10, ptr noundef %3)
+  %311 = load i8, ptr %12, align 8, !tbaa !19
+  %.not.i5.i42 = icmp ugt i8 %311, 31
+  br i1 %.not.i5.i42, label %315, label %312
 
-320:                                              ; preds = %._crit_edge
-  %321 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  %322 = load ptr, ptr %19, align 8, !tbaa !17
-  call void %321(ptr noundef %322) #33
+312:                                              ; preds = %._crit_edge
+  %313 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  %314 = load ptr, ptr %19, align 8, !tbaa !17
+  call void %313(ptr noundef %314) #33
   %.pre = load i8, ptr %12, align 8, !tbaa !19
-  br label %323
+  br label %315
 
-323:                                              ; preds = %320, %._crit_edge
-  %324 = phi i8 [ %.pre, %320 ], [ %319, %._crit_edge ]
-  %325 = and i8 %324, 16
-  %.not.i.i44.not = icmp eq i8 %325, 0
-  br i1 %.not.i.i44.not, label %326, label %mpd_del.exit46
+315:                                              ; preds = %312, %._crit_edge
+  %316 = phi i8 [ %.pre, %312 ], [ %311, %._crit_edge ]
+  %317 = and i8 %316, 16
+  %.not.i.i44.not = icmp eq i8 %317, 0
+  br i1 %.not.i.i44.not, label %318, label %mpd_del.exit46
 
-326:                                              ; preds = %323
-  %327 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %327(ptr noundef nonnull %12) #33
+318:                                              ; preds = %315
+  %319 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  call void %319(ptr noundef nonnull %12) #33
   br label %mpd_del.exit46
 
-mpd_del.exit46:                                   ; preds = %323, %326
-  %328 = load i8, ptr %14, align 8, !tbaa !19
-  %.not.i5.i = icmp ugt i8 %328, 31
-  br i1 %.not.i5.i, label %332, label %329
+mpd_del.exit46:                                   ; preds = %315, %318
+  %320 = load i8, ptr %14, align 8, !tbaa !19
+  %.not.i5.i = icmp ugt i8 %320, 31
+  br i1 %.not.i5.i, label %324, label %321
 
-329:                                              ; preds = %mpd_del.exit46
-  %330 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  %331 = load ptr, ptr %22, align 8, !tbaa !17
-  call void %330(ptr noundef %331) #33
+321:                                              ; preds = %mpd_del.exit46
+  %322 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  %323 = load ptr, ptr %22, align 8, !tbaa !17
+  call void %322(ptr noundef %323) #33
   %.pre70 = load i8, ptr %14, align 8, !tbaa !19
-  br label %332
+  br label %324
 
-332:                                              ; preds = %329, %mpd_del.exit46
-  %333 = phi i8 [ %.pre70, %329 ], [ %328, %mpd_del.exit46 ]
-  %334 = and i8 %333, 16
-  %.not.i.i.not = icmp eq i8 %334, 0
-  br i1 %.not.i.i.not, label %335, label %mpd_del.exit
+324:                                              ; preds = %321, %mpd_del.exit46
+  %325 = phi i8 [ %.pre70, %321 ], [ %320, %mpd_del.exit46 ]
+  %326 = and i8 %325, 16
+  %.not.i.i.not = icmp eq i8 %326, 0
+  br i1 %.not.i.i.not, label %327, label %mpd_del.exit
 
-335:                                              ; preds = %332
-  %336 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %336(ptr noundef nonnull %14) #33
+327:                                              ; preds = %324
+  %328 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  call void %328(ptr noundef nonnull %14) #33
   br label %mpd_del.exit
 
-mpd_del.exit:                                     ; preds = %332, %335
-  %337 = getelementptr inbounds nuw i8, ptr %10, i64 28
-  %338 = load i32, ptr %337, align 4, !tbaa !56
-  %339 = and i32 %338, 958
-  %340 = load i32, ptr %3, align 4, !tbaa !23
-  %341 = or i32 %339, %340
-  %342 = or i32 %341, 4160
-  store i32 %342, ptr %3, align 4, !tbaa !23
+mpd_del.exit:                                     ; preds = %324, %327
+  %329 = getelementptr inbounds nuw i8, ptr %10, i64 28
+  %330 = load i32, ptr %329, align 4, !tbaa !56
+  %331 = and i32 %330, 958
+  %332 = load i32, ptr %3, align 4, !tbaa !23
+  %333 = or i32 %331, %332
+  %334 = or i32 %333, 4160
+  store i32 %334, ptr %3, align 4, !tbaa !23
   br label %mpd_qcopy.exit
 
 mpd_qcopy.exit:                                   ; preds = %mpd_qresize.exit.i, %_mpd_qexp_check_one.exit, %mpd_del.exit, %mpd_seterror.exit, %72, %35
@@ -14673,7 +14665,7 @@ mpd_iszero.exit.thread:                           ; preds = %10, %mpd_iszero.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qfma(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef captures(address) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) local_unnamed_addr #10 {
+define hidden void @mpd_qfma(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(address) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) local_unnamed_addr #10 {
   %7 = alloca i8, align 1
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #33
@@ -14780,7 +14772,7 @@ mpd_seterror.exit:                                ; preds = %34, %37, %49
   br i1 %.not21.i, label %68, label %63
 
 63:                                               ; preds = %60, %57
-  %64 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef %.017, ptr noundef readonly %4, ptr noundef nonnull %8)
+  %64 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %0, ptr noundef nonnull readonly %0, ptr noundef readonly %.017, ptr noundef readonly %4, ptr noundef nonnull %8)
   %.not22.i = icmp eq i32 %64, 0
   br i1 %.not22.i, label %65, label %mpd_qadd.exit
 
@@ -14788,12 +14780,12 @@ mpd_seterror.exit:                                ; preds = %34, %37, %49
   %66 = load i8, ptr %.017, align 8, !tbaa !19
   %67 = and i8 %66, 1
   %.val.i = load i8, ptr %0, align 8, !tbaa !19
-  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %0, i8 %.val.i, ptr noundef nonnull %.017, i8 noundef zeroext %67, ptr noundef nonnull %8)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %0, i8 %.val.i, ptr noundef nonnull readonly %.017, i8 noundef zeroext %67, ptr noundef nonnull %8)
   br label %mpd_qadd.exit
 
 68:                                               ; preds = %60
   %69 = and i8 %61, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef nonnull %.017, i8 noundef zeroext %69, ptr noundef readonly %4, ptr noundef nonnull %8)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %0, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %.017, i8 noundef zeroext %69, ptr noundef readonly %4, ptr noundef nonnull %8)
   call void @mpd_qfinalize(ptr noundef nonnull %0, ptr noundef readonly %4, ptr noundef nonnull %8)
   br label %mpd_qadd.exit
 
@@ -14839,7 +14831,7 @@ mpd_del.exit:                                     ; preds = %79, %76, %mpd_qadd.
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @_mpd_qmul(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #16 {
+define internal fastcc void @_mpd_qmul(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #16 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
@@ -15684,7 +15676,7 @@ ln_schedule_prec.exit:                            ; preds = %.preheader.i
   %75 = load i8, ptr %0, align 8, !tbaa !19
   %76 = xor i8 %75, 1
   store i8 %76, ptr %0, align 8, !tbaa !19
-  call fastcc void @_mpd_qmul(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull readonly %5, ptr noundef %2)
+  call fastcc void @_mpd_qmul(ptr noundef nonnull %8, ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %5, ptr noundef %2)
   call void @mpd_qfinalize(ptr noundef nonnull %8, ptr noundef nonnull readonly %5, ptr noundef %2)
   %77 = load i8, ptr %8, align 8, !tbaa !19
   %78 = and i8 %77, 14
@@ -15692,12 +15684,12 @@ ln_schedule_prec.exit:                            ; preds = %.preheader.i
   br i1 %.not.i38, label %79, label %80
 
 79:                                               ; preds = %.lr.ph
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %8, ptr noundef nonnull %8, ptr noundef nonnull @one, i8 noundef zeroext 1, ptr noundef nonnull readonly %6, ptr noundef %2)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %8, ptr noundef nonnull readonly %8, ptr noundef nonnull @one, i8 noundef zeroext 1, ptr noundef nonnull readonly %6, ptr noundef %2)
   call void @mpd_qfinalize(ptr noundef nonnull %8, ptr noundef nonnull readonly %6, ptr noundef %2)
   br label %mpd_qsub.exit
 
 80:                                               ; preds = %.lr.ph
-  %81 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %8, ptr noundef nonnull %8, ptr noundef nonnull @one, ptr noundef nonnull readonly %6, ptr noundef %2)
+  %81 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %8, ptr noundef nonnull readonly %8, ptr noundef nonnull @one, ptr noundef nonnull readonly %6, ptr noundef %2)
   %.not23.i = icmp eq i32 %81, 0
   br i1 %.not23.i, label %82, label %mpd_qsub.exit
 
@@ -15719,7 +15711,7 @@ mpd_qsub.exit:                                    ; preds = %80, %82, %79
   br i1 %.not21.i, label %93, label %88
 
 88:                                               ; preds = %85, %mpd_qsub.exit
-  %89 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull readonly %6, ptr noundef %2)
+  %89 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %0, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %6, ptr noundef %2)
   %.not22.i = icmp eq i32 %89, 0
   br i1 %.not22.i, label %90, label %mpd_qadd.exit
 
@@ -15727,12 +15719,12 @@ mpd_qsub.exit:                                    ; preds = %80, %82, %79
   %91 = load i8, ptr %8, align 8, !tbaa !19
   %92 = and i8 %91, 1
   %.val.i40 = load i8, ptr %0, align 8, !tbaa !19
-  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %0, i8 %.val.i40, ptr noundef nonnull %8, i8 noundef zeroext %92, ptr noundef %2)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %0, i8 %.val.i40, ptr noundef nonnull readonly %8, i8 noundef zeroext %92, ptr noundef %2)
   br label %mpd_qadd.exit
 
 93:                                               ; preds = %85
   %94 = and i8 %86, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef nonnull %8, i8 noundef zeroext %94, ptr noundef nonnull readonly %6, ptr noundef %2)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %0, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %8, i8 noundef zeroext %94, ptr noundef nonnull readonly %6, ptr noundef %2)
   call void @mpd_qfinalize(ptr noundef nonnull %0, ptr noundef nonnull readonly %6, ptr noundef %2)
   br label %mpd_qadd.exit
 
@@ -16050,14 +16042,14 @@ _mpd_rnd_incr.exit.thread:                        ; preds = %3, %24, %17, %9, %m
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qmul(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qmul(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   tail call fastcc void @_mpd_qmul(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   tail call void @mpd_qfinalize(ptr noundef %0, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qln(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
+define hidden void @mpd_qln(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -16523,7 +16515,7 @@ mpd_exp_digits.exit:                              ; preds = %139, %143, %150, %1
   br i1 %.not21.i, label %252, label %247
 
 247:                                              ; preds = %244, %235
-  %248 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %11, ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull readonly %9, ptr noundef nonnull %233)
+  %248 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %11, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %15, ptr noundef nonnull readonly %9, ptr noundef nonnull %233)
   %.not22.i = icmp eq i32 %248, 0
   br i1 %.not22.i, label %249, label %mpd_qadd.exit
 
@@ -16531,12 +16523,12 @@ mpd_exp_digits.exit:                              ; preds = %139, %143, %150, %1
   %250 = load i8, ptr %15, align 8, !tbaa !19
   %251 = and i8 %250, 1
   %.val.i = load i8, ptr %0, align 8, !tbaa !19
-  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %11, i8 %.val.i, ptr noundef nonnull %15, i8 noundef zeroext %251, ptr noundef nonnull %233)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %11, i8 %.val.i, ptr noundef nonnull readonly %15, i8 noundef zeroext %251, ptr noundef nonnull %233)
   br label %mpd_qadd.exit
 
 252:                                              ; preds = %244
   %253 = and i8 %245, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %11, ptr noundef nonnull %0, ptr noundef nonnull %15, i8 noundef zeroext %253, ptr noundef nonnull readonly %9, ptr noundef nonnull %233)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %11, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %15, i8 noundef zeroext %253, ptr noundef nonnull readonly %9, ptr noundef nonnull %233)
   call void @mpd_qfinalize(ptr noundef nonnull %11, ptr noundef nonnull readonly %9, ptr noundef nonnull %233)
   br label %mpd_qadd.exit
 
@@ -16553,7 +16545,7 @@ mpd_qadd.exit:                                    ; preds = %247, %249, %252
   br i1 %.not21.i106, label %265, label %259
 
 259:                                              ; preds = %256, %mpd_qadd.exit
-  %260 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %13, ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull readonly %9, ptr noundef nonnull %233)
+  %260 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %13, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %15, ptr noundef nonnull readonly %9, ptr noundef nonnull %233)
   %.not23.i = icmp eq i32 %260, 0
   br i1 %.not23.i, label %261, label %mpd_qsub.exit
 
@@ -16562,13 +16554,13 @@ mpd_qadd.exit:                                    ; preds = %247, %249, %252
   %263 = and i8 %262, 1
   %264 = xor i8 %263, 1
   %.val.i105 = load i8, ptr %0, align 8, !tbaa !19
-  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %13, i8 %.val.i105, ptr noundef nonnull %15, i8 noundef zeroext %264, ptr noundef nonnull %233)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %13, i8 %.val.i105, ptr noundef nonnull readonly %15, i8 noundef zeroext %264, ptr noundef nonnull %233)
   br label %mpd_qsub.exit
 
 265:                                              ; preds = %256
   %266 = and i8 %257, 1
   %267 = xor i8 %266, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %13, ptr noundef nonnull %0, ptr noundef nonnull %15, i8 noundef zeroext %267, ptr noundef nonnull readonly %9, ptr noundef nonnull %233)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %13, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %15, i8 noundef zeroext %267, ptr noundef nonnull readonly %9, ptr noundef nonnull %233)
   call void @mpd_qfinalize(ptr noundef nonnull %13, ptr noundef nonnull readonly %9, ptr noundef nonnull %233)
   br label %mpd_qsub.exit
 
@@ -17149,7 +17141,7 @@ mpd_setdigits.exit:                               ; preds = %152, %156, %163, %1
 222:                                              ; preds = %216
   %223 = call fastcc i32 @_mpd_cmp(ptr noundef nonnull %11, ptr noundef nonnull @one)
   %224 = getelementptr inbounds nuw i8, ptr %9, i64 28
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %15, ptr noundef nonnull %11, ptr noundef nonnull @one, i8 noundef zeroext 1, ptr noundef nonnull readonly %9, ptr noundef nonnull %224)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %15, ptr noundef nonnull readonly %11, ptr noundef nonnull @one, i8 noundef zeroext 1, ptr noundef nonnull readonly %9, ptr noundef nonnull %224)
   %225 = load i32, ptr %224, align 4, !tbaa !56
   %226 = and i32 %225, 958
   %.not64 = icmp eq i32 %226, 0
@@ -17292,7 +17284,7 @@ ln_schedule_prec.exit:                            ; preds = %.preheader.i
 
 292:                                              ; preds = %.lr.ph, %287
   %.sink134 = phi ptr [ %13, %287 ], [ %11, %.lr.ph ]
-  call fastcc void @_mpd_qmul(ptr noundef nonnull %15, ptr noundef nonnull %.sink134, ptr noundef nonnull %15, ptr noundef nonnull readonly %8, ptr noundef %3)
+  call fastcc void @_mpd_qmul(ptr noundef nonnull %15, ptr noundef nonnull readonly %.sink134, ptr noundef nonnull readonly %15, ptr noundef nonnull readonly %8, ptr noundef %3)
   call void @mpd_qfinalize(ptr noundef nonnull %15, ptr noundef nonnull readonly %8, ptr noundef %3)
   %293 = load i8, ptr %15, align 8, !tbaa !19
   %294 = and i8 %293, 14
@@ -17300,12 +17292,12 @@ ln_schedule_prec.exit:                            ; preds = %.preheader.i
   br i1 %.not.i89, label %295, label %296
 
 295:                                              ; preds = %292
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %15, ptr noundef nonnull %15, ptr noundef nonnull @one, i8 noundef zeroext 1, ptr noundef nonnull readonly %9, ptr noundef %3)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %15, ptr noundef nonnull readonly %15, ptr noundef nonnull @one, i8 noundef zeroext 1, ptr noundef nonnull readonly %9, ptr noundef %3)
   call void @mpd_qfinalize(ptr noundef nonnull %15, ptr noundef nonnull readonly %9, ptr noundef %3)
   br label %mpd_qsub.exit
 
 296:                                              ; preds = %292
-  %297 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %15, ptr noundef nonnull %15, ptr noundef nonnull @one, ptr noundef nonnull readonly %9, ptr noundef %3)
+  %297 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %15, ptr noundef nonnull readonly %15, ptr noundef nonnull @one, ptr noundef nonnull readonly %9, ptr noundef %3)
   %.not23.i = icmp eq i32 %297, 0
   br i1 %.not23.i, label %298, label %mpd_qsub.exit
 
@@ -17327,7 +17319,7 @@ mpd_qsub.exit:                                    ; preds = %296, %298, %295
   br i1 %.not21.i, label %309, label %304
 
 304:                                              ; preds = %301, %mpd_qsub.exit
-  %305 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull readonly %9, ptr noundef %3)
+  %305 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %0, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %15, ptr noundef nonnull readonly %9, ptr noundef %3)
   %.not22.i = icmp eq i32 %305, 0
   br i1 %.not22.i, label %306, label %mpd_qadd.exit
 
@@ -17335,12 +17327,12 @@ mpd_qsub.exit:                                    ; preds = %296, %298, %295
   %307 = load i8, ptr %15, align 8, !tbaa !19
   %308 = and i8 %307, 1
   %.val.i91 = load i8, ptr %0, align 8, !tbaa !19
-  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %0, i8 %.val.i91, ptr noundef nonnull %15, i8 noundef zeroext %308, ptr noundef %3)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %0, i8 %.val.i91, ptr noundef nonnull readonly %15, i8 noundef zeroext %308, ptr noundef %3)
   br label %mpd_qadd.exit
 
 309:                                              ; preds = %301
   %310 = and i8 %302, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef nonnull %15, i8 noundef zeroext %310, ptr noundef nonnull readonly %9, ptr noundef %3)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %0, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %15, i8 noundef zeroext %310, ptr noundef nonnull readonly %9, ptr noundef %3)
   call void @mpd_qfinalize(ptr noundef nonnull %0, ptr noundef nonnull readonly %9, ptr noundef %3)
   br label %mpd_qadd.exit
 
@@ -17369,7 +17361,7 @@ mpd_qadd.exit._crit_edge:                         ; preds = %mpd_qadd.exit, %.th
   br i1 %.not21.i95, label %325, label %320
 
 320:                                              ; preds = %317, %mpd_qadd.exit._crit_edge
-  %321 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %0, ptr noundef nonnull readonly %9, ptr noundef %3)
+  %321 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %0, ptr noundef nonnull readonly %15, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %9, ptr noundef %3)
   %.not22.i93 = icmp eq i32 %321, 0
   br i1 %.not22.i93, label %322, label %mpd_qadd.exit96
 
@@ -17377,12 +17369,12 @@ mpd_qadd.exit._crit_edge:                         ; preds = %mpd_qadd.exit, %.th
   %323 = load i8, ptr %0, align 8, !tbaa !19
   %324 = and i8 %323, 1
   %.val.i94 = load i8, ptr %15, align 8, !tbaa !19
-  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %0, i8 %.val.i94, ptr noundef nonnull %0, i8 noundef zeroext %324, ptr noundef %3)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %0, i8 %.val.i94, ptr noundef nonnull readonly %0, i8 noundef zeroext %324, ptr noundef %3)
   br label %mpd_qadd.exit96
 
 325:                                              ; preds = %317
   %326 = and i8 %318, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %0, i8 noundef zeroext %326, ptr noundef nonnull readonly %9, ptr noundef %3)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %0, ptr noundef nonnull readonly %15, ptr noundef nonnull readonly %0, i8 noundef zeroext %326, ptr noundef nonnull readonly %9, ptr noundef %3)
   call void @mpd_qfinalize(ptr noundef nonnull %0, ptr noundef nonnull readonly %9, ptr noundef %3)
   br label %mpd_qadd.exit96
 
@@ -17472,7 +17464,7 @@ mpd_del.exit:                                     ; preds = %351, %354
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qlog10(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
+define hidden void @mpd_qlog10(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -17975,7 +17967,7 @@ mpd_coeff_ispow10.exit:                           ; preds = %190
   br i1 %.not21.i, label %268, label %263
 
 263:                                              ; preds = %260, %251
-  %264 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %11, ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull readonly %9, ptr noundef nonnull %249)
+  %264 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %11, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %15, ptr noundef nonnull readonly %9, ptr noundef nonnull %249)
   %.not22.i = icmp eq i32 %264, 0
   br i1 %.not22.i, label %265, label %mpd_qadd.exit
 
@@ -17983,12 +17975,12 @@ mpd_coeff_ispow10.exit:                           ; preds = %190
   %266 = load i8, ptr %15, align 8, !tbaa !19
   %267 = and i8 %266, 1
   %.val.i = load i8, ptr %0, align 8, !tbaa !19
-  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %11, i8 %.val.i, ptr noundef nonnull %15, i8 noundef zeroext %267, ptr noundef nonnull %249)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %11, i8 %.val.i, ptr noundef nonnull readonly %15, i8 noundef zeroext %267, ptr noundef nonnull %249)
   br label %mpd_qadd.exit
 
 268:                                              ; preds = %260
   %269 = and i8 %261, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %11, ptr noundef nonnull %0, ptr noundef nonnull %15, i8 noundef zeroext %269, ptr noundef nonnull readonly %9, ptr noundef nonnull %249)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %11, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %15, i8 noundef zeroext %269, ptr noundef nonnull readonly %9, ptr noundef nonnull %249)
   call void @mpd_qfinalize(ptr noundef nonnull %11, ptr noundef nonnull readonly %9, ptr noundef nonnull %249)
   br label %mpd_qadd.exit
 
@@ -18005,7 +17997,7 @@ mpd_qadd.exit:                                    ; preds = %263, %265, %268
   br i1 %.not21.i120, label %281, label %275
 
 275:                                              ; preds = %272, %mpd_qadd.exit
-  %276 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %13, ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull readonly %9, ptr noundef nonnull %249)
+  %276 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %13, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %15, ptr noundef nonnull readonly %9, ptr noundef nonnull %249)
   %.not23.i = icmp eq i32 %276, 0
   br i1 %.not23.i, label %277, label %mpd_qsub.exit
 
@@ -18014,13 +18006,13 @@ mpd_qadd.exit:                                    ; preds = %263, %265, %268
   %279 = and i8 %278, 1
   %280 = xor i8 %279, 1
   %.val.i119 = load i8, ptr %0, align 8, !tbaa !19
-  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %13, i8 %.val.i119, ptr noundef nonnull %15, i8 noundef zeroext %280, ptr noundef nonnull %249)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %13, i8 %.val.i119, ptr noundef nonnull readonly %15, i8 noundef zeroext %280, ptr noundef nonnull %249)
   br label %mpd_qsub.exit
 
 281:                                              ; preds = %272
   %282 = and i8 %273, 1
   %283 = xor i8 %282, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %13, ptr noundef nonnull %0, ptr noundef nonnull %15, i8 noundef zeroext %283, ptr noundef nonnull readonly %9, ptr noundef nonnull %249)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %13, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %15, i8 noundef zeroext %283, ptr noundef nonnull readonly %9, ptr noundef nonnull %249)
   call void @mpd_qfinalize(ptr noundef nonnull %13, ptr noundef nonnull readonly %9, ptr noundef nonnull %249)
   br label %mpd_qsub.exit
 
@@ -18200,7 +18192,7 @@ mpd_del.exit:                                     ; preds = %340, %343
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qlog10(i32 noundef range(i32 0, 2) %0, ptr noundef initializes((8, 32)) %1, ptr noundef captures(address) %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef %4) unnamed_addr #10 {
+define internal fastcc void @_mpd_qlog10(i32 noundef range(i32 0, 2) %0, ptr noundef initializes((8, 32)) %1, ptr noundef readonly captures(address) %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef %4) unnamed_addr #10 {
   %6 = alloca %struct.mpd_context_t, align 8
   %7 = alloca [64 x i64], align 16
   %8 = alloca %struct.mpd_t, align 8
@@ -18262,7 +18254,7 @@ mpd_del.exit:                                     ; preds = %22, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qmax(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qmax(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = load i8, ptr %1, align 8, !tbaa !19
   %7 = and i8 %6, 4
   %.not = icmp ne i8 %7, 0
@@ -18609,7 +18601,7 @@ mpd_qcopy.exit:                                   ; preds = %mpd_qresize.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qmax_mag(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qmax_mag(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = load i8, ptr %1, align 8, !tbaa !19
   %7 = and i8 %6, 4
   %.not = icmp ne i8 %7, 0
@@ -19027,7 +19019,7 @@ mpd_qcopy.exit:                                   ; preds = %mpd_qresize.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qmin(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qmin(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = load i8, ptr %1, align 8, !tbaa !19
   %7 = and i8 %6, 4
   %.not = icmp ne i8 %7, 0
@@ -19374,7 +19366,7 @@ mpd_qcopy.exit:                                   ; preds = %mpd_qresize.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qmin_mag(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qmin_mag(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = load i8, ptr %1, align 8, !tbaa !19
   %7 = and i8 %6, 4
   %.not = icmp ne i8 %7, 0
@@ -19792,7 +19784,7 @@ mpd_qcopy.exit:                                   ; preds = %mpd_qresize.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qmul_ssize(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qmul_ssize(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = alloca %struct.mpd_context_t, align 8
   %7 = alloca [64 x i64], align 16
   %8 = alloca %struct.mpd_t, align 8
@@ -19821,7 +19813,7 @@ define hidden void @mpd_qmul_ssize(ptr noundef %0, ptr noundef captures(address)
 
 mpd_qsset_ssize.exit:                             ; preds = %.split11.i, %.split.i
   call void @mpd_qfinalize(ptr noundef nonnull %8, ptr noundef nonnull readonly %6, ptr noundef %4)
-  call fastcc void @_mpd_qmul(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %8, ptr noundef readonly %3, ptr noundef %4)
+  call fastcc void @_mpd_qmul(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull readonly %8, ptr noundef readonly %3, ptr noundef %4)
   call void @mpd_qfinalize(ptr noundef %0, ptr noundef readonly %3, ptr noundef %4)
   %14 = load i8, ptr %8, align 8, !tbaa !19
   %.not.i5.i = icmp ugt i8 %14, 31
@@ -19853,7 +19845,7 @@ mpd_del.exit:                                     ; preds = %18, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qmul_uint(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qmul_uint(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = alloca %struct.mpd_context_t, align 8
   %7 = alloca [64 x i64], align 16
   %8 = alloca %struct.mpd_t, align 8
@@ -19870,7 +19862,7 @@ define hidden void @mpd_qmul_uint(ptr noundef %0, ptr noundef captures(address) 
   call void @mpd_maxcontext(ptr noundef nonnull %6) #33
   call fastcc void @_ssettriple(ptr noundef nonnull %8, i8 noundef zeroext 0, i64 noundef %2, i64 noundef 0)
   call void @mpd_qfinalize(ptr noundef nonnull %8, ptr noundef nonnull readonly %6, ptr noundef %4)
-  call fastcc void @_mpd_qmul(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %8, ptr noundef readonly %3, ptr noundef %4)
+  call fastcc void @_mpd_qmul(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull readonly %8, ptr noundef readonly %3, ptr noundef %4)
   call void @mpd_qfinalize(ptr noundef %0, ptr noundef readonly %3, ptr noundef %4)
   %12 = load i8, ptr %8, align 8, !tbaa !19
   %.not.i5.i = icmp ugt i8 %12, 31
@@ -19902,33 +19894,33 @@ mpd_del.exit:                                     ; preds = %16, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qmul_i32(ptr noundef %0, ptr noundef captures(address) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qmul_i32(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = sext i32 %2 to i64
   tail call void @mpd_qmul_ssize(ptr noundef %0, ptr noundef %1, i64 noundef %6, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qmul_u32(ptr noundef %0, ptr noundef captures(address) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qmul_u32(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = zext i32 %2 to i64
   tail call void @mpd_qmul_uint(ptr noundef %0, ptr noundef %1, i64 noundef %6, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qmul_i64(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qmul_i64(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   tail call void @mpd_qmul_ssize(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qmul_u64(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qmul_u64(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   tail call void @mpd_qmul_uint(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qnext_minus(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
+define hidden void @mpd_qnext_minus(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
   %5 = alloca %struct.mpd_context_t, align 8
   %6 = alloca [1 x i64], align 8
   %7 = alloca %struct.mpd_t, align 8
@@ -20253,17 +20245,17 @@ mpd_qresize.exit.thread.i41:                      ; preds = %mpd_qresize.exit.mp
   br i1 %.not.i50, label %176, label %173
 
 173:                                              ; preds = %170
-  %174 = call i32 @mpd_qcheck_nans(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %7, ptr noundef nonnull readonly %5, ptr noundef nonnull %119)
+  %174 = call i32 @mpd_qcheck_nans(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %7, ptr noundef nonnull readonly %5, ptr noundef nonnull %119)
   %.not23.i = icmp eq i32 %174, 0
   br i1 %.not23.i, label %175, label %mpd_qsub.exit
 
 175:                                              ; preds = %173
   %.val.i = load i8, ptr %1, align 8, !tbaa !19
-  call fastcc void @_mpd_qaddsub_inf(ptr noundef %0, i8 %.val.i, ptr noundef nonnull %7, i8 noundef zeroext 1, ptr noundef nonnull %119)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef %0, i8 %.val.i, ptr noundef nonnull readonly %7, i8 noundef zeroext 1, ptr noundef nonnull %119)
   br label %mpd_qsub.exit
 
 176:                                              ; preds = %170
-  call fastcc void @_mpd_qaddsub(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %7, i8 noundef zeroext 1, ptr noundef nonnull readonly %5, ptr noundef nonnull %119)
+  call fastcc void @_mpd_qaddsub(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %7, i8 noundef zeroext 1, ptr noundef nonnull readonly %5, ptr noundef nonnull %119)
   call void @mpd_qfinalize(ptr noundef %0, ptr noundef nonnull readonly %5, ptr noundef nonnull %119)
   br label %mpd_qsub.exit
 
@@ -20283,7 +20275,7 @@ mpd_qcopy.exit:                                   ; preds = %mpd_qresize.exit.i4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qnext_plus(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
+define hidden void @mpd_qnext_plus(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
   %5 = alloca %struct.mpd_context_t, align 8
   %6 = alloca [1 x i64], align 8
   %7 = alloca %struct.mpd_t, align 8
@@ -20611,17 +20603,17 @@ mpd_qresize.exit.thread.i42:                      ; preds = %mpd_qresize.exit.mp
   br i1 %.not.i51, label %178, label %175
 
 175:                                              ; preds = %172
-  %176 = call i32 @mpd_qcheck_nans(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %7, ptr noundef nonnull readonly %5, ptr noundef nonnull %121)
+  %176 = call i32 @mpd_qcheck_nans(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %7, ptr noundef nonnull readonly %5, ptr noundef nonnull %121)
   %.not22.i = icmp eq i32 %176, 0
   br i1 %.not22.i, label %177, label %mpd_qadd.exit
 
 177:                                              ; preds = %175
   %.val.i = load i8, ptr %1, align 8, !tbaa !19
-  call fastcc void @_mpd_qaddsub_inf(ptr noundef %0, i8 %.val.i, ptr noundef nonnull %7, i8 noundef zeroext 0, ptr noundef nonnull %121)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef %0, i8 %.val.i, ptr noundef nonnull readonly %7, i8 noundef zeroext 0, ptr noundef nonnull %121)
   br label %mpd_qadd.exit
 
 178:                                              ; preds = %172
-  call fastcc void @_mpd_qaddsub(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %7, i8 noundef zeroext 0, ptr noundef nonnull readonly %5, ptr noundef nonnull %121)
+  call fastcc void @_mpd_qaddsub(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %7, i8 noundef zeroext 0, ptr noundef nonnull readonly %5, ptr noundef nonnull %121)
   call void @mpd_qfinalize(ptr noundef %0, ptr noundef nonnull readonly %5, ptr noundef nonnull %121)
   br label %mpd_qadd.exit
 
@@ -20641,7 +20633,7 @@ mpd_qcopy.exit:                                   ; preds = %mpd_qresize.exit.i4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qnext_toward(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qnext_toward(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = tail call i32 @mpd_qcheck_nans(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %mpd_qcopy_sign.exit
@@ -20794,7 +20786,7 @@ mpd_qcopy_sign.exit:                              ; preds = %73, %49, %mpd_qresi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qpow(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qpow(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
@@ -21294,7 +21286,7 @@ mpd_iszero.exit.thread:                           ; preds = %211, %mpd_iszero.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 2) i32 @_qcheck_pow_one(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef captures(address) %2, i8 noundef zeroext range(i8 0, 2) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) unnamed_addr #10 {
+define internal fastcc range(i32 -2, 2) i32 @_qcheck_pow_one(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, i8 noundef zeroext range(i8 0, 2) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) unnamed_addr #10 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #33
@@ -21465,7 +21457,7 @@ _mpd_isint.exit.thread:                           ; preds = %_mpd_cmp_abs.exit.t
 88:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #33
   store i32 0, ptr %7, align 4, !tbaa !23
-  %89 = call fastcc i64 @_mpd_qget_uint(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %7)
+  %89 = call fastcc i64 @_mpd_qget_uint(i32 noundef 0, ptr noundef readonly %0, ptr noundef nonnull %7)
   %90 = load i32, ptr %7, align 4, !tbaa !23
   %91 = and i32 %90, 256
   %.not.i36 = icmp eq i32 %91, 0
@@ -21832,12 +21824,12 @@ define internal fastcc range(i32 0, 2) i32 @_qcheck_pow_bounds(ptr noundef %0, p
   br i1 %.not.i18.i, label %182, label %183
 
 182:                                              ; preds = %180
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @one, i8 noundef zeroext 1, ptr noundef nonnull readonly %8, ptr noundef %5)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %10, ptr noundef nonnull readonly %11, ptr noundef nonnull @one, i8 noundef zeroext 1, ptr noundef nonnull readonly %8, ptr noundef %5)
   call void @mpd_qfinalize(ptr noundef nonnull %10, ptr noundef nonnull readonly %8, ptr noundef %5)
   br label %mpd_qsub.exit.i
 
 183:                                              ; preds = %180
-  %184 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @one, ptr noundef nonnull readonly %8, ptr noundef %5)
+  %184 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %10, ptr noundef nonnull readonly %11, ptr noundef nonnull @one, ptr noundef nonnull readonly %8, ptr noundef %5)
   %.not23.i.i = icmp eq i32 %184, 0
   br i1 %.not23.i.i, label %185, label %mpd_qsub.exit.i
 
@@ -21921,12 +21913,7 @@ _lower_bound_zeta.exit:                           ; preds = %203, %206
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %9) #33
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #33
   %212 = icmp eq i64 %211, 9223372036854775807
-  br i1 %212, label %213, label %_lower_bound_zeta.exit._crit_edge
-
-_lower_bound_zeta.exit._crit_edge:                ; preds = %_lower_bound_zeta.exit
-  %.pre = load i64, ptr %14, align 8, !tbaa !7
-  %.pre42 = load i64, ptr %17, align 8, !tbaa !11
-  br label %235
+  br i1 %212, label %213, label %235
 
 213:                                              ; preds = %_lower_bound_zeta.exit.thread, %_lower_bound_zeta.exit
   %214 = load i8, ptr %0, align 8, !tbaa !19
@@ -21972,269 +21959,265 @@ mpd_seterror.exit:                                ; preds = %213, %216, %228
   %233 = load i32, ptr %5, align 4, !tbaa !23
   %234 = or i32 %233, 512
   store i32 %234, ptr %5, align 4, !tbaa !23
-  br label %391
+  br label %387
 
-235:                                              ; preds = %_lower_bound_zeta.exit._crit_edge, %_lower_bound_zeta.exit.thread38
-  %236 = phi i64 [ %19, %_lower_bound_zeta.exit.thread38 ], [ %.pre42, %_lower_bound_zeta.exit._crit_edge ]
-  %237 = phi i64 [ %16, %_lower_bound_zeta.exit.thread38 ], [ %.pre, %_lower_bound_zeta.exit._crit_edge ]
-  %.0.i40 = phi i64 [ %.0.i.ph, %_lower_bound_zeta.exit.thread38 ], [ %211, %_lower_bound_zeta.exit._crit_edge ]
-  %238 = add i64 %237, -1
-  %239 = add i64 %238, %236
-  %.lobit = lshr i64 %239, 63
-  %240 = trunc nuw nsw i64 %.lobit to i8
-  %241 = load i8, ptr %2, align 8, !tbaa !19
-  %242 = and i8 %241, 1
-  %243 = icmp eq i8 %242, %240
-  br i1 %243, label %244, label %316
+235:                                              ; preds = %_lower_bound_zeta.exit.thread38, %_lower_bound_zeta.exit
+  %.0.i40 = phi i64 [ %.0.i.ph, %_lower_bound_zeta.exit.thread38 ], [ %211, %_lower_bound_zeta.exit ]
+  %.lobit = lshr i64 %43, 63
+  %236 = trunc nuw nsw i64 %.lobit to i8
+  %237 = load i8, ptr %2, align 8, !tbaa !19
+  %238 = and i8 %237, 1
+  %239 = icmp eq i8 %238, %236
+  br i1 %239, label %240, label %312
 
-244:                                              ; preds = %235
-  %245 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %246 = load i64, ptr %245, align 8, !tbaa !16
-  %247 = call i64 @llvm.abs.i64(i64 %246, i1 false)
-  %248 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 72), align 8, !tbaa !3
-  %249 = icmp ult i64 %247, %248
-  br i1 %249, label %250, label %278
+240:                                              ; preds = %235
+  %241 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %242 = load i64, ptr %241, align 8, !tbaa !16
+  %243 = call i64 @llvm.abs.i64(i64 %242, i1 false)
+  %244 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 72), align 8, !tbaa !3
+  %245 = icmp ult i64 %243, %244
+  br i1 %245, label %246, label %274
 
-250:                                              ; preds = %244
-  %251 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 32), align 8, !tbaa !3
-  %252 = icmp ult i64 %247, %251
-  br i1 %252, label %253, label %264
+246:                                              ; preds = %240
+  %247 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 32), align 8, !tbaa !3
+  %248 = icmp ult i64 %243, %247
+  br i1 %248, label %249, label %260
 
-253:                                              ; preds = %250
-  %254 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 16), align 8, !tbaa !3
-  %255 = icmp ult i64 %247, %254
-  br i1 %255, label %256, label %260
+249:                                              ; preds = %246
+  %250 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 16), align 8, !tbaa !3
+  %251 = icmp ult i64 %243, %250
+  br i1 %251, label %252, label %256
 
-256:                                              ; preds = %253
-  %257 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 8), align 8, !tbaa !3
-  %258 = icmp ult i64 %247, %257
-  %259 = select i1 %258, i64 1, i64 2
+252:                                              ; preds = %249
+  %253 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 8), align 8, !tbaa !3
+  %254 = icmp ult i64 %243, %253
+  %255 = select i1 %254, i64 1, i64 2
   br label %mpd_exp_digits.exit
 
-260:                                              ; preds = %253
-  %261 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 24), align 8, !tbaa !3
-  %262 = icmp ult i64 %247, %261
-  %263 = select i1 %262, i64 3, i64 4
+256:                                              ; preds = %249
+  %257 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 24), align 8, !tbaa !3
+  %258 = icmp ult i64 %243, %257
+  %259 = select i1 %258, i64 3, i64 4
   br label %mpd_exp_digits.exit
 
-264:                                              ; preds = %250
-  %265 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 48), align 8, !tbaa !3
-  %266 = icmp ult i64 %247, %265
-  br i1 %266, label %267, label %271
+260:                                              ; preds = %246
+  %261 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 48), align 8, !tbaa !3
+  %262 = icmp ult i64 %243, %261
+  br i1 %262, label %263, label %267
 
-267:                                              ; preds = %264
-  %268 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 40), align 8, !tbaa !3
-  %269 = icmp ult i64 %247, %268
-  %270 = select i1 %269, i64 5, i64 6
+263:                                              ; preds = %260
+  %264 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 40), align 8, !tbaa !3
+  %265 = icmp ult i64 %243, %264
+  %266 = select i1 %265, i64 5, i64 6
   br label %mpd_exp_digits.exit
 
-271:                                              ; preds = %264
-  %272 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 64), align 8, !tbaa !3
-  %273 = icmp ult i64 %247, %272
-  br i1 %273, label %274, label %mpd_exp_digits.exit
+267:                                              ; preds = %260
+  %268 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 64), align 8, !tbaa !3
+  %269 = icmp ult i64 %243, %268
+  br i1 %269, label %270, label %mpd_exp_digits.exit
 
-274:                                              ; preds = %271
-  %275 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 56), align 8, !tbaa !3
-  %276 = icmp ult i64 %247, %275
-  %277 = select i1 %276, i64 7, i64 8
+270:                                              ; preds = %267
+  %271 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 56), align 8, !tbaa !3
+  %272 = icmp ult i64 %243, %271
+  %273 = select i1 %272, i64 7, i64 8
   br label %mpd_exp_digits.exit
 
-278:                                              ; preds = %244
-  %279 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 112), align 8, !tbaa !3
-  %280 = icmp ult i64 %247, %279
-  br i1 %280, label %281, label %295
+274:                                              ; preds = %240
+  %275 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 112), align 8, !tbaa !3
+  %276 = icmp ult i64 %243, %275
+  br i1 %276, label %277, label %291
 
-281:                                              ; preds = %278
-  %282 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 88), align 8, !tbaa !3
-  %283 = icmp ult i64 %247, %282
-  br i1 %283, label %284, label %288
+277:                                              ; preds = %274
+  %278 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 88), align 8, !tbaa !3
+  %279 = icmp ult i64 %243, %278
+  br i1 %279, label %280, label %284
 
-284:                                              ; preds = %281
-  %285 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 80), align 8, !tbaa !3
-  %286 = icmp ult i64 %247, %285
-  %287 = select i1 %286, i64 10, i64 11
+280:                                              ; preds = %277
+  %281 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 80), align 8, !tbaa !3
+  %282 = icmp ult i64 %243, %281
+  %283 = select i1 %282, i64 10, i64 11
   br label %mpd_exp_digits.exit
 
-288:                                              ; preds = %281
-  %289 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 104), align 8, !tbaa !3
-  %290 = icmp ult i64 %247, %289
-  br i1 %290, label %291, label %mpd_exp_digits.exit
+284:                                              ; preds = %277
+  %285 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 104), align 8, !tbaa !3
+  %286 = icmp ult i64 %243, %285
+  br i1 %286, label %287, label %mpd_exp_digits.exit
 
-291:                                              ; preds = %288
-  %292 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 96), align 8, !tbaa !3
-  %293 = icmp ult i64 %247, %292
-  %294 = select i1 %293, i64 12, i64 13
+287:                                              ; preds = %284
+  %288 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 96), align 8, !tbaa !3
+  %289 = icmp ult i64 %243, %288
+  %290 = select i1 %289, i64 12, i64 13
   br label %mpd_exp_digits.exit
 
-295:                                              ; preds = %278
-  %296 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 144), align 8, !tbaa !3
-  %297 = icmp ult i64 %247, %296
-  br i1 %297, label %298, label %309
+291:                                              ; preds = %274
+  %292 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 144), align 8, !tbaa !3
+  %293 = icmp ult i64 %243, %292
+  br i1 %293, label %294, label %305
 
-298:                                              ; preds = %295
-  %299 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 128), align 8, !tbaa !3
-  %300 = icmp ult i64 %247, %299
-  br i1 %300, label %301, label %305
+294:                                              ; preds = %291
+  %295 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 128), align 8, !tbaa !3
+  %296 = icmp ult i64 %243, %295
+  br i1 %296, label %297, label %301
 
-301:                                              ; preds = %298
-  %302 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 120), align 8, !tbaa !3
-  %303 = icmp ult i64 %247, %302
-  %304 = select i1 %303, i64 15, i64 16
+297:                                              ; preds = %294
+  %298 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 120), align 8, !tbaa !3
+  %299 = icmp ult i64 %243, %298
+  %300 = select i1 %299, i64 15, i64 16
   br label %mpd_exp_digits.exit
 
-305:                                              ; preds = %298
-  %306 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 136), align 8, !tbaa !3
-  %307 = icmp ult i64 %247, %306
-  %308 = select i1 %307, i64 17, i64 18
+301:                                              ; preds = %294
+  %302 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 136), align 8, !tbaa !3
+  %303 = icmp ult i64 %243, %302
+  %304 = select i1 %303, i64 17, i64 18
   br label %mpd_exp_digits.exit
 
-309:                                              ; preds = %295
-  %310 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 152), align 8, !tbaa !3
-  %311 = icmp ult i64 %247, %310
-  %312 = select i1 %311, i64 19, i64 20
+305:                                              ; preds = %291
+  %306 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 152), align 8, !tbaa !3
+  %307 = icmp ult i64 %243, %306
+  %308 = select i1 %307, i64 19, i64 20
   br label %mpd_exp_digits.exit
 
-mpd_exp_digits.exit:                              ; preds = %256, %260, %267, %271, %274, %284, %288, %291, %301, %305, %309
-  %.0.i.i = phi i64 [ %259, %256 ], [ %263, %260 ], [ %270, %267 ], [ %277, %274 ], [ %287, %284 ], [ %294, %291 ], [ %304, %301 ], [ %308, %305 ], [ %312, %309 ], [ 9, %271 ], [ 14, %288 ]
-  %313 = add i64 %.0.i40, %36
-  %314 = icmp sgt i64 %313, %.0.i.i
-  br i1 %314, label %315, label %391
+mpd_exp_digits.exit:                              ; preds = %252, %256, %263, %267, %270, %280, %284, %287, %297, %301, %305
+  %.0.i.i = phi i64 [ %255, %252 ], [ %259, %256 ], [ %266, %263 ], [ %273, %270 ], [ %283, %280 ], [ %290, %287 ], [ %300, %297 ], [ %304, %301 ], [ %308, %305 ], [ 9, %267 ], [ 14, %284 ]
+  %309 = add i64 %.0.i40, %36
+  %310 = icmp sgt i64 %309, %.0.i.i
+  br i1 %310, label %311, label %387
 
-315:                                              ; preds = %mpd_exp_digits.exit
+311:                                              ; preds = %mpd_exp_digits.exit
   call fastcc void @_settriple(ptr noundef %0, i8 noundef zeroext %3, i64 noundef 1, i64 noundef 2000000000000000001)
   call void @mpd_qfinalize(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %5)
-  br label %391
+  br label %387
 
-316:                                              ; preds = %235
-  %317 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %318 = load i64, ptr %317, align 8, !tbaa !12
-  %319 = load i64, ptr %4, align 8, !tbaa !15
-  %.neg41 = add i64 %318, 1
-  %320 = sub i64 %.neg41, %319
-  %321 = call i64 @llvm.abs.i64(i64 %320, i1 false)
-  %322 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 72), align 8, !tbaa !3
-  %323 = icmp ult i64 %321, %322
-  br i1 %323, label %324, label %352
+312:                                              ; preds = %235
+  %313 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %314 = load i64, ptr %313, align 8, !tbaa !12
+  %315 = load i64, ptr %4, align 8, !tbaa !15
+  %.neg41 = add i64 %314, 1
+  %316 = sub i64 %.neg41, %315
+  %317 = call i64 @llvm.abs.i64(i64 %316, i1 false)
+  %318 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 72), align 8, !tbaa !3
+  %319 = icmp ult i64 %317, %318
+  br i1 %319, label %320, label %348
 
-324:                                              ; preds = %316
-  %325 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 32), align 8, !tbaa !3
-  %326 = icmp ult i64 %321, %325
-  br i1 %326, label %327, label %338
+320:                                              ; preds = %312
+  %321 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 32), align 8, !tbaa !3
+  %322 = icmp ult i64 %317, %321
+  br i1 %322, label %323, label %334
 
-327:                                              ; preds = %324
-  %328 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 16), align 8, !tbaa !3
-  %329 = icmp ult i64 %321, %328
-  br i1 %329, label %330, label %334
+323:                                              ; preds = %320
+  %324 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 16), align 8, !tbaa !3
+  %325 = icmp ult i64 %317, %324
+  br i1 %325, label %326, label %330
 
-330:                                              ; preds = %327
-  %331 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 8), align 8, !tbaa !3
-  %332 = icmp ult i64 %321, %331
-  %333 = select i1 %332, i64 1, i64 2
+326:                                              ; preds = %323
+  %327 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 8), align 8, !tbaa !3
+  %328 = icmp ult i64 %317, %327
+  %329 = select i1 %328, i64 1, i64 2
   br label %mpd_exp_digits.exit35
 
-334:                                              ; preds = %327
-  %335 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 24), align 8, !tbaa !3
-  %336 = icmp ult i64 %321, %335
-  %337 = select i1 %336, i64 3, i64 4
+330:                                              ; preds = %323
+  %331 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 24), align 8, !tbaa !3
+  %332 = icmp ult i64 %317, %331
+  %333 = select i1 %332, i64 3, i64 4
   br label %mpd_exp_digits.exit35
 
-338:                                              ; preds = %324
-  %339 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 48), align 8, !tbaa !3
-  %340 = icmp ult i64 %321, %339
-  br i1 %340, label %341, label %345
+334:                                              ; preds = %320
+  %335 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 48), align 8, !tbaa !3
+  %336 = icmp ult i64 %317, %335
+  br i1 %336, label %337, label %341
 
-341:                                              ; preds = %338
-  %342 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 40), align 8, !tbaa !3
-  %343 = icmp ult i64 %321, %342
-  %344 = select i1 %343, i64 5, i64 6
+337:                                              ; preds = %334
+  %338 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 40), align 8, !tbaa !3
+  %339 = icmp ult i64 %317, %338
+  %340 = select i1 %339, i64 5, i64 6
   br label %mpd_exp_digits.exit35
 
-345:                                              ; preds = %338
-  %346 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 64), align 8, !tbaa !3
-  %347 = icmp ult i64 %321, %346
-  br i1 %347, label %348, label %mpd_exp_digits.exit35
+341:                                              ; preds = %334
+  %342 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 64), align 8, !tbaa !3
+  %343 = icmp ult i64 %317, %342
+  br i1 %343, label %344, label %mpd_exp_digits.exit35
 
-348:                                              ; preds = %345
-  %349 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 56), align 8, !tbaa !3
-  %350 = icmp ult i64 %321, %349
-  %351 = select i1 %350, i64 7, i64 8
+344:                                              ; preds = %341
+  %345 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 56), align 8, !tbaa !3
+  %346 = icmp ult i64 %317, %345
+  %347 = select i1 %346, i64 7, i64 8
   br label %mpd_exp_digits.exit35
 
-352:                                              ; preds = %316
-  %353 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 112), align 8, !tbaa !3
-  %354 = icmp ult i64 %321, %353
-  br i1 %354, label %355, label %369
+348:                                              ; preds = %312
+  %349 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 112), align 8, !tbaa !3
+  %350 = icmp ult i64 %317, %349
+  br i1 %350, label %351, label %365
 
-355:                                              ; preds = %352
-  %356 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 88), align 8, !tbaa !3
-  %357 = icmp ult i64 %321, %356
-  br i1 %357, label %358, label %362
+351:                                              ; preds = %348
+  %352 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 88), align 8, !tbaa !3
+  %353 = icmp ult i64 %317, %352
+  br i1 %353, label %354, label %358
 
-358:                                              ; preds = %355
-  %359 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 80), align 8, !tbaa !3
-  %360 = icmp ult i64 %321, %359
-  %361 = select i1 %360, i64 10, i64 11
+354:                                              ; preds = %351
+  %355 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 80), align 8, !tbaa !3
+  %356 = icmp ult i64 %317, %355
+  %357 = select i1 %356, i64 10, i64 11
   br label %mpd_exp_digits.exit35
 
-362:                                              ; preds = %355
-  %363 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 104), align 8, !tbaa !3
-  %364 = icmp ult i64 %321, %363
-  br i1 %364, label %365, label %mpd_exp_digits.exit35
+358:                                              ; preds = %351
+  %359 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 104), align 8, !tbaa !3
+  %360 = icmp ult i64 %317, %359
+  br i1 %360, label %361, label %mpd_exp_digits.exit35
 
-365:                                              ; preds = %362
-  %366 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 96), align 8, !tbaa !3
-  %367 = icmp ult i64 %321, %366
-  %368 = select i1 %367, i64 12, i64 13
+361:                                              ; preds = %358
+  %362 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 96), align 8, !tbaa !3
+  %363 = icmp ult i64 %317, %362
+  %364 = select i1 %363, i64 12, i64 13
   br label %mpd_exp_digits.exit35
 
-369:                                              ; preds = %352
-  %370 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 144), align 8, !tbaa !3
-  %371 = icmp ult i64 %321, %370
-  br i1 %371, label %372, label %383
+365:                                              ; preds = %348
+  %366 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 144), align 8, !tbaa !3
+  %367 = icmp ult i64 %317, %366
+  br i1 %367, label %368, label %379
 
-372:                                              ; preds = %369
-  %373 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 128), align 8, !tbaa !3
-  %374 = icmp ult i64 %321, %373
-  br i1 %374, label %375, label %379
+368:                                              ; preds = %365
+  %369 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 128), align 8, !tbaa !3
+  %370 = icmp ult i64 %317, %369
+  br i1 %370, label %371, label %375
 
-375:                                              ; preds = %372
-  %376 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 120), align 8, !tbaa !3
-  %377 = icmp ult i64 %321, %376
-  %378 = select i1 %377, i64 15, i64 16
+371:                                              ; preds = %368
+  %372 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 120), align 8, !tbaa !3
+  %373 = icmp ult i64 %317, %372
+  %374 = select i1 %373, i64 15, i64 16
   br label %mpd_exp_digits.exit35
 
-379:                                              ; preds = %372
-  %380 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 136), align 8, !tbaa !3
-  %381 = icmp ult i64 %321, %380
-  %382 = select i1 %381, i64 17, i64 18
+375:                                              ; preds = %368
+  %376 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 136), align 8, !tbaa !3
+  %377 = icmp ult i64 %317, %376
+  %378 = select i1 %377, i64 17, i64 18
   br label %mpd_exp_digits.exit35
 
-383:                                              ; preds = %369
-  %384 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 152), align 8, !tbaa !3
-  %385 = icmp ult i64 %321, %384
-  %386 = select i1 %385, i64 19, i64 20
+379:                                              ; preds = %365
+  %380 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 152), align 8, !tbaa !3
+  %381 = icmp ult i64 %317, %380
+  %382 = select i1 %381, i64 19, i64 20
   br label %mpd_exp_digits.exit35
 
-mpd_exp_digits.exit35:                            ; preds = %330, %334, %341, %345, %348, %358, %362, %365, %375, %379, %383
-  %.0.i.i34 = phi i64 [ %333, %330 ], [ %337, %334 ], [ %344, %341 ], [ %351, %348 ], [ %361, %358 ], [ %368, %365 ], [ %378, %375 ], [ %382, %379 ], [ %386, %383 ], [ 9, %345 ], [ 14, %362 ]
-  %387 = add i64 %.0.i40, %36
-  %388 = icmp sgt i64 %387, %.0.i.i34
-  br i1 %388, label %389, label %391
+mpd_exp_digits.exit35:                            ; preds = %326, %330, %337, %341, %344, %354, %358, %361, %371, %375, %379
+  %.0.i.i34 = phi i64 [ %329, %326 ], [ %333, %330 ], [ %340, %337 ], [ %347, %344 ], [ %357, %354 ], [ %364, %361 ], [ %374, %371 ], [ %378, %375 ], [ %382, %379 ], [ 9, %341 ], [ 14, %358 ]
+  %383 = add i64 %.0.i40, %36
+  %384 = icmp sgt i64 %383, %.0.i.i34
+  br i1 %384, label %385, label %387
 
-389:                                              ; preds = %mpd_exp_digits.exit35
-  %390 = add i64 %320, -1
-  call fastcc void @_settriple(ptr noundef %0, i8 noundef zeroext %3, i64 noundef 1, i64 noundef %390)
+385:                                              ; preds = %mpd_exp_digits.exit35
+  %386 = add i64 %316, -1
+  call fastcc void @_settriple(ptr noundef %0, i8 noundef zeroext %3, i64 noundef 1, i64 noundef %386)
   call void @mpd_qfinalize(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %5)
-  br label %391
+  br label %387
 
-391:                                              ; preds = %mpd_exp_digits.exit, %mpd_exp_digits.exit35, %389, %315, %mpd_seterror.exit
-  %.0 = phi i32 [ 1, %mpd_seterror.exit ], [ 1, %315 ], [ 1, %389 ], [ 0, %mpd_exp_digits.exit35 ], [ 0, %mpd_exp_digits.exit ]
+387:                                              ; preds = %mpd_exp_digits.exit, %mpd_exp_digits.exit35, %385, %311, %mpd_seterror.exit
+  %.0 = phi i32 [ 1, %mpd_seterror.exit ], [ 1, %311 ], [ 1, %385 ], [ 0, %mpd_exp_digits.exit35 ], [ 0, %mpd_exp_digits.exit ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #33
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qpow_int(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, i8 noundef zeroext range(i8 0, 2) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) unnamed_addr #10 {
+define internal fastcc void @_mpd_qpow_int(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, i8 noundef zeroext range(i8 0, 2) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) unnamed_addr #10 {
   %7 = alloca i8, align 1
   %8 = alloca i32, align 4
   %9 = alloca %struct.mpd_context_t, align 8
@@ -22461,7 +22444,7 @@ mpd_setspecial.exit44:                            ; preds = %mpd_qcopy.exit, %10
   br label %280
 
 mpd_qcopy.exit.thread:                            ; preds = %84, %mpd_qresize.exit.thread.i, %.thread
-  %126 = call fastcc i64 @_mpd_qget_uint(i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %42)
+  %126 = call fastcc i64 @_mpd_qget_uint(i32 noundef 0, ptr noundef nonnull readonly %2, ptr noundef nonnull %42)
   %127 = load i32, ptr %42, align 4, !tbaa !56
   %128 = and i32 %127, 256
   %.not29 = icmp eq i32 %128, 0
@@ -22704,7 +22687,7 @@ mpd_isodd.exit.i:                                 ; preds = %227, %216
   br i1 %.not22.i, label %mpd_isodd.exit.thread.i, label %229
 
 229:                                              ; preds = %mpd_isodd.exit.i
-  call fastcc void @_mpd_qmul(ptr noundef %0, ptr noundef %0, ptr noundef nonnull %17, ptr noundef nonnull readonly %15, ptr noundef nonnull %8)
+  call fastcc void @_mpd_qmul(ptr noundef %0, ptr noundef readonly %0, ptr noundef nonnull readonly %17, ptr noundef nonnull readonly %15, ptr noundef nonnull %8)
   call void @mpd_qfinalize(ptr noundef %0, ptr noundef nonnull readonly %15, ptr noundef nonnull %8)
   %230 = load i32, ptr %8, align 4, !tbaa !23
   %231 = load i32, ptr %5, align 4, !tbaa !23
@@ -22728,7 +22711,7 @@ mpd_isodd.exit.i:                                 ; preds = %227, %216
   br i1 %or.cond.i, label %mpd_isodd.exit.thread.i, label %split.i
 
 mpd_isodd.exit.thread.i:                          ; preds = %235, %mpd_isodd.exit.i, %225, %mpd_iszero.exit.thread.i
-  call fastcc void @_mpd_qmul(ptr noundef nonnull %17, ptr noundef nonnull %17, ptr noundef nonnull %17, ptr noundef nonnull readonly %15, ptr noundef nonnull %8)
+  call fastcc void @_mpd_qmul(ptr noundef nonnull %17, ptr noundef nonnull readonly %17, ptr noundef nonnull readonly %17, ptr noundef nonnull readonly %15, ptr noundef nonnull %8)
   call void @mpd_qfinalize(ptr noundef nonnull %17, ptr noundef nonnull readonly %15, ptr noundef nonnull %8)
   call void @mpd_qdivint(ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef nonnull %8)
   %243 = load i8, ptr %17, align 8, !tbaa !19
@@ -22876,7 +22859,7 @@ mpd_del.exit:                                     ; preds = %294, %297
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qpow_real(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #10 {
+define internal fastcc void @_mpd_qpow_real(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #10 {
   %6 = alloca i8, align 1
   %7 = alloca %struct.mpd_context_t, align 8
   %8 = alloca [64 x i64], align 16
@@ -22999,7 +22982,7 @@ mpd_seterror.exit:                                ; preds = %mpd_qcopy.exit, %40
   store i32 %66, ptr %67, align 4, !tbaa !54
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 28
   call void @mpd_qln(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %68)
-  call fastcc void @_mpd_qmul(ptr noundef %0, ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull readonly %7, ptr noundef nonnull %68)
+  call fastcc void @_mpd_qmul(ptr noundef %0, ptr noundef readonly %0, ptr noundef nonnull readonly %9, ptr noundef nonnull readonly %7, ptr noundef nonnull %68)
   call void @mpd_qfinalize(ptr noundef %0, ptr noundef nonnull readonly %7, ptr noundef nonnull %68)
   call void @mpd_qexp(ptr noundef %0, ptr noundef %0, ptr noundef nonnull %7, ptr noundef %4)
   %69 = load i8, ptr %9, align 8, !tbaa !19
@@ -23042,7 +23025,7 @@ mpd_del.exit:                                     ; preds = %73, %76
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qpowmod(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef captures(address) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #10 {
+define hidden void @mpd_qpowmod(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(address) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #10 {
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
   %9 = alloca %struct.mpd_context_t, align 8
@@ -23569,7 +23552,7 @@ mpd_seterror.exit150:                             ; preds = %209, %212, %224
 256:                                              ; preds = %254
   call void @mpd_maxcontext(ptr noundef nonnull %9) #33
   %257 = getelementptr inbounds nuw i8, ptr %9, i64 28
-  call fastcc void @_mpd_qrescale(ptr noundef nonnull %15, ptr noundef nonnull %3, i64 noundef 0, ptr noundef nonnull readonly %9, ptr noundef nonnull %257)
+  call fastcc void @_mpd_qrescale(ptr noundef nonnull %15, ptr noundef nonnull readonly %3, i64 noundef 0, ptr noundef nonnull readonly %9, ptr noundef nonnull %257)
   %258 = load i32, ptr %257, align 4, !tbaa !56
   %259 = and i32 %258, 958
   %.not86 = icmp eq i32 %259, 0
@@ -23584,13 +23567,13 @@ mpd_seterror.exit150:                             ; preds = %209, %212, %224
   %262 = load i8, ptr %15, align 8, !tbaa !19
   %263 = and i8 %262, -2
   store i8 %263, ptr %15, align 8, !tbaa !19
-  call fastcc void @_mpd_qround_to_integral(i32 noundef 1, ptr noundef nonnull %11, ptr noundef nonnull %1, ptr noundef nonnull readonly %9, ptr noundef %5)
+  call fastcc void @_mpd_qround_to_integral(i32 noundef 1, ptr noundef nonnull %11, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %9, ptr noundef %5)
   %264 = load i8, ptr %11, align 8, !tbaa !19
   %265 = and i8 %264, -2
   store i8 %265, ptr %11, align 8, !tbaa !19
   %266 = load i64, ptr %22, align 8, !tbaa !7
   store i64 0, ptr %22, align 8, !tbaa !7
-  call fastcc void @_mpd_qround_to_integral(i32 noundef 1, ptr noundef nonnull %13, ptr noundef nonnull %2, ptr noundef nonnull readonly %9, ptr noundef %5)
+  call fastcc void @_mpd_qround_to_integral(i32 noundef 1, ptr noundef nonnull %13, ptr noundef nonnull readonly %2, ptr noundef nonnull readonly %9, ptr noundef %5)
   %267 = load i64, ptr %26, align 8, !tbaa !7
   store i64 0, ptr %26, align 8, !tbaa !7
   call void @mpd_qrem(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %15, ptr noundef nonnull %9, ptr noundef %5)
@@ -23811,7 +23794,7 @@ mpd_del.exit:                                     ; preds = %341, %338, %mpd_qch
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qrescale(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qrescale(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = alloca i8, align 1
   %7 = add i64 %2, -1000000000000000001
   %or.cond = icmp ult i64 %7, -2999999999999999998
@@ -23872,13 +23855,13 @@ mpd_seterror.exit:                                ; preds = %8, %11, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qround_to_int(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
+define hidden void @mpd_qround_to_int(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
   tail call fastcc void @_mpd_qround_to_integral(i32 noundef 1, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qrem(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qrem(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
@@ -24191,12 +24174,12 @@ mpd_del.exit:                                     ; preds = %150, %153
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qmul_exact(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef captures(none) %4) unnamed_addr #10 {
+define internal fastcc void @_mpd_qmul_exact(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef captures(none) %4) unnamed_addr #10 {
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #33
   store i32 0, ptr %7, align 4, !tbaa !23
-  call fastcc void @_mpd_qmul(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly %3, ptr noundef nonnull %7)
+  call fastcc void @_mpd_qmul(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef nonnull readonly %3, ptr noundef nonnull %7)
   call void @mpd_qfinalize(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef nonnull %7)
   %8 = load i32, ptr %7, align 4, !tbaa !23
   %9 = load i32, ptr %4, align 4, !tbaa !23
@@ -24258,7 +24241,7 @@ mpd_seterror.exit:                                ; preds = %12, %15, %27
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @_mpd_qpowmod_uint(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull captures(address) %2, ptr noundef %3) unnamed_addr #16 {
+define internal fastcc void @_mpd_qpowmod_uint(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull readonly captures(address) %2, ptr noundef %3) unnamed_addr #16 {
   %5 = alloca %struct.mpd_context_t, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #33
   call void @mpd_maxcontext(ptr noundef nonnull %5) #33
@@ -24343,7 +24326,7 @@ mpd_qcopy.exit:                                   ; preds = %mpd_qcopy.exit.preh
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qquantize(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qquantize(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -24967,7 +24950,7 @@ _mpd_rnd_incr.exit.thread:                        ; preds = %mpd_qresize.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qreduce(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
+define hidden void @mpd_qreduce(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
   %5 = load i8, ptr %1, align 8, !tbaa !19
   %6 = and i8 %5, 1
   %7 = and i8 %5, 14
@@ -25201,7 +25184,7 @@ mpd_qcopy.exit:                                   ; preds = %mpd_qresize.exit.i4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qrem_near(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qrem_near(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
@@ -25567,7 +25550,7 @@ mpd_seterror.exit97:                              ; preds = %135, %136, %148
   %193 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %194 = xor i8 %189, 1
   %.sink = select i1 %192, i8 %194, i8 %191
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %13, ptr noundef nonnull %0, ptr noundef nonnull %.0, i8 noundef zeroext %.sink, ptr noundef nonnull readonly %9, ptr noundef nonnull %193)
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %13, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %.0, i8 noundef zeroext %.sink, ptr noundef nonnull readonly %9, ptr noundef nonnull %193)
   %195 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %196 = load i32, ptr %195, align 4, !tbaa !56
   %197 = and i32 %196, 958
@@ -25803,7 +25786,7 @@ _mpd_isallnine.exit:                              ; preds = %77, %74, %mpd_word_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qrescale(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef range(i64 -2999999999999999996, 1000000000000000001) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #10 {
+define internal fastcc void @_mpd_qrescale(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef range(i64 -2999999999999999996, 1000000000000000001) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #10 {
   %6 = alloca i8, align 1
   %7 = load i8, ptr %1, align 8, !tbaa !19
   %8 = and i8 %7, 14
@@ -26029,7 +26012,7 @@ mpd_qcopy.exit:                                   ; preds = %105, %102, %mpd_qre
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qrescale_fmt(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden void @mpd_qrescale_fmt(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = alloca i8, align 1
   %7 = add i64 %2, -1000000000000000001
   %or.cond = icmp ult i64 %7, -3999999999999999997
@@ -26090,13 +26073,13 @@ mpd_seterror.exit:                                ; preds = %8, %11, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qround_to_intx(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
+define hidden void @mpd_qround_to_intx(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
   tail call fastcc void @_mpd_qround_to_integral(i32 noundef 0, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qround_to_integral(i32 noundef range(i32 0, 3) %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #10 {
+define internal fastcc void @_mpd_qround_to_integral(i32 noundef range(i32 0, 3) %0, ptr noundef %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #10 {
   %6 = load i8, ptr %2, align 8, !tbaa !19
   %7 = and i8 %6, 14
   %.not = icmp eq i8 %7, 0
@@ -26302,7 +26285,7 @@ mpd_qcopy.exit:                                   ; preds = %mpd_qresize.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qtrunc(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
+define hidden void @mpd_qtrunc(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
   %5 = alloca i8, align 1
   %6 = load i8, ptr %1, align 8, !tbaa !19
   %7 = and i8 %6, 14
@@ -26364,7 +26347,7 @@ mpd_seterror.exit:                                ; preds = %8, %11, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qfloor(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
+define hidden void @mpd_qfloor(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
   %5 = alloca i8, align 1
   %6 = alloca %struct.mpd_context_t, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #33
@@ -26432,7 +26415,7 @@ mpd_seterror.exit:                                ; preds = %9, %12, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qceil(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
+define hidden void @mpd_qceil(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
   %5 = alloca i8, align 1
   %6 = alloca %struct.mpd_context_t, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #33
@@ -26550,923 +26533,953 @@ define hidden range(i32 0, 2) i32 @mpd_same_quantum(ptr noundef readonly capture
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qinvroot(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
+define hidden void @mpd_qinvroot(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
-  %7 = alloca i32, align 4
-  %8 = alloca %struct.mpd_context_t, align 8
+  %7 = alloca i8, align 1
+  %8 = alloca i32, align 4
   %9 = alloca %struct.mpd_context_t, align 8
-  %10 = alloca %struct.mpd_t, align 8
-  %11 = alloca [64 x i64], align 16
-  %12 = alloca %struct.mpd_t, align 8
-  %13 = alloca [64 x i64], align 16
-  %14 = alloca %struct.mpd_t, align 8
-  %15 = alloca [1 x i64], align 8
-  %16 = alloca %struct.mpd_t, align 8
-  %17 = alloca [1 x i64], align 8
-  %18 = alloca %struct.mpd_t, align 8
-  %19 = alloca [64 x i64], align 16
-  %20 = alloca i8, align 1
+  %10 = alloca %struct.mpd_context_t, align 8
+  %11 = alloca %struct.mpd_t, align 8
+  %12 = alloca [64 x i64], align 16
+  %13 = alloca %struct.mpd_t, align 8
+  %14 = alloca [64 x i64], align 16
+  %15 = alloca %struct.mpd_t, align 8
+  %16 = alloca [1 x i64], align 8
+  %17 = alloca %struct.mpd_t, align 8
+  %18 = alloca [1 x i64], align 8
+  %19 = alloca %struct.mpd_t, align 8
+  %20 = alloca [64 x i64], align 16
   %21 = alloca i8, align 1
   %22 = alloca i8, align 1
-  %23 = load i8, ptr %1, align 8, !tbaa !19
-  %24 = and i8 %23, 14
-  %.not = icmp eq i8 %24, 0
-  br i1 %.not, label %mpd_iszero.exit, label %25
+  %23 = alloca i8, align 1
+  %24 = load i8, ptr %1, align 8, !tbaa !19
+  %25 = and i8 %24, 14
+  %.not = icmp eq i8 %25, 0
+  br i1 %.not, label %mpd_iszero.exit, label %26
 
-25:                                               ; preds = %4
-  %26 = tail call i32 @mpd_qcheck_nan(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
-  %.not27 = icmp eq i32 %26, 0
-  br i1 %.not27, label %27, label %464
+26:                                               ; preds = %4
+  %27 = tail call i32 @mpd_qcheck_nan(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  %.not27 = icmp eq i32 %27, 0
+  br i1 %.not27, label %28, label %477
 
-27:                                               ; preds = %25
-  %28 = load i8, ptr %1, align 8, !tbaa !19
-  %29 = and i8 %28, 1
-  %.not28 = icmp eq i8 %29, 0
-  br i1 %.not28, label %52, label %30
+28:                                               ; preds = %26
+  %29 = load i8, ptr %1, align 8, !tbaa !19
+  %30 = and i8 %29, 1
+  %.not28 = icmp eq i8 %30, 0
+  br i1 %.not28, label %53, label %31
 
-30:                                               ; preds = %27
-  %31 = load i8, ptr %0, align 8, !tbaa !19
-  %32 = and i8 %31, 32
-  %.not.i.i = icmp eq i8 %32, 0
-  br i1 %.not.i.i, label %33, label %mpd_seterror.exit
+31:                                               ; preds = %28
+  %32 = load i8, ptr %0, align 8, !tbaa !19
+  %33 = and i8 %32, 32
+  %.not.i.i = icmp eq i8 %33, 0
+  br i1 %.not.i.i, label %34, label %mpd_seterror.exit
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %35 = load i64, ptr %34, align 8, !tbaa !21
-  %36 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  %37 = icmp sgt i64 %35, %36
-  br i1 %37, label %38, label %mpd_seterror.exit
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %36 = load i64, ptr %35, align 8, !tbaa !21
+  %37 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  %38 = icmp sgt i64 %36, %37
+  br i1 %38, label %39, label %mpd_seterror.exit
 
-38:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %22) #33
-  store i8 0, ptr %22, align 1, !tbaa !22
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %40 = load ptr, ptr %39, align 8, !tbaa !17
-  %41 = call ptr @mpd_realloc(ptr noundef %40, i64 noundef %36, i64 noundef 8, ptr noundef nonnull %22) #33
-  store ptr %41, ptr %39, align 8, !tbaa !17
-  %42 = load i8, ptr %22, align 1, !tbaa !22
-  %.not5.i.i = icmp eq i8 %42, 0
-  br i1 %.not5.i.i, label %43, label %45
+39:                                               ; preds = %34
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %23) #33
+  store i8 0, ptr %23, align 1, !tbaa !22
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %41 = load ptr, ptr %40, align 8, !tbaa !17
+  %42 = call ptr @mpd_realloc(ptr noundef %41, i64 noundef %37, i64 noundef 8, ptr noundef nonnull %23) #33
+  store ptr %42, ptr %40, align 8, !tbaa !17
+  %43 = load i8, ptr %23, align 1, !tbaa !22
+  %.not5.i.i = icmp eq i8 %43, 0
+  br i1 %.not5.i.i, label %44, label %46
 
-43:                                               ; preds = %38
-  %44 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  store i64 %44, ptr %34, align 8, !tbaa !21
-  br label %45
+44:                                               ; preds = %39
+  %45 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  store i64 %45, ptr %35, align 8, !tbaa !21
+  br label %46
 
-45:                                               ; preds = %43, %38
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22) #33
+46:                                               ; preds = %44, %39
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #33
   %.pre.i = load i8, ptr %0, align 8, !tbaa !19
   br label %mpd_seterror.exit
 
-mpd_seterror.exit:                                ; preds = %30, %33, %45
-  %46 = phi i8 [ %31, %30 ], [ %31, %33 ], [ %.pre.i, %45 ]
-  %47 = and i8 %46, -16
-  %48 = or disjoint i8 %47, 4
-  store i8 %48, ptr %0, align 8, !tbaa !19
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
-  %50 = load i32, ptr %3, align 4, !tbaa !23
-  %51 = or i32 %50, 256
-  store i32 %51, ptr %3, align 4, !tbaa !23
-  br label %464
+mpd_seterror.exit:                                ; preds = %31, %34, %46
+  %47 = phi i8 [ %32, %31 ], [ %32, %34 ], [ %.pre.i, %46 ]
+  %48 = and i8 %47, -16
+  %49 = or disjoint i8 %48, 4
+  store i8 %49, ptr %0, align 8, !tbaa !19
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
+  %51 = load i32, ptr %3, align 4, !tbaa !23
+  %52 = or i32 %51, 256
+  store i32 %52, ptr %3, align 4, !tbaa !23
+  br label %477
 
-52:                                               ; preds = %27
-  %53 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %54 = load i64, ptr %53, align 8, !tbaa !12
-  %55 = load i64, ptr %2, align 8, !tbaa !15
-  %.neg40 = add i64 %54, 1
-  %56 = sub i64 %.neg40, %55
-  tail call fastcc void @_settriple(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 0, i64 noundef %56)
-  %57 = load i32, ptr %3, align 4, !tbaa !23
-  %58 = or i32 %57, 1
-  store i32 %58, ptr %3, align 4, !tbaa !23
-  br label %464
+53:                                               ; preds = %28
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %55 = load i64, ptr %54, align 8, !tbaa !12
+  %56 = load i64, ptr %2, align 8, !tbaa !15
+  %.neg40 = add i64 %55, 1
+  %57 = sub i64 %.neg40, %56
+  tail call fastcc void @_settriple(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 0, i64 noundef %57)
+  %58 = load i32, ptr %3, align 4, !tbaa !23
+  %59 = or i32 %58, 1
+  store i32 %59, ptr %3, align 4, !tbaa !23
+  br label %477
 
 mpd_iszero.exit:                                  ; preds = %4
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %60 = load ptr, ptr %59, align 8, !tbaa !17
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %62 = load i64, ptr %61, align 8, !tbaa !18
-  %63 = getelementptr i64, ptr %60, i64 %62
-  %64 = getelementptr i8, ptr %63, i64 -8
-  %65 = load i64, ptr %64, align 8, !tbaa !3
-  %.not39 = icmp eq i64 %65, 0
-  %66 = and i8 %23, 1
-  br i1 %.not39, label %67, label %90
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %61 = load ptr, ptr %60, align 8, !tbaa !17
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %63 = load i64, ptr %62, align 8, !tbaa !18
+  %64 = getelementptr i64, ptr %61, i64 %63
+  %65 = getelementptr i8, ptr %64, i64 -8
+  %66 = load i64, ptr %65, align 8, !tbaa !3
+  %.not39 = icmp eq i64 %66, 0
+  %67 = and i8 %24, 1
+  br i1 %.not39, label %68, label %91
 
-67:                                               ; preds = %mpd_iszero.exit
-  %68 = load i8, ptr %0, align 8, !tbaa !19
-  %69 = and i8 %68, 32
-  %.not.i.i29 = icmp eq i8 %69, 0
-  br i1 %.not.i.i29, label %70, label %mpd_setspecial.exit
+68:                                               ; preds = %mpd_iszero.exit
+  %69 = load i8, ptr %0, align 8, !tbaa !19
+  %70 = and i8 %69, 32
+  %.not.i.i29 = icmp eq i8 %70, 0
+  br i1 %.not.i.i29, label %71, label %mpd_setspecial.exit
 
-70:                                               ; preds = %67
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %72 = load i64, ptr %71, align 8, !tbaa !21
-  %73 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  %74 = icmp sgt i64 %72, %73
-  br i1 %74, label %75, label %mpd_setspecial.exit
+71:                                               ; preds = %68
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %73 = load i64, ptr %72, align 8, !tbaa !21
+  %74 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  %75 = icmp sgt i64 %73, %74
+  br i1 %75, label %76, label %mpd_setspecial.exit
 
-75:                                               ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21) #33
-  store i8 0, ptr %21, align 1, !tbaa !22
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %77 = load ptr, ptr %76, align 8, !tbaa !17
-  %78 = call ptr @mpd_realloc(ptr noundef %77, i64 noundef %73, i64 noundef 8, ptr noundef nonnull %21) #33
-  store ptr %78, ptr %76, align 8, !tbaa !17
-  %79 = load i8, ptr %21, align 1, !tbaa !22
-  %.not5.i.i30 = icmp eq i8 %79, 0
-  br i1 %.not5.i.i30, label %80, label %82
+76:                                               ; preds = %71
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %22) #33
+  store i8 0, ptr %22, align 1, !tbaa !22
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %78 = load ptr, ptr %77, align 8, !tbaa !17
+  %79 = call ptr @mpd_realloc(ptr noundef %78, i64 noundef %74, i64 noundef 8, ptr noundef nonnull %22) #33
+  store ptr %79, ptr %77, align 8, !tbaa !17
+  %80 = load i8, ptr %22, align 1, !tbaa !22
+  %.not5.i.i30 = icmp eq i8 %80, 0
+  br i1 %.not5.i.i30, label %81, label %83
 
-80:                                               ; preds = %75
-  %81 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  store i64 %81, ptr %71, align 8, !tbaa !21
-  br label %82
+81:                                               ; preds = %76
+  %82 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  store i64 %82, ptr %72, align 8, !tbaa !21
+  br label %83
 
-82:                                               ; preds = %80, %75
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21) #33
+83:                                               ; preds = %81, %76
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22) #33
   %.pre.i31 = load i8, ptr %0, align 8, !tbaa !19
   br label %mpd_setspecial.exit
 
-mpd_setspecial.exit:                              ; preds = %67, %70, %82
-  %83 = phi i8 [ %68, %67 ], [ %68, %70 ], [ %.pre.i31, %82 ]
-  %84 = and i8 %83, -16
-  %85 = or disjoint i8 %66, %84
-  %86 = or disjoint i8 %85, 2
-  store i8 %86, ptr %0, align 8, !tbaa !19
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %87, i8 0, i64 24, i1 false)
-  %88 = load i32, ptr %3, align 4, !tbaa !23
-  %89 = or i32 %88, 4
-  store i32 %89, ptr %3, align 4, !tbaa !23
-  br label %464
+mpd_setspecial.exit:                              ; preds = %68, %71, %83
+  %84 = phi i8 [ %69, %68 ], [ %69, %71 ], [ %.pre.i31, %83 ]
+  %85 = and i8 %84, -16
+  %86 = or disjoint i8 %67, %85
+  %87 = or disjoint i8 %86, 2
+  store i8 %87, ptr %0, align 8, !tbaa !19
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, i8 0, i64 24, i1 false)
+  %89 = load i32, ptr %3, align 4, !tbaa !23
+  %90 = or i32 %89, 4
+  store i32 %90, ptr %3, align 4, !tbaa !23
+  br label %477
 
-90:                                               ; preds = %mpd_iszero.exit
-  %.not26 = icmp eq i8 %66, 0
-  br i1 %.not26, label %113, label %91
+91:                                               ; preds = %mpd_iszero.exit
+  %.not26 = icmp eq i8 %67, 0
+  br i1 %.not26, label %114, label %92
 
-91:                                               ; preds = %90
-  %92 = load i8, ptr %0, align 8, !tbaa !19
-  %93 = and i8 %92, 32
-  %.not.i.i32 = icmp eq i8 %93, 0
-  br i1 %.not.i.i32, label %94, label %mpd_seterror.exit35
+92:                                               ; preds = %91
+  %93 = load i8, ptr %0, align 8, !tbaa !19
+  %94 = and i8 %93, 32
+  %.not.i.i32 = icmp eq i8 %94, 0
+  br i1 %.not.i.i32, label %95, label %mpd_seterror.exit35
 
-94:                                               ; preds = %91
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %96 = load i64, ptr %95, align 8, !tbaa !21
-  %97 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  %98 = icmp sgt i64 %96, %97
-  br i1 %98, label %99, label %mpd_seterror.exit35
+95:                                               ; preds = %92
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %97 = load i64, ptr %96, align 8, !tbaa !21
+  %98 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  %99 = icmp sgt i64 %97, %98
+  br i1 %99, label %100, label %mpd_seterror.exit35
 
-99:                                               ; preds = %94
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20) #33
-  store i8 0, ptr %20, align 1, !tbaa !22
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %101 = load ptr, ptr %100, align 8, !tbaa !17
-  %102 = call ptr @mpd_realloc(ptr noundef %101, i64 noundef %97, i64 noundef 8, ptr noundef nonnull %20) #33
-  store ptr %102, ptr %100, align 8, !tbaa !17
-  %103 = load i8, ptr %20, align 1, !tbaa !22
-  %.not5.i.i33 = icmp eq i8 %103, 0
-  br i1 %.not5.i.i33, label %104, label %106
+100:                                              ; preds = %95
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21) #33
+  store i8 0, ptr %21, align 1, !tbaa !22
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %102 = load ptr, ptr %101, align 8, !tbaa !17
+  %103 = call ptr @mpd_realloc(ptr noundef %102, i64 noundef %98, i64 noundef 8, ptr noundef nonnull %21) #33
+  store ptr %103, ptr %101, align 8, !tbaa !17
+  %104 = load i8, ptr %21, align 1, !tbaa !22
+  %.not5.i.i33 = icmp eq i8 %104, 0
+  br i1 %.not5.i.i33, label %105, label %107
 
-104:                                              ; preds = %99
-  %105 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  store i64 %105, ptr %95, align 8, !tbaa !21
-  br label %106
+105:                                              ; preds = %100
+  %106 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  store i64 %106, ptr %96, align 8, !tbaa !21
+  br label %107
 
-106:                                              ; preds = %104, %99
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #33
+107:                                              ; preds = %105, %100
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21) #33
   %.pre.i34 = load i8, ptr %0, align 8, !tbaa !19
   br label %mpd_seterror.exit35
 
-mpd_seterror.exit35:                              ; preds = %91, %94, %106
-  %107 = phi i8 [ %92, %91 ], [ %92, %94 ], [ %.pre.i34, %106 ]
-  %108 = and i8 %107, -16
-  %109 = or disjoint i8 %108, 4
-  store i8 %109, ptr %0, align 8, !tbaa !19
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %110, i8 0, i64 24, i1 false)
-  %111 = load i32, ptr %3, align 4, !tbaa !23
-  %112 = or i32 %111, 256
-  store i32 %112, ptr %3, align 4, !tbaa !23
-  br label %464
+mpd_seterror.exit35:                              ; preds = %92, %95, %107
+  %108 = phi i8 [ %93, %92 ], [ %93, %95 ], [ %.pre.i34, %107 ]
+  %109 = and i8 %108, -16
+  %110 = or disjoint i8 %109, 4
+  store i8 %110, ptr %0, align 8, !tbaa !19
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %111, i8 0, i64 24, i1 false)
+  %112 = load i32, ptr %3, align 4, !tbaa !23
+  %113 = or i32 %112, 256
+  store i32 %113, ptr %3, align 4, !tbaa !23
+  br label %477
 
-113:                                              ; preds = %90
+114:                                              ; preds = %91
   %.sroa.0.0.copyload = load i64, ptr %2, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #33
-  store i32 0, ptr %7, align 4, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #33
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #33
+  store i32 0, ptr %8, align 4, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #33
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #33
-  store i8 80, ptr %10, align 8, !tbaa !19
-  %114 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %114, i8 0, i64 7, i1 false)
-  %115 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %116 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %117 = load i64, ptr %116, align 8, !tbaa !7
-  store i64 %117, ptr %115, align 8, !tbaa !7
-  %118 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %119 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %120 = load i64, ptr %119, align 8, !tbaa !11
-  store i64 %120, ptr %118, align 8, !tbaa !11
-  %121 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 %62, ptr %121, align 8, !tbaa !18
-  %122 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %123 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %124 = load i64, ptr %123, align 8, !tbaa !21
-  store i64 %124, ptr %122, align 8, !tbaa !21
-  %125 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store ptr %60, ptr %125, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %11) #33
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12) #33
-  store i8 48, ptr %12, align 8, !tbaa !19
-  %126 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %127 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %126, i8 0, i64 31, i1 false)
-  store i64 64, ptr %127, align 8, !tbaa !21
-  %128 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store ptr %11, ptr %128, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %13) #33
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14) #33
-  store i8 48, ptr %14, align 8, !tbaa !19
-  %129 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %130 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %131 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %129, i8 0, i64 31, i1 false)
-  store i64 64, ptr %131, align 8, !tbaa !21
-  %132 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store ptr %13, ptr %132, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #33
-  store i64 5, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16) #33
-  store i8 -112, ptr %16, align 8, !tbaa !19
-  %133 = getelementptr inbounds nuw i8, ptr %16, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %133, i8 0, i64 7, i1 false)
-  %134 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 -1, ptr %134, align 8, !tbaa !7
-  %135 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i64 1, ptr %135, align 8, !tbaa !11
-  %136 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store i64 1, ptr %136, align 8, !tbaa !18
-  %137 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store i64 1, ptr %137, align 8, !tbaa !21
-  %138 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  store ptr %15, ptr %138, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #33
-  store i64 3, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18) #33
-  store i8 -112, ptr %18, align 8, !tbaa !19
-  %139 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  %140 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %139, i8 0, i64 15, i1 false)
-  store i64 1, ptr %140, align 8, !tbaa !11
-  %141 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store i64 1, ptr %141, align 8, !tbaa !18
-  %142 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store i64 1, ptr %142, align 8, !tbaa !21
-  %143 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  store ptr %17, ptr %143, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %19) #33
-  %144 = and i64 %117, -2
-  %145 = sub i64 0, %144
-  %146 = ashr exact i64 %145, 1
-  %147 = icmp eq ptr %0, %1
-  br i1 %147, label %148, label %189
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #33
+  store i8 80, ptr %11, align 8, !tbaa !19
+  %115 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %115, i8 0, i64 7, i1 false)
+  %116 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %118 = load i64, ptr %117, align 8, !tbaa !7
+  store i64 %118, ptr %116, align 8, !tbaa !7
+  %119 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %121 = load i64, ptr %120, align 8, !tbaa !11
+  store i64 %121, ptr %119, align 8, !tbaa !11
+  %122 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store i64 %63, ptr %122, align 8, !tbaa !18
+  %123 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %125 = load i64, ptr %124, align 8, !tbaa !21
+  store i64 %125, ptr %123, align 8, !tbaa !21
+  %126 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  store ptr %61, ptr %126, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %12) #33
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13) #33
+  store i8 48, ptr %13, align 8, !tbaa !19
+  %127 = getelementptr inbounds nuw i8, ptr %13, i64 1
+  %128 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %127, i8 0, i64 31, i1 false)
+  store i64 64, ptr %128, align 8, !tbaa !21
+  %129 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  store ptr %12, ptr %129, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %14) #33
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15) #33
+  store i8 48, ptr %15, align 8, !tbaa !19
+  %130 = getelementptr inbounds nuw i8, ptr %15, i64 1
+  %131 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %130, i8 0, i64 31, i1 false)
+  store i64 64, ptr %132, align 8, !tbaa !21
+  %133 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  store ptr %14, ptr %133, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #33
+  store i64 5, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17) #33
+  store i8 -112, ptr %17, align 8, !tbaa !19
+  %134 = getelementptr inbounds nuw i8, ptr %17, i64 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %134, i8 0, i64 7, i1 false)
+  %135 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store i64 -1, ptr %135, align 8, !tbaa !7
+  %136 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store i64 1, ptr %136, align 8, !tbaa !11
+  %137 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  store i64 1, ptr %137, align 8, !tbaa !18
+  %138 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  store i64 1, ptr %138, align 8, !tbaa !21
+  %139 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  store ptr %16, ptr %139, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #33
+  store i64 3, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19) #33
+  store i8 -112, ptr %19, align 8, !tbaa !19
+  %140 = getelementptr inbounds nuw i8, ptr %19, i64 1
+  %141 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %140, i8 0, i64 15, i1 false)
+  store i64 1, ptr %141, align 8, !tbaa !11
+  %142 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  store i64 1, ptr %142, align 8, !tbaa !18
+  %143 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  store i64 1, ptr %143, align 8, !tbaa !21
+  %144 = getelementptr inbounds nuw i8, ptr %19, i64 40
+  store ptr %18, ptr %144, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %20) #33
+  %145 = and i64 %118, -2
+  %146 = sub i64 0, %145
+  %147 = ashr exact i64 %146, 1
+  %148 = icmp eq ptr %0, %1
+  br i1 %148, label %149, label %190
 
-148:                                              ; preds = %113
-  %149 = call ptr @mpd_qnew_size(i64 noundef %62) #33
-  %150 = icmp eq ptr %149, null
-  br i1 %150, label %167, label %mpd_qncopy.exit.i
+149:                                              ; preds = %114
+  %150 = call ptr @mpd_qnew_size(i64 noundef %63) #33
+  %151 = icmp eq ptr %150, null
+  br i1 %151, label %168, label %mpd_qncopy.exit.i
 
-mpd_qncopy.exit.i:                                ; preds = %148
-  %151 = getelementptr inbounds nuw i8, ptr %149, i64 40
-  %152 = load ptr, ptr %151, align 8, !tbaa !17
-  %153 = load ptr, ptr %59, align 8, !tbaa !17
-  %154 = load i64, ptr %61, align 8, !tbaa !18
-  %155 = shl i64 %154, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %152, ptr align 8 %153, i64 %155, i1 false)
-  %156 = load i8, ptr %1, align 8, !tbaa !19
-  %157 = load i8, ptr %149, align 8, !tbaa !19
-  %158 = and i8 %157, -16
-  %159 = and i8 %156, 15
-  %160 = or disjoint i8 %158, %159
-  store i8 %160, ptr %149, align 8, !tbaa !19
-  %161 = load i64, ptr %116, align 8, !tbaa !7
-  %162 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  store i64 %161, ptr %162, align 8, !tbaa !7
-  %163 = load i64, ptr %119, align 8, !tbaa !11
-  %164 = getelementptr inbounds nuw i8, ptr %149, i64 16
-  store i64 %163, ptr %164, align 8, !tbaa !11
-  %165 = load i64, ptr %61, align 8, !tbaa !18
-  %166 = getelementptr inbounds nuw i8, ptr %149, i64 24
-  store i64 %165, ptr %166, align 8, !tbaa !18
-  br label %189
+mpd_qncopy.exit.i:                                ; preds = %149
+  %152 = getelementptr inbounds nuw i8, ptr %150, i64 40
+  %153 = load ptr, ptr %152, align 8, !tbaa !17
+  %154 = load ptr, ptr %60, align 8, !tbaa !17
+  %155 = load i64, ptr %62, align 8, !tbaa !18
+  %156 = shl i64 %155, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %153, ptr align 8 %154, i64 %156, i1 false)
+  %157 = load i8, ptr %1, align 8, !tbaa !19
+  %158 = load i8, ptr %150, align 8, !tbaa !19
+  %159 = and i8 %158, -16
+  %160 = and i8 %157, 15
+  %161 = or disjoint i8 %159, %160
+  store i8 %161, ptr %150, align 8, !tbaa !19
+  %162 = load i64, ptr %117, align 8, !tbaa !7
+  %163 = getelementptr inbounds nuw i8, ptr %150, i64 8
+  store i64 %162, ptr %163, align 8, !tbaa !7
+  %164 = load i64, ptr %120, align 8, !tbaa !11
+  %165 = getelementptr inbounds nuw i8, ptr %150, i64 16
+  store i64 %164, ptr %165, align 8, !tbaa !11
+  %166 = load i64, ptr %62, align 8, !tbaa !18
+  %167 = getelementptr inbounds nuw i8, ptr %150, i64 24
+  store i64 %166, ptr %167, align 8, !tbaa !18
+  br label %190
 
-167:                                              ; preds = %148
-  %168 = load i8, ptr %0, align 8, !tbaa !19
-  %169 = and i8 %168, 32
-  %.not.i.i94.i = icmp eq i8 %169, 0
-  br i1 %.not.i.i94.i, label %170, label %mpd_seterror.exit.i
+168:                                              ; preds = %149
+  %169 = load i8, ptr %0, align 8, !tbaa !19
+  %170 = and i8 %169, 32
+  %.not.i.i94.i = icmp eq i8 %170, 0
+  br i1 %.not.i.i94.i, label %171, label %mpd_seterror.exit.i
 
-170:                                              ; preds = %167
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %172 = load i64, ptr %171, align 8, !tbaa !21
-  %173 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  %174 = icmp sgt i64 %172, %173
-  br i1 %174, label %175, label %mpd_seterror.exit.i
+171:                                              ; preds = %168
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %173 = load i64, ptr %172, align 8, !tbaa !21
+  %174 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  %175 = icmp sgt i64 %173, %174
+  br i1 %175, label %176, label %mpd_seterror.exit.i
 
-175:                                              ; preds = %170
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #33
-  store i8 0, ptr %6, align 1, !tbaa !22
-  %176 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %177 = load ptr, ptr %176, align 8, !tbaa !17
-  %178 = call ptr @mpd_realloc(ptr noundef %177, i64 noundef %173, i64 noundef 8, ptr noundef nonnull %6) #33
-  store ptr %178, ptr %176, align 8, !tbaa !17
-  %179 = load i8, ptr %6, align 1, !tbaa !22
-  %.not5.i.i.i = icmp eq i8 %179, 0
-  br i1 %.not5.i.i.i, label %180, label %182
+176:                                              ; preds = %171
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #33
+  store i8 0, ptr %7, align 1, !tbaa !22
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %178 = load ptr, ptr %177, align 8, !tbaa !17
+  %179 = call ptr @mpd_realloc(ptr noundef %178, i64 noundef %174, i64 noundef 8, ptr noundef nonnull %7) #33
+  store ptr %179, ptr %177, align 8, !tbaa !17
+  %180 = load i8, ptr %7, align 1, !tbaa !22
+  %.not5.i.i.i = icmp eq i8 %180, 0
+  br i1 %.not5.i.i.i, label %181, label %183
 
-180:                                              ; preds = %175
-  %181 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  store i64 %181, ptr %171, align 8, !tbaa !21
-  br label %182
+181:                                              ; preds = %176
+  %182 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  store i64 %182, ptr %172, align 8, !tbaa !21
+  br label %183
 
-182:                                              ; preds = %180, %175
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #33
+183:                                              ; preds = %181, %176
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #33
   %.pre.i.i = load i8, ptr %0, align 8, !tbaa !19
   br label %mpd_seterror.exit.i
 
-mpd_seterror.exit.i:                              ; preds = %182, %170, %167
-  %183 = phi i8 [ %168, %167 ], [ %168, %170 ], [ %.pre.i.i, %182 ]
-  %184 = and i8 %183, -16
-  %185 = or disjoint i8 %184, 4
-  store i8 %185, ptr %0, align 8, !tbaa !19
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %186, i8 0, i64 24, i1 false)
-  %187 = load i32, ptr %3, align 4, !tbaa !23
-  %188 = or i32 %187, 512
+mpd_seterror.exit.i:                              ; preds = %183, %171, %168
+  %184 = phi i8 [ %169, %168 ], [ %169, %171 ], [ %.pre.i.i, %183 ]
+  %185 = and i8 %184, -16
+  %186 = or disjoint i8 %185, 4
+  store i8 %186, ptr %0, align 8, !tbaa !19
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %187, i8 0, i64 24, i1 false)
+  %188 = load i32, ptr %3, align 4, !tbaa !23
+  %189 = or i32 %188, 512
   br label %_mpd_qinvroot.exit
 
-189:                                              ; preds = %mpd_qncopy.exit.i, %113
-  %190 = phi i64 [ %165, %mpd_qncopy.exit.i ], [ %62, %113 ]
-  %191 = phi i64 [ %161, %mpd_qncopy.exit.i ], [ %117, %113 ]
-  %192 = phi i64 [ %163, %mpd_qncopy.exit.i ], [ %120, %113 ]
-  %.071.i = phi ptr [ %149, %mpd_qncopy.exit.i ], [ %10, %113 ]
-  %193 = getelementptr inbounds nuw i8, ptr %.071.i, i64 16
-  %.fr.i.i = freeze i64 %192
-  %194 = getelementptr inbounds nuw i8, ptr %.071.i, i64 8
-  %195 = add i64 %.fr.i.i, %191
-  %196 = and i64 %195, 1
-  %.not.i36 = icmp eq i64 %196, 0
-  %197 = urem i64 %.fr.i.i, 19
-  %198 = icmp eq i64 %197, 0
-  %199 = select i1 %198, i64 19, i64 %197
-  %200 = getelementptr inbounds nuw i8, ptr %.071.i, i64 40
-  br i1 %.not.i36, label %228, label %201
+190:                                              ; preds = %mpd_qncopy.exit.i, %114
+  %191 = phi i64 [ %166, %mpd_qncopy.exit.i ], [ %63, %114 ]
+  %192 = phi i64 [ %162, %mpd_qncopy.exit.i ], [ %118, %114 ]
+  %193 = phi i64 [ %164, %mpd_qncopy.exit.i ], [ %121, %114 ]
+  %.071.i = phi ptr [ %150, %mpd_qncopy.exit.i ], [ %11, %114 ]
+  %194 = getelementptr inbounds nuw i8, ptr %.071.i, i64 16
+  %.fr.i.i = freeze i64 %193
+  %195 = getelementptr inbounds nuw i8, ptr %.071.i, i64 8
+  %196 = add i64 %.fr.i.i, %192
+  %197 = and i64 %196, 1
+  %.not.i36 = icmp eq i64 %197, 0
+  %198 = urem i64 %.fr.i.i, 19
+  %199 = icmp eq i64 %198, 0
+  %200 = select i1 %199, i64 19, i64 %198
+  %201 = getelementptr inbounds nuw i8, ptr %.071.i, i64 40
+  br i1 %.not.i36, label %229, label %202
 
-201:                                              ; preds = %189
-  %202 = sub i64 1, %.fr.i.i
-  store i64 %202, ptr %194, align 8, !tbaa !7
+202:                                              ; preds = %190
+  %203 = sub i64 1, %.fr.i.i
+  store i64 %203, ptr %195, align 8, !tbaa !7
   %spec.select6.i = call i64 @llvm.smin.i64(i64 %.fr.i.i, i64 7)
   %spec.select.i = trunc i64 %spec.select6.i to i32
-  %203 = load ptr, ptr %200, align 8, !tbaa !17
-  %204 = getelementptr i64, ptr %203, i64 %190
-  %205 = getelementptr i8, ptr %204, i64 -8
-  %206 = load i64, ptr %205, align 8, !tbaa !3
-  %207 = and i64 %spec.select6.i, 4294967295
-  %.not.i95.i = icmp samesign ult i64 %199, %207
-  br i1 %.not.i95.i, label %213, label %208
+  %204 = load ptr, ptr %201, align 8, !tbaa !17
+  %205 = getelementptr i64, ptr %204, i64 %191
+  %206 = getelementptr i8, ptr %205, i64 -8
+  %207 = load i64, ptr %206, align 8, !tbaa !3
+  %208 = and i64 %spec.select6.i, 4294967295
+  %.not.i95.i = icmp samesign ult i64 %200, %208
+  br i1 %.not.i95.i, label %214, label %209
 
-208:                                              ; preds = %201
-  %209 = sub nuw nsw i64 %199, %207
-  %210 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %209
-  %211 = load i64, ptr %210, align 8, !tbaa !3
-  %212 = udiv i64 %206, %211
+209:                                              ; preds = %202
+  %210 = sub nuw nsw i64 %200, %208
+  %211 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %210
+  %212 = load i64, ptr %211, align 8, !tbaa !3
+  %213 = udiv i64 %207, %212
   br label %_mpd_get_msdigits.exit.i
 
-213:                                              ; preds = %201
-  %214 = icmp sgt i64 %190, 1
-  br i1 %214, label %215, label %_mpd_get_msdigits.exit.i
+214:                                              ; preds = %202
+  %215 = icmp sgt i64 %191, 1
+  br i1 %215, label %216, label %_mpd_get_msdigits.exit.i
 
-215:                                              ; preds = %213
-  %216 = sub nsw i64 %207, %199
-  %217 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %216
-  %218 = load i64, ptr %217, align 8, !tbaa !3
-  %219 = mul i64 %218, %206
-  %220 = getelementptr i8, ptr %204, i64 -16
-  %221 = load i64, ptr %220, align 8, !tbaa !3
-  %reass.sub = sub nsw i64 %199, %207
-  %222 = add nsw i64 %reass.sub, 19
-  %223 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %222
-  %224 = load i64, ptr %223, align 8, !tbaa !3
-  %225 = udiv i64 %221, %224
-  %226 = add i64 %225, %219
+216:                                              ; preds = %214
+  %217 = sub nsw i64 %208, %200
+  %218 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %217
+  %219 = load i64, ptr %218, align 8, !tbaa !3
+  %220 = mul i64 %219, %207
+  %221 = getelementptr i8, ptr %205, i64 -16
+  %222 = load i64, ptr %221, align 8, !tbaa !3
+  %reass.sub = sub nsw i64 %200, %208
+  %223 = add nsw i64 %reass.sub, 19
+  %224 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %223
+  %225 = load i64, ptr %224, align 8, !tbaa !3
+  %226 = udiv i64 %222, %225
+  %227 = add i64 %226, %220
   br label %_mpd_get_msdigits.exit.i
 
-_mpd_get_msdigits.exit.i:                         ; preds = %215, %213, %208
-  %.05.i = phi i64 [ %206, %213 ], [ %212, %208 ], [ %226, %215 ]
-  %227 = icmp slt i32 %spec.select.i, 7
-  br i1 %227, label %.sink.split.i, label %260
+_mpd_get_msdigits.exit.i:                         ; preds = %216, %214, %209
+  %.05.i = phi i64 [ %207, %214 ], [ %213, %209 ], [ %227, %216 ]
+  %228 = icmp slt i32 %spec.select.i, 7
+  br i1 %228, label %.sink.split.i, label %261
 
-228:                                              ; preds = %189
-  %229 = sub i64 2, %.fr.i.i
-  store i64 %229, ptr %194, align 8, !tbaa !7
+229:                                              ; preds = %190
+  %230 = sub i64 2, %.fr.i.i
+  store i64 %230, ptr %195, align 8, !tbaa !7
   %spec.select837.i = call i64 @llvm.smin.i64(i64 %.fr.i.i, i64 8)
   %spec.select83.i = trunc i64 %spec.select837.i to i32
-  %230 = load ptr, ptr %200, align 8, !tbaa !17
-  %231 = getelementptr i64, ptr %230, i64 %190
-  %232 = getelementptr i8, ptr %231, i64 -8
-  %233 = load i64, ptr %232, align 8, !tbaa !3
-  %234 = and i64 %spec.select837.i, 4294967295
-  %.not.i97.i = icmp samesign ult i64 %199, %234
-  br i1 %.not.i97.i, label %240, label %235
+  %231 = load ptr, ptr %201, align 8, !tbaa !17
+  %232 = getelementptr i64, ptr %231, i64 %191
+  %233 = getelementptr i8, ptr %232, i64 -8
+  %234 = load i64, ptr %233, align 8, !tbaa !3
+  %235 = and i64 %spec.select837.i, 4294967295
+  %.not.i97.i = icmp samesign ult i64 %200, %235
+  br i1 %.not.i97.i, label %241, label %236
 
-235:                                              ; preds = %228
-  %236 = sub nuw nsw i64 %199, %234
-  %237 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %236
-  %238 = load i64, ptr %237, align 8, !tbaa !3
-  %239 = udiv i64 %233, %238
+236:                                              ; preds = %229
+  %237 = sub nuw nsw i64 %200, %235
+  %238 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %237
+  %239 = load i64, ptr %238, align 8, !tbaa !3
+  %240 = udiv i64 %234, %239
   br label %_mpd_get_msdigits.exit99.i
 
-240:                                              ; preds = %228
-  %241 = icmp sgt i64 %190, 1
-  br i1 %241, label %242, label %_mpd_get_msdigits.exit99.i
+241:                                              ; preds = %229
+  %242 = icmp sgt i64 %191, 1
+  br i1 %242, label %243, label %_mpd_get_msdigits.exit99.i
 
-242:                                              ; preds = %240
-  %243 = sub nsw i64 %234, %199
-  %244 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %243
-  %245 = load i64, ptr %244, align 8, !tbaa !3
-  %246 = mul i64 %245, %233
-  %247 = getelementptr i8, ptr %231, i64 -16
-  %248 = load i64, ptr %247, align 8, !tbaa !3
-  %reass.sub48 = sub nsw i64 %199, %234
-  %249 = add nsw i64 %reass.sub48, 19
-  %250 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %249
-  %251 = load i64, ptr %250, align 8, !tbaa !3
-  %252 = udiv i64 %248, %251
-  %253 = add i64 %252, %246
+243:                                              ; preds = %241
+  %244 = sub nsw i64 %235, %200
+  %245 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %244
+  %246 = load i64, ptr %245, align 8, !tbaa !3
+  %247 = mul i64 %246, %234
+  %248 = getelementptr i8, ptr %232, i64 -16
+  %249 = load i64, ptr %248, align 8, !tbaa !3
+  %reass.sub48 = sub nsw i64 %200, %235
+  %250 = add nsw i64 %reass.sub48, 19
+  %251 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %250
+  %252 = load i64, ptr %251, align 8, !tbaa !3
+  %253 = udiv i64 %249, %252
+  %254 = add i64 %253, %247
   br label %_mpd_get_msdigits.exit99.i
 
-_mpd_get_msdigits.exit99.i:                       ; preds = %242, %240, %235
-  %.1.i = phi i64 [ %233, %240 ], [ %239, %235 ], [ %253, %242 ]
-  %254 = icmp slt i32 %spec.select83.i, 8
-  br i1 %254, label %.sink.split.i, label %260
+_mpd_get_msdigits.exit99.i:                       ; preds = %243, %241, %236
+  %.1.i = phi i64 [ %234, %241 ], [ %240, %236 ], [ %254, %243 ]
+  %255 = icmp slt i32 %spec.select83.i, 8
+  br i1 %255, label %.sink.split.i, label %261
 
 .sink.split.i:                                    ; preds = %_mpd_get_msdigits.exit99.i, %_mpd_get_msdigits.exit.i
   %spec.select837.sink.i = phi i64 [ %spec.select6.i, %_mpd_get_msdigits.exit.i ], [ %spec.select837.i, %_mpd_get_msdigits.exit99.i ]
   %.sink.i = phi i64 [ 30064771072, %_mpd_get_msdigits.exit.i ], [ 34359738368, %_mpd_get_msdigits.exit99.i ]
   %.1.sink.i = phi i64 [ %.05.i, %_mpd_get_msdigits.exit.i ], [ %.1.i, %_mpd_get_msdigits.exit99.i ]
-  %.ph.i = phi i64 [ %202, %_mpd_get_msdigits.exit.i ], [ %229, %_mpd_get_msdigits.exit99.i ]
-  %255 = shl i64 %spec.select837.sink.i, 32
-  %sext8.i = sub i64 %.sink.i, %255
-  %256 = ashr exact i64 %sext8.i, 32
-  %257 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %256
-  %258 = load i64, ptr %257, align 8, !tbaa !3
-  %259 = mul i64 %258, %.1.sink.i
-  br label %260
+  %.ph.i = phi i64 [ %203, %_mpd_get_msdigits.exit.i ], [ %230, %_mpd_get_msdigits.exit99.i ]
+  %256 = shl i64 %spec.select837.sink.i, 32
+  %sext8.i = sub i64 %.sink.i, %256
+  %257 = ashr exact i64 %sext8.i, 32
+  %258 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %257
+  %259 = load i64, ptr %258, align 8, !tbaa !3
+  %260 = mul i64 %259, %.1.sink.i
+  br label %261
 
-260:                                              ; preds = %.sink.split.i, %_mpd_get_msdigits.exit99.i, %_mpd_get_msdigits.exit.i
-  %261 = phi i64 [ %229, %_mpd_get_msdigits.exit99.i ], [ %202, %_mpd_get_msdigits.exit.i ], [ %.ph.i, %.sink.split.i ]
-  %.2.i = phi i64 [ %.1.i, %_mpd_get_msdigits.exit99.i ], [ %.05.i, %_mpd_get_msdigits.exit.i ], [ %259, %.sink.split.i ]
-  %262 = load i64, ptr %116, align 8, !tbaa !7
+261:                                              ; preds = %.sink.split.i, %_mpd_get_msdigits.exit99.i, %_mpd_get_msdigits.exit.i
+  %262 = phi i64 [ %230, %_mpd_get_msdigits.exit99.i ], [ %203, %_mpd_get_msdigits.exit.i ], [ %.ph.i, %.sink.split.i ]
+  %.2.i = phi i64 [ %.1.i, %_mpd_get_msdigits.exit99.i ], [ %.05.i, %_mpd_get_msdigits.exit.i ], [ %260, %.sink.split.i ]
+  %263 = load i64, ptr %117, align 8, !tbaa !7
   br label %.outer
 
-.outer:                                           ; preds = %273, %260
-  %.017.i.i.ph = phi i64 [ %274, %273 ], [ 10000, %260 ]
-  %.0.i.i.ph = phi i64 [ %.0.i.i, %273 ], [ 1000, %260 ]
-  br label %263
+.outer:                                           ; preds = %274, %261
+  %.017.i.i.ph = phi i64 [ %275, %274 ], [ 10000, %261 ]
+  %.0.i.i.ph = phi i64 [ %.0.i.i, %274 ], [ 1000, %261 ]
+  br label %264
 
-263:                                              ; preds = %.outer, %271
-  %.0.i.i = phi i64 [ %272, %271 ], [ %.0.i.i.ph, %.outer ]
-  %264 = add i64 %.0.i.i, %.017.i.i.ph
-  %265 = lshr i64 %264, 1
-  %266 = mul i64 %265, %265
-  %.not.i100.i = icmp ult i64 %.2.i, %266
-  br i1 %.not.i100.i, label %273, label %267
+264:                                              ; preds = %.outer, %272
+  %.0.i.i = phi i64 [ %273, %272 ], [ %.0.i.i.ph, %.outer ]
+  %265 = add i64 %.0.i.i, %.017.i.i.ph
+  %266 = lshr i64 %265, 1
+  %267 = mul i64 %266, %266
+  %.not.i100.i = icmp ult i64 %.2.i, %267
+  br i1 %.not.i100.i, label %274, label %268
 
-267:                                              ; preds = %263
-  %268 = or i64 %264, 1
-  %269 = add i64 %266, %268
-  %270 = icmp ult i64 %.2.i, %269
-  br i1 %270, label %275, label %271
+268:                                              ; preds = %264
+  %269 = or i64 %265, 1
+  %270 = add i64 %267, %269
+  %271 = icmp ult i64 %.2.i, %270
+  br i1 %271, label %276, label %272
 
-271:                                              ; preds = %267
-  %272 = add nuw i64 %265, 1
-  br label %263
+272:                                              ; preds = %268
+  %273 = add nuw i64 %266, 1
+  br label %264
 
-273:                                              ; preds = %263
-  %274 = add nsw i64 %265, -1
+274:                                              ; preds = %264
+  %275 = add nsw i64 %266, -1
   br label %.outer
 
-275:                                              ; preds = %267
-  %276 = sub i64 %262, %261
-  %.neg.i = sdiv i64 %276, -2
-  %277 = load i8, ptr %0, align 8, !tbaa !19
-  %278 = and i8 %277, 32
-  %.not.i.i101.i = icmp eq i8 %278, 0
-  br i1 %.not.i.i101.i, label %279, label %mpd_minalloc.exit.i.i
+276:                                              ; preds = %268
+  %277 = sub i64 %263, %262
+  %.neg.i = sdiv i64 %277, -2
+  %278 = load i8, ptr %0, align 8, !tbaa !19
+  %279 = and i8 %278, 32
+  %.not.i.i101.i = icmp eq i8 %279, 0
+  br i1 %.not.i.i101.i, label %280, label %mpd_minalloc.exit.i.i
 
-279:                                              ; preds = %275
-  %280 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %281 = load i64, ptr %280, align 8, !tbaa !21
-  %282 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  %283 = icmp sgt i64 %281, %282
-  br i1 %283, label %284, label %mpd_minalloc.exit.i.i
+280:                                              ; preds = %276
+  %281 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %282 = load i64, ptr %281, align 8, !tbaa !21
+  %283 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  %284 = icmp sgt i64 %282, %283
+  br i1 %284, label %285, label %mpd_minalloc.exit.i.i
 
-284:                                              ; preds = %279
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #33
-  store i8 0, ptr %5, align 1, !tbaa !22
-  %285 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %286 = load ptr, ptr %285, align 8, !tbaa !17
-  %287 = call ptr @mpd_realloc(ptr noundef %286, i64 noundef %282, i64 noundef 8, ptr noundef nonnull %5) #33
-  store ptr %287, ptr %285, align 8, !tbaa !17
-  %288 = load i8, ptr %5, align 1, !tbaa !22
-  %.not5.i.i102.i = icmp eq i8 %288, 0
-  br i1 %.not5.i.i102.i, label %289, label %291
+285:                                              ; preds = %280
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #33
+  store i8 0, ptr %6, align 1, !tbaa !22
+  %286 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %287 = load ptr, ptr %286, align 8, !tbaa !17
+  %288 = call ptr @mpd_realloc(ptr noundef %287, i64 noundef %283, i64 noundef 8, ptr noundef nonnull %6) #33
+  store ptr %288, ptr %286, align 8, !tbaa !17
+  %289 = load i8, ptr %6, align 1, !tbaa !22
+  %.not5.i.i102.i = icmp eq i8 %289, 0
+  br i1 %.not5.i.i102.i, label %290, label %292
 
-289:                                              ; preds = %284
-  %290 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  store i64 %290, ptr %280, align 8, !tbaa !21
-  br label %291
+290:                                              ; preds = %285
+  %291 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  store i64 %291, ptr %281, align 8, !tbaa !21
+  br label %292
 
-291:                                              ; preds = %289, %284
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #33
+292:                                              ; preds = %290, %285
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #33
   %.pre.i103.i = load i8, ptr %0, align 8, !tbaa !19
   br label %mpd_minalloc.exit.i.i
 
-mpd_minalloc.exit.i.i:                            ; preds = %291, %279, %275
-  %292 = phi i8 [ %277, %275 ], [ %277, %279 ], [ %.pre.i103.i, %291 ]
-  %293 = and i8 %292, -16
-  store i8 %293, ptr %0, align 8, !tbaa !19
-  %294 = udiv i64 1000000000, %265
-  %295 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %296 = load ptr, ptr %295, align 8, !tbaa !17
-  store i64 %294, ptr %296, align 8, !tbaa !3
-  %297 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 1, ptr %297, align 8, !tbaa !18
-  %298 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 -6, ptr %298, align 8, !tbaa !7
-  %299 = load i64, ptr %296, align 8, !tbaa !3
-  %300 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 72), align 8, !tbaa !3
-  %301 = icmp ult i64 %299, %300
-  br i1 %301, label %302, label %330
+mpd_minalloc.exit.i.i:                            ; preds = %292, %280, %276
+  %293 = phi i8 [ %278, %276 ], [ %278, %280 ], [ %.pre.i103.i, %292 ]
+  %294 = and i8 %293, -16
+  store i8 %294, ptr %0, align 8, !tbaa !19
+  %295 = udiv i64 1000000000, %266
+  %296 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %297 = load ptr, ptr %296, align 8, !tbaa !17
+  store i64 %295, ptr %297, align 8, !tbaa !3
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 1, ptr %298, align 8, !tbaa !18
+  %299 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 -6, ptr %299, align 8, !tbaa !7
+  %300 = load i64, ptr %297, align 8, !tbaa !3
+  %301 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 72), align 8, !tbaa !3
+  %302 = icmp ult i64 %300, %301
+  br i1 %302, label %303, label %331
 
-302:                                              ; preds = %mpd_minalloc.exit.i.i
-  %303 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 32), align 8, !tbaa !3
-  %304 = icmp ult i64 %299, %303
-  br i1 %304, label %305, label %316
+303:                                              ; preds = %mpd_minalloc.exit.i.i
+  %304 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 32), align 8, !tbaa !3
+  %305 = icmp ult i64 %300, %304
+  br i1 %305, label %306, label %317
 
-305:                                              ; preds = %302
-  %306 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 16), align 8, !tbaa !3
-  %307 = icmp ult i64 %299, %306
-  br i1 %307, label %308, label %312
+306:                                              ; preds = %303
+  %307 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 16), align 8, !tbaa !3
+  %308 = icmp ult i64 %300, %307
+  br i1 %308, label %309, label %313
 
-308:                                              ; preds = %305
-  %309 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 8), align 8, !tbaa !3
-  %310 = icmp ult i64 %299, %309
-  %311 = select i1 %310, i64 1, i64 2
+309:                                              ; preds = %306
+  %310 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 8), align 8, !tbaa !3
+  %311 = icmp ult i64 %300, %310
+  %312 = select i1 %311, i64 1, i64 2
   br label %_invroot_init_approx.exit.i
 
-312:                                              ; preds = %305
-  %313 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 24), align 8, !tbaa !3
-  %314 = icmp ult i64 %299, %313
-  %315 = select i1 %314, i64 3, i64 4
+313:                                              ; preds = %306
+  %314 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 24), align 8, !tbaa !3
+  %315 = icmp ult i64 %300, %314
+  %316 = select i1 %315, i64 3, i64 4
   br label %_invroot_init_approx.exit.i
 
-316:                                              ; preds = %302
-  %317 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 48), align 8, !tbaa !3
-  %318 = icmp ult i64 %299, %317
-  br i1 %318, label %319, label %323
+317:                                              ; preds = %303
+  %318 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 48), align 8, !tbaa !3
+  %319 = icmp ult i64 %300, %318
+  br i1 %319, label %320, label %324
 
-319:                                              ; preds = %316
-  %320 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 40), align 8, !tbaa !3
-  %321 = icmp ult i64 %299, %320
-  %322 = select i1 %321, i64 5, i64 6
+320:                                              ; preds = %317
+  %321 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 40), align 8, !tbaa !3
+  %322 = icmp ult i64 %300, %321
+  %323 = select i1 %322, i64 5, i64 6
   br label %_invroot_init_approx.exit.i
 
-323:                                              ; preds = %316
-  %324 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 64), align 8, !tbaa !3
-  %325 = icmp ult i64 %299, %324
-  br i1 %325, label %326, label %_invroot_init_approx.exit.i
+324:                                              ; preds = %317
+  %325 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 64), align 8, !tbaa !3
+  %326 = icmp ult i64 %300, %325
+  br i1 %326, label %327, label %_invroot_init_approx.exit.i
 
-326:                                              ; preds = %323
-  %327 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 56), align 8, !tbaa !3
-  %328 = icmp ult i64 %299, %327
-  %329 = select i1 %328, i64 7, i64 8
+327:                                              ; preds = %324
+  %328 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 56), align 8, !tbaa !3
+  %329 = icmp ult i64 %300, %328
+  %330 = select i1 %329, i64 7, i64 8
   br label %_invroot_init_approx.exit.i
 
-330:                                              ; preds = %mpd_minalloc.exit.i.i
-  %331 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 112), align 8, !tbaa !3
-  %332 = icmp ult i64 %299, %331
-  br i1 %332, label %333, label %347
+331:                                              ; preds = %mpd_minalloc.exit.i.i
+  %332 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 112), align 8, !tbaa !3
+  %333 = icmp ult i64 %300, %332
+  br i1 %333, label %334, label %348
 
-333:                                              ; preds = %330
-  %334 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 88), align 8, !tbaa !3
-  %335 = icmp ult i64 %299, %334
-  br i1 %335, label %336, label %340
+334:                                              ; preds = %331
+  %335 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 88), align 8, !tbaa !3
+  %336 = icmp ult i64 %300, %335
+  br i1 %336, label %337, label %341
 
-336:                                              ; preds = %333
-  %337 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 80), align 8, !tbaa !3
-  %338 = icmp ult i64 %299, %337
-  %339 = select i1 %338, i64 10, i64 11
+337:                                              ; preds = %334
+  %338 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 80), align 8, !tbaa !3
+  %339 = icmp ult i64 %300, %338
+  %340 = select i1 %339, i64 10, i64 11
   br label %_invroot_init_approx.exit.i
 
-340:                                              ; preds = %333
-  %341 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 104), align 8, !tbaa !3
-  %342 = icmp ult i64 %299, %341
-  br i1 %342, label %343, label %_invroot_init_approx.exit.i
+341:                                              ; preds = %334
+  %342 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 104), align 8, !tbaa !3
+  %343 = icmp ult i64 %300, %342
+  br i1 %343, label %344, label %_invroot_init_approx.exit.i
 
-343:                                              ; preds = %340
-  %344 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 96), align 8, !tbaa !3
-  %345 = icmp ult i64 %299, %344
-  %346 = select i1 %345, i64 12, i64 13
+344:                                              ; preds = %341
+  %345 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 96), align 8, !tbaa !3
+  %346 = icmp ult i64 %300, %345
+  %347 = select i1 %346, i64 12, i64 13
   br label %_invroot_init_approx.exit.i
 
-347:                                              ; preds = %330
-  %348 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 144), align 8, !tbaa !3
-  %349 = icmp ult i64 %299, %348
-  br i1 %349, label %350, label %361
+348:                                              ; preds = %331
+  %349 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 144), align 8, !tbaa !3
+  %350 = icmp ult i64 %300, %349
+  br i1 %350, label %351, label %362
 
-350:                                              ; preds = %347
-  %351 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 128), align 8, !tbaa !3
-  %352 = icmp ult i64 %299, %351
-  br i1 %352, label %353, label %357
+351:                                              ; preds = %348
+  %352 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 128), align 8, !tbaa !3
+  %353 = icmp ult i64 %300, %352
+  br i1 %353, label %354, label %358
 
-353:                                              ; preds = %350
-  %354 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 120), align 8, !tbaa !3
-  %355 = icmp ult i64 %299, %354
-  %356 = select i1 %355, i64 15, i64 16
+354:                                              ; preds = %351
+  %355 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 120), align 8, !tbaa !3
+  %356 = icmp ult i64 %300, %355
+  %357 = select i1 %356, i64 15, i64 16
   br label %_invroot_init_approx.exit.i
 
-357:                                              ; preds = %350
-  %358 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 136), align 8, !tbaa !3
-  %359 = icmp ult i64 %299, %358
-  %360 = select i1 %359, i64 17, i64 18
+358:                                              ; preds = %351
+  %359 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 136), align 8, !tbaa !3
+  %360 = icmp ult i64 %300, %359
+  %361 = select i1 %360, i64 17, i64 18
   br label %_invroot_init_approx.exit.i
 
-361:                                              ; preds = %347
-  %362 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 152), align 8, !tbaa !3
-  %363 = icmp ult i64 %299, %362
-  %364 = select i1 %363, i64 19, i64 20
+362:                                              ; preds = %348
+  %363 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 152), align 8, !tbaa !3
+  %364 = icmp ult i64 %300, %363
+  %365 = select i1 %364, i64 19, i64 20
   br label %_invroot_init_approx.exit.i
 
-_invroot_init_approx.exit.i:                      ; preds = %361, %357, %353, %343, %340, %336, %326, %323, %319, %312, %308
-  %.0.i.i.i.i = phi i64 [ %311, %308 ], [ %315, %312 ], [ %322, %319 ], [ %329, %326 ], [ %339, %336 ], [ %346, %343 ], [ %356, %353 ], [ %360, %357 ], [ %364, %361 ], [ 9, %323 ], [ 14, %340 ]
-  %365 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.0.i.i.i.i, ptr %365, align 8, !tbaa !11
+_invroot_init_approx.exit.i:                      ; preds = %362, %358, %354, %344, %341, %337, %327, %324, %320, %313, %309
+  %.0.i.i.i.i = phi i64 [ %312, %309 ], [ %316, %313 ], [ %323, %320 ], [ %330, %327 ], [ %340, %337 ], [ %347, %344 ], [ %357, %354 ], [ %361, %358 ], [ %365, %362 ], [ 9, %324 ], [ 14, %341 ]
+  %366 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.0.i.i.i.i, ptr %366, align 8, !tbaa !11
+  call void @mpd_maxcontext(ptr noundef nonnull %10) #33
   call void @mpd_maxcontext(ptr noundef nonnull %9) #33
-  call void @mpd_maxcontext(ptr noundef nonnull %8) #33
-  %366 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  store i32 8, ptr %366, align 4, !tbaa !29
-  %367 = add i64 %.sroa.0.0.copyload, 3
-  %368 = icmp slt i64 %367, 4
-  br i1 %368, label %._crit_edge.i, label %.preheader.i.i
+  %367 = getelementptr inbounds nuw i8, ptr %9, i64 36
+  store i32 8, ptr %367, align 4, !tbaa !29
+  %368 = add i64 %.sroa.0.0.copyload, 3
+  %369 = icmp slt i64 %368, 4
+  br i1 %369, label %._crit_edge.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_invroot_init_approx.exit.i, %.preheader.i.i
-  %.010.i.i = phi i64 [ %370, %.preheader.i.i ], [ %367, %_invroot_init_approx.exit.i ]
-  %.0.i104.i = phi i32 [ %371, %.preheader.i.i ], [ 0, %_invroot_init_approx.exit.i ]
-  %369 = add nuw i64 %.010.i.i, 3
-  %370 = sdiv i64 %369, 2
-  %371 = add i32 %.0.i104.i, 1
-  %372 = sext i32 %.0.i104.i to i64
-  %373 = getelementptr i64, ptr %19, i64 %372
-  store i64 %370, ptr %373, align 8, !tbaa !3
-  %374 = icmp sgt i64 %369, 7
-  br i1 %374, label %.preheader.i.i, label %invroot_schedule_prec.exit.i, !llvm.loop !73
+  %.010.i.i = phi i64 [ %371, %.preheader.i.i ], [ %368, %_invroot_init_approx.exit.i ]
+  %.0.i104.i = phi i32 [ %372, %.preheader.i.i ], [ 0, %_invroot_init_approx.exit.i ]
+  %370 = add nuw i64 %.010.i.i, 3
+  %371 = sdiv i64 %370, 2
+  %372 = add i32 %.0.i104.i, 1
+  %373 = sext i32 %.0.i104.i to i64
+  %374 = getelementptr i64, ptr %20, i64 %373
+  store i64 %371, ptr %374, align 8, !tbaa !3
+  %375 = icmp sgt i64 %370, 7
+  br i1 %375, label %.preheader.i.i, label %invroot_schedule_prec.exit.i, !llvm.loop !73
 
 invroot_schedule_prec.exit.i:                     ; preds = %.preheader.i.i
-  %375 = icmp sgt i32 %.0.i104.i, -1
-  br i1 %375, label %.lr.ph.preheader.i, label %._crit_edge.i
+  %376 = icmp sgt i32 %.0.i104.i, -1
+  br i1 %376, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %invroot_schedule_prec.exit.i
-  %376 = zext nneg i32 %.0.i104.i to i64
+  %377 = zext nneg i32 %.0.i104.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %mpd_qsub.exit.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ %376, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %mpd_qsub.exit.i ]
-  %377 = getelementptr [64 x i64], ptr %19, i64 0, i64 %indvars.iv.i
-  %378 = load i64, ptr %377, align 8, !tbaa !3
-  %379 = shl i64 %378, 1
-  %380 = add i64 %379, 2
-  store i64 %380, ptr %8, align 8, !tbaa !15
-  call fastcc void @_mpd_qmul(ptr noundef nonnull %12, ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef nonnull readonly %9, ptr noundef nonnull %7)
-  call void @mpd_qfinalize(ptr noundef nonnull %12, ptr noundef nonnull readonly %9, ptr noundef nonnull %7)
-  %381 = load i64, ptr %193, align 8, !tbaa !11
-  %382 = load i64, ptr %8, align 8, !tbaa !15
-  %383 = icmp sgt i64 %381, %382
-  br i1 %383, label %384, label %389
+  %indvars.iv.i = phi i64 [ %377, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %mpd_qsub.exit.i ]
+  %378 = getelementptr [64 x i64], ptr %20, i64 0, i64 %indvars.iv.i
+  %379 = load i64, ptr %378, align 8, !tbaa !3
+  %380 = shl i64 %379, 1
+  %381 = add i64 %380, 2
+  store i64 %381, ptr %9, align 8, !tbaa !15
+  call fastcc void @_mpd_qmul(ptr noundef nonnull %13, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %10, ptr noundef nonnull %8)
+  call void @mpd_qfinalize(ptr noundef nonnull %13, ptr noundef nonnull readonly %10, ptr noundef nonnull %8)
+  %382 = load i64, ptr %194, align 8, !tbaa !11
+  %383 = load i64, ptr %9, align 8, !tbaa !15
+  %384 = icmp sgt i64 %382, %383
+  br i1 %384, label %385, label %390
 
-384:                                              ; preds = %.lr.ph.i
-  %385 = sub i64 %381, %382
-  %386 = call i64 @mpd_qshiftr(ptr noundef nonnull %14, ptr noundef nonnull %.071.i, i64 noundef %385, ptr noundef nonnull %7)
-  %387 = load i64, ptr %130, align 8, !tbaa !7
-  %388 = add i64 %387, %385
-  store i64 %388, ptr %130, align 8, !tbaa !7
-  br label %389
+385:                                              ; preds = %.lr.ph.i
+  %386 = sub i64 %382, %383
+  %387 = call i64 @mpd_qshiftr(ptr noundef nonnull %15, ptr noundef nonnull %.071.i, i64 noundef %386, ptr noundef nonnull %8)
+  %388 = load i64, ptr %131, align 8, !tbaa !7
+  %389 = add i64 %388, %386
+  store i64 %389, ptr %131, align 8, !tbaa !7
+  br label %390
 
-389:                                              ; preds = %384, %.lr.ph.i
-  %.071.sink.i = phi ptr [ %14, %384 ], [ %.071.i, %.lr.ph.i ]
-  call fastcc void @_mpd_qmul(ptr noundef nonnull %14, ptr noundef nonnull %.071.sink.i, ptr noundef nonnull %12, ptr noundef nonnull readonly %8, ptr noundef nonnull %7)
-  call void @mpd_qfinalize(ptr noundef nonnull %14, ptr noundef nonnull readonly %8, ptr noundef nonnull %7)
-  %390 = load i8, ptr %18, align 8, !tbaa !19
-  %391 = and i8 %390, 14
-  %.not.i105.i = icmp eq i8 %391, 0
-  br i1 %.not.i105.i, label %392, label %395
+390:                                              ; preds = %385, %.lr.ph.i
+  %.sink34.i = phi ptr [ %15, %385 ], [ %.071.i, %.lr.ph.i ]
+  call fastcc void @_mpd_qmul(ptr noundef nonnull %15, ptr noundef nonnull readonly %.sink34.i, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %9, ptr noundef nonnull %8)
+  call void @mpd_qfinalize(ptr noundef nonnull %15, ptr noundef nonnull readonly %9, ptr noundef nonnull %8)
+  %391 = load i8, ptr %15, align 8, !tbaa !19
+  %392 = and i8 %391, 14
+  %.not21.i.i = icmp eq i8 %392, 0
+  br i1 %.not21.i.i, label %414, label %393
 
-392:                                              ; preds = %389
-  %393 = load i8, ptr %14, align 8, !tbaa !19
-  %394 = and i8 %393, 14
-  %.not21.i.i = icmp eq i8 %394, 0
-  br i1 %.not21.i.i, label %401, label %395
+393:                                              ; preds = %390
+  %394 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %15, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %15, ptr noundef nonnull readonly %10, ptr noundef nonnull %8)
+  %.not23.i.i = icmp eq i32 %394, 0
+  br i1 %.not23.i.i, label %395, label %mpd_qsub.exit.i
 
-395:                                              ; preds = %392, %389
-  %396 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %14, ptr noundef nonnull %18, ptr noundef nonnull %14, ptr noundef nonnull readonly %9, ptr noundef nonnull %7)
-  %.not23.i.i = icmp eq i32 %396, 0
-  br i1 %.not23.i.i, label %397, label %mpd_qsub.exit.i
+395:                                              ; preds = %393
+  %396 = load i8, ptr %15, align 8, !tbaa !19
+  %397 = and i8 %396, 1
+  %398 = and i8 %396, 32
+  %.not.i.i14.i = icmp eq i8 %398, 0
+  br i1 %.not.i.i14.i, label %399, label %_mpd_qaddsub_inf.exit
 
-397:                                              ; preds = %395
-  %398 = load i8, ptr %14, align 8, !tbaa !19
-  %399 = and i8 %398, 1
-  %400 = xor i8 %399, 1
-  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %14, i8 %390, ptr noundef nonnull %14, i8 noundef zeroext %400, ptr noundef nonnull %7)
+399:                                              ; preds = %395
+  %400 = load i64, ptr %132, align 8, !tbaa !21
+  %401 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  %402 = icmp sgt i64 %400, %401
+  br i1 %402, label %403, label %_mpd_qaddsub_inf.exit
+
+403:                                              ; preds = %399
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #33
+  store i8 0, ptr %5, align 1, !tbaa !22
+  %404 = load ptr, ptr %133, align 8, !tbaa !17
+  %405 = call ptr @mpd_realloc(ptr noundef %404, i64 noundef %401, i64 noundef 8, ptr noundef nonnull %5) #33
+  store ptr %405, ptr %133, align 8, !tbaa !17
+  %406 = load i8, ptr %5, align 1, !tbaa !22
+  %.not5.i.i15.i = icmp eq i8 %406, 0
+  br i1 %.not5.i.i15.i, label %407, label %409
+
+407:                                              ; preds = %403
+  %408 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  store i64 %408, ptr %132, align 8, !tbaa !21
+  br label %409
+
+409:                                              ; preds = %407, %403
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #33
+  %.pre.i16.i = load i8, ptr %15, align 8, !tbaa !19
+  br label %_mpd_qaddsub_inf.exit
+
+_mpd_qaddsub_inf.exit:                            ; preds = %395, %399, %409
+  %410 = phi i8 [ %396, %395 ], [ %396, %399 ], [ %.pre.i16.i, %409 ]
+  %411 = and i8 %410, -16
+  %412 = or disjoint i8 %411, %397
+  %413 = xor i8 %412, 3
+  store i8 %413, ptr %15, align 8, !tbaa !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %131, i8 0, i64 24, i1 false)
   br label %mpd_qsub.exit.i
 
-401:                                              ; preds = %392
-  %402 = and i8 %393, 1
-  %403 = xor i8 %402, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %14, ptr noundef nonnull %18, ptr noundef nonnull %14, i8 noundef zeroext %403, ptr noundef nonnull readonly %9, ptr noundef nonnull %7)
-  call void @mpd_qfinalize(ptr noundef nonnull %14, ptr noundef nonnull readonly %9, ptr noundef nonnull %7)
+414:                                              ; preds = %390
+  %415 = and i8 %391, 1
+  %416 = xor i8 %415, 1
+  call fastcc void @_mpd_qaddsub(ptr noundef nonnull %15, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %15, i8 noundef zeroext %416, ptr noundef nonnull readonly %10, ptr noundef nonnull %8)
+  call void @mpd_qfinalize(ptr noundef nonnull %15, ptr noundef nonnull readonly %10, ptr noundef nonnull %8)
   br label %mpd_qsub.exit.i
 
-mpd_qsub.exit.i:                                  ; preds = %401, %397, %395
-  call fastcc void @_mpd_qmul(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull readonly %8, ptr noundef nonnull %7)
-  call void @mpd_qfinalize(ptr noundef nonnull %0, ptr noundef nonnull readonly %8, ptr noundef nonnull %7)
-  call fastcc void @_mpd_qmul(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef nonnull %16, ptr noundef nonnull readonly %9, ptr noundef nonnull %7)
-  call void @mpd_qfinalize(ptr noundef nonnull %0, ptr noundef nonnull readonly %9, ptr noundef nonnull %7)
+mpd_qsub.exit.i:                                  ; preds = %414, %_mpd_qaddsub_inf.exit, %393
+  call fastcc void @_mpd_qmul(ptr noundef nonnull %0, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %15, ptr noundef nonnull readonly %9, ptr noundef nonnull %8)
+  call void @mpd_qfinalize(ptr noundef nonnull %0, ptr noundef nonnull readonly %9, ptr noundef nonnull %8)
+  call fastcc void @_mpd_qmul(ptr noundef nonnull %0, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %17, ptr noundef nonnull readonly %10, ptr noundef nonnull %8)
+  call void @mpd_qfinalize(ptr noundef nonnull %0, ptr noundef nonnull readonly %10, ptr noundef nonnull %8)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %404 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %404, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !74
+  %417 = icmp sgt i64 %indvars.iv.i, 0
+  br i1 %417, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !74
 
 ._crit_edge.i:                                    ; preds = %mpd_qsub.exit.i, %invroot_schedule_prec.exit.i, %_invroot_init_approx.exit.i
-  %405 = load i64, ptr %298, align 8, !tbaa !7
-  %406 = add i64 %405, %.neg.i
-  store i64 %406, ptr %298, align 8, !tbaa !7
-  %407 = load i64, ptr %297, align 8, !tbaa !18
-  %408 = icmp sgt i64 %407, 0
-  br i1 %408, label %.lr.ph.i.i, label %mpd_trail_zeros.exit.i
+  %418 = load i64, ptr %299, align 8, !tbaa !7
+  %419 = add i64 %418, %.neg.i
+  store i64 %419, ptr %299, align 8, !tbaa !7
+  %420 = load i64, ptr %298, align 8, !tbaa !18
+  %421 = icmp sgt i64 %420, 0
+  br i1 %421, label %.lr.ph.i.i, label %mpd_trail_zeros.exit.i
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge.i
-  %409 = load ptr, ptr %295, align 8, !tbaa !17
-  br label %410
+  %422 = load ptr, ptr %296, align 8, !tbaa !17
+  br label %423
 
-410:                                              ; preds = %421, %.lr.ph.i.i
-  %.01116.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %422, %421 ]
-  %411 = getelementptr i64, ptr %409, i64 %.01116.i.i
-  %412 = load i64, ptr %411, align 8, !tbaa !3
-  %.not.i107.i = icmp eq i64 %412, 0
-  br i1 %.not.i107.i, label %421, label %413
+423:                                              ; preds = %434, %.lr.ph.i.i
+  %.01116.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %435, %434 ]
+  %424 = getelementptr i64, ptr %422, i64 %.01116.i.i
+  %425 = load i64, ptr %424, align 8, !tbaa !3
+  %.not.i107.i = icmp eq i64 %425, 0
+  br i1 %.not.i107.i, label %434, label %426
 
-413:                                              ; preds = %410
-  %414 = mul i64 %.01116.i.i, 19
-  %415 = urem i64 %412, 10
-  %416 = icmp eq i64 %415, 0
-  br i1 %416, label %.lr.ph19.i.i, label %mpd_trail_zeros.exit.i
+426:                                              ; preds = %423
+  %427 = mul i64 %.01116.i.i, 19
+  %428 = urem i64 %425, 10
+  %429 = icmp eq i64 %428, 0
+  br i1 %429, label %.lr.ph19.i.i, label %mpd_trail_zeros.exit.i
 
-.lr.ph19.i.i:                                     ; preds = %413, %.lr.ph19.i.i
-  %.118.i108.i = phi i64 [ %418, %.lr.ph19.i.i ], [ %414, %413 ]
-  %.01217.i.i = phi i64 [ %417, %.lr.ph19.i.i ], [ %412, %413 ]
-  %417 = udiv i64 %.01217.i.i, 10
-  %418 = add i64 %.118.i108.i, 1
-  %419 = urem i64 %417, 10
-  %420 = icmp eq i64 %419, 0
-  br i1 %420, label %.lr.ph19.i.i, label %mpd_trail_zeros.exit.i, !llvm.loop !26
+.lr.ph19.i.i:                                     ; preds = %426, %.lr.ph19.i.i
+  %.118.i108.i = phi i64 [ %431, %.lr.ph19.i.i ], [ %427, %426 ]
+  %.01217.i.i = phi i64 [ %430, %.lr.ph19.i.i ], [ %425, %426 ]
+  %430 = udiv i64 %.01217.i.i, 10
+  %431 = add i64 %.118.i108.i, 1
+  %432 = urem i64 %430, 10
+  %433 = icmp eq i64 %432, 0
+  br i1 %433, label %.lr.ph19.i.i, label %mpd_trail_zeros.exit.i, !llvm.loop !26
 
-421:                                              ; preds = %410
-  %422 = add nuw nsw i64 %.01116.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %422, %407
-  br i1 %exitcond.not.i.i, label %mpd_trail_zeros.exit.i, label %410, !llvm.loop !27
+434:                                              ; preds = %423
+  %435 = add nuw nsw i64 %.01116.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %435, %420
+  br i1 %exitcond.not.i.i, label %mpd_trail_zeros.exit.i, label %423, !llvm.loop !27
 
-mpd_trail_zeros.exit.i:                           ; preds = %421, %.lr.ph19.i.i, %413, %._crit_edge.i
-  %.0.i106.i = phi i64 [ %414, %413 ], [ 0, %._crit_edge.i ], [ %418, %.lr.ph19.i.i ], [ 0, %421 ]
-  %423 = sub i64 %146, %406
-  %424 = call i64 @llvm.smin.i64(i64 %.0.i106.i, i64 %423)
-  %425 = icmp sgt i64 %424, 0
-  br i1 %425, label %426, label %430
+mpd_trail_zeros.exit.i:                           ; preds = %434, %.lr.ph19.i.i, %426, %._crit_edge.i
+  %.0.i106.i = phi i64 [ %427, %426 ], [ 0, %._crit_edge.i ], [ %431, %.lr.ph19.i.i ], [ 0, %434 ]
+  %436 = sub i64 %147, %419
+  %437 = call i64 @llvm.smin.i64(i64 %.0.i106.i, i64 %436)
+  %438 = icmp sgt i64 %437, 0
+  br i1 %438, label %439, label %443
 
-426:                                              ; preds = %mpd_trail_zeros.exit.i
-  %427 = call i64 @mpd_qshiftr_inplace(ptr noundef nonnull %0, i64 noundef %424)
-  %428 = load i64, ptr %298, align 8, !tbaa !7
-  %429 = add i64 %428, %424
-  store i64 %429, ptr %298, align 8, !tbaa !7
-  br label %430
+439:                                              ; preds = %mpd_trail_zeros.exit.i
+  %440 = call i64 @mpd_qshiftr_inplace(ptr noundef nonnull %0, i64 noundef %437)
+  %441 = load i64, ptr %299, align 8, !tbaa !7
+  %442 = add i64 %441, %437
+  store i64 %442, ptr %299, align 8, !tbaa !7
+  br label %443
 
-430:                                              ; preds = %426, %mpd_trail_zeros.exit.i
-  %431 = load i8, ptr %12, align 8, !tbaa !19
-  %.not.i5.i89.i = icmp ugt i8 %431, 31
-  br i1 %.not.i5.i89.i, label %435, label %432
+443:                                              ; preds = %439, %mpd_trail_zeros.exit.i
+  %444 = load i8, ptr %13, align 8, !tbaa !19
+  %.not.i5.i89.i = icmp ugt i8 %444, 31
+  br i1 %.not.i5.i89.i, label %448, label %445
 
-432:                                              ; preds = %430
-  %433 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  %434 = load ptr, ptr %128, align 8, !tbaa !17
-  call void %433(ptr noundef %434) #33
-  %.pre.i37 = load i8, ptr %12, align 8, !tbaa !19
-  br label %435
+445:                                              ; preds = %443
+  %446 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  %447 = load ptr, ptr %129, align 8, !tbaa !17
+  call void %446(ptr noundef %447) #33
+  %.pre.i37 = load i8, ptr %13, align 8, !tbaa !19
+  br label %448
 
-435:                                              ; preds = %432, %430
-  %436 = phi i8 [ %.pre.i37, %432 ], [ %431, %430 ]
-  %437 = and i8 %436, 16
-  %.not.i.i91.not.i = icmp eq i8 %437, 0
-  br i1 %.not.i.i91.not.i, label %438, label %mpd_del.exit93.i
+448:                                              ; preds = %445, %443
+  %449 = phi i8 [ %.pre.i37, %445 ], [ %444, %443 ]
+  %450 = and i8 %449, 16
+  %.not.i.i91.not.i = icmp eq i8 %450, 0
+  br i1 %.not.i.i91.not.i, label %451, label %mpd_del.exit93.i
 
-438:                                              ; preds = %435
-  %439 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %439(ptr noundef nonnull %12) #33
+451:                                              ; preds = %448
+  %452 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  call void %452(ptr noundef nonnull %13) #33
   br label %mpd_del.exit93.i
 
-mpd_del.exit93.i:                                 ; preds = %438, %435
-  %440 = load i8, ptr %14, align 8, !tbaa !19
-  %.not.i5.i84.i = icmp ugt i8 %440, 31
-  br i1 %.not.i5.i84.i, label %444, label %441
+mpd_del.exit93.i:                                 ; preds = %451, %448
+  %453 = load i8, ptr %15, align 8, !tbaa !19
+  %.not.i5.i84.i = icmp ugt i8 %453, 31
+  br i1 %.not.i5.i84.i, label %457, label %454
 
-441:                                              ; preds = %mpd_del.exit93.i
-  %442 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  %443 = load ptr, ptr %132, align 8, !tbaa !17
-  call void %442(ptr noundef %443) #33
-  %.pre24.i = load i8, ptr %14, align 8, !tbaa !19
-  br label %444
+454:                                              ; preds = %mpd_del.exit93.i
+  %455 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  %456 = load ptr, ptr %133, align 8, !tbaa !17
+  call void %455(ptr noundef %456) #33
+  %.pre24.i = load i8, ptr %15, align 8, !tbaa !19
+  br label %457
 
-444:                                              ; preds = %441, %mpd_del.exit93.i
-  %445 = phi i8 [ %.pre24.i, %441 ], [ %440, %mpd_del.exit93.i ]
-  %446 = and i8 %445, 16
-  %.not.i.i86.not.i = icmp eq i8 %446, 0
-  br i1 %.not.i.i86.not.i, label %447, label %mpd_del.exit88.i
+457:                                              ; preds = %454, %mpd_del.exit93.i
+  %458 = phi i8 [ %.pre24.i, %454 ], [ %453, %mpd_del.exit93.i ]
+  %459 = and i8 %458, 16
+  %.not.i.i86.not.i = icmp eq i8 %459, 0
+  br i1 %.not.i.i86.not.i, label %460, label %mpd_del.exit88.i
 
-447:                                              ; preds = %444
-  %448 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %448(ptr noundef nonnull %14) #33
+460:                                              ; preds = %457
+  %461 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  call void %461(ptr noundef nonnull %15) #33
   br label %mpd_del.exit88.i
 
-mpd_del.exit88.i:                                 ; preds = %447, %444
-  %.not82.i = icmp eq ptr %.071.i, %10
-  br i1 %.not82.i, label %mpd_del.exit.i, label %449
+mpd_del.exit88.i:                                 ; preds = %460, %457
+  %.not82.i = icmp eq ptr %.071.i, %11
+  br i1 %.not82.i, label %mpd_del.exit.i, label %462
 
-449:                                              ; preds = %mpd_del.exit88.i
-  %450 = load i8, ptr %.071.i, align 8, !tbaa !19
-  %.not.i5.i.i = icmp ugt i8 %450, 31
-  br i1 %.not.i5.i.i, label %454, label %451
+462:                                              ; preds = %mpd_del.exit88.i
+  %463 = load i8, ptr %.071.i, align 8, !tbaa !19
+  %.not.i5.i.i = icmp ugt i8 %463, 31
+  br i1 %.not.i5.i.i, label %467, label %464
 
-451:                                              ; preds = %449
-  %452 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  %453 = load ptr, ptr %200, align 8, !tbaa !17
-  call void %452(ptr noundef %453) #33
+464:                                              ; preds = %462
+  %465 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  %466 = load ptr, ptr %201, align 8, !tbaa !17
+  call void %465(ptr noundef %466) #33
   %.pre25.i = load i8, ptr %.071.i, align 8, !tbaa !19
-  br label %454
+  br label %467
 
-454:                                              ; preds = %451, %449
-  %455 = phi i8 [ %.pre25.i, %451 ], [ %450, %449 ]
-  %456 = and i8 %455, 16
-  %.not.i.i.not.i = icmp eq i8 %456, 0
-  br i1 %.not.i.i.not.i, label %457, label %mpd_del.exit.i
+467:                                              ; preds = %464, %462
+  %468 = phi i8 [ %.pre25.i, %464 ], [ %463, %462 ]
+  %469 = and i8 %468, 16
+  %.not.i.i.not.i = icmp eq i8 %469, 0
+  br i1 %.not.i.i.not.i, label %470, label %mpd_del.exit.i
 
-457:                                              ; preds = %454
-  %458 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %458(ptr noundef nonnull %.071.i) #33
+470:                                              ; preds = %467
+  %471 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  call void %471(ptr noundef nonnull %.071.i) #33
   br label %mpd_del.exit.i
 
-mpd_del.exit.i:                                   ; preds = %457, %454, %mpd_del.exit88.i
-  %459 = load i32, ptr %7, align 4, !tbaa !23
-  %460 = and i32 %459, 958
-  %461 = load i32, ptr %3, align 4, !tbaa !23
-  %462 = or i32 %461, %460
-  %463 = or i32 %462, 4160
+mpd_del.exit.i:                                   ; preds = %470, %467, %mpd_del.exit88.i
+  %472 = load i32, ptr %8, align 4, !tbaa !23
+  %473 = and i32 %472, 958
+  %474 = load i32, ptr %3, align 4, !tbaa !23
+  %475 = or i32 %474, %473
+  %476 = or i32 %475, 4160
   br label %_mpd_qinvroot.exit
 
 _mpd_qinvroot.exit:                               ; preds = %mpd_seterror.exit.i, %mpd_del.exit.i
-  %storemerge.i = phi i32 [ %463, %mpd_del.exit.i ], [ %188, %mpd_seterror.exit.i ]
+  %storemerge.i = phi i32 [ %476, %mpd_del.exit.i ], [ %189, %mpd_seterror.exit.i ]
   store i32 %storemerge.i, ptr %3, align 4, !tbaa !23
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %19) #33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14) #33
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %13) #33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12) #33
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %11) #33
+  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %20) #33
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %19) #33
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #33
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17) #33
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #33
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15) #33
+  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %14) #33
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13) #33
+  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %12) #33
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #33
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #33
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #33
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #33
   call void @mpd_qfinalize(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3)
-  br label %464
+  br label %477
 
-464:                                              ; preds = %25, %_mpd_qinvroot.exit, %mpd_seterror.exit35, %mpd_setspecial.exit, %52, %mpd_seterror.exit
+477:                                              ; preds = %26, %_mpd_qinvroot.exit, %mpd_seterror.exit35, %mpd_setspecial.exit, %53, %mpd_seterror.exit
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsqrt(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
+define hidden void @mpd_qsqrt(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #10 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca [64 x i64], align 16
@@ -27712,7 +27725,7 @@ mpd_del.exit:                                     ; preds = %109, %112
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qsqrt(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull %3) unnamed_addr #10 {
+define internal fastcc void @_mpd_qsqrt(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull %3) unnamed_addr #10 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -28340,7 +28353,7 @@ mpd_iszero.exit.thread:                           ; preds = %2, %mpd_iszero.exit
 declare double @log10(double noundef) local_unnamed_addr #24
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @mpd_qexport_u16(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(address) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden i64 @mpd_qexport_u16(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(address) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = alloca i8, align 1
   %7 = alloca [64 x i64], align 16
   %8 = alloca %struct.mpd_t, align 8
@@ -28611,7 +28624,7 @@ mpd_del.exit:                                     ; preds = %113, %110, %74, %mp
 declare hidden ptr @mpd_alloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @mpd_qexport_u32(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(address) %3, ptr noundef %4) local_unnamed_addr #10 {
+define hidden i64 @mpd_qexport_u32(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(address) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = alloca i8, align 1
   %7 = alloca [64 x i64], align 16
   %8 = alloca %struct.mpd_t, align 8
@@ -31386,7 +31399,7 @@ recpr_schedule_prec.exit.i:                       ; preds = %.preheader.i.i
   %indvars.iv.i = phi i64 [ %294, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_mpd_qmul_exact.exit ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #33
   store i32 0, ptr %7, align 4, !tbaa !23
-  call fastcc void @_mpd_qmul(ptr noundef nonnull %18, ptr noundef nonnull %.1, ptr noundef nonnull %.1, ptr noundef nonnull readonly %15, ptr noundef nonnull %7)
+  call fastcc void @_mpd_qmul(ptr noundef nonnull %18, ptr noundef nonnull readonly %.1, ptr noundef nonnull readonly %.1, ptr noundef nonnull readonly %15, ptr noundef nonnull %7)
   call void @mpd_qfinalize(ptr noundef nonnull %18, ptr noundef nonnull readonly %15, ptr noundef nonnull %7)
   %296 = load i32, ptr %7, align 4, !tbaa !23
   %297 = load i32, ptr %80, align 4, !tbaa !23
@@ -31447,146 +31460,145 @@ _mpd_qmul_exact.exit139:                          ; preds = %.lr.ph.i, %mpd_sete
   %321 = shl i64 %320, 1
   %322 = add i64 %321, 5
   store i64 %322, ptr %14, align 8, !tbaa !15
-  %323 = load i64, ptr %83, align 8, !tbaa !11
-  %324 = icmp sgt i64 %323, %322
-  br i1 %324, label %325, label %330
+  %323 = icmp sgt i64 %.fr.i.i.i, %322
+  br i1 %323, label %324, label %329
 
-325:                                              ; preds = %_mpd_qmul_exact.exit139
-  %326 = sub i64 %323, %322
-  %327 = call i64 @mpd_qshiftr(ptr noundef nonnull %20, ptr noundef nonnull %16, i64 noundef %326, ptr noundef nonnull %80)
-  %328 = load i64, ptr %14, align 8, !tbaa !15
-  %329 = sub i64 0, %328
-  store i64 %329, ptr %92, align 8, !tbaa !7
-  br label %330
+324:                                              ; preds = %_mpd_qmul_exact.exit139
+  %325 = sub i64 %.fr.i.i.i, %322
+  %326 = call i64 @mpd_qshiftr(ptr noundef nonnull %20, ptr noundef nonnull %16, i64 noundef %325, ptr noundef nonnull %80)
+  %327 = load i64, ptr %14, align 8, !tbaa !15
+  %328 = sub i64 0, %327
+  store i64 %328, ptr %92, align 8, !tbaa !7
+  br label %329
 
-330:                                              ; preds = %325, %_mpd_qmul_exact.exit139
-  %.sink.i = phi ptr [ %20, %325 ], [ %16, %_mpd_qmul_exact.exit139 ]
-  call fastcc void @_mpd_qmul(ptr noundef nonnull %20, ptr noundef nonnull %.sink.i, ptr noundef nonnull %18, ptr noundef nonnull readonly %14, ptr noundef nonnull %80)
+329:                                              ; preds = %324, %_mpd_qmul_exact.exit139
+  %.sink.i = phi ptr [ %20, %324 ], [ %16, %_mpd_qmul_exact.exit139 ]
+  call fastcc void @_mpd_qmul(ptr noundef nonnull %20, ptr noundef nonnull readonly %.sink.i, ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %14, ptr noundef nonnull %80)
   call void @mpd_qfinalize(ptr noundef nonnull %20, ptr noundef nonnull readonly %14, ptr noundef nonnull %80)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #33
   store i32 0, ptr %9, align 4, !tbaa !23
-  call fastcc void @_mpd_qmul(ptr noundef nonnull %18, ptr noundef nonnull %.1, ptr noundef nonnull %22, ptr noundef nonnull readonly %15, ptr noundef nonnull %9)
+  call fastcc void @_mpd_qmul(ptr noundef nonnull %18, ptr noundef nonnull readonly %.1, ptr noundef nonnull readonly %22, ptr noundef nonnull readonly %15, ptr noundef nonnull %9)
   call void @mpd_qfinalize(ptr noundef nonnull %18, ptr noundef nonnull readonly %15, ptr noundef nonnull %9)
-  %331 = load i32, ptr %9, align 4, !tbaa !23
-  %332 = load i32, ptr %80, align 4, !tbaa !23
-  %333 = or i32 %332, %331
-  store i32 %333, ptr %80, align 4, !tbaa !23
-  %334 = and i32 %331, 4161
-  %.not.i129 = icmp eq i32 %334, 0
-  br i1 %.not.i129, label %_mpd_qmul_exact.exit, label %335
+  %330 = load i32, ptr %9, align 4, !tbaa !23
+  %331 = load i32, ptr %80, align 4, !tbaa !23
+  %332 = or i32 %331, %330
+  store i32 %332, ptr %80, align 4, !tbaa !23
+  %333 = and i32 %330, 4161
+  %.not.i129 = icmp eq i32 %333, 0
+  br i1 %.not.i129, label %_mpd_qmul_exact.exit, label %334
 
-335:                                              ; preds = %330
-  %336 = load i8, ptr %18, align 8, !tbaa !19
-  %337 = and i8 %336, 32
-  %.not.i.i.i130 = icmp eq i8 %337, 0
-  br i1 %.not.i.i.i130, label %338, label %mpd_seterror.exit.i131
+334:                                              ; preds = %329
+  %335 = load i8, ptr %18, align 8, !tbaa !19
+  %336 = and i8 %335, 32
+  %.not.i.i.i130 = icmp eq i8 %336, 0
+  br i1 %.not.i.i.i130, label %337, label %mpd_seterror.exit.i131
 
-338:                                              ; preds = %335
-  %339 = load i64, ptr %89, align 8, !tbaa !21
-  %340 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  %341 = icmp sgt i64 %339, %340
-  br i1 %341, label %342, label %mpd_seterror.exit.i131
+337:                                              ; preds = %334
+  %338 = load i64, ptr %89, align 8, !tbaa !21
+  %339 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  %340 = icmp sgt i64 %338, %339
+  br i1 %340, label %341, label %mpd_seterror.exit.i131
 
-342:                                              ; preds = %338
+341:                                              ; preds = %337
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #33
   store i8 0, ptr %8, align 1, !tbaa !22
-  %343 = load ptr, ptr %90, align 8, !tbaa !17
-  %344 = call ptr @mpd_realloc(ptr noundef %343, i64 noundef %340, i64 noundef 8, ptr noundef nonnull %8) #33
-  store ptr %344, ptr %90, align 8, !tbaa !17
-  %345 = load i8, ptr %8, align 1, !tbaa !22
-  %.not5.i.i.i132 = icmp eq i8 %345, 0
-  br i1 %.not5.i.i.i132, label %346, label %348
+  %342 = load ptr, ptr %90, align 8, !tbaa !17
+  %343 = call ptr @mpd_realloc(ptr noundef %342, i64 noundef %339, i64 noundef 8, ptr noundef nonnull %8) #33
+  store ptr %343, ptr %90, align 8, !tbaa !17
+  %344 = load i8, ptr %8, align 1, !tbaa !22
+  %.not5.i.i.i132 = icmp eq i8 %344, 0
+  br i1 %.not5.i.i.i132, label %345, label %347
 
-346:                                              ; preds = %342
-  %347 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  store i64 %347, ptr %89, align 8, !tbaa !21
-  br label %348
+345:                                              ; preds = %341
+  %346 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  store i64 %346, ptr %89, align 8, !tbaa !21
+  br label %347
 
-348:                                              ; preds = %346, %342
+347:                                              ; preds = %345, %341
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #33
   %.pre.i.i133 = load i8, ptr %18, align 8, !tbaa !19
   %.pre170 = load i32, ptr %80, align 4, !tbaa !23
   br label %mpd_seterror.exit.i131
 
-mpd_seterror.exit.i131:                           ; preds = %348, %338, %335
-  %349 = phi i32 [ %333, %335 ], [ %333, %338 ], [ %.pre170, %348 ]
-  %350 = phi i8 [ %336, %335 ], [ %336, %338 ], [ %.pre.i.i133, %348 ]
-  %351 = and i8 %350, -16
-  %352 = or disjoint i8 %351, 4
-  store i8 %352, ptr %18, align 8, !tbaa !19
+mpd_seterror.exit.i131:                           ; preds = %347, %337, %334
+  %348 = phi i32 [ %332, %334 ], [ %332, %337 ], [ %.pre170, %347 ]
+  %349 = phi i8 [ %335, %334 ], [ %335, %337 ], [ %.pre.i.i133, %347 ]
+  %350 = and i8 %349, -16
+  %351 = or disjoint i8 %350, 4
+  store i8 %351, ptr %18, align 8, !tbaa !19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %295, i8 0, i64 24, i1 false)
-  %353 = or i32 %349, 256
-  store i32 %353, ptr %80, align 4, !tbaa !23
+  %352 = or i32 %348, 256
+  store i32 %352, ptr %80, align 4, !tbaa !23
   br label %_mpd_qmul_exact.exit
 
-_mpd_qmul_exact.exit:                             ; preds = %330, %mpd_seterror.exit.i131
+_mpd_qmul_exact.exit:                             ; preds = %329, %mpd_seterror.exit.i131
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #33
   call fastcc void @_mpd_qsub_exact(ptr noundef nonnull %.1, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef %15, ptr noundef nonnull %80)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %354 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %354, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !93
+  %353 = icmp sgt i64 %indvars.iv.i, 0
+  br i1 %353, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !93
 
 ._crit_edge.i:                                    ; preds = %_mpd_qmul_exact.exit, %recpr_schedule_prec.exit.i, %_mpd_qreciprocal_approx.exit.i
-  %355 = load i8, ptr %.1, align 8, !tbaa !19
-  %356 = and i8 %355, 14
-  %.not.i106 = icmp eq i8 %356, 0
-  br i1 %.not.i106, label %357, label %361
+  %354 = load i8, ptr %.1, align 8, !tbaa !19
+  %355 = and i8 %354, 14
+  %.not.i106 = icmp eq i8 %355, 0
+  br i1 %.not.i106, label %356, label %360
 
-357:                                              ; preds = %._crit_edge.i
-  %358 = load i64, ptr %200, align 8, !tbaa !7
-  %359 = sub i64 %358, %.fr.i.i.i
-  store i64 %359, ptr %200, align 8, !tbaa !7
-  %360 = and i8 %355, -16
-  store i8 %360, ptr %.1, align 8, !tbaa !19
-  br label %361
+356:                                              ; preds = %._crit_edge.i
+  %357 = load i64, ptr %200, align 8, !tbaa !7
+  %358 = sub i64 %357, %.fr.i.i.i
+  store i64 %358, ptr %200, align 8, !tbaa !7
+  %359 = and i8 %354, -16
+  store i8 %359, ptr %.1, align 8, !tbaa !19
+  br label %360
 
-361:                                              ; preds = %357, %._crit_edge.i
-  %362 = load i8, ptr %18, align 8, !tbaa !19
-  %.not.i5.i46.i = icmp ugt i8 %362, 31
-  br i1 %.not.i5.i46.i, label %366, label %363
+360:                                              ; preds = %356, %._crit_edge.i
+  %361 = load i8, ptr %18, align 8, !tbaa !19
+  %.not.i5.i46.i = icmp ugt i8 %361, 31
+  br i1 %.not.i5.i46.i, label %365, label %362
 
-363:                                              ; preds = %361
-  %364 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  %365 = load ptr, ptr %90, align 8, !tbaa !17
-  call void %364(ptr noundef %365) #33
+362:                                              ; preds = %360
+  %363 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  %364 = load ptr, ptr %90, align 8, !tbaa !17
+  call void %363(ptr noundef %364) #33
   %.pre.i = load i8, ptr %18, align 8, !tbaa !19
-  br label %366
+  br label %365
 
-366:                                              ; preds = %363, %361
-  %367 = phi i8 [ %.pre.i, %363 ], [ %362, %361 ]
-  %368 = and i8 %367, 16
-  %.not.i.i48.not.i = icmp eq i8 %368, 0
-  br i1 %.not.i.i48.not.i, label %369, label %mpd_del.exit50.i
+365:                                              ; preds = %362, %360
+  %366 = phi i8 [ %.pre.i, %362 ], [ %361, %360 ]
+  %367 = and i8 %366, 16
+  %.not.i.i48.not.i = icmp eq i8 %367, 0
+  br i1 %.not.i.i48.not.i, label %368, label %mpd_del.exit50.i
 
-369:                                              ; preds = %366
-  %370 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %370(ptr noundef nonnull %18) #33
+368:                                              ; preds = %365
+  %369 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  call void %369(ptr noundef nonnull %18) #33
   br label %mpd_del.exit50.i
 
-mpd_del.exit50.i:                                 ; preds = %369, %366
-  %371 = load i8, ptr %20, align 8, !tbaa !19
-  %.not.i5.i.i = icmp ugt i8 %371, 31
-  br i1 %.not.i5.i.i, label %375, label %372
+mpd_del.exit50.i:                                 ; preds = %368, %365
+  %370 = load i8, ptr %20, align 8, !tbaa !19
+  %.not.i5.i.i = icmp ugt i8 %370, 31
+  br i1 %.not.i5.i.i, label %374, label %371
 
-372:                                              ; preds = %mpd_del.exit50.i
-  %373 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  %374 = load ptr, ptr %94, align 8, !tbaa !17
-  call void %373(ptr noundef %374) #33
+371:                                              ; preds = %mpd_del.exit50.i
+  %372 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  %373 = load ptr, ptr %94, align 8, !tbaa !17
+  call void %372(ptr noundef %373) #33
   %.pre57.i = load i8, ptr %20, align 8, !tbaa !19
-  br label %375
+  br label %374
 
-375:                                              ; preds = %372, %mpd_del.exit50.i
-  %376 = phi i8 [ %.pre57.i, %372 ], [ %371, %mpd_del.exit50.i ]
-  %377 = and i8 %376, 16
-  %.not.i.i.not.i = icmp eq i8 %377, 0
-  br i1 %.not.i.i.not.i, label %378, label %_mpd_qreciprocal.exit
+374:                                              ; preds = %371, %mpd_del.exit50.i
+  %375 = phi i8 [ %.pre57.i, %371 ], [ %370, %mpd_del.exit50.i ]
+  %376 = and i8 %375, 16
+  %.not.i.i.not.i = icmp eq i8 %376, 0
+  br i1 %.not.i.i.not.i, label %377, label %_mpd_qreciprocal.exit
 
-378:                                              ; preds = %375
-  %379 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %379(ptr noundef nonnull %20) #33
+377:                                              ; preds = %374
+  %378 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  call void %378(ptr noundef nonnull %20) #33
   br label %_mpd_qreciprocal.exit
 
-_mpd_qreciprocal.exit:                            ; preds = %375, %378
+_mpd_qreciprocal.exit:                            ; preds = %374, %377
   call void @mpd_qfinalize(ptr noundef nonnull %.1, ptr noundef nonnull readonly %24, ptr noundef nonnull %80)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %23) #33
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %22) #33
@@ -31599,345 +31611,344 @@ _mpd_qreciprocal.exit:                            ; preds = %375, %378
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15) #33
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14) #33
   call fastcc void @_mpd_qmul(ptr noundef %.068, ptr noundef nonnull %25, ptr noundef nonnull %.1, ptr noundef nonnull %24, ptr noundef nonnull %80)
-  %380 = load i8, ptr %.068, align 8, !tbaa !19
-  %381 = and i8 %380, 14
-  %.not.i107 = icmp eq i8 %381, 0
-  br i1 %.not.i107, label %403, label %382
+  %379 = load i8, ptr %.068, align 8, !tbaa !19
+  %380 = and i8 %379, 14
+  %.not.i107 = icmp eq i8 %380, 0
+  br i1 %.not.i107, label %402, label %381
 
-382:                                              ; preds = %_mpd_qreciprocal.exit
-  %383 = and i8 %380, 32
-  %.not.i.i.i = icmp eq i8 %383, 0
-  br i1 %.not.i.i.i, label %384, label %mpd_seterror.exit.i
+381:                                              ; preds = %_mpd_qreciprocal.exit
+  %382 = and i8 %379, 32
+  %.not.i.i.i = icmp eq i8 %382, 0
+  br i1 %.not.i.i.i, label %383, label %mpd_seterror.exit.i
 
-384:                                              ; preds = %382
-  %385 = getelementptr inbounds nuw i8, ptr %.068, i64 32
-  %386 = load i64, ptr %385, align 8, !tbaa !21
-  %387 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  %388 = icmp sgt i64 %386, %387
-  br i1 %388, label %389, label %mpd_seterror.exit.i
+383:                                              ; preds = %381
+  %384 = getelementptr inbounds nuw i8, ptr %.068, i64 32
+  %385 = load i64, ptr %384, align 8, !tbaa !21
+  %386 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  %387 = icmp sgt i64 %385, %386
+  br i1 %387, label %388, label %mpd_seterror.exit.i
 
-389:                                              ; preds = %384
+388:                                              ; preds = %383
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #33
   store i8 0, ptr %12, align 1, !tbaa !22
-  %390 = getelementptr inbounds nuw i8, ptr %.068, i64 40
-  %391 = load ptr, ptr %390, align 8, !tbaa !17
-  %392 = call ptr @mpd_realloc(ptr noundef %391, i64 noundef %387, i64 noundef 8, ptr noundef nonnull %12) #33
-  store ptr %392, ptr %390, align 8, !tbaa !17
-  %393 = load i8, ptr %12, align 1, !tbaa !22
-  %.not5.i.i.i = icmp eq i8 %393, 0
-  br i1 %.not5.i.i.i, label %394, label %396
+  %389 = getelementptr inbounds nuw i8, ptr %.068, i64 40
+  %390 = load ptr, ptr %389, align 8, !tbaa !17
+  %391 = call ptr @mpd_realloc(ptr noundef %390, i64 noundef %386, i64 noundef 8, ptr noundef nonnull %12) #33
+  store ptr %391, ptr %389, align 8, !tbaa !17
+  %392 = load i8, ptr %12, align 1, !tbaa !22
+  %.not5.i.i.i = icmp eq i8 %392, 0
+  br i1 %.not5.i.i.i, label %393, label %395
 
-394:                                              ; preds = %389
-  %395 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  store i64 %395, ptr %385, align 8, !tbaa !21
-  br label %396
+393:                                              ; preds = %388
+  %394 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  store i64 %394, ptr %384, align 8, !tbaa !21
+  br label %395
 
-396:                                              ; preds = %394, %389
+395:                                              ; preds = %393, %388
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #33
   %.pre.i.i = load i8, ptr %.068, align 8, !tbaa !19
   br label %mpd_seterror.exit.i
 
-mpd_seterror.exit.i:                              ; preds = %396, %384, %382
-  %397 = phi i8 [ %380, %382 ], [ %380, %384 ], [ %.pre.i.i, %396 ]
-  %398 = and i8 %397, -16
-  %399 = or disjoint i8 %398, 4
-  store i8 %399, ptr %.068, align 8, !tbaa !19
-  %400 = getelementptr inbounds nuw i8, ptr %.068, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %400, i8 0, i64 24, i1 false)
-  %401 = load i32, ptr %80, align 4, !tbaa !23
-  %402 = or i32 %401, 256
-  store i32 %402, ptr %80, align 4, !tbaa !23
+mpd_seterror.exit.i:                              ; preds = %395, %383, %381
+  %396 = phi i8 [ %379, %381 ], [ %379, %383 ], [ %.pre.i.i, %395 ]
+  %397 = and i8 %396, -16
+  %398 = or disjoint i8 %397, 4
+  store i8 %398, ptr %.068, align 8, !tbaa !19
+  %399 = getelementptr inbounds nuw i8, ptr %.068, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %399, i8 0, i64 24, i1 false)
+  %400 = load i32, ptr %80, align 4, !tbaa !23
+  %401 = or i32 %400, 256
+  store i32 %401, ptr %80, align 4, !tbaa !23
   br label %mpd_qtrunc.exit
 
-403:                                              ; preds = %_mpd_qreciprocal.exit
-  %404 = getelementptr inbounds nuw i8, ptr %.068, i64 8
-  %405 = load i64, ptr %404, align 8, !tbaa !7
-  %406 = icmp sgt i64 %405, -1
-  br i1 %406, label %mpd_qtrunc.exit, label %407
+402:                                              ; preds = %_mpd_qreciprocal.exit
+  %403 = getelementptr inbounds nuw i8, ptr %.068, i64 8
+  %404 = load i64, ptr %403, align 8, !tbaa !7
+  %405 = icmp sgt i64 %404, -1
+  br i1 %405, label %mpd_qtrunc.exit, label %406
 
-407:                                              ; preds = %403
-  %408 = getelementptr inbounds nuw i8, ptr %.068, i64 40
-  %409 = load ptr, ptr %408, align 8, !tbaa !17
-  %410 = getelementptr inbounds nuw i8, ptr %.068, i64 24
-  %411 = load i64, ptr %410, align 8, !tbaa !18
-  %412 = getelementptr i64, ptr %409, i64 %411
-  %413 = getelementptr i8, ptr %412, i64 -8
-  %414 = load i64, ptr %413, align 8, !tbaa !3
-  %.not46.i = icmp eq i64 %414, 0
-  br i1 %.not46.i, label %415, label %417
+406:                                              ; preds = %402
+  %407 = getelementptr inbounds nuw i8, ptr %.068, i64 40
+  %408 = load ptr, ptr %407, align 8, !tbaa !17
+  %409 = getelementptr inbounds nuw i8, ptr %.068, i64 24
+  %410 = load i64, ptr %409, align 8, !tbaa !18
+  %411 = getelementptr i64, ptr %408, i64 %410
+  %412 = getelementptr i8, ptr %411, i64 -8
+  %413 = load i64, ptr %412, align 8, !tbaa !3
+  %.not46.i = icmp eq i64 %413, 0
+  br i1 %.not46.i, label %414, label %416
 
-415:                                              ; preds = %407
-  %416 = and i8 %380, 1
-  call fastcc void @_settriple(ptr noundef nonnull %.068, i8 noundef zeroext %416, i64 noundef 0, i64 noundef 0)
+414:                                              ; preds = %406
+  %415 = and i8 %379, 1
+  call fastcc void @_settriple(ptr noundef nonnull %.068, i8 noundef zeroext %415, i64 noundef 0, i64 noundef 0)
   br label %mpd_qtrunc.exit
 
-417:                                              ; preds = %407
-  %418 = sub i64 0, %405
-  %419 = call i64 @mpd_qshiftr(ptr noundef nonnull %.068, ptr noundef nonnull %.068, i64 noundef %418, ptr noundef nonnull %80)
-  %420 = icmp eq i64 %419, -1
-  br i1 %420, label %mpd_qtrunc.exit, label %421
+416:                                              ; preds = %406
+  %417 = sub i64 0, %404
+  %418 = call i64 @mpd_qshiftr(ptr noundef nonnull %.068, ptr noundef nonnull readonly %.068, i64 noundef %417, ptr noundef nonnull %80)
+  %419 = icmp eq i64 %418, -1
+  br i1 %419, label %mpd_qtrunc.exit, label %420
 
-421:                                              ; preds = %417
-  store i64 0, ptr %404, align 8, !tbaa !7
+420:                                              ; preds = %416
+  store i64 0, ptr %403, align 8, !tbaa !7
   br label %mpd_qtrunc.exit
 
-mpd_qtrunc.exit:                                  ; preds = %421, %417, %415, %403, %mpd_seterror.exit.i
-  %422 = load i64, ptr %31, align 8, !tbaa !11
-  %423 = add i64 %422, 3
-  store i64 %423, ptr %24, align 8, !tbaa !15
-  %424 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i64 1000000000000000002, ptr %424, align 8, !tbaa !16
-  %425 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i64 -1000000000000000002, ptr %425, align 8, !tbaa !12
+mpd_qtrunc.exit:                                  ; preds = %420, %416, %414, %402, %mpd_seterror.exit.i
+  %421 = add i64 %30, 3
+  store i64 %421, ptr %24, align 8, !tbaa !15
+  %422 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store i64 1000000000000000002, ptr %422, align 8, !tbaa !16
+  %423 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  store i64 -1000000000000000002, ptr %423, align 8, !tbaa !12
   call fastcc void @_mpd_qmul(ptr noundef nonnull %.1, ptr noundef nonnull %26, ptr noundef nonnull %.068, ptr noundef nonnull %24, ptr noundef nonnull %80)
   call fastcc void @_mpd_qsub_exact(ptr noundef nonnull %.1, ptr noundef nonnull %25, ptr noundef nonnull %.1, ptr noundef %24, ptr noundef %80)
-  %426 = load i8, ptr %.068, align 8, !tbaa !19
-  %427 = and i8 %426, 14
-  %.not167 = icmp eq i8 %427, 0
+  %424 = load i8, ptr %.068, align 8, !tbaa !19
+  %425 = and i8 %424, 14
+  %.not167 = icmp eq i8 %425, 0
   br i1 %.not167, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %mpd_qtrunc.exit, %449
-  %428 = phi i8 [ %451, %449 ], [ %426, %mpd_qtrunc.exit ]
-  %.0168 = phi i32 [ %450, %449 ], [ 0, %mpd_qtrunc.exit ]
-  %429 = load i8, ptr %.1, align 8, !tbaa !19
-  %430 = and i8 %429, 14
-  %.not78 = icmp eq i8 %430, 0
-  br i1 %.not78, label %433, label %._crit_edge
+.lr.ph:                                           ; preds = %mpd_qtrunc.exit, %447
+  %426 = phi i8 [ %449, %447 ], [ %424, %mpd_qtrunc.exit ]
+  %.0168 = phi i32 [ %448, %447 ], [ 0, %mpd_qtrunc.exit ]
+  %427 = load i8, ptr %.1, align 8, !tbaa !19
+  %428 = and i8 %427, 14
+  %.not78 = icmp eq i8 %428, 0
+  br i1 %.not78, label %431, label %._crit_edge
 
-._crit_edge:                                      ; preds = %449, %.lr.ph, %mpd_qtrunc.exit
-  %431 = load i32, ptr %80, align 4, !tbaa !56
-  %432 = and i32 %431, 958
+._crit_edge:                                      ; preds = %447, %.lr.ph, %mpd_qtrunc.exit
+  %429 = load i32, ptr %80, align 4, !tbaa !56
+  %430 = and i32 %429, 958
   br label %mpd_qcopy.exit.thread.sink.split
 
-433:                                              ; preds = %.lr.ph
+431:                                              ; preds = %.lr.ph
   %exitcond = icmp eq i32 %.0168, 3
-  br i1 %exitcond, label %434, label %441
+  br i1 %exitcond, label %432, label %439
 
-434:                                              ; preds = %433
+432:                                              ; preds = %431
+  %433 = load ptr, ptr @stderr, align 8, !tbaa !94
+  %434 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %433, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 7625) #35
   %435 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %436 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %435, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 7625) #35
+  %436 = call i64 @fwrite(ptr nonnull @.str.13, i64 60, i64 1, ptr %435) #36
   %437 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %438 = call i64 @fwrite(ptr nonnull @.str.13, i64 60, i64 1, ptr %437) #36
-  %439 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %440 = call i32 @fputc(i32 noundef 10, ptr noundef %439)
+  %438 = call i32 @fputc(i32 noundef 10, ptr noundef %437)
   br label %mpd_qcopy.exit.thread.sink.split
 
-441:                                              ; preds = %433
-  %442 = call fastcc i32 @_mpd_cmp(ptr noundef nonnull @zero, ptr noundef nonnull %.1)
-  %443 = icmp eq i32 %442, 1
-  br i1 %443, label %444, label %445
+439:                                              ; preds = %431
+  %440 = call fastcc i32 @_mpd_cmp(ptr noundef nonnull @zero, ptr noundef nonnull %.1)
+  %441 = icmp eq i32 %440, 1
+  br i1 %441, label %442, label %443
 
-444:                                              ; preds = %441
+442:                                              ; preds = %439
   call fastcc void @_mpd_qadd_exact(ptr noundef nonnull %.1, ptr noundef nonnull %.1, ptr noundef nonnull %26, ptr noundef %24, ptr noundef %80)
-  br label %449
+  br label %447
 
-445:                                              ; preds = %441
-  %446 = call fastcc i32 @_mpd_cmp(ptr noundef nonnull %.1, ptr noundef nonnull %26)
-  %447 = icmp eq i32 %446, -1
-  br i1 %447, label %453, label %448
+443:                                              ; preds = %439
+  %444 = call fastcc i32 @_mpd_cmp(ptr noundef nonnull %.1, ptr noundef nonnull %26)
+  %445 = icmp eq i32 %444, -1
+  br i1 %445, label %451, label %446
 
-448:                                              ; preds = %445
+446:                                              ; preds = %443
   call fastcc void @_mpd_qsub_exact(ptr noundef nonnull %.1, ptr noundef nonnull %.1, ptr noundef nonnull %26, ptr noundef %24, ptr noundef %80)
-  br label %449
+  br label %447
 
-449:                                              ; preds = %448, %444
-  %one.sink = phi ptr [ @one, %448 ], [ @minus_one, %444 ]
+447:                                              ; preds = %446, %442
+  %one.sink = phi ptr [ @one, %446 ], [ @minus_one, %442 ]
   call fastcc void @_mpd_qadd_exact(ptr noundef nonnull %.068, ptr noundef nonnull %.068, ptr noundef nonnull %one.sink, ptr noundef %24, ptr noundef %80)
-  %450 = add nuw nsw i32 %.0168, 1
-  %451 = load i8, ptr %.068, align 8, !tbaa !19
-  %452 = and i8 %451, 14
-  %.not = icmp eq i8 %452, 0
+  %448 = add nuw nsw i32 %.0168, 1
+  %449 = load i8, ptr %.068, align 8, !tbaa !19
+  %450 = and i8 %449, 14
+  %.not = icmp eq i8 %450, 0
   br i1 %.not, label %.lr.ph, label %._crit_edge
 
-453:                                              ; preds = %445
+451:                                              ; preds = %443
   %.not79 = icmp eq ptr %.068, %0
-  br i1 %.not79, label %mpd_del.exit105, label %454
+  br i1 %.not79, label %mpd_del.exit105, label %452
 
-454:                                              ; preds = %453
-  %455 = getelementptr inbounds nuw i8, ptr %.068, i64 24
-  %456 = load i64, ptr %455, align 8, !tbaa !18
-  %457 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  %458 = call i64 @llvm.smax.i64(i64 %456, i64 %457)
-  %459 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %460 = load i64, ptr %459, align 8, !tbaa !21
-  %461 = icmp eq i64 %458, %460
+452:                                              ; preds = %451
+  %453 = getelementptr inbounds nuw i8, ptr %.068, i64 24
+  %454 = load i64, ptr %453, align 8, !tbaa !18
+  %455 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  %456 = call i64 @llvm.smax.i64(i64 %454, i64 %455)
+  %457 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %458 = load i64, ptr %457, align 8, !tbaa !21
+  %459 = icmp eq i64 %456, %458
   %.pre20.i = load i8, ptr %0, align 8, !tbaa !19
-  br i1 %461, label %470, label %462
+  br i1 %459, label %468, label %460
 
-462:                                              ; preds = %454
-  %463 = and i8 %.pre20.i, 32
-  %.not.i.i108 = icmp eq i8 %463, 0
-  br i1 %.not.i.i108, label %468, label %464
+460:                                              ; preds = %452
+  %461 = and i8 %.pre20.i, 32
+  %.not.i.i108 = icmp eq i8 %461, 0
+  br i1 %.not.i.i108, label %466, label %462
+
+462:                                              ; preds = %460
+  %463 = icmp sgt i64 %456, %458
+  br i1 %463, label %464, label %468
 
 464:                                              ; preds = %462
-  %465 = icmp sgt i64 %458, %460
-  br i1 %465, label %466, label %470
-
-466:                                              ; preds = %464
-  %467 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %458, ptr noundef %4) #33
+  %465 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %456, ptr noundef %4) #33
   br label %mpd_qresize.exit.i
 
-468:                                              ; preds = %462
-  %469 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %458, ptr noundef %4) #33
+466:                                              ; preds = %460
+  %467 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %456, ptr noundef %4) #33
   br label %mpd_qresize.exit.i
 
-mpd_qresize.exit.i:                               ; preds = %468, %466
-  %.0.i.i109 = phi i32 [ %467, %466 ], [ %469, %468 ]
+mpd_qresize.exit.i:                               ; preds = %466, %464
+  %.0.i.i109 = phi i32 [ %465, %464 ], [ %467, %466 ]
   %.not.i110 = icmp eq i32 %.0.i.i109, 0
   br i1 %.not.i110, label %mpd_qcopy.exit.thread, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
 mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i: ; preds = %mpd_qresize.exit.i
   %.pre.i111 = load i8, ptr %0, align 8, !tbaa !19
-  %.pre21.i = load i64, ptr %455, align 8, !tbaa !18
+  %.pre21.i = load i64, ptr %453, align 8, !tbaa !18
   %.pre171 = load i8, ptr %.068, align 8, !tbaa !19
-  br label %470
+  br label %468
 
-470:                                              ; preds = %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i, %464, %454
-  %471 = phi i8 [ %.pre171, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i ], [ %428, %464 ], [ %428, %454 ]
-  %472 = phi i64 [ %.pre21.i, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i ], [ %456, %464 ], [ %456, %454 ]
-  %473 = phi i8 [ %.pre.i111, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i ], [ %.pre20.i, %464 ], [ %.pre20.i, %454 ]
-  %474 = and i8 %473, -16
-  %475 = and i8 %471, 15
-  %476 = or disjoint i8 %475, %474
-  store i8 %476, ptr %0, align 8, !tbaa !19
-  %477 = getelementptr inbounds nuw i8, ptr %.068, i64 8
-  %478 = load i64, ptr %477, align 8, !tbaa !7
-  %479 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %478, ptr %479, align 8, !tbaa !7
-  %480 = getelementptr inbounds nuw i8, ptr %.068, i64 16
-  %481 = load i64, ptr %480, align 8, !tbaa !11
-  %482 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %481, ptr %482, align 8, !tbaa !11
-  %483 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %472, ptr %483, align 8, !tbaa !18
-  %484 = getelementptr inbounds nuw i8, ptr %0, i64 40
+468:                                              ; preds = %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i, %462, %452
+  %469 = phi i8 [ %.pre171, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i ], [ %426, %462 ], [ %426, %452 ]
+  %470 = phi i64 [ %.pre21.i, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i ], [ %454, %462 ], [ %454, %452 ]
+  %471 = phi i8 [ %.pre.i111, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i ], [ %.pre20.i, %462 ], [ %.pre20.i, %452 ]
+  %472 = and i8 %471, -16
+  %473 = and i8 %469, 15
+  %474 = or disjoint i8 %473, %472
+  store i8 %474, ptr %0, align 8, !tbaa !19
+  %475 = getelementptr inbounds nuw i8, ptr %.068, i64 8
+  %476 = load i64, ptr %475, align 8, !tbaa !7
+  %477 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %476, ptr %477, align 8, !tbaa !7
+  %478 = getelementptr inbounds nuw i8, ptr %.068, i64 16
+  %479 = load i64, ptr %478, align 8, !tbaa !11
+  %480 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %479, ptr %480, align 8, !tbaa !11
+  %481 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %470, ptr %481, align 8, !tbaa !18
+  %482 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %483 = load ptr, ptr %482, align 8, !tbaa !17
+  %484 = getelementptr inbounds nuw i8, ptr %.068, i64 40
   %485 = load ptr, ptr %484, align 8, !tbaa !17
-  %486 = getelementptr inbounds nuw i8, ptr %.068, i64 40
-  %487 = load ptr, ptr %486, align 8, !tbaa !17
-  %488 = load i64, ptr %455, align 8, !tbaa !18
-  %489 = shl i64 %488, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %485, ptr align 8 %487, i64 %489, i1 false)
-  %490 = load i8, ptr %.068, align 8, !tbaa !19
-  %.not.i5.i101 = icmp ugt i8 %490, 31
-  br i1 %.not.i5.i101, label %494, label %491
+  %486 = load i64, ptr %453, align 8, !tbaa !18
+  %487 = shl i64 %486, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %483, ptr align 8 %485, i64 %487, i1 false)
+  %488 = load i8, ptr %.068, align 8, !tbaa !19
+  %.not.i5.i101 = icmp ugt i8 %488, 31
+  br i1 %.not.i5.i101, label %492, label %489
 
-491:                                              ; preds = %470
-  %492 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  %493 = load ptr, ptr %486, align 8, !tbaa !17
-  call void %492(ptr noundef %493) #33
+489:                                              ; preds = %468
+  %490 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  %491 = load ptr, ptr %484, align 8, !tbaa !17
+  call void %490(ptr noundef %491) #33
   %.pre172 = load i8, ptr %.068, align 8, !tbaa !19
-  br label %494
+  br label %492
 
-494:                                              ; preds = %491, %470
-  %495 = phi i8 [ %.pre172, %491 ], [ %490, %470 ]
-  %496 = and i8 %495, 16
-  %.not.i.i103.not = icmp eq i8 %496, 0
-  br i1 %.not.i.i103.not, label %497, label %mpd_del.exit105
+492:                                              ; preds = %489, %468
+  %493 = phi i8 [ %.pre172, %489 ], [ %488, %468 ]
+  %494 = and i8 %493, 16
+  %.not.i.i103.not = icmp eq i8 %494, 0
+  br i1 %.not.i.i103.not, label %495, label %mpd_del.exit105
 
-497:                                              ; preds = %494
-  %498 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %498(ptr noundef nonnull %.068) #33
+495:                                              ; preds = %492
+  %496 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  call void %496(ptr noundef nonnull %.068) #33
   br label %mpd_del.exit105
 
-mpd_del.exit105:                                  ; preds = %497, %494, %453
+mpd_del.exit105:                                  ; preds = %495, %492, %451
   %.not81 = icmp eq ptr %.1, %1
-  br i1 %.not81, label %mpd_del.exit100, label %499
+  br i1 %.not81, label %mpd_del.exit100, label %497
 
-499:                                              ; preds = %mpd_del.exit105
-  %500 = load i64, ptr %206, align 8, !tbaa !18
-  %501 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  %502 = call i64 @llvm.smax.i64(i64 %500, i64 %501)
-  %503 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %504 = load i64, ptr %503, align 8, !tbaa !21
-  %505 = icmp eq i64 %502, %504
+497:                                              ; preds = %mpd_del.exit105
+  %498 = load i64, ptr %206, align 8, !tbaa !18
+  %499 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  %500 = call i64 @llvm.smax.i64(i64 %498, i64 %499)
+  %501 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %502 = load i64, ptr %501, align 8, !tbaa !21
+  %503 = icmp eq i64 %500, %502
   %.pre20.i112 = load i8, ptr %1, align 8, !tbaa !19
-  br i1 %505, label %514, label %506
+  br i1 %503, label %512, label %504
 
-506:                                              ; preds = %499
-  %507 = and i8 %.pre20.i112, 32
-  %.not.i.i113 = icmp eq i8 %507, 0
-  br i1 %.not.i.i113, label %512, label %508
+504:                                              ; preds = %497
+  %505 = and i8 %.pre20.i112, 32
+  %.not.i.i113 = icmp eq i8 %505, 0
+  br i1 %.not.i.i113, label %510, label %506
+
+506:                                              ; preds = %504
+  %507 = icmp sgt i64 %500, %502
+  br i1 %507, label %508, label %512
 
 508:                                              ; preds = %506
-  %509 = icmp sgt i64 %502, %504
-  br i1 %509, label %510, label %514
-
-510:                                              ; preds = %508
-  %511 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %502, ptr noundef %4) #33
+  %509 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %500, ptr noundef %4) #33
   br label %mpd_qresize.exit.i116
 
-512:                                              ; preds = %506
-  %513 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %502, ptr noundef %4) #33
+510:                                              ; preds = %504
+  %511 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %500, ptr noundef %4) #33
   br label %mpd_qresize.exit.i116
 
-mpd_qresize.exit.i116:                            ; preds = %512, %510
-  %.0.i.i117 = phi i32 [ %511, %510 ], [ %513, %512 ]
+mpd_qresize.exit.i116:                            ; preds = %510, %508
+  %.0.i.i117 = phi i32 [ %509, %508 ], [ %511, %510 ]
   %.not.i118 = icmp eq i32 %.0.i.i117, 0
   br i1 %.not.i118, label %mpd_qcopy.exit.thread, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i119
 
 mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i119: ; preds = %mpd_qresize.exit.i116
   %.pre.i120 = load i8, ptr %1, align 8, !tbaa !19
   %.pre21.i121 = load i64, ptr %206, align 8, !tbaa !18
-  br label %514
+  br label %512
 
-514:                                              ; preds = %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i119, %508, %499
-  %515 = phi i64 [ %.pre21.i121, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i119 ], [ %500, %508 ], [ %500, %499 ]
-  %516 = phi i8 [ %.pre.i120, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i119 ], [ %.pre20.i112, %508 ], [ %.pre20.i112, %499 ]
-  %517 = load i8, ptr %.1, align 8, !tbaa !19
-  %518 = and i8 %516, -16
-  %519 = and i8 %517, 15
-  %520 = or disjoint i8 %519, %518
-  store i8 %520, ptr %1, align 8, !tbaa !19
-  %521 = load i64, ptr %200, align 8, !tbaa !7
-  %522 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %521, ptr %522, align 8, !tbaa !7
-  %523 = load i64, ptr %277, align 8, !tbaa !11
-  %524 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %523, ptr %524, align 8, !tbaa !11
-  %525 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %515, ptr %525, align 8, !tbaa !18
-  %526 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %527 = load ptr, ptr %526, align 8, !tbaa !17
-  %528 = load ptr, ptr %195, align 8, !tbaa !17
-  %529 = load i64, ptr %206, align 8, !tbaa !18
-  %530 = shl i64 %529, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %527, ptr align 8 %528, i64 %530, i1 false)
-  %531 = load i8, ptr %.1, align 8, !tbaa !19
-  %.not.i5.i96 = icmp ugt i8 %531, 31
-  br i1 %.not.i5.i96, label %535, label %532
+512:                                              ; preds = %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i119, %506, %497
+  %513 = phi i64 [ %.pre21.i121, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i119 ], [ %498, %506 ], [ %498, %497 ]
+  %514 = phi i8 [ %.pre.i120, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i119 ], [ %.pre20.i112, %506 ], [ %.pre20.i112, %497 ]
+  %515 = load i8, ptr %.1, align 8, !tbaa !19
+  %516 = and i8 %514, -16
+  %517 = and i8 %515, 15
+  %518 = or disjoint i8 %517, %516
+  store i8 %518, ptr %1, align 8, !tbaa !19
+  %519 = load i64, ptr %200, align 8, !tbaa !7
+  %520 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %519, ptr %520, align 8, !tbaa !7
+  %521 = load i64, ptr %277, align 8, !tbaa !11
+  %522 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i64 %521, ptr %522, align 8, !tbaa !11
+  %523 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 %513, ptr %523, align 8, !tbaa !18
+  %524 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %525 = load ptr, ptr %524, align 8, !tbaa !17
+  %526 = load ptr, ptr %195, align 8, !tbaa !17
+  %527 = load i64, ptr %206, align 8, !tbaa !18
+  %528 = shl i64 %527, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %525, ptr align 8 %526, i64 %528, i1 false)
+  %529 = load i8, ptr %.1, align 8, !tbaa !19
+  %.not.i5.i96 = icmp ugt i8 %529, 31
+  br i1 %.not.i5.i96, label %533, label %530
 
-532:                                              ; preds = %514
-  %533 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  %534 = load ptr, ptr %195, align 8, !tbaa !17
-  call void %533(ptr noundef %534) #33
+530:                                              ; preds = %512
+  %531 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  %532 = load ptr, ptr %195, align 8, !tbaa !17
+  call void %531(ptr noundef %532) #33
   %.pre173 = load i8, ptr %.1, align 8, !tbaa !19
-  br label %535
+  br label %533
 
-535:                                              ; preds = %532, %514
-  %536 = phi i8 [ %.pre173, %532 ], [ %531, %514 ]
-  %537 = and i8 %536, 16
-  %.not.i.i98.not = icmp eq i8 %537, 0
-  br i1 %.not.i.i98.not, label %538, label %mpd_del.exit100
+533:                                              ; preds = %530, %512
+  %534 = phi i8 [ %.pre173, %530 ], [ %529, %512 ]
+  %535 = and i8 %534, 16
+  %.not.i.i98.not = icmp eq i8 %535, 0
+  br i1 %.not.i.i98.not, label %536, label %mpd_del.exit100
 
-538:                                              ; preds = %535
-  %539 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %539(ptr noundef nonnull %.1) #33
+536:                                              ; preds = %533
+  %537 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  call void %537(ptr noundef nonnull %.1) #33
   br label %mpd_del.exit100
 
-mpd_del.exit100:                                  ; preds = %538, %535, %mpd_del.exit105
-  %540 = load i32, ptr %80, align 4, !tbaa !56
-  %541 = and i32 %540, 958
-  %542 = load i32, ptr %4, align 4, !tbaa !23
-  %543 = or i32 %542, %541
-  store i32 %543, ptr %4, align 4, !tbaa !23
-  br label %606
+mpd_del.exit100:                                  ; preds = %536, %533, %mpd_del.exit105
+  %538 = load i32, ptr %80, align 4, !tbaa !56
+  %539 = and i32 %538, 958
+  %540 = load i32, ptr %4, align 4, !tbaa !23
+  %541 = or i32 %540, %539
+  store i32 %541, ptr %4, align 4, !tbaa !23
+  br label %604
 
-mpd_qcopy.exit.thread.sink.split:                 ; preds = %72, %69, %._crit_edge, %434
-  %.sink179 = phi i32 [ 256, %434 ], [ %432, %._crit_edge ], [ 512, %69 ], [ 8, %72 ]
-  %.067.ph = phi ptr [ %.1, %434 ], [ %.1, %._crit_edge ], [ null, %69 ], [ %.1, %72 ]
-  %544 = load i32, ptr %4, align 4, !tbaa !23
-  %545 = or i32 %544, %.sink179
-  store i32 %545, ptr %4, align 4, !tbaa !23
+mpd_qcopy.exit.thread.sink.split:                 ; preds = %72, %69, %._crit_edge, %432
+  %.sink179 = phi i32 [ 256, %432 ], [ %430, %._crit_edge ], [ 512, %69 ], [ 8, %72 ]
+  %.067.ph = phi ptr [ %.1, %432 ], [ %.1, %._crit_edge ], [ null, %69 ], [ %.1, %72 ]
+  %542 = load i32, ptr %4, align 4, !tbaa !23
+  %543 = or i32 %542, %.sink179
+  store i32 %543, ptr %4, align 4, !tbaa !23
   br label %mpd_qcopy.exit.thread
 
 mpd_qcopy.exit.thread:                            ; preds = %mpd_qcopy.exit.thread.sink.split, %mpd_qresize.exit.i116, %mpd_qresize.exit.i
@@ -31945,146 +31956,146 @@ mpd_qcopy.exit.thread:                            ; preds = %mpd_qcopy.exit.thre
   %.not83 = icmp eq ptr %.068, null
   %.not84 = icmp eq ptr %.068, %0
   %or.cond89 = or i1 %.not83, %.not84
-  br i1 %or.cond89, label %mpd_del.exit95, label %546
+  br i1 %or.cond89, label %mpd_del.exit95, label %544
 
-546:                                              ; preds = %mpd_qcopy.exit.thread
-  %547 = load i8, ptr %.068, align 8, !tbaa !19
-  %.not.i5.i91 = icmp ugt i8 %547, 31
-  br i1 %.not.i5.i91, label %552, label %548
+544:                                              ; preds = %mpd_qcopy.exit.thread
+  %545 = load i8, ptr %.068, align 8, !tbaa !19
+  %.not.i5.i91 = icmp ugt i8 %545, 31
+  br i1 %.not.i5.i91, label %550, label %546
 
-548:                                              ; preds = %546
-  %549 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  %550 = getelementptr inbounds nuw i8, ptr %.068, i64 40
-  %551 = load ptr, ptr %550, align 8, !tbaa !17
-  call void %549(ptr noundef %551) #33
+546:                                              ; preds = %544
+  %547 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  %548 = getelementptr inbounds nuw i8, ptr %.068, i64 40
+  %549 = load ptr, ptr %548, align 8, !tbaa !17
+  call void %547(ptr noundef %549) #33
   %.pre174 = load i8, ptr %.068, align 8, !tbaa !19
-  br label %552
+  br label %550
 
-552:                                              ; preds = %548, %546
-  %553 = phi i8 [ %.pre174, %548 ], [ %547, %546 ]
-  %554 = and i8 %553, 16
-  %.not.i.i93.not = icmp eq i8 %554, 0
-  br i1 %.not.i.i93.not, label %555, label %mpd_del.exit95
+550:                                              ; preds = %546, %544
+  %551 = phi i8 [ %.pre174, %546 ], [ %545, %544 ]
+  %552 = and i8 %551, 16
+  %.not.i.i93.not = icmp eq i8 %552, 0
+  br i1 %.not.i.i93.not, label %553, label %mpd_del.exit95
 
-555:                                              ; preds = %552
-  %556 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %556(ptr noundef nonnull %.068) #33
+553:                                              ; preds = %550
+  %554 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  call void %554(ptr noundef nonnull %.068) #33
   br label %mpd_del.exit95
 
-mpd_del.exit95:                                   ; preds = %555, %552, %mpd_qcopy.exit.thread
+mpd_del.exit95:                                   ; preds = %553, %550, %mpd_qcopy.exit.thread
   %.not85 = icmp eq ptr %.067, null
   %.not86 = icmp eq ptr %.067, %1
   %or.cond90 = or i1 %.not85, %.not86
-  br i1 %or.cond90, label %mpd_del.exit, label %557
+  br i1 %or.cond90, label %mpd_del.exit, label %555
 
-557:                                              ; preds = %mpd_del.exit95
-  %558 = load i8, ptr %.067, align 8, !tbaa !19
-  %.not.i5.i = icmp ugt i8 %558, 31
-  br i1 %.not.i5.i, label %563, label %559
+555:                                              ; preds = %mpd_del.exit95
+  %556 = load i8, ptr %.067, align 8, !tbaa !19
+  %.not.i5.i = icmp ugt i8 %556, 31
+  br i1 %.not.i5.i, label %561, label %557
 
-559:                                              ; preds = %557
-  %560 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  %561 = getelementptr inbounds nuw i8, ptr %.067, i64 40
-  %562 = load ptr, ptr %561, align 8, !tbaa !17
-  call void %560(ptr noundef %562) #33
+557:                                              ; preds = %555
+  %558 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  %559 = getelementptr inbounds nuw i8, ptr %.067, i64 40
+  %560 = load ptr, ptr %559, align 8, !tbaa !17
+  call void %558(ptr noundef %560) #33
   %.pre175 = load i8, ptr %.067, align 8, !tbaa !19
-  br label %563
+  br label %561
 
-563:                                              ; preds = %559, %557
-  %564 = phi i8 [ %.pre175, %559 ], [ %558, %557 ]
-  %565 = and i8 %564, 16
-  %.not.i.i.not = icmp eq i8 %565, 0
-  br i1 %.not.i.i.not, label %566, label %mpd_del.exit
+561:                                              ; preds = %557, %555
+  %562 = phi i8 [ %.pre175, %557 ], [ %556, %555 ]
+  %563 = and i8 %562, 16
+  %.not.i.i.not = icmp eq i8 %563, 0
+  br i1 %.not.i.i.not, label %564, label %mpd_del.exit
 
-566:                                              ; preds = %563
-  %567 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %567(ptr noundef nonnull %.067) #33
+564:                                              ; preds = %561
+  %565 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  call void %565(ptr noundef nonnull %.067) #33
   br label %mpd_del.exit
 
-mpd_del.exit:                                     ; preds = %566, %563, %mpd_del.exit95.thread, %mpd_del.exit95
-  %568 = load i8, ptr %0, align 8, !tbaa !19
-  %569 = and i8 %568, 32
-  %.not.i.i123 = icmp eq i8 %569, 0
-  br i1 %.not.i.i123, label %570, label %mpd_setspecial.exit
+mpd_del.exit:                                     ; preds = %564, %561, %mpd_del.exit95.thread, %mpd_del.exit95
+  %566 = load i8, ptr %0, align 8, !tbaa !19
+  %567 = and i8 %566, 32
+  %.not.i.i123 = icmp eq i8 %567, 0
+  br i1 %.not.i.i123, label %568, label %mpd_setspecial.exit
 
-570:                                              ; preds = %mpd_del.exit
-  %571 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %572 = load i64, ptr %571, align 8, !tbaa !21
-  %573 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  %574 = icmp sgt i64 %572, %573
-  br i1 %574, label %575, label %mpd_setspecial.exit
+568:                                              ; preds = %mpd_del.exit
+  %569 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %570 = load i64, ptr %569, align 8, !tbaa !21
+  %571 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  %572 = icmp sgt i64 %570, %571
+  br i1 %572, label %573, label %mpd_setspecial.exit
 
-575:                                              ; preds = %570
+573:                                              ; preds = %568
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #33
   store i8 0, ptr %11, align 1, !tbaa !22
-  %576 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %577 = load ptr, ptr %576, align 8, !tbaa !17
-  %578 = call ptr @mpd_realloc(ptr noundef %577, i64 noundef %573, i64 noundef 8, ptr noundef nonnull %11) #33
-  store ptr %578, ptr %576, align 8, !tbaa !17
-  %579 = load i8, ptr %11, align 1, !tbaa !22
-  %.not5.i.i = icmp eq i8 %579, 0
-  br i1 %.not5.i.i, label %580, label %582
+  %574 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %575 = load ptr, ptr %574, align 8, !tbaa !17
+  %576 = call ptr @mpd_realloc(ptr noundef %575, i64 noundef %571, i64 noundef 8, ptr noundef nonnull %11) #33
+  store ptr %576, ptr %574, align 8, !tbaa !17
+  %577 = load i8, ptr %11, align 1, !tbaa !22
+  %.not5.i.i = icmp eq i8 %577, 0
+  br i1 %.not5.i.i, label %578, label %580
 
-580:                                              ; preds = %575
-  %581 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  store i64 %581, ptr %571, align 8, !tbaa !21
-  br label %582
+578:                                              ; preds = %573
+  %579 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  store i64 %579, ptr %569, align 8, !tbaa !21
+  br label %580
 
-582:                                              ; preds = %580, %575
+580:                                              ; preds = %578, %573
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #33
   %.pre.i124 = load i8, ptr %0, align 8, !tbaa !19
   br label %mpd_setspecial.exit
 
-mpd_setspecial.exit:                              ; preds = %mpd_del.exit, %570, %582
-  %583 = phi i8 [ %568, %mpd_del.exit ], [ %568, %570 ], [ %.pre.i124, %582 ]
-  %584 = and i8 %583, -16
-  %585 = or disjoint i8 %584, 4
-  store i8 %585, ptr %0, align 8, !tbaa !19
-  %586 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %586, i8 0, i64 24, i1 false)
-  %587 = load i8, ptr %1, align 8, !tbaa !19
-  %588 = and i8 %587, 32
-  %.not.i.i125 = icmp eq i8 %588, 0
-  br i1 %.not.i.i125, label %589, label %mpd_setspecial.exit128
+mpd_setspecial.exit:                              ; preds = %mpd_del.exit, %568, %580
+  %581 = phi i8 [ %566, %mpd_del.exit ], [ %566, %568 ], [ %.pre.i124, %580 ]
+  %582 = and i8 %581, -16
+  %583 = or disjoint i8 %582, 4
+  store i8 %583, ptr %0, align 8, !tbaa !19
+  %584 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %584, i8 0, i64 24, i1 false)
+  %585 = load i8, ptr %1, align 8, !tbaa !19
+  %586 = and i8 %585, 32
+  %.not.i.i125 = icmp eq i8 %586, 0
+  br i1 %.not.i.i125, label %587, label %mpd_setspecial.exit128
 
-589:                                              ; preds = %mpd_setspecial.exit
-  %590 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %591 = load i64, ptr %590, align 8, !tbaa !21
-  %592 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  %593 = icmp sgt i64 %591, %592
-  br i1 %593, label %594, label %mpd_setspecial.exit128
+587:                                              ; preds = %mpd_setspecial.exit
+  %588 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %589 = load i64, ptr %588, align 8, !tbaa !21
+  %590 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  %591 = icmp sgt i64 %589, %590
+  br i1 %591, label %592, label %mpd_setspecial.exit128
 
-594:                                              ; preds = %589
+592:                                              ; preds = %587
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #33
   store i8 0, ptr %10, align 1, !tbaa !22
-  %595 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %596 = load ptr, ptr %595, align 8, !tbaa !17
-  %597 = call ptr @mpd_realloc(ptr noundef %596, i64 noundef %592, i64 noundef 8, ptr noundef nonnull %10) #33
-  store ptr %597, ptr %595, align 8, !tbaa !17
-  %598 = load i8, ptr %10, align 1, !tbaa !22
-  %.not5.i.i126 = icmp eq i8 %598, 0
-  br i1 %.not5.i.i126, label %599, label %601
+  %593 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %594 = load ptr, ptr %593, align 8, !tbaa !17
+  %595 = call ptr @mpd_realloc(ptr noundef %594, i64 noundef %590, i64 noundef 8, ptr noundef nonnull %10) #33
+  store ptr %595, ptr %593, align 8, !tbaa !17
+  %596 = load i8, ptr %10, align 1, !tbaa !22
+  %.not5.i.i126 = icmp eq i8 %596, 0
+  br i1 %.not5.i.i126, label %597, label %599
 
-599:                                              ; preds = %594
-  %600 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  store i64 %600, ptr %590, align 8, !tbaa !21
-  br label %601
+597:                                              ; preds = %592
+  %598 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  store i64 %598, ptr %588, align 8, !tbaa !21
+  br label %599
 
-601:                                              ; preds = %599, %594
+599:                                              ; preds = %597, %592
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #33
   %.pre.i127 = load i8, ptr %1, align 8, !tbaa !19
   br label %mpd_setspecial.exit128
 
-mpd_setspecial.exit128:                           ; preds = %mpd_setspecial.exit, %589, %601
-  %602 = phi i8 [ %587, %mpd_setspecial.exit ], [ %587, %589 ], [ %.pre.i127, %601 ]
-  %603 = and i8 %602, -16
-  %604 = or disjoint i8 %603, 4
-  store i8 %604, ptr %1, align 8, !tbaa !19
-  %605 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %605, i8 0, i64 24, i1 false)
-  br label %606
+mpd_setspecial.exit128:                           ; preds = %mpd_setspecial.exit, %587, %599
+  %600 = phi i8 [ %585, %mpd_setspecial.exit ], [ %585, %587 ], [ %.pre.i127, %599 ]
+  %601 = and i8 %600, -16
+  %602 = or disjoint i8 %601, 4
+  store i8 %602, ptr %1, align 8, !tbaa !19
+  %603 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %603, i8 0, i64 24, i1 false)
+  br label %604
 
-606:                                              ; preds = %mpd_setspecial.exit128, %mpd_del.exit100
+604:                                              ; preds = %mpd_setspecial.exit128, %mpd_del.exit100
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %26) #33
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %25) #33
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %24) #33
@@ -32094,7 +32105,7 @@ mpd_setspecial.exit128:                           ; preds = %mpd_setspecial.exit
 declare hidden ptr @mpd_qnew() local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qsub_exact(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #10 {
+define internal fastcc void @_mpd_qsub_exact(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #10 {
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #33
@@ -32111,7 +32122,7 @@ define internal fastcc void @_mpd_qsub_exact(ptr noundef %0, ptr noundef capture
   br i1 %.not21.i, label %19, label %13
 
 13:                                               ; preds = %10, %5
-  %14 = call i32 @mpd_qcheck_nans(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull readonly %3, ptr noundef nonnull %7)
+  %14 = call i32 @mpd_qcheck_nans(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef readonly %2, ptr noundef nonnull readonly %3, ptr noundef nonnull %7)
   %.not23.i = icmp eq i32 %14, 0
   br i1 %.not23.i, label %15, label %mpd_qsub.exit
 
@@ -32120,13 +32131,13 @@ define internal fastcc void @_mpd_qsub_exact(ptr noundef %0, ptr noundef capture
   %17 = and i8 %16, 1
   %18 = xor i8 %17, 1
   %.val.i = load i8, ptr %1, align 8, !tbaa !19
-  call fastcc void @_mpd_qaddsub_inf(ptr noundef %0, i8 %.val.i, ptr noundef nonnull %2, i8 noundef zeroext %18, ptr noundef nonnull %7)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef %0, i8 %.val.i, ptr noundef nonnull readonly %2, i8 noundef zeroext %18, ptr noundef nonnull %7)
   br label %mpd_qsub.exit
 
 19:                                               ; preds = %10
   %20 = and i8 %11, 1
   %21 = xor i8 %20, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i8 noundef zeroext %21, ptr noundef nonnull readonly %3, ptr noundef nonnull %7)
+  call fastcc void @_mpd_qaddsub(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, i8 noundef zeroext %21, ptr noundef nonnull readonly %3, ptr noundef nonnull %7)
   call void @mpd_qfinalize(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef nonnull %7)
   br label %mpd_qsub.exit
 
@@ -32197,7 +32208,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #27
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qadd_exact(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #10 {
+define internal fastcc void @_mpd_qadd_exact(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #10 {
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #33
@@ -32214,7 +32225,7 @@ define internal fastcc void @_mpd_qadd_exact(ptr noundef %0, ptr noundef capture
   br i1 %.not21.i, label %18, label %13
 
 13:                                               ; preds = %10, %5
-  %14 = call i32 @mpd_qcheck_nans(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull readonly %3, ptr noundef nonnull %7)
+  %14 = call i32 @mpd_qcheck_nans(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef readonly %2, ptr noundef nonnull readonly %3, ptr noundef nonnull %7)
   %.not22.i = icmp eq i32 %14, 0
   br i1 %.not22.i, label %15, label %mpd_qadd.exit
 
@@ -32222,12 +32233,12 @@ define internal fastcc void @_mpd_qadd_exact(ptr noundef %0, ptr noundef capture
   %16 = load i8, ptr %2, align 8, !tbaa !19
   %17 = and i8 %16, 1
   %.val.i = load i8, ptr %1, align 8, !tbaa !19
-  call fastcc void @_mpd_qaddsub_inf(ptr noundef %0, i8 %.val.i, ptr noundef nonnull %2, i8 noundef zeroext %17, ptr noundef nonnull %7)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef %0, i8 %.val.i, ptr noundef nonnull readonly %2, i8 noundef zeroext %17, ptr noundef nonnull %7)
   br label %mpd_qadd.exit
 
 18:                                               ; preds = %10
   %19 = and i8 %11, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i8 noundef zeroext %19, ptr noundef nonnull readonly %3, ptr noundef nonnull %7)
+  call fastcc void @_mpd_qaddsub(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, i8 noundef zeroext %19, ptr noundef nonnull readonly %3, ptr noundef nonnull %7)
   call void @mpd_qfinalize(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef nonnull %7)
   br label %mpd_qadd.exit
 
@@ -32292,7 +32303,7 @@ mpd_seterror.exit:                                ; preds = %24, %27, %39
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @_mpd_qpow_uint(ptr noundef %0, ptr noundef nonnull captures(address) %1, i64 noundef %2, i8 noundef zeroext range(i8 0, 2) %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef %5) unnamed_addr #16 {
+define internal fastcc void @_mpd_qpow_uint(ptr noundef %0, ptr noundef nonnull readonly captures(address) %1, i64 noundef %2, i8 noundef zeroext range(i8 0, 2) %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef %5) unnamed_addr #16 {
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #33
   store i32 0, ptr %7, align 4, !tbaa !23
@@ -32423,14 +32434,14 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
   %.in = phi i64 [ %64, %.lr.ph ], [ %67, %.backedge.backedge ]
   %67 = lshr i64 %.in, 1
-  call fastcc void @_mpd_qmul(ptr noundef %0, ptr noundef %0, ptr noundef %0, ptr noundef nonnull readonly %4, ptr noundef nonnull %7)
+  call fastcc void @_mpd_qmul(ptr noundef %0, ptr noundef readonly %0, ptr noundef readonly %0, ptr noundef nonnull readonly %4, ptr noundef nonnull %7)
   call void @mpd_qfinalize(ptr noundef %0, ptr noundef nonnull readonly %4, ptr noundef nonnull %7)
   %68 = and i64 %67, %2
   %.not25 = icmp eq i64 %68, 0
   br i1 %.not25, label %70, label %69
 
 69:                                               ; preds = %.backedge
-  call fastcc void @_mpd_qmul(ptr noundef %0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull readonly %4, ptr noundef nonnull %7)
+  call fastcc void @_mpd_qmul(ptr noundef %0, ptr noundef readonly %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %4, ptr noundef nonnull %7)
   call void @mpd_qfinalize(ptr noundef %0, ptr noundef nonnull readonly %4, ptr noundef nonnull %7)
   br label %70
 

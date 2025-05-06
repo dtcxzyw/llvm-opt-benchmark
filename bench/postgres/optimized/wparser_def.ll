@@ -1735,7 +1735,7 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
   br i1 %.082.lcssa199, label %308, label %.preheader430.i
 
 .preheader430.i:                                  ; preds = %137
-  %138 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef nonnull %16, ptr noundef %.0, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %138 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef nonnull %16, ptr noundef readonly %.0, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   br i1 %138, label %.lr.ph491.i, label %.preheader.i
 
 .lr.ph491.i:                                      ; preds = %.preheader430.i
@@ -2193,7 +2193,7 @@ define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) loca
   %.1364.i = phi i32 [ %.8351.i, %287 ], [ %.0363488.i, %281 ], [ %.0363488.i, %272 ], [ %.0363488.i, %262 ], [ %.0363488.i, %283 ]
   %.1362.i = phi i8 [ %255, %287 ], [ %.0361489.i, %281 ], [ %.0361489.i, %272 ], [ %.0361489.i, %262 ], [ %.0361489.i, %283 ]
   %.1335.i = phi i32 [ %.0354.i, %287 ], [ %.0334490.i, %281 ], [ %.0334490.i, %272 ], [ %.0334490.i, %262 ], [ %.0334490.i, %283 ]
-  %289 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef nonnull %16, ptr noundef %.0, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %289 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef nonnull %16, ptr noundef readonly %.0, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   br i1 %289, label %141, label %._crit_edge492.i, !llvm.loop !17
 
 ._crit_edge492.i:                                 ; preds = %288
@@ -2268,14 +2268,14 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
   store i32 0, ptr %4, align 4
   %314 = call ptr @palloc(i64 noundef 640) #16
-  %315 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef nonnull %16, ptr noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %315 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef nonnull %16, ptr noundef readonly %.0, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   br i1 %315, label %.lr.ph.i101, label %.preheader.i93
 
 .loopexit.i:                                      ; preds = %486, %.lr.ph.i101
   %.1268.lcssa.i = phi i32 [ %.0267392.i, %.lr.ph.i101 ], [ %494, %486 ]
   %.1265.lcssa.i = phi i32 [ %.0264393.i, %.lr.ph.i101 ], [ %.2266.i, %486 ]
   %.1.lcssa.i = phi ptr [ %.0394.i, %.lr.ph.i101 ], [ %.2.i, %486 ]
-  %316 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef nonnull %16, ptr noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %316 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef nonnull %16, ptr noundef readonly %.0, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   br i1 %316, label %.lr.ph.i101, label %.preheader382.i, !llvm.loop !19
 
 .preheader382.i:                                  ; preds = %.loopexit.i

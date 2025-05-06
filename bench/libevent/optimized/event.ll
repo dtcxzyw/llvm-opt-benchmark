@@ -6943,14 +6943,14 @@ define ptr @event_base_get_signal_method(ptr noundef readonly captures(none) %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 2, 1) i32 @event_loopexit(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 2, 1) i32 @event_loopexit(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @event_global_current_base_, align 8
-  %3 = tail call range(i32 2, 1) i32 @event_base_once(ptr noundef %2, i32 noundef -1, i16 noundef signext 1, ptr noundef nonnull @event_loopexit_cb, ptr noundef %2, ptr noundef %0)
+  %3 = tail call range(i32 2, 1) i32 @event_base_once(ptr noundef %2, i32 noundef -1, i16 noundef signext 1, ptr noundef nonnull @event_loopexit_cb, ptr noundef %2, ptr noundef readonly %0)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 2, 1) i32 @event_once(i32 noundef %0, i16 noundef signext %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define range(i32 2, 1) i32 @event_once(i32 noundef %0, i16 noundef signext %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr @event_global_current_base_, align 8
   %7 = tail call i32 @event_base_once(ptr noundef %6, i32 noundef %0, i16 noundef signext %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret i32 %7
@@ -6964,13 +6964,13 @@ define internal void @event_loopexit_cb(i32 %0, i16 signext %1, ptr noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 2, 1) i32 @event_base_loopexit(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 2, 1) i32 @event_base_loopexit(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @event_base_once(ptr noundef %0, i32 noundef -1, i16 noundef signext 1, ptr noundef nonnull @event_loopexit_cb, ptr noundef %0, ptr noundef %1)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 2, 1) i32 @event_base_once(ptr noundef %0, i32 noundef %1, i16 noundef signext %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
+define range(i32 2, 1) i32 @event_base_once(ptr noundef %0, i32 noundef %1, i16 noundef signext %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %.not = icmp ne ptr %0, null
   %7 = and i16 %2, 24
   %.not48 = icmp eq i16 %7, 0
@@ -9195,7 +9195,7 @@ event_debug_assert_is_setup_.exit:                ; preds = %1, %event_debug_map
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 2, 1) i32 @event_add(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 2, 1) i32 @event_add(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 952

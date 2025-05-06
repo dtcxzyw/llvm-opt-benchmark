@@ -4655,7 +4655,7 @@ _ZN6vectorIP4sortLb0EjE7destroyEv.exit:           ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK11func_interp16get_array_interpEP9func_decl(ptr dead_on_unwind noalias writable sret(%class.obj_ref) align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(56) %1, ptr noundef captures(address) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK11func_interp16get_array_interpEP9func_decl(ptr dead_on_unwind noalias writable sret(%class.obj_ref) align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(56) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !33
   %.not = icmp eq ptr %5, null

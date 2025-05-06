@@ -8771,7 +8771,7 @@ define internal void @nfs4_close_context(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @nfs4_atomic_open(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) #0 align 16 {
+define internal ptr @nfs4_atomic_open(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) #0 align 16 {
   %6 = tail call fastcc ptr @nfs4_do_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   %7 = icmp ugt ptr %6, inttoptr (i64 -4096 to ptr)
   br i1 %7, label %11, label %8

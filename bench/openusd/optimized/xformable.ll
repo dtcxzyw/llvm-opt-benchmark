@@ -5507,7 +5507,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %147, %_ZNK32p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdGeomXformable18GetOrderedXformOpsEPb(ptr dead_on_unwind noalias writable sret(%"class.std::vector.98") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdGeomXformable18GetOrderedXformOpsEPb(ptr dead_on_unwind noalias writable sret(%"class.std::vector.98") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   tail call void @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdGeomXformable19_GetOrderedXformOpsEPbb(ptr dead_on_unwind writable sret(%"class.std::vector.98") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2, i1 noundef zeroext false)
   ret void
 }
@@ -6971,7 +6971,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpESaIS1_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdGeomXformable10XformQuery22GetLocalTransformationEPNS_10GfMatrix4dENS_11UsdTimeCodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0, ptr noundef captures(address_is_null) %1, double %2) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdGeomXformable10XformQuery22GetLocalTransformationEPNS_10GfMatrix4dENS_11UsdTimeCodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0, ptr noundef writeonly captures(address_is_null) %1, double %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomXformable22GetLocalTransformationEPNS_10GfMatrix4dERKSt6vectorINS_14UsdGeomXformOpESaIS4_EENS_11UsdTimeCodeE(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %0, double %2)
   ret i1 %4
 }
@@ -9576,7 +9576,7 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp14GetOpTrans
 declare noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdGeomXformable22GetLocalTransformationEPNS_10GfMatrix4dEPbRKSt6vectorINS_14UsdGeomXformOpESaIS5_EENS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, double %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdGeomXformable22GetLocalTransformationEPNS_10GfMatrix4dEPbRKSt6vectorINS_14UsdGeomXformOpESaIS5_EENS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, double %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray", align 8

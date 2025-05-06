@@ -9148,7 +9148,7 @@ _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN4llvm14DWARFDebugLine3RowESt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK4llvm14DWARFDebugLine9LineTable13lookupAddressENS_6object16SectionedAddressEPb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0, i64 %1, i64 %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #6 align 2 {
+define dso_local noundef i32 @_ZNK4llvm14DWARFDebugLine9LineTable13lookupAddressENS_6object16SectionedAddressEPb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0, i64 %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #6 align 2 {
   %5 = tail call noundef i32 @_ZNK4llvm14DWARFDebugLine9LineTable17lookupAddressImplENS_6object16SectionedAddressEPb(ptr noundef nonnull align 8 dereferenceable(168) %0, i64 %1, i64 %2, ptr noundef %3)
   %6 = load i32, ptr %0, align 8, !tbaa !401
   %7 = icmp ne i32 %5, %6

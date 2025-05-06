@@ -1110,7 +1110,7 @@ define dso_local noundef ptr @decl_find_enum_constant(ptr noundef readonly captu
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @decl_find_member_offset(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1) local_unnamed_addr #8 {
+define dso_local i32 @decl_find_member_offset(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #8 {
   br label %3
 
 3:                                                ; preds = %8, %2

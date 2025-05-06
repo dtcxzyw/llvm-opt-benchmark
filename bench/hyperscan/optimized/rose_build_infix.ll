@@ -246,7 +246,7 @@ $_ZTSN5boost21checked_array_deleterINS_18default_color_typeEEE = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3ue219findMaxInfixMatchesERKNS_7left_idERKSt3setINS_11ue2_literalESt4lessIS4_ESaIS4_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN3ue219findMaxInfixMatchesERKNS_7left_idERKSt3setINS_11ue2_literalESt4lessIS4_ESaIS4_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.ue2::CharReach", align 8
   %4 = alloca %"struct.ue2::ue2_literal::elem", align 2
   %5 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred", align 8

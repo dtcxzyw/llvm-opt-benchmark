@@ -2330,7 +2330,7 @@ define range(i32 -1, 2) i32 @Dtc_ManCompare2(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Gia_ManDetectFullAdders(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define noalias noundef ptr @Gia_ManDetectFullAdders(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #30

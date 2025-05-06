@@ -9098,7 +9098,7 @@ define zeroext i1 @PMIx_tool_is_connected() local_unnamed_addr #14 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMIx_tool_connect_to_server(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define i32 @PMIx_tool_connect_to_server(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @PMIx_tool_attach_to_server(ptr noundef %0, ptr noundef null, ptr noundef %1, i64 noundef %2)
   ret i32 %4
 }

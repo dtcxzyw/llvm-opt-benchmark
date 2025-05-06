@@ -5345,7 +5345,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal11Fatal
 declare void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory7strings13TheoryStrings20collectModelInfoTypeENS0_8TypeNodeERSt13unordered_setIS4_St4hashIS4_ESt8equal_toIS4_ESaIS4_EERKSt3mapIS4_S5_INS0_12NodeTemplateILb1EEES6_ISF_ES8_ISF_ESaISF_EESt4lessIS4_ESaISt4pairIKS4_SJ_EEEPNS1_11TheoryModelE(ptr noundef nonnull align 8 dereferenceable(6168) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %3, ptr noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory7strings13TheoryStrings20collectModelInfoTypeENS0_8TypeNodeERSt13unordered_setIS4_St4hashIS4_ESt8equal_toIS4_ESaIS4_EERKSt3mapIS4_S5_INS0_12NodeTemplateILb1EEES6_ISF_ES8_ISF_ESaISF_EESt4lessIS4_ESaISt4pairIKS4_SJ_EEEPNS1_11TheoryModelE(ptr noundef nonnull align 8 dereferenceable(6168) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %3, ptr noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::tuple.1273", align 8
   %7 = alloca %"class.std::tuple.1269", align 1
   %8 = alloca %"class.std::tuple.1273", align 8

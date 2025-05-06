@@ -2027,8 +2027,8 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit23: ; preds = %49, %63
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %82 to i32
   %.sroa.2.0.extract.shift.i.i = lshr i64 %82, 32
   %.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i to i32
-  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %83, i32 %.sroa.0.0.extract.trunc.i.i, ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef null)
-  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %83, i32 %.sroa.2.0.extract.trunc.i.i, ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef null)
+  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %83, i32 %.sroa.0.0.extract.trunc.i.i, ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef readonly null)
+  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %83, i32 %.sroa.2.0.extract.trunc.i.i, ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef readonly null)
   br label %202
 
 85:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit23
@@ -2067,8 +2067,8 @@ _ZN5clang15ASTRecordWriter10AddDeclRefEPKNS_4DeclE.exit: ; preds = %85, %95
   %.sroa.0.0.extract.trunc.i.i24 = trunc i64 %105 to i32
   %.sroa.2.0.extract.shift.i.i25 = lshr i64 %105, 32
   %.sroa.2.0.extract.trunc.i.i26 = trunc nuw i64 %.sroa.2.0.extract.shift.i.i25 to i32
-  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %106, i32 %.sroa.0.0.extract.trunc.i.i24, ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef null)
-  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %106, i32 %.sroa.2.0.extract.trunc.i.i26, ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef null)
+  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %106, i32 %.sroa.0.0.extract.trunc.i.i24, ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef readonly null)
+  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %106, i32 %.sroa.2.0.extract.trunc.i.i26, ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef readonly null)
   br label %202
 
 108:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit23
@@ -2107,8 +2107,8 @@ _ZN5clang15ASTRecordWriter10AddDeclRefEPKNS_4DeclE.exit29: ; preds = %108, %118
   %.sroa.0.0.extract.trunc.i.i30 = trunc i64 %128 to i32
   %.sroa.2.0.extract.shift.i.i31 = lshr i64 %128, 32
   %.sroa.2.0.extract.trunc.i.i32 = trunc nuw i64 %.sroa.2.0.extract.shift.i.i31 to i32
-  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %129, i32 %.sroa.0.0.extract.trunc.i.i30, ptr noundef nonnull align 8 dereferenceable(16) %130, ptr noundef null)
-  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %129, i32 %.sroa.2.0.extract.trunc.i.i32, ptr noundef nonnull align 8 dereferenceable(16) %130, ptr noundef null)
+  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %129, i32 %.sroa.0.0.extract.trunc.i.i30, ptr noundef nonnull align 8 dereferenceable(16) %130, ptr noundef readonly null)
+  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %129, i32 %.sroa.2.0.extract.trunc.i.i32, ptr noundef nonnull align 8 dereferenceable(16) %130, ptr noundef readonly null)
   br label %202
 
 131:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit23, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit23
@@ -2247,8 +2247,8 @@ _ZN5clang15ASTRecordWriter10AddDeclRefEPKNS_4DeclE.exit43: ; preds = %179, %189
   %.sroa.0.0.extract.trunc.i.i44 = trunc i64 %199 to i32
   %.sroa.2.0.extract.shift.i.i45 = lshr i64 %199, 32
   %.sroa.2.0.extract.trunc.i.i46 = trunc nuw i64 %.sroa.2.0.extract.shift.i.i45 to i32
-  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %200, i32 %.sroa.0.0.extract.trunc.i.i44, ptr noundef nonnull align 8 dereferenceable(16) %201, ptr noundef null)
-  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %200, i32 %.sroa.2.0.extract.trunc.i.i46, ptr noundef nonnull align 8 dereferenceable(16) %201, ptr noundef null)
+  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %200, i32 %.sroa.0.0.extract.trunc.i.i44, ptr noundef nonnull align 8 dereferenceable(16) %201, ptr noundef readonly null)
+  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %200, i32 %.sroa.2.0.extract.trunc.i.i46, ptr noundef nonnull align 8 dereferenceable(16) %201, ptr noundef readonly null)
   br label %202
 
 202:                                              ; preds = %_ZN5clang15ASTRecordWriter10AddDeclRefEPKNS_4DeclE.exit43, %175, %_ZN5clang15ASTRecordWriter10AddTypeLocENS_7TypeLocEPNS_22SourceLocationSequenceE.exit, %_ZN5clang15ASTRecordWriter10AddDeclRefEPKNS_4DeclE.exit29, %_ZN5clang15ASTRecordWriter10AddDeclRefEPKNS_4DeclE.exit, %73, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit23
@@ -62047,7 +62047,7 @@ _ZN4llvm15BitstreamWriter10EmitRecordINS_11SmallVectorImLj64EEEEEvjRKT_j.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9ASTWriter14AddSourceRangeENS_11SourceRangeERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3532) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9ASTWriter14AddSourceRangeENS_11SourceRangeERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3532) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.2.0.extract.shift = lshr i64 %1, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
@@ -76718,8 +76718,8 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit2732:  ; preds = %_ZNK5clang9ASTWrite
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.0.copyload.i to i32
   %.sroa.2.0.extract.shift.i.i = lshr i64 %.sroa.0.0.copyload.i, 32
   %.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i to i32
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %63, i32 %.sroa.0.0.extract.trunc.i.i, ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef null)
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %63, i32 %.sroa.2.0.extract.trunc.i.i, ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef null)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %63, i32 %.sroa.0.0.extract.trunc.i.i, ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef readonly null)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %63, i32 %.sroa.2.0.extract.trunc.i.i, ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef readonly null)
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i2733 = load i32, ptr %65, align 8, !tbaa !9
   %66 = load ptr, ptr %55, align 8, !tbaa !11
@@ -90377,7 +90377,7 @@ _ZN4llvm14TimeTraceScopeD2Ev.exit:                ; preds = %168, %169
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9ASTWriter12WriteASTCoreEPNS_4SemaEN4llvm9StringRefEPNS_6ModuleE(ptr dead_on_unwind noalias writable sret(%"struct.clang::ASTFileSignature") align 1 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(3532) %1, ptr noundef %2, ptr captures(address_is_null) %3, i64 %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9ASTWriter12WriteASTCoreEPNS_4SemaEN4llvm9StringRefEPNS_6ModuleE(ptr dead_on_unwind noalias writable sret(%"struct.clang::ASTFileSignature") align 1 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(3532) %1, ptr noundef %2, ptr readonly captures(address_is_null) %3, i64 %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::SmallVector.108", align 8
   %8 = alloca %"class.llvm::SmallVector.108", align 8
   %9 = alloca %"class.llvm::SmallVector.108", align 8
@@ -101783,8 +101783,8 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit136:   ; preds = %_ZN5clang15ASTRecor
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.0.copyload.i139 to i32
   %.sroa.2.0.extract.shift.i.i = lshr i64 %.sroa.0.0.copyload.i139, 32
   %.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i to i32
-  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %384, i32 %.sroa.0.0.extract.trunc.i.i, ptr noundef nonnull align 8 dereferenceable(16) %385, ptr noundef null)
-  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %384, i32 %.sroa.2.0.extract.trunc.i.i, ptr noundef nonnull align 8 dereferenceable(16) %385, ptr noundef null)
+  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %384, i32 %.sroa.0.0.extract.trunc.i.i, ptr noundef nonnull align 8 dereferenceable(16) %385, ptr noundef readonly null)
+  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %384, i32 %.sroa.2.0.extract.trunc.i.i, ptr noundef nonnull align 8 dereferenceable(16) %385, ptr noundef readonly null)
   %386 = load i32, ptr %73, align 4
   %387 = lshr i32 %386, 8
   %.lobit262 = and i32 %387, 1
@@ -102042,8 +102042,8 @@ _ZNK5clang4Decl7getAttrINS_24OMPThreadPrivateDeclAttrEEEPT_v.exit: ; preds = %.l
   %.sroa.0.0.extract.trunc.i.i169 = trunc i64 %.sroa.0.0.copyload.i168 to i32
   %.sroa.2.0.extract.shift.i.i170 = lshr i64 %.sroa.0.0.copyload.i168, 32
   %.sroa.2.0.extract.trunc.i.i171 = trunc nuw i64 %.sroa.2.0.extract.shift.i.i170 to i32
-  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %534, i32 %.sroa.0.0.extract.trunc.i.i169, ptr noundef nonnull align 8 dereferenceable(16) %535, ptr noundef null)
-  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %534, i32 %.sroa.2.0.extract.trunc.i.i171, ptr noundef nonnull align 8 dereferenceable(16) %535, ptr noundef null)
+  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %534, i32 %.sroa.0.0.extract.trunc.i.i169, ptr noundef nonnull align 8 dereferenceable(16) %535, ptr noundef readonly null)
+  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %534, i32 %.sroa.2.0.extract.trunc.i.i171, ptr noundef nonnull align 8 dereferenceable(16) %535, ptr noundef readonly null)
   br label %_ZN5clang15ASTRecordWriter13AddAttributesEN4llvm8ArrayRefIPKNS_4AttrEEE.exit
 
 536:                                              ; preds = %100
@@ -102179,8 +102179,8 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit188: ; preds = %_ZN5clang15AST
   %.sroa.0.0.extract.trunc.i.i190 = trunc i64 %.sroa.0.0.copyload.i189 to i32
   %.sroa.2.0.extract.shift.i.i191 = lshr i64 %.sroa.0.0.copyload.i189, 32
   %.sroa.2.0.extract.trunc.i.i192 = trunc nuw i64 %.sroa.2.0.extract.shift.i.i191 to i32
-  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %610, i32 %.sroa.0.0.extract.trunc.i.i190, ptr noundef nonnull align 8 dereferenceable(16) %611, ptr noundef null)
-  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %610, i32 %.sroa.2.0.extract.trunc.i.i192, ptr noundef nonnull align 8 dereferenceable(16) %611, ptr noundef null)
+  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %610, i32 %.sroa.0.0.extract.trunc.i.i190, ptr noundef nonnull align 8 dereferenceable(16) %611, ptr noundef readonly null)
+  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %610, i32 %.sroa.2.0.extract.trunc.i.i192, ptr noundef nonnull align 8 dereferenceable(16) %611, ptr noundef readonly null)
   br label %_ZN5clang15ASTRecordWriter13AddAttributesEN4llvm8ArrayRefIPKNS_4AttrEEE.exit
 
 612:                                              ; preds = %100
@@ -102273,8 +102273,8 @@ _ZNK5clang4Decl7getAttrINS_24OMPDeclareTargetDeclAttrEEEPT_v.exit212: ; preds = 
   %.sroa.0.0.extract.trunc.i.i214 = trunc i64 %.sroa.0.0.copyload.i213 to i32
   %.sroa.2.0.extract.shift.i.i215 = lshr i64 %.sroa.0.0.copyload.i213, 32
   %.sroa.2.0.extract.trunc.i.i216 = trunc nuw i64 %.sroa.2.0.extract.shift.i.i215 to i32
-  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %666, i32 %.sroa.0.0.extract.trunc.i.i214, ptr noundef nonnull align 8 dereferenceable(16) %667, ptr noundef null)
-  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %666, i32 %.sroa.2.0.extract.trunc.i.i216, ptr noundef nonnull align 8 dereferenceable(16) %667, ptr noundef null)
+  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %666, i32 %.sroa.0.0.extract.trunc.i.i214, ptr noundef nonnull align 8 dereferenceable(16) %667, ptr noundef readonly null)
+  call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %666, i32 %.sroa.2.0.extract.trunc.i.i216, ptr noundef nonnull align 8 dereferenceable(16) %667, ptr noundef readonly null)
   br label %_ZN5clang15ASTRecordWriter13AddAttributesEN4llvm8ArrayRefIPKNS_4AttrEEE.exit
 
 668:                                              ; preds = %100
@@ -105455,7 +105455,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   %20 = getelementptr i8, ptr %.val, i64 16
   %.val.val118 = load ptr, ptr %20, align 8, !tbaa !29
   %.sroa.0.0.copyload.i.i = load i32, ptr %2, align 4, !tbaa !9
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val118, ptr noundef %.val117)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val118, ptr noundef readonly %.val117)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 21:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -105467,7 +105467,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   %24 = getelementptr i8, ptr %.val119, i64 16
   %.val119.val121 = load ptr, ptr %24, align 8, !tbaa !29
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %2, align 4, !tbaa !9
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val119.val, i32 %.sroa.0.0.copyload.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.val119.val121, ptr noundef %.val120)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val119.val, i32 %.sroa.0.0.copyload.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.val119.val121, ptr noundef readonly %.val120)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 25:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -105483,7 +105483,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   %29 = getelementptr i8, ptr %.val122, i64 16
   %.val122.val124 = load ptr, ptr %29, align 8, !tbaa !29
   %.sroa.0.0.copyload.i.i269 = load i32, ptr %2, align 4, !tbaa !9
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val122.val, i32 %.sroa.0.0.copyload.i.i269, ptr noundef nonnull align 8 dereferenceable(16) %.val122.val124, ptr noundef %.val123)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val122.val, i32 %.sroa.0.0.copyload.i.i269, ptr noundef nonnull align 8 dereferenceable(16) %.val122.val124, ptr noundef readonly %.val123)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 30:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -105503,7 +105503,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   %35 = getelementptr i8, ptr %.val125, i64 16
   %.val125.val127 = load ptr, ptr %35, align 8, !tbaa !29
   %.sroa.0.0.copyload.i.i.i285 = load i32, ptr %2, align 4, !tbaa !9
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val125.val, i32 %.sroa.0.0.copyload.i.i.i285, ptr noundef nonnull align 8 dereferenceable(16) %.val125.val127, ptr noundef %.val126)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val125.val, i32 %.sroa.0.0.copyload.i.i.i285, ptr noundef nonnull align 8 dereferenceable(16) %.val125.val127, ptr noundef readonly %.val126)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 36:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -105519,7 +105519,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   %40 = getelementptr i8, ptr %.val128, i64 16
   %.val128.val130 = load ptr, ptr %40, align 8, !tbaa !29
   %.sroa.0.0.copyload.i.i296 = load i32, ptr %2, align 4, !tbaa !9
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val128.val, i32 %.sroa.0.0.copyload.i.i296, ptr noundef nonnull align 8 dereferenceable(16) %.val128.val130, ptr noundef %.val129)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val128.val, i32 %.sroa.0.0.copyload.i.i296, ptr noundef nonnull align 8 dereferenceable(16) %.val128.val130, ptr noundef readonly %.val129)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 41:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -105535,7 +105535,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   %45 = getelementptr i8, ptr %.val131, i64 16
   %.val131.val133 = load ptr, ptr %45, align 8, !tbaa !29
   %.sroa.0.0.copyload.i.i307 = load i32, ptr %2, align 4, !tbaa !9
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val131.val, i32 %.sroa.0.0.copyload.i.i307, ptr noundef nonnull align 8 dereferenceable(16) %.val131.val133, ptr noundef %.val132)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val131.val, i32 %.sroa.0.0.copyload.i.i307, ptr noundef nonnull align 8 dereferenceable(16) %.val131.val133, ptr noundef readonly %.val132)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 46:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -105551,7 +105551,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   %50 = getelementptr i8, ptr %.val134, i64 16
   %.val134.val136 = load ptr, ptr %50, align 8, !tbaa !29
   %.sroa.0.0.copyload.i.i318 = load i32, ptr %2, align 4, !tbaa !9
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val134.val, i32 %.sroa.0.0.copyload.i.i318, ptr noundef nonnull align 8 dereferenceable(16) %.val134.val136, ptr noundef %.val135)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val134.val, i32 %.sroa.0.0.copyload.i.i318, ptr noundef nonnull align 8 dereferenceable(16) %.val134.val136, ptr noundef readonly %.val135)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 51:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -105559,11 +105559,11 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 52:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter20VisitFunctionTypeLocEN5clang15FunctionTypeLocE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nonnull %1, ptr readonly %2)
+  tail call fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter20VisitFunctionTypeLocEN5clang15FunctionTypeLocE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nonnull readonly %1, ptr readonly %2)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 53:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter20VisitFunctionTypeLocEN5clang15FunctionTypeLocE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nonnull %1, ptr readonly %2)
+  tail call fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter20VisitFunctionTypeLocEN5clang15FunctionTypeLocE(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nonnull readonly %1, ptr readonly %2)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 54:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -105575,7 +105575,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   %57 = getelementptr i8, ptr %.val137, i64 16
   %.val137.val139 = load ptr, ptr %57, align 8, !tbaa !29
   %.sroa.0.0.copyload.i.i344 = load i32, ptr %2, align 4, !tbaa !9
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val137.val, i32 %.sroa.0.0.copyload.i.i344, ptr noundef nonnull align 8 dereferenceable(16) %.val137.val139, ptr noundef %.val138)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val137.val, i32 %.sroa.0.0.copyload.i.i344, ptr noundef nonnull align 8 dereferenceable(16) %.val137.val139, ptr noundef readonly %.val138)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 58:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -105587,7 +105587,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   %61 = getelementptr i8, ptr %.val140, i64 16
   %.val140.val142 = load ptr, ptr %61, align 8, !tbaa !29
   %.sroa.0.0.copyload.i.i350 = load i32, ptr %2, align 4, !tbaa !9
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val140.val, i32 %.sroa.0.0.copyload.i.i350, ptr noundef nonnull align 8 dereferenceable(16) %.val140.val142, ptr noundef %.val141)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val140.val, i32 %.sroa.0.0.copyload.i.i350, ptr noundef nonnull align 8 dereferenceable(16) %.val140.val142, ptr noundef readonly %.val141)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 62:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -105611,7 +105611,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   %68 = getelementptr i8, ptr %.val143, i64 16
   %.val143.val145 = load ptr, ptr %68, align 8, !tbaa !29
   %.sroa.0.0.copyload.i.i.i371 = load i32, ptr %2, align 4, !tbaa !9
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val143.val, i32 %.sroa.0.0.copyload.i.i.i371, ptr noundef nonnull align 8 dereferenceable(16) %.val143.val145, ptr noundef %.val144)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val143.val, i32 %.sroa.0.0.copyload.i.i.i371, ptr noundef nonnull align 8 dereferenceable(16) %.val143.val145, ptr noundef readonly %.val144)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 69:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -105635,7 +105635,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   %75 = getelementptr i8, ptr %.val146, i64 16
   %.val146.val148 = load ptr, ptr %75, align 8, !tbaa !29
   %.sroa.0.0.copyload.i.i392 = load i32, ptr %2, align 4, !tbaa !9
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val146.val, i32 %.sroa.0.0.copyload.i.i392, ptr noundef nonnull align 8 dereferenceable(16) %.val146.val148, ptr noundef %.val147)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val146.val, i32 %.sroa.0.0.copyload.i.i392, ptr noundef nonnull align 8 dereferenceable(16) %.val146.val148, ptr noundef readonly %.val147)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 76:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -105647,7 +105647,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   %79 = getelementptr i8, ptr %.val149, i64 16
   %.val149.val151 = load ptr, ptr %79, align 8, !tbaa !29
   %.sroa.0.0.copyload.i.i398 = load i32, ptr %2, align 4, !tbaa !9
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val149.val, i32 %.sroa.0.0.copyload.i.i398, ptr noundef nonnull align 8 dereferenceable(16) %.val149.val151, ptr noundef %.val150)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val149.val, i32 %.sroa.0.0.copyload.i.i398, ptr noundef nonnull align 8 dereferenceable(16) %.val149.val151, ptr noundef readonly %.val150)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 80:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -105663,7 +105663,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   %84 = getelementptr i8, ptr %.val152, i64 16
   %.val152.val154 = load ptr, ptr %84, align 8, !tbaa !29
   %.sroa.0.0.copyload.i.i409 = load i32, ptr %2, align 4, !tbaa !9
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val152.val, i32 %.sroa.0.0.copyload.i.i409, ptr noundef nonnull align 8 dereferenceable(16) %.val152.val154, ptr noundef %.val153)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val152.val, i32 %.sroa.0.0.copyload.i.i409, ptr noundef nonnull align 8 dereferenceable(16) %.val152.val154, ptr noundef readonly %.val153)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 85:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -105675,7 +105675,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   %88 = getelementptr i8, ptr %.val155, i64 16
   %.val155.val157 = load ptr, ptr %88, align 8, !tbaa !29
   %.sroa.0.0.copyload.i.i.i415 = load i32, ptr %2, align 4, !tbaa !9
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val155.val, i32 %.sroa.0.0.copyload.i.i.i415, ptr noundef nonnull align 8 dereferenceable(16) %.val155.val157, ptr noundef %.val156)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val155.val, i32 %.sroa.0.0.copyload.i.i.i415, ptr noundef nonnull align 8 dereferenceable(16) %.val155.val157, ptr noundef readonly %.val156)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 89:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -105687,7 +105687,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   %92 = getelementptr i8, ptr %.val158, i64 16
   %.val158.val160 = load ptr, ptr %92, align 8, !tbaa !29
   %.sroa.0.0.copyload.i.i.i421 = load i32, ptr %2, align 4, !tbaa !9
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val158.val, i32 %.sroa.0.0.copyload.i.i.i421, ptr noundef nonnull align 8 dereferenceable(16) %.val158.val160, ptr noundef %.val159)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val158.val, i32 %.sroa.0.0.copyload.i.i.i421, ptr noundef nonnull align 8 dereferenceable(16) %.val158.val160, ptr noundef readonly %.val159)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 93:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -105699,7 +105699,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   %96 = getelementptr i8, ptr %.val161, i64 16
   %.val161.val163 = load ptr, ptr %96, align 8, !tbaa !29
   %.sroa.0.0.copyload.i.i.i427 = load i32, ptr %2, align 4, !tbaa !9
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val161.val, i32 %.sroa.0.0.copyload.i.i.i427, ptr noundef nonnull align 8 dereferenceable(16) %.val161.val163, ptr noundef %.val162)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val161.val, i32 %.sroa.0.0.copyload.i.i.i427, ptr noundef nonnull align 8 dereferenceable(16) %.val161.val163, ptr noundef readonly %.val162)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 97:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -105711,7 +105711,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   %100 = getelementptr i8, ptr %.val164, i64 16
   %.val164.val166 = load ptr, ptr %100, align 8, !tbaa !29
   %.sroa.0.0.copyload.i.i433 = load i32, ptr %2, align 4, !tbaa !9
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val164.val, i32 %.sroa.0.0.copyload.i.i433, ptr noundef nonnull align 8 dereferenceable(16) %.val164.val166, ptr noundef %.val165)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val164.val, i32 %.sroa.0.0.copyload.i.i433, ptr noundef nonnull align 8 dereferenceable(16) %.val164.val166, ptr noundef readonly %.val165)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 101:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -105723,7 +105723,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   %104 = getelementptr i8, ptr %.val167, i64 16
   %.val167.val169 = load ptr, ptr %104, align 8, !tbaa !29
   %.sroa.0.0.copyload.i.i439 = load i32, ptr %2, align 4, !tbaa !9
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val167.val, i32 %.sroa.0.0.copyload.i.i439, ptr noundef nonnull align 8 dereferenceable(16) %.val167.val169, ptr noundef %.val168)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val167.val, i32 %.sroa.0.0.copyload.i.i439, ptr noundef nonnull align 8 dereferenceable(16) %.val167.val169, ptr noundef readonly %.val168)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 105:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -105735,7 +105735,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   %108 = getelementptr i8, ptr %.val170, i64 16
   %.val170.val172 = load ptr, ptr %108, align 8, !tbaa !29
   %.sroa.0.0.copyload.i.i445 = load i32, ptr %2, align 4, !tbaa !9
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val170.val, i32 %.sroa.0.0.copyload.i.i445, ptr noundef nonnull align 8 dereferenceable(16) %.val170.val172, ptr noundef %.val171)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val170.val, i32 %.sroa.0.0.copyload.i.i445, ptr noundef nonnull align 8 dereferenceable(16) %.val170.val172, ptr noundef readonly %.val171)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 109:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -105747,7 +105747,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   %112 = getelementptr i8, ptr %.val173, i64 16
   %.val173.val175 = load ptr, ptr %112, align 8, !tbaa !29
   %.sroa.0.0.copyload.i.i451 = load i32, ptr %2, align 4, !tbaa !9
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val173.val, i32 %.sroa.0.0.copyload.i.i451, ptr noundef nonnull align 8 dereferenceable(16) %.val173.val175, ptr noundef %.val174)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val173.val, i32 %.sroa.0.0.copyload.i.i451, ptr noundef nonnull align 8 dereferenceable(16) %.val173.val175, ptr noundef readonly %.val174)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 113:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -105763,7 +105763,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   %117 = getelementptr i8, ptr %.val176, i64 16
   %.val176.val178 = load ptr, ptr %117, align 8, !tbaa !29
   %.sroa.0.0.copyload.i.i462 = load i32, ptr %2, align 4, !tbaa !9
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val176.val, i32 %.sroa.0.0.copyload.i.i462, ptr noundef nonnull align 8 dereferenceable(16) %.val176.val178, ptr noundef %.val177)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val176.val, i32 %.sroa.0.0.copyload.i.i462, ptr noundef nonnull align 8 dereferenceable(16) %.val176.val178, ptr noundef readonly %.val177)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 118:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -105783,7 +105783,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   %123 = getelementptr i8, ptr %.val179, i64 16
   %.val179.val181 = load ptr, ptr %123, align 8, !tbaa !29
   %.sroa.0.0.copyload.i.i478 = load i32, ptr %2, align 4, !tbaa !9
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val179.val, i32 %.sroa.0.0.copyload.i.i478, ptr noundef nonnull align 8 dereferenceable(16) %.val179.val181, ptr noundef %.val180)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val179.val, i32 %.sroa.0.0.copyload.i.i478, ptr noundef nonnull align 8 dereferenceable(16) %.val179.val181, ptr noundef readonly %.val180)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 124:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -105799,7 +105799,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   %128 = getelementptr i8, ptr %.val182, i64 16
   %.val182.val184 = load ptr, ptr %128, align 8, !tbaa !29
   %.sroa.0.0.copyload.i.i489 = load i32, ptr %2, align 4, !tbaa !9
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val182.val, i32 %.sroa.0.0.copyload.i.i489, ptr noundef nonnull align 8 dereferenceable(16) %.val182.val184, ptr noundef %.val183)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val182.val, i32 %.sroa.0.0.copyload.i.i489, ptr noundef nonnull align 8 dereferenceable(16) %.val182.val184, ptr noundef readonly %.val183)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 129:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -105811,7 +105811,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   %132 = getelementptr i8, ptr %.val185, i64 16
   %.val185.val187 = load ptr, ptr %132, align 8, !tbaa !29
   %.sroa.0.0.copyload.i.i495 = load i32, ptr %2, align 4, !tbaa !9
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val185.val, i32 %.sroa.0.0.copyload.i.i495, ptr noundef nonnull align 8 dereferenceable(16) %.val185.val187, ptr noundef %.val186)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val185.val, i32 %.sroa.0.0.copyload.i.i495, ptr noundef nonnull align 8 dereferenceable(16) %.val185.val187, ptr noundef readonly %.val186)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 133:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -105823,7 +105823,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   %136 = getelementptr i8, ptr %.val188, i64 16
   %.val188.val190 = load ptr, ptr %136, align 8, !tbaa !29
   %.sroa.0.0.copyload.i.i501 = load i32, ptr %2, align 4, !tbaa !9
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val188.val, i32 %.sroa.0.0.copyload.i.i501, ptr noundef nonnull align 8 dereferenceable(16) %.val188.val190, ptr noundef %.val189)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val188.val, i32 %.sroa.0.0.copyload.i.i501, ptr noundef nonnull align 8 dereferenceable(16) %.val188.val190, ptr noundef readonly %.val189)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 137:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -105835,7 +105835,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
   %140 = getelementptr i8, ptr %.val191, i64 16
   %.val191.val193 = load ptr, ptr %140, align 8, !tbaa !29
   %.sroa.0.0.copyload.i.i507 = load i32, ptr %2, align 4, !tbaa !9
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val191.val, i32 %.sroa.0.0.copyload.i.i507, ptr noundef nonnull align 8 dereferenceable(16) %.val191.val193, ptr noundef %.val192)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val191.val, i32 %.sroa.0.0.copyload.i.i507, ptr noundef nonnull align 8 dereferenceable(16) %.val191.val193, ptr noundef readonly %.val192)
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 141:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -106833,8 +106833,8 @@ _ZN5clang15ASTRecordWriter10AddTypeLocENS_7TypeLocEPNS_22SourceLocationSequenceE
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %61 to i32
   %.sroa.2.0.extract.shift.i.i = lshr i64 %61, 32
   %.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i to i32
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %63, i32 %.sroa.0.0.extract.trunc.i.i, ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef null)
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %63, i32 %.sroa.2.0.extract.trunc.i.i, ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef null)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %63, i32 %.sroa.0.0.extract.trunc.i.i, ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef readonly null)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %63, i32 %.sroa.2.0.extract.trunc.i.i, ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef readonly null)
   br label %_ZN5clang15ASTRecordWriter17AddTypeSourceInfoEPNS_14TypeSourceInfoE.exit
 
 66:                                               ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit
@@ -107359,8 +107359,8 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit17: ; preds = %_ZN4llvm
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.0.copyload.i to i32
   %.sroa.2.0.extract.shift.i.i = lshr i64 %.sroa.0.0.copyload.i, 32
   %.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i to i32
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %81, i32 %.sroa.0.0.extract.trunc.i.i, ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef null)
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %81, i32 %.sroa.2.0.extract.trunc.i.i, ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef null)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %81, i32 %.sroa.0.0.extract.trunc.i.i, ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef readonly null)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %81, i32 %.sroa.2.0.extract.trunc.i.i, ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef readonly null)
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %84 = load i32, ptr %83, align 8, !tbaa !1364
   %85 = load ptr, ptr %80, align 8, !tbaa !11
@@ -159395,7 +159395,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter18VisitAtomicTypeLo
   %.val.val = load ptr, ptr %4, align 8, !tbaa !11
   %5 = getelementptr i8, ptr %.val, i64 16
   %.val.val10 = load ptr, ptr %5, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val10, ptr noundef %.val3)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val10, ptr noundef readonly %.val3)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i11 = load i32, ptr %6, align 4, !tbaa !9
   %.val4 = load ptr, ptr %0, align 8, !tbaa !4324
@@ -159404,7 +159404,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter18VisitAtomicTypeLo
   %.val4.val = load ptr, ptr %7, align 8, !tbaa !11
   %8 = getelementptr i8, ptr %.val4, i64 16
   %.val4.val9 = load ptr, ptr %8, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val4.val, i32 %.sroa.0.0.copyload.i11, ptr noundef nonnull align 8 dereferenceable(16) %.val4.val9, ptr noundef %.val5)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val4.val, i32 %.sroa.0.0.copyload.i11, ptr noundef nonnull align 8 dereferenceable(16) %.val4.val9, ptr noundef readonly %.val5)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i12 = load i32, ptr %9, align 4, !tbaa !9
   %.val6 = load ptr, ptr %0, align 8, !tbaa !4324
@@ -159413,7 +159413,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter18VisitAtomicTypeLo
   %.val6.val = load ptr, ptr %10, align 8, !tbaa !11
   %11 = getelementptr i8, ptr %.val6, i64 16
   %.val6.val8 = load ptr, ptr %11, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val6.val, i32 %.sroa.0.0.copyload.i12, ptr noundef nonnull align 8 dereferenceable(16) %.val6.val8, ptr noundef %.val7)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val6.val, i32 %.sroa.0.0.copyload.i12, ptr noundef nonnull align 8 dereferenceable(16) %.val6.val8, ptr noundef readonly %.val7)
   ret void
 }
 
@@ -159431,7 +159431,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter19VisitBuiltinTypeL
   %.val.val = load ptr, ptr %7, align 8, !tbaa !11
   %8 = getelementptr i8, ptr %.val, i64 16
   %.val.val2 = load ptr, ptr %8, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val2, ptr noundef %.val1)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val2, ptr noundef readonly %.val1)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i32, ptr %9, align 16
   %.fr38 = freeze i32 %10
@@ -159712,7 +159712,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter20VisitDecltypeType
   %.val.val = load ptr, ptr %4, align 8, !tbaa !11
   %5 = getelementptr i8, ptr %.val, i64 16
   %.val.val6 = load ptr, ptr %5, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val6, ptr noundef %.val2)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val6, ptr noundef readonly %.val2)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i7 = load i32, ptr %6, align 4, !tbaa !9
   %.val3 = load ptr, ptr %0, align 8, !tbaa !4324
@@ -159721,7 +159721,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter20VisitDecltypeType
   %.val3.val = load ptr, ptr %7, align 8, !tbaa !11
   %8 = getelementptr i8, ptr %.val3, i64 16
   %.val3.val5 = load ptr, ptr %8, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val3.val, i32 %.sroa.0.0.copyload.i7, ptr noundef nonnull align 8 dereferenceable(16) %.val3.val5, ptr noundef %.val4)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val3.val, i32 %.sroa.0.0.copyload.i7, ptr noundef nonnull align 8 dereferenceable(16) %.val3.val5, ptr noundef readonly %.val4)
   ret void
 }
 
@@ -159735,7 +159735,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter16VisitAutoTypeLocE
   %.val.val = load ptr, ptr %5, align 8, !tbaa !11
   %6 = getelementptr i8, ptr %.val, i64 16
   %.val.val10 = load ptr, ptr %6, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val10, ptr noundef %.val6)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val10, ptr noundef readonly %.val6)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !5586
   %9 = load ptr, ptr %0, align 8, !tbaa !4324
@@ -159828,7 +159828,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit13:    ; preds = %36, %49
   %.val7.val = load ptr, ptr %64, align 8, !tbaa !11
   %65 = getelementptr i8, ptr %.val7, i64 16
   %.val7.val9 = load ptr, ptr %65, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val7.val, i32 %.sroa.0.0.copyload.i14, ptr noundef nonnull align 8 dereferenceable(16) %.val7.val9, ptr noundef %.val8)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val7.val, i32 %.sroa.0.0.copyload.i14, ptr noundef nonnull align 8 dereferenceable(16) %.val7.val9, ptr noundef readonly %.val8)
   br label %66
 
 66:                                               ; preds = %62, %_ZN5clang15ASTRecordWriter9push_backEm.exit13
@@ -159846,7 +159846,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter33VisitDependentAdd
   %.val.val = load ptr, ptr %5, align 8, !tbaa !11
   %6 = getelementptr i8, ptr %.val, i64 16
   %.val.val10 = load ptr, ptr %6, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val10, ptr noundef %.val3)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val10, ptr noundef readonly %.val3)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i11 = load i64, ptr %7, align 8
   %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i11 to i32
@@ -159858,14 +159858,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter33VisitDependentAdd
   %.val4.val = load ptr, ptr %8, align 8, !tbaa !11
   %9 = getelementptr i8, ptr %.val4, i64 16
   %.val4.val9 = load ptr, ptr %9, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val4.val, i32 %.sroa.0.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(16) %.val4.val9, ptr noundef %.val5)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val4.val, i32 %.sroa.0.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(16) %.val4.val9, ptr noundef readonly %.val5)
   %.val6 = load ptr, ptr %0, align 8, !tbaa !4324
   %.val7 = load ptr, ptr %4, align 8, !tbaa !63
   %10 = getelementptr i8, ptr %.val6, i64 8
   %.val6.val = load ptr, ptr %10, align 8, !tbaa !11
   %11 = getelementptr i8, ptr %.val6, i64 16
   %.val6.val8 = load ptr, ptr %11, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val6.val, i32 %.sroa.4.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(16) %.val6.val8, ptr noundef %.val7)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val6.val, i32 %.sroa.4.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(16) %.val6.val8, ptr noundef readonly %.val7)
   %12 = load ptr, ptr %0, align 8, !tbaa !4324
   %13 = load ptr, ptr %1, align 8, !tbaa !5590
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -159907,7 +159907,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter25VisitDependentNam
   %.val.val = load ptr, ptr %5, align 8, !tbaa !11
   %6 = getelementptr i8, ptr %.val, i64 16
   %.val.val7 = load ptr, ptr %6, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val7, ptr noundef %.val3)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val7, ptr noundef readonly %.val3)
   %7 = load ptr, ptr %0, align 8, !tbaa !4324
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 16, !tbaa !4960
@@ -159922,7 +159922,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter25VisitDependentNam
   %.val4.val = load ptr, ptr %13, align 8, !tbaa !11
   %14 = getelementptr i8, ptr %.val4, i64 16
   %.val4.val6 = load ptr, ptr %14, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val4.val, i32 %.sroa.0.0.copyload.i8, ptr noundef nonnull align 8 dereferenceable(16) %.val4.val6, ptr noundef %.val5)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val4.val, i32 %.sroa.0.0.copyload.i8, ptr noundef nonnull align 8 dereferenceable(16) %.val4.val6, ptr noundef readonly %.val5)
   ret void
 }
 
@@ -159937,7 +159937,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter43VisitDependentTem
   %.val.val = load ptr, ptr %6, align 8, !tbaa !11
   %7 = getelementptr i8, ptr %.val, i64 16
   %.val.val23 = load ptr, ptr %7, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val23, ptr noundef %.val10)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val23, ptr noundef readonly %.val10)
   %8 = load ptr, ptr %0, align 8, !tbaa !4324
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !5592
@@ -159960,7 +159960,7 @@ _ZNK5clang38DependentTemplateSpecializationTypeLoc15getQualifierLocEv.exit: ; pr
   %.val11.val = load ptr, ptr %15, align 8, !tbaa !11
   %16 = getelementptr i8, ptr %.val11, i64 16
   %.val11.val22 = load ptr, ptr %16, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val11.val, i32 %.sroa.0.0.copyload.i24, ptr noundef nonnull align 8 dereferenceable(16) %.val11.val22, ptr noundef %.val12)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val11.val, i32 %.sroa.0.0.copyload.i24, ptr noundef nonnull align 8 dereferenceable(16) %.val11.val22, ptr noundef readonly %.val12)
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.0.0.copyload.i25 = load i32, ptr %17, align 8, !tbaa !9
   %.val13 = load ptr, ptr %0, align 8, !tbaa !4324
@@ -159969,7 +159969,7 @@ _ZNK5clang38DependentTemplateSpecializationTypeLoc15getQualifierLocEv.exit: ; pr
   %.val13.val = load ptr, ptr %18, align 8, !tbaa !11
   %19 = getelementptr i8, ptr %.val13, i64 16
   %.val13.val21 = load ptr, ptr %19, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val13.val, i32 %.sroa.0.0.copyload.i25, ptr noundef nonnull align 8 dereferenceable(16) %.val13.val21, ptr noundef %.val14)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val13.val, i32 %.sroa.0.0.copyload.i25, ptr noundef nonnull align 8 dereferenceable(16) %.val13.val21, ptr noundef readonly %.val14)
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.0.0.copyload.i26 = load i32, ptr %20, align 8, !tbaa !9
   %.val15 = load ptr, ptr %0, align 8, !tbaa !4324
@@ -159978,7 +159978,7 @@ _ZNK5clang38DependentTemplateSpecializationTypeLoc15getQualifierLocEv.exit: ; pr
   %.val15.val = load ptr, ptr %21, align 8, !tbaa !11
   %22 = getelementptr i8, ptr %.val15, i64 16
   %.val15.val20 = load ptr, ptr %22, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val15.val, i32 %.sroa.0.0.copyload.i26, ptr noundef nonnull align 8 dereferenceable(16) %.val15.val20, ptr noundef %.val16)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val15.val, i32 %.sroa.0.0.copyload.i26, ptr noundef nonnull align 8 dereferenceable(16) %.val15.val20, ptr noundef readonly %.val16)
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %.sroa.0.0.copyload.i27 = load i32, ptr %23, align 4, !tbaa !9
   %.val17 = load ptr, ptr %0, align 8, !tbaa !4324
@@ -159987,7 +159987,7 @@ _ZNK5clang38DependentTemplateSpecializationTypeLoc15getQualifierLocEv.exit: ; pr
   %.val17.val = load ptr, ptr %24, align 8, !tbaa !11
   %25 = getelementptr i8, ptr %.val17, i64 16
   %.val17.val19 = load ptr, ptr %25, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val17.val, i32 %.sroa.0.0.copyload.i27, ptr noundef nonnull align 8 dereferenceable(16) %.val17.val19, ptr noundef %.val18)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val17.val, i32 %.sroa.0.0.copyload.i27, ptr noundef nonnull align 8 dereferenceable(16) %.val17.val19, ptr noundef readonly %.val18)
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %27 = load i32, ptr %26, align 4, !tbaa !50
   %.not43 = icmp eq i32 %27, 0
@@ -160046,7 +160046,7 @@ _ZNK5clang17ElaboratedTypeLoc23getElaboratedKeywordLocEv.exit: ; preds = %_ZNK5c
   %.val.val = load ptr, ptr %12, align 8, !tbaa !11
   %13 = getelementptr i8, ptr %.val, i64 16
   %.val.val3 = load ptr, ptr %13, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val3, ptr noundef %.val2)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val3, ptr noundef readonly %.val2)
   %14 = load ptr, ptr %0, align 8, !tbaa !4324
   %15 = load i32, ptr %4, align 16
   %16 = and i32 %15, 133693440
@@ -160079,7 +160079,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter26VisitConstantMatr
   %.val.val = load ptr, ptr %4, align 8, !tbaa !11
   %5 = getelementptr i8, ptr %.val, i64 16
   %.val.val10 = load ptr, ptr %5, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val10, ptr noundef %.val3)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val10, ptr noundef readonly %.val3)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i11 = load i64, ptr %6, align 4
   %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i11 to i32
@@ -160091,14 +160091,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter26VisitConstantMatr
   %.val4.val = load ptr, ptr %7, align 8, !tbaa !11
   %8 = getelementptr i8, ptr %.val4, i64 16
   %.val4.val9 = load ptr, ptr %8, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val4.val, i32 %.sroa.0.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(16) %.val4.val9, ptr noundef %.val5)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val4.val, i32 %.sroa.0.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(16) %.val4.val9, ptr noundef readonly %.val5)
   %.val6 = load ptr, ptr %0, align 8, !tbaa !4324
   %.val7 = load ptr, ptr %3, align 8, !tbaa !63
   %9 = getelementptr i8, ptr %.val6, i64 8
   %.val6.val = load ptr, ptr %9, align 8, !tbaa !11
   %10 = getelementptr i8, ptr %.val6, i64 16
   %.val6.val8 = load ptr, ptr %10, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val6.val, i32 %.sroa.4.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(16) %.val6.val8, ptr noundef %.val7)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val6.val, i32 %.sroa.4.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(16) %.val6.val8, ptr noundef readonly %.val7)
   %11 = load ptr, ptr %0, align 8, !tbaa !4324
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !5598
@@ -160170,7 +160170,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter32VisitDependentSiz
   %.val.val = load ptr, ptr %4, align 8, !tbaa !11
   %5 = getelementptr i8, ptr %.val, i64 16
   %.val.val10 = load ptr, ptr %5, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val10, ptr noundef %.val3)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val10, ptr noundef readonly %.val3)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i11 = load i64, ptr %6, align 4
   %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i11 to i32
@@ -160182,14 +160182,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter32VisitDependentSiz
   %.val4.val = load ptr, ptr %7, align 8, !tbaa !11
   %8 = getelementptr i8, ptr %.val4, i64 16
   %.val4.val9 = load ptr, ptr %8, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val4.val, i32 %.sroa.0.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(16) %.val4.val9, ptr noundef %.val5)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val4.val, i32 %.sroa.0.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(16) %.val4.val9, ptr noundef readonly %.val5)
   %.val6 = load ptr, ptr %0, align 8, !tbaa !4324
   %.val7 = load ptr, ptr %3, align 8, !tbaa !63
   %9 = getelementptr i8, ptr %.val6, i64 8
   %.val6.val = load ptr, ptr %9, align 8, !tbaa !11
   %10 = getelementptr i8, ptr %.val6, i64 16
   %.val6.val8 = load ptr, ptr %10, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val6.val, i32 %.sroa.4.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(16) %.val6.val8, ptr noundef %.val7)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val6.val, i32 %.sroa.4.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(16) %.val6.val8, ptr noundef readonly %.val7)
   %11 = load ptr, ptr %0, align 8, !tbaa !4324
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !5598
@@ -160263,7 +160263,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter25VisitMemberPointe
   %.val.val = load ptr, ptr %6, align 8, !tbaa !11
   %7 = getelementptr i8, ptr %.val, i64 16
   %.val.val2 = load ptr, ptr %7, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val2, ptr noundef %.val1)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val2, ptr noundef readonly %.val1)
   %8 = load ptr, ptr %0, align 8, !tbaa !4324
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !5601
@@ -160409,7 +160409,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %3, %16
   %.val.val = load ptr, ptr %27, align 8, !tbaa !11
   %28 = getelementptr i8, ptr %.val, i64 16
   %.val.val27 = load ptr, ptr %28, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val27, ptr noundef %.val14)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val27, ptr noundef readonly %.val14)
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.sroa.0.0.copyload.i28 = load i32, ptr %29, align 4, !tbaa !9
   %.val15 = load ptr, ptr %0, align 8, !tbaa !4324
@@ -160418,7 +160418,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %3, %16
   %.val15.val = load ptr, ptr %30, align 8, !tbaa !11
   %31 = getelementptr i8, ptr %.val15, i64 16
   %.val15.val26 = load ptr, ptr %31, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val15.val, i32 %.sroa.0.0.copyload.i28, ptr noundef nonnull align 8 dereferenceable(16) %.val15.val26, ptr noundef %.val16)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val15.val, i32 %.sroa.0.0.copyload.i28, ptr noundef nonnull align 8 dereferenceable(16) %.val15.val26, ptr noundef readonly %.val16)
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %33 = load i32, ptr %32, align 16
   %34 = lshr i32 %33, 19
@@ -160442,7 +160442,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %3, %16
   %.val17.val = load ptr, ptr %41, align 8, !tbaa !11
   %42 = getelementptr i8, ptr %.val17, i64 16
   %.val17.val25 = load ptr, ptr %42, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val17.val, i32 %.sroa.0.0.copyload.i29, ptr noundef nonnull align 8 dereferenceable(16) %.val17.val25, ptr noundef %.val18)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val17.val, i32 %.sroa.0.0.copyload.i29, ptr noundef nonnull align 8 dereferenceable(16) %.val17.val25, ptr noundef readonly %.val18)
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %.sroa.0.0.copyload.i30 = load i32, ptr %43, align 4, !tbaa !9
   %.val19 = load ptr, ptr %0, align 8, !tbaa !4324
@@ -160451,7 +160451,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %3, %16
   %.val19.val = load ptr, ptr %44, align 8, !tbaa !11
   %45 = getelementptr i8, ptr %.val19, i64 16
   %.val19.val24 = load ptr, ptr %45, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val19.val, i32 %.sroa.0.0.copyload.i30, ptr noundef nonnull align 8 dereferenceable(16) %.val19.val24, ptr noundef %.val20)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val19.val, i32 %.sroa.0.0.copyload.i30, ptr noundef nonnull align 8 dereferenceable(16) %.val19.val24, ptr noundef readonly %.val20)
   %46 = load i32, ptr %32, align 16
   %.not1348 = icmp ult i32 %46, 67108864
   br i1 %.not1348, label %._crit_edge52, label %.lr.ph51
@@ -160584,7 +160584,7 @@ _ZN5clang15ASTRecordWriter17AddTypeSourceInfoEPNS_14TypeSourceInfoE.exit: ; pred
   %.val21.val = load ptr, ptr %104, align 8, !tbaa !11
   %105 = getelementptr i8, ptr %.val21, i64 16
   %.val21.val23 = load ptr, ptr %105, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val21.val, i32 %.sroa.0.0.copyload.i31, ptr noundef nonnull align 8 dereferenceable(16) %.val21.val23, ptr noundef %.val22)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val21.val, i32 %.sroa.0.0.copyload.i31, ptr noundef nonnull align 8 dereferenceable(16) %.val21.val23, ptr noundef readonly %.val22)
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %.not13 = icmp eq i64 %indvars.iv.next55, %49
   br i1 %.not13, label %._crit_edge52, label %97, !llvm.loop !5608
@@ -160600,7 +160600,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter25VisitObjCInterfac
   %.val.val = load ptr, ptr %4, align 8, !tbaa !11
   %5 = getelementptr i8, ptr %.val, i64 16
   %.val.val6 = load ptr, ptr %5, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val6, ptr noundef %.val2)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val6, ptr noundef readonly %.val2)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i7 = load i32, ptr %6, align 4, !tbaa !9
   %.val3 = load ptr, ptr %0, align 8, !tbaa !4324
@@ -160609,7 +160609,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter25VisitObjCInterfac
   %.val3.val = load ptr, ptr %7, align 8, !tbaa !11
   %8 = getelementptr i8, ptr %.val3, i64 16
   %.val3.val5 = load ptr, ptr %8, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val3.val, i32 %.sroa.0.0.copyload.i7, ptr noundef nonnull align 8 dereferenceable(16) %.val3.val5, ptr noundef %.val4)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val3.val, i32 %.sroa.0.0.copyload.i7, ptr noundef nonnull align 8 dereferenceable(16) %.val3.val5, ptr noundef readonly %.val4)
   ret void
 }
 
@@ -160631,7 +160631,7 @@ _ZNK5clang20ObjCTypeParamTypeLoc20getProtocolLAngleLocEv.exit: ; preds = %3
   %.val.val = load ptr, ptr %10, align 8, !tbaa !11
   %11 = getelementptr i8, ptr %.val, i64 16
   %.val.val14 = load ptr, ptr %11, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %8, ptr noundef nonnull align 8 dereferenceable(16) %.val.val14, ptr noundef %.val7)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %8, ptr noundef nonnull align 8 dereferenceable(16) %.val.val14, ptr noundef readonly %.val7)
   %12 = load i8, ptr %4, align 16
   %13 = and i8 %12, 63
   %.not.i15 = icmp eq i8 %13, 0
@@ -160650,7 +160650,7 @@ _ZNK5clang20ObjCTypeParamTypeLoc20getProtocolLAngleLocEv.exit: ; preds = %3
   %.val8.val = load ptr, ptr %18, align 8, !tbaa !11
   %19 = getelementptr i8, ptr %.val8, i64 16
   %.val8.val13 = load ptr, ptr %19, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val8.val, i32 %.sroa.0.0.i16, ptr noundef nonnull align 8 dereferenceable(16) %.val8.val13, ptr noundef %.val9)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val8.val, i32 %.sroa.0.0.i16, ptr noundef nonnull align 8 dereferenceable(16) %.val8.val13, ptr noundef readonly %.val9)
   %.pre = load i8, ptr %4, align 16
   %.pre25 = and i8 %.pre, 63
   %.not622 = icmp eq i8 %.pre25, 0
@@ -160675,7 +160675,7 @@ _ZNK5clang20ObjCTypeParamTypeLoc20getProtocolLAngleLocEv.exit: ; preds = %3
   %.val10.val = load ptr, ptr %25, align 8, !tbaa !11
   %26 = getelementptr i8, ptr %.val10, i64 16
   %.val10.val12 = load ptr, ptr %26, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val10.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val10.val12, ptr noundef %.val11)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val10.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val10.val12, ptr noundef readonly %.val11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not6 = icmp eq i64 %indvars.iv.next, %22
   br i1 %.not6, label %._crit_edge, label %23, !llvm.loop !5609
@@ -160691,7 +160691,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter17VisitParenTypeLoc
   %.val.val = load ptr, ptr %4, align 8, !tbaa !11
   %5 = getelementptr i8, ptr %.val, i64 16
   %.val.val6 = load ptr, ptr %5, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val6, ptr noundef %.val2)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val6, ptr noundef readonly %.val2)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i7 = load i32, ptr %6, align 4, !tbaa !9
   %.val3 = load ptr, ptr %0, align 8, !tbaa !4324
@@ -160700,7 +160700,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter17VisitParenTypeLoc
   %.val3.val = load ptr, ptr %7, align 8, !tbaa !11
   %8 = getelementptr i8, ptr %.val3, i64 16
   %.val3.val5 = load ptr, ptr %8, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val3.val, i32 %.sroa.0.0.copyload.i7, ptr noundef nonnull align 8 dereferenceable(16) %.val3.val5, ptr noundef %.val4)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val3.val, i32 %.sroa.0.0.copyload.i7, ptr noundef nonnull align 8 dereferenceable(16) %.val3.val5, ptr noundef readonly %.val4)
   ret void
 }
 
@@ -160716,7 +160716,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter34VisitTemplateSpec
   %.val.val = load ptr, ptr %7, align 8, !tbaa !11
   %8 = getelementptr i8, ptr %.val, i64 16
   %.val.val18 = load ptr, ptr %8, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val18, ptr noundef %.val8)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val18, ptr noundef readonly %.val8)
   %.sroa.0.0.copyload.i19 = load i32, ptr %2, align 4, !tbaa !9
   %.val9 = load ptr, ptr %0, align 8, !tbaa !4324
   %.val10 = load ptr, ptr %6, align 8, !tbaa !63
@@ -160724,7 +160724,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter34VisitTemplateSpec
   %.val9.val = load ptr, ptr %9, align 8, !tbaa !11
   %10 = getelementptr i8, ptr %.val9, i64 16
   %.val9.val17 = load ptr, ptr %10, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val9.val, i32 %.sroa.0.0.copyload.i19, ptr noundef nonnull align 8 dereferenceable(16) %.val9.val17, ptr noundef %.val10)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val9.val, i32 %.sroa.0.0.copyload.i19, ptr noundef nonnull align 8 dereferenceable(16) %.val9.val17, ptr noundef readonly %.val10)
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.0.0.copyload.i20 = load i32, ptr %11, align 4, !tbaa !9
   %.val11 = load ptr, ptr %0, align 8, !tbaa !4324
@@ -160733,7 +160733,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter34VisitTemplateSpec
   %.val11.val = load ptr, ptr %12, align 8, !tbaa !11
   %13 = getelementptr i8, ptr %.val11, i64 16
   %.val11.val16 = load ptr, ptr %13, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val11.val, i32 %.sroa.0.0.copyload.i20, ptr noundef nonnull align 8 dereferenceable(16) %.val11.val16, ptr noundef %.val12)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val11.val, i32 %.sroa.0.0.copyload.i20, ptr noundef nonnull align 8 dereferenceable(16) %.val11.val16, ptr noundef readonly %.val12)
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %.sroa.0.0.copyload.i21 = load i32, ptr %14, align 4, !tbaa !9
   %.val13 = load ptr, ptr %0, align 8, !tbaa !4324
@@ -160742,7 +160742,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter34VisitTemplateSpec
   %.val13.val = load ptr, ptr %15, align 8, !tbaa !11
   %16 = getelementptr i8, ptr %.val13, i64 16
   %.val13.val15 = load ptr, ptr %16, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val13.val, i32 %.sroa.0.0.copyload.i21, ptr noundef nonnull align 8 dereferenceable(16) %.val13.val15, ptr noundef %.val14)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val13.val, i32 %.sroa.0.0.copyload.i21, ptr noundef nonnull align 8 dereferenceable(16) %.val13.val15, ptr noundef readonly %.val14)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %18 = load i32, ptr %17, align 4, !tbaa !50
   %.not35 = icmp eq i32 %18, 0
@@ -160784,7 +160784,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter22VisitTypeOfExprTy
   %.val.val = load ptr, ptr %4, align 8, !tbaa !11
   %5 = getelementptr i8, ptr %.val, i64 16
   %.val.val10 = load ptr, ptr %5, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val10, ptr noundef %.val3)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val10, ptr noundef readonly %.val3)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i11 = load i32, ptr %6, align 4, !tbaa !9
   %.val4 = load ptr, ptr %0, align 8, !tbaa !4324
@@ -160793,7 +160793,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter22VisitTypeOfExprTy
   %.val4.val = load ptr, ptr %7, align 8, !tbaa !11
   %8 = getelementptr i8, ptr %.val4, i64 16
   %.val4.val9 = load ptr, ptr %8, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val4.val, i32 %.sroa.0.0.copyload.i11, ptr noundef nonnull align 8 dereferenceable(16) %.val4.val9, ptr noundef %.val5)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val4.val, i32 %.sroa.0.0.copyload.i11, ptr noundef nonnull align 8 dereferenceable(16) %.val4.val9, ptr noundef readonly %.val5)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i12 = load i32, ptr %9, align 4, !tbaa !9
   %.val6 = load ptr, ptr %0, align 8, !tbaa !4324
@@ -160802,7 +160802,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter22VisitTypeOfExprTy
   %.val6.val = load ptr, ptr %10, align 8, !tbaa !11
   %11 = getelementptr i8, ptr %.val6, i64 16
   %.val6.val8 = load ptr, ptr %11, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val6.val, i32 %.sroa.0.0.copyload.i12, ptr noundef nonnull align 8 dereferenceable(16) %.val6.val8, ptr noundef %.val7)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val6.val, i32 %.sroa.0.0.copyload.i12, ptr noundef nonnull align 8 dereferenceable(16) %.val6.val8, ptr noundef readonly %.val7)
   ret void
 }
 
@@ -160818,7 +160818,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter18VisitTypeOfTypeLo
   %.val.val = load ptr, ptr %6, align 8, !tbaa !11
   %7 = getelementptr i8, ptr %.val, i64 16
   %.val.val10 = load ptr, ptr %7, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val10, ptr noundef %.val3)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val10, ptr noundef readonly %.val3)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i11 = load i32, ptr %8, align 4, !tbaa !9
   %.val4 = load ptr, ptr %0, align 8, !tbaa !4324
@@ -160827,7 +160827,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter18VisitTypeOfTypeLo
   %.val4.val = load ptr, ptr %9, align 8, !tbaa !11
   %10 = getelementptr i8, ptr %.val4, i64 16
   %.val4.val9 = load ptr, ptr %10, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val4.val, i32 %.sroa.0.0.copyload.i11, ptr noundef nonnull align 8 dereferenceable(16) %.val4.val9, ptr noundef %.val5)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val4.val, i32 %.sroa.0.0.copyload.i11, ptr noundef nonnull align 8 dereferenceable(16) %.val4.val9, ptr noundef readonly %.val5)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i12 = load i32, ptr %11, align 8, !tbaa !9
   %.val6 = load ptr, ptr %0, align 8, !tbaa !4324
@@ -160836,7 +160836,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter18VisitTypeOfTypeLo
   %.val6.val = load ptr, ptr %12, align 8, !tbaa !11
   %13 = getelementptr i8, ptr %.val6, i64 16
   %.val6.val8 = load ptr, ptr %13, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val6.val, i32 %.sroa.0.0.copyload.i12, ptr noundef nonnull align 8 dereferenceable(16) %.val6.val8, ptr noundef %.val7)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val6.val, i32 %.sroa.0.0.copyload.i12, ptr noundef nonnull align 8 dereferenceable(16) %.val6.val8, ptr noundef readonly %.val7)
   %14 = load ptr, ptr %0, align 8, !tbaa !4324
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !5614
@@ -160952,7 +160952,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter26VisitUnaryTransfo
   %.val.val = load ptr, ptr %6, align 8, !tbaa !11
   %7 = getelementptr i8, ptr %.val, i64 16
   %.val.val10 = load ptr, ptr %7, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val10, ptr noundef %.val3)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val10, ptr noundef readonly %.val3)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i11 = load i32, ptr %8, align 4, !tbaa !9
   %.val4 = load ptr, ptr %0, align 8, !tbaa !4324
@@ -160961,7 +160961,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter26VisitUnaryTransfo
   %.val4.val = load ptr, ptr %9, align 8, !tbaa !11
   %10 = getelementptr i8, ptr %.val4, i64 16
   %.val4.val9 = load ptr, ptr %10, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val4.val, i32 %.sroa.0.0.copyload.i11, ptr noundef nonnull align 8 dereferenceable(16) %.val4.val9, ptr noundef %.val5)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val4.val, i32 %.sroa.0.0.copyload.i11, ptr noundef nonnull align 8 dereferenceable(16) %.val4.val9, ptr noundef readonly %.val5)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i12 = load i32, ptr %11, align 8, !tbaa !9
   %.val6 = load ptr, ptr %0, align 8, !tbaa !4324
@@ -160970,7 +160970,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter26VisitUnaryTransfo
   %.val6.val = load ptr, ptr %12, align 8, !tbaa !11
   %13 = getelementptr i8, ptr %.val6, i64 16
   %.val6.val8 = load ptr, ptr %13, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val6.val, i32 %.sroa.0.0.copyload.i12, ptr noundef nonnull align 8 dereferenceable(16) %.val6.val8, ptr noundef %.val7)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val6.val, i32 %.sroa.0.0.copyload.i12, ptr noundef nonnull align 8 dereferenceable(16) %.val6.val8, ptr noundef readonly %.val7)
   %14 = load ptr, ptr %0, align 8, !tbaa !4324
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !5617
@@ -161084,7 +161084,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter17VisitArrayTypeLoc
   %.val.val = load ptr, ptr %4, align 8, !tbaa !11
   %5 = getelementptr i8, ptr %.val, i64 16
   %.val.val7 = load ptr, ptr %5, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val7, ptr noundef %.val3)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val.val7, ptr noundef readonly %.val3)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i8 = load i32, ptr %6, align 4, !tbaa !9
   %.val4 = load ptr, ptr %0, align 8, !tbaa !4324
@@ -161093,7 +161093,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter17VisitArrayTypeLoc
   %.val4.val = load ptr, ptr %7, align 8, !tbaa !11
   %8 = getelementptr i8, ptr %.val4, i64 16
   %.val4.val6 = load ptr, ptr %8, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val4.val, i32 %.sroa.0.0.copyload.i8, ptr noundef nonnull align 8 dereferenceable(16) %.val4.val6, ptr noundef %.val5)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val4.val, i32 %.sroa.0.0.copyload.i8, ptr noundef nonnull align 8 dereferenceable(16) %.val4.val6, ptr noundef readonly %.val5)
   %9 = load ptr, ptr %0, align 8, !tbaa !4324
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !5619
@@ -161175,7 +161175,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter20VisitFunctionType
   %.val13.val = load ptr, ptr %5, align 8, !tbaa !11
   %6 = getelementptr i8, ptr %.val13, i64 16
   %.val13.val15 = load ptr, ptr %6, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val13.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val13.val15, ptr noundef %.val14)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val13.val, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %.val13.val15, ptr noundef readonly %.val14)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.sroa.0.0.copyload.i22 = load i32, ptr %7, align 4, !tbaa !9
   %.val11 = load ptr, ptr %0, align 8, !tbaa !4324
@@ -161184,7 +161184,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter20VisitFunctionType
   %.val11.val = load ptr, ptr %8, align 8, !tbaa !11
   %9 = getelementptr i8, ptr %.val11, i64 16
   %.val11.val16 = load ptr, ptr %9, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val11.val, i32 %.sroa.0.0.copyload.i22, ptr noundef nonnull align 8 dereferenceable(16) %.val11.val16, ptr noundef %.val12)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val11.val, i32 %.sroa.0.0.copyload.i22, ptr noundef nonnull align 8 dereferenceable(16) %.val11.val16, ptr noundef readonly %.val12)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.0.0.copyload.i23 = load i32, ptr %10, align 4, !tbaa !9
   %.val9 = load ptr, ptr %0, align 8, !tbaa !4324
@@ -161193,7 +161193,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter20VisitFunctionType
   %.val9.val = load ptr, ptr %11, align 8, !tbaa !11
   %12 = getelementptr i8, ptr %.val9, i64 16
   %.val9.val17 = load ptr, ptr %12, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val9.val, i32 %.sroa.0.0.copyload.i23, ptr noundef nonnull align 8 dereferenceable(16) %.val9.val17, ptr noundef %.val10)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val9.val, i32 %.sroa.0.0.copyload.i23, ptr noundef nonnull align 8 dereferenceable(16) %.val9.val17, ptr noundef readonly %.val10)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i8, ptr %13, align 16
   %15 = icmp eq i8 %14, 26
@@ -161227,8 +161227,8 @@ _ZNK5clang15FunctionTypeLoc21getExceptionSpecRangeEv.exit: ; preds = %3, %_ZNK5c
   %.val19.val = load ptr, ptr %26, align 8, !tbaa !11
   %27 = getelementptr i8, ptr %.val19, i64 16
   %.val19.val21 = load ptr, ptr %27, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val19.val, i32 %.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(16) %.val19.val21, ptr noundef %.val20)
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val19.val, i32 %.sroa.4.0.i, ptr noundef nonnull align 8 dereferenceable(16) %.val19.val21, ptr noundef %.val20)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val19.val, i32 %.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(16) %.val19.val21, ptr noundef readonly %.val20)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val19.val, i32 %.sroa.4.0.i, ptr noundef nonnull align 8 dereferenceable(16) %.val19.val21, ptr noundef readonly %.val20)
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %.sroa.0.0.copyload.i24 = load i32, ptr %28, align 4, !tbaa !9
   %.val = load ptr, ptr %0, align 8, !tbaa !4324
@@ -161237,7 +161237,7 @@ _ZNK5clang15FunctionTypeLoc21getExceptionSpecRangeEv.exit: ; preds = %3, %_ZNK5c
   %.val.val = load ptr, ptr %29, align 8, !tbaa !11
   %30 = getelementptr i8, ptr %.val, i64 16
   %.val.val18 = load ptr, ptr %30, align 8, !tbaa !29
-  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i24, ptr noundef nonnull align 8 dereferenceable(16) %.val.val18, ptr noundef %.val8)
+  tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 dereferenceable(3532) %.val.val, i32 %.sroa.0.0.copyload.i24, ptr noundef nonnull align 8 dereferenceable(16) %.val.val18, ptr noundef readonly %.val8)
   %31 = load i8, ptr %13, align 16
   %32 = icmp eq i8 %31, 25
   br i1 %32, label %._crit_edge, label %_ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit

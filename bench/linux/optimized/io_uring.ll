@@ -12651,7 +12651,7 @@ define internal fastcc void @io_iopoll_try_reap_events(ptr noundef %0) unnamed_a
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef zeroext i1 @io_cancel_defer_files(ptr noundef %0, ptr noundef captures(address) %1, i1 noundef zeroext %2) unnamed_addr #5 align 16 {
+define internal fastcc noundef zeroext i1 @io_cancel_defer_files(ptr noundef %0, ptr noundef readnone captures(address) %1, i1 noundef zeroext %2) unnamed_addr #5 align 16 {
   %4 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #24
   store ptr %4, ptr %4, align 8

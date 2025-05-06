@@ -498,7 +498,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @assoc_array_walk(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @assoc_array_destroy(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 align 16 {
+define dso_local void @assoc_array_destroy(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   tail call fastcc void @assoc_array_destroy_subtree(ptr noundef %3, ptr noundef %1)
   store ptr null, ptr %0, align 8

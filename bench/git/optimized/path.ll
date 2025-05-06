@@ -684,7 +684,7 @@ cleanup_path.exit:                                ; preds = %14, %skip_prefix.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @worktree_git_path(ptr noundef readonly captures(address) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ...) local_unnamed_addr #3 {
+define dso_local ptr @worktree_git_path(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ...) local_unnamed_addr #3 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = load i32, ptr @get_pathname.index, align 4, !tbaa !4
   %6 = zext nneg i32 %5 to i64

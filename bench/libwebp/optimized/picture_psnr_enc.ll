@@ -443,7 +443,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WebPPictureDistortion(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WebPPictureDistortion(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.WebPPicture, align 8
   %6 = alloca %struct.WebPPicture, align 8
   %7 = alloca float, align 4

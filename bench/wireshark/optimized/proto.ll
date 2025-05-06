@@ -3687,7 +3687,7 @@ proto_item_is_hidden.exit47.thread:               ; preds = %88, %proto_item_is_
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #0 {
+define noundef ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef nonnull @.str.13, ptr noundef %6)
   ret ptr %8
 }
@@ -4020,7 +4020,7 @@ proto_item_is_hidden.exit49.thread:               ; preds = %86, %proto_item_is_
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @proto_item_set_text(ptr noundef captures(address_is_null) %0, ptr noundef %1, ...) local_unnamed_addr #0 {
+define void @proto_item_set_text(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #39
   %.not = icmp eq ptr %0, null
@@ -10973,7 +10973,7 @@ detect_trailing_stray_characters.exit:            ; preds = %158, %161, %153, %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define noundef ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   store i32 %4, ptr %9, align 4
   %10 = call ptr @proto_tree_add_item_ret_string_and_length(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %9)
@@ -16337,7 +16337,7 @@ proto_tree_set_ipv6.exit:                         ; preds = %84
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef ptr @proto_tree_add_ipv6_format_value(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6, ...) local_unnamed_addr #0 {
+define noundef ptr @proto_tree_add_ipv6_format_value(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6, ...) local_unnamed_addr #0 {
   %8 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #39
   %9 = tail call ptr @proto_tree_add_ipv6(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5)
@@ -16356,7 +16356,7 @@ define noundef ptr @proto_tree_add_ipv6_format_value(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef ptr @proto_tree_add_ipv6_format(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6, ...) local_unnamed_addr #0 {
+define noundef ptr @proto_tree_add_ipv6_format(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6, ...) local_unnamed_addr #0 {
   %8 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #39
   %9 = tail call ptr @proto_tree_add_ipv6(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5)
@@ -23354,7 +23354,7 @@ declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, 
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noalias ptr @proto_custom_get_filter(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden noalias ptr @proto_custom_get_filter(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = tail call i32 @g_slist_length(ptr noundef %1)
@@ -23808,7 +23808,7 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %108, %.lr.ph.split,
   %173 = load ptr, ptr %172, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #39
   store ptr null, ptr %4, align 8
-  %174 = call fastcc zeroext i1 @construct_match_selected_string(ptr noundef %173, ptr noundef %0, ptr noundef nonnull %4)
+  %174 = call fastcc zeroext i1 @construct_match_selected_string(ptr noundef readonly %173, ptr noundef readonly %0, ptr noundef nonnull %4)
   %175 = load ptr, ptr %4, align 8
   br i1 %174, label %proto_construct_match_selected_string.exit, label %proto_construct_match_selected_string.exit.thread
 
@@ -23916,7 +23916,7 @@ declare void @g_ptr_array_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @proto_construct_match_selected_string(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define ptr @proto_construct_match_selected_string(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #39
   store ptr null, ptr %3, align 8
@@ -30426,7 +30426,7 @@ define void @proto_registrar_dump_ftypes() local_unnamed_addr #0 {
 declare ptr @ftype_pretty_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @proto_can_match_selected(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @proto_can_match_selected(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc zeroext i1 @construct_match_selected_string(ptr noundef %0, ptr noundef %1, ptr noundef null)
   ret i1 %3
 }

@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [28 x i8] c"Could not allocate %u bytes\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @acpi_ns_get_external_pathname(ptr noundef captures(address) %0) local_unnamed_addr #0 align 16 {
+define dso_local ptr @acpi_ns_get_external_pathname(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
   %2 = tail call ptr @acpi_ns_get_normalized_pathname(ptr noundef %0, i8 noundef zeroext 0)
   ret ptr %2
 }

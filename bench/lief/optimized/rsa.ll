@@ -2406,7 +2406,7 @@ define hidden range(i32 -2147483648, 2147466624) i32 @mbedtls_rsa_rsaes_pkcs1_v1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_rsa_pkcs1_encrypt(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_rsa_pkcs1_encrypt(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !17
   switch i32 %8, label %mbedtls_rsa_rsaes_pkcs1_v15_encrypt.exit [

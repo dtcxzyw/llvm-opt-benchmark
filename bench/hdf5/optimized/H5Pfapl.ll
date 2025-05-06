@@ -11770,7 +11770,7 @@ define internal range(i32 -1, 1) i32 @H5P__facc_file_driver_get(i64 %0, ptr read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__facc_file_driver_del(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal range(i32 -1, 1) i32 @H5P__facc_file_driver_del(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = load i8, ptr @H5P_init_g, align 1, !tbaa !16, !range !18, !noundef !19
   %6 = trunc nuw i8 %5 to i1
   %7 = load i8, ptr @H5_libterm_g, align 1, !range !18
@@ -11919,7 +11919,7 @@ define internal i32 @H5P__facc_file_driver_cmp(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__facc_file_driver_close(ptr readnone captures(none) %0, i64 %1, ptr noundef captures(address_is_null) %2) #0 {
+define internal range(i32 -1, 1) i32 @H5P__facc_file_driver_close(ptr readnone captures(none) %0, i64 %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %4 = load i8, ptr @H5P_init_g, align 1, !tbaa !16, !range !18, !noundef !19
   %5 = trunc nuw i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1, !range !18
@@ -12165,7 +12165,7 @@ define internal range(i32 -1, 1) i32 @H5P__facc_file_image_info_get(i64 %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__facc_file_image_info_del(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal range(i32 -1, 1) i32 @H5P__facc_file_image_info_del(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = load i8, ptr @H5P_init_g, align 1, !tbaa !16, !range !18, !noundef !19
   %6 = trunc nuw i8 %5 to i1
   %7 = load i8, ptr @H5_libterm_g, align 1, !range !18
@@ -12323,7 +12323,7 @@ define internal i32 @H5P__facc_file_image_info_cmp(ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__facc_file_image_info_close(ptr readnone captures(none) %0, i64 %1, ptr noundef captures(address_is_null) %2) #0 {
+define internal range(i32 -1, 1) i32 @H5P__facc_file_image_info_close(ptr readnone captures(none) %0, i64 %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %4 = load i8, ptr @H5P_init_g, align 1, !tbaa !16, !range !18, !noundef !19
   %5 = trunc nuw i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1, !range !18

@@ -10228,7 +10228,7 @@ _ZN4core5slice4sort26insertion_sort_shift_right17hc142c4fc1c64d171E.exit: ; pred
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17h8312fa4a6c0abe55E(ptr noalias noundef nonnull align 8 %0, i64 noundef range(i64 21, 0) %1, ptr captures(address_is_null) %.0.val) unnamed_addr #25 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17h8312fa4a6c0abe55E(ptr noalias noundef nonnull align 8 %0, i64 noundef range(i64 21, 0) %1, ptr readonly captures(address_is_null) %.0.val) unnamed_addr #25 personality ptr @rust_eh_personality {
   %3 = alloca ptr, align 8
   %4 = icmp ne ptr %.0.val, null
   %5 = icmp ult i64 %1, 50

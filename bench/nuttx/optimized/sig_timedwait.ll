@@ -250,7 +250,7 @@ declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #1
 declare i32 @nxsig_ismember(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 256) i32 @sigtimedwait(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -1, 256) i32 @sigtimedwait(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @nxsig_timedwait(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %9

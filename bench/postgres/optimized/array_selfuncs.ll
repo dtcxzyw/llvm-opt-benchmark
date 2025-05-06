@@ -1322,7 +1322,7 @@ define dso_local range(i64 4572414629676717179, 4576918229304087676) i64 @arrayc
 declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @mcelem_array_selec(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef %5, ptr noundef captures(address_is_null) %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc double @mcelem_array_selec(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8

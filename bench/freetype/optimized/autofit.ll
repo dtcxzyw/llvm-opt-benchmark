@@ -11633,7 +11633,7 @@ hb_ft_font_create_.exit:                          ; preds = %29, %39
   br i1 %.not117.i, label %.loopexit123.i, label %.lr.ph142.i, !llvm.loop !487
 
 162:                                              ; preds = %66
-  %163 = call i32 @af_shaper_get_coverage(ptr noundef nonnull %13, ptr noundef nonnull %58, ptr noundef %54, i8 noundef zeroext 0)
+  %163 = call i32 @af_shaper_get_coverage(ptr noundef nonnull readonly %13, ptr noundef nonnull %58, ptr noundef %54, i8 noundef zeroext 0)
   br label %.loopexit123.i
 
 .loopexit123.i:                                   ; preds = %._crit_edge137.i, %162, %._crit_edge134.i, %.preheader124.i
@@ -11653,7 +11653,7 @@ hb_ft_font_create_.exit:                          ; preds = %29, %39
   br i1 %169, label %170, label %172
 
 170:                                              ; preds = %.preheader122.i
-  %171 = call i32 @af_shaper_get_coverage(ptr noundef nonnull %13, ptr noundef nonnull %166, ptr noundef %54, i8 noundef zeroext 0)
+  %171 = call i32 @af_shaper_get_coverage(ptr noundef nonnull readonly %13, ptr noundef nonnull %166, ptr noundef %54, i8 noundef zeroext 0)
   br label %172
 
 172:                                              ; preds = %170, %.preheader122.i
@@ -11667,7 +11667,7 @@ hb_ft_font_create_.exit:                          ; preds = %29, %39
   %176 = zext i16 %.197.i to i64
   %177 = getelementptr inbounds nuw [88 x ptr], ptr @af_style_classes, i64 0, i64 %176
   %178 = load ptr, ptr %177, align 8, !tbaa !244
-  %179 = call i32 @af_shaper_get_coverage(ptr noundef nonnull %13, ptr noundef %178, ptr noundef %54, i8 noundef zeroext 1)
+  %179 = call i32 @af_shaper_get_coverage(ptr noundef nonnull readonly %13, ptr noundef %178, ptr noundef %54, i8 noundef zeroext 1)
   br label %180
 
 180:                                              ; preds = %190, %175

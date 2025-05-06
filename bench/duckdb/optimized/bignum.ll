@@ -900,7 +900,7 @@ mbedtls_mpi_lset.exit75:                          ; preds = %._crit_edge.i70, %1
   store i32 1, ptr %4, align 8, !tbaa !3
   store i64 1, ptr %107, align 8, !tbaa !12
   store ptr %5, ptr %108, align 8, !tbaa !11
-  %127 = call range(i32 -16, 1) i32 @mbedtls_mpi_add_mpi(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %4)
+  %127 = call range(i32 -16, 1) i32 @mbedtls_mpi_add_mpi(ptr noundef nonnull %0, ptr noundef nonnull readonly %6, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #15
   %.not61 = icmp eq i32 %127, 0
@@ -942,7 +942,7 @@ mbedtls_mpi_free.exit:                            ; preds = %133, %mbedtls_mpi_g
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_int(ptr noundef captures(address) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_int(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !12
   %.not29 = icmp eq i64 %5, 0
@@ -1068,7 +1068,7 @@ mbedtls_mpi_lset.exit:                            ; preds = %39, %32, %27, %18, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_int(ptr noundef captures(address) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_int(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.mbedtls_mpi, align 8
   %5 = alloca [1 x i64], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15
@@ -1089,7 +1089,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_int(ptr noundef captures(ad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_write_string(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_write_string(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #1 {
   %6 = alloca %struct.mbedtls_mpi, align 8
   %7 = alloca [1 x i64], align 8
   %8 = alloca %struct.mbedtls_mpi, align 8
@@ -1339,7 +1339,7 @@ mbedtls_mpi_mod_int.exit.i:                       ; preds = %._crit_edge.i.i, %9
   store i32 1, ptr %6, align 8, !tbaa !3
   store i64 1, ptr %87, align 8, !tbaa !12
   store ptr %7, ptr %88, align 8, !tbaa !11
-  %111 = call range(i32 -16, 1) i32 @mbedtls_mpi_div_mpi(ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %8, ptr noundef nonnull %6)
+  %111 = call range(i32 -16, 1) i32 @mbedtls_mpi_div_mpi(ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull readonly %8, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #15
   %.not28.i = icmp eq i32 %111, 0
@@ -2341,7 +2341,7 @@ mbedtls_mpi_cmp_mpi.exit:                         ; preds = %27, %28, %18, %.lr.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_abs(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_abs(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, %2
   %spec.select = select i1 %4, ptr %1, ptr %2
   %.not81 = icmp eq ptr %1, %0
@@ -2706,7 +2706,7 @@ mbedtls_mpi_grow.exit:                            ; preds = %25, %17, %.critedge
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_mpi(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_mpi(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #1 {
   %4 = load i32, ptr %1, align 8, !tbaa !3
   %5 = load i32, ptr %2, align 8, !tbaa !3
   %6 = mul nsw i32 %5, %4
@@ -2829,7 +2829,7 @@ mbedtls_mpi_cmp_abs.exit:                         ; preds = %41, %27
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_sub_mpi(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_sub_mpi(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #1 {
   %4 = load i32, ptr %1, align 8, !tbaa !3
   %5 = load i32, ptr %2, align 8, !tbaa !3
   %6 = mul nsw i32 %5, %4
@@ -2952,7 +2952,7 @@ mbedtls_mpi_cmp_abs.exit:                         ; preds = %41, %27
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_sub_int(ptr noundef captures(address) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_sub_int(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.mbedtls_mpi, align 8
   %5 = alloca [1 x i64], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15
@@ -2973,7 +2973,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_sub_int(ptr noundef captures(ad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_mpi(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_mpi(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #1 {
   %4 = alloca %struct.mbedtls_mpi, align 8
   %5 = alloca %struct.mbedtls_mpi, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15
@@ -3737,7 +3737,7 @@ define internal fastcc void @_ZL11mpi_mul_hlpmPKmPmm(i64 noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_div_mpi(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef captures(address) %3) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_div_mpi(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(address) %3) local_unnamed_addr #1 {
   %5 = alloca %struct.mbedtls_mpi, align 8
   %6 = alloca %struct.mbedtls_mpi, align 8
   %7 = alloca %struct.mbedtls_mpi, align 8
@@ -4044,86 +4044,86 @@ mbedtls_mpi_lset.exit.thread:                     ; preds = %._crit_edge.i136, %
 .lr.ph:                                           ; preds = %.preheader
   %129 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %130 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %131 = xor i64 %.fr, -1
-  %invariant.gep = getelementptr i64, ptr %99, i64 %131
-  %132 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %133 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %134 = icmp eq i64 %114, 0
-  %135 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  br label %136
+  %131 = load ptr, ptr %130, align 8, !tbaa !11
+  %132 = getelementptr inbounds nuw i64, ptr %131, i64 %114
+  %133 = xor i64 %.fr, -1
+  %invariant.gep = getelementptr i64, ptr %99, i64 %133
+  %134 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %136 = icmp eq i64 %114, 0
+  %137 = getelementptr i64, ptr %131, i64 %.fr
+  %138 = getelementptr i8, ptr %137, i64 -16
+  %139 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  br label %140
 
-136:                                              ; preds = %.lr.ph, %215
+140:                                              ; preds = %.lr.ph, %215
   %.071172 = phi i64 [ %.071170, %.lr.ph ], [ %.071, %215 ]
   %.071.in171 = phi i64 [ %112, %.lr.ph ], [ %.071172, %215 ]
-  %137 = load ptr, ptr %129, align 8, !tbaa !11
-  %138 = getelementptr inbounds nuw i64, ptr %137, i64 %.071172
-  %139 = load i64, ptr %138, align 8, !tbaa !13
-  %140 = load ptr, ptr %130, align 8, !tbaa !11
-  %141 = getelementptr inbounds nuw i64, ptr %140, i64 %114
-  %142 = load i64, ptr %141, align 8, !tbaa !13
-  %.not122 = icmp ult i64 %139, %142
-  br i1 %.not122, label %_ZL19mbedtls_int_div_intmmmPm.exit, label %153
+  %141 = load ptr, ptr %129, align 8, !tbaa !11
+  %142 = getelementptr inbounds nuw i64, ptr %141, i64 %.071172
+  %143 = load i64, ptr %142, align 8, !tbaa !13
+  %144 = load i64, ptr %132, align 8, !tbaa !13
+  %.not122 = icmp ult i64 %143, %144
+  br i1 %.not122, label %_ZL19mbedtls_int_div_intmmmPm.exit, label %155
 
-_ZL19mbedtls_int_div_intmmmPm.exit:               ; preds = %136
-  %143 = getelementptr i64, ptr %137, i64 %.071.in171
-  %144 = getelementptr i8, ptr %143, i64 -16
-  %145 = load i64, ptr %144, align 8, !tbaa !13
-  %146 = zext i64 %139 to i128
-  %147 = shl nuw i128 %146, 64
-  %148 = zext i64 %145 to i128
-  %149 = or disjoint i128 %147, %148
-  %150 = zext i64 %142 to i128
-  %151 = udiv i128 %149, %150
-  %spec.store.select.i = call i128 @llvm.umin.i128(i128 %151, i128 18446744073709551615)
-  %152 = trunc nuw i128 %spec.store.select.i to i64
-  br label %153
+_ZL19mbedtls_int_div_intmmmPm.exit:               ; preds = %140
+  %145 = getelementptr i64, ptr %141, i64 %.071.in171
+  %146 = getelementptr i8, ptr %145, i64 -16
+  %147 = load i64, ptr %146, align 8, !tbaa !13
+  %148 = zext i64 %143 to i128
+  %149 = shl nuw i128 %148, 64
+  %150 = zext i64 %147 to i128
+  %151 = or disjoint i128 %149, %150
+  %152 = zext i64 %144 to i128
+  %153 = udiv i128 %151, %152
+  %spec.store.select.i = call i128 @llvm.umin.i128(i128 %153, i128 18446744073709551615)
+  %154 = trunc nuw i128 %spec.store.select.i to i64
+  br label %155
 
-153:                                              ; preds = %136, %_ZL19mbedtls_int_div_intmmmPm.exit
-  %.sink = phi i64 [ %152, %_ZL19mbedtls_int_div_intmmmPm.exit ], [ -1, %136 ]
+155:                                              ; preds = %140, %_ZL19mbedtls_int_div_intmmmPm.exit
+  %.sink = phi i64 [ %154, %_ZL19mbedtls_int_div_intmmmPm.exit ], [ -1, %140 ]
   %gep174 = getelementptr i64, ptr %invariant.gep, i64 %.071.in171
   store i64 %.sink, ptr %gep174, align 8, !tbaa !13
-  %154 = icmp ult i64 %.071172, 2
-  br i1 %154, label %159, label %155
+  %156 = icmp ult i64 %.071172, 2
+  br i1 %156, label %161, label %157
 
-155:                                              ; preds = %153
-  %156 = getelementptr i64, ptr %137, i64 %.071.in171
-  %157 = getelementptr i8, ptr %156, i64 -24
-  %158 = load i64, ptr %157, align 8, !tbaa !13
-  br label %159
+157:                                              ; preds = %155
+  %158 = getelementptr i64, ptr %141, i64 %.071.in171
+  %159 = getelementptr i8, ptr %158, i64 -24
+  %160 = load i64, ptr %159, align 8, !tbaa !13
+  br label %161
 
-159:                                              ; preds = %153, %155
-  %160 = phi i64 [ %158, %155 ], [ 0, %153 ]
-  store i64 %160, ptr %10, align 16, !tbaa !13
-  %161 = getelementptr i64, ptr %137, i64 %.071.in171
-  %162 = getelementptr i8, ptr %161, i64 -16
-  %163 = load i64, ptr %162, align 8, !tbaa !13
-  store i64 %163, ptr %132, align 8, !tbaa !13
-  %164 = load i64, ptr %138, align 8, !tbaa !13
-  store i64 %164, ptr %133, align 16, !tbaa !13
-  %165 = add i64 %.071.in171, %131
-  %166 = getelementptr inbounds nuw i64, ptr %99, i64 %165
-  %167 = load i64, ptr %166, align 8, !tbaa !13
-  %168 = add i64 %167, 1
-  store i64 %168, ptr %166, align 8, !tbaa !13
-  %169 = getelementptr i64, ptr %140, i64 %.fr
-  %170 = getelementptr i8, ptr %169, i64 -16
-  br i1 %134, label %.split.us, label %.split
+161:                                              ; preds = %155, %157
+  %162 = phi i64 [ %160, %157 ], [ 0, %155 ]
+  store i64 %162, ptr %10, align 16, !tbaa !13
+  %163 = getelementptr i64, ptr %141, i64 %.071.in171
+  %164 = getelementptr i8, ptr %163, i64 -16
+  %165 = load i64, ptr %164, align 8, !tbaa !13
+  store i64 %165, ptr %134, align 8, !tbaa !13
+  %166 = load i64, ptr %142, align 8, !tbaa !13
+  store i64 %166, ptr %135, align 16, !tbaa !13
+  %167 = add i64 %.071.in171, %133
+  %168 = getelementptr inbounds nuw i64, ptr %99, i64 %167
+  %169 = load i64, ptr %168, align 8, !tbaa !13
+  %170 = add i64 %169, 1
+  store i64 %170, ptr %168, align 8, !tbaa !13
+  br i1 %136, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %159, %180
-  %171 = load i64, ptr %166, align 8, !tbaa !13
+.split.us:                                        ; preds = %161, %180
+  %171 = load i64, ptr %168, align 8, !tbaa !13
   %172 = add i64 %171, -1
-  store i64 %172, ptr %166, align 8, !tbaa !13
+  store i64 %172, ptr %168, align 8, !tbaa !13
   %173 = call i32 @mbedtls_mpi_lset(ptr noundef nonnull %8, i64 noundef 0)
   %.not123.us = icmp eq i32 %173, 0
   br i1 %.not123.us, label %174, label %mbedtls_mpi_lset.exit
 
 174:                                              ; preds = %.split.us
-  %175 = load ptr, ptr %135, align 8, !tbaa !11
+  %175 = load ptr, ptr %139, align 8, !tbaa !11
   store i64 0, ptr %175, align 8, !tbaa !13
-  %176 = load i64, ptr %141, align 8, !tbaa !13
+  %176 = load i64, ptr %132, align 8, !tbaa !13
   %177 = getelementptr inbounds nuw i8, ptr %175, i64 8
   store i64 %176, ptr %177, align 8, !tbaa !13
-  %178 = load i64, ptr %166, align 8, !tbaa !13
+  %178 = load i64, ptr %168, align 8, !tbaa !13
   %179 = call i32 @mbedtls_mpi_mul_int(ptr noundef nonnull %8, ptr noundef nonnull %8, i64 noundef %178)
   %.not124.us = icmp eq i32 %179, 0
   br i1 %.not124.us, label %180, label %mbedtls_mpi_lset.exit
@@ -4133,22 +4133,22 @@ _ZL19mbedtls_int_div_intmmmPm.exit:               ; preds = %136
   %182 = icmp sgt i32 %181, 0
   br i1 %182, label %.split.us, label %.split169.us, !llvm.loop !60
 
-.split:                                           ; preds = %159, %193
-  %183 = load i64, ptr %166, align 8, !tbaa !13
+.split:                                           ; preds = %161, %193
+  %183 = load i64, ptr %168, align 8, !tbaa !13
   %184 = add i64 %183, -1
-  store i64 %184, ptr %166, align 8, !tbaa !13
+  store i64 %184, ptr %168, align 8, !tbaa !13
   %185 = call i32 @mbedtls_mpi_lset(ptr noundef nonnull %8, i64 noundef 0)
   %.not123 = icmp eq i32 %185, 0
   br i1 %.not123, label %186, label %mbedtls_mpi_lset.exit
 
 186:                                              ; preds = %.split
-  %187 = load i64, ptr %170, align 8, !tbaa !13
-  %188 = load ptr, ptr %135, align 8, !tbaa !11
+  %187 = load i64, ptr %138, align 8, !tbaa !13
+  %188 = load ptr, ptr %139, align 8, !tbaa !11
   store i64 %187, ptr %188, align 8, !tbaa !13
-  %189 = load i64, ptr %141, align 8, !tbaa !13
+  %189 = load i64, ptr %132, align 8, !tbaa !13
   %190 = getelementptr inbounds nuw i8, ptr %188, i64 8
   store i64 %189, ptr %190, align 8, !tbaa !13
-  %191 = load i64, ptr %166, align 8, !tbaa !13
+  %191 = load i64, ptr %168, align 8, !tbaa !13
   %192 = call i32 @mbedtls_mpi_mul_int(ptr noundef nonnull %8, ptr noundef nonnull %8, i64 noundef %191)
   %.not124 = icmp eq i32 %192, 0
   br i1 %.not124, label %193, label %mbedtls_mpi_lset.exit
@@ -4159,13 +4159,13 @@ _ZL19mbedtls_int_div_intmmmPm.exit:               ; preds = %136
   br i1 %195, label %.split, label %.split169.us, !llvm.loop !60
 
 .split169.us:                                     ; preds = %193, %180
-  %196 = load i64, ptr %166, align 8, !tbaa !13
+  %196 = load i64, ptr %168, align 8, !tbaa !13
   %197 = call i32 @mbedtls_mpi_mul_int(ptr noundef nonnull %8, ptr noundef nonnull %6, i64 noundef %196)
   %.not125 = icmp eq i32 %197, 0
   br i1 %.not125, label %198, label %mbedtls_mpi_lset.exit
 
 198:                                              ; preds = %.split169.us
-  %199 = shl i64 %165, 6
+  %199 = shl i64 %167, 6
   %200 = call i32 @mbedtls_mpi_shift_l(ptr noundef nonnull %8, i64 noundef %199)
   %.not126 = icmp eq i32 %200, 0
   br i1 %.not126, label %201, label %mbedtls_mpi_lset.exit
@@ -4196,15 +4196,15 @@ _ZL19mbedtls_int_div_intmmmPm.exit:               ; preds = %136
   br i1 %.not130, label %212, label %mbedtls_mpi_lset.exit
 
 212:                                              ; preds = %210
-  %213 = load i64, ptr %166, align 8, !tbaa !13
+  %213 = load i64, ptr %168, align 8, !tbaa !13
   %214 = add i64 %213, -1
-  store i64 %214, ptr %166, align 8, !tbaa !13
+  store i64 %214, ptr %168, align 8, !tbaa !13
   br label %215
 
 215:                                              ; preds = %203, %212
   %.071 = add i64 %.071172, -1
   %216 = icmp ugt i64 %.071, %114
-  br i1 %216, label %136, label %._crit_edge, !llvm.loop !61
+  br i1 %216, label %140, label %._crit_edge, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %215, %.preheader
   %.not117 = icmp eq ptr %0, null
@@ -4317,7 +4317,7 @@ mbedtls_mpi_cmp_int.exit.thread:                  ; preds = %17, %4, %74, %75, %
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_div_int(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, i64 noundef %3) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_div_int(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(address) %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.mbedtls_mpi, align 8
   %6 = alloca [1 x i64], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #15
@@ -4338,7 +4338,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_div_int(ptr noundef captures(ad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mod_mpi(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mod_mpi(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !12
   %.not44.i.i = icmp eq i64 %5, 0
@@ -4610,7 +4610,7 @@ define hidden range(i32 -12, 1) i32 @mbedtls_mpi_mod_int(ptr noundef writeonly c
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden i32 @mbedtls_mpi_exp_mod(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #1 {
+define hidden i32 @mbedtls_mpi_exp_mod(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = alloca %struct.mbedtls_mpi, align 8
   %8 = alloca i64, align 8
@@ -5459,7 +5459,7 @@ define internal fastcc noundef i32 @_ZL10mpi_selectP11mbedtls_mpiPKS_mm(ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_gcd(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_gcd(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #1 {
   %4 = alloca %struct.mbedtls_mpi, align 8
   %5 = alloca %struct.mbedtls_mpi, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15
@@ -6321,7 +6321,7 @@ mbedtls_mpi_cmp_int.exit.thread:                  ; preds = %46, %127, %mbedtls_
 declare i32 @mbedtls_mpi_lt_mpi_ct(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_inv_mod(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_inv_mod(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #1 {
   %4 = alloca %struct.mbedtls_mpi, align 8
   %5 = alloca %struct.mbedtls_mpi, align 8
   %6 = alloca %struct.mbedtls_mpi, align 8

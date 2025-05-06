@@ -113496,7 +113496,7 @@ _ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h140384e9193863ddE
   %.val3.i = load ptr, ptr %56, align 8, !noalias !25513
   %57 = getelementptr i8, ptr %55, i64 -8
   %.val4.i = load i64, ptr %57, align 8, !noalias !25513
-  %58 = invoke fastcc noundef i64 @_ZN9hashbrown3map9make_hash17h2f56d157093d20a5E(ptr %.val3.i, i64 %.val4.i)
+  %58 = invoke fastcc noundef i64 @_ZN9hashbrown3map9make_hash17h2f56d157093d20a5E(ptr readonly %.val3.i, i64 %.val4.i)
           to label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h2f4cb94cebf66d5dE.exit" unwind label %40
 
 .thread57.loopexit:                               ; preds = %102
@@ -125569,7 +125569,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br i1 %358, label %.loopexit716, label %359
 
 359:                                              ; preds = %356
-  %360 = invoke fastcc noundef i64 @_ZN9hashbrown3map9make_hash17h2f56d157093d20a5E(ptr %.val390, i64 %.val391)
+  %360 = invoke fastcc noundef i64 @_ZN9hashbrown3map9make_hash17h2f56d157093d20a5E(ptr readonly %.val390, i64 %.val391)
           to label %.noexc438 unwind label %420
 
 .noexc438:                                        ; preds = %359
@@ -126336,7 +126336,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h11d3f9b0e3c11924E.exit.threa
   br i1 %578, label %.loopexit, label %579
 
 579:                                              ; preds = %576
-  %580 = invoke fastcc noundef i64 @_ZN9hashbrown3map9make_hash17h2f56d157093d20a5E(ptr %.val388, i64 %.val389)
+  %580 = invoke fastcc noundef i64 @_ZN9hashbrown3map9make_hash17h2f56d157093d20a5E(ptr readonly %.val388, i64 %.val389)
           to label %.noexc492 unwind label %640
 
 .noexc492:                                        ; preds = %579

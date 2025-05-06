@@ -3632,7 +3632,7 @@ dissect_iuup_data.exit:                           ; preds = %.lr.ph.i114.i, %.lr
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @find_iuup(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal i32 @find_iuup(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
   %5 = alloca [2 x i8], align 1
   %6 = alloca [2 x i8], align 1
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0)

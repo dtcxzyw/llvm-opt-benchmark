@@ -100936,7 +100936,7 @@ define internal fastcc range(i16 0, 258) i16 @_ZN5clang11TypeVisitorIN12_GLOBAL_
   %.val = load ptr, ptr %0, align 8, !tbaa !3032
   %19 = getelementptr i8, ptr %1, i64 32
   %.val60 = load ptr, ptr %19, align 16, !tbaa !1602
-  %20 = tail call fastcc noundef zeroext i1 @_ZL23isAncestorDeclContextOfPKN5clang11DeclContextEPKNS_4DeclE(ptr noundef %.val, ptr noundef %.val60)
+  %20 = tail call fastcc noundef zeroext i1 @_ZL23isAncestorDeclContextOfPKN5clang11DeclContextEPKNS_4DeclE(ptr noundef readnone %.val, ptr noundef %.val60)
   %.sroa.0.0.insert.insert.i = select i1 %20, i16 257, i16 1
   br label %_ZN12_GLOBAL__N_127IsTypeDeclaredInsideVisitor14VisitUsingTypeEPKN5clang9UsingTypeE.exit
 
@@ -100976,7 +100976,7 @@ define internal fastcc range(i16 0, 258) i16 @_ZN5clang11TypeVisitorIN12_GLOBAL_
   %.val61 = load ptr, ptr %0, align 8, !tbaa !3032
   %34 = getelementptr i8, ptr %1, i64 32
   %.val62 = load ptr, ptr %34, align 16, !tbaa !1374
-  %35 = tail call fastcc noundef zeroext i1 @_ZL23isAncestorDeclContextOfPKN5clang11DeclContextEPKNS_4DeclE(ptr noundef %.val61, ptr noundef %.val62)
+  %35 = tail call fastcc noundef zeroext i1 @_ZL23isAncestorDeclContextOfPKN5clang11DeclContextEPKNS_4DeclE(ptr noundef readnone %.val61, ptr noundef %.val62)
   %.sroa.0.0.insert.ext.i = zext i1 %35 to i16
   %.sroa.0.0.insert.insert.i65 = or disjoint i16 %.sroa.0.0.insert.ext.i, 256
   br label %_ZN12_GLOBAL__N_127IsTypeDeclaredInsideVisitor14VisitUsingTypeEPKN5clang9UsingTypeE.exit
@@ -100997,7 +100997,7 @@ define internal fastcc range(i16 0, 258) i16 @_ZN5clang11TypeVisitorIN12_GLOBAL_
 
 41:                                               ; preds = %39
   %.val63 = load ptr, ptr %0, align 8
-  %42 = tail call fastcc noundef zeroext i1 @_ZL23isAncestorDeclContextOfPKN5clang11DeclContextEPKNS_4DeclE(ptr noundef %.val63, ptr noundef nonnull %.val64)
+  %42 = tail call fastcc noundef zeroext i1 @_ZL23isAncestorDeclContextOfPKN5clang11DeclContextEPKNS_4DeclE(ptr noundef readnone %.val63, ptr noundef nonnull %.val64)
   br i1 %42, label %_ZN12_GLOBAL__N_127IsTypeDeclaredInsideVisitor14VisitUsingTypeEPKN5clang9UsingTypeE.exit, label %43
 
 43:                                               ; preds = %41, %39
@@ -101046,7 +101046,7 @@ _ZNK5clang17ConstantArrayType11getSizeExprEv.exit.thread: ; preds = %2, %_ZNK5cl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL23isAncestorDeclContextOfPKN5clang11DeclContextEPKNS_4StmtE(ptr noundef captures(address) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL23isAncestorDeclContextOfPKN5clang11DeclContextEPKNS_4StmtE(ptr noundef readnone captures(address) %0, ptr noundef %1) unnamed_addr #0 {
 _ZN4llvm23SmallVectorTemplateBaseIPKN5clang4StmtELb1EE9push_backES4_.exit:
   %2 = alloca %"class.llvm::iterator_range.1780", align 8
   %3 = alloca %"class.llvm::iterator_range.1779", align 8

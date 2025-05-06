@@ -487,7 +487,7 @@ define dso_local ptr @b3OpenCLUtils_createContextFromPlatform(ptr noundef %0, i6
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @b3OpenCLUtils_createContextFromType(i64 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef readnone captures(none) %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
+define dso_local ptr @b3OpenCLUtils_createContextFromType(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef readnone captures(none) %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca [128 x i8], align 16
   %10 = alloca %struct.b3OpenCLPlatformInfo, align 1
@@ -1435,7 +1435,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @b3OpenCLUtils_compileCLKernelFromString(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define dso_local ptr @b3OpenCLUtils_compileCLKernelFromString(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
   tail call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.77, ptr noundef %3)

@@ -219,7 +219,7 @@ define dso_local noundef zeroext i1 @hashinsert(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @hashbulkdelete(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null, ret: address, provenance) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) #0 {
+define dso_local ptr @hashbulkdelete(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null, ret: address, provenance) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) #0 {
   %5 = alloca double, align 8
   %6 = alloca double, align 8
   %7 = alloca i32, align 4

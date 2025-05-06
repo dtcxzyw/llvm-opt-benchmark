@@ -262,7 +262,7 @@ declare i32 @uv__nonblock_ioctl(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @uv__stream_open(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @uv_pipe_connect(ptr noundef %req, ptr noundef %handle, ptr noundef captures(address_is_null) %name, ptr noundef %cb) local_unnamed_addr #0 {
+define dso_local void @uv_pipe_connect(ptr noundef %req, ptr noundef %handle, ptr noundef readonly captures(address_is_null) %name, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #13
   %call1 = tail call i32 @uv_pipe_connect2(ptr noundef %req, ptr noundef %handle, ptr noundef nonnull %name, i64 noundef %call, i32 noundef 0, ptr noundef %cb)

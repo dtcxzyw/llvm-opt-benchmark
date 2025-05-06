@@ -7200,7 +7200,7 @@ _ZNK17FileLineSingleton12numberToNameB5cxx11Et.exit: ; preds = %._crit_edge.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK11V3HierBlock20writeCommandArgsFileEb(ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(168) %0, i1 noundef zeroext %1) #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK11V3HierBlock20writeCommandArgsFileEb(ptr noundef nonnull readonly align 8 captures(address_is_null) dereferenceable(168) %0, i1 noundef zeroext %1) #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8

@@ -425,7 +425,7 @@ define internal fastcc range(i32 0, 9) i32 @string_to_log_level(ptr noundef %0) 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @ws_log_parse_args(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #1 {
+define i32 @ws_log_parse_args(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -1115,7 +1115,7 @@ ws_log_set_domain_filter.exit:                    ; preds = %ws_log_set_level_st
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @parse_console_compat_option(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @parse_console_compat_option(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) unnamed_addr #1 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #23
   %5 = load ptr, ptr %0, align 8
@@ -1532,7 +1532,7 @@ define void @ws_log_set_writer_with_data(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @ws_log_init(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
+define void @ws_log_init(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @g_get_prgname()
   store ptr %2, ptr @registered_progname, align 8
   tail call void @ws_tzset()
@@ -1964,18 +1964,18 @@ free_log_filter.exit5:                            ; preds = %free_log_filter.exi
 declare ptr @g_getenv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @ws_log_init_with_writer(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
+define void @ws_log_init_with_writer(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   store ptr %0, ptr @registered_log_writer, align 8
   tail call void @ws_log_init(ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @ws_log_init_with_writer_and_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #1 {
+define void @ws_log_init_with_writer_and_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #1 {
   store ptr %1, ptr @registered_log_writer_data, align 8
   store ptr %2, ptr @registered_log_writer_data_free, align 8
   store ptr %0, ptr @registered_log_writer, align 8
-  tail call void @ws_log_init(ptr noundef %3)
+  tail call void @ws_log_init(ptr noundef readonly %3)
   ret void
 }
 
@@ -2550,7 +2550,7 @@ declare ptr @bytes_to_str_punct_maxlen(ptr noundef, ptr noundef, i64 noundef, i8
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @ws_log_file_writer(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #1 {
+define void @ws_log_file_writer(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #1 {
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 64
@@ -2696,7 +2696,7 @@ ws_log_level_to_string.exit:                      ; preds = %33, %level_color_on
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @ws_log_console_writer(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #1 {
+define void @ws_log_console_writer(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #1 {
   %9 = icmp ult i32 %1, 4
   %10 = load i8, ptr @stdout_logging_enabled, align 1, !range !8
   %11 = trunc nuw i8 %10 to i1

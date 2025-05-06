@@ -1988,7 +1988,7 @@ define internal fastcc range(i32 0, 2) i32 @encap(ptr noundef nonnull writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ml_kem_encap_rand(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ml_kem_encap_rand(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #13
   %7 = icmp eq ptr %4, null

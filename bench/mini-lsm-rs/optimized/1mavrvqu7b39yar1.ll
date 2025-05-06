@@ -1854,7 +1854,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h2b49461e03f1c8a4E(ptr noal
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hf3f174fb3ea03d16E.exit.i": ; preds = %176
   %.0.sroa.speculated.i13.i = call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.sroa.0.0.i175, i64 1)
   %182 = sub i64 %.0.sroa.speculated.i.i, %.0319
-  invoke fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h81fafe8890a52d37E(ptr noalias noundef nonnull align 8 %73, i64 noundef %182, i64 noundef %.0.sroa.speculated.i13.i, ptr %.val)
+  invoke fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h81fafe8890a52d37E(ptr noalias noundef nonnull align 8 %73, i64 noundef %182, i64 noundef %.0.sroa.speculated.i13.i, ptr readonly %.val)
           to label %_ZN4core5slice4sort20provide_sorted_batch17h5cb50b62260ea6f3E.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 183:                                              ; preds = %.thread176, %.loopexit206

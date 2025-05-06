@@ -28549,7 +28549,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
 
 701:                                              ; preds = %692
   %702 = getelementptr inbounds nuw i8, ptr %.val107, i64 152
-  %703 = call fastcc noundef i64 @_ZNK4absl12lts_2024072213hash_internal8HashImplIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyEEclERKS6_(ptr noundef nonnull align 8 dereferenceable(48) %51)
+  %703 = call fastcc noundef i64 @_ZNK4absl12lts_2024072213hash_internal8HashImplIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyEEclERKS6_(ptr noundef nonnull readonly align 8 dereferenceable(48) %51)
   %704 = getelementptr inbounds nuw i8, ptr %.val107, i64 160
   %.val9.i.i.i = load i64, ptr %704, align 8, !tbaa !383
   %705 = urem i64 %703, %.val9.i.i.i
@@ -28682,7 +28682,7 @@ _ZNSt13unordered_mapIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyESt10unique_ptrI
 
 752:                                              ; preds = %_ZN9grpc_core12_GLOBAL__N_15RlsLb5Cache4FindERKNS1_10RequestKeyE.exit.thread
   %753 = getelementptr inbounds nuw i8, ptr %.val105, i64 232
-  %754 = call fastcc noundef i64 @_ZNK4absl12lts_2024072213hash_internal8HashImplIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyEEclERKS6_(ptr noundef nonnull align 8 dereferenceable(48) %51)
+  %754 = call fastcc noundef i64 @_ZNK4absl12lts_2024072213hash_internal8HashImplIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyEEclERKS6_(ptr noundef nonnull readonly align 8 dereferenceable(48) %51)
   %755 = getelementptr inbounds nuw i8, ptr %.val105, i64 240
   %.val9.i.i = load i64, ptr %755, align 8, !tbaa !398
   %756 = urem i64 %754, %.val9.i.i
@@ -29799,7 +29799,7 @@ _ZNKSt8__detail15_Hashtable_baseIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyESt4
   br label %.body.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %1182, %_ZNSt10_HashtableIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyESt4pairIKS3_St10unique_ptrINS2_10RlsRequestENS0_16OrphanableDeleteEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS3_EN4absl12lts_2024072213hash_internal4HashIS3_EENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRS5_S9_EEEPNSC_16_Hashtable_allocISaINSC_10_Hash_nodeISA_Lb1EEEEEEDpOT_.exit.i.i.i.i
-  %1188 = call fastcc noundef i64 @_ZNK4absl12lts_2024072213hash_internal8HashImplIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyEEclERKS6_(ptr noundef nonnull align 8 dereferenceable(48) %1177)
+  %1188 = call fastcc noundef i64 @_ZNK4absl12lts_2024072213hash_internal8HashImplIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyEEclERKS6_(ptr noundef nonnull readonly align 8 dereferenceable(48) %1177)
   %1189 = getelementptr inbounds nuw i8, ptr %.val18.i, i64 240
   %.val33.i.i.i.i = load i64, ptr %1189, align 8, !tbaa !398
   %1190 = urem i64 %1188, %.val33.i.i.i.i
@@ -35118,7 +35118,7 @@ _ZNSt5dequeIN9grpc_core9TimestampESaIS1_EE9push_backERKS1_.exit.i.i: ; preds = %
   br i1 %606, label %_ZNSt13unordered_mapIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyESt10unique_ptrINS2_5Cache5EntryENS0_16OrphanableDeleteEEN4absl12lts_2024072213hash_internal4HashIS3_EESt8equal_toIS3_ESaISt4pairIKS3_S8_EEE4findERSH_.exit.thread110.i, label %603, !llvm.loop !698
 
 607:                                              ; preds = %595
-  %608 = call fastcc noundef i64 @_ZNK4absl12lts_2024072213hash_internal8HashImplIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyEEclERKS6_(ptr noundef nonnull align 8 dereferenceable(48) %597)
+  %608 = call fastcc noundef i64 @_ZNK4absl12lts_2024072213hash_internal8HashImplIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyEEclERKS6_(ptr noundef nonnull readonly align 8 dereferenceable(48) %597)
   %609 = getelementptr inbounds nuw i8, ptr %.val88, i64 160
   %.val9.i.i.i = load i64, ptr %609, align 8, !tbaa !383
   %610 = urem i64 %608, %.val9.i.i.i
@@ -35453,7 +35453,7 @@ _ZNKSt8__detail15_Hashtable_baseIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyESt4
   br label %.body.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %727, %_ZNSt10_HashtableIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyESt4pairIKS3_St10unique_ptrINS2_5Cache5EntryENS0_16OrphanableDeleteEEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_EN4absl12lts_2024072213hash_internal4HashIS3_EENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRS5_SA_EEEPNSD_16_Hashtable_allocISaINSD_10_Hash_nodeISB_Lb1EEEEEEDpOT_.exit.i.i.i.i
-  %733 = call fastcc noundef i64 @_ZNK4absl12lts_2024072213hash_internal8HashImplIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyEEclERKS6_(ptr noundef nonnull align 8 dereferenceable(48) %723)
+  %733 = call fastcc noundef i64 @_ZNK4absl12lts_2024072213hash_internal8HashImplIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyEEclERKS6_(ptr noundef nonnull readonly align 8 dereferenceable(48) %723)
   %734 = getelementptr inbounds nuw i8, ptr %.val88, i64 160
   %.val33.i.i.i.i = load i64, ptr %734, align 8, !tbaa !383
   %735 = urem i64 %733, %.val33.i.i.i.i
@@ -37557,7 +37557,7 @@ _ZNSt10_HashtableIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyESt4pairIKS3_St10un
   br label %1456
 
 1437:                                             ; preds = %_ZN9grpc_core12_GLOBAL__N_15RlsLb12ResponseInfoD2Ev.exit247
-  %1438 = call fastcc noundef i64 @_ZNK4absl12lts_2024072213hash_internal8HashImplIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyEEclERKS6_(ptr noundef nonnull align 8 dereferenceable(48) %597)
+  %1438 = call fastcc noundef i64 @_ZNK4absl12lts_2024072213hash_internal8HashImplIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyEEclERKS6_(ptr noundef nonnull readonly align 8 dereferenceable(48) %597)
   %1439 = getelementptr inbounds nuw i8, ptr %.val87, i64 240
   %.val23.i.i.i = load i64, ptr %1439, align 8, !tbaa !398
   %1440 = urem i64 %1438, %.val23.i.i.i
@@ -39605,7 +39605,7 @@ _ZSteqRKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairI
   br i1 %.not.i.i, label %_ZNSt13unordered_mapIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyESt10unique_ptrINS2_5Cache5EntryENS0_16OrphanableDeleteEEN4absl12lts_2024072213hash_internal4HashIS3_EESt8equal_toIS3_ESaISt4pairIKS3_S8_EEE4findERSH_.exit.thread, label %32, !llvm.loop !698
 
 66:                                               ; preds = %24
-  %67 = call fastcc noundef i64 @_ZNK4absl12lts_2024072213hash_internal8HashImplIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyEEclERKS6_(ptr noundef nonnull align 8 dereferenceable(48) %25)
+  %67 = call fastcc noundef i64 @_ZNK4absl12lts_2024072213hash_internal8HashImplIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyEEclERKS6_(ptr noundef nonnull readonly align 8 dereferenceable(48) %25)
   %.val9.i.i = load i64, ptr %17, align 8, !tbaa !383
   %68 = urem i64 %67, %.val9.i.i
   %69 = load ptr, ptr %15, align 8, !tbaa !382

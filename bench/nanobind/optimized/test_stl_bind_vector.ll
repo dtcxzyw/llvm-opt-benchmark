@@ -16024,7 +16024,7 @@ define internal noundef nonnull ptr @_ZZN8nanobind6detail11func_createILb0ELb1EZ
 _ZZN8nanobind11bind_vectorISt6vectorIS1_IZL38nanobind_init_test_stl_bind_vector_extRNS_7module_EE2ElSaIS4_EESaIS6_EELNS_9rv_policyE1EJEEENS_6class_IT_JEEENS_6handleEPKcDpOT1_ENKUlRS8_lRKS6_E0_clESJ_lSL_.exit: ; preds = %24
   %42 = load ptr, ptr %6, align 8, !tbaa !247
   %43 = getelementptr inbounds nuw %"class.std::vector.435", ptr %.val, i64 %spec.select.i.i
-  %44 = call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %42) #25
+  %44 = call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull readonly align 8 dereferenceable(24) %42) #25
   %45 = load i64, ptr @_Py_NoneStruct, align 8, !tbaa !41
   %46 = add nsw i64 %45, 1
   store i64 %46, ptr @_Py_NoneStruct, align 8, !tbaa !41

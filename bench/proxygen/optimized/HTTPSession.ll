@@ -8935,7 +8935,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN8proxygen11HTTPSession20newPushedTransactionEmPNS_26HTTPPushTransactionHandlerEPNS_13ProxygenErrorE(ptr noundef nonnull align 8 dereferenceable(2504) %this, i64 noundef %assocStreamId, ptr noundef %handler, ptr noundef captures(address_is_null) %error) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN8proxygen11HTTPSession20newPushedTransactionEmPNS_26HTTPPushTransactionHandlerEPNS_13ProxygenErrorE(ptr noundef nonnull align 8 dereferenceable(2504) %this, i64 noundef %assocStreamId, ptr noundef %handler, ptr noundef writeonly captures(address_is_null) %error) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %handler.addr = alloca ptr, align 8
   %ref.tmp9 = alloca %"class.google::LogMessageFatal", align 8
@@ -9608,7 +9608,7 @@ return:                                           ; preds = %if.end130, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @_ZThn1584_N8proxygen11HTTPSession20newPushedTransactionEmPNS_26HTTPPushTransactionHandlerEPNS_13ProxygenErrorE(ptr noundef %this, i64 noundef %assocStreamId, ptr noundef %handler, ptr noundef captures(address_is_null) %error) unnamed_addr #11 align 2 {
+define noundef ptr @_ZThn1584_N8proxygen11HTTPSession20newPushedTransactionEmPNS_26HTTPPushTransactionHandlerEPNS_13ProxygenErrorE(ptr noundef %this, i64 noundef %assocStreamId, ptr noundef %handler, ptr noundef writeonly captures(address_is_null) %error) unnamed_addr #11 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1584
   %call = tail call noundef ptr @_ZN8proxygen11HTTPSession20newPushedTransactionEmPNS_26HTTPPushTransactionHandlerEPNS_13ProxygenErrorE(ptr noundef nonnull align 8 dereferenceable(2504) %0, i64 noundef %assocStreamId, ptr noundef %handler, ptr noundef %error) #41
@@ -10702,7 +10702,7 @@ _ZNSt8_Rb_treeImSt4pairIKmPN8proxygen15HTTPTransactionEESt10_Select1stIS5_ESt4le
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn1624_N8proxygen11HTTPSession14onMessageBeginEmPNS_11HTTPMessageE(ptr noundef %this, i64 noundef %streamID, ptr noundef captures(address_is_null) %msg) unnamed_addr #15 align 2 {
+define void @_ZThn1624_N8proxygen11HTTPSession14onMessageBeginEmPNS_11HTTPMessageE(ptr noundef %this, i64 noundef %streamID, ptr noundef readonly captures(address_is_null) %msg) unnamed_addr #15 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1624
   tail call void @_ZN8proxygen11HTTPSession14onMessageBeginEmPNS_11HTTPMessageE(ptr noundef nonnull align 8 dereferenceable(2504) %0, i64 noundef %streamID, ptr noundef %msg)
@@ -11389,7 +11389,7 @@ declare noundef zeroext i1 @_ZN8proxygen15HTTPTransaction19onPushedTransactionEP
 declare void @_ZN8proxygen13HTTPExceptionC1ENS0_9DirectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96), i32 noundef, ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: uwtable
-define void @_ZThn1624_N8proxygen11HTTPSession18onPushMessageBeginEmmPNS_11HTTPMessageE(ptr noundef %this, i64 noundef %streamID, i64 noundef %assocStreamID, ptr noundef captures(address_is_null) %msg) unnamed_addr #15 align 2 {
+define void @_ZThn1624_N8proxygen11HTTPSession18onPushMessageBeginEmmPNS_11HTTPMessageE(ptr noundef %this, i64 noundef %streamID, i64 noundef %assocStreamID, ptr noundef readonly captures(address_is_null) %msg) unnamed_addr #15 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1624
   tail call void @_ZN8proxygen11HTTPSession18onPushMessageBeginEmmPNS_11HTTPMessageE(ptr noundef nonnull align 8 dereferenceable(2504) %0, i64 noundef %streamID, i64 noundef %assocStreamID, ptr noundef %msg)
@@ -11716,7 +11716,7 @@ eh.resume:                                        ; preds = %lpad, %lpad52, %lpa
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn1624_N8proxygen11HTTPSession16onExMessageBeginEmmbPNS_11HTTPMessageE(ptr noundef %this, i64 noundef %streamID, i64 noundef %controlStream, i1 noundef zeroext %unidirectional, ptr noundef captures(address_is_null) %msg) unnamed_addr #15 align 2 {
+define void @_ZThn1624_N8proxygen11HTTPSession16onExMessageBeginEmmbPNS_11HTTPMessageE(ptr noundef %this, i64 noundef %streamID, i64 noundef %controlStream, i1 noundef zeroext %unidirectional, ptr noundef readonly captures(address_is_null) %msg) unnamed_addr #15 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1624
   tail call void @_ZN8proxygen11HTTPSession16onExMessageBeginEmmbPNS_11HTTPMessageE(ptr noundef nonnull align 8 dereferenceable(2504) %0, i64 noundef %streamID, i64 noundef %controlStream, i1 noundef zeroext %unidirectional, ptr noundef %msg)

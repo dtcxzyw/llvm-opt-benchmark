@@ -64,7 +64,7 @@ $_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5
 @_ZN4llvm13ErrorInfoBase2IDE = external global i8, align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @LLVMParseBitcode(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @LLVMParseBitcode(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @LLVMGetGlobalContext() #13
   %5 = tail call i32 @LLVMParseBitcodeInContext(ptr noundef %4, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %5
@@ -936,7 +936,7 @@ _ZN4llvm15ParserCallbacksD2Ev.exit:               ; preds = %_ZNSt14_Optional_ba
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @LLVMGetBitcodeModule(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @LLVMGetBitcodeModule(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @LLVMGetGlobalContext() #13
   %5 = tail call i32 @LLVMGetBitcodeModuleInContext(ptr noundef %4, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %5

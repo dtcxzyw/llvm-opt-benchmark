@@ -3602,7 +3602,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers11TermDbSygus9mkGenericERKNS0_5DTypeEiRSt3mapIiNS0_12NodeTemplateILb1EEESt4lessIiESaISt4pairIKiS9_EEEb(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %0, ptr noundef nonnull align 8 dereferenceable(920) %1, ptr noundef nonnull align 8 dereferenceable(448) %2, i32 noundef %3, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %4, i1 noundef zeroext %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers11TermDbSygus9mkGenericERKNS0_5DTypeEiRSt3mapIiNS0_12NodeTemplateILb1EEESt4lessIiESaISt4pairIKiS9_EEEb(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %0, ptr noundef nonnull align 8 dereferenceable(920) %1, ptr noundef nonnull align 8 dereferenceable(448) %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %4, i1 noundef zeroext %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::map.484", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #27
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -3686,7 +3686,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers11TermDbSygus9mkGeneric
   store ptr %13, ptr %16, align 8, !tbaa !96, !noalias !208
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 0, ptr %17, align 8, !tbaa !97, !noalias !208
-  invoke void @_ZN4cvc58internal6theory11quantifiers11TermDbSygus9mkGenericERKNS0_5DTypeEjRSt3mapINS0_8TypeNodeEmSt4lessIS8_ESaISt4pairIKS8_mEEERS7_IiNS0_12NodeTemplateILb1EEES9_IiESaISB_IKiSI_EEEb(ptr dead_on_unwind writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %0, ptr noundef nonnull align 8 dereferenceable(920) %1, ptr noundef nonnull align 8 dereferenceable(448) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %7, i1 noundef zeroext %4)
+  invoke void @_ZN4cvc58internal6theory11quantifiers11TermDbSygus9mkGenericERKNS0_5DTypeEjRSt3mapINS0_8TypeNodeEmSt4lessIS8_ESaISt4pairIKS8_mEEERS7_IiNS0_12NodeTemplateILb1EEES9_IiESaISB_IKiSI_EEEb(ptr dead_on_unwind writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %0, ptr noundef nonnull align 8 dereferenceable(920) %1, ptr noundef nonnull align 8 dereferenceable(448) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull readonly align 8 dereferenceable(48) %7, i1 noundef zeroext %4)
           to label %18 unwind label %.body
 
 18:                                               ; preds = %5
@@ -5456,7 +5456,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit84: ; preds = %149, %154, %160
   store ptr %186, ptr %189, align 8, !tbaa !96, !noalias !256
   %190 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i64 0, ptr %190, align 8, !tbaa !97, !noalias !256
-  invoke void @_ZN4cvc58internal6theory11quantifiers11TermDbSygus9mkGenericERKNS0_5DTypeEjRSt3mapINS0_8TypeNodeEmSt4lessIS8_ESaISt4pairIKS8_mEEERS7_IiNS0_12NodeTemplateILb1EEES9_IiESaISB_IKiSI_EEEb(ptr dead_on_unwind writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %0, ptr noundef nonnull align 8 dereferenceable(920) %1, ptr noundef nonnull align 8 dereferenceable(448) %124, i32 noundef %150, ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %13, i1 noundef zeroext true)
+  invoke void @_ZN4cvc58internal6theory11quantifiers11TermDbSygus9mkGenericERKNS0_5DTypeEjRSt3mapINS0_8TypeNodeEmSt4lessIS8_ESaISt4pairIKS8_mEEERS7_IiNS0_12NodeTemplateILb1EEES9_IiESaISB_IKiSI_EEEb(ptr dead_on_unwind writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %0, ptr noundef nonnull align 8 dereferenceable(920) %1, ptr noundef nonnull align 8 dereferenceable(448) %124, i32 noundef %150, ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull readonly align 8 dereferenceable(48) %13, i1 noundef zeroext true)
           to label %191 unwind label %196
 
 191:                                              ; preds = %._crit_edge

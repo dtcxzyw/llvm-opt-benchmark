@@ -5498,7 +5498,7 @@ define internal fastcc void @_ZL24llama_sampler_top_k_implP22llama_token_data_ar
   %18 = sext i32 %.sroa.speculated162 to i64
   %19 = getelementptr inbounds %struct.llama_token_data, ptr %17, i64 %18
   %20 = getelementptr inbounds nuw %struct.llama_token_data, ptr %17, i64 %7
-  tail call fastcc void @"_ZSt14__partial_sortIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_T0_"(ptr noundef %17, ptr noundef %19, ptr noundef %20)
+  tail call fastcc void @"_ZSt14__partial_sortIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_T0_"(ptr noundef %17, ptr noundef %19, ptr noundef readnone %20)
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit95
 
 21:                                               ; preds = %14
@@ -5998,7 +5998,7 @@ _ZNSt6vectorIP16llama_token_dataSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6
   %171 = load i32, ptr %170, align 4, !tbaa !27
   %172 = sext i32 %171 to i64
   %173 = getelementptr inbounds %struct.llama_token_data, ptr %.1.lcssa, i64 %172
-  tail call fastcc void @"_ZSt14__partial_sortIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_T0_"(ptr noundef %.1.lcssa, ptr noundef nonnull %169, ptr noundef %173)
+  tail call fastcc void @"_ZSt14__partial_sortIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZL24llama_sampler_top_k_implP22llama_token_data_arrayiE3$_0EEEvT_S9_S9_T0_"(ptr noundef %.1.lcssa, ptr noundef nonnull %169, ptr noundef readnone %173)
   %174 = load ptr, ptr %0, align 8, !tbaa !17
   %175 = mul nuw nsw i64 %166, 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %174, ptr align 4 %.sroa.0118.0, i64 %175, i1 false)

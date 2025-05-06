@@ -777,7 +777,7 @@ define range(i64 -4611686018427387904, 4611686020574871552) i64 @dt_imageio_writ
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @dt_imageio_is_ldr(ptr noundef captures(address_is_null) %0) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @dt_imageio_is_ldr(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
   %2 = tail call fastcc ptr @_find_signature(ptr noundef %0)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %3
@@ -2357,7 +2357,7 @@ _open_by_magic_number.exit:                       ; preds = %14
 
 _open_by_magic_number.exit.thread:                ; preds = %7, %14, %_open_by_magic_number.exit, %_open_by_magic_number.exit
   %.0.i114 = phi i32 [ %17, %_open_by_magic_number.exit ], [ %17, %_open_by_magic_number.exit ], [ 9, %14 ], [ 9, %7 ]
-  %18 = tail call fastcc ptr @_find_signature(ptr noundef %1)
+  %18 = tail call fastcc ptr @_find_signature(ptr noundef readonly %1)
   %.not.i91 = icmp eq ptr %18, null
   br i1 %.not.i91, label %dt_imageio_is_ldr.exit.thread, label %dt_imageio_is_ldr.exit
 

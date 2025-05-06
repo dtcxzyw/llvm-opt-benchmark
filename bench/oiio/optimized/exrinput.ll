@@ -9700,7 +9700,7 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_111suffixfoundENS0_17basic_string_viewIcSt11
   store ptr @.str.128, ptr %29, align 8, !tbaa !91
   %335 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 5, ptr %335, align 8, !tbaa !89
-  %336 = invoke fastcc noundef zeroext i1 @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_111suffixfoundENS0_17basic_string_viewIcSt11char_traitsIcEEENS0_4spanINS1_14ChanNameHolderELm18446744073709551615EEE(ptr noundef %29, ptr %.sroa.0628.0, i64 4)
+  %336 = invoke fastcc noundef zeroext i1 @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_111suffixfoundENS0_17basic_string_viewIcSt11char_traitsIcEEENS0_4spanINS1_14ChanNameHolderELm18446744073709551615EEE(ptr noundef %29, ptr readonly %.sroa.0628.0, i64 4)
           to label %.noexc210 unwind label %.loopexit.split-lp785.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc210:                                        ; preds = %334

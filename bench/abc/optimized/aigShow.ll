@@ -695,7 +695,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define void @Aig_ManShow(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define void @Aig_ManShow(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca [200 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #6
   %5 = load ptr, ptr %0, align 8, !tbaa !48

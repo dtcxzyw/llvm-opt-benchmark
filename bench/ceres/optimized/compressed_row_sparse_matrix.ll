@@ -2317,7 +2317,7 @@ _ZN5ceres8internallsERSoNS0_25CompressedRowSparseMatrix11StorageTypeE.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK5ceres8internal25CompressedRowSparseMatrix25LeftMultiplyAndAccumulateEPKdPd(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK5ceres8internal25CompressedRowSparseMatrix25LeftMultiplyAndAccumulateEPKdPd(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::lts_20240116::log_internal::LogMessageFatal", align 8
   %5 = alloca %"class.absl::lts_20240116::log_internal::LogMessageFatal", align 8
   %.not = icmp eq ptr %1, null

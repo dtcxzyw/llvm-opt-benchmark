@@ -5024,12 +5024,12 @@ define internal fastcc i32 @cff_parser_run(ptr noundef nonnull initializes((8, 3
 
 74:                                               ; preds = %71
   %.val179 = load ptr, ptr %23, align 8, !tbaa !163
-  %75 = tail call fastcc i64 @do_fixed(ptr noundef nonnull readonly %0, ptr %.val179, i64 noundef 0)
+  %75 = tail call fastcc i64 @do_fixed(ptr noundef nonnull readonly %0, ptr readonly %.val179, i64 noundef 0)
   br label %78
 
 76:                                               ; preds = %71
   %.val180 = load ptr, ptr %23, align 8, !tbaa !163
-  %77 = tail call fastcc i64 @do_fixed(ptr noundef nonnull readonly %0, ptr %.val180, i64 noundef 3)
+  %77 = tail call fastcc i64 @do_fixed(ptr noundef nonnull readonly %0, ptr readonly %.val180, i64 noundef 3)
   br label %78
 
 78:                                               ; preds = %76, %74, %72
@@ -5144,7 +5144,7 @@ define internal fastcc i32 @cff_parser_run(ptr noundef nonnull initializes((8, 3
   %.3148207 = phi i32 [ %spec.select178, %.lr.ph ], [ %128, %121 ]
   %122 = getelementptr inbounds nuw i8, ptr %.0133210, i64 8
   %.0133.val = load ptr, ptr %.0133210, align 8, !tbaa !163
-  %123 = tail call fastcc i64 @do_fixed(ptr noundef nonnull readonly %0, ptr %.0133.val, i64 noundef 0)
+  %123 = tail call fastcc i64 @do_fixed(ptr noundef nonnull readonly %0, ptr readonly %.0133.val, i64 noundef 0)
   %124 = add i64 %123, %.2143208
   store i64 %124, ptr %.1140209, align 8, !tbaa !133
   %125 = load i8, ptr %120, align 4, !tbaa !502
@@ -5211,7 +5211,7 @@ declare hidden void @FT_Stream_ExitFrame(ptr noundef) local_unnamed_addr #9
 declare hidden ptr @ft_mem_qrealloc(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -140737488355328, 140737488355328) i64 @cff_parse_num(ptr noundef readonly captures(none) %0, ptr captures(address) %.0.val) unnamed_addr #4 {
+define internal fastcc range(i64 -140737488355328, 140737488355328) i64 @cff_parse_num(ptr noundef readonly captures(none) %0, ptr readonly captures(address) %.0.val) unnamed_addr #4 {
   %2 = load i8, ptr %.0.val, align 1, !tbaa !167
   switch i8 %2, label %25 [
     i8 30, label %3
@@ -5384,7 +5384,7 @@ define internal range(i32 0, 162) i32 @cff_parse_font_matrix(ptr noundef readonl
   br i1 %21, label %23, label %25
 
 23:                                               ; preds = %17
-  %24 = call fastcc i64 @cff_parse_real(ptr noundef nonnull %.070.val, ptr noundef %22, i64 noundef 0, ptr noundef nonnull %19)
+  %24 = call fastcc i64 @cff_parse_real(ptr noundef nonnull readonly %.070.val, ptr noundef %22, i64 noundef 0, ptr noundef nonnull %19)
   br label %cff_parse_fixed_dynamic.exit
 
 25:                                               ; preds = %17
@@ -5670,23 +5670,23 @@ define internal range(i32 0, 162) i32 @cff_parse_font_bbox(ptr noundef readonly 
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val19 = load ptr, ptr %3, align 8, !tbaa !163
-  %12 = tail call fastcc i64 @do_fixed(ptr noundef nonnull readonly %0, ptr %.val19, i64 noundef 0)
+  %12 = tail call fastcc i64 @do_fixed(ptr noundef nonnull readonly %0, ptr readonly %.val19, i64 noundef 0)
   %13 = tail call i64 @FT_RoundFix(i64 noundef %12) #19
   store i64 %13, ptr %10, align 8, !tbaa !366
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val18 = load ptr, ptr %11, align 8, !tbaa !163
-  %15 = tail call fastcc i64 @do_fixed(ptr noundef nonnull readonly %0, ptr %.val18, i64 noundef 0)
+  %15 = tail call fastcc i64 @do_fixed(ptr noundef nonnull readonly %0, ptr readonly %.val18, i64 noundef 0)
   %16 = tail call i64 @FT_RoundFix(i64 noundef %15) #19
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 144
   store i64 %16, ptr %17, align 8, !tbaa !369
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.val17 = load ptr, ptr %14, align 8, !tbaa !163
-  %19 = tail call fastcc i64 @do_fixed(ptr noundef nonnull readonly %0, ptr %.val17, i64 noundef 0)
+  %19 = tail call fastcc i64 @do_fixed(ptr noundef nonnull readonly %0, ptr readonly %.val17, i64 noundef 0)
   %20 = tail call i64 @FT_RoundFix(i64 noundef %19) #19
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 152
   store i64 %20, ptr %21, align 8, !tbaa !365
   %.val = load ptr, ptr %18, align 8, !tbaa !163
-  %22 = tail call fastcc i64 @do_fixed(ptr noundef nonnull readonly %0, ptr %.val, i64 noundef 0)
+  %22 = tail call fastcc i64 @do_fixed(ptr noundef nonnull readonly %0, ptr readonly %.val, i64 noundef 0)
   %23 = tail call i64 @FT_RoundFix(i64 noundef %22) #19
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 160
   store i64 %23, ptr %24, align 8, !tbaa !368
@@ -6049,7 +6049,7 @@ cff_blend_check_vector.exit:                      ; preds = %24, %23, %29
   %107 = zext i32 %106 to i64
   %108 = getelementptr inbounds nuw ptr, ptr %104, i64 %107
   %.val97.i = load ptr, ptr %108, align 8, !tbaa !163
-  %109 = call fastcc i64 @do_fixed(ptr noundef nonnull readonly %0, ptr %.val97.i, i64 noundef 0)
+  %109 = call fastcc i64 @do_fixed(ptr noundef nonnull readonly %0, ptr readonly %.val97.i, i64 noundef 0)
   %110 = load i32, ptr %44, align 8, !tbaa !481
   %111 = icmp ugt i32 %110, 1
   br i1 %111, label %.lr.ph111.i, label %._crit_edge.i
@@ -6074,7 +6074,7 @@ cff_blend_check_vector.exit:                      ; preds = %24, %23, %29
 
 118:                                              ; preds = %.lr.ph111.i
   %119 = load ptr, ptr %100, align 8, !tbaa !496
-  %120 = call fastcc i64 @cff_parse_real(ptr noundef nonnull %.val.i, ptr noundef %119, i64 noundef 0, ptr noundef null)
+  %120 = call fastcc i64 @cff_parse_real(ptr noundef nonnull readonly %.val.i, ptr noundef %119, i64 noundef 0, ptr noundef null)
   %.pre.i = load i32, ptr %44, align 8, !tbaa !481
   br label %do_fixed.exit.i
 
@@ -6671,7 +6671,7 @@ declare i64 @FT_DivFix(i64 noundef, i64 noundef) local_unnamed_addr #9
 declare i64 @FT_RoundFix(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @do_fixed(ptr noundef readonly captures(none) %0, ptr captures(address) %.0.val, i64 noundef range(i64 0, 4) %1) unnamed_addr #4 {
+define internal fastcc i64 @do_fixed(ptr noundef readonly captures(none) %0, ptr readonly captures(address) %.0.val, i64 noundef range(i64 0, 4) %1) unnamed_addr #4 {
   %3 = load i8, ptr %.0.val, align 1, !tbaa !167
   switch i8 %3, label %40 [
     i8 30, label %4
@@ -7939,7 +7939,7 @@ declare hidden void @FT_Matrix_Multiply_Scaled(ptr noundef, ptr noundef, i64 nou
 declare hidden void @FT_Vector_Transform_Scaled(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cff_index_get_name(ptr noundef captures(address_is_null) %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #4 {
+define internal fastcc ptr @cff_index_get_name(ptr noundef readonly captures(address_is_null) %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #4 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
@@ -8635,7 +8635,7 @@ cff_index_load_offsets.exit:                      ; preds = %15, %24, %32, %.loo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cff_subfont_load(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef range(i32 4096, 16385) %5, ptr noundef %6, ptr noundef readonly captures(none) %7) unnamed_addr #4 {
+define internal fastcc i32 @cff_subfont_load(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef range(i32 4096, 16385) %5, ptr noundef %6, ptr noundef readonly captures(none) %7) unnamed_addr #4 {
   %9 = alloca i32, align 4
   %10 = alloca %struct.CFF_ParserRec_, align 8
   %11 = alloca ptr, align 8

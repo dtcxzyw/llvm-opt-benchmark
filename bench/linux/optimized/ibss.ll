@@ -77,7 +77,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [11 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2, ptr @trace_drv_join_ibss.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1968, ptr @trace_drv_join_ibss.__UNIQUE_ID___addressable___SCK__tp_func_drv_join_ibss1967, ptr @trace_drv_leave_ibss.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1982, ptr @trace_drv_leave_ibss.__UNIQUE_ID___addressable___SCK__tp_func_drv_leave_ibss1981, ptr @trace_drv_return_int.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace820, ptr @trace_drv_return_int.__UNIQUE_ID___addressable___SCK__tp_func_drv_return_int819, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace806, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__tp_func_drv_return_void805, ptr @trace_drv_tx_last_beacon.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1520, ptr @trace_drv_tx_last_beacon.__UNIQUE_ID___addressable___SCK__tp_func_drv_tx_last_beacon1519], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @ieee80211_ibss_csa_beacon(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ieee80211_ibss_csa_beacon(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1982
   %6 = load i8, ptr %5, align 2, !range !6, !noundef !7

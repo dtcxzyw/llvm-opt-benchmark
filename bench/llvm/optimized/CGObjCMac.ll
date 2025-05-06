@@ -6147,7 +6147,7 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase3addEPN4llvm8ConstantE.exit68.i: 
   store ptr %412, ptr %15, align 8, !tbaa !394
   %417 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %414, ptr %417, align 8, !tbaa !394
-  %418 = call fastcc noundef ptr @_ZN12_GLOBAL__N_19CGObjCMac14emitMethodListEN4llvm5TwineENS_12_GLOBAL__N_114MethodListTypeENS1_8ArrayRefIPKN5clang14ObjCMethodDeclEEE(ptr noundef nonnull align 8 dereferenceable(2336) %0, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %15, i32 noundef 3, ptr %219, i64 %222)
+  %418 = call fastcc noundef ptr @_ZN12_GLOBAL__N_19CGObjCMac14emitMethodListEN4llvm5TwineENS_12_GLOBAL__N_114MethodListTypeENS1_8ArrayRefIPKN5clang14ObjCMethodDeclEEE(ptr noundef nonnull align 8 dereferenceable(2336) %0, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %15, i32 noundef 3, ptr readonly %219, i64 %222)
   %419 = load i32, ptr %244, align 8, !tbaa !353
   %420 = load i32, ptr %245, align 4, !tbaa !354
   %.not.i.i.not.i.i69.i = icmp ult i32 %419, %420

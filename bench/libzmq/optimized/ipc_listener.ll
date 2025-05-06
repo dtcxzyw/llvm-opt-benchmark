@@ -141,7 +141,7 @@ _ZN3zmq19endpoint_uri_pair_tD2Ev.exit:            ; preds = %_ZNKSt7__cxx1112bas
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq14ipc_listener_t6acceptEv(ptr noundef nonnull align 8 captures(address) dereferenceable(1592) %0) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN3zmq14ipc_listener_t6acceptEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1592) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   %3 = load i32, ptr %2, align 8, !tbaa !71
   %.not = icmp eq i32 %3, -1

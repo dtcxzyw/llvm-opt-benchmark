@@ -12005,7 +12005,7 @@ define hidden ptr @_ZN4cvc58internal6theory2uf15SymmetryBreaker23selectMostPromi
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2uf15SymmetryBreaker12insertUsedInENS0_12NodeTemplateILb0EEERKSt3setIS5_St4lessIS5_ESaIS5_EERS6_INS4_ILb1EEES7_ISD_ESaISD_EE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(776) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2uf15SymmetryBreaker12insertUsedInENS0_12NodeTemplateILb0EEERKSt3setIS5_St4lessIS5_ESaIS5_EERS6_INS4_ILb1EEES7_ISD_ESaISD_EE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(776) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %6 = alloca %"class.cvc5::internal::NodeTemplate.16", align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16

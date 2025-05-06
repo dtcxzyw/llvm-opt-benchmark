@@ -260,7 +260,7 @@ _ZN10duckdb_hll13MurmurHash64AEPKvij.exit:        ; preds = %._crit_edge.i, %56
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 2) i32 @_ZN10duckdb_hll11hllDenseAddEPhS0_m(ptr noundef captures(none) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #2 {
+define noundef range(i32 0, 2) i32 @_ZN10duckdb_hll11hllDenseAddEPhS0_m(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
   %5 = call noundef i32 @_ZN10duckdb_hll9hllPatLenEPhmPl(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %4)
@@ -1024,7 +1024,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 declare void @_ZN10duckdb_hll10sdsIncrLenEPcl(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 2) i32 @_ZN10duckdb_hll12hllSparseAddEPNS_4robjEPhm(ptr noundef captures(none) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #3 {
+define noundef range(i32 -1, 2) i32 @_ZN10duckdb_hll12hllSparseAddEPNS_4robjEPhm(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
   %5 = call noundef i32 @_ZN10duckdb_hll9hllPatLenEPhmPl(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %4)
@@ -1579,7 +1579,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i64 @llroundl(x86_fp80 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 2) i32 @_ZN10duckdb_hll7hll_addEPNS_4robjEPhm(ptr noundef captures(none) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #3 {
+define noundef range(i32 -1, 2) i32 @_ZN10duckdb_hll7hll_addEPNS_4robjEPhm(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = load ptr, ptr %0, align 8, !tbaa !14
@@ -1593,7 +1593,7 @@ define noundef range(i32 -1, 2) i32 @_ZN10duckdb_hll7hll_addEPNS_4robjEPhm(ptr n
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #21
-  %11 = call noundef i32 @_ZN10duckdb_hll9hllPatLenEPhmPl(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %5)
+  %11 = call noundef i32 @_ZN10duckdb_hll9hllPatLenEPhmPl(ptr noundef readonly %1, i64 noundef %2, ptr noundef nonnull %5)
   %12 = load i64, ptr %5, align 8, !tbaa !3
   %13 = mul nsw i64 %12, 6
   %14 = sdiv i64 %13, 8
@@ -1641,7 +1641,7 @@ _ZN10duckdb_hll11hllDenseAddEPhS0_m.exit:         ; preds = %9, %30
 
 46:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
-  %47 = call noundef i32 @_ZN10duckdb_hll9hllPatLenEPhmPl(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %4)
+  %47 = call noundef i32 @_ZN10duckdb_hll9hllPatLenEPhmPl(ptr noundef readonly %1, i64 noundef %2, ptr noundef nonnull %4)
   %48 = trunc i32 %47 to i8
   %49 = load i64, ptr %4, align 8, !tbaa !3
   %50 = tail call noundef range(i32 -1, 2) i32 @_ZN10duckdb_hll12hllSparseSetEPNS_4robjElh(ptr noundef nonnull %0, i64 noundef %49, i8 noundef zeroext %48)

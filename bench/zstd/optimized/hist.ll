@@ -97,7 +97,7 @@ define i32 @HIST_count_simple(ptr noundef captures(none) %0, ptr noundef capture
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i64 -66, 4294967296) i64 @HIST_countFast_wksp(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(address) %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #1 {
+define range(i64 -66, 4294967296) i64 @HIST_countFast_wksp(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address) %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i64 %3, 1500
   br i1 %7, label %8, label %32
 
@@ -391,7 +391,7 @@ define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i64 -66, 4294967296) i64 @HIST_count_wksp(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(address) %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #1 {
+define range(i64 -66, 4294967296) i64 @HIST_count_wksp(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address) %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #1 {
   %7 = ptrtoint ptr %4 to i64
   %8 = and i64 %7, 3
   %.not = icmp eq i64 %8, 0
@@ -465,7 +465,7 @@ HIST_count_simple.exit.loopexit.i:                ; preds = %34
   br label %HIST_countFast_wksp.exit
 
 38:                                               ; preds = %16
-  %39 = tail call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i32 noundef 0, ptr noundef %4)
+  %39 = tail call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly %2, i64 noundef %3, i32 noundef 0, ptr noundef %4)
   br label %HIST_countFast_wksp.exit
 
 HIST_countFast_wksp.exit:                         ; preds = %38, %HIST_count_simple.exit.loopexit.i, %21, %9, %6, %14
@@ -474,7 +474,7 @@ HIST_countFast_wksp.exit:                         ; preds = %38, %HIST_count_sim
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i64 -48, 4294967296) i64 @HIST_countFast(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(address) %2, i64 noundef %3) local_unnamed_addr #1 {
+define range(i64 -48, 4294967296) i64 @HIST_countFast(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address) %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = alloca [1024 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5) #6
   %6 = icmp ult i64 %3, 1500
@@ -534,7 +534,7 @@ HIST_count_simple.exit.loopexit.i:                ; preds = %27
   br label %HIST_countFast_wksp.exit
 
 31:                                               ; preds = %4
-  %32 = call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 0, ptr noundef nonnull %5)
+  %32 = call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3, i32 noundef 0, ptr noundef nonnull %5)
   br label %HIST_countFast_wksp.exit
 
 HIST_countFast_wksp.exit:                         ; preds = %14, %HIST_count_simple.exit.loopexit.i, %31
@@ -544,7 +544,7 @@ HIST_countFast_wksp.exit:                         ; preds = %14, %HIST_count_sim
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i64 -48, 4294967296) i64 @HIST_count(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(address) %2, i64 noundef %3) local_unnamed_addr #1 {
+define range(i64 -48, 4294967296) i64 @HIST_count(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address) %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = alloca [1024 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5) #6
   %6 = load i32, ptr %1, align 4, !tbaa !6
@@ -552,7 +552,7 @@ define range(i64 -48, 4294967296) i64 @HIST_count(ptr noundef captures(none) %0,
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %4
-  %9 = call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i32 noundef 1, ptr noundef nonnull %5)
+  %9 = call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly %2, i64 noundef %3, i32 noundef 1, ptr noundef nonnull %5)
   br label %HIST_count_wksp.exit
 
 10:                                               ; preds = %4
@@ -610,7 +610,7 @@ HIST_count_simple.exit.loopexit.i.i:              ; preds = %28
   br label %HIST_count_wksp.exit
 
 32:                                               ; preds = %10
-  %33 = call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i32 noundef 0, ptr noundef nonnull %5)
+  %33 = call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly %2, i64 noundef %3, i32 noundef 0, ptr noundef nonnull %5)
   br label %HIST_count_wksp.exit
 
 HIST_count_wksp.exit:                             ; preds = %8, %15, %HIST_count_simple.exit.loopexit.i.i, %32

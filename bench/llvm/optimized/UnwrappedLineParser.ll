@@ -331,7 +331,7 @@ $_ZTVN5clang6format16ScopedMacroStateE = comdat any
 @_ZN5clang6format19UnwrappedLineParserC1ERNS_13SourceManagerERKNS0_11FormatStyleERKNS0_18AdditionalKeywordsEjN4llvm8ArrayRefIPNS0_11FormatTokenEEERNS0_21UnwrappedLineConsumerERNSA_24SpecificBumpPtrAllocatorISC_EERNS_15IdentifierTableE = unnamed_addr alias void (ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr), ptr @_ZN5clang6format19UnwrappedLineParserC2ERNS_13SourceManagerERKNS0_11FormatStyleERKNS0_18AdditionalKeywordsEjN4llvm8ArrayRefIPNS0_11FormatTokenEEERNS0_21UnwrappedLineConsumerERNSA_24SpecificBumpPtrAllocatorISC_EERNS_15IdentifierTableE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 1 ptr @_ZN5clang6formatlsERSoRKNS0_13UnwrappedLineE(ptr noundef nonnull returned align 1 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(68) %1) local_unnamed_addr #0 {
+define dso_local noundef nonnull align 1 ptr @_ZN5clang6formatlsERSoRKNS0_13UnwrappedLineE(ptr noundef nonnull returned align 1 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(68) %1) local_unnamed_addr #0 {
   %3 = alloca %"class.llvm::raw_os_ostream", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #22
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8

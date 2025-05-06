@@ -5541,7 +5541,7 @@ define dso_local noundef zeroext i1 @_ZNK4Luau14NormalizedType8isTruthyEv(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau10Normalizer11isInhabitedEPKNS_14NormalizedTypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(337) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN4Luau10Normalizer11isInhabitedEPKNS_14NormalizedTypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(337) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Luau::Set", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #32
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -10572,7 +10572,7 @@ _ZN4Luau10Normalizer20withinResourceLimitsEv.exit.thread: ; preds = %.thread.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau10Normalizer12unionNormalsERNS_14NormalizedTypeERKS1_i(ptr noundef nonnull align 8 dereferenceable(337) %0, ptr noundef nonnull align 8 dereferenceable(401) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(401) %2, i32 noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN4Luau10Normalizer12unionNormalsERNS_14NormalizedTypeERKS1_i(ptr noundef nonnull align 8 dereferenceable(337) %0, ptr noundef nonnull align 8 dereferenceable(401) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(401) %2, i32 noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca %"class.std::unique_ptr.135", align 8
   %7 = alloca %"struct.Luau::NormalizedType", align 8
@@ -22074,7 +22074,7 @@ _ZNSt14_Optional_baseIN4Luau14NormalizedTypeELb0ELb0EEaSEOS2_.exit: ; preds = %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 3) i32 @_ZN4Luau10Normalizer16intersectNormalsERNS_14NormalizedTypeERKS1_i(ptr noundef nonnull align 8 dereferenceable(337) %0, ptr noundef nonnull align 8 dereferenceable(401) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(401) %2, i32 noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN4Luau10Normalizer16intersectNormalsERNS_14NormalizedTypeERKS1_i(ptr noundef nonnull align 8 dereferenceable(337) %0, ptr noundef nonnull align 8 dereferenceable(401) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(401) %2, i32 noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unique_ptr.135", align 8
   %6 = alloca %"struct.Luau::NormalizedType", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 328

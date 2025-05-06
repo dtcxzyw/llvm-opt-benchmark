@@ -3304,7 +3304,7 @@ define noundef range(i32 -65535, 65536) i32 @u_strncasecmp_77(ptr noundef %0, pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @u_caseInsensitivePrefixMatch_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef writeonly captures(none) %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 {
+define void @u_caseInsensitivePrefixMatch_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(none) %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 {
   %.val = load i32, ptr %7, align 4, !tbaa !3
   %9 = tail call fastcc noundef i32 @_ZL8_cmpFoldPKDsiS0_ijPiS1_P10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i32 %.val)
   ret void

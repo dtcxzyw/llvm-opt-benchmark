@@ -1919,7 +1919,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadilsERSoRKNS_7XmlNodeE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(176) %1) local_unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadilsERSoRKNS_7XmlNodeE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(176) %1) local_unnamed_addr #5 {
   tail call void @_ZNK6casadi7XmlNode4dumpERSox(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 0)
   ret ptr %0
 }

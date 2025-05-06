@@ -819,7 +819,7 @@ define dso_local noundef range(i32 0, 256) i32 @intel_dp_dsc_nearest_valid_bpp(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext range(i16 0, 256) i16 @intel_dp_dsc_get_max_compressed_bpp(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #3 align 16 {
+define dso_local noundef zeroext range(i16 0, 256) i16 @intel_dp_dsc_get_max_compressed_bpp(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #3 align 16 {
   %10 = mul i32 %2, %1
   %11 = mul i32 %8, %10
   %12 = zext i32 %3 to i64

@@ -1090,7 +1090,7 @@ _is_empty_dir.exit.thread:                        ; preds = %15, %_is_empty_dir.
 declare noundef i32 @rmdir(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @common_cgroup_get_pids(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @common_cgroup_get_pids(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.stat, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8

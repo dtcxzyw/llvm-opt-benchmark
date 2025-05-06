@@ -5763,7 +5763,7 @@ define internal i32 @dissect_usb_hid_control(ptr noundef %0, ptr noundef %1, ptr
   br i1 %52, label %53, label %dissect_usb_hid_control_std_intf.exit
 
 53:                                               ; preds = %43
-  %54 = tail call i32 @dissect_usb_hid_get_report_descriptor(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %3)
+  %54 = tail call i32 @dissect_usb_hid_get_report_descriptor(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull readonly %3)
   br label %dissect_usb_hid_control_std_intf.exit
 
 55:                                               ; preds = %13

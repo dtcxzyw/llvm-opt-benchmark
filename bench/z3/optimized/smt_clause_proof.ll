@@ -1739,7 +1739,7 @@ _ZN7obj_refI3app11ast_managerE7dec_refEv.exit:    ; preds = %6, %8, %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt12clause_proof3addERNS_6clauseEPK7sbufferIN3sat7literalELj16EE(ptr noundef nonnull align 8 dereferenceable(864) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt12clause_proof3addERNS_6clauseEPK7sbufferIN3sat7literalELj16EE(ptr noundef nonnull align 8 dereferenceable(864) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.obj_ref, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i8, ptr %5, align 8, !tbaa !546, !range !544, !noundef !545
@@ -3899,7 +3899,7 @@ declare noundef ptr @_ZN11ast_manager6mk_appERK6symboljPKP4exprP4sort(ptr nounde
 declare void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt12clause_proof3delERNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(864) %0, ptr noundef nonnull align 4 captures(address) dereferenceable(8) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt12clause_proof3delERNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(864) %0, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(8) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.obj_ref, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !707)

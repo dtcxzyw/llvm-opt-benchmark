@@ -2218,7 +2218,7 @@ _ZNSt6vectorIN4llvm16ContextTotalSizeESaIS1_EED2Ev.exit46: ; preds = %_ZNSt6vect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL13createMIBNodeRN4llvm11LLVMContextENS_8ArrayRefImEENS_14AllocationTypeENS2_INS_16ContextTotalSizeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr captures(address) %1, i64 %2, i8 noundef zeroext %3, ptr readonly captures(address) %4, i64 %5) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL13createMIBNodeRN4llvm11LLVMContextENS_8ArrayRefImEENS_14AllocationTypeENS2_INS_16ContextTotalSizeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr readonly captures(address) %1, i64 %2, i8 noundef zeroext %3, ptr readonly captures(address) %4, i64 %5) unnamed_addr #1 {
   %7 = alloca %"class.llvm::SmallVector.64", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca [2 x ptr], align 8

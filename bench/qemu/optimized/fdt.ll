@@ -665,7 +665,7 @@ define dso_local noundef i32 @fdt_next_tag(ptr noundef readonly captures(address
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @fdt_check_node_offset_(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local i32 @fdt_check_node_offset_(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = alloca i32, align 4
   %4 = and i32 %1, -2147483645
   %or.cond = icmp eq i32 %4, 0
@@ -684,7 +684,7 @@ define dso_local i32 @fdt_check_node_offset_(ptr noundef captures(address) %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @fdt_check_prop_offset_(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local i32 @fdt_check_prop_offset_(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = alloca i32, align 4
   %4 = and i32 %1, -2147483645
   %or.cond = icmp eq i32 %4, 0
@@ -703,7 +703,7 @@ define dso_local i32 @fdt_check_prop_offset_(ptr noundef captures(address) %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @fdt_next_node(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 {
+define dso_local i32 @fdt_next_node(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
@@ -718,7 +718,7 @@ define dso_local i32 @fdt_next_node(ptr noundef captures(address) %0, i32 nounde
   br i1 %or.cond.i, label %9, label %fdt_check_node_offset_.exit.thread
 
 9:                                                ; preds = %7
-  %10 = call i32 @fdt_next_tag(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4)
+  %10 = call i32 @fdt_next_tag(ptr noundef readonly %0, i32 noundef %1, ptr noundef nonnull %4)
   %.not2.i = icmp eq i32 %10, 1
   br i1 %.not2.i, label %fdt_check_node_offset_.exit, label %fdt_check_node_offset_.exit.thread
 
@@ -795,7 +795,7 @@ fdt_check_node_offset_.exit:                      ; preds = %9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -1, -2147483648) i32 @fdt_first_subnode(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local range(i32 -1, -2147483648) i32 @fdt_first_subnode(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
@@ -809,7 +809,7 @@ define dso_local range(i32 -1, -2147483648) i32 @fdt_first_subnode(ptr noundef c
   br i1 %or.cond.i.i, label %8, label %fdt_check_node_offset_.exit.thread.i
 
 8:                                                ; preds = %6
-  %9 = call i32 @fdt_next_tag(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %3)
+  %9 = call i32 @fdt_next_tag(ptr noundef readonly %0, i32 noundef %1, ptr noundef nonnull %3)
   %.not2.i.i = icmp eq i32 %9, 1
   br i1 %.not2.i.i, label %fdt_check_node_offset_.exit.i, label %fdt_check_node_offset_.exit.thread.i
 
@@ -829,7 +829,7 @@ fdt_check_node_offset_.exit.i:                    ; preds = %8
 
 .split.i:                                         ; preds = %.split.i.preheader, %.backedge.i
   %12 = phi i32 [ %.pre.i, %.backedge.i ], [ %.ph, %.split.i.preheader ]
-  %13 = call i32 @fdt_next_tag(ptr noundef %0, i32 noundef %12, ptr noundef nonnull %4)
+  %13 = call i32 @fdt_next_tag(ptr noundef readonly %0, i32 noundef %12, ptr noundef nonnull %4)
   switch i32 %13, label %.backedge.i [
     i32 9, label %.split25.us.i
     i32 2, label %14
@@ -860,7 +860,7 @@ fdt_next_node.exit:                               ; preds = %.split.i, %.split25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -1, -2147483648) i32 @fdt_next_subnode(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local range(i32 -1, -2147483648) i32 @fdt_next_subnode(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -894,7 +894,7 @@ define dso_local range(i32 -1, -2147483648) i32 @fdt_next_subnode(ptr noundef ca
   br i1 %or.cond.i.i, label %24, label %fdt_check_node_offset_.exit.thread.i
 
 24:                                               ; preds = %22
-  %25 = call i32 @fdt_next_tag(ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %3)
+  %25 = call i32 @fdt_next_tag(ptr noundef readonly %0, i32 noundef %.0, ptr noundef nonnull %3)
   %.not2.i.i = icmp eq i32 %25, 1
   br i1 %.not2.i.i, label %fdt_check_node_offset_.exit.i, label %fdt_check_node_offset_.exit.thread.i
 

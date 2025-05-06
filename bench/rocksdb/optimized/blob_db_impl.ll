@@ -25785,7 +25785,7 @@ define noundef zeroext i1 @_ZN7rocksdb7blob_db10BlobDBImpl19SetSnapshotIfNeededE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb7blob_db10BlobDBImpl7GetImplERKNS_11ReadOptionsEPNS_18ColumnFamilyHandleERKNS_5SliceEPNS_13PinnableSliceEPm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2472) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb7blob_db10BlobDBImpl7GetImplERKNS_11ReadOptionsEPNS_18ColumnFamilyHandleERKNS_5SliceEPNS_13PinnableSliceEPm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2472) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.rocksdb::Slice", align 8
   %9 = alloca %"class.rocksdb::Slice", align 8
   %10 = alloca %"struct.rocksdb::ReadOptions", align 8
@@ -28904,7 +28904,7 @@ _ZN7rocksdb11ReadOptionsD2Ev.exit12:              ; preds = %57, %60
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb7blob_db10BlobDBImpl3GetERKNS_11ReadOptionsEPNS_18ColumnFamilyHandleERKNS_5SliceEPNS_13PinnableSliceEPm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2472) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %5, ptr noundef captures(address_is_null) %6) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb7blob_db10BlobDBImpl3GetERKNS_11ReadOptionsEPNS_18ColumnFamilyHandleERKNS_5SliceEPNS_13PinnableSliceEPm(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2472) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.rocksdb::Slice", align 8
   %9 = alloca %"class.rocksdb::Slice", align 8
   %10 = alloca %"struct.rocksdb::ReadOptions", align 8

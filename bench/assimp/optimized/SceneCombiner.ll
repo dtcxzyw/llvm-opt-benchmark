@@ -857,7 +857,7 @@ common.resume:                                    ; preds = %35, %_ZNSt6vectorIN
   br label %common.resume
 
 26:                                               ; preds = %23, %19
-  tail call void @_ZN6Assimp13SceneCombiner9CopySceneEPP7aiScenePKS1_b(ptr noundef nonnull %0, ptr noundef nonnull %15, i1 noundef zeroext false)
+  tail call void @_ZN6Assimp13SceneCombiner9CopySceneEPP7aiScenePKS1_b(ptr noundef nonnull %0, ptr noundef nonnull readonly %15, i1 noundef zeroext false)
   br label %_ZN6Assimp13SceneCombiner13CopySceneFlatEPP7aiScenePKS1_.exit
 
 27:                                               ; preds = %12
@@ -1029,7 +1029,7 @@ _ZNSt6vectorIN6Assimp14AttachmentInfoESaIS1_EED2Ev.exit39: ; preds = %82, %80, %
 declare void @_ZN7aiSceneD1Ev(ptr noundef nonnull align 8 dereferenceable(1168)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner13CopySceneFlatEPP7aiScenePKS1_(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13SceneCombiner13CopySceneFlatEPP7aiScenePKS1_(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -1227,7 +1227,7 @@ _ZNSt13unordered_setIP7aiSceneSt4hashIS1_ESt8equal_toIS1_ESaIS1_EED2Ev.exit: ; p
   tail call void @_ZN7aiSceneD1Ev(ptr noundef nonnull align 8 dereferenceable(1168) %55) #23
   %60 = load ptr, ptr %0, align 8
   tail call void @_ZN7aiSceneC1Ev(ptr noundef nonnull align 8 dereferenceable(1168) %60)
-  tail call void @_ZN6Assimp13SceneCombiner9CopySceneEPP7aiScenePKS1_b(ptr noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext false)
+  tail call void @_ZN6Assimp13SceneCombiner9CopySceneEPP7aiScenePKS1_b(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i1 noundef zeroext false)
   tail call void @_ZN7aiSceneD1Ev(ptr noundef nonnull align 8 dereferenceable(1168) %1) #23
   tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 1168) #24
   br label %_ZN6Assimp13SceneCombiner13CopySceneFlatEPP7aiScenePKS1_.exit.thread
@@ -6539,7 +6539,7 @@ _ZNSt6vectorISt4pairIP6aiBonejESaIS3_EE12emplace_backIJRS2_RjEEERS3_DpOT_.exit25
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner10MergeBonesEP6aiMeshN9__gnu_cxx17__normal_iteratorIPKS2_St6vectorIS2_SaIS2_EEEESA_(ptr noundef captures(address_is_null) %0, ptr captures(address) %1, ptr captures(address) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13SceneCombiner10MergeBonesEP6aiMeshN9__gnu_cxx17__normal_iteratorIPKS2_St6vectorIS2_SaIS2_EEEESA_(ptr noundef captures(address_is_null) %0, ptr readonly captures(address) %1, ptr readnone captures(address) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::list", align 8
   %5 = alloca %struct.aiString, align 4
   %6 = icmp eq ptr %0, null
@@ -6969,7 +6969,7 @@ _ZNSt7__cxx1110_List_baseIN6Assimp12BoneWithHashESaIS2_EE8_M_clearEv.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner11MergeMeshesEPP6aiMeshjN9__gnu_cxx17__normal_iteratorIPKS2_St6vectorIS2_SaIS2_EEEESB_(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, ptr captures(address) %2, ptr captures(address) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13SceneCombiner11MergeMeshesEPP6aiMeshjN9__gnu_cxx17__normal_iteratorIPKS2_St6vectorIS2_SaIS2_EEEESB_(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, ptr readonly captures(address) %2, ptr readnone captures(address) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

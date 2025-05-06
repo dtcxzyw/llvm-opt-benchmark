@@ -1857,7 +1857,7 @@ HUF_decompress1X2_DCtx_wksp.exit:                 ; preds = %53, %52, %49, %45, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @HUF_decompress1X1_DCtx_wksp(ptr noundef captures(none) %0, ptr noundef captures(address) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define i64 @HUF_decompress1X1_DCtx_wksp(ptr noundef captures(none) %0, ptr noundef writeonly captures(address) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = tail call i64 @HUF_readDTableX1_wksp(ptr noundef %0, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, i32 noundef %7)
   %10 = icmp ult i64 %9, -119
   br i1 %10, label %11, label %16
@@ -1898,7 +1898,7 @@ define i64 @HUF_decompress1X_usingDTable(ptr noundef %0, i64 noundef %1, ptr nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal(ptr noundef captures(address) %0, i64 noundef %1, ptr noundef captures(address) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #7 {
+define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal(ptr noundef writeonly captures(address) %0, i64 noundef %1, ptr noundef readonly captures(address) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #7 {
   %7 = and i32 %5, 1
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %8

@@ -765,7 +765,7 @@ free_desc.exit:                                   ; preds = %19, %28
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__irq_alloc_descs(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef captures(address) %5) #1 section ".ref.text" align 16 {
+define dso_local i32 @__irq_alloc_descs(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(address) %5) #1 section ".ref.text" align 16 {
   %7 = alloca %struct.ma_state, align 8
   %8 = alloca %struct.ma_state, align 8
   %9 = alloca %struct.ma_state, align 8

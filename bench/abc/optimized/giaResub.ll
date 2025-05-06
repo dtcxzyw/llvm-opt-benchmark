@@ -11397,7 +11397,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Gia_ManResubOne(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef captures(address_is_null) %8, i32 noundef %9) local_unnamed_addr #0 {
+define noalias noundef ptr @Gia_ManResubOne(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly captures(address_is_null) %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = tail call ptr @Gia_ResbAlloc(i32 noundef %1)
   tail call void @Gia_ManResubPerform(ptr noundef %11, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %9)
   %12 = icmp ne i32 %7, 0

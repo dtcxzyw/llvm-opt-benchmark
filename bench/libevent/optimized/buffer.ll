@@ -4665,7 +4665,7 @@ evbuffer_find_eol_char.exit:                      ; preds = %53, %.thread.i.i
 
 82:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #16
-  call void @evbuffer_search_range(ptr dead_on_unwind nonnull writable sret(%struct.evbuffer_ptr) align 8 %6, ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.1, i64 noundef 2, ptr noundef nonnull %0, ptr noundef null)
+  call void @evbuffer_search_range(ptr dead_on_unwind nonnull writable sret(%struct.evbuffer_ptr) align 8 %6, ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.1, i64 noundef 2, ptr noundef nonnull readonly %0, ptr noundef null)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #16
   %83 = load i64, ptr %0, align 8
@@ -4963,7 +4963,7 @@ evbuffer_find_eol_char.exit.thread:               ; preds = %evbuffer_find_eol_c
 }
 
 ; Function Attrs: nounwind uwtable
-define void @evbuffer_search(ptr dead_on_unwind noalias writable sret(%struct.evbuffer_ptr) align 8 captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #1 {
+define void @evbuffer_search(ptr dead_on_unwind noalias writable sret(%struct.evbuffer_ptr) align 8 captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #1 {
   tail call void @evbuffer_search_range(ptr dead_on_unwind writable sret(%struct.evbuffer_ptr) align 8 %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef null)
   ret void
 }

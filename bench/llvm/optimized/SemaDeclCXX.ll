@@ -94330,7 +94330,7 @@ declare i32 @_ZNK5clang14DeclaratorDecl19getTypeSpecStartLocEv(ptr noundef nonnu
 declare { ptr, ptr } @_ZNK5clang4Sema16getReturnTypeLocEPNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(17504), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema33CheckExplicitObjectMemberFunctionEPNS_11DeclContextERNS_10DeclaratorENS_15DeclarationNameENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef captures(address_is_null) %1, ptr noundef nonnull align 8 dereferenceable(4584) %2, i64 %3, i64 %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema33CheckExplicitObjectMemberFunctionEPNS_11DeclContextERNS_10DeclaratorENS_15DeclarationNameENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull align 8 dereferenceable(4584) %2, i64 %3, i64 %4) local_unnamed_addr #0 align 2 {
   tail call void @_ZN5clang4Sema33CheckExplicitObjectMemberFunctionERNS_10DeclaratorENS_15DeclarationNameENS_8QualTypeEbPNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull align 8 dereferenceable(4584) %2, i64 %3, i64 poison, i1 noundef zeroext false, ptr noundef %1)
   ret void
 }

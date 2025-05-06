@@ -1156,7 +1156,7 @@ _interpolation_resample_plain.exit:               ; preds = %._crit_edge.i, %231
 declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @dt_interpolation_resample_roi(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
+define void @dt_interpolation_resample_roi(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.dt_iop_roi_t, align 4
   %7 = alloca %struct.dt_iop_roi_t, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #13

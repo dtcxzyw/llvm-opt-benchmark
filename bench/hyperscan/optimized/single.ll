@@ -26520,7 +26520,7 @@ _ZSt10_ConstructIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoI
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZSt10_ConstructIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_127HyperscanTestMatchTerminateEE8TestInfoEEEJRKS8_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %80, %.lr.ph.i.i.i.i.i.i ], [ %.val28.i.i.i, %_ZSt10_ConstructIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_127HyperscanTestMatchTerminateEE8TestInfoEEEJRKS8_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i ]
-  call fastcc void @_ZN7testing8internal10linked_ptrINS0_25ParameterizedTestCaseInfoIN12_GLOBAL__N_127HyperscanTestMatchTerminateEE8TestInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i.i.i) #26
+  call fastcc void @_ZN7testing8internal10linked_ptrINS0_25ParameterizedTestCaseInfoIN12_GLOBAL__N_127HyperscanTestMatchTerminateEE8TestInfoEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(16) %.05.i.i.i.i.i.i) #26
   %80 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i4.i.i = icmp eq ptr %80, %42
   br i1 %.not.i.i.i.i4.i.i, label %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_127HyperscanTestMatchTerminateEE8TestInfoEEES8_EvT_SA_RSaIT0_E.exit.i.loopexit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !299
@@ -31140,7 +31140,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7tes
 
 .lr.ph.i.i.i.i2:                                  ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7testing8internal14ParamGeneratorISt5tupleIJPKcjjyEEEEvEESaISH_EED2Ev.exit, %.lr.ph.i.i.i.i2
   %.05.i.i.i.i3 = phi ptr [ %19, %.lr.ph.i.i.i.i2 ], [ %16, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7testing8internal14ParamGeneratorISt5tupleIJPKcjjyEEEEvEESaISH_EED2Ev.exit ]
-  tail call fastcc void @_ZN7testing8internal10linked_ptrINS0_25ParameterizedTestCaseInfoIN12_GLOBAL__N_120HyperscanTestRuntimeEE8TestInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i3) #26
+  tail call fastcc void @_ZN7testing8internal10linked_ptrINS0_25ParameterizedTestCaseInfoIN12_GLOBAL__N_120HyperscanTestRuntimeEE8TestInfoEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(16) %.05.i.i.i.i3) #26
   %19 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i3, i64 16
   %.not.i.i.i.i4 = icmp eq ptr %19, %18
   br i1 %.not.i.i.i.i4, label %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_120HyperscanTestRuntimeEE8TestInfoEEES8_EvT_SA_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i2, !llvm.loop !302
@@ -31236,7 +31236,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7tes
 
 .lr.ph.i.i.i.i2.i:                                ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7testing8internal14ParamGeneratorISt5tupleIJPKcjjyEEEEvEESaISH_EED2Ev.exit.i, %.lr.ph.i.i.i.i2.i
   %.05.i.i.i.i3.i = phi ptr [ %19, %.lr.ph.i.i.i.i2.i ], [ %16, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7testing8internal14ParamGeneratorISt5tupleIJPKcjjyEEEEvEESaISH_EED2Ev.exit.i ]
-  tail call fastcc void @_ZN7testing8internal10linked_ptrINS0_25ParameterizedTestCaseInfoIN12_GLOBAL__N_120HyperscanTestRuntimeEE8TestInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i3.i) #26
+  tail call fastcc void @_ZN7testing8internal10linked_ptrINS0_25ParameterizedTestCaseInfoIN12_GLOBAL__N_120HyperscanTestRuntimeEE8TestInfoEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(16) %.05.i.i.i.i3.i) #26
   %19 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i3.i, i64 16
   %.not.i.i.i.i4.i = icmp eq ptr %19, %18
   br i1 %.not.i.i.i.i4.i, label %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_120HyperscanTestRuntimeEE8TestInfoEEES8_EvT_SA_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i2.i, !llvm.loop !302
@@ -32521,7 +32521,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7tes
 
 .lr.ph.i.i.i.i2:                                  ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7testing8internal14ParamGeneratorISt5tupleIJPKcjjN12_GLOBAL__N_112TestPlatformEEEEEvEESaISJ_EED2Ev.exit, %.lr.ph.i.i.i.i2
   %.05.i.i.i.i3 = phi ptr [ %18, %.lr.ph.i.i.i.i2 ], [ %15, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7testing8internal14ParamGeneratorISt5tupleIJPKcjjN12_GLOBAL__N_112TestPlatformEEEEEvEESaISJ_EED2Ev.exit ]
-  tail call fastcc void @_ZN7testing8internal10linked_ptrINS0_25ParameterizedTestCaseInfoIN12_GLOBAL__N_125HyperscanTestCrossCompileEE8TestInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i3) #26
+  tail call fastcc void @_ZN7testing8internal10linked_ptrINS0_25ParameterizedTestCaseInfoIN12_GLOBAL__N_125HyperscanTestCrossCompileEE8TestInfoEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(16) %.05.i.i.i.i3) #26
   %18 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i3, i64 16
   %.not.i.i.i.i4 = icmp eq ptr %18, %17
   br i1 %.not.i.i.i.i4, label %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_125HyperscanTestCrossCompileEE8TestInfoEEES8_EvT_SA_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i2, !llvm.loop !336
@@ -32617,7 +32617,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7tes
 
 .lr.ph.i.i.i.i2.i:                                ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7testing8internal14ParamGeneratorISt5tupleIJPKcjjN12_GLOBAL__N_112TestPlatformEEEEEvEESaISJ_EED2Ev.exit.i, %.lr.ph.i.i.i.i2.i
   %.05.i.i.i.i3.i = phi ptr [ %18, %.lr.ph.i.i.i.i2.i ], [ %15, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7testing8internal14ParamGeneratorISt5tupleIJPKcjjN12_GLOBAL__N_112TestPlatformEEEEEvEESaISJ_EED2Ev.exit.i ]
-  tail call fastcc void @_ZN7testing8internal10linked_ptrINS0_25ParameterizedTestCaseInfoIN12_GLOBAL__N_125HyperscanTestCrossCompileEE8TestInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i3.i) #26
+  tail call fastcc void @_ZN7testing8internal10linked_ptrINS0_25ParameterizedTestCaseInfoIN12_GLOBAL__N_125HyperscanTestCrossCompileEE8TestInfoEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(16) %.05.i.i.i.i3.i) #26
   %18 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i3.i, i64 16
   %.not.i.i.i.i4.i = icmp eq ptr %18, %17
   br i1 %.not.i.i.i.i4.i, label %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_125HyperscanTestCrossCompileEE8TestInfoEEES8_EvT_SA_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i2.i, !llvm.loop !336
@@ -33825,7 +33825,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7tes
 
 .lr.ph.i.i.i.i2:                                  ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7testing8internal14ParamGeneratorIN12_GLOBAL__N_118TerminateMatchDataEEEvEESaISF_EED2Ev.exit, %.lr.ph.i.i.i.i2
   %.05.i.i.i.i3 = phi ptr [ %18, %.lr.ph.i.i.i.i2 ], [ %15, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7testing8internal14ParamGeneratorIN12_GLOBAL__N_118TerminateMatchDataEEEvEESaISF_EED2Ev.exit ]
-  tail call fastcc void @_ZN7testing8internal10linked_ptrINS0_25ParameterizedTestCaseInfoIN12_GLOBAL__N_127HyperscanTestMatchTerminateEE8TestInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i3) #26
+  tail call fastcc void @_ZN7testing8internal10linked_ptrINS0_25ParameterizedTestCaseInfoIN12_GLOBAL__N_127HyperscanTestMatchTerminateEE8TestInfoEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(16) %.05.i.i.i.i3) #26
   %18 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i3, i64 16
   %.not.i.i.i.i4 = icmp eq ptr %18, %17
   br i1 %.not.i.i.i.i4, label %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_127HyperscanTestMatchTerminateEE8TestInfoEEES8_EvT_SA_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i2, !llvm.loop !299
@@ -33921,7 +33921,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7tes
 
 .lr.ph.i.i.i.i2.i:                                ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7testing8internal14ParamGeneratorIN12_GLOBAL__N_118TerminateMatchDataEEEvEESaISF_EED2Ev.exit.i, %.lr.ph.i.i.i.i2.i
   %.05.i.i.i.i3.i = phi ptr [ %18, %.lr.ph.i.i.i.i2.i ], [ %15, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7testing8internal14ParamGeneratorIN12_GLOBAL__N_118TerminateMatchDataEEEvEESaISF_EED2Ev.exit.i ]
-  tail call fastcc void @_ZN7testing8internal10linked_ptrINS0_25ParameterizedTestCaseInfoIN12_GLOBAL__N_127HyperscanTestMatchTerminateEE8TestInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i3.i) #26
+  tail call fastcc void @_ZN7testing8internal10linked_ptrINS0_25ParameterizedTestCaseInfoIN12_GLOBAL__N_127HyperscanTestMatchTerminateEE8TestInfoEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(16) %.05.i.i.i.i3.i) #26
   %18 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i3.i, i64 16
   %.not.i.i.i.i4.i = icmp eq ptr %18, %17
   br i1 %.not.i.i.i.i4.i, label %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_127HyperscanTestMatchTerminateEE8TestInfoEEES8_EvT_SA_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i2.i, !llvm.loop !299
@@ -35197,7 +35197,7 @@ _ZSt10_ConstructIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoI
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZSt10_ConstructIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_120HyperscanTestRuntimeEE8TestInfoEEEJRKS8_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi ptr [ %70, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %.val28.i.i.i.i.i.i, %_ZSt10_ConstructIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_120HyperscanTestRuntimeEE8TestInfoEEEJRKS8_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i ]
-  call fastcc void @_ZN7testing8internal10linked_ptrINS0_25ParameterizedTestCaseInfoIN12_GLOBAL__N_120HyperscanTestRuntimeEE8TestInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i.i.i.i.i.i) #26
+  call fastcc void @_ZN7testing8internal10linked_ptrINS0_25ParameterizedTestCaseInfoIN12_GLOBAL__N_120HyperscanTestRuntimeEE8TestInfoEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(16) %.05.i.i.i.i.i.i.i.i.i) #26
   %70 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i4.i.i.i.i.i = icmp eq ptr %70, %32
   br i1 %.not.i.i.i.i4.i.i.i.i.i, label %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_120HyperscanTestRuntimeEE8TestInfoEEES8_EvT_SA_RSaIT0_E.exit.i.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !302
@@ -35450,7 +35450,7 @@ _ZSt10_ConstructIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoI
 
 .lr.ph.i.i.i.i.i.i.i.i.i20:                       ; preds = %_ZSt10_ConstructIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_125HyperscanTestCrossCompileEE8TestInfoEEEJRKS8_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i20
   %.05.i.i.i.i.i.i.i.i.i21 = phi ptr [ %155, %.lr.ph.i.i.i.i.i.i.i.i.i20 ], [ %.val28.i.i.i.i.i.i5, %_ZSt10_ConstructIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_125HyperscanTestCrossCompileEE8TestInfoEEEJRKS8_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i ]
-  call fastcc void @_ZN7testing8internal10linked_ptrINS0_25ParameterizedTestCaseInfoIN12_GLOBAL__N_125HyperscanTestCrossCompileEE8TestInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i.i.i.i.i.i21) #26
+  call fastcc void @_ZN7testing8internal10linked_ptrINS0_25ParameterizedTestCaseInfoIN12_GLOBAL__N_125HyperscanTestCrossCompileEE8TestInfoEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(16) %.05.i.i.i.i.i.i.i.i.i21) #26
   %155 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i21, i64 16
   %.not.i.i.i.i4.i.i.i.i.i22 = icmp eq ptr %155, %117
   br i1 %.not.i.i.i.i4.i.i.i.i.i22, label %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_125HyperscanTestCrossCompileEE8TestInfoEEES8_EvT_SA_RSaIT0_E.exit.i.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i20, !llvm.loop !336

@@ -75,7 +75,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef range(i64 -66, 4294967296) i64 @_ZN11duckdb_zstd19HIST_countFast_wkspEPjS0_PKvmPvm(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(address) %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #1 {
+define noundef range(i64 -66, 4294967296) i64 @_ZN11duckdb_zstd19HIST_countFast_wkspEPjS0_PKvmPvm(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address) %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i64 %3, 1500
   br i1 %7, label %8, label %32
 
@@ -369,7 +369,7 @@ define internal fastcc noundef range(i64 -48, 4294967296) i64 @_ZN11duckdb_zstdL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef range(i64 -66, 4294967296) i64 @_ZN11duckdb_zstd15HIST_count_wkspEPjS0_PKvmPvm(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(address) %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #1 {
+define noundef range(i64 -66, 4294967296) i64 @_ZN11duckdb_zstd15HIST_count_wkspEPjS0_PKvmPvm(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address) %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #1 {
   %7 = ptrtoint ptr %4 to i64
   %8 = and i64 %7, 3
   %.not = icmp eq i64 %8, 0
@@ -443,7 +443,7 @@ _ZN11duckdb_zstd17HIST_count_simpleEPjS0_PKvm.exit.loopexit.i: ; preds = %34
   br label %_ZN11duckdb_zstd19HIST_countFast_wkspEPjS0_PKvmPvm.exit
 
 38:                                               ; preds = %16
-  %39 = tail call fastcc noundef i64 @_ZN11duckdb_zstdL24HIST_count_parallel_wkspEPjS0_PKvmNS_17HIST_checkInput_eES0_(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i32 noundef 0, ptr noundef %4)
+  %39 = tail call fastcc noundef i64 @_ZN11duckdb_zstdL24HIST_count_parallel_wkspEPjS0_PKvmNS_17HIST_checkInput_eES0_(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly %2, i64 noundef %3, i32 noundef 0, ptr noundef %4)
   br label %_ZN11duckdb_zstd19HIST_countFast_wkspEPjS0_PKvmPvm.exit
 
 _ZN11duckdb_zstd19HIST_countFast_wkspEPjS0_PKvmPvm.exit: ; preds = %38, %_ZN11duckdb_zstd17HIST_count_simpleEPjS0_PKvm.exit.loopexit.i, %21, %9, %6, %14
@@ -452,7 +452,7 @@ _ZN11duckdb_zstd19HIST_countFast_wkspEPjS0_PKvmPvm.exit: ; preds = %38, %_ZN11du
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef range(i64 -48, 4294967296) i64 @_ZN11duckdb_zstd14HIST_countFastEPjS0_PKvm(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(address) %2, i64 noundef %3) local_unnamed_addr #1 {
+define noundef range(i64 -48, 4294967296) i64 @_ZN11duckdb_zstd14HIST_countFastEPjS0_PKvm(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address) %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = alloca [1024 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5) #6
   %6 = icmp ult i64 %3, 1500
@@ -512,7 +512,7 @@ _ZN11duckdb_zstd17HIST_count_simpleEPjS0_PKvm.exit.loopexit.i: ; preds = %27
   br label %_ZN11duckdb_zstd19HIST_countFast_wkspEPjS0_PKvmPvm.exit
 
 31:                                               ; preds = %4
-  %32 = call fastcc noundef i64 @_ZN11duckdb_zstdL24HIST_count_parallel_wkspEPjS0_PKvmNS_17HIST_checkInput_eES0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 0, ptr noundef nonnull %5)
+  %32 = call fastcc noundef i64 @_ZN11duckdb_zstdL24HIST_count_parallel_wkspEPjS0_PKvmNS_17HIST_checkInput_eES0_(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3, i32 noundef 0, ptr noundef nonnull %5)
   br label %_ZN11duckdb_zstd19HIST_countFast_wkspEPjS0_PKvmPvm.exit
 
 _ZN11duckdb_zstd19HIST_countFast_wkspEPjS0_PKvmPvm.exit: ; preds = %14, %_ZN11duckdb_zstd17HIST_count_simpleEPjS0_PKvm.exit.loopexit.i, %31
@@ -522,7 +522,7 @@ _ZN11duckdb_zstd19HIST_countFast_wkspEPjS0_PKvmPvm.exit: ; preds = %14, %_ZN11du
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef range(i64 -48, 4294967296) i64 @_ZN11duckdb_zstd10HIST_countEPjS0_PKvm(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(address) %2, i64 noundef %3) local_unnamed_addr #1 {
+define noundef range(i64 -48, 4294967296) i64 @_ZN11duckdb_zstd10HIST_countEPjS0_PKvm(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address) %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = alloca [1024 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5) #6
   %6 = load i32, ptr %1, align 4, !tbaa !3
@@ -530,7 +530,7 @@ define noundef range(i64 -48, 4294967296) i64 @_ZN11duckdb_zstd10HIST_countEPjS0
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %4
-  %9 = call fastcc noundef i64 @_ZN11duckdb_zstdL24HIST_count_parallel_wkspEPjS0_PKvmNS_17HIST_checkInput_eES0_(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i32 noundef 1, ptr noundef nonnull %5)
+  %9 = call fastcc noundef i64 @_ZN11duckdb_zstdL24HIST_count_parallel_wkspEPjS0_PKvmNS_17HIST_checkInput_eES0_(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly %2, i64 noundef %3, i32 noundef 1, ptr noundef nonnull %5)
   br label %_ZN11duckdb_zstd15HIST_count_wkspEPjS0_PKvmPvm.exit
 
 10:                                               ; preds = %4
@@ -588,7 +588,7 @@ _ZN11duckdb_zstd17HIST_count_simpleEPjS0_PKvm.exit.loopexit.i.i: ; preds = %28
   br label %_ZN11duckdb_zstd15HIST_count_wkspEPjS0_PKvmPvm.exit
 
 32:                                               ; preds = %10
-  %33 = call fastcc noundef i64 @_ZN11duckdb_zstdL24HIST_count_parallel_wkspEPjS0_PKvmNS_17HIST_checkInput_eES0_(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i32 noundef 0, ptr noundef nonnull %5)
+  %33 = call fastcc noundef i64 @_ZN11duckdb_zstdL24HIST_count_parallel_wkspEPjS0_PKvmNS_17HIST_checkInput_eES0_(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly %2, i64 noundef %3, i32 noundef 0, ptr noundef nonnull %5)
   br label %_ZN11duckdb_zstd15HIST_count_wkspEPjS0_PKvmPvm.exit
 
 _ZN11duckdb_zstd15HIST_count_wkspEPjS0_PKvmPvm.exit: ; preds = %8, %15, %_ZN11duckdb_zstd17HIST_count_simpleEPjS0_PKvm.exit.loopexit.i.i, %32

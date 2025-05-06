@@ -5245,7 +5245,7 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow11FunctionDef12ByteSizeLongEv(
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17opencv_tensorflow11FunctionDef9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN17opencv_tensorflow11FunctionDef9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN17opencv_tensorflow11FunctionDef9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1)
   ret void
 }
@@ -5351,7 +5351,7 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
 declare void @_ZN17opencv_tensorflow5OpDef9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17opencv_tensorflow11FunctionDef8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17opencv_tensorflow11FunctionDef8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %31, label %4
 

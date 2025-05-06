@@ -3567,7 +3567,7 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_113AllocatedDataEEENS0_17Program
 _ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_123MacOSKeychainAPIChecker15AllocationStateENS_16ImutKeyValueInfoIS5_S8_EEEC2ERKSB_.exit.i.i: ; preds = %12, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_113AllocatedDataEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.thread.i
   %.not.i.i.i.i16.i = phi i1 [ true, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_113AllocatedDataEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.thread.i ], [ false, %12 ]
   %.sroa.0.015.i = phi ptr [ null, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_113AllocatedDataEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.thread.i ], [ %11, %12 ]
-  %16 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_123MacOSKeychainAPIChecker15AllocationStateEEEE15remove_internalERKS6_PNS_11ImutAVLTreeISA_EE(ptr noundef nonnull align 8 dereferenceable(81) %8, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sroa.0.015.i), !noalias !373
+  %16 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_123MacOSKeychainAPIChecker15AllocationStateEEEE15remove_internalERKS6_PNS_11ImutAVLTreeISA_EE(ptr noundef nonnull align 8 dereferenceable(81) %8, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef readonly %.sroa.0.015.i), !noalias !373
   call fastcc void @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_123MacOSKeychainAPIChecker15AllocationStateEEEE13markImmutableEPNS_11ImutAVLTreeISA_EE(ptr noundef %16), !noalias !373
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.val.i.i.i.i.i = load ptr, ptr %17, align 8, !tbaa !115, !noalias !373
@@ -6083,7 +6083,7 @@ _ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_123MacOSKeychainAPIC
   %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %76, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !noalias !509
   store ptr %63, ptr %6, align 8, !tbaa !126, !noalias !509
-  %92 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_123MacOSKeychainAPIChecker15AllocationStateEEEE12add_internalERKSt4pairIS6_S9_EPNS_11ImutAVLTreeISA_EE(ptr noundef nonnull align 8 dereferenceable(81) %83, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %.sroa.0.018.i.i.i), !noalias !509
+  %92 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_123MacOSKeychainAPIChecker15AllocationStateEEEE12add_internalERKSt4pairIS6_S9_EPNS_11ImutAVLTreeISA_EE(ptr noundef nonnull align 8 dereferenceable(81) %83, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef readonly %.sroa.0.018.i.i.i), !noalias !509
   call fastcc void @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_123MacOSKeychainAPIChecker15AllocationStateEEEE13markImmutableEPNS_11ImutAVLTreeISA_EE(ptr noundef %92), !noalias !509
   %93 = getelementptr inbounds nuw i8, ptr %83, i64 32
   %.val.i.i.i.i.i.i.i = load ptr, ptr %93, align 8, !tbaa !115, !noalias !509

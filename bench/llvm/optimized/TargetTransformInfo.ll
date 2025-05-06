@@ -6240,7 +6240,7 @@ define internal noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm19Tar
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal { i64, i32 } @_ZN4llvm19TargetTransformInfo5ModelIN12_GLOBAL__N_19NoTTIImplEE10getGEPCostEPNS_4TypeEPKNS_5ValueENS_8ArrayRefIS9_EES6_NS0_14TargetCostKindE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull %2, ptr captures(address) %3, i64 %4, ptr readnone captures(none) %5, i32 %6) unnamed_addr #1 align 2 {
+define internal { i64, i32 } @_ZN4llvm19TargetTransformInfo5ModelIN12_GLOBAL__N_19NoTTIImplEE10getGEPCostEPNS_4TypeEPKNS_5ValueENS_8ArrayRefIS9_EES6_NS0_14TargetCostKindE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull %2, ptr readonly captures(address) %3, i64 %4, ptr readnone captures(none) %5, i32 %6) unnamed_addr #1 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = tail call fastcc { i64, i32 } @_ZN4llvm31TargetTransformInfoImplCRTPBaseIN12_GLOBAL__N_19NoTTIImplEE10getGEPCostEPNS_4TypeEPKNS_5ValueENS_8ArrayRefIS8_EES5_NS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %1, ptr noundef %2, ptr %3, i64 %4)
   ret { i64, i32 } %9

@@ -276,7 +276,7 @@ declare ptr @g_get_prgname() local_unnamed_addr #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @ws_getopt_long(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define i32 @ws_getopt_long(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i32 @__getopt_long(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef 0)
   ret i32 %6
 }
@@ -720,7 +720,7 @@ permute.exit.loopexit.us:                         ; preds = %.lr.ph.i49.us
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @ws_getopt_long_only(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define i32 @ws_getopt_long_only(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i32 @__getopt_long(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef 1)
   ret i32 %6
 }

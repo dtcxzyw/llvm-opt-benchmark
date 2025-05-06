@@ -2497,7 +2497,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE89ELS1_0ELS1_0ELS1_0
 declare void @_ZN15ClassLoaderData10add_handleE6Handle(ptr dead_on_unwind writable sret(%class.OopHandle) align 8, ptr noundef nonnull align 8 dereferenceable(160), ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7Modules18add_module_exportsE6HandleP8_jstringS0_P10JavaThread(ptr readonly captures(address_is_null) %0, ptr noundef %1, ptr captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN7Modules18add_module_exportsE6HandleP8_jstringS0_P10JavaThread(ptr readonly captures(address_is_null) %0, ptr noundef %1, ptr readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [128 x i8], align 16
   %6 = alloca i32, align 4
   %7 = alloca %class.ResourceMark, align 8
@@ -2847,7 +2847,7 @@ _ZN16SymbolHandleBaseILb1EED2Ev.exit:             ; preds = %_ZN16SymbolHandleBa
 declare void @_ZN12PackageEntry12set_exportedEP11ModuleEntry(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7Modules28add_module_exports_qualifiedE6HandleP8_jstringS0_P10JavaThread(ptr captures(address_is_null) %0, ptr noundef %1, ptr captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN7Modules28add_module_exports_qualifiedE6HandleP8_jstringS0_P10JavaThread(ptr readonly captures(address_is_null) %0, ptr noundef %1, ptr readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = load i8, ptr @_ZN9CDSConfig29_is_dumping_full_module_graphE, align 1
   %6 = trunc i8 %5 to i1
   %7 = load i8, ptr @_ZN8Universe19_module_initializedE, align 1

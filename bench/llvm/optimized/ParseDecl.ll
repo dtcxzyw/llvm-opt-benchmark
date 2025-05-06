@@ -19630,7 +19630,7 @@ _ZN5clang20ParsedAttributesView8addAtEndEPNS_10ParsedAttrE.exit: ; preds = %_ZN5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN5clang6Parser16ParseDeclarationENS_17DeclaratorContextERNS_14SourceLocationERNS_16ParsedAttributesES5_PS2_(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 align 2 {
+define dso_local ptr @_ZN5clang6Parser16ParseDeclarationENS_17DeclaratorContextERNS_14SourceLocationERNS_16ParsedAttributesES5_PS2_(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.clang::ParsedAttributes", align 8
   %8 = alloca %"struct.clang::Parser::ParsedTemplateInfo", align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -20057,7 +20057,7 @@ declare ptr @_ZN5clang6Parser36ParseDeclarationStartingWithTemplateENS_17Declara
 declare ptr @_ZN5clang6Parser14ParseNamespaceENS_17DeclaratorContextERNS_14SourceLocationES2_(ptr noundef nonnull align 8 dereferenceable(2936), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), i32) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN5clang6Parser22ParseSimpleDeclarationENS_17DeclaratorContextERNS_14SourceLocationERNS_16ParsedAttributesES5_bPNS0_12ForRangeInitEPS2_(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %1, ptr noundef nonnull align 4 captures(address_is_null) dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i1 noundef zeroext %5, ptr noundef %6, ptr noundef readonly captures(address_is_null) %7) local_unnamed_addr #0 align 2 {
+define dso_local ptr @_ZN5clang6Parser22ParseSimpleDeclarationENS_17DeclaratorContextERNS_14SourceLocationERNS_16ParsedAttributesES5_bPNS0_12ForRangeInitEPS2_(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %1, ptr noundef nonnull writeonly align 4 captures(address_is_null) dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i1 noundef zeroext %5, ptr noundef %6, ptr noundef readonly captures(address_is_null) %7) local_unnamed_addr #0 align 2 {
 switch.lookup:
   %8 = alloca %"class.clang::ParsedAttributesView", align 8
   %9 = alloca %"class.clang::ParsingDeclSpec", align 8

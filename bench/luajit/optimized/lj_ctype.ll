@@ -267,7 +267,7 @@ define hidden range(i32 0, 65536) i32 @lj_ctype_getname(ptr noundef readonly cap
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @lj_ctype_getfieldq(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address) %2, ptr noundef captures(none) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #6 {
+define hidden ptr @lj_ctype_getfieldq(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef captures(none) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #6 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i16, ptr %6, align 8, !tbaa !32
   %.not51 = icmp eq i16 %7, 0

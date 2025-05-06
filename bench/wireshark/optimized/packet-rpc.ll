@@ -1077,7 +1077,7 @@ declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr nou
 declare void @proto_item_set_end(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = tail call i32 @dissect_rpc_opaque_data(ptr noundef %0, i32 noundef %3, ptr noundef %1, ptr noundef null, i32 noundef %2, i1 noundef zeroext false, i32 noundef 0, i1 noundef zeroext true, ptr noundef %4, ptr noundef null)
   ret i32 %6
 }
@@ -1089,7 +1089,7 @@ define i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @dissect_rpc_bytes(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
+define i32 @dissect_rpc_bytes(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = tail call i32 @dissect_rpc_opaque_data(ptr noundef %0, i32 noundef %3, ptr noundef %1, ptr noundef null, i32 noundef %2, i1 noundef zeroext true, i32 noundef %4, i1 noundef zeroext %5, ptr noundef %6, ptr noundef null)
   ret i32 %8
 }
@@ -2243,7 +2243,7 @@ define internal i32 @dissect_rpc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_rpc_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal i32 @dissect_rpc_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = tail call fastcc zeroext i1 @dissect_rpc_tcp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false, ptr noundef %3, ptr noundef null)
   br i1 %5, label %16, label %6
 
@@ -2267,7 +2267,7 @@ define internal i32 @dissect_rpc_tcp(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_rpc_tls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal i32 @dissect_rpc_tls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_writable(ptr noundef %6, i32 noundef 35, i1 noundef zeroext true)
@@ -2559,7 +2559,7 @@ declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @dissect_rpc_tcp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @dissect_rpc_tcp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = tail call fastcc zeroext i1 @dissect_rpc_tcp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, ptr noundef %3, ptr noundef null)
   ret i1 %5
 }
@@ -2571,7 +2571,7 @@ define internal noundef zeroext i1 @dissect_rpc_heur(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @dissect_rpc_tls_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @dissect_rpc_tls_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = tail call fastcc zeroext i1 @dissect_rpc_tcp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, ptr noundef null, ptr noundef %3)
   %.not = icmp ne ptr %3, null
   %or.cond.not = and i1 %.not, %5
@@ -4600,7 +4600,7 @@ rpc_roundup.exit45:                               ; preds = %27
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef zeroext i1 @dissect_rpc_tcp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @dissect_rpc_tcp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
   %.not49 = icmp eq i32 %7, 0
   br i1 %.not49, label %.thread, label %.lr.ph
@@ -4739,7 +4739,7 @@ find_rpc_over_tcp_reply_start.exit.i:             ; preds = %59
   br i1 %82, label %.thread, label %83
 
 83:                                               ; preds = %find_rpc_over_tcp_reply_start.exit.i
-  %84 = tail call fastcc i32 @dissect_rpc_fragment(ptr noundef %0, i32 noundef %81, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %20, i32 noundef %21, i1 noundef zeroext true, ptr noundef %4, ptr noundef %5)
+  %84 = tail call fastcc i32 @dissect_rpc_fragment(ptr noundef %0, i32 noundef %81, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %20, i32 noundef %21, i1 noundef zeroext true, ptr noundef readonly %4, ptr noundef readonly %5)
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %.thread, label %86
 

@@ -164,7 +164,7 @@ declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 nounde
 declare noundef i32 @_Z25tMPI_Thread_get_hw_numberv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_Z9tMPI_InitPiPPPcPFiiS1_E(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z9tMPI_InitPiPPPcPFiiS1_E(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !3
   %6 = icmp eq ptr %5, null

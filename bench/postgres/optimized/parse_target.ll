@@ -110,7 +110,7 @@ define dso_local ptr @transformTargetEntry(ptr noundef %0, ptr noundef %1, ptr n
 18:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
   store ptr null, ptr %7, align 8
-  %19 = call fastcc i32 @FigureColnameInternal(ptr noundef %1, ptr noundef %7)
+  %19 = call fastcc i32 @FigureColnameInternal(ptr noundef readonly %1, ptr noundef %7)
   %20 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %20, null
   %.str.15..i = select i1 %.not.i, ptr @.str.15, ptr %20
@@ -131,7 +131,7 @@ define dso_local ptr @transformTargetEntry(ptr noundef %0, ptr noundef %1, ptr n
 declare ptr @transformExpr(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @FigureColname(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local nonnull ptr @FigureColname(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
   store ptr null, ptr %2, align 8
@@ -192,7 +192,7 @@ define dso_local ptr @transformTargetList(ptr noundef %0, ptr noundef readonly c
 22:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   store ptr null, ptr %4, align 8
-  %23 = call fastcc i32 @FigureColnameInternal(ptr noundef nonnull %14, ptr noundef %4)
+  %23 = call fastcc i32 @FigureColnameInternal(ptr noundef nonnull readonly %14, ptr noundef %4)
   %24 = load ptr, ptr %4, align 8
   %.not.i.i48.us = icmp eq ptr %24, null
   %.str.15..i.i.us = select i1 %.not.i.i48.us, ptr @.str.15, ptr %24
@@ -301,7 +301,7 @@ transformTargetEntry.exit.us:                     ; preds = %22, %21
 79:                                               ; preds = %.thread56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   store ptr null, ptr %4, align 8
-  %80 = call fastcc i32 @FigureColnameInternal(ptr noundef nonnull %39, ptr noundef %4)
+  %80 = call fastcc i32 @FigureColnameInternal(ptr noundef nonnull readonly %39, ptr noundef %4)
   %81 = load ptr, ptr %4, align 8
   %.not.i.i48 = icmp eq ptr %81, null
   %.str.15..i.i = select i1 %.not.i.i48, ptr @.str.15, ptr %81
@@ -986,7 +986,7 @@ markTargetListOrigin.exit:                        ; preds = %.lr.ph33, %13, %16,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @transformAssignedExpr(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #0 {
+define dso_local ptr @transformAssignedExpr(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -1140,7 +1140,7 @@ declare ptr @makeNullConst(i32 noundef, i32 noundef, i32 noundef) local_unnamed_
 declare ptr @makeVar(i32 noundef, i16 noundef signext, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @transformAssignmentIndirection(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #0 {
+define dso_local ptr @transformAssignmentIndirection(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #0 {
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
@@ -1385,7 +1385,7 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @exprLocation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @updateTargetListEntry(ptr noundef %0, ptr noundef captures(none) initializes((16, 18), (24, 32)) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local void @updateTargetListEntry(ptr noundef %0, ptr noundef captures(none) initializes((16, 18), (24, 32)) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @transformAssignedExpr(ptr noundef %0, ptr noundef %8, i32 noundef 17, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5)
@@ -1399,7 +1399,7 @@ define dso_local void @updateTargetListEntry(ptr noundef %0, ptr noundef capture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformAssignmentSubscripts(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %6, ptr noundef captures(address_is_null) %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11) unnamed_addr #0 {
+define internal fastcc ptr @transformAssignmentSubscripts(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11) unnamed_addr #0 {
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #8
@@ -2260,7 +2260,7 @@ switch.lookup277:                                 ; preds = %117
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @FigureIndexColname(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @FigureIndexColname(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
   store ptr null, ptr %2, align 8

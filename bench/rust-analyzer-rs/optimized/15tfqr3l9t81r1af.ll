@@ -8817,7 +8817,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h22da46334f2f6c39E(ptr noal
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h12617076927207adE.exit.i": ; preds = %139
   %.0.sroa.speculated.i13.i = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.i101, i64 1)
   %145 = sub i64 %.0.sroa.speculated.i.i, %.0159
-  invoke fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17hdb24b69e624245feE(ptr noalias noundef nonnull align 8 %61, i64 noundef %145, i64 noundef %.0.sroa.speculated.i13.i, ptr %.val)
+  invoke fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17hdb24b69e624245feE(ptr noalias noundef nonnull align 8 %61, i64 noundef %145, i64 noundef %.0.sroa.speculated.i13.i, ptr readonly %.val)
           to label %_ZN4core5slice4sort20provide_sorted_batch17hbb6f2b41e18bcd7aE.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .loopexit109:                                     ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h4481f8792c2f1c4fE.exit75.i", %129, %.preheader.i

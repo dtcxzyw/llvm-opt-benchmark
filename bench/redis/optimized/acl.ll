@@ -6463,7 +6463,7 @@ ACLFreeUser.exit:                                 ; preds = %ACLCopyUser.exit51,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @ACLAppendUserForLoading(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @ACLAppendUserForLoading(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = icmp slt i32 %1, 2
   br i1 %5, label %9, label %6

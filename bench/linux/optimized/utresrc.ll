@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [84 x i8] c"Invalid resource descriptor length: Type 0x%2.2X, Length 0x%4.4X, MinLength 0x%4.4X\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_ut_walk_aml_resources(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local i32 @acpi_ut_walk_aml_resources(ptr noundef readnone captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca i8, align 1
   %7 = alloca [2 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #5

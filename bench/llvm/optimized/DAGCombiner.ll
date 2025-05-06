@@ -139518,7 +139518,7 @@ declare noundef i32 @_ZNK4llvm12SelectionDAG27computeOverflowForSignedMulENS_7SD
 declare noundef i32 @_ZNK4llvm12SelectionDAG29computeOverflowForUnsignedMulENS_7SDValueES1_(ptr noundef nonnull align 8 dereferenceable(952), ptr, i32, ptr, i32) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, i32 } @_ZL27PerformMinMaxFpToSatCombineN4llvm7SDValueES0_S0_S0_NS_3ISD8CondCodeERNS_12SelectionDAGE(ptr captures(address) %0, i32 %1, ptr %2, i32 %3, ptr captures(address) %4, i32 %5, ptr noundef readonly byval(%"class.llvm::SDValue") align 8 captures(none) %6, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(952) %8) unnamed_addr #0 {
+define internal fastcc { ptr, i32 } @_ZL27PerformMinMaxFpToSatCombineN4llvm7SDValueES0_S0_S0_NS_3ISD8CondCodeERNS_12SelectionDAGE(ptr readonly captures(address) %0, i32 %1, ptr %2, i32 %3, ptr readonly captures(address) %4, i32 %5, ptr noundef readonly byval(%"class.llvm::SDValue") align 8 captures(none) %6, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(952) %8) unnamed_addr #0 {
   %10 = alloca %"struct.llvm::EVT", align 8
   %11 = alloca %"struct.llvm::EVT", align 8
   %12 = alloca %"struct.llvm::EVT", align 8
@@ -139539,7 +139539,7 @@ define internal fastcc { ptr, i32 } @_ZL27PerformMinMaxFpToSatCombineN4llvm7SDVa
   %.sroa.295.0.copyload = load i32, ptr %.sroa.295.0..sroa_idx, align 8, !tbaa !72
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18)
-  %24 = tail call fastcc noundef i32 @"_ZZL18isSaturatingMinMaxN4llvm7SDValueES0_S0_S0_NS_3ISD8CondCodeERjRbRNS_12SelectionDAGEENK3$_0clES0_S0_S0_S0_S2_"(ptr %0, i32 %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr %.sroa.094.0.copyload, i32 %.sroa.295.0.copyload, i32 noundef %7)
+  %24 = tail call fastcc noundef i32 @"_ZZL18isSaturatingMinMaxN4llvm7SDValueES0_S0_S0_NS_3ISD8CondCodeERjRbRNS_12SelectionDAGEENK3$_0clES0_S0_S0_S0_S2_"(ptr %0, i32 %1, ptr %2, i32 %3, ptr readonly %4, i32 %5, ptr %.sroa.094.0.copyload, i32 %.sroa.295.0.copyload, i32 noundef %7)
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %_ZL18isSaturatingMinMaxN4llvm7SDValueES0_S0_S0_NS_3ISD8CondCodeERjRbRNS_12SelectionDAGE.exit.thread, label %25
 

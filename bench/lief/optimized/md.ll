@@ -1029,7 +1029,7 @@ declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #13
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_md_hmac_starts(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
+define hidden i32 @mbedtls_md_hmac_starts(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #14
   %5 = icmp eq ptr %0, null
@@ -1182,7 +1182,7 @@ mbedtls_xor.exit47:                               ; preds = %.lr.ph61, %.prehead
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_md_hmac_update(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
+define hidden i32 @mbedtls_md_hmac_update(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %14, label %5
 
@@ -1207,7 +1207,7 @@ define hidden i32 @mbedtls_md_hmac_update(ptr noundef captures(address_is_null) 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_md_hmac_finish(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden i32 @mbedtls_md_hmac_finish(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #14
   %4 = icmp eq ptr %0, null
@@ -1267,7 +1267,7 @@ define hidden i32 @mbedtls_md_hmac_finish(ptr noundef captures(address_is_null) 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_md_hmac_reset(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
+define hidden i32 @mbedtls_md_hmac_reset(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %18, label %3
 
@@ -1328,7 +1328,7 @@ define hidden i32 @mbedtls_md_hmac(ptr noundef %0, ptr noundef %1, i64 noundef %
   br i1 %or.cond, label %mbedtls_md_hmac_update.exit.thread, label %mbedtls_md_hmac_update.exit
 
 mbedtls_md_hmac_update.exit:                      ; preds = %13
-  %19 = call i32 @mbedtls_md_update(ptr noundef nonnull %7, ptr noundef %3, i64 noundef %4)
+  %19 = call i32 @mbedtls_md_update(ptr noundef nonnull readonly %7, ptr noundef %3, i64 noundef %4)
   %.not14 = icmp eq i32 %19, 0
   br i1 %.not14, label %20, label %mbedtls_md_hmac_update.exit.thread
 

@@ -125,7 +125,7 @@ define void @lib_dumpvhandler(ptr noundef %0, ptr noundef readonly captures(addr
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define void @lib_dumpvbuffer(ptr noundef %0, ptr noundef captures(address) %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @lib_dumpvbuffer(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @lib_dumpvhandler(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @lib_dumpvbuffer_handler, ptr noundef null)
   ret void
 }
@@ -140,7 +140,7 @@ define internal void @lib_dumpvbuffer_handler(ptr readnone captures(none) %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lib_dumpvfile(i32 noundef %0, ptr noundef %1, ptr noundef captures(address) %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @lib_dumpvfile(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(address) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 %0, ptr %5, align 4
   call void @lib_dumpvhandler(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull @lib_dumpvfile_handler, ptr noundef nonnull %5)

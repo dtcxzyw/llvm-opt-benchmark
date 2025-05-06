@@ -1103,7 +1103,7 @@ declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_u
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dissect_osd_format_osd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
+define internal void @dissect_osd_format_osd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
   %or.cond = and i1 %4, %5
   br i1 %or.cond, label %11, label %48
 
@@ -1215,7 +1215,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %64, %61, %58, %55, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dissect_osd_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
+define internal void @dissect_osd_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
   %or.cond = and i1 %4, %5
   br i1 %or.cond, label %11, label %54
 
@@ -1333,7 +1333,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %70, %67, %64, %61, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dissect_osd_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
+define internal void @dissect_osd_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
   %11 = alloca ptr, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8
@@ -1726,7 +1726,7 @@ select.unfold:                                    ; preds = %150, %153, %154
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dissect_osd_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
+define internal void @dissect_osd_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
   %or.cond = and i1 %4, %5
   br i1 %or.cond, label %11, label %57
 
@@ -1847,7 +1847,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %73, %70, %67, %64, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dissect_osd_write(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
+define internal void @dissect_osd_write(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
   %or.cond = and i1 %4, %5
   br i1 %or.cond, label %11, label %57
 
@@ -1968,7 +1968,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %73, %70, %67, %64, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dissect_osd_append(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
+define internal void @dissect_osd_append(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
   %or.cond = and i1 %4, %5
   br i1 %or.cond, label %11, label %54
 
@@ -2086,7 +2086,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %70, %67, %64, %61, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dissect_osd_flush(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
+define internal void @dissect_osd_flush(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
   %or.cond = and i1 %4, %5
   br i1 %or.cond, label %11, label %53
 
@@ -2202,7 +2202,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %69, %66, %63, %60, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dissect_osd_remove(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
+define internal void @dissect_osd_remove(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
   %or.cond = and i1 %4, %5
   br i1 %or.cond, label %11, label %51
 
@@ -2317,7 +2317,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %67, %64, %61, %58, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dissect_osd_create_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
+define internal void @dissect_osd_create_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
@@ -2515,7 +2515,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %111, %108, %105, %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dissect_osd_remove_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
+define internal void @dissect_osd_remove_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
@@ -2694,7 +2694,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %102, %99, %96, %93,
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dissect_osd_get_attributes(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
+define internal void @dissect_osd_get_attributes(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
@@ -2853,7 +2853,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %91, %88, %85, %82, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dissect_osd_set_attributes(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
+define internal void @dissect_osd_set_attributes(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
@@ -3012,7 +3012,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %91, %88, %85, %82, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dissect_osd_create_and_write(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
+define internal void @dissect_osd_create_and_write(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
   %or.cond = and i1 %4, %5
   br i1 %or.cond, label %11, label %57
 
@@ -3133,7 +3133,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %73, %70, %67, %64, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dissect_osd_create_collection(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
+define internal void @dissect_osd_create_collection(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
   %or.cond = and i1 %4, %5
   br i1 %or.cond, label %11, label %53
 
@@ -3250,7 +3250,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %69, %66, %63, %60, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dissect_osd_remove_collection(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
+define internal void @dissect_osd_remove_collection(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
@@ -3415,7 +3415,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %95, %92, %89, %86, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dissect_osd_set_key(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
+define internal void @dissect_osd_set_key(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
   %or.cond = and i1 %4, %5
   br i1 %or.cond, label %11, label %59
 
@@ -3537,7 +3537,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %75, %72, %69, %66, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dissect_osd_flush_collection(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
+define internal void @dissect_osd_flush_collection(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
   %or.cond = and i1 %4, %5
   br i1 %or.cond, label %11, label %55
 
@@ -3655,7 +3655,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %71, %68, %65, %62, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dissect_osd_flush_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
+define internal void @dissect_osd_flush_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
   %or.cond = and i1 %4, %5
   br i1 %or.cond, label %11, label %50
 
@@ -3768,7 +3768,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %66, %63, %60, %57, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dissect_osd_flush_osd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
+define internal void @dissect_osd_flush_osd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
   %or.cond = and i1 %4, %5
   br i1 %or.cond, label %11, label %47
 
@@ -3878,7 +3878,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %63, %60, %57, %54, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dissect_osd2_create_user_tracking_collection(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
+define internal void @dissect_osd2_create_user_tracking_collection(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
@@ -4037,7 +4037,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %91, %88, %85, %82, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dissect_osd2_query(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
+define internal void @dissect_osd2_query(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7, ptr readnone captures(none) %8, ptr noundef %9) #3 {
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64

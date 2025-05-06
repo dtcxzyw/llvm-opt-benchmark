@@ -7285,7 +7285,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueENS_11SmallVectorIN12_GLOBAL
   %436 = load i32, ptr %109, align 8, !tbaa !33, !noalias !443
   %437 = add i32 %436, 1
   store i32 %437, ptr %109, align 8, !tbaa !33, !noalias !443
-  call fastcc void @_ZN4llvm11SmallVectorIN12_GLOBAL__N_116ArgumentInitInfoELj2EED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %164) #19
+  call fastcc void @_ZN4llvm11SmallVectorIN12_GLOBAL__N_116ArgumentInitInfoELj2EED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(192) %164) #19
   call fastcc void @_ZN4llvm11SmallVectorIN12_GLOBAL__N_116ArgumentInitInfoELj2EED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %9) #19
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %9) #19, !noalias !443
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %8) #19, !noalias !443
@@ -8006,7 +8006,7 @@ _ZN4llvm17ConstantRangeListD2Ev.exit182.i:        ; preds = %575, %.lr.ph.split.
   %.05.i.i.i187.i = phi ptr [ %707, %.lr.ph.i.i.i186.i ], [ %706, %.lr.ph.i.preheader.i.i185.i ]
   %707 = getelementptr inbounds i8, ptr %.05.i.i.i187.i, i64 -200
   %708 = getelementptr inbounds i8, ptr %.05.i.i.i187.i, i64 -192
-  call fastcc void @_ZN4llvm11SmallVectorIN12_GLOBAL__N_116ArgumentInitInfoELj2EED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %708) #19
+  call fastcc void @_ZN4llvm11SmallVectorIN12_GLOBAL__N_116ArgumentInitInfoELj2EED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(192) %708) #19
   %.not.i.i.i188.i = icmp eq ptr %.val.i.i183.pre.i, %707
   br i1 %.not.i.i.i188.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueENS_11SmallVectorIN12_GLOBAL__N_116ArgumentInitInfoELj2EEEELb0EE13destroy_rangeEPS8_SA_.exit.loopexit.i.i.i, label %.lr.ph.i.i.i186.i, !llvm.loop !493
 
@@ -16604,7 +16604,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueENS_11SmallVectorIN12_GLOBAL
   %.05.i.i = phi ptr [ %16, %.lr.ph.i.i ], [ %15, %.lr.ph.i.preheader.i ]
   %16 = getelementptr inbounds i8, ptr %.05.i.i, i64 -200
   %17 = getelementptr inbounds i8, ptr %.05.i.i, i64 -192
-  call fastcc void @_ZN4llvm11SmallVectorIN12_GLOBAL__N_116ArgumentInitInfoELj2EED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %17) #19
+  call fastcc void @_ZN4llvm11SmallVectorIN12_GLOBAL__N_116ArgumentInitInfoELj2EED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(192) %17) #19
   %.not.i.i = icmp eq ptr %.val.pre.i, %16
   br i1 %.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueENS_11SmallVectorIN12_GLOBAL__N_116ArgumentInitInfoELj2EEEELb0EE19moveElementsForGrowEPS8_.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !493
 

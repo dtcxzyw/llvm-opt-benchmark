@@ -1784,7 +1784,7 @@ define hidden noundef zeroext i1 @"_ZN21tree_sitter_highlight22HighlightConfigur
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new17hc776a3b8ae105a0eE(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef readonly align 1 %3, i64 %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %5, ptr noundef align 8 %6, ptr captures(address_is_null) %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(352) %7, i64 noundef %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new17hc776a3b8ae105a0eE(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef readonly align 1 %3, i64 %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %5, ptr noundef align 8 %6, ptr readonly captures(address_is_null) %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(352) %7, i64 noundef %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9) unnamed_addr #0 personality ptr @rust_eh_personality {
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %13 = alloca { [1 x i64], i64, [1 x i64] }, align 8

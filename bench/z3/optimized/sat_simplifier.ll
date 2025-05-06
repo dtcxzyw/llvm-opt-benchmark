@@ -4415,12 +4415,12 @@ _ZN6vectorIN3sat7literalELb0EjE5resetEv.exit.i:   ; preds = %103, %_ZN6vectorIPN
 
 _ZN3sat10simplifier17collect_subsumed1ERKNS_6clauseER10ptr_vectorIS1_ER7svectorINS_7literalEjE.exit.i: ; preds = %._crit_edge.loopexit.i.i.i, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit.i
   %.sroa.0.0.lcssa.i.i.i = phi i32 [ -2, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit.i ], [ %110, %._crit_edge.loopexit.i.i.i ]
-  invoke void @_ZN3sat10simplifier22collect_subsumed1_coreERKNS_6clauseER10ptr_vectorIS1_ER7svectorINS_7literalEjES8_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 4 dereferenceable(20) %95, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23, i32 %.sroa.0.0.lcssa.i.i.i)
+  invoke void @_ZN3sat10simplifier22collect_subsumed1_coreERKNS_6clauseER10ptr_vectorIS1_ER7svectorINS_7literalEjES8_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull readonly align 4 dereferenceable(20) %95, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23, i32 %.sroa.0.0.lcssa.i.i.i)
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %_ZN3sat10simplifier17collect_subsumed1ERKNS_6clauseER10ptr_vectorIS1_ER7svectorINS_7literalEjE.exit.i
   %122 = or disjoint i32 %.sroa.0.0.lcssa.i.i.i, 1
-  invoke void @_ZN3sat10simplifier22collect_subsumed1_coreERKNS_6clauseER10ptr_vectorIS1_ER7svectorINS_7literalEjES8_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 4 dereferenceable(20) %95, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23, i32 %122)
+  invoke void @_ZN3sat10simplifier22collect_subsumed1_coreERKNS_6clauseER10ptr_vectorIS1_ER7svectorINS_7literalEjES8_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull readonly align 4 dereferenceable(20) %95, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23, i32 %122)
           to label %.noexc52 unwind label %.loopexit.split-lp
 
 .noexc52:                                         ; preds = %.noexc
@@ -6429,7 +6429,7 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit: ; preds = %97, %.noexc31
 declare void @_ZN3sat15clause_use_list8iteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(20)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat10simplifier17collect_subsumed1ERKNS_6clauseER10ptr_vectorIS1_ER7svectorINS_7literalEjE(ptr noundef nonnull align 8 captures(none) dereferenceable(288) %0, ptr noundef nonnull align 4 captures(address) dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3sat10simplifier17collect_subsumed1ERKNS_6clauseER10ptr_vectorIS1_ER7svectorINS_7literalEjE(ptr noundef nonnull align 8 captures(none) dereferenceable(288) %0, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !18
   %7 = zext i32 %6 to i64
@@ -6542,9 +6542,9 @@ _ZN6vectorIN3sat7literalELb0EjE5resetEv.exit:     ; preds = %_ZN6vectorIPN3sat6c
 
 _ZN3sat10simplifier17collect_subsumed1ERKNS_6clauseER10ptr_vectorIS1_ER7svectorINS_7literalEjE.exit: ; preds = %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit, %._crit_edge.loopexit.i.i
   %.sroa.0.0.lcssa.i.i = phi i32 [ -2, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit ], [ %17, %._crit_edge.loopexit.i.i ]
-  tail call void @_ZN3sat10simplifier22collect_subsumed1_coreERKNS_6clauseER10ptr_vectorIS1_ER7svectorINS_7literalEjES8_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 4 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %7, i32 %.sroa.0.0.lcssa.i.i)
+  tail call void @_ZN3sat10simplifier22collect_subsumed1_coreERKNS_6clauseER10ptr_vectorIS1_ER7svectorINS_7literalEjES8_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull readonly align 4 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %7, i32 %.sroa.0.0.lcssa.i.i)
   %29 = or disjoint i32 %.sroa.0.0.lcssa.i.i, 1
-  tail call void @_ZN3sat10simplifier22collect_subsumed1_coreERKNS_6clauseER10ptr_vectorIS1_ER7svectorINS_7literalEjES8_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 4 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %7, i32 %29)
+  tail call void @_ZN3sat10simplifier22collect_subsumed1_coreERKNS_6clauseER10ptr_vectorIS1_ER7svectorINS_7literalEjES8_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull readonly align 4 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %7, i32 %29)
   %30 = load ptr, ptr %3, align 8, !tbaa !11
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.thread._crit_edge, label %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit
@@ -7615,7 +7615,7 @@ _ZN3sat10simplifier9subsumes0ERKNS_6clauseES3_.exit: ; preds = %.lr.ph48.i, %._c
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat10simplifier17collect_subsumed0ERKNS_6clauseER10ptr_vectorIS1_E(ptr noundef nonnull align 8 captures(none) dereferenceable(288) %0, ptr noundef nonnull align 4 captures(address) dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3sat10simplifier17collect_subsumed0ERKNS_6clauseER10ptr_vectorIS1_E(ptr noundef nonnull align 8 captures(none) dereferenceable(288) %0, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !18
   %6 = zext i32 %5 to i64
@@ -7697,7 +7697,7 @@ _ZN6vectorIPN3sat6clauseELb0EjE5resetEv.exit:     ; preds = %2, %5
 
 _ZN3sat10simplifier17collect_subsumed0ERKNS_6clauseER10ptr_vectorIS1_E.exit: ; preds = %13, %_ZN6vectorIPN3sat6clauseELb0EjE5resetEv.exit
   %.sroa.012.0.lcssa.i.i = phi i32 [ -2, %_ZN6vectorIPN3sat6clauseELb0EjE5resetEv.exit ], [ %spec.select15.i.i, %13 ]
-  tail call void @_ZN3sat10simplifier22collect_subsumed0_coreERKNS_6clauseER10ptr_vectorIS1_ENS_7literalE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 4 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 %.sroa.012.0.lcssa.i.i)
+  tail call void @_ZN3sat10simplifier22collect_subsumed0_coreERKNS_6clauseER10ptr_vectorIS1_ENS_7literalE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull readonly align 4 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 %.sroa.012.0.lcssa.i.i)
   %19 = load ptr, ptr %3, align 8, !tbaa !11
   %20 = icmp eq ptr %19, null
   br i1 %20, label %._crit_edge, label %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit
@@ -8682,9 +8682,9 @@ _ZN6vectorIN3sat7literalELb0EjE5resetEv.exit.i:   ; preds = %55, %_ZN6vectorIPN3
 
 _ZN3sat10simplifier17collect_subsumed1ERKNS_6clauseER10ptr_vectorIS1_ER7svectorINS_7literalEjE.exit.i: ; preds = %._crit_edge.loopexit.i.i.i, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit.i
   %.sroa.0.0.lcssa.i.i.i = phi i32 [ -2, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit.i ], [ %62, %._crit_edge.loopexit.i.i.i ]
-  call void @_ZN3sat10simplifier22collect_subsumed1_coreERKNS_6clauseER10ptr_vectorIS1_ER7svectorINS_7literalEjES8_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 4 dereferenceable(20) %50, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, i32 %.sroa.0.0.lcssa.i.i.i)
+  call void @_ZN3sat10simplifier22collect_subsumed1_coreERKNS_6clauseER10ptr_vectorIS1_ER7svectorINS_7literalEjES8_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull readonly align 4 dereferenceable(20) %50, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, i32 %.sroa.0.0.lcssa.i.i.i)
   %74 = or disjoint i32 %.sroa.0.0.lcssa.i.i.i, 1
-  call void @_ZN3sat10simplifier22collect_subsumed1_coreERKNS_6clauseER10ptr_vectorIS1_ER7svectorINS_7literalEjES8_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 4 dereferenceable(20) %50, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, i32 %74)
+  call void @_ZN3sat10simplifier22collect_subsumed1_coreERKNS_6clauseER10ptr_vectorIS1_ER7svectorINS_7literalEjES8_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull readonly align 4 dereferenceable(20) %50, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, i32 %74)
   %75 = load ptr, ptr %17, align 8, !tbaa !11
   %76 = icmp eq ptr %75, null
   br i1 %76, label %_ZN3sat10simplifier24mark_as_not_learned_coreER6vectorINS_7watchedELb1EjENS_7literalE.exit, label %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit.i

@@ -10646,7 +10646,7 @@ declare void @llvm.write_register.i64(metadata, i64) #18
 declare void @llvm.assume(i1 noundef) #19
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @xfrm_policy_inexact_insert_node(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3, i8 noundef zeroext %4) unnamed_addr #1 align 16 {
+define internal fastcc ptr @xfrm_policy_inexact_insert_node(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3, i8 noundef zeroext %4) unnamed_addr #1 align 16 {
   %6 = load ptr, ptr %1, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread59, label %8

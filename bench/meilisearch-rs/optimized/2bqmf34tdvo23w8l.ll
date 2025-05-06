@@ -69717,7 +69717,7 @@ define void @"_ZN113_$LT$meilisearch..analytics..segment_analytics..SegmentAnaly
 22:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   %.val = load ptr, ptr %3, align 8, !nonnull !9, !noundef !9
-  invoke fastcc void @_ZN11meilisearch9analytics17segment_analytics19extract_user_agents17ha792b3dabc3adbfdE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10, ptr nonnull %.val)
+  invoke fastcc void @_ZN11meilisearch9analytics17segment_analytics19extract_user_agents17ha792b3dabc3adbfdE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10, ptr nonnull readonly %.val)
           to label %24 unwind label %.thread
 
 .thread:                                          ; preds = %22
@@ -70216,7 +70216,7 @@ define void @"_ZN113_$LT$meilisearch..analytics..segment_analytics..SegmentAnaly
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !12775
   %12 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %12)
-  call fastcc void @_ZN11meilisearch9analytics17segment_analytics19extract_user_agents17ha792b3dabc3adbfdE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, ptr nonnull %.val), !noalias !12775
+  call fastcc void @_ZN11meilisearch9analytics17segment_analytics19extract_user_agents17ha792b3dabc3adbfdE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, ptr nonnull readonly %.val), !noalias !12775
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12778)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12781)
   %.sroa.0.0.copyload.i.i = load i64, ptr %7, align 8, !alias.scope !12781, !noalias !12783
@@ -85840,7 +85840,7 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr73drop
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN11meilisearch9analytics17segment_analytics19DocumentsAggregator10from_query17he6e5eabd365bae5bE(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(168) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i1 noundef zeroext %2, ptr captures(address_is_null) %.0.val) unnamed_addr #6 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN11meilisearch9analytics17segment_analytics19DocumentsAggregator10from_query17he6e5eabd365bae5bE(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(168) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i1 noundef zeroext %2, ptr readonly captures(address_is_null) %.0.val) unnamed_addr #6 personality ptr @rust_eh_personality {
   %4 = alloca [0 x i8], align 1
   %5 = alloca [32 x i8], align 8
   %6 = alloca [48 x i8], align 8
@@ -87931,7 +87931,7 @@ default.unreachable:                              ; preds = %30
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN11meilisearch9analytics17segment_analytics24DocumentsFetchAggregator10from_query17h4851b020bd6d9b0cE(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr captures(address_is_null) %.0.val) unnamed_addr #6 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN11meilisearch9analytics17segment_analytics24DocumentsFetchAggregator10from_query17h4851b020bd6d9b0cE(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr readonly captures(address_is_null) %.0.val) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca [0 x i8], align 1
   %4 = alloca [32 x i8], align 8
   %5 = alloca [48 x i8], align 8

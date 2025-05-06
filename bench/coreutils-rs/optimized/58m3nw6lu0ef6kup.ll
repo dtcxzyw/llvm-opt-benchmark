@@ -3107,7 +3107,7 @@ define hidden void @"_ZN73_$LT$P$u20$as$u20$clap_builder..builder..value_parser.
   %8 = alloca { i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %.val = load ptr, ptr %1, align 8
-  call fastcc void @"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17hf7da5a353b453d15E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %8, ptr %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(592) %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5)
+  call fastcc void @"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17hf7da5a353b453d15E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %8, ptr readonly %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(592) %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5)
   %9 = load i64, ptr %8, align 8, !range !41, !noundef !42
   %trunc = trunc nuw i64 %9 to i1
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3276,7 +3276,7 @@ define hidden void @"_ZN73_$LT$P$u20$as$u20$clap_builder..builder..value_parser.
   %9 = load ptr, ptr %8, align 8, !alias.scope !557, !noalias !560, !nonnull !42, !noundef !42
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !557, !noalias !560, !noundef !42
-  invoke fastcc void @"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17hf7da5a353b453d15E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %7, ptr %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(592) %3, ptr noalias noundef nonnull readonly align 1 %9, i64 noundef %11)
+  invoke fastcc void @"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17hf7da5a353b453d15E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %7, ptr readonly %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(592) %3, ptr noalias noundef nonnull readonly align 1 %9, i64 noundef %11)
           to label %14 unwind label %12, !noalias !557
 
 12:                                               ; preds = %5
@@ -3610,7 +3610,7 @@ define hidden void @"_ZN73_$LT$P$u20$as$u20$clap_builder..builder..value_parser.
   %10 = load ptr, ptr %9, align 8, !alias.scope !644, !noalias !645, !nonnull !42, !noundef !42
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !644, !noalias !645, !noundef !42
-  invoke fastcc void @"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17hf7da5a353b453d15E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %8, ptr %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(592) %3, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %12)
+  invoke fastcc void @"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17hf7da5a353b453d15E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %8, ptr readonly %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(592) %3, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %12)
           to label %15 unwind label %13, !noalias !644
 
 13:                                               ; preds = %6

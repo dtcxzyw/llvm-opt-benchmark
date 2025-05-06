@@ -7499,7 +7499,7 @@ _ZN12_GLOBAL__N_19isContextI24WasmEdge_ExecutorContextJ21WasmEdge_StoreContextK3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_ExecutorInvoke(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_ExecutorInvoke(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.cxx20::span.279", align 8
   %8 = alloca %"class.cxx20::expected.623", align 8
   %9 = alloca %"struct.std::pair.263", align 8
@@ -7798,7 +7798,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @WasmEdge_ExecutorAsyncInvoke(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef ptr @WasmEdge_ExecutorAsyncInvoke(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i.i.i.i = alloca { i64, i64 }, align 8
   %5 = alloca %"struct.std::pair.263", align 8
   %6 = alloca %"class.WasmEdge::Async", align 8
@@ -14094,7 +14094,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit4.i.i.i: ; preds = %_ZNSt11unique_l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_VMRunWasmFromFile(ptr noundef %0, ptr noundef %1, i32 %2, ptr %3, ptr noundef captures(address_is_null) %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_VMRunWasmFromFile(ptr noundef %0, ptr noundef %1, i32 %2, ptr %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.cxx20::span.277", align 8
   %10 = alloca %"struct.cxx20::span.279", align 8
   %11 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -14376,13 +14376,13 @@ _ZNSt4pairISt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_VMRunWasmFromBuffer(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr %4, ptr noundef captures(address_is_null) %5, i32 noundef %6, ptr noundef captures(address_is_null) %7, i32 noundef %8) local_unnamed_addr #10 {
+define i32 @WasmEdge_VMRunWasmFromBuffer(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, ptr noundef writeonly captures(address_is_null) %7, i32 noundef %8) local_unnamed_addr #10 {
   %10 = tail call i32 @WasmEdge_VMRunWasmFromBytes(ptr noundef %0, i32 %2, ptr %1, i32 %3, ptr %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_VMRunWasmFromBytes(ptr noundef %0, i32 %1, ptr %2, i32 %3, ptr %4, ptr noundef captures(address_is_null) %5, i32 noundef %6, ptr noundef writeonly captures(address_is_null) %7, i32 noundef %8) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_VMRunWasmFromBytes(ptr noundef %0, i32 %1, ptr %2, i32 %3, ptr %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, ptr noundef writeonly captures(address_is_null) %7, i32 noundef %8) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"struct.cxx20::span.277", align 8
   %11 = alloca %"struct.cxx20::span.279", align 8
   %12 = alloca %"class.cxx20::expected.623", align 8
@@ -14551,7 +14551,7 @@ _ZNSt4pairISt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_VMRunWasmFromASTModule(ptr noundef %0, ptr noundef %1, i32 %2, ptr %3, ptr noundef captures(address_is_null) %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_VMRunWasmFromASTModule(ptr noundef %0, ptr noundef %1, i32 %2, ptr %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.cxx20::span.277", align 8
   %10 = alloca %"struct.cxx20::span.279", align 8
   %11 = alloca %"class.cxx20::expected.623", align 8
@@ -14717,7 +14717,7 @@ _ZNSt4pairISt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sD
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @WasmEdge_VMAsyncRunWasmFromFile(ptr noundef %0, ptr noundef %1, i32 %2, ptr %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef ptr @WasmEdge_VMAsyncRunWasmFromFile(ptr noundef %0, ptr noundef %1, i32 %2, ptr %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i.i.i.i = alloca { i64, i64 }, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %"struct.std::pair.263", align 8
@@ -14984,13 +14984,13 @@ _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @WasmEdge_VMAsyncRunWasmFromBuffer(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr %4, ptr noundef captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #1 {
+define noundef ptr @WasmEdge_VMAsyncRunWasmFromBuffer(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = tail call ptr @WasmEdge_VMAsyncRunWasmFromBytes(ptr noundef %0, i32 %2, ptr %1, i32 %3, ptr %4, ptr noundef %5, i32 noundef %6)
   ret ptr %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @WasmEdge_VMAsyncRunWasmFromBytes(ptr noundef %0, i32 %1, ptr %2, i32 %3, ptr %4, ptr noundef captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef ptr @WasmEdge_VMAsyncRunWasmFromBytes(ptr noundef %0, i32 %1, ptr %2, i32 %3, ptr %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i.i.i.i = alloca { i64, i64 }, align 8
   %8 = alloca %"struct.std::pair.263", align 8
   %9 = alloca %"class.WasmEdge::Async", align 8
@@ -15119,7 +15119,7 @@ _ZNSt4pairISt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sD
 declare void @_ZN8WasmEdge2VM2VM16asyncRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS3_IKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEE(ptr dead_on_unwind writable sret(%"class.WasmEdge::Async") align 8, ptr noundef nonnull align 8 dereferenceable(1920), ptr, i64, i64, ptr, ptr noundef byval(%"struct.cxx20::span.277") align 8, ptr noundef byval(%"struct.cxx20::span.279") align 8) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @WasmEdge_VMAsyncRunWasmFromASTModule(ptr noundef %0, ptr noundef %1, i32 %2, ptr %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef ptr @WasmEdge_VMAsyncRunWasmFromASTModule(ptr noundef %0, ptr noundef %1, i32 %2, ptr %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i.i.i.i = alloca { i64, i64 }, align 8
   %7 = alloca %"struct.std::pair.263", align 8
   %8 = alloca %"class.WasmEdge::Async", align 8
@@ -15608,7 +15608,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit3.i.i.i: ; preds = %_ZNSt11unique_l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_VMExecute(ptr noundef %0, i32 %1, ptr %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_VMExecute(ptr noundef %0, i32 %1, ptr %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.cxx20::span.279", align 8
   %9 = alloca %"class.cxx20::expected.623", align 8
   %10 = alloca %"struct.std::pair.263", align 8
@@ -15771,7 +15771,7 @@ _ZNSt4pairISt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_VMExecuteRegistered(ptr noundef %0, i32 %1, ptr %2, i32 %3, ptr %4, ptr noundef captures(address_is_null) %5, i32 noundef %6, ptr noundef writeonly captures(address_is_null) %7, i32 noundef %8) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_VMExecuteRegistered(ptr noundef %0, i32 %1, ptr %2, i32 %3, ptr %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, ptr noundef writeonly captures(address_is_null) %7, i32 noundef %8) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"struct.cxx20::span.277", align 8
   %11 = alloca %"struct.cxx20::span.279", align 8
   %12 = alloca %"class.cxx20::expected.623", align 8
@@ -15941,7 +15941,7 @@ _ZNSt4pairISt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sD
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @WasmEdge_VMAsyncExecute(ptr noundef %0, i32 %1, ptr %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef ptr @WasmEdge_VMAsyncExecute(ptr noundef %0, i32 %1, ptr %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i.i.i.i = alloca { i64, i64 }, align 8
   %6 = alloca %"struct.std::pair.263", align 8
   %7 = alloca %"class.WasmEdge::Async", align 8
@@ -16061,7 +16061,7 @@ _ZNSt4pairISt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sD
 declare void @_ZN8WasmEdge2VM2VM12asyncExecuteESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm18446744073709551615EEENS7_IKNS_7ValTypeELm18446744073709551615EEE(ptr dead_on_unwind writable sret(%"class.WasmEdge::Async") align 8, ptr noundef nonnull align 8 dereferenceable(1920), i64, ptr, ptr, i64, ptr noundef byval(%"struct.cxx20::span.279") align 8) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @WasmEdge_VMAsyncExecuteRegistered(ptr noundef %0, i32 %1, ptr %2, i32 %3, ptr %4, ptr noundef captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef ptr @WasmEdge_VMAsyncExecuteRegistered(ptr noundef %0, i32 %1, ptr %2, i32 %3, ptr %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i.i.i.i = alloca { i64, i64 }, align 8
   %8 = alloca %"struct.std::pair.263", align 8
   %9 = alloca %"class.WasmEdge::Async", align 8

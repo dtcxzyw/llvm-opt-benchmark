@@ -404,7 +404,7 @@ declare ptr @g_strstr_len(ptr noundef, i64 noundef, ptr noundef) local_unnamed_a
 declare i32 @sqlite3_bind_int(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dt_tag_new_from_gui(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dt_tag_new_from_gui(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @dt_tag_new(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %16, label %4

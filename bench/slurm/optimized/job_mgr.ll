@@ -3027,7 +3027,7 @@ declare void @assoc_mgr_set_job_tres_alloc_str(ptr noundef, i1 noundef zeroext) 
 declare i32 @jobacct_storage_g_job_complete(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_get_qos_info(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc i32 @_get_qos_info(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %struct.slurmdb_qos_rec_t, align 8
@@ -3063,7 +3063,7 @@ define internal fastcc i32 @_get_qos_info(ptr noundef %0, ptr noundef writeonly 
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %9) #27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %9, i8 0, i64 336, i1 false)
   store ptr %.03161.i, ptr %16, align 8
-  %18 = call fastcc ptr @_determine_and_validate_qos(ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %9, ptr noundef nonnull %10, i1 noundef zeroext true, i32 noundef 2)
+  %18 = call fastcc ptr @_determine_and_validate_qos(ptr noundef readonly %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %9, ptr noundef nonnull %10, i1 noundef zeroext true, i32 noundef 2)
   %19 = load i32, ptr %10, align 4
   %.not36.i = icmp eq i32 %19, 0
   br i1 %.not36.i, label %20, label %.thread.i
@@ -38895,7 +38895,7 @@ define internal fastcc void @_add_signal_job_resp(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_filter_job(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(none) %2) #0 {
+define internal noundef i32 @_filter_job(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2) #0 {
   tail call fastcc void @_apply_signal_jobs_filter(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 1
 }
@@ -40690,7 +40690,7 @@ define internal fastcc i32 @_valid_job_part(ptr noundef %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4004) i32 @_validate_job_desc(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4004) i32 @_validate_job_desc(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 748
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, -2
@@ -41007,7 +41007,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
   br i1 %163, label %164, label %166
 
 164:                                              ; preds = %156
-  %165 = tail call fastcc zeroext i1 @_valid_pn_min_mem(ptr noundef nonnull %0, ptr noundef %4)
+  %165 = tail call fastcc zeroext i1 @_valid_pn_min_mem(ptr noundef nonnull %0, ptr noundef readonly %4)
   store i64 %145, ptr %144, align 8
   store i16 %158, ptr %157, align 8
   store i32 %8, ptr %7, align 4

@@ -1146,7 +1146,7 @@ define void @_ZN3net9QuicUtils9HexEncodeEN4base16BasicStringPieceINSt7__cxx1112b
 declare void @_ZN4base9HexEncodeB5cxx11EPKvm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3net9QuicUtils9HexDecodeB5cxx11EPKcm(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #8 align 2 {
+define void @_ZN3net9QuicUtils9HexDecodeB5cxx11EPKcm(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #8 align 2 {
   tail call void @_ZN3net9QuicUtils9HexDecodeEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr %1, i64 %2)
   ret void
 }

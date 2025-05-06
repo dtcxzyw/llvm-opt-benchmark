@@ -1242,7 +1242,7 @@ define void @_ZNK9grpc_core11ChannelArgs3ToCEv(ptr dead_on_unwind noalias writab
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #37
   store ptr %3, ptr %4, align 8, !tbaa !65
   %.val = load ptr, ptr %1, align 8, !tbaa !21
-  invoke fastcc void @"_ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE11ForEachImplIZNKS2_3ToCEvE3$_0EEvPKNS4_4NodeEOT_"(ptr noundef %.val, ptr noundef nonnull readonly align 8 dereferenceable(8) %4)
+  invoke fastcc void @"_ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE11ForEachImplIZNKS2_3ToCEvE3$_0EEvPKNS4_4NodeEOT_"(ptr noundef readonly %.val, ptr noundef nonnull readonly align 8 dereferenceable(8) %4)
           to label %"_ZNK9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE7ForEachIZNKS2_3ToCEvE3$_0EEvOT_.exit" unwind label %20
 
 "_ZNK9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE7ForEachIZNKS2_3ToCEvE3$_0EEvOT_.exit": ; preds = %2
@@ -1308,7 +1308,7 @@ _ZNSt6vectorI8grpc_argSaIS0_EED2Ev.exit5:         ; preds = %24, %26
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z30grpc_channel_args_copy_and_addPK17grpc_channel_argsPK8grpc_argm(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #9 {
+define noundef ptr @_Z30grpc_channel_args_copy_and_addPK17grpc_channel_argsPK8grpc_argm(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #9 {
   %4 = tail call noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channel_argsPPKcmPK8grpc_argm(ptr noundef %0, ptr noundef null, i64 noundef 0, ptr noundef %1, i64 noundef %2)
   ret ptr %4
 }
@@ -2673,7 +2673,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.e
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %3, ptr %13, align 8, !tbaa !126
   %.val = load ptr, ptr %1, align 8, !tbaa !21
-  invoke fastcc void @"_ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE11ForEachImplIZNKS2_8ToStringB5cxx11EvE3$_0EEvPKNS4_4NodeEOT_"(ptr noundef %.val, ptr noundef nonnull readonly align 8 dereferenceable(24) %5)
+  invoke fastcc void @"_ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE11ForEachImplIZNKS2_8ToStringB5cxx11EvE3$_0EEvPKNS4_4NodeEOT_"(ptr noundef readonly %.val, ptr noundef nonnull readonly align 8 dereferenceable(24) %5)
           to label %"_ZNK9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE7ForEachIZNKS2_8ToStringB5cxx11EvE3$_0EEvOT_.exit" unwind label %90
 
 "_ZNK9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE7ForEachIZNKS2_8ToStringB5cxx11EvE3$_0EEvOT_.exit": ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.exit
@@ -3404,7 +3404,7 @@ _ZL8copy_argPK8grpc_arg.exit60:                   ; preds = %.lr.ph88, %71, %75,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z33grpc_channel_args_copy_and_removePK17grpc_channel_argsPPKcm(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #9 {
+define noundef ptr @_Z33grpc_channel_args_copy_and_removePK17grpc_channel_argsPPKcm(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #9 {
   %4 = tail call noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channel_argsPPKcmPK8grpc_argm(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef 0)
   ret ptr %4
 }
@@ -3418,18 +3418,18 @@ declare void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17ba
 declare void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z22grpc_channel_args_copyPK17grpc_channel_args(ptr noundef captures(address_is_null) %0) local_unnamed_addr #9 {
-  %2 = tail call noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channel_argsPPKcmPK8grpc_argm(ptr noundef %0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
+define noundef ptr @_Z22grpc_channel_args_copyPK17grpc_channel_args(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
+  %2 = tail call noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channel_argsPPKcmPK8grpc_argm(ptr noundef readonly %0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z23grpc_channel_args_unionPK17grpc_channel_argsS1_(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #9 {
+define noundef ptr @_Z23grpc_channel_args_unionPK17grpc_channel_argsS1_(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channel_argsPPKcmPK8grpc_argm(ptr noundef %1, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
+  %5 = tail call noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channel_argsPPKcmPK8grpc_argm(ptr noundef readonly %1, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
   br label %48
 
 6:                                                ; preds = %2
@@ -3437,7 +3437,7 @@ define noundef ptr @_Z23grpc_channel_args_unionPK17grpc_channel_argsS1_(ptr noun
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channel_argsPPKcmPK8grpc_argm(ptr noundef nonnull %0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
+  %9 = tail call noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channel_argsPPKcmPK8grpc_argm(ptr noundef nonnull readonly %0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
   br label %48
 
 10:                                               ; preds = %6

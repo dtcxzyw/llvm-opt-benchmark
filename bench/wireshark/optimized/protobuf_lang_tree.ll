@@ -568,7 +568,7 @@ tailrecurse:                                      ; preds = %check_node_depth.ex
 declare noalias ptr @g_strconcat(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noundef ptr @pbl_message_descriptor_pool_FindMethodByName(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef ptr @pbl_message_descriptor_pool_FindMethodByName(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @pbl_find_node_in_pool(ptr noundef %0, ptr noundef %1, i32 noundef 9)
   ret ptr %3
 }
@@ -816,7 +816,7 @@ define hidden noundef ptr @pbl_method_descriptor_output_type(ptr noundef capture
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noundef ptr @pbl_message_descriptor_pool_FindMessageTypeByName(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef ptr @pbl_message_descriptor_pool_FindMessageTypeByName(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @pbl_find_node_in_pool(ptr noundef %0, ptr noundef %1, i32 noundef 2)
   ret ptr %3
 }

@@ -7511,7 +7511,7 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   store ptr %.sroa.06.0.i1, ptr %5, align 8, !noalias !3071
   store ptr %.sroa.7.0.i2, ptr %10, align 8, !noalias !3071
   store i8 %.sroa.5.0.copyload11.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !3071
-  %16 = call fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8c24a3d344a781b0E"(ptr align 8 dereferenceable(8) %6, ptr noundef %.sroa.06.0.i1, ptr noundef %.sroa.7.0.i2, ptr noalias noundef align 8 captures(none) dereferenceable(64) %11), !noalias !3061
+  %16 = call fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8c24a3d344a781b0E"(ptr readonly align 8 dereferenceable(8) %6, ptr noundef %.sroa.06.0.i1, ptr noundef %.sroa.7.0.i2, ptr noalias noundef align 8 captures(none) dereferenceable(64) %11), !noalias !3061
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5), !noalias !3071
   %17 = extractvalue { ptr, ptr } %16, 0
   %18 = extractvalue { ptr, ptr } %16, 1
@@ -7562,7 +7562,7 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   store ptr %.sroa.06.0.i1, ptr %5, align 8, !noalias !3082
   store ptr %.sroa.7.0.i2, ptr %10, align 8, !noalias !3082
   store i8 %.sroa.5.0.copyload11.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !3082
-  %16 = call fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4976733a3f9d24d0E"(ptr align 8 dereferenceable(8) %6, ptr noundef %.sroa.06.0.i1, ptr noundef %.sroa.7.0.i2, ptr noalias noundef align 8 captures(none) dereferenceable(64) %11), !noalias !3072
+  %16 = call fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4976733a3f9d24d0E"(ptr readonly align 8 dereferenceable(8) %6, ptr noundef %.sroa.06.0.i1, ptr noundef %.sroa.7.0.i2, ptr noalias noundef align 8 captures(none) dereferenceable(64) %11), !noalias !3072
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5), !noalias !3082
   %17 = extractvalue { ptr, ptr } %16, 0
   %18 = extractvalue { ptr, ptr } %16, 1
@@ -7717,7 +7717,7 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   store ptr %.sroa.06.0.i1, ptr %5, align 8, !noalias !3108
   store ptr %.sroa.7.0.i2, ptr %10, align 8, !noalias !3108
   store i8 %.sroa.5.0.copyload11.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !3108
-  %16 = call fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb27df0ab9d886316E"(ptr align 8 dereferenceable(8) %6, ptr noundef %.sroa.06.0.i1, ptr noundef %.sroa.7.0.i2, ptr noalias noundef align 8 captures(none) dereferenceable(64) %11), !noalias !3098
+  %16 = call fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb27df0ab9d886316E"(ptr readonly align 8 dereferenceable(8) %6, ptr noundef %.sroa.06.0.i1, ptr noundef %.sroa.7.0.i2, ptr noalias noundef align 8 captures(none) dereferenceable(64) %11), !noalias !3098
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5), !noalias !3108
   %17 = extractvalue { ptr, ptr } %16, 0
   %18 = extractvalue { ptr, ptr } %16, 1
@@ -7815,7 +7815,7 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   store ptr %.sroa.06.0.i1, ptr %5, align 8, !noalias !3128
   store ptr %.sroa.7.0.i2, ptr %10, align 8, !noalias !3128
   store i8 %.sroa.5.0.copyload11.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !3128
-  %16 = call fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h708ac6b9c26b9fffE"(ptr align 8 dereferenceable(8) %6, ptr noundef %.sroa.06.0.i1, ptr noundef %.sroa.7.0.i2, ptr noalias noundef align 8 captures(none) dereferenceable(64) %11), !noalias !3118
+  %16 = call fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h708ac6b9c26b9fffE"(ptr readonly align 8 dereferenceable(8) %6, ptr noundef %.sroa.06.0.i1, ptr noundef %.sroa.7.0.i2, ptr noalias noundef align 8 captures(none) dereferenceable(64) %11), !noalias !3118
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5), !noalias !3128
   %17 = extractvalue { ptr, ptr } %16, 0
   %18 = extractvalue { ptr, ptr } %16, 1
@@ -9071,7 +9071,7 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   store ptr %.sroa.06.0.i1, ptr %5, align 8, !noalias !3368
   store ptr %.sroa.7.0.i2, ptr %10, align 8, !noalias !3368
   store i8 %.sroa.5.0.copyload11.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !3368
-  %16 = call fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2d59e787ff737529E"(ptr align 8 dereferenceable(8) %6, ptr noundef %.sroa.06.0.i1, ptr noundef %.sroa.7.0.i2, ptr noalias noundef align 8 captures(none) dereferenceable(64) %11), !noalias !3358
+  %16 = call fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2d59e787ff737529E"(ptr readonly align 8 dereferenceable(8) %6, ptr noundef %.sroa.06.0.i1, ptr noundef %.sroa.7.0.i2, ptr noalias noundef align 8 captures(none) dereferenceable(64) %11), !noalias !3358
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5), !noalias !3368
   %17 = extractvalue { ptr, ptr } %16, 0
   %18 = extractvalue { ptr, ptr } %16, 1
@@ -9407,7 +9407,7 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   store ptr %.sroa.06.0.i1, ptr %5, align 8, !noalias !3440
   store ptr %.sroa.7.0.i2, ptr %10, align 8, !noalias !3440
   store i8 %.sroa.5.0.copyload11.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !3440
-  %16 = call fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf91b37443cf3a2acE"(ptr align 8 dereferenceable(8) %6, ptr noundef %.sroa.06.0.i1, ptr noundef %.sroa.7.0.i2, ptr noalias noundef align 8 captures(none) dereferenceable(64) %11), !noalias !3430
+  %16 = call fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf91b37443cf3a2acE"(ptr readonly align 8 dereferenceable(8) %6, ptr noundef %.sroa.06.0.i1, ptr noundef %.sroa.7.0.i2, ptr noalias noundef align 8 captures(none) dereferenceable(64) %11), !noalias !3430
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5), !noalias !3440
   %17 = extractvalue { ptr, ptr } %16, 0
   %18 = extractvalue { ptr, ptr } %16, 1
@@ -9490,7 +9490,7 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   store ptr %.sroa.06.0.i1, ptr %5, align 8, !noalias !3460
   store ptr %.sroa.7.0.i2, ptr %10, align 8, !noalias !3460
   store i8 %.sroa.5.0.copyload11.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !3460
-  %16 = call fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h93b27dc15cd89dbdE"(ptr align 8 dereferenceable(8) %6, ptr noundef %.sroa.06.0.i1, ptr noundef %.sroa.7.0.i2, ptr noalias noundef align 8 captures(none) dereferenceable(64) %11), !noalias !3450
+  %16 = call fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h93b27dc15cd89dbdE"(ptr readonly align 8 dereferenceable(8) %6, ptr noundef %.sroa.06.0.i1, ptr noundef %.sroa.7.0.i2, ptr noalias noundef align 8 captures(none) dereferenceable(64) %11), !noalias !3450
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5), !noalias !3460
   %17 = extractvalue { ptr, ptr } %16, 0
   %18 = extractvalue { ptr, ptr } %16, 1
@@ -9678,7 +9678,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h37f5641e186ca15dE.llvm.1765124
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he49aa2725af99fd9E.llvm.17651247297929507582"(ptr noalias noundef align 8 captures(address_is_null) dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %3, ptr readnone captures(none) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he49aa2725af99fd9E.llvm.17651247297929507582"(ptr noalias noundef align 8 captures(address_is_null) dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef readnone align 8 captures(address_is_null) dereferenceable(8) %3, ptr readnone captures(none) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.013.i.i.sroa.5.i = alloca [63 x i8], align 1
   %6 = alloca { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, align 8
   %7 = alloca { { ptr, ptr }, { { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } } }, align 8
@@ -9824,7 +9824,7 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   store ptr %.sroa.06.0.i1, ptr %5, align 8, !noalias !3539
   store ptr %.sroa.7.0.i2, ptr %10, align 8, !noalias !3539
   store i8 %.sroa.5.0.copyload11.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !3539
-  %16 = call fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf6727244690fbd79E"(ptr align 8 dereferenceable(8) %6, ptr noundef %.sroa.06.0.i1, ptr noundef %.sroa.7.0.i2, ptr noalias noundef align 8 captures(none) dereferenceable(64) %11), !noalias !3529
+  %16 = call fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf6727244690fbd79E"(ptr readonly align 8 dereferenceable(8) %6, ptr noundef %.sroa.06.0.i1, ptr noundef %.sroa.7.0.i2, ptr noalias noundef align 8 captures(none) dereferenceable(64) %11), !noalias !3529
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5), !noalias !3539
   %17 = extractvalue { ptr, ptr } %16, 0
   %18 = extractvalue { ptr, ptr } %16, 1
@@ -9875,7 +9875,7 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   store ptr %.sroa.06.0.i1, ptr %5, align 8, !noalias !3550
   store ptr %.sroa.7.0.i2, ptr %10, align 8, !noalias !3550
   store i8 %.sroa.5.0.copyload11.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !3550
-  %16 = call fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hda58d06c7857212dE"(ptr align 8 dereferenceable(8) %6, ptr noundef %.sroa.06.0.i1, ptr noundef %.sroa.7.0.i2, ptr noalias noundef align 8 captures(none) dereferenceable(64) %11), !noalias !3540
+  %16 = call fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hda58d06c7857212dE"(ptr readonly align 8 dereferenceable(8) %6, ptr noundef %.sroa.06.0.i1, ptr noundef %.sroa.7.0.i2, ptr noalias noundef align 8 captures(none) dereferenceable(64) %11), !noalias !3540
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5), !noalias !3550
   %17 = extractvalue { ptr, ptr } %16, 0
   %18 = extractvalue { ptr, ptr } %16, 1
@@ -18463,7 +18463,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h09
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h0a59b2834beaa4d2E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h0a59b2834beaa4d2E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, ptr }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !alias.scope !7658, !noalias !7661, !nonnull !14, !noundef !14
@@ -18604,7 +18604,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h11
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h1283621e4b70e6b6E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h1283621e4b70e6b6E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, ptr }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !alias.scope !7673, !noalias !7676, !nonnull !14, !noundef !14
@@ -18924,7 +18924,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h37
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h3f170276df694a03E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h3f170276df694a03E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, ptr }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !alias.scope !7704, !noalias !7707, !nonnull !14, !noundef !14
@@ -19060,7 +19060,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h3f
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h41f1224dd405344eE.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h41f1224dd405344eE.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, ptr }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !alias.scope !7715, !noalias !7718, !nonnull !14, !noundef !14
@@ -19201,7 +19201,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h56
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h5686f954d3341bfcE.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h5686f954d3341bfcE.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, ptr }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !alias.scope !7730, !noalias !7733, !nonnull !14, !noundef !14
@@ -19388,7 +19388,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h61
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7198c37f18d6cb65E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7198c37f18d6cb65E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, ptr }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !alias.scope !7750, !noalias !7753, !nonnull !14, !noundef !14
@@ -19437,7 +19437,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h71
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h735e88a21e99af56E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h735e88a21e99af56E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, ptr }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !alias.scope !7755, !noalias !7758, !nonnull !14, !noundef !14
@@ -20321,7 +20321,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hab
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb28eebe3cfdc5924E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb28eebe3cfdc5924E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, ptr }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !alias.scope !7953, !noalias !7956, !nonnull !14, !noundef !14
@@ -20416,7 +20416,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb353a518526a6b38E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb353a518526a6b38E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, ptr }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !alias.scope !7963, !noalias !7966, !nonnull !14, !noundef !14

@@ -1413,7 +1413,7 @@ Abc_NodeTravId.exit:                              ; preds = %1, %._crit_edge.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_AigCheckTfi(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Abc_AigCheckTfi(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !13
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %5 = load ptr, ptr %4, align 8, !tbaa !63

@@ -4373,7 +4373,7 @@ XYZ_to_Ych.exit:                                  ; preds = %159
 }
 
 ; Function Attrs: nounwind uwtable
-define void @color_picker_apply(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #1 {
+define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca [4 x float], align 16
   %5 = alloca [4 x float], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 704

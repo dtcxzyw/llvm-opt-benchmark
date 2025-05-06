@@ -219,7 +219,7 @@ jd_putc.exit:                                     ; preds = %77, %71, %61, %53, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @json_dumper_set_member_name(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @json_dumper_set_member_name(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 65536
@@ -1154,7 +1154,7 @@ define void @json_dumper_end_array(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @json_dumper_value_string(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @json_dumper_value_string(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 65536

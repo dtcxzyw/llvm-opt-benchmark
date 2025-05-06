@@ -55,7 +55,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.39 = private unnamed_addr constant [26 x i8] c"%li MB of physical memory\00", align 1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @ws_init_version_info(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define void @ws_init_version_info(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @g_string_new(ptr noundef nonnull @.str.30)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8

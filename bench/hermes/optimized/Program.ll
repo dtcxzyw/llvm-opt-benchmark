@@ -101,7 +101,7 @@ $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 @_ZN4llvh3sys11ProcessInfoC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN4llvh3sys11ProcessInfoC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4llvh3sys14ExecuteAndWaitENS_9StringRefENS_8ArrayRefIS1_EENS_8OptionalIS3_EENS2_INS4_IS1_EEEEjjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPb(ptr %Program.coerce0, i64 %Program.coerce1, ptr captures(address) %Args.coerce0, i64 %Args.coerce1, ptr noundef readonly byval(%"class.llvh::Optional") align 8 captures(none) %Env, ptr readonly captures(none) %Redirects.coerce0, i64 %Redirects.coerce1, i32 noundef %SecondsToWait, i32 noundef %MemoryLimit, ptr noundef %ErrMsg, ptr noundef writeonly captures(address_is_null) %ExecutionFailed) local_unnamed_addr #0 {
+define hidden noundef i32 @_ZN4llvh3sys14ExecuteAndWaitENS_9StringRefENS_8ArrayRefIS1_EENS_8OptionalIS3_EENS2_INS4_IS1_EEEEjjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPb(ptr %Program.coerce0, i64 %Program.coerce1, ptr readonly captures(address) %Args.coerce0, i64 %Args.coerce1, ptr noundef readonly byval(%"class.llvh::Optional") align 8 captures(none) %Env, ptr readonly captures(none) %Redirects.coerce0, i64 %Redirects.coerce1, i32 noundef %SecondsToWait, i32 noundef %MemoryLimit, ptr noundef %ErrMsg, ptr noundef writeonly captures(address_is_null) %ExecutionFailed) local_unnamed_addr #0 {
 entry:
   %PI = alloca %"struct.llvh::sys::ProcessInfo", align 4
   store i32 0, ptr %PI, align 4
@@ -137,7 +137,7 @@ return:                                           ; preds = %if.end6, %if.then8,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL7ExecuteRN4llvh3sys11ProcessInfoENS_9StringRefENS_8ArrayRefIS3_EENS_8OptionalIS5_EENS4_INS6_IS3_EEEEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) %PI, ptr %Program.coerce0, i64 %Program.coerce1, ptr captures(address) %Args.coerce0, i64 %Args.coerce1, ptr noundef readonly byval(%"class.llvh::Optional") align 8 captures(none) %Env, ptr readonly captures(none) %Redirects.0.val, i64 %Redirects.8.val, i32 noundef %MemoryLimit, ptr noundef %ErrMsg) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL7ExecuteRN4llvh3sys11ProcessInfoENS_9StringRefENS_8ArrayRefIS3_EENS_8OptionalIS5_EENS4_INS6_IS3_EEEEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) %PI, ptr %Program.coerce0, i64 %Program.coerce1, ptr readonly captures(address) %Args.coerce0, i64 %Args.coerce1, ptr noundef readonly byval(%"class.llvh::Optional") align 8 captures(none) %Env, ptr readonly captures(none) %Redirects.0.val, i64 %Redirects.8.val, i32 noundef %MemoryLimit, ptr noundef %ErrMsg) unnamed_addr #0 {
 entry:
   %ref.tmp.i90 = alloca %"class.std::allocator", align 1
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
@@ -876,7 +876,7 @@ return:                                           ; preds = %if.then88, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i64, i32 } @_ZN4llvh3sys13ExecuteNoWaitENS_9StringRefENS_8ArrayRefIS1_EENS_8OptionalIS3_EENS2_INS4_IS1_EEEEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPb(ptr %Program.coerce0, i64 %Program.coerce1, ptr captures(address) %Args.coerce0, i64 %Args.coerce1, ptr noundef readonly byval(%"class.llvh::Optional") align 8 captures(none) %Env, ptr readonly captures(none) %Redirects.coerce0, i64 %Redirects.coerce1, i32 noundef %MemoryLimit, ptr noundef %ErrMsg, ptr noundef writeonly captures(address_is_null) %ExecutionFailed) local_unnamed_addr #0 {
+define hidden { i64, i32 } @_ZN4llvh3sys13ExecuteNoWaitENS_9StringRefENS_8ArrayRefIS1_EENS_8OptionalIS3_EENS2_INS4_IS1_EEEEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPb(ptr %Program.coerce0, i64 %Program.coerce1, ptr readonly captures(address) %Args.coerce0, i64 %Args.coerce1, ptr noundef readonly byval(%"class.llvh::Optional") align 8 captures(none) %Env, ptr readonly captures(none) %Redirects.coerce0, i64 %Redirects.coerce1, i32 noundef %MemoryLimit, ptr noundef %ErrMsg, ptr noundef writeonly captures(address_is_null) %ExecutionFailed) local_unnamed_addr #0 {
 entry:
   %retval = alloca %"struct.llvh::sys::ProcessInfo", align 8
   store i32 0, ptr %retval, align 8

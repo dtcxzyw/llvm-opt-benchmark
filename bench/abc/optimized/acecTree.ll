@@ -2637,7 +2637,7 @@ Acec_TreeWhichPoint.exit:                         ; preds = %23, %.split.loop.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Acec_TreeFindTrees(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define noalias noundef ptr @Acec_TreeFindTrees(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #23
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %7, align 4, !tbaa !23
@@ -4792,7 +4792,7 @@ Vec_IntFree.exit:                                 ; preds = %Vec_WecFree.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Acec_DeriveBox(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define noalias noundef ptr @Acec_DeriveBox(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call ptr @Ree_ManComputeCuts(ptr noundef %0, ptr noundef null, i32 noundef %4) #22
   %7 = tail call ptr @Acec_TreeFindTrees(ptr noundef %0, ptr noundef %6, ptr noundef %1, i32 noundef %2, i32 noundef %3)
   %.not = icmp eq ptr %7, null

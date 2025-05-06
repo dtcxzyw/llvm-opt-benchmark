@@ -3258,7 +3258,7 @@ declare void @xmlSetTreeDoc(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @php_dom_libxml_reconcile_modern(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @libxml_fixup_name_and_content_element(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(none) %2) unnamed_addr #0 {
+define internal fastcc void @libxml_fixup_name_and_content_element(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef captures(none) %2) unnamed_addr #0 {
   tail call fastcc void @libxml_fixup_name_and_content(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %.01517 = load ptr, ptr %4, align 8, !tbaa !123
@@ -3887,13 +3887,13 @@ declare void @xmlFreeDoc(ptr noundef) local_unnamed_addr #2
 declare void @xmlFreeParserCtxt(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMDocument_load(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMDocument_load(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   tail call fastcc void @dom_parse_document(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dom_parse_document(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc void @dom_parse_document(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -3964,7 +3964,7 @@ define internal fastcc void @dom_parse_document(ptr noundef captures(address_is_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMDocument_loadXML(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMDocument_loadXML(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   tail call fastcc void @dom_parse_document(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret void
 }

@@ -39390,7 +39390,7 @@ declare void @_ZN4llvm8Function12addParamAttrEjNS_9Attribute8AttrKindE(ptr nound
 declare noundef ptr @_ZN4llvm10UndefValue3getEPNS_4TypeE(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm15OpenMPIRBuilder28emitShuffleAndReduceFunctionENS_8ArrayRefINS0_13ReductionInfoEEEPNS_8FunctionENS_13AttributeListE(ptr noundef nonnull align 8 dereferenceable(3104) initializes((560, 578)) %0, ptr captures(address) %1, i64 %2, ptr noundef %3, ptr %4) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN4llvm15OpenMPIRBuilder28emitShuffleAndReduceFunctionENS_8ArrayRefINS0_13ReductionInfoEEEPNS_8FunctionENS_13AttributeListE(ptr noundef nonnull align 8 dereferenceable(3104) initializes((560, 578)) %0, ptr readonly captures(address) %1, i64 %2, ptr noundef %3, ptr %4) local_unnamed_addr #1 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -42671,7 +42671,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:
   store ptr %.sroa.0.0.i9.i, ptr %4, align 8, !noalias !1256
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sroa.4.0.i8.i, ptr %19, align 8, !noalias !1256
-  call void @_ZN4llvm15OpenMPIRBuilder21getNameWithSeparatorsB5cxx11ENS_8ArrayRefINS_9StringRefEEES2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr nonnull %6, i64 3, ptr %.sroa.0.0.i.i, i64 %.sroa.4.0.i.i, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %4)
+  call void @_ZN4llvm15OpenMPIRBuilder21getNameWithSeparatorsB5cxx11ENS_8ArrayRefINS_9StringRefEEES2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr nonnull readonly %6, i64 3, ptr %.sroa.0.0.i.i, i64 %.sroa.4.0.i.i, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #29
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #29
@@ -42710,7 +42710,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm15OpenMPIRBuilder26createPlatformSpecificNameB5cxx11ENS_8ArrayRefINS_9StringRefEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3104) %1, ptr captures(address) %2, i64 %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm15OpenMPIRBuilder26createPlatformSpecificNameB5cxx11ENS_8ArrayRefINS_9StringRefEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3104) %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %7 = load i8, ptr %6, align 8, !tbaa !204, !range !52, !noundef !53
@@ -42837,7 +42837,7 @@ define dso_local void @_ZN4llvm15OpenMPIRBuilder23createReductionFunctionENS_9St
   store ptr %.sroa.0.0.i9.i.i, ptr %19, align 8, !noalias !1267
   %76 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %.sroa.4.0.i8.i.i, ptr %76, align 8, !noalias !1267
-  call void @_ZN4llvm15OpenMPIRBuilder21getNameWithSeparatorsB5cxx11ENS_8ArrayRefINS_9StringRefEEES2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %20, ptr nonnull %21, i64 3, ptr %.sroa.0.0.i.i.i, i64 %.sroa.4.0.i.i.i, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %19), !noalias !1264
+  call void @_ZN4llvm15OpenMPIRBuilder21getNameWithSeparatorsB5cxx11ENS_8ArrayRefINS_9StringRefEEES2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %20, ptr nonnull readonly %21, i64 3, ptr %.sroa.0.0.i.i.i, i64 %.sroa.4.0.i.i.i, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %19), !noalias !1264
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19), !noalias !1264
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %21) #29, !noalias !1264
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22) #29, !noalias !1264
@@ -64819,7 +64819,7 @@ _ZNK4llvm11SmallStringILj64EEcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store ptr %.sroa.0.0.i9.i, ptr %8, align 8, !noalias !2004
   %93 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %.sroa.4.0.i8.i, ptr %93, align 8, !noalias !2004
-  call void @_ZN4llvm15OpenMPIRBuilder21getNameWithSeparatorsB5cxx11ENS_8ArrayRefINS_9StringRefEEES2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr nonnull %14, i64 2, ptr %.sroa.0.0.i.i, i64 %.sroa.4.0.i.i, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %8)
+  call void @_ZN4llvm15OpenMPIRBuilder21getNameWithSeparatorsB5cxx11ENS_8ArrayRefINS_9StringRefEEES2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr nonnull readonly %14, i64 2, ptr %.sroa.0.0.i.i, i64 %.sroa.4.0.i.i, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %_ZN4llvm5ErrorD2Ev.exit19
 
@@ -67078,7 +67078,7 @@ _ZNK4llvm14SmallBitVector3allEv.exit.thread385:   ; preds = %147, %134, %_ZNK4ll
   store ptr %.sroa.0.0.i9.i, ptr %22, align 8, !noalias !2113
   %245 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %.sroa.4.0.i8.i, ptr %245, align 8, !noalias !2113
-  call void @_ZN4llvm15OpenMPIRBuilder21getNameWithSeparatorsB5cxx11ENS_8ArrayRefINS_9StringRefEEES2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %30, ptr nonnull %31, i64 1, ptr %.sroa.0.0.i.i, i64 %.sroa.4.0.i.i, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %22)
+  call void @_ZN4llvm15OpenMPIRBuilder21getNameWithSeparatorsB5cxx11ENS_8ArrayRefINS_9StringRefEEES2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %30, ptr nonnull readonly %31, i64 1, ptr %.sroa.0.0.i.i, i64 %.sroa.4.0.i.i, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %22)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #29
   %246 = call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 88, i32 1) #29
@@ -67456,7 +67456,7 @@ _ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit185: ; preds = %224, %_
   store ptr %.sroa.0.0.i9.i230, ptr %19, align 8, !noalias !2121
   %394 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %.sroa.4.0.i8.i229, ptr %394, align 8, !noalias !2121
-  call void @_ZN4llvm15OpenMPIRBuilder21getNameWithSeparatorsB5cxx11ENS_8ArrayRefINS_9StringRefEEES2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %36, ptr nonnull %37, i64 1, ptr %.sroa.0.0.i.i224, i64 %.sroa.4.0.i.i223, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %19)
+  call void @_ZN4llvm15OpenMPIRBuilder21getNameWithSeparatorsB5cxx11ENS_8ArrayRefINS_9StringRefEEES2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %36, ptr nonnull readonly %37, i64 1, ptr %.sroa.0.0.i.i224, i64 %.sroa.4.0.i.i223, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %19)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37) #29
   %395 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -67606,7 +67606,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %.lr.ph411,
   store ptr %.sroa.0.0.i9.i247, ptr %16, align 8, !noalias !2125
   %462 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %.sroa.4.0.i8.i246, ptr %462, align 8, !noalias !2125
-  call void @_ZN4llvm15OpenMPIRBuilder21getNameWithSeparatorsB5cxx11ENS_8ArrayRefINS_9StringRefEEES2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %39, ptr nonnull %40, i64 1, ptr %.sroa.0.0.i.i241, i64 %.sroa.4.0.i.i240, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %16)
+  call void @_ZN4llvm15OpenMPIRBuilder21getNameWithSeparatorsB5cxx11ENS_8ArrayRefINS_9StringRefEEES2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %39, ptr nonnull readonly %40, i64 1, ptr %.sroa.0.0.i.i241, i64 %.sroa.4.0.i.i240, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40) #29
   %463 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -70333,7 +70333,7 @@ define dso_local void @_ZN4llvm15OpenMPIRBuilder26emitUDMapperArrayInitOrDelEPNS
   store ptr %.sroa.0.0.i9.i, ptr %23, align 8, !noalias !2203
   %64 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 %.sroa.4.0.i8.i, ptr %64, align 8, !noalias !2203
-  call void @_ZN4llvm15OpenMPIRBuilder21getNameWithSeparatorsB5cxx11ENS_8ArrayRefINS_9StringRefEEES2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %25, ptr nonnull %26, i64 2, ptr %.sroa.0.0.i.i, i64 %.sroa.4.0.i.i, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %23)
+  call void @_ZN4llvm15OpenMPIRBuilder21getNameWithSeparatorsB5cxx11ENS_8ArrayRefINS_9StringRefEEES2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %25, ptr nonnull readonly %26, i64 2, ptr %.sroa.0.0.i.i, i64 %.sroa.4.0.i.i, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %23)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
   %65 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i8 4, ptr %65, align 8, !tbaa !107
@@ -70638,7 +70638,7 @@ _ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %_ZN
   store ptr %.sroa.0.0.i9.i82, ptr %18, align 8, !noalias !2206
   %205 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %.sroa.4.0.i8.i81, ptr %205, align 8, !noalias !2206
-  call void @_ZN4llvm15OpenMPIRBuilder21getNameWithSeparatorsB5cxx11ENS_8ArrayRefINS_9StringRefEEES2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %35, ptr nonnull %36, i64 3, ptr %.sroa.0.0.i.i76, i64 %.sroa.4.0.i.i75, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %18)
+  call void @_ZN4llvm15OpenMPIRBuilder21getNameWithSeparatorsB5cxx11ENS_8ArrayRefINS_9StringRefEEES2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %35, ptr nonnull readonly %36, i64 3, ptr %.sroa.0.0.i.i76, i64 %.sroa.4.0.i.i75, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %18)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   %206 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store i8 4, ptr %206, align 8, !tbaa !107
@@ -70708,7 +70708,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85: ; preds = %_ZN
   store ptr %.sroa.0.0.i9.i97, ptr %17, align 8, !noalias !2209
   %231 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %.sroa.4.0.i8.i96, ptr %231, align 8, !noalias !2209
-  call void @_ZN4llvm15OpenMPIRBuilder21getNameWithSeparatorsB5cxx11ENS_8ArrayRefINS_9StringRefEEES2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %38, ptr nonnull %39, i64 3, ptr %.sroa.0.0.i.i91, i64 %.sroa.4.0.i.i90, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %17)
+  call void @_ZN4llvm15OpenMPIRBuilder21getNameWithSeparatorsB5cxx11ENS_8ArrayRefINS_9StringRefEEES2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %38, ptr nonnull readonly %39, i64 3, ptr %.sroa.0.0.i.i91, i64 %.sroa.4.0.i.i90, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %17)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   %232 = getelementptr inbounds nuw i8, ptr %37, i64 32
   store i8 4, ptr %232, align 8, !tbaa !107

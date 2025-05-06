@@ -820,7 +820,7 @@ define dso_local i32 @get_hash_value(ptr noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @hash_search(ptr noundef captures(address) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local ptr @hash_search(ptr noundef captures(address) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72

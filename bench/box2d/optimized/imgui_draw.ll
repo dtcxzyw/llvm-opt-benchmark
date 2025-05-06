@@ -14117,7 +14117,7 @@ define dso_local noundef nonnull ptr @_ZN11ImFontAtlas21GetGlyphRangesDefaultEv(
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN11ImFontAtlas36AddFontFromMemoryCompressedBase85TTFEPKcfPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %0, ptr noundef readonly captures(none) %1, float noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #9 align 2 {
+define dso_local noundef ptr @_ZN11ImFontAtlas36AddFontFromMemoryCompressedBase85TTFEPKcfPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %0, ptr noundef readonly captures(none) %1, float noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #9 align 2 {
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #43
   %7 = trunc i64 %6 to i32
   %8 = add nsw i32 %7, 4
@@ -32241,7 +32241,7 @@ _ZL22stbtt__GetGlyphShapeTTPK14stbtt_fontinfoiPP12stbtt_vertex.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi(ptr noundef captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) unnamed_addr #37 {
+define internal fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi(ptr noundef writeonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) unnamed_addr #37 {
   %11 = icmp sgt i32 %9, 16
   br i1 %11, label %.loopexit, label %.lr.ph.preheader
 
@@ -32317,7 +32317,7 @@ _ZL16stbtt__add_pointP12stbtt__pointiff.exit:     ; preds = %41, %43
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL22stbtt__tesselate_cubicP12stbtt__pointPifffffffffi(ptr noundef captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, i32 noundef %11) unnamed_addr #37 {
+define internal fastcc void @_ZL22stbtt__tesselate_cubicP12stbtt__pointPifffffffffi(ptr noundef writeonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, i32 noundef %11) unnamed_addr #37 {
   %smax = tail call i32 @llvm.smax.i32(i32 %11, i32 17)
   %exitcond107 = icmp sgt i32 %11, 16
   br i1 %exitcond107, label %.loopexit, label %.lr.ph

@@ -21486,7 +21486,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit86:                  ; preds = %160, %158, %118, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost8MetaInfo7SetInfoERKNS_7ContextENS_10StringViewES4_(ptr noundef nonnull align 8 dereferenceable(233) %0, ptr noundef nonnull align 8 dereferenceable(84) %1, ptr captures(address) %2, i64 %3, ptr %4, i64 %5) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost8MetaInfo7SetInfoERKNS_7ContextENS_10StringViewES4_(ptr noundef nonnull align 8 dereferenceable(233) %0, ptr noundef nonnull align 8 dereferenceable(84) %1, ptr readonly captures(address) %2, i64 %3, ptr %4, i64 %5) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %8 = alloca %"class.xgboost::Json", align 8
   %9 = alloca %"class.xgboost::Json", align 8

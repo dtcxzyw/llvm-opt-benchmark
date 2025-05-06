@@ -2969,7 +2969,7 @@ _ZN5clang24RedeclarableTemplateDecl22findSpecializationImplINS_38ClassTemplatePa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang38ClassTemplatePartialSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDENS1_8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr %1, i64 %2, ptr noundef captures(address) %3, ptr noundef nonnull align 8 dereferenceable(23216) %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang38ClassTemplatePartialSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDENS1_8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr %1, i64 %2, ptr noundef readonly captures(address) %3, ptr noundef nonnull align 8 dereferenceable(23216) %4) local_unnamed_addr #0 align 2 {
   %6 = trunc i64 %2 to i32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !77
@@ -6415,7 +6415,7 @@ _ZNK5clang24RedeclarableTemplateDecl27loadLazySpecializationsImplEN4llvm8ArrayRe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang36VarTemplatePartialSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDENS1_8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr %1, i64 %2, ptr noundef captures(address) %3, ptr noundef nonnull align 8 dereferenceable(23216) %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang36VarTemplatePartialSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDENS1_8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr %1, i64 %2, ptr noundef readonly captures(address) %3, ptr noundef nonnull align 8 dereferenceable(23216) %4) local_unnamed_addr #0 align 2 {
   %6 = trunc i64 %2 to i32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !77

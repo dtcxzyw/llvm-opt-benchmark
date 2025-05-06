@@ -640,7 +640,7 @@ define void @_ZN6icu_776number4impl15DecimalQuantityD0Ev(ptr noundef nonnull ali
 declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_776number4impl15DecimalQuantityC2ERKS2_(ptr noundef nonnull align 8 captures(address) dereferenceable(66) initializes((0, 9), (36, 48), (64, 66)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(66) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_776number4impl15DecimalQuantityC2ERKS2_(ptr noundef nonnull align 8 captures(address) dereferenceable(66) initializes((0, 9), (36, 48), (64, 66)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(66) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_776number4impl15DecimalQuantityE, i64 16), ptr %0, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %3, align 8, !tbaa !17

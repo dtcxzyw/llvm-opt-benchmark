@@ -339,7 +339,7 @@ define void @cJSON_free(ptr noundef %0) local_unnamed_addr #8 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define ptr @cJSON_ParseWithOpts(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #8 {
+define ptr @cJSON_ParseWithOpts(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %9, label %5
 
@@ -928,13 +928,13 @@ define ptr @cJSON_ParseWithLength(ptr noundef %0, i64 noundef %1) local_unnamed_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define ptr @cJSON_Print(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 {
+define ptr @cJSON_Print(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %2 = tail call fastcc ptr @print(ptr noundef %0, i32 noundef 1)
   ret ptr %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @print(ptr noundef captures(address_is_null) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #8 {
+define internal fastcc ptr @print(ptr noundef readonly captures(address_is_null) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #8 {
   %3 = alloca [1 x %struct.printbuffer], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #32
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1024,13 +1024,13 @@ update_offset.exit:                               ; preds = %13, %16
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define ptr @cJSON_PrintUnformatted(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 {
+define ptr @cJSON_PrintUnformatted(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %2 = tail call fastcc ptr @print(ptr noundef %0, i32 noundef 0)
   ret ptr %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define ptr @cJSON_PrintBuffered(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define ptr @cJSON_PrintBuffered(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = alloca %struct.printbuffer, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1935,7 +1935,7 @@ print_array.exit:                                 ; preds = %update_offset.exit8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @cJSON_PrintPreallocated(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @cJSON_PrintPreallocated(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 {
   %5 = alloca %struct.printbuffer, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #32
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -4556,13 +4556,13 @@ cJSON_ReplaceItemViaPointer.exit:                 ; preds = %43, %18, %get_array
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @cJSON_ReplaceItemInObject(ptr noundef captures(address_is_null) %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @cJSON_ReplaceItemInObject(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #8 {
   %4 = tail call fastcc i32 @replace_item_in_object(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @replace_item_in_object(ptr noundef captures(address_is_null) %0, ptr noundef captures(address) %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @replace_item_in_object(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address) %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #8 {
   %5 = icmp eq ptr %2, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %6, %5
@@ -4686,7 +4686,7 @@ cJSON_ReplaceItemViaPointer.exit:                 ; preds = %59, %34, %29, %23, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @cJSON_ReplaceItemInObjectCaseSensitive(ptr noundef captures(address_is_null) %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @cJSON_ReplaceItemInObjectCaseSensitive(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #8 {
   %4 = tail call fastcc i32 @replace_item_in_object(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
   ret i32 %4
 }
@@ -5126,7 +5126,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define ptr @cJSON_Duplicate(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
+define ptr @cJSON_Duplicate(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = tail call ptr @cJSON_Duplicate_rec(ptr noundef %0, i64 noundef 0, i32 noundef %1)
   ret ptr %3
 }

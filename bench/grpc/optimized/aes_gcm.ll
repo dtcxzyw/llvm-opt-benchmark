@@ -546,7 +546,7 @@ define { ptr, i64 } @_ZN9grpc_core7GsecKey10kdf_bufferEv(ptr noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 14) i32 @_Z32gsec_aes_gcm_aead_crypter_createSt10unique_ptrIN9grpc_core16GsecKeyInterfaceESt14default_deleteIS1_EEmmPP17gsec_aead_crypterPPc(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define noundef range(i32 0, 14) i32 @_Z32gsec_aes_gcm_aead_crypter_createSt10unique_ptrIN9grpc_core16GsecKeyInterfaceESt14default_deleteIS1_EEmmPP17gsec_aead_crypterPPc(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8, !tbaa !33
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %8
@@ -1008,7 +1008,7 @@ declare i32 @BIO_get_mem_ptr(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @BIO_free_all(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_encrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5, i64 noundef %6, ptr noundef readonly byval(%struct.iovec) align 8 captures(none) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef captures(address_is_null) %9) #0 {
+define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_encrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5, i64 noundef %6, ptr noundef readonly byval(%struct.iovec) align 8 captures(none) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) #0 {
   %11 = alloca [12 x i8], align 8
   %12 = alloca i64, align 8
   %13 = alloca i32, align 4
@@ -1289,7 +1289,7 @@ define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_enc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5, i64 noundef %6, ptr noundef readonly byval(%struct.iovec) align 8 captures(none) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef captures(address_is_null) %9) #0 {
+define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5, i64 noundef %6, ptr noundef readonly byval(%struct.iovec) align 8 captures(none) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) #0 {
   %11 = alloca [12 x i8], align 8
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
@@ -1699,7 +1699,7 @@ define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_dec
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 4) i32 @_ZL55gsec_aes_gcm_aead_crypter_max_ciphertext_and_tag_lengthPK17gsec_aead_cryptermPmPPc(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal noundef range(i32 0, 4) i32 @_ZL55gsec_aes_gcm_aead_crypter_max_ciphertext_and_tag_lengthPK17gsec_aead_cryptermPmPPc(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %6, label %7
 
@@ -1720,7 +1720,7 @@ define internal noundef range(i32 0, 4) i32 @_ZL55gsec_aes_gcm_aead_crypter_max_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 4) i32 @_ZL46gsec_aes_gcm_aead_crypter_max_plaintext_lengthPK17gsec_aead_cryptermPmPPc(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal noundef range(i32 0, 4) i32 @_ZL46gsec_aes_gcm_aead_crypter_max_plaintext_lengthPK17gsec_aead_cryptermPmPPc(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %6, label %7
 
@@ -1750,7 +1750,7 @@ define internal noundef range(i32 0, 4) i32 @_ZL46gsec_aes_gcm_aead_crypter_max_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 4) i32 @_ZL38gsec_aes_gcm_aead_crypter_nonce_lengthPK17gsec_aead_crypterPmPPc(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) #0 {
+define internal noundef range(i32 0, 4) i32 @_ZL38gsec_aes_gcm_aead_crypter_nonce_lengthPK17gsec_aead_crypterPmPPc(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %6
 
@@ -1770,7 +1770,7 @@ define internal noundef range(i32 0, 4) i32 @_ZL38gsec_aes_gcm_aead_crypter_nonc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 4) i32 @_ZL36gsec_aes_gcm_aead_crypter_key_lengthPK17gsec_aead_crypterPmPPc(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) #0 {
+define internal noundef range(i32 0, 4) i32 @_ZL36gsec_aes_gcm_aead_crypter_key_lengthPK17gsec_aead_crypterPmPPc(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %6
 
@@ -1795,7 +1795,7 @@ define internal noundef range(i32 0, 4) i32 @_ZL36gsec_aes_gcm_aead_crypter_key_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 4) i32 @_ZL36gsec_aes_gcm_aead_crypter_tag_lengthPK17gsec_aead_crypterPmPPc(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) #0 {
+define internal noundef range(i32 0, 4) i32 @_ZL36gsec_aes_gcm_aead_crypter_tag_lengthPK17gsec_aead_crypterPmPPc(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %6
 
@@ -1815,7 +1815,7 @@ define internal noundef range(i32 0, 4) i32 @_ZL36gsec_aes_gcm_aead_crypter_tag_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 14) i32 @_ZL25aes_gcm_rekey_if_requiredP25gsec_aes_gcm_aead_crypterPKhPPc(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 14) i32 @_ZL25aes_gcm_rekey_if_requiredP25gsec_aes_gcm_aead_crypterPKhPPc(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !44
   %6 = load ptr, ptr %5, align 8, !tbaa !3

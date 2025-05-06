@@ -9041,7 +9041,7 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   %.val.i = load ptr, ptr %0, align 8, !tbaa !22
   %.val74.i = load ptr, ptr %16, align 8
   %.val75.i = load i64, ptr %139, align 8
-  invoke fastcc void @_ZN17cmTargetInternals21AddDirectoryToFileSetI7cmValueEEvP8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St17basic_string_viewIcS7_ESE_N12_GLOBAL__N_111FileSetType6ActionE(ptr noundef nonnull readonly align 8 dereferenceable(1960) %114, ptr %.val.i, ptr %.val74.i, i64 %.val75.i, ptr %2, i64 %.sroa.020.0.copyload.i, ptr %.sroa.221.0.copyload.i, i64 %.sroa.06.0.copyload7.i, ptr %.sroa.28.0.copyload.i)
+  invoke fastcc void @_ZN17cmTargetInternals21AddDirectoryToFileSetI7cmValueEEvP8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St17basic_string_viewIcS7_ESE_N12_GLOBAL__N_111FileSetType6ActionE(ptr noundef nonnull readonly align 8 dereferenceable(1960) %114, ptr %.val.i, ptr %.val74.i, i64 %.val75.i, ptr readonly %2, i64 %.sroa.020.0.copyload.i, ptr %.sroa.221.0.copyload.i, i64 %.sroa.06.0.copyload7.i, ptr %.sroa.28.0.copyload.i)
           to label %143 unwind label %152
 
 143:                                              ; preds = %137
@@ -9184,7 +9184,7 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   %.val83.i = load ptr, ptr %0, align 8, !tbaa !22
   %.val84.i = load ptr, ptr %17, align 8
   %.val85.i = load i64, ptr %181, align 8
-  invoke fastcc void @_ZN17cmTargetInternals16AddPathToFileSetI7cmValueEEvP8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St17basic_string_viewIcS7_ESE_N12_GLOBAL__N_111FileSetType6ActionE(ptr noundef nonnull readonly align 8 dereferenceable(1960) %114, ptr %.val83.i, ptr %.val84.i, i64 %.val85.i, ptr %2, i64 %.sroa.013.0.copyload.i, ptr %.sroa.214.0.copyload.i, i64 %.sroa.03.0.copyload.i, ptr %.sroa.24.0.copyload.i)
+  invoke fastcc void @_ZN17cmTargetInternals16AddPathToFileSetI7cmValueEEvP8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St17basic_string_viewIcS7_ESE_N12_GLOBAL__N_111FileSetType6ActionE(ptr noundef nonnull readonly align 8 dereferenceable(1960) %114, ptr %.val83.i, ptr %.val84.i, i64 %.val85.i, ptr readonly %2, i64 %.sroa.013.0.copyload.i, ptr %.sroa.214.0.copyload.i, i64 %.sroa.03.0.copyload.i, ptr %.sroa.24.0.copyload.i)
           to label %185 unwind label %194
 
 185:                                              ; preds = %179
@@ -9431,7 +9431,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130.i: ; preds = %
   %.val78.i = load ptr, ptr %0, align 8, !tbaa !22
   %.val79.i = load ptr, ptr %18, align 8
   %.val80.i = load i64, ptr %218, align 8
-  invoke fastcc void @_ZN17cmTargetInternals21AddDirectoryToFileSetI7cmValueEEvP8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St17basic_string_viewIcS7_ESE_N12_GLOBAL__N_111FileSetType6ActionE(ptr noundef nonnull readonly align 8 dereferenceable(1960) %114, ptr %.val78.i, ptr %.val79.i, i64 %.val80.i, ptr %2, i64 %.sroa.06.0.copyload.i, ptr %.sroa.27.0.copyload.i, i64 %265, ptr %263)
+  invoke fastcc void @_ZN17cmTargetInternals21AddDirectoryToFileSetI7cmValueEEvP8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St17basic_string_viewIcS7_ESE_N12_GLOBAL__N_111FileSetType6ActionE(ptr noundef nonnull readonly align 8 dereferenceable(1960) %114, ptr %.val78.i, ptr %.val79.i, i64 %.val80.i, ptr readonly %2, i64 %.sroa.06.0.copyload.i, ptr %.sroa.27.0.copyload.i, i64 %265, ptr %263)
           to label %266 unwind label %276
 
 266:                                              ; preds = %262
@@ -9723,7 +9723,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174.i: ; preds = %
   %.val88.i = load ptr, ptr %0, align 8, !tbaa !22
   %.val89.i = load ptr, ptr %21, align 8
   %.val90.i = load i64, ptr %314, align 8
-  invoke fastcc void @_ZN17cmTargetInternals16AddPathToFileSetI7cmValueEEvP8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St17basic_string_viewIcS7_ESE_N12_GLOBAL__N_111FileSetType6ActionE(ptr noundef nonnull readonly align 8 dereferenceable(1960) %114, ptr %.val88.i, ptr %.val89.i, i64 %.val90.i, ptr %2, i64 %.sroa.0.0.copyload.i, ptr %.sroa.2.0.copyload.i281, i64 %361, ptr %359)
+  invoke fastcc void @_ZN17cmTargetInternals16AddPathToFileSetI7cmValueEEvP8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_St17basic_string_viewIcS7_ESE_N12_GLOBAL__N_111FileSetType6ActionE(ptr noundef nonnull readonly align 8 dereferenceable(1960) %114, ptr %.val88.i, ptr %.val89.i, i64 %.val90.i, ptr readonly %2, i64 %.sroa.0.0.copyload.i, ptr %.sroa.2.0.copyload.i281, i64 %361, ptr %359)
           to label %362 unwind label %372
 
 362:                                              ; preds = %358

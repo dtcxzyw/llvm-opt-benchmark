@@ -6240,7 +6240,7 @@ _ZN4llvm11SmallVectorIPNS_8MetadataELj8EED2Ev.exit: ; preds = %40, %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @LLVMMDNode(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @LLVMMDNode(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load atomic i8, ptr @_ZGVZL16getGlobalContextvE13GlobalContext acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %LLVMGetGlobalContext.exit, !prof !7

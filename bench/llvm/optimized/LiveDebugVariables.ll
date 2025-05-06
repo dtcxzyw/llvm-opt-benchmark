@@ -8708,7 +8708,7 @@ _ZNSt6vectorISt4pairIN4llvm8RegisterEjESaIS3_EED2Ev.exit: ; preds = %145, %._cri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18LiveDebugVariables7LDVImpl13splitRegisterENS_8RegisterENS_8ArrayRefIS2_EE(ptr noundef nonnull align 8 dereferenceable(1152) %0, i32 %1, ptr captures(address) %2, i64 %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm18LiveDebugVariables7LDVImpl13splitRegisterENS_8RegisterENS_8ArrayRefIS2_EE(ptr noundef nonnull align 8 dereferenceable(1152) %0, i32 %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.llvm::SmallVector.578", align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"class.llvm::SmallVector.748", align 8
@@ -11393,7 +11393,7 @@ _ZN4llvm18LiveDebugVariables7LDVImpl10mapVirtRegENS_8RegisterEPN12_GLOBAL__N_19U
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18LiveDebugVariables13splitRegisterENS_8RegisterENS_8ArrayRefIS1_EERNS_13LiveIntervalsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 %1, ptr captures(address) %2, i64 %3, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(440) %4) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm18LiveDebugVariables13splitRegisterENS_8RegisterENS_8ArrayRefIS1_EERNS_13LiveIntervalsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 %1, ptr readonly captures(address) %2, i64 %3, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(440) %4) local_unnamed_addr #1 align 2 {
   %6 = load ptr, ptr %0, align 8, !tbaa !86
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %8, label %7

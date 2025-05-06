@@ -993,7 +993,7 @@ block_take_last.exit:                             ; preds = %block_join.exit, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local { ptr, ptr } @block_drop_unreferenced(ptr %0, ptr captures(address) %1) local_unnamed_addr #1 {
+define dso_local { ptr, ptr } @block_drop_unreferenced(ptr %0, ptr readonly captures(address) %1) local_unnamed_addr #1 {
   tail call fastcc void @block_mark_referenced(ptr %1)
   %3 = icmp eq ptr %0, null
   br i1 %3, label %block_take.exit, label %.lr.ph

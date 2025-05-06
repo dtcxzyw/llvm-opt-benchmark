@@ -1887,7 +1887,7 @@ declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, pt
 declare void @_Z18invoke_exit_actionj(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt7context16internalize_deepEPKP4exprj(ptr noundef nonnull align 8 dereferenceable(10544) %0, ptr noundef captures(address) %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt7context16internalize_deepEPKP4exprj(ptr noundef nonnull align 8 dereferenceable(10544) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.svector.251, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 9504
   %6 = load ptr, ptr %5, align 8, !tbaa !10
@@ -5597,7 +5597,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %0, ptr noundef captures(address) %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(10544) %0, ptr noundef readonly captures(address) %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #4 align 2 {
   tail call void @_ZN3smt7context16internalize_deepEPKP4exprj(ptr noundef nonnull align 8 dereferenceable(10544) %0, ptr noundef %1, i32 noundef %2)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader

@@ -3659,7 +3659,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #14
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb9lru_cache13LRUCacheShard6InsertERKNS_5SliceEjPvPKNS_5Cache15CacheItemHelperEmPPNS0_9LRUHandleENS6_8PriorityE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 captures(address) initializes((0, 6), (8, 16)) %0, ptr noundef nonnull align 64 dereferenceable(256) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef captures(address_is_null) %7, i32 noundef %8) local_unnamed_addr #0 align 2 {
+define void @_ZN7rocksdb9lru_cache13LRUCacheShard6InsertERKNS_5SliceEjPvPKNS_5Cache15CacheItemHelperEmPPNS0_9LRUHandleENS6_8PriorityE(ptr dead_on_unwind noalias writable writeonly sret(%"class.rocksdb::Status") align 8 captures(address) initializes((0, 6), (8, 16)) %0, ptr noundef nonnull align 64 dereferenceable(256) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef writeonly captures(address_is_null) %7, i32 noundef %8) local_unnamed_addr #0 align 2 {
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !122
   %12 = add i64 %11, 71

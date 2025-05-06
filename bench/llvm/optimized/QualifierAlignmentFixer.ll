@@ -899,7 +899,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang6format32LeftRightQualifierAlignmentFixer12analyzeRightERKNS_13SourceManagerERKNS0_18AdditionalKeywordsERNS_7tooling12ReplacementsEPKNS0_11FormatTokenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3tok9TokenKindE(ptr noundef nonnull align 8 dereferenceable(4480) %0, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr nonnull readnone align 8 captures(none) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef captures(address, ret: address, provenance) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i16 noundef zeroext %6) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang6format32LeftRightQualifierAlignmentFixer12analyzeRightERKNS_13SourceManagerERKNS0_18AdditionalKeywordsERNS_7tooling12ReplacementsEPKNS0_11FormatTokenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3tok9TokenKindE(ptr noundef nonnull align 8 dereferenceable(4480) %0, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr nonnull readnone align 8 captures(none) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef readonly captures(address, ret: address, provenance) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i16 noundef zeroext %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"class.clang::CharSourceRange", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator.5", align 1
@@ -2363,7 +2363,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_S
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang6format32LeftRightQualifierAlignmentFixer11analyzeLeftERKNS_13SourceManagerERKNS0_18AdditionalKeywordsERNS_7tooling12ReplacementsEPKNS0_11FormatTokenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3tok9TokenKindE(ptr noundef nonnull align 8 dereferenceable(4480) %0, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr nonnull readnone align 8 captures(none) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef returned captures(address, ret: address, provenance) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i16 noundef zeroext %6) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang6format32LeftRightQualifierAlignmentFixer11analyzeLeftERKNS_13SourceManagerERKNS0_18AdditionalKeywordsERNS_7tooling12ReplacementsEPKNS0_11FormatTokenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3tok9TokenKindE(ptr noundef nonnull align 8 dereferenceable(4480) %0, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr nonnull readnone align 8 captures(none) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef readonly returned captures(address, ret: address, provenance) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i16 noundef zeroext %6) local_unnamed_addr #0 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load i16, ptr %8, align 8, !tbaa !50
   %.not = icmp eq i16 %9, %6

@@ -1822,7 +1822,7 @@ define void @_ZN6LibRaw9ljpeg_endEP5jhead(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -2147483646, 33554432) i32 @_ZN6LibRaw10ljpeg_diffEPt(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -2147483646, 33554432) i32 @_ZN6LibRaw10ljpeg_diffEPt(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %5
 
@@ -2590,7 +2590,7 @@ define noundef ptr @_ZN6LibRaw18ljpeg_row_unrolledEiP5jhead(ptr noundef nonnull 
   %75 = load i16, ptr %71, align 2, !tbaa !86
   %76 = zext i16 %75 to i32
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 2
-  %78 = tail call noundef i32 @_ZN6LibRaw10getbithuffEiPt(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %76, ptr noundef nonnull %77)
+  %78 = tail call noundef i32 @_ZN6LibRaw10getbithuffEiPt(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %76, ptr noundef nonnull readonly %77)
   %79 = icmp eq i32 %78, 16
   br i1 %79, label %80, label %.split.i
 
@@ -4907,7 +4907,7 @@ define void @_ZN6LibRaw10ljpeg_idctEP5jhead(ptr noundef nonnull align 8 derefere
   %19 = load i16, ptr %15, align 2, !tbaa !86
   %20 = zext i16 %19 to i32
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 2
-  %22 = tail call noundef i32 @_ZN6LibRaw10getbithuffEiPt(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %20, ptr noundef nonnull %21)
+  %22 = tail call noundef i32 @_ZN6LibRaw10getbithuffEiPt(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %20, ptr noundef nonnull readonly %21)
   %23 = icmp eq i32 %22, 16
   br i1 %23, label %24, label %.split.i
 

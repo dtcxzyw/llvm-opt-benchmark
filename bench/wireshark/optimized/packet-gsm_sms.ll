@@ -2121,7 +2121,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dis_msg_deliver(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) #0 {
+define internal void @dis_msg_deliver(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
@@ -2182,7 +2182,7 @@ define internal void @dis_msg_deliver(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dis_msg_deliver_report(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) #0 {
+define internal void @dis_msg_deliver_report(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
@@ -2306,7 +2306,7 @@ define internal void @dis_msg_deliver_report(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dis_msg_submit(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) #0 {
+define internal void @dis_msg_submit(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
   %6 = alloca i16, align 2
   %7 = alloca i16, align 2
   %8 = alloca %struct.nstime_t, align 8
@@ -2605,7 +2605,7 @@ dis_field_vp.exit:                                ; preds = %5, %.sink.split.i
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dis_msg_submit_report(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) #0 {
+define internal void @dis_msg_submit_report(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
@@ -2726,7 +2726,7 @@ define internal void @dis_msg_submit_report(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dis_msg_status_report(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) #0 {
+define internal void @dis_msg_status_report(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i16, align 2
   %8 = alloca i16, align 2

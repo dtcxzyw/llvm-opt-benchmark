@@ -763,7 +763,7 @@ define void @WebPDemuxReleaseIterator(ptr noundef readnone captures(none) %0) lo
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @WebPDemuxGetChunk(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @WebPDemuxGetChunk(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #7 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %9, label %6
 

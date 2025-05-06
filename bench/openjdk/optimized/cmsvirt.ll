@@ -295,7 +295,7 @@ declare i32 @cmsLinkTag(ptr noundef, i32 noundef, i32 noundef) local_unnamed_add
 declare i32 @cmsCloseProfile(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsCreateRGBProfile(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden ptr @cmsCreateRGBProfile(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @cmsCreateRGBProfileTHR(ptr noundef null, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret ptr %4
 }

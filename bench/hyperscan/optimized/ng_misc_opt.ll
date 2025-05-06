@@ -4333,7 +4333,7 @@ _ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHold
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue210reduced_crERKNS_8NGHolderERKSt3mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEENS_20BoundedRepeatSummaryESt4lessISA_ESaISt4pairIKSA_SB_EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.22") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue210reduced_crERKNS_8NGHolderERKSt3mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEENS_20BoundedRepeatSummaryESt4lessISA_ESaISt4pairIKSA_SB_EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.22") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.ue2::CharReach", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8

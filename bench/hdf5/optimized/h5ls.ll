@@ -5003,7 +5003,7 @@ declare i64 @H5Gopen2(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr 
 declare i32 @h5trav_visit(i64 noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @list_obj(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(none) %3) #4 {
+define internal noundef i32 @list_obj(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(none) %3) #4 {
   %5 = alloca i64, align 8
   %6 = alloca %struct.h5tools_str_t, align 8
   %7 = alloca %struct.h5tools_context_t, align 8

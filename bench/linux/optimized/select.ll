@@ -319,7 +319,7 @@ define dso_local noundef range(i32 -22, 1) i32 @poll_select_set_timeout(ptr noun
 declare dso_local { i64, i64 } @timespec64_add_safe(i64, i64, i64, i64) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @core_sys_select(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 align 16 {
+define dso_local i32 @core_sys_select(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 align 16 {
   %6 = alloca %struct.fd_set_bits, align 8
   %7 = alloca [32 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #9
@@ -2856,7 +2856,7 @@ define internal fastcc noundef i32 @do_compat_select(i32 noundef %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @compat_core_sys_select(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @compat_core_sys_select(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.fd_set_bits, align 8
   %7 = alloca [32 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #9

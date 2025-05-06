@@ -9554,7 +9554,7 @@ _ZNSt6vectorIN4pbrt9BoundEdgeESaIS1_EE17_M_default_appendEm.exit: ; preds = %41,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt15KdTreeAggregate9buildTreeEiRKNS_7Bounds3IfEERKSt6vectorIS2_SaIS2_EEN4pstd4spanIKiEEiPS5_INS_9BoundEdgeESaISE_EENSB_IiEESI_i(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr captures(address) %4, i64 %5, i32 noundef %6, ptr noundef %7, ptr noundef readonly byval(%"class.pstd::span.94") align 8 captures(none) %8, ptr noundef readonly byval(%"class.pstd::span.94") align 8 captures(none) %9, i32 noundef %10) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt15KdTreeAggregate9buildTreeEiRKNS_7Bounds3IfEERKSt6vectorIS2_SaIS2_EEN4pstd4spanIKiEEiPS5_INS_9BoundEdgeESaISE_EENSB_IiEESI_i(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr readonly captures(address) %4, i64 %5, i32 noundef %6, ptr noundef %7, ptr noundef readonly byval(%"class.pstd::span.94") align 8 captures(none) %8, ptr noundef readonly byval(%"class.pstd::span.94") align 8 captures(none) %9, i32 noundef %10) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %12 = alloca %"struct.pbrt::BoundEdge", align 4
   %13 = alloca %"struct.pbrt::BoundEdge", align 4
   %14 = alloca i32, align 4

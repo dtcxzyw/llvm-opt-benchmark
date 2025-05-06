@@ -2832,7 +2832,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_get_property_names(ptr noundef %env, ptr noundef %object, ptr noundef captures(address_is_null) %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_get_property_names(ptr noundef %env, ptr noundef %object, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %call = tail call i32 @napi_get_all_property_names(ptr noundef %env, ptr noundef %object, i32 noundef 0, i32 noundef 18, i32 noundef 1, ptr noundef %result)
   ret i32 %call
@@ -10695,7 +10695,7 @@ _ZN6v8impl12_GLOBAL__N_14WrapEP10napi_env__P12napi_value__PvPFvS2_S5_S5_ES5_PP10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 24) i32 @napi_unwrap(ptr noundef %env, ptr noundef %obj, ptr noundef captures(address_is_null) %result) local_unnamed_addr #3 {
+define dso_local noundef range(i32 0, 24) i32 @napi_unwrap(ptr noundef %env, ptr noundef %obj, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_16UnwrapEP10napi_env__P12napi_value__PPvNS0_12UnwrapActionE(ptr noundef %env, ptr noundef %obj, ptr noundef %result, i32 noundef 0)
   ret i32 %call
@@ -10906,7 +10906,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 24) i32 @napi_remove_wrap(ptr noundef %env, ptr noundef %obj, ptr noundef captures(address_is_null) %result) local_unnamed_addr #3 {
+define dso_local noundef range(i32 0, 24) i32 @napi_remove_wrap(ptr noundef %env, ptr noundef %obj, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_16UnwrapEP10napi_env__P12napi_value__PPvNS0_12UnwrapActionE(ptr noundef %env, ptr noundef %obj, ptr noundef %result, i32 noundef 1)
   ret i32 %call

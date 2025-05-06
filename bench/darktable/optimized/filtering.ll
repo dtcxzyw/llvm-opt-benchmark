@@ -9783,7 +9783,7 @@ declare void @gtk_entry_set_placeholder_text(ptr noundef, ptr noundef) local_unn
 declare i64 @gtk_entry_get_type() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_filename_changed(ptr readnone captures(none) %0, ptr noundef captures(address) %1) #1 {
+define internal void @_filename_changed(ptr readnone captures(none) %0, ptr noundef readonly captures(address) %1) #1 {
   %3 = load ptr, ptr %1, align 8, !tbaa !21
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 360
   %5 = load i32, ptr %4, align 8, !tbaa !183
@@ -9839,7 +9839,7 @@ _rule_set_raw_text.exit:                          ; preds = %6, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_filename_focus_out(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(address) %2) #1 {
+define internal noundef i32 @_filename_focus_out(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(address) %2) #1 {
   %4 = load ptr, ptr %2, align 8, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 364
   %6 = load i32, ptr %5, align 4, !tbaa !192
@@ -11190,7 +11190,7 @@ _misc_synchronise.exit:                           ; preds = %37, %36, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_misc_focus_out(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(address) %2) #1 {
+define internal noundef i32 @_misc_focus_out(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(address) %2) #1 {
   %4 = load ptr, ptr %2, align 8, !tbaa !78
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 364
   %6 = load i32, ptr %5, align 4, !tbaa !192
@@ -11782,7 +11782,7 @@ declare i32 @sqlite3_column_bytes(ptr noundef, i32 noundef) local_unnamed_addr #
 declare ptr @gtk_overlay_new() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_rating_legacy_changed(ptr readnone captures(none) %0, ptr noundef captures(address) %1) #1 {
+define internal void @_rating_legacy_changed(ptr readnone captures(none) %0, ptr noundef readonly captures(address) %1) #1 {
   %3 = load ptr, ptr %1, align 8, !tbaa !250
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 360
   %5 = load i32, ptr %4, align 8, !tbaa !183

@@ -4046,7 +4046,7 @@ define dso_local void @unmap_vmas(ptr noundef %0, ptr noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @unmap_single_vma(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef captures(address_is_null) %4, i1 noundef zeroext %5) unnamed_addr #2 align 16 {
+define internal fastcc void @unmap_single_vma(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4, i1 noundef zeroext %5) unnamed_addr #2 align 16 {
   %7 = load i64, ptr %1, align 8
   %8 = tail call i64 @llvm.umax.i64(i64 %7, i64 %2)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6080,7 +6080,7 @@ define dso_local range(i32 -22, 1) i32 @vm_iomap_memory(ptr noundef %0, i64 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @apply_to_page_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) #2 align 16 {
+define dso_local i32 @apply_to_page_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) #2 align 16 {
   %6 = tail call fastcc i32 @__apply_to_page_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext true)
   ret i32 %6
 }
@@ -6633,7 +6633,7 @@ define internal fastcc i32 @__apply_to_page_range(ptr noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @apply_to_existing_page_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) #2 align 16 {
+define dso_local i32 @apply_to_existing_page_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) #2 align 16 {
   %6 = tail call fastcc i32 @__apply_to_page_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext false)
   ret i32 %6
 }
@@ -11032,7 +11032,7 @@ define dso_local i32 @handle_mm_fault(ptr noundef %0, i64 noundef %1, i32 nounde
 declare dso_local i32 @hugetlb_fault(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @lock_mm_and_find_vma(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #2 align 16 {
+define dso_local ptr @lock_mm_and_find_vma(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #2 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #18
           to label %5 [label %4], !srcloc !6
 

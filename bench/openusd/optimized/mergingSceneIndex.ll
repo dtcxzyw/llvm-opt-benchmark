@@ -8673,7 +8673,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex13_PrimsD
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase17_SendPrimsDirtiedERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEE(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 1) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex9_Observer10PrimsAddedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(264) %2) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex9_Observer10PrimsAddedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(264) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex11_PrimsAddedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EEE(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(264) %2)
@@ -8681,7 +8681,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex9_Observe
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex9_Observer12PrimsRemovedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16RemovedPrimEntryELj16EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(136) %2) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex9_Observer12PrimsRemovedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16RemovedPrimEntryELj16EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(136) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex13_PrimsRemovedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16RemovedPrimEntryELj16EEE(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(136) %2)

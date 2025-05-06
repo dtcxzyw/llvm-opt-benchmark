@@ -454,7 +454,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang4Sema31BuildPossibleImplicitMemberExprERKNS_12CXXScopeSpecENS_14SourceLocationERNS_12LookupResultEPKNS_24TemplateArgumentListInfoEPKNS_5ScopeE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef %4, ptr noundef captures(address) %5) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang4Sema31BuildPossibleImplicitMemberExprERKNS_12CXXScopeSpecENS_14SourceLocationERNS_12LookupResultEPKNS_24TemplateArgumentListInfoEPKNS_5ScopeE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef %4, ptr noundef readonly captures(address) %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %8 = alloca %class.anon.1224, align 8
   %9 = alloca %"class.llvm::SmallPtrSet.1206", align 8
@@ -896,7 +896,7 @@ _ZN5clang4Sema23BuildImplicitMemberExprERKNS_12CXXScopeSpecENS_14SourceLocationE
   %208 = load i64, ptr %207, align 8
   %209 = and i64 %208, 256
   %.not.i32 = icmp eq i64 %209, 0
-  %210 = call i64 @_ZN5clang4Sema24BuildMemberReferenceExprEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRKNS_12CXXScopeSpecES4_PNS_9NamedDeclERNS_12LookupResultEPKNS_24TemplateArgumentListInfoEPKNS_5ScopeEbPNS0_26ActOnMemberAccessExtraArgsE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %.0.i31, i64 %202, i32 0, i1 noundef zeroext %.not.i32, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 %2, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false, ptr noundef null)
+  %210 = call i64 @_ZN5clang4Sema24BuildMemberReferenceExprEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRKNS_12CXXScopeSpecES4_PNS_9NamedDeclERNS_12LookupResultEPKNS_24TemplateArgumentListInfoEPKNS_5ScopeEbPNS0_26ActOnMemberAccessExtraArgsE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %.0.i31, i64 %202, i32 0, i1 noundef zeroext %.not.i32, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 %2, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef %4, ptr noundef readonly %5, i1 noundef zeroext false, ptr noundef null)
   br label %327
 
 211:                                              ; preds = %_ZL28ClassifyImplicitMemberAccessRN5clang4SemaERKNS_12LookupResultE.exit
@@ -1129,7 +1129,7 @@ _ZL28ClassifyImplicitMemberAccessRN5clang4SemaERKNS_12LookupResultE.exit.thread:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang4Sema23BuildImplicitMemberExprERKNS_12CXXScopeSpecENS_14SourceLocationERNS_12LookupResultEPKNS_24TemplateArgumentListInfoEbPKNS_5ScopeE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef captures(address) %6) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang4Sema23BuildImplicitMemberExprERKNS_12CXXScopeSpecENS_14SourceLocationERNS_12LookupResultEPKNS_24TemplateArgumentListInfoEbPKNS_5ScopeE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef readonly captures(address) %6) local_unnamed_addr #0 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %.sroa.0.0.copyload.i.i = load i32, ptr %8, align 8, !tbaa !758
   %9 = tail call i64 @_ZN5clang4Sema18getCurrentThisTypeEv(ptr noundef nonnull align 8 dereferenceable(17504) %0) #18

@@ -3350,7 +3350,7 @@ declare i32 @H5O_msg_reset(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Zget_filter_info(i32 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Zget_filter_info(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.H5CX_node_t, align 8
   call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %3) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %3, i8 0, i64 480, i1 false)

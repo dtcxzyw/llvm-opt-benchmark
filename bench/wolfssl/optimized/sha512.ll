@@ -869,7 +869,7 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -192, 1) i32 @wc_Sha512GetHash(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
+define range(i32 -192, 1) i32 @wc_Sha512GetHash(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = alloca [1 x %struct.wc_Sha512], align 16
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %3) #8
   %4 = icmp eq ptr %0, null
@@ -948,7 +948,7 @@ wc_InitSha512_224_ex.exit:                        ; preds = %1, %InitSha512_224.
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha512_224Update(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha512_224Update(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call i32 @wc_Sha512Update(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   ret i32 %4
 }
@@ -1161,7 +1161,7 @@ wc_Sha512Free.exit:                               ; preds = %.lr.ph35.i.i, %1, %
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -192, 1) i32 @wc_Sha512_224GetHash(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
+define range(i32 -192, 1) i32 @wc_Sha512_224GetHash(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = alloca [1 x %struct.wc_Sha512], align 16
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %3) #8
   %4 = icmp eq ptr %0, null
@@ -1240,7 +1240,7 @@ wc_InitSha512_256_ex.exit:                        ; preds = %1, %InitSha512_256.
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha512_256Update(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha512_256Update(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call i32 @wc_Sha512Update(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   ret i32 %4
 }
@@ -1453,7 +1453,7 @@ wc_Sha512Free.exit:                               ; preds = %.lr.ph35.i.i, %1, %
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -192, 1) i32 @wc_Sha512_256GetHash(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
+define range(i32 -192, 1) i32 @wc_Sha512_256GetHash(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = alloca [1 x %struct.wc_Sha512], align 16
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %3) #8
   %4 = icmp eq ptr %0, null
@@ -1498,7 +1498,7 @@ wc_Sha512Copy.exit:                               ; preds = %2, %5
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -192, 1) i32 @wc_Sha384GetHash(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
+define range(i32 -192, 1) i32 @wc_Sha384GetHash(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = alloca [1 x %struct.wc_Sha512], align 16
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %3) #8
   %4 = icmp eq ptr %0, null

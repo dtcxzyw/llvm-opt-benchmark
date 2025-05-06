@@ -145,7 +145,7 @@ declare void @dt_control_queue_redraw_center(...) local_unnamed_addr #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_find_mask_iter_by_values(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @_find_mask_iter_by_values(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca %struct._GtkTreeIter, align 8
@@ -3350,7 +3350,7 @@ define internal void @_lib_masks_remove_item(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_lib_masks_selection_change(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) #1 {
+define internal void @_lib_masks_selection_change(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) #1 {
   %4 = alloca %struct._GtkTreeIter, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %6 = load ptr, ptr %5, align 8, !tbaa !36
@@ -4755,7 +4755,7 @@ declare ptr @gtk_tree_row_reference_new(ptr noundef, ptr noundef) local_unnamed_
 declare void @gtk_tree_view_expand_all(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_lib_masks_selection_change_r(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @_lib_masks_selection_change_r(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) unnamed_addr #1 {
   %7 = alloca %struct._GtkTreeIter, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8

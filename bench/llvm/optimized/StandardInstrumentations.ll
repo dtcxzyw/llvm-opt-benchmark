@@ -28467,7 +28467,7 @@ _ZN4llvm11GraphWriterIPN12_GLOBAL__N_122DotCfgDiffDisplayGraphEE11writeHeaderERK
   %.val53.i.i.i.i.i = load ptr, ptr %3047, align 8, !tbaa !54
   %3048 = getelementptr i8, ptr %3047, i64 8
   %.val54.i.i.i.i.i = load i64, ptr %3048, align 8, !tbaa !55
-  call fastcc void @_ZNK12_GLOBAL__N_122DotCfgDiffDisplayGraph9attributeB5cxx11EN4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr %.val53.i.i.i.i.i, i64 %.val54.i.i.i.i.i)
+  call fastcc void @_ZNK12_GLOBAL__N_122DotCfgDiffDisplayGraph9attributeB5cxx11EN4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr readonly %.val53.i.i.i.i.i, i64 %.val54.i.i.i.i.i)
   %3049 = load ptr, ptr %3013, align 8, !tbaa !134
   %3050 = load ptr, ptr %3015, align 8, !tbaa !135
   %3051 = ptrtoint ptr %3049 to i64
@@ -30948,7 +30948,7 @@ _ZN4llvm3AnyD2Ev.exit:                            ; preds = %_ZN4llvm3AnyC2ERKS0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20DotCfgChangeReporter9omitAfterENS_9StringRefERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr captures(address) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm20DotCfgChangeReporter9omitAfterENS_9StringRefERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr readonly captures(address) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #1 align 2 {
   %5 = alloca %"class.llvm::raw_svector_ostream", align 8
   %6 = alloca %"class.std::tuple.602", align 8
   %7 = alloca %"class.llvm::SmallString.424", align 8
@@ -31225,7 +31225,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %43, %45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20DotCfgChangeReporter17handleInvalidatedENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr captures(address) %1, i64 %2) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm20DotCfgChangeReporter17handleInvalidatedENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr readonly captures(address) %1, i64 %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::raw_svector_ostream", align 8
   %5 = alloca %"class.std::tuple.611", align 8
   %6 = alloca %"class.llvm::SmallString.424", align 8
@@ -31397,7 +31397,7 @@ _ZN4llvm11SmallVectorIcLj20EED2Ev.exit:           ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20DotCfgChangeReporter14handleFilteredENS_9StringRefERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr captures(address) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm20DotCfgChangeReporter14handleFilteredENS_9StringRefERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr readonly captures(address) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #1 align 2 {
   %5 = alloca %"class.llvm::raw_svector_ostream", align 8
   %6 = alloca %"class.std::tuple.602", align 8
   %7 = alloca %"class.llvm::SmallString.424", align 8
@@ -31575,7 +31575,7 @@ _ZN4llvm11SmallVectorIcLj20EED2Ev.exit:           ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20DotCfgChangeReporter13handleIgnoredENS_9StringRefERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr captures(address) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm20DotCfgChangeReporter13handleIgnoredENS_9StringRefERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr readonly captures(address) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #1 align 2 {
   %5 = alloca %"class.llvm::raw_svector_ostream", align 8
   %6 = alloca %"class.std::tuple.602", align 8
   %7 = alloca %"class.llvm::SmallString.424", align 8

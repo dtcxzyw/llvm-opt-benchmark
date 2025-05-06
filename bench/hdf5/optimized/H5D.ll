@@ -2821,7 +2821,7 @@ define range(i32 -1, 1) i32 @H5Dread_async(ptr noundef %0, ptr noundef %1, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Dread_multi(i64 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Dread_multi(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.H5CX_node_t, align 8
   call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %8) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %8, i8 0, i64 480, i1 false)
@@ -3643,7 +3643,7 @@ define range(i32 -1, 1) i32 @H5Dwrite_async(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Dwrite_multi(i64 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Dwrite_multi(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.H5CX_node_t, align 8
   call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %8) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %8, i8 0, i64 480, i1 false)

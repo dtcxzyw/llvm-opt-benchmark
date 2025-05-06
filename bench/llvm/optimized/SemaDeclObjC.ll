@@ -15753,7 +15753,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang17ObjCInterfaceDeclENS1_9NamedDeclEEEDaPT0_.ex
 declare noundef ptr @_ZN5clang23ObjCCompatibleAliasDecl6CreateERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationEPNS_14IdentifierInfoEPNS_17ObjCInterfaceDeclE(ptr noundef nonnull align 8 dereferenceable(23216), ptr noundef, i32, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang8SemaObjC52CheckForwardProtocolDeclarationForCircularDependencyEPNS_14IdentifierInfoERNS_14SourceLocationES3_RKNS_8ObjCListINS_16ObjCProtocolDeclEEE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef captures(address) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, i32 %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %4) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang8SemaObjC52CheckForwardProtocolDeclarationForCircularDependencyEPNS_14IdentifierInfoERNS_14SourceLocationES3_RKNS_8ObjCListINS_16ObjCProtocolDeclEEE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, i32 %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %7 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %8 = load ptr, ptr %4, align 8, !tbaa !1284
@@ -36905,7 +36905,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang8SelectorESt4pairINS2_14ObjCMethodLis
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang8SemaObjC34CollectMultipleMethodsInGlobalPoolENS_8SelectorERN4llvm15SmallVectorImplIPNS_14ObjCMethodDeclEEEbbPKNS_14ObjCObjectTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(328) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang8SemaObjC34CollectMultipleMethodsInGlobalPoolENS_8SelectorERN4llvm15SmallVectorImplIPNS_14ObjCMethodDeclEEEbbPKNS_14ObjCObjectTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(328) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 align 2 {
   %7 = load ptr, ptr %0, align 8, !tbaa !32
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 560
   %9 = load ptr, ptr %8, align 8, !tbaa !781

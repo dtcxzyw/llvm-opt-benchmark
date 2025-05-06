@@ -1155,7 +1155,7 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   %13 = getelementptr i8, ptr %12, i64 8
   %.val22.i = load i64, ptr %13, align 8, !noundef !4
   %14 = getelementptr inbounds i8, ptr %.val.i, i64 %.val22.i
-  %15 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h03edcd25a6097e97E.llvm.13396924176064657314(ptr noundef nonnull readonly align 1 %.val.i, ptr noundef nonnull readonly %14, i64 noundef 0)
+  %15 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h03edcd25a6097e97E.llvm.13396924176064657314(ptr noundef nonnull readonly align 1 %.val.i, ptr noundef nonnull readnone %14, i64 noundef 0)
   %16 = add i64 %15, %.018.i
   %17 = add nuw i64 %.017.i, 1
   %18 = icmp eq i64 %17, %10
@@ -1660,7 +1660,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hbc577389acec7f4fE"(ptr noundef nonnull captures(address) %0, ptr noundef captures(address) %1, i64 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hbc577389acec7f4fE"(ptr noundef nonnull readonly captures(address) %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h03edcd25a6097e97E.llvm.13396924176064657314(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2)
   ret i64 %4
 }
@@ -2135,7 +2135,7 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   %14 = getelementptr i8, ptr %12, i64 16
   %.val22.i = load i64, ptr %14, align 8, !noundef !4
   %15 = getelementptr inbounds i8, ptr %.val.i, i64 %.val22.i
-  %16 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h03edcd25a6097e97E.llvm.13396924176064657314(ptr noundef nonnull readonly align 1 %.val.i, ptr noundef nonnull readonly %15, i64 noundef 0)
+  %16 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h03edcd25a6097e97E.llvm.13396924176064657314(ptr noundef nonnull readonly align 1 %.val.i, ptr noundef nonnull readnone %15, i64 noundef 0)
   %17 = add i64 %16, %.018.i
   %18 = add nuw i64 %.017.i, 1
   %19 = icmp eq i64 %18, %10
@@ -16060,7 +16060,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %14 = getelementptr i8, ptr %12, i64 16
   %.val22 = load i64, ptr %14, align 8, !noundef !4
   %15 = getelementptr inbounds i8, ptr %.val, i64 %.val22
-  %16 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h03edcd25a6097e97E.llvm.13396924176064657314(ptr noundef nonnull readonly align 1 %.val, ptr noundef nonnull readonly %15, i64 noundef 0)
+  %16 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h03edcd25a6097e97E.llvm.13396924176064657314(ptr noundef nonnull readonly align 1 %.val, ptr noundef nonnull readnone %15, i64 noundef 0)
   %17 = add i64 %16, %.018
   %18 = add nuw i64 %.017, 1
   %19 = icmp eq i64 %18, %10
@@ -16283,7 +16283,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %13 = getelementptr i8, ptr %12, i64 8
   %.val22 = load i64, ptr %13, align 8, !noundef !4
   %14 = getelementptr inbounds i8, ptr %.val, i64 %.val22
-  %15 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h03edcd25a6097e97E.llvm.13396924176064657314(ptr noundef nonnull readonly align 1 %.val, ptr noundef nonnull readonly %14, i64 noundef 0)
+  %15 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h03edcd25a6097e97E.llvm.13396924176064657314(ptr noundef nonnull readonly align 1 %.val, ptr noundef nonnull readnone %14, i64 noundef 0)
   %16 = add i64 %15, %.018
   %17 = add nuw i64 %.017, 1
   %18 = icmp eq i64 %17, %10

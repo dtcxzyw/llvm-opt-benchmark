@@ -1108,7 +1108,7 @@ declare noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11Instruction
 declare noundef zeroext i1 @_ZNK4llvm11Instruction24isIdenticalToWhenDefinedEPKS0_b(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, i1 noundef zeroext) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN4llvm23MemoryDependenceResults24getPointerDependencyFromERKNS_14MemoryLocationEbNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEPS8_PS7_PjRNS_14BatchAAResultsE(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2, ptr captures(address) %3, i64 %4, ptr noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7, ptr noundef nonnull align 8 dereferenceable(656) %8) local_unnamed_addr #1 align 2 {
+define dso_local i64 @_ZN4llvm23MemoryDependenceResults24getPointerDependencyFromERKNS_14MemoryLocationEbNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEPS8_PS7_PjRNS_14BatchAAResultsE(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2, ptr readonly captures(address) %3, i64 %4, ptr noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7, ptr noundef nonnull align 8 dereferenceable(656) %8) local_unnamed_addr #1 align 2 {
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.split, label %10
 
@@ -1967,7 +1967,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit122: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN4llvm23MemoryDependenceResults24getPointerDependencyFromERKNS_14MemoryLocationEbNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEPS8_PS7_Pj(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2, ptr captures(address) %3, i64 %4, ptr noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #1 align 2 {
+define dso_local i64 @_ZN4llvm23MemoryDependenceResults24getPointerDependencyFromERKNS_14MemoryLocationEbNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEPS8_PS7_Pj(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2, ptr readonly captures(address) %3, i64 %4, ptr noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #1 align 2 {
   %9 = alloca %"class.llvm::BatchAAResults", align 8
   call void @llvm.lifetime.start.p0(i64 656, ptr nonnull %9) #23
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -2047,7 +2047,7 @@ _ZN4llvm14BatchAAResultsC2ERNS_9AAResultsEPNS_15CaptureAnalysisE.exit: ; preds =
 
 .split.i:                                         ; preds = %30, %28, %_ZN4llvm14BatchAAResultsC2ERNS_9AAResultsEPNS_15CaptureAnalysisE.exit
   %.sroa.024.0.i = phi i64 [ 6917529027641081859, %_ZN4llvm14BatchAAResultsC2ERNS_9AAResultsEPNS_15CaptureAnalysisE.exit ], [ 6917529027641081859, %28 ], [ %31, %30 ]
-  %33 = call i64 @_ZN4llvm23MemoryDependenceResults30getSimplePointerDependencyFromERKNS_14MemoryLocationEbNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEPS8_PS7_PjRNS_14BatchAAResultsE(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2, ptr %3, i64 poison, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(656) %9)
+  %33 = call i64 @_ZN4llvm23MemoryDependenceResults30getSimplePointerDependencyFromERKNS_14MemoryLocationEbNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEPS8_PS7_PjRNS_14BatchAAResultsE(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2, ptr readonly %3, i64 poison, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(656) %9)
   %34 = and i64 %33, 7
   %35 = icmp eq i64 %34, 2
   %36 = and i64 %.sroa.024.0.i, -2305843009213693945
@@ -6432,7 +6432,7 @@ _ZNK4llvm12MemDepResult7getInstEv.exit.thread:    ; preds = %44, %.thread107, %_
 
 .split.i:                                         ; preds = %55, %53, %_ZNK4llvm12MemDepResult7getInstEv.exit.thread
   %.sroa.024.0.i = phi i64 [ 6917529027641081859, %_ZNK4llvm12MemDepResult7getInstEv.exit.thread ], [ 6917529027641081859, %53 ], [ %56, %55 ]
-  %58 = tail call i64 @_ZN4llvm23MemoryDependenceResults30getSimplePointerDependencyFromERKNS_14MemoryLocationEbNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEPS8_PS7_PjRNS_14BatchAAResultsE(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull align 8 dereferenceable(48) %2, i1 noundef zeroext %3, ptr nonnull %.sroa.072.0, i64 poison, ptr noundef nonnull %4, ptr noundef %1, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(656) %7)
+  %58 = tail call i64 @_ZN4llvm23MemoryDependenceResults30getSimplePointerDependencyFromERKNS_14MemoryLocationEbNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEPS8_PS7_PjRNS_14BatchAAResultsE(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull align 8 dereferenceable(48) %2, i1 noundef zeroext %3, ptr nonnull readonly %.sroa.072.0, i64 poison, ptr noundef nonnull %4, ptr noundef %1, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(656) %7)
   %59 = and i64 %58, 7
   %60 = icmp eq i64 %59, 2
   %61 = and i64 %.sroa.024.0.i, -2305843009213693945

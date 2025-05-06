@@ -804,7 +804,7 @@ _ZN9grpc_core16ResolverRegistry5StateD2Ev.exit:   ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK9grpc_core16ResolverRegistry13IsValidTargetESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 captures(address) dereferenceable(80) %0, i64 %1, ptr %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK9grpc_core16ResolverRegistry13IsValidTargetESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %0, i64 %1, ptr %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.grpc_core::URI", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #28
@@ -1629,7 +1629,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core16ResolverRegistry14CreateResolverESt17basic_string_viewIcSt11char_traitsIcEERKNS_11ChannelArgsEP16grpc_pollset_setSt10shared_ptrINS_14WorkSerializerEESt10unique_ptrINS_8Resolver13ResultHandlerESt14default_deleteISF_EE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.21") align 8 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(80) %1, i64 %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core16ResolverRegistry14CreateResolverESt17basic_string_viewIcSt11char_traitsIcEERKNS_11ChannelArgsEP16grpc_pollset_setSt10shared_ptrINS_14WorkSerializerEESt10unique_ptrINS_8Resolver13ResultHandlerESt14default_deleteISF_EE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.21") align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %1, i64 %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"struct.grpc_core::ResolverArgs", align 8
   %11 = alloca %"struct.grpc_core::ResolverArgs", align 8
@@ -2234,7 +2234,7 @@ _ZNSt12__shared_ptrIN9grpc_core14WorkSerializerELN9__gnu_cxx12_Lock_policyE2EED2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core16ResolverRegistry19GetDefaultAuthorityB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(80) %1, i64 %2, ptr %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core16ResolverRegistry19GetDefaultAuthorityB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %1, i64 %2, ptr %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.grpc_core::URI", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #28
@@ -2349,7 +2349,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core16ResolverRegistry24AddDefaultPrefixIfNeededB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(80) %1, i64 %2, ptr %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core16ResolverRegistry24AddDefaultPrefixIfNeededB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %1, i64 %2, ptr %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

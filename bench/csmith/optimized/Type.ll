@@ -11264,7 +11264,7 @@ _ZNK4Type13is_equivalentEPKS_.exit:               ; preds = %20, %_ZNK4Type9is_s
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4Type5matchEPKS_10eMatchType(ptr noundef nonnull align 8 captures(address) dereferenceable(136) %0, ptr noundef captures(address) %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4Type5matchEPKS_10eMatchType(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
   switch i32 %2, label %_ZNK4Type20is_dereferenced_fromEPKS_.exit [
     i32 0, label %4
     i32 1, label %6
@@ -11330,7 +11330,7 @@ define dso_local noundef zeroext i1 @_ZNK4Type5matchEPKS_10eMatchType(ptr nounde
   br i1 %23, label %_ZNK4Type20is_dereferenced_fromEPKS_.exit, label %24
 
 24:                                               ; preds = %22
-  %25 = tail call noundef zeroext i1 @_ZNK4Type14is_convertableEPKS_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1)
+  %25 = tail call noundef zeroext i1 @_ZNK4Type14is_convertableEPKS_(ptr noundef nonnull readonly align 8 dereferenceable(136) %0, ptr noundef readonly %1)
   br i1 %25, label %_ZNK4Type20is_dereferenced_fromEPKS_.exit, label %26
 
 26:                                               ; preds = %24
@@ -11388,7 +11388,7 @@ define dso_local noundef zeroext i1 @_ZNK4Type20is_dereferenced_fromEPKS_(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4Type12is_derivableEPKS_(ptr noundef nonnull align 8 captures(address) dereferenceable(136) %0, ptr noundef captures(address) %1) local_unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4Type12is_derivableEPKS_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #5 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %_ZNK4Type20is_dereferenced_fromEPKS_.exit.thread, label %4
 

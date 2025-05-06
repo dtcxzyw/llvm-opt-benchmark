@@ -3428,7 +3428,7 @@ _ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__12UsdAttributeENS0_17UsdAttrib
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomXformCommonAPI29GetXformVectorsByAccumulationEPNS_7GfVec3dEPNS_7GfVec3fES4_S4_PNS0_13RotationOrderENS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, double %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomXformCommonAPI29GetXformVectorsByAccumulationEPNS_7GfVec3dEPNS_7GfVec3fES4_S4_PNS0_13RotationOrderENS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5, double %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %class.anon.126, align 1
   %9 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   %10 = alloca %class.anon.126, align 1

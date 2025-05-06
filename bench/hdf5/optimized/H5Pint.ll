@@ -2759,7 +2759,7 @@ H5P__free_prop.exit:                              ; preds = %41, %27, %3
 declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5P__register_real(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5P__register_real(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #0 {
   %14 = load i8, ptr @H5P_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %15 = trunc nuw i8 %14 to i1
   %16 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -2958,7 +2958,7 @@ define internal fastcc ptr @H5P__create_prop(ptr noundef %0, i64 noundef %1, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5P__register(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5P__register(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #0 {
   %14 = load ptr, ptr %0, align 8, !tbaa !22
   %15 = load i8, ptr @H5P_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %16 = trunc nuw i8 %15 to i1
@@ -3118,7 +3118,7 @@ H5P__close_class.exit:                            ; preds = %.thread72, %47, %98
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5P_insert(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5P_insert(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) local_unnamed_addr #0 {
   %13 = load i8, ptr @H5P_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %14 = trunc nuw i8 %13 to i1
   %15 = load i8, ptr @H5_libterm_g, align 1, !range !7

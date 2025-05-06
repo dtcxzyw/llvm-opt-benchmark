@@ -28628,7 +28628,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i5.i.
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5arrow12_GLOBAL__N_114SchemaImporterES3_SaIS2_EET0_T_S6_S5_RT1_.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !1707
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN5arrow12_GLOBAL__N_114SchemaImporterES3_SaIS2_EET0_T_S6_S5_RT1_.exit.i.i: ; preds = %118, %_ZSt27__uninitialized_default_n_aIPN5arrow12_GLOBAL__N_114SchemaImporterEmS2_ET_S4_T0_RSaIT1_E.exit45.i.i
-  tail call fastcc void @_ZSt8_DestroyIPN5arrow12_GLOBAL__N_114SchemaImporterEEvT_S4_(ptr noundef %.val.i, ptr noundef %.val4.i)
+  tail call fastcc void @_ZSt8_DestroyIPN5arrow12_GLOBAL__N_114SchemaImporterEEvT_S4_(ptr noundef %.val.i, ptr noundef readnone %.val4.i)
   %.not.i47.i.i = icmp eq ptr %.val.i, null
   br i1 %.not.i47.i.i, label %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_114SchemaImporterESaIS2_EE13_M_deallocateEPS2_m.exit48.i.i, label %127
 
@@ -28657,7 +28657,7 @@ _ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_114SchemaImporterESaIS2_EE13_M_deallocat
   br i1 %.not.i9.i, label %_ZNSt6vectorIN5arrow12_GLOBAL__N_114SchemaImporterESaIS2_EE6resizeEm.exit, label %137
 
 137:                                              ; preds = %135
-  invoke fastcc void @_ZSt8_DestroyIPN5arrow12_GLOBAL__N_114SchemaImporterEEvT_S4_(ptr noundef %136, ptr noundef %.val4.i)
+  invoke fastcc void @_ZSt8_DestroyIPN5arrow12_GLOBAL__N_114SchemaImporterEEvT_S4_(ptr noundef %136, ptr noundef readnone %.val4.i)
           to label %_ZSt8_DestroyIPN5arrow12_GLOBAL__N_114SchemaImporterES2_EvT_S4_RSaIT0_E.exit.i.i unwind label %138
 
 _ZSt8_DestroyIPN5arrow12_GLOBAL__N_114SchemaImporterES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %137
@@ -55834,7 +55834,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_6SchemaEEED2Ev.exit: ; preds = %_ZN5arrow6Res
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 23) i32 @_ZN5arrow12_GLOBAL__N_124AsyncRecordBatchIterator12on_next_taskEP29ArrowAsyncDeviceStreamHandlerP14ArrowAsyncTaskPKc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 23) i32 @_ZN5arrow12_GLOBAL__N_124AsyncRecordBatchIterator12on_next_taskEP29ArrowAsyncDeviceStreamHandlerP14ArrowAsyncTaskPKc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr.143", align 8
   %5 = alloca %"class.arrow::Result.296", align 8
   %6 = alloca %"class.arrow::Status", align 8

@@ -12633,7 +12633,7 @@ _ZNSt12_Vector_baseIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEESaIS4_EE13_M
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRKN5clang12StmtSequenceES4_EE11callback_fnIZNS1_36RecursiveCloneTypeIIVerifyConstraint9constrainERSt6vectorINS_11SmallVectorIS2_Lj8EEESaISB_EEE3$_0EEblS4_S4_"(i64 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %2) #1 align 2 {
+define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRKN5clang12StmtSequenceES4_EE11callback_fnIZNS1_36RecursiveCloneTypeIIVerifyConstraint9constrainERSt6vectorINS_11SmallVectorIS2_Lj8EEESaISB_EEE3$_0EEblS4_S4_"(i64 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %2) #1 align 2 {
   %4 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %5 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %6 = alloca %"class.(anonymous namespace)::FoldingSetNodeIDWrapper", align 8
@@ -12656,8 +12656,8 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRKN5clang12StmtSeq
   store ptr %4, ptr %6, align 8, !tbaa !597
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #21
   store ptr %5, ptr %7, align 8, !tbaa !597
-  call fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequenceERN12_GLOBAL__N_123FoldingSetNodeIDWrapperE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  call fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequenceERN12_GLOBAL__N_123FoldingSetNodeIDWrapperE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  call fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequenceERN12_GLOBAL__N_123FoldingSetNodeIDWrapperE(ptr noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  call fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequenceERN12_GLOBAL__N_123FoldingSetNodeIDWrapperE(ptr noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %7)
   %14 = call noundef zeroext i1 @_ZNK4llvm16FoldingSetNodeIDeqERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(144) %5) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #21

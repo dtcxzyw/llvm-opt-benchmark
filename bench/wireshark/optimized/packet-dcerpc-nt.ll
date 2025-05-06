@@ -1497,7 +1497,7 @@ define hidden i32 @dissect_hresult(ptr noundef %0, i32 noundef %1, ptr noundef %
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @dissect_nt_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7, ptr noundef captures(address_is_null) %8, i32 noundef %9) local_unnamed_addr #0 {
+define hidden i32 @dissect_nt_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = tail call fastcc i32 @dissect_nt_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, i32 noundef %9, i32 noundef 0)
   ret i32 %11
 }
@@ -1816,7 +1816,7 @@ declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unn
 declare ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @dissect_nt_guid_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7, ptr noundef captures(address_is_null) %8, i32 noundef %9) local_unnamed_addr #0 {
+define hidden i32 @dissect_nt_guid_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = tail call fastcc i32 @dissect_nt_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, i32 noundef %9, i32 noundef 1)
   ret i32 %11
 }

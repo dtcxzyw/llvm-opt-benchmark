@@ -1554,7 +1554,7 @@ declare zeroext i1 @zend_is_executing() local_unnamed_addr #2
 declare ptr @zend_get_executed_filename_ex() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @php_fopen_with_path(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @php_fopen_with_path(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca [4096 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5) #17
   %.not = icmp eq ptr %3, null
@@ -1864,7 +1864,7 @@ define dso_local noundef ptr @php_strip_url_passwd(ptr noundef captures(address,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @expand_filepath_ex(ptr noundef %0, ptr noundef captures(address_is_null, ret: address, provenance) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @expand_filepath_ex(ptr noundef %0, ptr noundef captures(address_is_null, ret: address, provenance) %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @expand_filepath_with_mode(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 1)
   ret ptr %5
 }

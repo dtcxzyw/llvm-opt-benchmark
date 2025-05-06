@@ -2660,7 +2660,7 @@ define dso_local noundef i64 @_ZNK5cmsys31SystemInformationImplementation26GetAv
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5cmsys17SystemInformation20GetMemoryDescriptionB5cxx11EPKcS2_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5cmsys17SystemInformation20GetMemoryDescriptionB5cxx11EPKcS2_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [2 x ptr], align 16
   %6 = alloca [1 x i64], align 8
   %7 = alloca [2 x ptr], align 16
@@ -2737,7 +2737,7 @@ _ZNSolsEx.exit8:                                  ; preds = %_ZN5cmsys17SystemIn
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit10 unwind label %73
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit10: ; preds = %_ZNSolsEx.exit8
-  %29 = invoke noundef i64 @_ZN5cmsys31SystemInformationImplementation22GetProcMemoryAvailableEPKcS2_(ptr nonnull align 8 poison, ptr noundef %2, ptr noundef %3)
+  %29 = invoke noundef i64 @_ZN5cmsys31SystemInformationImplementation22GetProcMemoryAvailableEPKcS2_(ptr nonnull align 8 poison, ptr noundef readonly %2, ptr noundef readonly %3)
           to label %_ZN5cmsys17SystemInformation22GetProcMemoryAvailableEPKcS2_.exit unwind label %73
 
 _ZN5cmsys17SystemInformation22GetProcMemoryAvailableEPKcS2_.exit: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit10
@@ -2908,7 +2908,7 @@ _ZN5cmsys31SystemInformationImplementation22GetHostMemoryAvailableEPKc.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN5cmsys17SystemInformation22GetProcMemoryAvailableEPKcS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 align 2 {
+define dso_local noundef i64 @_ZN5cmsys17SystemInformation22GetProcMemoryAvailableEPKcS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #3 align 2 {
   %4 = tail call noundef i64 @_ZN5cmsys31SystemInformationImplementation22GetProcMemoryAvailableEPKcS2_(ptr nonnull align 8 poison, ptr noundef %1, ptr noundef %2)
   ret i64 %4
 }

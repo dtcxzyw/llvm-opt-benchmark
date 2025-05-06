@@ -7049,7 +7049,7 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 }
 
 ; Function Attrs: uwtable
-define noundef zeroext i1 @_ZTv0_n64_N3nix10LegacyArgs11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb(ptr noundef %0, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %1, i1 zeroext %2) unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZTv0_n64_N3nix10LegacyArgs11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1, i1 zeroext %2) unnamed_addr #4 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -64
   %6 = load i64, ptr %5, align 8

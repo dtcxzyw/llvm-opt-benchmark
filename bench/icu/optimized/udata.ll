@@ -1145,7 +1145,7 @@ define noundef ptr @udata_open_77(ptr noundef %0, ptr noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL12doOpenChoicePKcS0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCode(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef nonnull %5) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL12doOpenChoicePKcS0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCode(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef nonnull %5) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %7 = alloca i32, align 4
   %8 = alloca %"class.icu_77::CharString", align 8
   %9 = alloca %"class.icu_77::CharString", align 8
@@ -1690,7 +1690,7 @@ thread-pre-split:                                 ; preds = %199, %196, %.thread
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @udata_openChoice_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
+define noundef ptr @udata_openChoice_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = icmp eq ptr %5, null
   br i1 %7, label %20, label %8
 

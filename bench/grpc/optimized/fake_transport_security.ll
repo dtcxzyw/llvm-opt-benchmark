@@ -97,7 +97,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z49tsi_fake_zero_copy_grpc_protector_next_frame_sizePK17grpc_slice_buffer(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
+define noundef i32 @_Z49tsi_fake_zero_copy_grpc_protector_next_frame_sizePK17grpc_slice_buffer(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = tail call fastcc noundef i32 @_ZL15read_frame_sizePK17grpc_slice_buffer(ptr noundef %0)
   ret i32 %2
 }

@@ -8140,7 +8140,7 @@ _Z15gmx_pme_destroyP9gmx_pme_tb.exit:             ; preds = %1, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z14gmx_pme_reinitPP9gmx_pme_tPK9t_commrecS0_PK10t_inputrecPKiff(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, float noundef %5, float noundef %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z14gmx_pme_reinitPP9gmx_pme_tPK9t_commrecS0_PK10t_inputrecPKiff(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, float noundef %5, float noundef %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %struct.t_inputrec, align 8
   %9 = alloca %"class.gmx::MDLogger", align 8
   %10 = alloca [3 x [3 x float]], align 16

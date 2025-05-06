@@ -629,7 +629,7 @@ mi_os_mem_alloc_aligned.exit:                     ; preds = %45, %_mi_align_up.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @_mi_os_commit(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
+define hidden noundef zeroext i1 @_mi_os_commit(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
   %5 = tail call fastcc zeroext i1 @mi_os_commitx(ptr noundef %0, i64 noundef %1, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef %2)
   ret i1 %5
 }

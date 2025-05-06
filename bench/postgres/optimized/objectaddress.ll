@@ -1700,7 +1700,7 @@ declare void @LockSharedObject(i32 noundef, i32 noundef, i16 noundef zeroext, i3
 declare void @LockDatabaseObject(i32 noundef, i32 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @get_object_address_rv(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @get_object_address_rv(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %23, label %7
 

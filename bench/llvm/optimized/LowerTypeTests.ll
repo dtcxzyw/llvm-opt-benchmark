@@ -27288,7 +27288,7 @@ _ZNSt6vectorIPN12_GLOBAL__N_116GlobalTypeMemberESaIS2_EEC2EmRKS3_.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %39) #27
   call void @_ZN4llvm12GlobalObject12setAlignmentENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(56) %343, i8 %.sroa.091.0.lcssa.i) #27
   %348 = load ptr, ptr %345, align 8, !tbaa !649
-  call fastcc void @_ZN12_GLOBAL__N_120LowerTypeTestsModule18lowerTypeTestCallsEN4llvm8ArrayRefIPNS1_8MetadataEEEPNS1_8ConstantERKNS1_8DenseMapIPNS_16GlobalTypeMemberEmNS1_12DenseMapInfoISA_vEENS1_6detail12DenseMapPairISA_mEEEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr %1, i64 %2, ptr noundef nonnull %343, ptr noundef nonnull align 8 dereferenceable(20) %36)
+  call fastcc void @_ZN12_GLOBAL__N_120LowerTypeTestsModule18lowerTypeTestCallsEN4llvm8ArrayRefIPNS1_8MetadataEEEPNS1_8ConstantERKNS1_8DenseMapIPNS_16GlobalTypeMemberEmNS1_12DenseMapInfoISA_vEENS1_6detail12DenseMapPairISA_mEEEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr readonly %1, i64 %2, ptr noundef nonnull %343, ptr noundef nonnull align 8 dereferenceable(20) %36)
   br i1 %.not113.i, label %._crit_edge128.i, label %.lr.ph127.i
 
 .lr.ph127.i:                                      ; preds = %._crit_edge.i
@@ -27814,7 +27814,7 @@ _ZN12_GLOBAL__N_120LowerTypeTestsModule26selectJumpTableArmEncodingEN4llvm8Array
   %576 = load ptr, ptr %575, align 8, !tbaa !271
   %577 = call noundef ptr @_ZN4llvm11PointerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %576, i32 noundef 0) #27
   %578 = call noundef ptr @_ZN4llvm12ConstantExpr14getPointerCastEPNS_8ConstantEPNS_4TypeE(ptr noundef nonnull %568, ptr noundef %577) #27
-  call fastcc void @_ZN12_GLOBAL__N_120LowerTypeTestsModule18lowerTypeTestCallsEN4llvm8ArrayRefIPNS1_8MetadataEEEPNS1_8ConstantERKNS1_8DenseMapIPNS_16GlobalTypeMemberEmNS1_12DenseMapInfoISA_vEENS1_6detail12DenseMapPairISA_mEEEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr %1, i64 %2, ptr noundef %578, ptr noundef nonnull align 8 dereferenceable(20) %25)
+  call fastcc void @_ZN12_GLOBAL__N_120LowerTypeTestsModule18lowerTypeTestCallsEN4llvm8ArrayRefIPNS1_8MetadataEEEPNS1_8ConstantERKNS1_8DenseMapIPNS_16GlobalTypeMemberEmNS1_12DenseMapInfoISA_vEENS1_6detail12DenseMapPairISA_mEEEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr readonly %1, i64 %2, ptr noundef %578, ptr noundef nonnull align 8 dereferenceable(20) %25)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %27) #27
   %579 = load ptr, ptr %0, align 8, !tbaa !357
   call fastcc void @_ZN12_GLOBAL__N_125ScopedSaveAliaseesAndUsedC2ERN4llvm6ModuleE(ptr noundef nonnull align 8 dereferenceable(152) %27, ptr noundef nonnull align 8 dereferenceable(841) %579)
@@ -29725,7 +29725,7 @@ _ZN12_GLOBAL__N_120LowerTypeTestsModule29buildBitSetsFromFunctionsWASMEN4llvm8Ar
   %1476 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %1477 = load ptr, ptr %1476, align 8, !tbaa !362
   %1478 = call noundef ptr @_ZN4llvm19ConstantPointerNull3getEPNS_11PointerTypeE(ptr noundef %1477) #27
-  call fastcc void @_ZN12_GLOBAL__N_120LowerTypeTestsModule18lowerTypeTestCallsEN4llvm8ArrayRefIPNS1_8MetadataEEEPNS1_8ConstantERKNS1_8DenseMapIPNS_16GlobalTypeMemberEmNS1_12DenseMapInfoISA_vEENS1_6detail12DenseMapPairISA_mEEEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr %1, i64 %2, ptr noundef %1478, ptr noundef nonnull align 8 dereferenceable(20) %6)
+  call fastcc void @_ZN12_GLOBAL__N_120LowerTypeTestsModule18lowerTypeTestCallsEN4llvm8ArrayRefIPNS1_8MetadataEEEPNS1_8ConstantERKNS1_8DenseMapIPNS_16GlobalTypeMemberEmNS1_12DenseMapInfoISA_vEENS1_6detail12DenseMapPairISA_mEEEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr readonly %1, i64 %2, ptr noundef %1478, ptr noundef nonnull align 8 dereferenceable(20) %6)
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %.val17.i.i, i64 noundef %.val18.i.i, i64 noundef 8) #27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #27
   br label %_ZN12_GLOBAL__N_120LowerTypeTestsModule31buildBitSetsFromGlobalVariablesEN4llvm8ArrayRefIPNS1_8MetadataEEENS2_IPNS_16GlobalTypeMemberEEE.exit

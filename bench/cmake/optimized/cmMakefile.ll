@@ -32356,7 +32356,7 @@ define dso_local noundef zeroext i1 @_ZNK10cmMakefile19VariableInitializedERKNSt
 declare noundef zeroext i1 @_ZNK15cmStateSnapshot13IsInitializedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK10cmMakefile22MaybeWarnUninitializedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(2880) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK10cmMakefile22MaybeWarnUninitializedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(2880) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [3 x %"struct.std::pair.945"], align 8
   %5 = alloca %class.cmAlphaNum, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -2488,7 +2488,7 @@ _ZN4llvm19SmallPtrSetImplBase5clearEv.exit218:    ; preds = %652, %647, %106
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm15GlobalsAAResult20AnalyzeUsesOfPointerEPNS_5ValueEPNS_15SmallPtrSetImplIPNS_8FunctionEEES7_PNS_11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef readonly captures(address) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address) %4) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm15GlobalsAAResult20AnalyzeUsesOfPointerEPNS_5ValueEPNS_15SmallPtrSetImplIPNS_8FunctionEEES7_PNS_11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef readonly captures(address) %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone captures(address) %4) local_unnamed_addr #1 align 2 {
   %6 = alloca %"struct.std::pair.112", align 8
   %7 = alloca %"struct.std::pair.112", align 8
   %8 = alloca %"struct.std::pair.112", align 8
@@ -7657,7 +7657,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm19SmallPtrS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15GlobalsAAResult13analyzeModuleERNS_6ModuleESt8functionIFRKNS_17TargetLibraryInfoERNS_8FunctionEEERNS_9CallGraphE(ptr dead_on_unwind noalias writable sret(%"class.llvm::GlobalsAAResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(841) %1, ptr noundef %2, ptr noundef nonnull align 8 captures(address) dereferenceable(72) %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm15GlobalsAAResult13analyzeModuleERNS_6ModuleESt8functionIFRKNS_17TargetLibraryInfoERNS_8FunctionEEERNS_9CallGraphE(ptr dead_on_unwind noalias writable sret(%"class.llvm::GlobalsAAResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(841) %1, ptr noundef %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.std::function.0", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -7724,9 +7724,9 @@ _ZNSt8functionIFRKN4llvm17TargetLibraryInfoERNS0_8FunctionEEEC2ERKS7_.exit.i:
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNSt8functionIFRKN4llvm17TargetLibraryInfoERNS0_8FunctionEEEC2ERKS7_.exit.i, %15
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @_ZN4llvm15GlobalsAAResult20CollectSCCMembershipERNS_9CallGraphE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(72) %17)
+  call void @_ZN4llvm15GlobalsAAResult20CollectSCCMembershipERNS_9CallGraphE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %17)
   call void @_ZN4llvm15GlobalsAAResult14AnalyzeGlobalsERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(841) %2)
-  call void @_ZN4llvm15GlobalsAAResult16AnalyzeCallGraphERNS_9CallGraphERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(72) %17, ptr nonnull align 8 poison)
+  call void @_ZN4llvm15GlobalsAAResult16AnalyzeCallGraphERNS_9CallGraphERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %17, ptr nonnull align 8 poison)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   ret void
 }
@@ -8305,9 +8305,9 @@ _ZNSt8functionIFRKN4llvm17TargetLibraryInfoERNS0_8FunctionEEEC2ERKS7_.exit.i: ; 
   br label %_ZN4llvm15GlobalsAAResult13analyzeModuleERNS_6ModuleESt8functionIFRKNS_17TargetLibraryInfoERNS_8FunctionEEERNS_9CallGraphE.exit
 
 _ZN4llvm15GlobalsAAResult13analyzeModuleERNS_6ModuleESt8functionIFRKNS_17TargetLibraryInfoERNS_8FunctionEEERNS_9CallGraphE.exit: ; preds = %_ZNSt8functionIFRKN4llvm17TargetLibraryInfoERNS0_8FunctionEEEC2ERKS7_.exit.i, %28
-  call void @_ZN4llvm15GlobalsAAResult20CollectSCCMembershipERNS_9CallGraphE(ptr noundef nonnull align 8 dereferenceable(320) %5, ptr noundef nonnull align 8 dereferenceable(72) %22)
+  call void @_ZN4llvm15GlobalsAAResult20CollectSCCMembershipERNS_9CallGraphE(ptr noundef nonnull align 8 dereferenceable(320) %5, ptr noundef nonnull readonly align 8 dereferenceable(72) %22)
   call void @_ZN4llvm15GlobalsAAResult14AnalyzeGlobalsERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(320) %5, ptr noundef nonnull align 8 dereferenceable(841) %1)
-  call void @_ZN4llvm15GlobalsAAResult16AnalyzeCallGraphERNS_9CallGraphERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(320) %5, ptr noundef nonnull align 8 dereferenceable(72) %22, ptr nonnull align 8 poison)
+  call void @_ZN4llvm15GlobalsAAResult16AnalyzeCallGraphERNS_9CallGraphERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(320) %5, ptr noundef nonnull readonly align 8 dereferenceable(72) %22, ptr nonnull align 8 poison)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %30 = load ptr, ptr %4, align 8, !tbaa !459
   store ptr %5, ptr %4, align 8, !tbaa !459

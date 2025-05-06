@@ -709,7 +709,7 @@ define dso_local void @qos_edge_destroy(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qos_add_test(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local void @qos_add_test(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.QOSGraphTestOptions, align 8
   %6 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.1, ptr noundef %1, ptr noundef %0) #12
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #12
@@ -1049,7 +1049,7 @@ build_driver_cmd_line.exit:                       ; preds = %create_node.exit, %
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qos_node_contains(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ...) local_unnamed_addr #0 {
+define dso_local void @qos_node_contains(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
   %5 = icmp eq ptr %2, null
@@ -1161,7 +1161,7 @@ create_node.exit:                                 ; preds = %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qos_node_consumes(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local void @qos_node_consumes(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   tail call fastcc void @create_interface(ptr noundef %1)
   tail call fastcc void @add_edge(ptr noundef %1, ptr noundef %0, i32 noundef 2, ptr noundef %2)
   ret void

@@ -3166,7 +3166,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8TGParser11AddSubClassEPNS_6RecordE
   store i64 %39, ptr %11, align 8, !tbaa !304
   store ptr @"_ZNSt17_Function_handlerIFvPKN4llvm4InitES3_EZNS0_8TGParser23resolveArgumentsOfClassERNS0_11MapResolverEPKNS0_6RecordENS0_8ArrayRefIPKNS0_12ArgumentInitEEENS0_5SMLocEE3$_0E9_M_invokeERKSt9_Any_dataOS3_SM_", ptr %41, align 8, !tbaa !306
   store ptr @"_ZNSt17_Function_handlerIFvPKN4llvm4InitES3_EZNS0_8TGParser23resolveArgumentsOfClassERNS0_11MapResolverEPKNS0_6RecordENS0_8ArrayRefIPKNS0_12ArgumentInitEEENS0_5SMLocEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", ptr %40, align 8, !tbaa !309
-  %43 = call noundef zeroext i1 @_ZN4llvm8TGParser16resolveArgumentsEPKNS_6RecordENS_8ArrayRefIPKNS_12ArgumentInitEEENS_5SMLocESt8functionIFvPKNS_4InitESD_EE(ptr nonnull readnone align 8 poison, ptr noundef nonnull %18, ptr %35, i64 %38, ptr %.sroa.020.0.copyload, ptr noundef nonnull %11)
+  %43 = call noundef zeroext i1 @_ZN4llvm8TGParser16resolveArgumentsEPKNS_6RecordENS_8ArrayRefIPKNS_12ArgumentInitEEENS_5SMLocESt8functionIFvPKNS_4InitESD_EE(ptr nonnull readnone align 8 poison, ptr noundef nonnull %18, ptr readonly %35, i64 %38, ptr %.sroa.020.0.copyload, ptr noundef nonnull %11)
   %44 = load ptr, ptr %40, align 8, !tbaa !309
   %.not.i.i = icmp eq ptr %44, null
   br i1 %.not.i.i, label %_ZN4llvm8TGParser23resolveArgumentsOfClassERNS_11MapResolverEPKNS_6RecordENS_8ArrayRefIPKNS_12ArgumentInitEEENS_5SMLocE.exit, label %45
@@ -3541,7 +3541,7 @@ _ZN4llvm6Record13addSuperClassEPKS0_NS_7SMRangeE.exit115: ; preds = %199, %201
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm8TGParser23resolveArgumentsOfClassERNS_11MapResolverEPKNS_6RecordENS_8ArrayRefIPKNS_12ArgumentInitEEENS_5SMLocE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(450) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2, ptr captures(address) %3, i64 %4, ptr %5) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm8TGParser23resolveArgumentsOfClassERNS_11MapResolverEPKNS_6RecordENS_8ArrayRefIPKNS_12ArgumentInitEEENS_5SMLocE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(450) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2, ptr readonly captures(address) %3, i64 %4, ptr %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.std::function", align 8
   %8 = ptrtoint ptr %1 to i64
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -3681,7 +3681,7 @@ _ZN4llvm11SmallVectorISt4pairIPKNS_4InitES4_ELj8EED2Ev.exit: ; preds = %43, %46
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm8TGParser28resolveArgumentsOfMultiClassERNS_11SmallVectorISt4pairIPKNS_4InitES5_ELj8EEEPNS_10MultiClassENS_8ArrayRefIPKNS_12ArgumentInitEEES5_NS_5SMLocE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(450) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef %2, ptr captures(address) %3, i64 %4, ptr noundef %5, i64 %6) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm8TGParser28resolveArgumentsOfMultiClassERNS_11SmallVectorISt4pairIPKNS_4InitES5_ELj8EEEPNS_10MultiClassENS_8ArrayRefIPKNS_12ArgumentInitEEES5_NS_5SMLocE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(450) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef %2, ptr readonly captures(address) %3, i64 %4, ptr noundef %5, i64 %6) local_unnamed_addr #0 align 2 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca %"class.std::function", align 8
@@ -24543,7 +24543,7 @@ _ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit4: ; preds = %._crit_edge, %34
 declare void @_ZN4llvm9PrintNoteERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm8TGParser13ApplyLetStackEPNS_6RecordE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(450) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm8TGParser13ApplyLetStackEPNS_6RecordE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(450) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8, !tbaa !903
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -24638,7 +24638,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8TGParser13ApplyLetStackERNS_12Reco
   %25 = ashr exact i64 %24, 2
   %26 = getelementptr inbounds nuw i8, ptr %.02435.i, i64 32
   %27 = load ptr, ptr %26, align 8, !tbaa !913
-  %28 = tail call noundef zeroext i1 @_ZN4llvm8TGParser8SetValueEPNS_6RecordENS_5SMLocEPKNS_4InitENS_8ArrayRefIjEES6_bb(ptr noundef nonnull readonly align 8 dereferenceable(450) %0, ptr noundef nonnull %3, ptr %.sroa.0.0.copyload.i, ptr noundef %17, ptr %19, i64 %25, ptr noundef %27, i1 noundef zeroext false, i1 noundef zeroext true)
+  %28 = tail call noundef zeroext i1 @_ZN4llvm8TGParser8SetValueEPNS_6RecordENS_5SMLocEPKNS_4InitENS_8ArrayRefIjEES6_bb(ptr noundef nonnull readonly align 8 dereferenceable(450) %0, ptr noundef nonnull readonly %3, ptr %.sroa.0.0.copyload.i, ptr noundef %17, ptr %19, i64 %25, ptr noundef %27, i1 noundef zeroext false, i1 noundef zeroext true)
   br i1 %28, label %_ZN4llvm8TGParser13ApplyLetStackEPNS_6RecordE.exit, label %14
 
 ._crit_edge.i:                                    ; preds = %14, %.lr.ph40.i
@@ -24909,7 +24909,7 @@ _ZN4llvm8TGParser7consumeENS_5tgtok7TokKindE.exit: ; preds = %2, %_ZN4llvm17SubC
   %105 = ashr exact i64 %104, 2
   %106 = getelementptr inbounds nuw i8, ptr %.02435.i, i64 32
   %107 = load ptr, ptr %106, align 8, !tbaa !913
-  %108 = call noundef zeroext i1 @_ZN4llvm8TGParser8SetValueEPNS_6RecordENS_5SMLocEPKNS_4InitENS_8ArrayRefIjEES6_bb(ptr noundef nonnull readonly align 8 dereferenceable(450) %0, ptr noundef %1, ptr %.sroa.0.0.copyload.i, ptr noundef %97, ptr %99, i64 %105, ptr noundef %107, i1 noundef zeroext false, i1 noundef zeroext true)
+  %108 = call noundef zeroext i1 @_ZN4llvm8TGParser8SetValueEPNS_6RecordENS_5SMLocEPKNS_4InitENS_8ArrayRefIjEES6_bb(ptr noundef nonnull readonly align 8 dereferenceable(450) %0, ptr noundef readonly %1, ptr %.sroa.0.0.copyload.i, ptr noundef %97, ptr %99, i64 %105, ptr noundef %107, i1 noundef zeroext false, i1 noundef zeroext true)
   br i1 %108, label %_ZN4llvm8TGParser13ApplyLetStackEPNS_6RecordE.exit, label %94
 
 ._crit_edge.i:                                    ; preds = %94, %.lr.ph40.i

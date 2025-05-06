@@ -3279,7 +3279,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5ZXing4OneD7DataBar4PairEEclINS_17__norm
 declare void @_ZN5ZXing7ContentC1Ev(ptr noundef nonnull align 8 dereferenceable(54)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN5ZXing4OneDL17FindValidSequenceIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEEEbRKSt3mapIiS6_INS0_7DataBar4PairESaISC_EESt4lessIiESaISt4pairIS4_SE_EEET_SN_RSE_(ptr noundef nonnull align 8 captures(address) dereferenceable(48) %0, ptr captures(address) %1, ptr captures(address) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN5ZXing4OneDL17FindValidSequenceIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEEEbRKSt3mapIiS6_INS0_7DataBar4PairESaISC_EESt4lessIiESaISt4pairIS4_SE_EEET_SN_RSE_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %0, ptr readonly captures(address) %1, ptr readnone captures(address) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = icmp eq ptr %1, %2
   br i1 %5, label %6, label %28
 

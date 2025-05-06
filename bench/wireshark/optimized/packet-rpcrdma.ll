@@ -1882,7 +1882,7 @@ declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc ptr @add_fragment(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef captures(address_is_null) %5, ptr noundef %6, ptr noundef %7) unnamed_addr #1 {
+define internal fastcc ptr @add_fragment(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6, ptr noundef %7) unnamed_addr #1 {
   %9 = load ptr, ptr @gp_infiniband_info, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %14, label %10
@@ -1985,7 +1985,7 @@ set_fragment_head.exit:                           ; preds = %46, %54, %50, %49, 
 declare ptr @fragment_add_seq_check(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc ptr @add_send_fragment(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc ptr @add_send_fragment(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = load ptr, ptr @gp_infiniband_info, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %13, label %6

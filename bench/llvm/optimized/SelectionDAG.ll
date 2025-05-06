@@ -9492,7 +9492,7 @@ _ZL8doNotCSEPN4llvm6SDNodeE.exit.thread:          ; preds = %_ZNK4llvm3EVTeqES0_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm12SelectionDAG20FindModifiedNodeSlotEPNS_6SDNodeENS_8ArrayRefINS_7SDValueEEERPv(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr noundef %1, ptr captures(address) %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN4llvm12SelectionDAG20FindModifiedNodeSlotEPNS_6SDNodeENS_8ArrayRefINS_7SDValueEEERPv(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr noundef %1, ptr readonly captures(address) %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #2 align 2 {
   %6 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %7 = alloca %"class.llvm::SDLoc", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -84890,7 +84890,7 @@ define dso_local noundef ptr @_ZN4llvm12SelectionDAG18UpdateNodeOperandsEPNS_6SD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm12SelectionDAG18UpdateNodeOperandsEPNS_6SDNodeENS_8ArrayRefINS_7SDValueEEE(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr noundef %1, ptr captures(address) %2, i64 %3) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN4llvm12SelectionDAG18UpdateNodeOperandsEPNS_6SDNodeENS_8ArrayRefINS_7SDValueEEE(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr noundef %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #2 align 2 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw %"class.llvm::SDValue", ptr %2, i64 %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -87324,7 +87324,7 @@ _ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_S5_.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm12SelectionDAG15getNodeIfExistsEjNS_8SDVTListENS_8ArrayRefINS_7SDValueEEE(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %1, ptr %2, i32 %3, ptr captures(address) %4, i64 %5) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN4llvm12SelectionDAG15getNodeIfExistsEjNS_8SDVTListENS_8ArrayRefINS_7SDValueEEE(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %1, ptr %2, i32 %3, ptr readonly captures(address) %4, i64 %5) local_unnamed_addr #2 align 2 {
   %7 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %8 = alloca ptr, align 8
   %9 = alloca %"class.llvm::SDLoc", align 8
@@ -87355,7 +87355,7 @@ _ZN4llvm5SDLocD2Ev.exit.i:                        ; preds = %14
   store i32 0, ptr %20, align 8, !tbaa !26
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 32, ptr %21, align 4, !tbaa !27
-  call fastcc void @_ZL13AddNodeIDNodeRN4llvm16FoldingSetNodeIDEjNS_8SDVTListENS_8ArrayRefINS_7SDValueEEE(ptr noundef nonnull align 8 dereferenceable(144) %7, i32 noundef %1, ptr nonnull %2, ptr %4, i64 %5)
+  call fastcc void @_ZL13AddNodeIDNodeRN4llvm16FoldingSetNodeIDEjNS_8SDVTListENS_8ArrayRefINS_7SDValueEEE(ptr noundef nonnull align 8 dereferenceable(144) %7, i32 noundef %1, ptr nonnull %2, ptr readonly %4, i64 %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #34
   store ptr null, ptr %8, align 8, !tbaa !439
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #34
@@ -87395,7 +87395,7 @@ _ZN4llvm12SelectionDAG15getNodeIfExistsEjNS_8SDVTListENS_8ArrayRefINS_7SDValueEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm12SelectionDAG15getNodeIfExistsEjNS_8SDVTListENS_8ArrayRefINS_7SDValueEEENS_11SDNodeFlagsE(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %1, ptr %2, i32 %3, ptr captures(address) %4, i64 %5, i32 %6) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN4llvm12SelectionDAG15getNodeIfExistsEjNS_8SDVTListENS_8ArrayRefINS_7SDValueEEENS_11SDNodeFlagsE(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %1, ptr %2, i32 %3, ptr readonly captures(address) %4, i64 %5, i32 %6) local_unnamed_addr #2 align 2 {
   %8 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %9 = alloca ptr, align 8
   %10 = alloca %"class.llvm::SDLoc", align 8
@@ -87454,7 +87454,7 @@ _ZNK4llvm3EVTneES0_.exit:                         ; preds = %7, %_ZN4llvm16Foldi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm12SelectionDAG13doesNodeExistEjNS_8SDVTListENS_8ArrayRefINS_7SDValueEEE(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %1, ptr %2, i32 %3, ptr captures(address) %4, i64 %5) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm12SelectionDAG13doesNodeExistEjNS_8SDVTListENS_8ArrayRefINS_7SDValueEEE(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %1, ptr %2, i32 %3, ptr readonly captures(address) %4, i64 %5) local_unnamed_addr #2 align 2 {
   %7 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %8 = alloca ptr, align 8
   %9 = alloca %"class.llvm::SDLoc", align 8

@@ -2380,7 +2380,7 @@ crec_isnonzero.exit.thread247.i:                  ; preds = %crec_isnonzero.exit
 
 563:                                              ; preds = %561
   %564 = call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %297) #8
-  call fastcc void @crec_copy(ptr noundef nonnull %0, i32 noundef %2, i32 noundef %.6, i32 noundef %564, ptr noundef nonnull %.0124)
+  call fastcc void @crec_copy(ptr noundef nonnull %0, i32 noundef %2, i32 noundef %.6, i32 noundef %564, ptr noundef nonnull readonly %.0124)
   br label %crec_ct_ct.exit
 
 565:                                              ; preds = %561, %545, %543, %504, %472, %448, %419, %359, %315, %301, %crec_ct2irt.exit240.i

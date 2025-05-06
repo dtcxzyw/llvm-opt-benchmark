@@ -23178,7 +23178,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h56ee53bdb83d351dE.exit.i.i: 
   %.val1.i.i.i = load ptr, ptr %37, align 8, !alias.scope !8344, !noalias !8322, !nonnull !4, !noundef !4
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val2.i.i.i = load i64, ptr %38, align 8, !alias.scope !8344, !noalias !8322, !noundef !4
-  %39 = tail call fastcc noalias noundef align 8 ptr @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17hefababd7cd43ccd0E"(ptr nonnull %.val1.i.i.i, i64 %.val2.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.val3.i), !noalias !8347
+  %39 = tail call fastcc noalias noundef align 8 ptr @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17hefababd7cd43ccd0E"(ptr nonnull readonly %.val1.i.i.i, i64 %.val2.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.val3.i), !noalias !8347
   %40 = icmp eq ptr %39, null
   br i1 %40, label %42, label %_ZN5serde3ser12SerializeMap15serialize_entry17h0beca31cebd7853fE.exit
 

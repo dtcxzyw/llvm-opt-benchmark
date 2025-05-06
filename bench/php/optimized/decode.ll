@@ -41,7 +41,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lxb_encoding_range_index_gb18030 = external local_unnamed_addr constant [207 x %struct.lxb_encoding_range_index_t], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 16) i32 @lxb_encoding_decode_default(ptr noundef initializes((60, 64)) %0, ptr noundef captures(none) %1, ptr noundef captures(address) %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_default(ptr noundef initializes((60, 64)) %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @lxb_encoding_decode_utf_8(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }
@@ -1790,7 +1790,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_kr(ptr noundef captu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gbk(ptr noundef initializes((60, 64)) %0, ptr noundef captures(none) %1, ptr noundef captures(address) %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gbk(ptr noundef initializes((60, 64)) %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @lxb_encoding_decode_gb18030(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }
@@ -5032,7 +5032,7 @@ switch.early.test:                                ; preds = %74
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 16) i32 @lxb_encoding_decode_utf_16be(ptr noundef captures(none) initializes((60, 64)) %0, ptr noundef captures(none) %1, ptr noundef captures(address) %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_utf_16be(ptr noundef captures(none) initializes((60, 64)) %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @lxb_encoding_decode_utf_16(ptr noundef %0, i1 noundef zeroext true, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }
@@ -5358,7 +5358,7 @@ define internal fastcc range(i32 0, 16) i32 @lxb_encoding_decode_utf_16(ptr noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 16) i32 @lxb_encoding_decode_utf_16le(ptr noundef captures(none) initializes((60, 64)) %0, ptr noundef captures(none) %1, ptr noundef captures(address) %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_utf_16le(ptr noundef captures(none) initializes((60, 64)) %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @lxb_encoding_decode_utf_16(ptr noundef %0, i1 noundef zeroext false, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }
@@ -6620,7 +6620,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_x_user_defined(ptr nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @lxb_encoding_decode_default_single(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(address) %2) local_unnamed_addr #5 {
+define hidden i32 @lxb_encoding_decode_default_single(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #5 {
   %4 = tail call i32 @lxb_encoding_decode_utf_8_single(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }
@@ -7262,7 +7262,7 @@ define hidden i32 @lxb_encoding_decode_euc_kr_single(ptr noundef captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @lxb_encoding_decode_gbk_single(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(address) %2) local_unnamed_addr #5 {
+define hidden i32 @lxb_encoding_decode_gbk_single(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #5 {
   %4 = tail call i32 @lxb_encoding_decode_gb18030_single(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }

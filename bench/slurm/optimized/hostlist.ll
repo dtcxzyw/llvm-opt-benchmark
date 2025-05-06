@@ -328,7 +328,7 @@ _hostlist_create.exit:                            ; preds = %8, %15, %_next_tok.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @hostlist_create(ptr noundef captures(address_is_null) %0) #0 {
+define dso_local noundef ptr @hostlist_create(ptr noundef readonly captures(address_is_null) %0) #0 {
   %2 = tail call zeroext i16 @slurmdb_setup_cluster_dims() #22
   %3 = zext i16 %2 to i32
   %4 = tail call ptr @hostlist_create_dims(ptr noundef %0, i32 noundef %3)
@@ -488,14 +488,14 @@ define dso_local i32 @hostlist_count(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hostlist_delete(ptr noundef %0, ptr noundef captures(address_is_null) %1) #0 {
+define dso_local i32 @hostlist_delete(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %3
 
 3:                                                ; preds = %2
   %4 = tail call zeroext i16 @slurmdb_setup_cluster_dims() #22
   %5 = zext i16 %4 to i32
-  %6 = tail call noundef ptr @hostlist_create_dims(ptr noundef %1, i32 noundef %5)
+  %6 = tail call noundef ptr @hostlist_create_dims(ptr noundef readonly %1, i32 noundef %5)
   %.not13 = icmp eq ptr %6, null
   br i1 %.not13, label %8, label %.split10
 
@@ -1316,7 +1316,7 @@ hostrange_destroy.exit:                           ; preds = %30, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hostlist_push(ptr noundef %0, ptr noundef captures(address_is_null) %1) #0 {
+define dso_local i32 @hostlist_push(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #0 {
   %3 = icmp ne ptr %1, null
   %4 = icmp ne ptr %0, null
   %or.cond = and i1 %4, %3
@@ -1325,7 +1325,7 @@ define dso_local i32 @hostlist_push(ptr noundef %0, ptr noundef captures(address
 5:                                                ; preds = %2
   %6 = tail call zeroext i16 @slurmdb_setup_cluster_dims() #22
   %7 = zext i16 %6 to i32
-  %8 = tail call noundef ptr @hostlist_create_dims(ptr noundef nonnull %1, i32 noundef %7)
+  %8 = tail call noundef ptr @hostlist_create_dims(ptr noundef nonnull readonly %1, i32 noundef %7)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %9) #22
   %.not = icmp eq i32 %10, 0
@@ -3416,14 +3416,14 @@ hostlist_count.exit:                              ; preds = %1, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @hostset_create(ptr noundef captures(address_is_null) %0) #0 {
+define dso_local ptr @hostset_create(ptr noundef readonly captures(address_is_null) %0) #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.7, i32 noundef 3169, ptr noundef nonnull @__func__.hostset_create) #22
   store ptr %3, ptr %2, align 8
   %4 = tail call zeroext i16 @slurmdb_setup_cluster_dims() #22
   %5 = zext i16 %4 to i32
-  %6 = tail call noundef ptr @hostlist_create_dims(ptr noundef %0, i32 noundef %5)
+  %6 = tail call noundef ptr @hostlist_create_dims(ptr noundef readonly %0, i32 noundef %5)
   store ptr %6, ptr %3, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %8
@@ -3443,7 +3443,7 @@ define dso_local ptr @hostset_create(ptr noundef captures(address_is_null) %0) #
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hostset_delete(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) #0 {
+define dso_local i32 @hostset_delete(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @hostlist_delete(ptr noundef %3, ptr noundef %1)
   ret i32 %4
@@ -3474,10 +3474,10 @@ define dso_local i32 @hostset_find(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hostset_insert(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) #0 {
+define dso_local i32 @hostset_insert(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #0 {
   %3 = tail call zeroext i16 @slurmdb_setup_cluster_dims() #22
   %4 = zext i16 %3 to i32
-  %5 = tail call noundef ptr @hostlist_create_dims(ptr noundef %1, i32 noundef %4)
+  %5 = tail call noundef ptr @hostlist_create_dims(ptr noundef readonly %1, i32 noundef %4)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %189, label %6
 
@@ -3882,10 +3882,10 @@ define dso_local noalias ptr @hostset_shift(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @hostset_within(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) #0 {
+define dso_local range(i32 0, 2) i32 @hostset_within(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #0 {
   %3 = tail call zeroext i16 @slurmdb_setup_cluster_dims() #22
   %4 = zext i16 %3 to i32
-  %5 = tail call noundef ptr @hostlist_create_dims(ptr noundef %1, i32 noundef %4)
+  %5 = tail call noundef ptr @hostlist_create_dims(ptr noundef readonly %1, i32 noundef %4)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %24, label %6
 
@@ -6349,10 +6349,10 @@ declare void @llvm.stackrestore.p0(ptr) #15
 declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @hostset_intersects(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @hostset_intersects(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call zeroext i16 @slurmdb_setup_cluster_dims() #22
   %4 = zext i16 %3 to i32
-  %5 = tail call noundef ptr @hostlist_create_dims(ptr noundef %1, i32 noundef %4)
+  %5 = tail call noundef ptr @hostlist_create_dims(ptr noundef readonly %1, i32 noundef %4)
   br label %6
 
 6:                                                ; preds = %8, %2

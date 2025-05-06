@@ -343,7 +343,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.exec_command_pset = private unnamed_addr constant [10 x ptr] [ptr @.str.262, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.31, ptr @.str.27, ptr @.str.28, ptr @.str.29], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 1, 6) i32 @HandleSlashCmds(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local range(i32 1, 6) i32 @HandleSlashCmds(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call ptr @psql_scan_slash_command(ptr noundef %0) #17
   %6 = tail call fastcc i32 @exec_command(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   switch i32 %6, label %12 [
@@ -417,7 +417,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare ptr @psql_scan_slash_command(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 6) i32 @exec_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 6) i32 @exec_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca %struct.PromptInterruptContext, align 8
   %7 = alloca %struct.PromptInterruptContext, align 8
   %8 = alloca ptr, align 8

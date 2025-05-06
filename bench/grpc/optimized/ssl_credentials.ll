@@ -215,7 +215,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN20grpc_ssl_credentialsC2EPKcP26grpc_ssl_pem_key_cert_pairPK28grpc_ssl_verify_peer_options(ptr noundef nonnull align 8 dereferenceable(84) initializes((0, 16), (24, 32), (56, 80)) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN20grpc_ssl_credentialsC2EPKcP26grpc_ssl_pem_key_cert_pairPK28grpc_ssl_verify_peer_options(ptr noundef nonnull align 8 dereferenceable(84) initializes((0, 16), (24, 32), (56, 80)) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %6, align 8, !tbaa !3
@@ -1784,7 +1784,7 @@ define void @_ZN27grpc_ssl_server_credentialsC2ERK35grpc_ssl_server_credentials_
 .noexc:                                           ; preds = %13
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %23, ptr %24, align 8, !tbaa !128
-  %25 = invoke noundef ptr @_Z35grpc_convert_grpc_to_tsi_cert_pairsPK26grpc_ssl_pem_key_cert_pairm(ptr noundef %18, i64 noundef %20)
+  %25 = invoke noundef ptr @_Z35grpc_convert_grpc_to_tsi_cert_pairsPK26grpc_ssl_pem_key_cert_pairm(ptr noundef readonly %18, i64 noundef %20)
           to label %_ZN27grpc_ssl_server_credentials12build_configEPKcP26grpc_ssl_pem_key_cert_pairm40grpc_ssl_client_certificate_request_type.exit unwind label %27
 
 _ZN27grpc_ssl_server_credentials12build_configEPKcP26grpc_ssl_pem_key_cert_pairm40grpc_ssl_client_certificate_request_type.exit: ; preds = %.noexc
@@ -1804,7 +1804,7 @@ _ZN27grpc_ssl_server_credentials12build_configEPKcP26grpc_ssl_pem_key_cert_pairm
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN27grpc_ssl_server_credentials12build_configEPKcP26grpc_ssl_pem_key_cert_pairm40grpc_ssl_client_certificate_request_type(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((40, 68)) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #3 align 2 {
+define void @_ZN27grpc_ssl_server_credentials12build_configEPKcP26grpc_ssl_pem_key_cert_pairm40grpc_ssl_client_certificate_request_type(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((40, 68)) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #3 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %4, ptr %7, align 8, !tbaa !117

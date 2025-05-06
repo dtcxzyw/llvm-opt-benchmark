@@ -7890,7 +7890,7 @@ declare noundef ptr @_ZNK4llvm18TargetRegisterInfo22getMinimalPhysRegClassENS_10
 declare void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZL16IsChainDependentPN4llvm6SDNodeES1_jPKNS_15TargetInstrInfoE(ptr noundef readonly captures(address) %0, ptr noundef nonnull captures(address) %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #16 {
+define internal fastcc noundef zeroext i1 @_ZL16IsChainDependentPN4llvm6SDNodeES1_jPKNS_15TargetInstrInfoE(ptr noundef readonly captures(address) %0, ptr noundef nonnull readnone captures(address) %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #16 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
   br label %7

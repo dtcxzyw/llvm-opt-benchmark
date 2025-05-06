@@ -72567,7 +72567,7 @@ common.resume.i:                                  ; preds = %208, %"_ZN4core3ptr
   store i64 0, ptr %14, align 8, !noalias !14470
   %104 = getelementptr inbounds nuw i8, ptr %14, i64 64
   store ptr %4, ptr %104, align 8, !noalias !14470
-  invoke fastcc void @"_ZN4gpui6window13WindowContext27with_optional_element_state28_$u7b$$u7b$closure$u7d$$u7d$17h38db5adeb46d5230E"(ptr noalias noundef align 8 captures(none) dereferenceable(608) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(664) %1, ptr %3, ptr noalias noundef align 8 captures(none) dereferenceable(64) %14, ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke fastcc void @"_ZN4gpui6window13WindowContext27with_optional_element_state28_$u7b$$u7b$closure$u7d$$u7d$17h38db5adeb46d5230E"(ptr noalias noundef align 8 captures(none) dereferenceable(608) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(664) %1, ptr readonly %3, ptr noalias noundef align 8 captures(none) dereferenceable(64) %14, ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
           to label %166 unwind label %105, !noalias !14521
 
 105:                                              ; preds = %114, %103
@@ -72630,7 +72630,7 @@ common.resume.i:                                  ; preds = %208, %"_ZN4core3ptr
   store i64 1, ptr %19, align 8, !noalias !14470
   %125 = getelementptr inbounds nuw i8, ptr %19, i64 64
   store ptr %4, ptr %125, align 8, !noalias !14470
-  invoke fastcc void @"_ZN4gpui6window13WindowContext27with_optional_element_state28_$u7b$$u7b$closure$u7d$$u7d$17h38db5adeb46d5230E"(ptr noalias noundef align 8 captures(none) dereferenceable(608) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(664) %1, ptr %3, ptr noalias noundef align 8 captures(none) dereferenceable(64) %19, ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke fastcc void @"_ZN4gpui6window13WindowContext27with_optional_element_state28_$u7b$$u7b$closure$u7d$$u7d$17h38db5adeb46d5230E"(ptr noalias noundef align 8 captures(none) dereferenceable(608) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(664) %1, ptr readonly %3, ptr noalias noundef align 8 captures(none) dereferenceable(64) %19, ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
           to label %129 unwind label %.thread41.i.i, !noalias !14521
 
 126:                                              ; preds = %.body51.i.i
@@ -139360,7 +139360,7 @@ define hidden noundef i64 @_ZN4gpui6window13WindowContext27with_optional_element
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN4gpui6window13WindowContext27with_optional_element_state28_$u7b$$u7b$closure$u7d$$u7d$17h38db5adeb46d5230E"(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(608) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(664) %1, ptr captures(address_is_null) %.0.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4gpui6window13WindowContext27with_optional_element_state28_$u7b$$u7b$closure$u7d$$u7d$17h38db5adeb46d5230E"(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(608) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(664) %1, ptr readonly captures(address_is_null) %.0.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.02.sroa.5.i = alloca [12 x i8], align 4
   %5 = alloca [552 x i8], align 8
   %6 = alloca [64 x i8], align 8

@@ -1684,7 +1684,7 @@ declare void @PMIx_Info_qualifier(ptr noundef) local_unnamed_addr #2
 declare i32 @pmix_hash_table_get_next_key_uint32(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -27, 1) i32 @pmix_hash_remove_data(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 -27, 1) i32 @pmix_hash_remove_data(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4

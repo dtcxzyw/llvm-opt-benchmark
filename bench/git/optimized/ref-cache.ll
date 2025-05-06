@@ -777,7 +777,7 @@ st_mult.exit:                                     ; preds = %28
 declare ptr @empty_ref_iterator_begin() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @prime_ref_dir(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc void @prime_ref_dir(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8, !tbaa !4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge

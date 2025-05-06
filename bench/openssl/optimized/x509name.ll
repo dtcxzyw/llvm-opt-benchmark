@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.X509_NAME_ENTRY_set_object = private unnamed_addr constant [27 x i8] c"X509_NAME_ENTRY_set_object\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_NAME_get_text_by_NID(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @X509_NAME_get_text_by_NID(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @OBJ_nid2obj(i32 noundef %1) #6
   %6 = icmp eq ptr %5, null
   br i1 %6, label %9, label %7

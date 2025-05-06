@@ -2494,7 +2494,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ksys_semtimedop(i32 nou
 declare dso_local i32 @get_timespec64(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_semtimedop(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_semtimedop(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 align 16 {
   %5 = alloca [64 x %struct.sembuf], align 16
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %5) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %5, i8 0, i64 384, i1 false), !annotation !24

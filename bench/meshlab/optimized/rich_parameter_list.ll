@@ -673,7 +673,7 @@ define noundef i32 @_ZNK17RichParameterList4sizeEv(ptr noundef nonnull readonly 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK17RichParameterList7getBoolERK7QString(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZNK17RichParameterList7getBoolERK7QString(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #10 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZNK17RichParameterList18getParameterByNameERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
   %5 = load ptr, ptr %4, align 8
@@ -763,7 +763,7 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZNK17RichParameterList1
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK17RichParameterList6getIntERK7QString(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #10 align 2 {
+define noundef i32 @_ZNK17RichParameterList6getIntERK7QString(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #10 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZNK17RichParameterList18getParameterByNameERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
   %5 = load ptr, ptr %4, align 8
@@ -774,7 +774,7 @@ define noundef i32 @_ZNK17RichParameterList6getIntERK7QString(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK17RichParameterList8getFloatERK7QString(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #10 align 2 {
+define noundef float @_ZNK17RichParameterList8getFloatERK7QString(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #10 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZNK17RichParameterList18getParameterByNameERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
   %5 = load ptr, ptr %4, align 8
@@ -785,7 +785,7 @@ define noundef float @_ZNK17RichParameterList8getFloatERK7QString(ptr noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK17RichParameterList8getColorERK7QString(ptr dead_on_unwind noalias writable sret(%class.QColor) align 4 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #10 align 2 {
+define void @_ZNK17RichParameterList8getColorERK7QString(ptr dead_on_unwind noalias writable sret(%class.QColor) align 4 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #10 align 2 {
   %4 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZNK17RichParameterList18getParameterByNameERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %4)
   %6 = load ptr, ptr %5, align 8
@@ -796,7 +796,7 @@ define void @_ZNK17RichParameterList8getColorERK7QString(ptr dead_on_unwind noal
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @_ZNK17RichParameterList10getColor4bERK7QString(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #10 align 2 {
+define i32 @_ZNK17RichParameterList10getColor4bERK7QString(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #10 align 2 {
   %3 = alloca %class.QColor, align 4
   %4 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZNK17RichParameterList18getParameterByNameERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %4)
@@ -833,7 +833,7 @@ declare noundef i32 @_ZNK6QColor4blueEv(ptr noundef nonnull align 4 dereferencea
 declare noundef i32 @_ZNK6QColor5alphaEv(ptr noundef nonnull align 4 dereferenceable(14)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK17RichParameterList9getStringERK7QString(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #10 align 2 {
+define void @_ZNK17RichParameterList9getStringERK7QString(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #10 align 2 {
   %4 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZNK17RichParameterList18getParameterByNameERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %4)
   %6 = load ptr, ptr %5, align 8
@@ -844,7 +844,7 @@ define void @_ZNK17RichParameterList9getStringERK7QString(ptr dead_on_unwind noa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK17RichParameterList11getMatrix44ERK7QString(ptr dead_on_unwind noalias writable sret(%"class.vcg::Matrix44") align 4 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #10 align 2 {
+define void @_ZNK17RichParameterList11getMatrix44ERK7QString(ptr dead_on_unwind noalias writable sret(%"class.vcg::Matrix44") align 4 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #10 align 2 {
   %4 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZNK17RichParameterList18getParameterByNameERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %4)
   %6 = load ptr, ptr %5, align 8
@@ -855,7 +855,7 @@ define void @_ZNK17RichParameterList11getMatrix44ERK7QString(ptr dead_on_unwind 
 }
 
 ; Function Attrs: mustprogress uwtable
-define { <2 x float>, float } @_ZNK17RichParameterList10getPoint3mERK7QString(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
+define { <2 x float>, float } @_ZNK17RichParameterList10getPoint3mERK7QString(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZNK17RichParameterList18getParameterByNameERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
   %5 = load ptr, ptr %4, align 8
@@ -866,7 +866,7 @@ define { <2 x float>, float } @_ZNK17RichParameterList10getPoint3mERK7QString(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK17RichParameterList8getShotfERK7QString(ptr dead_on_unwind noalias writable writeonly sret(%"class.vcg::Shot") align 4 captures(none) initializes((0, 132)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK17RichParameterList8getShotfERK7QString(ptr dead_on_unwind noalias writable writeonly sret(%"class.vcg::Shot") align 4 captures(none) initializes((0, 132)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.vcg::Shot", align 4
   %5 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZNK17RichParameterList18getParameterByNameERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %5)
@@ -944,7 +944,7 @@ define void @_ZNK17RichParameterList8getShotfERK7QString(ptr dead_on_unwind noal
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK17RichParameterList10getAbsPercERK7QString(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #10 align 2 {
+define noundef float @_ZNK17RichParameterList10getAbsPercERK7QString(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #10 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZNK17RichParameterList18getParameterByNameERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
   %5 = load ptr, ptr %4, align 8
@@ -955,7 +955,7 @@ define noundef float @_ZNK17RichParameterList10getAbsPercERK7QString(ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK17RichParameterList7getEnumERK7QString(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #10 align 2 {
+define noundef i32 @_ZNK17RichParameterList7getEnumERK7QString(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #10 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZNK17RichParameterList18getParameterByNameERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
   %5 = load ptr, ptr %4, align 8
@@ -966,7 +966,7 @@ define noundef i32 @_ZNK17RichParameterList7getEnumERK7QString(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK17RichParameterList9getMeshIdERK7QString(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #10 align 2 {
+define noundef i32 @_ZNK17RichParameterList9getMeshIdERK7QString(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #10 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZNK17RichParameterList18getParameterByNameERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
   %5 = load ptr, ptr %4, align 8
@@ -977,7 +977,7 @@ define noundef i32 @_ZNK17RichParameterList9getMeshIdERK7QString(ptr noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK17RichParameterList15getDynamicFloatERK7QString(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #10 align 2 {
+define noundef float @_ZNK17RichParameterList15getDynamicFloatERK7QString(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #10 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZNK17RichParameterList18getParameterByNameERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
   %5 = load ptr, ptr %4, align 8
@@ -988,7 +988,7 @@ define noundef float @_ZNK17RichParameterList15getDynamicFloatERK7QString(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK17RichParameterList15getOpenFileNameERK7QString(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #10 align 2 {
+define void @_ZNK17RichParameterList15getOpenFileNameERK7QString(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #10 align 2 {
   %4 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZNK17RichParameterList18getParameterByNameERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %4)
   %6 = load ptr, ptr %5, align 8
@@ -999,7 +999,7 @@ define void @_ZNK17RichParameterList15getOpenFileNameERK7QString(ptr dead_on_unw
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK17RichParameterList15getSaveFileNameERK7QString(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #10 align 2 {
+define void @_ZNK17RichParameterList15getSaveFileNameERK7QString(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #10 align 2 {
   %4 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZNK17RichParameterList18getParameterByNameERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %4)
   %6 = load ptr, ptr %5, align 8
@@ -1734,7 +1734,7 @@ define ptr @_ZNK17RichParameterList5beginEv(ptr noundef nonnull readonly align 8
 declare noundef zeroext i1 @_ZNK13RichParameter10isAdvancedEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17RichParameterList8setValueERK7QStringRK5Value(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #10 align 2 {
+define void @_ZN17RichParameterList8setValueERK7QStringRK5Value(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #10 align 2 {
   %4 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN17RichParameterList18getParameterByNameERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN13RichParameter8setValueERK5Valueb(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext false)
   ret void

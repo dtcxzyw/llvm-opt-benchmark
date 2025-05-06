@@ -629,7 +629,7 @@ define internal void @fn_param_fl(ptr noundef %0, i32 noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @fn_repo_fl(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) #0 {
+define internal void @fn_repo_fl(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %4 = alloca %struct.json_writer, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) @__const.fn_counter.jw, i64 56, i1 false)
@@ -646,7 +646,7 @@ define internal void @fn_repo_fl(ptr noundef %0, i32 noundef %1, ptr noundef cap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @fn_region_enter_printf_va_fl(ptr noundef %0, i32 noundef %1, i64 %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6, ptr noundef %7) #0 {
+define internal void @fn_region_enter_printf_va_fl(ptr noundef %0, i32 noundef %1, i64 %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6, ptr noundef %7) #0 {
   %9 = alloca [1 x %struct.__va_list_tag], align 16
   %10 = alloca %struct.strbuf, align 8
   %11 = alloca %struct.json_writer, align 8
@@ -716,7 +716,7 @@ maybe_add_string_va.exit:                         ; preds = %22, %23, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @fn_region_leave_printf_va_fl(ptr noundef %0, i32 noundef %1, i64 %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6, ptr noundef %7, ptr noundef %8) #0 {
+define internal void @fn_region_leave_printf_va_fl(ptr noundef %0, i32 noundef %1, i64 %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef %7, ptr noundef %8) #0 {
   %10 = alloca [1 x %struct.__va_list_tag], align 16
   %11 = alloca %struct.strbuf, align 8
   %12 = alloca %struct.json_writer, align 8
@@ -789,7 +789,7 @@ maybe_add_string_va.exit:                         ; preds = %25, %26, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @fn_data_fl(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6, ptr noundef %7) #0 {
+define internal void @fn_data_fl(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6, ptr noundef %7) #0 {
   %9 = alloca %struct.json_writer, align 8
   %10 = tail call ptr @tr2tls_get_self() #7
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -826,7 +826,7 @@ define internal void @fn_data_fl(ptr noundef %0, i32 noundef %1, i64 noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @fn_data_json_fl(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6, ptr noundef %7) #0 {
+define internal void @fn_data_json_fl(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6, ptr noundef %7) #0 {
   %9 = alloca %struct.json_writer, align 8
   %10 = tail call ptr @tr2tls_get_self() #7
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24

@@ -17661,7 +17661,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 1184
   %32 = load ptr, ptr %31, align 8, !alias.scope !4506, !noalias !4507, !noundef !15
-  invoke fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h4dd86d82a7dfbe1dE"(ptr nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %28, ptr noundef %32)
+  invoke fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h4dd86d82a7dfbe1dE"(ptr nonnull readonly align 8 dereferenceable(8) %9, ptr noundef nonnull %28, ptr noundef %32)
           to label %33 unwind label %78, !noalias !4510
 
 33:                                               ; preds = %30, %27
@@ -17740,7 +17740,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
 "_ZN12multi_buffer19MultiBufferSnapshot14text_for_range28_$u7b$$u7b$closure$u7d$$u7d$17h31a11524d46ad4c0E.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %61, %57, %52
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %3), !noalias !4545
   %62 = getelementptr inbounds i8, ptr %53, i64 %54
-  invoke fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h4dd86d82a7dfbe1dE"(ptr nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull readonly align 1 %53, ptr noundef nonnull readonly %62)
+  invoke fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h4dd86d82a7dfbe1dE"(ptr nonnull readonly align 8 dereferenceable(8) %9, ptr noundef nonnull readonly align 1 %53, ptr noundef nonnull readnone %62)
           to label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h964e586870d600abE.exit.i.i.i.i.i.i.i.i.i" unwind label %41, !noalias !4524
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h964e586870d600abE.exit.i.i.i.i.i.i.i.i.i": ; preds = %"_ZN12multi_buffer19MultiBufferSnapshot14text_for_range28_$u7b$$u7b$closure$u7d$$u7d$17h31a11524d46ad4c0E.exit.i.i.i.i.i.i.i.i.i.i"
@@ -17786,7 +17786,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
 75:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha0279526424c2ed8E.exit.i.i.i.i.i"
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 1200
   %77 = load ptr, ptr %76, align 8, !alias.scope !4506, !noalias !4507, !noundef !15
-  invoke fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h4dd86d82a7dfbe1dE"(ptr nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %73, ptr noundef %77)
+  invoke fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h4dd86d82a7dfbe1dE"(ptr nonnull readonly align 8 dereferenceable(8) %9, ptr noundef nonnull %73, ptr noundef %77)
           to label %.noexc18 unwind label %.body.thread62
 
 78:                                               ; preds = %30
@@ -18029,7 +18029,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 1184
   %32 = load ptr, ptr %31, align 8, !alias.scope !4626, !noalias !4627, !noundef !15
-  invoke fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h59dfb3c013ba786dE"(ptr nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %28, ptr noundef %32)
+  invoke fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h59dfb3c013ba786dE"(ptr nonnull readonly align 8 dereferenceable(8) %9, ptr noundef nonnull %28, ptr noundef %32)
           to label %33 unwind label %78, !noalias !4630
 
 33:                                               ; preds = %30, %27
@@ -18108,7 +18108,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
 "_ZN12multi_buffer19MultiBufferSnapshot14text_for_range28_$u7b$$u7b$closure$u7d$$u7d$17h31a11524d46ad4c0E.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %61, %57, %52
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %3), !noalias !4665
   %62 = getelementptr inbounds i8, ptr %53, i64 %54
-  invoke fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h59dfb3c013ba786dE"(ptr nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull readonly align 1 %53, ptr noundef nonnull readonly %62)
+  invoke fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h59dfb3c013ba786dE"(ptr nonnull readonly align 8 dereferenceable(8) %9, ptr noundef nonnull readonly align 1 %53, ptr noundef nonnull readnone %62)
           to label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h836da84982fff371E.exit.i.i.i.i.i.i.i.i.i" unwind label %41, !noalias !4644
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h836da84982fff371E.exit.i.i.i.i.i.i.i.i.i": ; preds = %"_ZN12multi_buffer19MultiBufferSnapshot14text_for_range28_$u7b$$u7b$closure$u7d$$u7d$17h31a11524d46ad4c0E.exit.i.i.i.i.i.i.i.i.i.i"
@@ -18154,7 +18154,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
 75:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9570ece93a26a527E.exit.i.i.i.i.i"
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 1200
   %77 = load ptr, ptr %76, align 8, !alias.scope !4626, !noalias !4627, !noundef !15
-  invoke fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h59dfb3c013ba786dE"(ptr nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %73, ptr noundef %77)
+  invoke fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h59dfb3c013ba786dE"(ptr nonnull readonly align 8 dereferenceable(8) %9, ptr noundef nonnull %73, ptr noundef %77)
           to label %.noexc18 unwind label %.body.thread62
 
 78:                                               ; preds = %30
@@ -18397,7 +18397,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 1184
   %32 = load ptr, ptr %31, align 8, !alias.scope !4746, !noalias !4747, !noundef !15
-  invoke fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h8eefec86cdb12a2bE"(ptr nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %28, ptr noundef %32)
+  invoke fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h8eefec86cdb12a2bE"(ptr nonnull readonly align 8 dereferenceable(8) %9, ptr noundef nonnull %28, ptr noundef %32)
           to label %33 unwind label %78, !noalias !4750
 
 33:                                               ; preds = %30, %27
@@ -18476,7 +18476,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
 "_ZN12multi_buffer19MultiBufferSnapshot14text_for_range28_$u7b$$u7b$closure$u7d$$u7d$17h31a11524d46ad4c0E.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %61, %57, %52
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %3), !noalias !4785
   %62 = getelementptr inbounds i8, ptr %53, i64 %54
-  invoke fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h8eefec86cdb12a2bE"(ptr nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull readonly align 1 %53, ptr noundef nonnull readonly %62)
+  invoke fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h8eefec86cdb12a2bE"(ptr nonnull readonly align 8 dereferenceable(8) %9, ptr noundef nonnull readonly align 1 %53, ptr noundef nonnull readnone %62)
           to label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4835783881511cbfE.exit.i.i.i.i.i.i.i.i.i" unwind label %41, !noalias !4764
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4835783881511cbfE.exit.i.i.i.i.i.i.i.i.i": ; preds = %"_ZN12multi_buffer19MultiBufferSnapshot14text_for_range28_$u7b$$u7b$closure$u7d$$u7d$17h31a11524d46ad4c0E.exit.i.i.i.i.i.i.i.i.i.i"
@@ -18522,7 +18522,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
 75:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0e377c15cfad3d52E.exit.i.i.i.i.i"
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 1200
   %77 = load ptr, ptr %76, align 8, !alias.scope !4746, !noalias !4747, !noundef !15
-  invoke fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h8eefec86cdb12a2bE"(ptr nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %73, ptr noundef %77)
+  invoke fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h8eefec86cdb12a2bE"(ptr nonnull readonly align 8 dereferenceable(8) %9, ptr noundef nonnull %73, ptr noundef %77)
           to label %.noexc18 unwind label %.body.thread62
 
 78:                                               ; preds = %30

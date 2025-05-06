@@ -1995,7 +1995,7 @@ restore_ratios.exit:                              ; preds = %628, %618
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %48) #21, !noalias !289
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %49) #21, !noalias !289
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %50) #21, !noalias !289
-  %659 = call fastcc i32 @filmic_v4_prepare_matrices(ptr noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef readonly %81, ptr noundef %83), !noalias !289
+  %659 = call fastcc i32 @filmic_v4_prepare_matrices(ptr noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef readonly %81, ptr noundef readonly %83), !noalias !289
   %660 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %661 = load float, ptr %660, align 8, !tbaa !290, !noalias !289
   %662 = getelementptr inbounds nuw i8, ptr %78, i64 12
@@ -3156,7 +3156,7 @@ filmic_split_v2_v3.exit:                          ; preds = %1200, %1041
   %1303 = getelementptr inbounds nuw float, ptr %.0, i64 %.05770.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26) #21, !noalias !318
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %26, i8 0, i64 16, i1 false), !noalias !318
-  %1304 = call reassoc nsz arcp contract afn fastcc float @get_pixel_norm(ptr noundef readonly %1303, i32 noundef range(i32 1, 0) %1032, ptr noundef %81), !noalias !316
+  %1304 = call reassoc nsz arcp contract afn fastcc float @get_pixel_norm(ptr noundef readonly %1303, i32 noundef range(i32 1, 0) %1032, ptr noundef readonly %81), !noalias !316
   %1305 = fcmp reassoc nsz arcp contract afn ogt float %1304, 0x3EF0000000000000
   %1306 = select reassoc nsz arcp contract afn i1 %1305, float %1304, float 0x3EF0000000000000
   %1307 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %1306
@@ -3545,7 +3545,7 @@ filmic_chroma_v1.exit:                            ; preds = %1512, %1278
 1540:                                             ; preds = %.loopexit.i250, %.lr.ph.i247
   %.07193.i = phi i64 [ 0, %.lr.ph.i247 ], [ %1704, %.loopexit.i250 ]
   %1541 = getelementptr inbounds nuw float, ptr %.0, i64 %.07193.i
-  %1542 = call reassoc nsz arcp contract afn fastcc float @get_pixel_norm(ptr noundef readonly %1541, i32 noundef %1032, ptr noundef %81), !noalias !325
+  %1542 = call reassoc nsz arcp contract afn fastcc float @get_pixel_norm(ptr noundef readonly %1541, i32 noundef %1032, ptr noundef readonly %81), !noalias !325
   %1543 = fcmp reassoc nsz arcp contract afn ogt float %1542, 0x3EF0000000000000
   %1544 = select reassoc nsz arcp contract afn i1 %1543, float %1542, float 0x3EF0000000000000
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #21, !noalias !327
@@ -3736,7 +3736,7 @@ filmic_spline.exit300:                            ; preds = %1593, %1602, %1609,
   br i1 %exitcond95.not.i, label %1657, label %1659
 
 1668:                                             ; preds = %1657
-  %1669 = call reassoc nsz arcp contract afn fastcc float @get_pixel_norm(ptr noundef nonnull %23, i32 noundef %1032, ptr noundef %81), !noalias !327
+  %1669 = call reassoc nsz arcp contract afn fastcc float @get_pixel_norm(ptr noundef nonnull %23, i32 noundef %1032, ptr noundef readonly %81), !noalias !327
   %1670 = fcmp reassoc nsz arcp contract afn ogt float %1669, 0x3EF0000000000000
   %1671 = select reassoc nsz arcp contract afn i1 %1670, float %1669, float 0x3EF0000000000000
   %1672 = fdiv reassoc nsz arcp contract afn float %1658, %1671
@@ -3857,7 +3857,7 @@ filmic_chroma_v2_v3.exit:                         ; preds = %.loopexit.i250, %15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17) #21, !noalias !336
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %18) #21, !noalias !336
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %19) #21, !noalias !336
-  %1711 = call fastcc i32 @filmic_v4_prepare_matrices(ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %81, ptr noundef %83), !noalias !336
+  %1711 = call fastcc i32 @filmic_v4_prepare_matrices(ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef readonly %81, ptr noundef readonly %83), !noalias !336
   %1712 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %1713 = load float, ptr %1712, align 8, !tbaa !290, !noalias !336
   %1714 = getelementptr inbounds nuw i8, ptr %78, i64 12
@@ -3906,7 +3906,7 @@ filmic_chroma_v2_v3.exit:                         ; preds = %.loopexit.i250, %15
   %.063.i = phi i64 [ 0, %.lr.ph.i254 ], [ %1968, %RGB_to_Ych.exit44.i ]
   %1747 = getelementptr inbounds nuw float, ptr %.0, i64 %.063.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #21, !noalias !336
-  %1748 = call reassoc nsz arcp contract afn fastcc float @get_pixel_norm(ptr noundef readonly %1747, i32 noundef range(i32 1, 0) %1032, ptr noundef %81), !noalias !334
+  %1748 = call reassoc nsz arcp contract afn fastcc float @get_pixel_norm(ptr noundef readonly %1747, i32 noundef range(i32 1, 0) %1032, ptr noundef readonly %81), !noalias !334
   %1749 = fcmp reassoc nsz arcp contract afn ult float %1748, %1721
   br i1 %1749, label %1753, label %1750
 
@@ -5151,7 +5151,7 @@ filmic_spline.exit:                               ; preds = %204, %213, %220, %2
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @filmic_split_v4(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly byval(%struct.dt_iop_filmic_rgb_spline_t) align 16 captures(none) %5, i64 noundef range(i64 -2147483648, 2147483648) %6, i64 noundef range(i64 -2147483648, 2147483648) %7, float noundef %8, float noundef %9) unnamed_addr #11 {
+define internal fastcc void @filmic_split_v4(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly byval(%struct.dt_iop_filmic_rgb_spline_t) align 16 captures(none) %5, i64 noundef range(i64 -2147483648, 2147483648) %6, i64 noundef range(i64 -2147483648, 2147483648) %7, float noundef %8, float noundef %9) unnamed_addr #11 {
   %11 = alloca [4 x float], align 16
   %12 = alloca [4 x float], align 16
   %13 = alloca [4 x float], align 16

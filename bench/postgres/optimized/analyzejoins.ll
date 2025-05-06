@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.remove_self_joins_recurse = private unnamed_addr constant [26 x i8] c"remove_self_joins_recurse\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @remove_useless_joins(ptr noundef %0, ptr noundef captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #0 {
+define dso_local ptr @remove_useless_joins(ptr noundef %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -393,7 +393,7 @@ join_is_removable.exit:                           ; preds = %clause_sides_match_
   %220 = call ptr @bms_add_member(ptr noundef %219, i32 noundef %216) #7
   %221 = getelementptr i8, ptr %215, i64 112
   %.val.i = load i32, ptr %221, align 8
-  call fastcc void @remove_rel_from_query(ptr noundef nonnull %0, i32 %.val.i, i32 noundef -1, ptr noundef %18, ptr noundef %220)
+  call fastcc void @remove_rel_from_query(ptr noundef nonnull %0, i32 %.val.i, i32 noundef -1, ptr noundef readonly %18, ptr noundef %220)
   %222 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %223 = load ptr, ptr %222, align 8
   %224 = call ptr @bms_union(ptr noundef %220, ptr noundef %223) #7
@@ -739,7 +739,7 @@ query_supports_distinctness.exit.i:               ; preds = %52
   %90 = load ptr, ptr %89, align 8
   %91 = call ptr @list_concat(ptr noundef %88, ptr noundef %90) #7
   %92 = load ptr, ptr %83, align 8
-  %93 = call noundef zeroext i1 @innerrel_is_unique_ext(ptr noundef %0, ptr noundef %86, ptr noundef %92, ptr noundef %24, i32 noundef 4, ptr noundef %91, i1 noundef zeroext true, ptr noundef null)
+  %93 = call noundef zeroext i1 @innerrel_is_unique_ext(ptr noundef %0, ptr noundef %86, ptr noundef %92, ptr noundef %24, i32 noundef 4, ptr noundef readonly %91, i1 noundef zeroext true, ptr noundef null)
   br i1 %93, label %94, label %rel_supports_distinctness.exit
 
 94:                                               ; preds = %.loopexit
@@ -769,7 +769,7 @@ declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @generate_join_implied_equalities(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @innerrel_is_unique(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @innerrel_is_unique(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = tail call zeroext i1 @innerrel_is_unique_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6, ptr noundef null)
   ret i1 %8
 }
@@ -1655,7 +1655,7 @@ declare ptr @bms_copy(ptr noundef) local_unnamed_addr #2
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @remove_useless_self_joins(ptr noundef %0, ptr noundef captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #0 {
+define dso_local ptr @remove_useless_self_joins(ptr noundef %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load i8, ptr @enable_self_join_elimination, align 1, !range !4, !noundef !5
   %5 = trunc nuw i8 %4 to i1

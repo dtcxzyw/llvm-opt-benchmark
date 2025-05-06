@@ -58204,7 +58204,7 @@ define internal fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr138drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..common_state..State$LT$rustls..client..client_conn..ClientConnectionData$GT$$GT$$GT$17h86856f73a4a52c78E"(ptr %.0.val, ptr captures(address_is_null) %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr138drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..common_state..State$LT$rustls..client..client_conn..ClientConnectionData$GT$$GT$$GT$17h86856f73a4a52c78E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !4, !nonnull !4
@@ -59964,7 +59964,7 @@ define hidden void @"_ZN4core3ptr66drop_in_place$LT$serde..__private..de..conten
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$17hd745c5d7240061b0E"(ptr %.0.val, ptr captures(address_is_null) %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$17hd745c5d7240061b0E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !4, !nonnull !4
@@ -137293,7 +137293,7 @@ _ZN6rustls12common_state11CommonState16send_fatal_alert17h1f9e5c672bf8d81cE.exit
 265:                                              ; preds = %263
   %266 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf0f97030179360a7E"(ptr nonnull %.val.i.i, ptr nonnull %.val1.i.i) #57, !noalias !35215
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf0f97030179360a7E"(ptr nonnull %.val.i.i, ptr nonnull readonly %.val1.i.i) #57, !noalias !35215
   br label %.body52.i
 
 267:                                              ; preds = %263
@@ -137378,7 +137378,7 @@ _ZN6rustls12common_state11CommonState16send_fatal_alert17h1f9e5c672bf8d81cE.exit
 290:                                              ; preds = %288
   %291 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf0f97030179360a7E"(ptr nonnull %.val.i55.i, ptr nonnull %.val1.i56.i) #57, !noalias !35221
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf0f97030179360a7E"(ptr nonnull %.val.i55.i, ptr nonnull readonly %.val1.i56.i) #57, !noalias !35221
   br label %.body58.i
 
 292:                                              ; preds = %288
@@ -137451,7 +137451,7 @@ common.resume:                                    ; preds = %401, %360, %388, %.
 306:                                              ; preds = %304
   %307 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf0f97030179360a7E"(ptr nonnull %.sroa.0.2.i, ptr nonnull %.sroa.10.2.i) #57, !noalias !35105
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf0f97030179360a7E"(ptr nonnull %.sroa.0.2.i, ptr nonnull readonly %.sroa.10.2.i) #57, !noalias !35105
   br label %common.resume
 
 308:                                              ; preds = %304
@@ -137503,7 +137503,7 @@ common.resume:                                    ; preds = %401, %360, %388, %.
 323:                                              ; preds = %321
   %324 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf0f97030179360a7E"(ptr nonnull %.val.i62.i, ptr nonnull %.val1.i63.i) #57, !noalias !35226
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf0f97030179360a7E"(ptr nonnull %.val.i62.i, ptr nonnull readonly %.val1.i63.i) #57, !noalias !35226
   br label %.body65.i
 
 325:                                              ; preds = %321
@@ -146473,7 +146473,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h13486f179d224301E"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef captures(address) %2) unnamed_addr #1 {
+define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h13486f179d224301E"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 {
   tail call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h77f8c5323aedbd9bE.llvm.7819687297340404219"(ptr noalias noundef nonnull sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef %2)
   ret void
 }
@@ -146509,7 +146509,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h355f83cb825c1cf5E"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef captures(address) %2) unnamed_addr #1 {
+define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h355f83cb825c1cf5E"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 {
   tail call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h839a90854ef25034E.llvm.7819687297340404219"(ptr noalias noundef nonnull sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef %2)
   ret void
 }
@@ -146605,7 +146605,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h83f80ea7e32c4dacE"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef captures(address) %2) unnamed_addr #1 {
+define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h83f80ea7e32c4dacE"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 {
   tail call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h3d414b4bfe026c36E.llvm.7819687297340404219"(ptr noalias noundef nonnull sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef %2)
   ret void
 }
@@ -148561,7 +148561,7 @@ _ZN9tiny_http8response20write_message_header17hdbda00a57e3f932aE.exit: ; preds =
 311:                                              ; preds = %309
   %312 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h60fc89cb57b5d27eE"(ptr nonnull %.sroa.057.0, ptr nonnull %.sroa.458.0) #57
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h60fc89cb57b5d27eE"(ptr nonnull %.sroa.057.0, ptr nonnull readonly %.sroa.458.0) #57
   br label %.body110
 
 313:                                              ; preds = %309
@@ -148616,7 +148616,7 @@ _ZN9tiny_http8response20write_message_header17hdbda00a57e3f932aE.exit.thread: ; 
 330:                                              ; preds = %_ZN9tiny_http8response20write_message_header17hdbda00a57e3f932aE.exit.thread
   %331 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h60fc89cb57b5d27eE"(ptr nonnull %.sroa.057.0, ptr nonnull %.sroa.458.0) #57
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h60fc89cb57b5d27eE"(ptr nonnull %.sroa.057.0, ptr nonnull readonly %.sroa.458.0) #57
   br label %.body110
 
 332:                                              ; preds = %_ZN9tiny_http8response20write_message_header17hdbda00a57e3f932aE.exit.thread

@@ -28712,7 +28712,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 declare void @_ZN3nix9writeFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_Ejb(ptr noundef nonnull align 8 dereferenceable(32), i64, ptr, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nix8fetchersL5runHgERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEERKSt8optionalIS7_E(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3nix8fetchersL5runHgERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEERKSt8optionalIS7_E(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.nix::RunOptions", align 8
   %5 = alloca %"struct.std::pair.211", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

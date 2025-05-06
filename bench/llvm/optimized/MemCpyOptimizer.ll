@@ -10270,7 +10270,7 @@ _ZN4llvm17PreservedAnalyses11preserveSetINS_11CFGAnalysesEEEvv.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm13MemCpyOptPass7runImplERNS_8FunctionEPNS_17TargetLibraryInfoEPNS_9AAResultsEPNS_15AssumptionCacheEPNS_13DominatorTreeEPNS_17PostDominatorTreeEPNS_9MemorySSAE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(136) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm13MemCpyOptPass7runImplERNS_8FunctionEPNS_17TargetLibraryInfoEPNS_9AAResultsEPNS_15AssumptionCacheEPNS_13DominatorTreeEPNS_17PostDominatorTreeEPNS_9MemorySSAE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #1 align 2 {
   %9 = alloca %"class.llvm::MemorySSAUpdater", align 8
   %10 = alloca %"class.llvm::EarliestEscapeAnalysis", align 8
   store ptr %2, ptr %0, align 8, !tbaa !287

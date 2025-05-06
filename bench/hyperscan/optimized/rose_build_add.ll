@@ -17084,7 +17084,7 @@ _ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_11RoseI
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @"_ZSt27__stable_partition_adaptiveIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_11RoseInGraphENS2_17RoseInVertexPropsENS2_15RoseInEdgePropsEEEEESt6vectorISA_SaISA_EEEESB_NS0_5__ops10_Iter_predIZNS2_L20shift_accepts_to_endERKS6_RSE_E3$_0EElET_SN_SN_T1_T2_T0_SP_"(ptr %0, ptr captures(address) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #18 {
+define internal fastcc ptr @"_ZSt27__stable_partition_adaptiveIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_11RoseInGraphENS2_17RoseInVertexPropsENS2_15RoseInEdgePropsEEEEESt6vectorISA_SaISA_EEEESB_NS0_5__ops10_Iter_predIZNS2_L20shift_accepts_to_endERKS6_RSE_E3$_0EElET_SN_SN_T1_T2_T0_SP_"(ptr %0, ptr readnone captures(address) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #18 {
   %6 = alloca %"class.ue2::graph_detail::vertex_descriptor.264", align 8
   %7 = alloca %"class.ue2::graph_detail::vertex_descriptor.264", align 8
   %8 = alloca %"class.ue2::graph_detail::vertex_descriptor.264", align 8

@@ -81,7 +81,7 @@ define hidden void @PBKDF2PARAM_free(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @PKCS5_pbe2_set_iv(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden ptr @PKCS5_pbe2_set_iv(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca %struct.evp_cipher_ctx_st, align 8
   %9 = alloca [16 x i8], align 16
@@ -402,7 +402,7 @@ declare ptr @ASN1_item_pack(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @PKCS5_pbe2_set(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden ptr @PKCS5_pbe2_set(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @PKCS5_pbe2_set_iv(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef null, i32 noundef -1)
   ret ptr %5
 }

@@ -420,7 +420,7 @@ define dso_local range(i64 -34359738344, 34359738377) i64 @onig_region_memsize(p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @onig_compile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #4 {
+define dso_local i32 @onig_compile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = tail call i32 @onig_compile_ruby(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef null, i32 noundef 0)
   ret i32 %5
 }
@@ -6060,7 +6060,7 @@ define dso_local noundef i32 @onig_init() local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @onig_new_without_alloc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #4 {
+define dso_local i32 @onig_new_without_alloc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #4 {
   %8 = load i32, ptr @OnigDefaultCaseFoldFlag, align 4, !tbaa !7
   %.b.i = load i1, ptr @onig_inited, align 4
   br i1 %.b.i, label %10, label %onig_init.exit.i
@@ -6121,7 +6121,7 @@ onig_reg_init.exit.thread:                        ; preds = %14, %12, %10, %17
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @onig_new(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #4 {
+define dso_local i32 @onig_new(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #4 {
   %8 = tail call noalias dereferenceable_or_null(456) ptr @malloc(i64 noundef 456) #19
   store ptr %8, ptr %0, align 8, !tbaa !28
   %9 = icmp eq ptr %8, null

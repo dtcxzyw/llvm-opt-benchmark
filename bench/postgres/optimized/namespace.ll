@@ -1640,7 +1640,7 @@ define internal fastcc noundef zeroext i1 @TypeIsVisibleExt(i32 noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @FuncnameGetCandidates(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
+define dso_local ptr @FuncnameGetCandidates(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
@@ -2357,7 +2357,7 @@ MatchNamedCall.exit:                              ; preds = %192, %.thread93.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @DeconstructQualifiedName(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define dso_local void @DeconstructQualifiedName(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
 
@@ -2547,7 +2547,7 @@ define internal fastcc zeroext i1 @FunctionIsVisibleExt(i32 noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @OpernameGetOprid(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @OpernameGetOprid(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
@@ -2680,7 +2680,7 @@ declare ptr @SearchSysCache4(i32 noundef, i64 noundef, i64 noundef, i64 noundef,
 declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @OpernameGetCandidates(ptr noundef captures(address_is_null) %0, i8 noundef signext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local ptr @OpernameGetCandidates(ptr noundef readonly captures(address_is_null) %0, i8 noundef signext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
@@ -3713,7 +3713,7 @@ ConversionGetConid.exit:                          ; preds = %35, %select.unfold.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_statistics_object_oid(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local i32 @get_statistics_object_oid(ptr noundef readonly captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
@@ -3962,7 +3962,7 @@ define internal fastcc noundef zeroext i1 @StatisticsObjIsVisibleExt(i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_ts_parser_oid(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local i32 @get_ts_parser_oid(ptr noundef readonly captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
@@ -4162,7 +4162,7 @@ define internal fastcc noundef zeroext i1 @TSParserIsVisibleExt(i32 noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_ts_dict_oid(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local i32 @get_ts_dict_oid(ptr noundef readonly captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
@@ -4362,7 +4362,7 @@ define internal fastcc noundef zeroext i1 @TSDictionaryIsVisibleExt(i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_ts_template_oid(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local i32 @get_ts_template_oid(ptr noundef readonly captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
@@ -4562,7 +4562,7 @@ define internal fastcc noundef zeroext i1 @TSTemplateIsVisibleExt(i32 noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_ts_config_oid(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local i32 @get_ts_config_oid(ptr noundef readonly captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
@@ -4899,7 +4899,7 @@ isAnyTempNamespace.exit7.thread:                  ; preds = %isAnyTempNamespace.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @QualifiedNameGetCreationNamespace(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define dso_local i32 @QualifiedNameGetCreationNamespace(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
   call void @DeconstructQualifiedName(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %1)
@@ -4957,7 +4957,7 @@ get_namespace_oid.exit:                           ; preds = %get_namespace_oid.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @makeRangeVarFromNameList(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @makeRangeVarFromNameList(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @makeRangeVar(ptr noundef null, ptr noundef null, i32 noundef -1) #19
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
@@ -5493,7 +5493,7 @@ list_head.exit.thread:                            ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_collation_oid(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local i32 @get_collation_oid(ptr noundef readonly captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
@@ -5647,7 +5647,7 @@ lookup_collation.exit.thread:                     ; preds = %lookup_collation.ex
 declare ptr @GetDatabaseEncodingName() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_conversion_oid(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local i32 @get_conversion_oid(ptr noundef readonly captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19

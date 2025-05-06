@@ -6075,7 +6075,7 @@ _ZNKSt3mapISt6vectorImSaImEEN4llvm28WholeProgramDevirtResolution5ByArgESt4lessIS
   %609 = ashr exact i64 %561, 3
   %610 = load ptr, ptr %0, align 8, !tbaa !387
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %55) #24
-  call fastcc void @_ZN12_GLOBAL__N_112DevirtModule13getGlobalNameB5cxx11ENS_10VTableSlotEN4llvm8ArrayRefImEENS2_9StringRefE(ptr dead_on_unwind noalias writable align 8 %55, ptr nonnull %.sroa.0155.0.copyload, i64 %.sroa.2156.0.copyload, ptr %556, i64 %609, ptr nonnull @.str.165, i64 13)
+  call fastcc void @_ZN12_GLOBAL__N_112DevirtModule13getGlobalNameB5cxx11ENS_10VTableSlotEN4llvm8ArrayRefImEENS2_9StringRefE(ptr dead_on_unwind noalias writable align 8 %55, ptr nonnull %.sroa.0155.0.copyload, i64 %.sroa.2156.0.copyload, ptr readonly %556, i64 %609, ptr nonnull @.str.165, i64 13)
   %611 = load ptr, ptr %55, align 8, !tbaa !62
   %612 = load i64, ptr %478, align 8, !tbaa !55
   %613 = load ptr, ptr %479, align 8, !tbaa !386
@@ -38899,7 +38899,7 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_112DevirtModule14importConstantENS_10VTableSlotEN4llvm8ArrayRefImEENS2_9StringRefEPNS2_11IntegerTypeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %0, ptr %1, i64 %2, ptr captures(address) %3, i64 %4, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %5, ptr noundef %6, i32 noundef %7) unnamed_addr #1 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_112DevirtModule14importConstantENS_10VTableSlotEN4llvm8ArrayRefImEENS2_9StringRefEPNS2_11IntegerTypeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %0, ptr %1, i64 %2, ptr readonly captures(address) %3, i64 %4, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %5, ptr noundef %6, i32 noundef %7) unnamed_addr #1 align 2 {
   %9 = alloca [2 x ptr], align 8
   %10 = alloca [2 x ptr], align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -38957,7 +38957,7 @@ _ZN12_GLOBAL__N_112DevirtModule38shouldExportConstantsAsAbsoluteSymbolsEv.exit: 
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !48
   %36 = load ptr, ptr %0, align 8, !tbaa !387
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #24
-  call fastcc void @_ZN12_GLOBAL__N_112DevirtModule13getGlobalNameB5cxx11ENS_10VTableSlotEN4llvm8ArrayRefImEENS2_9StringRefE(ptr dead_on_unwind noalias writable align 8 %11, ptr %1, i64 %2, ptr %3, i64 %4, ptr %.sroa.023.0.copyload, i64 %.sroa.2.0.copyload)
+  call fastcc void @_ZN12_GLOBAL__N_112DevirtModule13getGlobalNameB5cxx11ENS_10VTableSlotEN4llvm8ArrayRefImEENS2_9StringRefE(ptr dead_on_unwind noalias writable align 8 %11, ptr %1, i64 %2, ptr readonly %3, i64 %4, ptr %.sroa.023.0.copyload, i64 %.sroa.2.0.copyload)
   %37 = load ptr, ptr %11, align 8, !tbaa !62
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %39 = load i64, ptr %38, align 8, !tbaa !55
@@ -42980,7 +42980,7 @@ _ZN4llvmneENS_9StringRefES0_.exit39:              ; preds = %_ZN4llvm15FunctionS
 declare i32 @_ZN4llvm31computeFunctionBodyMemoryAccessERNS_8FunctionERNS_9AAResultsE(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112DevirtModule14exportConstantENS_10VTableSlotEN4llvm8ArrayRefImEENS2_9StringRefEjRj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %0, ptr %1, i64 %2, ptr captures(address) %3, i64 %4, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %5, i32 noundef %6, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %7) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_112DevirtModule14exportConstantENS_10VTableSlotEN4llvm8ArrayRefImEENS2_9StringRefEjRj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %0, ptr %1, i64 %2, ptr readonly captures(address) %3, i64 %4, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %5, i32 noundef %6, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %7) unnamed_addr #1 align 2 {
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.llvm::Triple", align 8
@@ -43041,7 +43041,7 @@ _ZN12_GLOBAL__N_112DevirtModule38shouldExportConstantsAsAbsoluteSymbolsEv.exit: 
   %40 = load ptr, ptr %39, align 8, !tbaa !381
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #24
-  call fastcc void @_ZN12_GLOBAL__N_112DevirtModule13getGlobalNameB5cxx11ENS_10VTableSlotEN4llvm8ArrayRefImEENS2_9StringRefE(ptr dead_on_unwind noalias writable align 8 %10, ptr %1, i64 %2, ptr %3, i64 %4, ptr %.sroa.09.0.copyload, i64 %.sroa.2.0.copyload)
+  call fastcc void @_ZN12_GLOBAL__N_112DevirtModule13getGlobalNameB5cxx11ENS_10VTableSlotEN4llvm8ArrayRefImEENS2_9StringRefE(ptr dead_on_unwind noalias writable align 8 %10, ptr %1, i64 %2, ptr readonly %3, i64 %4, ptr %.sroa.09.0.copyload, i64 %.sroa.2.0.copyload)
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i8 4, ptr %41, align 8, !tbaa !221
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 33
@@ -43564,7 +43564,7 @@ _ZN12_GLOBAL__N_112DevirtModule13getMemberAddrEPKN4llvm18wholeprogramdevirt14Typ
   %68 = load ptr, ptr %24, align 8, !tbaa !381
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
-  call fastcc void @_ZN12_GLOBAL__N_112DevirtModule13getGlobalNameB5cxx11ENS_10VTableSlotEN4llvm8ArrayRefImEENS2_9StringRefE(ptr dead_on_unwind noalias writable align 8 %3, ptr %.sroa.010.0.copyload, i64 %.sroa.211.0.copyload, ptr %.sroa.08.0.copyload, i64 %.sroa.29.0.copyload, ptr nonnull @.str.165, i64 13)
+  call fastcc void @_ZN12_GLOBAL__N_112DevirtModule13getGlobalNameB5cxx11ENS_10VTableSlotEN4llvm8ArrayRefImEENS2_9StringRefE(ptr dead_on_unwind noalias writable align 8 %3, ptr %.sroa.010.0.copyload, i64 %.sroa.211.0.copyload, ptr readonly %.sroa.08.0.copyload, i64 %.sroa.29.0.copyload, ptr nonnull @.str.165, i64 13)
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i8 4, ptr %69, align 8, !tbaa !221
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 33

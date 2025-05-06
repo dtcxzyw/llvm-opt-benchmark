@@ -10230,7 +10230,7 @@ cvYddNorm.exit.thread:                            ; preds = %316, %293, %254, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -9999, -2) i32 @cvHandleFailure(ptr noundef nonnull captures(address_is_null) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -9999, -2) i32 @cvHandleFailure(ptr noundef nonnull readonly captures(address_is_null) %0, i32 noundef %1) unnamed_addr #0 {
   switch i32 %1, label %79 [
     i32 -3, label %3
     i32 -4, label %8
@@ -11543,7 +11543,7 @@ cvRootfind.exit.thread:                           ; preds = %200, %._crit_edge.t
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -28, 1) i32 @CVodeGetDky(ptr noundef captures(address_is_null) %0, double noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -28, 1) i32 @CVodeGetDky(ptr noundef readonly captures(address_is_null) %0, double noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -12207,7 +12207,7 @@ declare i32 @N_VLinearCombination(i32 noundef, ptr noundef, ptr noundef, ptr nou
 declare double @SUNRpowerI(double noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -30, 1) i32 @CVodeGetQuad(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -30, 1) i32 @CVodeGetQuad(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -12228,7 +12228,7 @@ define range(i32 -30, 1) i32 @CVodeGetQuad(ptr noundef captures(address_is_null)
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -30, 1) i32 @CVodeGetQuadDky(ptr noundef captures(address_is_null) %0, double noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -30, 1) i32 @CVodeGetQuadDky(ptr noundef readonly captures(address_is_null) %0, double noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -12386,7 +12386,7 @@ define range(i32 -30, 1) i32 @CVodeGetQuadDky(ptr noundef captures(address_is_nu
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -45, 1) i32 @CVodeGetSens(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -45, 1) i32 @CVodeGetSens(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -12408,7 +12408,7 @@ define range(i32 -45, 1) i32 @CVodeGetSens(ptr noundef captures(address_is_null)
   br i1 %12, label %.lr.ph.i, label %CVodeGetSensDky.exit
 
 13:                                               ; preds = %6
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -26, i32 noundef 4035, ptr noundef nonnull @__func__.CVodeGetSensDky, ptr noundef nonnull @.str, ptr noundef nonnull @.str.63)
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull readonly %0, i32 noundef -26, i32 noundef 4035, ptr noundef nonnull @__func__.CVodeGetSensDky, ptr noundef nonnull @.str, ptr noundef nonnull @.str.63)
   br label %CVodeGetSensDky.exit
 
 14:                                               ; preds = %.lr.ph.i
@@ -12423,7 +12423,7 @@ define range(i32 -45, 1) i32 @CVodeGetSens(ptr noundef captures(address_is_null)
   %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8, !tbaa !65
   %20 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %21 = tail call i32 @CVodeGetSensDky1(ptr noundef nonnull %0, double noundef %8, i32 noundef 0, i32 noundef %20, ptr noundef %19)
+  %21 = tail call i32 @CVodeGetSensDky1(ptr noundef nonnull readonly %0, double noundef %8, i32 noundef 0, i32 noundef %20, ptr noundef %19)
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %14, label %CVodeGetSensDky.exit
 
@@ -12433,7 +12433,7 @@ CVodeGetSensDky.exit:                             ; preds = %.lr.ph.i, %14, %13,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -45, 1) i32 @CVodeGetSensDky(ptr noundef captures(address_is_null) %0, double noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 -45, 1) i32 @CVodeGetSensDky(ptr noundef readonly captures(address_is_null) %0, double noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -12477,7 +12477,7 @@ define range(i32 -45, 1) i32 @CVodeGetSensDky(ptr noundef captures(address_is_nu
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -45, 1) i32 @CVodeGetSens1(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -45, 1) i32 @CVodeGetSens1(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -12498,7 +12498,7 @@ define range(i32 -45, 1) i32 @CVodeGetSens1(ptr noundef captures(address_is_null
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -45, 1) i32 @CVodeGetSensDky1(ptr noundef captures(address_is_null) %0, double noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -45, 1) i32 @CVodeGetSensDky1(ptr noundef readonly captures(address_is_null) %0, double noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -12673,7 +12673,7 @@ define range(i32 -45, 1) i32 @CVodeGetSensDky1(ptr noundef captures(address_is_n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -50, 1) i32 @CVodeGetQuadSens(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @CVodeGetQuadSens(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -12695,7 +12695,7 @@ define range(i32 -50, 1) i32 @CVodeGetQuadSens(ptr noundef captures(address_is_n
   br i1 %12, label %.lr.ph.i, label %CVodeGetQuadSensDky.exit
 
 13:                                               ; preds = %6
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -26, i32 noundef 4232, ptr noundef nonnull @__func__.CVodeGetQuadSensDky, ptr noundef nonnull @.str, ptr noundef nonnull @.str.63)
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull readonly %0, i32 noundef -26, i32 noundef 4232, ptr noundef nonnull @__func__.CVodeGetQuadSensDky, ptr noundef nonnull @.str, ptr noundef nonnull @.str.63)
   br label %CVodeGetQuadSensDky.exit
 
 14:                                               ; preds = %.lr.ph.i
@@ -12710,7 +12710,7 @@ define range(i32 -50, 1) i32 @CVodeGetQuadSens(ptr noundef captures(address_is_n
   %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8, !tbaa !65
   %20 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %21 = tail call i32 @CVodeGetQuadSensDky1(ptr noundef nonnull %0, double noundef %8, i32 noundef 0, i32 noundef %20, ptr noundef %19)
+  %21 = tail call i32 @CVodeGetQuadSensDky1(ptr noundef nonnull readonly %0, double noundef %8, i32 noundef 0, i32 noundef %20, ptr noundef %19)
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %14, label %CVodeGetQuadSensDky.exit
 
@@ -12720,7 +12720,7 @@ CVodeGetQuadSensDky.exit:                         ; preds = %.lr.ph.i, %14, %13,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -50, 1) i32 @CVodeGetQuadSensDky(ptr noundef captures(address_is_null) %0, double noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @CVodeGetQuadSensDky(ptr noundef readonly captures(address_is_null) %0, double noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -12764,7 +12764,7 @@ define range(i32 -50, 1) i32 @CVodeGetQuadSensDky(ptr noundef captures(address_i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -50, 1) i32 @CVodeGetQuadSens1(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @CVodeGetQuadSens1(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -12785,7 +12785,7 @@ define range(i32 -50, 1) i32 @CVodeGetQuadSens1(ptr noundef captures(address_is_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -50, 1) i32 @CVodeGetQuadSensDky1(ptr noundef captures(address_is_null) %0, double noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @CVodeGetQuadSensDky1(ptr noundef readonly captures(address_is_null) %0, double noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 

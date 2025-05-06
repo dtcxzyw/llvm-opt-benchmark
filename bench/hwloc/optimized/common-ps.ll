@@ -801,7 +801,7 @@ hwloc_ps_free_process.exit:                       ; preds = %43, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @hwloc_ps_foreach_child(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i64 noundef %5, ptr noundef captures(address_is_null) %6, i64 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @hwloc_ps_foreach_child(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i64 noundef %5, ptr noundef readonly captures(address_is_null) %6, i64 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.hwloc_ps_process, align 8
   %10 = alloca [512 x i8], align 16
   %11 = alloca [4096 x i8], align 16

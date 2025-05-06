@@ -3489,7 +3489,7 @@ define internal i32 @dissect_tls_sct_ber(ptr noundef %0, ptr noundef %1, ptr nou
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal zeroext i1 @dissect_ssl_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal zeroext i1 @dissect_ssl_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %6 = icmp ult i32 %5, 5
   br i1 %6, label %is_sslv3_or_tls.exit.thread, label %7

@@ -445,7 +445,7 @@ sw.bb8:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb8
-  tail call void @_ZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %0, i1 noundef zeroext %tobool11, ptr noundef nonnull %10, ptr noundef %value)
+  tail call void @_ZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %0, i1 noundef zeroext %tobool11, ptr noundef nonnull readonly %10, ptr noundef %value)
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit
 
 if.else.i:                                        ; preds = %sw.bb8
@@ -454,7 +454,7 @@ if.else.i:                                        ; preds = %sw.bb8
   br i1 %tobool4.not.i, label %if.else7.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.else.i
-  tail call void @_ZN6hermes5irgen11ESTreeIRGen23emitDestructuringObjectEbPNS_6ESTree17ObjectPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %0, i1 noundef zeroext %tobool11, ptr noundef nonnull %10, ptr noundef %value)
+  tail call void @_ZN6hermes5irgen11ESTreeIRGen23emitDestructuringObjectEbPNS_6ESTree17ObjectPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %0, i1 noundef zeroext %tobool11, ptr noundef nonnull readonly %10, ptr noundef %value)
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -620,7 +620,7 @@ return:                                           ; preds = %land.lhs.true11, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %this, i1 noundef zeroext %declInit, ptr noundef captures(address) %target, ptr noundef %source) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %this, i1 noundef zeroext %declInit, ptr noundef readonly captures(address) %target, ptr noundef %source) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %target, i64 16

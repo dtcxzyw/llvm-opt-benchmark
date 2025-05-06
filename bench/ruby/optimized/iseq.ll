@@ -5720,7 +5720,7 @@ declare i32 @dladdr(ptr noundef, ptr noundef) local_unnamed_addr #10
 declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 256) i32 @rb_iseq_disasm_insn(i64 noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 256) i32 @rb_iseq_disasm_insn(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i64, ptr %1, i64 %2
   %7 = load i64, ptr %6, align 8, !tbaa !42
   %8 = getelementptr [220 x i8], ptr @rb_vm_insn_len_info, i64 0, i64 %7

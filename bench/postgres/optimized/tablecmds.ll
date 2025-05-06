@@ -8626,7 +8626,7 @@ ATRewriteTables.exit:                             ; preds = %._crit_edge232.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @AlterTableInternal(i32 noundef %0, ptr noundef captures(address_is_null) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local void @AlterTableInternal(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call i32 @AlterTableGetLockLevel(ptr noundef %1)
   %5 = tail call ptr @relation_open(i32 noundef %0, i32 noundef %4) #15
   tail call void @EventTriggerAlterTableRelid(i32 noundef %0) #15
@@ -9773,10 +9773,10 @@ define dso_local range(i32 1665, 1664) i32 @AlterTableMoveAll(ptr noundef %0) lo
   %128 = call ptr @lappend(ptr noundef null, ptr noundef nonnull %124) #15
   call void @EventTriggerAlterTableStart(ptr noundef %0) #15
   %129 = load i32, ptr %123, align 8
-  %130 = call i32 @AlterTableGetLockLevel(ptr noundef %128)
+  %130 = call i32 @AlterTableGetLockLevel(ptr noundef readonly %128)
   %131 = call ptr @relation_open(i32 noundef %129, i32 noundef %130) #15
   call void @EventTriggerAlterTableRelid(i32 noundef %129) #15
-  call fastcc void @ATController(ptr noundef null, ptr noundef %131, ptr noundef %128, i1 noundef zeroext false, i32 noundef %130, ptr noundef null)
+  call fastcc void @ATController(ptr noundef null, ptr noundef %131, ptr noundef readonly %128, i1 noundef zeroext false, i32 noundef %130, ptr noundef null)
   call void @EventTriggerAlterTableEnd() #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %132 = load i32, ptr %118, align 4
@@ -20730,7 +20730,7 @@ define internal fastcc { i64, i32 } @ATExecAddIdentity(ptr noundef readonly capt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i32 } @ATExecSetIdentity(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc { i64, i32 } @ATExecSetIdentity(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 115

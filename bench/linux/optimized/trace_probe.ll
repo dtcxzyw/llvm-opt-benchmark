@@ -2993,7 +2993,7 @@ define internal fastcc ptr @find_fetch_type(ptr noundef %0, i64 noundef range(i6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(address) %2, ptr noundef captures(none) %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef captures(none) %3) unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8

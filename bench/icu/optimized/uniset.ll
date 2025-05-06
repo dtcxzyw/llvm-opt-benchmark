@@ -791,7 +791,7 @@ _ZN6icu_7710UnicodeSet14releasePatternEv.exit:    ; preds = %72, %.critedge, %74
 declare void @_ZN6icu_7713UnicodeFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7710UnicodeSetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 16)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(200) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7710UnicodeSetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(200) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 264) (i8, ptr @_ZTVN6icu_7710UnicodeSetE, i64 16), ptr %0, align 8, !tbaa !29
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_7710UnicodeSetE, i64 296), ptr %3, align 8, !tbaa !29
@@ -812,7 +812,7 @@ define void @_ZN6icu_7710UnicodeSetC2ERKS0_(ptr noundef nonnull align 8 derefere
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %9, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %13 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet8copyFromERKS0_a(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(200) %1, i8 noundef signext 0)
+  %13 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet8copyFromERKS0_a(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull readonly align 8 dereferenceable(200) %1, i8 noundef signext 0)
           to label %_ZN6icu_7710UnicodeSetaSERKS0_.exit unwind label %14
 
 _ZN6icu_7710UnicodeSetaSERKS0_.exit:              ; preds = %2
@@ -826,7 +826,7 @@ _ZN6icu_7710UnicodeSetaSERKS0_.exit:              ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSetaSERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(200) %1) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSetaSERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(200) %1) local_unnamed_addr #1 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet8copyFromERKS0_a(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(200) %1, i8 noundef signext 0)
   ret ptr %0
 }

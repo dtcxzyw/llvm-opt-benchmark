@@ -5126,7 +5126,7 @@ _ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit: ; preds = %2, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang17ObjCInterfaceDecl20lookupNestedProtocolEPNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang17ObjCInterfaceDecl20lookupNestedProtocolEPNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %._crit_edge, %2
@@ -5159,7 +5159,7 @@ tailrecurse:                                      ; preds = %._crit_edge, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang16ObjCProtocolDecl19lookupProtocolNamedEPNS_14IdentifierInfoE(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(112) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang16ObjCProtocolDecl19lookupProtocolNamedEPNS_14IdentifierInfoE(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(112) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !93
   %5 = and i64 %4, 7
@@ -6655,7 +6655,7 @@ _ZNK5clang10ASTContext15getNSObjectNameEv.exit23: ; preds = %39, %48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK5clang14ObjCMethodDecl38isDesignatedInitializerForTheInterfaceEPPKS0_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5clang14ObjCMethodDecl38isDesignatedInitializerForTheInterfaceEPPKS0_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef i32 @_ZNK5clang14ObjCMethodDecl15getMethodFamilyEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
   %.not = icmp eq i32 %3, 3
   br i1 %.not, label %4, label %25
@@ -12482,7 +12482,7 @@ _ZNK5clang16ObjCProtocolDecl13getDefinitionEv.exit.thread: ; preds = %.lr.ph43, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang16ObjCProtocolDecl34collectInheritedProtocolPropertiesEPKNS_16ObjCPropertyDeclERN4llvm13SmallDenseSetIPKS0_Lj8ENS4_12DenseMapInfoIS7_vEEEERNS4_11SmallVectorIPS1_Lj8EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef captures(address) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(80) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK5clang16ObjCProtocolDecl34collectInheritedProtocolPropertiesEPKNS_16ObjCPropertyDeclERN4llvm13SmallDenseSetIPKS0_Lj8ENS4_12DenseMapInfoIS7_vEEEERNS4_11SmallVectorIPS1_Lj8EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(address) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(80) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.llvm::detail::DenseSetEmpty", align 1
   %6 = alloca %"struct.std::pair.574", align 8
   %7 = alloca ptr, align 8

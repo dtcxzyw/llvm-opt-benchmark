@@ -854,7 +854,7 @@ declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #12
 declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_mca_base_var_register(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define i32 @pmix_mca_base_var_register(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = tail call fastcc i32 @register_variable(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef 0, i32 noundef 0, ptr noundef %6)
   ret i32 %8
 }
@@ -3081,20 +3081,20 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %pmix_pointer_array_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_mca_base_component_var_register(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define i32 @pmix_mca_base_component_var_register(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %9 = tail call fastcc i32 @register_variable(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 0, i32 noundef 0, ptr noundef %4)
+  %9 = tail call fastcc i32 @register_variable(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef 0, i32 noundef 0, ptr noundef %4)
   ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_mca_base_framework_var_register(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define i32 @pmix_mca_base_framework_var_register(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8, !tbaa !101
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !104
-  %9 = tail call fastcc i32 @register_variable(ptr noundef %6, ptr noundef %8, ptr noundef nonnull @.str.23, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 0, i32 noundef 0, ptr noundef %4)
+  %9 = tail call fastcc i32 @register_variable(ptr noundef %6, ptr noundef %8, ptr noundef nonnull @.str.23, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef 0, i32 noundef 0, ptr noundef %4)
   ret i32 %9
 }
 

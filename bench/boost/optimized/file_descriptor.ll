@@ -1169,7 +1169,7 @@ _ZN5boost9iostreams6detail4pathD2Ev.exit:         ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams15file_descriptorC2EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9iostreams15file_descriptorC2EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #33
   store i32 -1, ptr %4, align 4, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -2032,7 +2032,7 @@ _ZN5boost9iostreams6detail4pathD2Ev.exit:         ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams22file_descriptor_sourceC2EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9iostreams22file_descriptor_sourceC2EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #33
   store i32 -1, ptr %4, align 4, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -2605,7 +2605,7 @@ _ZN5boost9iostreams6detail4pathD2Ev.exit:         ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams20file_descriptor_sinkC2EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9iostreams20file_descriptor_sinkC2EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #33
   store i32 -1, ptr %4, align 4, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4

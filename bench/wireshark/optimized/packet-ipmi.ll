@@ -2193,7 +2193,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_ipmi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal i32 @dissect_ipmi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = load i32, ptr @proto_ipmb, align 4
   %6 = load i32, ptr @ett_ipmi, align 4
   %7 = tail call i32 @do_dissect_ipmb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %6, ptr noundef %3)
@@ -2201,7 +2201,7 @@ define internal i32 @dissect_ipmi(ptr noundef %0, ptr noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_i2c_ipmi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal i32 @dissect_i2c_ipmi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4

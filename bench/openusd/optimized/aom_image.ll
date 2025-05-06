@@ -313,7 +313,7 @@ aom_img_set_rect.exit:                            ; preds = %.sink.split.i, %.th
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @aom_img_alloc_with_cb(ptr noundef captures(address_is_null, ret: address, provenance) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #0 {
+define hidden noundef ptr @aom_img_alloc_with_cb(ptr noundef captures(address_is_null, ret: address, provenance) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = tail call fastcc ptr @img_alloc_helper(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %4, i32 noundef 1, i32 noundef 0, ptr noundef null, ptr noundef %5, ptr noundef %6)
   ret ptr %8
 }

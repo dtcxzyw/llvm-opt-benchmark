@@ -4482,7 +4482,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %_ZN
 declare noundef i32 @_ZN4cvc56parser5Lexer9nextTokenEv(ptr noundef nonnull align 8 dereferenceable(32892)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc56parser13Smt2CmdParser16parseNextCommandEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc56parser13Smt2CmdParser16parseNextCommandEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8

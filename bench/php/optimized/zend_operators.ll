@@ -9598,7 +9598,7 @@ fast_long_increment_function.exit:                ; preds = %168, %12, %11, %169
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext range(i8 0, 6) i8 @is_numeric_str_function(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
+define dso_local zeroext range(i8 0, 6) i8 @is_numeric_str_function(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 1, !tbaa !4
   %6 = icmp sgt i8 %5, 57

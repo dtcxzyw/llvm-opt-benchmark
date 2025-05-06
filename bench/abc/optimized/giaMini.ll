@@ -3106,7 +3106,7 @@ Abc_TtFlip.exit:                                  ; preds = %._crit_edge.us.i, %
   %244 = sext i32 %243 to i64
   %245 = getelementptr inbounds i32, ptr %.val166.val, i64 %244
   %246 = load i32, ptr %245, align 4, !tbaa !10
-  call fastcc void @Mini_LutPush(ptr noundef nonnull %29, i32 noundef %246, ptr noundef nonnull readonly %5, ptr noundef %174)
+  call fastcc void @Mini_LutPush(ptr noundef nonnull %29, i32 noundef %246, ptr noundef nonnull readonly %5, ptr noundef readonly %174)
   %247 = load i32, ptr %81, align 4, !tbaa !73
   %248 = add nsw i32 %247, -1
   %249 = getelementptr inbounds nuw i8, ptr %173, i64 8
@@ -3323,7 +3323,7 @@ Vec_WrdPush.exit:                                 ; preds = %.Vec_WrdGrow.exit10
   br i1 %357, label %358, label %361
 
 358:                                              ; preds = %351
-  call fastcc void @Mini_LutPush(ptr noundef nonnull %29, i32 noundef 1, ptr noundef nonnull readonly %6, ptr noundef %.val171)
+  call fastcc void @Mini_LutPush(ptr noundef nonnull %29, i32 noundef 1, ptr noundef nonnull readonly %6, ptr noundef readonly %.val171)
   %359 = load i32, ptr %300, align 4, !tbaa !73
   %360 = add nsw i32 %359, -1
   store i32 %360, ptr %355, align 4, !tbaa !10

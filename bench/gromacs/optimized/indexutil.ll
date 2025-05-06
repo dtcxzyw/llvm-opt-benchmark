@@ -5792,7 +5792,7 @@ define void @_Z24gmx_ana_indexmap_reserveP18gmx_ana_indexmap_tii(ptr noundef cap
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z21gmx_ana_indexmap_initP18gmx_ana_indexmap_tP15gmx_ana_index_tPK10gmx_mtop_t9e_index_t(ptr noundef captures(none) initializes((0, 4)) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @_Z21gmx_ana_indexmap_initP18gmx_ana_indexmap_tP15gmx_ana_index_tPK10gmx_mtop_t9e_index_t(ptr noundef captures(none) initializes((0, 4)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 %3, ptr %0, align 8, !tbaa !248
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72

@@ -2477,7 +2477,7 @@ declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_wbxml_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_wbxml_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -2842,7 +2842,7 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @parse_wbxml_tag_defined(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(address_is_null) %7) unnamed_addr #0 {
+define internal fastcc i32 @parse_wbxml_tag_defined(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef readonly captures(address_is_null) %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4

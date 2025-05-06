@@ -2758,7 +2758,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %.17695.i = phi float [ %.075111.i, %.lr.ph.i ], [ %.479.i, %158 ]
   %.idx.i = shl nsw i64 %indvars.iv.i138, 4
   %152 = getelementptr inbounds i8, ptr %150, i64 %.idx.i
-  %153 = call reassoc nsz arcp contract afn fastcc float @dt_rgb_norm(ptr noundef readonly %152, i32 noundef %131, ptr noundef %22)
+  %153 = call reassoc nsz arcp contract afn fastcc float @dt_rgb_norm(ptr noundef readonly %152, i32 noundef %131, ptr noundef readonly %22)
   %154 = fcmp reassoc nsz arcp contract afn ult float %153, 0.000000e+00
   br i1 %154, label %158, label %155
 

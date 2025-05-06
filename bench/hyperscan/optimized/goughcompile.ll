@@ -7058,7 +7058,7 @@ _ZNSt10unique_ptrIN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSEN3ue
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN3ue2L7makeCFGERKNS_11raw_som_dfaE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(644) %1) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L7makeCFGERKNS_11raw_som_dfaE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(644) %1) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.ue2::GoughEdgeProps", align 8
   %4 = alloca %"struct.ue2::GoughEdgeProps", align 8
   %5 = alloca %"class.std::vector.284", align 8

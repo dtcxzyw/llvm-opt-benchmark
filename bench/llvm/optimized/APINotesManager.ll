@@ -2334,7 +2334,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang12FileEntryRefELb1EE9push_backES2_.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang9api_notes15APINotesManager25loadCurrentModuleAPINotesEPNS_6ModuleEbN4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr captures(address) %3, i64 %4) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang9api_notes15APINotesManager25loadCurrentModuleAPINotesEPNS_6ModuleEbN4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr readonly captures(address) %3, i64 %4) local_unnamed_addr #1 align 2 {
   %6 = alloca i64, align 8
   %7 = alloca %"class.llvm::SmallVector.213", align 8
   %8 = alloca %"class.std::unique_ptr.105", align 8

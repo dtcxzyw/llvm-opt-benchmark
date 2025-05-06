@@ -11303,7 +11303,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %54, %_ZN7rocksdb6St
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_128Standard128RibbonBitsBuilder15MaybePostVerifyERKNS_5SliceE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 captures(address) initializes((0, 6), (8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(632) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #4 align 2 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_128Standard128RibbonBitsBuilder15MaybePostVerifyERKNS_5SliceE(ptr dead_on_unwind noalias writable writeonly sret(%"class.rocksdb::Status") align 8 captures(address) initializes((0, 6), (8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(632) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 488
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 512

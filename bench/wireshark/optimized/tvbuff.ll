@@ -261,7 +261,7 @@ define hidden void @tvb_add_to_chain(ptr noundef captures(address_is_null) %0, p
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @tvb_check_offset_length(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define hidden void @tvb_check_offset_length(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i32 @check_offset_length_no_exception(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %check_offset_length.exit, label %7
@@ -1249,7 +1249,7 @@ validate_offset.exit:                             ; preds = %37, %33, %30, %21, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @tvb_ensure_bytes_exist64(ptr noundef captures(address_is_null) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @tvb_ensure_bytes_exist64(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i64 %2, 2147483647
   br i1 %4, label %5, label %6
 

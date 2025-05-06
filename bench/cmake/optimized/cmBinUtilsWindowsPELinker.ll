@@ -722,7 +722,7 @@ _ZNSt12_Vector_baseIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1
           to label %.noexc55 unwind label %174
 
 .noexc55:                                         ; preds = %_ZNSt12_Vector_baseIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EE11_M_allocateEm.exit.i.i
-  %37 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencyPSB_SB_ET0_T_SG_SF_RSaIT1_E(ptr noundef null, ptr noundef null, ptr noundef nonnull %36)
+  %37 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencyPSB_SB_ET0_T_SG_SF_RSaIT1_E(ptr noundef readonly null, ptr noundef readnone null, ptr noundef nonnull %36)
           to label %48 unwind label %38
 
 38:                                               ; preds = %.noexc55
@@ -906,7 +906,7 @@ _ZNSt12_Vector_baseIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1
           to label %101 unwind label %122
 
 101:                                              ; preds = %_ZNSt12_Vector_baseIZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySaISB_EE11_M_allocateEm.exit.i.i.i.i.i.i.i.i.i
-  %102 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencyPSB_SB_ET0_T_SG_SF_RSaIT1_E(ptr noundef %.val.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %61, ptr noundef %99)
+  %102 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencyPSB_SB_ET0_T_SG_SF_RSaIT1_E(ptr noundef readonly %.val.i.i.i.i.i.i.i.i.i, ptr noundef nonnull readnone %61, ptr noundef %99)
           to label %_ZSt34__uninitialized_move_if_noexcept_aIPZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySC_SaISB_EET0_T_SF_SE_RT1_.exit32.i.i.i.i.i.i.i.i.i unwind label %128
 
 _ZSt34__uninitialized_move_if_noexcept_aIPZN25cmBinUtilsWindowsPELinker16ScanDependenciesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeEE15WinPEDependencySC_SaISB_EET0_T_SF_SE_RT1_.exit32.i.i.i.i.i.i.i.i.i: ; preds = %101

@@ -2140,7 +2140,7 @@ _outString.exit:                                  ; preds = %45, %49
 50:                                               ; preds = %5
   %51 = getelementptr i8, ptr %1, i64 8
   %.val787 = load ptr, ptr %51, align 8
-  tail call void @outToken(ptr noundef %0, ptr noundef %.val787)
+  tail call void @outToken(ptr noundef %0, ptr noundef readonly %.val787)
   br label %443
 
 52:                                               ; preds = %5

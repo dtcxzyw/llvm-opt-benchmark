@@ -607,7 +607,7 @@ define i32 @Dsd_TreeCountPrimeNodesOne(ptr noundef %0) local_unnamed_addr #6 {
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Dsd_TreeCollectDecomposableVars(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #6 {
+define i32 @Dsd_TreeCollectDecomposableVars(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #6 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
   store i32 0, ptr %3, align 4, !tbaa !28
@@ -624,7 +624,7 @@ define i32 @Dsd_TreeCollectDecomposableVars(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i16, ptr %4, align 8, !tbaa !13
   %6 = icmp slt i16 %5, 2

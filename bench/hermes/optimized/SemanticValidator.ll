@@ -2586,7 +2586,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3sem17SemanticValidator12visitForInOfEPNS_6ESTree17LoopStatementNodeEPNS2_4NodeE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef initializes((48, 52)) %loopNode, ptr noundef captures(address) %left) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3sem17SemanticValidator12visitForInOfEPNS_6ESTree17LoopStatementNodeEPNS2_4NodeE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef initializes((48, 52)) %loopNode, ptr noundef readonly captures(address) %left) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp14 = alloca %"class.llvh::Twine", align 8
   %ref.tmp24 = alloca %"class.llvh::Twine", align 8

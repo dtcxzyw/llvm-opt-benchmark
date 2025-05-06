@@ -1744,7 +1744,7 @@ define internal range(i32 0, 384) i32 @n_tty_poll(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @n_tty_receive_buf(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address) %2, i64 noundef %3) #4 align 16 {
+define internal void @n_tty_receive_buf(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2, i64 noundef %3) #4 align 16 {
   %5 = tail call fastcc i64 @n_tty_receive_buf_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext false)
   ret void
 }
@@ -1759,7 +1759,7 @@ define internal void @n_tty_write_wakeup(ptr noundef %0) #4 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @n_tty_receive_buf2(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address) %2, i64 noundef %3) #4 align 16 {
+define internal i64 @n_tty_receive_buf2(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2, i64 noundef %3) #4 align 16 {
   %5 = tail call fastcc i64 @n_tty_receive_buf_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext true)
   ret i64 %5
 }
@@ -2738,7 +2738,7 @@ declare dso_local void @start_tty(ptr noundef) local_unnamed_addr #3
 declare dso_local zeroext i1 @mutex_is_locked(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @n_tty_receive_buf_common(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address) %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #4 align 16 {
+define internal fastcc i64 @n_tty_receive_buf_common(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #4 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192

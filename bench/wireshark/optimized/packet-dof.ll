@@ -5829,7 +5829,7 @@ define internal i32 @dissect_2009_11_type_4(ptr noundef %0, ptr noundef %1, ptr 
   %10 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #27
   store i32 %8, ptr %5, align 4
-  %11 = call fastcc ptr @DOFObjectID_Create_Unmarshal(ptr noundef nonnull %5, ptr noundef %10)
+  %11 = call fastcc ptr @DOFObjectID_Create_Unmarshal(ptr noundef nonnull %5, ptr noundef readonly %10)
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %dof_oid_create_standard_string.exit, label %12
 
@@ -6945,7 +6945,7 @@ OALMarshal_UncompressValue.exit:                  ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @ObjectID_ToStringLength(ptr noundef nonnull captures(address_is_null) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @ObjectID_ToStringLength(ptr noundef nonnull readonly captures(address_is_null) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -7453,7 +7453,7 @@ DOFObjectID_GetBaseSize.exit.i87:                 ; preds = %.thread.i.i.i.i.i92
   %168 = zext i1 %.not38 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #27
   store i32 %167, ptr %3, align 4
-  %169 = call fastcc ptr @DOFObjectID_Create_Unmarshal(ptr noundef nonnull %3, ptr noundef %166)
+  %169 = call fastcc ptr @DOFObjectID_Create_Unmarshal(ptr noundef nonnull %3, ptr noundef readonly %166)
   %.not.i96 = icmp eq ptr %169, null
   %170 = load i32, ptr %3, align 4
   %.not6.i = icmp ne i32 %170, %167
@@ -7540,7 +7540,7 @@ DOFObjectID_GetBaseSize.exit.i87:                 ; preds = %.thread.i.i.i.i.i92
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @ObjectID_ToString(ptr noundef nonnull captures(address_is_null) %0, ptr noundef captures(address_is_null) initializes((0, 2)) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @ObjectID_ToString(ptr noundef nonnull readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) initializes((0, 2)) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   store i8 91, ptr %1, align 1
   %5 = getelementptr i8, ptr %1, i64 1
@@ -8081,7 +8081,7 @@ DOFObjectID_GetAttributeAtIndex.exit:             ; preds = %.lr.ph.i124, %.lr.p
   %238 = lshr i32 %.sroa.0.0.extract.trunc, 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #27
   store i32 %238, ptr %4, align 4
-  %239 = call fastcc ptr @DOFObjectID_Create_Unmarshal(ptr noundef nonnull %4, ptr noundef %.sroa.4.0.i)
+  %239 = call fastcc ptr @DOFObjectID_Create_Unmarshal(ptr noundef nonnull %4, ptr noundef readonly %.sroa.4.0.i)
   %.not.i130 = icmp eq ptr %239, null
   %240 = load i32, ptr %4, align 4
   %.not6.i = icmp ne i32 %240, %238
@@ -8983,7 +8983,7 @@ proto_item_set_generated.exit:                    ; preds = %assign_sid_id.exit,
   %120 = getelementptr i8, ptr %116, i64 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #27
   store i32 %119, ptr %9, align 4
-  %121 = call fastcc ptr @DOFObjectID_Create_Unmarshal(ptr noundef nonnull %9, ptr noundef %120)
+  %121 = call fastcc ptr @DOFObjectID_Create_Unmarshal(ptr noundef nonnull %9, ptr noundef readonly %120)
   %.not.i514 = icmp eq ptr %121, null
   br i1 %.not.i514, label %dof_oid_create_standard_string.exit, label %122
 
@@ -9058,7 +9058,7 @@ proto_item_set_generated.exit520:                 ; preds = %proto_item_set_gene
   %158 = getelementptr i8, ptr %154, i64 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #27
   store i32 %157, ptr %8, align 4
-  %159 = call fastcc ptr @DOFObjectID_Create_Unmarshal(ptr noundef nonnull %8, ptr noundef %158)
+  %159 = call fastcc ptr @DOFObjectID_Create_Unmarshal(ptr noundef nonnull %8, ptr noundef readonly %158)
   %.not.i521 = icmp eq ptr %159, null
   br i1 %.not.i521, label %dof_oid_create_standard_string.exit524, label %160
 
@@ -13012,7 +13012,7 @@ proto_item_set_generated.exit:                    ; preds = %dof_iid_create_stan
   %94 = zext i16 %93 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #27
   store i32 %94, ptr %8, align 4
-  %95 = call fastcc ptr @DOFObjectID_Create_Unmarshal(ptr noundef nonnull %8, ptr noundef %91)
+  %95 = call fastcc ptr @DOFObjectID_Create_Unmarshal(ptr noundef nonnull %8, ptr noundef readonly %91)
   %.not.i48 = icmp eq ptr %95, null
   br i1 %.not.i48, label %dof_oid_create_standard_string.exit, label %96
 

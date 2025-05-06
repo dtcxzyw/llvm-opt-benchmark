@@ -1095,7 +1095,7 @@ define void @lv_obj_remove_style_all(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_obj_report_style_change(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define void @lv_obj_report_style_change(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 72), align 8, !tbaa !59, !range !60, !noundef !61
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %4, label %.loopexit
@@ -1140,7 +1140,7 @@ define void @lv_obj_report_style_change(ptr noundef captures(address) %0) local_
 declare ptr @lv_display_get_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @report_style_change_core(ptr noundef captures(address) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @report_style_change_core(ptr noundef readnone captures(address) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 62
   %4 = load i16, ptr %3, align 2
   %5 = lshr i16 %4, 4
@@ -1475,17 +1475,17 @@ lv_obj_get_style_transform_skew_y.exit.i:         ; preds = %.loopexit.i64.i, %g
   br i1 %.not11.i, label %103, label %calculate_layer_type.exit
 
 103:                                              ; preds = %lv_obj_get_style_transform_skew_y.exit.i
-  %104 = tail call fastcc zeroext i8 @lv_obj_get_style_opa_layered(ptr noundef nonnull %0)
+  %104 = tail call fastcc zeroext i8 @lv_obj_get_style_opa_layered(ptr noundef nonnull readonly %0)
   %.not12.i = icmp eq i8 %104, -1
   br i1 %.not12.i, label %105, label %calculate_layer_type.exit
 
 105:                                              ; preds = %103
-  %106 = tail call fastcc ptr @lv_obj_get_style_bitmap_mask_src(ptr noundef nonnull %0)
+  %106 = tail call fastcc ptr @lv_obj_get_style_bitmap_mask_src(ptr noundef nonnull readonly %0)
   %.not13.i = icmp eq ptr %106, null
   br i1 %.not13.i, label %107, label %calculate_layer_type.exit
 
 107:                                              ; preds = %105
-  %108 = tail call fastcc i32 @lv_obj_get_style_blend_mode(ptr noundef nonnull %0)
+  %108 = tail call fastcc i32 @lv_obj_get_style_blend_mode(ptr noundef nonnull readonly %0)
   %.not14.i = icmp ne i32 %108, 0
   %..i = zext i1 %.not14.i to i32
   br label %calculate_layer_type.exit

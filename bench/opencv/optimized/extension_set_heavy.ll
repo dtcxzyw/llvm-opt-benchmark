@@ -3204,7 +3204,7 @@ define hidden noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet22SpaceUse
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !28
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %15 = call fastcc ptr @"_ZN6google8protobuf8internal12ExtensionSet7ForEachISt17_Rb_tree_iteratorISt4pairIKiNS2_9ExtensionEEEZNKS2_26SpaceUsedExcludingSelfLongEvE3$_0EET0_T_SC_SB_"(ptr %13, ptr nonnull %14, ptr nonnull %2)
+  %15 = call fastcc ptr @"_ZN6google8protobuf8internal12ExtensionSet7ForEachISt17_Rb_tree_iteratorISt4pairIKiNS2_9ExtensionEEEZNKS2_26SpaceUsedExcludingSelfLongEvE3$_0EET0_T_SC_SB_"(ptr %13, ptr nonnull readonly %14, ptr nonnull %2)
   %.pre.i = load i64, ptr %2, align 8, !tbaa !150
   br label %_ZNK6google8protobuf8internal12ExtensionSet26SpaceUsedExcludingSelfLongEv.exit
 
@@ -3253,7 +3253,7 @@ define hidden noundef i64 @_ZNK6google8protobuf8internal12ExtensionSet26SpaceUse
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !28
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %15 = call fastcc ptr @"_ZN6google8protobuf8internal12ExtensionSet7ForEachISt17_Rb_tree_iteratorISt4pairIKiNS2_9ExtensionEEEZNKS2_26SpaceUsedExcludingSelfLongEvE3$_0EET0_T_SC_SB_"(ptr %13, ptr nonnull %14, ptr nonnull %2)
+  %15 = call fastcc ptr @"_ZN6google8protobuf8internal12ExtensionSet7ForEachISt17_Rb_tree_iteratorISt4pairIKiNS2_9ExtensionEEEZNKS2_26SpaceUsedExcludingSelfLongEvE3$_0EET0_T_SC_SB_"(ptr %13, ptr nonnull readonly %14, ptr nonnull %2)
   %.pre = load i64, ptr %2, align 8, !tbaa !150
   br label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_26SpaceUsedExcludingSelfLongEvE3$_0EET_S5_.exit"
 

@@ -505,7 +505,7 @@ between.exit.i.i.i:                               ; preds = %212, %210, %208, %2
 
 online.exit.i.i:                                  ; preds = %226, %224, %222, %220, %218, %between.exit.i.i.i, %200, %185
   %228 = phi i32 [ 3, %185 ], [ 0, %200 ], [ %215, %between.exit.i.i.i ], [ 1, %218 ], [ %..i23.i.i.i, %220 ], [ 1, %224 ], [ %.15.i22.i.i.i, %226 ], [ 0, %222 ]
-  %229 = call fastcc i32 @intpoint(ptr noundef nonnull %105, ptr noundef nonnull %.084141.i, ptr noundef %3, ptr noundef %4, i32 noundef %228)
+  %229 = call fastcc i32 @intpoint(ptr noundef nonnull readonly %105, ptr noundef nonnull readonly %.084141.i, ptr noundef %3, ptr noundef %4, i32 noundef %228)
   %.not25.i.i = icmp eq i32 %229, 0
   br i1 %.not25.i.i, label %.critedge.i, label %428
 
@@ -968,7 +968,7 @@ between.exit.i115.i.i:                            ; preds = %410, %408, %406, %4
 
 online.exit119.i.i:                               ; preds = %424, %422, %420, %418, %416, %between.exit.i115.i.i, %398, %online.exit85.i.i
   %426 = phi i32 [ %385, %online.exit85.i.i ], [ 0, %398 ], [ %413, %between.exit.i115.i.i ], [ 1, %416 ], [ %..i23.i114.i.i, %418 ], [ 1, %422 ], [ %.15.i22.i113.i.i, %424 ], [ 0, %420 ]
-  %427 = call fastcc i32 @intpoint(ptr noundef nonnull %105, ptr noundef nonnull %.084141.i, ptr noundef %3, ptr noundef %4, i32 noundef %426)
+  %427 = call fastcc i32 @intpoint(ptr noundef nonnull readonly %105, ptr noundef nonnull readonly %.084141.i, ptr noundef %3, ptr noundef %4, i32 noundef %426)
   %.not.i98.i = icmp eq i32 %427, 0
   br i1 %.not.i98.i, label %.critedge.i, label %428
 
@@ -1046,8 +1046,8 @@ online.exit119.i.i:                               ; preds = %424, %422, %420, %4
 462:                                              ; preds = %459
   %463 = load ptr, ptr @stderr, align 8, !tbaa !3
   %464 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %463, ptr noundef nonnull @.str.3, double noundef %429, double noundef %430) #13
-  tail call fastcc void @putSeg(i32 noundef 1, ptr noundef nonnull %105)
-  tail call fastcc void @putSeg(i32 noundef 2, ptr noundef nonnull %.084141.i)
+  tail call fastcc void @putSeg(i32 noundef 1, ptr noundef nonnull readonly %105)
+  tail call fastcc void @putSeg(i32 noundef 2, ptr noundef nonnull readonly %.084141.i)
   br label %find_intersection.exit.i
 
 find_intersection.exit.i:                         ; preds = %462, %459

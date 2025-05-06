@@ -38,7 +38,7 @@ define void @ossl_gcm_initctx(ptr noundef %0, ptr noundef captures(none) initial
 declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_gcm_einit(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_gcm_einit(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call fastcc i32 @gcm_init(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef 1)
   ret i32 %7
 }
@@ -118,7 +118,7 @@ define internal fastcc range(i32 0, 2) i32 @gcm_init(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_gcm_dinit(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_gcm_dinit(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call fastcc i32 @gcm_init(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef 0)
   ret i32 %7
 }

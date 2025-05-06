@@ -5040,7 +5040,7 @@ define dso_local range(i32 -1, -2147483648) i32 @rb_fork_async_signal_safe(ptr n
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @fork_check_err(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef readonly captures(address_is_null) %6) unnamed_addr #1 {
+define internal fastcc range(i32 -1, -2147483648) i32 @fork_check_err(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef readonly captures(address_is_null) %6) unnamed_addr #1 {
   %8 = alloca i32, align 4
   %9 = alloca [2 x i32], align 4
   %10 = alloca i32, align 4
@@ -11464,7 +11464,7 @@ declare i32 @execve(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @execv(ptr noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @retry_fork_async_signal_safe(ptr noundef captures(address_is_null) %0, ptr noundef nonnull captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #1 {
+define internal fastcc range(i32 -1, -2147483648) i32 @retry_fork_async_signal_safe(ptr noundef writeonly captures(address_is_null) %0, ptr noundef nonnull readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4

@@ -488,7 +488,7 @@ define dso_local noundef i32 @parse_opt_tertiary(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @parse_options_dup(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @parse_options_dup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.option], align 16
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %2, i8 0, i64 88, i1 false)

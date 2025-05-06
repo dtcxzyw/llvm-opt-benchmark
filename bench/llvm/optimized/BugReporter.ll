@@ -9333,7 +9333,7 @@ _ZNSt10unique_ptrIN5clang4ento14PathDiagnosticESt14default_deleteIS2_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento24PathSensitiveBugReporter32generateDiagnosticForConsumerMapEPNS0_9BugReportEN4llvm8ArrayRefIPNS0_22PathDiagnosticConsumerEEENS5_IS3_EE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.738") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef %2, ptr captures(address) %3, i64 %4, ptr noundef readonly byval(%"class.llvm::ArrayRef.851") align 8 captures(none) %5) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang4ento24PathSensitiveBugReporter32generateDiagnosticForConsumerMapEPNS0_9BugReportEN4llvm8ArrayRefIPNS0_22PathDiagnosticConsumerEEENS5_IS3_EE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.738") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef %2, ptr readonly captures(address) %3, i64 %4, ptr noundef readonly byval(%"class.llvm::ArrayRef.851") align 8 captures(none) %5) unnamed_addr #3 align 2 {
   %7 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %8 = alloca %"class.llvm::SmallString.1536", align 8
   %9 = alloca %"class.llvm::raw_svector_ostream", align 8

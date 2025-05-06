@@ -3608,7 +3608,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_tree_trivial(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @merge_trivial(ptr noundef nonnull %0, ptr noundef nonnull captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @merge_trivial(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = alloca %struct.object_id, align 4
   %4 = alloca %struct.object_id, align 4
   %5 = alloca ptr, align 8
@@ -4147,7 +4147,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 declare void @git_test_write_commit_graph_or_die() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_merge_state(ptr noundef captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc void @write_merge_state(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
   tail call fastcc void @write_merge_heads(ptr noundef %0)
   %2 = load i64, ptr @merge_msg, align 8, !tbaa !156
   %.not.i.i = icmp eq i64 %2, 0
@@ -4637,7 +4637,7 @@ declare i32 @repo_refresh_and_write_index(ptr noundef, i32 noundef, i32 noundef,
 declare ptr @commit_list_append(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @prepare_to_commit(ptr noundef captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc void @prepare_to_commit(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
   %2 = alloca %struct.strbuf, align 8
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #17
@@ -4661,7 +4661,7 @@ define internal fastcc void @prepare_to_commit(ptr noundef captures(address_is_n
   %13 = load ptr, ptr @stderr, align 8, !tbaa !130
   %14 = call fastcc ptr @_(ptr noundef nonnull @.str.208)
   %15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef %14) #20
-  call fastcc void @write_merge_state(ptr noundef %0)
+  call fastcc void @write_merge_state(ptr noundef readonly %0)
   %16 = call i32 @common_exit(ptr noundef nonnull @.str.45, i32 noundef 831, i32 noundef 1) #17
   call void @exit(i32 noundef %16) #19
   unreachable
@@ -4828,7 +4828,7 @@ _.exit22:                                         ; preds = %63, %64
   %91 = load ptr, ptr @stderr, align 8, !tbaa !130
   %92 = call fastcc ptr @_(ptr noundef nonnull @.str.208)
   %93 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %91, ptr noundef %92) #20
-  call fastcc void @write_merge_state(ptr noundef %0)
+  call fastcc void @write_merge_state(ptr noundef readonly %0)
   %94 = call i32 @common_exit(ptr noundef nonnull @.str.45, i32 noundef 831, i32 noundef 1) #17
   call void @exit(i32 noundef %94) #19
   unreachable
@@ -4849,7 +4849,7 @@ _.exit22:                                         ; preds = %63, %64
   %103 = load ptr, ptr @stderr, align 8, !tbaa !130
   %104 = call fastcc ptr @_(ptr noundef nonnull @.str.208)
   %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef %104) #20
-  call fastcc void @write_merge_state(ptr noundef %0)
+  call fastcc void @write_merge_state(ptr noundef readonly %0)
   %106 = call i32 @common_exit(ptr noundef nonnull @.str.45, i32 noundef 831, i32 noundef 1) #17
   call void @exit(i32 noundef %106) #19
   unreachable
@@ -4875,7 +4875,7 @@ _.exit22:                                         ; preds = %63, %64
   %119 = load ptr, ptr @stderr, align 8, !tbaa !130
   %120 = call fastcc ptr @_(ptr noundef nonnull @.str.208)
   %121 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef %120) #20
-  call fastcc void @write_merge_state(ptr noundef %0)
+  call fastcc void @write_merge_state(ptr noundef readonly %0)
   %122 = call i32 @common_exit(ptr noundef nonnull @.str.45, i32 noundef 831, i32 noundef 1) #17
   call void @exit(i32 noundef %122) #19
   unreachable
@@ -4928,7 +4928,7 @@ _.exit28.thread:                                  ; preds = %134, %_.exit28
   %139 = load ptr, ptr @stderr, align 8, !tbaa !130
   %140 = call fastcc ptr @_(ptr noundef nonnull @.str.208)
   %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %139, ptr noundef %140) #20
-  call fastcc void @write_merge_state(ptr noundef %0)
+  call fastcc void @write_merge_state(ptr noundef readonly %0)
   %142 = call i32 @common_exit(ptr noundef nonnull @.str.45, i32 noundef 831, i32 noundef 1) #17
   call void @exit(i32 noundef %142) #19
   unreachable

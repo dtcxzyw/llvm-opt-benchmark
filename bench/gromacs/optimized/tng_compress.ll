@@ -3223,7 +3223,7 @@ readbufferfix.exit107:                            ; preds = %76
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_compress_uncompress(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define i32 @tng_compress_uncompress(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -3275,7 +3275,7 @@ readbufferfix.exit:                               ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_compress_uncompress_float(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define i32 @tng_compress_uncompress_float(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -3327,7 +3327,7 @@ readbufferfix.exit:                               ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_compress_uncompress_int(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
+define i32 @tng_compress_uncompress_int(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4

@@ -6191,7 +6191,7 @@ _ZN12_GLOBAL__N_111extTSPScoreEmmmmb.exit:        ; preds = %68, %74, %77, %85, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef double @_ZN4llvm10codelayout15calcExtTspScoreENS_8ArrayRefImEENS1_INS0_9EdgeCountEEE(ptr readonly captures(none) %0, i64 %1, ptr captures(address) %2, i64 %3) local_unnamed_addr #1 {
+define dso_local noundef double @_ZN4llvm10codelayout15calcExtTspScoreENS_8ArrayRefImEENS1_INS0_9EdgeCountEEE(ptr readonly captures(none) %0, i64 %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #1 {
   %5 = alloca %"class.llvm::SmallVector.64", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #24
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16

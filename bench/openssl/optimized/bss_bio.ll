@@ -405,7 +405,7 @@ define internal i32 @bio_read(ptr noundef %0, ptr noundef writeonly captures(add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bio_puts(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 {
+define internal i32 @bio_puts(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #1 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
   %4 = trunc i64 %3 to i32
   %5 = tail call i32 @bio_write(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %4)

@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.mbedtls_md_context_t = type { ptr, ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_pkcs12_pbe(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_pkcs12_pbe(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
   store i64 0, ptr %10, align 8, !tbaa !3

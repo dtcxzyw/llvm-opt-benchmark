@@ -1387,7 +1387,7 @@ _ZN6vectorIN3sat7literalELb0EjED2Ev.exit2:        ; preds = %_ZN6vectorIN3sat7li
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat15model_converter7add_ateERKNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 4 captures(address) dereferenceable(20) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3sat15model_converter7add_ateERKNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !180
   %5 = icmp eq ptr %4, null

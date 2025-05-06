@@ -223,7 +223,7 @@ declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, 
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @spl_object_storage_attach(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc ptr @spl_object_storage_attach(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca %struct._zend_hash_key, align 8

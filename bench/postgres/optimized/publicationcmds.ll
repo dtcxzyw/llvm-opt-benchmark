@@ -2397,7 +2397,7 @@ CheckAlterPublication.exit:                       ; preds = %202, %203
   br i1 %.not11.i, label %231, label %.split.i38
 
 .split.i38:                                       ; preds = %220
-  %230 = tail call fastcc ptr @OpenTableList(ptr noundef nonnull %174)
+  %230 = tail call fastcc ptr @OpenTableList(ptr noundef nonnull readonly %174)
   br label %233
 
 231:                                              ; preds = %220

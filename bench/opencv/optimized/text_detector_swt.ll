@@ -7745,10 +7745,10 @@ _ZNSt12_Vector_baseIN2cv4text12_GLOBAL__N_19ComponentESaIS3_EE13_M_deallocateEPS
   %.012.i.i.i.i.i.i = phi i64 [ %330, %.noexc155 ], [ %324, %.lr.ph.preheader.i.i.i.i.i.i ]
   %.0811.i.i.i.i.i.i = phi ptr [ %329, %.noexc155 ], [ %.val89, %.lr.ph.preheader.i.i.i.i.i.i ]
   %.0910.i.i.i.i.i.i = phi ptr [ %328, %.noexc155 ], [ %.val32.i137, %.lr.ph.preheader.i.i.i.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.0811.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %.0910.i.i.i.i.i.i, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.0811.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %.0910.i.i.i.i.i.i, i64 48, i1 false)
   %325 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 48
   %326 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 48
-  %327 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN2cv4text12_GLOBAL__N_18SWTPointESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %325, ptr noundef nonnull align 8 dereferenceable(24) %326)
+  %327 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN2cv4text12_GLOBAL__N_18SWTPointESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %325, ptr noundef nonnull readonly align 8 dereferenceable(24) %326)
           to label %.noexc155 unwind label %.loopexit.split-lp.loopexit
 
 .noexc155:                                        ; preds = %.lr.ph.i.i.i.i.i40.i
@@ -7801,10 +7801,10 @@ _ZSt8_DestroyIN2cv4text12_GLOBAL__N_19ComponentEEvPT_.exit.i.i.i43.i: ; preds = 
   %.012.i.i.i.i.i48.i = phi i64 [ %345, %.noexc156 ], [ %339, %.lr.ph.preheader.i.i.i.i.i46.i ]
   %.0811.i.i.i.i.i49.i = phi ptr [ %344, %.noexc156 ], [ %.val89, %.lr.ph.preheader.i.i.i.i.i46.i ]
   %.0910.i.i.i.i.i50.i = phi ptr [ %343, %.noexc156 ], [ %.val32.i137, %.lr.ph.preheader.i.i.i.i.i46.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.0811.i.i.i.i.i49.i, ptr noundef nonnull align 8 dereferenceable(72) %.0910.i.i.i.i.i50.i, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.0811.i.i.i.i.i49.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %.0910.i.i.i.i.i50.i, i64 48, i1 false)
   %340 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i49.i, i64 48
   %341 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i50.i, i64 48
-  %342 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN2cv4text12_GLOBAL__N_18SWTPointESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %340, ptr noundef nonnull align 8 dereferenceable(24) %341)
+  %342 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN2cv4text12_GLOBAL__N_18SWTPointESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %340, ptr noundef nonnull readonly align 8 dereferenceable(24) %341)
           to label %.noexc156 unwind label %.loopexit
 
 .noexc156:                                        ; preds = %.lr.ph.i.i.i.i.i47.i

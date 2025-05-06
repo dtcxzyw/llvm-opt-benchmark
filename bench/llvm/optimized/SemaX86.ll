@@ -1237,7 +1237,7 @@ _ZNSt6bitsetILm8EE3setEmb.exit:                   ; preds = %_ZNKSt6bitsetILm8EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang7SemaX8633CheckBuiltinTileRangeAndDuplicateEPNS_8CallExprEN4llvm8ArrayRefIiEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr captures(address) %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang7SemaX8633CheckBuiltinTileRangeAndDuplicateEPNS_8CallExprEN4llvm8ArrayRefIiEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i32, ptr %2, i64 %3
   %.not15.not.i = icmp eq i64 %3, 0
   br i1 %.not15.not.i, label %.loopexit, label %.lr.ph.i
@@ -1339,7 +1339,7 @@ define dso_local noundef zeroext i1 @_ZN5clang7SemaX8625CheckBuiltinTileArgument
   br i1 %14, label %_ZN5clang7SemaX8633CheckBuiltinTileRangeAndDuplicateEPNS_8CallExprEN4llvm8ArrayRefIiEE.exit, label %11
 
 .loopexit.i:                                      ; preds = %11
-  %15 = call noundef zeroext i1 @_ZN5clang7SemaX8625CheckBuiltinTileDuplicateEPNS_8CallExprEN4llvm8ArrayRefIiEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, ptr nonnull %4, i64 3)
+  %15 = call noundef zeroext i1 @_ZN5clang7SemaX8625CheckBuiltinTileDuplicateEPNS_8CallExprEN4llvm8ArrayRefIiEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, ptr nonnull readonly %4, i64 3)
   br label %_ZN5clang7SemaX8633CheckBuiltinTileRangeAndDuplicateEPNS_8CallExprEN4llvm8ArrayRefIiEE.exit
 
 _ZN5clang7SemaX8633CheckBuiltinTileRangeAndDuplicateEPNS_8CallExprEN4llvm8ArrayRefIiEE.exit: ; preds = %.lr.ph.i.i, %.loopexit.i

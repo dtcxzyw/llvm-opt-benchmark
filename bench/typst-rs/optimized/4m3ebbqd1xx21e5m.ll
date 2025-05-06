@@ -2075,7 +2075,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hdab6a34dcccfdab0E.exit: ; preds = 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h95db6167c8ea574cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef ptr @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h95db6167c8ea574cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, ptr }, align 8
   %5 = load i64, ptr %0, align 8, !range !5, !noundef !4
   %.not = icmp eq i64 %5, 2
@@ -2133,7 +2133,7 @@ define hidden noundef ptr @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C
   br i1 %22, label %23, label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h77c661d817df779dE.exit.i.i.i.i"
 
 23:                                               ; preds = %18
-  %24 = tail call fastcc noundef ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb4f30f722cfc1aa7E"(ptr nonnull align 8 dereferenceable(24) %2, ptr noundef %.019.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %19), !noalias !578
+  %24 = tail call fastcc noundef ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb4f30f722cfc1aa7E"(ptr nonnull readonly align 8 dereferenceable(24) %2, ptr noundef %.019.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %19), !noalias !578
   br label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h77c661d817df779dE.exit.i.i.i.i"
 
 "_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h77c661d817df779dE.exit.i.i.i.i": ; preds = %23, %18
@@ -2175,7 +2175,7 @@ define hidden noundef ptr @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C
   br i1 %41, label %42, label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd9762dcd697ce7c0E.exit.i.i.i.i"
 
 42:                                               ; preds = %37
-  %43 = tail call fastcc noundef ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb4f30f722cfc1aa7E"(ptr nonnull align 8 dereferenceable(24) %2, ptr noundef %.019.i.i13.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %38), !noalias !589
+  %43 = tail call fastcc noundef ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb4f30f722cfc1aa7E"(ptr nonnull readonly align 8 dereferenceable(24) %2, ptr noundef %.019.i.i13.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %38), !noalias !589
   br label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd9762dcd697ce7c0E.exit.i.i.i.i"
 
 "_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd9762dcd697ce7c0E.exit.i.i.i.i": ; preds = %42, %37
@@ -2212,7 +2212,7 @@ define hidden noundef ptr @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C
   br i1 %58, label %59, label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h133c187fd580094aE.exit.i.i.i"
 
 59:                                               ; preds = %54
-  %60 = tail call fastcc noundef ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb4f30f722cfc1aa7E"(ptr nonnull align 8 dereferenceable(24) %2, ptr noundef %.019.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %55), !noalias !598
+  %60 = tail call fastcc noundef ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb4f30f722cfc1aa7E"(ptr nonnull readonly align 8 dereferenceable(24) %2, ptr noundef %.019.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %55), !noalias !598
   br label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h133c187fd580094aE.exit.i.i.i"
 
 "_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h133c187fd580094aE.exit.i.i.i": ; preds = %59, %54

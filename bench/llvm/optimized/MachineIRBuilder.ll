@@ -7084,7 +7084,7 @@ _ZN4llvm16MachineIRBuilder10buildInstrEj.exit:    ; preds = %6, %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildIntrinsicEjNS_8ArrayRefINS_8RegisterEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, i32 noundef %1, ptr captures(address) %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildIntrinsicEjNS_8ArrayRefINS_8RegisterEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, i32 noundef %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::AttributeList", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7199,7 +7199,7 @@ _ZN4llvm16MachineIRBuilder10buildInstrEj.exit:    ; preds = %6, %27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildIntrinsicEjNS_8ArrayRefINS_5DstOpEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, i32 noundef %1, ptr captures(address) %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildIntrinsicEjNS_8ArrayRefINS_5DstOpEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, i32 noundef %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::AttributeList", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8

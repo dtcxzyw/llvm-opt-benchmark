@@ -25142,7 +25142,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleEN12_GLOBAL__N_15Inde
   %29 = sub i64 %28, %23
   %30 = mul nuw nsw i64 %16, 208
   %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #30
-  %32 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleEN12_GLOBAL__N_15IndexINS6_11AigerWriterEjLj0ELj1EE10ModuleInfoENS1_8hash_opsIS5_EEE7entry_tEPSE_SE_ET0_T_SJ_SI_RSaIT1_E(ptr noundef %.val.i.i, ptr noundef %.val9.i.i, ptr noundef nonnull %31)
+  %32 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleEN12_GLOBAL__N_15IndexINS6_11AigerWriterEjLj0ELj1EE10ModuleInfoENS1_8hash_opsIS5_EEE7entry_tEPSE_SE_ET0_T_SJ_SI_RSaIT1_E(ptr noundef %.val.i.i, ptr noundef readnone %.val9.i.i, ptr noundef nonnull %31)
           to label %_ZNSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleEN12_GLOBAL__N_15IndexINS6_11AigerWriterEjLj0ELj1EE10ModuleInfoENS1_8hash_opsIS5_EEE7entry_tESaISE_EE20_M_allocate_and_copyIPKSE_EEPSE_mT_SL_.exit.i.i unwind label %33
 
 33:                                               ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleEN12_GLOBAL__N_15IndexINS6_11AigerWriterEjLj0ELj1EE10ModuleInfoENS1_8hash_opsIS5_EEE7entry_tESaISE_EE11_M_allocateEm.exit.i.i.i
@@ -27862,7 +27862,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleEN12_GLOBAL__N_15IndexINS6_
   store i16 0, ptr %223, align 8
   %224 = getelementptr inbounds nuw i8, ptr %215, i64 200
   store i32 -1, ptr %224, align 8, !tbaa !684
-  %225 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleEN12_GLOBAL__N_15IndexINS6_11AigerWriterEjLj0ELj1EE10ModuleInfoENS1_8hash_opsIS5_EEE7entry_tEPSE_SE_ET0_T_SJ_SI_RSaIT1_E(ptr noundef %.val29.i.i.i.i, ptr noundef %157, ptr noundef nonnull %214)
+  %225 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleEN12_GLOBAL__N_15IndexINS6_11AigerWriterEjLj0ELj1EE10ModuleInfoENS1_8hash_opsIS5_EEE7entry_tEPSE_SE_ET0_T_SJ_SI_RSaIT1_E(ptr noundef %.val29.i.i.i.i, ptr noundef readnone %157, ptr noundef nonnull %214)
           to label %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleEN12_GLOBAL__N_15IndexINS6_11AigerWriterEjLj0ELj1EE10ModuleInfoENS1_8hash_opsIS5_EEE7entry_tESF_SaISE_EET0_T_SI_SH_RT1_.exit34.i.i.i.i unwind label %.loopexit.i.i.i.i
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleEN12_GLOBAL__N_15IndexINS6_11AigerWriterEjLj0ELj1EE10ModuleInfoENS1_8hash_opsIS5_EEE7entry_tESF_SaISE_EET0_T_SI_SH_RT1_.exit34.i.i.i.i: ; preds = %.noexc22.i
@@ -28080,7 +28080,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleEN12_GLOBAL__N_15IndexINS6_
   store i16 0, ptr %313, align 8
   %314 = getelementptr inbounds nuw i8, ptr %305, i64 200
   store i32 %.val14.i15.i, ptr %314, align 8, !tbaa !684
-  %315 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleEN12_GLOBAL__N_15IndexINS6_11AigerWriterEjLj0ELj1EE10ModuleInfoENS1_8hash_opsIS5_EEE7entry_tEPSE_SE_ET0_T_SJ_SI_RSaIT1_E(ptr noundef %.val.i.i.i.i, ptr noundef %247, ptr noundef nonnull %304)
+  %315 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleEN12_GLOBAL__N_15IndexINS6_11AigerWriterEjLj0ELj1EE10ModuleInfoENS1_8hash_opsIS5_EEE7entry_tEPSE_SE_ET0_T_SJ_SI_RSaIT1_E(ptr noundef %.val.i.i.i.i, ptr noundef readnone %247, ptr noundef nonnull %304)
           to label %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleEN12_GLOBAL__N_15IndexINS6_11AigerWriterEjLj0ELj1EE10ModuleInfoENS1_8hash_opsIS5_EEE7entry_tESF_SaISE_EET0_T_SI_SH_RT1_.exit34.i.i26.i.i unwind label %.loopexit.i.i20.i.i
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleEN12_GLOBAL__N_15IndexINS6_11AigerWriterEjLj0ELj1EE10ModuleInfoENS1_8hash_opsIS5_EEE7entry_tESF_SaISE_EET0_T_SI_SH_RT1_.exit34.i.i26.i.i: ; preds = %.noexc25.i
@@ -66387,7 +66387,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleEN12_GLOBAL__N_15IndexINS6_
   store i16 0, ptr %223, align 8
   %224 = getelementptr inbounds nuw i8, ptr %215, i64 200
   store i32 -1, ptr %224, align 8, !tbaa !1601
-  %225 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleEN12_GLOBAL__N_15IndexINS6_14XAigerAnalysisEiLi0ELi0EE10ModuleInfoENS1_8hash_opsIS5_EEE7entry_tEPSE_SE_ET0_T_SJ_SI_RSaIT1_E(ptr noundef %.val29.i.i.i.i, ptr noundef %157, ptr noundef nonnull %214)
+  %225 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleEN12_GLOBAL__N_15IndexINS6_14XAigerAnalysisEiLi0ELi0EE10ModuleInfoENS1_8hash_opsIS5_EEE7entry_tEPSE_SE_ET0_T_SJ_SI_RSaIT1_E(ptr noundef %.val29.i.i.i.i, ptr noundef readnone %157, ptr noundef nonnull %214)
           to label %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleEN12_GLOBAL__N_15IndexINS6_14XAigerAnalysisEiLi0ELi0EE10ModuleInfoENS1_8hash_opsIS5_EEE7entry_tESF_SaISE_EET0_T_SI_SH_RT1_.exit34.i.i.i.i unwind label %.loopexit.i.i.i.i
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleEN12_GLOBAL__N_15IndexINS6_14XAigerAnalysisEiLi0ELi0EE10ModuleInfoENS1_8hash_opsIS5_EEE7entry_tESF_SaISE_EET0_T_SI_SH_RT1_.exit34.i.i.i.i: ; preds = %.noexc22.i
@@ -66605,7 +66605,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleEN12_GLOBAL__N_15IndexINS6_
   store i16 0, ptr %313, align 8
   %314 = getelementptr inbounds nuw i8, ptr %305, i64 200
   store i32 %.val14.i15.i, ptr %314, align 8, !tbaa !1601
-  %315 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleEN12_GLOBAL__N_15IndexINS6_14XAigerAnalysisEiLi0ELi0EE10ModuleInfoENS1_8hash_opsIS5_EEE7entry_tEPSE_SE_ET0_T_SJ_SI_RSaIT1_E(ptr noundef %.val.i.i.i.i, ptr noundef %247, ptr noundef nonnull %304)
+  %315 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleEN12_GLOBAL__N_15IndexINS6_14XAigerAnalysisEiLi0ELi0EE10ModuleInfoENS1_8hash_opsIS5_EEE7entry_tEPSE_SE_ET0_T_SJ_SI_RSaIT1_E(ptr noundef %.val.i.i.i.i, ptr noundef readnone %247, ptr noundef nonnull %304)
           to label %_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleEN12_GLOBAL__N_15IndexINS6_14XAigerAnalysisEiLi0ELi0EE10ModuleInfoENS1_8hash_opsIS5_EEE7entry_tESF_SaISE_EET0_T_SI_SH_RT1_.exit34.i.i26.i.i unwind label %.loopexit.i.i20.i.i
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictIPNS0_5RTLIL6ModuleEN12_GLOBAL__N_15IndexINS6_14XAigerAnalysisEiLi0ELi0EE10ModuleInfoENS1_8hash_opsIS5_EEE7entry_tESF_SaISE_EET0_T_SI_SH_RT1_.exit34.i.i26.i.i: ; preds = %.noexc25.i

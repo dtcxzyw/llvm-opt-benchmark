@@ -2465,7 +2465,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento9CallEventEE7releaseEv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento18NoStoreFuncVisitor28findRegionOfInterestInRecordEPKNS_10RecordDeclEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_9MemRegionERKNS5_11SmallVectorISC_Lj5EEEi(ptr dead_on_unwind noalias writable sret(%"class.std::optional.925") align 8 %0, ptr noundef nonnull align 8 dereferenceable(616) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef nonnull align 8 captures(address) dereferenceable(56) %5, i32 noundef %6) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang4ento18NoStoreFuncVisitor28findRegionOfInterestInRecordEPKNS_10RecordDeclEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_9MemRegionERKNS5_11SmallVectorISC_Lj5EEEi(ptr dead_on_unwind noalias writable sret(%"class.std::optional.925") align 8 %0, ptr noundef nonnull align 8 dereferenceable(616) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %5, i32 noundef %6) local_unnamed_addr #3 align 2 {
   %8 = alloca %"class.llvm::IntrusiveRefCntPtr.828", align 8
   %9 = alloca %"class.clang::ento::SVal", align 8
   %10 = alloca %"class.llvm::SmallVector.931", align 8
@@ -3647,7 +3647,7 @@ _ZL25potentiallyWritesIntoIvarPKN5clang4DeclEPKNS_12ObjCIvarDeclE.exit: ; preds 
 declare { ptr, i8 } @_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento18NoStoreFuncVisitor13maybeEmitNoteERNS0_22PathSensitiveBugReportERKNS0_9CallEventEPKNS0_12ExplodedNodeERKN4llvm11SmallVectorIPKNS0_9MemRegionELj5EEESE_NSA_9StringRefEbj(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::shared_ptr.753") align 8 captures(none) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(616) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %5, ptr noundef captures(address) %6, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %7, i1 noundef zeroext %8, i32 noundef %9) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang4ento18NoStoreFuncVisitor13maybeEmitNoteERNS0_22PathSensitiveBugReportERKNS0_9CallEventEPKNS0_12ExplodedNodeERKN4llvm11SmallVectorIPKNS0_9MemRegionELj5EEESE_NSA_9StringRefEbj(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::shared_ptr.753") align 8 captures(none) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(616) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %5, ptr noundef readnone captures(address) %6, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %7, i1 noundef zeroext %8, i32 noundef %9) local_unnamed_addr #3 align 2 {
   %11 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %12 = alloca %"class.clang::ProgramPoint", align 8
   %13 = alloca %"class.llvm::SmallString", align 8

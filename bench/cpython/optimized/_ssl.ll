@@ -6985,7 +6985,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %.thread, %PyObject_
   %.080 = phi ptr [ %.0, %._crit_edge.i ], [ %.0, %50 ], [ @_Py_NoneStruct, %.thread74 ]
   %.03979 = phi ptr [ %.039, %._crit_edge.i ], [ %.039, %50 ], [ @_Py_NoneStruct, %.thread74 ]
   %54 = phi ptr [ %.pre.i, %._crit_edge.i ], [ null, %50 ], [ null, %.thread74 ]
-  %55 = call fastcc ptr @newPySSLSocket(ptr noundef nonnull %0, ptr noundef %33, i32 noundef range(i32 0, -2147483648) %36, ptr noundef %54, ptr noundef %.03979, ptr noundef %.080, ptr noundef null, ptr noundef null)
+  %55 = call fastcc ptr @newPySSLSocket(ptr noundef nonnull %0, ptr noundef %33, i32 noundef range(i32 0, -2147483648) %36, ptr noundef %54, ptr noundef %.03979, ptr noundef readonly %.080, ptr noundef null, ptr noundef null)
   %56 = load ptr, ptr %5, align 8, !tbaa !53
   %.not11.i = icmp eq ptr %56, null
   br i1 %.not11.i, label %_ssl__SSLContext__wrap_socket_impl.exit, label %57
@@ -7154,7 +7154,7 @@ PyObject_TypeCheck.exit69.thread:                 ; preds = %PyObject_TypeCheck.
   %.091 = phi ptr [ %.0, %._crit_edge.i ], [ %.0, %61 ], [ @_Py_NoneStruct, %.thread85 ]
   %.04590 = phi ptr [ %.045, %._crit_edge.i ], [ %.045, %61 ], [ @_Py_NoneStruct, %.thread85 ]
   %65 = phi ptr [ %.pre.i, %._crit_edge.i ], [ null, %61 ], [ null, %.thread85 ]
-  %66 = call fastcc ptr @newPySSLSocket(ptr noundef nonnull %0, ptr noundef null, i32 noundef range(i32 0, -2147483648) %47, ptr noundef %65, ptr noundef %.04590, ptr noundef %.091, ptr noundef readonly %33, ptr noundef readonly %44)
+  %66 = call fastcc ptr @newPySSLSocket(ptr noundef nonnull %0, ptr noundef null, i32 noundef range(i32 0, -2147483648) %47, ptr noundef %65, ptr noundef %.04590, ptr noundef readonly %.091, ptr noundef readonly %33, ptr noundef readonly %44)
   %67 = load ptr, ptr %5, align 8, !tbaa !53
   call void @PyMem_Free(ptr noundef %67) #11
   br label %_ssl__SSLContext__wrap_bio_impl.exit

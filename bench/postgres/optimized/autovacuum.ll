@@ -2315,7 +2315,7 @@ recheck_relation_needs_vacanalyze.exit.i:         ; preds = %315, %extract_autov
   %319 = load i8, ptr %318, align 1, !range !4, !noundef !5
   %320 = trunc nuw i8 %319 to i1
   %321 = call ptr @pgstat_fetch_stat_tabentry_ext(i1 noundef zeroext %320, i32 noundef %316) #18
-  call fastcc void @relation_needs_vacanalyze(i32 noundef %316, ptr noundef %.069.i, ptr noundef nonnull %297, ptr noundef %321, i32 noundef %23, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @relation_needs_vacanalyze(i32 noundef %316, ptr noundef readonly %.069.i, ptr noundef nonnull %297, ptr noundef %321, i32 noundef %23, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %322 = load i8, ptr %317, align 1
   %323 = icmp eq i8 %322, 116
   %.pre94.i = load i8, ptr %4, align 1, !range !4

@@ -462,7 +462,7 @@ declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unna
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i64 @JNU_CallMethodByName(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ...) local_unnamed_addr #0 {
+define i64 @JNU_CallMethodByName(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ...) local_unnamed_addr #0 {
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %6)
   %7 = call i64 @JNU_CallMethodByNameV(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %6)
@@ -1604,7 +1604,7 @@ newStringUTF8.exit:                               ; preds = %177, %172, %54, %ne
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @GetStringPlatformChars(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define noundef ptr @GetStringPlatformChars(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @getStringPlatformChars0(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 0)
   ret ptr %4
 }
@@ -2316,19 +2316,19 @@ getStringUTF8.exit:                               ; preds = %312, %307, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @GetStringPlatformCharsStrict(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define noundef ptr @GetStringPlatformCharsStrict(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @getStringPlatformChars0(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 1)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @JNU_GetStringPlatformChars(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define noundef ptr @JNU_GetStringPlatformChars(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @getStringPlatformChars0(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 0)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @JNU_GetStringPlatformCharsStrict(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define noundef ptr @JNU_GetStringPlatformCharsStrict(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @getStringPlatformChars0(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 1)
   ret ptr %4
 }

@@ -252,13 +252,13 @@ err_get_state.exit.thread:                        ; preds = %11, %9, %48, %57, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ERR_get_error_line(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden i32 @ERR_get_error_line(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc i32 @get_error_values(i32 noundef 1, i32 noundef 0, ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef null)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ERR_get_error_line_data(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define hidden i32 @ERR_get_error_line_data(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @get_error_values(i32 noundef 1, i32 noundef 0, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   ret i32 %5
 }
@@ -362,7 +362,7 @@ get_error_values.exit:                            ; preds = %14, %.sink.split.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ERR_peek_error_line_data(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define hidden i32 @ERR_peek_error_line_data(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @get_error_values(i32 noundef 0, i32 noundef 0, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   ret i32 %5
 }
@@ -462,7 +462,7 @@ get_error_values.exit:                            ; preds = %14, %.sink.split.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ERR_peek_last_error_line_data(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define hidden i32 @ERR_peek_last_error_line_data(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @get_error_values(i32 noundef 0, i32 noundef 1, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   ret i32 %5
 }

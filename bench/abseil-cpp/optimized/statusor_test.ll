@@ -115682,7 +115682,7 @@ _ZN4absl17internal_statusor12StatusOrDataINS_8StatusOrIN12_GLOBAL__N_112CopyDete
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN4absl8StatusOrINS0_IN12_GLOBAL__N_112CopyDetectorEEEEaSERKS4_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN4absl8StatusOrINS0_IN12_GLOBAL__N_112CopyDetectorEEEEaSERKS4_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %_ZN4absl17internal_statusor12StatusOrDataINS_8StatusOrIN12_GLOBAL__N_112CopyDetectorEEEEaSERKS6_.exit, label %4
 
@@ -115699,7 +115699,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN4absl
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = tail call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl8StatusOrIN12_GLOBAL__N_112CopyDetectorEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %11 = tail call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl8StatusOrIN12_GLOBAL__N_112CopyDetectorEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull readonly align 8 dereferenceable(16) %7)
   br label %_ZN4absl17internal_statusor12StatusOrDataINS_8StatusOrIN12_GLOBAL__N_112CopyDetectorEEEEaSERKS6_.exit
 
 12:                                               ; preds = %6

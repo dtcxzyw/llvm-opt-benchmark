@@ -671,7 +671,7 @@ skip_prefix.exit.i:                               ; preds = %88
   store ptr @.str.31, ptr %13, align 8, !tbaa !48
   store i8 1, ptr %55, align 4
   %222 = load ptr, ptr %15, align 8, !tbaa !50
-  %223 = call fastcc i32 @rpc_service(ptr noundef %13, ptr noundef %135, ptr noundef %222, ptr noundef %14, ptr noundef %16)
+  %223 = call fastcc i32 @rpc_service(ptr noundef %13, ptr noundef readonly %135, ptr noundef %222, ptr noundef %14, ptr noundef %16)
   %224 = load i64, ptr %56, align 8, !tbaa !31
   %.not28.i.i.i = icmp eq i64 %224, 0
   br i1 %.not28.i.i.i, label %fetch.exit.i, label %225
@@ -1112,7 +1112,7 @@ skip_prefix.exit.i53:                             ; preds = %319
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %59, i8 0, i64 88, i1 false)
   store ptr @.str.106, ptr %8, align 8, !tbaa !48
   %403 = load ptr, ptr %9, align 8, !tbaa !50
-  %404 = call fastcc i32 @rpc_service(ptr noundef %8, ptr noundef nonnull %340, ptr noundef %403, ptr noundef %10, ptr noundef %11)
+  %404 = call fastcc i32 @rpc_service(ptr noundef %8, ptr noundef nonnull readonly %340, ptr noundef %403, ptr noundef %10, ptr noundef %11)
   %405 = load i64, ptr %60, align 8, !tbaa !31
   %.not23.i.i.i67 = icmp eq i64 %405, 0
   br i1 %.not23.i.i.i67, label %431, label %406

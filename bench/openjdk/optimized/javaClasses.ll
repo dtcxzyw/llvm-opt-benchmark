@@ -4004,7 +4004,7 @@ declare noundef ptr @_ZN15FieldInfoStream21create_FieldInfoArrayEPK5ArrayIhEPiS4
 declare noundef ptr @_ZN15FieldInfoStream22create_FieldInfoStreamEP13GrowableArrayI9FieldInfoEiiP15ClassLoaderDataP10JavaThread(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN15java_lang_Class23restore_archived_mirrorEP5Klass6HandleS2_S2_P10JavaThread(ptr noundef %0, ptr readonly captures(address_is_null) %1, ptr captures(address_is_null) %2, ptr readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN15java_lang_Class23restore_archived_mirrorEP5Klass6HandleS2_S2_P10JavaThread(ptr noundef %0, ptr readonly captures(address_is_null) %1, ptr readonly captures(address_is_null) %2, ptr readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
   %7 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %6) #19
   br i1 %7, label %28, label %8
@@ -4198,7 +4198,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %98, %96, %72, %52, 
 declare void @_ZN5Klass27clear_archived_mirror_indexEv(ptr noundef nonnull align 8 dereferenceable(196)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15java_lang_Class13create_mirrorEP5Klass6HandleS2_S2_S2_P10JavaThread(ptr noundef %0, ptr readonly captures(address_is_null) %1, ptr captures(address_is_null) %2, ptr captures(address_is_null) %3, ptr captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15java_lang_Class13create_mirrorEP5Klass6HandleS2_S2_S2_P10JavaThread(ptr noundef %0, ptr readonly captures(address_is_null) %1, ptr readonly captures(address_is_null) %2, ptr readonly captures(address_is_null) %3, ptr readonly captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %class.Handle, align 8
   %8 = alloca %class.Handle, align 8
   %9 = load ptr, ptr %0, align 8
@@ -4863,7 +4863,7 @@ define hidden void @_ZN15java_lang_Class20allocate_fixup_listsEv() local_unnamed
 declare noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef, i8 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15java_lang_Class15allocate_mirrorEP5Klassb6HandleS2_RS2_S3_P10JavaThread(ptr noundef %0, i1 noundef zeroext %1, ptr captures(address_is_null) %2, ptr captures(address_is_null) %3, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %5, ptr noundef %6) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15java_lang_Class15allocate_mirrorEP5Klassb6HandleS2_RS2_S3_P10JavaThread(ptr noundef %0, i1 noundef zeroext %1, ptr readonly captures(address_is_null) %2, ptr readonly captures(address_is_null) %3, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %5, ptr noundef %6) local_unnamed_addr #0 align 2 {
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
   %9 = tail call noundef ptr @_ZN19InstanceMirrorKlass17allocate_instanceEP5KlassP10JavaThread(ptr noundef nonnull align 8 dereferenceable(464) %8, ptr noundef %0, ptr noundef %6) #19
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -12269,7 +12269,7 @@ define hidden void @_ZN24java_lang_StackFrameInfo13set_contScopeEP7oopDescS1_(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24java_lang_StackFrameInfo22to_stack_trace_elementE6HandleS0_P10JavaThread(ptr readonly captures(address_is_null) %0, ptr captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN24java_lang_StackFrameInfo22to_stack_trace_elementE6HandleS0_P10JavaThread(ptr readonly captures(address_is_null) %0, ptr readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.HandleMark, align 8
   %5 = alloca %class.methodHandle, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 800

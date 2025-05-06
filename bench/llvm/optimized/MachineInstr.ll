@@ -1403,7 +1403,7 @@ define dso_local void @_ZN4llvm12MachineInstr24addRegOperandsToUseListsERNS_19Ma
 declare void @_ZN4llvm19MachineRegisterInfo22addRegOperandToUseListEPNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(504), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12MachineInstr10addOperandERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12MachineInstr10addOperandERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !48
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -14198,7 +14198,7 @@ _ZNK4llvm12MachineInstr20findInlineAsmFlagIdxEjPj.exit.thread: ; preds = %.lr.ph
   %163 = load ptr, ptr %162, align 8, !tbaa !48
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 32
   %165 = load ptr, ptr %164, align 8, !tbaa !49
-  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(1065) %165, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(1065) %165, ptr noundef nonnull readonly align 8 dereferenceable(32) %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
   br label %_ZNK4llvm14MCRegisterInfo15isSuperRegisterENS_10MCRegisterES1_.exit.thread70
 
@@ -14624,7 +14624,7 @@ _ZNK4llvm12MachineInstr20findInlineAsmFlagIdxEjPj.exit.thread: ; preds = %.lr.ph
   %156 = load ptr, ptr %155, align 8, !tbaa !48
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 32
   %158 = load ptr, ptr %157, align 8, !tbaa !49
-  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(1065) %158, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(1065) %158, ptr noundef nonnull readonly align 8 dereferenceable(32) %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
   br label %_ZNK4llvm14MCRegisterInfo15isSuperRegisterENS_10MCRegisterES1_.exit
 
@@ -14968,7 +14968,7 @@ _ZN4llvm20filter_iterator_baseIPNS_14MachineOperandEPFbRKS1_ESt26bidirectional_i
   %79 = load ptr, ptr %78, align 8, !tbaa !48
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %81 = load ptr, ptr %80, align 8, !tbaa !49
-  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(1065) %81, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(1065) %81, ptr noundef nonnull readonly align 8 dereferenceable(32) %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #25
   br label %.loopexit
 
@@ -15746,7 +15746,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, ptr } @_ZN4llvm7BuildMIERNS_15MachineFunctionERKNS_8DebugLocERKNS_11MCInstrDescEbNS_8ArrayRefINS_14MachineOperandEEEPKNS_6MDNodeESD_(ptr noundef nonnull align 8 dereferenceable(1065) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr captures(address) %4, i64 %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define dso_local { ptr, ptr } @_ZN4llvm7BuildMIERNS_15MachineFunctionERKNS_8DebugLocERKNS_11MCInstrDescEbNS_8ArrayRefINS_14MachineOperandEEEPKNS_6MDNodeESD_(ptr noundef nonnull align 8 dereferenceable(1065) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr readonly captures(address) %4, i64 %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca %"class.llvm::MachineOperand", align 8
   %10 = alloca %"class.llvm::MachineOperand", align 8
   %11 = alloca %"class.llvm::MachineOperand", align 8
@@ -19338,7 +19338,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit24: ; preds = %_ZNK4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12MachineInstr6insertEPNS_14MachineOperandENS_8ArrayRefIS1_EE(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef %1, ptr captures(address) %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12MachineInstr6insertEPNS_14MachineOperandENS_8ArrayRefIS1_EE(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SmallDenseMap.447", align 8
   %6 = alloca i32, align 4
   %7 = alloca %"class.llvm::SmallVector.450", align 8
@@ -19516,7 +19516,7 @@ _ZN4llvm15SmallVectorImplINS_14MachineOperandEE12emplace_backIJRS1_EEES4_DpOT_.e
   %89 = load ptr, ptr %68, align 8, !tbaa !48
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 32
   %91 = load ptr, ptr %90, align 8, !tbaa !49
-  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(1065) %91, ptr noundef nonnull align 8 dereferenceable(32) %.04269)
+  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(1065) %91, ptr noundef nonnull readonly align 8 dereferenceable(32) %.04269)
   %92 = getelementptr inbounds nuw i8, ptr %.04269, i64 32
   %.not44 = icmp eq ptr %92, %67
   br i1 %.not44, label %._crit_edge72, label %88
@@ -19585,7 +19585,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj4ENS_12DenseMapInfoIjvEENS_6detail
   %123 = load ptr, ptr %87, align 8, !tbaa !48
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 32
   %125 = load ptr, ptr %124, align 8, !tbaa !49
-  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(1065) %125, ptr noundef nonnull align 8 dereferenceable(32) %.04374)
+  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(1065) %125, ptr noundef nonnull readonly align 8 dereferenceable(32) %.04374)
   %126 = getelementptr inbounds nuw i8, ptr %.04374, i64 32
   %.not45 = icmp eq ptr %126, %86
   br i1 %.not45, label %._crit_edge77, label %122

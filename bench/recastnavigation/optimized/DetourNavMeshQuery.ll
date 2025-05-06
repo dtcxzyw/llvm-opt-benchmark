@@ -1868,7 +1868,7 @@ define void @_ZN22dtFindNearestPolyQueryD0Ev(ptr noundef nonnull align 8 derefer
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15findNearestPolyEPKfS1_PK13dtQueryFilterPjPf(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15findNearestPolyEPKfS1_PK13dtQueryFilterPjPf(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %class.dtFindNearestPolyQuery, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   %8 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
@@ -1896,7 +1896,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15fin
   store float 0x47EFFFFFE0000000, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %17, i8 0, i64 17, i1 false)
-  %18 = invoke noundef i32 @_ZNK14dtNavMeshQuery13queryPolygonsEPKfS1_PK13dtQueryFilterP11dtPolyQuery(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7)
+  %18 = invoke noundef i32 @_ZNK14dtNavMeshQuery13queryPolygonsEPKfS1_PK13dtQueryFilterP11dtPolyQuery(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef nonnull %7)
           to label %19 unwind label %21
 
 19:                                               ; preds = %13
@@ -1943,7 +1943,7 @@ _ZNK14dtNavMeshQuery15findNearestPolyEPKfS1_PK13dtQueryFilterPjPfPb.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15findNearestPolyEPKfS1_PK13dtQueryFilterPjPfPb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15findNearestPolyEPKfS1_PK13dtQueryFilterPjPfPb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %class.dtFindNearestPolyQuery, align 8
   %9 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %10 = icmp ne ptr %9, null
@@ -2607,7 +2607,7 @@ define void @_ZN19dtCollectPolysQueryD0Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery13queryPolygonsEPKfS1_PK13dtQueryFilterPjPii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery13queryPolygonsEPKfS1_PK13dtQueryFilterPjPii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %class.dtCollectPolysQuery, align 8
   %9 = icmp eq ptr %4, null
   %10 = icmp eq ptr %5, null
@@ -4890,7 +4890,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %37, %46
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   store ptr %79, ptr %63, align 8
   store i32 %84, ptr %64, align 4
-  %85 = call noundef i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterjP12dtRaycastHitj(ptr noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %77, ptr noundef nonnull %.152, ptr noundef %.0.i76, ptr noundef %83, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 0)
+  %85 = call noundef i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterjP12dtRaycastHitj(ptr noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %77, ptr noundef nonnull %.152, ptr noundef %.0.i76, ptr noundef readonly %83, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 0)
   %86 = load i32, ptr %65, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   %87 = add nsw i32 %86, %.1
@@ -4934,7 +4934,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %37, %46
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterPfS5_PjPii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef %7, ptr noundef writeonly captures(address_is_null) %8, i32 noundef %9) local_unnamed_addr #1 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterPfS5_PjPii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef %7, ptr noundef writeonly captures(address_is_null) %8, i32 noundef %9) local_unnamed_addr #1 align 2 {
   %11 = alloca %struct.dtRaycastHit, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %7, ptr %12, align 8
@@ -5145,7 +5145,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %.thread, %55
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   store ptr %90, ptr %73, align 8
   store i32 %95, ptr %74, align 4
-  %96 = call noundef i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterjP12dtRaycastHitj(ptr noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %88, ptr noundef nonnull %77, ptr noundef %.0.i81, ptr noundef %94, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 0)
+  %96 = call noundef i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterjP12dtRaycastHitj(ptr noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %88, ptr noundef nonnull %77, ptr noundef %.0.i81, ptr noundef readonly %94, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 0)
   %97 = load i32, ptr %75, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   %98 = add nsw i32 %97, %.1
@@ -5531,7 +5531,7 @@ _ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit: ; preds = %32, %38, %44,
 declare noundef zeroext i1 @_Z19dtIntersectSegSeg2DPKfS0_S0_S0_RfS1_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 536870913, -2147483639) i32 @_ZNK14dtNavMeshQuery16findStraightPathEPKfS1_PKjiPfPhPjPiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(address_is_null) %7, ptr noundef captures(address_is_null) %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 536870913, -2147483639) i32 @_ZNK14dtNavMeshQuery16findStraightPathEPKfS1_PKjiPfPhPjPiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef captures(address_is_null) %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %12 = alloca [3 x float], align 4
   %13 = alloca [3 x float], align 4
   %14 = alloca [3 x float], align 4

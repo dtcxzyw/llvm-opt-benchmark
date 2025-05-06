@@ -3422,7 +3422,7 @@ define dso_local i32 @strcmp_offset(ptr noundef readonly captures(none) %0, ptr 
 declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @repo_refresh_and_write_index(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @repo_refresh_and_write_index(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca %struct.lock_file, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #30
   store i64 0, ptr %8, align 8

@@ -72,7 +72,7 @@ define hidden void @csnStreamInit(ptr noundef writeonly captures(none) initializ
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden signext i16 @csnStreamDissector(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define hidden signext i16 @csnStreamDissector(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca i64, align 8
   %8 = alloca %struct.csnStream_t, align 8
   %9 = alloca ptr, align 8

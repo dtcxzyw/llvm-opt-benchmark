@@ -9686,7 +9686,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh6detail9IEEEFloatC2ERKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this, ptr noundef nonnull align 4 captures(address) dereferenceable(12) %Sem, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %API) unnamed_addr #2 align 2 {
+define hidden void @_ZN4llvh6detail9IEEEFloatC2ERKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this, ptr noundef nonnull readnone align 4 captures(address) dereferenceable(12) %Sem, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %API) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %Sem, ptr noundef nonnull align 8 dereferenceable(12) %API)
   ret void
@@ -14782,7 +14782,7 @@ if.then24.i.i:                                    ; preds = %lor.lhs.false.i.i, 
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call noundef i32 @_ZN4llvh6detail13DoubleAPFloat14addWithSpecialERKS1_S3_RS1_NS_11APFloatBase12roundingModeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %U.i, ptr noundef nonnull align 8 dereferenceable(16) %U9, ptr noundef nonnull align 8 dereferenceable(16) %U.i, i32 noundef %RM)
+  %call.i = tail call noundef i32 @_ZN4llvh6detail13DoubleAPFloat14addWithSpecialERKS1_S3_RS1_NS_11APFloatBase12roundingModeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %U.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %U9, ptr noundef nonnull align 8 dereferenceable(16) %U.i, i32 noundef %RM)
   br label %return
 
 return:                                           ; preds = %if.then24.i.i, %lor.lhs.false.i.i, %if.end.i.i, %if.end
@@ -14897,7 +14897,7 @@ if.then24.i.i:                                    ; preds = %lor.lhs.false.i.i, 
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN4llvh6detail13DoubleAPFloat10changeSignEv(ptr noundef nonnull align 8 dereferenceable(16) %U.i)
-  %call.i.i5 = tail call noundef i32 @_ZN4llvh6detail13DoubleAPFloat14addWithSpecialERKS1_S3_RS1_NS_11APFloatBase12roundingModeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %U.i, ptr noundef nonnull align 8 dereferenceable(16) %U9, ptr noundef nonnull align 8 dereferenceable(16) %U.i, i32 noundef %RM)
+  %call.i.i5 = tail call noundef i32 @_ZN4llvh6detail13DoubleAPFloat14addWithSpecialERKS1_S3_RS1_NS_11APFloatBase12roundingModeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %U.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %U9, ptr noundef nonnull align 8 dereferenceable(16) %U.i, i32 noundef %RM)
   tail call void @_ZN4llvh6detail13DoubleAPFloat10changeSignEv(ptr noundef nonnull align 8 dereferenceable(16) %U.i)
   br label %return
 
@@ -14907,7 +14907,7 @@ return:                                           ; preds = %if.then24.i.i, %lor
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4llvh6detail13DoubleAPFloat14addWithSpecialERKS1_S3_RS1_NS_11APFloatBase12roundingModeE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %LHS, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %RHS, ptr noundef nonnull align 8 dereferenceable(16) %Out, i32 noundef %RM) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZN4llvh6detail13DoubleAPFloat14addWithSpecialERKS1_S3_RS1_NS_11APFloatBase12roundingModeE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %LHS, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %RHS, ptr noundef nonnull align 8 dereferenceable(16) %Out, i32 noundef %RM) local_unnamed_addr #2 align 2 {
 entry:
   %A = alloca %"class.llvh::APFloat", align 8
   %AA = alloca %"class.llvh::APFloat", align 8
@@ -15198,14 +15198,14 @@ _ZN4llvh7APFloat7makeNaNEbbPKNS_5APIntE.exit:     ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4llvh6detail13DoubleAPFloat3addERKS1_NS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %RHS, i32 noundef %RM) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZN4llvh6detail13DoubleAPFloat3addERKS1_NS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %RHS, i32 noundef %RM) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN4llvh6detail13DoubleAPFloat14addWithSpecialERKS1_S3_RS1_NS_11APFloatBase12roundingModeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %RHS, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %RM)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4llvh6detail13DoubleAPFloat8subtractERKS1_NS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %RHS, i32 noundef %RM) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZN4llvh6detail13DoubleAPFloat8subtractERKS1_NS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %RHS, i32 noundef %RM) local_unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN4llvh6detail13DoubleAPFloat10changeSignEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %call.i = tail call noundef i32 @_ZN4llvh6detail13DoubleAPFloat14addWithSpecialERKS1_S3_RS1_NS_11APFloatBase12roundingModeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %RHS, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %RM)
@@ -15254,7 +15254,7 @@ if.then.i7:                                       ; preds = %_ZN4llvh7APFloat10c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4llvh6detail13DoubleAPFloat8multiplyERKS1_NS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %RHS, i32 noundef %RM) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZN4llvh6detail13DoubleAPFloat8multiplyERKS1_NS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %RHS, i32 noundef %RM) local_unnamed_addr #2 align 2 {
 entry:
   %A = alloca %"class.llvh::APFloat", align 8
   %B = alloca %"class.llvh::APFloat", align 8
@@ -18299,7 +18299,7 @@ if.then24.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i
   br label %_ZN4llvh7APFloat3addERKS0_NS_11APFloatBase12roundingModeE.exit
 
 if.end.i:                                         ; preds = %entry
-  %call.i.i = tail call noundef i32 @_ZN4llvh6detail13DoubleAPFloat14addWithSpecialERKS1_S3_RS1_NS_11APFloatBase12roundingModeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %U.i, ptr noundef nonnull align 8 dereferenceable(16) %U9.i, ptr noundef nonnull align 8 dereferenceable(16) %U.i, i32 noundef 0)
+  %call.i.i = tail call noundef i32 @_ZN4llvh6detail13DoubleAPFloat14addWithSpecialERKS1_S3_RS1_NS_11APFloatBase12roundingModeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %U.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %U9.i, ptr noundef nonnull align 8 dereferenceable(16) %U.i, i32 noundef 0)
   br label %_ZN4llvh7APFloat3addERKS0_NS_11APFloatBase12roundingModeE.exit
 
 _ZN4llvh7APFloat3addERKS0_NS_11APFloatBase12roundingModeE.exit: ; preds = %if.end.i.i.i, %lor.lhs.false.i.i.i, %if.then24.i.i.i, %if.end.i

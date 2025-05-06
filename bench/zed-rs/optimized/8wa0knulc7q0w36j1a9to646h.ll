@@ -26081,7 +26081,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf711927e9bfca48dE.exit: ; preds = %9
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { ptr, i64 } @"_ZN4core6option15Option$LT$T$GT$3map17h72784bb4191db9d5E"(ptr noundef align 1 %0, ptr captures(address_is_null) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, i64 } @"_ZN4core6option15Option$LT$T$GT$3map17h72784bb4191db9d5E"(ptr noundef align 1 %0, ptr readonly captures(address_is_null) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %33, label %4
 

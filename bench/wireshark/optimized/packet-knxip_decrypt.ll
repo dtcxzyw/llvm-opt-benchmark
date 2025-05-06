@@ -387,7 +387,7 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare ptr @wmem_packet_scope() local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @knxip_ccm_encrypt(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(none) %5, i8 noundef zeroext %6) local_unnamed_addr #0 {
+define hidden ptr @knxip_ccm_encrypt(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(none) %5, i8 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #14
   %9 = icmp ult i8 %6, 17
@@ -420,7 +420,7 @@ build_ctr0.exit:                                  ; preds = %11, %12
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @knxip_ccm_decrypt(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i8 noundef zeroext %5) local_unnamed_addr #0 {
+define hidden ptr @knxip_ccm_decrypt(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i8 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #14
   %8 = icmp ult i8 %5, 17

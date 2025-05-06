@@ -3197,7 +3197,7 @@ _ZN4llvm16DenseMapIteratorIN5clang12FileEntryRefEPNS1_6SrcMgr12ContentCacheENS_1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5clang13SourceManager13loadSLocEntryEjPb(ptr noundef nonnull align 8 captures(none) dereferenceable(696) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5clang13SourceManager13loadSLocEntryEjPb(ptr noundef nonnull align 8 captures(none) dereferenceable(696) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
   %4 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager13loadSLocEntryEjPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 noundef %1, ptr noundef %2)
   ret ptr %4
 }
@@ -9059,7 +9059,7 @@ _ZNK5clang13SourceManager15getBufferOrNoneENS_6FileIDENS_14SourceLocationE.exit.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK5clang13SourceManager23getSpellingColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK5clang13SourceManager23getSpellingColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
   %4 = icmp eq i32 %1, 0
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZL9isInvalidIN5clang14SourceLocationEEbT_Pb.exit, label %5
@@ -9086,7 +9086,7 @@ _ZL9isInvalidIN5clang14SourceLocationEEbT_Pb.exit: ; preds = %3, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK5clang13SourceManager24getExpansionColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK5clang13SourceManager24getExpansionColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
   %4 = icmp eq i32 %1, 0
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZL9isInvalidIN5clang14SourceLocationEEbT_Pb.exit, label %5
@@ -10535,7 +10535,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread30: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @_ZNK5clang13SourceManager20translateFileLineColEPKNS_9FileEntryEjj(ptr noundef nonnull align 8 dereferenceable(696) %0, ptr noundef captures(address) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
+define dso_local i32 @_ZNK5clang13SourceManager20translateFileLineColEPKNS_9FileEntryEjj(ptr noundef nonnull align 8 dereferenceable(696) %0, ptr noundef readnone captures(address) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = tail call i32 @_ZNK5clang13SourceManager13translateFileEPKNS_9FileEntryE(ptr noundef nonnull align 8 dereferenceable(696) %0, ptr noundef %1)
   %6 = tail call i32 @_ZNK5clang13SourceManager16translateLineColENS_6FileIDEjj(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %5, i32 noundef %2, i32 noundef %3)
   ret i32 %6
@@ -20022,7 +20022,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPKN5clang9FileEntr
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %.lr.ph
-  tail call fastcc void @"_ZSt13__heap_selectIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_SI_T0_"(ptr noundef %0, ptr noundef %.022, ptr noundef %.022)
+  tail call fastcc void @"_ZSt13__heap_selectIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_SI_T0_"(ptr noundef %0, ptr noundef %.022, ptr noundef readnone %.022)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %9, %.lr.ph.i.i

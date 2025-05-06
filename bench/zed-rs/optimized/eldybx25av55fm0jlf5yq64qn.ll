@@ -24104,7 +24104,7 @@ define hidden void @_ZN8language6buffer14BufferSnapshot13for_each_line17h0b21749
   br i1 %25, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h317400a49df4f870E.exit.thread.i", label %"_ZN4core6option15Option$LT$T$GT$6map_or17h317400a49df4f870E.exit.i"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h317400a49df4f870E.exit.i": ; preds = %80
-  %82 = invoke fastcc noundef zeroext i1 @_ZN5regex5regex6string5Regex11is_match_at17hb93468bac66c2711E(ptr nonnull %24, ptr %.val5.i.i, ptr noalias noundef nonnull readonly align 1 %81, i64 noundef %.pre)
+  %82 = invoke fastcc noundef zeroext i1 @_ZN5regex5regex6string5Regex11is_match_at17hb93468bac66c2711E(ptr nonnull readonly %24, ptr %.val5.i.i, ptr noalias noundef nonnull readonly align 1 %81, i64 noundef %.pre)
           to label %.noexc31 unwind label %.loopexit
 
 .noexc31:                                         ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h317400a49df4f870E.exit.i"
@@ -24134,7 +24134,7 @@ define hidden void @_ZN8language6buffer14BufferSnapshot13for_each_line17h0b21749
   br i1 %31, label %"_ZN8language6buffer14BufferSnapshot19suggest_autoindents28_$u7b$$u7b$closure$u7d$$u7d$17hd000ca38cc76fa26E.exit", label %"_ZN4core6option15Option$LT$T$GT$6map_or17h7d7d623228eca092E.exit.i"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h7d7d623228eca092E.exit.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h317400a49df4f870E.exit.thread.i"
-  %92 = invoke fastcc noundef zeroext i1 @_ZN5regex5regex6string5Regex11is_match_at17hb93468bac66c2711E(ptr nonnull %30, ptr %.val5.i4.i, ptr noalias noundef nonnull readonly align 1 %81, i64 noundef %.pre)
+  %92 = invoke fastcc noundef zeroext i1 @_ZN5regex5regex6string5Regex11is_match_at17hb93468bac66c2711E(ptr nonnull readonly %30, ptr %.val5.i4.i, ptr noalias noundef nonnull readonly align 1 %81, i64 noundef %.pre)
           to label %.noexc33 unwind label %.loopexit
 
 .noexc33:                                         ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h7d7d623228eca092E.exit.i"
@@ -27295,7 +27295,7 @@ common.resume.i:                                  ; preds = %111, %102, %82
   %107 = load ptr, ptr %106, align 8, !noalias !5407, !nonnull !5, !noundef !5
   %108 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %109 = load i64, ptr %108, align 8, !noalias !5407, !noundef !5
-  %110 = invoke fastcc noundef zeroext i1 @_ZN5regex5regex6string5Regex11is_match_at17hb93468bac66c2711E(ptr nonnull %89, ptr %.val5.i15.i, ptr noalias noundef nonnull readonly align 1 %107, i64 noundef %109)
+  %110 = invoke fastcc noundef zeroext i1 @_ZN5regex5regex6string5Regex11is_match_at17hb93468bac66c2711E(ptr nonnull readonly %89, ptr %.val5.i15.i, ptr noalias noundef nonnull readonly align 1 %107, i64 noundef %109)
           to label %113 unwind label %111
 
 111:                                              ; preds = %"_ZN98_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$RF$str$GT$$GT$9from_iter17hf31d947dca1452e3E.exit.i.i.i"

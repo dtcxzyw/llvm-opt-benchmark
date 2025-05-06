@@ -1368,7 +1368,7 @@ define range(i32 0, 2) i32 @ossl_rsa_get0_all_params(ptr noundef readonly captur
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_rsa_check_factors(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_check_factors(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @OPENSSL_sk_new_null() #11
   %3 = tail call ptr @OPENSSL_sk_new_null() #11
   %4 = tail call ptr @OPENSSL_sk_new_null() #11

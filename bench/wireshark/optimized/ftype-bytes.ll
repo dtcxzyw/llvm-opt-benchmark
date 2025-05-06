@@ -306,7 +306,7 @@ define internal void @bytes_fvalue_free(ptr noundef captures(none) %0) #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @bytes_from_literal(ptr noundef captures(none) %0, ptr noundef %1, i1 zeroext %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @bytes_from_literal(ptr noundef captures(none) %0, ptr noundef %1, i1 zeroext %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
   %5 = tail call ptr @byte_array_from_literal(ptr noundef %1, ptr noundef %3)
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %12

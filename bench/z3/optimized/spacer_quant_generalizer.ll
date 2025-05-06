@@ -4597,7 +4597,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit123:      ; preds = %_ZN15ref_vector_cor
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6spacer28lemma_quantifier_generalizer5is_lbEP3varP4expr(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN6spacer28lemma_quantifier_generalizer5is_lbEP3varP4expr(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = load i32, ptr %5, align 4
@@ -5336,7 +5336,7 @@ _ZNK10arith_util18is_times_minus_oneEP4exprRS1_.exit201: ; preds = %418
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6spacer28lemma_quantifier_generalizer5is_ubEP3varP4expr(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN6spacer28lemma_quantifier_generalizer5is_ubEP3varP4expr(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = load i32, ptr %5, align 4

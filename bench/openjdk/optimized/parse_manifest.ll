@@ -727,7 +727,7 @@ define internal fastcc range(i32 -1, 2) i32 @parse_nv_pair(ptr noundef nonnull c
 declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @JLI_JarUnpackFile(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden noundef ptr @JLI_JarUnpackFile(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.zentry, align 8
   %5 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %0, i32 noundef 0) #14
   %6 = icmp eq i32 %5, -1

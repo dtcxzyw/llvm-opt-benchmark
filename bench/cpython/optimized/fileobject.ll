@@ -1745,7 +1745,7 @@ declare noundef i32 @ungetc(i32 noundef, ptr noundef captures(none)) local_unnam
 declare void @funlockfile(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @Py_UniversalNewlineFgets(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @Py_UniversalNewlineFgets(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
   %6 = call ptr @_Py_UniversalNewlineFgetsWithSize(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)

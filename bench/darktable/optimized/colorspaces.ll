@@ -233,7 +233,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.dt_colorspaces_cicp_to_type = private unnamed_addr constant [15 x i32] [i32 20, i32 poison, i32 poison, i32 poison, i32 poison, i32 20, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 1, i32 20, i32 20], align 4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 5) i32 @dt_colorspaces_get_matrix_from_input_profile(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 5) i32 @dt_colorspaces_get_matrix_from_input_profile(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = tail call fastcc i32 @_colorspaces_get_matrix_from_profile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef 1)
   ret i32 %7
 }
@@ -629,7 +629,7 @@ define internal fastcc range(i32 0, 5) i32 @_colorspaces_get_matrix_from_profile
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 5) i32 @dt_colorspaces_get_matrix_from_output_profile(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 5) i32 @dt_colorspaces_get_matrix_from_output_profile(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = tail call fastcc i32 @_colorspaces_get_matrix_from_profile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef 0)
   ret i32 %7
 }

@@ -3601,7 +3601,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %53, %42, %_ZL21find
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11ClassLoader10load_classEP6SymbolP12PackageEntrybP10JavaThread(ptr noundef %0, ptr noundef captures(address_is_null) %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN11ClassLoader10load_classEP6SymbolP12PackageEntrybP10JavaThread(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.HandleMark, align 8
   %6 = alloca %class.EventMarkWithLogFunction, align 8
   %7 = alloca %class.ClassLoadInfo, align 8

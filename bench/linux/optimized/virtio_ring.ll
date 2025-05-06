@@ -1886,7 +1886,7 @@ define dso_local noundef zeroext i1 @virtqueue_kick(ptr noundef %0) #0 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @virtqueue_get_buf_ctx(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(address_is_null) %2) #0 align 16 {
+define dso_local ptr @virtqueue_get_buf_ctx(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i8, ptr %4, align 8, !range !9, !noundef !10
   %6 = icmp eq i8 %5, 0

@@ -1107,7 +1107,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ExprELb1EE9push_backES4_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK5clang4Expr25isKnownToHaveBooleanValueEb(ptr noundef nonnull align 8 captures(address) dereferenceable(16) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5clang4Expr25isKnownToHaveBooleanValueEb(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.backedge, %2

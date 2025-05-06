@@ -1738,7 +1738,7 @@ define dso_local void @_ZN4Luau4Json5writeERNS0_11JsonEmitterEc(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau4Json5writeERNS0_11JsonEmitterEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4Luau4Json5writeERNS0_11JsonEmitterEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #23
   tail call void @_ZN4Luau4Json5writeERNS0_11JsonEmitterESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %3, ptr nonnull %1)
   ret void

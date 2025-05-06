@@ -1208,7 +1208,7 @@ declare void @_ZN18ParsePredicateNodeC1EP4NodeN14Deoptimization11DeoptReasonEP8P
 declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14PhaseIdealLoop32set_ctrl_of_nodes_with_same_ctrlEP4NodeP8ProjNodeS1_(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14PhaseIdealLoop32set_ctrl_of_nodes_with_same_ctrlEP4NodeP8ProjNodeS1_(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.Unique_Node_List, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %7 = load ptr, ptr %6, align 8
@@ -1368,7 +1368,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %88, %90
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14PhaseIdealLoop26clone_nodes_with_same_ctrlEP4NodeP8ProjNodeS1_(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN14PhaseIdealLoop26clone_nodes_with_same_ctrlEP4NodeP8ProjNodeS1_(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.Unique_Node_List, align 8
   %6 = alloca %class.DataNodeGraph, align 8
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)

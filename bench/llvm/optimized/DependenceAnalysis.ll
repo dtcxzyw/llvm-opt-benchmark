@@ -16625,7 +16625,7 @@ tailrecurse:                                      ; preds = %.lr.ph
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4llvm14DependenceInfo15zeroCoefficientEPKNS_4SCEVEPKNS_4LoopE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %0, ptr noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZNK4llvm14DependenceInfo15zeroCoefficientEPKNS_4SCEVEPKNS_4LoopE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i16, ptr %4, align 8, !tbaa !183
   %6 = icmp ne i16 %5, 8

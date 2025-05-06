@@ -65615,7 +65615,7 @@ define hidden void @"_ZN13opentelemetry6global11propagation23set_text_map_propag
 .body:                                            ; preds = %2
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hba59088200f58b42E"(ptr nonnull %.val, ptr nonnull %.val2) #32
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hba59088200f58b42E"(ptr nonnull %.val, ptr nonnull readonly %.val2) #32
   store ptr inttoptr (i64 1 to ptr), ptr %6, align 8
   store ptr @anon.6f5aa1baf96411d151817ad1d392605a.117, ptr %7, align 8
   invoke void @"_ZN4core3ptr209drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$alloc..boxed..Box$LT$dyn$u20$opentelemetry..propagation..text_map_propagator..TextMapPropagator$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hd03282fa994284b1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3) #32
@@ -85417,7 +85417,7 @@ common.resume:                                    ; preds = %153, %162, %144, %1
 53:                                               ; preds = %49
   %54 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc61f770594add488E"(ptr nonnull %.val, ptr nonnull %.val1) #32
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc61f770594add488E"(ptr nonnull %.val, ptr nonnull readonly %.val1) #32
   br label %common.resume
 
 55:                                               ; preds = %49
@@ -87140,7 +87140,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$kafka_protocol..protocol..bu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$17h086b2838c9b4d65bE"(ptr %.0.val, ptr captures(address_is_null) %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$17h086b2838c9b4d65bE"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !5, !nonnull !5
@@ -87439,7 +87439,7 @@ define internal void @"_ZN4core3ptr85drop_in_place$LT$$RF$aws_smithy_runtime_api
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$sqlx_core..error..DatabaseError$GT$$GT$17h7b9e713c2291cea6E"(ptr %.0.val, ptr captures(address_is_null) %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$sqlx_core..error..DatabaseError$GT$$GT$17h7b9e713c2291cea6E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !5, !nonnull !5
@@ -123769,7 +123769,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i.i.i:
 738:                                              ; preds = %734
   %739 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc61f770594add488E"(ptr nonnull %735, ptr nonnull %736) #32, !noalias !16595
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc61f770594add488E"(ptr nonnull %735, ptr nonnull readonly %736) #32, !noalias !16595
   br label %.body322.i.i
 
 740:                                              ; preds = %734

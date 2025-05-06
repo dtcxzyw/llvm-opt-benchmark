@@ -8807,7 +8807,7 @@ PyByteArray_AS_STRING.exit.i:                     ; preds = %34, %.thread59
   %63 = getelementptr i8, ptr %.0.i.i, i64 %.3.in.i.i
   %64 = add nuw i64 %.214.i.i, 1
   %65 = sub i64 %64, %.3.in.i.i
-  %66 = call ptr @PyByteArray_FromStringAndSize(ptr noundef %63, i64 noundef %65)
+  %66 = call ptr @PyByteArray_FromStringAndSize(ptr noundef readonly %63, i64 noundef %65)
   %67 = icmp eq ptr %66, null
   br i1 %67, label %Py_DECREF.exit76.i.i, label %68
 
@@ -8878,7 +8878,7 @@ Py_DECREF.exit74.i.i:                             ; preds = %83, %80, %79, %70
 
 .critedge4.i.i:                                   ; preds = %.preheader.i.i
   %95 = add nuw i64 %.420.i.i, 1
-  %96 = call ptr @PyByteArray_FromStringAndSize(ptr noundef nonnull %.0.i.i, i64 noundef %95)
+  %96 = call ptr @PyByteArray_FromStringAndSize(ptr noundef nonnull readonly %.0.i.i, i64 noundef %95)
   %97 = icmp eq ptr %96, null
   br i1 %97, label %Py_DECREF.exit76.i.i, label %98
 
@@ -9007,7 +9007,7 @@ Py_DECREF.exit76.i.i:                             ; preds = %.critedge2.i.i, %Py
 146:                                              ; preds = %.lr.ph.i.i.i
   %gep.i.i.i = getelementptr i8, ptr %invariant.gep.i.i.i, i64 %.1488.i.i.i
   %147 = sub nuw nsw i64 %.04511.i.i.i, %.1488.i.i.i
-  %148 = call ptr @PyByteArray_FromStringAndSize(ptr noundef %gep.i.i.i, i64 noundef %147)
+  %148 = call ptr @PyByteArray_FromStringAndSize(ptr noundef readonly %gep.i.i.i, i64 noundef %147)
   %149 = icmp eq ptr %148, null
   br i1 %149, label %Py_DECREF.exit62.i.i.i, label %150
 
@@ -9071,7 +9071,7 @@ Py_DECREF.exit76.i.i:                             ; preds = %.critedge2.i.i, %Py
   %.044.lcssa26.i.i.i = phi i64 [ %.044.lcssa.i.i.i, %.critedge.i.i.i ], [ %169, %.loopexit.i.i.i ], [ %spec.store.select.i, %142 ]
   %.045.lcssa25.i.i.i = phi i64 [ %.045.lcssa.i.i.i, %.critedge.i.i.i ], [ -1, %.loopexit.i.i.i ], [ %.04511.i.i.i, %142 ]
   %173 = add i64 %.045.lcssa25.i.i.i, 1
-  %174 = call ptr @PyByteArray_FromStringAndSize(ptr noundef %.0.i.i, i64 noundef %173)
+  %174 = call ptr @PyByteArray_FromStringAndSize(ptr noundef readonly %.0.i.i, i64 noundef %173)
   %175 = icmp eq ptr %174, null
   br i1 %175, label %Py_DECREF.exit62.i.i.i, label %176
 
@@ -9266,7 +9266,7 @@ fastsearch.exit.loopexit.i.i:                     ; preds = %248
   %262 = add nuw i64 %.15065.us.i.i.i.i, %129
   %263 = getelementptr i8, ptr %.0.i.i, i64 %262
   %264 = sub i64 %.05328.i.i, %262
-  %265 = call ptr @PyByteArray_FromStringAndSize(ptr noundef %263, i64 noundef %264)
+  %265 = call ptr @PyByteArray_FromStringAndSize(ptr noundef readonly %263, i64 noundef %264)
   %266 = icmp eq ptr %265, null
   br i1 %266, label %Py_DECREF.exit67.i.i, label %267
 
@@ -9319,7 +9319,7 @@ Py_DECREF.exit65.i.i:                             ; preds = %281, %278, %277, %2
 fastsearch.exit.thread.i.i:                       ; preds = %Py_DECREF.exit65.i.i, %fastsearch.exit.loopexit.i.i, %.preheader56.i.i.i.i, %244, %223, %.lr.ph.i23.i, %.preheader.i22.i
   %.05315.i.i = phi i64 [ %.val.i, %.preheader.i22.i ], [ %.val.i, %.lr.ph.i23.i ], [ %.05328.i.i, %223 ], [ %.05328.i.i, %244 ], [ %.15065.us.i.i.i.i, %Py_DECREF.exit65.i.i ], [ %.05328.i.i, %fastsearch.exit.loopexit.i.i ], [ %.05328.i.i, %.preheader56.i.i.i.i ]
   %.05110.i.i = phi i64 [ 0, %.preheader.i22.i ], [ 0, %.lr.ph.i23.i ], [ %.05129.i.i, %223 ], [ %.05129.i.i, %244 ], [ %282, %Py_DECREF.exit65.i.i ], [ %.05129.i.i, %fastsearch.exit.loopexit.i.i ], [ %.05129.i.i, %.preheader56.i.i.i.i ]
-  %285 = call ptr @PyByteArray_FromStringAndSize(ptr noundef %.0.i.i, i64 noundef %.05315.i.i)
+  %285 = call ptr @PyByteArray_FromStringAndSize(ptr noundef readonly %.0.i.i, i64 noundef %.05315.i.i)
   %286 = icmp eq ptr %285, null
   br i1 %286, label %Py_DECREF.exit67.i.i, label %287
 
@@ -9662,7 +9662,7 @@ PyByteArray_AS_STRING.exit.i:                     ; preds = %34, %.thread59
   %.3.lcssa.i.i = phi i64 [ %smax.i.i, %.preheader1.i.i ], [ %.3.i.i, %56 ]
   %63 = getelementptr i8, ptr %.0.i.i, i64 %.2.lcssa.i.i
   %64 = sub i64 %.3.lcssa.i.i, %.2.lcssa.i.i
-  %65 = call ptr @PyByteArray_FromStringAndSize(ptr noundef %63, i64 noundef %64)
+  %65 = call ptr @PyByteArray_FromStringAndSize(ptr noundef readonly %63, i64 noundef %64)
   %66 = icmp eq ptr %65, null
   br i1 %66, label %Py_DECREF.exit84.i.i, label %67
 
@@ -9738,7 +9738,7 @@ Py_DECREF.exit82.i.i:                             ; preds = %82, %79, %78, %69
 93:                                               ; preds = %.critedge4.i.i
   %94 = getelementptr i8, ptr %.0.i.i, i64 %.416.i.i
   %95 = sub i64 %.val.i, %.416.i.i
-  %96 = call ptr @PyByteArray_FromStringAndSize(ptr noundef nonnull %94, i64 noundef %95)
+  %96 = call ptr @PyByteArray_FromStringAndSize(ptr noundef nonnull readonly %94, i64 noundef %95)
   %97 = icmp eq ptr %96, null
   br i1 %97, label %Py_DECREF.exit84.i.i, label %98
 
@@ -9870,7 +9870,7 @@ Py_DECREF.exit84.i.i:                             ; preds = %.critedge2.i.i, %Py
 145:                                              ; preds = %.lr.ph.i.i.i
   %146 = getelementptr i8, ptr %.0.i.i, i64 %.05110.i.i.i
   %147 = sub i64 %.1498.i.i.i, %.05110.i.i.i
-  %148 = call ptr @PyByteArray_FromStringAndSize(ptr noundef %146, i64 noundef %147)
+  %148 = call ptr @PyByteArray_FromStringAndSize(ptr noundef readonly %146, i64 noundef %147)
   %149 = icmp eq ptr %148, null
   br i1 %149, label %Py_DECREF.exit68.i.i.i, label %150
 
@@ -9939,7 +9939,7 @@ Py_DECREF.exit66.i.i.i:                           ; preds = %165, %162, %161, %1
 171:                                              ; preds = %.critedge.i.i.i
   %172 = getelementptr i8, ptr %.0.i.i, i64 %.051.lcssa.i.i.i
   %173 = sub i64 %.val.i, %.051.lcssa.i.i.i
-  %174 = call ptr @PyByteArray_FromStringAndSize(ptr noundef %172, i64 noundef %173)
+  %174 = call ptr @PyByteArray_FromStringAndSize(ptr noundef readonly %172, i64 noundef %173)
   %175 = icmp eq ptr %174, null
   br i1 %175, label %Py_DECREF.exit68.i.i.i, label %176
 
@@ -10270,7 +10270,7 @@ PyByteArray_AS_STRING.exit.i:                     ; preds = %22, %20
   %.0.us.i.i = phi i64 [ %.18.us.i.i, %31 ], [ %.18.us.i.i, %33 ], [ %.val.i.i, %49 ], [ %.18.us.i.i, %.preheader.us.i.i ]
   %38 = getelementptr i8, ptr %.0.i.i, i64 %.039.us.i.i
   %39 = sub i64 %.0.us.i.i, %.039.us.i.i
-  %40 = call ptr @PyByteArray_FromStringAndSize(ptr noundef %38, i64 noundef %39)
+  %40 = call ptr @PyByteArray_FromStringAndSize(ptr noundef readonly %38, i64 noundef %39)
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.split.us.i.i, label %42
 
@@ -10333,7 +10333,7 @@ Py_DECREF.exit50.us.i.i:                          ; preds = %48, %45, %42
   %.2.i.i = phi i64 [ %53, %55 ], [ %spec.select27.i.i, %57 ], [ %.val.i.i, %54 ], [ %53, %.preheader.i.i ]
   %62 = getelementptr i8, ptr %.0.i.i, i64 %.039.i.i
   %63 = sub i64 %.2.i.i, %.039.i.i
-  %64 = call ptr @PyByteArray_FromStringAndSize(ptr noundef %62, i64 noundef %63)
+  %64 = call ptr @PyByteArray_FromStringAndSize(ptr noundef readonly %62, i64 noundef %63)
   %65 = icmp eq ptr %64, null
   br i1 %65, label %.split.us.i.i, label %66
 

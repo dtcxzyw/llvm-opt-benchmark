@@ -20715,7 +20715,7 @@ _ZN4llvm10DwarfDebug18terminateLineTableEPKNS_16DwarfCompileUnitE.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10DwarfDebug15endFunctionImplEPKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(5876) %0, ptr noundef captures(address) %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm10DwarfDebug15endFunctionImplEPKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(5876) %0, ptr noundef readonly captures(address) %1) unnamed_addr #1 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca %"class.llvm::DenseSet.1091", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #29

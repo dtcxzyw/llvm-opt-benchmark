@@ -292,7 +292,7 @@ _ZN10Node_Array3mapEjP4Node.exit22:               ; preds = %_ZN10Node_Array3map
 declare void @_ZN5Block11find_removeEPK4Node(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(364) %0, ptr noundef %1, ptr noundef readnone captures(none) %2, ptr noundef captures(address) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(364) %0, ptr noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(address) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
@@ -385,7 +385,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %26, %38
 declare void @_ZN4Node17disconnect_inputsEP7Compile(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN12PhaseChaitin18use_prior_registerEP4NodejS1_P5BlockP9Node_ListS5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(364) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef captures(address) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN12PhaseChaitin18use_prior_registerEP4NodejS1_P5BlockP9Node_ListS5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(364) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readnone captures(address) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %2 to i64
@@ -650,7 +650,7 @@ define hidden noundef ptr @_ZN12PhaseChaitin11skip_copiesEP4Node(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN12PhaseChaitin10elide_copyEP4NodeiP5BlockP9Node_ListS5_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(364) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address) %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN12PhaseChaitin10elide_copyEP4NodeiP5BlockP9Node_ListS5_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(364) %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone captures(address) %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %2 to i64
@@ -1065,7 +1065,7 @@ _ZL23register_contains_valueP4NodeiiRK9Node_List.exit157: ; preds = %_ZNK10Node_
 declare noundef i32 @_ZN7RegMask13num_registersEjR3LRG(i32 noundef, ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN12PhaseChaitin26eliminate_copy_of_constantEP4NodeS1_P5BlockR9Node_ListS5_ii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(364) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address) %3, ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull align 8 dereferenceable(28) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN12PhaseChaitin26eliminate_copy_of_constantEP4NodeS1_P5BlockR9Node_ListS5_ii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(364) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(address) %3, ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull align 8 dereferenceable(28) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 align 2 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp uge i32 %6, %10
@@ -2056,7 +2056,7 @@ _ZNK5Block8get_nodeEj.exit387:                    ; preds = %100, %104
   br i1 %.not139.i, label %156, label %_ZN12PhaseChaitin10elide_copyEP4NodeiP5BlockP9Node_ListS5_b.exit
 
 156:                                              ; preds = %143
-  %157 = call noundef i32 @_ZN12PhaseChaitin18use_prior_registerEP4NodejS1_P5BlockP9Node_ListS5_(ptr noundef nonnull readonly align 8 dereferenceable(364) %0, ptr noundef nonnull %108, i32 noundef %99, ptr noundef nonnull %140, ptr noundef nonnull %59, ptr noundef %112, ptr noundef %114)
+  %157 = call noundef i32 @_ZN12PhaseChaitin18use_prior_registerEP4NodejS1_P5BlockP9Node_ListS5_(ptr noundef nonnull readonly align 8 dereferenceable(364) %0, ptr noundef nonnull %108, i32 noundef %99, ptr noundef nonnull %140, ptr noundef nonnull readnone %59, ptr noundef %112, ptr noundef %114)
   %158 = load ptr, ptr %115, align 8
   %159 = getelementptr inbounds nuw ptr, ptr %158, i64 %indvars.iv759
   %160 = load ptr, ptr %159, align 8
@@ -3453,7 +3453,7 @@ _ZN4Node7del_outEPS_.exit.i.i:                    ; preds = %887, %875, %868
   br label %_ZN4Node7set_reqEjPS_.exit.i
 
 _ZN4Node7set_reqEjPS_.exit.i:                     ; preds = %903, %892, %_ZN4Node7del_outEPS_.exit.i.i
-  %909 = call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull readonly align 8 dereferenceable(364) %0, ptr noundef nonnull %859, ptr noundef nonnull %859, ptr noundef nonnull %59, ptr noundef nonnull align 8 dereferenceable(28) %304, ptr noundef nonnull align 8 dereferenceable(28) %303)
+  %909 = call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull readonly align 8 dereferenceable(364) %0, ptr noundef nonnull %859, ptr noundef nonnull %859, ptr noundef nonnull readnone %59, ptr noundef nonnull align 8 dereferenceable(28) %304, ptr noundef nonnull align 8 dereferenceable(28) %303)
   %910 = getelementptr inbounds i8, ptr %.03352.i, i64 -8
   %911 = getelementptr inbounds i8, ptr %.04451.i, i64 -8
   br label %912
@@ -4025,7 +4025,7 @@ _ZN4Node7del_outEPS_.exit.i.i499:                 ; preds = %1183, %1171, %1164
   br label %_ZN4Node7set_reqEjPS_.exit.i501
 
 _ZN4Node7set_reqEjPS_.exit.i501:                  ; preds = %1199, %1188, %_ZN4Node7del_outEPS_.exit.i.i499
-  %1205 = call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull readonly align 8 dereferenceable(364) %0, ptr noundef nonnull %1155, ptr noundef nonnull %1155, ptr noundef nonnull %59, ptr noundef nonnull align 8 dereferenceable(28) %304, ptr noundef nonnull align 8 dereferenceable(28) %303)
+  %1205 = call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull readonly align 8 dereferenceable(364) %0, ptr noundef nonnull %1155, ptr noundef nonnull %1155, ptr noundef nonnull readnone %59, ptr noundef nonnull align 8 dereferenceable(28) %304, ptr noundef nonnull align 8 dereferenceable(28) %303)
   %1206 = getelementptr inbounds i8, ptr %.03352.i491, i64 -8
   %1207 = getelementptr inbounds i8, ptr %.04451.i492, i64 -8
   br label %1208

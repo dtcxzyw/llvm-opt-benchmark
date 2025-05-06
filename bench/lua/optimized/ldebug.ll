@@ -1746,7 +1746,7 @@ define hidden void @luaG_opinterror(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define hidden void @luaG_tointerror(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #9 {
+define hidden void @luaG_tointerror(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #9 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
   %5 = call i32 @luaV_tointegerns(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 0) #13

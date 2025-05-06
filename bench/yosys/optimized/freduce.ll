@@ -13737,7 +13737,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit902:              ; preds = %_ZSt8_DestroyIPN5Yo
   store ptr %4553, ptr %4555, align 8, !tbaa !72
   store ptr %4553, ptr %4556, align 8, !tbaa !73
   store i64 0, ptr %4557, align 8, !tbaa !74
-  %4877 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113FreduceWorker16find_bit_in_coneERSt3setIPN5Yosys5RTLIL4CellESt4lessIS5_ESaIS5_EENS3_6SigBitESB_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(48) %9, ptr %.sroa.019.0.copyload, i32 %.sroa.220.0.copyload, ptr %.sroa.017.0.copyload, i32 %.sroa.218.0.copyload)
+  %4877 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113FreduceWorker16find_bit_in_coneERSt3setIPN5Yosys5RTLIL4CellESt4lessIS5_ESaIS5_EENS3_6SigBitESB_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(48) %9, ptr readnone %.sroa.019.0.copyload, i32 %.sroa.220.0.copyload, ptr %.sroa.017.0.copyload, i32 %.sroa.218.0.copyload)
           to label %4878 unwind label %4883
 
 4878:                                             ; preds = %4873
@@ -69427,7 +69427,7 @@ _ZNKSt4lessIN5Yosys5RTLIL6SigBitEEclERKS2_S5_.exit9: ; preds = %45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113FreduceWorker16find_bit_in_coneERSt3setIPN5Yosys5RTLIL4CellESt4lessIS5_ESaIS5_EENS3_6SigBitESB_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr captures(address) %2, i32 %3, ptr %4, i32 %5) unnamed_addr #5 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113FreduceWorker16find_bit_in_coneERSt3setIPN5Yosys5RTLIL4CellESt4lessIS5_ESaIS5_EENS3_6SigBitESB_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr readnone captures(address) %2, i32 %3, ptr %4, i32 %5) unnamed_addr #5 align 2 {
   %7 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %.fr25.i.i.i = freeze ptr %4
   %.sroa.4.8.extract.trunc = trunc i32 %3 to i8

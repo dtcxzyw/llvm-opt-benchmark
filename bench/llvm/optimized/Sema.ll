@@ -35839,7 +35839,7 @@ declare i64 @_ZN5clang4Sema25BuildCallToMemberFunctionEPNS_5ScopeEPNS_4ExprENS_1
 declare i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4Sema20tryToRecoverWithCallERNS_12ActionResultIPNS_4ExprELb1EEERKNS_17PartialDiagnosticEbPFbNS_8QualTypeEE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(20) %2, i1 noundef zeroext %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4Sema20tryToRecoverWithCallERNS_12ActionResultIPNS_4ExprELb1EEERKNS_17PartialDiagnosticEbPFbNS_8QualTypeEE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(20) %2, i1 noundef zeroext %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::CharSourceRange", align 8
   %7 = alloca %"class.clang::CharSourceRange", align 8
   %8 = alloca %"class.clang::CanonicalDeclPtr", align 8

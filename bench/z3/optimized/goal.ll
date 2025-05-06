@@ -378,7 +378,7 @@ define hidden void @_ZN4goalC2ER11ast_managerbbb(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4goalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(124) initializes((0, 36)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(124) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4goalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(124) initializes((0, 36)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(124) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !102
   store ptr %3, ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -7988,7 +7988,7 @@ declare void @split_pathtarget_at_srfs(ptr noundef, ptr noundef, ptr noundef, pt
 declare zeroext i1 @equal(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @apply_scanjoin_target_to_paths(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @apply_scanjoin_target_to_paths(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %9 = load ptr, ptr %8, align 8

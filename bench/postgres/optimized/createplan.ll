@@ -304,7 +304,7 @@ define internal fastcc ptr @create_plan_recurse(ptr noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #12
-  %124 = call fastcc ptr @prepare_sort_from_pathkeys(ptr noundef %69, ptr noundef %123, ptr noundef %114, ptr noundef null, i1 noundef zeroext false, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %33)
+  %124 = call fastcc ptr @prepare_sort_from_pathkeys(ptr noundef %69, ptr noundef readonly %123, ptr noundef %114, ptr noundef null, i1 noundef zeroext false, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %33)
   %125 = load i32, ptr %29, align 4
   %126 = load ptr, ptr %30, align 8
   %127 = load ptr, ptr %31, align 8
@@ -383,7 +383,7 @@ define internal fastcc ptr @create_plan_recurse(ptr noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #12
-  %171 = call fastcc ptr @prepare_sort_from_pathkeys(ptr noundef %69, ptr noundef %.pre, ptr noundef %114, ptr noundef null, i1 noundef zeroext false, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %27)
+  %171 = call fastcc ptr @prepare_sort_from_pathkeys(ptr noundef %69, ptr noundef readonly %.pre, ptr noundef %114, ptr noundef null, i1 noundef zeroext false, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %27)
   %172 = load i32, ptr %23, align 4
   %173 = load ptr, ptr %24, align 8
   %174 = load ptr, ptr %25, align 8
@@ -484,7 +484,7 @@ define internal fastcc ptr @create_plan_recurse(ptr noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #12
-  %229 = call fastcc ptr @prepare_sort_from_pathkeys(ptr noundef %74, ptr noundef nonnull %223, ptr noundef %228, ptr noundef null, i1 noundef zeroext false, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21)
+  %229 = call fastcc ptr @prepare_sort_from_pathkeys(ptr noundef %74, ptr noundef nonnull readonly %223, ptr noundef %228, ptr noundef null, i1 noundef zeroext false, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21)
   %230 = load i32, ptr %17, align 4
   %231 = load ptr, ptr %18, align 8
   %232 = load ptr, ptr %19, align 8
@@ -2459,7 +2459,7 @@ create_sort_plan.exit:                            ; preds = %1387, %1399
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #12
-  %1405 = call fastcc ptr @prepare_sort_from_pathkeys(ptr noundef %1391, ptr noundef %1393, ptr noundef %1404, ptr noundef null, i1 noundef zeroext false, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  %1405 = call fastcc ptr @prepare_sort_from_pathkeys(ptr noundef %1391, ptr noundef readonly %1393, ptr noundef %1404, ptr noundef null, i1 noundef zeroext false, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %1406 = load i32, ptr %9, align 4
   %1407 = load ptr, ptr %10, align 8
   %1408 = load ptr, ptr %11, align 8
@@ -2565,7 +2565,7 @@ create_incrementalsort_plan.exit:                 ; preds = %1452, %1464
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #12
-  %1472 = call fastcc ptr @prepare_sort_from_pathkeys(ptr noundef %1456, ptr noundef %1458, ptr noundef %1469, ptr noundef null, i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %1472 = call fastcc ptr @prepare_sort_from_pathkeys(ptr noundef %1456, ptr noundef readonly %1458, ptr noundef %1469, ptr noundef null, i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %1473 = load i32, ptr %4, align 4
   %1474 = load ptr, ptr %5, align 8
   %1475 = load ptr, ptr %6, align 8

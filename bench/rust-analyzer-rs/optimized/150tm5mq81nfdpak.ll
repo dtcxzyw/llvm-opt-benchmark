@@ -11367,7 +11367,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %243
   %258 = load i64, ptr %257, align 8, !noalias !2393, !noundef !7
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22), !noalias !2393
   %259 = load ptr, ptr %.val59, align 8, !noalias !2429, !nonnull !7, !align !143, !noundef !7
-  %260 = invoke fastcc { i32, i32 } @_ZN6ide_db11famous_defs10FamousDefs15find_lang_crate17h7ae4de4e87f2e1eaE(ptr nonnull %.val59, i32 %.val60, i8 noundef 3)
+  %260 = invoke fastcc { i32, i32 } @_ZN6ide_db11famous_defs10FamousDefs15find_lang_crate17h7ae4de4e87f2e1eaE(ptr nonnull readonly %.val59, i32 %.val60, i8 noundef 3)
           to label %.noexc16.i unwind label %330, !noalias !2393
 
 .noexc16.i:                                       ; preds = %"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17h29d49f0c6ab723e2E.exit.i"
@@ -22737,7 +22737,7 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs12core_cmp_Ord17h9bcf092b
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1 = load i32, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2), !noalias !5002
-  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.206, i64 noundef 12)
+  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull readonly %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.206, i64 noundef 12)
   %4 = load i32, ptr %2, align 4, !range !4598, !noalias !5002, !noundef !7
   %.not.i = icmp eq i32 %4, 7
   %.sroa.49.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -22760,7 +22760,7 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs17core_convert_From17hbf9
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1 = load i32, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2), !noalias !5005
-  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.207, i64 noundef 17)
+  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull readonly %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.207, i64 noundef 17)
   %4 = load i32, ptr %2, align 4, !range !4598, !noalias !5005, !noundef !7
   %.not.i = icmp eq i32 %4, 7
   %.sroa.49.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -22783,7 +22783,7 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs17core_convert_Into17hbc2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1 = load i32, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2), !noalias !5008
-  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.208, i64 noundef 17)
+  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull readonly %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.208, i64 noundef 17)
   %4 = load i32, ptr %2, align 4, !range !4598, !noalias !5008, !noundef !7
   %.not.i = icmp eq i32 %4, 7
   %.sroa.49.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -22806,7 +22806,7 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs18core_convert_Index17hbd
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1 = load i32, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2), !noalias !5011
-  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.209, i64 noundef 14)
+  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull readonly %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.209, i64 noundef 14)
   %4 = load i32, ptr %2, align 4, !range !4598, !noalias !5011, !noundef !7
   %.not.i = icmp eq i32 %4, 7
   %.sroa.49.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -22829,7 +22829,7 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs18core_option_Option17h79
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1 = load i32, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2), !noalias !5014
-  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.210, i64 noundef 18)
+  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull readonly %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.210, i64 noundef 18)
   %4 = load i32, ptr %2, align 4, !range !4598, !noalias !5014, !noundef !7
   %5 = icmp eq i32 %4, 7
   br i1 %5, label %10, label %6
@@ -22866,7 +22866,7 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs18core_result_Result17hc4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1 = load i32, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2), !noalias !5017
-  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.211, i64 noundef 18)
+  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull readonly %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.211, i64 noundef 18)
   %4 = load i32, ptr %2, align 4, !range !4598, !noalias !5017, !noundef !7
   %5 = icmp eq i32 %4, 7
   br i1 %5, label %10, label %6
@@ -22903,7 +22903,7 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs20core_default_Default17h
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1 = load i32, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2), !noalias !5020
-  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.212, i64 noundef 20)
+  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull readonly %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.212, i64 noundef 20)
   %4 = load i32, ptr %2, align 4, !range !4598, !noalias !5020, !noundef !7
   %.not.i = icmp eq i32 %4, 7
   %.sroa.49.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -22926,7 +22926,7 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs18core_iter_Iterator17hdf
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1 = load i32, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2), !noalias !5023
-  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.213, i64 noundef 34)
+  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull readonly %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.213, i64 noundef 34)
   %4 = load i32, ptr %2, align 4, !range !4598, !noalias !5023, !noundef !7
   %.not.i = icmp eq i32 %4, 7
   %.sroa.49.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -22949,7 +22949,7 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs22core_iter_IntoIterator1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1 = load i32, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2), !noalias !5026
-  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.214, i64 noundef 37)
+  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull readonly %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.214, i64 noundef 37)
   %4 = load i32, ptr %2, align 4, !range !4598, !noalias !5026, !noundef !7
   %.not.i = icmp eq i32 %4, 7
   %.sroa.49.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -22975,7 +22975,7 @@ define void @_ZN6ide_db11famous_defs10FamousDefs9core_iter17hb9161905990e4726E(p
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5029)
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %.sroa.4.i)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3), !noalias !5029
-  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %3, ptr nonnull %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.215, i64 noundef 9), !noalias !5029
+  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %3, ptr nonnull readonly %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.215, i64 noundef 9), !noalias !5029
   %5 = load i32, ptr %3, align 4, !range !4598, !noalias !5029, !noundef !7
   %6 = icmp eq i32 %5, 7
   br i1 %6, label %10, label %7
@@ -23015,7 +23015,7 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs14core_ops_Deref17h15d1fe
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1 = load i32, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2), !noalias !5032
-  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.216, i64 noundef 14)
+  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull readonly %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.216, i64 noundef 14)
   %4 = load i32, ptr %2, align 4, !range !4598, !noalias !5032, !noundef !7
   %.not.i = icmp eq i32 %4, 7
   %.sroa.49.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -23038,7 +23038,7 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs17core_ops_DerefMut17h31d
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1 = load i32, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2), !noalias !5035
-  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.217, i64 noundef 17)
+  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull readonly %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.217, i64 noundef 17)
   %4 = load i32, ptr %2, align 4, !range !4598, !noalias !5035, !noundef !7
   %.not.i = icmp eq i32 %4, 7
   %.sroa.49.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -23061,7 +23061,7 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs18core_convert_AsRef17h72
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1 = load i32, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2), !noalias !5038
-  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.218, i64 noundef 18)
+  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull readonly %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.218, i64 noundef 18)
   %4 = load i32, ptr %2, align 4, !range !4598, !noalias !5038, !noundef !7
   %.not.i = icmp eq i32 %4, 7
   %.sroa.49.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -23084,7 +23084,7 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs20core_ops_ControlFlow17h
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1 = load i32, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2), !noalias !5041
-  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.219, i64 noundef 20)
+  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull readonly %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.219, i64 noundef 20)
   %4 = load i32, ptr %2, align 4, !range !4598, !noalias !5041, !noundef !7
   %5 = icmp eq i32 %4, 7
   br i1 %5, label %10, label %6
@@ -23121,7 +23121,7 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs13core_ops_Drop17h7832f27
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1 = load i32, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2), !noalias !5044
-  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.220, i64 noundef 13)
+  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull readonly %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.220, i64 noundef 13)
   %4 = load i32, ptr %2, align 4, !range !4598, !noalias !5044, !noundef !7
   %.not.i = icmp eq i32 %4, 7
   %.sroa.49.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -23144,7 +23144,7 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs16core_marker_Copy17he5e5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1 = load i32, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2), !noalias !5047
-  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.221, i64 noundef 16)
+  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull readonly %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.221, i64 noundef 16)
   %4 = load i32, ptr %2, align 4, !range !4598, !noalias !5047, !noundef !7
   %.not.i = icmp eq i32 %4, 7
   %.sroa.49.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -23167,7 +23167,7 @@ define { i32, i32 } @_ZN6ide_db11famous_defs10FamousDefs26core_macros_builtin_de
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1 = load i32, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2), !noalias !5050
-  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.222, i64 noundef 26)
+  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull readonly %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.222, i64 noundef 26)
   %4 = load i32, ptr %2, align 4, !range !4598, !noalias !5050, !noundef !7
   %.sroa.411.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.sroa.411.0.copyload.i = load i8, ptr %.sroa.411.0..sroa_idx.i, align 4, !noalias !5050
@@ -23196,7 +23196,7 @@ define noundef i32 @_ZN6ide_db11famous_defs10FamousDefs13core_mem_drop17h277c60b
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1 = load i32, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2)
-  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.223, i64 noundef 13)
+  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull readonly %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.223, i64 noundef 13)
   %4 = load i32, ptr %2, align 4, !range !4598, !noundef !7
   %.not.i = icmp eq i32 %4, 7
   %.sroa.49.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -23219,7 +23219,7 @@ define { i32, i32 } @_ZN6ide_db11famous_defs10FamousDefs16core_macros_todo17hc67
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1 = load i32, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2), !noalias !5053
-  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.224, i64 noundef 9)
+  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull readonly %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.224, i64 noundef 9)
   %4 = load i32, ptr %2, align 4, !range !4598, !noalias !5053, !noundef !7
   %.sroa.411.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.sroa.411.0.copyload.i = load i8, ptr %.sroa.411.0..sroa_idx.i, align 4, !noalias !5053
@@ -23248,7 +23248,7 @@ define { i32, i32 } @_ZN6ide_db11famous_defs10FamousDefs25core_macros_unimplemen
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1 = load i32, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2), !noalias !5056
-  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.225, i64 noundef 18)
+  call fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr nonnull readonly %.val, i32 %.val1, ptr noalias noundef nonnull readonly align 1 @anon.8f2350cd0fec4540471ce4074fa4f68a.225, i64 noundef 18)
   %4 = load i32, ptr %2, align 4, !range !4598, !noalias !5056, !noundef !7
   %.sroa.411.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.sroa.411.0.copyload.i = load i8, ptr %.sroa.411.0..sroa_idx.i, align 4, !noalias !5056
@@ -23594,7 +23594,7 @@ define internal fastcc { i32, i32 } @_ZN6ide_db11famous_defs10FamousDefs15find_l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef nonnull writeonly align 4 captures(none) dereferenceable(20) %0, ptr captures(address_is_null) %.0.val, i32 %.8.val, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef range(i64 9, 38) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6ide_db11famous_defs10FamousDefs8find_def17hc5d75f64bbb239ffE(ptr noalias noundef nonnull writeonly align 4 captures(none) dereferenceable(20) %0, ptr readonly captures(address_is_null) %.0.val, i32 %.8.val, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef range(i64 9, 38) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca { { i32, i32, i32 } }, align 8

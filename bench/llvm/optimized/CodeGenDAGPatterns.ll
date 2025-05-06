@@ -1043,7 +1043,7 @@ declare { ptr, i64 } @_ZN4llvm17ValueTypeByHwMode10getMVTNameENS_3MVTE(i16) loca
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15TypeSetByHwModeC2ENS_8ArrayRefINS_17ValueTypeByHwModeEEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((8, 12), (16, 24)) %0, ptr captures(address) %1, i64 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15TypeSetByHwModeC2ENS_8ArrayRefINS_17ValueTypeByHwModeEEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((8, 12), (16, 24)) %0, ptr readonly captures(address) %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8, !tbaa !24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3601,7 +3601,7 @@ _ZNK4llvm19MachineValueTypeSet5emptyEv.exit:      ; preds = %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm9TypeInfer15MergeInTypeInfoERNS_15TypeSetByHwModeERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(56) %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm9TypeInfer15MergeInTypeInfoERNS_15TypeSetByHwModeERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, llvm::MachineValueTypeSet>, std::_Select1st<std::pair<const unsigned int, llvm::MachineValueTypeSet>>, std::less<unsigned int>>::_Reuse_or_alloc_node", align 8
   %5 = alloca %"struct.llvm::TypeInfer::ValidateOnExit", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -23086,7 +23086,7 @@ _ZNK4llvm9TypeInfer15expandOverloadsERNS_15TypeSetByHwModeE.exit: ; preds = %.lr
   br i1 %598, label %_ZNK4llvm9TypeInfer15MergeInTypeInfoERNS_15TypeSetByHwModeERKS1_.exit, label %_ZNK4llvm15TypeSetByHwMode8validateEv.exit.thread14.i
 
 _ZNK4llvm15TypeSetByHwMode8validateEv.exit.thread14.i: ; preds = %_ZNK4llvm9TypeInfer15expandOverloadsERNS_15TypeSetByHwModeE.exit
-  %599 = call noundef zeroext i1 @_ZNK4llvm15TypeSetByHwModeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %596, ptr noundef nonnull align 8 dereferenceable(56) %10)
+  %599 = call noundef zeroext i1 @_ZNK4llvm15TypeSetByHwModeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %596, ptr noundef nonnull readonly align 8 dereferenceable(56) %10)
   br i1 %599, label %_ZNK4llvm9TypeInfer15MergeInTypeInfoERNS_15TypeSetByHwModeERKS1_.exit, label %600
 
 600:                                              ; preds = %_ZNK4llvm15TypeSetByHwMode8validateEv.exit.thread14.i
@@ -23187,7 +23187,7 @@ _ZN4llvm15TypeSetByHwModeaSERKS0_.exit.i:         ; preds = %631, %609
   br label %_ZNK4llvm9TypeInfer15MergeInTypeInfoERNS_15TypeSetByHwModeERKS1_.exit
 
 636:                                              ; preds = %605
-  %637 = call noundef zeroext i1 @_ZN4llvm15TypeSetByHwMode9constrainERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %596, ptr noundef nonnull align 8 dereferenceable(56) %10)
+  %637 = call noundef zeroext i1 @_ZN4llvm15TypeSetByHwMode9constrainERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %596, ptr noundef nonnull readonly align 8 dereferenceable(56) %10)
   br i1 %637, label %638, label %_ZNK4llvm9TypeInfer15MergeInTypeInfoERNS_15TypeSetByHwModeERKS1_.exit
 
 638:                                              ; preds = %636
@@ -23891,7 +23891,7 @@ _ZNK4llvm18CodeGenDAGPatterns13getSDNodeInfoEPKNS_6RecordE.exit: ; preds = %75, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm15TreePatternNode15TreeHasPropertyENS_4SDNPERKNS_18CodeGenDAGPatternsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, i32 noundef %1, ptr noundef nonnull align 8 captures(address) dereferenceable(1252) %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm15TreePatternNode15TreeHasPropertyENS_4SDNPERKNS_18CodeGenDAGPatternsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1252) %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef zeroext i1 @_ZNK4llvm15TreePatternNode15NodeHasPropertyENS_4SDNPERKNS_18CodeGenDAGPatternsE(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(1252) %2)
   br i1 %4, label %.loopexit, label %5
 
@@ -26432,7 +26432,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit61:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm15TreePatternNode15canPatternMatchERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_18CodeGenDAGPatternsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(1252) %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm15TreePatternNode15canPatternMatchERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_18CodeGenDAGPatternsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1252) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %4, align 8
   %5 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 4
@@ -29931,7 +29931,7 @@ _ZNK4llvm9TypeInfer15expandOverloadsERNS_15TypeSetByHwModeE.exit: ; preds = %.lr
   br i1 %348, label %_ZNK4llvm9TypeInfer15MergeInTypeInfoERNS_15TypeSetByHwModeERKS1_.exit, label %_ZNK4llvm15TypeSetByHwMode8validateEv.exit.thread14.i
 
 _ZNK4llvm15TypeSetByHwMode8validateEv.exit.thread14.i: ; preds = %_ZNK4llvm9TypeInfer15expandOverloadsERNS_15TypeSetByHwModeE.exit
-  %349 = call noundef zeroext i1 @_ZNK4llvm15TypeSetByHwModeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %346, ptr noundef nonnull align 8 dereferenceable(56) %20)
+  %349 = call noundef zeroext i1 @_ZNK4llvm15TypeSetByHwModeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %346, ptr noundef nonnull readonly align 8 dereferenceable(56) %20)
   br i1 %349, label %_ZNK4llvm9TypeInfer15MergeInTypeInfoERNS_15TypeSetByHwModeERKS1_.exit, label %350
 
 350:                                              ; preds = %_ZNK4llvm15TypeSetByHwMode8validateEv.exit.thread14.i
@@ -30032,7 +30032,7 @@ _ZN4llvm15TypeSetByHwModeaSERKS0_.exit.i:         ; preds = %381, %359
   br label %_ZNK4llvm9TypeInfer15MergeInTypeInfoERNS_15TypeSetByHwModeERKS1_.exit
 
 386:                                              ; preds = %355
-  %387 = call noundef zeroext i1 @_ZN4llvm15TypeSetByHwMode9constrainERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %346, ptr noundef nonnull align 8 dereferenceable(56) %20)
+  %387 = call noundef zeroext i1 @_ZN4llvm15TypeSetByHwMode9constrainERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %346, ptr noundef nonnull readonly align 8 dereferenceable(56) %20)
   br i1 %387, label %388, label %_ZNK4llvm9TypeInfer15MergeInTypeInfoERNS_15TypeSetByHwModeERKS1_.exit
 
 388:                                              ; preds = %386
@@ -30270,7 +30270,7 @@ _ZNK4llvm9TypeInfer15expandOverloadsERNS_15TypeSetByHwModeE.exit172: ; preds = %
   br i1 %471, label %_ZNK4llvm9TypeInfer15MergeInTypeInfoERNS_15TypeSetByHwModeERKS1_.exit157, label %_ZNK4llvm15TypeSetByHwMode8validateEv.exit.thread14.i139
 
 _ZNK4llvm15TypeSetByHwMode8validateEv.exit.thread14.i139: ; preds = %_ZNK4llvm9TypeInfer15expandOverloadsERNS_15TypeSetByHwModeE.exit172
-  %472 = call noundef zeroext i1 @_ZNK4llvm15TypeSetByHwModeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %469, ptr noundef nonnull align 8 dereferenceable(56) %18)
+  %472 = call noundef zeroext i1 @_ZNK4llvm15TypeSetByHwModeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %469, ptr noundef nonnull readonly align 8 dereferenceable(56) %18)
   br i1 %472, label %_ZNK4llvm9TypeInfer15MergeInTypeInfoERNS_15TypeSetByHwModeERKS1_.exit157, label %473
 
 473:                                              ; preds = %_ZNK4llvm15TypeSetByHwMode8validateEv.exit.thread14.i139
@@ -30371,7 +30371,7 @@ _ZN4llvm15TypeSetByHwModeaSERKS0_.exit.i156:      ; preds = %504, %482
   br label %_ZNK4llvm9TypeInfer15MergeInTypeInfoERNS_15TypeSetByHwModeERKS1_.exit157
 
 509:                                              ; preds = %478
-  %510 = call noundef zeroext i1 @_ZN4llvm15TypeSetByHwMode9constrainERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %469, ptr noundef nonnull align 8 dereferenceable(56) %18)
+  %510 = call noundef zeroext i1 @_ZN4llvm15TypeSetByHwMode9constrainERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %469, ptr noundef nonnull readonly align 8 dereferenceable(56) %18)
   br i1 %510, label %511, label %_ZNK4llvm9TypeInfer15MergeInTypeInfoERNS_15TypeSetByHwModeERKS1_.exit157
 
 511:                                              ; preds = %509
@@ -30578,7 +30578,7 @@ _ZNK4llvm9TypeInfer15expandOverloadsERNS_15TypeSetByHwModeE.exit206: ; preds = %
   br i1 %581, label %_ZNK4llvm9TypeInfer15MergeInTypeInfoERNS_15TypeSetByHwModeERKS1_.exit191, label %_ZNK4llvm15TypeSetByHwMode8validateEv.exit.thread14.i173
 
 _ZNK4llvm15TypeSetByHwMode8validateEv.exit.thread14.i173: ; preds = %_ZNK4llvm9TypeInfer15expandOverloadsERNS_15TypeSetByHwModeE.exit206
-  %582 = call noundef zeroext i1 @_ZNK4llvm15TypeSetByHwModeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %579, ptr noundef nonnull align 8 dereferenceable(56) %16)
+  %582 = call noundef zeroext i1 @_ZNK4llvm15TypeSetByHwModeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %579, ptr noundef nonnull readonly align 8 dereferenceable(56) %16)
   br i1 %582, label %_ZNK4llvm9TypeInfer15MergeInTypeInfoERNS_15TypeSetByHwModeERKS1_.exit191, label %583
 
 583:                                              ; preds = %_ZNK4llvm15TypeSetByHwMode8validateEv.exit.thread14.i173
@@ -30679,7 +30679,7 @@ _ZN4llvm15TypeSetByHwModeaSERKS0_.exit.i190:      ; preds = %614, %592
   br label %_ZNK4llvm9TypeInfer15MergeInTypeInfoERNS_15TypeSetByHwModeERKS1_.exit191
 
 619:                                              ; preds = %588
-  %620 = call noundef zeroext i1 @_ZN4llvm15TypeSetByHwMode9constrainERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %579, ptr noundef nonnull align 8 dereferenceable(56) %16)
+  %620 = call noundef zeroext i1 @_ZN4llvm15TypeSetByHwMode9constrainERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %579, ptr noundef nonnull readonly align 8 dereferenceable(56) %16)
   br i1 %620, label %621, label %_ZNK4llvm9TypeInfer15MergeInTypeInfoERNS_15TypeSetByHwModeERKS1_.exit191
 
 621:                                              ; preds = %619
@@ -42102,7 +42102,7 @@ _ZNK4llvm9TypeInfer15expandOverloadsERNS_15TypeSetByHwModeE.exit: ; preds = %.lr
   br i1 %245, label %_ZNK4llvm9TypeInfer15MergeInTypeInfoERNS_15TypeSetByHwModeERKS1_.exit, label %_ZNK4llvm15TypeSetByHwMode8validateEv.exit.thread14.i
 
 _ZNK4llvm15TypeSetByHwMode8validateEv.exit.thread14.i: ; preds = %_ZNK4llvm9TypeInfer15expandOverloadsERNS_15TypeSetByHwModeE.exit
-  %246 = call noundef zeroext i1 @_ZNK4llvm15TypeSetByHwModeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %243, ptr noundef nonnull align 8 dereferenceable(56) %26)
+  %246 = call noundef zeroext i1 @_ZNK4llvm15TypeSetByHwModeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %243, ptr noundef nonnull readonly align 8 dereferenceable(56) %26)
   br i1 %246, label %_ZNK4llvm9TypeInfer15MergeInTypeInfoERNS_15TypeSetByHwModeERKS1_.exit, label %247
 
 247:                                              ; preds = %_ZNK4llvm15TypeSetByHwMode8validateEv.exit.thread14.i
@@ -42203,7 +42203,7 @@ _ZN4llvm15TypeSetByHwModeaSERKS0_.exit.i:         ; preds = %278, %256
   br label %_ZNK4llvm9TypeInfer15MergeInTypeInfoERNS_15TypeSetByHwModeERKS1_.exit
 
 283:                                              ; preds = %252
-  %284 = call noundef zeroext i1 @_ZN4llvm15TypeSetByHwMode9constrainERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %243, ptr noundef nonnull align 8 dereferenceable(56) %26)
+  %284 = call noundef zeroext i1 @_ZN4llvm15TypeSetByHwMode9constrainERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %243, ptr noundef nonnull readonly align 8 dereferenceable(56) %26)
   br i1 %284, label %285, label %_ZNK4llvm9TypeInfer15MergeInTypeInfoERNS_15TypeSetByHwModeERKS1_.exit
 
 285:                                              ; preds = %283
@@ -42488,7 +42488,7 @@ _ZNK4llvm9TypeInfer15expandOverloadsERNS_15TypeSetByHwModeE.exit153: ; preds = %
   br i1 %380, label %_ZNK4llvm9TypeInfer15MergeInTypeInfoERNS_15TypeSetByHwModeERKS1_.exit138, label %_ZNK4llvm15TypeSetByHwMode8validateEv.exit.thread14.i120
 
 _ZNK4llvm15TypeSetByHwMode8validateEv.exit.thread14.i120: ; preds = %_ZNK4llvm9TypeInfer15expandOverloadsERNS_15TypeSetByHwModeE.exit153
-  %381 = call noundef zeroext i1 @_ZNK4llvm15TypeSetByHwModeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %378, ptr noundef nonnull align 8 dereferenceable(56) %24)
+  %381 = call noundef zeroext i1 @_ZNK4llvm15TypeSetByHwModeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %378, ptr noundef nonnull readonly align 8 dereferenceable(56) %24)
   br i1 %381, label %_ZNK4llvm9TypeInfer15MergeInTypeInfoERNS_15TypeSetByHwModeERKS1_.exit138, label %382
 
 382:                                              ; preds = %_ZNK4llvm15TypeSetByHwMode8validateEv.exit.thread14.i120
@@ -42589,7 +42589,7 @@ _ZN4llvm15TypeSetByHwModeaSERKS0_.exit.i137:      ; preds = %413, %391
   br label %_ZNK4llvm9TypeInfer15MergeInTypeInfoERNS_15TypeSetByHwModeERKS1_.exit138
 
 418:                                              ; preds = %387
-  %419 = call noundef zeroext i1 @_ZN4llvm15TypeSetByHwMode9constrainERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %378, ptr noundef nonnull align 8 dereferenceable(56) %24)
+  %419 = call noundef zeroext i1 @_ZN4llvm15TypeSetByHwMode9constrainERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %378, ptr noundef nonnull readonly align 8 dereferenceable(56) %24)
   br i1 %419, label %420, label %_ZNK4llvm9TypeInfer15MergeInTypeInfoERNS_15TypeSetByHwModeERKS1_.exit138
 
 420:                                              ; preds = %418
@@ -49184,7 +49184,7 @@ _ZNSt6vectorIN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEESaIS3_EE9push_ba
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 captures(address) dereferenceable(1252) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 {
+define internal fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS2_SaIS2_EES7_RS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1252) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 {
 _ZNSt6vectorIS_IN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEESaIS3_EESaIS5_EE9push_backERKS5_.exit:
   %6 = alloca %"class.std::vector.377", align 8
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
@@ -49299,7 +49299,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit: ; preds = %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS3_IS2_SaIS2_EESaIS5_EERS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 captures(address) dereferenceable(1252) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL20CombineChildVariantsN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEEERKSt6vectorIS3_IS2_SaIS2_EESaIS5_EERS5_RNS_18CodeGenDAGPatternsERKNS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1252) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #0 {
   %6 = alloca %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, llvm::MachineValueTypeSet>, std::_Select1st<std::pair<const unsigned int, llvm::MachineValueTypeSet>>, std::less<unsigned int>>::_Reuse_or_alloc_node", align 8
   %7 = alloca %"class.std::vector", align 8
   %8 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8

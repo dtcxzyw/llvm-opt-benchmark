@@ -1517,7 +1517,7 @@ declare i32 @Curl_waitfds_add_ps(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @Curl_cpool_add_waitfds(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 13) i32 @curl_multi_wait(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define range(i32 0, 13) i32 @curl_multi_wait(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i32 @multi_wait(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext false, i1 noundef zeroext false)
   ret i32 %6
 }
@@ -1759,7 +1759,7 @@ define internal fastcc range(i32 0, 13) i32 @multi_wait(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 13) i32 @curl_multi_poll(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define range(i32 0, 13) i32 @curl_multi_poll(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i32 @multi_wait(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext true, i1 noundef zeroext true)
   ret i32 %6
 }
@@ -5097,7 +5097,7 @@ declare void @llvm.va_start.p0(ptr) #10
 declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 12) i32 @curl_multi_socket(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 0, 12) i32 @curl_multi_socket(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 649
   %5 = load i8, ptr %4, align 1
   %6 = and i8 %5, 4
@@ -5114,7 +5114,7 @@ define range(i32 0, 12) i32 @curl_multi_socket(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 12) i32 @multi_socket(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 12) i32 @multi_socket(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca %struct.sigaction, align 8
   %7 = alloca i32, align 4
   %8 = alloca %struct.easy_pollset, align 4
@@ -5356,7 +5356,7 @@ sigpipe_restore.exit:                             ; preds = %85, %88
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 12) i32 @curl_multi_socket_action(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 0, 12) i32 @curl_multi_socket_action(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 649
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, 4
@@ -5373,7 +5373,7 @@ define range(i32 0, 12) i32 @curl_multi_socket_action(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 12) i32 @curl_multi_socket_all(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 0, 12) i32 @curl_multi_socket_all(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 649
   %4 = load i8, ptr %3, align 1
   %5 = and i8 %4, 4

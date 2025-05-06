@@ -7928,7 +7928,7 @@ declare noundef ptr @_ZNK13InstanceKlass17find_local_methodEPK6SymbolS2_N5Klass1
 declare noundef ptr @_ZNK13InstanceKlass17class_initializerEv(ptr noundef nonnull align 8 dereferenceable(464)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL16annotation_valuePK13InstanceKlassPK6SymbolRb(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %2) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @_ZL16annotation_valuePK13InstanceKlassPK6SymbolRb(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %2) unnamed_addr #2 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8

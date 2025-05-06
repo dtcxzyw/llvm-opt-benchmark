@@ -4861,7 +4861,7 @@ _ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i32 } @_ZN4llvm3rdf8FuncNode13getEntryBlockERKNS0_13DataFlowGraphE(ptr noundef nonnull align 8 captures(address) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %1) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, i32 } @_ZN4llvm3rdf8FuncNode13getEntryBlockERKNS0_13DataFlowGraphE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !50
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 328
@@ -7363,7 +7363,7 @@ _ZN4llvm3rdf13DataFlowGraph7newFuncEPNS_15MachineFunctionE.exit: ; preds = %_ZN4
   %253 = load ptr, ptr %252, align 8, !tbaa !50
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 328
   %255 = load ptr, ptr %254, align 8, !tbaa !375
-  %256 = call { ptr, i32 } @_ZNK4llvm3rdf8FuncNode9findBlockEPKNS_17MachineBasicBlockERKNS0_13DataFlowGraphE(ptr noundef nonnull align 8 dereferenceable(32) %251, ptr noundef nonnull %255, ptr noundef nonnull readonly align 8 dereferenceable(736) %0)
+  %256 = call { ptr, i32 } @_ZNK4llvm3rdf8FuncNode9findBlockEPKNS_17MachineBasicBlockERKNS0_13DataFlowGraphE(ptr noundef nonnull readonly align 8 dereferenceable(32) %251, ptr noundef nonnull %255, ptr noundef nonnull readonly align 8 dereferenceable(736) %0)
   %.fca.0.extract103 = extractvalue { ptr, i32 } %256, 0
   %.fca.1.extract104 = extractvalue { ptr, i32 } %256, 1
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %21) #24
@@ -17558,7 +17558,7 @@ _ZNSt13unordered_mapIjN4llvm3rdf13DataFlowGraph8DefStackESt4hashIjESt8equal_toIj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3rdf13DataFlowGraph11pushAllDefsENS0_8NodeAddrIPNS0_9InstrNodeEEERSt13unordered_mapIjNS1_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS7_EEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr captures(address) %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(56) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3rdf13DataFlowGraph11pushAllDefsENS0_8NodeAddrIPNS0_9InstrNodeEEERSt13unordered_mapIjNS1_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS7_EEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr readonly captures(address) %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(56) %3) local_unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm3rdf13DataFlowGraph12pushClobbersENS0_8NodeAddrIPNS0_9InstrNodeEEERSt13unordered_mapIjNS1_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS7_EEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   tail call void @_ZN4llvm3rdf13DataFlowGraph8pushDefsENS0_8NodeAddrIPNS0_9InstrNodeEEERSt13unordered_mapIjNS1_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS7_EEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   ret void

@@ -4324,7 +4324,7 @@ TLSX_Push.exit:                                   ; preds = %TLSX_KeyShareEntry_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @TLSX_KeyShare_Parse(ptr noundef %0, ptr noundef captures(address) %1, i16 noundef zeroext %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define i32 @TLSX_KeyShare_Parse(ptr noundef %0, ptr noundef readonly captures(address) %1, i16 noundef zeroext %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
   store ptr null, ptr %5, align 8, !tbaa !157
@@ -8027,7 +8027,7 @@ define range(i32 -394, 1) i32 @TLSX_ParseVersion(ptr noundef %0, ptr noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @TLSX_Parse(ptr noundef %0, ptr noundef captures(address) %1, i16 noundef zeroext %2, i8 noundef zeroext %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define i32 @TLSX_Parse(ptr noundef %0, ptr noundef readonly captures(address) %1, i16 noundef zeroext %2, i8 noundef zeroext %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca [9 x i8], align 1
   %7 = icmp eq i8 %3, 1
   %8 = icmp eq i8 %3, 13
@@ -8437,7 +8437,7 @@ TLSX_SNI_Find.exit.i:                             ; preds = %.lr.ph.i102.i
 
 .critedge.i:                                      ; preds = %151
   %157 = getelementptr inbounds nuw i8, ptr %76, i64 5
-  %158 = tail call i32 @strncmp(ptr noundef nonnull %153, ptr noundef nonnull %157, i64 noundef %154) #18
+  %158 = tail call i32 @strncmp(ptr noundef nonnull %153, ptr noundef nonnull readonly %157, i64 noundef %154) #18
   %.not.i = icmp eq i32 %158, 0
   br i1 %.not.i, label %.critedge.thread.i, label %.critedge.thread125.i
 
@@ -8452,7 +8452,7 @@ TLSX_SNI_Find.exit.i:                             ; preds = %.lr.ph.i102.i
 .critedge.thread.i:                               ; preds = %.critedge.thread125.i, %.critedge.i, %141
   %.061.i = phi i8 [ 1, %.critedge.thread125.i ], [ 2, %.critedge.i ], [ 3, %141 ]
   %163 = getelementptr inbounds nuw i8, ptr %76, i64 5
-  %164 = tail call i32 @TLSX_UseSNI(ptr noundef nonnull %19, i8 noundef zeroext 0, ptr noundef nonnull %163, i16 noundef zeroext %136, ptr poison)
+  %164 = tail call i32 @TLSX_UseSNI(ptr noundef nonnull %19, i8 noundef zeroext 0, ptr noundef nonnull readonly %163, i16 noundef zeroext %136, ptr poison)
   %.not86.i = icmp eq i32 %164, 1
   br i1 %.not86.i, label %165, label %.loopexit
 

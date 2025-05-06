@@ -1363,7 +1363,7 @@ define hidden range(i32 0, 2) i32 @WebPWriteYUV(ptr noundef captures(address_is_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @WebPSaveImage(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @WebPSaveImage(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %.not

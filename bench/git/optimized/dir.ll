@@ -586,7 +586,7 @@ define internal fastcc i64 @common_prefix_len(ptr noundef readonly captures(none
 declare ptr @xmemdupz(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @fill_directory(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local noundef i32 @fill_directory(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8, !tbaa !26
   %5 = and i32 %4, 33
   %6 = icmp eq i32 %5, 33
@@ -618,7 +618,7 @@ define dso_local noundef i32 @fill_directory(ptr noundef %0, ptr noundef %1, ptr
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @read_directory(ptr noundef initializes((300, 308)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local i32 @read_directory(ptr noundef initializes((300, 308)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.strbuf, align 8
   %7 = alloca %struct.strbuf, align 8
   %8 = alloca %struct.strbuf, align 8
@@ -927,7 +927,7 @@ strbuf_setlen.exit55.i:                           ; preds = %139, %strbuf_setlen
   call void @strbuf_add(ptr noundef nonnull %8, ptr noundef %125, i64 noundef %141) #27
   %142 = load ptr, ptr %118, align 8, !tbaa !74
   store ptr %142, ptr %119, align 8, !tbaa !75
-  %143 = call fastcc i32 @treat_path(ptr noundef %0, ptr noundef null, ptr noundef %9, ptr noundef %1, ptr noundef %7, i32 noundef %123, ptr noundef %4)
+  %143 = call fastcc i32 @treat_path(ptr noundef %0, ptr noundef null, ptr noundef %9, ptr noundef %1, ptr noundef %7, i32 noundef %123, ptr noundef readonly %4)
   %.not47.i = icmp eq i32 %143, 1
   br i1 %.not47.i, label %144, label %treat_leading_path.exit
 
@@ -937,7 +937,7 @@ strbuf_setlen.exit55.i:                           ; preds = %139, %strbuf_setlen
 
 treat_leading_path.exit:                          ; preds = %strbuf_setlen.exit.i, %strbuf_setlen.exit55.i, %144
   %.1.i = phi i32 [ %143, %strbuf_setlen.exit55.i ], [ 1, %144 ], [ %.0.i60, %strbuf_setlen.exit.i ]
-  call fastcc void @add_path_to_appropriate_result_list(ptr noundef %0, ptr noundef null, ptr noundef %9, ptr noundef %1, ptr noundef %7, i32 noundef %.139.i, ptr noundef %4, i32 noundef %.1.i)
+  call fastcc void @add_path_to_appropriate_result_list(ptr noundef %0, ptr noundef null, ptr noundef %9, ptr noundef %1, ptr noundef %7, i32 noundef %.139.i, ptr noundef readonly %4, i32 noundef %.1.i)
   call void @strbuf_release(ptr noundef nonnull %8) #27
   call void @strbuf_release(ptr noundef nonnull %7) #27
   %.not71 = icmp eq i32 %.1.i, 1
@@ -4724,7 +4724,7 @@ declare i32 @has_symlink_leading_path(ptr noundef, i32 noundef) local_unnamed_ad
 declare void @trace2_region_leave_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @read_directory_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5, i32 noundef range(i32 0, 2) %6, ptr noundef captures(address_is_null) %7) unnamed_addr #0 {
+define internal fastcc i32 @read_directory_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5, i32 noundef range(i32 0, 2) %6, ptr noundef readonly captures(address_is_null) %7) unnamed_addr #0 {
   %9 = alloca %struct.stat, align 8
   %10 = alloca %struct.cached_dir, align 8
   %11 = alloca %struct.strbuf, align 8
@@ -9231,7 +9231,7 @@ declare ptr @repo_get_work_tree(ptr noundef) local_unnamed_addr #2
 declare i32 @is_directory(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @treat_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %5, ptr noundef captures(address_is_null) %6) unnamed_addr #0 {
+define internal fastcc i32 @treat_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #27
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -9904,7 +9904,7 @@ directory_exists_in_index_icase.exit:             ; preds = %39, %33, %34, %24, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @treat_directory(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6, ptr noundef captures(address_is_null) %7) unnamed_addr #0 {
+define internal fastcc i32 @treat_directory(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6, ptr noundef readonly captures(address_is_null) %7) unnamed_addr #0 {
   %9 = alloca %struct.strbuf, align 8
   %10 = add nsw i32 %4, -1
   %11 = tail call fastcc i32 @directory_exists_in_index(ptr noundef %1, ptr noundef %3, i32 noundef %10)

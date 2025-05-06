@@ -28715,8 +28715,8 @@ _ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassENS_16ImutKeyValueInfoIS5_S7_EEE7Factory6removeESA_RKS5_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr captures(address_is_null) %.0.val, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #1 align 2 {
-  %4 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassEEEE15remove_internalERKS6_PNS_11ImutAVLTreeIS9_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %.0.val)
+define internal fastcc void @_ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassENS_16ImutKeyValueInfoIS5_S7_EEE7Factory6removeESA_RKS5_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr readonly captures(address_is_null) %.0.val, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #1 align 2 {
+  %4 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassEEEE15remove_internalERKS6_PNS_11ImutAVLTreeIS9_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef readonly %.0.val)
   tail call fastcc void @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassEEEE13markImmutableEPNS_11ImutAVLTreeIS9_EE(ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val.i.i = load ptr, ptr %5, align 8, !tbaa !914
@@ -28988,8 +28988,8 @@ _ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEEC2EPN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEE7Factory6removeESE_RKS2_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #1 align 2 {
-  %3 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS9_EEEEEEE15remove_internalERKS3_PNS_11ImutAVLTreeISD_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, i64 %.8.val, ptr noundef %.0.val)
+define internal fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEE7Factory6removeESE_RKS2_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr readonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #1 align 2 {
+  %3 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS9_EEEEEEE15remove_internalERKS3_PNS_11ImutAVLTreeISD_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, i64 %.8.val, ptr noundef readonly %.0.val)
   tail call fastcc void @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS9_EEEEEEE13markImmutableEPNS_11ImutAVLTreeISD_EE(ptr noundef %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val.i.i = load ptr, ptr %4, align 8, !tbaa !611
@@ -29076,7 +29076,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEE7Factory3addESE_RKS2_RKSB_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr captures(address_is_null) %.0.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr %.0.val1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEE7Factory3addESE_RKS2_RKSB_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr readonly captures(address_is_null) %.0.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr %.0.val1) unnamed_addr #1 align 2 {
   %4 = alloca %"struct.std::pair.550", align 8
   %.sroa.0 = alloca %"class.(anonymous namespace)::EquivalenceClass", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #25
@@ -29103,7 +29103,7 @@ _ZNSt4pairIKN12_GLOBAL__N_116EquivalenceClassEKN4llvm12ImmutableSetIPKN5clang4en
 
 _ZNSt4pairIN12_GLOBAL__N_116EquivalenceClassEN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS2_17ImutContainerInfoIS8_EEEEEC2IKS1_KSB_TnNSt9enable_ifIXaaclsr6_PCCFPIT_T0_EE22_MoveConstructiblePairISH_SI_EEclsr6_PCCFPISH_SI_EE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOS_ISH_SI_E.exit: ; preds = %_ZNSt4pairIKN12_GLOBAL__N_116EquivalenceClassEKN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS3_17ImutContainerInfoIS9_EEEEEC2IS2_SD_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISH_SI_EEEbE4typeELb1EEERS2_RSD_.exit.thread, %6
   %11 = phi ptr [ %5, %_ZNSt4pairIKN12_GLOBAL__N_116EquivalenceClassEKN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS3_17ImutContainerInfoIS9_EEEEEC2IS2_SD_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISH_SI_EEEbE4typeELb1EEERS2_RSD_.exit.thread ], [ %9, %6 ]
-  %12 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS9_EEEEEEE12add_internalERKSt4pairIS3_SC_EPNS_11ImutAVLTreeISD_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %.0.val)
+  %12 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS9_EEEEEEE12add_internalERKSt4pairIS3_SC_EPNS_11ImutAVLTreeISD_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef readonly %.0.val)
   call fastcc void @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS9_EEEEEEE13markImmutableEPNS_11ImutAVLTreeISD_EE(ptr noundef %12)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val.i.i = load ptr, ptr %13, align 8, !tbaa !611
@@ -29804,8 +29804,8 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory6removeES8_RKS2_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #1 align 2 {
-  %3 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEEEE15remove_internalERKS3_PNS_11ImutAVLTreeIS7_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, i64 %.8.val, ptr noundef %.0.val)
+define internal fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory6removeES8_RKS2_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr readonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #1 align 2 {
+  %3 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEEEE15remove_internalERKS3_PNS_11ImutAVLTreeIS7_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, i64 %.8.val, ptr noundef readonly %.0.val)
   tail call fastcc void @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEEEE13markImmutableEPNS_11ImutAVLTreeIS7_EE(ptr noundef %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val.i.i = load ptr, ptr %4, align 8, !tbaa !583
@@ -30003,8 +30003,8 @@ _ZN4llvm20ImutAVLValueIteratorINS_12ImmutableSetIN12_GLOBAL__N_116EquivalenceCla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEE7Factory6removeES5_RKS2_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #1 align 2 {
-  %3 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_116EquivalenceClassEEEE15remove_internalERKS3_PNS_11ImutAVLTreeIS4_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, i64 %.8.val, ptr noundef %.0.val)
+define internal fastcc void @_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEE7Factory6removeES5_RKS2_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr readonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #1 align 2 {
+  %3 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_116EquivalenceClassEEEE15remove_internalERKS3_PNS_11ImutAVLTreeIS4_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, i64 %.8.val, ptr noundef readonly %.0.val)
   tail call fastcc void @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_116EquivalenceClassEEEE13markImmutableEPNS_11ImutAVLTreeIS4_EE(ptr noundef %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val.i.i = load ptr, ptr %4, align 8, !tbaa !1046
@@ -30091,8 +30091,8 @@ _ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEE7Factory6removeES9_RKS2_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #1 align 2 {
-  %3 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS3_NS_17ImutContainerInfoIS3_EEEEEEE15remove_internalERKS3_PNS_11ImutAVLTreeIS8_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, i64 %.8.val, ptr noundef %.0.val)
+define internal fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEE7Factory6removeES9_RKS2_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr readonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #1 align 2 {
+  %3 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS3_NS_17ImutContainerInfoIS3_EEEEEEE15remove_internalERKS3_PNS_11ImutAVLTreeIS8_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, i64 %.8.val, ptr noundef readonly %.0.val)
   tail call fastcc void @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS3_NS_17ImutContainerInfoIS3_EEEEEEE13markImmutableEPNS_11ImutAVLTreeIS8_EE(ptr noundef %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val.i.i = load ptr, ptr %4, align 8, !tbaa !1058
@@ -30179,7 +30179,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEE7Factory3addES9_RKS2_RKS6_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr captures(address_is_null) %.0.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr %.0.val1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEE7Factory3addES9_RKS2_RKS6_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr readonly captures(address_is_null) %.0.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr %.0.val1) unnamed_addr #1 align 2 {
   %4 = alloca %"struct.std::pair.629", align 8
   %.sroa.0 = alloca %"class.(anonymous namespace)::EquivalenceClass", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #25
@@ -30206,7 +30206,7 @@ _ZNSt4pairIKN12_GLOBAL__N_116EquivalenceClassEKN4llvm12ImmutableSetIS1_NS3_17Imu
 
 _ZNSt4pairIN12_GLOBAL__N_116EquivalenceClassEN4llvm12ImmutableSetIS1_NS2_17ImutContainerInfoIS1_EEEEEC2IKS1_KS6_TnNSt9enable_ifIXaaclsr6_PCCFPIT_T0_EE22_MoveConstructiblePairISC_SD_EEclsr6_PCCFPISC_SD_EE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOS_ISC_SD_E.exit: ; preds = %_ZNSt4pairIKN12_GLOBAL__N_116EquivalenceClassEKN4llvm12ImmutableSetIS1_NS3_17ImutContainerInfoIS1_EEEEEC2IS2_S8_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISC_SD_EEEbE4typeELb1EEERS2_RS8_.exit.thread, %6
   %11 = phi ptr [ %5, %_ZNSt4pairIKN12_GLOBAL__N_116EquivalenceClassEKN4llvm12ImmutableSetIS1_NS3_17ImutContainerInfoIS1_EEEEEC2IS2_S8_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISC_SD_EEEbE4typeELb1EEERS2_RS8_.exit.thread ], [ %9, %6 ]
-  %12 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS3_NS_17ImutContainerInfoIS3_EEEEEEE12add_internalERKSt4pairIS3_S7_EPNS_11ImutAVLTreeIS8_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %.0.val)
+  %12 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS3_NS_17ImutContainerInfoIS3_EEEEEEE12add_internalERKSt4pairIS3_S7_EPNS_11ImutAVLTreeIS8_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef readonly %.0.val)
   call fastcc void @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS3_NS_17ImutContainerInfoIS3_EEEEEEE13markImmutableEPNS_11ImutAVLTreeIS8_EE(ptr noundef %12)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val.i.i = load ptr, ptr %13, align 8, !tbaa !1058
@@ -42146,13 +42146,13 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory3addES8_RKS2_RKS5_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr captures(address_is_null) %.0.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, i64 %.0.val1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory3addES8_RKS2_RKS5_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr readonly captures(address_is_null) %.0.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, i64 %.0.val1) unnamed_addr #1 align 2 {
   %4 = alloca %"struct.std::pair.127", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.0.val1, ptr %5, align 8, !tbaa !515
-  %6 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEEEE12add_internalERKSt4pairIS3_S6_EPNS_11ImutAVLTreeIS7_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %.0.val)
+  %6 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEEEE12add_internalERKSt4pairIS3_S6_EPNS_11ImutAVLTreeIS7_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef readonly %.0.val)
   call fastcc void @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEEEE13markImmutableEPNS_11ImutAVLTreeIS7_EE(ptr noundef %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val.i.i = load ptr, ptr %7, align 8, !tbaa !583
@@ -45829,7 +45829,7 @@ _ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassE
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #25, !noalias !1574
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %177, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false), !noalias !1574
   store ptr %252, ptr %7, align 8, !tbaa !924, !noalias !1574
-  %280 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassEEEE12add_internalERKSt4pairIS6_S8_EPNS_11ImutAVLTreeIS9_EE(ptr noundef nonnull align 8 dereferenceable(81) %137, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %.sroa.027.1), !noalias !1574
+  %280 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassEEEE12add_internalERKSt4pairIS6_S8_EPNS_11ImutAVLTreeIS9_EE(ptr noundef nonnull align 8 dereferenceable(81) %137, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef readonly %.sroa.027.1), !noalias !1574
   call fastcc void @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassEEEE13markImmutableEPNS_11ImutAVLTreeIS9_EE(ptr noundef %280), !noalias !1574
   %.val.i.i.i = load ptr, ptr %178, align 8, !tbaa !914, !noalias !1574
   %.val7.i.i.i = load ptr, ptr %179, align 8, !tbaa !910, !noalias !1574
@@ -46858,8 +46858,8 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEE7Factory3addES5_RKS2_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr captures(address_is_null) %.0.val, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #1 align 2 {
-  %4 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_116EquivalenceClassEEEE12add_internalERKS3_PNS_11ImutAVLTreeIS4_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %.0.val)
+define internal fastcc void @_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEE7Factory3addES5_RKS2_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr readonly captures(address_is_null) %.0.val, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #1 align 2 {
+  %4 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_116EquivalenceClassEEEE12add_internalERKS3_PNS_11ImutAVLTreeIS4_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef readonly %.0.val)
   tail call fastcc void @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_116EquivalenceClassEEEE13markImmutableEPNS_11ImutAVLTreeIS4_EE(ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val.i.i = load ptr, ptr %5, align 8, !tbaa !1046

@@ -601,7 +601,7 @@ declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 no
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -3, 1) i32 @tinyobj_parse_mtl_file(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -3, 1) i32 @tinyobj_parse_mtl_file(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @tinyobj_parse_and_index_mtl_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   ret i32 %4
 }
@@ -16241,7 +16241,7 @@ define hidden void @_m3d_mat(ptr noundef writeonly captures(none) initializes((0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @m3d_load(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define hidden noundef ptr @m3d_load(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca [8 x i8], align 8
   %6 = alloca i32, align 4
   %7 = alloca [8 x i32], align 16

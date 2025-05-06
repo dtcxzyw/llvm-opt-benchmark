@@ -629,7 +629,7 @@ GetTable.exit:                                    ; preds = %5, %7
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsIT8SetComment(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsIT8SetComment(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %19, label %3
 
@@ -889,7 +889,7 @@ AllocChunk.exit.thread:                           ; preds = %59
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsIT8SetPropertyStr(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsIT8SetPropertyStr(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %20, label %4
 
@@ -994,7 +994,7 @@ GetTable.exit:                                    ; preds = %9, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsIT8SetPropertyUncooked(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsIT8SetPropertyUncooked(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %0, align 8
@@ -1022,7 +1022,7 @@ GetTable.exit:                                    ; preds = %7, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsIT8SetPropertyMulti(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsIT8SetPropertyMulti(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = load i32, ptr %0, align 8

@@ -450,7 +450,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb16TpiStreamBuilder14addTypeRecordsENS_8ArrayRefIhEENS2_ItEENS2_IjEE(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr %1, i64 %2, ptr captures(address) %3, i64 %4, ptr noundef readonly byval(%"class.llvm::ArrayRef.29") align 8 captures(none) %5) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3pdb16TpiStreamBuilder14addTypeRecordsENS_8ArrayRefIhEENS2_ItEENS2_IjEE(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr %1, i64 %2, ptr readonly captures(address) %3, i64 %4, ptr noundef readonly byval(%"class.llvm::ArrayRef.29") align 8 captures(none) %5) local_unnamed_addr #1 align 2 {
   %7 = icmp eq i64 %2, 0
   br i1 %7, label %48, label %8
 

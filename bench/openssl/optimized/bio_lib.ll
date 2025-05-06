@@ -678,7 +678,7 @@ bio_call_callback.exit.thread:                    ; preds = %26, %68, %69, %bio_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BIO_write_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BIO_write_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @bio_write_intern(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3)
   %6 = icmp ne ptr %0, null
   %7 = icmp eq i64 %2, 0

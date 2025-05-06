@@ -4128,7 +4128,7 @@ _ZN5arrow12_GLOBAL__N_123SimpleDecimalFromStringINS_9Decimal32EEENS_6StatusEPKcS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow9Decimal3210FromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS0_PiSA_(ptr dead_on_unwind noalias writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow9Decimal3210FromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS0_PiSA_(ptr dead_on_unwind noalias writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
   %6 = load ptr, ptr %1, align 8, !tbaa !8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !17
@@ -4137,7 +4137,7 @@ define void @_ZN5arrow9Decimal3210FromStringERKNSt7__cxx1112basic_stringIcSt11ch
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow9Decimal3210FromStringEPKcPS0_PiS4_(ptr dead_on_unwind noalias writable sret(%"class.arrow::Status") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow9Decimal3210FromStringEPKcPS0_PiS4_(ptr dead_on_unwind noalias writable sret(%"class.arrow::Status") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   tail call void @_ZN5arrow9Decimal3210FromStringESt17basic_string_viewIcSt11char_traitsIcEEPS0_PiS6_(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, i64 %6, ptr nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret void
@@ -4729,7 +4729,7 @@ _ZN5arrow12_GLOBAL__N_123SimpleDecimalFromStringINS_9Decimal64EEENS_6StatusEPKcS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow9Decimal6410FromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS0_PiSA_(ptr dead_on_unwind noalias writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow9Decimal6410FromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS0_PiSA_(ptr dead_on_unwind noalias writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
   %6 = load ptr, ptr %1, align 8, !tbaa !8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !17
@@ -4738,7 +4738,7 @@ define void @_ZN5arrow9Decimal6410FromStringERKNSt7__cxx1112basic_stringIcSt11ch
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow9Decimal6410FromStringEPKcPS0_PiS4_(ptr dead_on_unwind noalias writable sret(%"class.arrow::Status") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow9Decimal6410FromStringEPKcPS0_PiS4_(ptr dead_on_unwind noalias writable sret(%"class.arrow::Status") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   tail call void @_ZN5arrow9Decimal6410FromStringESt17basic_string_viewIcSt11char_traitsIcEEPS0_PiS6_(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, i64 %6, ptr nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret void
@@ -5365,7 +5365,7 @@ _ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal128EEENS_6StatusEPKcSt17b
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow10Decimal12810FromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS0_PiSA_(ptr dead_on_unwind noalias writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow10Decimal12810FromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS0_PiSA_(ptr dead_on_unwind noalias writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
   %6 = load ptr, ptr %1, align 8, !tbaa !8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !17
@@ -5374,7 +5374,7 @@ define void @_ZN5arrow10Decimal12810FromStringERKNSt7__cxx1112basic_stringIcSt11
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow10Decimal12810FromStringEPKcPS0_PiS4_(ptr dead_on_unwind noalias writable sret(%"class.arrow::Status") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow10Decimal12810FromStringEPKcPS0_PiS4_(ptr dead_on_unwind noalias writable sret(%"class.arrow::Status") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   tail call void @_ZN5arrow10Decimal12810FromStringESt17basic_string_viewIcSt11char_traitsIcEEPS0_PiS6_(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, i64 %6, ptr nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret void
@@ -7258,7 +7258,7 @@ _ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal256EEENS_6StatusEPKcSt17b
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow10Decimal25610FromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS0_PiSA_(ptr dead_on_unwind noalias writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow10Decimal25610FromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS0_PiSA_(ptr dead_on_unwind noalias writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
   %6 = load ptr, ptr %1, align 8, !tbaa !8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !17
@@ -7267,7 +7267,7 @@ define void @_ZN5arrow10Decimal25610FromStringERKNSt7__cxx1112basic_stringIcSt11
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow10Decimal25610FromStringEPKcPS0_PiS4_(ptr dead_on_unwind noalias writable sret(%"class.arrow::Status") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow10Decimal25610FromStringEPKcPS0_PiS4_(ptr dead_on_unwind noalias writable sret(%"class.arrow::Status") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   tail call void @_ZN5arrow10Decimal25610FromStringESt17basic_string_viewIcSt11char_traitsIcEEPS0_PiS6_(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, i64 %6, ptr nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret void

@@ -499,7 +499,7 @@ _piwigo_authenticate.exit:                        ; preds = %113, %119, %122
   %147 = call i64 @g_strlcpy(ptr noundef nonnull %146, ptr noundef nonnull @.str.64, i64 noundef 512) #15
   %148 = call ptr @g_list_append(ptr noundef %143, ptr noundef %144) #15
   %149 = load ptr, ptr %14, align 8, !tbaa !44
-  %150 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef %149, ptr noundef %148, ptr noundef null, i32 noundef 0)
+  %150 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef %149, ptr noundef readonly %148, ptr noundef null, i32 noundef 0)
   switch i32 %150, label %_piwigo_api_post.exit [
     i32 35, label %151
     i32 7, label %151
@@ -526,7 +526,7 @@ _piwigo_authenticate.exit:                        ; preds = %113, %119, %122
 
 160:                                              ; preds = %157
   store i32 1, ptr %154, align 8, !tbaa !45
-  %161 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef nonnull %149, ptr noundef %148, ptr noundef null, i32 noundef 0)
+  %161 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef nonnull %149, ptr noundef readonly %148, ptr noundef null, i32 noundef 0)
   br label %_piwigo_api_post.exit
 
 _piwigo_api_post.exit:                            ; preds = %129, %151, %157, %160
@@ -1535,7 +1535,7 @@ _piwigo_album_id.exit:                            ; preds = %20, %9, %.thread.i
   %40 = call i64 @g_strlcpy(ptr noundef nonnull %39, ptr noundef nonnull %2, i64 noundef 512) #15
   %41 = call ptr @g_list_append(ptr noundef %36, ptr noundef %37) #15
   %42 = load ptr, ptr %3, align 8, !tbaa !44
-  %43 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef %42, ptr noundef %41, ptr noundef null, i32 noundef 0)
+  %43 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef %42, ptr noundef readonly %41, ptr noundef null, i32 noundef 0)
   switch i32 %43, label %_piwigo_api_post.exit [
     i32 35, label %44
     i32 7, label %44
@@ -1562,7 +1562,7 @@ _piwigo_album_id.exit:                            ; preds = %20, %9, %.thread.i
 
 53:                                               ; preds = %50
   store i32 1, ptr %47, align 8, !tbaa !45
-  %54 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef nonnull %42, ptr noundef %41, ptr noundef null, i32 noundef 0)
+  %54 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef nonnull %42, ptr noundef readonly %41, ptr noundef null, i32 noundef 0)
   br label %_piwigo_api_post.exit
 
 _piwigo_api_post.exit:                            ; preds = %_piwigo_album_id.exit, %44, %50, %53
@@ -1783,7 +1783,7 @@ _get_filename.exit:                               ; preds = %28, %41
   %126 = call i64 @g_strlcpy(ptr noundef nonnull %125, ptr noundef nonnull %122, i64 noundef 512) #15
   %127 = call ptr @g_list_append(ptr noundef %.016.i, ptr noundef %123) #15
   %128 = load ptr, ptr %23, align 8, !tbaa !109
-  %129 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef %128, ptr noundef %127, ptr noundef null, i32 noundef 0)
+  %129 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef %128, ptr noundef readonly %127, ptr noundef null, i32 noundef 0)
   switch i32 %129, label %_piwigo_api_post.exit.i [
     i32 35, label %130
     i32 7, label %130
@@ -1810,7 +1810,7 @@ _get_filename.exit:                               ; preds = %28, %41
 
 139:                                              ; preds = %136
   store i32 1, ptr %133, align 8, !tbaa !45
-  %140 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef nonnull %128, ptr noundef %127, ptr noundef null, i32 noundef 0)
+  %140 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef nonnull %128, ptr noundef readonly %127, ptr noundef null, i32 noundef 0)
   br label %_piwigo_api_post.exit.i
 
 _piwigo_api_post.exit.i:                          ; preds = %139, %136, %130, %118
@@ -1931,7 +1931,7 @@ _piwigo_api_create_new_album.exit:                ; preds = %144
 200:                                              ; preds = %194, %193, %192
   %.2.i = phi ptr [ %199, %194 ], [ %.1.i, %193 ], [ %.1.i, %192 ]
   %201 = load ptr, ptr %23, align 8, !tbaa !109
-  %202 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef %201, ptr noundef %.2.i, ptr noundef null, i32 noundef 1)
+  %202 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef %201, ptr noundef readonly %.2.i, ptr noundef null, i32 noundef 1)
   switch i32 %202, label %_piwigo_api_set_info.exit [
     i32 35, label %203
     i32 7, label %203
@@ -1957,7 +1957,7 @@ _piwigo_api_create_new_album.exit:                ; preds = %144
 
 212:                                              ; preds = %209
   store i32 1, ptr %206, align 8, !tbaa !45
-  %213 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef nonnull %201, ptr noundef %.2.i, ptr noundef null, i32 noundef 1)
+  %213 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef nonnull %201, ptr noundef readonly %.2.i, ptr noundef null, i32 noundef 1)
   br label %_piwigo_api_set_info.exit
 
 _piwigo_api_set_info.exit:                        ; preds = %200, %203, %209, %212
@@ -2095,7 +2095,7 @@ _piwigo_api_set_info.exit:                        ; preds = %200, %203, %209, %2
 287:                                              ; preds = %281, %280
   %.4.i = phi ptr [ %286, %281 ], [ %.3.i, %280 ]
   %288 = load ptr, ptr %23, align 8, !tbaa !109
-  %289 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef %288, ptr noundef %.4.i, ptr noundef %54, i32 noundef 0)
+  %289 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef %288, ptr noundef readonly %.4.i, ptr noundef %54, i32 noundef 0)
   switch i32 %289, label %_piwigo_api_upload_photo.exit [
     i32 35, label %290
     i32 7, label %290
@@ -2122,7 +2122,7 @@ _piwigo_api_set_info.exit:                        ; preds = %200, %203, %209, %2
 
 299:                                              ; preds = %296
   store i32 1, ptr %293, align 8, !tbaa !45
-  %300 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef nonnull %288, ptr noundef %.4.i, ptr noundef %54, i32 noundef 0)
+  %300 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef nonnull %288, ptr noundef readonly %.4.i, ptr noundef %54, i32 noundef 0)
   br label %_piwigo_api_upload_photo.exit
 
 _piwigo_api_upload_photo.exit:                    ; preds = %287, %290, %296, %299
@@ -2289,7 +2289,7 @@ define internal fastcc i32 @_piwigo_api_get_image_id(ptr noundef readonly captur
   %32 = call ptr @g_list_append(ptr noundef %27, ptr noundef %28) #15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 4104
   %34 = load ptr, ptr %33, align 8, !tbaa !109
-  %35 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef %34, ptr noundef %32, ptr noundef null, i32 noundef 1)
+  %35 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef %34, ptr noundef readonly %32, ptr noundef null, i32 noundef 1)
   switch i32 %35, label %_piwigo_api_post.exit [
     i32 35, label %36
     i32 7, label %36
@@ -2315,7 +2315,7 @@ define internal fastcc i32 @_piwigo_api_get_image_id(ptr noundef readonly captur
 
 45:                                               ; preds = %42
   store i32 1, ptr %39, align 8, !tbaa !45
-  %46 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef nonnull %34, ptr noundef %32, ptr noundef null, i32 noundef 1)
+  %46 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef nonnull %34, ptr noundef readonly %32, ptr noundef null, i32 noundef 1)
   br label %_piwigo_api_post.exit
 
 _piwigo_api_post.exit:                            ; preds = %5, %36, %42, %45

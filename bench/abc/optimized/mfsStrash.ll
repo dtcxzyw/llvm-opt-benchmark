@@ -582,7 +582,7 @@ define ptr @Abc_NtkConstructCare_rec(ptr noundef %0, ptr noundef captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkConstructAig(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
+define noundef ptr @Abc_NtkConstructAig(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Aig_ManStart(i32 noundef 1000) #4
   %4 = tail call ptr @Abc_NtkConstructAig_rec(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   %5 = tail call ptr @Aig_ObjCreateCo(ptr noundef %3, ptr noundef %4) #4

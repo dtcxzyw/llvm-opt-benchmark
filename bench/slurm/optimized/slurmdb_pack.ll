@@ -1477,7 +1477,7 @@ define dso_local range(i32 -1, 1) i32 @slurmdb_unpack_account_rec(ptr noundef wr
 declare void @slurmdb_destroy_account_rec(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @slurmdb_pack_cluster_accounting_rec(ptr noundef captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
+define dso_local void @slurmdb_pack_cluster_accounting_rec(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
   %4 = icmp ugt i16 %1, 10239
   br i1 %4, label %5, label %22
 
@@ -3004,7 +3004,7 @@ declare void @slurmdb_init_federation_rec(ptr noundef, i1 noundef zeroext) local
 declare void @slurmdb_destroy_federation_rec(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @slurmdb_pack_accounting_rec(ptr noundef captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
+define dso_local void @slurmdb_pack_accounting_rec(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
   %4 = zext i16 %1 to i32
   %5 = icmp ugt i16 %1, 10751
   br i1 %5, label %6, label %17

@@ -18857,7 +18857,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit639: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz429LZ4_decompress_safe_usingDictEPKcPciiS2_i(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address) %4, i32 noundef %5) local_unnamed_addr #1 {
+define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz429LZ4_decompress_safe_usingDictEPKcPciiS2_i(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address) %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp eq i32 %5, 0
   br i1 %7, label %8, label %10
 
@@ -18893,7 +18893,7 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz429LZ4_decompres
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz429LZ4_decompress_fast_usingDictEPKcPciS2_i(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address) %3, i32 noundef %4) local_unnamed_addr #1 {
+define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz429LZ4_decompress_fast_usingDictEPKcPciS2_i(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = icmp eq i32 %4, 0
   br i1 %6, label %11, label %7
 

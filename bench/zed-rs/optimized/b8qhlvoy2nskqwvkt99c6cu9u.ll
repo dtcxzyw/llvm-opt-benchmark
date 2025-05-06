@@ -18413,7 +18413,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(904) ptr @"_ZN5al
   call void @llvm.lifetime.start.p0(i64 680, ptr nonnull %4), !noalias !4050
   store i32 0, ptr %4, align 8, !noalias !4050
   %96 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  invoke fastcc void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_iter17h92c7b636657867ddE"(ptr noalias noundef align 8 dereferenceable(680) %4, ptr noundef nonnull readonly %94, ptr noundef nonnull readonly %95, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d60d0e054ab4f94c22b695d48243abce.7)
+  invoke fastcc void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_iter17h92c7b636657867ddE"(ptr noalias noundef align 8 dereferenceable(680) %4, ptr noundef nonnull readonly %94, ptr noundef nonnull readnone %95, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d60d0e054ab4f94c22b695d48243abce.7)
           to label %"_ZN80_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h60eda117bec97244E.exit.i.i" unwind label %97, !noalias !4053
 
 97:                                               ; preds = %89

@@ -8194,7 +8194,7 @@ _ZN3refI5modelED2Ev.exit:                         ; preds = %_ZN7obj_refI4expr11
 declare noundef zeroext i1 @_ZN5model9eval_exprEP4exprR7obj_refIS0_11ast_managerEb(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8intblast6solver9add_valueEPN3euf5enodeER5modelR10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(420) %0, ptr noundef captures(address) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(160) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #3 align 2 {
+define hidden void @_ZN8intblast6solver9add_valueEPN3euf5enodeER5modelR10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(420) %0, ptr noundef readonly captures(address) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(160) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %6 = load i8, ptr %5, align 8, !tbaa !419, !range !572, !noundef !570
   %7 = trunc nuw i8 %6 to i1
@@ -9539,7 +9539,7 @@ _ZN8rationalD2Ev.exit69:                          ; preds = %.noexc.i68
 }
 
 ; Function Attrs: uwtable
-define hidden void @_ZThn32_N8intblast6solver9add_valueEPN3euf5enodeER5modelR10ref_vectorI4expr11ast_managerE(ptr noundef %0, ptr noundef captures(address) %1, ptr nonnull readnone align 8 captures(none) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #8 align 2 {
+define hidden void @_ZThn32_N8intblast6solver9add_valueEPN3euf5enodeER5modelR10ref_vectorI4expr11ast_managerE(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr nonnull readnone align 8 captures(none) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #8 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 -32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %7 = load i8, ptr %6, align 8, !tbaa !419, !range !572, !noundef !570
@@ -9547,11 +9547,11 @@ define hidden void @_ZThn32_N8intblast6solver9add_valueEPN3euf5enodeER5modelR10r
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %4
-  tail call void @_ZN8intblast6solver16add_value_pluginEPN3euf5enodeER5modelR10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(420) %5, ptr noundef %1, ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  tail call void @_ZN8intblast6solver16add_value_pluginEPN3euf5enodeER5modelR10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(420) %5, ptr noundef readonly %1, ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN8intblast6solver9add_valueEPN3euf5enodeER5modelR10ref_vectorI4expr11ast_managerE.exit
 
 10:                                               ; preds = %4
-  tail call void @_ZN8intblast6solver16add_value_solverEPN3euf5enodeER5modelR10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(420) %5, ptr noundef %1, ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  tail call void @_ZN8intblast6solver16add_value_solverEPN3euf5enodeER5modelR10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(420) %5, ptr noundef readonly %1, ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN8intblast6solver9add_valueEPN3euf5enodeER5modelR10ref_vectorI4expr11ast_managerE.exit
 
 _ZN8intblast6solver9add_valueEPN3euf5enodeER5modelR10ref_vectorI4expr11ast_managerE.exit: ; preds = %9, %10

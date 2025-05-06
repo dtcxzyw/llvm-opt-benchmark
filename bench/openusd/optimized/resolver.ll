@@ -17433,7 +17433,7 @@ _ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver15_GetURIResolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKNS0_13_ResolverInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver15_GetURIResolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKNS0_13_ResolverInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48

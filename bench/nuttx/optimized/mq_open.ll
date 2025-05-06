@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_nxmq_fileops = internal constant %struct.file_operations { ptr null, ptr @nxmq_file_close, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @nxmq_file_poll, ptr null }, align 8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 1) i32 @file_mq_open(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ...) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @file_mq_open(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = call fastcc i32 @file_mq_vopen(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 0, ptr noundef %4, ptr noundef null)

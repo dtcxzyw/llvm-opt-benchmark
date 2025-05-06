@@ -9038,7 +9038,7 @@ define hidden noalias noundef align 8 ptr @"_ZN16wasmtime_environ9component5type
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noalias noundef align 8 ptr @"_ZN16wasmtime_environ9component5types1_98_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..types..TypeOption$GT$9serialize17h4a79a5de599be96fE"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(40) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noalias noundef align 8 ptr @"_ZN16wasmtime_environ9component5types1_98_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..types..TypeOption$GT$9serialize17h4a79a5de599be96fE"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = tail call noalias noundef align 8 ptr @"_ZN16wasmtime_environ9component5types1_101_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..types..InterfaceType$GT$9serialize17h3907f1d1935a1b94E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %33
@@ -9252,7 +9252,7 @@ define hidden noalias noundef align 8 ptr @"_ZN16wasmtime_environ9component5type
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noalias noundef align 8 ptr @"_ZN16wasmtime_environ9component5types1_98_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..types..TypeResult$GT$9serialize17hf5785166986331acE"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(48) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noalias noundef align 8 ptr @"_ZN16wasmtime_environ9component5types1_98_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..types..TypeResult$GT$9serialize17hf5785166986331acE"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(48) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7760)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7763)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7766)

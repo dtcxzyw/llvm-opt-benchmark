@@ -28,7 +28,7 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define range(i32 0, 3) i32 @range_convert_str(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @range_convert_str(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @range_convert_str_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext true)
   ret i32 %5
 }

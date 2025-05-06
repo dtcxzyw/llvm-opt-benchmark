@@ -5434,7 +5434,7 @@ _ZN6duckdb6vectorISt17reference_wrapperINS_16PhysicalOperatorEELb1EEC2ERKS4_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb12MetaPipeline19CreateChildPipelineERNS_8PipelineERNS_16PhysicalOperatorES2_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull align 8 captures(address) dereferenceable(224) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb12MetaPipeline19CreateChildPipelineERNS_8PipelineERNS_16PhysicalOperatorES2_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(224) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.duckdb::shared_ptr", align 8
   %6 = alloca %"class.std::reference_wrapper.196", align 8
   %7 = alloca %"class.duckdb::vector.38", align 8

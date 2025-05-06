@@ -8094,7 +8094,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS2_8RegisterENS_12DenseMapI
 declare noundef i32 @_ZNK6hermes5Value11getNumUsersEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEE(ptr noundef nonnull align 8 dereferenceable(1952) %this, ptr captures(address) %order.coerce0, i64 %order.coerce1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEE(ptr noundef nonnull align 8 dereferenceable(1952) %this, ptr readonly captures(address) %order.coerce0, i64 %order.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %I.addr.i429 = alloca ptr, align 8
   %I.addr.i387 = alloca ptr, align 8

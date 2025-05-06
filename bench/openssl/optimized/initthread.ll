@@ -248,7 +248,7 @@ define void @OPENSSL_thread_stop_ex(ptr noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   %5 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @destructor_key) #2
-  tail call fastcc void @init_thread_stop(ptr noundef %2, ptr noundef %5)
+  tail call fastcc void @init_thread_stop(ptr noundef readnone %2, ptr noundef %5)
   br label %ossl_ctx_thread_stop.exit
 
 ossl_ctx_thread_stop.exit:                        ; preds = %1, %4
@@ -258,7 +258,7 @@ ossl_ctx_thread_stop.exit:                        ; preds = %1, %4
 declare ptr @ossl_lib_ctx_get_concrete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_ctx_thread_stop(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define void @ossl_ctx_thread_stop(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 {
   %2 = load i64, ptr @destructor_key, align 8, !tbaa !17
   %.not = icmp eq i64 %2, -1
   br i1 %.not, label %5, label %3
@@ -573,7 +573,7 @@ init_get_thread_local.exit.thread:                ; preds = %6, %11, %init_threa
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_init_thread_deregister(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_init_thread_deregister(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i32 @init_thread_deregister(ptr noundef %0, i32 noundef 0)
   ret i32 %2
 }

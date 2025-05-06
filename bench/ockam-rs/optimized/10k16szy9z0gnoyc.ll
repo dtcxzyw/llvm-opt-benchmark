@@ -9011,7 +9011,7 @@ define hidden void @"_ZN4core3ptr133drop_in_place$LT$tokio..runtime..task..core.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr134drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$ockam_identity..secure_channel..handshake..handshake_state_machine..StateMachine$GT$$GT$17h1ea6b1f8c6f597a2E"(ptr %.0.val, ptr captures(address_is_null) %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr134drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$ockam_identity..secure_channel..handshake..handshake_state_machine..StateMachine$GT$$GT$17h1ea6b1f8c6f597a2E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !4, !nonnull !4
@@ -36916,7 +36916,7 @@ common.resume:                                    ; preds = %151, %137, %122, %8
 48:                                               ; preds = %44
   %49 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha335524087f12247E"(ptr nonnull %.val, ptr nonnull %.val1) #32
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha335524087f12247E"(ptr nonnull %.val, ptr nonnull readonly %.val1) #32
   br label %common.resume
 
 50:                                               ; preds = %44
@@ -53021,7 +53021,7 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$ockam_identity..secure_chann
 21:                                               ; preds = %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$ockam_node..callback..CallbackSender$LT$$LP$$RP$$GT$$GT$$GT$17hed09b59e1132ddc6E.exit"
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h08bcfc14d26c1816E"(ptr nonnull %.val, ptr nonnull %.val14) #32
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h08bcfc14d26c1816E"(ptr nonnull %.val, ptr nonnull readonly %.val14) #32
   br label %.body
 
 23:                                               ; preds = %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$ockam_node..callback..CallbackSender$LT$$LP$$RP$$GT$$GT$$GT$17hed09b59e1132ddc6E.exit"

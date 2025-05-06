@@ -10422,7 +10422,7 @@ _curses_window_attrset_impl.exit:                 ; preds = %_curses_window_attr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_bkgd(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define internal noundef ptr @_curses_window_bkgd(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = add i64 %2, -1
   %or.cond = icmp ult i64 %5, 2
@@ -10453,7 +10453,7 @@ define internal noundef ptr @_curses_window_bkgd(ptr noundef captures(address_is
 18:                                               ; preds = %11, %16, %8
   %.0 = phi i64 [ 0, %8 ], [ -1, %16 ], [ %14, %11 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
-  %19 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %0, ptr noundef %9, ptr noundef nonnull %4)
+  %19 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef readonly %0, ptr noundef %9, ptr noundef nonnull %4)
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %_curses_window_bkgd_impl.exit, label %20
 
@@ -10604,7 +10604,7 @@ PyCursesCheckERR_ForWin.exit:                     ; preds = %50, %47, %14, %12, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_bkgdset(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define internal noundef ptr @_curses_window_bkgdset(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = add i64 %2, -1
   %or.cond = icmp ult i64 %5, 2
@@ -10635,7 +10635,7 @@ define internal noundef ptr @_curses_window_bkgdset(ptr noundef captures(address
 18:                                               ; preds = %11, %16, %8
   %.0 = phi i64 [ 0, %8 ], [ -1, %16 ], [ %14, %11 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
-  %19 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %0, ptr noundef %9, ptr noundef nonnull %4)
+  %19 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef readonly %0, ptr noundef %9, ptr noundef nonnull %4)
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %_curses_window_bkgdset_impl.exit, label %20
 
@@ -10659,7 +10659,7 @@ _curses_window_bkgdset_impl.exit:                 ; preds = %18, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_border(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define internal noundef ptr @_curses_window_border(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca [8 x i32], align 16
   %or.cond = icmp ult i64 %2, 9
   br i1 %or.cond, label %7, label %5
@@ -10738,7 +10738,7 @@ define internal noundef ptr @_curses_window_border(ptr noundef captures(address_
   br i1 %.not.i, label %42, label %40
 
 40:                                               ; preds = %39
-  %41 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %4)
+  %41 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef readonly %0, ptr noundef nonnull %10, ptr noundef nonnull %4)
   %.not37.i = icmp eq i32 %41, 0
   br i1 %.not37.i, label %_curses_window_border_impl.exit, label %42
 
@@ -10748,7 +10748,7 @@ define internal noundef ptr @_curses_window_border(ptr noundef captures(address_
 
 43:                                               ; preds = %42
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %45 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %0, ptr noundef nonnull %.034, ptr noundef nonnull %44)
+  %45 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef readonly %0, ptr noundef nonnull %.034, ptr noundef nonnull %44)
   %.not39.i = icmp eq i32 %45, 0
   br i1 %.not39.i, label %_curses_window_border_impl.exit, label %46
 
@@ -10758,7 +10758,7 @@ define internal noundef ptr @_curses_window_border(ptr noundef captures(address_
 
 47:                                               ; preds = %46
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %49 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %0, ptr noundef nonnull %.033, ptr noundef nonnull %48)
+  %49 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef readonly %0, ptr noundef nonnull %.033, ptr noundef nonnull %48)
   %.not41.i = icmp eq i32 %49, 0
   br i1 %.not41.i, label %_curses_window_border_impl.exit, label %50
 
@@ -10768,7 +10768,7 @@ define internal noundef ptr @_curses_window_border(ptr noundef captures(address_
 
 51:                                               ; preds = %50
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %53 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %0, ptr noundef nonnull %.032, ptr noundef nonnull %52)
+  %53 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef readonly %0, ptr noundef nonnull %.032, ptr noundef nonnull %52)
   %.not43.i = icmp eq i32 %53, 0
   br i1 %.not43.i, label %_curses_window_border_impl.exit, label %54
 
@@ -10778,7 +10778,7 @@ define internal noundef ptr @_curses_window_border(ptr noundef captures(address_
 
 55:                                               ; preds = %54
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %57 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %0, ptr noundef nonnull %.031, ptr noundef nonnull %56)
+  %57 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef readonly %0, ptr noundef nonnull %.031, ptr noundef nonnull %56)
   %.not45.i = icmp eq i32 %57, 0
   br i1 %.not45.i, label %_curses_window_border_impl.exit, label %58
 
@@ -10788,7 +10788,7 @@ define internal noundef ptr @_curses_window_border(ptr noundef captures(address_
 
 59:                                               ; preds = %58
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %61 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %0, ptr noundef nonnull %.030, ptr noundef nonnull %60)
+  %61 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef readonly %0, ptr noundef nonnull %.030, ptr noundef nonnull %60)
   %.not47.i = icmp eq i32 %61, 0
   br i1 %.not47.i, label %_curses_window_border_impl.exit, label %62
 
@@ -10798,7 +10798,7 @@ define internal noundef ptr @_curses_window_border(ptr noundef captures(address_
 
 63:                                               ; preds = %62
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %65 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %0, ptr noundef nonnull %.029, ptr noundef nonnull %64)
+  %65 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef readonly %0, ptr noundef nonnull %.029, ptr noundef nonnull %64)
   %.not49.i = icmp eq i32 %65, 0
   br i1 %.not49.i, label %_curses_window_border_impl.exit, label %66
 
@@ -10808,7 +10808,7 @@ define internal noundef ptr @_curses_window_border(ptr noundef captures(address_
 
 67:                                               ; preds = %66
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %69 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %0, ptr noundef nonnull %.0, ptr noundef nonnull %68)
+  %69 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef readonly %0, ptr noundef nonnull %.0, ptr noundef nonnull %68)
   %.not51.i = icmp eq i32 %69, 0
   br i1 %.not51.i, label %_curses_window_border_impl.exit, label %70
 
@@ -10844,7 +10844,7 @@ _curses_window_border_impl.exit:                  ; preds = %40, %43, %47, %51, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_box(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
+define internal noundef ptr @_curses_window_box(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -10882,12 +10882,12 @@ define internal noundef ptr @_curses_window_box(ptr noundef captures(address_is_
   store i32 0, ptr %3, align 4, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
   store i32 0, ptr %4, align 4, !tbaa !14
-  %15 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %3)
+  %15 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef readonly %0, ptr noundef %13, ptr noundef nonnull %3)
   %.not6.i = icmp eq i32 %15, 0
   br i1 %.not6.i, label %_curses_window_box_impl.exit, label %16
 
 16:                                               ; preds = %12
-  %17 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %0, ptr noundef %14, ptr noundef nonnull %4)
+  %17 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef readonly %0, ptr noundef %14, ptr noundef nonnull %4)
   %.not7.i = icmp eq i32 %17, 0
   br i1 %.not7.i, label %_curses_window_box_impl.exit, label %._crit_edge.i
 
@@ -11136,7 +11136,7 @@ _curses_window_derwin_impl.exit:                  ; preds = %27, %25, %10, %8, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_echochar(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define internal noundef ptr @_curses_window_echochar(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = add i64 %2, -1
   %or.cond = icmp ult i64 %5, 2
@@ -11167,7 +11167,7 @@ define internal noundef ptr @_curses_window_echochar(ptr noundef captures(addres
 18:                                               ; preds = %11, %16, %8
   %.0 = phi i64 [ 0, %8 ], [ -1, %16 ], [ %14, %11 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
-  %19 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %0, ptr noundef %9, ptr noundef nonnull %4)
+  %19 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef readonly %0, ptr noundef %9, ptr noundef nonnull %4)
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %_curses_window_echochar_impl.exit, label %20
 
@@ -11781,7 +11781,7 @@ define internal ptr @PyCursesWindow_getyx(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_hline(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
+define internal noundef ptr @_curses_window_hline(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -11838,7 +11838,7 @@ define internal noundef ptr @_curses_window_hline(ptr noundef captures(address_i
   %24 = load i32, ptr %7, align 4, !tbaa !14
   %25 = load i64, ptr %8, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
-  %26 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %0, ptr noundef %23, ptr noundef nonnull %3)
+  %26 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef readonly %0, ptr noundef %23, ptr noundef nonnull %3)
   %.not.i = icmp eq i32 %26, 0
   br i1 %.not.i, label %_curses_window_hline_impl.exit, label %27
 
@@ -12019,7 +12019,7 @@ _curses_window_inch_impl.exit:                    ; preds = %11, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_insch(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
+define internal noundef ptr @_curses_window_insch(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -12074,7 +12074,7 @@ define internal noundef ptr @_curses_window_insch(ptr noundef captures(address_i
   %23 = load i64, ptr %7, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
   store i32 0, ptr %3, align 4, !tbaa !14
-  %24 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %0, ptr noundef %22, ptr noundef nonnull %3)
+  %24 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef readonly %0, ptr noundef %22, ptr noundef nonnull %3)
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %_curses_window_insch_impl.exit, label %25
 
@@ -14087,7 +14087,7 @@ PyCursesCheckERR_ForWin.exit:                     ; preds = %10, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_vline(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
+define internal noundef ptr @_curses_window_vline(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -14144,7 +14144,7 @@ define internal noundef ptr @_curses_window_vline(ptr noundef captures(address_i
   %24 = load i32, ptr %7, align 4, !tbaa !14
   %25 = load i64, ptr %8, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
-  %26 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %0, ptr noundef %23, ptr noundef nonnull %3)
+  %26 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef readonly %0, ptr noundef %23, ptr noundef nonnull %3)
   %.not.i = icmp eq i32 %26, 0
   br i1 %.not.i, label %_curses_window_vline_impl.exit, label %27
 

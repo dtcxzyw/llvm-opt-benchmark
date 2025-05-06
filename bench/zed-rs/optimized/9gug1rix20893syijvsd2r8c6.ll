@@ -8080,7 +8080,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h328892688a44794cE.exit.i.i.i: ; preds 
 
 .body.i.i.i.i:                                    ; preds = %193, %179, %175, %170, %166, %125
   %.pn.i.i.i.i = phi { ptr, i32 } [ %194, %193 ], [ %167, %166 ], [ %126, %125 ], [ %171, %179 ], [ %171, %175 ], [ %171, %170 ]
-  invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$17h8f5abdae99167801E"(ptr nonnull align 1 %117, ptr nonnull %118) #35
+  invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$17h8f5abdae99167801E"(ptr nonnull align 1 %117, ptr nonnull readonly %118) #35
           to label %.body.i.i.i unwind label %195, !noalias !1986
 
 125:                                              ; preds = %159, %137, %120

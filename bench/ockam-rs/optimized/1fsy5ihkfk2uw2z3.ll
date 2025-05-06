@@ -735,7 +735,7 @@ define hidden noundef align 8 ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E"(ptr %.0.val, ptr captures(address_is_null) %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17he0399df435e9edf2E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !14, !nonnull !14
@@ -800,7 +800,7 @@ define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$
 11:                                               ; preds = %7
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h715839b007269a69E"(ptr nonnull %.val, ptr nonnull %.val1) #20
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h715839b007269a69E"(ptr nonnull %.val, ptr nonnull readonly %.val1) #20
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %7
@@ -4028,7 +4028,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.13257885452337864956.exit: ; preds
 148:                                              ; preds = %_ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.13257885452337864956.exit
   %149 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h715839b007269a69E"(ptr nonnull %.val70, ptr nonnull %.val71) #20
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h715839b007269a69E"(ptr nonnull %.val70, ptr nonnull readonly %.val71) #20
   br label %.body
 
 150:                                              ; preds = %_ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.13257885452337864956.exit

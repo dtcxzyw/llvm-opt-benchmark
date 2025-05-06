@@ -9617,7 +9617,7 @@ define hidden void @_ZN9itertools9Itertools4join17h384c982f736363afE(ptr noalias
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %19, ptr %1, align 8, !alias.scope !2564
-  %20 = tail call fastcc noundef zeroext i1 @"_ZN14ide_completion4item7Builder5build28_$u7b$$u7b$closure$u7d$$u7d$17h7d7aa7110edadc40E"(ptr nonnull %16), !noalias !2567
+  %20 = tail call fastcc noundef zeroext i1 @"_ZN14ide_completion4item7Builder5build28_$u7b$$u7b$closure$u7d$$u7d$17h7d7aa7110edadc40E"(ptr nonnull readonly %16), !noalias !2567
   br i1 %20, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he4712dbd9443bf1bE.exit", label %15
 
 "_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he4712dbd9443bf1bE.exit": ; preds = %18

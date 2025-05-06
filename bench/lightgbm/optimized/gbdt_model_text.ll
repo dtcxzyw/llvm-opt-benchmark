@@ -1636,7 +1636,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit230: ; preds = %_ZSt
   %.val = load ptr, ptr %514, align 8, !tbaa !137
   call void @llvm.experimental.noalias.scope.decl(metadata !162)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #21, !noalias !162
-  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %.val, i8 noundef signext 58)
+  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef readonly %.val, i8 noundef signext 58)
           to label %.noexc239 unwind label %708
 
 .noexc239:                                        ; preds = %512
@@ -19577,7 +19577,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4h
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #21
   %.val229 = load ptr, ptr %42, align 8, !tbaa !137
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #21, !noalias !472
-  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %.val229, i8 noundef signext 32)
+  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef readonly %.val229, i8 noundef signext 32)
           to label %.noexc529 unwind label %790
 
 .noexc529:                                        ; preds = %681
@@ -24146,7 +24146,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit786: ; preds = %_Z
 declare void @_ZN8LightGBM4TreeC1EPKcPm(ptr noundef nonnull align 8 dereferenceable(648), ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZN8LightGBM7CommonCL13StringToArrayImEESt6vectorIT_SaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((0, 24)) %0, ptr captures(address_is_null) %.0.val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8LightGBM7CommonCL13StringToArrayImEESt6vectorIT_SaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((0, 24)) %0, ptr readonly captures(address_is_null) %.0.val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.53", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #21
   call fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef %.0.val, i8 noundef signext 32)

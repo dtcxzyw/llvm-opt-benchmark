@@ -1058,7 +1058,7 @@ statistic_proc_security_check.exit.thread:        ; preds = %24, %22, %19, %stat
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @generic_restriction_selectivity(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, double noundef %5) local_unnamed_addr #0 {
+define dso_local double @generic_restriction_selectivity(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, double noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.VariableStatData, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i8, align 1

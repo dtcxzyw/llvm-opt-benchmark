@@ -1828,7 +1828,7 @@ define dso_local void @seq_put_decimal_ull_width(ptr noundef captures(none) %0, 
 declare dso_local i32 @num_to_str(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @seq_put_decimal_ull(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) #0 align 16 {
+define dso_local void @seq_put_decimal_ull(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) #0 align 16 {
   tail call void @seq_put_decimal_ull_width(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 0)
   ret void
 }

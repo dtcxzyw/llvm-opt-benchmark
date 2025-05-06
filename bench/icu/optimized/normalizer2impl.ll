@@ -11460,7 +11460,7 @@ _ZNK6icu_7715Normalizer2Impl9getNorm16Ei.exit.thread: ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6icu_7715Normalizer2Impl7makeFCDEPKDsS2_PNS_16ReorderingBufferER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 align 2 {
+define noundef ptr @_ZNK6icu_7715Normalizer2Impl7makeFCDEPKDsS2_PNS_16ReorderingBufferER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 align 2 {
   %6 = icmp eq ptr %2, null
   br i1 %6, label %7, label %49
 

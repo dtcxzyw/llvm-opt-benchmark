@@ -8298,7 +8298,7 @@ _ZNK7glslang16HlslParseContext12wasFlattenedEPKNS_12TIntermTypedE.exit.thread: ;
   %278 = and i32 %277, 127
   %279 = getelementptr inbounds nuw i8, ptr %266, i64 192
   %280 = load i32, ptr %279, align 8
-  %281 = call noundef ptr @_ZN7glslang16HlslParseContext13flattenAccessExiNS_17TStorageQualifierERKNS_5TTypeEi(ptr noundef nonnull align 8 dereferenceable(2489) %0, i64 noundef %270, i32 noundef %258, i32 noundef %278, ptr noundef nonnull align 8 dereferenceable(152) %5, i32 noundef %280)
+  %281 = call noundef ptr @_ZN7glslang16HlslParseContext13flattenAccessExiNS_17TStorageQualifierERKNS_5TTypeEi(ptr noundef nonnull readonly align 8 dereferenceable(2489) %0, i64 noundef %270, i32 noundef %258, i32 noundef %278, ptr noundef nonnull align 8 dereferenceable(152) %5, i32 noundef %280)
   %.not.i40 = icmp eq ptr %281, null
   %282 = select i1 %.not.i40, ptr %79, ptr %281
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %5)
@@ -8553,7 +8553,7 @@ _ZNK7glslang16HlslParseContext12wasFlattenedEx.exit: ; preds = %8, %_ZNKSt8_Rb_t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN7glslang16HlslParseContext13flattenAccessEPNS_12TIntermTypedEi(ptr noundef nonnull align 8 captures(address) dereferenceable(2489) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN7glslang16HlslParseContext13flattenAccessEPNS_12TIntermTypedEi(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(2489) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.glslang::TType", align 8
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 240
@@ -22179,7 +22179,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
 declare noundef ptr @_ZN7glslang13TIntermediate13growAggregateEP11TIntermNodeS2_RKNS_10TSourceLocE(ptr noundef nonnull align 8 dereferenceable(2024), ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN7glslang16HlslParseContext24handleFunctionDefinitionERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(2489) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(340) %2, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %4) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN7glslang16HlslParseContext24handleFunctionDefinitionERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(2489) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(340) %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca ptr, align 8
   %8 = alloca %"class.glslang::TType", align 8
@@ -23039,7 +23039,7 @@ _ZN7glslang16HlslParseContext16pushImplicitThisEPNS_9TVariableE.exit75: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEE(ptr noundef nonnull align 8 dereferenceable(2489) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(340) %2, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %3) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN7glslang16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEE(ptr noundef nonnull align 8 dereferenceable(2489) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(340) %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca %"class.glslang::TVector.89", align 8
   %7 = alloca %"class.glslang::TVector.89", align 8
@@ -65547,22 +65547,22 @@ define void @_ZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEv(p
 .lr.ph.i.i.i.i:                                   ; preds = %1, %21
   %.043.i.i.i.i = phi i64 [ %23, %21 ], [ %9, %1 ]
   %.sroa.032.042.i.i.i.i = phi ptr [ %22, %21 ], [ %3, %1 ]
-  %11 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_"(ptr nonnull %0, ptr %.sroa.032.042.i.i.i.i)
+  %11 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_"(ptr nonnull readonly %0, ptr %.sroa.032.042.i.i.i.i)
   br i1 %11, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7glslang7TSymbolESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEENS0_5__ops10_Iter_predIZNS2_16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EEET_SG_SG_T0_.exit.i.i", label %12
 
 12:                                               ; preds = %.lr.ph.i.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.032.042.i.i.i.i, i64 8
-  %14 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_"(ptr nonnull %0, ptr nonnull %13)
+  %14 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_"(ptr nonnull readonly %0, ptr nonnull %13)
   br i1 %14, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7glslang7TSymbolESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEENS0_5__ops10_Iter_predIZNS2_16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EEET_SG_SG_T0_.exit.i.i", label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.032.042.i.i.i.i, i64 16
-  %17 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_"(ptr nonnull %0, ptr nonnull %16)
+  %17 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_"(ptr nonnull readonly %0, ptr nonnull %16)
   br i1 %17, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7glslang7TSymbolESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEENS0_5__ops10_Iter_predIZNS2_16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EEET_SG_SG_T0_.exit.i.i", label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.032.042.i.i.i.i, i64 24
-  %20 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_"(ptr nonnull %0, ptr nonnull %19)
+  %20 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_"(ptr nonnull readonly %0, ptr nonnull %19)
   br i1 %20, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7glslang7TSymbolESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEENS0_5__ops10_Iter_predIZNS2_16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EEET_SG_SG_T0_.exit.i.i", label %21
 
 21:                                               ; preds = %18
@@ -65587,7 +65587,7 @@ define void @_ZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEv(p
   ]
 
 26:                                               ; preds = %._crit_edge.i.i.i.i
-  %27 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_"(ptr nonnull %0, ptr %.sroa.032.0.lcssa.i.i.i.i)
+  %27 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_"(ptr nonnull readonly %0, ptr %.sroa.032.0.lcssa.i.i.i.i)
   br i1 %27, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7glslang7TSymbolESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEENS0_5__ops10_Iter_predIZNS2_16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EEET_SG_SG_T0_.exit.i.i", label %28
 
 28:                                               ; preds = %26
@@ -65596,7 +65596,7 @@ define void @_ZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEv(p
 
 30:                                               ; preds = %28, %._crit_edge.i.i.i.i
   %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %29, %28 ]
-  %31 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_"(ptr nonnull %0, ptr %.sroa.032.1.i.i.i.i)
+  %31 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_"(ptr nonnull readonly %0, ptr %.sroa.032.1.i.i.i.i)
   br i1 %31, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7glslang7TSymbolESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEENS0_5__ops10_Iter_predIZNS2_16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EEET_SG_SG_T0_.exit.i.i", label %32
 
 32:                                               ; preds = %30
@@ -65605,7 +65605,7 @@ define void @_ZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEv(p
 
 34:                                               ; preds = %32, %._crit_edge.i.i.i.i
   %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %33, %32 ]
-  %35 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_"(ptr nonnull %0, ptr %.sroa.032.2.i.i.i.i)
+  %35 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_"(ptr nonnull readonly %0, ptr %.sroa.032.2.i.i.i.i)
   %spec.select.i.i.i.i = select i1 %35, ptr %.sroa.032.2.i.i.i.i, ptr %5
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7glslang7TSymbolESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEENS0_5__ops10_Iter_predIZNS2_16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EEET_SG_SG_T0_.exit.i.i"
 
@@ -65620,7 +65620,7 @@ define void @_ZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEv(p
 .lr.ph.i.i:                                       ; preds = %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7glslang7TSymbolESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEENS0_5__ops10_Iter_predIZNS2_16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EEET_SG_SG_T0_.exit.i.i", %41
   %.sroa.07.021.i.i = phi ptr [ %.sroa.07.0.i.i, %41 ], [ %.sroa.07.018.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7glslang7TSymbolESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEENS0_5__ops10_Iter_predIZNS2_16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EEET_SG_SG_T0_.exit.i.i" ]
   %.sroa.013.120.i.i = phi ptr [ %.sroa.013.2.i.i, %41 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7glslang7TSymbolESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEENS0_5__ops10_Iter_predIZNS2_16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EEET_SG_SG_T0_.exit.i.i" ]
-  %37 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_"(ptr nonnull %0, ptr nonnull %.sroa.07.021.i.i)
+  %37 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_"(ptr nonnull readonly %0, ptr nonnull %.sroa.07.021.i.i)
   br i1 %37, label %41, label %38
 
 38:                                               ; preds = %.lr.ph.i.i

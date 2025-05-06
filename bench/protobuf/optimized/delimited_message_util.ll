@@ -175,7 +175,7 @@ declare void @_ZN6google8protobuf2io19OstreamOutputStreamD1Ev(ptr noundef nonnul
 declare noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf4util32ParseDelimitedFromZeroCopyStreamEPNS0_11MessageLiteEPNS0_2io19ZeroCopyInputStreamEPb(ptr noundef %message, ptr noundef %input, ptr noundef captures(address_is_null) %clean_eof) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6google8protobuf4util32ParseDelimitedFromZeroCopyStreamEPNS0_11MessageLiteEPNS0_2io19ZeroCopyInputStreamEPb(ptr noundef %message, ptr noundef %input, ptr noundef writeonly captures(address_is_null) %clean_eof) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %coded_input = alloca %"class.google::protobuf::io::CodedInputStream", align 8
   %input_.i = getelementptr inbounds nuw i8, ptr %coded_input, i64 16

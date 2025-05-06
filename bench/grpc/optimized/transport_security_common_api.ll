@@ -115,7 +115,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi65EEERS2_RAT__Kc.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z37grpc_gcp_rpc_protocol_versions_encodePK29_grpc_gcp_RpcProtocolVersionsP10grpc_slice(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z37grpc_gcp_rpc_protocol_versions_encodePK29_grpc_gcp_RpcProtocolVersionsP10grpc_slice(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null

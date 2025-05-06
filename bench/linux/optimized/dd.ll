@@ -1312,7 +1312,7 @@ define dso_local void @device_driver_detach(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @driver_detach(ptr noundef captures(address) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @driver_detach(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %4 [

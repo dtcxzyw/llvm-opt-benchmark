@@ -1617,7 +1617,7 @@ define hidden i32 @hwloc__remove_infos(ptr noundef captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @hwloc_modify_infos(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #5 {
+define i32 @hwloc_modify_infos(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #5 {
   switch i64 %1, label %50 [
     i64 1, label %5
     i64 2, label %7

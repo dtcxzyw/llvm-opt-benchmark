@@ -1217,7 +1217,7 @@ _ZNK6vectorIfLb0EjE4sizeEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt8qi_queue6insertEPNS_11fingerprintEP3appjjj(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN3smt8qi_queue6insertEPNS_11fingerprintEP3appjjj(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #4 align 2 {
   %7 = load ptr, ptr %1, align 8, !tbaa !609
   %8 = tail call noundef float @_ZN3smt8qi_queue8get_costEP10quantifierP3appjjj(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef %7, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1000

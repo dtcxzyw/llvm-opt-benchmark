@@ -1840,7 +1840,7 @@ define hidden noundef zeroext i1 @_mi_arena_contains(ptr noundef readnone captur
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @mi_manage_os_memory_ex(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5, i1 noundef zeroext %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @mi_manage_os_memory_ex(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5, i1 noundef zeroext %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca %struct.mi_memid_s, align 8
   %10 = zext i1 %2 to i8
   %11 = zext i1 %3 to i8
@@ -2083,7 +2083,7 @@ _mi_arena_meta_zalloc.exit:                       ; preds = %118, %113, %111, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 13) i32 @mi_reserve_os_memory_ex(i64 noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 13) i32 @mi_reserve_os_memory_ex(i64 noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.mi_memid_s, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %7
@@ -2316,7 +2316,7 @@ mi_debug_show_bitmap.exit41:                      ; preds = %45, %40
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 13) i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 13) i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca %struct.mi_memid_s, align 8

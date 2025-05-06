@@ -15074,7 +15074,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_18ArgumentESt14default_deleteIS1_EED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120VariadicExprArgumentC2EN4llvm9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %0, ptr captures(address_is_null) %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_120VariadicExprArgumentC2EN4llvm9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
 ._crit_edge.i.i:
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -15088,7 +15088,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120VariadicExprArgumentC2EN4llvm9St
   store i64 6, ptr %11, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 22
   store i8 0, ptr %12, align 2, !tbaa !28
-  call fastcc void @_ZN12_GLOBAL__N_18ArgumentC2EN4llvm9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr %1, i64 %2, ptr %3, i64 %4)
+  call fastcc void @_ZN12_GLOBAL__N_18ArgumentC2EN4llvm9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr readonly %1, i64 %2, ptr %3, i64 %4)
   store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTVN12_GLOBAL__N_116VariadicArgumentE, i64 16), ptr %0, align 8, !tbaa !113
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112

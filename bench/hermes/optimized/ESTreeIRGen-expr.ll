@@ -1942,7 +1942,7 @@ _ZN4llvh11SmallVectorIPN6hermes5ValueELj8EED2Ev.exit: ; preds = %_ZN4llvh11Small
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes5irgen11ESTreeIRGen12genArrayExprEPNS_6ESTree19ArrayExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef captures(address) %Expr) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN6hermes5irgen11ESTreeIRGen12genArrayExprEPNS_6ESTree19ArrayExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readonly captures(address) %Expr) local_unnamed_addr #0 align 2 {
 entry:
   %_elements = getelementptr inbounds nuw i8, ptr %Expr, i64 48
   %call = tail call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen20genArrayFromElementsERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %_elements)

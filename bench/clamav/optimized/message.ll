@@ -1900,7 +1900,7 @@ messageGetArgument.exit51:                        ; preds = %31
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @messageGetFilename(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
+define ptr @messageGetFilename(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = tail call ptr @messageFindArgument(ptr noundef %0, ptr noundef nonnull @.str.18)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -1915,7 +1915,7 @@ define ptr @messageGetFilename(ptr noundef captures(address_is_null) %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @messageHasFilename(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @messageHasFilename(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = tail call fastcc i32 @messageHasArgument(ptr noundef %0, ptr noundef nonnull @.str.18)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %5
@@ -3382,12 +3382,12 @@ messageGetBody.exit215.i:                         ; preds = %31
 
 76:                                               ; preds = %73, %71
   %.1170.i = phi i32 [ 0, %73 ], [ %50, %71 ]
-  %77 = call ptr @messageFindArgument(ptr noundef nonnull %0, ptr noundef nonnull @.str.18)
+  %77 = call ptr @messageFindArgument(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.18)
   %.not.i.i = icmp eq ptr %77, null
   br i1 %.not.i.i, label %messageGetFilename.exit.i, label %messageGetFilename.exit.thread.i
 
 messageGetFilename.exit.i:                        ; preds = %76
-  %78 = call ptr @messageFindArgument(ptr noundef nonnull %0, ptr noundef nonnull @.str.35)
+  %78 = call ptr @messageFindArgument(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.35)
   %79 = icmp eq ptr %78, null
   br i1 %79, label %.thread260.i, label %messageGetFilename.exit.thread.i
 
@@ -3867,12 +3867,12 @@ messageGetBody.exit215.i:                         ; preds = %27
 
 73:                                               ; preds = %70, %68
   %.1170.i = phi i32 [ 0, %70 ], [ %47, %68 ]
-  %74 = call ptr @messageFindArgument(ptr noundef nonnull %0, ptr noundef nonnull @.str.18)
+  %74 = call ptr @messageFindArgument(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.18)
   %.not.i.i = icmp eq ptr %74, null
   br i1 %.not.i.i, label %messageGetFilename.exit.i, label %messageGetFilename.exit.thread.i
 
 messageGetFilename.exit.i:                        ; preds = %73
-  %75 = call ptr @messageFindArgument(ptr noundef nonnull %0, ptr noundef nonnull @.str.35)
+  %75 = call ptr @messageFindArgument(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.35)
   %76 = icmp eq ptr %75, null
   br i1 %76, label %.thread260.i, label %messageGetFilename.exit.thread.i
 
@@ -4368,12 +4368,12 @@ messageGetBody.exit215.i:                         ; preds = %26
 
 67:                                               ; preds = %64, %62
   %.1170.i = phi i32 [ 0, %64 ], [ %41, %62 ]
-  %68 = call ptr @messageFindArgument(ptr noundef nonnull %0, ptr noundef nonnull @.str.18)
+  %68 = call ptr @messageFindArgument(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.18)
   %.not.i.i = icmp eq ptr %68, null
   br i1 %.not.i.i, label %messageGetFilename.exit.i, label %messageGetFilename.exit.thread.i
 
 messageGetFilename.exit.i:                        ; preds = %67
-  %69 = call ptr @messageFindArgument(ptr noundef nonnull %0, ptr noundef nonnull @.str.35)
+  %69 = call ptr @messageFindArgument(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.35)
   %70 = icmp eq ptr %69, null
   br i1 %70, label %.thread260.i, label %messageGetFilename.exit.thread.i
 

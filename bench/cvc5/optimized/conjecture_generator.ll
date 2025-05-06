@@ -1771,7 +1771,7 @@ _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %80, %111, %109, %1
 declare noundef ptr @_ZNK4cvc58internal6EnvObj11nodeManagerEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers10OpArgIndex14getGroundTermsEPNS2_19ConjectureGeneratorERSt6vectorINS0_12NodeTemplateILb0EEESaIS8_EE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %0, ptr noundef captures(address) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers10OpArgIndex14getGroundTermsEPNS2_19ConjectureGeneratorERSt6vectorINS0_12NodeTemplateILb0EEESaIS8_EE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %0, ptr noundef readonly captures(address) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72

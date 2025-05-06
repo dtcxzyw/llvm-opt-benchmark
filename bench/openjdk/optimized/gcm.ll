@@ -3535,7 +3535,7 @@ _ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit:   ; preds = %35, %._crit_edge.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8PhaseCFG17latency_from_usesEP4Node(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8PhaseCFG17latency_from_usesEP4Node(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 15

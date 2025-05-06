@@ -49520,7 +49520,7 @@ declare void @_ZN6casadi13CodeGenerator10file_closeERSt14basic_ofstreamIcSt11cha
 declare void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248)) unnamed_addr #5 align 2
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(408) ptr @_ZN6casadi18DaeBuilderInternal13read_variableERKNS_7XmlNodeEPNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(1017) %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(408) ptr @_ZN6casadi18DaeBuilderInternal13read_variableERKNS_7XmlNodeEPNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(1017) %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -430,7 +430,7 @@ define hidden void @"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h3cd235b702b80984E.llvm.11722891406954285555"(ptr dead_on_unwind noalias noundef writable writeonly sret([1256 x i8]) align 8 captures(none) dereferenceable(1256) %0, ptr noundef nonnull %1, ptr noundef captures(address) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h3cd235b702b80984E.llvm.11722891406954285555"(ptr dead_on_unwind noalias noundef writable writeonly sret([1256 x i8]) align 8 captures(none) dereferenceable(1256) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [1256 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 1256, ptr nonnull %4)
   store i32 0, ptr %4, align 8
@@ -13337,7 +13337,7 @@ define hidden void @"_ZN80_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$
   call void @llvm.lifetime.start.p0(i64 1256, ptr nonnull %3), !noalias !3206
   store i32 0, ptr %3, align 8, !noalias !3206
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  invoke void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_iter17h126f32c271e2e6efE"(ptr noalias noundef nonnull align 8 dereferenceable(1256) %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8374affbe65ab11ec0cdc230b5285ceb.1.llvm.11722891406954285555)
+  invoke void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_iter17h126f32c271e2e6efE"(ptr noalias noundef nonnull align 8 dereferenceable(1256) %3, ptr noundef nonnull %6, ptr noundef nonnull readnone %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8374affbe65ab11ec0cdc230b5285ceb.1.llvm.11722891406954285555)
           to label %"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h3cd235b702b80984E.llvm.11722891406954285555.exit" unwind label %9, !noalias !3206
 
 9:                                                ; preds = %2

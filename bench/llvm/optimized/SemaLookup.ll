@@ -29588,7 +29588,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang19VisibleDeclConsumer18includeHid
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema18LookupVisibleDeclsEPNS_5ScopeENS0_14LookupNameKindERNS_19VisibleDeclConsumerEbb(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema18LookupVisibleDeclsEPNS_5ScopeENS0_14LookupNameKindERNS_19VisibleDeclConsumerEbb(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.(anonymous namespace)::UnqualUsingDirectiveSet", align 8
   %8 = alloca %"class.clang::LookupResult", align 8
   %9 = alloca %"class.(anonymous namespace)::LookupVisibleHelper", align 8
@@ -29650,7 +29650,7 @@ define dso_local void @_ZN5clang4Sema18LookupVisibleDeclsEPNS_5ScopeENS0_14Looku
 .split13.i:                                       ; preds = %_ZL33isNamespaceOrTranslationUnitScopePN5clang5ScopeE.exit.thread.i, %.preheader.i
   %.val.i = load i32, ptr inttoptr (i64 8 to ptr), align 8, !tbaa !1472
   %.val16.i = load ptr, ptr inttoptr (i64 360 to ptr), align 8
-  call fastcc void @_ZN12_GLOBAL__N_123UnqualUsingDirectiveSet15visitScopeChainEPN5clang5ScopeES3_(ptr noundef nonnull align 8 dereferenceable(240) %7, ptr noundef %1, i32 %.val.i, ptr %.val16.i)
+  call fastcc void @_ZN12_GLOBAL__N_123UnqualUsingDirectiveSet15visitScopeChainEPN5clang5ScopeES3_(ptr noundef nonnull align 8 dereferenceable(240) %7, ptr noundef readonly %1, i32 %.val.i, ptr %.val16.i)
   br label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %_ZL33isNamespaceOrTranslationUnitScopePN5clang5ScopeE.exit.thread.i
@@ -29675,7 +29675,7 @@ _ZL33isNamespaceOrTranslationUnitScopePN5clang5ScopeE.exit.i: ; preds = %.lr.ph.
   ]
 
 .split.i:                                         ; preds = %_ZL33isNamespaceOrTranslationUnitScopePN5clang5ScopeE.exit.i, %_ZL33isNamespaceOrTranslationUnitScopePN5clang5ScopeE.exit.i
-  call fastcc void @_ZN12_GLOBAL__N_123UnqualUsingDirectiveSet15visitScopeChainEPN5clang5ScopeES3_(ptr noundef nonnull align 8 dereferenceable(240) %7, ptr noundef nonnull %1, i32 %.0.val.i, ptr nonnull %.0.val15.i)
+  call fastcc void @_ZN12_GLOBAL__N_123UnqualUsingDirectiveSet15visitScopeChainEPN5clang5ScopeES3_(ptr noundef nonnull align 8 dereferenceable(240) %7, ptr noundef nonnull readonly %1, i32 %.0.val.i, ptr nonnull %.0.val15.i)
   br label %.critedge.i
 
 _ZL33isNamespaceOrTranslationUnitScopePN5clang5ScopeE.exit.thread.i: ; preds = %_ZL33isNamespaceOrTranslationUnitScopePN5clang5ScopeE.exit.i, %.lr.ph.i
@@ -29800,7 +29800,7 @@ _ZN12_GLOBAL__N_118VisibleDeclsRecord14visitedContextEPN5clang11DeclContextE.exi
   %98 = load i64, ptr %12, align 8, !tbaa !2114
   %99 = add i64 %98, 1
   store i64 %99, ptr %12, align 8, !tbaa !2114
-  call fastcc void @_ZN12_GLOBAL__N_119LookupVisibleHelper13lookupInScopeEPN5clang5ScopeERNS1_12LookupResultERNS_23UnqualUsingDirectiveSetE(ptr noundef nonnull align 8 dereferenceable(122) %9, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(168) %8, ptr noundef nonnull align 8 dereferenceable(240) %7)
+  call fastcc void @_ZN12_GLOBAL__N_119LookupVisibleHelper13lookupInScopeEPN5clang5ScopeERNS1_12LookupResultERNS_23UnqualUsingDirectiveSetE(ptr noundef nonnull align 8 dereferenceable(122) %9, ptr noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(168) %8, ptr noundef nonnull align 8 dereferenceable(240) %7)
   %100 = load ptr, ptr %11, align 8, !tbaa !1146
   call void @_ZNSt7__cxx114listIN4llvm8DenseMapIN5clang15DeclarationNameENS1_13TinyPtrVectorIPNS3_9NamedDeclEEENS1_12DenseMapInfoIS4_vEENS1_6detail12DenseMapPairIS4_S8_EEEESaISE_EE8_M_eraseESt14_List_iteratorISE_E(ptr noundef nonnull align 8 dereferenceable(122) %9, ptr %100) #27
   %101 = load i8, ptr %60, align 1, !tbaa !1436, !range !694, !noundef !695

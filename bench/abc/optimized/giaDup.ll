@@ -3707,7 +3707,7 @@ define void @Gia_ManCycle(ptr noundef readonly captures(none) %0, ptr noundef re
 declare i32 @Gia_ManRandom(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Gia_ManDupCycled(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #2 {
+define ptr @Gia_ManDupCycled(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #2 {
   tail call void @Gia_ManCleanMark0(ptr noundef %0) #31
   tail call void @Gia_ManCycle(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %4 = getelementptr i8, ptr %0, i64 16

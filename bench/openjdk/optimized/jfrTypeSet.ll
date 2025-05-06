@@ -656,7 +656,7 @@ _ZL14set_serializedI12PackageEntryEvPKT_.exit:    ; preds = %13, %17, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13write_packageP19JfrCheckpointWriterPK12PackageEntryb(ptr noundef nonnull %0, ptr noundef captures(address_is_null) %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @_ZL13write_packageP19JfrCheckpointWriterPK12PackageEntryb(ptr noundef nonnull %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %class.JfrCheckpointFlush, align 8
   %5 = getelementptr i8, ptr %1, i64 32
   %.val = load i64, ptr %5, align 8

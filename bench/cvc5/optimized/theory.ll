@@ -3089,7 +3089,7 @@ define hidden void @_ZN4cvc58internal6theory6Theory20computeRelevantTermsERSt3se
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory6Theory20collectAssertedTermsERSt3setINS0_12NodeTemplateILb1EEESt4lessIS5_ESaIS5_EEbRKS3_INS0_4kind6Kind_tES6_ISC_ESaISC_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory6Theory20collectAssertedTermsERSt3setINS0_12NodeTemplateILb1EEESt4lessIS5_ESaIS5_EEbRKS3_INS0_4kind6Kind_tES6_ISC_ESaISC_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %6 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -3608,7 +3608,7 @@ define hidden void @_ZNK4cvc58internal6theory6Theory28collectAssertedTermsForMod
   tail call void @llvm.experimental.noalias.scope.decl(metadata !190)
   %14 = load ptr, ptr %.sroa.013.018.i, align 8, !tbaa !92, !noalias !190
   store ptr %14, ptr %4, align 8, !tbaa !109, !alias.scope !190
-  call void @_ZNK4cvc58internal6theory6Theory12collectTermsENS0_12NodeTemplateILb0EEERSt3setINS3_ILb1EEESt4lessIS6_ESaIS6_EERKS5_INS0_4kind6Kind_tES7_ISD_ESaISD_EE(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %9)
+  call void @_ZNK4cvc58internal6theory6Theory12collectTermsENS0_12NodeTemplateILb0EEERSt3setINS3_ILb1EEESt4lessIS6_ESaIS6_EERKS5_INS0_4kind6Kind_tES7_ISD_ESaISD_EE(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull readonly align 8 dereferenceable(48) %9)
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.013.018.i, i64 16
   %.not.i = icmp eq ptr %15, %13
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !179
@@ -3629,7 +3629,7 @@ define hidden void @_ZNK4cvc58internal6theory6Theory28collectAssertedTermsForMod
   %.sroa.09.020.i = phi ptr [ %23, %.lr.ph22.i ], [ %19, %16 ]
   %22 = load ptr, ptr %.sroa.09.020.i, align 8, !tbaa !109
   store ptr %22, ptr %5, align 8, !tbaa !109
-  call void @_ZNK4cvc58internal6theory6Theory12collectTermsENS0_12NodeTemplateILb0EEERSt3setINS3_ILb1EEESt4lessIS6_ESaIS6_EERKS5_INS0_4kind6Kind_tES7_ISD_ESaISD_EE(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %9)
+  call void @_ZNK4cvc58internal6theory6Theory12collectTermsENS0_12NodeTemplateILb0EEERSt3setINS3_ILb1EEESt4lessIS6_ESaIS6_EERKS5_INS0_4kind6Kind_tES7_ISD_ESaISD_EE(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull readonly align 8 dereferenceable(48) %9)
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.09.020.i, i64 8
   %.not16.i = icmp eq ptr %23, %21
   br i1 %.not16.i, label %_ZNK4cvc58internal6theory6Theory20collectAssertedTermsERSt3setINS0_12NodeTemplateILb1EEESt4lessIS5_ESaIS5_EEbRKS3_INS0_4kind6Kind_tES6_ISC_ESaISC_EE.exit, label %.lr.ph22.i, !llvm.loop !181

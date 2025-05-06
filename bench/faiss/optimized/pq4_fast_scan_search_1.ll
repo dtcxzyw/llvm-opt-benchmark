@@ -589,7 +589,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss19pq4_accumulate_loopEimiiPKhS1_RNS_17SIMDResultHandlerEPKNS_15NormTableScalerE(i32 noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(11) %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #3 {
+define void @_ZN5faiss19pq4_accumulate_loopEimiiPKhS1_RNS_17SIMDResultHandlerEPKNS_15NormTableScalerE(i32 noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(11) %6, ptr noundef readonly captures(address_is_null) %7) local_unnamed_addr #3 {
   tail call fastcc void @_ZN5faiss20simd_result_handlers26dispatch_SIMDResultHandlerINS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS5_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT_DpT0_(ptr noundef nonnull align 8 dereferenceable(11) %6, i32 noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
   ret void
 }
@@ -598,7 +598,7 @@ define void @_ZN5faiss19pq4_accumulate_loopEimiiPKhS1_RNS_17SIMDResultHandlerEPK
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss20simd_result_handlers26dispatch_SIMDResultHandlerINS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS5_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT_DpT0_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faiss20simd_result_handlers26dispatch_SIMDResultHandlerINS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS5_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT_DpT0_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly captures(address_is_null) %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.faiss::simd_result_handlers::FixedStorageHandler.16", align 8
   %10 = alloca %"struct.faiss::simd_result_handlers::FixedStorageHandler.15", align 8
   %11 = alloca %"struct.faiss::simd_result_handlers::FixedStorageHandler.14", align 8
@@ -4191,22 +4191,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %1619, label %1621, label %1622
 
 1621:                                             ; preds = %1620
-  tail call fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMaxItiEELb1ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  tail call fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMaxItiEELb1ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly %7)
   br label %_ZN5faiss12_GLOBAL__N_123Run_pq4_accumulate_loop1fINS_20simd_result_handlers18StoreResultHandlerEEEvRT_imiiPKhS8_PKNS_15NormTableScalerE.exit
 
 1622:                                             ; preds = %1620
-  tail call fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMaxItiEELb0ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  tail call fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMaxItiEELb0ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly %7)
   br label %_ZN5faiss12_GLOBAL__N_123Run_pq4_accumulate_loop1fINS_20simd_result_handlers18StoreResultHandlerEEEvRT_imiiPKhS8_PKNS_15NormTableScalerE.exit
 
 1623:                                             ; preds = %1613
   br i1 %1619, label %1624, label %1625
 
 1624:                                             ; preds = %1623
-  tail call fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMinItiEELb1ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  tail call fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMinItiEELb1ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly %7)
   br label %_ZN5faiss12_GLOBAL__N_123Run_pq4_accumulate_loop1fINS_20simd_result_handlers18StoreResultHandlerEEEvRT_imiiPKhS8_PKNS_15NormTableScalerE.exit
 
 1625:                                             ; preds = %1623
-  tail call fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMinItiEELb0ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  tail call fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMinItiEELb0ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly %7)
   br label %_ZN5faiss12_GLOBAL__N_123Run_pq4_accumulate_loop1fINS_20simd_result_handlers18StoreResultHandlerEEEvRT_imiiPKhS8_PKNS_15NormTableScalerE.exit
 
 1626:                                             ; preds = %8
@@ -4222,22 +4222,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %1632, label %1634, label %1635
 
 1634:                                             ; preds = %1633
-  tail call fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMaxItlEELb1ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  tail call fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMaxItlEELb1ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly %7)
   br label %_ZN5faiss12_GLOBAL__N_123Run_pq4_accumulate_loop1fINS_20simd_result_handlers18StoreResultHandlerEEEvRT_imiiPKhS8_PKNS_15NormTableScalerE.exit
 
 1635:                                             ; preds = %1633
-  tail call fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMaxItlEELb0ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  tail call fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMaxItlEELb0ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly %7)
   br label %_ZN5faiss12_GLOBAL__N_123Run_pq4_accumulate_loop1fINS_20simd_result_handlers18StoreResultHandlerEEEvRT_imiiPKhS8_PKNS_15NormTableScalerE.exit
 
 1636:                                             ; preds = %1626
   br i1 %1632, label %1637, label %1638
 
 1637:                                             ; preds = %1636
-  tail call fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMinItlEELb1ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  tail call fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMinItlEELb1ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly %7)
   br label %_ZN5faiss12_GLOBAL__N_123Run_pq4_accumulate_loop1fINS_20simd_result_handlers18StoreResultHandlerEEEvRT_imiiPKhS8_PKNS_15NormTableScalerE.exit
 
 1638:                                             ; preds = %1636
-  tail call fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMinItlEELb0ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  tail call fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMinItlEELb0ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly %7)
   br label %_ZN5faiss12_GLOBAL__N_123Run_pq4_accumulate_loop1fINS_20simd_result_handlers18StoreResultHandlerEEEvRT_imiiPKhS8_PKNS_15NormTableScalerE.exit
 
 1639:                                             ; preds = %8
@@ -19022,7 +19022,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(pt
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMaxItiEELb1ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMaxItiEELb1ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly captures(address_is_null) %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.faiss::simd16uint16", align 8
   %10 = alloca %"struct.faiss::simd16uint16", align 8
   %11 = alloca %"struct.faiss::simd_result_handlers::FixedStorageHandler.16", align 8
@@ -26196,7 +26196,7 @@ _ZN5faiss12_GLOBAL__N_123Run_pq4_accumulate_loop1fINS_20simd_result_handlers19Si
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMaxItiEELb0ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMaxItiEELb0ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly captures(address_is_null) %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.faiss::simd16uint16", align 8
   %10 = alloca %"struct.faiss::simd16uint16", align 8
   %11 = alloca %"struct.faiss::simd_result_handlers::FixedStorageHandler.16", align 8
@@ -37463,7 +37463,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit34: ; preds = %.preheader, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMinItiEELb1ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMinItiEELb1ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly captures(address_is_null) %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.faiss::simd16uint16", align 8
   %10 = alloca %"struct.faiss::simd16uint16", align 8
   %11 = alloca %"struct.faiss::simd_result_handlers::FixedStorageHandler.16", align 8
@@ -44637,7 +44637,7 @@ _ZN5faiss12_GLOBAL__N_123Run_pq4_accumulate_loop1fINS_20simd_result_handlers19Si
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMinItiEELb0ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMinItiEELb0ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly captures(address_is_null) %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.faiss::simd16uint16", align 8
   %10 = alloca %"struct.faiss::simd16uint16", align 8
   %11 = alloca %"struct.faiss::simd_result_handlers::FixedStorageHandler.16", align 8
@@ -55901,7 +55901,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit34: ; preds = %.preheader, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMaxItlEELb1ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMaxItlEELb1ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly captures(address_is_null) %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.faiss::simd16uint16", align 8
   %10 = alloca %"struct.faiss::simd16uint16", align 8
   %11 = alloca %"struct.faiss::simd_result_handlers::FixedStorageHandler.16", align 8
@@ -63075,7 +63075,7 @@ _ZN5faiss12_GLOBAL__N_123Run_pq4_accumulate_loop1fINS_20simd_result_handlers19Si
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMaxItlEELb0ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMaxItlEELb0ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly captures(address_is_null) %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.faiss::simd16uint16", align 8
   %10 = alloca %"struct.faiss::simd16uint16", align 8
   %11 = alloca %"struct.faiss::simd_result_handlers::FixedStorageHandler.16", align 8
@@ -74343,7 +74343,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit34: ; preds = %.preheader, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMinItlEELb1ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMinItlEELb1ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly captures(address_is_null) %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.faiss::simd16uint16", align 8
   %10 = alloca %"struct.faiss::simd16uint16", align 8
   %11 = alloca %"struct.faiss::simd_result_handlers::FixedStorageHandler.16", align 8
@@ -81517,7 +81517,7 @@ _ZN5faiss12_GLOBAL__N_123Run_pq4_accumulate_loop1fINS_20simd_result_handlers19Si
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMinItlEELb0ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResultHandler_fixedCWINS_4CMinItlEELb0ENS_12_GLOBAL__N_123Run_pq4_accumulate_loopEJimiiPKhS7_PKNS_15NormTableScalerEEEEvRNS_17SIMDResultHandlerERT1_DpT2_(ptr noundef nonnull align 8 dereferenceable(11) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly captures(address_is_null) %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.faiss::simd16uint16", align 8
   %10 = alloca %"struct.faiss::simd16uint16", align 8
   %11 = alloca %"struct.faiss::simd_result_handlers::FixedStorageHandler.16", align 8

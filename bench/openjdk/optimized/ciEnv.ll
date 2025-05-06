@@ -5282,7 +5282,7 @@ define hidden noundef ptr @_ZNK5ciEnv11replay_nameEP7ciKlass(ptr noundef nonnull
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef ptr @_ZNK5ciEnv9dyno_nameEPK13InstanceKlass(ptr noundef nonnull readonly align 8 dereferenceable(1265) %0, ptr noundef %9)
+  %10 = tail call noundef ptr @_ZNK5ciEnv9dyno_nameEPK13InstanceKlass(ptr noundef nonnull readonly align 8 dereferenceable(1265) %0, ptr noundef readonly %9)
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %11, label %_ZNK5ciEnv11replay_nameEPK13InstanceKlass.exit
 
@@ -5304,7 +5304,7 @@ _ZNK5ciEnv11replay_nameEPK13InstanceKlass.exit:   ; preds = %11, %7, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK5ciEnv11replay_nameEPK13InstanceKlass(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1265) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK5ciEnv11replay_nameEPK13InstanceKlass(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1265) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZNK5ciEnv9dyno_nameEPK13InstanceKlass(ptr noundef nonnull align 8 dereferenceable(1265) %0, ptr noundef %1)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %8

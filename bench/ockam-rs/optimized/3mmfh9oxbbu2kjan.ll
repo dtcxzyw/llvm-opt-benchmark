@@ -4195,7 +4195,7 @@ _ZN4core3ops8function6FnOnce9call_once17h813ac0a6542f2896E.exit: ; preds = %"_ZN
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h87ef1024ebc8fa1eE"(ptr %.0.val, ptr captures(address_is_null) %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h87ef1024ebc8fa1eE"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !13, !nonnull !13

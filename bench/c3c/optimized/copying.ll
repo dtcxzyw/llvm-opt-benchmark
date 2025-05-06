@@ -1726,7 +1726,7 @@ define dso_local void @copy_end() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @copy_type_info_single(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @copy_type_info_single(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   store ptr @copy_struct, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777200), align 8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777209), align 1
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777208), align 8

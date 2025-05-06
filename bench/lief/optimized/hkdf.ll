@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_hkdf(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef captures(address_is_null) %7, i64 noundef %8) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_hkdf(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef writeonly captures(address_is_null) %7, i64 noundef %8) local_unnamed_addr #0 {
   %10 = alloca [64 x i8], align 16
   %11 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #5

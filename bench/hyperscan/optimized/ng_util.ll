@@ -6907,7 +6907,7 @@ _ZN3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue211cloneHolderERNS_8NGHolderERKS0_PSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESB_St4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_SB_EEE(ptr noundef nonnull align 8 dereferenceable(136) initializes((64, 68)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(136) %1, ptr noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue211cloneHolderERNS_8NGHolderERKS0_PSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESB_St4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_SB_EEE(ptr noundef nonnull align 8 dereferenceable(136) initializes((64, 68)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %1, ptr noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3ue211cloneHolderERNS_8NGHolderERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
@@ -7083,7 +7083,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolder
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue211cloneHolderERKNS_8NGHolderE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(136) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue211cloneHolderERKNS_8NGHolderE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !411)
   %3 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #31, !noalias !411
   invoke void @_ZN3ue28NGHolderC2ENS_8nfa_kindE(ptr noundef nonnull align 8 dereferenceable(136) %3, i32 noundef 3)

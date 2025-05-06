@@ -3355,7 +3355,7 @@ dt_ioppr_get_iop_order.exit:                      ; preds = %dt_ioppr_get_iop_or
 declare ptr @dt_iop_get_instance_name(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @dt_ioppr_check_duplicate_iop_order(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
+define void @dt_ioppr_check_duplicate_iop_order(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !117
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15

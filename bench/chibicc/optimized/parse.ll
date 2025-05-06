@@ -1862,7 +1862,7 @@ find_func.exit.thread:                            ; preds = %26, %24, %21, %find
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @eval2(ptr noundef %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc i64 @eval2(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 {
   tail call void @add_type(ptr noundef %0) #13
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 16, !tbaa !24
@@ -2526,7 +2526,7 @@ tailrecurse.backedge:                             ; preds = %67, %58, %63, %65
 declare zeroext i1 @is_integer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @eval_rval(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #0 {
+define internal fastcc i64 @eval_rval(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 16, !tbaa !7
   switch i32 %3, label %29 [
     i32 40, label %4

@@ -78,7 +78,7 @@ $_ZZN5ZXing10Utf8DecodeEDuRhRDiE9kUtf8Data = comdat any
 @.str.39 = private unnamed_addr constant [25 x i8] c"basic_string::_M_replace\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ZXing8FromUtf8B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 %1, ptr captures(address) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ZXing8FromUtf8B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 %1, ptr readonly captures(address) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -270,7 +270,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit: ; preds 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ZXing8FromUtf8B5cxx11ESt17basic_string_viewIDuSt11char_traitsIDuEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 %1, ptr captures(address) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ZXing8FromUtf8B5cxx11ESt17basic_string_viewIDuSt11char_traitsIDuEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 %1, ptr readonly captures(address) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -845,7 +845,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 declare void @_ZNSt7__cxx1119basic_ostringstreamIwSt11char_traitsIwESaIwEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #4 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ZXing18EscapeNonGraphicalB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string.2") align 8 %0, i64 %1, ptr captures(address) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ZXing18EscapeNonGraphicalB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string.2") align 8 %0, i64 %1, ptr readonly captures(address) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #13
@@ -855,7 +855,7 @@ define void @_ZN5ZXing18EscapeNonGraphicalB5cxx11ESt17basic_string_viewIcSt11cha
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %7, align 8, !tbaa !9, !alias.scope !67
   store i32 0, ptr %6, align 8, !tbaa !12, !alias.scope !67
-  invoke fastcc void @_ZN5ZXingL14AppendFromUtf8ESt17basic_string_viewIDuSt11char_traitsIDuEERNSt7__cxx1112basic_stringIwS1_IwESaIwEEE(i64 %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke fastcc void @_ZN5ZXingL14AppendFromUtf8ESt17basic_string_viewIDuSt11char_traitsIDuEERNSt7__cxx1112basic_stringIwS1_IwESaIwEEE(i64 %1, ptr readonly %2, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %_ZN5ZXing8FromUtf8B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE.exit unwind label %8
 
 8:                                                ; preds = %3

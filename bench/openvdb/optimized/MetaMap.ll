@@ -2124,7 +2124,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7openvdb5v11_0lsERSoRKNS0_7MetaMapE(ptr noundef nonnull returned align 8 dereferenceable(8) %ostr, ptr noundef nonnull align 8 captures(address) dereferenceable(56) %metamap) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7openvdb5v11_0lsERSoRKNS0_7MetaMapE(ptr noundef nonnull returned align 8 dereferenceable(8) %ostr, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %metamap) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8

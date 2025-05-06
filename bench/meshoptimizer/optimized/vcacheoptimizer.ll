@@ -615,13 +615,13 @@ define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @meshopt_optimizeVertexCache(ptr noundef captures(address) %0, ptr noundef captures(address) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local void @meshopt_optimizeVertexCache(ptr noundef writeonly captures(address) %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   tail call void @_Z32meshopt_optimizeVertexCacheTablePjPKjmmPKN7meshopt16VertexScoreTableE(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull @_ZN7meshoptL17kVertexScoreTableE)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @meshopt_optimizeVertexCacheStrip(ptr noundef captures(address) %0, ptr noundef captures(address) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local void @meshopt_optimizeVertexCacheStrip(ptr noundef writeonly captures(address) %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   tail call void @_Z32meshopt_optimizeVertexCacheTablePjPKjmmPKN7meshopt16VertexScoreTableE(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull @_ZN7meshoptL22kVertexScoreTableStripE)
   ret void
 }

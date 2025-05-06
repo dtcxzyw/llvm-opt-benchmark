@@ -13416,7 +13416,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit6993.thread11359: ; preds = %_ZN4llvmeqENS_9Str
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang27getAttributePluginInstancesB5cxx11Ev() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN5clang12hasAttributeENS_19AttributeCommonInfo6SyntaxEPKNS_14IdentifierInfoES4_RKNS_10TargetInfoERKNS_11LangOptionsE(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(489) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(849) %4) local_unnamed_addr #0 {
+define dso_local noundef i32 @_ZN5clang12hasAttributeENS_19AttributeCommonInfo6SyntaxEPKNS_14IdentifierInfoES4_RKNS_10TargetInfoERKNS_11LangOptionsE(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(489) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(849) %4) local_unnamed_addr #0 {
   %6 = tail call noundef i32 @_ZN5clang12hasAttributeENS_19AttributeCommonInfo6SyntaxEPKNS_14IdentifierInfoES4_RKNS_10TargetInfoERKNS_11LangOptionsEb(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(489) %3, ptr noundef nonnull align 8 dereferenceable(849) %4, i1 noundef zeroext true)
   ret i32 %6
 }
@@ -13499,7 +13499,7 @@ _ZNK5clang14IdentifierInfo5isStrILm7EEEbRAT__Kc.exit: ; preds = %_ZNK5clang14Ide
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 415) i32 @_ZN5clang19AttributeCommonInfo13getParsedKindEPKNS_14IdentifierInfoES3_NS0_6SyntaxE(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 415) i32 @_ZN5clang19AttributeCommonInfo13getParsedKindEPKNS_14IdentifierInfoES3_NS0_6SyntaxE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallString", align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #13
   call fastcc void @_ZL13normalizeNamePKN5clang14IdentifierInfoES2_NS_19AttributeCommonInfo6SyntaxE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef %0, ptr noundef %1, i32 noundef %2)

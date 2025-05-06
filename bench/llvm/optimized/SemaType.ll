@@ -1117,7 +1117,7 @@ declare void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind 
 declare void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang4Sema18BuildQualifiedTypeENS_8QualTypeENS_14SourceLocationEjPKNS_8DeclSpecE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i64 %1, i32 %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang4Sema18BuildQualifiedTypeENS_8QualTypeENS_14SourceLocationEjPKNS_8DeclSpecE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i64 %1, i32 %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
   %.not.i.i = icmp ult i64 %1, 16
   br i1 %.not.i.i, label %49, label %6
 
@@ -82404,7 +82404,7 @@ _ZN5clang4Sema17GetTypeFromParserENS_9OpaquePtrINS_8QualTypeEEEPPNS_14TypeSource
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117TypeSpecLocFiller22VisitAttributedTypeLocEN5clang17AttributedTypeLocE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr captures(address) %1, ptr %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117TypeSpecLocFiller22VisitAttributedTypeLocEN5clang17AttributedTypeLocE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readonly captures(address) %1, ptr %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %4, align 8, !tbaa !12
   %5 = ptrtoint ptr %2 to i64

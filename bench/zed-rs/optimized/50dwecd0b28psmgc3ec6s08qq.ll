@@ -5626,7 +5626,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer13push_excerpts17h6c2be61974ad
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN12multi_buffer11MultiBuffer13push_excerpts17hedcdc3db625efc2eE(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(240) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull captures(address) %3, ptr noundef captures(address) %4, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %5) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN12multi_buffer11MultiBuffer13push_excerpts17hedcdc3db625efc2eE(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(240) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull readonly captures(address) %3, ptr noundef readnone captures(address) %4, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %5) unnamed_addr #2 personality ptr @rust_eh_personality {
   %7 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)

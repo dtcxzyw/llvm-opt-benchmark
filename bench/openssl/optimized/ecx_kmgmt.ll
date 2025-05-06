@@ -445,7 +445,7 @@ define internal noundef nonnull ptr @ecx_gen_settable_params(ptr readnone captur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @x25519_gen(ptr noundef captures(address_is_null) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
+define internal ptr @x25519_gen(ptr noundef readonly captures(address_is_null) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call i32 @ossl_prov_is_running() #4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
@@ -557,7 +557,7 @@ define internal ptr @x448_gen_init(ptr noundef %0, i32 noundef %1, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @x448_gen(ptr noundef captures(address_is_null) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
+define internal ptr @x448_gen(ptr noundef readonly captures(address_is_null) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call i32 @ossl_prov_is_running() #4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
@@ -639,7 +639,7 @@ define internal ptr @ed25519_gen_init(ptr noundef %0, i32 noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ed25519_gen(ptr noundef captures(address_is_null) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
+define internal ptr @ed25519_gen(ptr noundef readonly captures(address_is_null) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call i32 @ossl_prov_is_running() #4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
@@ -721,7 +721,7 @@ define internal ptr @ed448_gen_init(ptr noundef %0, i32 noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ed448_gen(ptr noundef captures(address_is_null) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
+define internal ptr @ed448_gen(ptr noundef readonly captures(address_is_null) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call i32 @ossl_prov_is_running() #4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5

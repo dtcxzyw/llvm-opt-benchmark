@@ -136,7 +136,7 @@ _ZN5vcpkg13XmlSerializer19emit_pending_indentEv.exit: ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull returned align 8 dereferenceable(37) %0, ptr %1, i64 %2, ptr captures(address) %3, i64 %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer9text_attrENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull returned align 8 dereferenceable(37) %0, ptr %1, i64 %2, ptr readonly captures(address) %3, i64 %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.vcpkg::StringLiteral", align 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -604,7 +604,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit2: ; preds 
 declare noundef ptr @_ZN5vcpkg7Strings6searchENS_10StringViewES1_(ptr, i64, ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10simple_tagENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull returned align 8 dereferenceable(37) %0, ptr %1, i64 %2, ptr captures(address) %3, i64 %4) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13XmlSerializer10simple_tagENS_13StringLiteralENS_10StringViewE(ptr noundef nonnull returned align 8 dereferenceable(37) %0, ptr %1, i64 %2, ptr readonly captures(address) %3, i64 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"struct.vcpkg::StringLiteral", align 8
   %7 = alloca %"struct.vcpkg::StringLiteral", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 36

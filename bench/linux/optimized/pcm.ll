@@ -495,7 +495,7 @@ declare dso_local void @snd_pcm_group_init(ptr noundef) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) #1 align 16 {
   %7 = tail call fastcc i32 @_snd_pcm_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext false, ptr noundef %5), !range !12
   ret i32 %7
 }
@@ -677,7 +677,7 @@ snd_pcm_free_stream.exit10:                       ; preds = %88, %92
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_new_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_new_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) #1 align 16 {
   %7 = tail call fastcc i32 @_snd_pcm_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext true, ptr noundef %5), !range !12
   ret i32 %7
 }

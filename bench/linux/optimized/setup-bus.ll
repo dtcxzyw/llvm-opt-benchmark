@@ -1924,7 +1924,7 @@ define dso_local void @__pci_bus_assign_resources(ptr noundef readonly captures(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @pci_bus_assign_resources(ptr noundef captures(address) %0) #5 align 16 {
+define dso_local void @pci_bus_assign_resources(ptr noundef readonly captures(address) %0) #5 align 16 {
   tail call void @__pci_bus_assign_resources(ptr noundef %0, ptr noundef null, ptr noundef null)
   ret void
 }
@@ -2300,7 +2300,7 @@ define internal fastcc i32 @pci_bus_get_depth(ptr noundef readonly captures(addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @pci_root_bus_distribute_available_resources(ptr noundef readonly captures(address) %0, ptr noundef captures(address) %1) unnamed_addr #5 align 16 {
+define internal fastcc void @pci_root_bus_distribute_available_resources(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) unnamed_addr #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
@@ -3274,7 +3274,7 @@ declare dso_local i32 @release_resource(ptr noundef) local_unnamed_addr #4
 declare dso_local void @up_read(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @pci_assign_unassigned_bus_resources(ptr noundef captures(address) %0) #5 align 16 {
+define dso_local void @pci_assign_unassigned_bus_resources(ptr noundef readonly captures(address) %0) #5 align 16 {
   %2 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
   store ptr %2, ptr %2, align 8
@@ -3504,7 +3504,7 @@ define internal fastcc void @__dev_sort_resources(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__assign_resources_sorted(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 align 16 {
+define internal fastcc void @__assign_resources_sorted(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 align 16 {
   %4 = alloca %struct.list_head, align 8
   %5 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
@@ -4331,7 +4331,7 @@ declare dso_local void @pci_read_bridge_bases(ptr noundef) local_unnamed_addr #4
 declare dso_local void @release_child_resources(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @pci_bus_distribute_available_resources(ptr noundef readonly captures(address) %0, ptr noundef captures(address) %1, i64 %.0.val, i64 %.8.val, i64 %.0.val1, i64 %.8.val3, ptr noundef byval(%struct.resource) align 8 captures(none) %2) unnamed_addr #5 align 16 {
+define internal fastcc void @pci_bus_distribute_available_resources(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, i64 %.0.val, i64 %.8.val, i64 %.0.val1, i64 %.8.val3, ptr noundef byval(%struct.resource) align 8 captures(none) %2) unnamed_addr #5 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 1368

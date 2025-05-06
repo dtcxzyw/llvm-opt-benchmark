@@ -1412,7 +1412,7 @@ clear_current_module.exit:                        ; preds = %32, %33, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @module_free(ptr noundef captures(address) %0) #0 {
+define internal void @module_free(ptr noundef readonly captures(address) %0) #0 {
   %2 = tail call i32 @module_clear(ptr noundef %0)
   ret void
 }
@@ -15346,7 +15346,7 @@ datetime_best_possible.exit.thread19.i:           ; preds = %33
 datetime_best_possible.exit.i:                    ; preds = %33
   %37 = load i64, ptr %7, align 8, !tbaa !73
   %38 = load i32, ptr %8, align 4, !tbaa !16
-  %39 = call fastcc ptr @datetime_from_timet_and_us(ptr noundef %0, ptr noundef nonnull %30, i64 noundef %37, i32 noundef %38, ptr noundef %.033)
+  %39 = call fastcc ptr @datetime_from_timet_and_us(ptr noundef %0, ptr noundef nonnull readonly %30, i64 noundef %37, i32 noundef %38, ptr noundef %.033)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
@@ -15524,7 +15524,7 @@ datetime_from_timestamp.exit:                     ; preds = %20
   %27 = load i64, ptr %5, align 8, !tbaa !73
   %28 = load i64, ptr %6, align 8, !tbaa !73
   %29 = trunc i64 %28 to i32
-  %30 = call fastcc ptr @datetime_from_timet_and_us(ptr noundef %0, ptr noundef nonnull %26, i64 noundef %27, i32 noundef %29, ptr noundef %21)
+  %30 = call fastcc ptr @datetime_from_timet_and_us(ptr noundef %0, ptr noundef nonnull readonly %26, i64 noundef %27, i32 noundef %29, ptr noundef %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   %31 = icmp ne ptr %30, null
@@ -19061,7 +19061,7 @@ define internal ptr @timezone_new(ptr readnone captures(none) %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @timezone_tzname(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1) #0 {
+define internal ptr @timezone_tzname(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) #0 {
   %3 = icmp eq ptr %1, @_Py_NoneStruct
   br i1 %3, label %11, label %4
 

@@ -1845,7 +1845,7 @@ declare ptr @BIO_new_fp(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @PKCS12_parse(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PKCS12_parse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.cbs_st, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
   %.not = icmp eq ptr %4, null
@@ -1920,7 +1920,7 @@ declare ptr @sk_shift(ptr noundef) local_unnamed_addr #2
 declare void @sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @PKCS12_verify_mac(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PKCS12_verify_mac(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null

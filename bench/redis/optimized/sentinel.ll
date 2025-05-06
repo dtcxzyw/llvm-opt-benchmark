@@ -2640,7 +2640,7 @@ instanceLinkCloseConnection.exit17:               ; preds = %instanceLinkCloseCo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sentinelUpdateSentinelAddressInAllMasters(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define dso_local i32 @sentinelUpdateSentinelAddressInAllMasters(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8, !tbaa !34
   %3 = and i32 %2, 4
   %.not = icmp eq i32 %3, 0

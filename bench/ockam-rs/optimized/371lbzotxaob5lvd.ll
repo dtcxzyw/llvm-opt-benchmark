@@ -68412,7 +68412,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 .thread61.thread.i:                               ; preds = %50
   %53 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd021f2faec3581a6E"(ptr nonnull %.val.i.i, ptr nonnull %.val1.i.i) #40, !noalias !9684
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd021f2faec3581a6E"(ptr nonnull %.val.i.i, ptr nonnull readonly %.val1.i.i) #40, !noalias !9684
   store i64 1, ptr %43, align 8
   store ptr %40, ptr %47, align 8
   store ptr %39, ptr %48, align 8
@@ -68638,7 +68638,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 .thread61.thread.i:                               ; preds = %50
   %53 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd021f2faec3581a6E"(ptr nonnull %.val.i.i, ptr nonnull %.val1.i.i) #40, !noalias !9712
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd021f2faec3581a6E"(ptr nonnull %.val.i.i, ptr nonnull readonly %.val1.i.i) #40, !noalias !9712
   store i64 1, ptr %43, align 8
   store ptr %40, ptr %47, align 8
   store ptr %39, ptr %48, align 8
@@ -68864,7 +68864,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 .thread61.thread.i:                               ; preds = %50
   %53 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd021f2faec3581a6E"(ptr nonnull %.val.i.i, ptr nonnull %.val1.i.i) #40, !noalias !9739
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd021f2faec3581a6E"(ptr nonnull %.val.i.i, ptr nonnull readonly %.val1.i.i) #40, !noalias !9739
   store i64 1, ptr %43, align 8
   store ptr %40, ptr %47, align 8
   store ptr %39, ptr %48, align 8
@@ -70942,7 +70942,7 @@ common.ret:                                       ; preds = %5, %"_ZN4core3ptr86
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr134drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$ockam_identity..secure_channel..handshake..handshake_state_machine..StateMachine$GT$$GT$17hb095597385d45853E"(ptr %.0.val, ptr captures(address_is_null) %.8.val) unnamed_addr #6 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr134drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$ockam_identity..secure_channel..handshake..handshake_state_machine..StateMachine$GT$$GT$17hb095597385d45853E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #6 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !4, !nonnull !4

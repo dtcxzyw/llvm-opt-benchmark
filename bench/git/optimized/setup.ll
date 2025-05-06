@@ -3979,7 +3979,7 @@ setup_original_cwd.exit:                          ; preds = %234, %241, %267, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @setup_explicit_git_dir(ptr noundef %0, ptr noundef nonnull %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc ptr @setup_explicit_git_dir(ptr noundef %0, ptr noundef nonnull %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = alloca %struct.strbuf, align 8
   %5 = alloca %struct.strbuf, align 8
   %6 = alloca %struct.strbuf, align 8
@@ -4612,7 +4612,7 @@ define dso_local ptr @setup_git_directory() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @resolve_gitdir_gently(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @resolve_gitdir_gently(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @is_git_directory(ptr noundef %0)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %6

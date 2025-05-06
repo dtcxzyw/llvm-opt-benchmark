@@ -90984,7 +90984,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17hd6e9dc201da1607eE(p
   %18 = getelementptr inbounds i8, ptr %.sroa.7.2, i64 -8
   %.val12.i = load ptr, ptr %18, align 8, !noalias !27074, !nonnull !5, !align !4, !noundef !5
   %.val13.i = load ptr, ptr %17, align 8, !noalias !27074
-  %19 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hc2b04d050eacd8f6E"(ptr nonnull %.val, ptr %.val12.i, ptr %.val13.i)
+  %19 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hc2b04d050eacd8f6E"(ptr nonnull readonly %.val, ptr %.val12.i, ptr %.val13.i)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.preheader
@@ -91008,7 +91008,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17hd6e9dc201da1607eE(p
   %.sroa.0.02.i = phi ptr [ %35, %.noexc24 ], [ %13, %12 ]
   %.sroa.0.0.val.i = load ptr, ptr %.sroa.0.02.i, align 8, !noalias !27077, !nonnull !5, !align !4, !noundef !5
   %.val6.i = load ptr, ptr %.sroa.0.2, align 8, !noalias !27077
-  %29 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hc2b04d050eacd8f6E"(ptr nonnull %.val, ptr %.sroa.0.0.val.i, ptr %.val6.i)
+  %29 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hc2b04d050eacd8f6E"(ptr nonnull readonly %.val, ptr %.sroa.0.0.val.i, ptr %.val6.i)
           to label %.noexc24 unwind label %.loopexit.split-lp
 
 .noexc24:                                         ; preds = %.lr.ph.i

@@ -14777,7 +14777,7 @@ select.unfold:                                    ; preds = %32, %_Z26lodepng_co
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z14lodepng_encodePPhPmPKhjjP12LodePNGState(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, ptr noundef initializes((632, 636)) %5) local_unnamed_addr #5 {
+define noundef i32 @_Z14lodepng_encodePPhPmPKhjjP12LodePNGState(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, ptr noundef initializes((632, 636)) %5) local_unnamed_addr #5 {
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   %9 = alloca %struct.ucvector, align 8
@@ -16206,7 +16206,7 @@ _Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit: ; preds = %116, %.lr.ph
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 89) i32 @_ZL19preProcessScanlinesPPhPmPKhjjPK11LodePNGInfoPK22LodePNGEncoderSettings(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #5 {
+define internal fastcc noundef range(i32 0, 89) i32 @_ZL19preProcessScanlinesPPhPmPKhjjPK11LodePNGInfoPK22LodePNGEncoderSettings(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #5 {
   %8 = alloca [7 x i32], align 16
   %9 = alloca [7 x i32], align 16
   %10 = alloca [8 x i64], align 16
@@ -19591,7 +19591,7 @@ _ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit: ; preds = %1, %10, %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z21lodepng_encode_memoryPPhPmPKhjj16LodePNGColorTypej(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #5 {
+define noundef i32 @_Z21lodepng_encode_memoryPPhPmPKhjj16LodePNGColorTypej(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #5 {
   %8 = alloca %struct.LodePNGState, align 8
   call void @llvm.lifetime.start.p0(i64 640, ptr nonnull %8) #31
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 52
@@ -19689,19 +19689,19 @@ _Z21lodepng_state_cleanupP12LodePNGState.exit:    ; preds = %7, %50
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z16lodepng_encode32PPhPmPKhjj(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #5 {
+define noundef i32 @_Z16lodepng_encode32PPhPmPKhjj(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = tail call noundef i32 @_Z21lodepng_encode_memoryPPhPmPKhjj16LodePNGColorTypej(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 6, i32 noundef 8)
   ret i32 %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z16lodepng_encode24PPhPmPKhjj(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #5 {
+define noundef i32 @_Z16lodepng_encode24PPhPmPKhjj(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = tail call noundef i32 @_Z21lodepng_encode_memoryPPhPmPKhjj16LodePNGColorTypej(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 2, i32 noundef 8)
   ret i32 %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z19lodepng_encode_filePKcPKhjj16LodePNGColorTypej(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 {
+define noundef i32 @_Z19lodepng_encode_filePKcPKhjj16LodePNGColorTypej(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 {
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #31
@@ -19731,12 +19731,12 @@ _Z17lodepng_save_filePKhmPKc.exit:                ; preds = %13, %10, %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z21lodepng_encode32_filePKcPKhjj(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define noundef i32 @_Z21lodepng_encode32_filePKcPKhjj(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #31
-  %7 = call noundef i32 @_Z21lodepng_encode_memoryPPhPmPKhjj16LodePNGColorTypej(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 6, i32 noundef 8)
+  %7 = call noundef i32 @_Z21lodepng_encode_memoryPPhPmPKhjj16LodePNGColorTypej(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef 6, i32 noundef 8)
   %.not.i = icmp eq i32 %7, 0
   %.pre.i = load ptr, ptr %5, align 8, !tbaa !7
   br i1 %.not.i, label %8, label %_Z19lodepng_encode_filePKcPKhjj16LodePNGColorTypej.exit
@@ -19761,12 +19761,12 @@ _Z19lodepng_encode_filePKcPKhjj16LodePNGColorTypej.exit: ; preds = %4, %8, %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z21lodepng_encode24_filePKcPKhjj(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define noundef i32 @_Z21lodepng_encode24_filePKcPKhjj(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #31
-  %7 = call noundef i32 @_Z21lodepng_encode_memoryPPhPmPKhjj16LodePNGColorTypej(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 8)
+  %7 = call noundef i32 @_Z21lodepng_encode_memoryPPhPmPKhjj16LodePNGColorTypej(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 8)
   %.not.i = icmp eq i32 %7, 0
   %.pre.i = load ptr, ptr %5, align 8, !tbaa !7
   br i1 %.not.i, label %8, label %_Z19lodepng_encode_filePKcPKhjj16LodePNGColorTypej.exit
@@ -20577,7 +20577,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit14:                  ; preds = %_ZN7lodepng6decodeE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7lodepng6encodeERSt6vectorIhSaIhEEPKhjj16LodePNGColorTypej(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 {
+define noundef i32 @_ZN7lodepng6encodeERSt6vectorIhSaIhEEPKhjj16LodePNGColorTypej(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 {
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #31
@@ -20648,7 +20648,7 @@ _ZL24lodepng_get_raw_size_lctjj16LodePNGColorTypej.exit: ; preds = %6, %switch.l
   %spec.select = select i1 %31, ptr null, ptr %25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #31
-  %32 = call noundef i32 @_Z21lodepng_encode_memoryPPhPmPKhjj16LodePNGColorTypej(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %spec.select, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
+  %32 = call noundef i32 @_Z21lodepng_encode_memoryPPhPmPKhjj16LodePNGColorTypej(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef readonly %spec.select, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   %33 = load ptr, ptr %7, align 8, !tbaa !7
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %_ZN7lodepng6encodeERSt6vectorIhSaIhEEPKhjj16LodePNGColorTypej.exit, label %34
@@ -20678,7 +20678,7 @@ _ZN7lodepng6encodeERSt6vectorIhSaIhEEPKhjj16LodePNGColorTypej.exit: ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7lodepng6encodeERSt6vectorIhSaIhEEPKhjjRNS_5StateE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(640) initializes((632, 636)) %4) local_unnamed_addr #5 {
+define noundef i32 @_ZN7lodepng6encodeERSt6vectorIhSaIhEEPKhjjRNS_5StateE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(640) initializes((632, 636)) %4) local_unnamed_addr #5 {
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #31
@@ -20753,7 +20753,7 @@ _Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit: ; preds = %5, %switch.looku
   %spec.select = select i1 %34, ptr null, ptr %28
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #31
-  %35 = call noundef i32 @_Z14lodepng_encodePPhPmPKhjjP12LodePNGState(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %spec.select, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(640) %4)
+  %35 = call noundef i32 @_Z14lodepng_encodePPhPmPKhjjP12LodePNGState(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef readonly %spec.select, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(640) %4)
   %36 = load ptr, ptr %6, align 8, !tbaa !7
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %_ZN7lodepng6encodeERSt6vectorIhSaIhEEPKhjjRNS_5StateE.exit, label %37
@@ -20783,7 +20783,7 @@ _ZN7lodepng6encodeERSt6vectorIhSaIhEEPKhjjRNS_5StateE.exit: ; preds = %33, %37
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7lodepng6encodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhjj16LodePNGColorTypej(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN7lodepng6encodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhjj16LodePNGColorTypej(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   %9 = alloca %"class.std::vector", align 8
@@ -20791,7 +20791,7 @@ define noundef i32 @_ZN7lodepng6encodeERKNSt7__cxx1112basic_stringIcSt11char_tra
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #31
-  %10 = invoke noundef i32 @_Z21lodepng_encode_memoryPPhPmPKhjj16LodePNGColorTypej(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
+  %10 = invoke noundef i32 @_Z21lodepng_encode_memoryPPhPmPKhjj16LodePNGColorTypej(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
           to label %.noexc unwind label %29
 
 .noexc:                                           ; preds = %6
@@ -24048,7 +24048,7 @@ _ZL22setBitOfReversedStreamPmPhh.exit.us:         ; preds = %68, %63
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 89) i32 @_ZL6filterPhPKhjjPK16LodePNGColorModePK22LodePNGEncoderSettings(ptr noundef writeonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 %.0.val, i32 %.4.val, ptr noundef readonly captures(none) %4) unnamed_addr #5 {
+define internal fastcc noundef range(i32 0, 89) i32 @_ZL6filterPhPKhjjPK16LodePNGColorModePK22LodePNGEncoderSettings(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 %.0.val, i32 %.4.val, ptr noundef readonly captures(none) %4) unnamed_addr #5 {
   %6 = alloca [5 x ptr], align 16
   %7 = alloca [5 x ptr], align 16
   %8 = alloca [256 x i32], align 16

@@ -6303,7 +6303,7 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 declare ptr @PySet_New(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @analyze_block(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @analyze_block(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8

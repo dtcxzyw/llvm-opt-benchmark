@@ -312,7 +312,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_addrconf_add
 @llvm.compiler.used = appending global [8 x ptr] [ptr @__UNIQUE_ID___addressable_addrconf_add_linklocal1084, ptr @__UNIQUE_ID___addressable_addrconf_prefix_rcv_add_addr1067, ptr @__UNIQUE_ID___addressable_ipv6_chk_addr1038, ptr @__UNIQUE_ID___addressable_ipv6_chk_addr_and_flags1043, ptr @__UNIQUE_ID___addressable_ipv6_chk_custom_prefix1046, ptr @__UNIQUE_ID___addressable_ipv6_chk_prefix1049, ptr @__UNIQUE_ID___addressable_ipv6_dev_find1050, ptr @__UNIQUE_ID___addressable_ipv6_dev_get_saddr1035], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @inet6_netconf_notify_devconf(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 align 16 {
+define dso_local void @inet6_netconf_notify_devconf(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 align 16 {
   %6 = icmp eq i32 %2, -1
   %7 = icmp eq i32 %2, 2
   %8 = or i1 %6, %7
@@ -892,7 +892,7 @@ declare dso_local void @_raw_read_lock_bh(ptr noundef) local_unnamed_addr #2 sec
 declare dso_local void @_raw_read_unlock_bh(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 2) i32 @ipv6_chk_addr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address) %2, i32 noundef %3) #0 align 16 {
+define dso_local range(i32 0, 2) i32 @ipv6_chk_addr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address) %2, i32 noundef %3) #0 align 16 {
   %5 = icmp eq ptr %2, null
   %6 = tail call fastcc ptr @__ipv6_chk_addr_and_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %5, i32 noundef %3, i32 noundef 64)
   %7 = icmp ne ptr %6, null
@@ -901,7 +901,7 @@ define dso_local range(i32 0, 2) i32 @ipv6_chk_addr(ptr noundef readonly capture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 2) i32 @ipv6_chk_addr_and_flags(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address) %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5) #0 align 16 {
+define dso_local range(i32 0, 2) i32 @ipv6_chk_addr_and_flags(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address) %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5) #0 align 16 {
   %7 = tail call fastcc ptr @__ipv6_chk_addr_and_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5)
   %8 = icmp ne ptr %7, null
   %9 = zext i1 %8 to i32
@@ -1227,7 +1227,7 @@ define dso_local noundef range(i32 0, 2) i32 @ipv6_chk_prefix(ptr noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @ipv6_dev_find(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address) %2) #0 align 16 {
+define dso_local ptr @ipv6_dev_find(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address) %2) #0 align 16 {
   %4 = icmp eq ptr %2, null
   %5 = tail call fastcc ptr @__ipv6_chk_addr_and_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %4, i32 noundef 1, i32 noundef 64)
   ret ptr %5
@@ -2174,7 +2174,7 @@ define dso_local void @addrconf_leave_solict(ptr noundef %0, ptr noundef readonl
 declare dso_local i32 @__ipv6_dev_mc_dec(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -1, 1) i32 @addrconf_prefix_rcv_add_addr(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i1 zeroext %7, i1 noundef zeroext %8, i32 noundef %9, i32 noundef %10) #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @addrconf_prefix_rcv_add_addr(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i1 zeroext %7, i1 noundef zeroext %8, i32 noundef %9, i32 noundef %10) #0 align 16 {
   %12 = alloca %struct.ifa6_config, align 8
   %13 = zext i1 %8 to i8
   %14 = tail call ptr @ipv6_get_ifaddr(ptr noundef %0, ptr noundef %4, ptr noundef %1, i32 noundef 1)

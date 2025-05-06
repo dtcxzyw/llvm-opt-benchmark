@@ -2122,7 +2122,7 @@ declare zeroext i1 @contain_mutable_functions(ptr noundef) local_unnamed_addr #3
 declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @relation_has_unique_index_for(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @relation_has_unique_index_for(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = tail call zeroext i1 @relation_has_unique_index_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null)
   ret i1 %6
 }

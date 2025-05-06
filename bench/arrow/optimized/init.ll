@@ -579,7 +579,7 @@ declare void @_mi_os_free(ptr noundef, i64 noundef, ptr noundef) local_unnamed_a
 declare i32 @pthread_key_create(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @mi_pthread_done(ptr noundef captures(address) %0) #0 {
+define internal void @mi_pthread_done(ptr noundef readonly captures(address) %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 

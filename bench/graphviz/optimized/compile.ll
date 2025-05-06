@@ -1601,7 +1601,7 @@ define internal ptr @keyval(ptr readonly captures(ret: address, provenance) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getval(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef readonly captures(none) %6) #0 {
+define internal ptr @getval(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef readonly captures(none) %6) #0 {
   %8 = alloca %struct.agxbuf, align 8
   %9 = alloca %struct.agxbuf, align 8
   %10 = alloca %union.EX_STYPE, align 8
@@ -4501,7 +4501,7 @@ agxbfree.exit:                                    ; preds = %deparse.exit, %68
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @setval(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(none) %4, ptr %5) #0 {
+define internal i32 @setval(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef captures(none) %4, ptr %5) #0 {
   %7 = alloca %struct.agxbuf, align 8
   %8 = alloca %struct.agxbuf, align 8
   %.not = icmp eq ptr %3, null

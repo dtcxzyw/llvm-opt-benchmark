@@ -203,7 +203,7 @@ declare dso_local i32 @ieee80211_start_tx_ba_session(ptr noundef, i16 noundef ze
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_txq_remove_vlan(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #0 align 16 {
+define dso_local void @ieee80211_txq_remove_vlan(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4056
   %5 = load i32, ptr %4, align 8
@@ -8461,7 +8461,7 @@ define dso_local void @ieee80211_txq_schedule_start(ptr noundef %0, i8 noundef z
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__ieee80211_subif_start_xmit(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 align 16 {
+define dso_local void @__ieee80211_subif_start_xmit(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 align 16 {
   %6 = alloca %struct.ethhdr, align 1
   %7 = alloca ptr, align 8
   %8 = getelementptr i8, ptr %1, i64 2304
@@ -8941,7 +8941,7 @@ define internal fastcc ptr @ieee80211_tx_skb_fixup(ptr noundef %0, i64 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @ieee80211_build_hdr(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 align 16 {
+define internal fastcc ptr @ieee80211_build_hdr(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 align 16 {
   %7 = alloca i32, align 4
   %8 = alloca %struct.ieee80211_hdr, align 2
   store i32 %2, ptr %7, align 4
@@ -10800,13 +10800,13 @@ define dso_local zeroext i1 @ieee80211_beacon_cntdwn_is_complete(ptr noundef %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @ieee80211_beacon_get_template(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) #0 align 16 {
+define dso_local ptr @ieee80211_beacon_get_template(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) #0 align 16 {
   %5 = tail call fastcc ptr @__ieee80211_beacon_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i32 noundef %3, i32 noundef -1, ptr noundef null)
   ret ptr %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__ieee80211_beacon_get(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef range(i32 -1, 256) %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #0 align 16 {
+define internal fastcc ptr @__ieee80211_beacon_get(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef range(i32 -1, 256) %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #0 align 16 {
   %8 = alloca %struct.ieee80211_tx_rate_control, align 8
   tail call void @__rcu_read_lock() #20
   %9 = getelementptr i8, ptr %1, i64 -152
@@ -11257,7 +11257,7 @@ ieee80211_beacon_get_finish.exit:                 ; preds = %233, %238
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @ieee80211_beacon_get_template_ema_index(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, i8 noundef zeroext %4) #0 align 16 {
+define dso_local ptr @ieee80211_beacon_get_template_ema_index(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3, i8 noundef zeroext %4) #0 align 16 {
   %6 = zext i8 %4 to i32
   %7 = tail call fastcc ptr @__ieee80211_beacon_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i32 noundef %3, i32 noundef %6, ptr noundef null)
   ret ptr %7
@@ -12285,7 +12285,7 @@ define dso_local void @ieee80211_tx_skb_tid(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -67, 1) i32 @ieee80211_tx_control_port(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i16 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %7, ptr noundef captures(address_is_null) %8) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -67, 1) i32 @ieee80211_tx_control_port(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i16 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %7, ptr noundef writeonly captures(address_is_null) %8) local_unnamed_addr #0 align 16 {
   %10 = alloca ptr, align 8
   %11 = getelementptr i8, ptr %1, i64 2304
   %12 = getelementptr i8, ptr %1, i64 3560

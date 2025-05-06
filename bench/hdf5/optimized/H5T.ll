@@ -10509,7 +10509,7 @@ define internal fastcc i32 @H5T__register(i32 noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5T_unregister(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address) %2, ptr noundef captures(address) %3, ptr noundef captures(address) %4, ptr noundef readnone captures(address) %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5T_unregister(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(address) %3, ptr noundef readnone captures(address) %4, ptr noundef readnone captures(address) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.H5T_conv_ctx_t, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #16
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -10890,7 +10890,7 @@ define range(i32 -1, 1) i32 @H5T_unregister(i32 noundef %0, ptr noundef readonly
 191:                                              ; preds = %190
   %192 = getelementptr inbounds nuw i8, ptr %169, i64 32
   %193 = load ptr, ptr %192, align 8, !tbaa !72
-  %194 = call i32 @H5T_cmp(ptr noundef nonnull %2, ptr noundef %193, i1 noundef zeroext false)
+  %194 = call i32 @H5T_cmp(ptr noundef nonnull readonly %2, ptr noundef %193, i1 noundef zeroext false)
   %.not30.i = icmp eq i32 %194, 0
   br i1 %.not30.i, label %195, label %H5T_path_match.exit
 
@@ -10900,7 +10900,7 @@ define range(i32 -1, 1) i32 @H5T_unregister(i32 noundef %0, ptr noundef readonly
 196:                                              ; preds = %195
   %197 = getelementptr inbounds nuw i8, ptr %169, i64 40
   %198 = load ptr, ptr %197, align 8, !tbaa !73
-  %199 = call i32 @H5T_cmp(ptr noundef nonnull %3, ptr noundef %198, i1 noundef zeroext false)
+  %199 = call i32 @H5T_cmp(ptr noundef nonnull readonly %3, ptr noundef %198, i1 noundef zeroext false)
   %.not32.i = icmp eq i32 %199, 0
   br i1 %.not32.i, label %200, label %H5T_path_match.exit
 
@@ -10910,13 +10910,13 @@ define range(i32 -1, 1) i32 @H5T_unregister(i32 noundef %0, ptr noundef readonly
 201:                                              ; preds = %200
   %202 = getelementptr inbounds nuw i8, ptr %169, i64 32
   %203 = load ptr, ptr %202, align 8, !tbaa !72
-  %204 = call fastcc zeroext i1 @H5T_path_match_find_type_with_volobj(ptr noundef %203, ptr noundef %4)
+  %204 = call fastcc zeroext i1 @H5T_path_match_find_type_with_volobj(ptr noundef %203, ptr noundef readnone %4)
   br i1 %204, label %209, label %205
 
 205:                                              ; preds = %201
   %206 = getelementptr inbounds nuw i8, ptr %169, i64 40
   %207 = load ptr, ptr %206, align 8, !tbaa !73
-  %208 = call fastcc zeroext i1 @H5T_path_match_find_type_with_volobj(ptr noundef %207, ptr noundef %4)
+  %208 = call fastcc zeroext i1 @H5T_path_match_find_type_with_volobj(ptr noundef %207, ptr noundef readnone %4)
   br i1 %208, label %209, label %H5T_path_match.exit
 
 209:                                              ; preds = %205, %201, %200
@@ -10972,7 +10972,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Tunregister(i32 noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, i64 noundef %3, ptr noundef captures(address) %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Tunregister(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i64 noundef %3, ptr noundef readnone captures(address) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.H5CX_node_t, align 8
   call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %6) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %6, i8 0, i64 480, i1 false)
@@ -14598,7 +14598,7 @@ define zeroext i1 @H5T_path_noop(ptr noundef readonly captures(none) %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @H5T_noop_conv(ptr noundef captures(address) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
+define zeroext i1 @H5T_noop_conv(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @H5T_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -14657,7 +14657,7 @@ define zeroext i1 @H5T_noop_conv(ptr noundef captures(address) %0, ptr noundef c
   %33 = load ptr, ptr %32, align 8, !tbaa !65
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8, !tbaa !72
-  %36 = tail call i32 @H5T_cmp(ptr noundef %0, ptr noundef %35, i1 noundef zeroext false)
+  %36 = tail call i32 @H5T_cmp(ptr noundef readonly %0, ptr noundef %35, i1 noundef zeroext false)
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %45
 
@@ -14667,7 +14667,7 @@ define zeroext i1 @H5T_noop_conv(ptr noundef captures(address) %0, ptr noundef c
   %41 = load ptr, ptr %40, align 8, !tbaa !65
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %43 = load ptr, ptr %42, align 8, !tbaa !73
-  %44 = tail call i32 @H5T_cmp(ptr noundef %1, ptr noundef %43, i1 noundef zeroext false)
+  %44 = tail call i32 @H5T_cmp(ptr noundef readonly %1, ptr noundef %43, i1 noundef zeroext false)
   br label %45
 
 45:                                               ; preds = %38, %.lr.ph.i
@@ -16104,7 +16104,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #14
 declare i32 @H5T__print_path_stats(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @H5T_path_match_find_type_with_volobj(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(address) %1) unnamed_addr #10 {
+define internal fastcc zeroext i1 @H5T_path_match_find_type_with_volobj(ptr noundef readonly captures(none) %0, ptr noundef nonnull readnone captures(address) %1) unnamed_addr #10 {
   %3 = load i8, ptr @H5T_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1, !range !7

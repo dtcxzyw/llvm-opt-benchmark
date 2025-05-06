@@ -1800,7 +1800,7 @@ declare double @llvm.fabs.f64(double) #15
 declare double @sqrt(double noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address) %3) #7 {
+define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address) %3) #7 {
   %5 = load ptr, ptr %2, align 8, !tbaa !67
   switch i32 %0, label %56 [
     i32 1, label %6
@@ -2073,7 +2073,7 @@ N_VScale_Serial.exit:                             ; preds = %.lr.ph.i, %.lr.ph.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VScaleAddMulti_Serial(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(address) %3, ptr noundef readonly captures(address) %4) #7 {
+define noundef i32 @N_VScaleAddMulti_Serial(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(address) %3, ptr noundef readonly captures(address) %4) #7 {
   %6 = icmp eq i32 %0, 1
   br i1 %6, label %7, label %11
 
@@ -3309,7 +3309,7 @@ N_VWrmsNormMask_Serial.exit:                      ; preds = %N_VWSqrSumMaskLocal
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @N_VScaleAddMultiVectorArray_Serial(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address) %3, ptr noundef readonly captures(address) %4, ptr noundef readonly captures(address) %5) #0 {
+define noundef i32 @N_VScaleAddMultiVectorArray_Serial(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address) %3, ptr noundef readonly captures(address) %4, ptr noundef readonly captures(address) %5) #0 {
   %7 = load ptr, ptr %3, align 8, !tbaa !67
   %8 = icmp eq i32 %0, 1
   %9 = icmp eq i32 %1, 1
@@ -3584,7 +3584,7 @@ N_VScaleAddMulti_Serial.exit:                     ; preds = %._crit_edge.us.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(address) %4) #0 {
+define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address) %4) #0 {
   %6 = load ptr, ptr %3, align 8, !tbaa !71
   %7 = load ptr, ptr %6, align 8, !tbaa !67
   %8 = icmp eq i32 %0, 1

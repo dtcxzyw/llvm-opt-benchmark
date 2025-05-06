@@ -2003,7 +2003,7 @@ define dso_local noundef range(i32 -22, 1) i32 @nl80211_parse_random_mac(ptr nou
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__cfg80211_alloc_event_skb(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #0 align 16 {
+define dso_local ptr @__cfg80211_alloc_event_skb(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #0 align 16 {
   %9 = icmp eq ptr %0, null
   br i1 %9, label %10, label %11, !prof !13
 
@@ -49138,7 +49138,7 @@ define internal fastcc noundef zeroext i1 @nl80211_put_signal(ptr noundef %0, i8
 declare dso_local i32 @cfg80211_sched_scan_req_possible(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @nl80211_parse_sched_scan(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc ptr @nl80211_parse_sched_scan(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca [7 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %5, i8 0, i64 56, i1 false), !annotation !76

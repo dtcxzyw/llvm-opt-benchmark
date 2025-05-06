@@ -2120,7 +2120,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define ptr @Gia_ManFromBridge(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define ptr @Gia_ManFromBridge(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4

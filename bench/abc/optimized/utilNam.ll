@@ -1687,7 +1687,7 @@ Abc_NamStrHashFind.exit:                          ; preds = %Abc_NamStrcmp.exit.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Abc_NamStrFindLim(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #14 {
+define i32 @Abc_NamStrFindLim(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #14 {
   %4 = tail call fastcc ptr @Abc_NamStrHashFind(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %5 = load i32, ptr %4, align 4, !tbaa !22
   ret i32 %5

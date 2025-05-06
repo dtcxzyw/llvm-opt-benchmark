@@ -1498,7 +1498,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17hf82c616b1dc275f8E.exit: ; preds
   %.sroa.19.113.i = phi ptr [ %.sroa.19.0.i, %.lr.ph.i ], [ %50, %48 ]
   %.sroa.5.112.i = phi ptr [ %.sroa.5.0.i, %.lr.ph.i ], [ %54, %48 ]
   %.sroa.11.111.i = phi i64 [ %.sroa.11.0.i, %.lr.ph.i ], [ %53, %48 ]
-  %49 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull %.val29, ptr noalias noundef readonly align 8 dereferenceable(40) %.sroa.5.112.i, ptr noalias noundef readonly align 8 dereferenceable(40) %40), !noalias !395
+  %49 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9856101a6be44061E"(ptr nonnull readonly %.val29, ptr noalias noundef readonly align 8 dereferenceable(40) %.sroa.5.112.i, ptr noalias noundef readonly align 8 dereferenceable(40) %40), !noalias !395
   %50 = getelementptr inbounds i8, ptr %.sroa.19.113.i, i64 -40
   %.sroa.01.0.i.i = select i1 %49, ptr %2, ptr %50
   %51 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %.sroa.01.0.i.i, i64 %.sroa.11.111.i

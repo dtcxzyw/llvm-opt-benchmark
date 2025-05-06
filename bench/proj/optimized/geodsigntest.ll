@@ -2055,13 +2055,13 @@ define dso_local void @geod_setdistance(ptr noundef initializes((64, 72)) %0, do
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @geod_position(ptr noundef %0, double noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local void @geod_position(ptr noundef %0, double noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = tail call double @geod_genposition(ptr noundef %0, i32 noundef 0, double noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite, errnomem: readwrite) uwtable
-define dso_local double @geod_gendirect(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4, double noundef %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(address_is_null) %7, ptr noundef captures(address_is_null) %8, ptr noundef captures(address_is_null) %9, ptr noundef captures(address_is_null) %10, ptr noundef captures(address_is_null) %11, ptr noundef captures(address_is_null) %12, ptr noundef captures(address_is_null) %13) local_unnamed_addr #3 {
+define dso_local double @geod_gendirect(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4, double noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9, ptr noundef writeonly captures(address_is_null) %10, ptr noundef writeonly captures(address_is_null) %11, ptr noundef writeonly captures(address_is_null) %12, ptr noundef writeonly captures(address_is_null) %13) local_unnamed_addr #3 {
   %15 = alloca %struct.geod_geodesicline, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %15) #17
   %.not = icmp eq ptr %6, null
@@ -2097,7 +2097,7 @@ define dso_local double @geod_gendirect(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define dso_local void @geod_direct(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #5 {
+define dso_local void @geod_direct(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #5 {
   %9 = alloca %struct.geod_geodesicline, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %9) #17
   %.not.i = icmp eq ptr %5, null
@@ -2115,7 +2115,7 @@ define dso_local void @geod_direct(ptr noundef readonly captures(none) %0, doubl
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define dso_local double @geod_geninverse(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef captures(address_is_null) %8, ptr noundef captures(address_is_null) %9, ptr noundef captures(address_is_null) %10, ptr noundef captures(address_is_null) %11) local_unnamed_addr #5 {
+define dso_local double @geod_geninverse(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9, ptr noundef writeonly captures(address_is_null) %10, ptr noundef writeonly captures(address_is_null) %11) local_unnamed_addr #5 {
   %13 = alloca double, align 8
   %14 = alloca double, align 8
   %15 = alloca double, align 8
@@ -3776,7 +3776,7 @@ atan2dx.exit:                                     ; preds = %7, %21, %24, %26
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define dso_local void @geod_inverse(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #5 {
+define dso_local void @geod_inverse(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #5 {
   %9 = tail call double @geod_geninverse(ptr noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   ret void
 }
@@ -5241,7 +5241,7 @@ areareduceB.exit:                                 ; preds = %119, %121, %124, %1
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define dso_local void @geod_polygonarea(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #5 {
+define dso_local void @geod_polygonarea(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #5 {
   %7 = alloca %struct.geod_polygon, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #17
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64

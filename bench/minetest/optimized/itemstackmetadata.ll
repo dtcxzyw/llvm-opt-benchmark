@@ -1457,7 +1457,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__norma
 declare noundef zeroext i1 @_ZN14SimpleMetadata9setStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32), i64, ptr) unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZTv0_n48_N17ItemStackMetadata9setStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %name, i64 %var.coerce0, ptr captures(address_is_null) %var.coerce1) unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZTv0_n48_N17ItemStackMetadata9setStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %name, i64 %var.coerce0, ptr readonly captures(address_is_null) %var.coerce1) unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -48

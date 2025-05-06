@@ -468,7 +468,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_FrameSetLutLibrary(ptr noundef readnone captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_FrameSetLutLibrary(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @If_LibLutReadString(ptr noundef %1)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %8

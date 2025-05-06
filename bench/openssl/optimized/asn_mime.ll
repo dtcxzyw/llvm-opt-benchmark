@@ -1823,7 +1823,7 @@ define internal fastcc ptr @b64_read_asn1(ptr noundef %0, ptr noundef %1, ptr no
 declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @SMIME_read_ASN1(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @SMIME_read_ASN1(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @SMIME_read_ASN1_ex(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef null)
   ret ptr %4
 }

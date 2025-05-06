@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [50 x i8] c"Obj =%5d.  Lev =%3d.  Fanout =%5d.  Count = %3d.\0A\00", align 1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Llb_ManTracePaths_rec(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Llb_ManTracePaths_rec(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val = load i32, ptr %4, align 8, !tbaa !3
   %5 = getelementptr i8, ptr %1, i64 32
@@ -114,7 +114,7 @@ Saig_ObjIsPo.exit:                                ; preds = %Saig_ObjIsPo.exit.s
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Llb_ManTracePaths(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #1 {
+define i32 @Llb_ManTracePaths(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #1 {
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #7
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #7
   %3 = getelementptr i8, ptr %0, i64 104
@@ -207,7 +207,7 @@ define void @Llb_ManTestCuts(ptr noundef %0) local_unnamed_addr #1 {
   %26 = sext i32 %24 to i64
   %27 = getelementptr inbounds ptr, ptr %.val.i, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !30
-  %29 = tail call i32 @Llb_ManTracePaths_rec(ptr noundef nonnull %0, ptr noundef %28, ptr noundef nonnull %13)
+  %29 = tail call i32 @Llb_ManTracePaths_rec(ptr noundef nonnull %0, ptr noundef %28, ptr noundef nonnull readnone %13)
   %30 = add nuw nsw i32 %29, %.017.i
   %31 = add nuw nsw i32 %.01216.i, 1
   %.val13.i = load i32, ptr %6, align 8, !tbaa !31
@@ -480,7 +480,7 @@ Llb_ManLabelLiCones.exit:                         ; preds = %.critedge.i, %.crit
   %62 = sext i32 %60 to i64
   %63 = getelementptr inbounds ptr, ptr %.val.i31, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !30
-  %65 = tail call i32 @Llb_ManTracePaths_rec(ptr noundef nonnull %0, ptr noundef %64, ptr noundef nonnull %47)
+  %65 = tail call i32 @Llb_ManTracePaths_rec(ptr noundef nonnull %0, ptr noundef %64, ptr noundef nonnull readnone %47)
   %66 = add nuw nsw i32 %65, %.017.i
   %67 = add nuw nsw i32 %.01216.i, 1
   %.val13.i = load i32, ptr %11, align 8, !tbaa !31

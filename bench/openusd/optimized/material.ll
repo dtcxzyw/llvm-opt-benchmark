@@ -3037,7 +3037,7 @@ _ZSteqIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorINS0_21HdMaterialCon
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__neERKNS_15HdMaterialNode2ES2_(ptr noundef nonnull align 8 captures(address) dereferenceable(104) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__neERKNS_15HdMaterialNode2ES2_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(104) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %1) local_unnamed_addr #0 {
   %3 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_15HdMaterialNode2ES2_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1)
   %4 = xor i1 %3, true
   ret i1 %4

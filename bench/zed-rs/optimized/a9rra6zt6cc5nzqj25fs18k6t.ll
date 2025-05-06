@@ -1171,7 +1171,7 @@ define hidden void @"_ZN132_$LT$core..result..Result$LT$core..result..Result$LT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i8 1, 4) i8 @"_ZN15futures_channel4mpsc15Sender$LT$T$GT$10poll_ready17h6e9aae78be1dfeb2E.llvm.7219230611176236013"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(32) %1) unnamed_addr #1 {
+define hidden noundef range(i8 1, 4) i8 @"_ZN15futures_channel4mpsc15Sender$LT$T$GT$10poll_ready17h6e9aae78be1dfeb2E.llvm.7219230611176236013"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(32) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i8, ptr %3, align 8, !range !247, !noundef !16
   %5 = icmp eq i8 %4, 2
@@ -1186,7 +1186,7 @@ define hidden noundef range(i8 1, 4) i8 @"_ZN15futures_channel4mpsc15Sender$LT$T
   br i1 %.not.i, label %"_ZN15futures_channel4mpsc27BoundedSenderInner$LT$T$GT$10poll_ready17h961ce8885a263bc7E.llvm.7219230611176236013.exit", label %10
 
 10:                                               ; preds = %6
-  %11 = tail call noundef zeroext i1 @"_ZN15futures_channel4mpsc27BoundedSenderInner$LT$T$GT$13poll_unparked17h99cc350e9839dea9E.llvm.7219230611176236013"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) dereferenceable_or_null(32) %1)
+  %11 = tail call noundef zeroext i1 @"_ZN15futures_channel4mpsc27BoundedSenderInner$LT$T$GT$13poll_unparked17h99cc350e9839dea9E.llvm.7219230611176236013"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) dereferenceable_or_null(32) %1)
   %spec.select.i = select i1 %11, i8 3, i8 2
   br label %"_ZN15futures_channel4mpsc27BoundedSenderInner$LT$T$GT$10poll_ready17h961ce8885a263bc7E.llvm.7219230611176236013.exit"
 
@@ -1825,7 +1825,7 @@ define hidden void @"_ZN15futures_channel4mpsc21BoundedInner$LT$T$GT$10set_close
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i8 1, 4) i8 @"_ZN15futures_channel4mpsc27BoundedSenderInner$LT$T$GT$10poll_ready17h961ce8885a263bc7E.llvm.7219230611176236013"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(32) %1) unnamed_addr #1 {
+define hidden noundef range(i8 1, 4) i8 @"_ZN15futures_channel4mpsc27BoundedSenderInner$LT$T$GT$10poll_ready17h961ce8885a263bc7E.llvm.7219230611176236013"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(32) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !16, !noundef !16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load atomic i64, ptr %4 seq_cst, align 8
@@ -2373,7 +2373,7 @@ common.resume:                                    ; preds = %.body, %50, %"_ZN4c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i8 2, 4) i8 @"_ZN15futures_channel4mpsc9sink_impl96_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..Sender$LT$T$GT$$GT$10poll_flush17h8fe8e00eae8d5e21E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(32) %1) unnamed_addr #1 {
+define hidden noundef range(i8 2, 4) i8 @"_ZN15futures_channel4mpsc9sink_impl96_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..Sender$LT$T$GT$$GT$10poll_flush17h8fe8e00eae8d5e21E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(32) %1) unnamed_addr #1 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !426)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i8, ptr %3, align 8, !range !247, !alias.scope !426, !noalias !429, !noundef !16
@@ -2389,7 +2389,7 @@ define hidden noundef range(i8 2, 4) i8 @"_ZN15futures_channel4mpsc9sink_impl96_
   br i1 %.not.i.i, label %"_ZN15futures_channel4mpsc15Sender$LT$T$GT$10poll_ready17h6e9aae78be1dfeb2E.llvm.7219230611176236013.exit.thread", label %"_ZN15futures_channel4mpsc15Sender$LT$T$GT$10poll_ready17h6e9aae78be1dfeb2E.llvm.7219230611176236013.exit"
 
 "_ZN15futures_channel4mpsc15Sender$LT$T$GT$10poll_ready17h6e9aae78be1dfeb2E.llvm.7219230611176236013.exit": ; preds = %6
-  %10 = tail call noundef zeroext i1 @"_ZN15futures_channel4mpsc27BoundedSenderInner$LT$T$GT$13poll_unparked17h99cc350e9839dea9E.llvm.7219230611176236013"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) dereferenceable_or_null(32) %1)
+  %10 = tail call noundef zeroext i1 @"_ZN15futures_channel4mpsc27BoundedSenderInner$LT$T$GT$13poll_unparked17h99cc350e9839dea9E.llvm.7219230611176236013"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) dereferenceable_or_null(32) %1)
   %spec.select.i.i = select i1 %10, i8 3, i8 2
   br label %"_ZN15futures_channel4mpsc15Sender$LT$T$GT$10poll_ready17h6e9aae78be1dfeb2E.llvm.7219230611176236013.exit.thread"
 
@@ -6054,7 +6054,7 @@ define hidden { ptr, ptr } @"_ZN95_$LT$hashbrown..map..IterMut$LT$K$C$V$GT$$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i8 0, 4) i8 @"_ZN96_$LT$futures_util..sink..feed..Feed$LT$Si$C$Item$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h53975a4b21a7f440E"(ptr noalias noundef align 8 captures(none) dereferenceable(120) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 4) i8 @"_ZN96_$LT$futures_util..sink..feed..Feed$LT$Si$C$Item$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h53975a4b21a7f440E"(ptr noalias noundef align 8 captures(none) dereferenceable(120) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 8
   %4 = alloca [16 x i8], align 8
   %5 = alloca [16 x i8], align 8
@@ -6081,7 +6081,7 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN96_$LT$futures_util..sink..feed..Fe
   br i1 %.not.i.i.i, label %"_ZN15futures_channel4mpsc9sink_impl96_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..Sender$LT$T$GT$$GT$10poll_ready17h579cbf599ace82b4E.exit.thread24", label %19
 
 19:                                               ; preds = %15
-  %20 = tail call noundef zeroext i1 @"_ZN15futures_channel4mpsc27BoundedSenderInner$LT$T$GT$13poll_unparked17h99cc350e9839dea9E.llvm.7219230611176236013"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11, ptr noalias noundef nonnull align 8 dereferenceable(32) dereferenceable_or_null(32) %1)
+  %20 = tail call noundef zeroext i1 @"_ZN15futures_channel4mpsc27BoundedSenderInner$LT$T$GT$13poll_unparked17h99cc350e9839dea9E.llvm.7219230611176236013"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) dereferenceable_or_null(32) %1)
   br i1 %20, label %"_ZN15futures_channel4mpsc9sink_impl96_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..Sender$LT$T$GT$$GT$10poll_ready17h579cbf599ace82b4E.exit.thread24", label %"_ZN15futures_channel4mpsc9sink_impl96_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..Sender$LT$T$GT$$GT$10poll_ready17h579cbf599ace82b4E.exit"
 
 "_ZN15futures_channel4mpsc9sink_impl96_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..Sender$LT$T$GT$$GT$10poll_ready17h579cbf599ace82b4E.exit": ; preds = %19

@@ -1293,7 +1293,7 @@ declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferen
 declare void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2os12print_tos_pcEP12outputStreamPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN2os12print_tos_pcEP12outputStreamPKv(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 align 2 {
   %3 = alloca %class.frame, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %11, label %5

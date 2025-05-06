@@ -795,7 +795,7 @@ define dso_local i32 @acpi_device_update_power(ptr noundef %0, ptr noundef write
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_bus_update_power(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 16 {
+define dso_local i32 @acpi_bus_update_power(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) #1 align 16 {
   %3 = tail call ptr @acpi_fetch_acpi_dev(ptr noundef %0) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5

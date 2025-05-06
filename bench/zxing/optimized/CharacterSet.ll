@@ -58,7 +58,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.46 = private unnamed_addr constant [24 x i8] c"basic_string::_M_create\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN5ZXing22CharacterSetFromStringESt17basic_string_viewIcSt11char_traitsIcEE(i64 %0, ptr captures(address_is_null) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i8 @_ZN5ZXing22CharacterSetFromStringESt17basic_string_viewIcSt11char_traitsIcEE(i64 %0, ptr readonly captures(address_is_null) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -307,7 +307,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i.i.i
   %76 = getelementptr i8, ptr %.02998.i.i.i.i, i64 8
   %.029.val30.i.i.i.i = load ptr, ptr %76, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #12
-  invoke fastcc void @_ZN5ZXingL13NormalizeNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %9, i64 %.029.val.i.i.i.i, ptr %.029.val30.i.i.i.i)
+  invoke fastcc void @_ZN5ZXingL13NormalizeNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %9, i64 %.029.val.i.i.i.i, ptr readonly %.029.val30.i.i.i.i)
           to label %.noexc.i.i4.i unwind label %.loopexit.i.i.i
 
 .noexc.i.i4.i:                                    ; preds = %75
@@ -358,7 +358,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %93 = getelementptr i8, ptr %.02998.i.i.i.i, i64 32
   %.val31.i.i.i.i = load ptr, ptr %93, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #12
-  invoke fastcc void @_ZN5ZXingL13NormalizeNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %8, i64 %.val.i.i.i.i, ptr %.val31.i.i.i.i)
+  invoke fastcc void @_ZN5ZXingL13NormalizeNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %8, i64 %.val.i.i.i.i, ptr readonly %.val31.i.i.i.i)
           to label %.noexc2.i.i.i unwind label %.loopexit.i.i.i
 
 .noexc2.i.i.i:                                    ; preds = %91
@@ -409,7 +409,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %110 = getelementptr i8, ptr %.02998.i.i.i.i, i64 56
   %.val33.i.i.i.i = load ptr, ptr %110, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #12
-  invoke fastcc void @_ZN5ZXingL13NormalizeNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %7, i64 %.val32.i.i.i.i, ptr %.val33.i.i.i.i)
+  invoke fastcc void @_ZN5ZXingL13NormalizeNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %7, i64 %.val32.i.i.i.i, ptr readonly %.val33.i.i.i.i)
           to label %.noexc3.i.i.i unwind label %.loopexit.i.i.i
 
 .noexc3.i.i.i:                                    ; preds = %108
@@ -460,7 +460,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %127 = getelementptr i8, ptr %.02998.i.i.i.i, i64 80
   %.val35.i.i.i.i = load ptr, ptr %127, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #12
-  invoke fastcc void @_ZN5ZXingL13NormalizeNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %6, i64 %.val34.i.i.i.i, ptr %.val35.i.i.i.i)
+  invoke fastcc void @_ZN5ZXingL13NormalizeNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %6, i64 %.val34.i.i.i.i, ptr readonly %.val35.i.i.i.i)
           to label %.noexc4.i.i.i unwind label %.loopexit.i.i.i
 
 .noexc4.i.i.i:                                    ; preds = %125
@@ -526,7 +526,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %148 = getelementptr i8, ptr %.02998.i.i.i.i, i64 104
   %.029.val37.i.i.i.i = load ptr, ptr %148, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #12
-  invoke fastcc void @_ZN5ZXingL13NormalizeNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %5, i64 %.029.val36.i.i.i.i, ptr %.029.val37.i.i.i.i)
+  invoke fastcc void @_ZN5ZXingL13NormalizeNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %5, i64 %.029.val36.i.i.i.i, ptr readonly %.029.val37.i.i.i.i)
           to label %.noexc5.i.i.i unwind label %.loopexit.split-lp.i.i.i
 
 .noexc5.i.i.i:                                    ; preds = %147
@@ -583,7 +583,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %168 = getelementptr i8, ptr %.1.i.i.i.i, i64 8
   %.1.val38.i.i.i.i = load ptr, ptr %168, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #12
-  invoke fastcc void @_ZN5ZXingL13NormalizeNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %4, i64 %.1.val.i.i.i.i, ptr %.1.val38.i.i.i.i)
+  invoke fastcc void @_ZN5ZXingL13NormalizeNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %4, i64 %.1.val.i.i.i.i, ptr readonly %.1.val38.i.i.i.i)
           to label %.noexc6.i.i6.i unwind label %.loopexit.split-lp.i.i.i
 
 .noexc6.i.i6.i:                                   ; preds = %167
@@ -640,7 +640,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %188 = getelementptr i8, ptr %.2.i.i.i.i, i64 8
   %.2.val39.i.i.i.i = load ptr, ptr %188, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #12
-  invoke fastcc void @_ZN5ZXingL13NormalizeNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %3, i64 %.2.val.i.i.i.i, ptr %.2.val39.i.i.i.i)
+  invoke fastcc void @_ZN5ZXingL13NormalizeNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %3, i64 %.2.val.i.i.i.i, ptr readonly %.2.val39.i.i.i.i)
           to label %.noexc7.i.i.i unwind label %.loopexit.split-lp.i.i.i
 
 .noexc7.i.i.i:                                    ; preds = %187

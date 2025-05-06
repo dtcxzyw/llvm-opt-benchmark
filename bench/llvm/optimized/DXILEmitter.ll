@@ -9224,7 +9224,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit318:              ; preds = %4015, %4017
 
 .lr.ph.i.i.i.i319:                                ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit318, %.lr.ph.i.i.i.i319
   %.05.i.i.i.i = phi ptr [ %4020, %.lr.ph.i.i.i.i319 ], [ %.sroa.0373.0.lcssa530537, %_ZN4llvm11raw_ostreamlsEPKc.exit318 ]
-  call fastcc void @_ZN12_GLOBAL__N_117DXILOperationDescD2Ev(ptr noundef nonnull align 8 dereferenceable(656) %.05.i.i.i.i) #21
+  call fastcc void @_ZN12_GLOBAL__N_117DXILOperationDescD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(656) %.05.i.i.i.i) #21
   %4020 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 656
   %.not.i.i.i.i320 = icmp eq ptr %4020, %.sroa.14.0.lcssa529538
   br i1 %.not.i.i.i.i320, label %_ZSt8_DestroyIPN12_GLOBAL__N_117DXILOperationDescES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i319, !llvm.loop !126

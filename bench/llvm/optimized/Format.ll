@@ -9142,7 +9142,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6format15sortCppIncludesERKNS0_11FormatStyleEN4llvm9StringRefENS4_8ArrayRefINS_7tooling5RangeEEES5_RNS7_12ReplacementsEPj(ptr dead_on_unwind noalias writable sret(%"class.clang::tooling::Replacements") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1024) %1, ptr %2, i64 %3, ptr captures(address) %4, i64 %5, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %6, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef captures(address_is_null) %8) local_unnamed_addr #4 {
+define dso_local void @_ZN5clang6format15sortCppIncludesERKNS0_11FormatStyleEN4llvm9StringRefENS4_8ArrayRefINS_7tooling5RangeEEES5_RNS7_12ReplacementsEPj(ptr dead_on_unwind noalias writable sret(%"class.clang::tooling::Replacements") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1024) %1, ptr %2, i64 %3, ptr readonly captures(address) %4, i64 %5, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %6, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef captures(address_is_null) %8) local_unnamed_addr #4 {
   %10 = alloca %"struct.std::_Rb_tree<clang::tooling::Replacement, clang::tooling::Replacement, std::_Identity<clang::tooling::Replacement>, std::less<clang::tooling::Replacement>>::_Alloc_node", align 8
   %11 = alloca i64, align 8
   %12 = alloca %"class.llvm::StringRef", align 8

@@ -792,7 +792,7 @@ define void @bn_mul_low_normal(ptr noundef %0, ptr noundef %1, ptr noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_mul(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_mul(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @bn_mul_fixed_top(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   tail call void @bn_correct_top(ptr noundef %0) #4
   ret i32 %5

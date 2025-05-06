@@ -1219,7 +1219,7 @@ define hidden noundef i32 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb420aa9298fef1f9E"(ptr noundef nonnull %0, ptr noundef captures(address) %1, ptr noalias noundef align 8 dereferenceable(72) %2) unnamed_addr #0 {
+define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb420aa9298fef1f9E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, ptr noalias noundef align 8 dereferenceable(72) %2) unnamed_addr #0 {
   tail call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1a78a154b0e10491E.llvm.8972240245584090867"(ptr noundef nonnull %0, ptr noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
   ret void
 }
@@ -1320,7 +1320,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hfffe55efc70131a5E"(ptr noundef nonnull %0, ptr noundef captures(address) %1, ptr noalias noundef align 8 dereferenceable(72) %2) unnamed_addr #0 {
+define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hfffe55efc70131a5E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, ptr noalias noundef align 8 dereferenceable(72) %2) unnamed_addr #0 {
   tail call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h00834f9c8c74eae7E.llvm.8972240245584090867"(ptr noundef nonnull %0, ptr noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
   ret void
 }

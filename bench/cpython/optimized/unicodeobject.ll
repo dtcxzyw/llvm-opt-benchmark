@@ -3885,7 +3885,7 @@ define dso_local ptr @PyUnicode_FromStringAndSize(ptr noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyUnicode_DecodeUTF8Stateful(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local ptr @PyUnicode_DecodeUTF8Stateful(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   %5 = zext i1 %.not to i32
   %6 = tail call fastcc ptr @unicode_decode_utf8(ptr noundef %0, i64 noundef %1, i32 noundef %5, ptr noundef %2, ptr noundef %3)
@@ -5491,7 +5491,7 @@ _PyUnicode_DATA.exit24:                           ; preds = %21, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyUnicode_AsUCS4(ptr noundef captures(address) %0, ptr noundef captures(address_is_null, ret: address, provenance) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @PyUnicode_AsUCS4(ptr noundef readonly captures(address) %0, ptr noundef captures(address_is_null, ret: address, provenance) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   %6 = icmp slt i64 %2, 0
   %or.cond = or i1 %5, %6
@@ -5700,7 +5700,7 @@ _PyUnicode_DATA.exit:                             ; preds = %9, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyUnicode_AsUCS4Copy(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define dso_local ptr @PyUnicode_AsUCS4Copy(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc ptr @as_ucs4(ptr noundef %0, ptr noundef null, i64 noundef 0, i32 noundef 1)
   ret ptr %2
 }
@@ -8315,7 +8315,7 @@ declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #2
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 131073) i32 @_PyUnicode_WideCharString_Converter(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 131073) i32 @_PyUnicode_WideCharString_Converter(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -8354,7 +8354,7 @@ define hidden range(i32 0, 131073) i32 @_PyUnicode_WideCharString_Converter(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 131073) i32 @_PyUnicode_WideCharString_Opt_Converter(ptr noundef captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 131073) i32 @_PyUnicode_WideCharString_Opt_Converter(ptr noundef readonly captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -10206,7 +10206,7 @@ define dso_local ptr @PyUnicode_AsEncodedObject(ptr noundef %0, ptr noundef %1, 
 declare ptr @PyCodec_Encode(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyUnicode_EncodeLocale(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @PyUnicode_EncodeLocale(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @_Py_GetErrorHandler(ptr noundef %1)
   %4 = tail call fastcc ptr @unicode_encode_locale(ptr noundef %0, i32 noundef %3, i32 noundef 1)
   ret ptr %4
@@ -12720,7 +12720,7 @@ Py_DECREF.exit:                                   ; preds = %30, %27, %21, %7, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyUnicode_DecodeLocaleAndSize(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local ptr @PyUnicode_DecodeLocaleAndSize(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @_Py_GetErrorHandler(ptr noundef %2)
   %5 = tail call fastcc ptr @unicode_decode_locale(ptr noundef %0, i64 noundef %1, i32 noundef %4, i32 noundef 1)
   ret ptr %5
@@ -12812,7 +12812,7 @@ Py_DECREF.exit:                                   ; preds = %28, %25, %22, %31, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyUnicode_DecodeLocale(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @PyUnicode_DecodeLocale(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #42
   %4 = tail call i32 @_Py_GetErrorHandler(ptr noundef %1)
   %5 = tail call fastcc ptr @unicode_decode_locale(ptr noundef nonnull %0, i64 noundef %3, i32 noundef %4, i32 noundef 1)
@@ -12909,7 +12909,7 @@ define dso_local ptr @PyUnicode_DecodeFSDefaultAndSize(ptr noundef %0, i64 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @unicode_decode_utf8(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 {
+define internal fastcc ptr @unicode_decode_utf8(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca %struct._PyUnicodeWriter, align 8
   switch i64 %1, label %22 [
     i64 0, label %7
@@ -20276,7 +20276,7 @@ Py_XDECREF.exit162:                               ; preds = %452, %449, %447, %P
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyUnicode_DecodeUnicodeEscapeStateful(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define hidden ptr @_PyUnicode_DecodeUnicodeEscapeStateful(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #41
   %6 = call ptr @_PyUnicode_DecodeUnicodeEscapeInternal(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
@@ -25945,7 +25945,7 @@ _Py_NewRef.exit:                                  ; preds = %60, %_PyUnicode_DAT
 declare i32 @_PyUnicode_ToDecimalDigit(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden i64 @_PyUnicode_InsertThousandsGrouping(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7, ptr noundef captures(none) %8) local_unnamed_addr #6 {
+define hidden i64 @_PyUnicode_InsertThousandsGrouping(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7, ptr noundef captures(none) %8) local_unnamed_addr #6 {
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
   %12 = tail call i64 @llvm.smax.i64(i64 %5, i64 0)
@@ -28416,7 +28416,7 @@ _PyUnicode_DATA.exit80:                           ; preds = %179, %181
 221:                                              ; preds = %218, %.critedge61.i90
   %222 = getelementptr i16, ptr %.0.i78, i64 %.049.i82
   %223 = sub i64 %.0.i92, %.049.i82
-  %224 = tail call fastcc ptr @_PyUnicode_FromUCS2(ptr noundef %222, i64 noundef %223)
+  %224 = tail call fastcc ptr @_PyUnicode_FromUCS2(ptr noundef readonly %222, i64 noundef %223)
   %225 = icmp eq ptr %224, null
   br i1 %225, label %.loopexit.i, label %226
 
@@ -28569,7 +28569,7 @@ _PyUnicode_DATA.exit109:                          ; preds = %240, %242
 281:                                              ; preds = %278, %.critedge62.i
   %282 = getelementptr i32, ptr %.0.i107, i64 %.049.i110
   %283 = sub i64 %.0.i120, %.049.i110
-  %284 = tail call fastcc ptr @_PyUnicode_FromUCS4(ptr noundef %282, i64 noundef %283)
+  %284 = tail call fastcc ptr @_PyUnicode_FromUCS4(ptr noundef readonly %282, i64 noundef %283)
   %285 = icmp eq ptr %284, null
   br i1 %285, label %.loopexit.i123, label %286
 
@@ -33140,7 +33140,7 @@ Py_INCREF.exit.i201:                              ; preds = %380, %377
 383:                                              ; preds = %376, %.critedge2.i193
   %384 = getelementptr i16, ptr %.0.i168, i64 %.274.lcssa.i190
   %385 = sub i64 %.3.i192, %.274.lcssa.i190
-  %386 = tail call fastcc ptr @_PyUnicode_FromUCS2(ptr noundef %384, i64 noundef %385)
+  %386 = tail call fastcc ptr @_PyUnicode_FromUCS2(ptr noundef readonly %384, i64 noundef %385)
   %387 = icmp eq ptr %386, null
   br i1 %387, label %Py_DECREF.exit94.i184, label %388
 
@@ -33230,7 +33230,7 @@ Py_UNICODE_ISSPACE.exit105.i:                     ; preds = %414, %409
 419:                                              ; preds = %.critedge4.i180
   %420 = getelementptr i16, ptr %.0.i168, i64 %.4124.i
   %421 = sub i64 %.val100, %.4124.i
-  %422 = tail call fastcc ptr @_PyUnicode_FromUCS2(ptr noundef nonnull %420, i64 noundef %421)
+  %422 = tail call fastcc ptr @_PyUnicode_FromUCS2(ptr noundef nonnull readonly %420, i64 noundef %421)
   %423 = icmp eq ptr %422, null
   br i1 %423, label %Py_DECREF.exit94.i184, label %424
 
@@ -33435,7 +33435,7 @@ Py_INCREF.exit.i261:                              ; preds = %493, %490
 496:                                              ; preds = %489, %.critedge2.i251
   %497 = getelementptr i32, ptr %.0.i216, i64 %.274.lcssa.i247
   %498 = sub i64 %.3.i250, %.274.lcssa.i247
-  %499 = tail call fastcc ptr @_PyUnicode_FromUCS4(ptr noundef %497, i64 noundef %498)
+  %499 = tail call fastcc ptr @_PyUnicode_FromUCS4(ptr noundef readonly %497, i64 noundef %498)
   %500 = icmp eq ptr %499, null
   br i1 %500, label %Py_DECREF.exit94.i236, label %501
 
@@ -33524,7 +33524,7 @@ Py_UNICODE_ISSPACE.exit105.i228:                  ; preds = %527, %522
 531:                                              ; preds = %.critedge4.i232
   %532 = getelementptr i32, ptr %.0.i216, i64 %.4124.i227
   %533 = sub i64 %.val100, %.4124.i227
-  %534 = tail call fastcc ptr @_PyUnicode_FromUCS4(ptr noundef nonnull %532, i64 noundef %533)
+  %534 = tail call fastcc ptr @_PyUnicode_FromUCS4(ptr noundef nonnull readonly %532, i64 noundef %533)
   %535 = icmp eq ptr %534, null
   br i1 %535, label %Py_DECREF.exit94.i236, label %536
 
@@ -35039,7 +35039,7 @@ Py_DECREF.exit77.i350:                            ; preds = %ucs1lib_find_max_ch
 1096:                                             ; preds = %.lr.ph.i.i410
   %1097 = getelementptr i16, ptr %.0.i278, i64 %.05792.i.i
   %1098 = sub i64 %.15590.i.i, %.05792.i.i
-  %1099 = tail call fastcc ptr @_PyUnicode_FromUCS2(ptr noundef %1097, i64 noundef %1098)
+  %1099 = tail call fastcc ptr @_PyUnicode_FromUCS2(ptr noundef readonly %1097, i64 noundef %1098)
   %1100 = icmp eq ptr %1099, null
   br i1 %1100, label %Py_DECREF.exit75.i.i393, label %1101
 
@@ -35133,7 +35133,7 @@ Py_INCREF.exit.i.i400:                            ; preds = %1127, %1124
 1130:                                             ; preds = %1129
   %1131 = getelementptr i16, ptr %.0.i278, i64 %.057.lcssa.i.i403
   %1132 = sub i64 %.val100, %.057.lcssa.i.i403
-  %1133 = tail call fastcc ptr @_PyUnicode_FromUCS2(ptr noundef %1131, i64 noundef %1132)
+  %1133 = tail call fastcc ptr @_PyUnicode_FromUCS2(ptr noundef readonly %1131, i64 noundef %1132)
   %1134 = icmp eq ptr %1133, null
   br i1 %1134, label %Py_DECREF.exit75.i.i393, label %1135
 
@@ -35433,7 +35433,7 @@ Py_DECREF.exit77.i423:                            ; preds = %1171, %Py_DECREF.ex
 1247:                                             ; preds = %.lr.ph.i.i473
   %1248 = getelementptr i32, ptr %.0.i278, i64 %.05792.i.i463
   %1249 = sub i64 %.15590.i.i474, %.05792.i.i463
-  %1250 = tail call fastcc ptr @_PyUnicode_FromUCS4(ptr noundef %1248, i64 noundef %1249)
+  %1250 = tail call fastcc ptr @_PyUnicode_FromUCS4(ptr noundef readonly %1248, i64 noundef %1249)
   %1251 = icmp eq ptr %1250, null
   br i1 %1251, label %Py_DECREF.exit75.i.i450, label %1252
 
@@ -35527,7 +35527,7 @@ Py_INCREF.exit.i.i458:                            ; preds = %1278, %1275
 1281:                                             ; preds = %1280
   %1282 = getelementptr i32, ptr %.0.i278, i64 %.057.lcssa.i.i466
   %1283 = sub i64 %.val100, %.057.lcssa.i.i466
-  %1284 = tail call fastcc ptr @_PyUnicode_FromUCS4(ptr noundef %1282, i64 noundef %1283)
+  %1284 = tail call fastcc ptr @_PyUnicode_FromUCS4(ptr noundef readonly %1282, i64 noundef %1283)
   %1285 = icmp eq ptr %1284, null
   br i1 %1285, label %Py_DECREF.exit75.i.i450, label %1286
 
@@ -38711,7 +38711,7 @@ Py_INCREF.exit.i207:                              ; preds = %382, %379
   %385 = getelementptr i16, ptr %.0.i167, i64 %.3.in.i193
   %386 = add nuw i64 %.269121.i, 1
   %387 = sub i64 %386, %.3.in.i193
-  %388 = tail call fastcc ptr @_PyUnicode_FromUCS2(ptr noundef %385, i64 noundef %387)
+  %388 = tail call fastcc ptr @_PyUnicode_FromUCS2(ptr noundef readonly %385, i64 noundef %387)
   %389 = icmp eq ptr %388, null
   br i1 %389, label %Py_DECREF.exit87.i176, label %390
 
@@ -38796,7 +38796,7 @@ Py_UNICODE_ISSPACE.exit98.i:                      ; preds = %416, %411
 
 .critedge5.i181:                                  ; preds = %Py_UNICODE_ISSPACE.exit98.i
   %422 = add nuw i64 %.4127.i, 1
-  %423 = tail call fastcc ptr @_PyUnicode_FromUCS2(ptr noundef nonnull %.0.i167, i64 noundef %422)
+  %423 = tail call fastcc ptr @_PyUnicode_FromUCS2(ptr noundef nonnull readonly %.0.i167, i64 noundef %422)
   %424 = icmp eq ptr %423, null
   br i1 %424, label %Py_DECREF.exit87.i176, label %425
 
@@ -38999,7 +38999,7 @@ Py_INCREF.exit.i265:                              ; preds = %496, %493
   %499 = getelementptr i32, ptr %.0.i214, i64 %.3.in.i248
   %500 = add nuw i64 %.269121.i242, 1
   %501 = sub i64 %500, %.3.in.i248
-  %502 = tail call fastcc ptr @_PyUnicode_FromUCS4(ptr noundef %499, i64 noundef %501)
+  %502 = tail call fastcc ptr @_PyUnicode_FromUCS4(ptr noundef readonly %499, i64 noundef %501)
   %503 = icmp eq ptr %502, null
   br i1 %503, label %Py_DECREF.exit87.i223, label %504
 
@@ -39083,7 +39083,7 @@ Py_UNICODE_ISSPACE.exit98.i227:                   ; preds = %530, %525
 
 .critedge5.i230:                                  ; preds = %Py_UNICODE_ISSPACE.exit98.i227
   %535 = add nuw i64 %.4127.i226, 1
-  %536 = tail call fastcc ptr @_PyUnicode_FromUCS4(ptr noundef nonnull %.0.i214, i64 noundef %535)
+  %536 = tail call fastcc ptr @_PyUnicode_FromUCS4(ptr noundef nonnull readonly %.0.i214, i64 noundef %535)
   %537 = icmp eq ptr %536, null
   br i1 %537, label %Py_DECREF.exit87.i223, label %538
 
@@ -40789,7 +40789,7 @@ Py_DECREF.exit74.i341:                            ; preds = %ucs1lib_find_max_ch
 1211:                                             ; preds = %.lr.ph.i.i401
   %gep.i.i402 = getelementptr i16, ptr %invariant.gep.i.i385, i64 %.15484.i.i
   %1212 = sub nuw nsw i64 %.05187.i.i, %.15484.i.i
-  %1213 = tail call fastcc ptr @_PyUnicode_FromUCS2(ptr noundef %gep.i.i402, i64 noundef %1212)
+  %1213 = tail call fastcc ptr @_PyUnicode_FromUCS2(ptr noundef readonly %gep.i.i402, i64 noundef %1212)
   %1214 = icmp eq ptr %1213, null
   br i1 %1214, label %Py_DECREF.exit69.i.i391, label %1215
 
@@ -40880,7 +40880,7 @@ Py_INCREF.exit.i.i398:                            ; preds = %1242, %1239
   %.051.lcssa101.i121.i = phi i64 [ %.051.lcssa101.i.i, %1245 ], [ -1, %.loopexit.i.i406 ]
   %.050.lcssa103.i120.i = phi i64 [ %.050.lcssa103.i.i, %1245 ], [ %1234, %.loopexit.i.i406 ]
   %1247 = add i64 %.051.lcssa101.i121.i, 1
-  %1248 = tail call fastcc ptr @_PyUnicode_FromUCS2(ptr noundef %.0.i273, i64 noundef %1247)
+  %1248 = tail call fastcc ptr @_PyUnicode_FromUCS2(ptr noundef readonly %.0.i273, i64 noundef %1247)
   %1249 = icmp eq ptr %1248, null
   br i1 %1249, label %Py_DECREF.exit69.i.i391, label %1250
 
@@ -41191,7 +41191,7 @@ Py_DECREF.exit74.i413:                            ; preds = %1287, %Py_DECREF.ex
 1368:                                             ; preds = %.lr.ph.i.i456
   %gep.i.i458 = getelementptr i32, ptr %invariant.gep.i.i429, i64 %.15484.i.i457
   %1369 = sub nuw nsw i64 %.05187.i.i453, %.15484.i.i457
-  %1370 = tail call fastcc ptr @_PyUnicode_FromUCS4(ptr noundef %gep.i.i458, i64 noundef %1369)
+  %1370 = tail call fastcc ptr @_PyUnicode_FromUCS4(ptr noundef readonly %gep.i.i458, i64 noundef %1369)
   %1371 = icmp eq ptr %1370, null
   br i1 %1371, label %Py_DECREF.exit69.i.i438, label %1372
 
@@ -41282,7 +41282,7 @@ Py_INCREF.exit.i.i449:                            ; preds = %1399, %1396
   %.051.lcssa101.i121.i441 = phi i64 [ %.051.lcssa101.i.i435, %1402 ], [ -1, %.loopexit.i.i462 ]
   %.050.lcssa103.i120.i442 = phi i64 [ %.050.lcssa103.i.i434, %1402 ], [ %1391, %.loopexit.i.i462 ]
   %1404 = add i64 %.051.lcssa101.i121.i441, 1
-  %1405 = tail call fastcc ptr @_PyUnicode_FromUCS4(ptr noundef %.0.i273, i64 noundef %1404)
+  %1405 = tail call fastcc ptr @_PyUnicode_FromUCS4(ptr noundef readonly %.0.i273, i64 noundef %1404)
   %1406 = icmp eq ptr %1405, null
   br i1 %1406, label %Py_DECREF.exit69.i.i438, label %1407
 
@@ -42649,7 +42649,7 @@ define dso_local range(i32 -1, 1) i32 @PyUnicodeWriter_WriteUTF8(ptr noundef cap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @unicode_decode_utf8_writer(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 4) %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @unicode_decode_utf8_writer(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 4) %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 {
   %7 = icmp eq i64 %2, 0
   br i1 %7, label %8, label %10
 
@@ -42801,7 +42801,7 @@ ascii_decode.exit:                                ; preds = %._crit_edge.i, %52
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @PyUnicodeWriter_DecodeUTF8Stateful(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyUnicodeWriter_DecodeUTF8Stateful(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = icmp slt i64 %2, 0
   br i1 %6, label %7, label %9
 
@@ -48822,7 +48822,7 @@ declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr n
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @unicode_fromformat_write_wcstr(ptr noundef captures(none) %0, ptr noundef captures(address) %1, i64 noundef %2, i64 noundef %3, i32 noundef range(i32 0, 32) %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @unicode_fromformat_write_wcstr(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i64 noundef %3, i32 noundef range(i32 0, 32) %4) unnamed_addr #0 {
   %6 = icmp eq i64 %3, -1
   br i1 %6, label %8, label %.preheader
 
@@ -48894,7 +48894,6 @@ define internal fastcc range(i32 -1, 1) i32 @unicode_fromformat_write_utf8(ptr n
 
 9:                                                ; preds = %5
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #42
-  store i64 %10, ptr %6, align 8, !tbaa !182
   br label %16
 
 .lr.ph:                                           ; preds = %.preheader, %13
@@ -48911,7 +48910,6 @@ define internal fastcc range(i32 -1, 1) i32 @unicode_fromformat_write_utf8(ptr n
 
 .critedge:                                        ; preds = %.lr.ph, %13, %.preheader
   %storemerge.lcssa23 = phi i64 [ 0, %.preheader ], [ %3, %13 ], [ %storemerge24, %.lr.ph ]
-  store i64 %storemerge.lcssa23, ptr %6, align 8, !tbaa !182
   %15 = icmp eq i64 %storemerge.lcssa23, %3
   %spec.select = select i1 %15, ptr %6, ptr null
   br label %16

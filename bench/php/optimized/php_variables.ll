@@ -238,7 +238,7 @@ define internal void @_php_load_environment_variables(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @php_register_variable(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local void @php_register_variable(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
@@ -287,13 +287,13 @@ php_register_variable_safe.exit:                  ; preds = %zend_string_alloc.e
   %27 = select i1 %.not.i, i32 262, i32 6
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %27, ptr %28, align 8, !tbaa !11
-  call void @php_register_variable_ex(ptr noundef readonly %0, ptr noundef nonnull %4, ptr noundef %2)
+  call void @php_register_variable_ex(ptr noundef readonly %0, ptr noundef nonnull %4, ptr noundef readonly %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @php_register_variable_safe(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local void @php_register_variable_safe(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca %struct._zval_struct, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
   %6 = icmp ugt i64 %2, 1
@@ -1311,7 +1311,7 @@ declare ptr @zend_array_dup(ptr noundef) local_unnamed_addr #6
 declare ptr @zend_hash_index_update(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @php_std_post_handler(ptr noundef readnone captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local void @php_std_post_handler(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.post_var_data, align 8
   %4 = alloca [8192 x i8], align 16
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 56), align 8, !tbaa !47
@@ -1463,7 +1463,7 @@ declare zeroext i1 @_php_stream_eof(ptr noundef) local_unnamed_addr #6
 declare i64 @_php_stream_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @add_post_vars(ptr noundef captures(address_is_null) %0, ptr noundef nonnull captures(none) initializes((16, 32)) %1, i1 noundef zeroext %2) unnamed_addr #9 {
+define internal fastcc range(i32 -1, 1) i32 @add_post_vars(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull captures(none) initializes((16, 32)) %1, i1 noundef zeroext %2) unnamed_addr #9 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -1597,7 +1597,7 @@ php_register_variable_safe.exit.i:                ; preds = %72, %70, %zend_stri
   %.not.i.i = icmp eq i32 %79, 0
   %80 = select i1 %.not.i.i, i32 262, i32 6
   store i32 %80, ptr %20, align 8, !tbaa !11
-  call void @php_register_variable_ex(ptr noundef readonly %56, ptr noundef nonnull %4, ptr noundef %0)
+  call void @php_register_variable_ex(ptr noundef readonly %56, ptr noundef nonnull %4, ptr noundef readonly %0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   br label %83
 
@@ -1951,7 +1951,7 @@ php_register_variable_safe.exit:                  ; preds = %zend_string_alloc.e
   %.not.i100 = icmp eq i32 %118, 0
   %119 = select i1 %.not.i100, i32 262, i32 6
   store i32 %119, ptr %54, align 8, !tbaa !11
-  call void @php_register_variable_ex(ptr noundef nonnull readonly %.1, ptr noundef nonnull %4, ptr noundef nonnull %6)
+  call void @php_register_variable_ex(ptr noundef nonnull readonly %.1, ptr noundef nonnull %4, ptr noundef nonnull readonly %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   br label %120
 

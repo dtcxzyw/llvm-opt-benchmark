@@ -321,7 +321,7 @@ zend_parse_arg_object.exit:                       ; preds = %13, %14
   %48 = load ptr, ptr %47, align 8, !tbaa !18
   %49 = and i32 %44, 8388608
   %50 = icmp ne i32 %49, 0
-  call fastcc void @zend_create_closure_ex(ptr noundef nonnull %6, ptr noundef nonnull %42, ptr noundef %32, ptr noundef %48, ptr noundef nonnull %15, i1 noundef zeroext %50)
+  call fastcc void @zend_create_closure_ex(ptr noundef nonnull %6, ptr noundef nonnull %42, ptr noundef %32, ptr noundef %48, ptr noundef nonnull readonly %15, i1 noundef zeroext %50)
   %51 = load ptr, ptr %6, align 8, !tbaa !15
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 56
   store ptr %52, ptr %5, align 8, !tbaa !43
@@ -627,7 +627,7 @@ instanceof_function.exit.thread:                  ; preds = %14, %35, %.critedge
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_create_closure(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local void @zend_create_closure(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, 8388608
@@ -778,7 +778,7 @@ zend_parse_arg_object.exit.thread101:             ; preds = %zend_parse_arg_obj_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_closure_bind(ptr noundef %0, ptr captures(none) %.0.val, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @do_closure_bind(ptr noundef %0, ptr captures(none) %.0.val, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %5
 
@@ -845,7 +845,7 @@ zend_string_equals.exit.thread1:                  ; preds = %14, %zend_string_eq
   %36 = load i32, ptr %35, align 4, !tbaa !15
   %37 = and i32 %36, 8388608
   %38 = icmp ne i32 %37, 0
-  tail call fastcc void @zend_create_closure_ex(ptr noundef %0, ptr noundef nonnull %34, ptr noundef %.0, ptr noundef %33, ptr noundef nonnull %1, i1 noundef zeroext %38)
+  tail call fastcc void @zend_create_closure_ex(ptr noundef %0, ptr noundef nonnull %34, ptr noundef %.0, ptr noundef %33, ptr noundef nonnull readonly %1, i1 noundef zeroext %38)
   br label %44
 
 .split22:                                         ; preds = %30
@@ -1648,7 +1648,7 @@ define internal ptr @zend_closure_clone(ptr noundef captures(address_is_null) %0
   %10 = load i32, ptr %9, align 4, !tbaa !15
   %11 = and i32 %10, 8388608
   %12 = icmp ne i32 %11, 0
-  call fastcc void @zend_create_closure_ex(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %7, ptr noundef nonnull %8, i1 noundef zeroext %12)
+  call fastcc void @zend_create_closure_ex(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %7, ptr noundef nonnull readonly %8, i1 noundef zeroext %12)
   %13 = load ptr, ptr %2, align 8, !tbaa !15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #13
   ret ptr %13
@@ -2466,7 +2466,7 @@ zend_string_addref.exit162:                       ; preds = %157, %164
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_create_fake_closure(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local void @zend_create_fake_closure(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   tail call fastcc void @zend_create_closure_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext true)
   %6 = load ptr, ptr %0, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 60
@@ -2673,7 +2673,7 @@ zend_array_release.exit50:                        ; preds = %85, %80, %76, %73
   %96 = load ptr, ptr %95, align 8, !tbaa !15
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %98 = load ptr, ptr %97, align 8, !tbaa !36
-  call fastcc void @zend_create_closure_ex(ptr noundef %0, ptr noundef nonnull %.0, ptr noundef %96, ptr noundef %98, ptr noundef nonnull %3, i1 noundef zeroext true)
+  call fastcc void @zend_create_closure_ex(ptr noundef %0, ptr noundef nonnull %.0, ptr noundef %96, ptr noundef %98, ptr noundef nonnull readonly %3, i1 noundef zeroext true)
   br label %103
 
 99:                                               ; preds = %89

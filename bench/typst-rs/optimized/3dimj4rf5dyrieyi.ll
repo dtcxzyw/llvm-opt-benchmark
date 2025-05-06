@@ -85075,7 +85075,7 @@ define internal void @"_ZN57_$LT$T$u20$as$u20$typst..foundations..content..Bound
   br i1 %.not.i.i, label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h7884784e8a548f14E.exit.i", label %71
 
 71:                                               ; preds = %68
-  tail call fastcc void @"_ZN67_$LT$typst..visualize..paint..Paint$u20$as$u20$core..hash..Hash$GT$4hash17hb1a129c1e27e1f76E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %64, ptr nonnull %1, ptr nonnull %2), !noalias !13899
+  tail call fastcc void @"_ZN67_$LT$typst..visualize..paint..Paint$u20$as$u20$core..hash..Hash$GT$4hash17hb1a129c1e27e1f76E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %64, ptr nonnull %1, ptr nonnull readonly %2), !noalias !13899
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h7884784e8a548f14E.exit.i"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h7884784e8a548f14E.exit.i": ; preds = %71, %68, %63
@@ -86210,7 +86210,7 @@ define internal void @"_ZN57_$LT$T$u20$as$u20$typst..foundations..content..Bound
   br i1 %.not.i.i, label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h7884784e8a548f14E.exit.i", label %43
 
 43:                                               ; preds = %40
-  tail call fastcc void @"_ZN67_$LT$typst..visualize..paint..Paint$u20$as$u20$core..hash..Hash$GT$4hash17hb1a129c1e27e1f76E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29, ptr nonnull %1, ptr nonnull %2), !noalias !14422
+  tail call fastcc void @"_ZN67_$LT$typst..visualize..paint..Paint$u20$as$u20$core..hash..Hash$GT$4hash17hb1a129c1e27e1f76E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29, ptr nonnull %1, ptr nonnull readonly %2), !noalias !14422
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h7884784e8a548f14E.exit.i"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h7884784e8a548f14E.exit.i": ; preds = %43, %40, %28
@@ -86246,7 +86246,7 @@ define internal void @"_ZN57_$LT$T$u20$as$u20$typst..foundations..content..Bound
   br i1 %.not.i32.i, label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h06e392bc0125cd71E.exit.i", label %58
 
 58:                                               ; preds = %55
-  tail call fastcc void @"_ZN78_$LT$typst..visualize..stroke..Stroke$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h93613818e8a688bcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %44, ptr nonnull %1, ptr nonnull %2), !noalias !14422
+  tail call fastcc void @"_ZN78_$LT$typst..visualize..stroke..Stroke$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h93613818e8a688bcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %44, ptr nonnull %1, ptr nonnull readonly %2), !noalias !14422
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h06e392bc0125cd71E.exit.i"
 
 59:                                               ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h06e392bc0125cd71E.exit.i"
@@ -86449,7 +86449,7 @@ define internal void @"_ZN57_$LT$T$u20$as$u20$typst..foundations..content..Bound
   br i1 %.not.i.i, label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h7884784e8a548f14E.exit.i", label %43
 
 43:                                               ; preds = %40
-  tail call fastcc void @"_ZN67_$LT$typst..visualize..paint..Paint$u20$as$u20$core..hash..Hash$GT$4hash17hb1a129c1e27e1f76E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29, ptr nonnull %1, ptr nonnull %2), !noalias !14533
+  tail call fastcc void @"_ZN67_$LT$typst..visualize..paint..Paint$u20$as$u20$core..hash..Hash$GT$4hash17hb1a129c1e27e1f76E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29, ptr nonnull %1, ptr nonnull readonly %2), !noalias !14533
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h7884784e8a548f14E.exit.i"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h7884784e8a548f14E.exit.i": ; preds = %43, %40, %28
@@ -86485,7 +86485,7 @@ define internal void @"_ZN57_$LT$T$u20$as$u20$typst..foundations..content..Bound
   br i1 %.not.i32.i, label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h06e392bc0125cd71E.exit.i", label %58
 
 58:                                               ; preds = %55
-  tail call fastcc void @"_ZN78_$LT$typst..visualize..stroke..Stroke$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h93613818e8a688bcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %44, ptr nonnull %1, ptr nonnull %2), !noalias !14533
+  tail call fastcc void @"_ZN78_$LT$typst..visualize..stroke..Stroke$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h93613818e8a688bcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %44, ptr nonnull %1, ptr nonnull readonly %2), !noalias !14533
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h06e392bc0125cd71E.exit.i"
 
 59:                                               ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h06e392bc0125cd71E.exit.i"
@@ -86793,7 +86793,7 @@ default.unreachable6.i.i:                         ; preds = %117
   br i1 %.not.i.i.i, label %"_ZN81_$LT$typst..layout..grid..layout..Celled$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hdbcd6b1310efb99eE.exit.i", label %127
 
 127:                                              ; preds = %122
-  call fastcc void @"_ZN67_$LT$typst..visualize..paint..Paint$u20$as$u20$core..hash..Hash$GT$4hash17hb1a129c1e27e1f76E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %123, ptr nonnull %118, ptr nonnull %119), !noalias !14720
+  call fastcc void @"_ZN67_$LT$typst..visualize..paint..Paint$u20$as$u20$core..hash..Hash$GT$4hash17hb1a129c1e27e1f76E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %123, ptr nonnull %118, ptr nonnull readonly %119), !noalias !14720
   br label %"_ZN81_$LT$typst..layout..grid..layout..Celled$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hdbcd6b1310efb99eE.exit.i"
 
 128:                                              ; preds = %117
@@ -87366,7 +87366,7 @@ define internal void @"_ZN57_$LT$T$u20$as$u20$typst..foundations..content..Bound
   br i1 %.not.i.i, label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h7884784e8a548f14E.exit.i", label %43
 
 43:                                               ; preds = %40
-  tail call fastcc void @"_ZN67_$LT$typst..visualize..paint..Paint$u20$as$u20$core..hash..Hash$GT$4hash17hb1a129c1e27e1f76E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29, ptr nonnull %1, ptr nonnull %2), !noalias !14941
+  tail call fastcc void @"_ZN67_$LT$typst..visualize..paint..Paint$u20$as$u20$core..hash..Hash$GT$4hash17hb1a129c1e27e1f76E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29, ptr nonnull %1, ptr nonnull readonly %2), !noalias !14941
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h7884784e8a548f14E.exit.i"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h7884784e8a548f14E.exit.i": ; preds = %43, %40, %28
@@ -87598,7 +87598,7 @@ define internal void @"_ZN57_$LT$T$u20$as$u20$typst..foundations..content..Bound
   br i1 %.not.i.i, label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h7884784e8a548f14E.exit.i", label %74
 
 74:                                               ; preds = %71
-  tail call fastcc void @"_ZN67_$LT$typst..visualize..paint..Paint$u20$as$u20$core..hash..Hash$GT$4hash17hb1a129c1e27e1f76E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %60, ptr nonnull %1, ptr nonnull %2), !noalias !15022
+  tail call fastcc void @"_ZN67_$LT$typst..visualize..paint..Paint$u20$as$u20$core..hash..Hash$GT$4hash17hb1a129c1e27e1f76E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %60, ptr nonnull %1, ptr nonnull readonly %2), !noalias !15022
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h7884784e8a548f14E.exit.i"
 
 75:                                               ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h7884784e8a548f14E.exit.i"
@@ -88352,7 +88352,7 @@ default.unreachable6.i.i:                         ; preds = %117
   br i1 %.not.i.i.i, label %"_ZN81_$LT$typst..layout..grid..layout..Celled$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hdbcd6b1310efb99eE.exit.i", label %127
 
 127:                                              ; preds = %122
-  call fastcc void @"_ZN67_$LT$typst..visualize..paint..Paint$u20$as$u20$core..hash..Hash$GT$4hash17hb1a129c1e27e1f76E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %123, ptr nonnull %118, ptr nonnull %119), !noalias !15373
+  call fastcc void @"_ZN67_$LT$typst..visualize..paint..Paint$u20$as$u20$core..hash..Hash$GT$4hash17hb1a129c1e27e1f76E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %123, ptr nonnull %118, ptr nonnull readonly %119), !noalias !15373
   br label %"_ZN81_$LT$typst..layout..grid..layout..Celled$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hdbcd6b1310efb99eE.exit.i"
 
 128:                                              ; preds = %117
@@ -90244,7 +90244,7 @@ define internal void @"_ZN57_$LT$T$u20$as$u20$typst..foundations..content..Bound
   br i1 %.not.i.i, label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h7884784e8a548f14E.exit.i", label %74
 
 74:                                               ; preds = %71
-  tail call fastcc void @"_ZN67_$LT$typst..visualize..paint..Paint$u20$as$u20$core..hash..Hash$GT$4hash17hb1a129c1e27e1f76E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %60, ptr nonnull %1, ptr nonnull %2), !noalias !16188
+  tail call fastcc void @"_ZN67_$LT$typst..visualize..paint..Paint$u20$as$u20$core..hash..Hash$GT$4hash17hb1a129c1e27e1f76E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %60, ptr nonnull %1, ptr nonnull readonly %2), !noalias !16188
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h7884784e8a548f14E.exit.i"
 
 75:                                               ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h7884784e8a548f14E.exit.i"
@@ -90503,7 +90503,7 @@ define internal void @"_ZN57_$LT$T$u20$as$u20$typst..foundations..content..Bound
   br i1 %.not.i.i, label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h7884784e8a548f14E.exit.i", label %43
 
 43:                                               ; preds = %40
-  tail call fastcc void @"_ZN67_$LT$typst..visualize..paint..Paint$u20$as$u20$core..hash..Hash$GT$4hash17hb1a129c1e27e1f76E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29, ptr nonnull %1, ptr nonnull %2), !noalias !16301
+  tail call fastcc void @"_ZN67_$LT$typst..visualize..paint..Paint$u20$as$u20$core..hash..Hash$GT$4hash17hb1a129c1e27e1f76E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29, ptr nonnull %1, ptr nonnull readonly %2), !noalias !16301
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h7884784e8a548f14E.exit.i"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h7884784e8a548f14E.exit.i": ; preds = %43, %40, %28
@@ -141303,7 +141303,7 @@ define internal fastcc void @"_ZN73_$LT$typst..layout..sides..Sides$LT$T$GT$$u20
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN73_$LT$typst..layout..sides..Sides$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hc73149b55be72439E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(448) %0, ptr %.0.val, ptr captures(address_is_null) %.8.val) unnamed_addr #0 {
+define internal fastcc void @"_ZN73_$LT$typst..layout..sides..Sides$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hc73149b55be72439E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(448) %0, ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 {
   %2 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %2)
   %3 = icmp ne ptr %.8.val, null
@@ -141326,7 +141326,7 @@ define internal fastcc void @"_ZN73_$LT$typst..layout..sides..Sides$LT$T$GT$$u20
   br i1 %.not.i.i, label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1ed363c226d8d377E.exit", label %12
 
 12:                                               ; preds = %9
-  tail call fastcc void @"_ZN78_$LT$typst..visualize..stroke..Stroke$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h93613818e8a688bcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %0, ptr nonnull %.0.val, ptr nonnull %.8.val)
+  tail call fastcc void @"_ZN78_$LT$typst..visualize..stroke..Stroke$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h93613818e8a688bcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %0, ptr nonnull %.0.val, ptr nonnull readonly %.8.val)
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1ed363c226d8d377E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1ed363c226d8d377E.exit": ; preds = %1, %9, %12
@@ -141347,7 +141347,7 @@ define internal fastcc void @"_ZN73_$LT$typst..layout..sides..Sides$LT$T$GT$$u20
   br i1 %.not.i.i9, label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1ed363c226d8d377E.exit10", label %20
 
 20:                                               ; preds = %17
-  tail call fastcc void @"_ZN78_$LT$typst..visualize..stroke..Stroke$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h93613818e8a688bcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %13, ptr nonnull %.0.val, ptr nonnull %.8.val)
+  tail call fastcc void @"_ZN78_$LT$typst..visualize..stroke..Stroke$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h93613818e8a688bcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %13, ptr nonnull %.0.val, ptr nonnull readonly %.8.val)
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1ed363c226d8d377E.exit10"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1ed363c226d8d377E.exit10": ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1ed363c226d8d377E.exit", %17, %20
@@ -141368,7 +141368,7 @@ define internal fastcc void @"_ZN73_$LT$typst..layout..sides..Sides$LT$T$GT$$u20
   br i1 %.not.i.i12, label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1ed363c226d8d377E.exit13", label %28
 
 28:                                               ; preds = %25
-  tail call fastcc void @"_ZN78_$LT$typst..visualize..stroke..Stroke$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h93613818e8a688bcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %21, ptr nonnull %.0.val, ptr nonnull %.8.val)
+  tail call fastcc void @"_ZN78_$LT$typst..visualize..stroke..Stroke$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h93613818e8a688bcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %21, ptr nonnull %.0.val, ptr nonnull readonly %.8.val)
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1ed363c226d8d377E.exit13"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1ed363c226d8d377E.exit13": ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1ed363c226d8d377E.exit10", %25, %28
@@ -141389,7 +141389,7 @@ define internal fastcc void @"_ZN73_$LT$typst..layout..sides..Sides$LT$T$GT$$u20
   br i1 %.not.i.i15, label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1ed363c226d8d377E.exit16", label %36
 
 36:                                               ; preds = %33
-  tail call fastcc void @"_ZN78_$LT$typst..visualize..stroke..Stroke$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h93613818e8a688bcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %29, ptr nonnull %.0.val, ptr nonnull %.8.val)
+  tail call fastcc void @"_ZN78_$LT$typst..visualize..stroke..Stroke$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h93613818e8a688bcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %29, ptr nonnull %.0.val, ptr nonnull readonly %.8.val)
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1ed363c226d8d377E.exit16"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1ed363c226d8d377E.exit16": ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1ed363c226d8d377E.exit13", %33, %36
@@ -149255,7 +149255,7 @@ default.unreachable12:                            ; preds = %33, %22
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN67_$LT$typst..visualize..paint..Paint$u20$as$u20$core..hash..Hash$GT$4hash17hb1a129c1e27e1f76E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %.0.val, ptr captures(address_is_null) %.8.val) unnamed_addr #0 {
+define internal fastcc void @"_ZN67_$LT$typst..visualize..paint..Paint$u20$as$u20$core..hash..Hash$GT$4hash17hb1a129c1e27e1f76E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 {
   %2 = alloca [4 x float], align 4
   %3 = load i32, ptr %0, align 8, !range !370, !noundef !4
   %4 = zext nneg i32 %3 to i64
@@ -153552,7 +153552,7 @@ _ZN4core3cmp9PartialEq2ne17hc81268aed26b1b0cE.llvm.2456044669961016091.exit.back
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN78_$LT$typst..visualize..stroke..Stroke$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h93613818e8a688bcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %0, ptr %.0.val, ptr captures(address_is_null) %.8.val) unnamed_addr #0 {
+define internal fastcc void @"_ZN78_$LT$typst..visualize..stroke..Stroke$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h93613818e8a688bcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %0, ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8, !range !2834, !noundef !4
   %4 = icmp ne i32 %3, 3

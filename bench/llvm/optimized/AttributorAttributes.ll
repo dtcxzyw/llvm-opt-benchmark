@@ -123210,7 +123210,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.i: ; preds = %_ZN4ll
 
 662:                                              ; preds = %658
   %663 = call noundef ptr @_ZNK4llvm11Instruction26getNextNonDebugInstructionEb(ptr noundef nonnull align 8 dereferenceable(72) %47, i1 noundef zeroext false) #39
-  %664 = call fastcc noundef zeroext i1 @"_ZZZN12_GLOBAL__N_121AAPointerInfoFloating10updateImplERN4llvm10AttributorEENK3$_0clERKNS1_3UseERbENKUlPNS1_11InstructionESA_E_clESA_SA_"(ptr noundef %663, ptr noundef nonnull align 8 dereferenceable(88) %639)
+  %664 = call fastcc noundef zeroext i1 @"_ZZZN12_GLOBAL__N_121AAPointerInfoFloating10updateImplERN4llvm10AttributorEENK3$_0clERKNS1_3UseERbENKUlPNS1_11InstructionESA_E_clESA_SA_"(ptr noundef %663, ptr noundef nonnull readonly align 8 dereferenceable(88) %639)
   br i1 %664, label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.thread.i, label %"_ZZZN12_GLOBAL__N_121AAPointerInfoFloating10updateImplERN4llvm10AttributorEENK3$_0clERKNS1_3UseERbENKUlRNS1_13IntrinsicInstEE_clESA_.exit.i"
 
 665:                                              ; preds = %658
@@ -123322,7 +123322,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit41.i.i: ; preds = %712, %.critedge30.i
   %719 = getelementptr inbounds nuw i8, ptr %660, i64 56
   %720 = load ptr, ptr %719, align 8, !tbaa !357
   %721 = getelementptr inbounds i8, ptr %720, i64 -24
-  %722 = call fastcc noundef zeroext i1 @"_ZZZN12_GLOBAL__N_121AAPointerInfoFloating10updateImplERN4llvm10AttributorEENK3$_0clERKNS1_3UseERbENKUlPNS1_11InstructionESA_E_clESA_SA_"(ptr noundef nonnull %721, ptr noundef nonnull align 8 dereferenceable(88) %639)
+  %722 = call fastcc noundef zeroext i1 @"_ZZZN12_GLOBAL__N_121AAPointerInfoFloating10updateImplERN4llvm10AttributorEENK3$_0clERKNS1_3UseERbENKUlPNS1_11InstructionESA_E_clESA_SA_"(ptr noundef nonnull %721, ptr noundef nonnull readonly align 8 dereferenceable(88) %639)
   br i1 %722, label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.thread.i, label %"_ZZZN12_GLOBAL__N_121AAPointerInfoFloating10updateImplERN4llvm10AttributorEENK3$_0clERKNS1_3UseERbENKUlRNS1_13IntrinsicInstEE_clESA_.exit.i"
 
 "_ZZZN12_GLOBAL__N_121AAPointerInfoFloating10updateImplERN4llvm10AttributorEENK3$_0clERKNS1_3UseERbENKUlRNS1_13IntrinsicInstEE_clESA_.exit.i": ; preds = %718, %662

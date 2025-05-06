@@ -1623,7 +1623,7 @@ erf_meta_read_tag.exit116.thread.i:               ; preds = %200, %188, %181
   %593 = getelementptr inbounds nuw i8, ptr %591, i64 8
   %594 = load i8, ptr %593, align 8
   %595 = trunc nuw nsw i32 %498 to i8
-  %596 = call fastcc i32 @erf_populate_interface(ptr noundef nonnull %64, ptr noundef nonnull %0, ptr noundef nonnull %22, i64 noundef %592, i8 noundef zeroext %594, i8 noundef zeroext %595, ptr noundef %2, ptr noundef %3)
+  %596 = call fastcc i32 @erf_populate_interface(ptr noundef nonnull %64, ptr noundef nonnull %0, ptr noundef nonnull readonly %22, i64 noundef %592, i8 noundef zeroext %594, i8 noundef zeroext %595, ptr noundef %2, ptr noundef %3)
   %.not225.i.i = icmp eq i32 %596, -1
   br i1 %.not225.i.i, label %populate_interface_info.exit.i, label %597
 
@@ -2512,7 +2512,7 @@ erf_priv_free.exit:                               ; preds = %1, %4
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @erf_populate_interface_from_header(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
+define hidden i32 @erf_populate_interface_from_header(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %38, label %6
 

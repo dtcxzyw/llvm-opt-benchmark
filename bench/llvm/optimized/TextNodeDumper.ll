@@ -8232,7 +8232,7 @@ define linkonce_odr hidden void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5V
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %12, align 8
-  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefEE3$_0EEvS5_T_"(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nonnull @.str.733, i64 4, i64 %.sroa.0.0.copyload.i.i, ptr nonnull align 8 dereferenceable(1168) %0)
+  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefEE3$_0EEvS5_T_"(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nonnull readonly @.str.733, i64 4, i64 %.sroa.0.0.copyload.i.i, ptr nonnull align 8 dereferenceable(1168) %0)
   br label %35
 
 13:                                               ; preds = %2
@@ -19721,7 +19721,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %13, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(1168) %0, i64 %1, ptr captures(address_is_null) %2, i64 %3) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(1168) %0, i64 %1, ptr readonly captures(address_is_null) %2, i64 %3) local_unnamed_addr #2 align 2 {
   tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefEE3$_0EEvS5_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr %2, i64 %3, i64 %1, ptr %0)
   ret void
 }
@@ -32171,7 +32171,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit7:                ; preds = %42, %40, %_ZN4llvm1
 define dso_local void @_ZN5clang14TextNodeDumper38VisitDeducedTemplateSpecializationTypeEPKNS_33DeducedTemplateSpecializationTypeE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8
-  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefEE3$_0EEvS5_T_"(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nonnull @.str.733, i64 4, i64 %.sroa.0.0.copyload.i, ptr nonnull align 8 dereferenceable(1168) %0)
+  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefEE3$_0EEvS5_T_"(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nonnull readonly @.str.733, i64 4, i64 %.sroa.0.0.copyload.i, ptr nonnull align 8 dereferenceable(1168) %0)
   ret void
 }
 
@@ -32210,7 +32210,7 @@ define dso_local void @_ZN5clang14TextNodeDumper31VisitTemplateSpecializationTyp
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %19, %17, %2
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 16
-  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefEE3$_0EEvS5_T_"(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nonnull @.str.733, i64 4, i64 %.sroa.0.0.copyload.i, ptr nonnull align 8 dereferenceable(1168) %0)
+  tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefEE3$_0EEvS5_T_"(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nonnull readonly @.str.733, i64 4, i64 %.sroa.0.0.copyload.i, ptr nonnull align 8 dereferenceable(1168) %0)
   ret void
 }
 

@@ -1915,7 +1915,7 @@ _ZN10serde_json5value8to_value17h585ea7f1766a0bb2E.exit.thread: ; preds = %2
   %.val.i.i.i = load ptr, ptr %18, align 8, !alias.scope !232, !noalias !233, !nonnull !22, !noundef !22
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val1.i.i.i = load i64, ptr %19, align 8, !alias.scope !232, !noalias !233, !noundef !22
-  invoke fastcc void @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17hd96424a1b2b72213E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %8, ptr nonnull %.val.i.i.i, i64 %.val1.i.i.i)
+  invoke fastcc void @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17hd96424a1b2b72213E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %8, ptr nonnull readonly %.val.i.i.i, i64 %.val1.i.i.i)
           to label %_ZN10serde_json5value8to_value17h585ea7f1766a0bb2E.exit unwind label %20
 
 20:                                               ; preds = %17

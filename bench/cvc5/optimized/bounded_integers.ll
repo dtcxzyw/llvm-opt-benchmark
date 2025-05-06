@@ -4410,7 +4410,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES_IS3_NS1_6theory11quantifiers15Bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers15BoundedIntegers14hasNonBoundVarENS0_12NodeTemplateILb1EEES5_RSt3mapIS5_bSt4lessIS5_ESaISt4pairIKS5_bEEE(ptr noundef nonnull align 8 captures(address) dereferenceable(768) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(48) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers15BoundedIntegers14hasNonBoundVarENS0_12NodeTemplateILb1EEES5_RSt3mapIS5_bSt4lessIS5_ESaISt4pairIKS5_bEEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(768) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(48) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::tuple.827", align 8
   %6 = alloca %"class.std::tuple.830", align 1
   %7 = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -5050,7 +5050,7 @@ _ZNKSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers15BoundedIntegers14hasNonBoundVarENS0_12NodeTemplateILb1EEES5_(ptr noundef nonnull align 8 captures(address) dereferenceable(768) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers15BoundedIntegers14hasNonBoundVarENS0_12NodeTemplateILb1EEES5_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(768) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::map.447", align 8
   %5 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %6 = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -5240,7 +5240,7 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_bESt10_Select1stI
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers15BoundedIntegers17processEqDisjunctENS0_12NodeTemplateILb1EEES5_RS5_RSt6vectorIS5_SaIS5_EE(ptr noundef nonnull align 8 captures(address) dereferenceable(768) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers15BoundedIntegers17processEqDisjunctENS0_12NodeTemplateILb1EEES5_RS5_RSt6vectorIS5_SaIS5_EE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(768) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %7 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %8 = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -5908,7 +5908,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit66: ; preds = %305, %309, %315
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers15BoundedIntegers21processMatchBoundVarsENS0_12NodeTemplateILb1EEES5_RSt6vectorIS5_SaIS5_EERSt3mapIS5_bSt4lessIS5_ESaISt4pairIKS5_bEEE(ptr noundef nonnull align 8 captures(address) dereferenceable(768) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(48) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers15BoundedIntegers21processMatchBoundVarsENS0_12NodeTemplateILb1EEES5_RSt6vectorIS5_SaIS5_EERSt3mapIS5_bSt4lessIS5_ESaISt4pairIKS5_bEEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(768) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(48) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::tuple.827", align 8
   %7 = alloca %"class.std::tuple.830", align 1
   %8 = alloca %"class.cvc5::internal::NodeTemplate", align 8

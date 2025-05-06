@@ -4288,7 +4288,7 @@ define dso_local double @rb_str_to_dbl(i64 noundef %0, i32 noundef %1) local_unn
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc double @rb_str_to_dbl_raise(i64 noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef captures(address_is_null) %3) unnamed_addr #2 {
+define internal fastcc double @rb_str_to_dbl_raise(i64 noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #2 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8

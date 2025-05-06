@@ -590,7 +590,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha20672c8feb8338dE"(ptr noundef nonnull captures(address) %0, ptr noundef captures(address) %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 {
+define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha20672c8feb8338dE"(ptr noundef nonnull readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 {
   tail call void @_ZN4core4iter6traits8iterator8Iterator4fold17h8ddf4e541ca5f582E.llvm.1464196868864806666(ptr noundef nonnull %0, ptr noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   ret void
 }

@@ -3910,7 +3910,7 @@ common.ret:                                       ; preds = %42, %"_ZN4core3ptr1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hc066701b97622f48E"(ptr %.0.val, ptr captures(address_is_null) %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hc066701b97622f48E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !4, !nonnull !4
@@ -8964,7 +8964,7 @@ default.unreachable29:                            ; preds = %1
 21:                                               ; preds = %17
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7cecc85e59fc4d77E"(ptr nonnull %.val.i24, ptr nonnull %.val1.i25) #37, !noalias !1663
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7cecc85e59fc4d77E"(ptr nonnull %.val.i24, ptr nonnull readonly %.val1.i25) #37, !noalias !1663
   br label %.body
 
 23:                                               ; preds = %17
@@ -9014,7 +9014,7 @@ common.resume:                                    ; preds = %149, %157, %139, %1
 37:                                               ; preds = %33
   %38 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7cecc85e59fc4d77E"(ptr nonnull %.val10, ptr nonnull %.val11) #37
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7cecc85e59fc4d77E"(ptr nonnull %.val10, ptr nonnull readonly %.val11) #37
   br label %common.resume
 
 39:                                               ; preds = %33
@@ -9043,7 +9043,7 @@ common.resume:                                    ; preds = %149, %157, %139, %1
 51:                                               ; preds = %47
   %52 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha335524087f12247E"(ptr nonnull %.val12, ptr nonnull %.val13) #37
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha335524087f12247E"(ptr nonnull %.val12, ptr nonnull readonly %.val13) #37
   br label %common.resume
 
 53:                                               ; preds = %47
@@ -9093,7 +9093,7 @@ common.resume:                                    ; preds = %149, %157, %139, %1
 71:                                               ; preds = %67
   %72 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7cecc85e59fc4d77E"(ptr nonnull %.val8, ptr nonnull %.val9) #37
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7cecc85e59fc4d77E"(ptr nonnull %.val8, ptr nonnull readonly %.val9) #37
   br label %common.resume
 
 73:                                               ; preds = %67
@@ -9220,7 +9220,7 @@ common.resume:                                    ; preds = %149, %157, %139, %1
 125:                                              ; preds = %121
   %126 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7cecc85e59fc4d77E"(ptr nonnull %.val6, ptr nonnull %.val7) #37
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7cecc85e59fc4d77E"(ptr nonnull %.val6, ptr nonnull readonly %.val7) #37
   br label %common.resume
 
 127:                                              ; preds = %121
@@ -9249,7 +9249,7 @@ common.resume:                                    ; preds = %149, %157, %139, %1
 139:                                              ; preds = %135
   %140 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7cecc85e59fc4d77E"(ptr nonnull %.val4, ptr nonnull %.val5) #37
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7cecc85e59fc4d77E"(ptr nonnull %.val4, ptr nonnull readonly %.val5) #37
   br label %common.resume
 
 141:                                              ; preds = %135
@@ -9289,7 +9289,7 @@ common.resume:                                    ; preds = %149, %157, %139, %1
 157:                                              ; preds = %153
   %158 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7cecc85e59fc4d77E"(ptr nonnull %.val, ptr nonnull %.val1) #37
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7cecc85e59fc4d77E"(ptr nonnull %.val, ptr nonnull readonly %.val1) #37
   br label %common.resume
 
 159:                                              ; preds = %153

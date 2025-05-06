@@ -347,7 +347,7 @@ define dso_local range(i32 0, 2) i32 @hllDenseSet(ptr noundef captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @hllDenseAdd(ptr noundef captures(none) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @hllDenseAdd(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
   %5 = call i32 @hllPatLen(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %4)
@@ -1530,7 +1530,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 declare void @sdsIncrLen(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @hllSparseAdd(ptr noundef captures(none) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #5 {
+define dso_local range(i32 -1, 2) i32 @hllSparseAdd(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
   %5 = call i32 @hllPatLen(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %4)
@@ -2059,7 +2059,7 @@ declare void @_serverPanic(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 declare i64 @llroundl(x86_fp80 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @hllAdd(ptr noundef captures(none) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #5 {
+define dso_local range(i32 -1, 2) i32 @hllAdd(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2074,7 +2074,7 @@ define dso_local range(i32 -1, 2) i32 @hllAdd(ptr noundef captures(none) %0, ptr
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
-  %12 = call i32 @hllPatLen(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %5)
+  %12 = call i32 @hllPatLen(ptr noundef readonly %1, i64 noundef %2, ptr noundef nonnull %5)
   %13 = load i64, ptr %5, align 8, !tbaa !5
   %14 = mul nsw i64 %13, 6
   %15 = sdiv i64 %14, 8
@@ -2121,7 +2121,7 @@ hllDenseAdd.exit:                                 ; preds = %10, %30
 
 46:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
-  %47 = call i32 @hllPatLen(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %4)
+  %47 = call i32 @hllPatLen(ptr noundef readonly %1, i64 noundef %2, ptr noundef nonnull %4)
   %48 = trunc nuw nsw i32 %47 to i8
   %49 = load i64, ptr %4, align 8, !tbaa !5
   %50 = tail call range(i32 -1, 2) i32 @hllSparseSet(ptr noundef nonnull %0, i64 noundef %49, i8 noundef zeroext %48)

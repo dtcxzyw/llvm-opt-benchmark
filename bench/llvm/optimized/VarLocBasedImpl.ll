@@ -5999,7 +5999,7 @@ _ZN12_GLOBAL__N_114VarLocBasedLDV15getVarLocsInMBBEPKN4llvm17MachineBasicBlockER
   store i32 0, ptr %21, align 4, !tbaa !266
   call void @_ZN4llvm8SmallSetINS_8RegisterELj32ESt4lessIS1_EE10insertImplIS1_EESt4pairINS_16SmallSetIteratorIS1_Lj32ES3_EEbEOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.340") align 8 %20, ptr noundef nonnull align 8 dereferenceable(192) %19, ptr noundef nonnull align 4 dereferenceable(4) %21)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #22
-  call fastcc void @_ZN12_GLOBAL__N_114VarLocBasedLDV17collectIDsForRegsERN4llvm8SmallSetIjLj32ESt4lessIjEEERKNS2_INS1_8RegisterELj32ES3_IS7_EEERKNS1_19CoalescingBitVectorImEERKNS0_9VarLocMapE(ptr noundef nonnull align 8 dereferenceable(192) %18, ptr noundef nonnull align 8 dereferenceable(192) %19, ptr noundef nonnull align 8 dereferenceable(216) %2460, ptr noundef nonnull align 8 dereferenceable(184) %46)
+  call fastcc void @_ZN12_GLOBAL__N_114VarLocBasedLDV17collectIDsForRegsERN4llvm8SmallSetIjLj32ESt4lessIjEEERKNS2_INS1_8RegisterELj32ES3_IS7_EEERKNS1_19CoalescingBitVectorImEERKNS0_9VarLocMapE(ptr noundef nonnull align 8 dereferenceable(192) %18, ptr noundef nonnull align 8 dereferenceable(192) %19, ptr noundef nonnull align 8 dereferenceable(216) %2460, ptr noundef nonnull readonly align 8 dereferenceable(184) %46)
   %2461 = load i64, ptr %965, align 8, !tbaa !203, !noalias !517
   %2462 = icmp eq i64 %2461, 0
   %.val.i244 = load ptr, ptr %18, align 8
@@ -6673,11 +6673,11 @@ _ZNK4llvm13DebugVariableltERKS0_.exit13.thread17.i.i.i.i: ; preds = %_ZNK4llvm13
   %.val12.val.i.i.i.i.i = load ptr, ptr %2706, align 8, !tbaa !6, !noalias !523
   %2747 = getelementptr inbounds nuw i8, ptr %2700, i64 104
   %.val12.val14.i.i.i.i.i = load i32, ptr %2747, align 8, !tbaa !11, !noalias !523
-  %2748 = call fastcc noundef zeroext i1 @_ZNK4llvm15SmallVectorImplIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEltERKS5_(ptr %.val10.val.i.i.i.i.i, i32 %.val10.val13.i.i.i.i.i, ptr %.val12.val.i.i.i.i.i, i32 %.val12.val14.i.i.i.i.i), !noalias !523
+  %2748 = call fastcc noundef zeroext i1 @_ZNK4llvm15SmallVectorImplIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEltERKS5_(ptr readonly %.val10.val.i.i.i.i.i, i32 %.val10.val13.i.i.i.i.i, ptr readonly %.val12.val.i.i.i.i.i, i32 %.val12.val14.i.i.i.i.i), !noalias !523
   br i1 %2748, label %_ZNKSt4lessIN12_GLOBAL__N_114VarLocBasedLDV6VarLocEEclERKS2_S5_.exit.thread, label %2749
 
 2749:                                             ; preds = %2746
-  %2750 = call fastcc noundef zeroext i1 @_ZNK4llvm15SmallVectorImplIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEltERKS5_(ptr %.val12.val.i.i.i.i.i, i32 %.val12.val14.i.i.i.i.i, ptr %.val10.val.i.i.i.i.i, i32 %.val10.val13.i.i.i.i.i), !noalias !523
+  %2750 = call fastcc noundef zeroext i1 @_ZNK4llvm15SmallVectorImplIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEltERKS5_(ptr readonly %.val12.val.i.i.i.i.i, i32 %.val12.val14.i.i.i.i.i, ptr readonly %.val10.val.i.i.i.i.i, i32 %.val10.val13.i.i.i.i.i), !noalias !523
   br i1 %2750, label %_ZNKSt3mapIN12_GLOBAL__N_114VarLocBasedLDV6VarLocEN4llvm11SmallVectorINS0_8LocIndexELj2EEESt4lessIS2_ESaISt4pairIKS2_S6_EEE4findERSA_.exit.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_114VarLocBasedLDV6VarLocEEclERKS2_S5_.exit
 
 _ZNKSt4lessIN12_GLOBAL__N_114VarLocBasedLDV6VarLocEEclERKS2_S5_.exit: ; preds = %2749
@@ -12031,7 +12031,7 @@ _ZN4llvm19CoalescingBitVectorImE14const_iteratorD2Ev.exit.i.i73: ; preds = %1193
 
 _ZN4llvm14iterator_rangeINS_19CoalescingBitVectorImE14const_iteratorEED2Ev.exit.i: ; preds = %1197, %_ZN4llvm19CoalescingBitVectorImE14const_iteratorD2Ev.exit.i.i73
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %43) #22
-  call fastcc void @_ZN12_GLOBAL__N_114VarLocBasedLDV13OpenRangesSet5eraseERKN4llvm8SmallSetIjLj32ESt4lessIjEEERKNS0_9VarLocMapEj(ptr noundef nonnull align 8 dereferenceable(1400) %2, ptr noundef nonnull align 8 dereferenceable(192) %42, ptr noundef nonnull align 8 dereferenceable(184) %3, i32 noundef 1073741826)
+  call fastcc void @_ZN12_GLOBAL__N_114VarLocBasedLDV13OpenRangesSet5eraseERKN4llvm8SmallSetIjLj32ESt4lessIjEEERKNS0_9VarLocMapEj(ptr noundef nonnull align 8 dereferenceable(1400) %2, ptr noundef nonnull align 8 dereferenceable(192) %42, ptr noundef nonnull readonly align 8 dereferenceable(184) %3, i32 noundef 1073741826)
   %1198 = getelementptr inbounds nuw i8, ptr %42, i64 144
   %1199 = load ptr, ptr %1126, align 8, !tbaa !200
   call void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(48) %1198, ptr noundef %1199)
@@ -18056,11 +18056,11 @@ _ZNK4llvm13DebugVariableltERKS0_.exit13.thread17.i.i.i: ; preds = %_ZNK4llvm13De
   %.val12.val.i.i.i.i = load ptr, ptr %7, align 8, !tbaa !6
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.val12.val14.i.i.i.i = load i32, ptr %54, align 8, !tbaa !11
-  %55 = tail call fastcc noundef zeroext i1 @_ZNK4llvm15SmallVectorImplIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEltERKS5_(ptr %.val10.val.i.i.i.i, i32 %.val10.val13.i.i.i.i, ptr %.val12.val.i.i.i.i, i32 %.val12.val14.i.i.i.i)
+  %55 = tail call fastcc noundef zeroext i1 @_ZNK4llvm15SmallVectorImplIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEltERKS5_(ptr readonly %.val10.val.i.i.i.i, i32 %.val10.val13.i.i.i.i, ptr readonly %.val12.val.i.i.i.i, i32 %.val12.val14.i.i.i.i)
   br i1 %55, label %_ZNK12_GLOBAL__N_114VarLocBasedLDV6VarLocltERKS1_.exit, label %56
 
 56:                                               ; preds = %52
-  %57 = tail call fastcc noundef zeroext i1 @_ZNK4llvm15SmallVectorImplIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEltERKS5_(ptr %.val12.val.i.i.i.i, i32 %.val12.val14.i.i.i.i, ptr %.val10.val.i.i.i.i, i32 %.val10.val13.i.i.i.i)
+  %57 = tail call fastcc noundef zeroext i1 @_ZNK4llvm15SmallVectorImplIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEltERKS5_(ptr readonly %.val12.val.i.i.i.i, i32 %.val12.val14.i.i.i.i, ptr readonly %.val10.val.i.i.i.i, i32 %.val10.val13.i.i.i.i)
   br i1 %57, label %_ZNK12_GLOBAL__N_114VarLocBasedLDV6VarLocltERKS1_.exit, label %58
 
 58:                                               ; preds = %56
@@ -28064,11 +28064,11 @@ _ZNK4llvm13DebugVariableltERKS0_.exit13.thread17.i.i.i.i36: ; preds = %_ZNK4llvm
   %.val10.val13.i.i.i.i.i38 = load i32, ptr %208, align 8, !tbaa !11, !noalias !944
   %.val12.val.i.i.i.i.i39 = load ptr, ptr %157, align 8, !tbaa !6, !noalias !944
   %.val12.val14.i.i.i.i.i40 = load i32, ptr %164, align 8, !tbaa !11, !noalias !944
-  %209 = call fastcc noundef zeroext i1 @_ZNK4llvm15SmallVectorImplIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEltERKS5_(ptr %.val10.val.i.i.i.i.i37, i32 %.val10.val13.i.i.i.i.i38, ptr %.val12.val.i.i.i.i.i39, i32 %.val12.val14.i.i.i.i.i40), !noalias !944
+  %209 = call fastcc noundef zeroext i1 @_ZNK4llvm15SmallVectorImplIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEltERKS5_(ptr readonly %.val10.val.i.i.i.i.i37, i32 %.val10.val13.i.i.i.i.i38, ptr readonly %.val12.val.i.i.i.i.i39, i32 %.val12.val14.i.i.i.i.i40), !noalias !944
   br i1 %209, label %.thread54, label %210
 
 210:                                              ; preds = %207
-  %211 = call fastcc noundef zeroext i1 @_ZNK4llvm15SmallVectorImplIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEltERKS5_(ptr %.val12.val.i.i.i.i.i39, i32 %.val12.val14.i.i.i.i.i40, ptr %.val10.val.i.i.i.i.i37, i32 %.val10.val13.i.i.i.i.i38), !noalias !944
+  %211 = call fastcc noundef zeroext i1 @_ZNK4llvm15SmallVectorImplIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEltERKS5_(ptr readonly %.val12.val.i.i.i.i.i39, i32 %.val12.val14.i.i.i.i.i40, ptr readonly %.val10.val.i.i.i.i.i37, i32 %.val10.val13.i.i.i.i.i38), !noalias !944
   br i1 %211, label %.thread54, label %_ZNKSt4lessIN12_GLOBAL__N_114VarLocBasedLDV6VarLocEEclERKS2_S5_.exit46
 
 _ZNKSt4lessIN12_GLOBAL__N_114VarLocBasedLDV6VarLocEEclERKS2_S5_.exit46: ; preds = %210
@@ -28176,11 +28176,11 @@ _ZNK4llvm13DebugVariableltERKS0_.exit13.thread17.i.i.i.i: ; preds = %_ZNK4llvm13
   %.val12.val.i.i.i.i.i = load ptr, ptr %219, align 8, !tbaa !6, !noalias !944
   %260 = getelementptr inbounds nuw i8, ptr %213, i64 104
   %.val12.val14.i.i.i.i.i = load i32, ptr %260, align 8, !tbaa !11, !noalias !944
-  %261 = call fastcc noundef zeroext i1 @_ZNK4llvm15SmallVectorImplIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEltERKS5_(ptr %.val10.val.i.i.i.i.i, i32 %.val10.val13.i.i.i.i.i, ptr %.val12.val.i.i.i.i.i, i32 %.val12.val14.i.i.i.i.i), !noalias !944
+  %261 = call fastcc noundef zeroext i1 @_ZNK4llvm15SmallVectorImplIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEltERKS5_(ptr readonly %.val10.val.i.i.i.i.i, i32 %.val10.val13.i.i.i.i.i, ptr readonly %.val12.val.i.i.i.i.i, i32 %.val12.val14.i.i.i.i.i), !noalias !944
   br i1 %261, label %_ZNKSt4lessIN12_GLOBAL__N_114VarLocBasedLDV6VarLocEEclERKS2_S5_.exit.thread, label %262
 
 262:                                              ; preds = %259
-  %263 = call fastcc noundef zeroext i1 @_ZNK4llvm15SmallVectorImplIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEltERKS5_(ptr %.val12.val.i.i.i.i.i, i32 %.val12.val14.i.i.i.i.i, ptr %.val10.val.i.i.i.i.i, i32 %.val10.val13.i.i.i.i.i), !noalias !944
+  %263 = call fastcc noundef zeroext i1 @_ZNK4llvm15SmallVectorImplIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEltERKS5_(ptr readonly %.val12.val.i.i.i.i.i, i32 %.val12.val14.i.i.i.i.i, ptr readonly %.val10.val.i.i.i.i.i, i32 %.val10.val13.i.i.i.i.i), !noalias !944
   br i1 %263, label %_ZNKSt3mapIN12_GLOBAL__N_114VarLocBasedLDV6VarLocEN4llvm11SmallVectorINS0_8LocIndexELj2EEESt4lessIS2_ESaISt4pairIKS2_S6_EEE4findERSA_.exit.i, label %_ZNKSt4lessIN12_GLOBAL__N_114VarLocBasedLDV6VarLocEEclERKS2_S5_.exit
 
 _ZNKSt4lessIN12_GLOBAL__N_114VarLocBasedLDV6VarLocEEclERKS2_S5_.exit: ; preds = %262
@@ -31463,11 +31463,11 @@ _ZNK4llvm13DebugVariableltERKS0_.exit13.thread17.i.i.i.i: ; preds = %_ZNK4llvm13
   %.val10.val13.i.i.i.i.i = load i32, ptr %136, align 8, !tbaa !11, !noalias !996
   %.val12.val.i.i.i.i.i = load ptr, ptr %85, align 8, !tbaa !6, !noalias !996
   %.val12.val14.i.i.i.i.i = load i32, ptr %92, align 8, !tbaa !11, !noalias !996
-  %137 = call fastcc noundef zeroext i1 @_ZNK4llvm15SmallVectorImplIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEltERKS5_(ptr %.val10.val.i.i.i.i.i, i32 %.val10.val13.i.i.i.i.i, ptr %.val12.val.i.i.i.i.i, i32 %.val12.val14.i.i.i.i.i), !noalias !996
+  %137 = call fastcc noundef zeroext i1 @_ZNK4llvm15SmallVectorImplIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEltERKS5_(ptr readonly %.val10.val.i.i.i.i.i, i32 %.val10.val13.i.i.i.i.i, ptr readonly %.val12.val.i.i.i.i.i, i32 %.val12.val14.i.i.i.i.i), !noalias !996
   br i1 %137, label %.thread76, label %138
 
 138:                                              ; preds = %135
-  %139 = call fastcc noundef zeroext i1 @_ZNK4llvm15SmallVectorImplIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEltERKS5_(ptr %.val12.val.i.i.i.i.i, i32 %.val12.val14.i.i.i.i.i, ptr %.val10.val.i.i.i.i.i, i32 %.val10.val13.i.i.i.i.i), !noalias !996
+  %139 = call fastcc noundef zeroext i1 @_ZNK4llvm15SmallVectorImplIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEltERKS5_(ptr readonly %.val12.val.i.i.i.i.i, i32 %.val12.val14.i.i.i.i.i, ptr readonly %.val10.val.i.i.i.i.i, i32 %.val10.val13.i.i.i.i.i), !noalias !996
   br i1 %139, label %.thread76, label %_ZNKSt4lessIN12_GLOBAL__N_114VarLocBasedLDV6VarLocEEclERKS2_S5_.exit
 
 _ZNKSt4lessIN12_GLOBAL__N_114VarLocBasedLDV6VarLocEEclERKS2_S5_.exit: ; preds = %138
@@ -33800,7 +33800,7 @@ _ZNK12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLoceqERKS2_.exit.thread: ; pre
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114VarLocBasedLDV23insertTransferDebugPairERN4llvm12MachineInstrERNS0_13OpenRangesSetERNS1_11SmallVectorINS0_17TransferDebugPairELj4EEERNS0_9VarLocMapENS_8LocIndexENS0_12TransferKindERKNS0_6VarLoc10MachineLocENS1_8RegisterEENK3$_0clERSE_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(384) %1) unnamed_addr #16 align 2 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114VarLocBasedLDV23insertTransferDebugPairERN4llvm12MachineInstrERNS0_13OpenRangesSetERNS1_11SmallVectorINS0_17TransferDebugPairELj4EEERNS0_9VarLocMapENS_8LocIndexENS0_12TransferKindERKNS0_6VarLoc10MachineLocENS1_8RegisterEENK3$_0clERSE_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(384) %1) unnamed_addr #16 align 2 {
   %3 = alloca %"class.llvm::SmallVector.291", align 8
   %4 = alloca %"class.llvm::SmallVector.291", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #22

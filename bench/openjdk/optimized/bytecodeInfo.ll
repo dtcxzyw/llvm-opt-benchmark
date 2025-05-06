@@ -1530,7 +1530,7 @@ declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr nound
 declare void @_ZN13CompilerEvent11InlineEvent4postER21EventCompilerInliningiP6MethodP8ciMethodbPKci(ptr noundef nonnull align 8 dereferenceable(76), i32 noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10InlineTree12ok_to_inlineEP8ciMethodP8JVMStateR13ciCallProfileRb(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN10InlineTree12ok_to_inlineEP8ciMethodP8JVMStateR13ciCallProfileRb(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -1629,7 +1629,7 @@ define hidden noundef zeroext i1 @_ZN10InlineTree12ok_to_inlineEP8ciMethodP8JVMS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10InlineTree28build_inline_tree_for_calleeEP8ciMethodP8JVMStatei(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN10InlineTree28build_inline_tree_for_calleeEP8ciMethodP8JVMStatei(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0

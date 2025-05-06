@@ -2135,8 +2135,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h39b5c02848262405E"(ptr noundef nonnull %0, ptr noundef captures(address) %1, ptr noalias noundef align 8 dereferenceable(72) %2) unnamed_addr #7 {
-  tail call void @_ZN4core4iter6traits8iterator8Iterator4fold17hf8dc08518c35f5afE.llvm.14728845296163125433(ptr noundef nonnull %0, ptr noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h39b5c02848262405E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, ptr noalias noundef align 8 dereferenceable(72) %2) unnamed_addr #7 {
+  tail call void @_ZN4core4iter6traits8iterator8Iterator4fold17hf8dc08518c35f5afE.llvm.14728845296163125433(ptr noundef nonnull %0, ptr noundef readnone %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
   ret void
 }
 
@@ -2354,7 +2354,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h49f09c7dbd118187E.llvm.14728845296163125433"(ptr noundef nonnull %0, ptr noundef captures(address) %1, ptr noalias noundef align 8 dereferenceable(72) %2) unnamed_addr #7 {
+define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h49f09c7dbd118187E.llvm.14728845296163125433"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, ptr noalias noundef align 8 dereferenceable(72) %2) unnamed_addr #7 {
   tail call void @_ZN4core4iter6traits8iterator8Iterator4fold17hf8dc08518c35f5afE.llvm.14728845296163125433(ptr noundef nonnull %0, ptr noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
   ret void
 }

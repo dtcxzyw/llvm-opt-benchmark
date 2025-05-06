@@ -1839,7 +1839,7 @@ if.then5.i.i:                                     ; preds = %release.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3re23RE210FullMatchNEN4absl7debian211string_viewERKS0_PKPKNS0_3ArgEi(ptr %text.coerce0, i64 %text.coerce1, ptr noundef nonnull align 8 dereferenceable(148) %re, ptr noundef captures(address_is_null) %args, i32 noundef %n) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3re23RE210FullMatchNEN4absl7debian211string_viewERKS0_PKPKNS0_3ArgEi(ptr %text.coerce0, i64 %text.coerce1, ptr noundef nonnull align 8 dereferenceable(148) %re, ptr noundef readonly captures(address_is_null) %args, i32 noundef %n) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK3re23RE27DoMatchEN4absl7debian211string_viewENS0_6AnchorEPmPKPKNS0_3ArgEi(ptr noundef nonnull align 8 dereferenceable(148) %re, ptr %text.coerce0, i64 %text.coerce1, i32 noundef 2, ptr noundef null, ptr noundef %args, i32 noundef %n)
   ret i1 %call
@@ -2055,14 +2055,14 @@ return:                                           ; preds = %invoke.cont11.i.i25
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3re23RE213PartialMatchNEN4absl7debian211string_viewERKS0_PKPKNS0_3ArgEi(ptr %text.coerce0, i64 %text.coerce1, ptr noundef nonnull align 8 dereferenceable(148) %re, ptr noundef captures(address_is_null) %args, i32 noundef %n) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3re23RE213PartialMatchNEN4absl7debian211string_viewERKS0_PKPKNS0_3ArgEi(ptr %text.coerce0, i64 %text.coerce1, ptr noundef nonnull align 8 dereferenceable(148) %re, ptr noundef readonly captures(address_is_null) %args, i32 noundef %n) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK3re23RE27DoMatchEN4absl7debian211string_viewENS0_6AnchorEPmPKPKNS0_3ArgEi(ptr noundef nonnull align 8 dereferenceable(148) %re, ptr %text.coerce0, i64 %text.coerce1, i32 noundef 0, ptr noundef null, ptr noundef %args, i32 noundef %n)
   ret i1 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3re23RE28ConsumeNEPN4absl7debian211string_viewERKS0_PKPKNS0_3ArgEi(ptr noundef captures(none) %input, ptr noundef nonnull align 8 dereferenceable(148) %re, ptr noundef captures(address_is_null) %args, i32 noundef %n) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3re23RE28ConsumeNEPN4absl7debian211string_viewERKS0_PKPKNS0_3ArgEi(ptr noundef captures(none) %input, ptr noundef nonnull align 8 dereferenceable(148) %re, ptr noundef readonly captures(address_is_null) %args, i32 noundef %n) local_unnamed_addr #2 align 2 {
 entry:
   %consumed = alloca i64, align 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %input, align 8
@@ -2094,7 +2094,7 @@ return:                                           ; preds = %entry, %_ZN4absl7de
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3re23RE215FindAndConsumeNEPN4absl7debian211string_viewERKS0_PKPKNS0_3ArgEi(ptr noundef captures(none) %input, ptr noundef nonnull align 8 dereferenceable(148) %re, ptr noundef captures(address_is_null) %args, i32 noundef %n) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3re23RE215FindAndConsumeNEPN4absl7debian211string_viewERKS0_PKPKNS0_3ArgEi(ptr noundef captures(none) %input, ptr noundef nonnull align 8 dereferenceable(148) %re, ptr noundef readonly captures(address_is_null) %args, i32 noundef %n) local_unnamed_addr #2 align 2 {
 entry:
   %consumed = alloca i64, align 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %input, align 8

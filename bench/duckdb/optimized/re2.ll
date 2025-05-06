@@ -2406,7 +2406,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re23RE210FullMatchNERKNS_11StringPieceERKS0_PKPKNS0_3ArgEi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(148) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re23RE210FullMatchNERKNS_11StringPieceERKS0_PKPKNS0_3ArgEi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(148) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
   %5 = tail call noundef zeroext i1 @_ZNK10duckdb_re23RE27DoMatchERKNS_11StringPieceENS0_6AnchorEPmPKPKNS0_3ArgEi(ptr noundef nonnull align 8 dereferenceable(148) %1, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 2, ptr noundef null, ptr noundef %2, i32 noundef %3)
   ret i1 %5
 }
@@ -2605,13 +2605,13 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re23RE213PartialMatchNERKNS_11StringPieceERKS0_PKPKNS0_3ArgEi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(148) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re23RE213PartialMatchNERKNS_11StringPieceERKS0_PKPKNS0_3ArgEi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(148) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
   %5 = tail call noundef zeroext i1 @_ZNK10duckdb_re23RE27DoMatchERKNS_11StringPieceENS0_6AnchorEPmPKPKNS0_3ArgEi(ptr noundef nonnull align 8 dereferenceable(148) %1, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 0, ptr noundef null, ptr noundef %2, i32 noundef %3)
   ret i1 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re23RE28ConsumeNEPNS_11StringPieceERKS0_PKPKNS0_3ArgEi(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(148) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re23RE28ConsumeNEPNS_11StringPieceERKS0_PKPKNS0_3ArgEi(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(148) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #31
   %6 = call noundef zeroext i1 @_ZNK10duckdb_re23RE27DoMatchERKNS_11StringPieceENS0_6AnchorEPmPKPKNS0_3ArgEi(ptr noundef nonnull align 8 dereferenceable(148) %1, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 1, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %3)
@@ -2634,7 +2634,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re23RE28ConsumeNEPNS_11StringPiece
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re23RE215FindAndConsumeNEPNS_11StringPieceERKS0_PKPKNS0_3ArgEi(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(148) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re23RE215FindAndConsumeNEPNS_11StringPieceERKS0_PKPKNS0_3ArgEi(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(148) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #31
   %6 = call noundef zeroext i1 @_ZNK10duckdb_re23RE27DoMatchERKNS_11StringPieceENS0_6AnchorEPmPKPKNS0_3ArgEi(ptr noundef nonnull align 8 dereferenceable(148) %1, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %3)

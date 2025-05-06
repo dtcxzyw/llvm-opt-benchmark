@@ -2836,7 +2836,7 @@ define dso_local i64 @_ZN5clang6Parser35ParseExpressionWithLeadingExtensionENS_1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang6Parser19ParseCastExpressionENS0_13CastParseKindEbNS0_13TypeCastStateEbPb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang6Parser19ParseCastExpressionENS0_13CastParseKindEbNS0_13TypeCastStateEbPb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 align 2 {
   %7 = alloca i8, align 1
   %8 = alloca %"class.clang::DiagnosticBuilder", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #20
@@ -6180,7 +6180,7 @@ declare i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereference
 declare i64 @_ZN5clang4Sema18ActOnConditionalOpENS_14SourceLocationES1_PNS_4ExprES3_S3_(ptr noundef nonnull align 8 dereferenceable(17504), i32, i32, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang6Parser19ParseCastExpressionENS0_13CastParseKindEbRbNS0_13TypeCastStateEbPb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 1 dereferenceable(1) initializes((0, 1)) %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang6Parser19ParseCastExpressionENS0_13CastParseKindEbRbNS0_13TypeCastStateEbPb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 1 dereferenceable(1) initializes((0, 1)) %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"class.clang::CharSourceRange", align 8
   %9 = alloca %"class.clang::CharSourceRange", align 8
   %10 = alloca %"class.clang::ActionResult", align 8

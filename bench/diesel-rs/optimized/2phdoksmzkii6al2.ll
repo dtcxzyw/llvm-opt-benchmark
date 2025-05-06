@@ -1144,7 +1144,7 @@ _ZN10serde_json3ser9Formatter10write_null17h328a4b2c6f358636E.exit.i.i: ; preds 
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %212 = load i64, ptr %211, align 8, !noundef !11
   %.val15 = load ptr, ptr %1, align 8, !nonnull !11, !align !12, !noundef !11
-  %213 = tail call fastcc noundef ptr @_ZN10serde_json3ser18format_escaped_str17hd4a5dd9b5e7ebcacE(ptr nonnull %.val15, ptr noalias noundef nonnull readonly align 1 %210, i64 noundef %212)
+  %213 = tail call fastcc noundef ptr @_ZN10serde_json3ser18format_escaped_str17hd4a5dd9b5e7ebcacE(ptr nonnull readonly %.val15, ptr noalias noundef nonnull readonly align 1 %210, i64 noundef %212)
   %214 = icmp eq ptr %213, null
   br i1 %214, label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_bool17h296bd3835e56a802E.exit", label %215
 
@@ -1455,7 +1455,7 @@ _ZN10serde_json3ser9Formatter16begin_object_key17h74db7dcd87103236E.exit.i: ; pr
   %353 = icmp ne ptr %.val.i22, null
   call void @llvm.assume(i1 %353), !noalias !562
   %.val8.i = load ptr, ptr %1, align 8, !noalias !556, !nonnull !11, !align !12, !noundef !11
-  %354 = call fastcc noundef ptr @_ZN10serde_json3ser18format_escaped_str17hd4a5dd9b5e7ebcacE(ptr nonnull %.val8.i, ptr noalias noundef nonnull readonly align 1 %.val.i22, i64 noundef %.val3.i), !noalias !556
+  %354 = call fastcc noundef ptr @_ZN10serde_json3ser18format_escaped_str17hd4a5dd9b5e7ebcacE(ptr nonnull readonly %.val8.i, ptr noalias noundef nonnull readonly align 1 %.val.i22, i64 noundef %.val3.i), !noalias !556
   %355 = icmp eq ptr %354, null
   br i1 %355, label %357, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hf5962f58baa2774aE.exit"
 
@@ -1911,7 +1911,7 @@ _ZN10serde_json3ser9Formatter10write_null17h014401fd1f18ad6cE.exit.i.i: ; preds 
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %212 = load i64, ptr %211, align 8, !noundef !11
   %.val15 = load ptr, ptr %1, align 8, !nonnull !11, !align !12, !noundef !11
-  %213 = tail call fastcc noundef ptr @_ZN10serde_json3ser18format_escaped_str17haa82b524e56ca944E(ptr nonnull %.val15, ptr noalias noundef nonnull readonly align 1 %210, i64 noundef %212)
+  %213 = tail call fastcc noundef ptr @_ZN10serde_json3ser18format_escaped_str17haa82b524e56ca944E(ptr nonnull readonly %.val15, ptr noalias noundef nonnull readonly align 1 %210, i64 noundef %212)
   %214 = icmp eq ptr %213, null
   br i1 %214, label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_bool17h6601ab93ef28415fE.exit", label %215
 
@@ -2222,7 +2222,7 @@ _ZN10serde_json3ser9Formatter16begin_object_key17h0ec8153354ff5bd6E.exit.i: ; pr
   %353 = icmp ne ptr %.val.i22, null
   call void @llvm.assume(i1 %353), !noalias !908
   %.val8.i = load ptr, ptr %1, align 8, !noalias !902, !nonnull !11, !align !12, !noundef !11
-  %354 = call fastcc noundef ptr @_ZN10serde_json3ser18format_escaped_str17haa82b524e56ca944E(ptr nonnull %.val8.i, ptr noalias noundef nonnull readonly align 1 %.val.i22, i64 noundef %.val3.i), !noalias !902
+  %354 = call fastcc noundef ptr @_ZN10serde_json3ser18format_escaped_str17haa82b524e56ca944E(ptr nonnull readonly %.val8.i, ptr noalias noundef nonnull readonly align 1 %.val.i22, i64 noundef %.val3.i), !noalias !902
   %355 = icmp eq ptr %354, null
   br i1 %355, label %357, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17h463f128ff9b1289eE.exit"
 

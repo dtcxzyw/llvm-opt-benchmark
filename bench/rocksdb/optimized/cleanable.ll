@@ -382,7 +382,7 @@ _ZN7rocksdb18SharedCleanablePtr5ResetEv.exit:     ; preds = %1, %_ZN7rocksdb18Sh
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18SharedCleanablePtrC2ERKS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %1) unnamed_addr #5 align 2 {
+define void @_ZN7rocksdb18SharedCleanablePtrC2ERKS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %1) unnamed_addr #5 align 2 {
   store ptr null, ptr %0, align 8, !tbaa !25
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7rocksdb18SharedCleanablePtraSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void

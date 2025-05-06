@@ -18048,7 +18048,7 @@ define i32 @llama_token_fim_sep(ptr noundef readonly captures(none) %0) local_un
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @llama_tokenize(ptr noundef nonnull readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
+define noundef i32 @llama_tokenize(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = tail call noundef i32 @_ZNK11llama_vocab8tokenizeEPKciPiibb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6)
   ret i32 %8
 }

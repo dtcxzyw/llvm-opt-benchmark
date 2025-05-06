@@ -11289,7 +11289,7 @@ _ZN4llvm11SmallVectorIN5clang5RISCV19PrototypeDescriptorELj13EED2Ev.exit208: ; p
   br i1 %.not.i209, label %688, label %685
 
 685:                                              ; preds = %_ZN4llvm11SmallVectorIN5clang5RISCV19PrototypeDescriptorELj13EED2Ev.exit208
-  call fastcc void @_ZN12_GLOBAL__N_110SemaRecordC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(278) %683, ptr noundef nonnull align 8 dereferenceable(278) %37)
+  call fastcc void @_ZN12_GLOBAL__N_110SemaRecordC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(278) %683, ptr noundef nonnull readonly align 8 dereferenceable(278) %37)
   %686 = load ptr, ptr %126, align 8, !tbaa !138
   %687 = getelementptr inbounds nuw i8, ptr %686, i64 280
   store ptr %687, ptr %126, align 8, !tbaa !138
@@ -11320,7 +11320,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_110SemaRecordESaIS1_EE12_M_check_lenEmPKc.exit.i.i: 
   %700 = mul nuw nsw i64 %699, 280
   %701 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %700) #26
   %702 = getelementptr inbounds nuw i8, ptr %701, i64 %691
-  call fastcc void @_ZN12_GLOBAL__N_110SemaRecordC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(278) %702, ptr noundef nonnull align 8 dereferenceable(278) %37)
+  call fastcc void @_ZN12_GLOBAL__N_110SemaRecordC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(278) %702, ptr noundef nonnull readonly align 8 dereferenceable(278) %37)
   br i1 %695, label %_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_110SemaRecordES2_SaIS1_EET0_T_S5_S4_RT1_.exit28.i.thread.i, label %.lr.ph.i.i.i.i.i.i.i
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_110SemaRecordES2_SaIS1_EET0_T_S5_S4_RT1_.exit28.i.thread.i: ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_110SemaRecordESaIS1_EE12_M_check_lenEmPKc.exit.i.i
@@ -11330,7 +11330,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_110SemaRecordES2_SaIS1_E
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_110SemaRecordESaIS1_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i = phi ptr [ %705, %.lr.ph.i.i.i.i.i.i.i ], [ %701, %_ZNKSt6vectorIN12_GLOBAL__N_110SemaRecordESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
   %.0810.i.i.i.i.i.i.i = phi ptr [ %704, %.lr.ph.i.i.i.i.i.i.i ], [ %.val.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_110SemaRecordESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
-  call fastcc void @_ZN12_GLOBAL__N_110SemaRecordC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(278) %.011.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(278) %.0810.i.i.i.i.i.i.i)
+  call fastcc void @_ZN12_GLOBAL__N_110SemaRecordC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(278) %.011.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(278) %.0810.i.i.i.i.i.i.i)
   %704 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i, i64 280
   %705 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 280
   %.not.i.i.i.i.i.i.i210 = icmp eq ptr %704, %683

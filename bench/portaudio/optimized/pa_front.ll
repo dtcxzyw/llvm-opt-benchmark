@@ -854,7 +854,7 @@ FindHostApi.exit.thread:                          ; preds = %12, %.preheader.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Pa_IsFormatSupported(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, double noundef %2) local_unnamed_addr #3 {
+define i32 @Pa_IsFormatSupported(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, double noundef %2) local_unnamed_addr #3 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1276,7 +1276,7 @@ FindHostApi.exit.thread:                          ; preds = %51, %109, %.prehead
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Pa_OpenStream(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, double noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #3 {
+define i32 @Pa_OpenStream(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, double noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #3 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4

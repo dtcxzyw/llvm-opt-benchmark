@@ -2099,7 +2099,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_014SoftimageInput20read_native_scanlineEiiiiPv(ptr noundef nonnull align 8 dereferenceable(376) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4, ptr noundef captures(address_is_null) %5) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_014SoftimageInput20read_native_scanlineEiiiiPv(ptr noundef nonnull align 8 dereferenceable(376) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca i32, align 4
   %8 = alloca %struct._G_fpos_t, align 8
   %9 = alloca %struct._G_fpos_t, align 8
@@ -2589,7 +2589,7 @@ define linkonce_odr noundef zeroext i1 @_ZN11OpenImageIO6v3_1_010ImageInput13see
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_014SoftimageInput18read_next_scanlineEPv(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_014SoftimageInput18read_next_scanlineEPv(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %5 = load ptr, ptr %4, align 8, !tbaa !83

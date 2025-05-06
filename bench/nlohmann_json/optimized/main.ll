@@ -6026,7 +6026,7 @@ _ZN7doctest12TestCaseDataD2Ev.exit:               ; preds = %_ZN7doctest6StringD
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7doctest6detail8TestCaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 80), (88, 89), (111, 112), (120, 121), (143, 144)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(144) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7doctest6detail8TestCaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 80), (88, 89), (111, 112), (120, 121), (143, 144)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(144) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
   store i8 23, ptr %3, align 1, !tbaa !38
@@ -18314,7 +18314,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIN7doctest6detail8TestCaseES2_
   store i8 0, ptr %8, align 8, !tbaa !38
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 175
   store i8 23, ptr %9, align 1, !tbaa !38
-  %10 = invoke noundef nonnull align 8 dereferenceable(144) ptr @_ZN7doctest6detail8TestCaseaSERKS1_(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(144) %2)
+  %10 = invoke noundef nonnull align 8 dereferenceable(144) ptr @_ZN7doctest6detail8TestCaseaSERKS1_(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull readonly align 8 dereferenceable(144) %2)
           to label %_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIN7doctest6detail8TestCaseEEEE9constructIS3_JRKS3_EEEvRS5_PT_DpOT0_.exit unwind label %11
 
 11:                                               ; preds = %3
@@ -19017,7 +19017,7 @@ _ZN7doctest12_GLOBAL__N_19XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIc
   %234 = load ptr, ptr %233, align 8, !tbaa !378
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 32
   %.val122 = load ptr, ptr %235, align 8, !tbaa !5
-  %236 = invoke fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter14writeAttributeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(72) %199, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, ptr noundef %.val122)
+  %236 = invoke fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter14writeAttributeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(72) %199, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, ptr noundef readonly %.val122)
           to label %_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElement14writeAttributeIPKcEERS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit unwind label %321
 
 _ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElement14writeAttributeIPKcEERS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit: ; preds = %_ZN7doctest12_GLOBAL__N_19XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit202
@@ -19031,7 +19031,7 @@ _ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElement14writeAttributeIPKcEERS2_RKNS
   %239 = load ptr, ptr %238, align 8, !tbaa !378
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 40
   %.val123 = load ptr, ptr %240, align 8, !tbaa !5
-  %241 = invoke fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter14writeAttributeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(72) %199, ptr noundef nonnull readonly align 8 dereferenceable(32) %14, ptr noundef %.val123)
+  %241 = invoke fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter14writeAttributeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(72) %199, ptr noundef nonnull readonly align 8 dereferenceable(32) %14, ptr noundef readonly %.val123)
           to label %_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElement14writeAttributeIPKcEERS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit213 unwind label %323
 
 _ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElement14writeAttributeIPKcEERS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit213: ; preds = %_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElement14writeAttributeIPKcEERS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit
@@ -19070,7 +19070,7 @@ _ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElement14writeAttributeIPKcEERS2_RKNS
 
 _ZN7doctest20skipPathFromFilenameEPKc.exit:       ; preds = %260, %253
   %.1.i = phi ptr [ %259, %253 ], [ %.0.i.i, %260 ]
-  %261 = invoke fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter14writeAttributeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(72) %199, ptr noundef nonnull readonly align 8 dereferenceable(32) %15, ptr noundef %.1.i)
+  %261 = invoke fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter14writeAttributeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(72) %199, ptr noundef nonnull readonly align 8 dereferenceable(32) %15, ptr noundef readonly %.1.i)
           to label %_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElement14writeAttributeIPKcEERS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit219 unwind label %325
 
 _ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElement14writeAttributeIPKcEERS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit219: ; preds = %_ZN7doctest20skipPathFromFilenameEPKc.exit
@@ -19601,7 +19601,7 @@ _ZN7doctest12_GLOBAL__N_19XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIc
   %447 = load ptr, ptr %446, align 8, !tbaa !378
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 40
   %.val125 = load ptr, ptr %448, align 8, !tbaa !5
-  %449 = invoke fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter14writeAttributeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(72) %424, ptr noundef nonnull readonly align 8 dereferenceable(32) %22, ptr noundef %.val125)
+  %449 = invoke fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter14writeAttributeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(72) %424, ptr noundef nonnull readonly align 8 dereferenceable(32) %22, ptr noundef readonly %.val125)
           to label %_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElement14writeAttributeIPKcEERS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit307 unwind label %470
 
 _ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElement14writeAttributeIPKcEERS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit307: ; preds = %_ZN7doctest12_GLOBAL__N_19XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit301
@@ -20306,7 +20306,7 @@ _ZN7doctest12_GLOBAL__N_19XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIc
   %133 = load ptr, ptr %130, align 8
   %134 = icmp slt i8 %132, 0
   %.0.i.i103 = select i1 %134, ptr %133, ptr %130
-  %135 = invoke fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter14writeAttributeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(72) %18, ptr noundef nonnull readonly align 8 dereferenceable(32) %9, ptr noundef %.0.i.i103)
+  %135 = invoke fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter14writeAttributeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(72) %18, ptr noundef nonnull readonly align 8 dereferenceable(32) %9, ptr noundef readonly %.0.i.i103)
           to label %_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElement14writeAttributeIPKcEERS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit unwind label %261
 
 _ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElement14writeAttributeIPKcEERS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit: ; preds = %_ZN7doctest12_GLOBAL__N_19XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit

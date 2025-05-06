@@ -11123,7 +11123,7 @@ _ZNSt3setIPN4LIEF5MachO15DyldBindingInfoESt8functionIFbS3_S3_EESaIS3_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(240) ptr @_ZN4LIEF5MachO8DyldInfo24update_standard_bindingsERKSt3setIPNS0_15DyldBindingInfoESt8functionIFbS4_S4_EESaIS4_EERNS_15vector_iostreamE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(240) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(73) %2) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(240) ptr @_ZN4LIEF5MachO8DyldInfo24update_standard_bindingsERKSt3setIPNS0_15DyldBindingInfoESt8functionIFbS4_S4_EESaIS4_EERNS_15vector_iostreamE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(240) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(73) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca %"struct.std::_Rb_tree<LIEF::MachO::Relocation *, LIEF::MachO::Relocation *, std::_Identity<LIEF::MachO::Relocation *>, LIEF::MachO::Binary::KeyCmp>::_Alloc_node", align 8

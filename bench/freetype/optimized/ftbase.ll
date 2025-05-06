@@ -5973,7 +5973,7 @@ define i32 @FT_Render_Glyph(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Load_Char(ptr noundef captures(address_is_null) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @FT_Load_Char(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %18, label %4
 
@@ -6060,7 +6060,7 @@ define i32 @FT_New_Face(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ft_open_face_internal(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, i8 noundef zeroext range(i8 0, 2) %4) unnamed_addr #0 {
+define internal fastcc i32 @ft_open_face_internal(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, i8 noundef zeroext range(i8 0, 2) %4) unnamed_addr #0 {
   %6 = alloca [128 x i8], align 16
   %7 = alloca [9 x ptr], align 16
   %8 = alloca [9 x i64], align 16
@@ -7017,7 +7017,7 @@ define i32 @FT_New_Memory_Face(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Open_Face(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define i32 @FT_Open_Face(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @ft_open_face_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i8 noundef zeroext 1)
   ret i32 %5
 }
@@ -7097,7 +7097,7 @@ FT_Attach_Stream.exit:                            ; preds = %FT_Attach_Stream.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Attach_Stream(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define i32 @FT_Attach_Stream(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #34
   %.not = icmp eq ptr %0, null
@@ -8653,7 +8653,7 @@ define i32 @FT_Select_Size(ptr noundef readonly captures(address_is_null) %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Request_Size(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @FT_Request_Size(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #34
   %.not = icmp eq ptr %0, null
@@ -8733,7 +8733,7 @@ define i32 @FT_Request_Size(ptr noundef captures(address_is_null) %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Set_Char_Size(ptr noundef captures(address_is_null) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define i32 @FT_Set_Char_Size(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.FT_Size_RequestRec_, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #34
   %.not = icmp eq i64 %1, 0
@@ -8766,7 +8766,7 @@ define i32 @FT_Set_Char_Size(ptr noundef captures(address_is_null) %0, i64 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Set_Pixel_Sizes(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @FT_Set_Pixel_Sizes(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.FT_Size_RequestRec_, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #34
   %5 = icmp eq i32 %1, 0
@@ -13655,7 +13655,7 @@ FT_Outline_Get_CBox.exit:                         ; preds = %.lr.ph.i, %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Outline_Get_Bitmap(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @FT_Outline_Get_Bitmap(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.FT_Raster_Params_, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #34
   %.not = icmp eq ptr %2, null
@@ -13688,7 +13688,7 @@ define i32 @FT_Outline_Get_Bitmap(ptr noundef captures(address_is_null) %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 21) i32 @FT_Outline_Embolden(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #11 {
+define range(i32 0, 21) i32 @FT_Outline_Embolden(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #11 {
   %3 = tail call i32 @FT_Outline_EmboldenXY(ptr noundef %0, i64 noundef %1, i64 noundef %1)
   ret i32 %3
 }
@@ -18934,7 +18934,7 @@ define internal fastcc i32 @open_face_from_buffer(ptr noundef %0, ptr noundef %1
   br label %28
 
 28:                                               ; preds = %6, %27
-  %29 = phi i32 [ 2, %6 ], [ 10, %27 ]
+  %29 = phi i32 [ 10, %27 ], [ 2, %6 ]
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.not16.i = icmp eq ptr %1, null
   br i1 %.not16.i, label %ft_mem_free.exit, label %31

@@ -776,7 +776,7 @@ u_skipWhitespace.exit48:                          ; preds = %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define range(i32 0, 1114113) i32 @u_parseCodePointRange(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(none) %3) local_unnamed_addr #6 {
+define range(i32 0, 1114113) i32 @u_parseCodePointRange(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(none) %3) local_unnamed_addr #6 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   %6 = call i32 @u_parseCodePointRangeAnyTerminator(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef %3)

@@ -9534,7 +9534,7 @@ _ZNSt8_Rb_treeIjSt4pairIKj10aiVector2tIfEESt10_Select1stIS4_ESt4lessIjESaIS4_EE2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN6Assimp11XGLImporter12ReadVerticesERN4pugi8xml_nodeENS0_8TempMeshEPNS0_8TempFaceEPbjRNS0_9TempScopeE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef captures(address) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(152) %6) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN6Assimp11XGLImporter12ReadVerticesERN4pugi8xml_nodeENS0_8TempMeshEPNS0_8TempFaceEPbjRNS0_9TempScopeE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef readonly captures(address) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(152) %6) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i64, align 8

@@ -1041,7 +1041,7 @@ declare void @_ZN7glslang12TScanContext16deleteKeywordMapEv() local_unnamed_addr
 declare void @_ZN7glslang15HlslScanContext16deleteKeywordMapEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i32 0, 2) i32 @ShCompile(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext %8, i32 noundef %9, ptr noundef %10) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ShCompile(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext %8, i32 noundef %9, ptr noundef %10) local_unnamed_addr #3 {
   %12 = alloca %"class.glslang::TIntermediate", align 8
   %13 = alloca %"class.glslang::TShader::ForbidIncluder", align 8
   %14 = alloca %"class.std::__cxx11::basic_string", align 8

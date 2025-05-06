@@ -83851,7 +83851,7 @@ define hidden noundef align 8 ptr @"_ZN9lsp_types4lsif1_74_$LT$impl$u20$serde..s
   %.val25.i.i.i = load ptr, ptr %457, align 8, !alias.scope !30063, !noalias !30064
   %458 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.val26.i.i.i = load i64, ptr %458, align 8, !alias.scope !30063, !noalias !30064
-  %459 = call fastcc noalias noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry17had7f24188e111b96E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr %.val25.i.i.i, i64 %.val26.i.i.i)
+  %459 = call fastcc noalias noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry17had7f24188e111b96E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr readonly %.val25.i.i.i, i64 %.val26.i.i.i)
   %460 = icmp eq ptr %459, null
   br i1 %460, label %"_ZN9lsp_types4lsif1_84_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$lsp_types..lsif..EdgeDataMultiIn$GT$9serialize17h345d81703a739482E.exit.sink.split.i.i", label %"_ZN9lsp_types4lsif1_76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$lsp_types..lsif..Element$GT$9serialize17h7fa1ca0d63e564cbE.exit.thread"
 
@@ -84045,7 +84045,7 @@ default.unreachable.i.i.i.i.i.i.i.i.i:            ; preds = %531
   %.val23.i.i.i.i = load ptr, ptr %548, align 8, !alias.scope !30191, !noalias !30194
   %549 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val24.i.i.i.i = load i64, ptr %549, align 8, !alias.scope !30191, !noalias !30194
-  %550 = call fastcc noalias noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry17had7f24188e111b96E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr %.val23.i.i.i.i, i64 %.val24.i.i.i.i)
+  %550 = call fastcc noalias noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry17had7f24188e111b96E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr readonly %.val23.i.i.i.i, i64 %.val24.i.i.i.i)
   %551 = icmp eq ptr %550, null
   br i1 %551, label %"_ZN9lsp_types4lsif1_84_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$lsp_types..lsif..EdgeDataMultiIn$GT$9serialize17h345d81703a739482E.exit.sink.split.i.i", label %"_ZN9lsp_types4lsif1_76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$lsp_types..lsif..Element$GT$9serialize17h7fa1ca0d63e564cbE.exit.thread"
 

@@ -694,7 +694,7 @@ define dso_local void @_ZN4llvm15DeleteDeadBlockEPNS_10BasicBlockEPNS_14DomTreeU
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16DeleteDeadBlocksENS_8ArrayRefIPNS_10BasicBlockEEEPNS_14DomTreeUpdaterEb(ptr captures(address) %0, i64 %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm16DeleteDeadBlocksENS_8ArrayRefIPNS_10BasicBlockEEEPNS_14DomTreeUpdaterEb(ptr readonly captures(address) %0, i64 %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
   %5 = alloca %"class.llvm::SmallVector.13", align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #22
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16

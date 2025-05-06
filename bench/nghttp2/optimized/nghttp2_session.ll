@@ -321,7 +321,7 @@ nghttp2_session_client_new3.exit:                 ; preds = %3, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nghttp2_session_client_new3(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #1 {
+define i32 @nghttp2_session_client_new3(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
   %7 = call fastcc i32 @session_new(ptr noundef %6, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef %3, ptr noundef %4)
@@ -341,10 +341,10 @@ define i32 @nghttp2_session_client_new3(ptr noundef writeonly captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nghttp2_session_client_new2(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #1 {
+define i32 @nghttp2_session_client_new2(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
-  %6 = call fastcc i32 @session_new(ptr noundef %5, ptr noundef readonly %1, ptr noundef %2, i32 noundef 0, ptr noundef %3, ptr noundef null)
+  %6 = call fastcc i32 @session_new(ptr noundef %5, ptr noundef readonly %1, ptr noundef %2, i32 noundef 0, ptr noundef readonly %3, ptr noundef null)
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %nghttp2_session_client_new3.exit
 
@@ -828,7 +828,7 @@ nghttp2_session_server_new3.exit:                 ; preds = %3, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nghttp2_session_server_new3(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #1 {
+define i32 @nghttp2_session_server_new3(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
   %7 = call fastcc i32 @session_new(ptr noundef %6, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %3, ptr noundef %4)
@@ -848,10 +848,10 @@ define i32 @nghttp2_session_server_new3(ptr noundef writeonly captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nghttp2_session_server_new2(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #1 {
+define i32 @nghttp2_session_server_new2(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
-  %6 = call fastcc i32 @session_new(ptr noundef %5, ptr noundef readonly %1, ptr noundef %2, i32 noundef 1, ptr noundef %3, ptr noundef null)
+  %6 = call fastcc i32 @session_new(ptr noundef %5, ptr noundef readonly %1, ptr noundef %2, i32 noundef 1, ptr noundef readonly %3, ptr noundef null)
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %nghttp2_session_server_new3.exit
 

@@ -4741,7 +4741,7 @@ define internal noundef i32 @xfrm_dump_sa_done(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @xfrm_add_policy(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3) #2 align 16 {
+define internal i32 @xfrm_add_policy(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) #2 align 16 {
   %5 = alloca %struct.km_event, align 8
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5375,7 +5375,7 @@ define internal i32 @xfrm_alloc_userspi(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @xfrm_add_acquire(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3) #2 align 16 {
+define internal i32 @xfrm_add_acquire(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) #2 align 16 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -7656,7 +7656,7 @@ declare dso_local i32 @xfrm_state_walk(ptr noundef, ptr noundef, ptr noundef, pt
 declare dso_local void @xfrm_state_walk_done(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @xfrm_policy_construct(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #2 align 16 {
+define internal fastcc ptr @xfrm_policy_construct(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #2 align 16 {
   %6 = tail call ptr @xfrm_policy_alloc(ptr noundef %0, i32 noundef 3264) #16
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9

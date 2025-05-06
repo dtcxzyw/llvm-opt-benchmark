@@ -143638,7 +143638,7 @@ define dso_local void @_ZNK12AstInitArray4dumpERSo(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK12AstInitArray8dumpJsonERSo(ptr noundef nonnull align 8 captures(address) dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZNK12AstInitArray8dumpJsonERSo(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1

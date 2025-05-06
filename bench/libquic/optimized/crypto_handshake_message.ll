@@ -1175,7 +1175,7 @@ define noundef i64 @_ZNK3net22CryptoHandshakeMessage12minimum_sizeEv(ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3net22CryptoHandshakeMessage11DebugStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(72) %1) local_unnamed_addr #1 align 2 {
+define void @_ZNK3net22CryptoHandshakeMessage11DebugStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %1) local_unnamed_addr #1 align 2 {
   tail call void @_ZNK3net22CryptoHandshakeMessage19DebugStringInternalB5cxx11Em(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 noundef 0)
   ret void
 }

@@ -791,12 +791,12 @@ _ZNK9Rectangle8overlapYERKS_.exit.i188:           ; preds = %290, %287, %285
 
 _ZL18getRightNeighboursRSt3setIPN12_GLOBAL__N_14NodeENS0_10CmpNodePosESaIS2_EES2_.exit: ; preds = %294, %_ZNK9Rectangle8overlapXERKS_.exit.thread.i183, %_ZNSt3setIPN12_GLOBAL__N_14NodeENS0_10CmpNodePosESaIS2_EE4findERKS2_.exit.i177
   %296 = getelementptr inbounds nuw i8, ptr %.val130, i64 40
-  %297 = invoke fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt3setIPN12_GLOBAL__N_14NodeENS0_10CmpNodePosESaIS2_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %296, ptr noundef nonnull align 8 dereferenceable(48) %7)
+  %297 = invoke fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt3setIPN12_GLOBAL__N_14NodeENS0_10CmpNodePosESaIS2_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %296, ptr noundef nonnull readonly align 8 dereferenceable(48) %7)
           to label %.noexc200 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc200:                                        ; preds = %_ZL18getRightNeighboursRSt3setIPN12_GLOBAL__N_14NodeENS0_10CmpNodePosESaIS2_EES2_.exit
   %298 = getelementptr inbounds nuw i8, ptr %.val130, i64 88
-  %299 = invoke fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt3setIPN12_GLOBAL__N_14NodeENS0_10CmpNodePosESaIS2_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %298, ptr noundef nonnull align 8 dereferenceable(48) %8)
+  %299 = invoke fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt3setIPN12_GLOBAL__N_14NodeENS0_10CmpNodePosESaIS2_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %298, ptr noundef nonnull readonly align 8 dereferenceable(48) %8)
           to label %.noexc201 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc201:                                        ; preds = %.noexc200

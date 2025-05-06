@@ -622,7 +622,7 @@ define dso_local void @_ZN4llvm20transformGlobalDtorsERNS_6ModuleERKNS_12functio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12appendToUsedERNS_6ModuleENS_8ArrayRefIPNS_11GlobalValueEEE(ptr noundef nonnull align 8 dereferenceable(841) %0, ptr captures(address) %1, i64 %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm12appendToUsedERNS_6ModuleENS_8ArrayRefIPNS_11GlobalValueEEE(ptr noundef nonnull align 8 dereferenceable(841) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 {
   tail call fastcc void @_ZL16appendToUsedListRN4llvm6ModuleENS_9StringRefENS_8ArrayRefIPNS_11GlobalValueEEE(ptr noundef nonnull align 8 dereferenceable(841) %0, ptr nonnull @.str.2, i64 9, ptr %1, i64 %2)
   ret void
 }
@@ -764,7 +764,7 @@ _ZN4llvm9SetVectorIPNS_8ConstantENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_NS_1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20appendToCompilerUsedERNS_6ModuleENS_8ArrayRefIPNS_11GlobalValueEEE(ptr noundef nonnull align 8 dereferenceable(841) %0, ptr captures(address) %1, i64 %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm20appendToCompilerUsedERNS_6ModuleENS_8ArrayRefIPNS_11GlobalValueEEE(ptr noundef nonnull align 8 dereferenceable(841) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 {
   tail call fastcc void @_ZL16appendToUsedListRN4llvm6ModuleENS_9StringRefENS_8ArrayRefIPNS_11GlobalValueEEE(ptr noundef nonnull align 8 dereferenceable(841) %0, ptr nonnull @.str.3, i64 18, ptr %1, i64 %2)
   ret void
 }
@@ -1350,7 +1350,7 @@ define dso_local noundef ptr @_ZN4llvm19createSanitizerCtorERNS_6ModuleENS_9Stri
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
   store ptr %16, ptr %7, align 8, !tbaa !169
-  call fastcc void @_ZL16appendToUsedListRN4llvm6ModuleENS_9StringRefENS_8ArrayRefIPNS_11GlobalValueEEE(ptr noundef nonnull align 8 dereferenceable(841) %0, ptr nonnull @.str.2, i64 9, ptr nonnull %7, i64 1)
+  call fastcc void @_ZL16appendToUsedListRN4llvm6ModuleENS_9StringRefENS_8ArrayRefIPNS_11GlobalValueEEE(ptr noundef nonnull align 8 dereferenceable(841) %0, ptr nonnull @.str.2, i64 9, ptr nonnull readonly %7, i64 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
   ret ptr %16
 }
@@ -2874,7 +2874,7 @@ define dso_local void @_ZN4llvm19embedBufferInModuleERNS_6ModuleENS_15MemoryBuff
   call void @_ZN4llvm5Value11setMetadataEjPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef 33, ptr noundef %27) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
   store ptr %16, ptr %8, align 8, !tbaa !169
-  call fastcc void @_ZL16appendToUsedListRN4llvm6ModuleENS_9StringRefENS_8ArrayRefIPNS_11GlobalValueEEE(ptr noundef nonnull align 8 dereferenceable(841) %0, ptr nonnull @.str.3, i64 18, ptr nonnull %8, i64 1)
+  call fastcc void @_ZL16appendToUsedListRN4llvm6ModuleENS_9StringRefENS_8ArrayRefIPNS_11GlobalValueEEE(ptr noundef nonnull align 8 dereferenceable(841) %0, ptr nonnull @.str.3, i64 18, ptr nonnull readonly %8, i64 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
   ret void

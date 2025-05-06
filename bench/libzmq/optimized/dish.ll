@@ -439,7 +439,7 @@ declare void @_ZN3zmq4fq_t15pipe_terminatedEPNS_6pipe_tE(ptr noundef nonnull ali
 declare void @_ZN3zmq6dist_t15pipe_terminatedEPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(49), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq6dish_t9xhiccupedEPNS_6pipe_tE(ptr noundef nonnull align 8 captures(address) dereferenceable(2056) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN3zmq6dish_t9xhiccupedEPNS_6pipe_tE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(2056) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN3zmq6dish_t18send_subscriptionsEPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(2056) %0, ptr noundef %1)
   ret void
 }

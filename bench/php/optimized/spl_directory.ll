@@ -6919,7 +6919,7 @@ define hidden void @zim_SplFileObject_getChildren(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_fgetcsv(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) #0 {
+define hidden void @zim_SplFileObject_fgetcsv(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8

@@ -931,7 +931,7 @@ define i64 @llama_time_us() local_unnamed_addr #0 {
 declare i64 @ggml_time_us() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @llama_load_model_from_file(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.llama_model_params) align 8 captures(none) %1) local_unnamed_addr #0 {
+define noundef ptr @llama_load_model_from_file(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly byval(%struct.llama_model_params) align 8 captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @llama_model_load_from_file(ptr noundef %0, ptr noundef nonnull byval(%struct.llama_model_params) align 8 %1)
   ret ptr %3
 }

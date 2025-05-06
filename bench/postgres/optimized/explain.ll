@@ -10043,7 +10043,7 @@ declare ptr @escape_xml(ptr noundef) local_unnamed_addr #4
 declare void @escape_json(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExplainPropertyListNested(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define dso_local void @ExplainPropertyListNested(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %65 [

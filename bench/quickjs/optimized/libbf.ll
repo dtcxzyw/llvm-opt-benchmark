@@ -4616,7 +4616,7 @@ define dso_local i32 @bf_sub(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 33) i32 @bf_rem(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local range(i32 0, 33) i32 @bf_rem(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = alloca %struct.bf_t, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #21
   %8 = load ptr, ptr %0, align 8, !tbaa !28
@@ -4651,7 +4651,7 @@ bf_delete.exit:                                   ; preds = %6, %14, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 33) i32 @bf_remquo(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
+define dso_local range(i32 0, 33) i32 @bf_remquo(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
   %8 = alloca %struct.bf_t, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #21
   %9 = load ptr, ptr %1, align 8, !tbaa !28
@@ -5843,13 +5843,13 @@ bf_move.exit:                                     ; preds = %bf_free.exit.i, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 33) i32 @__bf_add(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, i64 noundef %3, i32 noundef %4) #2 {
+define internal range(i32 0, 33) i32 @__bf_add(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, i64 noundef %3, i32 noundef %4) #2 {
   %6 = tail call fastcc i32 @bf_add_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef 0)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 33) i32 @__bf_sub(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, i64 noundef %3, i32 noundef %4) #2 {
+define internal range(i32 0, 33) i32 @__bf_sub(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, i64 noundef %3, i32 noundef %4) #2 {
   %6 = tail call fastcc i32 @bf_add_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef 1)
   ret i32 %6
 }
@@ -6215,7 +6215,7 @@ bf_set_nan.exit111:                               ; preds = %155, %158
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 64) i32 @bf_mul_ui(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define dso_local range(i32 0, 64) i32 @bf_mul_ui(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca %struct.bf_t, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #21
   %7 = load ptr, ptr %0, align 8, !tbaa !28
@@ -6271,7 +6271,7 @@ bf_delete.exit:                                   ; preds = %bf_set_ui.exit, %bf
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 64) i32 @bf_mul_si(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define dso_local range(i32 0, 64) i32 @bf_mul_si(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca %struct.bf_t, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #21
   %7 = load ptr, ptr %0, align 8, !tbaa !28
@@ -8256,65 +8256,52 @@ bf_set_nan.exit.i:                                ; preds = %29, %bf_resize.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
   store i32 0, ptr %37, align 8, !tbaa !30
   %40 = icmp eq i64 %1, 0
-  br i1 %40, label %41, label %42
+  br i1 %40, label %bf_set_ui.exit29, label %41
 
 41:                                               ; preds = %35
-  store i64 -9223372036854775808, ptr %38, align 8, !tbaa !31
-  br label %bf_set_ui.exit29
-
-42:                                               ; preds = %35
   %.val.i16.i14 = load ptr, ptr %36, align 8, !tbaa !19
-  %43 = getelementptr i8, ptr %36, i64 8
-  %.val13.i17.i15 = load ptr, ptr %43, align 8, !tbaa !7
-  %44 = tail call ptr %.val13.i17.i15(ptr noundef %.val.i16.i14, ptr noundef null, i64 noundef 8) #21
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %bf_set_nan.exit.i22, label %bf_resize.exit18.thread21.i16
+  %42 = getelementptr i8, ptr %36, i64 8
+  %.val13.i17.i15 = load ptr, ptr %42, align 8, !tbaa !7
+  %43 = tail call ptr %.val13.i17.i15(ptr noundef %.val.i16.i14, ptr noundef null, i64 noundef 8) #21
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %bf_set_ui.exit29.thread, label %48
 
-bf_resize.exit18.thread21.i16:                    ; preds = %42
-  %46 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr %44, ptr %46, align 8, !tbaa !29
-  store i64 1, ptr %39, align 8, !tbaa !32
-  %47 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %1, i1 true)
-  %48 = shl i64 %1, %47
-  store i64 %48, ptr %44, align 8, !tbaa !33
-  %49 = sub nuw nsw i64 64, %47
-  store i64 %49, ptr %38, align 8, !tbaa !31
-  br label %bf_set_ui.exit29
-
-bf_set_nan.exit.i22:                              ; preds = %42
+bf_set_ui.exit29.thread:                          ; preds = %41
   store i64 9223372036854775807, ptr %38, align 8, !tbaa !31
   store i32 0, ptr %37, align 8, !tbaa !30
-  br label %bf_set_ui.exit29
-
-bf_set_ui.exit29:                                 ; preds = %41, %bf_resize.exit18.thread21.i16, %bf_set_nan.exit.i22
-  %.013.i17 = phi i32 [ 32, %bf_set_nan.exit.i22 ], [ 0, %41 ], [ 0, %bf_resize.exit18.thread21.i16 ]
-  %50 = call fastcc i32 @bf_pow_ui(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %2, i64 noundef %3, i32 noundef %4)
-  %51 = or i32 %50, %.013.i17
-  %52 = load ptr, ptr %6, align 8, !tbaa !28
-  %.not.i = icmp eq ptr %52, null
-  br i1 %.not.i, label %bf_set_ui.exit, label %53
-
-53:                                               ; preds = %bf_set_ui.exit29
-  %54 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %55 = load ptr, ptr %54, align 8, !tbaa !29
-  %.not6.i = icmp eq ptr %55, null
-  br i1 %.not6.i, label %bf_set_ui.exit, label %56
-
-56:                                               ; preds = %53
-  %.val.i = load ptr, ptr %52, align 8, !tbaa !19
-  %57 = getelementptr i8, ptr %52, i64 8
-  %.val7.i = load ptr, ptr %57, align 8, !tbaa !7
-  %58 = call ptr %.val7.i(ptr noundef %.val.i, ptr noundef nonnull %55, i64 noundef 0) #21
+  %45 = call fastcc i32 @bf_pow_ui(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %2, i64 noundef %3, i32 noundef %4)
+  %46 = or i32 %45, 32
   br label %bf_set_ui.exit
 
-bf_set_ui.exit:                                   ; preds = %56, %53, %bf_set_ui.exit29, %bf_set_nan.exit.i, %bf_resize.exit18.thread21.i
-  %.0 = phi i32 [ 32, %bf_set_nan.exit.i ], [ 0, %bf_resize.exit18.thread21.i ], [ %51, %bf_set_ui.exit29 ], [ %51, %53 ], [ %51, %56 ]
+bf_set_ui.exit29:                                 ; preds = %35
+  store i64 -9223372036854775808, ptr %38, align 8, !tbaa !31
+  %47 = call fastcc i32 @bf_pow_ui(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %2, i64 noundef %3, i32 noundef %4)
+  br label %bf_set_ui.exit
+
+48:                                               ; preds = %41
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr %43, ptr %49, align 8, !tbaa !29
+  store i64 1, ptr %39, align 8, !tbaa !32
+  %50 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %1, i1 true)
+  %51 = shl i64 %1, %50
+  store i64 %51, ptr %43, align 8, !tbaa !33
+  %52 = sub nuw nsw i64 64, %50
+  store i64 %52, ptr %38, align 8, !tbaa !31
+  %53 = call fastcc i32 @bf_pow_ui(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %2, i64 noundef %3, i32 noundef %4)
+  %.val.i = load ptr, ptr %36, align 8, !tbaa !19
+  %54 = getelementptr i8, ptr %36, i64 8
+  %.val7.i = load ptr, ptr %54, align 8, !tbaa !7
+  %55 = call ptr %.val7.i(ptr noundef %.val.i, ptr noundef nonnull %43, i64 noundef 0) #21
+  br label %bf_set_ui.exit
+
+bf_set_ui.exit:                                   ; preds = %bf_set_ui.exit29, %bf_set_ui.exit29.thread, %48, %bf_set_nan.exit.i, %bf_resize.exit18.thread21.i
+  %.0 = phi i32 [ 32, %bf_set_nan.exit.i ], [ 0, %bf_resize.exit18.thread21.i ], [ %53, %48 ], [ %47, %bf_set_ui.exit29 ], [ %46, %bf_set_ui.exit29.thread ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #21
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bf_atof2(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
+define dso_local i32 @bf_atof2(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
   %8 = tail call fastcc i32 @bf_atof_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef 0)
   ret i32 %8
 }
@@ -9357,7 +9344,7 @@ bf_delete.exit376:                                ; preds = %bf_set_zero.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bf_atof(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local i32 @bf_atof(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #21
   %8 = call fastcc i32 @bf_atof_internal(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef 0)
@@ -9462,7 +9449,7 @@ ceil_log2.exit:                                   ; preds = %8, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @bf_ftoa(ptr noundef captures(address_is_null) %0, ptr noundef captures(address) %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define dso_local ptr @bf_ftoa(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address) %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = tail call fastcc ptr @bf_ftoa_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef 0)
   ret ptr %6
 }
@@ -14228,7 +14215,7 @@ bf_set_inf.exit:                                  ; preds = %41, %bf_resize.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @bf_pow_ui(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, i64 noundef %3, i32 noundef range(i32 0, 2017) %4) unnamed_addr #2 {
+define internal fastcc i32 @bf_pow_ui(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i64 noundef %3, i32 noundef range(i32 0, 2017) %4) unnamed_addr #2 {
   %6 = icmp eq i64 %2, 0
   br i1 %6, label %7, label %28
 
@@ -14405,7 +14392,7 @@ bf_set_ui.exit:                                   ; preds = %76, %bf_set.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bf_pow_int(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #2 {
+define internal i32 @bf_pow_int(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #2 {
   %5 = alloca %struct.bf_t, align 8
   %6 = load ptr, ptr %0, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #21
@@ -14817,7 +14804,7 @@ bf_set.exit51:                                    ; preds = %116, %111, %bf_set_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @bf_pow_generic(ptr noundef initializes((8, 12), (16, 24)) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address) %3) #2 {
+define internal noundef i32 @bf_pow_generic(ptr noundef initializes((8, 12), (16, 24)) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address) %3) #2 {
   %5 = alloca %struct.bf_t, align 8
   %6 = load ptr, ptr %0, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #21
@@ -14888,7 +14875,7 @@ bf_delete.exit:                                   ; preds = %26, %28, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bf_cos(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define dso_local i32 @bf_cos(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca %struct.bf_t, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8, !tbaa !32
@@ -15135,7 +15122,7 @@ bf_set_ui.exit.i:                                 ; preds = %bf_resize.exit18.th
 
 .lr.ph.i:                                         ; preds = %.thread
   %102 = add i64 %2, 32
-  tail call fastcc void @bf_sincos(ptr noundef null, ptr noundef %0, ptr noundef nonnull %1, i64 noundef %102)
+  tail call fastcc void @bf_sincos(ptr noundef null, ptr noundef %0, ptr noundef nonnull readonly %1, i64 noundef %102)
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %104 = add i64 %2, 2
   %105 = and i32 %3, 3
@@ -15148,7 +15135,7 @@ bf_set_ui.exit.i:                                 ; preds = %bf_resize.exit18.th
   br label %113
 
 112:                                              ; preds = %.thread
-  tail call fastcc void @bf_sincos(ptr noundef null, ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2)
+  tail call fastcc void @bf_sincos(ptr noundef null, ptr noundef %0, ptr noundef nonnull readonly %1, i64 noundef %2)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !32
   br label %bf_can_round.exit.thread37.i
@@ -15221,7 +15208,7 @@ get_bit.exit38.i.i:                               ; preds = %137, %.lr.ph.i.i
 bf_can_round.exit.thread.i:                       ; preds = %133, %116, %113
   %143 = shl i64 %.044.i, 1
   %144 = add i64 %143, %2
-  tail call fastcc void @bf_sincos(ptr noundef null, ptr noundef %0, ptr noundef nonnull %1, i64 noundef %144)
+  tail call fastcc void @bf_sincos(ptr noundef null, ptr noundef %0, ptr noundef nonnull readonly %1, i64 noundef %144)
   br label %113
 
 bf_can_round.exit.thread37.i:                     ; preds = %get_bit.exit38.i.i, %112
@@ -15240,7 +15227,7 @@ bf_set_ui.exit:                                   ; preds = %147, %bf_can_round.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bf_sin(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define dso_local i32 @bf_sin(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca %struct.bf_t, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8, !tbaa !32
@@ -15486,7 +15473,7 @@ bf_set_ui.exit.i:                                 ; preds = %bf_resize.exit18.th
 
 .lr.ph.i:                                         ; preds = %.thread
   %121 = add i64 %2, 32
-  tail call fastcc void @bf_sincos(ptr noundef %0, ptr noundef null, ptr noundef nonnull %1, i64 noundef %121)
+  tail call fastcc void @bf_sincos(ptr noundef %0, ptr noundef null, ptr noundef nonnull readonly %1, i64 noundef %121)
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %123 = add i64 %2, 2
   %124 = and i32 %3, 3
@@ -15499,7 +15486,7 @@ bf_set_ui.exit.i:                                 ; preds = %bf_resize.exit18.th
   br label %132
 
 131:                                              ; preds = %.thread
-  tail call fastcc void @bf_sincos(ptr noundef %0, ptr noundef null, ptr noundef nonnull %1, i64 noundef %2)
+  tail call fastcc void @bf_sincos(ptr noundef %0, ptr noundef null, ptr noundef nonnull readonly %1, i64 noundef %2)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !32
   br label %bf_can_round.exit.thread37.i
@@ -15572,7 +15559,7 @@ get_bit.exit38.i.i:                               ; preds = %156, %.lr.ph.i.i
 bf_can_round.exit.thread.i:                       ; preds = %152, %135, %132
   %162 = shl i64 %.044.i, 1
   %163 = add i64 %162, %2
-  tail call fastcc void @bf_sincos(ptr noundef %0, ptr noundef null, ptr noundef nonnull %1, i64 noundef %163)
+  tail call fastcc void @bf_sincos(ptr noundef %0, ptr noundef null, ptr noundef nonnull readonly %1, i64 noundef %163)
   br label %132
 
 bf_can_round.exit.thread37.i:                     ; preds = %get_bit.exit38.i.i, %131
@@ -15839,7 +15826,7 @@ bf_set_ui.exit.i:                                 ; preds = %bf_resize.exit18.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @bf_tan_internal(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, ptr readnone captures(none) %3) #2 {
+define internal noundef i32 @bf_tan_internal(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr readnone captures(none) %3) #2 {
   %5 = alloca %struct.bf_t, align 8
   %6 = load ptr, ptr %0, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #21
@@ -19887,7 +19874,7 @@ define dso_local i32 @bfdec_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @__bfdec_add(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, i64 noundef %3, i32 noundef %4) #2 {
+define internal i32 @__bfdec_add(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, i64 noundef %3, i32 noundef %4) #2 {
   %6 = tail call fastcc i32 @bfdec_add_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef 0)
   ret i32 %6
 }
@@ -19899,7 +19886,7 @@ define dso_local i32 @bfdec_sub(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @__bfdec_sub(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, i64 noundef %3, i32 noundef %4) #2 {
+define internal i32 @__bfdec_sub(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, i64 noundef %3, i32 noundef %4) #2 {
   %6 = tail call fastcc i32 @bfdec_add_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef 1)
   ret i32 %6
 }
@@ -20171,7 +20158,7 @@ bfdec_move.exit:                                  ; preds = %bf_free.exit.i.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bfdec_mul_si(ptr noundef captures(address) %0, ptr noundef captures(address) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define dso_local i32 @bfdec_mul_si(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca %struct.bfdec_t, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #21
   %7 = load ptr, ptr %0, align 8, !tbaa !28
@@ -21461,7 +21448,7 @@ floor_div.exit:                                   ; preds = %5, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bfdec_rem(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local i32 @bfdec_rem(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = alloca %struct.bfdec_t, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #21
   %8 = load ptr, ptr %0, align 8, !tbaa !28
@@ -22092,7 +22079,7 @@ define dso_local range(i32 0, 5) i32 @bfdec_get_int32(ptr noundef writeonly capt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bfdec_pow_ui(ptr noundef captures(address) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #2 {
+define dso_local i32 @bfdec_pow_ui(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %5, label %29
 
@@ -22271,13 +22258,13 @@ bfdec_set_ui.exit:                                ; preds = %77, %bfdec_set.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @bfdec_ftoa(ptr noundef captures(address_is_null) %0, ptr noundef captures(address) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define dso_local ptr @bfdec_ftoa(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = tail call fastcc ptr @bf_ftoa_internal(ptr noundef %0, ptr noundef %1, i32 noundef 10, i64 noundef %2, i32 noundef %3, i32 noundef 1)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bfdec_atof(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define dso_local i32 @bfdec_atof(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #21
   %7 = call fastcc i32 @bf_atof_internal(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i32 noundef 10, i64 noundef %3, i32 noundef %4, i32 noundef 1)
@@ -25455,7 +25442,7 @@ define internal void @bf_const_pi_internal(ptr noundef %0, i64 noundef %1) #2 {
 bf_set_ui.exit.thread.i:                          ; preds = %2
   store i64 9223372036854775807, ptr %19, align 8, !tbaa !31
   store i32 0, ptr %18, align 8, !tbaa !30
-  %24 = call i32 @bf_mul(ptr noundef nonnull %6, ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef %10, i32 noundef 0)
+  %24 = call i32 @bf_mul(ptr noundef nonnull %6, ptr noundef nonnull readonly %0, ptr noundef nonnull %4, i64 noundef %10, i32 noundef 0)
   br label %bf_mul_ui.exit
 
 25:                                               ; preds = %2
@@ -25464,7 +25451,7 @@ bf_set_ui.exit.thread.i:                          ; preds = %2
   store i64 1, ptr %20, align 8, !tbaa !32
   store i64 -3502831840350175232, ptr %22, align 8, !tbaa !33
   store i64 24, ptr %19, align 8, !tbaa !31
-  %27 = call i32 @bf_mul(ptr noundef nonnull %6, ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef %10, i32 noundef 0)
+  %27 = call i32 @bf_mul(ptr noundef nonnull %6, ptr noundef nonnull readonly %0, ptr noundef nonnull %4, i64 noundef %10, i32 noundef 0)
   %.val.i.i = load ptr, ptr %17, align 8, !tbaa !19
   %.val7.i.i = load ptr, ptr %21, align 8, !tbaa !7
   %28 = call ptr %.val7.i.i(ptr noundef %.val.i.i, ptr noundef nonnull %22, i64 noundef 0) #21
@@ -25547,7 +25534,7 @@ bf_set_ui.exit:                                   ; preds = %bf_resize.exit18.th
 bf_set_ui.exit.thread.i21:                        ; preds = %bf_set_ui.exit
   store i64 9223372036854775807, ptr %50, align 8, !tbaa !31
   store i32 0, ptr %49, align 8, !tbaa !30
-  %55 = call i32 @bf_mul(ptr noundef nonnull %6, ptr noundef nonnull %6, ptr noundef nonnull %3, i64 noundef %10, i32 noundef 6)
+  %55 = call i32 @bf_mul(ptr noundef nonnull %6, ptr noundef nonnull readonly %6, ptr noundef nonnull %3, i64 noundef %10, i32 noundef 6)
   br label %bf_mul_ui.exit22
 
 56:                                               ; preds = %bf_set_ui.exit
@@ -25556,7 +25543,7 @@ bf_set_ui.exit.thread.i21:                        ; preds = %bf_set_ui.exit
   store i64 1, ptr %51, align 8, !tbaa !32
   store i64 -3427239316428947456, ptr %53, align 8, !tbaa !33
   store i64 16, ptr %50, align 8, !tbaa !31
-  %58 = call i32 @bf_mul(ptr noundef nonnull %6, ptr noundef nonnull %6, ptr noundef nonnull %3, i64 noundef %10, i32 noundef 6)
+  %58 = call i32 @bf_mul(ptr noundef nonnull %6, ptr noundef nonnull readonly %6, ptr noundef nonnull %3, i64 noundef %10, i32 noundef 6)
   %.val.i.i19 = load ptr, ptr %48, align 8, !tbaa !19
   %.val7.i.i20 = load ptr, ptr %52, align 8, !tbaa !7
   %59 = call ptr %.val7.i.i20(ptr noundef %.val.i.i19, ptr noundef nonnull %53, i64 noundef 0) #21
@@ -25859,7 +25846,7 @@ bf_set_ui.exit108:                                ; preds = %71, %75, %bf_resize
 bf_set_ui.exit.thread.i:                          ; preds = %bf_set_ui.exit108
   store i64 9223372036854775807, ptr %108, align 8, !tbaa !31
   store i32 0, ptr %107, align 8, !tbaa !30
-  %113 = call i32 @bf_mul(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %7, i64 noundef 4611686018427387903, i32 noundef 0)
+  %113 = call i32 @bf_mul(ptr noundef nonnull %1, ptr noundef nonnull readonly %1, ptr noundef nonnull %7, i64 noundef 4611686018427387903, i32 noundef 0)
   br label %bf_mul_ui.exit
 
 114:                                              ; preds = %bf_set_ui.exit108
@@ -25868,7 +25855,7 @@ bf_set_ui.exit.thread.i:                          ; preds = %bf_set_ui.exit108
   store i64 1, ptr %109, align 8, !tbaa !32
   store i64 -7245147801036783616, ptr %111, align 8, !tbaa !33
   store i64 54, ptr %108, align 8, !tbaa !31
-  %116 = call i32 @bf_mul(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %7, i64 noundef 4611686018427387903, i32 noundef 0)
+  %116 = call i32 @bf_mul(ptr noundef nonnull %1, ptr noundef nonnull readonly %1, ptr noundef nonnull %7, i64 noundef 4611686018427387903, i32 noundef 0)
   %.val.i.i109 = load ptr, ptr %106, align 8, !tbaa !19
   %.val7.i.i = load ptr, ptr %110, align 8, !tbaa !7
   %117 = call ptr %.val7.i.i(ptr noundef %.val.i.i109, ptr noundef nonnull %111, i64 noundef 0) #21
@@ -26082,7 +26069,7 @@ bf_delete.exit144:                                ; preds = %bf_delete.exit129, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bf_sincos(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2, i64 noundef %3) unnamed_addr #2 {
+define internal fastcc void @bf_sincos(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address) %2, i64 noundef %3) unnamed_addr #2 {
   %5 = alloca %struct.bf_t, align 8
   %6 = alloca %struct.bf_t, align 8
   %7 = alloca %struct.bf_t, align 8

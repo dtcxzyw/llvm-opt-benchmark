@@ -7276,7 +7276,7 @@ cleanup:                                          ; preds = %while.body, %if.els
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm18arrayPrototypeFindEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef captures(address_is_null) %ctx, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef readonly captures(none) %args) #0 {
+define hidden { i32, i64 } @_ZN6hermes2vm18arrayPrototypeFindEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef readnone captures(address_is_null) %ctx, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %agg.tmp = alloca %"class.hermes::vm::NativeArgs", align 8
   %0 = load ptr, ptr %args, align 8
@@ -7289,7 +7289,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm22arrayPrototypeFindLastEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef captures(address_is_null) %ctx, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef readonly captures(none) %args) #0 {
+define hidden { i32, i64 } @_ZN6hermes2vm22arrayPrototypeFindLastEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef readnone captures(address_is_null) %ctx, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %agg.tmp = alloca %"class.hermes::vm::NativeArgs", align 8
   %0 = load ptr, ptr %args, align 8

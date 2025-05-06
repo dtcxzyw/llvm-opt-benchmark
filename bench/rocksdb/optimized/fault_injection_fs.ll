@@ -1333,7 +1333,7 @@ _ZN7rocksdb6StatusD2Ev.exit20:                    ; preds = %.body, %_ZNKSt14def
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb20FaultInjectionTestFS27MaybeInjectThreadLocalErrorENS_20FaultInjectionIOTypeERKNS_9IOOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14ErrorOperationEPNS_5SliceEbPcbPb(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::IOStatus") align 8 %0, ptr noundef nonnull align 8 dereferenceable(379) %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(84) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i8 noundef signext %5, ptr noundef captures(none) %6, i1 noundef zeroext %7, ptr noundef captures(address) %8, i1 noundef zeroext %9, ptr noundef captures(address_is_null) %10) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb20FaultInjectionTestFS27MaybeInjectThreadLocalErrorENS_20FaultInjectionIOTypeERKNS_9IOOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14ErrorOperationEPNS_5SliceEbPcbPb(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::IOStatus") align 8 %0, ptr noundef nonnull align 8 dereferenceable(379) %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(84) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i8 noundef signext %5, ptr noundef captures(none) %6, i1 noundef zeroext %7, ptr noundef readnone captures(address) %8, i1 noundef zeroext %9, ptr noundef writeonly captures(address_is_null) %10) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   switch i32 %2, label %_ZN7rocksdb20FaultInjectionTestFS39GetErrorContextFromFaultInjectionIOTypeENS_20FaultInjectionIOTypeE.exit.thread [
     i32 0, label %13
@@ -8074,7 +8074,7 @@ _ZN7rocksdb20FaultInjectionTestFS8GetErrorEv.exit: ; preds = %22, %42
           to label %50 unwind label %60
 
 50:                                               ; preds = %._crit_edge.i.i
-  invoke void @_ZN7rocksdb20FaultInjectionTestFS31MaybeInjectThreadLocalReadErrorERKNS_9IOOptionsENS0_14ErrorOperationEPNS_5SliceEbPcbPb(ptr dead_on_unwind writable sret(%"class.rocksdb::IOStatus") align 8 %0, ptr noundef nonnull align 8 dereferenceable(379) %21, ptr noundef nonnull readonly align 8 dereferenceable(84) %4, i8 noundef signext 0, ptr noundef %5, i1 noundef zeroext %49, ptr noundef %6, i1 noundef zeroext true, ptr noundef null)
+  invoke void @_ZN7rocksdb20FaultInjectionTestFS31MaybeInjectThreadLocalReadErrorERKNS_9IOOptionsENS0_14ErrorOperationEPNS_5SliceEbPcbPb(ptr dead_on_unwind writable sret(%"class.rocksdb::IOStatus") align 8 %0, ptr noundef nonnull align 8 dereferenceable(379) %21, ptr noundef nonnull readonly align 8 dereferenceable(84) %4, i8 noundef signext 0, ptr noundef %5, i1 noundef zeroext %49, ptr noundef readnone %6, i1 noundef zeroext true, ptr noundef null)
           to label %_ZN7rocksdb20FaultInjectionTestFS27MaybeInjectThreadLocalErrorENS_20FaultInjectionIOTypeERKNS_9IOOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14ErrorOperationEPNS_5SliceEbPcbPb.exit unwind label %60
 
 _ZN7rocksdb20FaultInjectionTestFS27MaybeInjectThreadLocalErrorENS_20FaultInjectionIOTypeERKNS_9IOOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14ErrorOperationEPNS_5SliceEbPcbPb.exit: ; preds = %50
@@ -8325,7 +8325,7 @@ _ZN7rocksdb6StatusD2Ev.exit.i.i:                  ; preds = %48
 62:                                               ; preds = %.thread
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %64 = load ptr, ptr %63, align 8, !tbaa !337
-  invoke void @_ZN7rocksdb20FaultInjectionTestFS31MaybeInjectThreadLocalReadErrorERKNS_9IOOptionsENS0_14ErrorOperationEPNS_5SliceEbPcbPb(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::IOStatus") align 8 %15, ptr noundef nonnull align 8 dereferenceable(379) %55, ptr noundef nonnull readonly align 8 dereferenceable(84) %3, i8 noundef signext 0, ptr noundef nonnull %19, i1 noundef zeroext %61, ptr noundef %64, i1 noundef zeroext true, ptr noundef null)
+  invoke void @_ZN7rocksdb20FaultInjectionTestFS31MaybeInjectThreadLocalReadErrorERKNS_9IOOptionsENS0_14ErrorOperationEPNS_5SliceEbPcbPb(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::IOStatus") align 8 %15, ptr noundef nonnull align 8 dereferenceable(379) %55, ptr noundef nonnull readonly align 8 dereferenceable(84) %3, i8 noundef signext 0, ptr noundef nonnull %19, i1 noundef zeroext %61, ptr noundef readnone %64, i1 noundef zeroext true, ptr noundef null)
           to label %_ZN7rocksdb20FaultInjectionTestFS27MaybeInjectThreadLocalErrorENS_20FaultInjectionIOTypeERKNS_9IOOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14ErrorOperationEPNS_5SliceEbPcbPb.exit unwind label %82
 
 _ZN7rocksdb20FaultInjectionTestFS27MaybeInjectThreadLocalErrorENS_20FaultInjectionIOTypeERKNS_9IOOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14ErrorOperationEPNS_5SliceEbPcbPb.exit: ; preds = %62
@@ -8940,7 +8940,7 @@ _ZN7rocksdb20FaultInjectionTestFS8GetErrorEv.exit: ; preds = %22, %43
   %69 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %70 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %71 = load ptr, ptr %70, align 8, !tbaa !337
-  invoke void @_ZN7rocksdb20FaultInjectionTestFS31MaybeInjectThreadLocalReadErrorERKNS_9IOOptionsENS0_14ErrorOperationEPNS_5SliceEbPcbPb(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::IOStatus") align 8 %9, ptr noundef nonnull align 8 dereferenceable(379) %63, ptr noundef nonnull readonly align 8 dereferenceable(84) %4, i8 noundef signext 0, ptr noundef nonnull %69, i1 noundef zeroext %67, ptr noundef %71, i1 noundef zeroext true, ptr noundef nonnull %8)
+  invoke void @_ZN7rocksdb20FaultInjectionTestFS31MaybeInjectThreadLocalReadErrorERKNS_9IOOptionsENS0_14ErrorOperationEPNS_5SliceEbPcbPb(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::IOStatus") align 8 %9, ptr noundef nonnull align 8 dereferenceable(379) %63, ptr noundef nonnull readonly align 8 dereferenceable(84) %4, i8 noundef signext 0, ptr noundef nonnull %69, i1 noundef zeroext %67, ptr noundef readnone %71, i1 noundef zeroext true, ptr noundef nonnull %8)
           to label %_ZN7rocksdb20FaultInjectionTestFS27MaybeInjectThreadLocalErrorENS_20FaultInjectionIOTypeERKNS_9IOOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14ErrorOperationEPNS_5SliceEbPcbPb.exit unwind label %96
 
 _ZN7rocksdb20FaultInjectionTestFS27MaybeInjectThreadLocalErrorENS_20FaultInjectionIOTypeERKNS_9IOOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14ErrorOperationEPNS_5SliceEbPcbPb.exit: ; preds = %68
@@ -9380,7 +9380,7 @@ define void @_ZN7rocksdb20TestFSSequentialFile4ReadEmRKNS_9IOOptionsEPNS_5SliceE
           to label %27 unwind label %55
 
 27:                                               ; preds = %._crit_edge.i.i
-  invoke void @_ZN7rocksdb20FaultInjectionTestFS31MaybeInjectThreadLocalReadErrorERKNS_9IOOptionsENS0_14ErrorOperationEPNS_5SliceEbPcbPb(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::IOStatus") align 8 %7, ptr noundef nonnull align 8 dereferenceable(379) %20, ptr noundef nonnull readonly align 8 dereferenceable(84) %3, i8 noundef signext 0, ptr noundef %4, i1 noundef zeroext %26, ptr noundef %5, i1 noundef zeroext true, ptr noundef null)
+  invoke void @_ZN7rocksdb20FaultInjectionTestFS31MaybeInjectThreadLocalReadErrorERKNS_9IOOptionsENS0_14ErrorOperationEPNS_5SliceEbPcbPb(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::IOStatus") align 8 %7, ptr noundef nonnull align 8 dereferenceable(379) %20, ptr noundef nonnull readonly align 8 dereferenceable(84) %3, i8 noundef signext 0, ptr noundef %4, i1 noundef zeroext %26, ptr noundef readnone %5, i1 noundef zeroext true, ptr noundef null)
           to label %_ZN7rocksdb20FaultInjectionTestFS27MaybeInjectThreadLocalErrorENS_20FaultInjectionIOTypeERKNS_9IOOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14ErrorOperationEPNS_5SliceEbPcbPb.exit unwind label %55
 
 _ZN7rocksdb20FaultInjectionTestFS27MaybeInjectThreadLocalErrorENS_20FaultInjectionIOTypeERKNS_9IOOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14ErrorOperationEPNS_5SliceEbPcbPb.exit: ; preds = %27
@@ -10185,7 +10185,7 @@ define void @_ZN7rocksdb20TestFSSequentialFile14PositionedReadEmmRKNS_9IOOptions
           to label %18 unwind label %28
 
 18:                                               ; preds = %._crit_edge.i.i
-  invoke void @_ZN7rocksdb20FaultInjectionTestFS31MaybeInjectThreadLocalReadErrorERKNS_9IOOptionsENS0_14ErrorOperationEPNS_5SliceEbPcbPb(ptr dead_on_unwind writable sret(%"class.rocksdb::IOStatus") align 8 %0, ptr noundef nonnull align 8 dereferenceable(379) %11, ptr noundef nonnull readonly align 8 dereferenceable(84) %4, i8 noundef signext 0, ptr noundef %5, i1 noundef zeroext %17, ptr noundef %6, i1 noundef zeroext true, ptr noundef null)
+  invoke void @_ZN7rocksdb20FaultInjectionTestFS31MaybeInjectThreadLocalReadErrorERKNS_9IOOptionsENS0_14ErrorOperationEPNS_5SliceEbPcbPb(ptr dead_on_unwind writable sret(%"class.rocksdb::IOStatus") align 8 %0, ptr noundef nonnull align 8 dereferenceable(379) %11, ptr noundef nonnull readonly align 8 dereferenceable(84) %4, i8 noundef signext 0, ptr noundef %5, i1 noundef zeroext %17, ptr noundef readnone %6, i1 noundef zeroext true, ptr noundef null)
           to label %_ZN7rocksdb20FaultInjectionTestFS27MaybeInjectThreadLocalErrorENS_20FaultInjectionIOTypeERKNS_9IOOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14ErrorOperationEPNS_5SliceEbPcbPb.exit unwind label %28
 
 _ZN7rocksdb20FaultInjectionTestFS27MaybeInjectThreadLocalErrorENS_20FaultInjectionIOTypeERKNS_9IOOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14ErrorOperationEPNS_5SliceEbPcbPb.exit: ; preds = %18

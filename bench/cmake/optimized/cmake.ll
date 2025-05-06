@@ -84795,7 +84795,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112b
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load i64, ptr %6, align 8, !tbaa !15
   %.val4 = load ptr, ptr %2, align 8, !tbaa !426
-  %7 = tail call noundef i32 @_ZN5cmake16StringToLogLevelESt17basic_string_viewIcSt11char_traitsIcEE(i64 %.val3, ptr %.val)
+  %7 = tail call noundef i32 @_ZN5cmake16StringToLogLevelESt17basic_string_viewIcSt11char_traitsIcEE(i64 %.val3, ptr readonly %.val)
   %8 = icmp ne i32 %7, 0
   br i1 %8, label %29, label %.noexc.i.i.i.i
 
@@ -84900,7 +84900,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112b
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load i64, ptr %6, align 8, !tbaa !15
   %.val4 = load ptr, ptr %2, align 8, !tbaa !426
-  %7 = tail call noundef i32 @_ZN5cmake16StringToLogLevelESt17basic_string_viewIcSt11char_traitsIcEE(i64 %.val3, ptr %.val)
+  %7 = tail call noundef i32 @_ZN5cmake16StringToLogLevelESt17basic_string_viewIcSt11char_traitsIcEE(i64 %.val3, ptr readonly %.val)
   %8 = icmp ne i32 %7, 0
   br i1 %8, label %29, label %.noexc.i.i.i.i
 

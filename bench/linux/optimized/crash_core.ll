@@ -180,7 +180,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [6 x ptr] [ptr @__UNIQUE_ID___addressable_crash_hotplug_init400, ptr @__UNIQUE_ID___addressable_crash_notes_memory_init397, ptr @__UNIQUE_ID___addressable_crash_save_vmcoreinfo_init392, ptr @__UNIQUE_ID___addressable_insert_crashkernel_resources383, ptr @__UNIQUE_ID___addressable_paddr_vmcoreinfo_note390, ptr @__setup_parse_crashkernel_dummy], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local range(i32 -22, 1) i32 @parse_crashkernel(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local range(i32 -22, 1) i32 @parse_crashkernel(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 section ".init.text" align 16 {
   %7 = tail call fastcc i32 @__parse_crashkernel(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef null) #18
   %8 = icmp ne ptr %5, null
   %9 = icmp eq i32 %7, -2
@@ -231,7 +231,7 @@ define dso_local range(i32 -22, 1) i32 @parse_crashkernel(ptr noundef %0, i64 no
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 -22, 1) i32 @__parse_crashkernel(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @__parse_crashkernel(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #0 section ".init.text" align 16 {
   %6 = icmp eq ptr %2, null
   %7 = icmp eq ptr %3, null
   %8 = or i1 %6, %7

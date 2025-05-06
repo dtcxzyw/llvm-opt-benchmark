@@ -358,7 +358,7 @@ define void @stbhw__get_template_info(ptr noundef readonly captures(none) %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbhw_get_template_size(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
+define void @stbhw_get_template_size(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
   tail call void @stbhw__get_template_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null, ptr noundef null)
   ret void
 }
@@ -1843,7 +1843,7 @@ define i32 @stbhw__change_color(i32 noundef %0, i32 noundef %1, ptr noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbhw_generate_image(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbhw_generate_image(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %8 = load i32, ptr %7, align 4, !tbaa !75
   %9 = sdiv i32 %4, %8

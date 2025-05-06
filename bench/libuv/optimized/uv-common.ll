@@ -2673,7 +2673,7 @@ uv__queue_move.exit:                              ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @uv_print_all_handles(ptr noundef captures(address) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local void @uv_print_all_handles(ptr noundef readonly captures(address) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   tail call fastcc void @uv__print_handles(ptr noundef %0, i32 noundef 0, ptr noundef %1)
   ret void
 }
@@ -2805,7 +2805,7 @@ switch.lookup33:                                  ; preds = %43
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @uv_print_active_handles(ptr noundef captures(address) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local void @uv_print_active_handles(ptr noundef readonly captures(address) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   tail call fastcc void @uv__print_handles(ptr noundef %0, i32 noundef 1, ptr noundef %1)
   ret void
 }

@@ -14687,7 +14687,7 @@ define linkonce_odr hidden void @_ZN4llvm4yaml13MappingTraitsIPKNS_5MachO13Inter
 
 .lr.ph.i.i.i.i:                                   ; preds = %1, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i.i ], [ %3, %1 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_113SymbolSectionD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %.05.i.i.i.i) #20
+  tail call fastcc void @_ZN12_GLOBAL__N_113SymbolSectionD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(280) %.05.i.i.i.i) #20
   %6 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 280
   %.not.i.i.i.i = icmp eq ptr %6, %5
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_113SymbolSectionES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !288
@@ -14720,7 +14720,7 @@ _ZNSt6vectorIN12_GLOBAL__N_113SymbolSectionESaIS1_EED2Ev.exit: ; preds = %_ZSt8_
 
 .lr.ph.i.i.i.i2:                                  ; preds = %_ZNSt6vectorIN12_GLOBAL__N_113SymbolSectionESaIS1_EED2Ev.exit, %.lr.ph.i.i.i.i2
   %.05.i.i.i.i3 = phi ptr [ %16, %.lr.ph.i.i.i.i2 ], [ %13, %_ZNSt6vectorIN12_GLOBAL__N_113SymbolSectionESaIS1_EED2Ev.exit ]
-  tail call fastcc void @_ZN12_GLOBAL__N_113SymbolSectionD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %.05.i.i.i.i3) #20
+  tail call fastcc void @_ZN12_GLOBAL__N_113SymbolSectionD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(280) %.05.i.i.i.i3) #20
   %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i3, i64 280
   %.not.i.i.i.i4 = icmp eq ptr %16, %15
   br i1 %.not.i.i.i.i4, label %_ZSt8_DestroyIPN12_GLOBAL__N_113SymbolSectionES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i5, label %.lr.ph.i.i.i.i2, !llvm.loop !288
@@ -14753,7 +14753,7 @@ _ZNSt6vectorIN12_GLOBAL__N_113SymbolSectionESaIS1_EED2Ev.exit11: ; preds = %_ZSt
 
 .lr.ph.i.i.i.i13:                                 ; preds = %_ZNSt6vectorIN12_GLOBAL__N_113SymbolSectionESaIS1_EED2Ev.exit11, %.lr.ph.i.i.i.i13
   %.05.i.i.i.i14 = phi ptr [ %26, %.lr.ph.i.i.i.i13 ], [ %23, %_ZNSt6vectorIN12_GLOBAL__N_113SymbolSectionESaIS1_EED2Ev.exit11 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_113SymbolSectionD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %.05.i.i.i.i14) #20
+  tail call fastcc void @_ZN12_GLOBAL__N_113SymbolSectionD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(280) %.05.i.i.i.i14) #20
   %26 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i14, i64 280
   %.not.i.i.i.i15 = icmp eq ptr %26, %25
   br i1 %.not.i.i.i.i15, label %_ZSt8_DestroyIPN12_GLOBAL__N_113SymbolSectionES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i16, label %.lr.ph.i.i.i.i13, !llvm.loop !288

@@ -328,7 +328,7 @@ define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli23BrotliDecoderDecompressE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 4) i32 @_ZN13duckdb_brotli29BrotliDecoderDecompressStreamEPNS_24BrotliDecoderStateStructEPmPPKhS2_PPhS2_(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #1 {
+define noundef range(i32 0, 4) i32 @_ZN13duckdb_brotli29BrotliDecoderDecompressStreamEPNS_24BrotliDecoderStateStructEPmPPKhS2_PPhS2_(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #1 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3756,7 +3756,7 @@ thread-pre-split.thread:                          ; preds = %283, %thread-pre-sp
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc noundef range(i32 -26, 4) i32 @_ZN13duckdb_brotliL29CopyUncompressedBlockToOutputEPmPPhS0_PNS_24BrotliDecoderStateStructE(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(none) %3) unnamed_addr #10 {
+define internal fastcc noundef range(i32 -26, 4) i32 @_ZN13duckdb_brotliL29CopyUncompressedBlockToOutputEPmPPhS0_PNS_24BrotliDecoderStateStructE(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(none) %3) unnamed_addr #10 {
   %5 = tail call fastcc noundef i32 @_ZN13duckdb_brotliL22BrotliEnsureRingBufferEPNS_24BrotliDecoderStateStructE(ptr noundef %3)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.thread50, label %.preheader

@@ -8259,7 +8259,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit21:               ; preds = %40, %42
   %45 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm17BranchProbability5printERNS_11raw_ostreamE(ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i20) #23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %46 = call i32 @_ZNK4llvm21BranchProbabilityInfo18getEdgeProbabilityEPKNS_10BasicBlockES3_(ptr noundef nonnull readonly align 8 dereferenceable(248) %0, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  %46 = call i32 @_ZNK4llvm21BranchProbabilityInfo18getEdgeProbabilityEPKNS_10BasicBlockES3_(ptr noundef nonnull readonly align 8 dereferenceable(248) %0, ptr noundef nonnull %2, ptr noundef nonnull readnone %3)
   call void @_ZN4llvm17BranchProbabilityC1Ejj(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 4, i32 noundef 5) #23
   %47 = load i32, ptr %5, align 4
   %48 = icmp ult i32 %47, %46
@@ -8292,7 +8292,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit24:               ; preds = %59, %61
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm21BranchProbabilityInfo9isEdgeHotEPKNS_10BasicBlockES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0, ptr noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm21BranchProbabilityInfo9isEdgeHotEPKNS_10BasicBlockES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::BranchProbability", align 4
   %5 = tail call i32 @_ZNK4llvm21BranchProbabilityInfo18getEdgeProbabilityEPKNS_10BasicBlockES3_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %1, ptr noundef %2)
   call void @_ZN4llvm17BranchProbabilityC1Ejj(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 4, i32 noundef 5) #23
@@ -9293,7 +9293,7 @@ declare void @_ZNK4llvm5Value14printAsOperandERNS_11raw_ostreamEbPKNS_6ModuleE(p
 declare noundef ptr @_ZNK4llvm10BasicBlock9getModuleEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm21BranchProbabilityInfo9calculateERKNS_8FunctionERKNS_8LoopInfoEPKNS_17TargetLibraryInfoEPNS_13DominatorTreeEPNS_17PostDominatorTreeE(ptr noundef nonnull align 8 dereferenceable(248) initializes((48, 64)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm21BranchProbabilityInfo9calculateERKNS_8FunctionERKNS_8LoopInfoEPKNS_17TargetLibraryInfoEPNS_13DominatorTreeEPNS_17PostDominatorTreeE(ptr noundef nonnull align 8 dereferenceable(248) initializes((48, 64)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #1 align 2 {
   %7 = alloca %"class.std::unique_ptr.244", align 8
   %8 = alloca %"class.std::unique_ptr.252", align 8
   %9 = alloca %"class.llvm::iterator_range.260", align 8

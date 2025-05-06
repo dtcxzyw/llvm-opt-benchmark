@@ -120099,7 +120099,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i: ; preds = %_ZN4llvm16dyn_cast_
   br i1 %82, label %83, label %_ZN12_GLOBAL__N_19OpenMPOpt24getValuesInOffloadArraysERN4llvm8CallInstENS1_15MutableArrayRefINS_12OffloadArrayEEE.exit.thread.i
 
 83:                                               ; preds = %67
-  %84 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OffloadArray10initializeERN4llvm10AllocaInstERNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(168) %13, ptr noundef nonnull align 8 dereferenceable(80) %80, ptr noundef nonnull align 8 dereferenceable(88) %19)
+  %84 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OffloadArray10initializeERN4llvm10AllocaInstERNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(168) %13, ptr noundef nonnull align 8 dereferenceable(80) %80, ptr noundef nonnull readonly align 8 dereferenceable(88) %19)
   br i1 %84, label %85, label %_ZN12_GLOBAL__N_19OpenMPOpt24getValuesInOffloadArraysERN4llvm8CallInstENS1_15MutableArrayRefINS_12OffloadArrayEEE.exit.thread.i
 
 85:                                               ; preds = %83
@@ -120110,7 +120110,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i: ; preds = %_ZN4llvm16dyn_cast_
 
 89:                                               ; preds = %85
   %90 = getelementptr inbounds nuw i8, ptr %13, i64 168
-  %91 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OffloadArray10initializeERN4llvm10AllocaInstERNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(168) %90, ptr noundef nonnull align 8 dereferenceable(80) %86, ptr noundef nonnull align 8 dereferenceable(88) %19)
+  %91 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OffloadArray10initializeERN4llvm10AllocaInstERNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(168) %90, ptr noundef nonnull align 8 dereferenceable(80) %86, ptr noundef nonnull readonly align 8 dereferenceable(88) %19)
   br i1 %91, label %92, label %_ZN12_GLOBAL__N_19OpenMPOpt24getValuesInOffloadArraysERN4llvm8CallInstENS1_15MutableArrayRefINS_12OffloadArrayEEE.exit.thread.i
 
 92:                                               ; preds = %89
@@ -120125,7 +120125,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i: ; preds = %_ZN4llvm16dyn_cast_
 
 _ZN12_GLOBAL__N_19OpenMPOpt24getValuesInOffloadArraysERN4llvm8CallInstENS1_15MutableArrayRefINS_12OffloadArrayEEE.exit.i: ; preds = %95
   %97 = getelementptr inbounds nuw i8, ptr %13, i64 336
-  %98 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OffloadArray10initializeERN4llvm10AllocaInstERNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(168) %97, ptr noundef nonnull align 8 dereferenceable(80) %93, ptr noundef nonnull align 8 dereferenceable(88) %19)
+  %98 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OffloadArray10initializeERN4llvm10AllocaInstERNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(168) %97, ptr noundef nonnull align 8 dereferenceable(80) %93, ptr noundef nonnull readonly align 8 dereferenceable(88) %19)
   br i1 %98, label %_ZN12_GLOBAL__N_19OpenMPOpt24getValuesInOffloadArraysERN4llvm8CallInstENS1_15MutableArrayRefINS_12OffloadArrayEEE.exit.thread6.i.preheader, label %_ZN12_GLOBAL__N_19OpenMPOpt24getValuesInOffloadArraysERN4llvm8CallInstENS1_15MutableArrayRefINS_12OffloadArrayEEE.exit.thread.i
 
 _ZN12_GLOBAL__N_19OpenMPOpt24getValuesInOffloadArraysERN4llvm8CallInstENS1_15MutableArrayRefINS_12OffloadArrayEEE.exit.thread6.i.preheader: ; preds = %_ZN12_GLOBAL__N_19OpenMPOpt24getValuesInOffloadArraysERN4llvm8CallInstENS1_15MutableArrayRefINS_12OffloadArrayEEE.exit.i, %92

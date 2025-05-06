@@ -1088,7 +1088,7 @@ blobSetFilename.exit:                             ; preds = %.preheader.i, %22
   br i1 %.not15.i, label %fileblobAddData.exit, label %38
 
 38:                                               ; preds = %36
-  %39 = tail call i64 @fwrite(ptr noundef nonnull %31, i64 noundef %34, i64 noundef 1, ptr noundef nonnull %37)
+  %39 = tail call i64 @fwrite(ptr noundef nonnull readonly %31, i64 noundef %34, i64 noundef 1, ptr noundef nonnull %37)
   %.not16.i = icmp eq i64 %39, 1
   br i1 %.not16.i, label %41, label %fileblobAddData.exit.thread33
 
@@ -1105,7 +1105,7 @@ fileblobAddData.exit.thread33:                    ; preds = %38
   br label %fileblobAddData.exit.thread
 
 fileblobAddData.exit:                             ; preds = %36
-  %45 = tail call i32 @blobAddData(ptr noundef nonnull %4, ptr noundef nonnull %31, i64 noundef %34)
+  %45 = tail call i32 @blobAddData(ptr noundef nonnull %4, ptr noundef nonnull readonly %31, i64 noundef %34)
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %fileblobAddData.exit.thread, label %51
 
@@ -1138,7 +1138,7 @@ declare noalias noundef ptr @fdopen(i32 noundef, ptr noundef readonly captures(n
 declare i32 @close(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @fileblobAddData(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @fileblobAddData(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %21, label %5
 
@@ -1308,7 +1308,7 @@ blobSetFilename.exit.thread:                      ; preds = %14, %blobSetFilenam
   br i1 %40, label %48, label %41
 
 41:                                               ; preds = %37
-  %42 = call i64 @fwrite(ptr noundef nonnull %36, i64 noundef %39, i64 noundef 1, ptr noundef nonnull %28)
+  %42 = call i64 @fwrite(ptr noundef nonnull readonly %36, i64 noundef %39, i64 noundef 1, ptr noundef nonnull %28)
   %.not16.i = icmp eq i64 %42, 1
   br i1 %.not16.i, label %43, label %fileblobAddData.exit
 

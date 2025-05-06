@@ -11484,7 +11484,7 @@ _ZN16wasmtime_environ4fact10trampoline5Stack5slice17h53dfc4a49c5b29deE.exit53.i:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1823)
   %1161 = getelementptr inbounds nuw i8, ptr %191, i64 40
   %.val14.i.i = load i32, ptr %1161, align 8, !alias.scope !1821, !noalias !1825, !noundef !10
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler25validate_string_length_u817hea89ad35d9a60922E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr nonnull %.0.i.i, i32 %.val14.i.i, i8 noundef 2)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler25validate_string_length_u817hea89ad35d9a60922E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr nonnull readonly %.0.i.i, i32 %.val14.i.i, i8 noundef 2)
           to label %.noexc60.i unwind label %1296, !noalias !1752
 
 .noexc60.i:                                       ; preds = %1160
@@ -12240,7 +12240,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
 1343:                                             ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit78.i202
   call void @llvm.experimental.noalias.scope.decl(metadata !1895)
   call void @llvm.experimental.noalias.scope.decl(metadata !1898)
-  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler25validate_string_length_u817hea89ad35d9a60922E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr nonnull %.0.i.i, i32 %1305, i8 noundef 2)
+  invoke fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler25validate_string_length_u817hea89ad35d9a60922E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr nonnull readonly %.0.i.i, i32 %1305, i8 noundef 2)
           to label %.noexc91.i unwind label %1296, !noalias !1752
 
 .noexc91.i:                                       ; preds = %1343
@@ -16079,7 +16079,7 @@ define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler11st
   %.val23 = load ptr, ptr %2, align 8
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.val24 = load i32, ptr %39, align 8, !noundef !10
-  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler25validate_string_length_u817hea89ad35d9a60922E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr %.val23, i32 %.val24, i8 noundef %..i)
+  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler25validate_string_length_u817hea89ad35d9a60922E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr readonly %.val23, i32 %.val24, i8 noundef %..i)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.10)
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.13)
   br i1 %switch.i36, label %40, label %55
@@ -16574,7 +16574,7 @@ define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler22st
   %.val58 = load i32, ptr %80, align 8, !noundef !10
   %switch.i.i = icmp eq i8 %3, 1
   %..i.i = select i1 %switch.i.i, i8 2, i8 1
-  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler25validate_string_length_u817hea89ad35d9a60922E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr %.val57, i32 %.val58, i8 noundef %..i.i)
+  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler25validate_string_length_u817hea89ad35d9a60922E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr readonly %.val57, i32 %.val58, i8 noundef %..i.i)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %79)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2776)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2779)
@@ -18373,7 +18373,7 @@ define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17st
   %.val37 = load i32, ptr %75, align 8, !noundef !10
   %switch.i.i.not = icmp eq i8 %3, 0
   %..i.i = select i1 %switch.i.i.not, i8 1, i8 2
-  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler25validate_string_length_u817hea89ad35d9a60922E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr %.val36, i32 %.val37, i8 noundef %..i.i)
+  tail call fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler25validate_string_length_u817hea89ad35d9a60922E(ptr noalias noundef nonnull align 8 dereferenceable(136) %1, ptr readonly %.val36, i32 %.val37, i8 noundef %..i.i)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %74)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2876)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2879)

@@ -9206,7 +9206,7 @@ define range(i32 -153, 1) i32 @wc_GetDateAsCalendarTime(ptr noundef readonly cap
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_GetPubX509(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) initializes((0, 4)) %2) local_unnamed_addr #2 {
+define i32 @wc_GetPubX509(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) initializes((0, 4)) %2) local_unnamed_addr #2 {
   store i32 0, ptr %2, align 4, !tbaa !22
   %4 = tail call fastcc i32 @DecodeCertInternal(ptr noundef %0, i32 noundef %1, ptr noundef null, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 0)
   %5 = icmp sgt i32 %4, -1
@@ -12491,7 +12491,7 @@ declare i32 @wc_HashTypeConvert(i32 noundef) local_unnamed_addr #3
 declare i32 @wc_HashGetOID(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @DecodeCert(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #2 {
+define i32 @DecodeCert(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = tail call fastcc i32 @DecodeCertInternal(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef null, i32 noundef 0, i32 noundef 0)
   ret i32 %4
 }
@@ -14563,7 +14563,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 declare i32 @Base64_Decode(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 1) i32 @wc_PemToDer(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wc_PemToDer(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #2 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = tail call i32 @PemToDer(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)

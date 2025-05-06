@@ -2007,7 +2007,7 @@ _ZNSt6vectorIN3ue214NFAVertexDepthESaIS1_EED2Ev.exit61.i: ; preds = %435, %432, 
   %.val55.i = phi ptr [ %.val55.pre.i, %._crit_edge91.i ], [ %351, %.thread.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #23
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #23, !noalias !48
-  invoke fastcc void @_ZN3ue2L14poisonVerticesERKNS_8NGHolderERKNS_11RoseInGraphERKSt6vectorINS_12graph_detail15edge_descriptorINS_9ue2_graphIS3_NS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEESaISD_EERKNS_4GreyE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(136) %348, ptr %.val55.i, ptr %.val56.i, ptr noundef nonnull readonly align 8 dereferenceable(292) %44)
+  invoke fastcc void @_ZN3ue2L14poisonVerticesERKNS_8NGHolderERKNS_11RoseInGraphERKSt6vectorINS_12graph_detail15edge_descriptorINS_9ue2_graphIS3_NS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEESaISD_EERKNS_4GreyE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(136) %348, ptr readonly %.val55.i, ptr readnone %.val56.i, ptr noundef nonnull readonly align 8 dereferenceable(292) %44)
           to label %.noexc62.i unwind label %446
 
 .noexc62.i:                                       ; preds = %436
@@ -6640,7 +6640,7 @@ _ZN3ue214renumber_edgesINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valu
   store i64 %449, ptr %.sroa.5154.0..sroa_idx.i, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %37) #23, !noalias !241
   %485 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  invoke fastcc void @_ZN3ue2L14poisonVerticesERKNS_8NGHolderERKNS_11RoseInGraphERKSt6vectorINS_12graph_detail15edge_descriptorINS_9ue2_graphIS3_NS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEESaISD_EERKNS_4GreyE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(136) %451, ptr nonnull %483, ptr nonnull %484, ptr noundef nonnull readonly align 8 dereferenceable(292) %485)
+  invoke fastcc void @_ZN3ue2L14poisonVerticesERKNS_8NGHolderERKNS_11RoseInGraphERKSt6vectorINS_12graph_detail15edge_descriptorINS_9ue2_graphIS3_NS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEESaISD_EERKNS_4GreyE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(136) %451, ptr nonnull readonly %483, ptr nonnull readnone %484, ptr noundef nonnull readonly align 8 dereferenceable(292) %485)
           to label %.noexc.i23 unwind label %503
 
 .noexc.i23:                                       ; preds = %.noexc
@@ -7461,7 +7461,7 @@ _ZN5boost9iterators6detail20iterator_facade_baseIN3ue29ue2_graphINS3_11RoseInGra
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %32) #23, !noalias !289
   call void @llvm.experimental.noalias.scope.decl(metadata !292)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %31) #23, !noalias !292
-  invoke fastcc void @_ZN3ue2L11poisonEdgesERKNS_8NGHolderEPKSt6vectorINS_14NFAVertexDepthESaIS4_EERKNS_11RoseInGraphERKS3_INS_12graph_detail15edge_descriptorINS_9ue2_graphIS9_NS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEESaISI_EEbRKNS_4GreyE(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(136) %740, ptr noundef null, ptr %.val11.i.i, ptr %.val12.i.i, i1 noundef zeroext false, ptr noundef nonnull readonly align 8 dereferenceable(292) %485)
+  invoke fastcc void @_ZN3ue2L11poisonEdgesERKNS_8NGHolderEPKSt6vectorINS_14NFAVertexDepthESaIS4_EERKNS_11RoseInGraphERKS3_INS_12graph_detail15edge_descriptorINS_9ue2_graphIS9_NS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEESaISI_EEbRKNS_4GreyE(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull readonly align 8 dereferenceable(136) %740, ptr noundef null, ptr readonly %.val11.i.i, ptr readnone %.val12.i.i, i1 noundef zeroext false, ptr noundef nonnull readonly align 8 dereferenceable(292) %485)
           to label %.noexc71.i unwind label %851
 
 .noexc71.i:                                       ; preds = %.loopexit.i
@@ -8361,7 +8361,7 @@ _ZNSt13unordered_setIPN3ue28NGHolderESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.ex
   %1058 = getelementptr inbounds nuw i8, ptr %.sroa.097.0160.i, i64 16
   %.val20.i.i = load ptr, ptr %1058, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %24) #23, !noalias !332
-  invoke fastcc void @_ZN3ue2L14poisonVerticesERKNS_8NGHolderERKNS_11RoseInGraphERKSt6vectorINS_12graph_detail15edge_descriptorINS_9ue2_graphIS3_NS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEESaISD_EERKNS_4GreyE(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(136) %1056, ptr %.val19.i.i, ptr %.val20.i.i, ptr noundef nonnull readonly align 8 dereferenceable(292) %485)
+  invoke fastcc void @_ZN3ue2L14poisonVerticesERKNS_8NGHolderERKNS_11RoseInGraphERKSt6vectorINS_12graph_detail15edge_descriptorINS_9ue2_graphIS3_NS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEESaISD_EERKNS_4GreyE(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(136) %1056, ptr readonly %.val19.i.i, ptr readnone %.val20.i.i, ptr noundef nonnull readonly align 8 dereferenceable(292) %485)
           to label %.noexc96.i unwind label %1096
 
 .noexc96.i:                                       ; preds = %1055
@@ -14633,7 +14633,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolder
 declare void @_ZN3ue210calcDepthsERKNS_8NGHolderE(ptr dead_on_unwind writable sret(%"class.std::vector.133") align 8, ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L19findBestPrefixSplitERKNS_8NGHolderERKSt6vectorINS_14NFAVertexDepthESaIS4_EERKNS_11RoseInGraphERKS3_INS_12graph_detail15edge_descriptorINS_9ue2_graphIS9_NS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEESaISI_EEbRKNS_14CompileContextE(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr captures(address) %.0.val, ptr captures(address) %.8.val, i1 noundef zeroext %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L19findBestPrefixSplitERKNS_8NGHolderERKSt6vectorINS_14NFAVertexDepthESaIS4_EERKNS_11RoseInGraphERKS3_INS_12graph_detail15edge_descriptorINS_9ue2_graphIS9_NS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEESaISI_EEbRKNS_14CompileContextE(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr readonly captures(address) %.0.val, ptr readnone captures(address) %.8.val, i1 noundef zeroext %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.std::_Rb_tree<ue2::ue2_literal, ue2::ue2_literal, std::_Identity<ue2::ue2_literal>, std::less<ue2::ue2_literal>>::_Alloc_node", align 8
   %7 = alloca %"struct.ue2::ue2_literal", align 8
   %8 = alloca %"struct.ue2::ue2_literal", align 8
@@ -21728,7 +21728,7 @@ _ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE40priv_forwa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L14poisonVerticesERKNS_8NGHolderERKNS_11RoseInGraphERKSt6vectorINS_12graph_detail15edge_descriptorINS_9ue2_graphIS3_NS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEESaISD_EERKNS_4GreyE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(136) %1, ptr captures(address) %.0.val, ptr captures(address) %.8.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(292) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L14poisonVerticesERKNS_8NGHolderERKNS_11RoseInGraphERKSt6vectorINS_12graph_detail15edge_descriptorINS_9ue2_graphIS3_NS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEESaISD_EERKNS_4GreyE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %1, ptr readonly captures(address) %.0.val, ptr readnone captures(address) %.8.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(292) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.ue2::flat_set.270", align 8
   %5 = alloca %"class.ue2::graph_detail::vertex_descriptor", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #23

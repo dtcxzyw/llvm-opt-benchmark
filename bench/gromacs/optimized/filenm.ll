@@ -191,7 +191,7 @@ _ZL13getFileOptionPKciPK8t_filenm.exit:           ; preds = %13, %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define { ptr, ptr } @_Z18opt2fnsIfOptionSetB5cxx11PKciPK8t_filenm(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define { ptr, ptr } @_Z18opt2fnsIfOptionSetB5cxx11PKciPK8t_filenm(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   br i1 %4, label %5, label %9
 
@@ -370,7 +370,7 @@ define noundef zeroext i1 @_Z8ftp2bSetiiPK8t_filenm(i32 noundef %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z17opt2path_optionalB5cxx11PKciPK8t_filenm(ptr dead_on_unwind noalias writable sret(%"class.std::optional") align 8 %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define void @_Z17opt2path_optionalB5cxx11PKciPK8t_filenm(ptr dead_on_unwind noalias writable sret(%"class.std::optional") align 8 %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
   %6 = tail call noundef ptr @_Z11opt2fn_nullPKciPK8t_filenm(ptr noundef %1, i32 noundef %2, ptr noundef %3)

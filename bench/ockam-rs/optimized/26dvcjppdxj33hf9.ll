@@ -2390,7 +2390,7 @@ define hidden void @"_ZN4core3ptr129drop_in_place$LT$std..thread..JoinHandle$LT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h68e64f93f791947eE"(ptr %.0.val, ptr captures(address_is_null) %.8.val) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h68e64f93f791947eE"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #4 personality ptr @rust_eh_personality {
   %1 = icmp eq ptr %.0.val, null
   br i1 %1, label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h73c7d0c200bc0a9fE.llvm.1799741712541865863.exit", label %2
 
@@ -5950,7 +5950,7 @@ define hidden void @"_ZN4core3ptr368drop_in_place$LT$regex_automata..util..pool.
 .body:                                            ; preds = %1
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc137f734a0d0da4aE"(ptr nonnull %.val, ptr nonnull %.val2) #25
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc137f734a0d0da4aE"(ptr nonnull %.val, ptr nonnull readonly %.val2) #25
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke fastcc void @"_ZN4core3ptr209drop_in_place$LT$alloc..vec..Vec$LT$regex_automata..util..pool..inner..CacheLine$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$$GT$$GT$17h45083aa6721c247dE"(ptr noalias noundef align 8 dereferenceable(24) %5) #25
           to label %.body3 unwind label %39

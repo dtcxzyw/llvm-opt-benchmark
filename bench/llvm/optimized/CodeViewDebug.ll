@@ -3007,7 +3007,7 @@ _ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit:    ; preds = %32, %_ZN4llvm23Smal
 declare noundef ptr @_ZNK4llvm7DIScope8getScopeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm13CodeViewDebug21getFullyQualifiedNameB5cxx11EPKNS_7DIScopeENS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1312) %1, ptr noundef %2, ptr captures(address_is_null) %3, i64 %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm13CodeViewDebug21getFullyQualifiedNameB5cxx11EPKNS_7DIScopeENS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1312) %1, ptr noundef %2, ptr readonly captures(address_is_null) %3, i64 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::SmallVector.117", align 8
   %7 = alloca %"class.llvm::SmallVector.498", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1200
@@ -15112,7 +15112,7 @@ _ZN4llvm6TripleD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   store i64 %292, ptr %3, align 8, !tbaa !1380
   store ptr @"_ZNSt17_Function_handlerIFvRKN4llvm20MachineJumpTableInfoERKNS0_12MachineInstrElEZNS0_13CodeViewDebug25discoverJumpTableBranchesEPKNS0_15MachineFunctionEbE3$_0E9_M_invokeERKSt9_Any_dataS3_S6_Ol", ptr %294, align 8, !tbaa !1382
   store ptr @"_ZNSt17_Function_handlerIFvRKN4llvm20MachineJumpTableInfoERKNS0_12MachineInstrElEZNS0_13CodeViewDebug25discoverJumpTableBranchesEPKNS0_15MachineFunctionEbE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %293, align 8, !tbaa !1384
-  call void @_Z22forEachJumpTableBranchPKN4llvm15MachineFunctionEbRKSt8functionIFvRKNS_20MachineJumpTableInfoERKNS_12MachineInstrElEE(ptr noundef nonnull %1, i1 noundef zeroext %283, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  call void @_Z22forEachJumpTableBranchPKN4llvm15MachineFunctionEbRKSt8functionIFvRKNS_20MachineJumpTableInfoERKNS_12MachineInstrElEE(ptr noundef nonnull readonly %1, i1 noundef zeroext %283, ptr noundef nonnull align 8 dereferenceable(32) %3)
   %296 = load ptr, ptr %293, align 8, !tbaa !1384
   %.not.i.i59 = icmp eq ptr %296, null
   br i1 %.not.i.i59, label %_ZN4llvm13CodeViewDebug25discoverJumpTableBranchesEPKNS_15MachineFunctionEb.exit, label %297
@@ -15519,7 +15519,7 @@ declare noundef zeroext i1 @_ZNK4llvm8Function23hasStackProtectorFnAttrEv(ptr no
 declare void @_ZNK4llvm8DebugLoc13getFnDebugLocEv(ptr dead_on_unwind writable sret(%"class.llvm::DebugLoc") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm13CodeViewDebug25discoverJumpTableBranchesEPKNS_15MachineFunctionEb(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef captures(address) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm13CodeViewDebug25discoverJumpTableBranchesEPKNS_15MachineFunctionEb(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(address) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::function.1243", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #25
   %5 = ptrtoint ptr %0 to i64

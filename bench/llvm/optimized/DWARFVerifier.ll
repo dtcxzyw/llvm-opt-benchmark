@@ -3243,7 +3243,7 @@ define dso_local noundef i32 @_ZN4llvm13DWARFVerifier24verifyDebugInfoAttributeE
   store ptr %150, ptr %27, align 8, !tbaa !77
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E9_M_invokeERKSt9_Any_data", ptr %148, align 8, !tbaa !79
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %147, align 8, !tbaa !81
-  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %146, ptr nonnull @.str.41, i64 29, ptr noundef nonnull %27)
+  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %146, ptr nonnull readonly @.str.41, i64 29, ptr noundef nonnull %27)
   %151 = load ptr, ptr %147, align 8, !tbaa !81
   %.not.i.i = icmp eq ptr %151, null
   br i1 %.not.i.i, label %"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_0clENS_9StringRefERKNS_5TwineE.exit", label %152
@@ -3320,7 +3320,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %161
   store ptr %180, ptr %26, align 8, !tbaa !77
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E9_M_invokeERKSt9_Any_data", ptr %178, align 8, !tbaa !79
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %177, align 8, !tbaa !81
-  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %176, ptr nonnull @.str.43, i64 36, ptr noundef nonnull %26)
+  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %176, ptr nonnull readonly @.str.43, i64 36, ptr noundef nonnull %26)
   %181 = load ptr, ptr %177, align 8, !tbaa !81
   %.not.i.i69 = icmp eq ptr %181, null
   br i1 %.not.i.i69, label %"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_0clENS_9StringRefERKNS_5TwineE.exit70", label %182
@@ -3365,7 +3365,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %161
   store ptr %193, ptr %25, align 8, !tbaa !77
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E9_M_invokeERKSt9_Any_data", ptr %191, align 8, !tbaa !79
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %190, align 8, !tbaa !81
-  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %189, ptr nonnull @.str.45, i64 32, ptr noundef nonnull %25)
+  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %189, ptr nonnull readonly @.str.45, i64 32, ptr noundef nonnull %25)
   %194 = load ptr, ptr %190, align 8, !tbaa !81
   %.not.i.i73 = icmp eq ptr %194, null
   br i1 %.not.i.i73, label %"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_0clENS_9StringRefERKNS_5TwineE.exit74", label %195
@@ -4209,7 +4209,7 @@ _ZN4llvm11SmallVectorImLj6EED2Ev.exit1.i.i3.i:    ; preds = %521, %_ZN4llvm11Sma
   store ptr %532, ptr %12, align 8, !tbaa !77
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E9_M_invokeERKSt9_Any_data", ptr %336, align 8, !tbaa !79
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %335, align 8, !tbaa !81
-  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %334, ptr nonnull @.str.47, i64 25, ptr noundef nonnull %12)
+  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %334, ptr nonnull readonly @.str.47, i64 25, ptr noundef nonnull %12)
   %533 = load ptr, ptr %335, align 8, !tbaa !81
   %.not.i.i77 = icmp eq ptr %533, null
   br i1 %.not.i.i77, label %"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_0clENS_9StringRefERKNS_5TwineE.exit78", label %534
@@ -4401,7 +4401,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm5ErrorD2Ev.
   store ptr %600, ptr %8, align 8, !tbaa !77
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E9_M_invokeERKSt9_Any_data", ptr %598, align 8, !tbaa !79
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %597, align 8, !tbaa !81
-  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %596, ptr nonnull @.str.49, i64 22, ptr noundef nonnull %8)
+  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %596, ptr nonnull readonly @.str.49, i64 22, ptr noundef nonnull %8)
   %601 = load ptr, ptr %597, align 8, !tbaa !81
   %.not.i.i82 = icmp eq ptr %601, null
   br i1 %.not.i.i82, label %"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_0clENS_9StringRefERKNS_5TwineE.exit83", label %602
@@ -4727,7 +4727,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit133:               ; preds = %_ZN4llvmplERKNS_5Tw
   store ptr %733, ptr %7, align 8, !tbaa !77
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E9_M_invokeERKSt9_Any_data", ptr %731, align 8, !tbaa !79
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %730, align 8, !tbaa !81
-  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %729, ptr nonnull @.str.54, i64 37, ptr noundef nonnull %7)
+  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %729, ptr nonnull readonly @.str.54, i64 37, ptr noundef nonnull %7)
   %734 = load ptr, ptr %730, align 8, !tbaa !81
   %.not.i.i136 = icmp eq ptr %734, null
   br i1 %.not.i.i136, label %"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_0clENS_9StringRefERKNS_5TwineE.exit137", label %735
@@ -5057,7 +5057,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit199:               ; preds = %752
   store ptr %847, ptr %6, align 8, !tbaa !77
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E9_M_invokeERKSt9_Any_data", ptr %845, align 8, !tbaa !79
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %844, align 8, !tbaa !81
-  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %843, ptr nonnull @.str.65, i64 61, ptr noundef nonnull %6)
+  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %843, ptr nonnull readonly @.str.65, i64 61, ptr noundef nonnull %6)
   %848 = load ptr, ptr %844, align 8, !tbaa !81
   %.not.i.i202 = icmp eq ptr %848, null
   br i1 %.not.i.i202, label %"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_0clENS_9StringRefERKNS_5TwineE.exit203", label %849
@@ -5115,7 +5115,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit219:               ; preds = %737
   store ptr %867, ptr %5, align 8, !tbaa !77
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E9_M_invokeERKSt9_Any_data", ptr %865, align 8, !tbaa !79
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %864, align 8, !tbaa !81
-  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %863, ptr nonnull @.str.68, i64 35, ptr noundef nonnull %5)
+  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %863, ptr nonnull readonly @.str.68, i64 35, ptr noundef nonnull %5)
   %868 = load ptr, ptr %864, align 8, !tbaa !81
   %.not.i.i222 = icmp eq ptr %868, null
   br i1 %.not.i.i222, label %"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_0clENS_9StringRefERKNS_5TwineE.exit223", label %869
@@ -5183,7 +5183,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit240:               ; preds = %872
   store ptr %894, ptr %4, align 8, !tbaa !77
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E9_M_invokeERKSt9_Any_data", ptr %892, align 8, !tbaa !79
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS1_8DWARFDieERNS1_14DWARFAttributeEENK3$_0clENS1_9StringRefERKNS1_5TwineEEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %891, align 8, !tbaa !81
-  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %890, ptr nonnull %.str.70..str.71, i64 37, ptr noundef nonnull %4)
+  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %890, ptr nonnull readonly %.str.70..str.71, i64 37, ptr noundef nonnull %4)
   %895 = load ptr, ptr %891, align 8, !tbaa !81
   %.not.i.i243 = icmp eq ptr %895, null
   br i1 %.not.i.i243, label %"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_0clENS_9StringRefERKNS_5TwineE.exit244", label %896
@@ -8681,7 +8681,7 @@ _ZN4llvm13DIDumpOptionsD2Ev.exit:                 ; preds = %_ZNKSt7__cxx1112bas
 declare { i64, i8 } @_ZNK4llvm14DWARFFormValue18getAsSectionOffsetEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #4
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_0clENS_9StringRefERKNS_5TwineE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr captures(address_is_null) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(34) %3) unnamed_addr #7 align 2 {
+define internal fastcc void @"_ZZN4llvm13DWARFVerifier24verifyDebugInfoAttributeERKNS_8DWARFDieERNS_14DWARFAttributeEENK3$_0clENS_9StringRefERKNS_5TwineE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(34) %3) unnamed_addr #7 align 2 {
   %5 = alloca %"class.std::function.49", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !160

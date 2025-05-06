@@ -3167,7 +3167,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h5885e02bd344adafE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h43e1a9685f4adf73E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef captures(address) %1, i64 noundef %2) unnamed_addr #0 {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h43e1a9685f4adf73E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h326113a4a89e3c9fE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2)
   ret i64 %4
 }
@@ -6685,7 +6685,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h0e9c325bde2afd91E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hdf30797afde91c4fE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef captures(address) %1, i64 noundef %2) unnamed_addr #0 {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hdf30797afde91c4fE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hfe586b59739e5894E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2)
   ret i64 %4
 }
@@ -6965,7 +6965,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hf887d0f7dc539442E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf605a4673d7fc198E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef captures(address) %1, i64 noundef %2) unnamed_addr #0 {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf605a4673d7fc198E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17ha1656fd60f531962E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2)
   ret i64 %4
 }
@@ -30582,8 +30582,8 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h3232f3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h33759885b260aa51E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef captures(address) %1) unnamed_addr #0 {
-  %3 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17ha1656fd60f531962E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef %1, i64 noundef 0)
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h33759885b260aa51E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
+  %3 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17ha1656fd60f531962E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef 0)
   ret i64 %3
 }
 
@@ -30677,8 +30677,8 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h34e874
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h3796bd6f47803185E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef captures(address) %1) unnamed_addr #0 {
-  %3 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h326113a4a89e3c9fE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef %1, i64 noundef 0)
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h3796bd6f47803185E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
+  %3 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h326113a4a89e3c9fE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef 0)
   ret i64 %3
 }
 
@@ -34527,8 +34527,8 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17he7c6af
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17he815b4b9d8081ddcE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef captures(address) %1) unnamed_addr #0 {
-  %3 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hfe586b59739e5894E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef %1, i64 noundef 0)
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17he815b4b9d8081ddcE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
+  %3 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hfe586b59739e5894E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef 0)
   ret i64 %3
 }
 
@@ -41688,8 +41688,8 @@ _ZN4core4iter6traits8iterator8Iterator5count17hd27f30f6dd9ba67cE.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h47886bc4a9c6d0deE"(ptr noundef nonnull %0, ptr noundef captures(address) %1) unnamed_addr #2 {
-  %3 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17ha1656fd60f531962E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef %1, i64 noundef 0)
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h47886bc4a9c6d0deE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 {
+  %3 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17ha1656fd60f531962E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef 0)
   ret i64 %3
 }
 
@@ -43395,8 +43395,8 @@ define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h9575c2902e936ba5E"(ptr noundef nonnull %0, ptr noundef captures(address) %1) unnamed_addr #2 {
-  %3 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hfe586b59739e5894E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef %1, i64 noundef 0)
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h9575c2902e936ba5E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 {
+  %3 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hfe586b59739e5894E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef 0)
   ret i64 %3
 }
 
@@ -43774,8 +43774,8 @@ _ZN4core4iter6traits8iterator8Iterator5count17he7c6af49f4a4c355E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17ha43a7b3d921bafdcE"(ptr noundef nonnull %0, ptr noundef captures(address) %1) unnamed_addr #2 {
-  %3 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h326113a4a89e3c9fE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef %1, i64 noundef 0)
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17ha43a7b3d921bafdcE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 {
+  %3 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h326113a4a89e3c9fE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef 0)
   ret i64 %3
 }
 

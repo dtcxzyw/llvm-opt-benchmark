@@ -11871,7 +11871,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEPN12_GLOBAL__N_110B
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121MachineBlockPlacement10buildChainEPKN4llvm17MachineBasicBlockERNS_10BlockChainEPNS1_14SmallSetVectorIS4_Lj16EEE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef captures(address) %1, ptr noundef nonnull align 8 dereferenceable(60) %2, ptr noundef %3) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_121MachineBlockPlacement10buildChainEPKN4llvm17MachineBasicBlockERNS_10BlockChainEPNS1_14SmallSetVectorIS4_Lj16EEE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull align 8 dereferenceable(60) %2, ptr noundef %3) unnamed_addr #1 align 2 {
   %5 = alloca i8, align 1
   %6 = alloca %"class.llvm::BranchProbability", align 4
   %7 = alloca %"class.llvm::SmallPtrSet.551", align 8
@@ -11918,7 +11918,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121MachineBlockPlacement10buildChai
   %.val14.i = load ptr, ptr %33, align 8, !tbaa !25
   %34 = getelementptr i8, ptr %32, i64 120
   %.val15.i = load i32, ptr %34, align 8, !tbaa !26
-  tail call fastcc void @_ZN12_GLOBAL__N_121MachineBlockPlacement19markBlockSuccessorsERKNS_10BlockChainEPKN4llvm17MachineBasicBlockES7_PKNS4_14SmallSetVectorIS7_Lj16EEE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef nonnull align 8 dereferenceable(60) %2, ptr %.val14.i, i32 %.val15.i, ptr noundef %1, ptr noundef null)
+  tail call fastcc void @_ZN12_GLOBAL__N_121MachineBlockPlacement19markBlockSuccessorsERKNS_10BlockChainEPKN4llvm17MachineBasicBlockES7_PKNS4_14SmallSetVectorIS7_Lj16EEE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef nonnull readonly align 8 dereferenceable(60) %2, ptr %.val14.i, i32 %.val15.i, ptr noundef readnone %1, ptr noundef null)
   %35 = getelementptr inbounds nuw i8, ptr %.017.i, i64 8
   %.not.i = icmp eq ptr %35, %31
   br i1 %.not.i, label %_ZN12_GLOBAL__N_121MachineBlockPlacement19markChainSuccessorsERKNS_10BlockChainEPKN4llvm17MachineBasicBlockEPKNS4_14SmallSetVectorIS7_Lj16EEE.exit, label %.lr.ph.i
@@ -11942,7 +11942,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121MachineBlockPlacement10buildChai
   %.val14.i55 = load ptr, ptr %42, align 8, !tbaa !25
   %43 = getelementptr i8, ptr %41, i64 120
   %.val15.i56 = load i32, ptr %43, align 8, !tbaa !26
-  tail call fastcc void @_ZN12_GLOBAL__N_121MachineBlockPlacement19markBlockSuccessorsERKNS_10BlockChainEPKN4llvm17MachineBasicBlockES7_PKNS4_14SmallSetVectorIS7_Lj16EEE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef nonnull align 8 dereferenceable(60) %2, ptr %.val14.i55, i32 %.val15.i56, ptr noundef %1, ptr noundef nonnull %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_121MachineBlockPlacement19markBlockSuccessorsERKNS_10BlockChainEPKN4llvm17MachineBasicBlockES7_PKNS4_14SmallSetVectorIS7_Lj16EEE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef nonnull readonly align 8 dereferenceable(60) %2, ptr %.val14.i55, i32 %.val15.i56, ptr noundef readnone %1, ptr noundef nonnull %3)
   %44 = getelementptr inbounds nuw i8, ptr %.017.i54, i64 8
   %.not.i57 = icmp eq ptr %44, %40
   br i1 %.not.i57, label %_ZN12_GLOBAL__N_121MachineBlockPlacement19markChainSuccessorsERKNS_10BlockChainEPKN4llvm17MachineBasicBlockEPKNS4_14SmallSetVectorIS7_Lj16EEE.exit, label %.lr.ph.i53
@@ -12022,7 +12022,7 @@ _ZN12_GLOBAL__N_121MachineBlockPlacement19markChainSuccessorsERKNS_10BlockChainE
   store ptr %50, ptr %17, align 8, !tbaa !25
   store i32 0, ptr %51, align 8, !tbaa !26
   store i32 4, ptr %52, align 4, !tbaa !27
-  %108 = call fastcc i32 @_ZN12_GLOBAL__N_121MachineBlockPlacement23collectViableSuccessorsEPKN4llvm17MachineBasicBlockERKNS_10BlockChainEPKNS1_14SmallSetVectorIS4_Lj16EEERNS1_11SmallVectorIPS2_Lj4EEE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef %.0266, ptr noundef nonnull align 8 dereferenceable(60) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(48) %17)
+  %108 = call fastcc i32 @_ZN12_GLOBAL__N_121MachineBlockPlacement23collectViableSuccessorsEPKN4llvm17MachineBasicBlockERKNS_10BlockChainEPKNS1_14SmallSetVectorIS4_Lj16EEERNS1_11SmallVectorIPS2_Lj4EEE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef %.0266, ptr noundef nonnull readnone align 8 dereferenceable(60) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(48) %17)
   %.val77.i = load ptr, ptr %53, align 8, !tbaa !310
   %.val78.i = load i32, ptr %54, align 8, !tbaa !156
   %109 = icmp eq i32 %.val78.i, 0
@@ -13480,13 +13480,13 @@ _ZN12_GLOBAL__N_121MachineBlockPlacement19shouldTailDuplicateEPN4llvm17MachineBa
   br i1 %682, label %683, label %.thread.i.i
 
 683:                                              ; preds = %_ZN12_GLOBAL__N_121MachineBlockPlacement19shouldTailDuplicateEPN4llvm17MachineBasicBlockE.exit
-  %684 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121MachineBlockPlacement29canTailDuplicateUnplacedPredsEPKN4llvm17MachineBasicBlockEPS2_RKNS_10BlockChainEPKNS1_14SmallSetVectorIS4_Lj16EEE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef nonnull %.0266, ptr noundef nonnull %669, ptr noundef nonnull align 8 dereferenceable(60) %2, ptr noundef %3)
+  %684 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121MachineBlockPlacement29canTailDuplicateUnplacedPredsEPKN4llvm17MachineBasicBlockEPS2_RKNS_10BlockChainEPKNS1_14SmallSetVectorIS4_Lj16EEE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef nonnull %.0266, ptr noundef nonnull %669, ptr noundef nonnull readnone align 8 dereferenceable(60) %2, ptr noundef %3)
   br i1 %684, label %685, label %.thread.i.i
 
 685:                                              ; preds = %683
   %686 = load ptr, ptr %71, align 8, !tbaa !263
   %687 = call i32 @_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_(ptr noundef nonnull align 1 dereferenceable(1) %686, ptr noundef nonnull %.0266, ptr noundef %.sroa.5180.0.copyload.i.i) #25
-  %688 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121MachineBlockPlacement21isProfitableToTailDupEPKN4llvm17MachineBasicBlockES4_NS1_17BranchProbabilityERKNS_10BlockChainEPKNS1_14SmallSetVectorIS4_Lj16EEE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef nonnull %.0266, ptr noundef nonnull %669, i32 %687, ptr noundef nonnull align 8 dereferenceable(60) %2, ptr noundef %3)
+  %688 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121MachineBlockPlacement21isProfitableToTailDupEPKN4llvm17MachineBasicBlockES4_NS1_17BranchProbabilityERKNS_10BlockChainEPKNS1_14SmallSetVectorIS4_Lj16EEE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef nonnull %.0266, ptr noundef nonnull %669, i32 %687, ptr noundef nonnull readnone align 8 dereferenceable(60) %2, ptr noundef %3)
   br i1 %688, label %690, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %677, %685, %683, %_ZN12_GLOBAL__N_121MachineBlockPlacement19shouldTailDuplicateEPN4llvm17MachineBasicBlockE.exit, %_ZNK12_GLOBAL__N_121MachineBlockPlacement21allowTailDupPlacementEv.exit.i.i, %666
@@ -13795,7 +13795,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEPN12_GLOBAL__N_110B
   %.pn.i = phi ptr [ %790, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEPN12_GLOBAL__N_110BlockChainENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E16InsertIntoBucketIRKS4_JEEEPSC_SI_OT_DpOT0_.exit.i ], [ %737, %729 ], [ %751, %745 ]
   %.0.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   %798 = load ptr, ptr %.0.i, align 8, !tbaa !429
-  %799 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121MachineBlockPlacement26hasBetterLayoutPredecessorEPKN4llvm17MachineBasicBlockES4_RKNS_10BlockChainENS1_17BranchProbabilityES8_S7_PKNS1_14SmallSetVectorIS4_Lj16EEE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef %.0266, ptr noundef %797, ptr noundef nonnull align 8 dereferenceable(60) %798, i32 %725, ptr noundef nonnull align 8 dereferenceable(60) %2, ptr noundef %3)
+  %799 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121MachineBlockPlacement26hasBetterLayoutPredecessorEPKN4llvm17MachineBasicBlockES4_RKNS_10BlockChainENS1_17BranchProbabilityES8_S7_PKNS1_14SmallSetVectorIS4_Lj16EEE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef %.0266, ptr noundef %797, ptr noundef nonnull align 8 dereferenceable(60) %798, i32 %725, ptr noundef nonnull readnone align 8 dereferenceable(60) %2, ptr noundef %3)
   br i1 %799, label %800, label %829
 
 800:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEPN12_GLOBAL__N_110BlockChainENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixERKS4_.exit
@@ -13877,11 +13877,11 @@ _ZN4llvm15SmallVectorImplISt4pairINS_17BranchProbabilityEPNS_17MachineBasicBlock
   br i1 %836, label %._crit_edge197.loopexit.i, label %837
 
 837:                                              ; preds = %.lr.ph196.i
-  %838 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121MachineBlockPlacement29canTailDuplicateUnplacedPredsEPKN4llvm17MachineBasicBlockEPS2_RKNS_10BlockChainEPKNS1_14SmallSetVectorIS4_Lj16EEE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef %.0266, ptr noundef %835, ptr noundef nonnull align 8 dereferenceable(60) %2, ptr noundef %3)
+  %838 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121MachineBlockPlacement29canTailDuplicateUnplacedPredsEPKN4llvm17MachineBasicBlockEPS2_RKNS_10BlockChainEPKNS1_14SmallSetVectorIS4_Lj16EEE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef %.0266, ptr noundef %835, ptr noundef nonnull readnone align 8 dereferenceable(60) %2, ptr noundef %3)
   br i1 %838, label %839, label %841
 
 839:                                              ; preds = %837
-  %840 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121MachineBlockPlacement21isProfitableToTailDupEPKN4llvm17MachineBasicBlockES4_NS1_17BranchProbabilityERKNS_10BlockChainEPKNS1_14SmallSetVectorIS4_Lj16EEE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef %.0266, ptr noundef %835, i32 %.sroa.0118.1.i, ptr noundef nonnull align 8 dereferenceable(60) %2, ptr noundef %3)
+  %840 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121MachineBlockPlacement21isProfitableToTailDupEPKN4llvm17MachineBasicBlockES4_NS1_17BranchProbabilityERKNS_10BlockChainEPKNS1_14SmallSetVectorIS4_Lj16EEE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef %.0266, ptr noundef %835, i32 %.sroa.0118.1.i, ptr noundef nonnull readnone align 8 dereferenceable(60) %2, ptr noundef %3)
   br i1 %840, label %._crit_edge197.loopexit.i, label %841
 
 841:                                              ; preds = %839, %837
@@ -14218,7 +14218,7 @@ _ZNK12_GLOBAL__N_121MachineBlockPlacement21allowTailDupPlacementEv.exit71: ; pre
 
 975:                                              ; preds = %_ZNK12_GLOBAL__N_121MachineBlockPlacement21allowTailDupPlacementEv.exit71
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #25
-  %976 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121MachineBlockPlacement23maybeTailDuplicateBlockEPN4llvm17MachineBasicBlockES3_RNS_10BlockChainEPNS1_14SmallSetVectorIPKS2_Lj16EEERNS1_14ilist_iteratorINS1_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEERPKS8_Rb(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef nonnull %.fca.0.extract256, ptr noundef %.0266, ptr noundef nonnull align 8 dereferenceable(60) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %976 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121MachineBlockPlacement23maybeTailDuplicateBlockEPN4llvm17MachineBasicBlockES3_RNS_10BlockChainEPNS1_14SmallSetVectorIPKS2_Lj16EEERNS1_14ilist_iteratorINS1_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEERPKS8_Rb(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef nonnull %.fca.0.extract256, ptr noundef %.0266, ptr noundef nonnull readonly align 8 dereferenceable(60) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 1 dereferenceable(1) %5)
   br i1 %976, label %977, label %_ZN12_GLOBAL__N_121MachineBlockPlacement28repeatedlyTailDuplicateBlockEPN4llvm17MachineBasicBlockERS3_PKS2_RNS_10BlockChainEPNS1_14SmallSetVectorIS6_Lj16EEERNS1_14ilist_iteratorINS1_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEERPKS6_.exit
 
 977:                                              ; preds = %975
@@ -14248,7 +14248,7 @@ _ZNK12_GLOBAL__N_121MachineBlockPlacement21allowTailDupPlacementEv.exit71: ; pre
   %989 = load ptr, ptr %986, align 8, !tbaa !285
   %990 = getelementptr inbounds i8, ptr %985, i64 -16
   %991 = load ptr, ptr %990, align 8, !tbaa !285
-  %992 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121MachineBlockPlacement23maybeTailDuplicateBlockEPN4llvm17MachineBasicBlockES3_RNS_10BlockChainEPNS1_14SmallSetVectorIPKS2_Lj16EEERNS1_14ilist_iteratorINS1_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEERPKS8_Rb(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef %989, ptr noundef %991, ptr noundef nonnull align 8 dereferenceable(60) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %992 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121MachineBlockPlacement23maybeTailDuplicateBlockEPN4llvm17MachineBasicBlockES3_RNS_10BlockChainEPNS1_14SmallSetVectorIPKS2_Lj16EEERNS1_14ilist_iteratorINS1_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEERPKS8_Rb(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef %989, ptr noundef %991, ptr noundef nonnull readonly align 8 dereferenceable(60) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 1 dereferenceable(1) %5)
   %993 = load i8, ptr %5, align 1, !tbaa !66, !range !54, !noundef !55
   %994 = trunc nuw i8 %993 to i1
   %995 = and i1 %992, %994
@@ -14270,7 +14270,7 @@ _ZNK12_GLOBAL__N_121MachineBlockPlacement21allowTailDupPlacementEv.exit71: ; pre
   %.val35.i = load ptr, ptr %999, align 8, !tbaa !25
   %1000 = getelementptr i8, ptr %998, i64 120
   %.val36.i = load i32, ptr %1000, align 8, !tbaa !26
-  call fastcc void @_ZN12_GLOBAL__N_121MachineBlockPlacement19markBlockSuccessorsERKNS_10BlockChainEPKN4llvm17MachineBasicBlockES7_PKNS4_14SmallSetVectorIS7_Lj16EEE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef nonnull align 8 dereferenceable(60) %2, ptr %.val35.i, i32 %.val36.i, ptr noundef %1, ptr noundef %3)
+  call fastcc void @_ZN12_GLOBAL__N_121MachineBlockPlacement19markBlockSuccessorsERKNS_10BlockChainEPKN4llvm17MachineBasicBlockES7_PKNS4_14SmallSetVectorIS7_Lj16EEE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef nonnull readonly align 8 dereferenceable(60) %2, ptr %.val35.i, i32 %.val36.i, ptr noundef readnone %1, ptr noundef %3)
   br label %_ZN12_GLOBAL__N_121MachineBlockPlacement28repeatedlyTailDuplicateBlockEPN4llvm17MachineBasicBlockERS3_PKS2_RNS_10BlockChainEPNS1_14SmallSetVectorIS6_Lj16EEERNS1_14ilist_iteratorINS1_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEERPKS6_.exit
 
 _ZN12_GLOBAL__N_121MachineBlockPlacement28repeatedlyTailDuplicateBlockEPN4llvm17MachineBasicBlockERS3_PKS2_RNS_10BlockChainEPNS1_14SmallSetVectorIS6_Lj16EEERNS1_14ilist_iteratorINS1_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEERPKS6_.exit: ; preds = %975, %.thread.thread.i, %.thread.i73
@@ -18015,7 +18015,7 @@ _ZL31getLayoutSuccessorProbThresholdPKN4llvm17MachineBasicBlockE.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121MachineBlockPlacement21isProfitableToTailDupEPKN4llvm17MachineBasicBlockES4_NS1_17BranchProbabilityERKNS_10BlockChainEPKNS1_14SmallSetVectorIS4_Lj16EEE(ptr noundef nonnull align 8 captures(none) dereferenceable(752) %0, ptr noundef %1, ptr noundef %2, i32 %3, ptr noundef nonnull align 8 captures(address) dereferenceable(60) %4, ptr noundef %5) unnamed_addr #1 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121MachineBlockPlacement21isProfitableToTailDupEPKN4llvm17MachineBasicBlockES4_NS1_17BranchProbabilityERKNS_10BlockChainEPKNS1_14SmallSetVectorIS4_Lj16EEE(ptr noundef nonnull align 8 captures(none) dereferenceable(752) %0, ptr noundef %1, ptr noundef %2, i32 %3, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(60) %4, ptr noundef %5) unnamed_addr #1 align 2 {
   %7 = alloca %"class.llvm::BranchProbability", align 4
   %8 = alloca %"class.llvm::BlockFrequency", align 8
   %9 = alloca %"class.llvm::BranchProbability", align 4

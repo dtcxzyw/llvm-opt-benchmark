@@ -6335,7 +6335,7 @@ _ZNK2cv8tinyxml210XMLElement9AttributeEPKcS3_.exit.thread: ; preds = %_ZN2cv8tin
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN2cv8tinyxml210XMLElement9ParseDeepEPcPNS0_7StrPairE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN2cv8tinyxml210XMLElement9ParseDeepEPcPNS0_7StrPairE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #4 align 2 {
   %4 = load i8, ptr %1, align 1, !tbaa !12
   %.not5.i = icmp sgt i8 %4, -1
   br i1 %.not5.i, label %.lr.ph.i, label %_ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit.thread

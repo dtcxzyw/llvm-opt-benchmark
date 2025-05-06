@@ -758,7 +758,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZN8proxygen13SessionHolder4linkEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8proxygen11SessionPool14getTransactionEPNS_22HTTPTransactionHandlerE(ptr noundef nonnull align 8 captures(address) dereferenceable(136) %this, ptr noundef %upstreamHandler) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN8proxygen11SessionPool14getTransactionEPNS_22HTTPTransactionHandlerE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %this, ptr noundef %upstreamHandler) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_header.i32.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_header.i32.i, align 8

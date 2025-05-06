@@ -652,7 +652,7 @@ lj_debug_uvname.exit:                             ; preds = %131, %.split105.us,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @lj_debug_funcname(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 {
+define hidden noundef ptr @lj_debug_funcname(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8, !tbaa !4
   %6 = inttoptr i64 %5 to ptr
@@ -1031,7 +1031,7 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_debug_addloc(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address) %3) local_unnamed_addr #4 {
+define hidden void @lj_debug_addloc(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address) %3) local_unnamed_addr #4 {
   %5 = alloca [60 x i8], align 16
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.critedge.thread, label %6
@@ -1047,7 +1047,7 @@ define hidden void @lj_debug_addloc(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %13, label %14, label %.critedge.thread
 
 14:                                               ; preds = %6
-  %15 = tail call fastcc i32 @debug_framepc(ptr noundef readonly %0, ptr noundef nonnull readonly %10, ptr noundef %3)
+  %15 = tail call fastcc i32 @debug_framepc(ptr noundef readonly %0, ptr noundef nonnull readonly %10, ptr noundef readonly %3)
   %.not.i = icmp eq i32 %15, -1
   br i1 %.not.i, label %.critedge.thread, label %16
 
@@ -1777,7 +1777,7 @@ define hidden range(i32 0, 2) i32 @lj_debug_getinfo(ptr noundef %0, ptr noundef 
   br i1 %.not141, label %debug_frameline.exit, label %67
 
 67:                                               ; preds = %66
-  %68 = tail call fastcc i32 @debug_framepc(ptr noundef readonly %0, ptr noundef readonly %.1126, ptr noundef %.0123)
+  %68 = tail call fastcc i32 @debug_framepc(ptr noundef readonly %0, ptr noundef readonly %.1126, ptr noundef readonly %.0123)
   %.not.i = icmp eq i32 %68, -1
   br i1 %.not.i, label %debug_frameline.exit, label %69
 

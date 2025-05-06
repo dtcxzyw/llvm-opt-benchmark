@@ -4808,7 +4808,7 @@ dissect_scsi_log_page.exit:                       ; preds = %94, %split.i
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @dissect_spc_modeselect6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) #0 {
+define hidden void @dissect_spc_modeselect6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.critedge, label %9
 
@@ -5117,7 +5117,7 @@ switch.lookup:                                    ; preds = %17
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @dissect_spc_modeselect10(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) #0 {
+define hidden void @dissect_spc_modeselect10(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.critedge, label %9
 
@@ -5244,7 +5244,7 @@ define hidden void @dissect_spc_modeselect10(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @dissect_spc_modesense6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) #0 {
+define hidden void @dissect_spc_modesense6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.critedge, label %9
 
@@ -5385,7 +5385,7 @@ dissect_scsi_pagecode.exit:                       ; preds = %11, %32
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @dissect_spc_modesense10(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) #0 {
+define hidden void @dissect_spc_modesense10(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.critedge, label %9
 

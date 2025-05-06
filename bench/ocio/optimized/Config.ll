@@ -40970,7 +40970,7 @@ _ZNK19OpenColorIO_v2_5dev6Config4Impl18updateDisplayCacheEv.exit: ; preds = %1, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK19OpenColorIO_v2_5dev6Config14getDefaultViewEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #4 align 2 {
+define noundef ptr @_ZNK19OpenColorIO_v2_5dev6Config14getDefaultViewEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 align 2 {
   %3 = tail call noundef ptr @_ZNK19OpenColorIO_v2_5dev6Config7getViewEPKci(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i32 noundef 0)
   ret ptr %3
 }
@@ -41325,7 +41325,7 @@ _ZNSt6vectorIPKN19OpenColorIO_v2_5dev4ViewESaIS3_EED2Ev.exit51: ; preds = %137, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK19OpenColorIO_v2_5dev6Config14getDefaultViewEPKcS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #4 align 2 {
+define noundef ptr @_ZNK19OpenColorIO_v2_5dev6Config14getDefaultViewEPKcS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #4 align 2 {
   %4 = tail call noundef ptr @_ZNK19OpenColorIO_v2_5dev6Config7getViewEPKcS2_i(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   ret ptr %4
 }
@@ -50304,7 +50304,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN19OpenColorIO_v2_5dev6Config24removeVirtualDisplayViewEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_5dev6Config24removeVirtualDisplayViewEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -50400,7 +50400,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 .lr.ph.i.i.i:                                     ; preds = %36, %54
   %.043.i.i.i = phi i64 [ %56, %54 ], [ %42, %36 ]
   %.sroa.032.042.i.i.i = phi ptr [ %55, %54 ], [ %37, %36 ]
-  %44 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_5dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr nonnull %1, ptr %.sroa.032.042.i.i.i)
+  %44 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_5dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr nonnull readonly %1, ptr %.sroa.032.042.i.i.i)
           to label %.noexc14 unwind label %.loopexit
 
 .noexc14:                                         ; preds = %.lr.ph.i.i.i
@@ -50408,7 +50408,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 45:                                               ; preds = %.noexc14
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.032.042.i.i.i, i64 192
-  %47 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_5dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr nonnull %1, ptr nonnull %46)
+  %47 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_5dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr nonnull readonly %1, ptr nonnull %46)
           to label %.noexc15 unwind label %.loopexit
 
 .noexc15:                                         ; preds = %45
@@ -50416,7 +50416,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 48:                                               ; preds = %.noexc15
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.032.042.i.i.i, i64 384
-  %50 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_5dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr nonnull %1, ptr nonnull %49)
+  %50 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_5dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr nonnull readonly %1, ptr nonnull %49)
           to label %.noexc16 unwind label %.loopexit
 
 .noexc16:                                         ; preds = %48
@@ -50424,7 +50424,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 51:                                               ; preds = %.noexc16
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.032.042.i.i.i, i64 576
-  %53 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_5dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr nonnull %1, ptr nonnull %52)
+  %53 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_5dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr nonnull readonly %1, ptr nonnull %52)
           to label %.noexc17 unwind label %.loopexit
 
 .noexc17:                                         ; preds = %51
@@ -50452,7 +50452,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   ]
 
 59:                                               ; preds = %._crit_edge.i.i.i
-  %60 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_5dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr nonnull %1, ptr %.sroa.032.0.lcssa.i.i.i)
+  %60 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_5dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr nonnull readonly %1, ptr %.sroa.032.0.lcssa.i.i.i)
           to label %.noexc18 unwind label %.loopexit.split-lp
 
 .noexc18:                                         ; preds = %59
@@ -50464,7 +50464,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 63:                                               ; preds = %61, %._crit_edge.i.i.i
   %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %62, %61 ]
-  %64 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_5dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr nonnull %1, ptr %.sroa.032.1.i.i.i)
+  %64 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_5dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr nonnull readonly %1, ptr %.sroa.032.1.i.i.i)
           to label %.noexc19 unwind label %.loopexit.split-lp
 
 .noexc19:                                         ; preds = %63
@@ -50476,7 +50476,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 67:                                               ; preds = %65, %._crit_edge.i.i.i
   %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %66, %65 ]
-  %68 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_5dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr nonnull %1, ptr %.sroa.032.2.i.i.i)
+  %68 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN19OpenColorIO_v2_5dev6Config24removeVirtualDisplayViewEPKcE3$_0EclINS_17__normal_iteratorIPNS2_4ViewESt6vectorISA_SaISA_EEEEEEbT_"(ptr nonnull readonly %1, ptr %.sroa.032.2.i.i.i)
           to label %.noexc20 unwind label %.loopexit.split-lp
 
 .noexc20:                                         ; preds = %67

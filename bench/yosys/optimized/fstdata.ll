@@ -6083,7 +6083,7 @@ declare void @fstReaderSetFacProcessMaskAll(ptr noundef) local_unnamed_addr #0
 declare i32 @fstReaderIterBlocks2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL23reconstruct_clb_attimesPvmjPKh(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL23reconstruct_clb_attimesPvmjPKh(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) #3 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.split7, label %.split
 
@@ -6096,7 +6096,7 @@ define internal void @_ZL23reconstruct_clb_attimesPvmjPKh(ptr noundef %0, i64 no
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL30reconstruct_clb_varlen_attimesPvmjPKhj(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i32 %4) #3 {
+define internal void @_ZL30reconstruct_clb_varlen_attimesPvmjPKhj(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 %4) #3 {
   tail call void @_ZN5Yosys7FstData28reconstruct_callback_attimesEmjPKhj(ptr noundef nonnull align 8 dereferenceable(440) %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i32 poison)
   ret void
 }

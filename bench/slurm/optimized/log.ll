@@ -2323,7 +2323,7 @@ _print_data_json.exit:                            ; preds = %104, %106
 
 210:                                              ; preds = %207
   %211 = getelementptr inbounds nuw i8, ptr %200, i64 280
-  %212 = call ptr @log_build_step_id_str(ptr noundef nonnull %211, ptr noundef nonnull %12, i32 noundef 256, i16 noundef zeroext 10)
+  %212 = call ptr @log_build_step_id_str(ptr noundef nonnull readonly %211, ptr noundef nonnull %12, i32 noundef 256, i16 noundef zeroext 10)
   br label %_stepid2fmt.exit
 
 _stepid2fmt.exit.critedge:                        ; preds = %183, %._crit_edge

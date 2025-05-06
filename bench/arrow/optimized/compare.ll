@@ -559,7 +559,7 @@ _ZN5arrow12_GLOBAL__N_111ArrayEqualsERKNS_5ArrayES3_RKNS_12EqualOptionsEb.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5arrow12ScalarEqualsERKNS_6ScalarES2_RKNS_12EqualOptionsE(ptr noundef nonnull align 8 captures(address) dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #1 {
+define noundef zeroext i1 @_ZN5arrow12ScalarEqualsERKNS_6ScalarES2_RKNS_12EqualOptionsE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #1 {
   %4 = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_112ScalarEqualsERKNS_6ScalarES3_RKNS_12EqualOptionsEb(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext false)
   ret i1 %4
 }
@@ -1202,7 +1202,7 @@ _ZN5arrow12_GLOBAL__N_123IdentityImpliesEqualityERKNS_8DataTypeERKNS_12EqualOpti
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5arrow18ScalarApproxEqualsERKNS_6ScalarES2_RKNS_12EqualOptionsE(ptr noundef nonnull align 8 captures(address) dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #1 {
+define noundef zeroext i1 @_ZN5arrow18ScalarApproxEqualsERKNS_6ScalarES2_RKNS_12EqualOptionsE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #1 {
   %4 = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_112ScalarEqualsERKNS_6ScalarES3_RKNS_12EqualOptionsEb(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext true)
   ret i1 %4
 }

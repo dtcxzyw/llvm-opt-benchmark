@@ -6612,7 +6612,7 @@ _ZN4llvm33getDebugMetadataVersionFromModuleERKNS_6ModuleE.exit: ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @LLVMStripModuleDebugInfo(ptr noundef nonnull captures(address) %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @LLVMStripModuleDebugInfo(ptr noundef nonnull readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = tail call noundef zeroext i1 @_ZN4llvm14StripDebugInfoERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(841) %0)
   %3 = zext i1 %2 to i32
   ret i32 %3

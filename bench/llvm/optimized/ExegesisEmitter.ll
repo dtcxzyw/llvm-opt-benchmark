@@ -2968,7 +2968,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit117.i.i.i:        ; preds = %1067, %1065
 
 _ZN4llvm11raw_ostreamlsEPKc.exit120.i.i.i:        ; preds = %1083, %1081
   %.0.i.i119.i.i.i = phi ptr [ %1082, %1081 ], [ %1072, %1083 ]
-  %1086 = call fastcc noundef i32 @_ZNK12_GLOBAL__N_115ExegesisEmitter15getPfmCounterIdEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(88) %32, ptr %748, i64 %749)
+  %1086 = call fastcc noundef i32 @_ZNK12_GLOBAL__N_115ExegesisEmitter15getPfmCounterIdEN4llvm9StringRefE(ptr noundef nonnull readonly align 8 dereferenceable(88) %32, ptr %748, i64 %749)
   %1087 = zext i32 %1086 to i64
   %1088 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i119.i.i.i, i64 noundef %1087) #18
   %1089 = getelementptr inbounds nuw i8, ptr %1088, i64 24
@@ -3059,7 +3059,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit129.i.i.i:        ; preds = %1119, %1117
 
 _ZN4llvm11raw_ostreamlsEPKc.exit132.i.i.i:        ; preds = %1135, %1133
   %.0.i.i131.i.i.i = phi ptr [ %1134, %1133 ], [ %1124, %1135 ]
-  %1138 = call fastcc noundef i32 @_ZNK12_GLOBAL__N_115ExegesisEmitter15getPfmCounterIdEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(88) %32, ptr %752, i64 %753)
+  %1138 = call fastcc noundef i32 @_ZNK12_GLOBAL__N_115ExegesisEmitter15getPfmCounterIdEN4llvm9StringRefE(ptr noundef nonnull readonly align 8 dereferenceable(88) %32, ptr %752, i64 %753)
   %1139 = zext i32 %1138 to i64
   %1140 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i131.i.i.i, i64 noundef %1139) #18
   %1141 = getelementptr inbounds nuw i8, ptr %1140, i64 24

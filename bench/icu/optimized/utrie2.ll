@@ -1012,7 +1012,7 @@ define i32 @utrie2_serialize_77(ptr noundef readonly captures(address_is_null) %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @utrie2_enum_77(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #1 {
+define void @utrie2_enum_77(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #1 {
   tail call fastcc void @_ZL14enumEitherTriePK6UTrie2iiPFjPKvjEPFaS3_iijES3_(ptr noundef %0, i32 noundef 0, i32 noundef 1114112, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   ret void
 }
@@ -1451,7 +1451,7 @@ define internal fastcc void @_ZL14enumEitherTriePK6UTrie2iiPFjPKvjEPFaS3_iijES3_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @utrie2_enumForLeadSurrogate_77(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #1 {
+define void @utrie2_enumForLeadSurrogate_77(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = and i32 %1, -1024
   %7 = icmp eq i32 %6, 55296
   br i1 %7, label %8, label %12

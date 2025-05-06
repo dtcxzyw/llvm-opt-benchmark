@@ -39,7 +39,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11OpenImageIO6v3_1_04SHA1C2EPKvm(ptr noundef nonnull align 8 captures(none) dereferenceable(9) initializes((0, 9)) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11OpenImageIO6v3_1_04SHA1C2EPKvm(ptr noundef nonnull align 8 captures(none) dereferenceable(9) initializes((0, 9)) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #19
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 192

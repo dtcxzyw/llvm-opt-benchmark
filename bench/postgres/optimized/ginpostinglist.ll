@@ -172,7 +172,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ginPostingListDecode(ptr noundef captures(address) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @ginPostingListDecode(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %4 = load i16, ptr %3, align 2
   %5 = zext i16 %4 to i32
@@ -383,7 +383,7 @@ decode_varbyte.exit:                              ; preds = %40, %45, %52, %59, 
 declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ginPostingListDecodeAllSegmentsToTbm(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef i32 @ginPostingListDecodeAllSegmentsToTbm(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
   %5 = call ptr @ginPostingListDecodeAllSegments(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4)

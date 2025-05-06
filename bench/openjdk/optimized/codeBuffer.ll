@@ -3320,7 +3320,7 @@ _ZNK11CodeSection14align_at_startEi.exit:         ; preds = %12, %15, %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10CodeBuffer6expandEP11CodeSectioni(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef captures(address) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10CodeBuffer6expandEP11CodeSectioni(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef readnone captures(address) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca [3 x i32], align 4
   %5 = alloca %class.CodeBuffer, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 280

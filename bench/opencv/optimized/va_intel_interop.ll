@@ -1245,7 +1245,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27.i.i: ; preds = 
 225:                                              ; preds = %219
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #25
-  invoke fastcc void @_ZL10writeImageRKN2cv4UMatEPKcb(ptr noundef nonnull align 8 dereferenceable(80) %10, ptr noundef %115, i1 noundef zeroext %118)
+  invoke fastcc void @_ZL10writeImageRKN2cv4UMatEPKcb(ptr noundef nonnull align 8 dereferenceable(80) %10, ptr noundef readonly %115, i1 noundef zeroext %118)
           to label %226 unwind label %257
 
 226:                                              ; preds = %225
@@ -1305,7 +1305,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27.i.i: ; preds = 
           to label %247 unwind label %257
 
 247:                                              ; preds = %245
-  invoke fastcc void @_ZL10writeImageRKN2cv4UMatEPKcb(ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef %117, i1 noundef zeroext %118)
+  invoke fastcc void @_ZL10writeImageRKN2cv4UMatEPKcb(ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef readonly %117, i1 noundef zeroext %118)
           to label %248 unwind label %257
 
 248:                                              ; preds = %247

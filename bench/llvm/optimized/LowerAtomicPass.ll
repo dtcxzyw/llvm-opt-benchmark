@@ -394,7 +394,7 @@ declare void @_ZNK4llvm4Pass14verifyAnalysisEv(ptr noundef nonnull align 8 deref
 declare void @_ZN4llvm4Pass17dumpPassStructureEj(ptr noundef nonnull align 8 dereferenceable(28), i32 noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_121LowerAtomicLegacyPass13runOnFunctionERN4llvm8FunctionE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(29) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(136) %1) unnamed_addr #0 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_121LowerAtomicLegacyPass13runOnFunctionERN4llvm8FunctionE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(29) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::AnalysisManager", align 8
   %4 = alloca %"class.llvm::PreservedAnalyses", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #12

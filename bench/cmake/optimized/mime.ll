@@ -2179,7 +2179,7 @@ define dso_local ptr @Curl_mime_contenttype(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 28) i32 @Curl_mime_prepare_headers(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 28) i32 @Curl_mime_prepare_headers(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %7 = load ptr, ptr %6, align 8, !tbaa !27
   tail call void @curl_slist_free_all(ptr noundef %7) #18

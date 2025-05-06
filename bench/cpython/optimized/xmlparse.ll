@@ -358,25 +358,25 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.PyExpat_unsignedCharToPrintable = private unnamed_addr constant [256 x ptr] [ptr @.str.181, ptr @.str.182, ptr @.str.183, ptr @.str.184, ptr @.str.185, ptr @.str.186, ptr @.str.187, ptr @.str.188, ptr @.str.189, ptr @.str.190, ptr @.str.191, ptr @.str.192, ptr @.str.193, ptr @.str.194, ptr @.str.195, ptr @.str.196, ptr @.str.197, ptr @.str.198, ptr @.str.199, ptr @.str.200, ptr @.str.201, ptr @.str.202, ptr @.str.203, ptr @.str.204, ptr @.str.205, ptr @.str.206, ptr @.str.207, ptr @.str.208, ptr @.str.209, ptr @.str.210, ptr @.str.211, ptr @.str.212, ptr @.str.213, ptr @.str.214, ptr @.str.215, ptr @.str.216, ptr @.str.217, ptr @.str.218, ptr @.str.219, ptr @.str.220, ptr @.str.221, ptr @.str.222, ptr @.str.223, ptr @.str.224, ptr @.str.225, ptr @.str.226, ptr @.str.227, ptr @.str.228, ptr @.str.229, ptr @.str.230, ptr @.str.231, ptr @.str.232, ptr @.str.233, ptr @.str.234, ptr @.str.235, ptr @.str.236, ptr @.str.237, ptr @.str.238, ptr @.str.239, ptr @.str.240, ptr @.str.241, ptr @.str.242, ptr @.str.243, ptr @.str.244, ptr @.str.245, ptr @.str.246, ptr @.str.247, ptr @.str.248, ptr @.str.249, ptr @.str.250, ptr @.str.251, ptr @.str.252, ptr @.str.253, ptr @.str.254, ptr @.str.255, ptr @.str.256, ptr @.str.257, ptr @.str.258, ptr @.str.259, ptr @.str.260, ptr @.str.261, ptr @.str.262, ptr @.str.263, ptr @.str.264, ptr @.str.265, ptr @.str.266, ptr @.str.267, ptr @.str.268, ptr @.str.269, ptr @.str.270, ptr @.str.271, ptr @.str.272, ptr @.str.273, ptr @.str.274, ptr @.str.275, ptr @.str.276, ptr @.str.277, ptr @.str.278, ptr @.str.279, ptr @.str.280, ptr @.str.281, ptr @.str.282, ptr @.str.283, ptr @.str.284, ptr @.str.285, ptr @.str.286, ptr @.str.287, ptr @.str.288, ptr @.str.289, ptr @.str.290, ptr @.str.291, ptr @.str.292, ptr @.str.293, ptr @.str.294, ptr @.str.295, ptr @.str.296, ptr @.str.297, ptr @.str.298, ptr @.str.299, ptr @.str.300, ptr @.str.301, ptr @.str.302, ptr @.str.303, ptr @.str.304, ptr @.str.305, ptr @.str.306, ptr @.str.307, ptr @.str.308, ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr @.str.59, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.63, ptr @.str.64, ptr @.str.65, ptr @.str.66, ptr @.str.67, ptr @.str.68, ptr @.str.69, ptr @.str.70, ptr @.str.71, ptr @.str.72, ptr @.str.73, ptr @.str.74, ptr @.str.75, ptr @.str.76, ptr @.str.77, ptr @.str.78, ptr @.str.79, ptr @.str.80, ptr @.str.81, ptr @.str.82, ptr @.str.83, ptr @.str.84, ptr @.str.85, ptr @.str.86, ptr @.str.87, ptr @.str.88, ptr @.str.89, ptr @.str.90, ptr @.str.91, ptr @.str.92, ptr @doProlog.enumValueStart, ptr @.str.94, ptr @.str.95, ptr @.str.96, ptr @.str.97, ptr @.str.98, ptr @.str.99, ptr @.str.100, ptr @.str.101, ptr @.str.102, ptr @.str.103, ptr @.str.104, ptr @.str.105, ptr @.str.106, ptr @.str.107, ptr @.str.108, ptr @.str.109, ptr @.str.110, ptr @.str.111, ptr @.str.112, ptr @.str.113, ptr @.str.114, ptr @.str.115, ptr @.str.116, ptr @.str.117, ptr @.str.118, ptr @.str.119, ptr @.str.120, ptr @.str.121, ptr @.str.122, ptr @.str.123, ptr @.str.124, ptr @.str.125, ptr @.str.126, ptr @.str.127, ptr @.str.128, ptr @.str.129, ptr @.str.130, ptr @.str.131, ptr @.str.132, ptr @.str.133, ptr @.str.134, ptr @.str.135, ptr @.str.136, ptr @.str.137, ptr @.str.138, ptr @.str.139, ptr @.str.140, ptr @.str.141, ptr @.str.142, ptr @.str.143, ptr @.str.144, ptr @.str.145, ptr @.str.146, ptr @.str.147, ptr @.str.148, ptr @.str.149, ptr @.str.150, ptr @.str.151, ptr @.str.152, ptr @.str.153, ptr @.str.154, ptr @.str.155, ptr @.str.156, ptr @.str.157, ptr @.str.158, ptr @.str.159, ptr @.str.160, ptr @.str.161, ptr @.str.162, ptr @.str.163, ptr @.str.164, ptr @.str.165, ptr @.str.166, ptr @.str.167, ptr @.str.168, ptr @.str.169, ptr @.str.170, ptr @.str.171, ptr @.str.172, ptr @.str.173, ptr @.str.174, ptr @.str.175, ptr @.str.176, ptr @doProlog.enumValueSep, ptr @.str.178, ptr @.str.179, ptr @.str.180], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @PyExpat_XML_ParserCreate(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
-  %2 = tail call fastcc ptr @parserCreate(ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef null)
+define hidden ptr @PyExpat_XML_ParserCreate(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+  %2 = tail call fastcc ptr @parserCreate(ptr noundef readonly %0, ptr noundef null, ptr noundef null, ptr noundef null)
   ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @PyExpat_XML_ParserCreate_MM(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden ptr @PyExpat_XML_ParserCreate_MM(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @parserCreate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @PyExpat_XML_ParserCreateNS(ptr noundef captures(address_is_null) %0, i8 noundef signext %1) local_unnamed_addr #0 {
+define hidden ptr @PyExpat_XML_ParserCreateNS(ptr noundef readonly captures(address_is_null) %0, i8 noundef signext %1) local_unnamed_addr #0 {
   %3 = alloca [2 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #26
   store i8 %1, ptr %3, align 1, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %4, align 1, !tbaa !3
-  %5 = call fastcc ptr @parserCreate(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3, ptr noundef null)
+  %5 = call fastcc ptr @parserCreate(ptr noundef readonly %0, ptr noundef null, ptr noundef nonnull readonly %3, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #26
   ret ptr %5
 }
@@ -388,7 +388,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @parserCreate(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @parserCreate(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %16, label %5
 
@@ -635,7 +635,7 @@ dtdCreate.exit:                                   ; preds = %47
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @PyExpat_XML_ParserReset(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @PyExpat_XML_ParserReset(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %197, label %4
 
@@ -1315,7 +1315,7 @@ copyString.exit:                                  ; preds = %13
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @PyExpat_XML_ExternalEntityParserCreate(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden ptr @PyExpat_XML_ExternalEntityParserCreate(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca [2 x i8], align 1
   %5 = icmp eq ptr %0, null
   br i1 %5, label %693, label %6

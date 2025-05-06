@@ -1219,7 +1219,7 @@ define internal void @CLutElemTypeFree(ptr noundef readonly captures(none) %0) #
 declare ptr @_cmsComputeInterpParamsEx(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsStageAllocCLut16bit(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define hidden ptr @cmsStageAllocCLut16bit(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca [15 x i32], align 16
   br label %7
 
@@ -1237,7 +1237,7 @@ define hidden ptr @cmsStageAllocCLut16bit(ptr noundef %0, i32 noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsStageAllocCLutFloat(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define hidden ptr @cmsStageAllocCLutFloat(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca [15 x i32], align 16
   br label %7
 

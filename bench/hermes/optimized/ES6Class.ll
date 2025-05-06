@@ -29998,7 +29998,7 @@ return.sink.split.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i, 
   br label %_ZN12_GLOBAL__N_110NodeVectorC2ERKS0_.exit.i
 
 _ZN12_GLOBAL__N_110NodeVectorC2ERKS0_.exit.i:     ; preds = %return.sink.split.i.i.i.i, %_ZN12_GLOBAL__N_110NodeVectorC2ERN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEE.exit
-  %call2.i = call fastcc noundef ptr @_ZN6hermes25ES6ClassesTransformations27createCallWithForwardedThisEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %callExpression, ptr noundef %call.i.i, ptr noundef %agg.tmp.i)
+  %call2.i = call fastcc noundef ptr @_ZN6hermes25ES6ClassesTransformations27createCallWithForwardedThisEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef readonly %callExpression, ptr noundef %call.i.i, ptr noundef %agg.tmp.i)
   %14 = load ptr, ptr %agg.tmp.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %14, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZN6hermes25ES6ClassesTransformations15createSuperCallEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE.exit, label %if.then.i.i.i.i
@@ -30319,7 +30319,7 @@ return.sink.split.i.i.i.i47:                      ; preds = %if.then.i.i.i.i43.i
   br label %_ZN12_GLOBAL__N_110NodeVectorC2ERKS0_.exit.i48
 
 _ZN12_GLOBAL__N_110NodeVectorC2ERKS0_.exit.i48:   ; preds = %return.sink.split.i.i.i.i47, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_4NodeES6_bEEEPT_S5_DpOT0_.exit.i
-  %call11.i = call fastcc noundef ptr @_ZN6hermes25ES6ClassesTransformations27createCallWithForwardedThisEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %callExpression, ptr noundef nonnull %retval.0.i.i.i.i23.i, ptr noundef %agg.tmp10.i)
+  %call11.i = call fastcc noundef ptr @_ZN6hermes25ES6ClassesTransformations27createCallWithForwardedThisEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef readonly %callExpression, ptr noundef nonnull %retval.0.i.i.i.i23.i, ptr noundef %agg.tmp10.i)
   %65 = load ptr, ptr %agg.tmp10.i, align 8
   %cmp.i.i.i.i.i49 = icmp eq ptr %65, %add.ptr.i.i.i.i.i.i.i37
   br i1 %cmp.i.i.i.i.i49, label %_ZN6hermes25ES6ClassesTransformations21createSuperMethodCallEPNS_6ESTree4NodeES3_S3_N12_GLOBAL__N_110NodeVectorE.exit, label %if.then.i.i.i46.i
@@ -34095,7 +34095,7 @@ return.sink.split.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i53
   br label %_ZN12_GLOBAL__N_110NodeVectorC2ERKS0_.exit.i
 
 _ZN12_GLOBAL__N_110NodeVectorC2ERKS0_.exit.i:     ; preds = %return.sink.split.i.i.i.i, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.exit.i
-  %call2.i = call fastcc noundef ptr @_ZN6hermes25ES6ClassesTransformations27createCallWithForwardedThisEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %classBody, ptr noundef %call.i.i, ptr noundef %agg.tmp.i)
+  %call2.i = call fastcc noundef ptr @_ZN6hermes25ES6ClassesTransformations27createCallWithForwardedThisEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef readonly %classBody, ptr noundef %call.i.i, ptr noundef %agg.tmp.i)
   %92 = load ptr, ptr %agg.tmp.i, align 8
   %cmp.i.i.i.i.i54 = icmp eq ptr %92, %add.ptr.i.i.i.i.i.i.i48
   br i1 %cmp.i.i.i.i.i54, label %_ZN6hermes25ES6ClassesTransformations15createSuperCallEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE.exit, label %if.then.i.i.i.i55

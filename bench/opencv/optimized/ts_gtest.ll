@@ -82067,7 +82067,7 @@ declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 
 declare i32 @regcomp(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7testing8internal8GTestLogC2ENS0_16GTestLogSeverityEPKci(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7testing8internal8GTestLogC2ENS0_16GTestLogSeverityEPKci(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   store i32 %1, ptr %0, align 4, !tbaa !1667
   %6 = icmp eq i32 %1, 0
@@ -84316,7 +84316,7 @@ define void @_ZN7testing8internal24HasNewFatalFailureHelper20ReportTestPartResul
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7testing8internal19TypedTestCasePState25VerifyRegisteredTestNamesEPKciS3_(ptr noundef nonnull align 8 captures(address) dereferenceable(56) initializes((0, 1)) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef returned %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN7testing8internal19TypedTestCasePState25VerifyRegisteredTestNamesEPKciS3_(ptr noundef nonnull align 8 captures(address) dereferenceable(56) initializes((0, 1)) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef returned %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::vector.33", align 8

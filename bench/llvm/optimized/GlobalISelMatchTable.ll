@@ -26308,7 +26308,7 @@ _ZNK4llvm2gi11RuleMatcher12getInsnVarIDERNS0_18InstructionMatcherE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi19CopyPhysRegRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(472) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi19CopyPhysRegRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(472) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !1830

@@ -6394,7 +6394,7 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17hc7fa49d12
   %.val21.i.i = load i64, ptr %32, align 8, !alias.scope !1467
   %33 = getelementptr i8, ptr %29, i64 56
   %.val22.i.i = load double, ptr %33, align 8, !alias.scope !1467
-  %34 = tail call fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17ha68bb7a6f3e8114fE"(ptr nonnull %.val29, i64 %.val19.i.i, double %.val20.i.i, i64 %.val21.i.i, double %.val22.i.i), !noalias !1467
+  %34 = tail call fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17ha68bb7a6f3e8114fE"(ptr nonnull readonly %.val29, i64 %.val19.i.i, double %.val20.i.i, i64 %.val21.i.i, double %.val22.i.i), !noalias !1467
   %35 = zext i1 %34 to i64
   %36 = add nuw i64 %23, %35
   br label %37
@@ -6412,7 +6412,7 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17hc7fa49d12
   %.val16.i.i = load i64, ptr %42, align 8, !alias.scope !1467
   %43 = getelementptr i8, ptr %39, i64 56
   %.val17.i.i = load double, ptr %43, align 8, !alias.scope !1467
-  %44 = tail call fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17ha68bb7a6f3e8114fE"(ptr nonnull %.val29, i64 %.val14.i.i, double %.val15.i.i, i64 %.val16.i.i, double %.val17.i.i), !noalias !1467
+  %44 = tail call fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17ha68bb7a6f3e8114fE"(ptr nonnull readonly %.val29, i64 %.val14.i.i, double %.val15.i.i, i64 %.val16.i.i, double %.val17.i.i), !noalias !1467
   br i1 %44, label %45, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17he5c3f3b92885cc22E.exit.i
 
 45:                                               ; preds = %37
@@ -6466,7 +6466,7 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17he5c3f3b92885cc22E.exit.i: ; pr
   %.val21.i23.i = load i64, ptr %60, align 8, !alias.scope !1476
   %61 = getelementptr i8, ptr %57, i64 56
   %.val22.i24.i = load double, ptr %61, align 8, !alias.scope !1476
-  %62 = tail call fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17ha68bb7a6f3e8114fE"(ptr nonnull %.val29, i64 %.val19.i21.i, double %.val20.i22.i, i64 %.val21.i23.i, double %.val22.i24.i), !noalias !1476
+  %62 = tail call fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17ha68bb7a6f3e8114fE"(ptr nonnull readonly %.val29, i64 %.val19.i21.i, double %.val20.i22.i, i64 %.val21.i23.i, double %.val22.i24.i), !noalias !1476
   %63 = zext i1 %62 to i64
   %64 = add nuw i64 %51, %63
   br label %65
@@ -6484,7 +6484,7 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17he5c3f3b92885cc22E.exit.i: ; pr
   %.val16.i18.i = load i64, ptr %70, align 8, !alias.scope !1476
   %71 = getelementptr i8, ptr %67, i64 56
   %.val17.i19.i = load double, ptr %71, align 8, !alias.scope !1476
-  %72 = tail call fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17ha68bb7a6f3e8114fE"(ptr nonnull %.val29, i64 %.val14.i16.i, double %.val15.i17.i, i64 %.val16.i18.i, double %.val17.i19.i), !noalias !1476
+  %72 = tail call fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17ha68bb7a6f3e8114fE"(ptr nonnull readonly %.val29, i64 %.val14.i16.i, double %.val15.i17.i, i64 %.val16.i18.i, double %.val17.i19.i), !noalias !1476
   br i1 %72, label %73, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17he5c3f3b92885cc22E.exit25.i
 
 73:                                               ; preds = %65
@@ -6648,7 +6648,7 @@ _ZN4core5slice4sort8unstable8heapsort8heapsort17hda85e05276382dc5E.exit: ; preds
   %.val3.i.i.i = load i64, ptr %124, align 8, !alias.scope !1497, !noalias !1504, !noundef !4
   %125 = getelementptr i8, ptr %.sroa.13.170.i.i, i64 56
   %.val4.i.i.i = load double, ptr %125, align 8, !alias.scope !1497, !noalias !1504
-  %126 = invoke fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17ha68bb7a6f3e8114fE"(ptr nonnull %.val30, i64 %.val3.i.i.i, double %.val4.i.i.i, i64 %.val5.i13.pre.i.i, double %.val6.i14.pre.i.i)
+  %126 = invoke fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17ha68bb7a6f3e8114fE"(ptr nonnull readonly %.val30, i64 %.val3.i.i.i, double %.val4.i.i.i, i64 %.val5.i13.pre.i.i, double %.val6.i14.pre.i.i)
           to label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hf88cc26fd29bb0dfE.exit.i.i" unwind label %.loopexit.i.i, !noalias !1495
 
 "_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hf88cc26fd29bb0dfE.exit.i.i": ; preds = %.lr.ph72.i.i
@@ -6666,7 +6666,7 @@ _ZN4core5slice4sort8unstable8heapsort8heapsort17hda85e05276382dc5E.exit: ; preds
   %.sroa.23.1.lcssa.i.i = phi i64 [ %.sroa.23.0.lcssa.i.i, %.preheader.i.i ], [ %129, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hf88cc26fd29bb0dfE.exit.i.i" ]
   %132 = icmp ne ptr %.val30, null
   tail call void @llvm.assume(i1 %132)
-  %133 = invoke fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17ha68bb7a6f3e8114fE"(ptr nonnull %.val30, i64 %.sroa.4.0.copyload.i.i, double %.sroa.548.0.copyload.i.i, i64 %.val5.i13.pre.i.i, double %.val6.i14.pre.i.i)
+  %133 = invoke fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17ha68bb7a6f3e8114fE"(ptr nonnull readonly %.val30, i64 %.sroa.4.0.copyload.i.i, double %.sroa.548.0.copyload.i.i, i64 %.val5.i13.pre.i.i, double %.val6.i14.pre.i.i)
           to label %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h4ac5bf118481fcaaE.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !1495
 
 134:                                              ; preds = %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hf88cc26fd29bb0dfE.exit21.i.i", %.lr.ph.i.i33
@@ -6677,7 +6677,7 @@ _ZN4core5slice4sort8unstable8heapsort8heapsort17hda85e05276382dc5E.exit: ; preds
   %.val3.i17.i.i = load i64, ptr %135, align 8, !alias.scope !1497, !noalias !1508, !noundef !4
   %136 = getelementptr i8, ptr %.sroa.028.064.i.i, i64 120
   %.val4.i18.i.i = load double, ptr %136, align 8, !alias.scope !1497, !noalias !1508
-  %137 = invoke fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17ha68bb7a6f3e8114fE"(ptr nonnull %.val30, i64 %.val3.i17.i.i, double %.val4.i18.i.i, i64 %.val5.i19.i.i, double %.val6.i20.i.i)
+  %137 = invoke fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17ha68bb7a6f3e8114fE"(ptr nonnull readonly %.val30, i64 %.val3.i17.i.i, double %.val4.i18.i.i, i64 %.val5.i19.i.i, double %.val6.i20.i.i)
           to label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hf88cc26fd29bb0dfE.exit21.i.i" unwind label %.loopexit.split-lp.loopexit.i.i, !noalias !1495
 
 "_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hf88cc26fd29bb0dfE.exit21.i.i": ; preds = %134

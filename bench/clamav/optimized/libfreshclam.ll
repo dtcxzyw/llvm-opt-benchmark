@@ -1448,7 +1448,7 @@ declare ptr @localtime(ptr noundef) local_unnamed_addr #8
 declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @fc_update_databases(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef writeonly captures(address_is_null) %8) local_unnamed_addr #1 {
+define noundef i32 @fc_update_databases(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef writeonly captures(address_is_null) %8) local_unnamed_addr #1 {
   %10 = alloca i32, align 4
   %11 = alloca [26 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #16

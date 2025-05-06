@@ -2682,7 +2682,7 @@ define hidden { i32, i32 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hb512c8c3deb676f8E"(ptr noalias noundef writeonly sret({ [32 x i32], i32, [3 x i32] }) align 8 captures(none) dereferenceable(144) %0, ptr noalias noundef align 8 dereferenceable(40) %1, ptr noalias noundef nonnull readnone align 1 captures(none) %2, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(32) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hb512c8c3deb676f8E"(ptr noalias noundef writeonly sret({ [32 x i32], i32, [3 x i32] }) align 8 captures(none) dereferenceable(144) %0, ptr noalias noundef align 8 dereferenceable(40) %1, ptr noalias noundef nonnull readnone align 1 captures(none) %2, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(32) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.sroa.5.sroa.0.i.i.i = alloca [55 x i8], align 1
   %5 = alloca { {}, { { i8, [23 x i8] }, { { i32, [7 x i32] }, { i8, [39 x i8] }, { [8 x i32], i32, [2 x i32] } }, [1 x i32] } }, align 8
   %.sroa.09.i = alloca [128 x i8], align 8
@@ -2739,7 +2739,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   store i32 %.val5.i, ptr %.sroa.83.0..sroa_idx.i.i, align 4, !noalias !1230
   store i32 %storemerge.i.i.i, ptr %.sroa.94.0..sroa_idx.i.i, align 8, !noalias !1230
   store i64 %19, ptr %.sroa.10.0..sroa_idx.i.i, align 4, !noalias !1230
-  call fastcc void @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc94bd69f34bf0012E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %6, ptr nonnull %3, ptr noalias noundef align 8 captures(none) dereferenceable(144) %5), !noalias !1238
+  call fastcc void @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc94bd69f34bf0012E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %6, ptr nonnull readonly %3, ptr noalias noundef align 8 captures(none) dereferenceable(144) %5), !noalias !1238
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5), !noalias !1230
   call void @llvm.lifetime.end.p0(i64 55, ptr nonnull %.sroa.5.sroa.0.i.i.i)
   %22 = load i32, ptr %10, align 8, !range !1239, !alias.scope !1240, !noalias !1243, !noundef !4
@@ -14287,7 +14287,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17hfd8f2257a14dfa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
-define hidden noundef i8 @_ZN4core4iter6traits8iterator8Iterator6cmp_by17h7265a5869ea239b5E(ptr noundef nonnull captures(address) %0, ptr noundef captures(address) %1, ptr noundef nonnull captures(address) %2, ptr noundef captures(address) %3) unnamed_addr #19 personality ptr @rust_eh_personality {
+define hidden noundef i8 @_ZN4core4iter6traits8iterator8Iterator6cmp_by17h7265a5869ea239b5E(ptr noundef nonnull readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull readonly captures(address) %2, ptr noundef readnone captures(address) %3) unnamed_addr #19 personality ptr @rust_eh_personality {
   %5 = tail call { i1, i8 } @_ZN4core4iter6traits8iterator12iter_compare17hb3a523cd3cdb59eeE.llvm.12542172245242916373(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3)
   %6 = extractvalue { i1, i8 } %5, 1
   ret i8 %6
@@ -16691,7 +16691,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h8db90f444f
   store i32 %.val5, ptr %.sroa.83.0..sroa_idx.i, align 4, !noalias !6881
   store i32 %storemerge.i.i, ptr %.sroa.94.0..sroa_idx.i, align 8, !noalias !6881
   store i64 %19, ptr %.sroa.10.0..sroa_idx.i, align 4, !noalias !6881
-  call fastcc void @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc94bd69f34bf0012E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %5, ptr nonnull %.val, ptr noalias noundef align 8 captures(none) dereferenceable(144) %4), !noalias !6878
+  call fastcc void @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc94bd69f34bf0012E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %5, ptr nonnull readonly %.val, ptr noalias noundef align 8 captures(none) dereferenceable(144) %4), !noalias !6878
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4), !noalias !6881
   call void @llvm.lifetime.end.p0(i64 55, ptr nonnull %.sroa.5.sroa.0.i.i)
   %22 = load i32, ptr %10, align 8, !range !1239, !alias.scope !6889, !noalias !6892, !noundef !4

@@ -17311,7 +17311,7 @@ _ZNSt10shared_ptrIN4pkpy8FuncDeclEED2Ev.exit:     ; preds = %_ZN4pkpy3anyD2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN4pkpy2VM4bindEPNS_8PyObjectEPKcPFS2_PS0_NS_8ArgsViewEENS_3anyENS_8BindTypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN4pkpy2VM4bindEPNS_8PyObjectEPKcPFS2_PS0_NS_8ArgsViewEENS_3anyENS_8BindTypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.pkpy::any", align 8
   call void @_ZN4pkpy3anyC1EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   %8 = invoke noundef ptr @_ZN4pkpy2VM4bindEPNS_8PyObjectEPKcS4_PFS2_PS0_NS_8ArgsViewEENS_3anyENS_8BindTypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %1, ptr noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull %7, i32 noundef %5)

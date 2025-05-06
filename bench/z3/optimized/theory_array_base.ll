@@ -7996,7 +7996,7 @@ _ZN6vectorIPN3smt5enodeELb0EjE3endEv.exit:        ; preds = %1
 .lr.ph:                                           ; preds = %_ZN6vectorIPN3smt5enodeELb0EjE3endEv.exit, %_ZN3smt17theory_array_base34propagate_selects_to_store_parentsEPNS_5enodeER7svectorISt4pairIS2_S2_EjE.exit
   %.027 = phi ptr [ %29, %_ZN3smt17theory_array_base34propagate_selects_to_store_parentsEPNS_5enodeER7svectorISt4pairIS2_S2_EjE.exit ], [ %4, %_ZN6vectorIPN3smt5enodeELb0EjE3endEv.exit ]
   %11 = load ptr, ptr %.027, align 8, !tbaa !655
-  %12 = invoke noundef ptr @_ZN3smt17theory_array_base14get_select_setEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(249) %0, ptr noundef %11)
+  %12 = invoke noundef ptr @_ZN3smt17theory_array_base14get_select_setEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(249) %0, ptr noundef readonly %11)
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %.lr.ph
@@ -8029,7 +8029,7 @@ _ZNK14core_hashtableI14ptr_hash_entryIN3smt5enodeEENS1_17theory_array_base8sel_h
   %.sroa.010.014.i = phi ptr [ %.sroa.010.1.i, %_ZN14core_hashtableI14ptr_hash_entryIN3smt5enodeEENS1_17theory_array_base8sel_hashENS4_6sel_eqEE8iteratorppEv.exit.i ], [ %.sroa.0.1.i.i, %_ZNK14core_hashtableI14ptr_hash_entryIN3smt5enodeEENS1_17theory_array_base8sel_hashENS4_6sel_eqEE5beginEv.exit.i ]
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !655
-  invoke void @_ZN3smt17theory_array_base33propagate_select_to_store_parentsEPNS_5enodeES2_R7svectorISt4pairIS2_S2_EjE(ptr noundef nonnull align 8 dereferenceable(249) %0, ptr noundef %11, ptr noundef %23, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void @_ZN3smt17theory_array_base33propagate_select_to_store_parentsEPNS_5enodeES2_R7svectorISt4pairIS2_S2_EjE(ptr noundef nonnull align 8 dereferenceable(249) %0, ptr noundef readonly %11, ptr noundef %23, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %.noexc20 unwind label %.loopexit
 
 .noexc20:                                         ; preds = %.lr.ph.i
@@ -8900,7 +8900,7 @@ _ZN6vectorISt4pairIPN3smt5enodeES3_ELb0EjE9push_backEOS4_.exit: ; preds = %83, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt17theory_array_base34propagate_selects_to_store_parentsEPNS_5enodeER7svectorISt4pairIS2_S2_EjE(ptr noundef nonnull align 8 dereferenceable(249) %0, ptr noundef captures(address) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN3smt17theory_array_base34propagate_selects_to_store_parentsEPNS_5enodeER7svectorISt4pairIS2_S2_EjE(ptr noundef nonnull align 8 dereferenceable(249) %0, ptr noundef readonly captures(address) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #4 align 2 {
   %4 = tail call noundef ptr @_ZN3smt17theory_array_base14get_select_setEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(249) %0, ptr noundef %1)
   %5 = load ptr, ptr %4, align 8, !tbaa !753
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8

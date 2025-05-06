@@ -5654,7 +5654,7 @@ proto_item_set_hidden.exit:                       ; preds = %10, %15, %18
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_sack_chunk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc void @dissect_sack_chunk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 4)
   %9 = load i8, ptr @show_relative_tsns, align 1, !range !9, !noundef !10
@@ -6220,7 +6220,7 @@ define internal fastcc void @dissect_auth_chunk(ptr noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_nr_sack_chunk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc void @dissect_nr_sack_chunk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @ett_sctp_nr_sack_chunk_flags, align 4
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %4, i32 noundef %8)

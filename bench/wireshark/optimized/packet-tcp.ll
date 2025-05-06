@@ -5601,7 +5601,7 @@ desegment_tcp.exit:                               ; preds = %204, %.split1315.us
 declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @process_tcp_payload(ptr noundef %0, i32 noundef %1, ptr noundef initializes((340, 342)) %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i1 noundef zeroext %9, ptr noundef captures(address_is_null) %10, ptr noundef %11) unnamed_addr #0 {
+define internal fastcc void @process_tcp_payload(ptr noundef %0, i32 noundef %1, ptr noundef initializes((340, 342)) %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i1 noundef zeroext %9, ptr noundef readonly captures(address_is_null) %10, ptr noundef %11) unnamed_addr #0 {
   %13 = alloca %struct.nstime_t, align 8
   %14 = alloca i32, align 4
   %15 = alloca ptr, align 8
@@ -17705,7 +17705,7 @@ declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc ptr @get_or_create_mptcpd_from_key(ptr noundef %0, ptr noundef captures(address) %1, i8 noundef zeroext %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @get_or_create_mptcpd_from_key(ptr noundef %0, ptr noundef readonly captures(address) %1, i8 noundef zeroext %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca [32 x i8], align 16
   %6 = alloca i64, align 8
   %7 = alloca [20 x i8], align 16

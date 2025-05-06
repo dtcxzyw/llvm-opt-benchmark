@@ -2452,7 +2452,7 @@ define hidden i32 @rb_method_entry_arity(ptr noundef readonly captures(none) %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !77
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #21
-  %5 = call fastcc i32 @method_def_min_max_arity(ptr noundef %4, ptr noundef nonnull %2)
+  %5 = call fastcc i32 @method_def_min_max_arity(ptr noundef readonly %4, ptr noundef nonnull %2)
   %6 = load i32, ptr %2, align 4, !tbaa !41
   %7 = icmp ne i32 %5, %6
   %8 = sext i1 %7 to i32
@@ -2491,7 +2491,7 @@ define dso_local i32 @rb_mod_method_arity(i64 noundef %0, i64 noundef %1) local_
 
 original_method_entry.exit:                       ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #21
-  %19 = call fastcc i32 @method_def_min_max_arity(ptr noundef nonnull %7, ptr noundef nonnull %3)
+  %19 = call fastcc i32 @method_def_min_max_arity(ptr noundef nonnull readonly %7, ptr noundef nonnull %3)
   %20 = load i32, ptr %3, align 4, !tbaa !41
   %21 = icmp ne i32 %19, %20
   %22 = sext i1 %21 to i32
@@ -2572,7 +2572,7 @@ rb_class_of.exit:                                 ; preds = %8, %11, %12, %13, %
 
 original_method_entry.exit.i:                     ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #21
-  %34 = call fastcc i32 @method_def_min_max_arity(ptr noundef nonnull %22, ptr noundef nonnull %3)
+  %34 = call fastcc i32 @method_def_min_max_arity(ptr noundef nonnull readonly %22, ptr noundef nonnull %3)
   %35 = load i32, ptr %3, align 4, !tbaa !41
   %36 = icmp ne i32 %34, %35
   %37 = sext i1 %36 to i32
@@ -4839,7 +4839,7 @@ define internal range(i64 1, 0) i64 @method_arity_m(i64 noundef %0) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !77
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #21
-  %8 = call fastcc i32 @method_def_min_max_arity(ptr noundef %7, ptr noundef nonnull %2)
+  %8 = call fastcc i32 @method_def_min_max_arity(ptr noundef readonly %7, ptr noundef nonnull %2)
   %9 = load i32, ptr %2, align 4, !tbaa !41
   %10 = icmp ne i32 %8, %9
   %11 = sext i1 %10 to i32
@@ -6023,7 +6023,7 @@ rbimpl_intern_const.exit41.i:                     ; preds = %.lr.ph.i39.i, %rbim
 
 vm_proc_method_def.exit.thread.i:                 ; preds = %vm_proc_method_def.exit.i, %89, %method_def_iseq.exit34.thread.i, %tailrecurse.i, %105
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #21
-  %116 = call fastcc i32 @method_def_min_max_arity(ptr noundef nonnull %.tr.i, ptr noundef nonnull %2)
+  %116 = call fastcc i32 @method_def_min_max_arity(ptr noundef nonnull readonly %.tr.i, ptr noundef nonnull %2)
   %117 = load i32, ptr %2, align 4, !tbaa !41
   %118 = icmp ne i32 %116, %117
   %119 = sext i1 %118 to i32

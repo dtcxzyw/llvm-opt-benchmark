@@ -53360,7 +53360,7 @@ list_concat.exit43:                               ; preds = %81, %90
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @value_expr_check(ptr noundef %0, ptr noundef captures(address_is_null, ret: address, provenance) %1) unnamed_addr #0 {
+define internal fastcc ptr @value_expr_check(ptr noundef %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1) unnamed_addr #0 {
   %cond = icmp eq ptr %1, null
   br i1 %cond, label %3, label %.lr.ph109
 

@@ -373,7 +373,7 @@ up_irq_restore.exit:                              ; preds = %1, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @sigaction(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @sigaction(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @nxsig_action(i32 noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %9

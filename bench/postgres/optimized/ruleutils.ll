@@ -10660,7 +10660,7 @@ declare ptr @getInsertSelectQuery(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @AcquireRewriteLocks(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_deparse_for_query(ptr noundef nonnull initializes((0, 160)) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc void @set_deparse_for_query(ptr noundef nonnull initializes((0, 160)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %0, i8 0, i64 160, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %5 = load ptr, ptr %4, align 8

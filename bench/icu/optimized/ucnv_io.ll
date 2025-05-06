@@ -328,7 +328,7 @@ define range(i32 -255, 256) i32 @ucnv_compareNames_77(ptr noundef readonly captu
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucnv_io_getConverterName_77(ptr noundef readonly captures(address) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #3 {
+define ptr @ucnv_io_getConverterName_77(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #3 {
   br label %5
 
 4:                                                ; preds = %20

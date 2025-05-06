@@ -68064,7 +68064,7 @@ _ZN9QCPLayout6removeEP16QCPLayoutElement.exit:    ; preds = %2, %8
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @_ZNK20QCPAbstractPlottable16removeFromLegendEv(ptr noundef align 8 captures(address) dereferenceable_or_null(184) %0) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK20QCPAbstractPlottable16removeFromLegendEv(ptr noundef readonly align 8 captures(address) dereferenceable_or_null(184) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -83134,7 +83134,7 @@ _ZN6QDebuglsEy.exit:                              ; preds = %.noexc19, %74
   br i1 %.not4.i, label %_ZNK20QCPAbstractPlottable16removeFromLegendEv.exit, label %84
 
 84:                                               ; preds = %81
-  %85 = tail call noundef zeroext i1 @_ZNK20QCPAbstractPlottable16removeFromLegendEP9QCPLegend(ptr noundef align 8 dereferenceable_or_null(184) %1, ptr noundef nonnull %83)
+  %85 = tail call noundef zeroext i1 @_ZNK20QCPAbstractPlottable16removeFromLegendEP9QCPLegend(ptr noundef readonly align 8 dereferenceable_or_null(184) %1, ptr noundef nonnull %83)
   br label %_ZNK20QCPAbstractPlottable16removeFromLegendEv.exit
 
 _ZNK20QCPAbstractPlottable16removeFromLegendEv.exit: ; preds = %78, %81, %84
@@ -158080,7 +158080,7 @@ _ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit.thread:      ; preds = %_ZNK8QPointerI7QCPA
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define { double, double } @_ZNK7QCPBars11getKeyRangeERbN3QCP10SignDomainE(ptr noundef align 8 captures(address) dereferenceable_or_null(280) %0, ptr noundef align 1 dereferenceable(1) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define { double, double } @_ZNK7QCPBars11getKeyRangeERbN3QCP10SignDomainE(ptr noundef readonly align 8 captures(address) dereferenceable_or_null(280) %0, ptr noundef align 1 dereferenceable(1) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QCPRange, align 8
   %5 = alloca double, align 8
   %6 = alloca double, align 8
@@ -158958,7 +158958,7 @@ _ZNK8QPointerI7QCPBarsEcvPS0_Ev.exit.thread:      ; preds = %3, %9, %_ZNK8QPoint
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define { double, double } @_ZNK7QCPBars17dataPixelPositionEi(ptr noundef align 8 captures(address) dereferenceable_or_null(280) %0, i32 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define { double, double } @_ZNK7QCPBars17dataPixelPositionEi(ptr noundef readonly align 8 captures(address) dereferenceable_or_null(280) %0, i32 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
@@ -159383,7 +159383,7 @@ _ZN6QDebuglsEi.exit:                              ; preds = %.noexc63, %163
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define { double, double } @_ZThn184_NK7QCPBars17dataPixelPositionEi(ptr noundef captures(address) %0, i32 noundef %1) unnamed_addr #39 align 2 {
+define { double, double } @_ZThn184_NK7QCPBars17dataPixelPositionEi(ptr noundef readonly captures(address) %0, i32 noundef %1) unnamed_addr #39 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -184
   %4 = tail call { double, double } @_ZNK7QCPBars17dataPixelPositionEi(ptr noundef align 8 dereferenceable_or_null(280) %3, i32 noundef %1)
   ret { double, double } %4
@@ -166921,7 +166921,7 @@ define void @_ZN15QCPColorMapDataD2Ev(ptr noundef readonly align 8 captures(none
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define void @_ZN15QCPColorMapDataC2ERKS_(ptr noundef align 8 dereferenceable_or_null(81) initializes((0, 8)) %0, ptr noundef align 8 captures(address) dereferenceable(81) %1) unnamed_addr #3 align 2 {
+define void @_ZN15QCPColorMapDataC2ERKS_(ptr noundef align 8 dereferenceable_or_null(81) initializes((0, 8)) %0, ptr noundef readonly align 8 captures(address) dereferenceable(81) %1) unnamed_addr #3 align 2 {
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %3, align 4
@@ -215407,7 +215407,7 @@ _ZN6QDebuglsEy.exit:                              ; preds = %.noexc19, %73
   br i1 %.not4.i, label %_ZNK13QCPPolarGraph16removeFromLegendEv.exit, label %83
 
 83:                                               ; preds = %80
-  %84 = tail call noundef zeroext i1 @_ZNK13QCPPolarGraph16removeFromLegendEP9QCPLegend(ptr noundef align 8 dereferenceable_or_null(280) %1, ptr noundef nonnull %82)
+  %84 = tail call noundef zeroext i1 @_ZNK13QCPPolarGraph16removeFromLegendEP9QCPLegend(ptr noundef readonly align 8 dereferenceable_or_null(280) %1, ptr noundef nonnull %82)
   br label %_ZNK13QCPPolarGraph16removeFromLegendEv.exit
 
 _ZNK13QCPPolarGraph16removeFromLegendEv.exit:     ; preds = %77, %80, %83
@@ -215431,7 +215431,7 @@ _ZNK13QCPPolarGraph16removeFromLegendEv.exit:     ; preds = %77, %80, %83
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @_ZNK13QCPPolarGraph16removeFromLegendEv(ptr noundef align 8 captures(address) dereferenceable_or_null(280) %0) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK13QCPPolarGraph16removeFromLegendEv(ptr noundef readonly align 8 captures(address) dereferenceable_or_null(280) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

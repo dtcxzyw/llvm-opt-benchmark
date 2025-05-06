@@ -4755,7 +4755,7 @@ declare i32 @H5Pset_driver(i64 noundef, i64 noundef, ptr noundef) local_unnamed_
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5Pset_fapl_multi(i64 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define i32 @H5Pset_fapl_multi(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = alloca %struct.H5FD_multi_fapl_t, align 8
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %7) #15
   %8 = tail call i32 @H5Eclear2(i64 noundef 0) #15

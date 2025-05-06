@@ -152949,7 +152949,7 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %_ZN4llvm16dyn_cast_
 declare noundef ptr @_ZN5clang4Sema16LookupSingleNameEPNS_5ScopeENS_15DeclarationNameENS_14SourceLocationENS0_14LookupNameKindE17RedeclarationKind(ptr noundef nonnull align 8 dereferenceable(17504), ptr noundef, i64, i32, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang4Sema17ActOnEnumConstantEPNS_5ScopeEPNS_4DeclES4_NS_14SourceLocationEPNS_14IdentifierInfoERKNS_20ParsedAttributesViewES5_PNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, i32 %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(72) %6, i32 %7, ptr noundef %8) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang4Sema17ActOnEnumConstantEPNS_5ScopeEPNS_4DeclES4_NS_14SourceLocationEPNS_14IdentifierInfoERKNS_20ParsedAttributesViewES5_PNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(72) %6, i32 %7, ptr noundef %8) local_unnamed_addr #0 align 2 {
   %10 = alloca ptr, align 8
   %11 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %12 = alloca %"class.clang::CanonicalDeclPtr", align 8

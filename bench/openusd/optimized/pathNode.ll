@@ -6980,7 +6980,7 @@ _ZNSt3mapIPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeENS0_7TfTokenESt4le
 
 _ZNSt3mapIPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeENS0_7TfTokenESt4lessIS3_ESaISt4pairIKS3_S4_EEE4findERS8_.exit.thread.i: ; preds = %_ZNSt3mapIPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeENS0_7TfTokenESt4lessIS3_ESaISt4pairIKS3_S4_EEE4findERS8_.exit.i, %_ZNSt8_Rb_treeIPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeESt4pairIKS3_NS0_7TfTokenEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS5_.exit.i.i.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
   store atomic i8 0, ptr %330 release, align 1
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode16_CreatePathTokenEPKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %4, ptr noundef %0, ptr noundef %1)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode16_CreatePathTokenEPKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %4, ptr noundef %0, ptr noundef readonly %1)
           to label %.noexc66 unwind label %419
 
 .noexc66:                                         ; preds = %_ZNSt3mapIPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeENS0_7TfTokenESt4lessIS3_ESaISt4pairIKS3_S4_EEE4findERS8_.exit.thread.i
@@ -7683,13 +7683,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4Auto7ReleaseEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode14GetPathAsTokenEPKS0_S2_(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode14GetPathAsTokenEPKS0_S2_(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #5 align 2 {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode16_CreatePathTokenEPKS0_S2_(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %0, ptr noundef %1, ptr noundef %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode16_CreatePathTokenEPKS0_S2_(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode16_CreatePathTokenEPKS0_S2_(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_StringBuffer", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #17
@@ -8631,7 +8631,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_StringBuffer9WriteTextIJPK
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode12GetDebugTextEPKS0_S2_(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #5 align 2 {
+define noundef nonnull ptr @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode12GetDebugTextEPKS0_S2_(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 align 2 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_DebugBuffer", align 8
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -11623,7 +11623,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9Sdf_StatsD2Ev.exit: ; preds = %_ZNSt6vecto
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L6_VisitEPKNS_12Sdf_PathNodeEPNS_9Sdf_StatsE(ptr noundef captures(address) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L6_VisitEPKNS_12Sdf_PathNodeEPNS_9Sdf_StatsE(ptr noundef readonly captures(address) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.114", align 8
   %4 = load i32, ptr %1, align 8
   %5 = add nsw i32 %4, 1
@@ -11744,7 +11744,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %38, %_ZNSt6vectorIi
           to label %66 unwind label %321, !noalias !106
 
 66:                                               ; preds = %._crit_edge
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_GatherChildrenFromINS_12_GLOBAL__N_110_PropTableINS_7SdfPathEEEEEvPKNS_12Sdf_PathNodeERKT_PSt6vectorINS_19TfDelegatedCountPtrIS6_EESaISD_EE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(11264) %65, ptr noundef nonnull align 8 %3)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_GatherChildrenFromINS_12_GLOBAL__N_110_PropTableINS_7SdfPathEEEEEvPKNS_12Sdf_PathNodeERKT_PSt6vectorINS_19TfDelegatedCountPtrIS6_EESaISD_EE(ptr noundef nonnull readnone %0, ptr noundef nonnull align 8 dereferenceable(11264) %65, ptr noundef nonnull align 8 %3)
           to label %67 unwind label %321
 
 67:                                               ; preds = %66
@@ -11752,7 +11752,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %38, %_ZNSt6vectorIi
           to label %69 unwind label %321, !noalias !106
 
 69:                                               ; preds = %67
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_GatherChildrenFromINS_12_GLOBAL__N_110_PropTableINS_7SdfPathEEEEEvPKNS_12Sdf_PathNodeERKT_PSt6vectorINS_19TfDelegatedCountPtrIS6_EESaISD_EE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(11264) %68, ptr noundef nonnull align 8 %3)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_GatherChildrenFromINS_12_GLOBAL__N_110_PropTableINS_7SdfPathEEEEEvPKNS_12Sdf_PathNodeERKT_PSt6vectorINS_19TfDelegatedCountPtrIS6_EESaISD_EE(ptr noundef nonnull readnone %0, ptr noundef nonnull align 8 dereferenceable(11264) %68, ptr noundef nonnull align 8 %3)
           to label %70 unwind label %321
 
 70:                                               ; preds = %69
@@ -11760,7 +11760,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %38, %_ZNSt6vectorIi
           to label %72 unwind label %321, !noalias !106
 
 72:                                               ; preds = %70
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_GatherChildrenFromINS_12_GLOBAL__N_110_PropTableINS_7TfTokenEEEEEvPKNS_12Sdf_PathNodeERKT_PSt6vectorINS_19TfDelegatedCountPtrIS6_EESaISD_EE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(11264) %71, ptr noundef nonnull align 8 %3)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_GatherChildrenFromINS_12_GLOBAL__N_110_PropTableINS_7TfTokenEEEEEvPKNS_12Sdf_PathNodeERKT_PSt6vectorINS_19TfDelegatedCountPtrIS6_EESaISD_EE(ptr noundef nonnull readnone %0, ptr noundef nonnull align 8 dereferenceable(11264) %71, ptr noundef nonnull align 8 %3)
           to label %73 unwind label %321
 
 73:                                               ; preds = %72
@@ -12012,7 +12012,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L19_GatherChildrenFromINS_12_GLOBAL__N_110_
           to label %158 unwind label %321, !noalias !106
 
 158:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L19_GatherChildrenFromINS_12_GLOBAL__N_110_PrimTableINS_7TfTokenEEEEEvPKNS_12Sdf_PathNodeERKT_PSt6vectorINS_19TfDelegatedCountPtrIS6_EESaISD_EE.exit.i
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_GatherChildrenFromINS_12_GLOBAL__N_110_PropTableINS_7TfTokenEEEEEvPKNS_12Sdf_PathNodeERKT_PSt6vectorINS_19TfDelegatedCountPtrIS6_EESaISD_EE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(11264) %157, ptr noundef nonnull align 8 %3)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_GatherChildrenFromINS_12_GLOBAL__N_110_PropTableINS_7TfTokenEEEEEvPKNS_12Sdf_PathNodeERKT_PSt6vectorINS_19TfDelegatedCountPtrIS6_EESaISD_EE(ptr noundef nonnull readnone %0, ptr noundef nonnull align 8 dereferenceable(11264) %157, ptr noundef nonnull align 8 %3)
           to label %159 unwind label %321
 
 159:                                              ; preds = %158
@@ -12020,7 +12020,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L19_GatherChildrenFromINS_12_GLOBAL__N_110_
           to label %161 unwind label %321, !noalias !106
 
 161:                                              ; preds = %159
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_GatherChildrenFromINS_12_GLOBAL__N_110_PropTableINS_7TfTokenEEEEEvPKNS_12Sdf_PathNodeERKT_PSt6vectorINS_19TfDelegatedCountPtrIS6_EESaISD_EE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(11264) %160, ptr noundef nonnull align 8 %3)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_GatherChildrenFromINS_12_GLOBAL__N_110_PropTableINS_7TfTokenEEEEEvPKNS_12Sdf_PathNodeERKT_PSt6vectorINS_19TfDelegatedCountPtrIS6_EESaISD_EE(ptr noundef nonnull readnone %0, ptr noundef nonnull align 8 dereferenceable(11264) %160, ptr noundef nonnull align 8 %3)
           to label %162 unwind label %321
 
 162:                                              ; preds = %161

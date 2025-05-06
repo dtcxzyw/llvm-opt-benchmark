@@ -4618,7 +4618,7 @@ define hidden void @_ZN4cvc58internal6theory7strings11SolverState15entailmentChe
 declare void @_ZN4cvc58internal6theory9Valuation15entailmentCheckENS0_7options12TheoryOfModeENS0_12NodeTemplateILb0EEE(ptr dead_on_unwind writable sret(%"struct.std::pair.389") align 8, ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory7strings11SolverState21separateByLengthTypedERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EERSt3mapINS0_8TypeNodeES4_IS8_SaIS8_EESt4lessISC_ESaISt4pairIKSC_SE_EEERSB_ISC_S8_SG_SaISH_ISI_S8_EEE(ptr noundef nonnull align 8 captures(address) dereferenceable(560) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory7strings11SolverState21separateByLengthTypedERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EERSt3mapINS0_8TypeNodeES4_IS8_SaIS8_EESt4lessISC_ESaISt4pairIKSC_SE_EEERSB_ISC_S8_SG_SaISH_ISI_S8_EEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(560) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::tuple.627", align 8
   %6 = alloca %"class.std::tuple.611", align 1
   %7 = alloca %"class.std::tuple.627", align 8

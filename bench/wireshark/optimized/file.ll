@@ -7197,7 +7197,7 @@ define hidden noundef zeroext i1 @cf_goto_frame(ptr noundef readonly captures(ad
 declare void @statusbar_push_temporary_msg(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noundef zeroext i1 @cf_goto_framenum(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @cf_goto_framenum(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

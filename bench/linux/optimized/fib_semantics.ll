@@ -1347,7 +1347,7 @@ declare dso_local noalias ptr @__alloc_percpu_gfp(i64 noundef, i64 noundef, i32 
 declare dso_local void @do_trace_netlink_extack(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -95, 1) i32 @fib_nh_init(ptr readnone captures(none) %0, ptr noundef captures(none) initializes((13, 14), (48, 56)) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @fib_nh_init(ptr readnone captures(none) %0, ptr noundef captures(none) initializes((13, 14), (48, 56)) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 13
   store i8 2, ptr %6, align 1
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 112

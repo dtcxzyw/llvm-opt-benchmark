@@ -408,7 +408,7 @@ define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate22parse_nu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN10fundu_core5parse18ReprParserTemplate5parse17h84856a62d071e978E(ptr noalias noundef writeonly sret({ i64, [13 x i64] }) align 8 captures(none) dereferenceable(112) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias noundef readonly align 8 dereferenceable(64) %2, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4, ptr noundef align 1 %5, ptr readonly captures(address_is_null) %6, ptr noundef align 1 %7, ptr captures(address_is_null) %8) unnamed_addr #1 {
+define hidden void @_ZN10fundu_core5parse18ReprParserTemplate5parse17h84856a62d071e978E(ptr noalias noundef writeonly sret({ i64, [13 x i64] }) align 8 captures(none) dereferenceable(112) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias noundef readonly align 8 dereferenceable(64) %2, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4, ptr noundef align 1 %5, ptr readonly captures(address_is_null) %6, ptr noundef align 1 %7, ptr readonly captures(address_is_null) %8) unnamed_addr #1 {
   %10 = alloca { i8, [23 x i8] }, align 8
   %.sroa.3329 = alloca [31 x i8], align 1
   %.sroa.3320 = alloca [31 x i8], align 1
@@ -1367,7 +1367,7 @@ _ZN10fundu_core5parse18ReprParserTemplate21parse_number_exponent17hfc20e73684321
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN10fundu_core5parse18ReprParserTemplate5parse17hc2a9e179e8a66036E(ptr noalias noundef writeonly sret({ i64, [14 x i64] }) align 8 captures(none) dereferenceable(120) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %2, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef align 1 %5, ptr readonly captures(address_is_null) %6, ptr noundef align 1 %7, ptr captures(address_is_null) %8) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN10fundu_core5parse18ReprParserTemplate5parse17hc2a9e179e8a66036E(ptr noalias noundef writeonly sret({ i64, [14 x i64] }) align 8 captures(none) dereferenceable(120) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %2, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef align 1 %5, ptr readonly captures(address_is_null) %6, ptr noundef align 1 %7, ptr readonly captures(address_is_null) %8) unnamed_addr #1 personality ptr @rust_eh_personality {
   %10 = alloca { i64, [4 x i64] }, align 8
   %11 = alloca { i8, [23 x i8] }, align 8
   %.sroa.3329 = alloca [31 x i8], align 1

@@ -1273,7 +1273,7 @@ define void @_ZNK4LIEF3DEX7MapList6acceptERNS_7VisitorE(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF3DEXlsERSoRKNS0_7MapListE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF3DEXlsERSoRKNS0_7MapListE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #1 {
   %3 = alloca i8, align 1
   %4 = alloca %"class.LIEF::ref_iterator.46", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #23

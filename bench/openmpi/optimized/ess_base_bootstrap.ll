@@ -540,7 +540,7 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
 
 196:                                              ; preds = %.lr.ph.i140.i
   store i8 0, ptr %193, align 1, !tbaa !19
-  %197 = call fastcc i32 @regex_parse_value_range(ptr noundef nonnull readonly %.0113.i, ptr noundef %.03447.i.i, i32 noundef %143, ptr noundef %.0111.i, ptr noundef nonnull %1)
+  %197 = call fastcc i32 @regex_parse_value_range(ptr noundef nonnull readonly %.0113.i, ptr noundef %.03447.i.i, i32 noundef %143, ptr noundef readonly %.0111.i, ptr noundef nonnull %1)
   switch i32 %197, label %198 [
     i32 0, label %200
     i32 -2, label %regex_parse_value_ranges.exit.i
@@ -586,7 +586,7 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   br label %214
 
 214:                                              ; preds = %213, %208, %206
-  %215 = call fastcc i32 @regex_parse_value_range(ptr noundef nonnull readonly %.0113.i, ptr noundef %.034.lcssa.i.i, i32 noundef %143, ptr noundef %.0111.i, ptr noundef nonnull %1)
+  %215 = call fastcc i32 @regex_parse_value_range(ptr noundef nonnull readonly %.0113.i, ptr noundef %.034.lcssa.i.i, i32 noundef %143, ptr noundef readonly %.0111.i, ptr noundef nonnull %1)
   switch i32 %215, label %216 [
     i32 0, label %218
     i32 -2, label %regex_parse_value_ranges.exit.i

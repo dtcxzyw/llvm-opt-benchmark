@@ -3731,7 +3731,7 @@ declare ptr @PyObject_Repr(ptr noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_Substring(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @set_sub(ptr noundef captures(address) %0, ptr noundef %1) #0 {
+define internal ptr @set_sub(ptr noundef readonly captures(address) %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val26 = load ptr, ptr %3, align 8, !tbaa !29
   %.not = icmp eq ptr %.val26, @PySet_Type
@@ -3779,7 +3779,7 @@ define internal ptr @set_sub(ptr noundef captures(address) %0, ptr noundef %1) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @set_and(ptr noundef captures(address) %0, ptr noundef %1) #0 {
+define internal ptr @set_and(ptr noundef readonly captures(address) %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val26 = load ptr, ptr %3, align 8, !tbaa !29
   %.not = icmp eq ptr %.val26, @PySet_Type
@@ -3875,7 +3875,7 @@ define internal ptr @set_xor(ptr noundef readonly captures(none) %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @set_or(ptr noundef captures(address) %0, ptr noundef %1) #0 {
+define internal ptr @set_or(ptr noundef readonly captures(address) %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val34 = load ptr, ptr %3, align 8, !tbaa !29
   %.not = icmp eq ptr %.val34, @PySet_Type
@@ -3948,7 +3948,7 @@ make_new_set_basetype.exit.i.i:                   ; preds = %17, %14
   store i64 0, ptr %29, align 8, !tbaa !136
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 192
   store ptr null, ptr %30, align 8, !tbaa !55
-  %31 = tail call fastcc i32 @set_merge_lock_held(ptr noundef nonnull %21, ptr noundef nonnull %0)
+  %31 = tail call fastcc i32 @set_merge_lock_held(ptr noundef nonnull %21, ptr noundef nonnull readonly %0)
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %33, label %set_copy.exit
 
@@ -4402,7 +4402,7 @@ _Py_NewRef.exit:                                  ; preds = %31, %49, %set_updat
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @set_difference(ptr noundef captures(address) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @set_difference(ptr noundef readonly captures(address) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.val96 = load ptr, ptr %3, align 8, !tbaa !29
   %.not = icmp eq ptr %.val96, @PySet_Type
@@ -4764,7 +4764,7 @@ Py_DECREF.exit78:                                 ; preds = %Py_DECREF.exit, %.c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @set_copy_and_difference(ptr noundef captures(address) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @set_copy_and_difference(ptr noundef readonly captures(address) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %3, align 8, !tbaa !29
   %4 = icmp ne ptr %.val.i, @PySet_Type
@@ -4800,7 +4800,7 @@ make_new_set_basetype.exit.i:                     ; preds = %6, %2
   store i64 0, ptr %18, align 8, !tbaa !136
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 192
   store ptr null, ptr %19, align 8, !tbaa !55
-  %20 = tail call fastcc i32 @set_merge_lock_held(ptr noundef nonnull %10, ptr noundef nonnull %0)
+  %20 = tail call fastcc i32 @set_merge_lock_held(ptr noundef nonnull %10, ptr noundef nonnull readonly %0)
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %22, label %set_copy_impl.exit
 
@@ -6021,7 +6021,7 @@ declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @set_intersection(ptr noundef captures(address) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @set_intersection(ptr noundef readonly captures(address) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, %1
   %4 = getelementptr i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %4, align 8, !tbaa !29
@@ -6061,7 +6061,7 @@ make_new_set_basetype.exit.i:                     ; preds = %8, %7
   store i64 0, ptr %20, align 8, !tbaa !136
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 192
   store ptr null, ptr %21, align 8, !tbaa !55
-  %22 = tail call fastcc i32 @set_merge_lock_held(ptr noundef nonnull %12, ptr noundef nonnull %0)
+  %22 = tail call fastcc i32 @set_merge_lock_held(ptr noundef nonnull %12, ptr noundef nonnull readonly %0)
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %24, label %set_copy_impl.exit
 
@@ -6861,7 +6861,7 @@ Py_DECREF.exit16:                                 ; preds = %23, %20, %Py_DECREF
 declare i32 @_PyDict_Next(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @set_copy(ptr noundef captures(address) %0, ptr readnone captures(none) %1) #0 {
+define internal ptr @set_copy(ptr noundef readonly captures(address) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %3, align 8, !tbaa !29
   %4 = icmp ne ptr %.val.i, @PySet_Type
@@ -6897,7 +6897,7 @@ make_new_set_basetype.exit.i:                     ; preds = %6, %2
   store i64 0, ptr %18, align 8, !tbaa !136
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 192
   store ptr null, ptr %19, align 8, !tbaa !55
-  %20 = tail call fastcc i32 @set_merge_lock_held(ptr noundef nonnull %10, ptr noundef nonnull %0)
+  %20 = tail call fastcc i32 @set_merge_lock_held(ptr noundef nonnull %10, ptr noundef nonnull readonly %0)
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %22, label %set_copy_impl.exit
 
@@ -7201,7 +7201,7 @@ define internal range(i32 -1, 2) i32 @set_contains(ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @set_issubset(ptr noundef captures(address) %0, ptr noundef %1) #0 {
+define internal ptr @set_issubset(ptr noundef readonly captures(address) %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.val34.i = load ptr, ptr %3, align 8, !tbaa !29
   %.not.i = icmp eq ptr %.val34.i, @PySet_Type
@@ -7221,7 +7221,7 @@ define internal ptr @set_issubset(ptr noundef captures(address) %0, ptr noundef 
   br i1 %.not26.i, label %8, label %22
 
 8:                                                ; preds = %6
-  %9 = tail call fastcc ptr @set_intersection(ptr noundef %0, ptr noundef nonnull %1)
+  %9 = tail call fastcc ptr @set_intersection(ptr noundef readonly %0, ptr noundef nonnull %1)
   %10 = icmp eq ptr %9, null
   br i1 %10, label %set_issubset_impl.exit, label %11
 
@@ -7692,7 +7692,7 @@ set_discard_impl.exit:                            ; preds = %11, %14, %20, %23, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @set_difference_multi(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define internal ptr @set_difference_multi(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %5, label %30
 
@@ -7732,7 +7732,7 @@ make_new_set_basetype.exit.i.i.i:                 ; preds = %9, %5
   store i64 0, ptr %21, align 8, !tbaa !136
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 192
   store ptr null, ptr %22, align 8, !tbaa !55
-  %23 = tail call fastcc i32 @set_merge_lock_held(ptr noundef nonnull %13, ptr noundef nonnull %0)
+  %23 = tail call fastcc i32 @set_merge_lock_held(ptr noundef nonnull %13, ptr noundef nonnull readonly %0)
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %25, label %set_difference_multi_impl.exit
 
@@ -7749,7 +7749,7 @@ make_new_set_basetype.exit.i.i.i:                 ; preds = %9, %5
 
 30:                                               ; preds = %3
   %31 = load ptr, ptr %1, align 8, !tbaa !20
-  %32 = tail call fastcc ptr @set_difference(ptr noundef %0, ptr noundef %31)
+  %32 = tail call fastcc ptr @set_difference(ptr noundef readonly %0, ptr noundef %31)
   %33 = icmp eq ptr %32, null
   br i1 %33, label %set_difference_multi_impl.exit, label %.preheader.i
 
@@ -8410,7 +8410,7 @@ set___sizeof___impl.exit:                         ; preds = %2, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @set_union(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define internal ptr @set_union(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -8450,7 +8450,7 @@ make_new_set_basetype.exit.i.i.i:                 ; preds = %11, %3
   store i64 0, ptr %23, align 8, !tbaa !136
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 192
   store ptr null, ptr %24, align 8, !tbaa !55
-  %25 = tail call fastcc i32 @set_merge_lock_held(ptr noundef nonnull %15, ptr noundef nonnull %0)
+  %25 = tail call fastcc i32 @set_merge_lock_held(ptr noundef nonnull %15, ptr noundef nonnull readonly %0)
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %29, label %set_copy.exit.preheader.i
 
@@ -8752,7 +8752,7 @@ make_new_set_basetype.exit.i.i:                   ; preds = %9, %5
   store i64 0, ptr %21, align 8, !tbaa !136
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 192
   store ptr null, ptr %22, align 8, !tbaa !55
-  %23 = tail call fastcc i32 @set_merge_lock_held(ptr noundef nonnull %13, ptr noundef nonnull %0)
+  %23 = tail call fastcc i32 @set_merge_lock_held(ptr noundef nonnull %13, ptr noundef nonnull readonly %0)
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %25, label %set_copy.exit
 
@@ -8884,7 +8884,7 @@ make_new_set_basetype.exit.i.i:                   ; preds = %10, %9
   store i64 0, ptr %22, align 8, !tbaa !136
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 192
   store ptr null, ptr %23, align 8, !tbaa !55
-  %24 = tail call fastcc i32 @set_merge_lock_held(ptr noundef nonnull %14, ptr noundef nonnull %0)
+  %24 = tail call fastcc i32 @set_merge_lock_held(ptr noundef nonnull %14, ptr noundef nonnull readonly %0)
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %26, label %frozenset_copy_impl.exit
 

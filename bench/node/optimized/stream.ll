@@ -1702,7 +1702,7 @@ uv_try_write2.exit:                               ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_try_write2(ptr noundef readonly captures(none) %stream, ptr noundef %bufs, i32 noundef %nbufs, ptr noundef captures(address_is_null) %send_handle) local_unnamed_addr #0 {
+define dso_local i32 @uv_try_write2(ptr noundef readonly captures(none) %stream, ptr noundef %bufs, i32 noundef %nbufs, ptr noundef readonly captures(address_is_null) %send_handle) local_unnamed_addr #0 {
 entry:
   %connect_req = getelementptr inbounds nuw i8, ptr %stream, i64 120
   %0 = load ptr, ptr %connect_req, align 8

@@ -10753,7 +10753,7 @@ fixpos.exit._crit_edge:                           ; preds = %fixpos.exit
   %.53467 = phi ptr [ %.03463, %4836 ], [ %9, %4847 ], [ %4843, %4844 ], [ %.03463, %4838 ]
   %.02782 = phi ptr [ @.str.63, %4836 ], [ @.str.63, %4847 ], [ %4843, %4844 ], [ %.03463, %4838 ]
   %.0 = phi i1 [ true, %4836 ], [ true, %4847 ], [ %4846, %4844 ], [ false, %4838 ]
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull @.str.555, ptr noundef nonnull %.02782)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %3, ptr noundef nonnull @.str.555, ptr noundef nonnull %.02782)
   %4849 = load i32, ptr %32, align 4, !tbaa !31
   %4850 = load i32, ptr %3, align 8, !tbaa !53
   %4851 = icmp eq i32 %4850, %4849
@@ -10762,7 +10762,7 @@ fixpos.exit._crit_edge:                           ; preds = %fixpos.exit
 4852:                                             ; preds = %4848
   %4853 = load ptr, ptr %92, align 8, !tbaa !185
   %4854 = load i64, ptr %93, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %4854, ptr noundef nonnull %3, i32 noundef %4849, ptr noundef %4853)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %4854, ptr noundef nonnull readonly %3, i32 noundef %4849, ptr noundef %4853)
   br label %parser_yyerror.exit
 
 parser_yyerror.exit:                              ; preds = %4848, %4852
@@ -10912,7 +10912,7 @@ yy_stack_print.exit3442:                          ; preds = %.lr.ph.i3439, %4890
   %.52818 = phi ptr [ %.22815, %parser_yyerror.exit ], [ %.02813, %111 ], [ %.02813, %118 ]
   %.52810 = phi ptr [ %.12806, %parser_yyerror.exit ], [ %.02805, %111 ], [ %.02805, %118 ]
   %.3 = phi i32 [ %.83518, %parser_yyerror.exit ], [ %.02784, %111 ], [ %.02784, %118 ]
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.66)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %3, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.66)
   %4919 = load i32, ptr %32, align 4, !tbaa !31
   %4920 = load i32, ptr %3, align 8, !tbaa !53
   %4921 = icmp eq i32 %4920, %4919
@@ -10921,7 +10921,7 @@ yy_stack_print.exit3442:                          ; preds = %.lr.ph.i3439, %4890
 4922:                                             ; preds = %.thread3477
   %4923 = load ptr, ptr %92, align 8, !tbaa !185
   %4924 = load i64, ptr %93, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %4924, ptr noundef nonnull %3, i32 noundef %4919, ptr noundef %4923)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %4924, ptr noundef nonnull readonly %3, i32 noundef %4919, ptr noundef %4923)
   br label %parser_yyerror.exit3443
 
 parser_yyerror.exit3443:                          ; preds = %146, %.thread3486, %4877, %4922, %.thread3477
@@ -11936,28 +11936,28 @@ define internal fastcc void @clear_block_exit(ptr noundef captures(none) %0, i1 
   ]
 
 18:                                               ; preds = %11
-  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.560)
+  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %17, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.560)
   %19 = load i32, ptr %8, align 4, !tbaa !31
   %20 = load i32, ptr %17, align 4, !tbaa !53
   %21 = icmp eq i32 %20, %19
   br i1 %21, label %parser_yyerror.exit.sink.split, label %parser_yyerror.exit
 
 22:                                               ; preds = %11
-  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.561)
+  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %17, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.561)
   %23 = load i32, ptr %8, align 4, !tbaa !31
   %24 = load i32, ptr %17, align 4, !tbaa !53
   %25 = icmp eq i32 %24, %23
   br i1 %25, label %parser_yyerror.exit.sink.split, label %parser_yyerror.exit
 
 26:                                               ; preds = %11
-  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.562)
+  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %17, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.562)
   %27 = load i32, ptr %8, align 4, !tbaa !31
   %28 = load i32, ptr %17, align 4, !tbaa !53
   %29 = icmp eq i32 %28, %27
   br i1 %29, label %parser_yyerror.exit.sink.split, label %parser_yyerror.exit
 
 30:                                               ; preds = %11
-  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.563)
+  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %17, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.563)
   %31 = load i32, ptr %8, align 4, !tbaa !31
   %32 = load i32, ptr %17, align 4, !tbaa !53
   %33 = icmp eq i32 %32, %31
@@ -11966,14 +11966,14 @@ define internal fastcc void @clear_block_exit(ptr noundef captures(none) %0, i1 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %9, align 8, !tbaa !185
   %36 = load i64, ptr %10, align 8, !tbaa !186
-  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %36, ptr noundef nonnull %17, i32 noundef %31, ptr noundef %35)
+  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %36, ptr noundef nonnull readonly %17, i32 noundef %31, ptr noundef %35)
   br label %parser_yyerror.exit23
 
 parser_yyerror.exit.sink.split:                   ; preds = %26, %22, %18
   %.sink29 = phi i32 [ %19, %18 ], [ %23, %22 ], [ %27, %26 ]
   %37 = load ptr, ptr %9, align 8, !tbaa !185
   %38 = load i64, ptr %10, align 8, !tbaa !186
-  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %38, ptr noundef nonnull %17, i32 noundef %.sink29, ptr noundef %37)
+  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %38, ptr noundef nonnull readonly %17, i32 noundef %.sink29, ptr noundef %37)
   br label %parser_yyerror.exit
 
 parser_yyerror.exit:                              ; preds = %parser_yyerror.exit.sink.split, %26, %22, %18
@@ -11994,7 +11994,7 @@ parser_yyerror.exit23:                            ; preds = %parser_yyerror.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parser_yyerror(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(address_is_null) %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @parser_yyerror(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(address_is_null) %1, ptr noundef nonnull %2) unnamed_addr #0 {
   tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.555, ptr noundef nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %5 = load i32, ptr %4, align 4, !tbaa !31
@@ -12007,7 +12007,7 @@ define internal fastcc void @parser_yyerror(ptr noundef nonnull captures(none) %
   %10 = load ptr, ptr %9, align 8, !tbaa !185
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %12 = load i64, ptr %11, align 8, !tbaa !186
-  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %12, ptr noundef nonnull %1, i32 noundef %5, ptr noundef %10)
+  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %12, ptr noundef nonnull readonly %1, i32 noundef %5, ptr noundef %10)
   br label %parser_show_error_line.exit
 
 parser_show_error_line.exit:                      ; preds = %3, %8
@@ -13262,7 +13262,7 @@ define internal fastcc void @rb_backref_error(ptr noundef captures(none) %0, ptr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @endless_method_name(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc void @endless_method_name(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = icmp eq i64 %1, 146
   br i1 %4, label %10, label %5
 
@@ -13274,7 +13274,7 @@ define internal fastcc void @endless_method_name(ptr noundef captures(none) %0, 
   br i1 %9, label %10, label %parser_yyerror.exit
 
 10:                                               ; preds = %5, %3
-  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.564)
+  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.564)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %12 = load i32, ptr %11, align 4, !tbaa !31
   %13 = load i32, ptr %2, align 4, !tbaa !53
@@ -13286,7 +13286,7 @@ define internal fastcc void @endless_method_name(ptr noundef captures(none) %0, 
   %17 = load ptr, ptr %16, align 8, !tbaa !185
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %19 = load i64, ptr %18, align 8, !tbaa !186
-  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %19, ptr noundef nonnull %2, i32 noundef %12, ptr noundef %17)
+  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %19, ptr noundef nonnull readonly %2, i32 noundef %12, ptr noundef %17)
   br label %parser_yyerror.exit
 
 parser_yyerror.exit:                              ; preds = %15, %10, %5
@@ -13536,7 +13536,7 @@ define internal fastcc noundef ptr @call_uni_op(ptr noundef %0, ptr noundef %1, 
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.899)
+  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %8, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.899)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %10 = load i32, ptr %9, align 4, !tbaa !31
   %11 = load i32, ptr %8, align 4, !tbaa !53
@@ -13548,7 +13548,7 @@ define internal fastcc noundef ptr @call_uni_op(ptr noundef %0, ptr noundef %1, 
   %15 = load ptr, ptr %14, align 8, !tbaa !185
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %17 = load i64, ptr %16, align 8, !tbaa !186
-  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %17, ptr noundef nonnull %8, i32 noundef %10, ptr noundef %15)
+  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %17, ptr noundef nonnull readonly %8, i32 noundef %10, ptr noundef %15)
   br label %value_expr_gen.exit
 
 value_expr_gen.exit:                              ; preds = %5, %7, %13
@@ -13592,7 +13592,7 @@ define internal fastcc noundef ptr @logop(ptr noundef %0, i64 noundef range(i64 
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.899)
+  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %13, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.899)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %15 = load i32, ptr %14, align 4, !tbaa !31
   %16 = load i32, ptr %13, align 4, !tbaa !53
@@ -13604,7 +13604,7 @@ define internal fastcc noundef ptr @logop(ptr noundef %0, i64 noundef range(i64 
   %20 = load ptr, ptr %19, align 8, !tbaa !185
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %22 = load i64, ptr %21, align 8, !tbaa !186
-  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %22, ptr noundef nonnull %13, i32 noundef %15, ptr noundef %20)
+  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %22, ptr noundef nonnull readonly %13, i32 noundef %15, ptr noundef %20)
   br label %value_expr_gen.exit
 
 value_expr_gen.exit:                              ; preds = %6, %12, %18
@@ -13727,7 +13727,7 @@ define internal fastcc void @value_expr_gen(ptr noundef %0, ptr noundef captures
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.899)
+  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.899)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %7 = load i32, ptr %6, align 4, !tbaa !31
   %8 = load i32, ptr %5, align 4, !tbaa !53
@@ -13739,7 +13739,7 @@ define internal fastcc void @value_expr_gen(ptr noundef %0, ptr noundef captures
   %12 = load ptr, ptr %11, align 8, !tbaa !185
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %14 = load i64, ptr %13, align 8, !tbaa !186
-  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %14, ptr noundef nonnull %5, i32 noundef %7, ptr noundef %12)
+  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %14, ptr noundef nonnull readonly %5, i32 noundef %7, ptr noundef %12)
   br label %parser_yyerror.exit
 
 parser_yyerror.exit:                              ; preds = %10, %4, %2
@@ -14601,7 +14601,7 @@ define internal fastcc noundef ptr @rb_node_postarg_new(ptr noundef captures(non
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef ptr @assignable(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal noundef ptr @assignable(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   switch i64 %1, label %11 [
     i64 0, label %parser_yyerror.exit
     i64 288, label %150
@@ -14887,7 +14887,7 @@ assignable0.exit:                                 ; preds = %11
 
 150:                                              ; preds = %44, %4, %5, %6, %7, %8, %9, %10
   %.039.ph.ph = phi ptr [ @.str.886, %10 ], [ @.str.885, %9 ], [ @.str.884, %8 ], [ @.str.883, %7 ], [ @.str.882, %6 ], [ @.str.881, %5 ], [ @.str.880, %4 ], [ @.str.888, %44 ]
-  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull @.str.555, ptr noundef nonnull %.039.ph.ph)
+  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %3, ptr noundef nonnull @.str.555, ptr noundef nonnull %.039.ph.ph)
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %152 = load i32, ptr %151, align 4, !tbaa !31
   %153 = load i32, ptr %3, align 4, !tbaa !53
@@ -14899,7 +14899,7 @@ assignable0.exit:                                 ; preds = %11
   %157 = load ptr, ptr %156, align 8, !tbaa !185
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %159 = load i64, ptr %158, align 8, !tbaa !186
-  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %159, ptr noundef nonnull %3, i32 noundef %152, ptr noundef %157)
+  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %159, ptr noundef nonnull readonly %3, i32 noundef %152, ptr noundef %157)
   br label %parser_yyerror.exit
 
 parser_yyerror.exit:                              ; preds = %155, %150, %4, %33, %48
@@ -14961,12 +14961,12 @@ define internal fastcc noundef ptr @aryset(ptr noundef captures(none) %0, ptr no
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @anddot_multiple_assignment_check(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @anddot_multiple_assignment_check(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = icmp eq i64 %2, 150
   br i1 %4, label %5, label %parser_yyerror.exit
 
 5:                                                ; preds = %3
-  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.568)
+  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.568)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %7 = load i32, ptr %6, align 4, !tbaa !31
   %8 = load i32, ptr %1, align 4, !tbaa !53
@@ -14978,7 +14978,7 @@ define internal fastcc void @anddot_multiple_assignment_check(ptr noundef captur
   %12 = load ptr, ptr %11, align 8, !tbaa !185
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %14 = load i64, ptr %13, align 8, !tbaa !186
-  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %14, ptr noundef nonnull %1, i32 noundef %7, ptr noundef %12)
+  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %14, ptr noundef nonnull readonly %1, i32 noundef %7, ptr noundef %12)
   br label %parser_yyerror.exit
 
 parser_yyerror.exit:                              ; preds = %10, %5, %3
@@ -15025,7 +15025,7 @@ define internal fastcc noundef ptr @attrset(ptr noundef captures(none) %0, ptr n
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @const_decl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @const_decl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 8
@@ -15033,7 +15033,7 @@ define internal fastcc noundef ptr @const_decl(ptr noundef captures(none) %0, pt
   br i1 %.not, label %parser_yyerror.exit, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.888)
+  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.888)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %9 = load i32, ptr %8, align 4, !tbaa !31
   %10 = load i32, ptr %2, align 4, !tbaa !53
@@ -15045,7 +15045,7 @@ define internal fastcc noundef ptr @const_decl(ptr noundef captures(none) %0, pt
   %14 = load ptr, ptr %13, align 8, !tbaa !185
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %16 = load i64, ptr %15, align 8, !tbaa !186
-  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %16, ptr noundef nonnull %2, i32 noundef %9, ptr noundef %14)
+  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %16, ptr noundef nonnull readonly %2, i32 noundef %9, ptr noundef %14)
   br label %parser_yyerror.exit
 
 parser_yyerror.exit:                              ; preds = %12, %7, %3
@@ -15324,7 +15324,7 @@ define internal fastcc noundef ptr @call_bin_op(ptr noundef %0, ptr noundef %1, 
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.899)
+  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %9, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.899)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %11 = load i32, ptr %10, align 4, !tbaa !31
   %12 = load i32, ptr %9, align 4, !tbaa !53
@@ -15336,7 +15336,7 @@ define internal fastcc noundef ptr @call_bin_op(ptr noundef %0, ptr noundef %1, 
   %16 = load ptr, ptr %15, align 8, !tbaa !185
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %18 = load i64, ptr %17, align 8, !tbaa !186
-  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %18, ptr noundef nonnull %9, i32 noundef %11, ptr noundef %16)
+  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %18, ptr noundef nonnull readonly %9, i32 noundef %11, ptr noundef %16)
   br label %value_expr_gen.exit
 
 value_expr_gen.exit:                              ; preds = %6, %8, %14
@@ -15346,7 +15346,7 @@ value_expr_gen.exit:                              ; preds = %6, %8, %14
 
 20:                                               ; preds = %value_expr_gen.exit
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.899)
+  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %21, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.899)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %23 = load i32, ptr %22, align 4, !tbaa !31
   %24 = load i32, ptr %21, align 4, !tbaa !53
@@ -15358,7 +15358,7 @@ value_expr_gen.exit:                              ; preds = %6, %8, %14
   %28 = load ptr, ptr %27, align 8, !tbaa !185
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %30 = load i64, ptr %29, align 8, !tbaa !186
-  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %30, ptr noundef nonnull %21, i32 noundef %23, ptr noundef %28)
+  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %30, ptr noundef nonnull readonly %21, i32 noundef %23, ptr noundef %28)
   br label %value_expr_gen.exit15
 
 value_expr_gen.exit15:                            ; preds = %value_expr_gen.exit, %20, %26
@@ -15423,7 +15423,7 @@ define internal fastcc noundef ptr @match_op(ptr noundef %0, ptr noundef %1, ptr
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.899)
+  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %8, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.899)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %10 = load i32, ptr %9, align 4, !tbaa !31
   %11 = load i32, ptr %8, align 4, !tbaa !53
@@ -15435,7 +15435,7 @@ define internal fastcc noundef ptr @match_op(ptr noundef %0, ptr noundef %1, ptr
   %15 = load ptr, ptr %14, align 8, !tbaa !185
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %17 = load i64, ptr %16, align 8, !tbaa !186
-  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %17, ptr noundef nonnull %8, i32 noundef %10, ptr noundef %15)
+  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %17, ptr noundef nonnull readonly %8, i32 noundef %10, ptr noundef %15)
   br label %value_expr_gen.exit
 
 value_expr_gen.exit:                              ; preds = %4, %7, %13
@@ -15445,7 +15445,7 @@ value_expr_gen.exit:                              ; preds = %4, %7, %13
 
 19:                                               ; preds = %value_expr_gen.exit
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %20, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.899)
+  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %20, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.899)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %22 = load i32, ptr %21, align 4, !tbaa !31
   %23 = load i32, ptr %20, align 4, !tbaa !53
@@ -15457,7 +15457,7 @@ value_expr_gen.exit:                              ; preds = %4, %7, %13
   %27 = load ptr, ptr %26, align 8, !tbaa !185
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %29 = load i64, ptr %28, align 8, !tbaa !186
-  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %29, ptr noundef nonnull %20, i32 noundef %22, ptr noundef %27)
+  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %29, ptr noundef nonnull readonly %20, i32 noundef %22, ptr noundef %27)
   br label %value_expr_gen.exit54
 
 value_expr_gen.exit54:                            ; preds = %value_expr_gen.exit, %19, %25
@@ -17321,7 +17321,7 @@ define internal fastcc noundef ptr @new_args(ptr noundef captures(none) %0, ptr 
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.923)
+  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %14, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.923)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %16 = load i32, ptr %15, align 4, !tbaa !31
   %17 = load i32, ptr %14, align 4, !tbaa !53
@@ -17333,7 +17333,7 @@ define internal fastcc noundef ptr @new_args(ptr noundef captures(none) %0, ptr 
   %21 = load ptr, ptr %20, align 8, !tbaa !185
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %23 = load i64, ptr %22, align 8, !tbaa !186
-  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %23, ptr noundef nonnull %14, i32 noundef %16, ptr noundef %21)
+  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %23, ptr noundef nonnull readonly %14, i32 noundef %16, ptr noundef %21)
   br label %parser_yyerror.exit
 
 24:                                               ; preds = %12, %7
@@ -19315,7 +19315,7 @@ define internal fastcc noundef ptr @rb_node_or_new(ptr noundef captures(none) %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_hash_pattern_tail(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_hash_pattern_tail(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull readonly captures(address_is_null) %3) unnamed_addr #0 {
   switch i64 %2, label %5 [
     i64 3649, label %8
     i64 0, label %7
@@ -19439,7 +19439,7 @@ define internal fastcc noundef ptr @new_find_pattern_tail(ptr noundef captures(n
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @error_duplicate_pattern_variable(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc void @error_duplicate_pattern_variable(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = icmp eq i64 %1, 3713
   br i1 %4, label %parser_yyerror.exit, label %5
 
@@ -19481,7 +19481,7 @@ is_private_local_id.exit.thread:                  ; preds = %10, %5, %is_private
   br i1 %.not7, label %32, label %22
 
 22:                                               ; preds = %is_private_local_id.exit.thread
-  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.929)
+  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.929)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %24 = load i32, ptr %23, align 4, !tbaa !31
   %25 = load i32, ptr %2, align 4, !tbaa !53
@@ -19493,7 +19493,7 @@ is_private_local_id.exit.thread:                  ; preds = %10, %5, %is_private
   %29 = load ptr, ptr %28, align 8, !tbaa !185
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %31 = load i64, ptr %30, align 8, !tbaa !186
-  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %31, ptr noundef nonnull %2, i32 noundef %24, ptr noundef %29)
+  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %31, ptr noundef nonnull readonly %2, i32 noundef %24, ptr noundef %29)
   br label %parser_yyerror.exit
 
 32:                                               ; preds = %is_private_local_id.exit.thread
@@ -19534,7 +19534,7 @@ define internal fastcc noundef ptr @new_unique_key_hash(ptr noundef captures(non
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @error_duplicate_pattern_key(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc void @error_duplicate_pattern_key(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load ptr, ptr %4, align 8, !tbaa !98
   %.not = icmp eq ptr %5, null
@@ -19555,7 +19555,7 @@ define internal fastcc void @error_duplicate_pattern_key(ptr noundef captures(no
   br label %20
 
 10:                                               ; preds = %8
-  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.930)
+  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.930)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %12 = load i32, ptr %11, align 4, !tbaa !31
   %13 = load i32, ptr %2, align 4, !tbaa !53
@@ -19567,7 +19567,7 @@ define internal fastcc void @error_duplicate_pattern_key(ptr noundef captures(no
   %17 = load ptr, ptr %16, align 8, !tbaa !185
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %19 = load i64, ptr %18, align 8, !tbaa !186
-  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %19, ptr noundef nonnull %2, i32 noundef %12, ptr noundef %17)
+  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %19, ptr noundef nonnull readonly %2, i32 noundef %12, ptr noundef %17)
   br label %parser_yyerror.exit
 
 20:                                               ; preds = %._crit_edge, %6
@@ -19580,7 +19580,7 @@ parser_yyerror.exit:                              ; preds = %15, %10, %20
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @dsym_node(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @dsym_node(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly captures(address_is_null) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %23
 
@@ -21618,7 +21618,7 @@ define internal fastcc void @parser_yyerror0(ptr noundef nonnull captures(none) 
   store i32 %5, ptr %20, align 4, !tbaa !57
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %18, ptr %21, align 4, !tbaa !58
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull @.str.555, ptr noundef nonnull %1)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %3, ptr noundef nonnull @.str.555, ptr noundef nonnull %1)
   %22 = load i32, ptr %4, align 4, !tbaa !31
   %23 = icmp eq i32 %5, %22
   br i1 %23, label %24, label %parser_yyerror.exit
@@ -21628,7 +21628,7 @@ define internal fastcc void @parser_yyerror0(ptr noundef nonnull captures(none) 
   %26 = load ptr, ptr %25, align 8, !tbaa !185
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %28 = load i64, ptr %27, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %28, ptr noundef nonnull %3, i32 noundef %5, ptr noundef %26)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %28, ptr noundef nonnull readonly %3, i32 noundef %5, ptr noundef %26)
   br label %parser_yyerror.exit
 
 parser_yyerror.exit:                              ; preds = %2, %24
@@ -21689,7 +21689,7 @@ define internal fastcc range(i64 0, 21) i64 @formal_argument_error(ptr noundef c
   store i32 %14, ptr %29, align 4, !tbaa !57
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %27, ptr %30, align 4, !tbaa !58
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.757)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %7, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.757)
   %31 = load i32, ptr %13, align 4, !tbaa !31
   %32 = icmp eq i32 %14, %31
   br i1 %32, label %33, label %parser_yyerror0.exit
@@ -21699,7 +21699,7 @@ define internal fastcc range(i64 0, 21) i64 @formal_argument_error(ptr noundef c
   %35 = load ptr, ptr %34, align 8, !tbaa !185
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %37 = load i64, ptr %36, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %37, ptr noundef nonnull %7, i32 noundef %14, ptr noundef %35)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %37, ptr noundef nonnull readonly %7, i32 noundef %14, ptr noundef %35)
   br label %parser_yyerror0.exit
 
 parser_yyerror0.exit:                             ; preds = %12, %33
@@ -21730,7 +21730,7 @@ parser_yyerror0.exit:                             ; preds = %12, %33
   store i32 %40, ptr %55, align 4, !tbaa !57
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %53, ptr %56, align 4, !tbaa !58
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.758)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.758)
   %57 = load i32, ptr %39, align 4, !tbaa !31
   %58 = icmp eq i32 %40, %57
   br i1 %58, label %59, label %parser_yyerror0.exit8
@@ -21740,7 +21740,7 @@ parser_yyerror0.exit:                             ; preds = %12, %33
   %61 = load ptr, ptr %60, align 8, !tbaa !185
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %63 = load i64, ptr %62, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %63, ptr noundef nonnull %6, i32 noundef %40, ptr noundef %61)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %63, ptr noundef nonnull readonly %6, i32 noundef %40, ptr noundef %61)
   br label %parser_yyerror0.exit8
 
 parser_yyerror0.exit8:                            ; preds = %38, %59
@@ -21771,7 +21771,7 @@ parser_yyerror0.exit8:                            ; preds = %38, %59
   store i32 %66, ptr %81, align 4, !tbaa !57
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %79, ptr %82, align 4, !tbaa !58
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.759)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.759)
   %83 = load i32, ptr %65, align 4, !tbaa !31
   %84 = icmp eq i32 %66, %83
   br i1 %84, label %85, label %parser_yyerror0.exit9
@@ -21781,7 +21781,7 @@ parser_yyerror0.exit8:                            ; preds = %38, %59
   %87 = load ptr, ptr %86, align 8, !tbaa !185
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %89 = load i64, ptr %88, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %89, ptr noundef nonnull %5, i32 noundef %66, ptr noundef %87)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %89, ptr noundef nonnull readonly %5, i32 noundef %66, ptr noundef %87)
   br label %parser_yyerror0.exit9
 
 parser_yyerror0.exit9:                            ; preds = %64, %85
@@ -21812,7 +21812,7 @@ parser_yyerror0.exit9:                            ; preds = %64, %85
   store i32 %92, ptr %107, align 4, !tbaa !57
   %108 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %105, ptr %108, align 4, !tbaa !58
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.760)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %4, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.760)
   %109 = load i32, ptr %91, align 4, !tbaa !31
   %110 = icmp eq i32 %92, %109
   br i1 %110, label %111, label %parser_yyerror0.exit10
@@ -21822,7 +21822,7 @@ parser_yyerror0.exit9:                            ; preds = %64, %85
   %113 = load ptr, ptr %112, align 8, !tbaa !185
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %115 = load i64, ptr %114, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %115, ptr noundef nonnull %4, i32 noundef %92, ptr noundef %113)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %115, ptr noundef nonnull readonly %4, i32 noundef %92, ptr noundef %113)
   br label %parser_yyerror0.exit10
 
 parser_yyerror0.exit10:                           ; preds = %90, %111
@@ -21853,7 +21853,7 @@ parser_yyerror0.exit10:                           ; preds = %90, %111
   store i32 %118, ptr %133, align 4, !tbaa !57
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %131, ptr %134, align 4, !tbaa !58
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.761)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %3, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.761)
   %135 = load i32, ptr %117, align 4, !tbaa !31
   %136 = icmp eq i32 %118, %135
   br i1 %136, label %137, label %parser_yyerror0.exit11
@@ -21863,7 +21863,7 @@ parser_yyerror0.exit10:                           ; preds = %90, %111
   %139 = load ptr, ptr %138, align 8, !tbaa !185
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %141 = load i64, ptr %140, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %141, ptr noundef nonnull %3, i32 noundef %118, ptr noundef %139)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %141, ptr noundef nonnull readonly %3, i32 noundef %118, ptr noundef %139)
   br label %parser_yyerror0.exit11
 
 parser_yyerror0.exit11:                           ; preds = %116, %137
@@ -22944,7 +22944,7 @@ RSTRING_PTR.exit:                                 ; preds = %2, %13
   store i32 %15, ptr %30, align 4, !tbaa !57
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %28, ptr %31, align 4, !tbaa !58
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull @.str.555, ptr noundef nonnull %.sroa.2.0.i)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %3, ptr noundef nonnull @.str.555, ptr noundef nonnull %.sroa.2.0.i)
   %32 = load i32, ptr %14, align 4, !tbaa !31
   %33 = icmp eq i32 %15, %32
   br i1 %33, label %34, label %parser_yyerror0.exit
@@ -22954,7 +22954,7 @@ RSTRING_PTR.exit:                                 ; preds = %2, %13
   %36 = load ptr, ptr %35, align 8, !tbaa !185
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %38 = load i64, ptr %37, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %38, ptr noundef nonnull %3, i32 noundef %15, ptr noundef %36)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %38, ptr noundef nonnull readonly %3, i32 noundef %15, ptr noundef %36)
   br label %parser_yyerror0.exit
 
 parser_yyerror0.exit:                             ; preds = %RSTRING_PTR.exit, %34
@@ -23588,7 +23588,7 @@ declare nonnull ptr @rb_ascii8bit_encoding() local_unnamed_addr #2
 declare nonnull ptr @rb_usascii_encoding() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @rb_parser_assignable(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @rb_parser_assignable(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call ptr @assignable(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3)
   ret ptr %5
 }
@@ -32306,7 +32306,7 @@ flush_debug_buffer.exit:                          ; preds = %22, %24, %28
 declare void @rb_ast_delete_node(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal fastcc void @parser_show_error_line(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #21 {
+define internal fastcc void @parser_show_error_line(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #21 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %4 = load i32, ptr %3, align 4, !tbaa !31
   %.not = icmp eq ptr %1, null
@@ -37513,7 +37513,7 @@ pushback.exit.i.i.i:                              ; preds = %.critedge.i.i.i.i, 
   %896 = load ptr, ptr %895, align 8, !tbaa !185
   %897 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %898 = load i64, ptr %897, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %898, ptr noundef nonnull %3, i32 noundef %870, ptr noundef %896)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %898, ptr noundef nonnull readonly %3, i32 noundef %870, ptr noundef %896)
   br label %parser_show_error_line.exit.i.i.i
 
 parser_show_error_line.exit.i.i.i:                ; preds = %894, %868
@@ -40880,7 +40880,7 @@ pushback.exit1071:                                ; preds = %.critedge.i1061, %.
   store i32 %2288, ptr %1155, align 4, !tbaa !56
   store i32 %2282, ptr %1156, align 4, !tbaa !57
   store i32 %2292, ptr %1157, align 4, !tbaa !58
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.776)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.776)
   %2293 = load i32, ptr %1154, align 4, !tbaa !31
   %2294 = icmp eq i32 %2282, %2293
   br i1 %2294, label %2295, label %parser_yyerror0.exit
@@ -40888,7 +40888,7 @@ pushback.exit1071:                                ; preds = %.critedge.i1061, %.
 2295:                                             ; preds = %2281
   %2296 = load ptr, ptr %1158, align 8, !tbaa !185
   %2297 = load i64, ptr %1159, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %2297, ptr noundef nonnull %2, i32 noundef %2282, ptr noundef %2296)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %2297, ptr noundef nonnull readonly %2, i32 noundef %2282, ptr noundef %2296)
   br label %parser_yyerror0.exit
 
 parser_yyerror0.exit:                             ; preds = %2281, %2295
@@ -42343,7 +42343,7 @@ nextc0.exit120:                                   ; preds = %.critedge.i113, %10
   store i32 %120, ptr %133, align 4, !tbaa !57
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %131, ptr %134, align 4, !tbaa !58
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.829)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %3, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.829)
   %135 = load i32, ptr %119, align 4, !tbaa !31
   %136 = icmp eq i32 %120, %135
   br i1 %136, label %137, label %parser_yyerror0.exit
@@ -42353,7 +42353,7 @@ nextc0.exit120:                                   ; preds = %.critedge.i113, %10
   %139 = load ptr, ptr %138, align 8, !tbaa !185
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %141 = load i64, ptr %140, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %141, ptr noundef nonnull %3, i32 noundef %120, ptr noundef %139)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %141, ptr noundef nonnull readonly %3, i32 noundef %120, ptr noundef %139)
   br label %parser_yyerror0.exit
 
 parser_yyerror0.exit:                             ; preds = %118, %137
@@ -42627,7 +42627,7 @@ parser_is_identchar.exit136..split_crit_edge:     ; preds = %parser_is_identchar
   store i32 %271, ptr %281, align 4, !tbaa !57
   %282 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %279, ptr %282, align 4, !tbaa !58
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.830)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.830)
   %283 = load i32, ptr %270, align 4, !tbaa !31
   %284 = icmp eq i32 %271, %283
   br i1 %284, label %285, label %parser_yyerror0.exit138
@@ -42637,7 +42637,7 @@ parser_is_identchar.exit136..split_crit_edge:     ; preds = %parser_is_identchar
   %287 = load ptr, ptr %286, align 8, !tbaa !185
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %289 = load i64, ptr %288, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %289, ptr noundef nonnull %2, i32 noundef %271, ptr noundef %287)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %289, ptr noundef nonnull readonly %2, i32 noundef %271, ptr noundef %287)
   br label %parser_yyerror0.exit138
 
 parser_yyerror0.exit138:                          ; preds = %269, %285
@@ -44717,7 +44717,7 @@ pushback.exit448:                                 ; preds = %nextc0.exit447, %pu
   %701 = load ptr, ptr %700, align 8, !tbaa !185
   %702 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %703 = load i64, ptr %702, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %703, ptr noundef nonnull %3, i32 noundef %684, ptr noundef %701)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %703, ptr noundef nonnull readonly %3, i32 noundef %684, ptr noundef %701)
   br label %parser_show_error_line.exit
 
 parser_show_error_line.exit:                      ; preds = %699, %.thread553, %pushback.exit448
@@ -45004,7 +45004,7 @@ parser_precise_mbclen.exit:                       ; preds = %pushback.exit
   store i32 %109, ptr %122, align 4, !tbaa !57
   %123 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %120, ptr %123, align 4, !tbaa !58
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.841)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %4, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.841)
   %124 = load i32, ptr %108, align 4, !tbaa !31
   %125 = icmp eq i32 %109, %124
   br i1 %125, label %126, label %parser_yyerror0.exit
@@ -45014,7 +45014,7 @@ parser_precise_mbclen.exit:                       ; preds = %pushback.exit
   %128 = load ptr, ptr %127, align 8, !tbaa !185
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %130 = load i64, ptr %129, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %130, ptr noundef nonnull %4, i32 noundef %109, ptr noundef %128)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %130, ptr noundef nonnull readonly %4, i32 noundef %109, ptr noundef %128)
   br label %parser_yyerror0.exit
 
 parser_yyerror0.exit:                             ; preds = %parser_precise_mbclen.exit, %126
@@ -46565,7 +46565,7 @@ parser_set_lex_state.exit..split_crit_edge:       ; preds = %parser_set_lex_stat
   %154 = load ptr, ptr %153, align 8, !tbaa !185
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %156 = load i64, ptr %155, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %156, ptr noundef nonnull %3, i32 noundef %138, ptr noundef %154)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %156, ptr noundef nonnull readonly %3, i32 noundef %138, ptr noundef %154)
   br label %parser_show_error_line.exit
 
 parser_show_error_line.exit:                      ; preds = %.split, %152
@@ -46647,7 +46647,7 @@ pushback.exit67:                                  ; preds = %165, %173, %176, %1
   %199 = load ptr, ptr %198, align 8, !tbaa !185
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %201 = load i64, ptr %200, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %201, ptr noundef nonnull %3, i32 noundef %183, ptr noundef %199)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %201, ptr noundef nonnull readonly %3, i32 noundef %183, ptr noundef %199)
   br label %parser_show_error_line.exit69
 
 parser_show_error_line.exit69:                    ; preds = %pushback.exit67, %197
@@ -48496,7 +48496,7 @@ nextc0.exit.thread42.i:                           ; preds = %293, %.critedge.i.i
   store i32 %359, ptr %371, align 4, !tbaa !57
   %372 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 %369, ptr %372, align 4, !tbaa !58
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.796)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %10, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.796)
   %373 = load i32, ptr %31, align 4, !tbaa !31
   %374 = icmp eq i32 %359, %373
   br i1 %374, label %375, label %parser_yyerror0.exit.i
@@ -48504,7 +48504,7 @@ nextc0.exit.thread42.i:                           ; preds = %293, %.critedge.i.i
 375:                                              ; preds = %nextc0.exit.thread42.i
   %376 = load ptr, ptr %35, align 8, !tbaa !185
   %377 = load i64, ptr %36, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %377, ptr noundef nonnull %10, i32 noundef %359, ptr noundef %376)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %377, ptr noundef nonnull readonly %10, i32 noundef %359, ptr noundef %376)
   br label %parser_yyerror0.exit.i
 
 parser_yyerror0.exit.i:                           ; preds = %375, %nextc0.exit.thread42.i
@@ -48730,7 +48730,7 @@ tokadd.exit208:                                   ; preds = %208, %200, %.thread
 473:                                              ; preds = %457
   %474 = load ptr, ptr %35, align 8, !tbaa !185
   %475 = load i64, ptr %36, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %475, ptr noundef nonnull %9, i32 noundef %460, ptr noundef %474)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %475, ptr noundef nonnull readonly %9, i32 noundef %460, ptr noundef %474)
   br label %parser_mixed_error.exit
 
 parser_mixed_error.exit:                          ; preds = %457, %473
@@ -48813,7 +48813,7 @@ pushback.exit192:                                 ; preds = %480, %switch.early.
 506:                                              ; preds = %490
   %507 = load ptr, ptr %35, align 8, !tbaa !185
   %508 = load i64, ptr %36, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %508, ptr noundef nonnull %8, i32 noundef %493, ptr noundef %507)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %508, ptr noundef nonnull readonly %8, i32 noundef %493, ptr noundef %507)
   br label %parser_mixed_error.exit220
 
 parser_mixed_error.exit220:                       ; preds = %490, %506
@@ -49432,7 +49432,7 @@ tokadd.exit125:                                   ; preds = %.split92, %174
   store i32 %191, ptr %205, align 4, !tbaa !57
   %206 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %203, ptr %206, align 4, !tbaa !58
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.786)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.786)
   %207 = load i32, ptr %190, align 4, !tbaa !31
   %208 = icmp eq i32 %191, %207
   br i1 %208, label %209, label %parser_yyerror0.exit
@@ -49442,7 +49442,7 @@ tokadd.exit125:                                   ; preds = %.split92, %174
   %211 = load ptr, ptr %210, align 8, !tbaa !185
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %213 = load i64, ptr %212, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %213, ptr noundef nonnull %5, i32 noundef %191, ptr noundef %211)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %213, ptr noundef nonnull readonly %5, i32 noundef %191, ptr noundef %211)
   br label %parser_yyerror0.exit
 
 parser_yyerror0.exit:                             ; preds = %.critedge114, %209
@@ -49993,7 +49993,7 @@ nextc0.exit.thread138:                            ; preds = %76, %.critedge.i126
   store i32 %198, ptr %212, align 4, !tbaa !57
   %213 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %210, ptr %213, align 4, !tbaa !58
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.796)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %4, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.796)
   %214 = load i32, ptr %197, align 4, !tbaa !31
   %215 = icmp eq i32 %198, %214
   br i1 %215, label %216, label %parser_yyerror0.exit
@@ -50003,7 +50003,7 @@ nextc0.exit.thread138:                            ; preds = %76, %.critedge.i126
   %218 = load ptr, ptr %217, align 8, !tbaa !185
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %220 = load i64, ptr %219, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %220, ptr noundef nonnull %4, i32 noundef %198, ptr noundef %218)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %220, ptr noundef nonnull readonly %4, i32 noundef %198, ptr noundef %218)
   br label %parser_yyerror0.exit
 
 parser_yyerror0.exit:                             ; preds = %nextc0.exit.thread138, %216
@@ -50088,7 +50088,7 @@ define internal fastcc void @parser_mixed_escape(ptr noundef captures(none) %0, 
   %26 = load ptr, ptr %25, align 8, !tbaa !185
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %28 = load i64, ptr %27, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %28, ptr noundef nonnull %3, i32 noundef %7, ptr noundef %26)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %28, ptr noundef nonnull readonly %3, i32 noundef %7, ptr noundef %26)
   br label %parser_mixed_error.exit
 
 parser_mixed_error.exit:                          ; preds = %2, %24
@@ -50283,7 +50283,7 @@ define internal fastcc range(i32 0, 2) i32 @tokadd_codepoint(ptr noundef %0, ptr
   store i32 %44, ptr %58, align 4, !tbaa !57
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %56, ptr %59, align 4, !tbaa !58
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.787)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %7, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.787)
   %60 = load i32, ptr %43, align 4, !tbaa !31
   %61 = icmp eq i32 %44, %60
   br i1 %61, label %62, label %parser_yyerror0.exit
@@ -50293,7 +50293,7 @@ define internal fastcc range(i32 0, 2) i32 @tokadd_codepoint(ptr noundef %0, ptr
   %64 = load ptr, ptr %63, align 8, !tbaa !185
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %66 = load i64, ptr %65, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %66, ptr noundef nonnull %7, i32 noundef %44, ptr noundef %64)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %66, ptr noundef nonnull readonly %7, i32 noundef %44, ptr noundef %64)
   br label %parser_yyerror0.exit
 
 parser_yyerror0.exit:                             ; preds = %37, %62
@@ -50338,7 +50338,7 @@ parser_yyerror0.exit:                             ; preds = %37, %62
   store i32 %79, ptr %93, align 4, !tbaa !57
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %91, ptr %94, align 4, !tbaa !58
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.788)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.788)
   %95 = load i32, ptr %78, align 4, !tbaa !31
   %96 = icmp eq i32 %79, %95
   br i1 %96, label %97, label %parser_yyerror0.exit71
@@ -50348,7 +50348,7 @@ parser_yyerror0.exit:                             ; preds = %37, %62
   %99 = load ptr, ptr %98, align 8, !tbaa !185
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %101 = load i64, ptr %100, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %101, ptr noundef nonnull %6, i32 noundef %79, ptr noundef %99)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %101, ptr noundef nonnull readonly %6, i32 noundef %79, ptr noundef %99)
   br label %parser_yyerror0.exit71
 
 parser_yyerror0.exit71:                           ; preds = %72, %97
@@ -50390,7 +50390,7 @@ parser_yyerror0.exit71:                           ; preds = %72, %97
   store i32 %112, ptr %126, align 4, !tbaa !57
   %127 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %124, ptr %127, align 4, !tbaa !58
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.789)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.789)
   %128 = load i32, ptr %111, align 4, !tbaa !31
   %129 = icmp eq i32 %112, %128
   br i1 %129, label %130, label %parser_yyerror0.exit72
@@ -50400,7 +50400,7 @@ parser_yyerror0.exit71:                           ; preds = %72, %97
   %132 = load ptr, ptr %131, align 8, !tbaa !185
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %134 = load i64, ptr %133, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %134, ptr noundef nonnull %5, i32 noundef %112, ptr noundef %132)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %134, ptr noundef nonnull readonly %5, i32 noundef %112, ptr noundef %132)
   br label %parser_yyerror0.exit72
 
 parser_yyerror0.exit72:                           ; preds = %105, %130
@@ -50511,7 +50511,7 @@ tokspace.exit:                                    ; preds = %._crit_edge.i, %146
   %189 = load ptr, ptr %188, align 8, !tbaa !185
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %191 = load i64, ptr %190, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %191, ptr noundef nonnull %9, i32 noundef %168, ptr noundef %189)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %191, ptr noundef nonnull readonly %9, i32 noundef %168, ptr noundef %189)
   br label %parser_show_error_line.exit
 
 parser_show_error_line.exit:                      ; preds = %.critedge, %187
@@ -50638,7 +50638,7 @@ define internal fastcc i32 @tok_hex(ptr noundef captures(none) %0, ptr noundef n
   store i32 %12, ptr %26, align 4, !tbaa !57
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %24, ptr %27, align 4, !tbaa !58
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.797)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %3, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.797)
   %28 = load i32, ptr %11, align 4, !tbaa !31
   %29 = icmp eq i32 %12, %28
   br i1 %29, label %30, label %parser_yyerror0.exit
@@ -50648,7 +50648,7 @@ define internal fastcc i32 @tok_hex(ptr noundef captures(none) %0, ptr noundef n
   %32 = load ptr, ptr %31, align 8, !tbaa !185
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %34 = load i64, ptr %33, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %34, ptr noundef nonnull %3, i32 noundef %12, ptr noundef %32)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %34, ptr noundef nonnull readonly %3, i32 noundef %12, ptr noundef %32)
   br label %parser_yyerror0.exit
 
 parser_yyerror0.exit:                             ; preds = %8, %30
@@ -51224,7 +51224,7 @@ define internal fastcc noundef range(i32 314, 318) i32 @no_digits(ptr noundef %0
   store i32 %4, ptr %19, align 4, !tbaa !57
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %17, ptr %20, align 4, !tbaa !58
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.839)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.839)
   %21 = load i32, ptr %3, align 4, !tbaa !31
   %22 = icmp eq i32 %4, %21
   br i1 %22, label %23, label %parser_yyerror0.exit
@@ -51234,7 +51234,7 @@ define internal fastcc noundef range(i32 314, 318) i32 @no_digits(ptr noundef %0
   %25 = load ptr, ptr %24, align 8, !tbaa !185
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %27 = load i64, ptr %26, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %27, ptr noundef nonnull %2, i32 noundef %4, ptr noundef %25)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %27, ptr noundef nonnull readonly %2, i32 noundef %4, ptr noundef %25)
   br label %parser_yyerror0.exit
 
 parser_yyerror0.exit:                             ; preds = %1, %23
@@ -51955,7 +51955,7 @@ nd_line.exit:                                     ; preds = %10, %14
   %26 = load ptr, ptr %25, align 8, !tbaa !185
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %28 = load i64, ptr %27, align 8, !tbaa !186
-  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %28, ptr noundef nonnull %19, i32 noundef %21, ptr noundef %26)
+  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %28, ptr noundef nonnull readonly %19, i32 noundef %21, ptr noundef %26)
   br label %parser_show_error_line.exit
 
 parser_show_error_line.exit:                      ; preds = %24, %nd_line.exit, %1
@@ -51991,7 +51991,7 @@ nd_line.exit:                                     ; preds = %1
   %18 = load ptr, ptr %17, align 8, !tbaa !185
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %20 = load i64, ptr %19, align 8, !tbaa !186
-  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %20, ptr noundef nonnull %11, i32 noundef %13, ptr noundef %18)
+  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %20, ptr noundef nonnull readonly %11, i32 noundef %13, ptr noundef %18)
   br label %parser_show_error_line.exit
 
 parser_show_error_line.exit:                      ; preds = %16, %nd_line.exit, %1
@@ -52243,7 +52243,7 @@ nd_line.exit:                                     ; preds = %1
   %18 = load ptr, ptr %17, align 8, !tbaa !185
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %20 = load i64, ptr %19, align 8, !tbaa !186
-  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %20, ptr noundef nonnull %11, i32 noundef %13, ptr noundef %18)
+  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %20, ptr noundef nonnull readonly %11, i32 noundef %13, ptr noundef %18)
   br label %parser_show_error_line.exit
 
 parser_show_error_line.exit:                      ; preds = %16, %nd_line.exit, %1
@@ -52331,13 +52331,13 @@ define internal fastcc noundef ptr @rb_node_vcall_new(ptr noundef captures(none)
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @str_to_sym_node(ptr noundef captures(none) %0, ptr %.32.val, ptr noundef captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @str_to_sym_node(ptr noundef captures(none) %0, ptr %.32.val, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = tail call fastcc i32 @rb_parser_enc_str_coderange(ptr noundef %.32.val)
   %4 = icmp eq i32 %3, 3
   br i1 %4, label %5, label %18
 
 5:                                                ; preds = %2
-  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.873)
+  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.873)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %7 = load i32, ptr %6, align 4, !tbaa !31
   %8 = load i32, ptr %1, align 4, !tbaa !53
@@ -52349,7 +52349,7 @@ define internal fastcc noundef ptr @str_to_sym_node(ptr noundef captures(none) %
   %12 = load ptr, ptr %11, align 8, !tbaa !185
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %14 = load i64, ptr %13, align 8, !tbaa !186
-  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %14, ptr noundef nonnull %1, i32 noundef %7, ptr noundef %12)
+  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %14, ptr noundef nonnull readonly %1, i32 noundef %7, ptr noundef %12)
   br label %parser_yyerror.exit
 
 parser_yyerror.exit:                              ; preds = %5, %10
@@ -53540,7 +53540,7 @@ is_private_local_id.exit.thread:                  ; preds = %37, %32, %is_privat
   store i32 %47, ptr %62, align 4, !tbaa !57
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %60, ptr %63, align 4, !tbaa !58
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.892)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %4, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.892)
   %64 = load i32, ptr %46, align 4, !tbaa !31
   %65 = icmp eq i32 %47, %64
   br i1 %65, label %66, label %parser_yyerror0.exit
@@ -53550,7 +53550,7 @@ is_private_local_id.exit.thread:                  ; preds = %37, %32, %is_privat
   %68 = load ptr, ptr %67, align 8, !tbaa !185
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %70 = load i64, ptr %69, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %70, ptr noundef nonnull %4, i32 noundef %47, ptr noundef %68)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %70, ptr noundef nonnull readonly %4, i32 noundef %47, ptr noundef %68)
   br label %parser_yyerror0.exit
 
 parser_yyerror0.exit:                             ; preds = %is_private_local_id.exit.thread, %66
@@ -54000,7 +54000,7 @@ is_private_local_id.exit69.thread:                ; preds = %226, %221, %is_priv
   store i32 %236, ptr %251, align 4, !tbaa !57
   %252 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %249, ptr %252, align 4, !tbaa !58
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.892)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %3, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.892)
   %253 = load i32, ptr %235, align 4, !tbaa !31
   %254 = icmp eq i32 %236, %253
   br i1 %254, label %255, label %parser_yyerror0.exit70
@@ -54010,7 +54010,7 @@ is_private_local_id.exit69.thread:                ; preds = %226, %221, %is_priv
   %257 = load ptr, ptr %256, align 8, !tbaa !185
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %259 = load i64, ptr %258, align 8, !tbaa !186
-  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %259, ptr noundef nonnull %3, i32 noundef %236, ptr noundef %257)
+  call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %259, ptr noundef nonnull readonly %3, i32 noundef %236, ptr noundef %257)
   br label %parser_yyerror0.exit70
 
 parser_yyerror0.exit70:                           ; preds = %is_private_local_id.exit69.thread, %255
@@ -54123,7 +54123,7 @@ define internal fastcc void @aryset_check(ptr noundef captures(none) %0, ptr nou
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %.023, i64 8
-  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %38, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.894)
+  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %38, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.894)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %40 = load i32, ptr %39, align 4, !tbaa !31
   %41 = load i32, ptr %38, align 4, !tbaa !53
@@ -54135,7 +54135,7 @@ define internal fastcc void @aryset_check(ptr noundef captures(none) %0, ptr nou
   %45 = load ptr, ptr %44, align 8, !tbaa !185
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %47 = load i64, ptr %46, align 8, !tbaa !186
-  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %47, ptr noundef nonnull %38, i32 noundef %40, ptr noundef %45)
+  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %47, ptr noundef nonnull readonly %38, i32 noundef %40, ptr noundef %45)
   br label %parser_yyerror.exit
 
 parser_yyerror.exit:                              ; preds = %13, %6, %43, %37, %34, %31, %.critedge
@@ -54145,7 +54145,7 @@ parser_yyerror.exit:                              ; preds = %13, %6, %43, %37, %
 
 48:                                               ; preds = %parser_yyerror.exit
   %49 = getelementptr inbounds nuw i8, ptr %.024395072, i64 8
-  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %49, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.895)
+  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %49, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.895)
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %51 = load i32, ptr %50, align 4, !tbaa !31
   %52 = load i32, ptr %49, align 4, !tbaa !53
@@ -54157,7 +54157,7 @@ parser_yyerror.exit:                              ; preds = %13, %6, %43, %37, %
   %56 = load ptr, ptr %55, align 8, !tbaa !185
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %58 = load i64, ptr %57, align 8, !tbaa !186
-  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %58, ptr noundef nonnull %49, i32 noundef %51, ptr noundef %56)
+  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %58, ptr noundef nonnull readonly %49, i32 noundef %51, ptr noundef %56)
   br label %parser_yyerror.exit35
 
 parser_yyerror.exit35:                            ; preds = %2, %54, %48, %parser_yyerror.exit
@@ -54374,7 +54374,7 @@ list_concat.exit43:                               ; preds = %81, %90
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @value_expr_check(ptr noundef %0, ptr noundef captures(address_is_null, ret: address, provenance) %1) unnamed_addr #0 {
+define internal fastcc ptr @value_expr_check(ptr noundef %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1) unnamed_addr #0 {
   %cond = icmp eq ptr %1, null
   br i1 %cond, label %3, label %.lr.ph110
 
@@ -54909,7 +54909,7 @@ define internal fastcc ptr @range_op(ptr noundef %0, ptr noundef %1, ptr noundef
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.899)
+  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull readonly %9, ptr noundef nonnull @.str.555, ptr noundef nonnull @.str.899)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %11 = load i32, ptr %10, align 4, !tbaa !31
   %12 = load i32, ptr %9, align 4, !tbaa !53
@@ -54921,7 +54921,7 @@ define internal fastcc ptr @range_op(ptr noundef %0, ptr noundef %1, ptr noundef
   %16 = load ptr, ptr %15, align 8, !tbaa !185
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %18 = load i64, ptr %17, align 8, !tbaa !186
-  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %18, ptr noundef nonnull %9, i32 noundef %11, ptr noundef %16)
+  tail call void @ruby_show_error_line(ptr nonnull readonly poison, i64 noundef %18, ptr noundef nonnull readonly %9, i32 noundef %11, ptr noundef %16)
   br label %value_expr_gen.exit
 
 value_expr_gen.exit:                              ; preds = %5, %8, %14

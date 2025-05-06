@@ -2137,7 +2137,7 @@ define internal noundef zeroext i1 @acpi_fwnode_property_present(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define internal i32 @acpi_fwnode_property_read_int_array(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i64 noundef %4) #5 align 16 {
+define internal i32 @acpi_fwnode_property_read_int_array(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, i64 noundef %4) #5 align 16 {
   switch i32 %2, label %12 [
     i32 1, label %9
     i32 2, label %6
@@ -2165,7 +2165,7 @@ define internal i32 @acpi_fwnode_property_read_int_array(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define internal i32 @acpi_fwnode_property_read_string_array(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) #5 align 16 {
+define internal i32 @acpi_fwnode_property_read_string_array(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3) #5 align 16 {
   %5 = tail call fastcc i32 @acpi_node_prop_read(ptr noundef %0, ptr noundef %1, i32 noundef 4, ptr noundef %2, i64 noundef %3)
   ret i32 %5
 }
@@ -2317,7 +2317,7 @@ define internal ptr @acpi_fwnode_get_named_child_node(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @acpi_fwnode_get_reference_args(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address) %5) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_fwnode_get_reference_args(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address) %5) #0 align 16 {
   %7 = zext i32 %4 to i64
   %8 = zext i32 %3 to i64
   %9 = tail call i32 @__acpi_node_get_property_reference(ptr noundef %0, ptr noundef %1, i64 noundef %7, i64 noundef %8, ptr noundef %5), !range !32

@@ -1658,7 +1658,7 @@ define void @dt_develop_blendif_rgb_jzczhz_blend(ptr noundef %0, ptr noalias nou
   %.0305365.i = phi i64 [ %188, %184 ], [ 0, %174 ]
   %.0306364.i = phi i64 [ %187, %184 ], [ 0, %174 ]
   %178 = getelementptr inbounds nuw float, ptr %69, i64 %.0305365.i
-  %179 = call reassoc nsz arcp contract afn fastcc float @_rgb_luminance(ptr noundef readonly %178, ptr noundef %.), !noalias !146
+  %179 = call reassoc nsz arcp contract afn fastcc float @_rgb_luminance(ptr noundef readonly %178, ptr noundef readonly %.), !noalias !146
   %180 = fmul reassoc nsz arcp contract afn float %179, %177
   %181 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %180, float 0.000000e+00)
   %182 = call reassoc nsz arcp contract afn noundef float @llvm.minnum.f32(float %181, float 1.000000e+00)
@@ -1693,7 +1693,7 @@ define void @dt_develop_blendif_rgb_jzczhz_blend(ptr noundef %0, ptr noalias nou
   %.0300359.i = phi i64 [ %205, %200 ], [ 0, %191 ]
   %.0301358.i = phi i64 [ %204, %200 ], [ 0, %191 ]
   %195 = getelementptr inbounds nuw float, ptr %70, i64 %.0300359.i
-  %196 = call reassoc nsz arcp contract afn fastcc float @_rgb_luminance(ptr noundef %195, ptr noundef %.), !noalias !148
+  %196 = call reassoc nsz arcp contract afn fastcc float @_rgb_luminance(ptr noundef %195, ptr noundef readonly %.), !noalias !148
   %197 = fmul reassoc nsz arcp contract afn float %196, %194
   %198 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %197, float 0.000000e+00)
   %199 = call reassoc nsz arcp contract afn noundef float @llvm.minnum.f32(float %198, float 1.000000e+00)
@@ -1729,7 +1729,7 @@ define void @dt_develop_blendif_rgb_jzczhz_blend(ptr noundef %0, ptr noalias nou
   %.0296354.i = phi i64 [ %221, %218 ], [ 0, %208 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8, !noalias !149
   %212 = getelementptr inbounds nuw float, ptr %69, i64 %.0295355.i
-  call fastcc void @_rgb_to_JzCzhz(ptr noundef readonly %212, ptr noundef %8, ptr noundef %.), !noalias !146
+  call fastcc void @_rgb_to_JzCzhz(ptr noundef readonly %212, ptr noundef %8, ptr noundef readonly %.), !noalias !146
   %213 = load float, ptr %8, align 16, !tbaa !36, !noalias !149
   %214 = fmul reassoc nsz arcp contract afn float %213, %211
   %215 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %214, float 0.000000e+00)
@@ -1767,7 +1767,7 @@ define void @dt_develop_blendif_rgb_jzczhz_blend(ptr noundef %0, ptr noalias nou
   %.0291348.i = phi i64 [ %238, %234 ], [ 0, %225 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8, !noalias !149
   %229 = getelementptr inbounds nuw float, ptr %70, i64 %.0290349.i
-  call fastcc void @_rgb_to_JzCzhz(ptr noundef %229, ptr noundef %9, ptr noundef %.), !noalias !148
+  call fastcc void @_rgb_to_JzCzhz(ptr noundef %229, ptr noundef %9, ptr noundef readonly %.), !noalias !148
   %230 = load float, ptr %9, align 16, !tbaa !36, !noalias !149
   %231 = fmul reassoc nsz arcp contract afn float %230, %228
   %232 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %231, float 0.000000e+00)
@@ -1805,7 +1805,7 @@ define void @dt_develop_blendif_rgb_jzczhz_blend(ptr noundef %0, ptr noalias nou
   %.0286344.i = phi i64 [ %255, %252 ], [ 0, %242 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #8, !noalias !149
   %246 = getelementptr inbounds nuw float, ptr %69, i64 %.0285345.i
-  call fastcc void @_rgb_to_JzCzhz(ptr noundef readonly %246, ptr noundef %10, ptr noundef %.), !noalias !146
+  call fastcc void @_rgb_to_JzCzhz(ptr noundef readonly %246, ptr noundef %10, ptr noundef readonly %.), !noalias !146
   %247 = load float, ptr %54, align 4, !tbaa !36, !noalias !149
   %248 = fmul reassoc nsz arcp contract afn float %247, %245
   %249 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %248, float 0.000000e+00)
@@ -1843,7 +1843,7 @@ define void @dt_develop_blendif_rgb_jzczhz_blend(ptr noundef %0, ptr noalias nou
   %.0281338.i = phi i64 [ %272, %268 ], [ 0, %259 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #8, !noalias !149
   %263 = getelementptr inbounds nuw float, ptr %70, i64 %.0280339.i
-  call fastcc void @_rgb_to_JzCzhz(ptr noundef %263, ptr noundef %11, ptr noundef %.), !noalias !148
+  call fastcc void @_rgb_to_JzCzhz(ptr noundef %263, ptr noundef %11, ptr noundef readonly %.), !noalias !148
   %264 = load float, ptr %52, align 4, !tbaa !36, !noalias !149
   %265 = fmul reassoc nsz arcp contract afn float %264, %262
   %266 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %265, float 0.000000e+00)
@@ -1874,7 +1874,7 @@ define void @dt_develop_blendif_rgb_jzczhz_blend(ptr noundef %0, ptr noalias nou
   %.0278334.i = phi i64 [ %284, %281 ], [ 0, %.preheader326.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #8, !noalias !149
   %276 = getelementptr inbounds nuw float, ptr %69, i64 %.0277335.i
-  call fastcc void @_rgb_to_JzCzhz(ptr noundef readonly %276, ptr noundef %12, ptr noundef %.), !noalias !146
+  call fastcc void @_rgb_to_JzCzhz(ptr noundef readonly %276, ptr noundef %12, ptr noundef readonly %.), !noalias !146
   %277 = load float, ptr %50, align 8, !tbaa !36, !noalias !149
   %278 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %277, float 0.000000e+00)
   %279 = call reassoc nsz arcp contract afn noundef float @llvm.minnum.f32(float %278, float 1.000000e+00)
@@ -1905,7 +1905,7 @@ define void @dt_develop_blendif_rgb_jzczhz_blend(ptr noundef %0, ptr noalias nou
   %.0274331.i = phi i64 [ %296, %292 ], [ 0, %.preheader328.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #8, !noalias !149
   %288 = getelementptr inbounds nuw float, ptr %70, i64 %.0273332.i
-  call fastcc void @_rgb_to_JzCzhz(ptr noundef %288, ptr noundef %13, ptr noundef %.), !noalias !148
+  call fastcc void @_rgb_to_JzCzhz(ptr noundef %288, ptr noundef %13, ptr noundef readonly %.), !noalias !148
   %289 = load float, ptr %49, align 8, !tbaa !36, !noalias !149
   %290 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %289, float 0.000000e+00)
   %291 = call reassoc nsz arcp contract afn noundef float @llvm.minnum.f32(float %290, float 1.000000e+00)

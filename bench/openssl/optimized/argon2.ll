@@ -1447,7 +1447,7 @@ define internal fastcc range(i32 0, 2) i32 @fill_memory_blocks(ptr noundef %0) u
 
 15:                                               ; preds = %15, %.lr.ph.i
   %.014.i = phi i32 [ 0, %.lr.ph.i ], [ %16, %15 ]
-  tail call fastcc void @fill_segment(ptr noundef nonnull %0, i32 noundef %.01216.i, i32 noundef %.014.i, i8 noundef zeroext %14)
+  tail call fastcc void @fill_segment(ptr noundef nonnull readonly %0, i32 noundef %.01216.i, i32 noundef %.014.i, i8 noundef zeroext %14)
   %16 = add nuw i32 %.014.i, 1
   %17 = load i32, ptr %8, align 4, !tbaa !16
   %18 = icmp ult i32 %16, %17

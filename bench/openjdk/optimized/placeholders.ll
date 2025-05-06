@@ -725,7 +725,7 @@ define hidden void @_ZN16PlaceholderTable10initializeEv() local_unnamed_addr #0 
 declare noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16PlaceholderTable15find_and_removeEP6SymbolP15ClassLoaderDataNS_15classloadActionEP10JavaThread(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16PlaceholderTable15find_and_removeEP6SymbolP15ClassLoaderDataNS_15classloadActionEP10JavaThread(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone captures(address) %3) local_unnamed_addr #0 align 2 {
   %.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i.i.i, label %_ZN14PlaceholderKeyC2EP6SymbolP15ClassLoaderData.exit.i, label %5
 

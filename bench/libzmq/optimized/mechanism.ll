@@ -2552,7 +2552,7 @@ _ZN3zmq11mechanism_t12property_lenEPKcm.exit5:    ; preds = %_ZN3zmq11mechanism_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3zmq11mechanism_t34make_command_with_basic_propertiesEPNS_5msg_tEPKcm(ptr noundef nonnull align 8 captures(address) dereferenceable(1488) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define void @_ZNK3zmq11mechanism_t34make_command_with_basic_propertiesEPNS_5msg_tEPKcm(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1488) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef i64 @_ZNK3zmq11mechanism_t20basic_properties_lenEv(ptr noundef nonnull align 8 dereferenceable(1488) %0)
   %6 = add i64 %5, %3
   %7 = tail call noundef i32 @_ZN3zmq5msg_t9init_sizeEm(ptr noundef nonnull align 8 dereferenceable(64) %1, i64 noundef %6)

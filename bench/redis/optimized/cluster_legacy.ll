@@ -2976,7 +2976,7 @@ sdslen.exit:                                      ; preds = %1, %17, %20, %24, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @clusterGenNodesDescription(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define dso_local ptr @clusterGenNodesDescription(ptr noundef readnone captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = tail call ptr @sdsempty() #33
   tail call void @clusterGenNodesSlotsInfo(i32 noundef %1)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7920), align 8, !tbaa !56

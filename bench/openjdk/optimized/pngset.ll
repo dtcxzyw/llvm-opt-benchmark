@@ -1138,7 +1138,7 @@ declare i32 @png_colorspace_set_ICC(ptr noundef, ptr noundef, ptr noundef, i32 n
 declare void @png_benign_error(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @png_set_text(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 {
+define hidden void @png_set_text(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = tail call i32 @png_set_text_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %7, label %6

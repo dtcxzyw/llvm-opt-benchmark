@@ -1052,7 +1052,7 @@ define void @Bdc_ManDecPrint(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Bdc_ManDecompose(ptr noundef initializes((8, 20)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #6 {
+define i32 @Bdc_ManDecompose(ptr noundef initializes((8, 20)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #6 {
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8
   %9 = alloca %struct.Bdc_Isf_t_, align 8
@@ -1433,7 +1433,7 @@ define void @Bdc_ManDecomposeTest(i32 noundef %0, i32 noundef %1) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2147483647) i32 @Bdc_ManBidecNodeNum(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
+define range(i32 -2147483648, 2147483647) i32 @Bdc_ManBidecNodeNum(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = alloca %struct.Bdc_Par_t_, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #20
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1851,7 +1851,7 @@ Vec_IntPush.exit59:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Bdc_ManBidecResub(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #6 {
+define noalias noundef ptr @Bdc_ManBidecResub(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = alloca %struct.Bdc_Par_t_, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4

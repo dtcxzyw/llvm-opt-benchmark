@@ -11523,7 +11523,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %_ZNK
 declare void @curl_easy_cleanup(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN5osgeo4proj14CurlFileHandle4openEP6pj_ctxPKcymPvPmmPcS6_(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, i64 noundef %6, ptr noundef writeonly captures(address_is_null) %7, ptr readnone captures(none) %8) #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN5osgeo4proj14CurlFileHandle4openEP6pj_ctxPKcymPvPmmPcS6_(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, i64 noundef %6, ptr noundef writeonly captures(address_is_null) %7, ptr readnone captures(none) %8) #3 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.std::unique_ptr.79", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"class.std::__cxx11::basic_string", align 8

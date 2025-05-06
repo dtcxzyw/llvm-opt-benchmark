@@ -19551,7 +19551,7 @@ Vec_IntFind.exit:                                 ; preds = %100, %Vec_IntPush.e
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @executeImplications(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef captures(address_is_null) %7, i32 noundef %8) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @executeImplications(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(address_is_null) %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = alloca i8, align 1
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %12 = load i32, ptr %11, align 4, !tbaa !367
@@ -19647,7 +19647,7 @@ Vec_IntFree.exit46:                               ; preds = %Vec_IntFree.exit46.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef range(i32 -1, 2) i32 @computeNetworkValues(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3, i8 noundef signext %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef readonly captures(none) %8, ptr noundef captures(address_is_null) %9, i32 noundef %10) local_unnamed_addr #0 {
+define noundef range(i32 -1, 2) i32 @computeNetworkValues(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3, i8 noundef signext %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef readonly captures(none) %8, ptr noundef readonly captures(address_is_null) %9, i32 noundef %10) local_unnamed_addr #0 {
   %.sroa.0284 = alloca ptr, align 16
   %.sroa.4285 = alloca ptr, align 8
   %.sroa.0281 = alloca i32, align 4
@@ -20686,7 +20686,7 @@ define void @exportSimValues(ptr noundef readonly captures(none) %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef range(i32 -1, 2) i32 @computeInputVectors(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef captures(address_is_null) %7, ptr noundef readonly captures(none) %8, i32 noundef %9) local_unnamed_addr #0 {
+define noundef range(i32 -1, 2) i32 @computeInputVectors(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef readonly captures(none) %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = alloca i8, align 1
   %12 = getelementptr i8, ptr %3, i64 4
   %.val220 = load i32, ptr %12, align 4, !tbaa !16

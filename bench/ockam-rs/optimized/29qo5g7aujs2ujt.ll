@@ -670,7 +670,7 @@ define internal fastcc void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumer
   tail call void @llvm.experimental.noalias.scope.decl(metadata !121)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !124
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  call fastcc void @"_ZN99_$LT$regex_automata..meta..regex..FindMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c5e696b8b6e8aE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %8, ptr nonnull readonly align 8 dereferenceable(16) %13, ptr nonnull align 8 dereferenceable(120) %1, ptr noalias noundef readonly align 8 dereferenceable(48) %15), !noalias !131
+  call fastcc void @"_ZN99_$LT$regex_automata..meta..regex..FindMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c5e696b8b6e8aE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %8, ptr nonnull readonly align 8 dereferenceable(16) %13, ptr nonnull readonly align 8 dereferenceable(120) %1, ptr noalias noundef readonly align 8 dereferenceable(48) %15), !noalias !131
   %16 = load i64, ptr %8, align 8, !range !69, !noalias !124, !noundef !4
   %17 = icmp eq i64 %16, 2
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -746,7 +746,7 @@ define internal fastcc void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumer
 
 43:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !124
-  call fastcc void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_empty_match17hb5c2f74a52072fa5E(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(64) %14, i64 %23, i64 %.sroa.529.sroa.0.0.copyload.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %13, ptr noalias noundef nonnull align 8 dereferenceable(120) %1), !noalias !131
+  call fastcc void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_empty_match17hb5c2f74a52072fa5E(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(64) %14, i64 %23, i64 %.sroa.529.sroa.0.0.copyload.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1), !noalias !131
   %44 = load i64, ptr %7, align 8, !range !69, !noalias !124, !noundef !4
   %45 = icmp eq i64 %44, 2
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -843,7 +843,7 @@ define internal fastcc void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumer
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_empty_match17hb5c2f74a52072fa5E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i64 %.0.val, i64 %.8.val, ptr noalias noundef nonnull readonly align 8 captures(address_is_null) dereferenceable(16) %2, ptr noalias noundef nonnull align 8 captures(address_is_null) dereferenceable(32) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_empty_match17hb5c2f74a52072fa5E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i64 %.0.val, i64 %.8.val, ptr noalias noundef nonnull readonly align 8 captures(address_is_null) dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 captures(address_is_null) dereferenceable(32) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca i64, align 8
   %6 = alloca [2 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8

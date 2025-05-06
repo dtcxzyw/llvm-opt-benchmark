@@ -6283,7 +6283,7 @@ define internal range(i32 0, 2) i32 @xor_sig_digest_verify_init(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @xor_sig_digest_verify_final(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) #0 {
+define internal range(i32 0, 2) i32 @xor_sig_digest_verify_final(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) #0 {
   %4 = alloca [64 x i8], align 16
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #16

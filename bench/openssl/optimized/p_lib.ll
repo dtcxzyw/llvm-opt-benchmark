@@ -3325,7 +3325,7 @@ declare i32 @evp_keymgmt_util_get_deflt_digest_name(ptr noundef, ptr noundef, pt
 declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_PKEY_get_group_name(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_PKEY_get_group_name(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call i32 @EVP_PKEY_get_utf8_string_param(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef %1, i64 noundef %2, ptr noundef %3)
   ret i32 %5
 }

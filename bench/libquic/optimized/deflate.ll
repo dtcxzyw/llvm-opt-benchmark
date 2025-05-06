@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @class_set.mask = internal unnamed_addr constant [8 x i8] c"\FE\FD\FB\F7\EF\DF\BF\7F", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @MOZ_Z_deflateInit_(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @MOZ_Z_deflateInit_(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @MOZ_Z_deflateInit2_(ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef 15, i32 noundef 8, i32 noundef 0, ptr noundef %2, i32 noundef %3)
   ret i32 %5
 }

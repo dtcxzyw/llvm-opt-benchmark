@@ -17712,7 +17712,7 @@ vorbis_alloc.exit.thread:                         ; preds = %37, %vorbis_alloc.e
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stb_vorbis_open_file(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #27 {
+define ptr @stb_vorbis_open_file(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #27 {
   %5 = tail call i64 @ftell(ptr noundef %0)
   %6 = tail call i32 @fseek(ptr noundef %0, i64 noundef 0, i32 noundef 2)
   %7 = tail call i64 @ftell(ptr noundef %0)
@@ -17725,7 +17725,7 @@ define ptr @stb_vorbis_open_file(ptr noundef %0, i32 noundef %1, ptr noundef cap
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stb_vorbis_open_filename(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #27 {
+define ptr @stb_vorbis_open_filename(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #27 {
   %4 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %14, label %5
@@ -17738,7 +17738,7 @@ define ptr @stb_vorbis_open_filename(ptr noundef readonly captures(none) %0, ptr
   %10 = sub i64 %8, %6
   %11 = trunc i64 %10 to i32
   %12 = tail call i32 @fseek(ptr noundef nonnull %4, i64 noundef %9, i32 noundef 0)
-  %13 = tail call ptr @stb_vorbis_open_file_section(ptr noundef nonnull %4, i32 noundef 1, ptr noundef %1, ptr noundef %2, i32 noundef %11)
+  %13 = tail call ptr @stb_vorbis_open_file_section(ptr noundef nonnull %4, i32 noundef 1, ptr noundef %1, ptr noundef readonly %2, i32 noundef %11)
   br label %16
 
 14:                                               ; preds = %3
@@ -19291,7 +19291,7 @@ stb_vorbis_open_filename.exit:                    ; preds = %4
   %11 = sub i64 %9, %7
   %12 = trunc i64 %11 to i32
   %13 = tail call i32 @fseek(ptr noundef nonnull %6, i64 noundef %10, i32 noundef 0)
-  %14 = call ptr @stb_vorbis_open_file_section(ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %5, ptr noundef null, i32 noundef %12)
+  %14 = call ptr @stb_vorbis_open_file_section(ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %5, ptr noundef readonly null, i32 noundef %12)
   %15 = icmp eq ptr %14, null
   br i1 %15, label %stb_vorbis_close.exit, label %16
 

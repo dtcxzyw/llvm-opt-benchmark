@@ -1057,13 +1057,13 @@ _ZN4llvmplERKNS_5TwineES2_.exit33:                ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS_11raw_ostreamERKNS_17MachineBasicBlockE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(288) %1) local_unnamed_addr #1 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS_11raw_ostreamERKNS_17MachineBasicBlockE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(288) %1) local_unnamed_addr #1 {
   tail call void @_ZNK4llvm17MachineBasicBlock5printERNS_11raw_ostreamEPKNS_11SlotIndexesEb(ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef null, i1 noundef zeroext true)
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm17MachineBasicBlock5printERNS_11raw_ostreamEPKNS_11SlotIndexesEb(ptr noundef nonnull align 8 captures(address) dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef captures(address_is_null) %2, i1 noundef zeroext %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm17MachineBasicBlock5printERNS_11raw_ostreamEPKNS_11SlotIndexesEb(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.llvm::ModuleSlotTracker", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !109

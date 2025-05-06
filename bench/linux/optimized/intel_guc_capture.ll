@@ -135,7 +135,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.104 = private unnamed_addr constant [76 x i8] c"GT%u: GUC: Error state capture buffer lacks spare size: %d < %d (min = %d)\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_guc_capture_getlistsize(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 align 16 {
+define dso_local i32 @intel_guc_capture_getlistsize(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 align 16 {
   %6 = tail call fastcc i32 @guc_capture_getlistsize(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext false)
   ret i32 %6
 }

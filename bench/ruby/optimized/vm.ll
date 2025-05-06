@@ -19233,7 +19233,7 @@ rb_add_method.exit:                               ; preds = %5, %27
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden ptr @rb_method_entry_set(i64 noundef %0, i64 noundef %1, ptr noundef captures(address) %2, i32 noundef %3) local_unnamed_addr #2 {
+define hidden ptr @rb_method_entry_set(i64 noundef %0, i64 noundef %1, ptr noundef readonly captures(address) %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = tail call fastcc ptr @method_entry_set(i64 noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %0)
   ret ptr %5
 }
@@ -19771,13 +19771,13 @@ callable_method_entry.exit:                       ; preds = %2, %4, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden ptr @rb_method_entry_with_refinements(i64 noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #2 {
+define hidden ptr @rb_method_entry_with_refinements(i64 noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = tail call fastcc ptr @method_entry_resolve_refinement(i64 noundef %0, i64 noundef %1, i32 noundef 1, ptr noundef %2)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @method_entry_resolve_refinement(i64 noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef captures(address_is_null) %3) unnamed_addr #2 {
+define internal fastcc ptr @method_entry_resolve_refinement(i64 noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #2 {
   %5 = alloca i64, align 8
   %.not18.i.i.i = icmp eq i64 %0, 0
   br i1 %.not18.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.split.i.i.i
@@ -19939,7 +19939,7 @@ callable_method_entry_refinements.exit:           ; preds = %3, %6, %9, %12, %ca
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden ptr @rb_method_entry_without_refinements(i64 noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #2 {
+define hidden ptr @rb_method_entry_without_refinements(i64 noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = alloca i64, align 8
   %.not18.i.i.i.i = icmp eq i64 %0, 0
   br i1 %.not18.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.split.i.i.i.i
@@ -23155,7 +23155,7 @@ define hidden void @Init_eval_method() local_unnamed_addr #2 {
   %54 = trunc i64 %53 to i32
   %55 = lshr i32 %54, 16
   %56 = and i32 %55, 3
-  %57 = call fastcc ptr @method_entry_set(i64 noundef %52, i64 noundef 2897, ptr noundef nonnull %46, i32 noundef %56, i64 noundef %52)
+  %57 = call fastcc ptr @method_entry_set(i64 noundef %52, i64 noundef 2897, ptr noundef nonnull readonly %46, i32 noundef %56, i64 noundef %52)
   %58 = load i64, ptr @rb_eException, align 8, !tbaa !7
   %.not18.i.i.i.i6 = icmp ne i64 %58, 0
   call void @llvm.assume(i1 %.not18.i.i.i.i6)
@@ -23203,7 +23203,7 @@ define hidden void @Init_eval_method() local_unnamed_addr #2 {
   %80 = trunc i64 %79 to i32
   %81 = lshr i32 %80, 16
   %82 = and i32 %81, 3
-  %83 = call fastcc ptr @method_entry_set(i64 noundef %78, i64 noundef 156, ptr noundef nonnull %72, i32 noundef %82, i64 noundef %78)
+  %83 = call fastcc ptr @method_entry_set(i64 noundef %78, i64 noundef 156, ptr noundef nonnull readonly %72, i32 noundef %82, i64 noundef %78)
   %84 = load i64, ptr @rb_eException, align 8, !tbaa !7
   %.not18.i.i.i.i18 = icmp ne i64 %84, 0
   call void @llvm.assume(i1 %.not18.i.i.i.i18)
@@ -23251,7 +23251,7 @@ define hidden void @Init_eval_method() local_unnamed_addr #2 {
   %106 = trunc i64 %105 to i32
   %107 = lshr i32 %106, 16
   %108 = and i32 %107, 3
-  %109 = call fastcc ptr @method_entry_set(i64 noundef %104, i64 noundef 157, ptr noundef nonnull %98, i32 noundef %108, i64 noundef %104)
+  %109 = call fastcc ptr @method_entry_set(i64 noundef %104, i64 noundef 157, ptr noundef nonnull readonly %98, i32 noundef %108, i64 noundef %104)
   ret void
 }
 
@@ -23749,7 +23749,7 @@ search_method.exit52.thread:                      ; preds = %search_method.exit.
 
 81:                                               ; preds = %73, %77
   %82 = call i64 @rb_singleton_class(i64 noundef %2) #21
-  %83 = call fastcc ptr @method_entry_set(i64 noundef %82, i64 noundef %52, ptr noundef nonnull %.03060, i32 noundef 1, i64 noundef %82)
+  %83 = call fastcc ptr @method_entry_set(i64 noundef %82, i64 noundef %52, ptr noundef nonnull readonly %.03060, i32 noundef 1, i64 noundef %82)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !393
@@ -29115,7 +29115,7 @@ define dso_local i64 @rb_catch_obj(i64 noundef %0, ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_catch_protect(i64 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #2 {
+define hidden i64 @rb_catch_protect(i64 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %6 = load ptr, ptr %5, align 8, !tbaa !27
   %7 = tail call fastcc i64 @vm_catch_protect(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %6)
@@ -54218,7 +54218,7 @@ define internal fastcc void @vm_trace_hook(ptr noundef nonnull %0, ptr noundef c
 
 35:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #21
-  %36 = call i32 @rb_dtrace_setup(ptr noundef nonnull %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %10)
+  %36 = call i32 @rb_dtrace_setup(ptr noundef nonnull readonly %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %10)
   %.not14.i = icmp eq i32 %36, 0
   br i1 %.not14.i, label %45, label %37
 
@@ -54244,7 +54244,7 @@ define internal fastcc void @vm_trace_hook(ptr noundef nonnull %0, ptr noundef c
 
 47:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #21
-  %48 = call i32 @rb_dtrace_setup(ptr noundef nonnull %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %11)
+  %48 = call i32 @rb_dtrace_setup(ptr noundef nonnull readonly %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %11)
   %.not13.i = icmp eq i32 %48, 0
   br i1 %.not13.i, label %57, label %49
 
@@ -54270,7 +54270,7 @@ define internal fastcc void @vm_trace_hook(ptr noundef nonnull %0, ptr noundef c
 
 59:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12) #21
-  %60 = call i32 @rb_dtrace_setup(ptr noundef nonnull %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %12)
+  %60 = call i32 @rb_dtrace_setup(ptr noundef nonnull readonly %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %12)
   %.not12.i = icmp eq i32 %60, 0
   br i1 %.not12.i, label %69, label %61
 
@@ -54296,7 +54296,7 @@ define internal fastcc void @vm_trace_hook(ptr noundef nonnull %0, ptr noundef c
 
 71:                                               ; preds = %70
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13) #21
-  %72 = call i32 @rb_dtrace_setup(ptr noundef nonnull %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %13)
+  %72 = call i32 @rb_dtrace_setup(ptr noundef nonnull readonly %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %13)
   %.not.i = icmp eq i32 %72, 0
   br i1 %.not.i, label %81, label %73
 

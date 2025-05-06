@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.makeBoolAggState = private unnamed_addr constant [17 x i8] c"makeBoolAggState\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @parse_bool(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @parse_bool(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
   %4 = tail call zeroext i1 @parse_bool_with_len(ptr noundef nonnull %0, i64 noundef %3, ptr noundef %1)
   ret i1 %4

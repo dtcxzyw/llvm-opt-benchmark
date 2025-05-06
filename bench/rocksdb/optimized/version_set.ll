@@ -8895,7 +8895,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb18VersionStorageInfo20GetOverlappingInputsEiPKNS_11InternalKeyES3_PSt6vectorIPNS_12FileMetaDataESaIS6_EEiPibPPS1_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(4120) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(none) %4, i32 noundef %5, ptr noundef captures(address_is_null) %6, i1 noundef zeroext %7, ptr noundef captures(address_is_null) %8) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb18VersionStorageInfo20GetOverlappingInputsEiPKNS_11InternalKeyES3_PSt6vectorIPNS_12FileMetaDataESaIS6_EEiPibPPS1_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(4120) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef captures(none) %4, i32 noundef %5, ptr noundef captures(address_is_null) %6, i1 noundef zeroext %7, ptr noundef captures(address_is_null) %8) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.rocksdb::Slice", align 8
   %11 = alloca %"class.rocksdb::Slice", align 8
   %12 = alloca %"class.std::__cxx11::list", align 8
@@ -29451,7 +29451,7 @@ _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE9push_backERKS2_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb18VersionStorageInfo28GetCleanInputsWithinIntervalEiPKNS_11InternalKeyES3_PSt6vectorIPNS_12FileMetaDataESaIS6_EEiPi(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(4120) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(none) %4, i32 noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb18VersionStorageInfo28GetCleanInputsWithinIntervalEiPKNS_11InternalKeyES3_PSt6vectorIPNS_12FileMetaDataESaIS6_EEiPi(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(4120) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef captures(none) %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %8 = load ptr, ptr %4, align 8, !tbaa !361
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !408
@@ -52042,7 +52042,7 @@ declare void @_ZN7rocksdb29VersionEditHandlerPointInTimeD1Ev(ptr noundef nonnull
 declare void @_ZN7rocksdb16ColumnFamilyData19RecoverEpochNumbersEv(ptr noundef nonnull align 8 dereferenceable(2712)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb10VersionSet18ListColumnFamiliesEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EERKS7_PNS_10FileSystemE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 captures(address) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb10VersionSet18ListColumnFamiliesEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EERKS7_PNS_10FileSystemE(ptr dead_on_unwind noalias writable writeonly sret(%"class.rocksdb::Status") align 8 captures(address) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca i64, align 8
   %7 = alloca %"class.rocksdb::Status", align 8

@@ -1742,7 +1742,7 @@ define dso_local i32 @unregister_inetaddr_validator_notifier(ptr noundef %0) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @inet_netconf_notify_devconf(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 align 16 {
+define dso_local void @inet_netconf_notify_devconf(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 align 16 {
   %6 = icmp eq i32 %2, -1
   %7 = icmp eq i32 %2, 2
   %8 = or i1 %6, %7

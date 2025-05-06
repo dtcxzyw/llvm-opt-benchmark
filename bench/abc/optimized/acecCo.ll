@@ -3080,7 +3080,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Gia_PolynCoreDetectTest_int(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @Gia_PolynCoreDetectTest_int(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %7 = alloca ptr, align 8

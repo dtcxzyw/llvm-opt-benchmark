@@ -2149,7 +2149,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr18HasActiveErrorMarkEv.exi
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %31 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(104) %17, ptr noundef nonnull align 1 dereferenceable(1) %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr8_LogText21_AppendAndPublishImplEbSt14_List_iteratorINS_7TfErrorEES4_(ptr noundef nonnull align 8 dereferenceable(49) %30, i1 noundef zeroext false, ptr %28, ptr nonnull %31)
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr8_LogText21_AppendAndPublishImplEbSt14_List_iteratorINS_7TfErrorEES4_(ptr noundef nonnull align 8 dereferenceable(49) %30, i1 noundef zeroext false, ptr %28, ptr nonnull readnone %31)
   br label %32
 
 32:                                               ; preds = %.lr.ph.i.i.i, %16
@@ -2316,7 +2316,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr22_AppendErro
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %8 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(104) %7, ptr noundef nonnull align 1 dereferenceable(1) %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr8_LogText21_AppendAndPublishImplEbSt14_List_iteratorINS_7TfErrorEES4_(ptr noundef nonnull align 8 dereferenceable(49) %6, i1 noundef zeroext false, ptr %1, ptr nonnull %8)
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr8_LogText21_AppendAndPublishImplEbSt14_List_iteratorINS_7TfErrorEES4_(ptr noundef nonnull align 8 dereferenceable(49) %6, i1 noundef zeroext false, ptr %1, ptr nonnull readnone %8)
   ret void
 }
 
@@ -2406,7 +2406,7 @@ _ZNSt7__cxx114listIN32pxrInternal_v0_24__pxrReserved__7TfErrorESaIS2_EE6spliceES
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %35 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(104) %24, ptr noundef nonnull align 1 dereferenceable(1) %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr8_LogText21_AppendAndPublishImplEbSt14_List_iteratorINS_7TfErrorEES4_(ptr noundef nonnull align 8 dereferenceable(49) %34, i1 noundef zeroext false, ptr %26, ptr nonnull %35)
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr8_LogText21_AppendAndPublishImplEbSt14_List_iteratorINS_7TfErrorEES4_(ptr noundef nonnull align 8 dereferenceable(49) %34, i1 noundef zeroext false, ptr %26, ptr nonnull readnone %35)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph43, %.preheader, %_ZNSt7__cxx114listIN32pxrInternal_v0_24__pxrReserved__7TfErrorESaIS2_EE6spliceESt20_List_const_iteratorIS2_ERS4_.exit
@@ -4160,7 +4160,7 @@ _ZNSt7__cxx114listIN32pxrInternal_v0_24__pxrReserved__7TfErrorESaIS2_EE5eraseESt
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %29 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr8_LogText21_AppendAndPublishImplEbSt14_List_iteratorINS_7TfErrorEES4_(ptr noundef nonnull align 8 dereferenceable(49) %26, i1 noundef zeroext true, ptr %28, ptr nonnull %29)
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr8_LogText21_AppendAndPublishImplEbSt14_List_iteratorINS_7TfErrorEES4_(ptr noundef nonnull align 8 dereferenceable(49) %26, i1 noundef zeroext true, ptr %28, ptr nonnull readnone %29)
   br label %30
 
 30:                                               ; preds = %3, %_ZNSt7__cxx114listIN32pxrInternal_v0_24__pxrReserved__7TfErrorESaIS2_EE5eraseESt20_List_const_iteratorIS2_ES6_.exit
@@ -4184,7 +4184,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr20_RebuildErr
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   %10 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(104) %7, ptr noundef nonnull align 1 dereferenceable(1) %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr8_LogText21_AppendAndPublishImplEbSt14_List_iteratorINS_7TfErrorEES4_(ptr noundef nonnull align 8 dereferenceable(49) %6, i1 noundef zeroext true, ptr %9, ptr nonnull %10)
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr8_LogText21_AppendAndPublishImplEbSt14_List_iteratorINS_7TfErrorEES4_(ptr noundef nonnull align 8 dereferenceable(49) %6, i1 noundef zeroext true, ptr %9, ptr nonnull readnone %10)
   ret void
 }
 
@@ -5004,7 +5004,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfStringifyINSt6thread2idEEENSt7__cxx1112
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__28ArchSetExtraLogInfoForErrorsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKSt6vectorIS5_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr8_LogText16AppendAndPublishESt14_List_iteratorINS_7TfErrorEES4_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr %1, ptr captures(address) %2) local_unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr8_LogText16AppendAndPublishESt14_List_iteratorINS_7TfErrorEES4_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr %1, ptr readnone captures(address) %2) local_unnamed_addr #0 align 2 {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr8_LogText21_AppendAndPublishImplEbSt14_List_iteratorINS_7TfErrorEES4_(ptr noundef nonnull align 8 dereferenceable(49) %0, i1 noundef zeroext false, ptr %1, ptr %2)
   ret void
 }
@@ -5238,7 +5238,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr8_LogText17RebuildAndPublishESt14_List_iteratorINS_7TfErrorEES4_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr %1, ptr captures(address) %2) local_unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr8_LogText17RebuildAndPublishESt14_List_iteratorINS_7TfErrorEES4_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr %1, ptr readnone captures(address) %2) local_unnamed_addr #0 align 2 {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr8_LogText21_AppendAndPublishImplEbSt14_List_iteratorINS_7TfErrorEES4_(ptr noundef nonnull align 8 dereferenceable(49) %0, i1 noundef zeroext true, ptr %1, ptr %2)
   ret void
 }

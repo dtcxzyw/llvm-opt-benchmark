@@ -857,7 +857,7 @@ define internal fastcc ptr @match_pattern_prefix(ptr noundef %0, ptr noundef rea
 declare zeroext i1 @get_restriction_variable(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @pattern_fixed_prefix(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 5) %1, i32 noundef %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @pattern_fixed_prefix(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 5) %1, i32 noundef %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 {
   switch i32 %1, label %default.unreachable31 [
     i32 0, label %6
     i32 1, label %8

@@ -1802,7 +1802,7 @@ PyStgInfo_FromType.exit.thread:                   ; preds = %14, %10, %_ctypes_s
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @PyCData_set(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define hidden i32 @PyCData_set(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8, !tbaa !51
   %11 = getelementptr i8, ptr %1, i64 8
@@ -11084,7 +11084,7 @@ PyObject_TypeCheck.exit.i:                        ; preds = %PyStgInfo_FromObjec
   br label %PyCData_set.exit
 
 PyObject_TypeCheck.exit.thread.i:                 ; preds = %PyObject_TypeCheck.exit.i, %PyStgInfo_FromObject.exit
-  %42 = tail call fastcc ptr @_PyCData_set(ptr noundef nonnull readonly %.val.i, ptr noundef %25, ptr noundef %35, ptr noundef nonnull %2, i64 noundef %32, ptr noundef %36)
+  %42 = tail call fastcc ptr @_PyCData_set(ptr noundef nonnull readonly %.val.i, ptr noundef %25, ptr noundef readonly %35, ptr noundef nonnull %2, i64 noundef %32, ptr noundef %36)
   %43 = icmp eq ptr %42, null
   br i1 %43, label %PyCData_set.exit, label %44
 
@@ -11476,7 +11476,7 @@ PyObject_TypeCheck.exit.i:                        ; preds = %25
   br label %PyCData_set.exit
 
 PyObject_TypeCheck.exit.thread.i:                 ; preds = %PyObject_TypeCheck.exit.i, %25
-  %42 = tail call fastcc ptr @_PyCData_set(ptr noundef nonnull readonly %.val.i, ptr noundef %34, ptr noundef %36, ptr noundef nonnull %2, i64 noundef %28, ptr noundef %32)
+  %42 = tail call fastcc ptr @_PyCData_set(ptr noundef nonnull readonly %.val.i, ptr noundef %34, ptr noundef readonly %36, ptr noundef nonnull %2, i64 noundef %28, ptr noundef %32)
   %43 = icmp eq ptr %42, null
   br i1 %43, label %PyCData_set.exit, label %44
 

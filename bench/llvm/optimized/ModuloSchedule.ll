@@ -23611,7 +23611,7 @@ _ZN4llvm16DenseMapIteratorIPNS_12MachineInstrESt4pairIiiENS_12DenseMapInfoIS2_vE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm25ModuloScheduleExpanderMVE14generateEpilogERNS_15SmallVectorImplINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEEESA_RNS2_IPNS_12MachineInstrESC_NS3_ISC_vEENS6_ISC_SC_EEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(132) %0, ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(20) %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm25ModuloScheduleExpanderMVE14generateEpilogERNS_15SmallVectorImplINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEEESA_RNS2_IPNS_12MachineInstrESC_NS3_ISC_vEENS6_ISC_SC_EEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(132) %0, ptr noundef nonnull readonly align 8 captures(address_is_null) dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(20) %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.llvm::DenseMap.414", align 8
   %6 = load ptr, ptr %2, align 8, !tbaa !25
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8

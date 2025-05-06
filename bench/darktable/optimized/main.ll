@@ -3386,7 +3386,7 @@ declare i32 @gtk_widget_get_allocated_height(ptr noundef) local_unnamed_addr #3
 declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @collect_source_patches_foreach(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2) #0 {
+define internal void @collect_source_patches_foreach(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca [4 x float], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #24
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 360

@@ -36555,7 +36555,7 @@ _ZN4llvm5ErrorD2Ev.exit.i494:                     ; preds = %1092
   %1107 = getelementptr inbounds nuw i64, ptr %1095, i64 %1104
   %1108 = load i64, ptr %1107, align 8, !tbaa !55, !noalias !1975
   %1109 = trunc i64 %1108 to i32
-  call fastcc void @_ZN12_GLOBAL__N_113BitcodeReader17readConstantRangeEN4llvm8ArrayRefImEERjj(ptr dead_on_unwind noalias nonnull writable align 8 %72, ptr noundef nonnull align 8 dereferenceable(1960) %1, ptr nonnull %1095, i64 %1105, ptr noundef nonnull align 4 dereferenceable(4) %70, i32 noundef %1109)
+  call fastcc void @_ZN12_GLOBAL__N_113BitcodeReader17readConstantRangeEN4llvm8ArrayRefImEERjj(ptr dead_on_unwind noalias nonnull writable align 8 %72, ptr noundef nonnull align 8 dereferenceable(1960) %1, ptr nonnull readonly %1095, i64 %1105, ptr noundef nonnull align 4 dereferenceable(4) %70, i32 noundef %1109)
   %.pre = load i8, ptr %321, align 8
   br label %_ZN12_GLOBAL__N_113BitcodeReader28readBitWidthAndConstantRangeEN4llvm8ArrayRefImEERj.exit
 
@@ -51909,7 +51909,7 @@ _ZN4llvm5ErrorD2Ev.exit.i114.i:                   ; preds = %1203
   %1214 = getelementptr inbounds nuw i64, ptr %1204, i64 %1211
   %1215 = load i64, ptr %1214, align 8, !tbaa !55, !noalias !2327
   %1216 = trunc i64 %1215 to i32
-  call fastcc void @_ZN12_GLOBAL__N_113BitcodeReader17readConstantRangeEN4llvm8ArrayRefImEERjj(ptr dead_on_unwind noalias nonnull writable align 8 %158, ptr noundef nonnull align 8 dereferenceable(1960) %1, ptr %1204, i64 %1212, ptr noundef nonnull align 4 dereferenceable(4) %147, i32 noundef %1216)
+  call fastcc void @_ZN12_GLOBAL__N_113BitcodeReader17readConstantRangeEN4llvm8ArrayRefImEERjj(ptr dead_on_unwind noalias nonnull writable align 8 %158, ptr noundef nonnull align 8 dereferenceable(1960) %1, ptr readonly %1204, i64 %1212, ptr noundef nonnull align 4 dereferenceable(4) %147, i32 noundef %1216)
   %.pre268.i = load i8, ptr %468, align 8, !noalias !2310
   br label %_ZN12_GLOBAL__N_113BitcodeReader28readBitWidthAndConstantRangeEN4llvm8ArrayRefImEERj.exit.i
 

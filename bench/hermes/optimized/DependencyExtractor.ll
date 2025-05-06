@@ -6526,7 +6526,7 @@ _ZN6hermes12_GLOBAL__N_119DependencyExtractor5visitEPNS_6ESTree20ImportExpressio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(145) %v, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %node, null
   br i1 %tobool.not, label %return, label %if.end

@@ -962,7 +962,7 @@ $_ZTVN5clang4sema18CapturingScopeInfoE = comdat any
 @_ZN5clang8concepts15TypeRequirementC1EPNS_14TypeSourceInfoE = unnamed_addr alias void (ptr, ptr), ptr @_ZN5clang8concepts15TypeRequirementC2EPNS_14TypeSourceInfoE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4Sema25CheckConstraintExpressionEPKNS_4ExprENS_5TokenEPbb(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %1, ptr noundef readonly byval(%"class.clang::Token") align 8 captures(none) %2, ptr noundef captures(address_is_null) %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4Sema25CheckConstraintExpressionEPKNS_4ExprENS_5TokenEPbb(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %1, ptr noundef readonly byval(%"class.clang::Token") align 8 captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::Token", align 8
   %7 = alloca %"class.clang::Token", align 8
   %8 = alloca %"class.clang::CharSourceRange", align 8
@@ -1571,7 +1571,7 @@ declare i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 deref
 declare void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4Sema27CheckConstraintSatisfactionEPKNS_9NamedDeclEN4llvm8ArrayRefIPKNS_4ExprEEERNS4_15SmallVectorImplIPS6_EERKNS_30MultiLevelTemplateArgumentListENS_11SourceRangeERNS_22ConstraintSatisfactionE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, ptr captures(address) %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(117) %5, i64 %6, ptr noundef nonnull align 8 dereferenceable(184) %7) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4Sema27CheckConstraintSatisfactionEPKNS_9NamedDeclEN4llvm8ArrayRefIPKNS_4ExprEEERNS4_15SmallVectorImplIPS6_EERKNS_30MultiLevelTemplateArgumentListENS_11SourceRangeERNS_22ConstraintSatisfactionE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, ptr readonly captures(address) %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(117) %5, i64 %6, ptr noundef nonnull align 8 dereferenceable(184) %7) local_unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::SmallVector.1024", align 8
   %10 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %11 = alloca ptr, align 8

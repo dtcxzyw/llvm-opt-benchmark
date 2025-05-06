@@ -1654,7 +1654,7 @@ _ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit: ; preds = %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24DebugInformationRecorder16dump_object_poolEP13GrowableArrayIP10ScopeValueE(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN24DebugInformationRecorder16dump_object_poolEP13GrowableArrayIP10ScopeValueE(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -1776,7 +1776,7 @@ _ZN6PcDesc12is_same_infoEPKS_.exit.thread:        ; preds = %19, %25, %_ZN24Debu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN24DebugInformationRecorder19create_scope_valuesEP13GrowableArrayIP10ScopeValueE(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN24DebugInformationRecorder19create_scope_valuesEP13GrowableArrayIP10ScopeValueE(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef i32 @_ZN24DebugInformationRecorder22serialize_scope_valuesEP13GrowableArrayIP10ScopeValueE(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1)
   %4 = sext i32 %3 to i64
   %5 = inttoptr i64 %4 to ptr
@@ -1784,7 +1784,7 @@ define hidden noundef ptr @_ZN24DebugInformationRecorder19create_scope_valuesEP1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN24DebugInformationRecorder21create_monitor_valuesEP13GrowableArrayIP12MonitorValueE(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN24DebugInformationRecorder21create_monitor_valuesEP13GrowableArrayIP12MonitorValueE(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef i32 @_ZN24DebugInformationRecorder24serialize_monitor_valuesEP13GrowableArrayIP12MonitorValueE(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1)
   %4 = sext i32 %3 to i64
   %5 = inttoptr i64 %4 to ptr

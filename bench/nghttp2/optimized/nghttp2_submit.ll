@@ -770,7 +770,7 @@ define i32 @nghttp2_submit_request(ptr noundef %0, ptr noundef readnone captures
 
 set_request_flags.exit.i:                         ; preds = %17, %13
   %.0.i.i = phi i8 [ 1, %17 ], [ 0, %13 ]
-  %18 = call fastcc i32 @submit_headers_shared_nva(ptr noundef nonnull %0, i8 noundef zeroext %.0.i.i, i32 noundef -1, ptr noundef %2, i64 noundef %3, ptr noundef %8, ptr noundef %5)
+  %18 = call fastcc i32 @submit_headers_shared_nva(ptr noundef nonnull %0, i8 noundef zeroext %.0.i.i, i32 noundef -1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %8, ptr noundef %5)
   br label %submit_request_shared.exit
 
 submit_request_shared.exit:                       ; preds = %6, %set_request_flags.exit.i
@@ -806,7 +806,7 @@ define i32 @nghttp2_submit_request2(ptr noundef %0, ptr noundef readnone capture
 
 set_request_flags.exit.i:                         ; preds = %17, %13
   %.0.i.i = phi i8 [ 1, %17 ], [ 0, %13 ]
-  %18 = call fastcc i32 @submit_headers_shared_nva(ptr noundef nonnull %0, i8 noundef zeroext %.0.i.i, i32 noundef -1, ptr noundef %2, i64 noundef %3, ptr noundef %8, ptr noundef %5)
+  %18 = call fastcc i32 @submit_headers_shared_nva(ptr noundef nonnull %0, i8 noundef zeroext %.0.i.i, i32 noundef -1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %8, ptr noundef %5)
   br label %submit_request_shared.exit
 
 submit_request_shared.exit:                       ; preds = %6, %set_request_flags.exit.i
@@ -846,7 +846,7 @@ define i32 @nghttp2_submit_response(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 set_response_flags.exit.i:                        ; preds = %18, %14
   %.0.i.i = phi i8 [ 1, %18 ], [ 0, %14 ]
-  %19 = call fastcc i32 @submit_headers_shared_nva(ptr noundef nonnull %0, i8 noundef zeroext %.0.i.i, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %7, ptr noundef null)
+  %19 = call fastcc i32 @submit_headers_shared_nva(ptr noundef nonnull %0, i8 noundef zeroext %.0.i.i, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %7, ptr noundef null)
   br label %submit_response_shared.exit
 
 submit_response_shared.exit:                      ; preds = %5, %9, %set_response_flags.exit.i
@@ -884,7 +884,7 @@ define i32 @nghttp2_submit_response2(ptr noundef %0, i32 noundef %1, ptr noundef
 
 set_response_flags.exit.i:                        ; preds = %18, %14
   %.0.i.i = phi i8 [ 1, %18 ], [ 0, %14 ]
-  %19 = call fastcc i32 @submit_headers_shared_nva(ptr noundef nonnull %0, i8 noundef zeroext %.0.i.i, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %7, ptr noundef null)
+  %19 = call fastcc i32 @submit_headers_shared_nva(ptr noundef nonnull %0, i8 noundef zeroext %.0.i.i, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %7, ptr noundef null)
   br label %submit_response_shared.exit
 
 submit_response_shared.exit:                      ; preds = %5, %9, %set_response_flags.exit.i

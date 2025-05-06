@@ -2201,7 +2201,7 @@ define void @_ZN5boost15program_options5storeERKNS0_20basic_parsed_optionsIwEERN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost15program_options6notifyERNS0_13variables_mapE(ptr noundef nonnull align 8 captures(address) dereferenceable(160) %0) local_unnamed_addr #0 {
+define void @_ZN5boost15program_options6notifyERNS0_13variables_mapE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(160) %0) local_unnamed_addr #0 {
   tail call void @_ZN5boost15program_options13variables_map6notifyEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   ret void
 }

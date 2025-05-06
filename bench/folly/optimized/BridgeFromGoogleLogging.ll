@@ -37,7 +37,7 @@ define void @_ZN5folly7logging23BridgeFromGoogleLoggingD0Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly7logging23BridgeFromGoogleLogging4sendEiPKcS3_iPK2tmS3_m(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef captures(address_is_null) %6, i64 noundef %7) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7logging23BridgeFromGoogleLogging4sendEiPKcS3_iPK2tmS3_m(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(address_is_null) %6, i64 noundef %7) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %struct.tm, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9) #15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false), !tbaa.struct !7

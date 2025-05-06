@@ -1168,7 +1168,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit338:           ; preds = %211, %213
   %251 = getelementptr inbounds nuw i8, ptr %245, i64 406640
   %252 = getelementptr inbounds nuw [717 x i32], ptr %251, i64 0, i64 %247
   %253 = load i32, ptr %252, align 4, !tbaa !193
-  %254 = call noundef i32 @_ZN4llvm13createLibcallERNS_16MachineIRBuilderEPKcRKNS_12CallLowering7ArgInfoENS_8ArrayRefIS5_EEjRNS_20LostDebugLocObserverEPNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %231, ptr noundef nonnull %249, ptr noundef nonnull align 8 dereferenceable(164) %41, ptr nonnull %44, i64 1, i32 noundef %253, ptr noundef nonnull align 8 dereferenceable(236) %2, ptr noundef nonnull %1)
+  %254 = call noundef i32 @_ZN4llvm13createLibcallERNS_16MachineIRBuilderEPKcRKNS_12CallLowering7ArgInfoENS_8ArrayRefIS5_EEjRNS_20LostDebugLocObserverEPNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %231, ptr noundef nonnull %249, ptr noundef nonnull align 8 dereferenceable(164) %41, ptr nonnull %44, i64 1, i32 noundef %253, ptr noundef nonnull align 8 dereferenceable(236) %2, ptr noundef nonnull readonly %1)
   %255 = icmp eq i32 %254, 1
   br label %_ZN4llvm13createLibcallERNS_16MachineIRBuilderENS_5RTLIB7LibcallERKNS_12CallLowering7ArgInfoENS_8ArrayRefIS5_EERNS_20LostDebugLocObserverEPNS_12MachineInstrE.exit
 
@@ -17205,7 +17205,7 @@ declare void @_ZN4llvm20LostDebugLocObserver10checkpointEb(ptr noundef nonnull a
 declare void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm13createLibcallERNS_16MachineIRBuilderENS_5RTLIB7LibcallERKNS_12CallLowering7ArgInfoENS_8ArrayRefIS5_EERNS_20LostDebugLocObserverEPNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(164) %2, ptr %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(236) %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm13createLibcallERNS_16MachineIRBuilderENS_5RTLIB7LibcallERKNS_12CallLowering7ArgInfoENS_8ArrayRefIS5_EERNS_20LostDebugLocObserverEPNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(164) %2, ptr %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(236) %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !187
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -19837,7 +19837,7 @@ define internal fastcc i32 @"_ZZN4llvm15LegalizerHelper17createFCMPLibcallERNS_1
   %61 = getelementptr inbounds nuw i8, ptr %55, i64 406640
   %62 = getelementptr inbounds nuw [717 x i32], ptr %61, i64 0, i64 %57
   %63 = load i32, ptr %62, align 4, !tbaa !193
-  %64 = call noundef i32 @_ZN4llvm13createLibcallERNS_16MachineIRBuilderEPKcRKNS_12CallLowering7ArgInfoENS_8ArrayRefIS5_EEjRNS_20LostDebugLocObserverEPNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %21, ptr noundef nonnull %59, ptr noundef nonnull align 8 dereferenceable(164) %6, ptr nonnull %8, i64 2, i32 noundef %63, ptr noundef nonnull align 8 dereferenceable(236) %45, ptr noundef %47)
+  %64 = call noundef i32 @_ZN4llvm13createLibcallERNS_16MachineIRBuilderEPKcRKNS_12CallLowering7ArgInfoENS_8ArrayRefIS5_EEjRNS_20LostDebugLocObserverEPNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %21, ptr noundef nonnull %59, ptr noundef nonnull align 8 dereferenceable(164) %6, ptr nonnull %8, i64 2, i32 noundef %63, ptr noundef nonnull align 8 dereferenceable(236) %45, ptr noundef readonly %47)
   br label %_ZN4llvm13createLibcallERNS_16MachineIRBuilderENS_5RTLIB7LibcallERKNS_12CallLowering7ArgInfoENS_8ArrayRefIS5_EERNS_20LostDebugLocObserverEPNS_12MachineInstrE.exit
 
 _ZN4llvm13createLibcallERNS_16MachineIRBuilderENS_5RTLIB7LibcallERKNS_12CallLowering7ArgInfoENS_8ArrayRefIS5_EERNS_20LostDebugLocObserverEPNS_12MachineInstrE.exit: ; preds = %4, %60
@@ -19956,7 +19956,7 @@ _ZN4llvm12CallLowering7ArgInfoD2Ev.exit11:        ; preds = %_ZN4llvm11SmallVect
 declare noundef i32 @_ZN4llvm7CmpInst19getInversePredicateENS0_9PredicateE(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper23createResetStateLibcallERNS_16MachineIRBuilderERNS_12MachineInstrERNS_20LostDebugLocObserverE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(236) %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper23createResetStateLibcallERNS_16MachineIRBuilderERNS_12MachineInstrERNS_20LostDebugLocObserverE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull readonly align 8 captures(address_is_null) dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(236) %3) local_unnamed_addr #0 align 2 {
 switch.lookup:
   %4 = alloca [1 x %"class.llvm::DstOp"], align 8
   %5 = alloca [1 x %"class.llvm::SrcOp"], align 8
@@ -20050,7 +20050,7 @@ switch.lookup:
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 406640
   %59 = getelementptr inbounds nuw [717 x i32], ptr %58, i64 0, i64 %switch.load
   %60 = load i32, ptr %59, align 4, !tbaa !193
-  %61 = call noundef i32 @_ZN4llvm13createLibcallERNS_16MachineIRBuilderEPKcRKNS_12CallLowering7ArgInfoENS_8ArrayRefIS5_EEjRNS_20LostDebugLocObserverEPNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull %56, ptr noundef nonnull align 8 dereferenceable(164) %7, ptr nonnull %10, i64 1, i32 noundef %60, ptr noundef nonnull align 8 dereferenceable(236) %3, ptr noundef nonnull %2)
+  %61 = call noundef i32 @_ZN4llvm13createLibcallERNS_16MachineIRBuilderEPKcRKNS_12CallLowering7ArgInfoENS_8ArrayRefIS5_EEjRNS_20LostDebugLocObserverEPNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull %56, ptr noundef nonnull align 8 dereferenceable(164) %7, ptr nonnull %10, i64 1, i32 noundef %60, ptr noundef nonnull align 8 dereferenceable(236) %3, ptr noundef nonnull readonly %2)
   br label %_ZN4llvm13createLibcallERNS_16MachineIRBuilderENS_5RTLIB7LibcallERKNS_12CallLowering7ArgInfoENS_8ArrayRefIS5_EERNS_20LostDebugLocObserverEPNS_12MachineInstrE.exit
 
 _ZN4llvm13createLibcallERNS_16MachineIRBuilderENS_5RTLIB7LibcallERKNS_12CallLowering7ArgInfoENS_8ArrayRefIS5_EERNS_20LostDebugLocObserverEPNS_12MachineInstrE.exit: ; preds = %switch.lookup, %57
@@ -20129,7 +20129,7 @@ _ZN4llvm12CallLowering7ArgInfoD2Ev.exit29:        ; preds = %_ZN4llvm11SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 1, 3) i32 @_ZL13simpleLibcallRN4llvm12MachineInstrERNS_16MachineIRBuilderEjPNS_4TypeERNS_20LostDebugLocObserverE(ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(236) %4) unnamed_addr #0 {
+define internal fastcc noundef range(i32 1, 3) i32 @_ZL13simpleLibcallRN4llvm12MachineInstrERNS_16MachineIRBuilderEjPNS_4TypeERNS_20LostDebugLocObserverE(ptr noundef nonnull readonly align 8 captures(address_is_null) dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(236) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::SmallVector.253", align 8
   %7 = alloca %"struct.llvm::CallLowering::ArgInfo", align 8
   %8 = alloca %"class.llvm::Register", align 4
@@ -20203,7 +20203,7 @@ define internal fastcc noundef range(i32 1, 3) i32 @_ZL13simpleLibcallRN4llvm12M
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 406640
   %52 = getelementptr inbounds nuw [717 x i32], ptr %51, i64 0, i64 %46
   %53 = load i32, ptr %52, align 4, !tbaa !193
-  %54 = call noundef i32 @_ZN4llvm13createLibcallERNS_16MachineIRBuilderEPKcRKNS_12CallLowering7ArgInfoENS_8ArrayRefIS5_EEjRNS_20LostDebugLocObserverEPNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull %48, ptr noundef nonnull align 8 dereferenceable(164) %10, ptr %35, i64 %50, i32 noundef %53, ptr noundef nonnull align 8 dereferenceable(236) %4, ptr noundef nonnull %0)
+  %54 = call noundef i32 @_ZN4llvm13createLibcallERNS_16MachineIRBuilderEPKcRKNS_12CallLowering7ArgInfoENS_8ArrayRefIS5_EEjRNS_20LostDebugLocObserverEPNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull %48, ptr noundef nonnull align 8 dereferenceable(164) %10, ptr %35, i64 %50, i32 noundef %53, ptr noundef nonnull align 8 dereferenceable(236) %4, ptr noundef nonnull readonly %0)
   br label %_ZN4llvm13createLibcallERNS_16MachineIRBuilderENS_5RTLIB7LibcallERKNS_12CallLowering7ArgInfoENS_8ArrayRefIS5_EERNS_20LostDebugLocObserverEPNS_12MachineInstrE.exit
 
 _ZN4llvm13createLibcallERNS_16MachineIRBuilderENS_5RTLIB7LibcallERKNS_12CallLowering7ArgInfoENS_8ArrayRefIS5_EERNS_20LostDebugLocObserverEPNS_12MachineInstrE.exit: ; preds = %._crit_edge, %49
@@ -20891,7 +20891,7 @@ _ZN4llvm15SmallVectorImplINS_12CallLowering7ArgInfoEED2Ev.exit: ; preds = %_ZN4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 1, 3) i32 @_ZL17conversionLibcallRN4llvm12MachineInstrERNS_16MachineIRBuilderEPNS_4TypeES5_RNS_20LostDebugLocObserverERKNS_14TargetLoweringEb(ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(236) %4, ptr noundef nonnull align 8 dereferenceable(412423) %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc noundef range(i32 1, 3) i32 @_ZL17conversionLibcallRN4llvm12MachineInstrERNS_16MachineIRBuilderEPNS_4TypeES5_RNS_20LostDebugLocObserverERKNS_14TargetLoweringEb(ptr noundef nonnull readonly align 8 captures(address_is_null) dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(236) %4, ptr noundef nonnull align 8 dereferenceable(412423) %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca %"struct.llvm::CallLowering::ArgInfo", align 8
   %9 = alloca %"class.llvm::Register", align 4
   %10 = alloca %"class.llvm::ArrayRef.255", align 8
@@ -20997,7 +20997,7 @@ _ZL16getConvRTLibDescjPN4llvm4TypeES1_.exit:      ; preds = %35, %37, %39, %41, 
   %64 = getelementptr inbounds nuw i8, ptr %58, i64 406640
   %65 = getelementptr inbounds nuw [717 x i32], ptr %64, i64 0, i64 %60
   %66 = load i32, ptr %65, align 4, !tbaa !193
-  %67 = call noundef i32 @_ZN4llvm13createLibcallERNS_16MachineIRBuilderEPKcRKNS_12CallLowering7ArgInfoENS_8ArrayRefIS5_EEjRNS_20LostDebugLocObserverEPNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull %62, ptr noundef nonnull align 8 dereferenceable(164) %11, ptr nonnull %8, i64 1, i32 noundef %66, ptr noundef nonnull align 8 dereferenceable(236) %4, ptr noundef nonnull %0)
+  %67 = call noundef i32 @_ZN4llvm13createLibcallERNS_16MachineIRBuilderEPKcRKNS_12CallLowering7ArgInfoENS_8ArrayRefIS5_EEjRNS_20LostDebugLocObserverEPNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull %62, ptr noundef nonnull align 8 dereferenceable(164) %11, ptr nonnull %8, i64 1, i32 noundef %66, ptr noundef nonnull align 8 dereferenceable(236) %4, ptr noundef nonnull readonly %0)
   br label %_ZN4llvm13createLibcallERNS_16MachineIRBuilderENS_5RTLIB7LibcallERKNS_12CallLowering7ArgInfoENS_8ArrayRefIS5_EERNS_20LostDebugLocObserverEPNS_12MachineInstrE.exit
 
 _ZN4llvm13createLibcallERNS_16MachineIRBuilderENS_5RTLIB7LibcallERKNS_12CallLowering7ArgInfoENS_8ArrayRefIS5_EERNS_20LostDebugLocObserverEPNS_12MachineInstrE.exit: ; preds = %_ZL16getConvRTLibDescjPN4llvm4TypeES1_.exit, %63

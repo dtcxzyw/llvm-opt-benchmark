@@ -34,7 +34,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_acpi_get_dat
 @llvm.compiler.used = appending global [8 x ptr] [ptr @__UNIQUE_ID___addressable_acpi_attach_data154, ptr @__UNIQUE_ID___addressable_acpi_detach_data155, ptr @__UNIQUE_ID___addressable_acpi_evaluate_object151, ptr @__UNIQUE_ID___addressable_acpi_evaluate_object_typed150, ptr @__UNIQUE_ID___addressable_acpi_get_data157, ptr @__UNIQUE_ID___addressable_acpi_get_data_full156, ptr @__UNIQUE_ID___addressable_acpi_get_devices153, ptr @__UNIQUE_ID___addressable_acpi_walk_namespace152], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_evaluate_object_typed(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local i32 @acpi_evaluate_object_typed(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4) #0 align 16 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
   %7 = icmp eq ptr %3, null

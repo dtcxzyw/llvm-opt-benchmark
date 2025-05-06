@@ -656,7 +656,7 @@ define range(i32 0, 2) i32 @X509v3_asid_canonize(ptr noundef readonly captures(a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ASIdentifierChoice_canonize(ptr noundef captures(address_is_null) %0) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @ASIdentifierChoice_canonize(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %119, label %3
 
@@ -1945,7 +1945,7 @@ X509v3_asid_is_canonical.exit220.thread:          ; preds = %74, %X509v3_asid_is
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509v3_asid_validate_resource_set(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
+define i32 @X509v3_asid_validate_resource_set(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %X509v3_asid_inherits.exit.thread11, label %5
 

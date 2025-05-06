@@ -4651,7 +4651,7 @@ define noundef i32 @_ZNK3gmx20AnalysisNeighborhood4modeEv(ptr noundef nonnull re
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx20AnalysisNeighborhood10initSearchEPK5t_pbcRKNS_29AnalysisNeighborhoodPositionsE(ptr dead_on_unwind noalias writable sret(%"class.gmx::AnalysisNeighborhoodSearch") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef captures(address_is_null) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx20AnalysisNeighborhood10initSearchEPK5t_pbcRKNS_29AnalysisNeighborhoodPositionsE(ptr dead_on_unwind noalias writable sret(%"class.gmx::AnalysisNeighborhoodSearch") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr.37", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #37
   %6 = load ptr, ptr %1, align 8, !tbaa !216

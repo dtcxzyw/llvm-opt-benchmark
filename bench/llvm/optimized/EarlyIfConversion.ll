@@ -4045,7 +4045,7 @@ _ZN4llvm9BitVector5resetEv.exit:                  ; preds = %.critedge, %.lr.ph.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19SSAIfConv9convertIfERN4llvm15SmallVectorImplIPNS1_17MachineBasicBlockEEEb(ptr noundef nonnull align 8 captures(address) dereferenceable(704) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_19SSAIfConv9convertIfERN4llvm15SmallVectorImplIPNS1_17MachineBasicBlockEEEb(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(704) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::MachineOperand", align 8
   %5 = alloca %"class.llvm::DebugLoc", align 8
   %6 = alloca %"class.llvm::MIMetadata", align 8

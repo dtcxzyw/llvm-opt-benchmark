@@ -648,7 +648,7 @@ int_x509_param_set1.exit:                         ; preds = %18, %12, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 

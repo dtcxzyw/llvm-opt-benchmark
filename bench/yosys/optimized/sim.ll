@@ -14460,7 +14460,7 @@ _ZN12_GLOBAL__N_19SimWorker6updateEb.exit53.i:    ; preds = %.noexc51.i
   %4779 = load ptr, ptr %4778, align 8, !tbaa !547
   %4780 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %4781 = load ptr, ptr %4780, align 8, !tbaa !550
-  call fastcc void @_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_6IdPathEN12_GLOBAL__N_19SimWorker11FoundYWPathENS1_8hash_opsIS3_EEE7entry_tEEvT_SC_(ptr noundef %4779, ptr noundef %4781)
+  call fastcc void @_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_6IdPathEN12_GLOBAL__N_19SimWorker11FoundYWPathENS1_8hash_opsIS3_EEE7entry_tEEvT_SC_(ptr noundef readonly %4779, ptr noundef readnone %4781)
   %.val.i.i.i.i = load ptr, ptr %4778, align 8, !tbaa !547
   %.not.i.i.i.i.i54.i = icmp eq ptr %.val.i.i.i.i, null
   br i1 %.not.i.i.i.i.i54.i, label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_6IdPathEN12_GLOBAL__N_19SimWorker11FoundYWPathENS1_8hash_opsIS3_EEE7entry_tESaISA_EED2Ev.exit.i.i.i, label %4782
@@ -29260,7 +29260,7 @@ _ZNKSt3mapIibSt4lessIiESaISt4pairIKibEEE2atERS3_.exit.i.i.i: ; preds = %18
 
 25:                                               ; preds = %_ZNKSt3mapIibSt4lessIiESaISt4pairIKibEEE2atERS3_.exit.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #37
-  call fastcc void @_ZN12_GLOBAL__N_113form_vcd_nameB5cxx11EPKciPN5Yosys5RTLIL4WireE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef %.val6, i32 noundef %.val7, ptr noundef %.val8)
+  call fastcc void @_ZN12_GLOBAL__N_113form_vcd_nameB5cxx11EPKciPN5Yosys5RTLIL4WireE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef %.val6, i32 noundef %.val7, ptr noundef readonly %.val8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #37
   %26 = select i1 %9, ptr @.str.164, ptr @.str.165
   %27 = load i8, ptr %.val6, align 1, !tbaa !22
@@ -30989,7 +30989,7 @@ _ZNKSt3mapIibSt4lessIiESaISt4pairIKibEEE2atERS3_.exit.i.i.i: ; preds = %17
 
 24:                                               ; preds = %_ZNKSt3mapIibSt4lessIiESaISt4pairIKibEEE2atERS3_.exit.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #37
-  call fastcc void @_ZN12_GLOBAL__N_113form_vcd_nameB5cxx11EPKciPN5Yosys5RTLIL4WireE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef %.val6, i32 noundef %.val7, ptr noundef %.val8)
+  call fastcc void @_ZN12_GLOBAL__N_113form_vcd_nameB5cxx11EPKciPN5Yosys5RTLIL4WireE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef %.val6, i32 noundef %.val7, ptr noundef readonly %.val8)
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !96
   %27 = select i1 %8, i32 5, i32 16
@@ -112202,7 +112202,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19SimWorker11YwHierarchyD2Ev(ptr no
   %3 = load ptr, ptr %2, align 8, !tbaa !547
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !550
-  tail call fastcc void @_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_6IdPathEN12_GLOBAL__N_19SimWorker11FoundYWPathENS1_8hash_opsIS3_EEE7entry_tEEvT_SC_(ptr noundef %3, ptr noundef %5)
+  tail call fastcc void @_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_6IdPathEN12_GLOBAL__N_19SimWorker11FoundYWPathENS1_8hash_opsIS3_EEE7entry_tEEvT_SC_(ptr noundef readonly %3, ptr noundef readnone %5)
   %.val.i.i = load ptr, ptr %2, align 8, !tbaa !547
   %.not.i.i.i.i = icmp eq ptr %.val.i.i, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_6IdPathEN12_GLOBAL__N_19SimWorker11FoundYWPathENS1_8hash_opsIS3_EEE7entry_tESaISA_EED2Ev.exit.i, label %6
@@ -119088,7 +119088,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictINS0_6IdPathEN12_GLOBAL__N_19SimWorker11FoundY
 
 123:                                              ; preds = %.noexc15.i
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 56
-  call fastcc void @_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_6IdPathEN12_GLOBAL__N_19SimWorker11FoundYWPathENS1_8hash_opsIS3_EEE7entry_tEEvT_SC_(ptr noundef %.val29.i.i.i, ptr noundef %89)
+  call fastcc void @_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_6IdPathEN12_GLOBAL__N_19SimWorker11FoundYWPathENS1_8hash_opsIS3_EEE7entry_tEEvT_SC_(ptr noundef readonly %.val29.i.i.i, ptr noundef readnone %89)
   %.not.i34.i.i.i = icmp eq ptr %.val29.i.i.i, null
   br i1 %.not.i34.i.i.i, label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_6IdPathEN12_GLOBAL__N_19SimWorker11FoundYWPathENS1_8hash_opsIS3_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS3_S6_EiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, label %125
 
@@ -119322,7 +119322,7 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictINS0_6IdPathEN12_GLOBAL__N_19SimWorker11FoundY
 
 213:                                              ; preds = %.noexc16
   %214 = getelementptr inbounds nuw i8, ptr %212, i64 56
-  call fastcc void @_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_6IdPathEN12_GLOBAL__N_19SimWorker11FoundYWPathENS1_8hash_opsIS3_EEE7entry_tEEvT_SC_(ptr noundef %.val.i.i.i, ptr noundef %179)
+  call fastcc void @_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_6IdPathEN12_GLOBAL__N_19SimWorker11FoundYWPathENS1_8hash_opsIS3_EEE7entry_tEEvT_SC_(ptr noundef readonly %.val.i.i.i, ptr noundef readnone %179)
   %.not.i34.i.i22.i = icmp eq ptr %.val.i.i.i, null
   br i1 %.not.i34.i.i22.i, label %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_6IdPathEN12_GLOBAL__N_19SimWorker11FoundYWPathENS1_8hash_opsIS3_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS3_S6_ERiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, label %215
 

@@ -11618,7 +11618,7 @@ define hidden void @_ZN4ncnn9Extractor23set_workspace_allocatorEPNS_9AllocatorE(
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 -1, 1) i32 @_ZN4ncnn9Extractor5inputEPKcRKNS_3MatE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull align 8 captures(address) dereferenceable(72) %2) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i32 -1, 1) i32 @_ZN4ncnn9Extractor5inputEPKcRKNS_3MatE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !213
   %6 = load ptr, ptr %5, align 8, !tbaa !210

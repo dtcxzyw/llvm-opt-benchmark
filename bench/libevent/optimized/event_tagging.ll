@@ -1341,7 +1341,7 @@ define range(i32 -1, 1) i32 @evtag_consume(ptr noundef %0) local_unnamed_addr #1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @evtag_unmarshal(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #1 {
+define i32 @evtag_unmarshal(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = tail call i32 @evtag_unmarshal_header(ptr noundef %0, ptr noundef %1)
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %13, label %6

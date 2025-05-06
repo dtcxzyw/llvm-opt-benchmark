@@ -1549,7 +1549,7 @@ _ZL32tsi_ssl_handshaker_factory_unrefP26tsi_ssl_handshaker_factory.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 13) i32 @_Z40tsi_create_ssl_client_handshaker_factoryPK25tsi_ssl_pem_key_cert_pairPKcS3_PS3_tPP33tsi_ssl_client_handshaker_factory(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 13) i32 @_Z40tsi_create_ssl_client_handshaker_factoryPK25tsi_ssl_pem_key_cert_pairPKcS3_PS3_tPP33tsi_ssl_client_handshaker_factory(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %7 = alloca %struct.tsi_ssl_client_handshaker_options, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %7) #32
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 68
@@ -4090,7 +4090,7 @@ declare i32 @X509_STORE_load_locations(ptr noundef, ptr noundef, ptr noundef) lo
 declare i32 @X509_VERIFY_PARAM_set_flags(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z40tsi_create_ssl_server_handshaker_factoryPK25tsi_ssl_pem_key_cert_pairmPKciS3_PS3_tPP33tsi_ssl_server_handshaker_factory(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i16 noundef zeroext %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_Z40tsi_create_ssl_server_handshaker_factoryPK25tsi_ssl_pem_key_cert_pairmPKciS3_PS3_tPP33tsi_ssl_server_handshaker_factory(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i16 noundef zeroext %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca %struct.tsi_ssl_server_handshaker_options, align 8
   %.not = icmp eq i32 %3, 0
   %10 = select i1 %.not, i32 0, i32 4
@@ -4132,7 +4132,7 @@ _Z43tsi_create_ssl_server_handshaker_factory_exPK25tsi_ssl_pem_key_cert_pairmPKc
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z43tsi_create_ssl_server_handshaker_factory_exPK25tsi_ssl_pem_key_cert_pairmPKc35tsi_client_certificate_request_typeS3_PS3_tPP33tsi_ssl_server_handshaker_factory(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i16 noundef zeroext %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_Z43tsi_create_ssl_server_handshaker_factory_exPK25tsi_ssl_pem_key_cert_pairmPKc35tsi_client_certificate_request_typeS3_PS3_tPP33tsi_ssl_server_handshaker_factory(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i16 noundef zeroext %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca %struct.tsi_ssl_server_handshaker_options, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %9) #32
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32

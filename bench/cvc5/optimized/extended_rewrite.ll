@@ -49441,7 +49441,7 @@ declare noundef zeroext i1 @_ZNK4cvc58internal4Subs5emptyEv(ptr noundef nonnull 
 declare void @_ZNK4cvc58internal4Subs5applyERKNS0_12NodeTemplateILb1EEE(ptr dead_on_unwind writable sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory11quantifiers16ExtendedRewriter17partialSubstituteENS0_12NodeTemplateILb1EEERKNS0_4SubsERKSt3mapINS0_4kind6Kind_tEbSt4lessISB_ESaISt4pairIKSB_bEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory11quantifiers16ExtendedRewriter17partialSubstituteENS0_12NodeTemplateILb1EEERKNS0_4SubsERKSt3mapINS0_4kind6Kind_tEbSt4lessISB_ESaISt4pairIKSB_bEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::tuple.264", align 8
   %7 = alloca %"class.std::tuple.267", align 1
   %8 = alloca %"class.std::map.108", align 8
@@ -51529,7 +51529,7 @@ declare void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #5 align 2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory11quantifiers16ExtendedRewriter18extendedRewriteBcpENS0_4kind6Kind_tES5_S5_RSt3mapIS5_bSt4lessIS5_ESaISt4pairIKS5_bEEENS0_12NodeTemplateILb1EEE(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %5, ptr noundef nonnull %6) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory11quantifiers16ExtendedRewriter18extendedRewriteBcpENS0_4kind6Kind_tES5_S5_RSt3mapIS5_bSt4lessIS5_ESaISt4pairIKS5_bEEENS0_12NodeTemplateILb1EEE(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %5, ptr noundef nonnull %6) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.std::__detail::_AllocNode", align 8
   %9 = alloca %"class.cvc5::internal::NodeTemplate.102", align 8
   %10 = alloca %"class.cvc5::internal::NodeBuilder", align 8
@@ -58936,7 +58936,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ES
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory11quantifiers16ExtendedRewriter20extendedRewriteEqResENS0_4kind6Kind_tES5_S5_S5_RSt3mapIS5_bSt4lessIS5_ESaISt4pairIKS5_bEEENS0_12NodeTemplateILb1EEEb(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, i32 noundef %2, i32 %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %6, ptr noundef readonly captures(none) %7, i1 noundef zeroext %8) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory11quantifiers16ExtendedRewriter20extendedRewriteEqResENS0_4kind6Kind_tES5_S5_S5_RSt3mapIS5_bSt4lessIS5_ESaISt4pairIKS5_bEEENS0_12NodeTemplateILb1EEEb(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, i32 noundef %2, i32 %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %6, ptr noundef readonly captures(none) %7, i1 noundef zeroext %8) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cvc5::internal::NodeTemplate.102", align 8
   %11 = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %12 = alloca %"class.cvc5::internal::NodeBuilder", align 8

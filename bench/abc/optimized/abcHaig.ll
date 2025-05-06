@@ -1051,7 +1051,7 @@ tailrecurse:                                      ; preds = %107
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NtkHaigCheckTfi(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkHaigCheckTfi(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %5 = load ptr, ptr %4, align 8, !tbaa !66
   %.not.i = icmp eq ptr %5, null
@@ -1336,7 +1336,7 @@ Abc_NtkHaigCheckTfi.exit:                         ; preds = %109, %Vec_IntFill.e
   %127 = load i32, ptr %76, align 8, !tbaa !51
   %128 = add nsw i32 %127, 1
   store i32 %128, ptr %76, align 8, !tbaa !51
-  %129 = tail call range(i32 0, 2) i32 @Abc_NtkHaigCheckTfi_rec(ptr noundef %111, ptr noundef %113)
+  %129 = tail call range(i32 0, 2) i32 @Abc_NtkHaigCheckTfi_rec(ptr noundef readonly %111, ptr noundef %113)
   %.not62 = icmp eq i32 %129, 0
   br i1 %.not62, label %.preheader, label %.critedge4
 

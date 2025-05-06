@@ -5203,7 +5203,7 @@ define internal fastcc i32 @ecc_mont_norm_points(ptr noundef nonnull %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_ecc_verify_hash(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #4 {
+define i32 @wc_ecc_verify_hash(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #4 {
   %7 = icmp eq ptr %5, null
   br i1 %7, label %.critedge92, label %8
 
@@ -5852,7 +5852,7 @@ define i32 @wc_ecc_import_point_der(ptr noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_ecc_export_point_der_ex(i32 noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #4 {
+define i32 @wc_ecc_export_point_der_ex(i32 noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = icmp eq i32 %4, 0
   br i1 %6, label %7, label %9
 
@@ -6071,7 +6071,7 @@ define i32 @wc_ecc_export_x963(ptr noundef %0, ptr noundef writeonly captures(ad
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_ecc_export_x963_ex(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #4 {
+define i32 @wc_ecc_export_x963_ex(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = icmp eq i32 %3, 0
   br i1 %5, label %6, label %8
 

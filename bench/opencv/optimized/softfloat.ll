@@ -8314,7 +8314,7 @@ define void @_ZN2cv3sinERKNS_10softdoubleE(ptr dead_on_unwind noalias writable w
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14, !noalias !529
   store i64 0, ptr %3, align 8, !tbaa !27, !noalias !529
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14, !noalias !529
-  call fastcc void @_ZN2cvL17f64_sincos_reduceERKNS_10softdoubleERS0_Ri(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !529
+  call fastcc void @_ZN2cvL17f64_sincos_reduceERKNS_10softdoubleERS0_Ri(ptr noundef nonnull readonly align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !529
   %16 = load i32, ptr %4, align 4, !tbaa !537, !noalias !529
   switch i32 %16, label %25 [
     i32 0, label %17
@@ -8401,7 +8401,7 @@ define void @_ZN2cv3cosERKNS_10softdoubleE(ptr dead_on_unwind noalias writable w
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14, !noalias !546
   store i64 0, ptr %3, align 8, !tbaa !27, !noalias !546
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14, !noalias !546
-  call fastcc void @_ZN2cvL17f64_sincos_reduceERKNS_10softdoubleERS0_Ri(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !546
+  call fastcc void @_ZN2cvL17f64_sincos_reduceERKNS_10softdoubleERS0_Ri(ptr noundef nonnull readonly align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !546
   %16 = load i32, ptr %4, align 4, !tbaa !537, !noalias !546
   switch i32 %16, label %27 [
     i32 0, label %17

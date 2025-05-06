@@ -8340,7 +8340,7 @@ define hidden void @_mi_os_free(ptr noundef %0, i64 noundef %1, ptr noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_error_message(i32 noundef %0, ptr noundef captures(address_is_null) %1, ...) local_unnamed_addr #2 {
+define hidden void @_mi_error_message(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ...) local_unnamed_addr #2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #55
   call void @llvm.va_start.p0(ptr nonnull %3)
@@ -8383,7 +8383,7 @@ mi_option_is_enabled.exit3.i:                     ; preds = %11, %8
   br i1 %19, label %mi_show_error_message.exit, label %20
 
 20:                                               ; preds = %16, %13, %mi_option_is_enabled.exit.i
-  call fastcc void @mi_vfprintf_thread(ptr noundef nonnull @.str.86, ptr noundef %1, ptr noundef nonnull %3)
+  call fastcc void @mi_vfprintf_thread(ptr noundef nonnull @.str.86, ptr noundef readonly %1, ptr noundef nonnull %3)
   br label %mi_show_error_message.exit
 
 mi_show_error_message.exit:                       ; preds = %mi_option_is_enabled.exit3.i, %16, %20
@@ -9044,7 +9044,7 @@ define hidden noundef zeroext i1 @_mi_arena_contains(ptr noundef readnone captur
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @mi_manage_os_memory_ex(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5, i1 noundef zeroext %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #2 {
+define hidden noundef zeroext i1 @mi_manage_os_memory_ex(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5, i1 noundef zeroext %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #2 {
   %9 = alloca %struct.mi_memid_s, align 8
   %10 = zext i1 %2 to i8
   %11 = zext i1 %3 to i8
@@ -9217,7 +9217,7 @@ mi_arena_add.exit:                                ; preds = %83, %78, %76, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 13) i32 @mi_reserve_os_memory_ex(i64 noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #2 {
+define hidden range(i32 0, 13) i32 @mi_reserve_os_memory_ex(i64 noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #2 {
   %6 = alloca %struct.mi_memid_s, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %7
@@ -9743,7 +9743,7 @@ mi_debug_show_bitmap.exit:                        ; preds = %17, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 13) i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #2 {
+define hidden range(i32 0, 13) i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca %struct.mi_memid_s, align 8
@@ -10158,7 +10158,7 @@ _mi_stat_increase.exit76:                         ; preds = %129, %131
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_warning_message(ptr noundef captures(address_is_null) %0, ...) local_unnamed_addr #2 {
+define hidden void @_mi_warning_message(ptr noundef readonly captures(address_is_null) %0, ...) local_unnamed_addr #2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @options, i64 72), align 8, !tbaa !105
   %4 = icmp eq i32 %3, 0
@@ -15373,7 +15373,7 @@ _mi_strlcpy.exit:                                 ; preds = %.lr.ph.i
   br label %_mi_strlcat.exit
 
 _mi_strlcat.exit:                                 ; preds = %_mi_strlcpy.exit, %._crit_edge.i.i
-  %30 = call noundef zeroext i1 @_mi_prim_getenv(ptr noundef nonnull %3, ptr noundef nonnull %2, i64 noundef 65)
+  %30 = call noundef zeroext i1 @_mi_prim_getenv(ptr noundef nonnull readonly %3, ptr noundef nonnull %2, i64 noundef 65)
   br i1 %30, label %.preheader.i64.preheader, label %31
 
 31:                                               ; preds = %_mi_strlcat.exit
@@ -15437,7 +15437,7 @@ _mi_strlcat.exit:                                 ; preds = %_mi_strlcpy.exit, %
 _mi_strlcat.exit63:                               ; preds = %.lr.ph.i.i56, %.preheader.i.i50
   %.012.lcssa.i.i55 = phi ptr [ %.012.lcssa.i51, %.preheader.i.i50 ], [ %50, %.lr.ph.i.i56 ]
   store i8 0, ptr %.012.lcssa.i.i55, align 1, !tbaa !54
-  %56 = call noundef zeroext i1 @_mi_prim_getenv(ptr noundef nonnull %3, ptr noundef nonnull %2, i64 noundef 65)
+  %56 = call noundef zeroext i1 @_mi_prim_getenv(ptr noundef nonnull readonly %3, ptr noundef nonnull %2, i64 noundef 65)
   br i1 %56, label %57, label %125
 
 57:                                               ; preds = %_mi_strlcat.exit63
@@ -15917,7 +15917,7 @@ declare void @llvm.va_start.p0(ptr) #33
 declare void @llvm.va_end.p0(ptr) #33
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_trace_message(ptr noundef captures(address_is_null) %0, ...) local_unnamed_addr #2 {
+define hidden void @_mi_trace_message(ptr noundef readonly captures(address_is_null) %0, ...) local_unnamed_addr #2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @options, i64 72), align 8, !tbaa !105
   %4 = icmp eq i32 %3, 0
@@ -24519,7 +24519,7 @@ define hidden void @_mi_prim_thread_init_auto_done() local_unnamed_addr #2 {
 declare i32 @pthread_key_create(ptr noundef, ptr noundef) local_unnamed_addr #39
 
 ; Function Attrs: nounwind uwtable
-define internal void @mi_pthread_done(ptr noundef captures(address) %0) #2 {
+define internal void @mi_pthread_done(ptr noundef readonly captures(address) %0) #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 
@@ -25844,7 +25844,7 @@ free_delayed.exit:                                ; preds = %4, %8, %11, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyMem_ProcessDelayed(ptr noundef captures(address) %0) local_unnamed_addr #2 {
+define hidden void @_PyMem_ProcessDelayed(ptr noundef readonly captures(address) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !485
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -25976,7 +25976,7 @@ free_work_item.exit:                              ; preds = %21, %25, %28, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyMem_ProcessDelayedNoDealloc(ptr noundef captures(address) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 {
+define hidden void @_PyMem_ProcessDelayedNoDealloc(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !485
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -26539,7 +26539,7 @@ get_mimalloc_allocated_blocks.exit:               ; preds = %.loopexit, %.crited
 declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #47
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyInterpreterState_FinalizeAllocatedBlocks(ptr noundef captures(address) %0) local_unnamed_addr #2 {
+define hidden void @_PyInterpreterState_FinalizeAllocatedBlocks(ptr noundef readonly captures(address) %0) local_unnamed_addr #2 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1040), align 8, !tbaa !309
   %.not.i = icmp eq i32 %2, 0
   %.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 864), align 8
@@ -32521,7 +32521,7 @@ mi_buffered_flush.exit21:                         ; preds = %50, %52, %58
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_stat_print_ex(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef range(i64 -1, 2) %2, ptr noundef nonnull %3, ptr noundef captures(address_is_null) %4) unnamed_addr #2 {
+define internal fastcc void @mi_stat_print_ex(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef range(i64 -1, 2) %2, ptr noundef nonnull %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #2 {
   %6 = alloca [32 x i8], align 16
   tail call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull @.str.138, ptr noundef %1)
   %7 = icmp sgt i64 %2, 0
@@ -32607,7 +32607,7 @@ define internal fastcc void @mi_stat_print_ex(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_printf_amount(i64 noundef %0, i64 noundef range(i64 -1, 2) %1, ptr noundef nonnull %2, ptr noundef captures(address_is_null) %3) unnamed_addr #2 {
+define internal fastcc void @mi_printf_amount(i64 noundef %0, i64 noundef range(i64 -1, 2) %1, ptr noundef nonnull %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #2 {
   %5 = alloca [32 x i8], align 16
   %6 = alloca [8 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #55

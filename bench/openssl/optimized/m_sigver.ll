@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.update = private unnamed_addr constant [7 x i8] c"update\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_DigestSignInit_ex(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_DigestSignInit_ex(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = tail call fastcc i32 @do_sigver_init(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, ptr noundef %5, i32 noundef 0, ptr noundef %6)
   ret i32 %8
 }
@@ -621,19 +621,19 @@ canon_mdname.exit230:                             ; preds = %141, %137, %134, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_DigestSignInit(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_DigestSignInit(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i32 @do_sigver_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %3, ptr noundef %4, i32 noundef 0, ptr noundef null)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_DigestVerifyInit_ex(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_DigestVerifyInit_ex(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = tail call fastcc i32 @do_sigver_init(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, ptr noundef %5, i32 noundef 1, ptr noundef %6)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_DigestVerifyInit(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_DigestVerifyInit(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i32 @do_sigver_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %3, ptr noundef %4, i32 noundef 1, ptr noundef null)
   ret i32 %6
 }

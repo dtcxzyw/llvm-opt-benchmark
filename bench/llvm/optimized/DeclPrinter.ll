@@ -645,7 +645,7 @@ define internal fastcc void @_ZN5clang11declvisitor4BaseISt11add_pointerN12_GLOB
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang21TemplateParameterList5printERN4llvm11raw_ostreamERKNS_10ASTContextEb(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(23216) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK5clang21TemplateParameterList5printERN4llvm11raw_ostreamERKNS_10ASTContextEb(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(23216) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.(anonymous namespace)::DeclPrinter", align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 17304
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #17
@@ -658,13 +658,13 @@ define dso_local void @_ZNK5clang21TemplateParameterList5printERN4llvm11raw_ostr
   store i32 0, ptr %9, align 8, !tbaa !14
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i8 0, ptr %10, align 4, !tbaa !19
-  call fastcc void @_ZN12_GLOBAL__N_111DeclPrinter23printTemplateParametersEPKN5clang21TemplateParameterListEb(ptr noundef nonnull align 8 dereferenceable(37) %5, ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %3)
+  call fastcc void @_ZN12_GLOBAL__N_111DeclPrinter23printTemplateParametersEPKN5clang21TemplateParameterListEb(ptr noundef nonnull align 8 dereferenceable(37) %5, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i1 noundef zeroext %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang21TemplateParameterList5printERN4llvm11raw_ostreamERKNS_10ASTContextERKNS_14PrintingPolicyEb(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(23216) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK5clang21TemplateParameterList5printERN4llvm11raw_ostreamERKNS_10ASTContextERKNS_14PrintingPolicyEb(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(23216) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.(anonymous namespace)::DeclPrinter", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #17
   store ptr %1, ptr %6, align 8, !tbaa !3

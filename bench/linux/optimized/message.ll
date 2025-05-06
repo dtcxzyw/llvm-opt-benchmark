@@ -271,7 +271,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_control_msg_recv(ptr noundef
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @usb_interrupt_msg(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) #0 align 16 {
+define dso_local i32 @usb_interrupt_msg(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5) #0 align 16 {
   %7 = and i32 %1, 128
   %8 = icmp eq i32 %7, 0
   %9 = select i1 %8, i64 1072, i64 944
@@ -363,7 +363,7 @@ usb_bulk_msg.exit:                                ; preds = %6, %19, %60
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @usb_bulk_msg(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) #0 align 16 {
+define dso_local i32 @usb_bulk_msg(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5) #0 align 16 {
   %7 = and i32 %1, 128
   %8 = icmp eq i32 %7, 0
   %9 = select i1 %8, i64 1072, i64 944

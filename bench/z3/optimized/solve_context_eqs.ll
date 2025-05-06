@@ -170,7 +170,7 @@ _ZN10bit_vectorD2Ev.exit:                         ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3euf17solve_context_eqs10is_safe_eqEP4expr(ptr noundef nonnull align 8 dereferenceable(152) initializes((32, 36), (56, 60), (80, 84), (104, 108)) %0, ptr noundef captures(address) %1) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZN3euf17solve_context_eqs10is_safe_eqEP4expr(ptr noundef nonnull align 8 dereferenceable(152) initializes((32, 36), (56, 60), (80, 84), (104, 108)) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !16
   %.not.i.i = icmp eq ptr %4, null
@@ -272,7 +272,7 @@ _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE5resetEv.exit13: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3euf17solve_context_eqs10is_safe_eqEjP4exprbS2_(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef captures(address) %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN3euf17solve_context_eqs10is_safe_eqEjP4exprbS2_(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef readnone captures(address) %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.svector.43, align 8
   %7 = load i32, ptr %2, align 4, !tbaa !39
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -853,7 +853,7 @@ _ZN6vectorISt4pairIbP4exprELb0EjE7destroyEv.exit: ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3euf17solve_context_eqs21is_disjunctively_safeEjP4exprbS2_(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef captures(address) %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN3euf17solve_context_eqs21is_disjunctively_safeEjP4exprbS2_(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef readnone captures(address) %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.svector.43, align 8
   %.sroa.587 = alloca [7 x i8], align 1
   %.sroa.584 = alloca [7 x i8], align 1

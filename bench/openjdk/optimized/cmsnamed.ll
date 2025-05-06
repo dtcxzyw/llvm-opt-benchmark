@@ -829,7 +829,7 @@ _cmsMLUgetWide.exit.thread:                       ; preds = %._crit_edge.thread.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @cmsMLUgetUTF8(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address) %3, i32 noundef %4) local_unnamed_addr #5 {
+define hidden i32 @cmsMLUgetUTF8(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address) %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = icmp eq ptr %1, null
   br i1 %6, label %strTo16.exit, label %7
 
@@ -1949,7 +1949,7 @@ cmsNamedColorCount.exit:                          ; preds = %2
 declare i32 @cmsstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_cmsStageAllocNamedColor(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden ptr @_cmsStageAllocNamedColor(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq i32 %1, 0
@@ -2619,7 +2619,7 @@ cmsMLUfree.exit30:                                ; preds = %26, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsDictAddEntry(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsDictAddEntry(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @_cmsMallocZero(ptr noundef %7, i32 noundef 40) #14

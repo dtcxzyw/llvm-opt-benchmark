@@ -18370,7 +18370,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h3cea858e80a481b8E.llvm.1408760718162522189"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h3cea858e80a481b8E.llvm.1408760718162522189"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !12
   store i64 0, ptr %3, align 8
@@ -22577,7 +22577,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain17h1e0061be8e070964E"
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain17h4c99a40d062f4842E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain17h4c99a40d062f4842E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h3cea858e80a481b8E.llvm.1408760718162522189"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   ret void
 }

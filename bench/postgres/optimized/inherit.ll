@@ -813,7 +813,7 @@ define dso_local ptr @get_rel_all_updated_cols(ptr noundef %0, ptr noundef reado
 declare ptr @find_base_rel(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @translate_col_privs_multilevel(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @translate_col_privs_multilevel(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %28, label %6
 

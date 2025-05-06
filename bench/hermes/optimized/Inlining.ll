@@ -775,8 +775,8 @@ for.end.i39:                                      ; preds = %_ZN4llvh12DenseMapB
   %87 = load ptr, ptr %scopeDesc_.i.i, align 8
   %parent_.i.i = getelementptr inbounds nuw i8, ptr %87, i64 40
   %88 = load ptr, ptr %parent_.i.i, align 8
-  call fastcc void @_ZN6hermesL15cloneScopesIntoEPNS_8FunctionEPNS_9ScopeDescES3_RN4llvh8DenseMapIPNS_5ValueES7_NS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_S7_EEEE(ptr noundef nonnull %sub.ptr.i.i.i, ptr noundef %87, ptr noundef %88, ptr noundef nonnull align 8 dereferenceable(20) %operandMap.i)
-  call fastcc void @_ZN6hermesL8orderDFSEPNS_8FunctionE(ptr noalias align 8 %order.i, ptr noundef nonnull %sub.ptr.i.i.i)
+  call fastcc void @_ZN6hermesL15cloneScopesIntoEPNS_8FunctionEPNS_9ScopeDescES3_RN4llvh8DenseMapIPNS_5ValueES7_NS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_S7_EEEE(ptr noundef nonnull readonly %sub.ptr.i.i.i, ptr noundef %87, ptr noundef %88, ptr noundef nonnull align 8 dereferenceable(20) %operandMap.i)
+  call fastcc void @_ZN6hermesL8orderDFSEPNS_8FunctionE(ptr noalias align 8 %order.i, ptr noundef nonnull readonly %sub.ptr.i.i.i)
   %89 = load ptr, ptr %order.i, align 8
   %90 = load i32, ptr %Size.i137.i, align 8
   %conv.i138.i = zext i32 %90 to i64
@@ -3753,7 +3753,7 @@ declare noundef ptr @_ZN6hermes9IRBuilder22createCoerceThisNSInstEPNS_5ValueE(pt
 declare noundef ptr @_ZN6hermes9IRBuilder19getLiteralUndefinedEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermesL15cloneScopesIntoEPNS_8FunctionEPNS_9ScopeDescES3_RN4llvh8DenseMapIPNS_5ValueES7_NS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_S7_EEEE(ptr noundef captures(address) %F, ptr noundef %currScopeDesc, ptr noundef %newScope, ptr noundef nonnull align 8 dereferenceable(20) %operandMap) unnamed_addr #0 {
+define internal fastcc void @_ZN6hermesL15cloneScopesIntoEPNS_8FunctionEPNS_9ScopeDescES3_RN4llvh8DenseMapIPNS_5ValueES7_NS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_S7_EEEE(ptr noundef readnone captures(address) %F, ptr noundef %currScopeDesc, ptr noundef %newScope, ptr noundef nonnull align 8 dereferenceable(20) %operandMap) unnamed_addr #0 {
 entry:
   %ref.tmp = alloca ptr, align 8
   %ref.tmp7 = alloca ptr, align 8

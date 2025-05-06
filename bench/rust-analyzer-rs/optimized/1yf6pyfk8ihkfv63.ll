@@ -65977,7 +65977,7 @@ define hidden void @"_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..FromIterator$LT$char$GT$$GT$9from_iter17h8f0410d8918a4c87E"(ptr noalias noundef writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull captures(address) %1, ptr noundef captures(address) %2) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden void @"_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..FromIterator$LT$char$GT$$GT$9from_iter17h8f0410d8918a4c87E"(ptr noalias noundef writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly captures(address) %1, ptr noundef readnone captures(address) %2) unnamed_addr #6 personality ptr @rust_eh_personality {
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store i64 0, ptr %4, align 8

@@ -25378,7 +25378,7 @@ declare void @dt_image_cache_read_release(ptr noundef, ptr noundef) local_unname
 declare void @free(ptr allocptr noundef captures(none)) #17
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @dt_exif_xmp_encode(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 {
+define noundef ptr @dt_exif_xmp_encode(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = tail call ptr @dt_conf_get_string(ptr noundef nonnull @.str.277)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %13, label %5

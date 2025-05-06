@@ -84,7 +84,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7722FormattedStringBuilderC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 1), (128, 136)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(136) %1) unnamed_addr #5 align 2 {
+define void @_ZN6icu_7722FormattedStringBuilderC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 1), (128, 136)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %1) unnamed_addr #5 align 2 {
   store i8 0, ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 20, ptr %3, align 8, !tbaa !9
@@ -1190,7 +1190,7 @@ _ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit14:   ; preds = %_ZN12_GLOBAL__N_113
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7722FormattedStringBuilder6appendERKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(136) %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #5 align 2 {
+define noundef i32 @_ZN6icu_7722FormattedStringBuilder6appendERKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %5 = load i32, ptr %4, align 4, !tbaa !10
   %6 = tail call noundef i32 @_ZN6icu_7722FormattedStringBuilder6insertEiRKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)

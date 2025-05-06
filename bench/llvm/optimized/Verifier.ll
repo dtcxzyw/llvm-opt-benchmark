@@ -42723,7 +42723,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_17DbgVariableRecordEJPNS_8Me
 .lr.ph.i.i.i.i:                                   ; preds = %955, %.lr.ph.i.i.i.i
   %.03.i.i.i.i = phi ptr [ %961, %.lr.ph.i.i.i.i ], [ %.val.i.i.i, %955 ]
   %960 = load ptr, ptr %.03.i.i.i.i, align 8, !tbaa !905
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier20visitValueAsMetadataERKN4llvm15ValueAsMetadataEPNS1_8FunctionE(ptr noundef nonnull align 8 dereferenceable(2248) %0, ptr noundef nonnull align 8 dereferenceable(136) %960, ptr noundef %890)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier20visitValueAsMetadataERKN4llvm15ValueAsMetadataEPNS1_8FunctionE(ptr noundef nonnull align 8 dereferenceable(2248) %0, ptr noundef nonnull align 8 dereferenceable(136) %960, ptr noundef readnone %890)
   %961 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i, i64 8
   %.not.i79.i.i.i = icmp eq ptr %961, %959
   br i1 %.not.i79.i.i.i, label %_ZN12_GLOBAL__N_18Verifier14visitDIArgListERKN4llvm9DIArgListEPNS1_8FunctionE.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -55536,7 +55536,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit421:    ; preds = %.critedge348
 
 452:                                              ; preds = %448, %448, %448
   %453 = load ptr, ptr %109, align 8, !tbaa !325
-  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier23verifyRangeLikeMetadataERKN4llvm5ValueEPKNS1_6MDNodeEPNS1_4TypeENS0_21RangeLikeMetadataKindE(ptr noundef nonnull align 8 dereferenceable(2248) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %447, ptr noundef %453, i32 noundef 0)
+  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier23verifyRangeLikeMetadataERKN4llvm5ValueEPKNS1_6MDNodeEPNS1_4TypeENS0_21RangeLikeMetadataKindE(ptr noundef nonnull align 8 dereferenceable(2248) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %447, ptr noundef readonly %453, i32 noundef 0)
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit421.thread
 
 _ZNK4llvm11Instruction11getMetadataEj.exit421.thread: ; preds = %.critedge348, %452, %_ZNK4llvm11Instruction11getMetadataEj.exit421
@@ -55576,7 +55576,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit424:    ; preds = %_ZNK4llvm11Instruct
 
 461:                                              ; preds = %457, %457, %457, %457, %457
   %462 = load ptr, ptr %109, align 8, !tbaa !325
-  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier23verifyRangeLikeMetadataERKN4llvm5ValueEPKNS1_6MDNodeEPNS1_4TypeENS0_21RangeLikeMetadataKindE(ptr noundef nonnull align 8 dereferenceable(2248) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %456, ptr noundef %462, i32 noundef 2)
+  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier23verifyRangeLikeMetadataERKN4llvm5ValueEPKNS1_6MDNodeEPNS1_4TypeENS0_21RangeLikeMetadataKindE(ptr noundef nonnull align 8 dereferenceable(2248) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %456, ptr noundef readonly %462, i32 noundef 2)
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit424.thread
 
 _ZNK4llvm11Instruction11getMetadataEj.exit424.thread: ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit421.thread, %461, %_ZNK4llvm11Instruction11getMetadataEj.exit424
@@ -64734,7 +64734,7 @@ _ZN4llvm15SmallPtrSetImplIPKNS_8MetadataEE6insertES3_.exit.i._crit_edge: ; preds
   br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %376, label %375
 
 375:                                              ; preds = %372
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier20visitValueAsMetadataERKN4llvm15ValueAsMetadataEPNS1_8FunctionE(ptr noundef nonnull align 8 dereferenceable(2248) %0, ptr noundef nonnull align 8 dereferenceable(136) %.val, ptr noundef %352)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier20visitValueAsMetadataERKN4llvm15ValueAsMetadataEPNS1_8FunctionE(ptr noundef nonnull align 8 dereferenceable(2248) %0, ptr noundef nonnull align 8 dereferenceable(136) %.val, ptr noundef readnone %352)
   %.pre6.i = load i8, ptr %.val, align 4, !tbaa !341
   br label %376
 
@@ -64756,7 +64756,7 @@ _ZN4llvm15SmallPtrSetImplIPKNS_8MetadataEE6insertES3_.exit.i._crit_edge: ; preds
 .lr.ph.i.i:                                       ; preds = %378, %.lr.ph.i.i
   %.03.i.i = phi ptr [ %384, %.lr.ph.i.i ], [ %.val.i, %378 ]
   %383 = load ptr, ptr %.03.i.i, align 8, !tbaa !905
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier20visitValueAsMetadataERKN4llvm15ValueAsMetadataEPNS1_8FunctionE(ptr noundef nonnull align 8 dereferenceable(2248) %0, ptr noundef nonnull align 8 dereferenceable(136) %383, ptr noundef %352)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier20visitValueAsMetadataERKN4llvm15ValueAsMetadataEPNS1_8FunctionE(ptr noundef nonnull align 8 dereferenceable(2248) %0, ptr noundef nonnull align 8 dereferenceable(136) %383, ptr noundef readnone %352)
   %384 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 8
   %.not.i.i = icmp eq ptr %384, %382
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_18Verifier20visitMetadataAsValueERKN4llvm15MetadataAsValueEPNS1_8FunctionE.exitthread-pre-split, label %.lr.ph.i.i

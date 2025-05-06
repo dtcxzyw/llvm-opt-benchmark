@@ -925,7 +925,7 @@ define internal fastcc ptr @inet6_lhash2_lookup(ptr noundef readonly captures(ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @inet6_lookup(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i16 noundef zeroext %5, ptr noundef %6, i16 noundef zeroext %7, i32 noundef %8) #0 align 16 {
+define dso_local ptr @inet6_lookup(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i16 noundef zeroext %5, ptr noundef %6, i16 noundef zeroext %7, i32 noundef %8) #0 align 16 {
   %10 = tail call i16 @llvm.bswap.i16(i16 %7)
   %11 = tail call ptr @__inet6_lookup_established(ptr noundef %0, ptr noundef %1, ptr noundef %4, i16 noundef zeroext %5, ptr noundef %6, i16 noundef zeroext %10, i32 noundef %8, i32 noundef 0)
   %.not = icmp eq ptr %11, null

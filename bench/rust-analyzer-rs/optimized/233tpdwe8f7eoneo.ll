@@ -37705,7 +37705,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h6d9eb787602ed
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h874da6fa371a88cbE.llvm.2651244455829285093"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h874da6fa371a88cbE.llvm.2651244455829285093"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !13
   store i64 0, ptr %3, align 8
@@ -48249,7 +48249,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain17h57bf6c1a5e7be78bE"
 8:                                                ; preds = %14, %.lr.ph.i.i
   %9 = phi i64 [ 0, %.lr.ph.i.i ], [ %13, %14 ]
   %10 = getelementptr inbounds { i32, { i32, i32 } }, ptr %7, i64 %9
-  %11 = invoke fastcc noundef zeroext i1 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h531dc9c12f5e2228E"(ptr nonnull align 8 dereferenceable(8) %3, ptr noalias noundef align 4 dereferenceable(12) %10)
+  %11 = invoke fastcc noundef zeroext i1 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h531dc9c12f5e2228E"(ptr nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef align 4 dereferenceable(12) %10)
           to label %.noexc.i unwind label %.thread.i, !noalias !12322
 
 .thread.i:                                        ; preds = %8
@@ -48281,7 +48281,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain17h57bf6c1a5e7be78bE"
   %.sroa.14.2.i = phi i64 [ %.sroa.14.1.i, %.lr.ph.i2.i ], [ %.sroa.14.3.i, %.backedge.i.i ]
   %18 = phi i64 [ %.sroa.14.1.i, %.lr.ph.i2.i ], [ %23, %.backedge.i.i ]
   %19 = getelementptr inbounds { i32, { i32, i32 } }, ptr %16, i64 %.sroa.7.3.i
-  %20 = invoke fastcc noundef zeroext i1 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h531dc9c12f5e2228E"(ptr nonnull align 8 dereferenceable(8) %3, ptr noalias noundef align 4 dereferenceable(12) %19)
+  %20 = invoke fastcc noundef zeroext i1 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h531dc9c12f5e2228E"(ptr nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef align 4 dereferenceable(12) %19)
           to label %.noexc5.i unwind label %29, !noalias !12322
 
 .noexc5.i:                                        ; preds = %17
@@ -63340,7 +63340,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hab50f4213c0d18afE"(ptr noalias noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef captures(address) %2) unnamed_addr #0 {
+define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hab50f4213c0d18afE"(ptr noalias noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #0 {
   tail call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hedc192aa504b82bbE.llvm.2651244455829285093"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef %2)
   ret void
 }
@@ -63588,7 +63588,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hcdb325a280bb2753E"(ptr noalias noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef captures(address) %2) unnamed_addr #0 {
+define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hcdb325a280bb2753E"(ptr noalias noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #0 {
   tail call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17he290eb55adc1fa5cE.llvm.2651244455829285093"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef %2)
   ret void
 }
@@ -63824,7 +63824,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hf60488e4ed32f7b9E"(ptr noalias noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef captures(address) %2) unnamed_addr #0 {
+define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hf60488e4ed32f7b9E"(ptr noalias noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #0 {
   tail call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h31c13a676d28ad66E.llvm.2651244455829285093"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef %2)
   ret void
 }

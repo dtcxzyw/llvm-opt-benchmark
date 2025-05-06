@@ -1280,7 +1280,7 @@ define dso_local void @unlink_anon_vmas(ptr noundef captures(address) %0) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -12, 1) i32 @anon_vma_fork(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -12, 1) i32 @anon_vma_fork(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

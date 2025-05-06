@@ -1402,7 +1402,7 @@ _ZNK4llvm6DIFile9getSourceEv.exit:                ; preds = %_ZNK4llvm6DIFile11g
 declare void @_ZNK4llvm10DwarfDebug13getMD5AsBytesEPKNS_6DIFileE(ptr dead_on_unwind writable sret(%"class.std::optional") align 1, ptr noundef nonnull align 8 dereferenceable(5876), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull ptr @_ZN4llvm16DwarfCompileUnit28getOrCreateGlobalVariableDIEEPKNS_16DIGlobalVariableENS_8ArrayRefINS0_10GlobalExprEEE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef %1, ptr captures(address) %2, i64 %3) local_unnamed_addr #1 align 2 {
+define dso_local noundef nonnull ptr @_ZN4llvm16DwarfCompileUnit28getOrCreateGlobalVariableDIEEPKNS_16DIGlobalVariableENS_8ArrayRefINS0_10GlobalExprEEE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #1 align 2 {
   %5 = tail call noundef ptr @_ZNK4llvm9DwarfUnit6getDIEEPKNS_6DINodeE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1) #26
   %.not.not = icmp eq ptr %5, null
   br i1 %.not.not, label %6, label %159
@@ -1725,7 +1725,7 @@ _ZNK4llvm16DIGlobalVariable17getTemplateParamsEv.exit: ; preds = %147, %150
 declare noundef ptr @_ZNK4llvm9DwarfUnit6getDIEEPKNS_6DINodeE(ptr noundef nonnull align 8 dereferenceable(328), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull ptr @_ZN4llvm16DwarfCompileUnit22getOrCreateCommonBlockEPKNS_13DICommonBlockENS_8ArrayRefINS0_10GlobalExprEEE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef %1, ptr captures(address) %2, i64 %3) local_unnamed_addr #1 align 2 {
+define dso_local noundef nonnull ptr @_ZN4llvm16DwarfCompileUnit22getOrCreateCommonBlockEPKNS_13DICommonBlockENS_8ArrayRefINS0_10GlobalExprEEE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #1 align 2 {
   %5 = tail call noundef ptr @_ZNK4llvm9DwarfUnit6getDIEEPKNS_6DINodeE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1) #26
   %.not.not = icmp eq ptr %5, null
   br i1 %.not.not, label %6, label %92
@@ -7095,7 +7095,7 @@ _ZN4llvm3DIE3getERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EL
   br label %"_ZSt5visitIZN4llvm16DwarfCompileUnit20constructVariableDIEERNS0_11DbgVariableEbE3$_0JRSt7variantIJSt9monostateNS0_3Loc6SingleENS7_5MultiENS7_3MMIENS7_10EntryValueEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit"
 
 45:                                               ; preds = %37
-  tail call void @_ZN4llvm16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc10EntryValueERKNS_11DbgVariableERNS_3DIEE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef nonnull align 8 dereferenceable(49) %38, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i)
+  tail call void @_ZN4llvm16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc10EntryValueERKNS_11DbgVariableERNS_3DIEE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef nonnull readonly align 8 dereferenceable(49) %38, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i)
   br label %"_ZSt5visitIZN4llvm16DwarfCompileUnit20constructVariableDIEERNS0_11DbgVariableEbE3$_0JRSt7variantIJSt9monostateNS0_3Loc6SingleENS7_5MultiENS7_3MMIENS7_10EntryValueEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit"
 
 46:                                               ; preds = %37

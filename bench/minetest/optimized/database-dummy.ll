@@ -1029,7 +1029,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZThn8_N14Database_Dummy10loadPlayerEP12RemotePlayerP9PlayerSAO(ptr noundef captures(address) %this, ptr noundef readonly captures(none) %player, ptr readnone captures(none) %sao) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZThn8_N14Database_Dummy10loadPlayerEP12RemotePlayerP9PlayerSAO(ptr noundef readonly captures(address) %this, ptr noundef readonly captures(none) %player, ptr readnone captures(none) %sao) unnamed_addr #7 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   %call = tail call noundef zeroext i1 @_ZN14Database_Dummy10loadPlayerEP12RemotePlayerP9PlayerSAO(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %player, ptr poison)
@@ -1142,7 +1142,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZThn8_N14Database_Dummy11listPlayersERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noundef captures(address) %this, ptr noundef nonnull align 8 dereferenceable(24) %res) unnamed_addr #7 align 2 {
+define dso_local void @_ZThn8_N14Database_Dummy11listPlayersERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noundef readonly captures(address) %this, ptr noundef nonnull align 8 dereferenceable(24) %res) unnamed_addr #7 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN14Database_Dummy11listPlayersERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(24) %res)

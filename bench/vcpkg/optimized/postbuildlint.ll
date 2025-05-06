@@ -9308,7 +9308,7 @@ _ZNR5vcpkg15LocalizedString10append_rawINS_13StringLiteralEvEERS0_RKT_.exit59.i:
           to label %_ZNR5vcpkg15LocalizedString6appendIJEJEEERS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit60.i unwind label %3141
 
 _ZNR5vcpkg15LocalizedString6appendIJEJEEERS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit60.i: ; preds = %_ZNR5vcpkg15LocalizedString10append_rawINS_13StringLiteralEvEERS0_RKT_.exit59.i
-  invoke fastcc void @_ZN5vcpkgL17append_binary_setERNS_15LocalizedStringENS_4SpanIKNS2_IKNS_4PathEEEEE(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr nonnull %266, i64 2)
+  invoke fastcc void @_ZN5vcpkgL17append_binary_setERNS_15LocalizedStringENS_4SpanIKNS2_IKNS_4PathEEEEE(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr nonnull readonly %266, i64 2)
           to label %_ZNR5vcpkg15LocalizedString6appendIJEJEEERS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit.i unwind label %3141
 
 _ZNR5vcpkg15LocalizedString6appendIJEJEEERS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit.i: ; preds = %_ZNR5vcpkg15LocalizedString6appendIJEJEEERS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit60.i, %_ZNR5vcpkg15LocalizedString10append_rawINS_13StringLiteralEvEERS0_RKT_.exit.i
@@ -9342,7 +9342,7 @@ _ZNR5vcpkg15LocalizedString10append_rawINS_13StringLiteralEvEERS0_RKT_.exit63.i:
           to label %_ZNR5vcpkg15LocalizedString6appendIJEJEEERS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit64.i unwind label %3141
 
 _ZNR5vcpkg15LocalizedString6appendIJEJEEERS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit64.i: ; preds = %_ZNR5vcpkg15LocalizedString10append_rawINS_13StringLiteralEvEERS0_RKT_.exit63.i
-  invoke fastcc void @_ZN5vcpkgL17append_binary_setERNS_15LocalizedStringENS_4SpanIKNS2_IKNS_4PathEEEEE(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr nonnull %267, i64 2)
+  invoke fastcc void @_ZN5vcpkgL17append_binary_setERNS_15LocalizedStringENS_4SpanIKNS2_IKNS_4PathEEEEE(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr nonnull readonly %267, i64 2)
           to label %_ZNR5vcpkg15LocalizedString6appendIJEJEEERS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit62.i unwind label %3141
 
 _ZNR5vcpkg15LocalizedString6appendIJEJEEERS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit62.i: ; preds = %_ZNR5vcpkg15LocalizedString6appendIJEJEEERS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit64.i, %_ZNR5vcpkg15LocalizedString10append_rawINS_13StringLiteralEvEERS0_RKT_.exit61.i

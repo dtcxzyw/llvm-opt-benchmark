@@ -11175,7 +11175,7 @@ thread-pre-split.backedge:                        ; preds = %208, %257, %211, %.
 }
 
 ; Function Attrs: inlinehint nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc nonnull ptr @set_then_offsets(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address) %2) unnamed_addr #10 {
+define internal fastcc nonnull ptr @set_then_offsets(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address) %2) unnamed_addr #10 {
   br label %4
 
 4:                                                ; preds = %4, %3
@@ -27908,7 +27908,7 @@ sljit_set_label.exit142:                          ; preds = %sljit_set_label.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @compile_matchingpath(ptr noundef nonnull %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef captures(address) %3) unnamed_addr #0 {
+define internal fastcc void @compile_matchingpath(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef captures(address) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca %struct.compare_context, align 4
@@ -27995,7 +27995,7 @@ sljit_alloc_memory.exit.i:                        ; preds = %35
   %51 = sub i64 %17, %50
   %52 = getelementptr inbounds nuw i8, ptr %.0.i.ph105.i, i64 48
   store i64 %51, ptr %52, align 8, !tbaa !270
-  %53 = call fastcc i32 @get_framesize(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef %8)
+  %53 = call fastcc i32 @get_framesize(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readnone %2, i32 noundef 0, ptr noundef %8)
   %54 = getelementptr inbounds nuw i8, ptr %.0.i.ph105.i, i64 64
   store i32 %53, ptr %54, align 8, !tbaa !271
   %55 = tail call i32 @llvm.smax.i32(i32 %53, i32 0)
@@ -28143,7 +28143,7 @@ sljit_emit_op1.exit68.i:                          ; preds = %emit_mov.exit77.thr
 
 101:                                              ; preds = %sljit_emit_op1.exit68.i
   %102 = add nsw i32 %99, -1
-  tail call fastcc void @init_frame(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %102)
+  tail call fastcc void @init_frame(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readnone %2, i32 noundef %102)
   br label %compile_then_trap_matchingpath.exit
 
 compile_then_trap_matchingpath.exit:              ; preds = %22, %40, %sljit_alloc_memory.exit.i, %sljit_emit_op1.exit68.i, %101

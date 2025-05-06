@@ -6669,7 +6669,7 @@ declare ptr @get_systemfile_dir() local_unnamed_addr #4
 declare zeroext i1 @file_exists(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef ptr @get_ethent(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1) unnamed_addr #3 {
+define internal fastcc noundef ptr @get_ethent(ptr noundef writeonly captures(address_is_null) %0, i1 noundef zeroext %1) unnamed_addr #3 {
   %3 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #24
   %4 = load ptr, ptr @eth_p, align 8

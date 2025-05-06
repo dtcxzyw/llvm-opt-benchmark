@@ -3405,7 +3405,7 @@ _ZNSt3setIPN4Luau6detail4NodeESt4lessIS3_ESaIS3_EE4findERKS3_.exit25: ; preds = 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau6detail5drainERNSt7__cxx114listISt10unique_ptrINS0_4NodeESt14default_deleteIS4_EESaIS7_EEERSt6vectorIPNS_7AstStatESaISD_EEPS4_(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noundef captures(address) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau6detail5drainERNSt7__cxx114listISt10unique_ptrINS0_4NodeESt14default_deleteIS4_EESaIS7_EEERSt6vectorIPNS_7AstStatESaISD_EEPS4_(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Rb_tree<Luau::detail::Node *, std::pair<Luau::detail::Node *const, Luau::detail::Arcs>, std::_Select1st<std::pair<Luau::detail::Node *const, Luau::detail::Arcs>>, std::less<Luau::detail::Node *>>::_Auto_node", align 8
   %5 = alloca %"class.std::tuple.92", align 8
   %6 = alloca %"class.std::tuple.95", align 1

@@ -808,7 +808,7 @@ _ZN4Json5Value10setCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %107 = icmp eq i8 %106, 10
   %spec.select.i.i = select i1 %107, i64 %104, i64 %95
   %108 = getelementptr inbounds nuw i8, ptr %103, i64 16
-  call void @_ZN4Json5Value11CommentInfo10setCommentEPKcm(ptr noundef nonnull align 8 dereferenceable(8) %108, ptr noundef %98, i64 noundef %spec.select.i.i)
+  call void @_ZN4Json5Value11CommentInfo10setCommentEPKcm(ptr noundef nonnull align 8 dereferenceable(8) %108, ptr noundef readonly %98, i64 noundef %spec.select.i.i)
   br label %109
 
 109:                                              ; preds = %_ZN4Json5Value10setCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16CommentPlacementE.exit, %94, %_ZN4Json6Reader17skipCommentTokensERNS0_5TokenE.exit
@@ -1107,7 +1107,7 @@ _ZN4Json5Value10setCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %69 = load i8, ptr %68, align 1, !tbaa !17
   %70 = icmp eq i8 %69, 10
   %spec.select.i.i = select i1 %70, i64 %67, i64 %44
-  tail call void @_ZN4Json5Value11CommentInfo10setCommentEPKcm(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef %61, i64 noundef %spec.select.i.i)
+  tail call void @_ZN4Json5Value11CommentInfo10setCommentEPKcm(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef readonly %61, i64 noundef %spec.select.i.i)
   %71 = load i64, ptr %43, align 8, !tbaa !14
   %72 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %42, i64 noundef 0, i64 noundef %71, ptr noundef nonnull @.str, i64 noundef 0)
   br label %73
@@ -1492,7 +1492,7 @@ _ZN4Json5Value10setCommentEPKcmNS_16CommentPlacementE.exit: ; preds = %11, %13
   %.0.i = phi i64 [ 0, %11 ], [ %spec.select.i, %13 ]
   %18 = zext i32 %2 to i64
   %19 = getelementptr inbounds nuw %"struct.Json::Value::CommentInfo", ptr %12, i64 %18
-  tail call void @_ZN4Json5Value11CommentInfo10setCommentEPKcm(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %4, i64 noundef %.0.i)
+  tail call void @_ZN4Json5Value11CommentInfo10setCommentEPKcm(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef readonly %4, i64 noundef %.0.i)
   ret void
 }
 
@@ -4126,7 +4126,7 @@ define dso_local void @_ZN4Json6Reader10addCommentEPKcS2_NS_16CommentPlacementE(
 _ZN4Json5Value10setCommentEPKcmNS_16CommentPlacementE.exit.i: ; preds = %19, %17
   %.0.i.i = phi i64 [ 0, %17 ], [ %spec.select.i.i, %19 ]
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  invoke void @_ZN4Json5Value11CommentInfo10setCommentEPKcm(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef %10, i64 noundef %.0.i.i)
+  invoke void @_ZN4Json5Value11CommentInfo10setCommentEPKcm(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef readonly %10, i64 noundef %.0.i.i)
           to label %_ZN4Json5Value10setCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16CommentPlacementE.exit unwind label %25
 
 25:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i, %42, %_ZN4Json5Value10setCommentEPKcmNS_16CommentPlacementE.exit.i, %15
@@ -8203,7 +8203,7 @@ _ZN4Json5Value10setCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %140 = icmp eq i8 %139, 10
   %spec.select.i.i = select i1 %140, i64 %137, i64 %128
   %141 = getelementptr inbounds nuw i8, ptr %136, i64 16
-  call void @_ZN4Json5Value11CommentInfo10setCommentEPKcm(ptr noundef nonnull align 8 dereferenceable(8) %141, ptr noundef %131, i64 noundef %spec.select.i.i)
+  call void @_ZN4Json5Value11CommentInfo10setCommentEPKcm(ptr noundef nonnull align 8 dereferenceable(8) %141, ptr noundef readonly %131, i64 noundef %spec.select.i.i)
   br label %142
 
 142:                                              ; preds = %_ZN4Json5Value10setCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16CommentPlacementE.exit, %127, %124
@@ -8447,7 +8447,7 @@ _ZN4Json5Value10setCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %75 = load i8, ptr %74, align 1, !tbaa !17
   %76 = icmp eq i8 %75, 10
   %spec.select.i.i = select i1 %76, i64 %73, i64 %50
-  tail call void @_ZN4Json5Value11CommentInfo10setCommentEPKcm(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef %67, i64 noundef %spec.select.i.i)
+  tail call void @_ZN4Json5Value11CommentInfo10setCommentEPKcm(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef readonly %67, i64 noundef %spec.select.i.i)
   %77 = load i64, ptr %49, align 8, !tbaa !14
   %78 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %48, i64 noundef 0, i64 noundef %77, ptr noundef nonnull @.str, i64 noundef 0)
   br label %79
@@ -12271,7 +12271,7 @@ define dso_local void @_ZN4Json9OurReader10addCommentEPKcS2_NS_16CommentPlacemen
 _ZN4Json5Value10setCommentEPKcmNS_16CommentPlacementE.exit.i: ; preds = %19, %17
   %.0.i.i = phi i64 [ 0, %17 ], [ %spec.select.i.i, %19 ]
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  invoke void @_ZN4Json5Value11CommentInfo10setCommentEPKcm(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef %10, i64 noundef %.0.i.i)
+  invoke void @_ZN4Json5Value11CommentInfo10setCommentEPKcm(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef readonly %10, i64 noundef %.0.i.i)
           to label %_ZN4Json5Value10setCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16CommentPlacementE.exit unwind label %25
 
 25:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i, %42, %_ZN4Json5Value10setCommentEPKcmNS_16CommentPlacementE.exit.i, %15
@@ -26814,7 +26814,7 @@ define dso_local noundef zeroext i1 @_ZNK4Json5Value8isStringEv(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Json5Value10setCommentEPKcmNS_16CommentPlacementE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Json5Value10setCommentEPKcmNS_16CommentPlacementE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !81
   %.not = icmp eq ptr %6, null
@@ -26850,7 +26850,7 @@ define dso_local void @_ZN4Json5Value10setCommentEPKcmNS_16CommentPlacementE(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Json5Value10setCommentEPKcNS_16CommentPlacementE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Json5Value10setCommentEPKcNS_16CommentPlacementE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #49
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !81
@@ -26882,7 +26882,7 @@ _ZN4Json5Value10setCommentEPKcmNS_16CommentPlacementE.exit: ; preds = %9, %11
   %.0.i = phi i64 [ 0, %9 ], [ %spec.select.i, %11 ]
   %16 = zext i32 %2 to i64
   %17 = getelementptr inbounds nuw %"struct.Json::Value::CommentInfo", ptr %10, i64 %16
-  tail call void @_ZN4Json5Value11CommentInfo10setCommentEPKcm(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %1, i64 noundef %.0.i)
+  tail call void @_ZN4Json5Value11CommentInfo10setCommentEPKcm(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull readonly %1, i64 noundef %.0.i)
   ret void
 }
 

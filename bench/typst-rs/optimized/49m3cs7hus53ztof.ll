@@ -58089,7 +58089,7 @@ define noundef zeroext i1 @_ZN5typst11foundations8selector8Selector7matches17h65
   %124 = zext nneg i8 %123 to i64
   %.sroa.3.0.i.i = select i1 %119, i64 %124, i64 %122
   %.sroa.0.0.i.i = select i1 %119, ptr %116, ptr %120
-  %125 = tail call fastcc noundef zeroext i1 @_ZN5regex5regex6string5Regex11is_match_at17h4e94ad186f87f8f6E(ptr %.val, ptr %.val50, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.3.0.i.i)
+  %125 = tail call fastcc noundef zeroext i1 @_ZN5regex5regex6string5Regex11is_match_at17h4e94ad186f87f8f6E(ptr readonly %.val, ptr %.val50, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.3.0.i.i)
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h8bdacfac0d46a9b1E.exit"
 }
 

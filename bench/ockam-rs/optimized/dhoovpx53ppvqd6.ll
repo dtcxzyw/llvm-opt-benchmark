@@ -298,7 +298,7 @@ default.unreachable4:                             ; preds = %1
 9:                                                ; preds = %5
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he22e750b08ea210cE"(ptr nonnull %.val, ptr nonnull %.val1) #24
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he22e750b08ea210cE"(ptr nonnull %.val, ptr nonnull readonly %.val1) #24
   resume { ptr, i32 } %10
 
 11:                                               ; preds = %5

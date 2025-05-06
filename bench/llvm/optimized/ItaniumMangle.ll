@@ -36629,7 +36629,7 @@ _ZN4llvm11raw_ostreamlsEc.exit34:                 ; preds = %118, %120
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114CXXNameMangler21mangleUnqualifiedNameEN5clang10GlobalDeclENS1_15DeclarationNameEPKNS1_11DeclContextEjPKN4llvm11SmallVectorINS7_9StringRefELj4EEE(ptr noundef nonnull align 8 dereferenceable(280) %0, i64 %1, i64 %2, ptr noundef %3, ptr noundef captures(address) %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114CXXNameMangler21mangleUnqualifiedNameEN5clang10GlobalDeclENS1_15DeclarationNameEPKNS1_11DeclContextEjPKN4llvm11SmallVectorINS7_9StringRefELj4EEE(ptr noundef nonnull align 8 dereferenceable(280) %0, i64 %1, i64 %2, ptr noundef %3, ptr noundef readonly captures(address) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::SmallString.905", align 8
   %7 = alloca %"class.llvm::raw_svector_ostream", align 8
   %8 = alloca %"class.llvm::SmallString.909", align 8

@@ -510,7 +510,7 @@ define void @html_form_data_tag_free(ptr noundef captures(none) %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @html_normalise_mem(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
+define noundef zeroext i1 @html_normalise_mem(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.m_area_tag, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #17
   store ptr %1, ptr %7, align 8, !tbaa !25
@@ -518,13 +518,13 @@ define noundef zeroext i1 @html_normalise_mem(ptr noundef %0, ptr noundef %1, i6
   store i64 %2, ptr %8, align 8, !tbaa !28
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  %10 = call fastcc noundef zeroext i1 @cli_html_normalise(ptr noundef %0, ptr noundef %7, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef null)
+  %10 = call fastcc noundef zeroext i1 @cli_html_normalise(ptr noundef %0, ptr noundef %7, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #17
   ret i1 %10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @html_normalise_mem_form_data(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
+define noundef zeroext i1 @html_normalise_mem_form_data(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca %struct.m_area_tag, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #17
   store ptr %1, ptr %8, align 8, !tbaa !25
@@ -5464,7 +5464,7 @@ html_output_flush.exit1838:                       ; preds = %2105, %2108
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @html_normalise_map(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define noundef zeroext i1 @html_normalise_map(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.m_area_tag, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #17
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -5475,13 +5475,13 @@ define noundef zeroext i1 @html_normalise_map(ptr noundef %0, ptr noundef %1, pt
   store i64 0, ptr %10, align 8, !tbaa !51
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %1, ptr %11, align 8, !tbaa !52
-  %12 = call fastcc noundef zeroext i1 @cli_html_normalise(ptr noundef %0, ptr noundef %6, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null)
+  %12 = call fastcc noundef zeroext i1 @cli_html_normalise(ptr noundef %0, ptr noundef %6, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
   ret i1 %12
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @html_normalise_map_form_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
+define noundef zeroext i1 @html_normalise_map_form_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.m_area_tag, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #17
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 88

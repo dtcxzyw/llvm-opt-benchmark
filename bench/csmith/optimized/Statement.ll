@@ -1743,7 +1743,7 @@ define dso_local noundef zeroext i1 @_ZNK9Statement8in_blockEPK5Block(ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK9Statement8dominateEPKS_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %0, ptr noundef captures(address) %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK9Statement8dominateEPKS_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !144
   %5 = icmp eq ptr %4, %0
@@ -3668,7 +3668,7 @@ _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit22:          ; preds = %70, %72
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK9Statement13contains_stmtEPKS_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef captures(address) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK9Statement13contains_stmtEPKS_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.3", align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %5
@@ -4393,7 +4393,7 @@ define dso_local noundef zeroext i1 @_ZNK9Statement10is_1st_stmEv(ptr noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK9Statement32is_jump_target_from_other_blocksEv(ptr noundef nonnull align 8 captures(address) dereferenceable(32) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK9Statement32is_jump_target_from_other_blocksEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.108", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
@@ -5659,7 +5659,7 @@ declare noundef zeroext i1 @_ZN7FactMgr22update_fact_for_assignEPK15StatementAss
 declare void @_ZN7FactMgr22update_fact_for_returnEPK15StatementReturnRSt6vectorIPK4FactSaIS6_EE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 2) i32 @_ZNK9Statement10pre_outputERSoP7FactMgri(ptr noundef nonnull align 8 captures(address) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef readnone captures(none) %2, i32 noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZNK9Statement10pre_outputERSoP7FactMgri(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef readnone captures(none) %2, i32 noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.108", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)

@@ -3086,7 +3086,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb8IOTracer9WriteIOOpERKNS_13IOTraceRecordEPNS_14IODebugContextE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb8IOTracer9WriteIOOpERKNS_13IOTraceRecordEPNS_14IODebugContextE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.rocksdb::Status", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load atomic i64, ptr %5 seq_cst, align 8

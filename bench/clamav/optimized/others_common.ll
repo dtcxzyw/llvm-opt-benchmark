@@ -832,7 +832,7 @@ define noundef nonnull ptr @cli_gettmpdir() local_unnamed_addr #18 {
 declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_ftw(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
+define i32 @cli_ftw(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.stat, align 8
   %8 = alloca i32, align 4
   %9 = alloca %struct.dirent_data, align 8
@@ -1175,7 +1175,7 @@ cli_safer_strdup.exit51:                          ; preds = %57
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @handle_entry(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc i32 @handle_entry(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca %struct.stat, align 8

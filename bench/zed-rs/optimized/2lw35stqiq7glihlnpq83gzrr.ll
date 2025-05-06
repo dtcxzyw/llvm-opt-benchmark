@@ -27162,7 +27162,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
   br label %544
 
 492:                                              ; preds = %486
-  invoke fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17he6da7c3b969c0b54E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %26, ptr noalias noundef nonnull align 8 dereferenceable(16) %56, ptr %.val342, ptr %.val343, ptr noalias noundef readonly align 8 dereferenceable(1696) dereferenceable_or_null(1696) %475)
+  invoke fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17he6da7c3b969c0b54E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %26, ptr noalias noundef nonnull align 8 dereferenceable(16) %56, ptr %.val342, ptr readonly %.val343, ptr noalias noundef readonly align 8 dereferenceable(1696) dereferenceable_or_null(1696) %475)
           to label %.noexc403 unwind label %.loopexit.split-lp928.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc403:                                        ; preds = %492
@@ -27234,7 +27234,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
 
 516:                                              ; preds = %513
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22), !noalias !5809
-  invoke fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder9read_bits17hbb4b73f1008da4fcE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %22, ptr noalias noundef nonnull align 8 dereferenceable(16) %56, ptr %.val342, ptr %.val343)
+  invoke fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder9read_bits17hbb4b73f1008da4fcE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %22, ptr noalias noundef nonnull align 8 dereferenceable(16) %56, ptr %.val342, ptr readonly %.val343)
           to label %.noexc406 unwind label %.loopexit.split-lp928.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc406:                                        ; preds = %516
@@ -27300,7 +27300,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
 
 548:                                              ; preds = %545
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21), !noalias !5814
-  invoke fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder9read_bits17hbb4b73f1008da4fcE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef nonnull align 8 dereferenceable(16) %56, ptr %.val342, ptr %.val343)
+  invoke fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder9read_bits17hbb4b73f1008da4fcE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef nonnull align 8 dereferenceable(16) %56, ptr %.val342, ptr readonly %.val343)
           to label %.noexc407 unwind label %.loopexit.split-lp928.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc407:                                        ; preds = %548
@@ -27367,7 +27367,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
 
 570:                                              ; preds = %551, %544
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25), !noalias !5780
-  invoke fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17he6da7c3b969c0b54E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %25, ptr noalias noundef nonnull align 8 dereferenceable(16) %56, ptr %.val342, ptr %.val343, ptr noalias noundef readonly align 8 dereferenceable(1696) dereferenceable_or_null(1696) %482)
+  invoke fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17he6da7c3b969c0b54E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %25, ptr noalias noundef nonnull align 8 dereferenceable(16) %56, ptr %.val342, ptr readonly %.val343, ptr noalias noundef readonly align 8 dereferenceable(1696) dereferenceable_or_null(1696) %482)
           to label %.noexc408 unwind label %.loopexit.split-lp928.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc408:                                        ; preds = %570
@@ -27437,7 +27437,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
 
 603:                                              ; preds = %600
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24), !noalias !5780
-  invoke fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder8get_bits17hd2cd18f3c0bf54bfE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %24, ptr noalias noundef nonnull align 8 dereferenceable(16) %56, ptr %.val342, ptr %.val343, i8 noundef %589)
+  invoke fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder8get_bits17hd2cd18f3c0bf54bfE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %24, ptr noalias noundef nonnull align 8 dereferenceable(16) %56, ptr %.val342, ptr readonly %.val343, i8 noundef %589)
           to label %.noexc411 unwind label %.loopexit.split-lp928.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc411:                                        ; preds = %603
@@ -27473,7 +27473,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
 
 614:                                              ; preds = %611
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20), !noalias !5826
-  invoke fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder9read_bits17hbb4b73f1008da4fcE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %20, ptr noalias noundef nonnull align 8 dereferenceable(16) %56, ptr %.val342, ptr %.val343)
+  invoke fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder9read_bits17hbb4b73f1008da4fcE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %20, ptr noalias noundef nonnull align 8 dereferenceable(16) %56, ptr %.val342, ptr readonly %.val343)
           to label %.noexc412 unwind label %.loopexit.split-lp928.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc412:                                        ; preds = %614
@@ -27577,7 +27577,7 @@ _ZN12jpeg_decoder7decoder12decode_block17ha0733174208708c3E.exit: ; preds = %751
 
 663:                                              ; preds = %660
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16), !noalias !5841
-  invoke fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder9read_bits17hbb4b73f1008da4fcE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef nonnull align 8 dereferenceable(16) %56, ptr %.val342, ptr %.val343)
+  invoke fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder9read_bits17hbb4b73f1008da4fcE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef nonnull align 8 dereferenceable(16) %56, ptr %.val342, ptr readonly %.val343)
           to label %.noexc425 unwind label %.loopexit.split-lp928.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc425:                                        ; preds = %663
@@ -27632,7 +27632,7 @@ _ZN12jpeg_decoder7decoder12decode_block17ha0733174208708c3E.exit: ; preds = %751
 678:                                              ; preds = %667
   %679 = add i16 %.sroa.0475.61557, -1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19), !noalias !5842
-  invoke fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h3d63ecd09ff697b1E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %19, ptr %.val342, ptr %.val343, ptr noalias noundef nonnull align 2 dereferenceable(128) %.pn926, ptr noalias noundef nonnull align 8 dereferenceable(16) %56, i8 noundef %105, i8 noundef %.val347, i8 noundef 64, i16 noundef %310)
+  invoke fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h3d63ecd09ff697b1E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %19, ptr %.val342, ptr readonly %.val343, ptr noalias noundef nonnull align 2 dereferenceable(128) %.pn926, ptr noalias noundef nonnull align 8 dereferenceable(16) %56, i8 noundef %105, i8 noundef %.val347, i8 noundef 64, i16 noundef %310)
           to label %.noexc427 unwind label %.loopexit.split-lp928.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc427:                                        ; preds = %678
@@ -27644,7 +27644,7 @@ _ZN12jpeg_decoder7decoder12decode_block17ha0733174208708c3E.exit: ; preds = %751
   %.sroa.0475.13 = phi i16 [ %.sroa.0475.14, %751 ], [ 0, %.lr.ph.i418 ]
   %.sroa.060.054.i = phi i8 [ %752, %751 ], [ %105, %.lr.ph.i418 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18), !noalias !5842
-  invoke fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17he6da7c3b969c0b54E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef nonnull align 8 dereferenceable(16) %56, ptr %.val342, ptr %.val343, ptr noalias noundef readonly align 8 dereferenceable(1696) dereferenceable_or_null(1696) %657)
+  invoke fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17he6da7c3b969c0b54E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef nonnull align 8 dereferenceable(16) %56, ptr %.val342, ptr readonly %.val343, ptr noalias noundef readonly align 8 dereferenceable(1696) dereferenceable_or_null(1696) %657)
           to label %.noexc428 unwind label %.loopexit.split-lp928.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc428:                                        ; preds = %.lr.ph.split.i419
@@ -27705,7 +27705,7 @@ _ZN12jpeg_decoder7decoder12decode_block17ha0733174208708c3E.exit: ; preds = %751
 
 703:                                              ; preds = %700
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !5856
-  invoke fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder9read_bits17hbb4b73f1008da4fcE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull align 8 dereferenceable(16) %56, ptr %.val342, ptr %.val343)
+  invoke fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder9read_bits17hbb4b73f1008da4fcE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull align 8 dereferenceable(16) %56, ptr %.val342, ptr readonly %.val343)
           to label %.noexc431 unwind label %.loopexit.split-lp928.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc431:                                        ; preds = %703
@@ -27723,7 +27723,7 @@ _ZN12jpeg_decoder7decoder12decode_block17ha0733174208708c3E.exit: ; preds = %751
   %.sroa.052.0.i = phi i8 [ %686, %736 ], [ 15, %698 ], [ 64, %710 ], [ 64, %720 ]
   %.sroa.065.0.i = phi i16 [ %..i, %736 ], [ 0, %698 ], [ 0, %710 ], [ 0, %720 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17), !noalias !5842
-  invoke fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h3d63ecd09ff697b1E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %17, ptr %.val342, ptr %.val343, ptr noalias noundef nonnull align 2 dereferenceable(128) %.pn926, ptr noalias noundef nonnull align 8 dereferenceable(16) %56, i8 noundef %.sroa.060.054.i, i8 noundef %.val347, i8 noundef %.sroa.052.0.i, i16 noundef %310)
+  invoke fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h3d63ecd09ff697b1E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %17, ptr %.val342, ptr readonly %.val343, ptr noalias noundef nonnull align 2 dereferenceable(128) %.pn926, ptr noalias noundef nonnull align 8 dereferenceable(16) %56, i8 noundef %.sroa.060.054.i, i8 noundef %.val347, i8 noundef %.sroa.052.0.i, i16 noundef %310)
           to label %.noexc432 unwind label %.loopexit.split-lp928.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc432:                                        ; preds = %707
@@ -27746,7 +27746,7 @@ _ZN12jpeg_decoder7decoder12decode_block17ha0733174208708c3E.exit: ; preds = %751
 
 716:                                              ; preds = %713
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !5863
-  invoke fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder9read_bits17hbb4b73f1008da4fcE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull align 8 dereferenceable(16) %56, ptr %.val342, ptr %.val343)
+  invoke fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder9read_bits17hbb4b73f1008da4fcE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull align 8 dereferenceable(16) %56, ptr %.val342, ptr readonly %.val343)
           to label %.noexc433 unwind label %.loopexit.split-lp928.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc433:                                        ; preds = %716
@@ -31355,7 +31355,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
 
 639:                                              ; preds = %636
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !6597
-  invoke fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder9read_bits17hbb4b73f1008da4fcE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(16) %34, ptr %.val281.i, ptr %.val282.i)
+  invoke fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder9read_bits17hbb4b73f1008da4fcE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(16) %34, ptr %.val281.i, ptr readonly %.val282.i)
           to label %.noexc318.us.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i, !noalias !6554
 
 .noexc318.us.i:                                   ; preds = %639
@@ -33535,7 +33535,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$3new17h38ef89a5e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h3d63ecd09ff697b1E(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(24) %0, ptr %.0.val, ptr captures(address_is_null) %.8.val, ptr noalias noundef nonnull align 2 captures(none) dereferenceable(128) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %2, i8 noundef %3, i8 noundef %4, i8 noundef range(i8 0, 65) %5, i16 noundef range(i16 1, -32767) %6) unnamed_addr #0 {
+define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h3d63ecd09ff697b1E(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(24) %0, ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull align 2 captures(none) dereferenceable(128) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %2, i8 noundef %3, i8 noundef %4, i8 noundef range(i8 0, 65) %5, i16 noundef range(i16 1, -32767) %6) unnamed_addr #0 {
   %8 = alloca [24 x i8], align 8
   %9 = alloca [24 x i8], align 8
   %10 = alloca [24 x i8], align 8
@@ -33598,7 +33598,7 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h3d63
 
 36:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !6992
-  call fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder9read_bits17hbb4b73f1008da4fcE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr %.0.val, ptr %.8.val), !noalias !6990
+  call fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder9read_bits17hbb4b73f1008da4fcE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr %.0.val, ptr readonly %.8.val), !noalias !6990
   %37 = load i64, ptr %10, align 8, !range !5740, !noalias !6992, !noundef !4
   %38 = icmp eq i64 %37, -9223372036854775805
   br i1 %38, label %39, label %54
@@ -33739,7 +33739,7 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h3d63
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17he6da7c3b969c0b54E(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1, ptr %.0.val, ptr captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(1696) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17he6da7c3b969c0b54E(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1, ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(1696) %2) unnamed_addr #0 {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -33873,7 +33873,7 @@ define internal fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder8get_bits17hd2cd18f3c0bf54bfE(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(24) initializes((0, 10)) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1, ptr %.0.val, ptr captures(address_is_null) %.8.val, i8 noundef range(i8 1, 16) %2) unnamed_addr #2 {
+define internal fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder8get_bits17hd2cd18f3c0bf54bfE(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(24) initializes((0, 10)) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1, ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i8 noundef range(i8 1, 16) %2) unnamed_addr #2 {
   %4 = alloca [24 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 8, !noundef !4

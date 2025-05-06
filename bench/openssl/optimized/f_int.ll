@@ -336,7 +336,7 @@ declare ptr @CRYPTO_clear_realloc(ptr noundef, i64 noundef, i64 noundef, ptr nou
 declare i32 @OPENSSL_hexchar2int(i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483646, -2147483648) i32 @i2a_ASN1_ENUMERATED(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -2147483646, -2147483648) i32 @i2a_ASN1_ENUMERATED(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @i2a_ASN1_INTEGER(ptr noundef %0, ptr noundef %1)
   ret i32 %3
 }

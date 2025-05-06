@@ -3713,7 +3713,7 @@ _ZNSt12_Vector_baseIN3ue211RoseProgramESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Destr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue218makeLiteralProgramERKNS_13RoseBuildImplERKSt3mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEENS_15left_build_infoESt4lessISB_ESaISt4pairIKSB_SC_EEERKS3_INS_9suffix_idEjSD_ISM_ESaISF_IKSM_jEEERKS3_IjNS_11engine_infoESD_IjESaISF_IKjSU_EEERKSt13unordered_mapISB_jSt4hashISB_ESt8equal_toISB_ESaISF_ISG_jEEERNS_12ProgramBuildEjRKSt6vectorINS4_15edge_descriptorISA_EESaIS1G_EEb(ptr dead_on_unwind noalias writable writeonly sret(%"class.ue2::RoseProgram") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(780) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(240) %6, i32 noundef %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %8, i1 noundef zeroext %9) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue218makeLiteralProgramERKNS_13RoseBuildImplERKSt3mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEENS_15left_build_infoESt4lessISB_ESaISt4pairIKSB_SC_EEERKS3_INS_9suffix_idEjSD_ISM_ESaISF_IKSM_jEEERKS3_IjNS_11engine_infoESD_IjESaISF_IKjSU_EEERKSt13unordered_mapISB_jSt4hashISB_ESt8equal_toISB_ESaISF_ISG_jEEERNS_12ProgramBuildEjRKSt6vectorINS4_15edge_descriptorISA_EESaIS1G_EEb(ptr dead_on_unwind noalias writable writeonly sret(%"class.ue2::RoseProgram") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(780) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(240) %6, i32 noundef %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %8, i1 noundef zeroext %9) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"class.std::unique_ptr", align 8
   %12 = alloca %"class.std::tuple.742", align 8
   %13 = alloca %"class.std::tuple.733", align 1
@@ -4238,7 +4238,7 @@ _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE2atEm.exit.i: ; preds = %268, %260
   %.val28.i = load ptr, ptr %storemerge.i.i.i.i.i.i, align 8, !noalias !116
   %275 = getelementptr i8, ptr %storemerge.i.i.i.i.i.i, i64 8
   %.val29.i = load i64, ptr %275, align 8
-  invoke fastcc void @_ZN3ue2L27makePushDelayedInstructionsERKNS_14RoseLiteralMapERNS_12ProgramBuildERKNS_8flat_setIjSt4lessIjESaIjEEERNS_11RoseProgramE(ptr noundef nonnull align 8 dereferenceable(136) %274, ptr noundef nonnull align 8 dereferenceable(240) %6, ptr %.val28.i, i64 %.val29.i, ptr noundef nonnull align 8 dereferenceable(24) %17)
+  invoke fastcc void @_ZN3ue2L27makePushDelayedInstructionsERKNS_14RoseLiteralMapERNS_12ProgramBuildERKNS_8flat_setIjSt4lessIjESaIjEEERNS_11RoseProgramE(ptr noundef nonnull align 8 dereferenceable(136) %274, ptr noundef nonnull readonly align 8 dereferenceable(240) %6, ptr %.val28.i, i64 %.val29.i, ptr noundef nonnull align 8 dereferenceable(24) %17)
           to label %276 unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 276:                                              ; preds = %_ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE2atEm.exit.i
@@ -9667,7 +9667,7 @@ _ZNSt10unique_ptrIN3ue212RoseInstrEndESt14default_deleteIS1_EED2Ev.exit11.i35.i:
   %1494 = load ptr, ptr %1493, align 8
   %1495 = getelementptr inbounds nuw i8, ptr %1494, i64 312
   %1496 = load i64, ptr %1495, align 8
-  invoke fastcc void @_ZN3ue2L15makeRoleReportsERKNS_13RoseBuildImplERKSt3mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEENS_15left_build_infoESt4lessISB_ESaISt4pairIKSB_SC_EEEbSB_RNS_11RoseProgramE(ptr noundef nonnull align 8 dereferenceable(780) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i1 noundef zeroext %1461, ptr nonnull %1494, i64 %1496, ptr noundef nonnull align 8 dereferenceable(24) %12)
+  invoke fastcc void @_ZN3ue2L15makeRoleReportsERKNS_13RoseBuildImplERKSt3mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEENS_15left_build_infoESt4lessISB_ESaISt4pairIKSB_SC_EEEbSB_RNS_11RoseProgramE(ptr noundef nonnull align 8 dereferenceable(780) %1, ptr noundef nonnull readonly align 8 dereferenceable(48) %2, i1 noundef zeroext %1461, ptr nonnull %1494, i64 %1496, ptr noundef nonnull align 8 dereferenceable(24) %12)
           to label %1497 unwind label %.loopexit.split-lp66.i
 
 1497:                                             ; preds = %1490
@@ -12041,7 +12041,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjN3ue211RoseProgramEESt10_Select1stIS4_ESt4lessIjESaIS4
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue223makeDelayRebuildProgramERKNS_13RoseBuildImplERNS_12ProgramBuildERKSt6vectorIjSaIjEE(ptr dead_on_unwind noalias writable sret(%"class.ue2::RoseProgram") align 8 %0, ptr noundef nonnull align 8 dereferenceable(780) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(240) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue223makeDelayRebuildProgramERKNS_13RoseBuildImplERNS_12ProgramBuildERKSt6vectorIjSaIjEE(ptr dead_on_unwind noalias writable sret(%"class.ue2::RoseProgram") align 8 %0, ptr noundef nonnull align 8 dereferenceable(780) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(240) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.145", align 8
   %6 = alloca %"class.ue2::RoseProgram", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #29

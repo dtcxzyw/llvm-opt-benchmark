@@ -466,7 +466,7 @@ dictCheckRehashingCompleted.exit:                 ; preds = %53, %67, %.critedge
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @_dictExpand(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @_dictExpand(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8, !tbaa !14
   %.not = icmp eq i64 %5, -1
@@ -1044,7 +1044,7 @@ dictAddRaw.exit.thread:                           ; preds = %3, %12, %dictSetVal
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @dictAddRaw(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 {
+define dso_local ptr @dictAddRaw(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = tail call ptr @dictFindPositionForInsert(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %13, label %5
@@ -4853,7 +4853,7 @@ dictShrink.exit:                                  ; preds = %12, %48, %dictTypeR
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @dictEmpty(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #3 {
+define dso_local void @dictEmpty(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !14
   %.not = icmp eq i64 %4, -1

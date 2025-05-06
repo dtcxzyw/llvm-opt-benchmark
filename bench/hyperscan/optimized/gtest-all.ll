@@ -20594,7 +20594,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_PKvPFvvES6_PNS0_15TestFactoryBaseE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -20935,7 +20935,7 @@ _ZNK7testing8TestInfo10type_paramEv.exit:         ; preds = %32, %36
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7testing8internal25ReportInvalidTestCaseTypeEPKcS2_i(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7testing8internal25ReportInvalidTestCaseTypeEPKcS2_i(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(392) ptr @_Znwm(i64 noundef 392) #58
@@ -39636,7 +39636,7 @@ _ZN7testing8internal12UnitTestImpl26RegisterParameterizedTestsEv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7testing8internal12UnitTestImpl11GetTestCaseEPKcS3_PFvvES5_(ptr noundef nonnull align 8 dereferenceable(401) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN7testing8internal12UnitTestImpl11GetTestCaseEPKcS3_PFvvES5_(ptr noundef nonnull align 8 dereferenceable(401) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -62473,7 +62473,7 @@ declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 
 declare i32 @regcomp(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7testing8internal8GTestLogC2ENS0_16GTestLogSeverityEPKci(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7testing8internal8GTestLogC2ENS0_16GTestLogSeverityEPKci(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   store i32 %1, ptr %0, align 4
   %6 = icmp eq i32 %1, 0
@@ -64495,7 +64495,7 @@ define hidden void @_ZN7testing8internal24HasNewFatalFailureHelper20ReportTestPa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7testing8internal19TypedTestCasePState25VerifyRegisteredTestNamesEPKciS3_(ptr noundef nonnull align 8 captures(address) dereferenceable(56) initializes((0, 1)) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN7testing8internal19TypedTestCasePState25VerifyRegisteredTestNamesEPKciS3_(ptr noundef nonnull align 8 captures(address) dereferenceable(56) initializes((0, 1)) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::set.75", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -4527,7 +4527,7 @@ _ZN12_GLOBAL__N_17GVNSink28analyzeInstructionForSinkingERNS_23LockstepReverseIte
   br i1 %.not.i98, label %1466, label %1465, !prof !125
 
 1465:                                             ; preds = %1451
-  call fastcc void @_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_127SinkingInstructionCandidateELb0EE18growAndEmplaceBackIJRS2_EEES5_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(72) %41)
+  call fastcc void @_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_127SinkingInstructionCandidateELb0EE18growAndEmplaceBackIJRS2_EEES5_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull readonly align 8 dereferenceable(72) %41)
   br label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_127SinkingInstructionCandidateEE12emplace_backIJRS2_EEES5_DpOT_.exit
 
 1466:                                             ; preds = %1451
@@ -9876,7 +9876,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #13
 declare { ptr, ptr } @_ZN4llvm10BasicBlock4phisEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm6detail12DenseSetImplIN12_GLOBAL__N_111ModelledPHIENS_8DenseMapIS3_NS0_13DenseSetEmptyENS2_12DenseMapInfoIS3_EENS0_12DenseSetPairIS3_EEEES7_E6insertERKS3_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((0, 17)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(96) %2) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN4llvm6detail12DenseSetImplIN12_GLOBAL__N_111ModelledPHIENS_8DenseMapIS3_NS0_13DenseSetEmptyENS2_12DenseMapInfoIS3_EENS0_12DenseSetPairIS3_EEEES7_E6insertERKS3_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((0, 17)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %2) unnamed_addr #2 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.(anonymous namespace)::ModelledPHI", align 8
   %6 = alloca ptr, align 8
@@ -9884,7 +9884,7 @@ define internal fastcc void @_ZN4llvm6detail12DenseSetImplIN12_GLOBAL__N_111Mode
   %.val7.i = load ptr, ptr %1, align 8, !tbaa !226, !noalias !356
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val8.i = load i32, ptr %7, align 8, !tbaa !227, !noalias !356
-  %8 = call fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_111ModelledPHIENS_6detail13DenseSetEmptyENS2_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E15LookupBucketForIS3_EEbRKT_RPS9_(ptr %.val7.i, i32 %.val8.i, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(8) %6), !noalias !356
+  %8 = call fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_111ModelledPHIENS_6detail13DenseSetEmptyENS2_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E15LookupBucketForIS3_EEbRKT_RPS9_(ptr %.val7.i, i32 %.val8.i, ptr noundef nonnull readonly align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(8) %6), !noalias !356
   %9 = load ptr, ptr %6, align 8, !tbaa !359, !noalias !356
   br i1 %8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_111ModelledPHIENS_6detail13DenseSetEmptyENS2_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E11try_emplaceIJRS5_EEESt4pairINS_16DenseMapIteratorIS3_S5_S7_S9_Lb0EEEbERKS3_DpOT_.exit, label %10
 
@@ -10005,7 +10005,7 @@ _ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i.i.i.i: ; preds = %49, %_
 _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_111ModelledPHIENS_6detail13DenseSetEmptyENS2_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E16InsertIntoBucketIRKS3_JRS5_EEEPS9_SG_OT_DpOT0_.exit.i: ; preds = %53, %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #23, !noalias !356
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !356
-  %54 = call fastcc noundef nonnull align 8 dereferenceable(96) ptr @_ZN12_GLOBAL__N_111ModelledPHIaSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %23, ptr noundef nonnull align 8 dereferenceable(96) %2), !noalias !356
+  %54 = call fastcc noundef nonnull align 8 dereferenceable(96) ptr @_ZN12_GLOBAL__N_111ModelledPHIaSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %23, ptr noundef nonnull readonly align 8 dereferenceable(96) %2), !noalias !356
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_111ModelledPHIENS_6detail13DenseSetEmptyENS2_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E11try_emplaceIJRS5_EEESt4pairINS_16DenseMapIteratorIS3_S5_S7_S9_Lb0EEEbERKS3_DpOT_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_111ModelledPHIENS_6detail13DenseSetEmptyENS2_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E11try_emplaceIJRS5_EEESt4pairINS_16DenseMapIteratorIS3_S5_S7_S9_Lb0EEEbERKS3_DpOT_.exit: ; preds = %3, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_111ModelledPHIENS_6detail13DenseSetEmptyENS2_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E16InsertIntoBucketIRKS3_JRS5_EEEPS9_SG_OT_DpOT0_.exit.i

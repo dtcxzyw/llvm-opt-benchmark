@@ -1820,7 +1820,7 @@ declare noalias ptr @wmem_strbuf_new_sized(ptr noundef, i64 noundef) local_unnam
 declare void @wmem_strbuf_append_c(ptr noundef, i8 noundef signext) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @format_text(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @format_text(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext false)
   ret ptr %4
 }
@@ -2450,14 +2450,14 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @format_text_string(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
+define ptr @format_text_string(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef %1) #24
   %4 = tail call fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef %1, i64 noundef %3, i1 noundef zeroext false)
   ret ptr %4
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @format_text_wsp(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @format_text_wsp(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext true)
   ret ptr %4
 }

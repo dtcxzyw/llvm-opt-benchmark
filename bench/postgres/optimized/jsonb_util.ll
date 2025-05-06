@@ -205,7 +205,7 @@ pushJsonbValueScalar.exit:                        ; preds = %10, %26, %27
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @pushJsonbValue(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
+define dso_local ptr @pushJsonbValue(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.JsonbValue, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13

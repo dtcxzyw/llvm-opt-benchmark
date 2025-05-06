@@ -9673,7 +9673,7 @@ define hidden noundef i32 @dissect_nt_security_information(ptr noundef %0, i32 n
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @dissect_nt_sec_desc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #1 {
+define hidden i32 @dissect_nt_sec_desc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7) local_unnamed_addr #1 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
@@ -10277,7 +10277,7 @@ declare void @except_free(ptr noundef) local_unnamed_addr #0
 declare ptr @except_pop() local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_nt_acl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6) unnamed_addr #1 {
+define internal fastcc i32 @dissect_nt_acl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(address_is_null) %6) unnamed_addr #1 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
@@ -10518,7 +10518,7 @@ dissect_nt_v2_ace_flags.exit.i:                   ; preds = %89, %87, %85, %81
 
 100:                                              ; preds = %97
   %101 = load i32, ptr @hf_nt_access_mask, align 4
-  %102 = call i32 @dissect_nt_access_mask(ptr noundef %0, i32 noundef %99, ptr noundef %2, ptr noundef %56, ptr noundef null, ptr noundef %4, i32 noundef %101, ptr noundef %6, ptr noundef nonnull %12)
+  %102 = call i32 @dissect_nt_access_mask(ptr noundef %0, i32 noundef %99, ptr noundef %2, ptr noundef %56, ptr noundef null, ptr noundef %4, i32 noundef %101, ptr noundef readonly %6, ptr noundef nonnull %12)
   switch i8 %57, label %134 [
     i8 5, label %103
     i8 6, label %103

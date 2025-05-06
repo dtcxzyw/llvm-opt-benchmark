@@ -13212,7 +13212,7 @@ _Z22ImParseFormatPrecisionPKci.exit229:           ; preds = %174, %168, %198, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN5ImGui10DragScalarEPKciPvfPKvS4_S1_i(ptr noundef %0, i32 noundef %1, ptr noundef %2, float noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN5ImGui10DragScalarEPKciPvfPKvS4_S1_i(ptr noundef %0, i32 noundef %1, ptr noundef %2, float noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.ImVec2, align 8
   %10 = alloca %struct.ImRect, align 8
   %11 = alloca %struct.ImRect, align 8
@@ -13547,7 +13547,7 @@ _ZN5ImGui17TempInputIsActiveEj.exit.thread:       ; preds = %66, %62, %_ZN5ImGui
 declare noundef zeroext i1 @_ZN5ImGui24IsMouseDragPastThresholdEif(i32 noundef, float noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN5ImGui15TempInputScalarERK6ImRectjPKciPvS4_PKvS7_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN5ImGui15TempInputScalarERK6ImRectjPKciPvS4_PKvS7_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef readonly captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca %struct.ImVec2, align 8
   %10 = alloca [32 x i8], align 16
   %11 = alloca [32 x i8], align 16
@@ -13813,7 +13813,7 @@ _ZN5ImGui15DataTypeCompareEiPKvS1_.exit.thread:   ; preds = %_ZN5ImGui15DataType
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN5ImGui11DragScalarNEPKciPvifPKvS4_S1_i(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, ptr noundef %7, i32 noundef %8) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @_ZN5ImGui11DragScalarNEPKciPvifPKvS4_S1_i(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef %7, i32 noundef %8) local_unnamed_addr #5 {
   %10 = load ptr, ptr @GImGui, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4928
   %12 = load ptr, ptr %11, align 8, !tbaa !9
@@ -18442,7 +18442,7 @@ _Z22ImParseFormatPrecisionPKci.exit287.thread:    ; preds = %176, %202, %206, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN5ImGui12SliderScalarEPKciPvPKvS4_S1_i(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN5ImGui12SliderScalarEPKciPvPKvS4_S1_i(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.ImVec2, align 8
   %9 = alloca %struct.ImRect, align 8
   %10 = alloca %struct.ImRect, align 8
@@ -18705,7 +18705,7 @@ _ZN5ImGui17TempInputIsActiveEj.exit.thread:       ; preds = %66, %62, %_ZN5ImGui
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN5ImGui13SliderScalarNEPKciPviPKvS4_S1_i(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @_ZN5ImGui13SliderScalarNEPKciPviPKvS4_S1_i(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #5 {
   %9 = load ptr, ptr @GImGui, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4928
   %11 = load ptr, ptr %10, align 8, !tbaa !9
@@ -23305,7 +23305,7 @@ declare void @_ZN5ImGui13BeginDisabledEb(i1 noundef zeroext) local_unnamed_addr 
 declare void @_ZN5ImGui11EndDisabledEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN5ImGui12InputScalarNEPKciPviPKvS4_S1_i(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @_ZN5ImGui12InputScalarNEPKciPviPKvS4_S1_i(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #5 {
   %9 = load ptr, ptr @GImGui, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4928
   %11 = load ptr, ptr %10, align 8, !tbaa !9

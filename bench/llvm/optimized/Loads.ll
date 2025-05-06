@@ -2030,7 +2030,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm19SmallPtrS
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm24FindAvailableLoadedValueEPNS_8LoadInstEPNS_10BasicBlockERNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEEjPNS_14BatchAAResultsEPbPj(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 captures(none) dereferenceable(10) %2, i32 noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
+define dso_local noundef ptr @_ZN4llvm24FindAvailableLoadedValueEPNS_8LoadInstEPNS_10BasicBlockERNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEEjPNS_14BatchAAResultsEPbPj(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 captures(none) dereferenceable(10) %2, i32 noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca %"class.llvm::MemoryLocation", align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %10 = load i16, ptr %9, align 2, !tbaa !31
@@ -2056,7 +2056,7 @@ define dso_local noundef ptr @_ZN4llvm24FindAvailableLoadedValueEPNS_8LoadInstEP
 declare void @_ZN4llvm14MemoryLocation3getEPKNS_8LoadInstE(ptr dead_on_unwind writable sret(%"class.llvm::MemoryLocation") align 8, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm25findAvailablePtrLoadStoreERKNS_14MemoryLocationEPNS_4TypeEbPNS_10BasicBlockERNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES5_EELb0ELb0EEEjPNS_14BatchAAResultsEPbPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull %3, ptr noundef nonnull align 8 captures(none) dereferenceable(10) %4, i32 noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7, ptr noundef captures(address_is_null) %8) local_unnamed_addr #0 {
+define dso_local noundef ptr @_ZN4llvm25findAvailablePtrLoadStoreERKNS_14MemoryLocationEPNS_4TypeEbPNS_10BasicBlockERNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES5_EELb0ELb0EEEjPNS_14BatchAAResultsEPbPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull %3, ptr noundef nonnull align 8 captures(none) dereferenceable(10) %4, i32 noundef %5, ptr noundef %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef captures(address_is_null) %8) local_unnamed_addr #0 {
   %10 = alloca %"class.llvm::APInt", align 8
   %11 = alloca %"class.llvm::APInt", align 8
   %12 = alloca %"class.llvm::function_ref", align 8
@@ -2974,7 +2974,7 @@ _ZL26AreEquivalentAddressValuesPKN4llvm5ValueES2_.exit: ; preds = %_ZN4llvm8dyn_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm24FindAvailableLoadedValueEPNS_8LoadInstERNS_14BatchAAResultsEPbj(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(656) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @_ZN4llvm24FindAvailableLoadedValueEPNS_8LoadInstERNS_14BatchAAResultsEPbj(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(656) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %"class.llvm::SmallVector.130", align 8
   %6 = alloca %"class.llvm::MemoryLocation", align 8
   %7 = alloca %"class.std::optional.124", align 8

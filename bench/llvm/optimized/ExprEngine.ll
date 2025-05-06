@@ -3054,7 +3054,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEN
   store ptr %3, ptr %18, align 8, !noalias !966
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 %4, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !966
-  %19 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEEEE12add_internalERKSt4pairIS3_S6_EPNS_11ImutAVLTreeIS7_EE(ptr noundef nonnull align 8 dereferenceable(81) %10, ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef %.sroa.013.018.i), !noalias !966
+  %19 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEEEE12add_internalERKSt4pairIS3_S6_EPNS_11ImutAVLTreeIS7_EE(ptr noundef nonnull align 8 dereferenceable(81) %10, ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef readonly %.sroa.013.018.i), !noalias !966
   call fastcc void @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEEEE13markImmutableEPNS_11ImutAVLTreeIS7_EE(ptr noundef %19), !noalias !966
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %.val.i.i.i.i.i = load ptr, ptr %20, align 8, !tbaa !969, !noalias !966
@@ -3243,7 +3243,7 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_124ObjectsUnderConstructionEEENS
 _ZN4llvm12ImmutableMapIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS2_S5_EEEC2ERKS8_.exit.i.i: ; preds = %12, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_124ObjectsUnderConstructionEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.thread.i
   %.not.i.i.i.i16.i = phi i1 [ true, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_124ObjectsUnderConstructionEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.thread.i ], [ false, %12 ]
   %.sroa.011.015.i = phi ptr [ null, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_124ObjectsUnderConstructionEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.thread.i ], [ %11, %12 ]
-  %16 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEEEE15remove_internalERKS3_PNS_11ImutAVLTreeIS7_EE(ptr noundef nonnull align 8 dereferenceable(81) %8, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %.sroa.011.015.i), !noalias !995
+  %16 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEEEE15remove_internalERKS3_PNS_11ImutAVLTreeIS7_EE(ptr noundef nonnull align 8 dereferenceable(81) %8, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef readonly %.sroa.011.015.i), !noalias !995
   call fastcc void @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEEEE13markImmutableEPNS_11ImutAVLTreeIS7_EE(ptr noundef %16), !noalias !995
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.val.i.i.i.i.i = load ptr, ptr %17, align 8, !tbaa !969, !noalias !995
@@ -25379,7 +25379,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine9DumpGraphB5cxx11EbN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(796) %1, i1 noundef zeroext %2, ptr captures(address_is_null) %3, i64 %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine9DumpGraphB5cxx11EbN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(796) %1, i1 noundef zeroext %2, ptr readonly captures(address_is_null) %3, i64 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca i64, align 8
   %7 = alloca %"class.llvm::FoldingSetIterator", align 8
   %8 = alloca %"class.llvm::FoldingSetIterator", align 8

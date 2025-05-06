@@ -653,7 +653,7 @@ _ZN11mpq_managerILb1EE3delEPS0_R3mpq.exit:        ; preds = %.noexc
 declare void @_Z11warning_msgPKcz(ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef float @_ZN14cost_evaluatorclEP4exprjPKf(ptr noundef nonnull align 8 dereferenceable(40) initializes((24, 28), (32, 40)) %0, ptr noundef captures(address) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
+define hidden noundef float @_ZN14cost_evaluatorclEP4exprjPKf(ptr noundef nonnull align 8 dereferenceable(40) initializes((24, 28), (32, 40)) %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %2, ptr %5, align 8, !tbaa !35
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32

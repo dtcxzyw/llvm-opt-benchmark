@@ -1641,7 +1641,7 @@ declare noundef double @_ZNK3gmx9BiasState17calcConvolvedBiasENS_8ArrayRefIKNS_9
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx10BiasWriter17prepareBiasOutputERKNS_4BiasE(ptr noundef nonnull align 8 captures(address) dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(580) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN3gmx10BiasWriter17prepareBiasOutputERKNS_4BiasE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(580) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2035,7 +2035,7 @@ _ZN3gmxL14normalizeBlockEPNS_14AwhEnergyBlockERKNS_4BiasE.exit: ; preds = %.lr.p
 declare void @_ZNK3gmx9BiasState6getPmfENS_8ArrayRefIfEE(ptr noundef nonnull align 8 dereferenceable(240), ptr, ptr) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3gmx10BiasWriter22writeToEnergySubblocksERKNS_4BiasEP13t_enxsubblock(ptr noundef nonnull align 8 captures(address) dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(580) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 align 2 {
+define noundef i32 @_ZN3gmx10BiasWriter22writeToEnergySubblocksERKNS_4BiasEP13t_enxsubblock(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(580) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 align 2 {
   tail call void @_ZN3gmx10BiasWriter17prepareBiasOutputERKNS_4BiasE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(580) %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !77

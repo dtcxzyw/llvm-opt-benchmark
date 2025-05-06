@@ -2179,7 +2179,7 @@ define range(i32 0, 2) i32 @PQsendQueryContinue(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PQsendQueryParams(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PQsendQueryParams(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = tail call fastcc zeroext i1 @PQsendQueryStart(ptr noundef %0, i1 noundef zeroext true)
   br i1 %9, label %10, label %16
 
@@ -2862,7 +2862,7 @@ define internal fastcc void @pqAppendCmdQueueEntry(ptr noundef %0, ptr noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PQsendQueryPrepared(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PQsendQueryPrepared(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = tail call fastcc zeroext i1 @PQsendQueryStart(ptr noundef %0, i1 noundef zeroext true)
   br i1 %8, label %9, label %15
 
@@ -3657,7 +3657,7 @@ define internal fastcc noundef zeroext i1 @PQexecStart(ptr noundef %0) unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @PQexecParams(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #0 {
+define ptr @PQexecParams(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = tail call fastcc zeroext i1 @PQexecStart(ptr noundef %0)
   br i1 %9, label %10, label %PQexecFinish.exit
 
@@ -3682,7 +3682,7 @@ define ptr @PQexecParams(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   br label %PQexecFinish.exit
 
 PQsendQueryParams.exit:                           ; preds = %14
-  %16 = tail call fastcc i32 @PQsendQueryGuts(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.30, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7)
+  %16 = tail call fastcc i32 @PQsendQueryGuts(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.30, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, ptr noundef readonly %6, i32 noundef %7)
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %PQexecFinish.exit, label %17
 
@@ -3717,7 +3717,7 @@ PQexecFinish.exit:                                ; preds = %24, %21, %21, %21, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @PQprepare(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define ptr @PQprepare(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = tail call fastcc zeroext i1 @PQexecStart(ptr noundef %0)
   br i1 %6, label %7, label %PQexecFinish.exit
 
@@ -3757,7 +3757,7 @@ PQexecFinish.exit:                                ; preds = %16, %13, %13, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @PQexecPrepared(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #0 {
+define ptr @PQexecPrepared(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = tail call fastcc zeroext i1 @PQexecStart(ptr noundef %0)
   br i1 %8, label %9, label %PQexecFinish.exit
 
@@ -3782,7 +3782,7 @@ define ptr @PQexecPrepared(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
   br label %PQexecFinish.exit
 
 PQsendQueryPrepared.exit:                         ; preds = %13
-  %15 = tail call fastcc i32 @PQsendQueryGuts(ptr noundef %0, ptr noundef null, ptr noundef nonnull %1, i32 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6)
+  %15 = tail call fastcc i32 @PQsendQueryGuts(ptr noundef %0, ptr noundef null, ptr noundef nonnull %1, i32 noundef %2, ptr noundef null, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6)
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %PQexecFinish.exit, label %16
 
@@ -5948,7 +5948,7 @@ define void @PQfreeNotify(ptr noundef captures(none) %0) local_unnamed_addr #22 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @PQescapeStringConn(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define noundef i64 @PQescapeStringConn(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %8
 

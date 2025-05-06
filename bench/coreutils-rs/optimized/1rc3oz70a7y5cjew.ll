@@ -949,7 +949,7 @@ define internal void @_ZN6notify7Watcher9configure17h4b554520bad14feeE(ptr noali
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc { ptr, ptr } @_ZN7uu_tail6follow5watch9WatcherRx17watch_with_parent17h3b59cb07f58e9b02E(ptr %.16.val, ptr captures(address_is_null) %.24.val, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, ptr } @_ZN7uu_tail6follow5watch9WatcherRx17watch_with_parent17h3b59cb07f58e9b02E(ptr %.16.val, ptr readonly captures(address_is_null) %.24.val, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8

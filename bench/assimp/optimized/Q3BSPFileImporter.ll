@@ -1307,7 +1307,7 @@ declare void @_ZN6Assimp15Q3BSPFileParserC1ERKNSt7__cxx1112basic_stringIcSt11cha
 declare noundef ptr @_ZNK6Assimp15Q3BSPFileParser8getModelEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17Q3BSPFileImporter20CreateDataFromImportEPKNS_5Q3BSP10Q3BSPModelEP7aiScenePNS_18ZipArchiveIOSystemE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp17Q3BSPFileImporter20CreateDataFromImportEPKNS_5Q3BSP10Q3BSPModelEP7aiScenePNS_18ZipArchiveIOSystemE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = icmp eq ptr %1, null
   %6 = icmp eq ptr %2, null
   %or.cond = or i1 %5, %6
@@ -2294,7 +2294,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit58:         ; preds = %_ZNSt6vectorIP6aiNo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17Q3BSPFileImporter15createMaterialsEPKNS_5Q3BSP10Q3BSPModelEP7aiScenePNS_18ZipArchiveIOSystemE(ptr noundef nonnull align 8 captures(address) dereferenceable(160) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp17Q3BSPFileImporter15createMaterialsEPKNS_5Q3BSP10Q3BSPModelEP7aiScenePNS_18ZipArchiveIOSystemE(ptr noundef nonnull align 8 captures(address) dereferenceable(160) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca [2 x i8], align 2

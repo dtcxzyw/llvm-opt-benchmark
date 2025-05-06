@@ -2597,7 +2597,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define double @cvGetNormalizedCentralMoment(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define double @cvGetNormalizedCentralMoment(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = add nsw i32 %2, %1
   %5 = tail call double @cvGetCentralMoment(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136

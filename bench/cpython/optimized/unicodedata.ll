@@ -1794,7 +1794,7 @@ unicodedata_UCD_decomposition_impl.exit:          ; preds = %.thread.i, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unicodedata_UCD_name(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define internal ptr @unicodedata_UCD_name(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca [257 x i8], align 16
   %5 = add i64 %2, -1
   %or.cond = icmp ult i64 %5, 2
@@ -1912,13 +1912,13 @@ PyUnicode_READ_CHAR.exit:                         ; preds = %_PyUnicode_DATA.exi
   %46 = getelementptr i8, ptr %1, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 257, ptr nonnull %4) #9
-  %48 = call fastcc i32 @_getucname(ptr noundef %0, i32 noundef %.0.i, ptr noundef nonnull %4, i32 noundef 256, i32 noundef 0)
+  %48 = call fastcc i32 @_getucname(ptr noundef readonly %0, i32 noundef %.0.i, ptr noundef nonnull %4, i32 noundef 256, i32 noundef 0)
   %.not.i = icmp eq i32 %48, 0
   br i1 %.not.i, label %50, label %58
 
 .thread:                                          ; preds = %PyUnicode_READ_CHAR.exit
   call void @llvm.lifetime.start.p0(i64 257, ptr nonnull %4) #9
-  %49 = call fastcc i32 @_getucname(ptr noundef %0, i32 noundef %.0.i, ptr noundef nonnull %4, i32 noundef 256, i32 noundef 0)
+  %49 = call fastcc i32 @_getucname(ptr noundef readonly %0, i32 noundef %.0.i, ptr noundef nonnull %4, i32 noundef 256, i32 noundef 0)
   %.not.i22 = icmp eq i32 %49, 0
   br i1 %.not.i22, label %.thread24, label %58
 
@@ -2385,7 +2385,7 @@ unicodedata_UCD_is_normalized_impl.exit:          ; preds = %150, %is_normalized
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unicodedata_UCD_normalize(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define internal ptr @unicodedata_UCD_normalize(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %or.cond = icmp eq i64 %2, 2
   br i1 %or.cond, label %6, label %4
 
@@ -2558,7 +2558,7 @@ _getrecord_ex.exit.us.i.i:                        ; preds = %PyUnicode_READ.exit
   br label %unicodedata_UCD_normalize_impl.exit
 
 is_normalized_quickcheck.exit.i:                  ; preds = %70, %_getrecord_ex.exit.us.i.i, %PyObject_TypeCheck.exit.i.i
-  %79 = tail call ptr @nfc_nfkc(ptr noundef %0, ptr noundef %14, i32 noundef 0)
+  %79 = tail call ptr @nfc_nfkc(ptr noundef readonly %0, ptr noundef %14, i32 noundef 0)
   br label %unicodedata_UCD_normalize_impl.exit
 
 80:                                               ; preds = %27
@@ -2679,7 +2679,7 @@ _getrecord_ex.exit.us.i47.i:                      ; preds = %PyUnicode_READ.exit
   br label %unicodedata_UCD_normalize_impl.exit
 
 is_normalized_quickcheck.exit55.i:                ; preds = %123, %_getrecord_ex.exit.us.i47.i, %PyObject_TypeCheck.exit.i31.i
-  %131 = tail call ptr @nfc_nfkc(ptr noundef %0, ptr noundef %14, i32 noundef 1)
+  %131 = tail call ptr @nfc_nfkc(ptr noundef readonly %0, ptr noundef %14, i32 noundef 1)
   br label %unicodedata_UCD_normalize_impl.exit
 
 132:                                              ; preds = %80
@@ -2801,7 +2801,7 @@ _getrecord_ex.exit.us.i76.i:                      ; preds = %PyUnicode_READ.exit
   br label %unicodedata_UCD_normalize_impl.exit
 
 is_normalized_quickcheck.exit84.i:                ; preds = %175, %_getrecord_ex.exit.us.i76.i, %PyObject_TypeCheck.exit.i60.i
-  %184 = tail call ptr @nfd_nfkd(ptr noundef %0, ptr noundef %14, i32 noundef 0)
+  %184 = tail call ptr @nfd_nfkd(ptr noundef readonly %0, ptr noundef %14, i32 noundef 0)
   br label %unicodedata_UCD_normalize_impl.exit
 
 185:                                              ; preds = %132
@@ -2923,7 +2923,7 @@ _getrecord_ex.exit.us.i105.i:                     ; preds = %PyUnicode_READ.exit
   br label %unicodedata_UCD_normalize_impl.exit
 
 is_normalized_quickcheck.exit113.i:               ; preds = %228, %_getrecord_ex.exit.us.i105.i, %PyObject_TypeCheck.exit.i89.i
-  %237 = tail call ptr @nfd_nfkd(ptr noundef %0, ptr noundef %14, i32 noundef 1)
+  %237 = tail call ptr @nfd_nfkd(ptr noundef readonly %0, ptr noundef %14, i32 noundef 1)
   br label %unicodedata_UCD_normalize_impl.exit
 
 238:                                              ; preds = %185
@@ -3710,7 +3710,7 @@ declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64
 declare i32 @PyUnicode_CompareWithASCIIString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @nfc_nfkc(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
+define internal ptr @nfc_nfkc(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca [20 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4) #9
   %5 = tail call ptr @nfd_nfkd(ptr noundef %0, ptr noundef %1, i32 noundef %2)

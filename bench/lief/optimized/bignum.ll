@@ -1064,7 +1064,7 @@ mbedtls_mpi_lset.exit74:                          ; preds = %._crit_edge.i70, %1
   store i16 1, ptr %106, align 8, !tbaa !10
   store i16 1, ptr %107, align 2, !tbaa !3
   store ptr %5, ptr %4, align 8, !tbaa !12
-  %126 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %4, i32 noundef 1)
+  %126 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %0, ptr noundef nonnull readonly %6, ptr noundef nonnull readonly %4, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   %.not61 = icmp eq i32 %126, 0
@@ -1110,7 +1110,7 @@ mbedtls_mpi_free.exit:                            ; preds = %136, %mbedtls_mpi_g
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_int(ptr noundef captures(address) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_int(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %5 = load i16, ptr %4, align 2, !tbaa !3
   %.not31 = icmp eq i16 %5, 0
@@ -1233,7 +1233,7 @@ mbedtls_mpi_lset.exit:                            ; preds = %38, %31, %26, %19, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_int(ptr noundef captures(address) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_int(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.mbedtls_mpi, align 8
   %5 = alloca [1 x i64], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
@@ -1248,14 +1248,14 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_int(ptr noundef captures(ad
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 10
   store i16 1, ptr %10, align 2, !tbaa !3
   store ptr %5, ptr %4, align 8, !tbaa !12
-  %11 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 1)
+  %11 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull readonly %4, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_write_string(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_write_string(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.mbedtls_mpi, align 8
   %7 = alloca [1 x i64], align 8
   %8 = alloca %struct.mbedtls_mpi, align 8
@@ -1421,7 +1421,7 @@ mbedtls_mpi_mod_int.exit.us.i:                    ; preds = %82, %79
   store i16 1, ptr %77, align 8, !tbaa !10
   store i16 1, ptr %78, align 2, !tbaa !3
   store ptr %7, ptr %6, align 8, !tbaa !12
-  %88 = call range(i32 -16, 1) i32 @mbedtls_mpi_div_mpi(ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %8, ptr noundef nonnull %6)
+  %88 = call range(i32 -16, 1) i32 @mbedtls_mpi_div_mpi(ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull readonly %8, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
   %.not28.us.i = icmp eq i32 %88, 0
@@ -1508,7 +1508,7 @@ mbedtls_mpi_mod_int.exit.i:                       ; preds = %116, %101
   store i16 1, ptr %77, align 8, !tbaa !10
   store i16 1, ptr %78, align 2, !tbaa !3
   store ptr %7, ptr %6, align 8, !tbaa !12
-  %120 = call range(i32 -16, 1) i32 @mbedtls_mpi_div_mpi(ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %8, ptr noundef nonnull %6)
+  %120 = call range(i32 -16, 1) i32 @mbedtls_mpi_div_mpi(ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull readonly %8, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
   %.not28.i = icmp eq i32 %120, 0
@@ -1684,7 +1684,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_read_file(ptr noundef captures(
 declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_write_file(ptr noundef %0, ptr noundef captures(address) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_write_file(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca [2484 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
@@ -2350,7 +2350,7 @@ mbedtls_mpi_cmp_mpi.exit:                         ; preds = %.preheader.i, %.lr.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_abs(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #0 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_abs(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, %2
   %spec.select62 = select i1 %4, ptr %1, ptr %2
   %.not70 = icmp eq ptr %1, %0
@@ -2658,13 +2658,13 @@ declare i64 @mbedtls_mpi_core_sub(ptr noundef, ptr noundef, ptr noundef, i64 nou
 declare i64 @mbedtls_mpi_core_sub_int(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_mpi(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #0 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_mpi(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @add_sub_mpi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, i32 noundef range(i32 -1, 2) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, i32 noundef range(i32 -1, 2) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i16, ptr %5, align 8, !tbaa !10
   %7 = sext i16 %6 to i32
@@ -2786,13 +2786,13 @@ mbedtls_mpi_cmp_abs.exit:                         ; preds = %43, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_sub_mpi(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #0 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_sub_mpi(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @add_sub_mpi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef -1)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_sub_int(ptr noundef captures(address) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_sub_int(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.mbedtls_mpi, align 8
   %5 = alloca [1 x i64], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
@@ -2807,14 +2807,14 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_sub_int(ptr noundef captures(ad
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 10
   store i16 1, ptr %10, align 2, !tbaa !3
   store ptr %5, ptr %4, align 8, !tbaa !12
-  %11 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef -1)
+  %11 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull readonly %4, i32 noundef -1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_mpi(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #0 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_mpi(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.mbedtls_mpi, align 8
   %5 = alloca %struct.mbedtls_mpi, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
@@ -3036,7 +3036,7 @@ declare void @mbedtls_mpi_core_mul(ptr noundef, ptr noundef, i64 noundef, ptr no
 declare i64 @mbedtls_mpi_core_mla(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_div_mpi(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef captures(address) %3) local_unnamed_addr #0 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_div_mpi(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(address) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.mbedtls_mpi, align 8
   %6 = alloca %struct.mbedtls_mpi, align 8
   %7 = alloca %struct.mbedtls_mpi, align 8
@@ -3313,7 +3313,7 @@ mbedtls_mpi_lset.exit.thread:                     ; preds = %._crit_edge.i134, %
   %117 = load i64, ptr %112, align 8, !tbaa !17
   %118 = add i64 %117, 1
   store i64 %118, ptr %112, align 8, !tbaa !17
-  %119 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %5, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef -1)
+  %119 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %5, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %6, i32 noundef -1)
   %.not129 = icmp eq i32 %119, 0
   br i1 %.not129, label %113, label %mbedtls_mpi_lset.exit, !llvm.loop !44
 
@@ -3334,74 +3334,74 @@ mbedtls_mpi_shift_r.exit:                         ; preds = %120, %122
   br i1 %125, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %mbedtls_mpi_shift_r.exit
-  %126 = xor i64 %107, -1
-  %invariant.gep = getelementptr i64, ptr %87, i64 %126
-  %127 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %128 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %129 = icmp eq i64 %108, 0
-  br label %130
+  %126 = load ptr, ptr %6, align 8, !tbaa !12
+  %127 = getelementptr inbounds nuw i64, ptr %126, i64 %108
+  %128 = xor i64 %107, -1
+  %invariant.gep = getelementptr i64, ptr %87, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %131 = icmp eq i64 %108, 0
+  %132 = getelementptr i64, ptr %126, i64 %107
+  %133 = getelementptr i8, ptr %132, i64 -16
+  br label %134
 
-130:                                              ; preds = %.lr.ph, %209
+134:                                              ; preds = %.lr.ph, %209
   %.071172 = phi i64 [ %.071170, %.lr.ph ], [ %.071, %209 ]
   %.071.in171 = phi i64 [ %106, %.lr.ph ], [ %.071172, %209 ]
-  %131 = load ptr, ptr %5, align 8, !tbaa !12
-  %132 = getelementptr inbounds nuw i64, ptr %131, i64 %.071172
-  %133 = load i64, ptr %132, align 8, !tbaa !17
-  %134 = load ptr, ptr %6, align 8, !tbaa !12
-  %135 = getelementptr inbounds nuw i64, ptr %134, i64 %108
-  %136 = load i64, ptr %135, align 8, !tbaa !17
-  %.not120 = icmp ult i64 %133, %136
-  br i1 %.not120, label %mbedtls_int_div_int.exit, label %147
+  %135 = load ptr, ptr %5, align 8, !tbaa !12
+  %136 = getelementptr inbounds nuw i64, ptr %135, i64 %.071172
+  %137 = load i64, ptr %136, align 8, !tbaa !17
+  %138 = load i64, ptr %127, align 8, !tbaa !17
+  %.not120 = icmp ult i64 %137, %138
+  br i1 %.not120, label %mbedtls_int_div_int.exit, label %149
 
-mbedtls_int_div_int.exit:                         ; preds = %130
-  %137 = getelementptr i64, ptr %131, i64 %.071.in171
-  %138 = getelementptr i8, ptr %137, i64 -16
-  %139 = load i64, ptr %138, align 8, !tbaa !17
-  %140 = zext i64 %133 to i128
-  %141 = shl nuw i128 %140, 64
-  %142 = zext i64 %139 to i128
-  %143 = or disjoint i128 %141, %142
-  %144 = zext i64 %136 to i128
-  %145 = udiv i128 %143, %144
-  %spec.store.select.i = call i128 @llvm.umin.i128(i128 %145, i128 18446744073709551615)
-  %146 = trunc nuw i128 %spec.store.select.i to i64
-  br label %147
+mbedtls_int_div_int.exit:                         ; preds = %134
+  %139 = getelementptr i64, ptr %135, i64 %.071.in171
+  %140 = getelementptr i8, ptr %139, i64 -16
+  %141 = load i64, ptr %140, align 8, !tbaa !17
+  %142 = zext i64 %137 to i128
+  %143 = shl nuw i128 %142, 64
+  %144 = zext i64 %141 to i128
+  %145 = or disjoint i128 %143, %144
+  %146 = zext i64 %138 to i128
+  %147 = udiv i128 %145, %146
+  %spec.store.select.i = call i128 @llvm.umin.i128(i128 %147, i128 18446744073709551615)
+  %148 = trunc nuw i128 %spec.store.select.i to i64
+  br label %149
 
-147:                                              ; preds = %130, %mbedtls_int_div_int.exit
-  %.sink = phi i64 [ %146, %mbedtls_int_div_int.exit ], [ -1, %130 ]
+149:                                              ; preds = %134, %mbedtls_int_div_int.exit
+  %.sink = phi i64 [ %148, %mbedtls_int_div_int.exit ], [ -1, %134 ]
   %gep174 = getelementptr i64, ptr %invariant.gep, i64 %.071.in171
   store i64 %.sink, ptr %gep174, align 8, !tbaa !17
-  %148 = icmp ult i64 %.071172, 2
-  br i1 %148, label %153, label %149
+  %150 = icmp ult i64 %.071172, 2
+  br i1 %150, label %155, label %151
 
-149:                                              ; preds = %147
-  %150 = getelementptr i64, ptr %131, i64 %.071.in171
-  %151 = getelementptr i8, ptr %150, i64 -24
-  %152 = load i64, ptr %151, align 8, !tbaa !17
-  br label %153
+151:                                              ; preds = %149
+  %152 = getelementptr i64, ptr %135, i64 %.071.in171
+  %153 = getelementptr i8, ptr %152, i64 -24
+  %154 = load i64, ptr %153, align 8, !tbaa !17
+  br label %155
 
-153:                                              ; preds = %147, %149
-  %154 = phi i64 [ %152, %149 ], [ 0, %147 ]
-  store i64 %154, ptr %10, align 16, !tbaa !17
-  %155 = getelementptr i64, ptr %131, i64 %.071.in171
-  %156 = getelementptr i8, ptr %155, i64 -16
-  %157 = load i64, ptr %156, align 8, !tbaa !17
-  store i64 %157, ptr %127, align 8, !tbaa !17
-  %158 = load i64, ptr %132, align 8, !tbaa !17
-  store i64 %158, ptr %128, align 16, !tbaa !17
-  %159 = add i64 %.071.in171, %126
-  %160 = getelementptr inbounds nuw i64, ptr %87, i64 %159
-  %161 = load i64, ptr %160, align 8, !tbaa !17
-  %162 = add i64 %161, 1
-  store i64 %162, ptr %160, align 8, !tbaa !17
-  %163 = getelementptr i64, ptr %134, i64 %107
-  %164 = getelementptr i8, ptr %163, i64 -16
-  br i1 %129, label %.split.us, label %.split
+155:                                              ; preds = %149, %151
+  %156 = phi i64 [ %154, %151 ], [ 0, %149 ]
+  store i64 %156, ptr %10, align 16, !tbaa !17
+  %157 = getelementptr i64, ptr %135, i64 %.071.in171
+  %158 = getelementptr i8, ptr %157, i64 -16
+  %159 = load i64, ptr %158, align 8, !tbaa !17
+  store i64 %159, ptr %129, align 8, !tbaa !17
+  %160 = load i64, ptr %136, align 8, !tbaa !17
+  store i64 %160, ptr %130, align 16, !tbaa !17
+  %161 = add i64 %.071.in171, %128
+  %162 = getelementptr inbounds nuw i64, ptr %87, i64 %161
+  %163 = load i64, ptr %162, align 8, !tbaa !17
+  %164 = add i64 %163, 1
+  store i64 %164, ptr %162, align 8, !tbaa !17
+  br i1 %131, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %153, %174
-  %165 = load i64, ptr %160, align 8, !tbaa !17
+.split.us:                                        ; preds = %155, %174
+  %165 = load i64, ptr %162, align 8, !tbaa !17
   %166 = add i64 %165, -1
-  store i64 %166, ptr %160, align 8, !tbaa !17
+  store i64 %166, ptr %162, align 8, !tbaa !17
   %167 = call i32 @mbedtls_mpi_lset(ptr noundef nonnull %8, i64 noundef 0)
   %.not121.us = icmp eq i32 %167, 0
   br i1 %.not121.us, label %168, label %mbedtls_mpi_lset.exit
@@ -3409,10 +3409,10 @@ mbedtls_int_div_int.exit:                         ; preds = %130
 168:                                              ; preds = %.split.us
   %169 = load ptr, ptr %8, align 8, !tbaa !12
   store i64 0, ptr %169, align 8, !tbaa !17
-  %170 = load i64, ptr %135, align 8, !tbaa !17
+  %170 = load i64, ptr %127, align 8, !tbaa !17
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
   store i64 %170, ptr %171, align 8, !tbaa !17
-  %172 = load i64, ptr %160, align 8, !tbaa !17
+  %172 = load i64, ptr %162, align 8, !tbaa !17
   %173 = call i32 @mbedtls_mpi_mul_int(ptr noundef nonnull %8, ptr noundef nonnull %8, i64 noundef %172)
   %.not122.us = icmp eq i32 %173, 0
   br i1 %.not122.us, label %174, label %mbedtls_mpi_lset.exit
@@ -3422,22 +3422,22 @@ mbedtls_int_div_int.exit:                         ; preds = %130
   %176 = icmp sgt i32 %175, 0
   br i1 %176, label %.split.us, label %.split169.us, !llvm.loop !45
 
-.split:                                           ; preds = %153, %187
-  %177 = load i64, ptr %160, align 8, !tbaa !17
+.split:                                           ; preds = %155, %187
+  %177 = load i64, ptr %162, align 8, !tbaa !17
   %178 = add i64 %177, -1
-  store i64 %178, ptr %160, align 8, !tbaa !17
+  store i64 %178, ptr %162, align 8, !tbaa !17
   %179 = call i32 @mbedtls_mpi_lset(ptr noundef nonnull %8, i64 noundef 0)
   %.not121 = icmp eq i32 %179, 0
   br i1 %.not121, label %180, label %mbedtls_mpi_lset.exit
 
 180:                                              ; preds = %.split
-  %181 = load i64, ptr %164, align 8, !tbaa !17
+  %181 = load i64, ptr %133, align 8, !tbaa !17
   %182 = load ptr, ptr %8, align 8, !tbaa !12
   store i64 %181, ptr %182, align 8, !tbaa !17
-  %183 = load i64, ptr %135, align 8, !tbaa !17
+  %183 = load i64, ptr %127, align 8, !tbaa !17
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 8
   store i64 %183, ptr %184, align 8, !tbaa !17
-  %185 = load i64, ptr %160, align 8, !tbaa !17
+  %185 = load i64, ptr %162, align 8, !tbaa !17
   %186 = call i32 @mbedtls_mpi_mul_int(ptr noundef nonnull %8, ptr noundef nonnull %8, i64 noundef %185)
   %.not122 = icmp eq i32 %186, 0
   br i1 %.not122, label %187, label %mbedtls_mpi_lset.exit
@@ -3448,19 +3448,19 @@ mbedtls_int_div_int.exit:                         ; preds = %130
   br i1 %189, label %.split, label %.split169.us, !llvm.loop !45
 
 .split169.us:                                     ; preds = %187, %174
-  %190 = load i64, ptr %160, align 8, !tbaa !17
+  %190 = load i64, ptr %162, align 8, !tbaa !17
   %191 = call i32 @mbedtls_mpi_mul_int(ptr noundef nonnull %8, ptr noundef nonnull %6, i64 noundef %190)
   %.not123 = icmp eq i32 %191, 0
   br i1 %.not123, label %192, label %mbedtls_mpi_lset.exit
 
 192:                                              ; preds = %.split169.us
-  %193 = shl i64 %159, 6
+  %193 = shl i64 %161, 6
   %194 = call i32 @mbedtls_mpi_shift_l(ptr noundef nonnull %8, i64 noundef %193)
   %.not124 = icmp eq i32 %194, 0
   br i1 %.not124, label %195, label %mbedtls_mpi_lset.exit
 
 195:                                              ; preds = %192
-  %196 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %5, ptr noundef nonnull %5, ptr noundef nonnull %8, i32 noundef -1)
+  %196 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %5, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %8, i32 noundef -1)
   %.not125 = icmp eq i32 %196, 0
   br i1 %.not125, label %197, label %mbedtls_mpi_lset.exit
 
@@ -3480,20 +3480,20 @@ mbedtls_int_div_int.exit:                         ; preds = %130
   br i1 %.not127, label %204, label %mbedtls_mpi_lset.exit
 
 204:                                              ; preds = %202
-  %205 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %5, ptr noundef nonnull %5, ptr noundef nonnull %8, i32 noundef 1)
+  %205 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %5, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %8, i32 noundef 1)
   %.not128 = icmp eq i32 %205, 0
   br i1 %.not128, label %206, label %mbedtls_mpi_lset.exit
 
 206:                                              ; preds = %204
-  %207 = load i64, ptr %160, align 8, !tbaa !17
+  %207 = load i64, ptr %162, align 8, !tbaa !17
   %208 = add i64 %207, -1
-  store i64 %208, ptr %160, align 8, !tbaa !17
+  store i64 %208, ptr %162, align 8, !tbaa !17
   br label %209
 
 209:                                              ; preds = %197, %206
   %.071 = add i64 %.071172, -1
   %210 = icmp ugt i64 %.071, %108
-  br i1 %210, label %130, label %._crit_edge, !llvm.loop !46
+  br i1 %210, label %134, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %209, %mbedtls_mpi_shift_r.exit
   %.not116 = icmp eq ptr %0, null
@@ -3613,7 +3613,7 @@ mbedtls_mpi_cmp_int.exit.thread:                  ; preds = %17, %4, %.lr.ph51.i
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_div_int(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, i64 noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_div_int(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(address) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.mbedtls_mpi, align 8
   %6 = alloca [1 x i64], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
@@ -3635,7 +3635,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_div_int(ptr noundef captures(ad
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mod_mpi(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #0 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mod_mpi(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %5 = load i16, ptr %4, align 2, !tbaa !3
   %.not44.i.i = icmp eq i16 %5, 0
@@ -3712,7 +3712,7 @@ mbedtls_mpi_cmp_int.exit34:                       ; preds = %.lr.ph51.i.i29
   br i1 %27, label %28, label %.preheader
 
 28:                                               ; preds = %mbedtls_mpi_cmp_int.exit34
-  %29 = tail call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1)
+  %29 = tail call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %0, ptr noundef nonnull readonly %0, ptr noundef readonly %2, i32 noundef 1)
   %.not22 = icmp eq i32 %29, 0
   br i1 %.not22, label %18, label %mbedtls_mpi_cmp_mpi.exit.thread41, !llvm.loop !47
 
@@ -3846,7 +3846,7 @@ mbedtls_mpi_cmp_mpi.exit:                         ; preds = %49, %54, %76, %80
   br i1 %83, label %mbedtls_mpi_cmp_mpi.exit.thread, label %mbedtls_mpi_cmp_mpi.exit.thread41
 
 mbedtls_mpi_cmp_mpi.exit.thread:                  ; preds = %.preheader.i, %62, %._crit_edge52.i, %mbedtls_mpi_cmp_mpi.exit
-  %84 = tail call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef %0, ptr noundef %0, ptr noundef %2, i32 noundef -1)
+  %84 = tail call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef %0, ptr noundef readonly %0, ptr noundef readonly %2, i32 noundef -1)
   %.not21 = icmp eq i32 %84, 0
   br i1 %.not21, label %31, label %mbedtls_mpi_cmp_mpi.exit.thread41, !llvm.loop !48
 
@@ -3927,13 +3927,13 @@ define hidden range(i32 -12, 1) i32 @mbedtls_mpi_mod_int(ptr noundef writeonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_mpi_exp_mod(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_mpi_exp_mod(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i32 @mbedtls_mpi_exp_mod_optionally_safe(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef %3, ptr noundef %4)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mbedtls_mpi_exp_mod_optionally_safe(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 707406379) %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc i32 @mbedtls_mpi_exp_mod_optionally_safe(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 707406379) %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 {
   %7 = alloca %struct.mbedtls_mpi, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 10
   %9 = load i16, ptr %8, align 2, !tbaa !3
@@ -4166,7 +4166,7 @@ mbedtls_mpi_cmp_int.exit103.thread:               ; preds = %29, %23, %.lr.ph51.
   %122 = trunc i64 %121 to i16
   %123 = add i16 %122, -1
   store i16 %123, ptr %74, align 8, !tbaa !10
-  %124 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %0, i32 noundef 1)
+  %124 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %0, ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %0, i32 noundef 1)
   br label %126
 
 .thread112:                                       ; preds = %.thread, %66
@@ -4211,13 +4211,13 @@ mbedtls_mpi_cmp_int.exit.thread:                  ; preds = %14, %6, %.lr.ph51.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_mpi_exp_mod_unsafe(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_mpi_exp_mod_unsafe(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i32 @mbedtls_mpi_exp_mod_optionally_safe(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 707406378, ptr noundef %3, ptr noundef %4)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_gcd(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #0 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_gcd(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.mbedtls_mpi, align 8
   %5 = alloca %struct.mbedtls_mpi, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
@@ -4879,7 +4879,7 @@ mbedtls_mpi_resize_clear.exit:                    ; preds = %36, %.preheader.i.i
 declare i32 @mbedtls_mpi_core_random(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_inv_mod(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #0 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_inv_mod(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.mbedtls_mpi, align 8
   %5 = alloca %struct.mbedtls_mpi, align 8
   %6 = alloca %struct.mbedtls_mpi, align 8
@@ -5175,12 +5175,12 @@ mbedtls_mpi_shift_r.exit:                         ; preds = %116, %117
   br i1 %.not63, label %129, label %125
 
 125:                                              ; preds = %mbedtls_mpi_shift_r.exit, %121
-  %126 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %9, i32 noundef 1)
+  %126 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %7, ptr noundef nonnull readonly %7, ptr noundef nonnull readonly %9, i32 noundef 1)
   %.not64 = icmp eq i32 %126, 0
   br i1 %.not64, label %127, label %mbedtls_mpi_cmp_int.exit80.thread
 
 127:                                              ; preds = %125
-  %128 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %8, ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef -1)
+  %128 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %8, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %5, i32 noundef -1)
   %.not65 = icmp eq i32 %128, 0
   br i1 %.not65, label %129, label %mbedtls_mpi_cmp_int.exit80.thread
 
@@ -5234,12 +5234,12 @@ mbedtls_mpi_shift_r.exit86:                       ; preds = %141, %142
   br i1 %.not59, label %154, label %150
 
 150:                                              ; preds = %mbedtls_mpi_shift_r.exit86, %146
-  %151 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %9, i32 noundef 1)
+  %151 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %11, ptr noundef nonnull readonly %11, ptr noundef nonnull readonly %9, i32 noundef 1)
   %.not60 = icmp eq i32 %151, 0
   br i1 %.not60, label %152, label %mbedtls_mpi_cmp_int.exit80.thread
 
 152:                                              ; preds = %150
-  %153 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %5, i32 noundef -1)
+  %153 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %12, ptr noundef nonnull readonly %12, ptr noundef nonnull readonly %5, i32 noundef -1)
   %.not61 = icmp eq i32 %153, 0
   br i1 %.not61, label %154, label %mbedtls_mpi_cmp_int.exit80.thread
 
@@ -5277,32 +5277,32 @@ mbedtls_mpi_shift_r.exit90:                       ; preds = %mbedtls_mpi_shift_r
   br i1 %167, label %168, label %174
 
 168:                                              ; preds = %._crit_edge
-  %169 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %6, ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef -1)
+  %169 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %6, ptr noundef nonnull readonly %6, ptr noundef nonnull readonly %10, i32 noundef -1)
   %.not52 = icmp eq i32 %169, 0
   br i1 %.not52, label %170, label %mbedtls_mpi_cmp_int.exit80.thread
 
 170:                                              ; preds = %168
-  %171 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %11, i32 noundef -1)
+  %171 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %7, ptr noundef nonnull readonly %7, ptr noundef nonnull readonly %11, i32 noundef -1)
   %.not53 = icmp eq i32 %171, 0
   br i1 %.not53, label %172, label %mbedtls_mpi_cmp_int.exit80.thread
 
 172:                                              ; preds = %170
-  %173 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %8, ptr noundef nonnull %8, ptr noundef nonnull %12, i32 noundef -1)
+  %173 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %8, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %12, i32 noundef -1)
   %.not54 = icmp eq i32 %173, 0
   br i1 %.not54, label %180, label %mbedtls_mpi_cmp_int.exit80.thread
 
 174:                                              ; preds = %._crit_edge
-  %175 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %10, ptr noundef nonnull %10, ptr noundef nonnull %6, i32 noundef -1)
+  %175 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %10, ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %6, i32 noundef -1)
   %.not49 = icmp eq i32 %175, 0
   br i1 %.not49, label %176, label %mbedtls_mpi_cmp_int.exit80.thread
 
 176:                                              ; preds = %174
-  %177 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %7, i32 noundef -1)
+  %177 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %11, ptr noundef nonnull readonly %11, ptr noundef nonnull readonly %7, i32 noundef -1)
   %.not50 = icmp eq i32 %177, 0
   br i1 %.not50, label %178, label %mbedtls_mpi_cmp_int.exit80.thread
 
 178:                                              ; preds = %176
-  %179 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %8, i32 noundef -1)
+  %179 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %12, ptr noundef nonnull readonly %12, ptr noundef nonnull readonly %8, i32 noundef -1)
   %.not51 = icmp eq i32 %179, 0
   br i1 %.not51, label %180, label %mbedtls_mpi_cmp_int.exit80.thread
 
@@ -5317,7 +5317,7 @@ mbedtls_mpi_shift_r.exit90:                       ; preds = %mbedtls_mpi_shift_r
   br i1 %183, label %184, label %.preheader
 
 184:                                              ; preds = %.preheader122
-  %185 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %2, i32 noundef 1)
+  %185 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %11, ptr noundef nonnull readonly %11, ptr noundef nonnull readonly %2, i32 noundef 1)
   %.not57 = icmp eq i32 %185, 0
   br i1 %.not57, label %.preheader122, label %mbedtls_mpi_cmp_int.exit80.thread, !llvm.loop !54
 
@@ -5327,7 +5327,7 @@ mbedtls_mpi_shift_r.exit90:                       ; preds = %mbedtls_mpi_shift_r
   br i1 %187, label %188, label %190
 
 188:                                              ; preds = %.preheader
-  %189 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %2, i32 noundef -1)
+  %189 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %11, ptr noundef nonnull readonly %11, ptr noundef nonnull readonly %2, i32 noundef -1)
   %.not56 = icmp eq i32 %189, 0
   br i1 %.not56, label %.preheader, label %mbedtls_mpi_cmp_int.exit80.thread, !llvm.loop !55
 
@@ -5786,7 +5786,7 @@ define internal fastcc i32 @mpi_miller_rabin(ptr noundef %0, i64 noundef range(i
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 10
   store i16 1, ptr %23, align 2, !tbaa !3
   store ptr %6, ptr %5, align 8, !tbaa !12
-  %24 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull %5, i32 noundef -1)
+  %24 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %7, ptr noundef readonly %0, ptr noundef nonnull readonly %5, i32 noundef -1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
   %.not = icmp eq i32 %24, 0
@@ -6074,7 +6074,7 @@ mbedtls_mpi_cmp_mpi.exit.thread:                  ; preds = %107
   br label %.critedge, !llvm.loop !57
 
 mbedtls_mpi_cmp_int.exit:                         ; preds = %.lr.ph51.i.i, %117
-  %124 = call fastcc i32 @mbedtls_mpi_exp_mod_optionally_safe(ptr noundef nonnull %10, ptr noundef nonnull %10, ptr noundef nonnull readonly %8, i32 noundef 0, ptr noundef %0, ptr noundef nonnull %11)
+  %124 = call fastcc i32 @mbedtls_mpi_exp_mod_optionally_safe(ptr noundef nonnull %10, ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %8, i32 noundef 0, ptr noundef %0, ptr noundef nonnull %11)
   %.not35 = icmp eq i32 %124, 0
   br i1 %.not35, label %125, label %mbedtls_mpi_fill_random.exit.thread
 
@@ -6748,7 +6748,7 @@ mbedtls_mpi_mod_int.exit.thread:                  ; preds = %mbedtls_mpi_shift_r
   %125 = getelementptr inbounds nuw i8, ptr %12, i64 10
   store i16 1, ptr %125, align 2, !tbaa !3
   store ptr %13, ptr %12, align 8, !tbaa !12
-  %126 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef nonnull %12, i32 noundef 1)
+  %126 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %0, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %12, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #16
   %.not82 = icmp eq i32 %126, 0
@@ -6763,7 +6763,7 @@ mbedtls_mpi_mod_int.exit.thread:                  ; preds = %mbedtls_mpi_shift_r
   %129 = getelementptr inbounds nuw i8, ptr %10, i64 10
   store i16 1, ptr %129, align 2, !tbaa !3
   store ptr %11, ptr %10, align 8, !tbaa !12
-  %130 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef 1)
+  %130 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %0, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %10, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #16
   %.not81 = icmp eq i32 %130, 0
@@ -6825,7 +6825,7 @@ mbedtls_mpi_shift_r.exit90:                       ; preds = %133, %135
   store i16 1, ptr %139, align 8, !tbaa !10
   store i16 1, ptr %140, align 2, !tbaa !3
   store ptr %9, ptr %8, align 8, !tbaa !12
-  %156 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef 1)
+  %156 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %0, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %8, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #16
   %.not85 = icmp eq i32 %156, 0
@@ -6838,7 +6838,7 @@ mbedtls_mpi_shift_r.exit90:                       ; preds = %133, %135
   store i16 1, ptr %141, align 8, !tbaa !10
   store i16 1, ptr %142, align 2, !tbaa !3
   store ptr %7, ptr %6, align 8, !tbaa !12
-  %158 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef nonnull %6, i32 noundef 1)
+  %158 = call fastcc range(i32 -16, 1) i32 @add_sub_mpi(ptr noundef nonnull %14, ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %6, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
   %.not86 = icmp eq i32 %158, 0
@@ -7008,7 +7008,7 @@ define hidden i32 @mbedtls_mpi_self_test(i32 noundef %0) local_unnamed_addr #0 {
   br label %56
 
 56:                                               ; preds = %54, %55
-  %57 = call fastcc i32 @mbedtls_mpi_exp_mod_optionally_safe(ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef nonnull readonly %3, i32 noundef 0, ptr noundef nonnull %4, ptr noundef null)
+  %57 = call fastcc i32 @mbedtls_mpi_exp_mod_optionally_safe(ptr noundef nonnull %5, ptr noundef nonnull readonly %2, ptr noundef nonnull readonly %3, i32 noundef 0, ptr noundef nonnull %4, ptr noundef null)
   %.not57 = icmp eq i32 %57, 0
   br i1 %.not57, label %58, label %.loopexit
 

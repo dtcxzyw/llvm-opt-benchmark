@@ -1904,7 +1904,7 @@ _SPI_begin_call.exit:                             ; preds = %18, %13, %5, %9, %_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @SPI_execp(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @SPI_execp(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @SPI_execute_plan(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false, i64 noundef %3)
   ret i32 %5
 }
@@ -3834,7 +3834,7 @@ define dso_local void @SPI_freetuptable(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @SPI_cursor_open(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local ptr @SPI_cursor_open(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -4383,7 +4383,7 @@ _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.u
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @SPI_cursor_open_with_paramlist(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local ptr @SPI_cursor_open_with_paramlist(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = tail call fastcc ptr @SPI_cursor_open_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3)
   ret ptr %5
 }

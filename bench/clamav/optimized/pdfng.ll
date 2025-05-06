@@ -696,7 +696,7 @@ pdf_decrypt_string.exit:                          ; preds = %128, %129
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
+define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca %struct.stat, align 8

@@ -1414,7 +1414,7 @@ define dso_local void @php_libxml_issue_error(i32 noundef %0, ptr noundef %1) lo
 declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @php_libxml_error_handler_va(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local void @php_libxml_error_handler_va(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp ne i32 %0, 0
   %6 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %6
@@ -1688,7 +1688,7 @@ declare void @llvm.va_end.p0(ptr) #4
 declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @php_libxml_ctx_error(ptr noundef captures(address_is_null) %0, ptr noundef %1, ...) local_unnamed_addr #0 {
+define dso_local void @php_libxml_ctx_error(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #18
   call void @llvm.va_start.p0(ptr nonnull %3)
@@ -1711,14 +1711,14 @@ define dso_local void @php_libxml_ctx_error(ptr noundef captures(address_is_null
 php_libxml_error_handler_va.exit:                 ; preds = %2, %4, %7
   %.012.i = phi i32 [ %11, %7 ], [ 0, %4 ], [ 0, %2 ]
   %.0.i = phi i32 [ %9, %7 ], [ 0, %4 ], [ 0, %2 ]
-  call fastcc void @php_libxml_internal_error_handler_ex(i32 noundef 1, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3, i32 noundef %.0.i, i32 noundef %.012.i)
+  call fastcc void @php_libxml_internal_error_handler_ex(i32 noundef 1, ptr noundef readonly %0, ptr noundef %1, ptr noundef nonnull %3, i32 noundef %.0.i, i32 noundef %.012.i)
   call void @llvm.va_end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #18
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @php_libxml_ctx_warning(ptr noundef captures(address_is_null) %0, ptr noundef %1, ...) local_unnamed_addr #0 {
+define dso_local void @php_libxml_ctx_warning(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #18
   call void @llvm.va_start.p0(ptr nonnull %3)
@@ -1741,18 +1741,18 @@ define dso_local void @php_libxml_ctx_warning(ptr noundef captures(address_is_nu
 php_libxml_error_handler_va.exit:                 ; preds = %2, %4, %7
   %.012.i = phi i32 [ %11, %7 ], [ 0, %4 ], [ 0, %2 ]
   %.0.i = phi i32 [ %9, %7 ], [ 0, %4 ], [ 0, %2 ]
-  call fastcc void @php_libxml_internal_error_handler_ex(i32 noundef 2, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3, i32 noundef %.0.i, i32 noundef %.012.i)
+  call fastcc void @php_libxml_internal_error_handler_ex(i32 noundef 2, ptr noundef readonly %0, ptr noundef %1, ptr noundef nonnull %3, i32 noundef %.0.i, i32 noundef %.012.i)
   call void @llvm.va_end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #18
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @php_libxml_error_handler(ptr noundef captures(address_is_null) %0, ptr noundef %1, ...) #0 {
+define dso_local void @php_libxml_error_handler(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ...) #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #18
   call void @llvm.va_start.p0(ptr nonnull %3)
-  call fastcc void @php_libxml_internal_error_handler_ex(i32 noundef 0, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3, i32 noundef 0, i32 noundef 0)
+  call fastcc void @php_libxml_internal_error_handler_ex(i32 noundef 0, ptr noundef readonly %0, ptr noundef %1, ptr noundef nonnull %3, i32 noundef 0, i32 noundef 0)
   call void @llvm.va_end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #18
   ret void

@@ -1931,7 +1931,7 @@ declare void @_ZN11BigUnsigned19divideWithRemainderERKS_RS_(ptr noundef nonnull 
 declare void @_ZN11BigUnsignedppEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10BigInteger6negateERKS_(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10BigInteger6negateERKS_(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.BigInteger, align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %5, label %45

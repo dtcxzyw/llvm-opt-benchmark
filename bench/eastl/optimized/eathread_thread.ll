@@ -449,7 +449,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2EA6Thread6Thread5BeginEPFlPvES2_PKNS0_16ThreadParametersEPFlS4_S2_E(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this, ptr noundef %pFunction, ptr noundef %pContext, ptr noundef captures(address_is_null) %pTP, ptr noundef %pUserWrapper) local_unnamed_addr #2 align 2 {
+define dso_local noundef i64 @_ZN2EA6Thread6Thread5BeginEPFlPvES2_PKNS0_16ThreadParametersEPFlS4_S2_E(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this, ptr noundef %pFunction, ptr noundef %pContext, ptr noundef readonly captures(address_is_null) %pTP, ptr noundef %pUserWrapper) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZL19BeginThreadInternalR12EAThreadDataPvS1_PKN2EA6Thread16ThreadParametersES1_PFS1_S1_E(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %pFunction, ptr noundef %pContext, ptr noundef %pTP, ptr noundef %pUserWrapper, ptr noundef nonnull @_ZL24RunnableFunctionInternalPv)
   %tobool.not = icmp eq ptr %pTP, null
@@ -993,7 +993,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2EA6Thread6Thread5BeginEPNS0_9IRunnableEPvPKNS0_16ThreadParametersEPFlS3_S4_E(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this, ptr noundef %pRunnable, ptr noundef %pContext, ptr noundef captures(address_is_null) %pTP, ptr noundef %pUserWrapper) local_unnamed_addr #2 align 2 {
+define dso_local noundef i64 @_ZN2EA6Thread6Thread5BeginEPNS0_9IRunnableEPvPKNS0_16ThreadParametersEPFlS3_S4_E(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this, ptr noundef %pRunnable, ptr noundef %pContext, ptr noundef readonly captures(address_is_null) %pTP, ptr noundef %pUserWrapper) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZL19BeginThreadInternalR12EAThreadDataPvS1_PKN2EA6Thread16ThreadParametersES1_PFS1_S1_E(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %pRunnable, ptr noundef %pContext, ptr noundef %pTP, ptr noundef %pUserWrapper, ptr noundef nonnull @_ZL22RunnableObjectInternalPv)
   %tobool.not = icmp eq ptr %pTP, null

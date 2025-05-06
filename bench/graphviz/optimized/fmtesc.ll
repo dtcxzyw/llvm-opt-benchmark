@@ -665,13 +665,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @fmtesq(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @fmtesq(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @fmtquote(ptr noundef %0, ptr noundef null, ptr noundef %1)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @fmtesc(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define ptr @fmtesc(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @fmtquote(ptr noundef %0, ptr noundef null, ptr noundef null)
   ret ptr %2
 }

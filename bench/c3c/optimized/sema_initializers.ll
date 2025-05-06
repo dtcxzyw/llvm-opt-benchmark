@@ -3751,7 +3751,7 @@ declare ptr @type_get_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @type_get_optional(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sema_update_const_initializer_with_designator(ptr noundef captures(none) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @sema_update_const_initializer_with_designator(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32

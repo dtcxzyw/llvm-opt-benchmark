@@ -12488,7 +12488,7 @@ define hidden void @_ZN12futures_util6future8join_all8join_all17hec76b455459a163
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN12multi_buffer11MultiBuffer13push_excerpts17ha8e09a7ad5f91ee6E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(240) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull captures(address) %3, ptr noundef captures(address) %4, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %5) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden void @_ZN12multi_buffer11MultiBuffer13push_excerpts17ha8e09a7ad5f91ee6E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(240) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull readonly captures(address) %3, ptr noundef readnone captures(address) %4, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %5) unnamed_addr #6 personality ptr @rust_eh_personality {
   %7 = alloca [32 x i8], align 8
   %8 = invoke noundef i64 @_ZN12multi_buffer9ExcerptId3max17ha69c090c70b0b520E()
           to label %9 unwind label %11

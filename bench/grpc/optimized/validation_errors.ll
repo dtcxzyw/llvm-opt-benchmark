@@ -896,7 +896,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core16ValidationErrors6statusEN4absl12lts_2024072210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable sret(%"class.absl::lts_20240722::Status") align 8 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(80) %1, i32 noundef %2, i64 %3, ptr %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core16ValidationErrors6statusEN4absl12lts_2024072210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable sret(%"class.absl::lts_20240722::Status") align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %1, i32 noundef %2, i64 %3, ptr %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load i64, ptr %7, align 8, !tbaa !74

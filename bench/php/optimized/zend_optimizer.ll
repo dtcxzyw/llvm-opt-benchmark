@@ -3041,7 +3041,7 @@ define internal fastcc zeroext i1 @zend_optimizer_ignore_class(ptr noundef nonnu
 declare i32 @zend_binary_strcasecmp(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @zend_optimizer_get_class_entry_from_op1(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define hidden ptr @zend_optimizer_get_class_entry_from_op1(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 29
   %5 = load i8, ptr %4, align 1, !tbaa !82
   switch i8 %5, label %.thread [
@@ -3121,7 +3121,7 @@ define hidden ptr @zend_optimizer_get_class_entry_from_op1(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @zend_fetch_class_const_info(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
+define hidden noundef ptr @zend_fetch_class_const_info(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp ne ptr %2, null
   %6 = icmp ne ptr %1, null
   %or.cond = and i1 %6, %5
@@ -3361,7 +3361,7 @@ define hidden noundef ptr @zend_fetch_class_const_info(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @zend_optimizer_get_called_func(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3) local_unnamed_addr #0 {
+define hidden ptr @zend_optimizer_get_called_func(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3) local_unnamed_addr #0 {
   store i8 0, ptr %3, align 1, !tbaa !138
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %6 = load i8, ptr %5, align 4, !tbaa !83
@@ -3672,7 +3672,7 @@ zend_optimizer_ignore_function.exit211:           ; preds = %96, %100
 zend_optimizer_get_class_entry_from_op1.exit:     ; preds = %155
   %173 = getelementptr inbounds nuw i8, ptr %156, i64 16
   %174 = load ptr, ptr %173, align 8, !tbaa !20
-  %175 = tail call ptr @zend_optimizer_get_class_entry(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %174)
+  %175 = tail call ptr @zend_optimizer_get_class_entry(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %174)
   %.not169 = icmp eq ptr %175, null
   br i1 %.not169, label %.thread251, label %zend_optimizer_get_class_entry_from_op1.exit.zend_optimizer_get_class_entry_from_op1.exit.thread_crit_edge
 
@@ -3988,7 +3988,7 @@ zend_optimizer_get_class_entry_from_op1.exit.thread: ; preds = %zend_optimizer_g
 zend_optimizer_get_class_entry_from_op1.exit219:  ; preds = %344
   %362 = getelementptr inbounds nuw i8, ptr %345, i64 16
   %363 = load ptr, ptr %362, align 8, !tbaa !20
-  %364 = tail call ptr @zend_optimizer_get_class_entry(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %363)
+  %364 = tail call ptr @zend_optimizer_get_class_entry(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %363)
   %.not = icmp eq ptr %364, null
   br i1 %.not, label %zend_hash_find_ptr.exit, label %zend_optimizer_get_class_entry_from_op1.exit219.thread
 

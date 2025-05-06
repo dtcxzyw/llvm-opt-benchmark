@@ -4880,7 +4880,7 @@ define dso_local noundef ptr @_ZN4llvm12getRuntimeVFERNS_13IRBuilderBaseEPNS_4Ty
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm26reportVectorizationFailureENS_9StringRefES0_S0_PNS_25OptimizationRemarkEmitterEPNS_4LoopEPNS_11InstructionE(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef nonnull %6, ptr noundef %7, ptr noundef captures(address) %8) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm26reportVectorizationFailureENS_9StringRefES0_S0_PNS_25OptimizationRemarkEmitterEPNS_4LoopEPNS_11InstructionE(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef nonnull %6, ptr noundef %7, ptr noundef readonly captures(address) %8) local_unnamed_addr #1 {
   %10 = alloca %"class.llvm::LoopVectorizeHints", align 8
   %11 = alloca %"class.llvm::OptimizationRemarkAnalysis", align 8
   %12 = alloca %"class.llvm::DebugLoc", align 8

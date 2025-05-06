@@ -2231,7 +2231,7 @@ kafka_get_api_info.exit.thread:                   ; preds = %8, %3, %23, %46, %3
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_kafka_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(address_is_null) %7) unnamed_addr #0 {
+define internal fastcc i32 @dissect_kafka_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) unnamed_addr #0 {
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %11, label %9
 

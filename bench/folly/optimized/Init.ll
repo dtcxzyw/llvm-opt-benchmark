@@ -1260,7 +1260,7 @@ define void @_ZN5folly11initLoggingENS_5RangeIPKcEE(ptr %0, ptr %1) local_unname
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly16initLoggingOrDieESt16initializer_listINS_5RangeIPKcEEE(ptr captures(address) %0, i64 %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly16initLoggingOrDieESt16initializer_listINS_5RangeIPKcEEE(ptr readonly captures(address) %0, i64 %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN5folly11initLoggingESt16initializer_listINS_5RangeIPKcEEE(ptr %0, i64 %1)
           to label %17 unwind label %3
 
@@ -1307,7 +1307,7 @@ define void @_ZN5folly16initLoggingOrDieENS_5RangeIPKcEE(ptr %0, ptr %1) local_u
   store ptr %0, ptr %3, align 8, !tbaa !7
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !7
-  invoke void @_ZN5folly11initLoggingESt16initializer_listINS_5RangeIPKcEEE(ptr nonnull %3, i64 1)
+  invoke void @_ZN5folly11initLoggingESt16initializer_listINS_5RangeIPKcEEE(ptr nonnull readonly %3, i64 1)
           to label %_ZN5folly16initLoggingOrDieESt16initializer_listINS_5RangeIPKcEEE.exit unwind label %4
 
 4:                                                ; preds = %2

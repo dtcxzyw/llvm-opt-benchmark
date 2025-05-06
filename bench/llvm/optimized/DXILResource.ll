@@ -5738,7 +5738,7 @@ define dso_local void @_ZNK4llvm30DXILResourceBindingWrapperPass16getAnalysisUsa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm30DXILResourceBindingWrapperPass11runOnModuleERNS_6ModuleE(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(841) %1) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm30DXILResourceBindingWrapperPass11runOnModuleERNS_6ModuleE(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(841) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #25
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16

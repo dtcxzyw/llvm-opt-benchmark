@@ -132,13 +132,13 @@ define internal ptr @ossl_aes_gcm_siv_dupctx(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ossl_aes_gcm_siv_einit(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, i64 noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @ossl_aes_gcm_siv_einit(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, ptr noundef %5) #0 {
   %7 = tail call fastcc i32 @ossl_aes_gcm_siv_init(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef 1)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ossl_aes_gcm_siv_dinit(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, i64 noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @ossl_aes_gcm_siv_dinit(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, ptr noundef %5) #0 {
   %7 = tail call fastcc i32 @ossl_aes_gcm_siv_init(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef 0)
   ret i32 %7
 }

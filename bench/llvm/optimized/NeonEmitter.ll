@@ -16917,7 +16917,7 @@ _ZN12_GLOBAL__N_18TypeSpecC2ERKS0_.exit.i.i.i.i.i: ; preds = %301, %299, %._crit
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 %302
   store i8 0, ptr %305, align 1, !tbaa !18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #29
-  call fastcc void @_ZN12_GLOBAL__N_14TypeC2ENS_8TypeSpecEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %289, ptr noundef %20, ptr %286, i64 %287)
+  call fastcc void @_ZN12_GLOBAL__N_14TypeC2ENS_8TypeSpecEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %289, ptr noundef %20, ptr readonly %286, i64 %287)
   %306 = load ptr, ptr %20, align 8, !tbaa !19
   %307 = icmp eq ptr %306, %293
   br i1 %307, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
@@ -17011,7 +17011,7 @@ _ZN12_GLOBAL__N_18TypeSpecC2ERKS0_.exit.i.i.i.i.i.i: ; preds = %339, %337, %._cr
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 %340
   store i8 0, ptr %343, align 1, !tbaa !18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #29
-  call fastcc void @_ZN12_GLOBAL__N_14TypeC2ENS_8TypeSpecEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %330, ptr noundef %18, ptr %286, i64 %287)
+  call fastcc void @_ZN12_GLOBAL__N_14TypeC2ENS_8TypeSpecEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %330, ptr noundef %18, ptr readonly %286, i64 %287)
   %344 = load ptr, ptr %18, align 8, !tbaa !19
   %345 = icmp eq ptr %344, %331
   br i1 %345, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i

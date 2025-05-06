@@ -145,7 +145,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.109 = private unnamed_addr constant [34 x i8] c"%s: RunTimeDelete rc:%u output:%s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @container_task_init(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local void @container_task_init(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @oci_conf, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %8
@@ -602,7 +602,7 @@ define internal fastcc range(i32 0, 9203) i32 @_merge_step_config_env(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @container_run(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local void @container_run(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca %struct.run_command_args_t, align 8

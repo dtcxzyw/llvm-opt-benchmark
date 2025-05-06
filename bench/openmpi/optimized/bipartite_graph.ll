@@ -1527,7 +1527,7 @@ define i32 @prte_bp_graph_solve_bipartite_assignment(ptr noundef readonly captur
   %25 = getelementptr inbounds nuw i8, ptr %.pre, i64 172
   %26 = load i32, ptr %24, align 8, !tbaa !25
   %27 = load i32, ptr %25, align 4, !tbaa !29
-  %28 = call zeroext i1 @prte_bp_graph_bellman_ford(ptr noundef nonnull %.pre, i32 noundef %26, i32 noundef %27, ptr noundef nonnull %17)
+  %28 = call zeroext i1 @prte_bp_graph_bellman_ford(ptr noundef nonnull readonly %.pre, i32 noundef %26, i32 noundef %27, ptr noundef nonnull %17)
   br i1 %28, label %.lr.ph138.i, label %.loopexit83
 
 .lr.ph138.i:                                      ; preds = %.preheader.i
@@ -1537,7 +1537,7 @@ define i32 @prte_bp_graph_solve_bipartite_assignment(ptr noundef readonly captur
 
 .loopexit.i:                                      ; preds = %set_capacity.exit112.i, %33
   %31 = load i32, ptr %24, align 8, !tbaa !25
-  %32 = call zeroext i1 @prte_bp_graph_bellman_ford(ptr noundef nonnull %.pre, i32 noundef %31, i32 noundef %34, ptr noundef nonnull %17)
+  %32 = call zeroext i1 @prte_bp_graph_bellman_ford(ptr noundef nonnull readonly %.pre, i32 noundef %31, i32 noundef %34, ptr noundef nonnull %17)
   br i1 %32, label %33, label %.loopexit83, !llvm.loop !77
 
 33:                                               ; preds = %.loopexit.i, %.lr.ph138.i

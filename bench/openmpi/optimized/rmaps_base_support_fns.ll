@@ -2482,7 +2482,7 @@ declare i32 @hwloc_bitmap_and(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare i32 @hwloc_bitmap_weight(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @prte_rmaps_base_check_avail(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
+define noundef zeroext i1 @prte_rmaps_base_check_avail(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4, !tbaa !34
   %or.cond = icmp ult i32 %7, 64
   br i1 %or.cond, label %8, label %20

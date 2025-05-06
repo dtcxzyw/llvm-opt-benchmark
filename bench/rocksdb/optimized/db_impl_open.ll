@@ -17107,7 +17107,7 @@ _ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Ite
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb6DBImpl15RecoverLogFilesERKSt6vectorImSaImEEPmbbPbPNS0_15RecoveryContextE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 64 dereferenceable(6868) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef captures(address_is_null) %6, ptr noundef %7) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb6DBImpl15RecoverLogFilesERKSt6vectorImSaImEEPmbbPbPNS0_15RecoveryContextE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 64 dereferenceable(6868) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef %7) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::unordered_map.760", align 8
   %10 = alloca i32, align 4
   %11 = alloca i64, align 8
@@ -20419,7 +20419,7 @@ _ZNK7rocksdb10VersionSet29MinLogNumberWithUnflushedDataEv.exit: ; preds = %135, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb6DBImpl15ProcessLogFilesERKSt6vectorImSaImEEbbmiPmPSt13unordered_mapIiNS_11VersionEditESt4hashIiESt8equal_toIiESaISt4pairIKiS8_EEEPbPNS0_15RecoveryContextE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 captures(address) initializes((0, 6), (8, 16)) %0, ptr noundef nonnull align 64 dereferenceable(6868) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef readonly captures(none) %8, ptr noundef captures(address_is_null) %9, ptr noundef %10) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb6DBImpl15ProcessLogFilesERKSt6vectorImSaImEEbbmiPmPSt13unordered_mapIiNS_11VersionEditESt4hashIiESt8equal_toIiESaISt4pairIKiS8_EEEPbPNS0_15RecoveryContextE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 captures(address) initializes((0, 6), (8, 16)) %0, ptr noundef nonnull align 64 dereferenceable(6868) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef readonly captures(none) %8, ptr noundef writeonly captures(address_is_null) %9, ptr noundef %10) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %12 = alloca i8, align 1
   %13 = alloca i8, align 1
   %14 = alloca i8, align 1
@@ -20947,7 +20947,7 @@ declare void @_ZN7rocksdb17EventLoggerStreamD1Ev(ptr noundef nonnull align 8 der
 declare noundef i64 @_ZN7rocksdb6DBImpl18MinLogNumberToKeepEv(ptr noundef nonnull align 64 dereferenceable(6868)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb6DBImpl14ProcessLogFileEmmbbiPmPbS2_S1_S2_PSt13unordered_mapIiNS_11VersionEditESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEES2_RNS_18PredecessorWALInfoE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 64 dereferenceable(6868) %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7, ptr noundef captures(none) %8, ptr noundef captures(none) %9, ptr noundef writeonly captures(none) %10, ptr noundef captures(address_is_null) %11, ptr noundef readonly captures(none) %12, ptr noundef writeonly captures(none) %13, ptr noundef nonnull align 8 dereferenceable(25) %14) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb6DBImpl14ProcessLogFileEmmbbiPmPbS2_S1_S2_PSt13unordered_mapIiNS_11VersionEditESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEES2_RNS_18PredecessorWALInfoE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 64 dereferenceable(6868) %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7, ptr noundef captures(none) %8, ptr noundef captures(none) %9, ptr noundef writeonly captures(none) %10, ptr noundef writeonly captures(address_is_null) %11, ptr noundef readonly captures(none) %12, ptr noundef writeonly captures(none) %13, ptr noundef nonnull align 8 dereferenceable(25) %14) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %16 = alloca %"class.std::unique_ptr", align 8
   %17 = alloca i64, align 8
   %18 = alloca i64, align 8

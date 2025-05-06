@@ -15329,7 +15329,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5SL__release_common(ptr noundef ca
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5SL_free(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5SL_free(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i8, ptr @H5SL_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -15370,7 +15370,7 @@ define range(i32 -1, 1) i32 @H5SL_free(ptr noundef captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5SL_destroy(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5SL_destroy(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i8, ptr @H5SL_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -15396,7 +15396,7 @@ define range(i32 -1, 1) i32 @H5SL_destroy(ptr noundef %0, ptr noundef captures(a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5SL__close_common(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5SL__close_common(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i8, ptr @H5SL_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1, !range !7

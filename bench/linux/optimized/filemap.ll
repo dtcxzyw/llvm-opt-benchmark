@@ -10215,7 +10215,7 @@ define dso_local noundef range(i32 -22, 1) i32 @generic_file_readonly_mmap(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @read_cache_folio(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) #1 align 16 {
+define dso_local ptr @read_cache_folio(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i32, ptr %5, align 8
   %7 = tail call fastcc ptr @do_read_cache_folio(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %6)
@@ -10514,7 +10514,7 @@ define dso_local ptr @mapping_read_folio_gfp(ptr noundef %0, i64 noundef %1, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @read_cache_page(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) #1 align 16 {
+define dso_local ptr @read_cache_page(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i32, ptr %5, align 8
   %7 = tail call fastcc ptr @do_read_cache_folio(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %6)

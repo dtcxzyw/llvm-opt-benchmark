@@ -573,7 +573,7 @@ define hidden void @PMurHash128x86_Process(ptr noundef captures(none) %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @PMurHash128x86(ptr noundef captures(address) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #2 {
+define hidden void @PMurHash128x86(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #2 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [4 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
@@ -930,7 +930,7 @@ define hidden void @PMurHash128x64_Process(ptr noundef captures(none) %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @PMurHash128x64(ptr noundef captures(address) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 16)) %3) local_unnamed_addr #2 {
+define hidden void @PMurHash128x64(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 16)) %3) local_unnamed_addr #2 {
   %5 = alloca [2 x i64], align 16
   %6 = alloca [2 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5

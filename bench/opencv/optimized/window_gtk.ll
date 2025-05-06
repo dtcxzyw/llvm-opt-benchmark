@@ -857,7 +857,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %1, %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { i64, i64 } @_Z19cvGetWindowRect_GTKPKc(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden { i64, i64 } @_Z19cvGetWindowRect_GTKPKc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::shared_ptr", align 8
@@ -1503,7 +1503,7 @@ _Z22cvImageWidget_get_typev.exit:                 ; preds = %17, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef double @_Z19cvGetModeWindow_GTKPKc(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef double @_Z19cvGetModeWindow_GTKPKc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::shared_ptr", align 8
@@ -1694,7 +1694,7 @@ _ZNSt12__shared_ptrI8CvWindowLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z19cvSetModeWindow_GTKPKcd(ptr noundef captures(address_is_null) %0, double noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z19cvSetModeWindow_GTKPKcd(ptr noundef readonly captures(address_is_null) %0, double noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::shared_ptr", align 8
@@ -2243,7 +2243,7 @@ declare void @gtk_window_set_title(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i64 @gtk_window_get_type() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef double @_Z27cvGetPropWindowAutoSize_GTKPKc(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef double @_Z27cvGetPropWindowAutoSize_GTKPKc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::shared_ptr", align 8
@@ -2389,7 +2389,7 @@ _ZNSt12__shared_ptrI8CvWindowLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef double @_Z20cvGetRatioWindow_GTKPKc(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef double @_Z20cvGetRatioWindow_GTKPKc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::shared_ptr", align 8
@@ -4638,7 +4638,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @cvResizeWindow(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @cvResizeWindow(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::shared_ptr", align 8
@@ -4866,7 +4866,7 @@ _Z22cvImageWidget_get_typev.exit:                 ; preds = %17, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @cvMoveWindow(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @cvMoveWindow(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::shared_ptr", align 8
@@ -5027,13 +5027,13 @@ _ZNSt12__shared_ptrI8CvWindowLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = 
 declare void @gtk_window_move(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @cvCreateTrackbar(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 {
+define noundef range(i32 0, 2) i32 @cvCreateTrackbar(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %6 = tail call fastcc noundef i32 @_ZL17icvCreateTrackbarPKcS0_PiiPFviEPFviPvES4_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef null, ptr noundef null)
   ret i32 %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL17icvCreateTrackbarPKcS0_PiiPFviEPFviPvES4_(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL17icvCreateTrackbarPKcS0_PiiPFviEPFviPvES4_(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca i64, align 8
   %9 = alloca ptr, align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5738,13 +5738,13 @@ _ZNSt12__shared_ptrI8CvWindowLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @cvCreateTrackbar2(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #3 {
+define noundef range(i32 0, 2) i32 @cvCreateTrackbar2(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #3 {
   %7 = tail call fastcc noundef i32 @_ZL17icvCreateTrackbarPKcS0_PiiPFviEPFviPvES4_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef null, ptr noundef %4, ptr noundef %5)
   ret i32 %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @cvSetMouseCallback(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @cvSetMouseCallback(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::shared_ptr", align 8
@@ -5889,7 +5889,7 @@ _ZNSt12__shared_ptrI8CvWindowLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @cvGetTrackbarPos(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define i32 @cvGetTrackbarPos(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -6480,7 +6480,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @cvSetTrackbarPos(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @cvSetTrackbarPos(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -6954,7 +6954,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @cvSetTrackbarMax(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @cvSetTrackbarMax(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -7338,7 +7338,7 @@ declare void @gtk_range_set_range(ptr noundef, double noundef, double noundef) l
 declare i64 @gtk_range_get_type() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @cvSetTrackbarMin(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @cvSetTrackbarMin(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -7717,7 +7717,7 @@ _ZNSt12__shared_ptrI8CvWindowLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @cvGetWindowHandle(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define ptr @cvGetWindowHandle(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::shared_ptr", align 8

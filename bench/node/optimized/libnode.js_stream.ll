@@ -1087,7 +1087,7 @@ declare ptr @_ZN4node6Buffer4CopyEPNS_11EnvironmentEPKcm(ptr noundef, ptr nounde
 declare ptr @_ZN2v85Array3NewEPNS_7IsolateEPNS_5LocalINS_5ValueEEEm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_ZThn56_N4node8JSStream7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_s(ptr noundef %this, ptr noundef %w, ptr noundef readonly captures(none) %bufs, i64 noundef %count, ptr noundef captures(address_is_null) %send_handle) unnamed_addr #6 align 2 {
+define dso_local noundef i32 @_ZThn56_N4node8JSStream7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_s(ptr noundef %this, ptr noundef %w, ptr noundef readonly captures(none) %bufs, i64 noundef %count, ptr noundef readnone captures(address_is_null) %send_handle) unnamed_addr #6 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   %call = tail call noundef i32 @_ZN4node8JSStream7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_s(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %w, ptr noundef %bufs, i64 noundef %count, ptr noundef %send_handle)

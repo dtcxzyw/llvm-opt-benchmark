@@ -452,7 +452,7 @@ declare ptr @MOZ_Z_zcalloc(ptr noundef, i32 noundef, i32 noundef) #3
 declare void @MOZ_Z_zcfree(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @MOZ_Z_inflateInit_(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #2 {
+define range(i32 -6, 1) i32 @MOZ_Z_inflateInit_(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = tail call i32 @MOZ_Z_inflateInit2_(ptr noundef %0, i32 noundef 15, ptr noundef %1, i32 noundef %2)
   ret i32 %4
 }

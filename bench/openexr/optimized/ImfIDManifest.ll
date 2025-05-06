@@ -236,7 +236,7 @@ define void @_ZN7Imf_3_410IDManifestC2Ev(ptr noundef nonnull writeonly align 8 c
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_410IDManifestC2EPKcS2_(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, ptr noundef captures(address) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_410IDManifestC2EPKcS2_(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, ptr noundef readnone captures(address) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   invoke void @_ZN7Imf_3_410IDManifest4initEPKcS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2)
           to label %4 unwind label %5
@@ -252,7 +252,7 @@ define void @_ZN7Imf_3_410IDManifestC2EPKcS2_(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7Imf_3_410IDManifest4initEPKcS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7Imf_3_410IDManifest4initEPKcS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7Imf_3_43Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rj.exit:
   %3 = ptrtoint ptr %2 to i64
   %4 = alloca %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::vector<std::__cxx11::basic_string<char>>>, std::_Select1st<std::pair<const unsigned long, std::vector<std::__cxx11::basic_string<char>>>>, std::less<unsigned long>>::_Auto_node", align 8

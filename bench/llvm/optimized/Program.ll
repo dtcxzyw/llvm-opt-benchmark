@@ -1271,7 +1271,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvjNS_12DenseMapInfoIS3_vEENS_6detail12Dens
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN5clang6interp7Program17getOrCreateGlobalEPKNS_9ValueDeclEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN5clang6interp7Program17getOrCreateGlobalEPKNS_9ValueDeclEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, ptr noundef readnone captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = tail call i64 @_ZN5clang6interp7Program9getGlobalEPKNS_9ValueDeclE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1)
   %.not = icmp samesign ult i64 %5, 4294967296
@@ -1301,7 +1301,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang6interp7Program17getOrCr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN5clang6interp7Program12createGlobalEPKNS_9ValueDeclEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN5clang6interp7Program12createGlobalEPKNS_9ValueDeclEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::PointerUnion", align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8

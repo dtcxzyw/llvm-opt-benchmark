@@ -1707,8 +1707,8 @@ sulp.exit645:                                     ; preds = %698, %699, %703
 713:                                              ; preds = %614
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
-  %714 = call fastcc double @b2d(ptr noundef nonnull %592, ptr noundef %6)
-  %715 = call fastcc double @b2d(ptr noundef %.4394, ptr noundef %7)
+  %714 = call fastcc double @b2d(ptr noundef nonnull readonly %592, ptr noundef %6)
+  %715 = call fastcc double @b2d(ptr noundef readonly %.4394, ptr noundef %7)
   %716 = load i32, ptr %6, align 4, !tbaa !37
   %717 = load i32, ptr %7, align 4, !tbaa !37
   %718 = sub nsw i32 %716, %717

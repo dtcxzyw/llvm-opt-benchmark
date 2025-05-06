@@ -8069,7 +8069,7 @@ define void @_ZN6icu_7711MeasureUnitC2Eii(ptr noundef nonnull writeonly align 8 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7711MeasureUnitC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(19) initializes((0, 16)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(19) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7711MeasureUnitC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(19) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(19) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6icu_7711MeasureUnitE, i64 16), ptr %0, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8, !tbaa !17

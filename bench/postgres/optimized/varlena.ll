@@ -11930,7 +11930,7 @@ define dso_local noundef i64 @text_format(ptr noundef captures(none) %0) local_u
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
   store ptr %98, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #19
-  %122 = call fastcc zeroext i1 @text_format_parse_digits(ptr noundef %2, ptr noundef nonnull %78, ptr noundef %3)
+  %122 = call fastcc zeroext i1 @text_format_parse_digits(ptr noundef %2, ptr noundef nonnull readnone %78, ptr noundef %3)
   %.promoted.pre.i = load ptr, ptr %2, align 8
   br i1 %122, label %123, label %139
 
@@ -12010,7 +12010,7 @@ define dso_local noundef i64 @text_format(ptr noundef captures(none) %0) local_u
   unreachable
 
 157:                                              ; preds = %150
-  %158 = call fastcc zeroext i1 @text_format_parse_digits(ptr noundef %2, ptr noundef nonnull %78, ptr noundef %3)
+  %158 = call fastcc zeroext i1 @text_format_parse_digits(ptr noundef %2, ptr noundef nonnull readnone %78, ptr noundef %3)
   %.0.i.pre170 = load ptr, ptr %2, align 8
   br i1 %158, label %159, label %text_format_parse_format.exit
 
@@ -12056,7 +12056,7 @@ define dso_local noundef i64 @text_format(ptr noundef captures(none) %0) local_u
 
 179:                                              ; preds = %140
   store ptr %141, ptr %2, align 8
-  %180 = call fastcc zeroext i1 @text_format_parse_digits(ptr noundef %2, ptr noundef nonnull %78, ptr noundef %3)
+  %180 = call fastcc zeroext i1 @text_format_parse_digits(ptr noundef %2, ptr noundef nonnull readnone %78, ptr noundef %3)
   %181 = load i32, ptr %3, align 4
   %spec.select144 = select i1 %180, i32 %181, i32 0
   %.0.i.pre = load ptr, ptr %2, align 8

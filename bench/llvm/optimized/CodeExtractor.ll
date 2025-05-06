@@ -14797,7 +14797,7 @@ declare void @_ZN4llvm15UnreachableInstC1ERNS_11LLVMContextENS_14InsertPositionE
 declare { ptr, i64 } @_ZN4llvm10SwitchInst10removeCaseENS0_16CaseIteratorImplINS0_10CaseHandleEEE(ptr noundef nonnull align 8 dereferenceable(76), ptr, i64) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL36insertLifetimeMarkersSurroundingCallPN4llvm6ModuleENS_8ArrayRefIPNS_5ValueEEES5_PNS_8CallInstE(ptr noundef %0, ptr captures(address) %1, i64 %2, ptr captures(address) %3, i64 %4, ptr noundef %5) unnamed_addr #1 {
+define internal fastcc void @_ZL36insertLifetimeMarkersSurroundingCallPN4llvm6ModuleENS_8ArrayRefIPNS_5ValueEEES5_PNS_8CallInstE(ptr noundef %0, ptr readonly captures(address) %1, i64 %2, ptr readonly captures(address) %3, i64 %4, ptr noundef %5) unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8

@@ -4557,7 +4557,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit: ; preds = %16, %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4Sema27ActOnCXXNestedNameSpecifierEPNS_5ScopeERNS0_18NestedNameSpecInfoEbRNS_12CXXScopeSpecEPbb(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef captures(address_is_null) %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4Sema27ActOnCXXNestedNameSpecifierEPNS_5ScopeERNS0_18NestedNameSpecInfoEbRNS_12CXXScopeSpecEPbb(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef writeonly captures(address_is_null) %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
   %8 = load i32, ptr %4, align 8, !tbaa !1196
   %9 = icmp ne i32 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 4

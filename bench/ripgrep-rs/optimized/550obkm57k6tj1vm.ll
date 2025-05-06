@@ -255,7 +255,7 @@ define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h7538005
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !22
   %103 = icmp ne ptr %.val, null
   call void @llvm.assume(i1 %103)
-  invoke fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17h34634b14bc84da95E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 16 dereferenceable(960) %16, ptr nonnull %.val, i64 %.val25)
+  invoke fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17h34634b14bc84da95E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 16 dereferenceable(960) %16, ptr nonnull readonly %.val, i64 %.val25)
           to label %105 unwind label %31, !noalias !6
 
 104:                                              ; preds = %99

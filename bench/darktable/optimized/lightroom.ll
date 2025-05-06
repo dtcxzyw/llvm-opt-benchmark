@@ -1434,7 +1434,7 @@ declare void @xmlXPathFreeObject(ptr noundef) local_unnamed_addr #2
 declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_handle_xpath(ptr noundef captures(address_is_null) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc void @_handle_xpath(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = tail call ptr @xmlXPathEvalExpression(ptr noundef nonnull %4, ptr noundef nonnull %3) #11
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %53, label %8

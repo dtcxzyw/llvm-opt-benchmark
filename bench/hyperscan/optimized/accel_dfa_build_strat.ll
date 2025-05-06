@@ -1049,7 +1049,7 @@ _ZN3ue212is_triggeredENS_8nfa_kindE.exit:         ; preds = %_ZN3ue2L14double_by
 
 _ZNSt12_Vector_baseIN3ue212_GLOBAL__N_14pathESaIS2_EE11_M_allocateEm.exit.i.i.i.i: ; preds = %.noexc135
   %410 = getelementptr inbounds nuw i8, ptr %17, i64 192
-  %411 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN3ue212_GLOBAL__N_14pathEPS2_S2_ET0_T_S7_S6_RSaIT1_E(ptr noundef nonnull %17, ptr noundef nonnull %410, ptr noundef nonnull %408)
+  %411 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN3ue212_GLOBAL__N_14pathEPS2_S2_ET0_T_S7_S6_RSaIT1_E(ptr noundef nonnull readonly %17, ptr noundef nonnull readonly %410, ptr noundef nonnull %408)
           to label %412 unwind label %.body.i.i, !noalias !55
 
 412:                                              ; preds = %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_14pathESaIS2_EE11_M_allocateEm.exit.i.i.i.i
@@ -1366,7 +1366,7 @@ _ZNK3ue29CharReach4noneEv.exit.i.i.i:             ; preds = %518
   br i1 %switch.i.i.i.i, label %.invoke400.i.i, label %524
 
 .invoke400.i.i:                                   ; preds = %523, %_ZNK3ue29CharReach4noneEv.exit.i.i.i
-  invoke fastcc void @_ZNSt6vectorIN3ue212_GLOBAL__N_14pathESaIS2_EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(186) %.sroa.0198.0326.i.i)
+  invoke fastcc void @_ZNSt6vectorIN3ue212_GLOBAL__N_14pathESaIS2_EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull readonly align 8 dereferenceable(186) %.sroa.0198.0326.i.i)
           to label %_ZN3ue2L6extendERKNS_7raw_dfaERKSt6vectorINS_9CharReachESaIS4_EERKNS_12_GLOBAL__N_14pathERSt13unordered_mapIjS3_ISA_SaISA_EESt4hashIjESt8equal_toIjESaISt4pairIKjSF_EEERSF_.exit.i.i unwind label %916, !noalias !55
 
 524:                                              ; preds = %523
@@ -5752,7 +5752,7 @@ _ZNSt12_Vector_baseIN3ue212_GLOBAL__N_14pathESaIS2_EE11_M_allocateEm.exit.i.i: ;
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %75 = load i16, ptr %74, align 8
   store i16 %75, ptr %73, align 8
-  %76 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN3ue212_GLOBAL__N_14pathEPS2_S2_ET0_T_S7_S6_RSaIT1_E(ptr noundef %.val.i.i, ptr noundef %4, ptr noundef nonnull %49)
+  %76 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN3ue212_GLOBAL__N_14pathEPS2_S2_ET0_T_S7_S6_RSaIT1_E(ptr noundef readonly %.val.i.i, ptr noundef readnone %4, ptr noundef nonnull %49)
           to label %_ZSt34__uninitialized_move_if_noexcept_aIPN3ue212_GLOBAL__N_14pathES3_SaIS2_EET0_T_S6_S5_RT1_.exit32.i.i unwind label %87
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3ue212_GLOBAL__N_14pathES3_SaIS2_EET0_T_S6_S5_RT1_.exit32.i.i: ; preds = %72
@@ -6604,12 +6604,12 @@ _ZNSt12_Vector_baseIN3ue212_GLOBAL__N_14pathESaIS2_EE11_M_allocateEm.exit.i: ; p
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %65 = load i16, ptr %64, align 8
   store i16 %65, ptr %63, align 8
-  %66 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN3ue212_GLOBAL__N_14pathEPS2_S2_ET0_T_S7_S6_RSaIT1_E(ptr noundef %.val.i, ptr noundef %8, ptr noundef nonnull %46)
+  %66 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN3ue212_GLOBAL__N_14pathEPS2_S2_ET0_T_S7_S6_RSaIT1_E(ptr noundef readonly %.val.i, ptr noundef readnone %8, ptr noundef nonnull %46)
           to label %_ZSt34__uninitialized_move_if_noexcept_aIPN3ue212_GLOBAL__N_14pathES3_SaIS2_EET0_T_S6_S5_RT1_.exit.i unwind label %79
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3ue212_GLOBAL__N_14pathES3_SaIS2_EET0_T_S6_S5_RT1_.exit.i: ; preds = %62
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 192
-  %68 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN3ue212_GLOBAL__N_14pathEPS2_S2_ET0_T_S7_S6_RSaIT1_E(ptr noundef %8, ptr noundef %8, ptr noundef nonnull %67)
+  %68 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN3ue212_GLOBAL__N_14pathEPS2_S2_ET0_T_S7_S6_RSaIT1_E(ptr noundef readonly %8, ptr noundef readnone %8, ptr noundef nonnull %67)
           to label %_ZSt34__uninitialized_move_if_noexcept_aIPN3ue212_GLOBAL__N_14pathES3_SaIS2_EET0_T_S6_S5_RT1_.exit32.i unwind label %.body.i
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3ue212_GLOBAL__N_14pathES3_SaIS2_EET0_T_S6_S5_RT1_.exit32.i: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3ue212_GLOBAL__N_14pathES3_SaIS2_EET0_T_S6_S5_RT1_.exit.i

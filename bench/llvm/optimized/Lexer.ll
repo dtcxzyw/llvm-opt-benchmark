@@ -3306,7 +3306,7 @@ define dso_local i32 @_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang5Lexer23isAtEndOfMacroExpansionENS_14SourceLocationERKNS_13SourceManagerERKNS_11LangOptionsEPS1_(i32 %0, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr noundef nonnull align 8 dereferenceable(849) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang5Lexer23isAtEndOfMacroExpansionENS_14SourceLocationERKNS_13SourceManagerERKNS_11LangOptionsEPS1_(i32 %0, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr noundef nonnull align 8 dereferenceable(849) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::Token", align 8
   %6 = alloca %"class.clang::SourceLocation", align 4
   %7 = icmp sgt i32 %0, -1
@@ -3362,7 +3362,7 @@ _ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang5Lexer25isAtStartOfMacroExpansionENS_14SourceLocationERKNS_13SourceManagerERKNS_11LangOptionsEPS1_(i32 %0, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(849) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang5Lexer25isAtStartOfMacroExpansionENS_14SourceLocationERKNS_13SourceManagerERKNS_11LangOptionsEPS1_(i32 %0, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(849) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::SourceLocation", align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #28
   store i32 0, ptr %5, align 4, !tbaa !416

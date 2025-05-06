@@ -1488,7 +1488,7 @@ define noundef zeroext i1 @_ZNK6duckdb14BaseStatistics13CanHaveNoNullEv(ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6duckdb14BaseStatistics10IsConstantEv(ptr noundef nonnull align 8 captures(address) dereferenceable(88) %0) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK6duckdb14BaseStatistics10IsConstantEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %0) local_unnamed_addr #3 align 2 {
   %2 = load i8, ptr %0, align 8, !tbaa !28
   %3 = icmp eq i8 %2, 53
   br i1 %3, label %4, label %13
@@ -1526,7 +1526,7 @@ define noundef zeroext i1 @_ZNK6duckdb14BaseStatistics10IsConstantEv(ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6duckdb12NumericStats10IsConstantERKNS_14BaseStatisticsE(ptr noundef nonnull align 8 captures(address) dereferenceable(88) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6duckdb12NumericStats10IsConstantERKNS_14BaseStatisticsE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.duckdb::Value", align 8
   %3 = alloca %"class.duckdb::Value", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #29
@@ -1566,7 +1566,7 @@ define noundef zeroext i1 @_ZN6duckdb12NumericStats10IsConstantERKNS_14BaseStati
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb14BaseStatistics5MergeERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(88) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb14BaseStatistics5MergeERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %1) local_unnamed_addr #3 align 2 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %2
@@ -1739,7 +1739,7 @@ _ZN6duckdb11StringStats5MergeERNS_14BaseStatisticsERKS1_.exit: ; preds = %79, %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb12NumericStats5MergeERNS_14BaseStatisticsERKS1_(ptr noundef nonnull align 8 captures(address) dereferenceable(88) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(88) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb12NumericStats5MergeERNS_14BaseStatisticsERKS1_(ptr noundef nonnull align 8 captures(address) dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.duckdb::Value", align 8
   %4 = alloca %"class.duckdb::Value", align 8
   %5 = alloca %"class.duckdb::Value", align 8
@@ -13671,7 +13671,7 @@ define noundef zeroext i1 @_ZN6duckdb12NumericStats6HasMinERKNS_14BaseStatistics
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb12NumericStats3MinERKNS_14BaseStatisticsE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::Value") align 8 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(88) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb12NumericStats3MinERKNS_14BaseStatisticsE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::Value") align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = load i8, ptr %1, align 8, !tbaa !28
@@ -13760,7 +13760,7 @@ define noundef zeroext i1 @_ZN6duckdb12NumericStats6HasMaxERKNS_14BaseStatistics
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb12NumericStats3MaxERKNS_14BaseStatisticsE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::Value") align 8 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(88) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb12NumericStats3MaxERKNS_14BaseStatisticsE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::Value") align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = load i8, ptr %1, align 8, !tbaa !28

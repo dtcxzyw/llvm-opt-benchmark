@@ -3752,7 +3752,7 @@ declare void @systable_endscan(ptr noundef) local_unnamed_addr #2
 declare void @CacheInvalidateHeapTuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @AlterDomainAddConstraint(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @AlterDomainAddConstraint(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.sroa.040.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
   %.sroa.040.sroa.3.0.extract.shift = lshr i64 %.sroa.040.0.copyload, 32
   %.sroa.4.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4

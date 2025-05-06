@@ -4088,7 +4088,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @copy_rec(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address) %6, ptr noundef readonly captures(none) %7, ptr noundef captures(address_is_null) %8, ptr noundef captures(address_is_null) %9) unnamed_addr #8 {
+define internal fastcc void @copy_rec(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef readonly captures(address) %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(address_is_null) %8, ptr noundef captures(address_is_null) %9) unnamed_addr #8 {
   %11 = icmp eq i64 %1, 1
   br i1 %11, label %37, label %.preheader
 
@@ -7299,7 +7299,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @cmp_base(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @cmp_rec(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(address_is_null) %5, ptr noundef readonly captures(none) %6, ptr noundef captures(address_is_null) %7, i8 noundef signext %8, ptr noundef readonly captures(none) %9, ptr noundef readonly captures(none) %10) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @cmp_rec(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(address_is_null) %7, i8 noundef signext %8, ptr noundef readonly captures(none) %9, ptr noundef readonly captures(none) %10) unnamed_addr #0 {
   %12 = icmp eq i64 %2, 1
   br i1 %12, label %67, label %.preheader
 
@@ -7863,7 +7863,7 @@ memoryview_tolist_impl.exit:                      ; preds = %13, %adjust_fmt.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @memoryview_cast(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal ptr @memoryview_cast(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [2 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
   %.not = icmp eq ptr %3, null
@@ -8040,7 +8040,7 @@ zero_in_shape.exit.i:                             ; preds = %55
   %79 = phi i32 [ %78, %76 ], [ 1, %.loopexit.i ], [ 1, %46 ]
   %80 = phi i32 [ %spec.select.i, %76 ], [ 1, %.loopexit.i ], [ 1, %46 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %82 = call fastcc ptr @mbuf_add_incomplete_view(ptr noundef %32, ptr noundef nonnull %81, i32 noundef %80)
+  %82 = call fastcc ptr @mbuf_add_incomplete_view(ptr noundef %32, ptr noundef nonnull readonly %81, i32 noundef %80)
   %83 = icmp eq ptr %82, null
   br i1 %83, label %memoryview_cast_impl.exit, label %84
 
@@ -8079,7 +8079,7 @@ memoryview_cast_impl.exit:                        ; preds = %96, %93, %91, %88, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @memoryview_toreadonly(ptr noundef captures(address_is_null) %0, ptr readnone captures(none) %1) #0 {
+define internal ptr @memoryview_toreadonly(ptr noundef readonly captures(address_is_null) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8, !tbaa !109
   %5 = and i32 %4, 1
@@ -8112,7 +8112,7 @@ define internal ptr @memoryview_toreadonly(ptr noundef captures(address_is_null)
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %20 = tail call fastcc ptr @mbuf_add_view(ptr noundef nonnull %8, ptr noundef nonnull %19)
+  %20 = tail call fastcc ptr @mbuf_add_view(ptr noundef nonnull %8, ptr noundef nonnull readonly %19)
   %.not12.i = icmp eq ptr %20, null
   br i1 %.not12.i, label %memoryview_toreadonly_impl.exit, label %21
 
@@ -8702,7 +8702,7 @@ Py_DECREF.exit.thread:                            ; preds = %34, %14, %.preheade
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @tolist_rec(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(address_is_null) %5, ptr noundef nonnull %6) unnamed_addr #0 {
+define internal fastcc ptr @tolist_rec(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef nonnull %6) unnamed_addr #0 {
   %8 = icmp eq i64 %2, 1
   br i1 %8, label %9, label %11
 

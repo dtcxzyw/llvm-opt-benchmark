@@ -13851,7 +13851,7 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit: ; preds = %_ZN5clang15ASTRec
 declare void @_ZN5clang15ASTRecordWriter22AddDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr noundef nonnull align 8 dereferenceable(216), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang13ASTStmtWriter24VisitCXXOperatorCallExprEPNS_19CXXOperatorCallExprE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang13ASTStmtWriter24VisitCXXOperatorCallExprEPNS_19CXXOperatorCallExprE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN5clang13ASTStmtWriter13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
@@ -13909,7 +13909,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang13ASTStmtWriter22VisitCXXMemberCallExprEPNS_17CXXMemberCallExprE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang13ASTStmtWriter22VisitCXXMemberCallExprEPNS_17CXXMemberCallExprE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN5clang13ASTStmtWriter13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1)
   %3 = load i32, ptr %1, align 8
   %4 = and i32 %3, 3145728
@@ -14752,7 +14752,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter23VisitBuiltinBitCastExprEPNS_18B
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang13ASTStmtWriter23VisitUserDefinedLiteralEPNS_18UserDefinedLiteralE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang13ASTStmtWriter23VisitUserDefinedLiteralEPNS_18UserDefinedLiteralE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN5clang13ASTStmtWriter13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload = load i32, ptr %3, align 8, !tbaa !3
@@ -18864,7 +18864,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter13VisitTypoExprEPNS_8TypoExprE(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang13ASTStmtWriter23VisitCUDAKernelCallExprEPNS_18CUDAKernelCallExprE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang13ASTStmtWriter23VisitCUDAKernelCallExprEPNS_18CUDAKernelCallExprE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN5clang13ASTStmtWriter13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1)
   %3 = load i32, ptr %1, align 8
   %4 = lshr i32 %3, 24
@@ -23619,7 +23619,7 @@ define linkonce_odr hidden void @_ZN5clang15StmtVisitorBaseISt11add_pointerNS_13
   br label %.critedge.thread
 
 169:                                              ; preds = %.critedge
-  tail call void @_ZN5clang13ASTStmtWriter13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull %1)
+  tail call void @_ZN5clang13ASTStmtWriter13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull readonly %1)
   %170 = load i32, ptr %1, align 8
   %171 = and i32 %170, 3145728
   %or.cond.not.i = icmp eq i32 %171, 0

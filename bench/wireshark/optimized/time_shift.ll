@@ -229,7 +229,7 @@ declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr no
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noundef ptr @time_shift_all(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #3 {
+define hidden noundef ptr @time_shift_all(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = alloca %struct.nstime_t, align 8
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
@@ -360,7 +360,7 @@ declare ptr @frame_data_sequence_find(ptr noundef, i32 noundef) local_unnamed_ad
 declare void @packet_list_queue_draw() local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noundef ptr @time_shift_settime(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 {
+define hidden noundef ptr @time_shift_settime(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca %struct.nstime_t, align 8
@@ -449,7 +449,7 @@ define hidden noundef ptr @time_shift_settime(ptr noundef captures(address_is_nu
 declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef ptr @time_string_to_nstime(ptr noundef nonnull captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #6 {
+define internal fastcc noundef ptr @time_string_to_nstime(ptr noundef nonnull readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #6 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -542,7 +542,7 @@ define internal fastcc noundef ptr @time_string_to_nstime(ptr noundef nonnull ca
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noundef ptr @time_shift_adjtime(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #3 {
+define hidden noundef ptr @time_shift_adjtime(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #3 {
   %6 = alloca %struct.nstime_t, align 8
   %7 = alloca %struct.nstime_t, align 8
   %8 = alloca %struct.nstime_t, align 8

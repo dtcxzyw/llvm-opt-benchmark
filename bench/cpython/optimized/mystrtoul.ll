@@ -354,7 +354,7 @@ select.unfold:                                    ; preds = %124, %119, %121
 declare ptr @__errno_location() local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @PyOS_strtol(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local i64 @PyOS_strtol(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i8, ptr %0, align 1, !tbaa !4
   %.not27 = icmp eq i8 %4, 0
   br i1 %.not27, label %.critedge.thread, label %.lr.ph

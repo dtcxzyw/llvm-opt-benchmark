@@ -520,7 +520,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @ASN1_STRING_set0(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ASN1_INTEGER_get_int64(ptr noundef writeonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_INTEGER_get_int64(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc i32 @asn1_string_get_int64(ptr noundef %0, ptr noundef %1, i32 noundef 2)
   ret i32 %3
 }
@@ -834,14 +834,14 @@ ASN1_INTEGER_set_int64.exit:                      ; preds = %.preheader.i.i, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ASN1_INTEGER_get(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define i64 @ASN1_INTEGER_get(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
   %3 = icmp eq ptr %0, null
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = call fastcc range(i32 0, 2) i32 @asn1_string_get_int64(ptr noundef nonnull %2, ptr noundef nonnull %0, i32 noundef 2)
+  %5 = call fastcc range(i32 0, 2) i32 @asn1_string_get_int64(ptr noundef nonnull %2, ptr noundef nonnull readonly %0, i32 noundef 2)
   %6 = icmp eq i32 %5, 0
   %7 = load i64, ptr %2, align 8
   %spec.select = select i1 %6, i64 -1, i64 %7
@@ -992,7 +992,7 @@ define internal fastcc ptr @asn1_string_to_bn(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ASN1_ENUMERATED_get_int64(ptr noundef writeonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_ENUMERATED_get_int64(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc i32 @asn1_string_get_int64(ptr noundef %0, ptr noundef %1, i32 noundef 10)
   ret i32 %3
 }
@@ -1090,7 +1090,7 @@ ASN1_ENUMERATED_set_int64.exit:                   ; preds = %.preheader.i.i, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ASN1_ENUMERATED_get(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define i64 @ASN1_ENUMERATED_get(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
   %3 = icmp eq ptr %0, null
@@ -1109,7 +1109,7 @@ define i64 @ASN1_ENUMERATED_get(ptr noundef captures(address_is_null) %0) local_
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %8
-  %12 = call fastcc range(i32 0, 2) i32 @asn1_string_get_int64(ptr noundef nonnull %2, ptr noundef nonnull %0, i32 noundef 10)
+  %12 = call fastcc range(i32 0, 2) i32 @asn1_string_get_int64(ptr noundef nonnull %2, ptr noundef nonnull readonly %0, i32 noundef 10)
   %13 = icmp eq i32 %12, 0
   %14 = load i64, ptr %2, align 8
   %spec.select = select i1 %13, i64 -1, i64 %14
@@ -1134,7 +1134,7 @@ define ptr @ASN1_ENUMERATED_to_BN(ptr noundef readonly captures(none) %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_c2i_uint64_int(ptr noundef writeonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_c2i_uint64_int(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [8 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
   %6 = load ptr, ptr %2, align 8, !tbaa !16

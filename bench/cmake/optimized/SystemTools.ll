@@ -946,7 +946,7 @@ define dso_local noalias noundef ptr @_ZN5cmsys11SystemTools5FopenERKNSt7__cxx11
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @_ZN5cmsys11SystemTools13MakeDirectoryEPKcPKj(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local i64 @_ZN5cmsys11SystemTools13MakeDirectoryEPKcPKj(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %.not = icmp eq ptr %0, null
@@ -3023,7 +3023,7 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef 
 declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN5cmsys11SystemTools13AppendStringsEPKcS2_S2_(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5cmsys11SystemTools13AppendStringsEPKcS2_S2_(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #6 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %6
 
@@ -12298,7 +12298,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5cmsys11SystemTools16CollapseFullPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(32) %2) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN5cmsys11SystemTools16CollapseFullPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(address_is_null) dereferenceable(32) %2) local_unnamed_addr #6 align 2 {
   tail call fastcc void @_ZN5cmsys12_GLOBAL__N_120CollapseFullPathImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS7_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %2)
   ret void
 }

@@ -113,7 +113,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ImgIoUtilReadFile(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ImgIoUtilReadFile(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.critedge, label %sub_0
 

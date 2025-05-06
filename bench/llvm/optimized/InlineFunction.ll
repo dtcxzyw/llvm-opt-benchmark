@@ -1393,7 +1393,7 @@ declare void @_ZN4llvm8Function13setEntryCountEmNS0_16ProfileCountTypeEPKNS_8Den
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm14InlineFunctionERNS_8CallBaseERNS_18InlineFunctionInfoERNS_20PGOContextualProfileEbPNS_9AAResultsEbPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(377) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef captures(address) %6) local_unnamed_addr #1 {
+define dso_local noundef ptr @_ZN4llvm14InlineFunctionERNS_8CallBaseERNS_18InlineFunctionInfoERNS_20PGOContextualProfileEbPNS_9AAResultsEbPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(377) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef readnone captures(address) %6) local_unnamed_addr #1 {
   %8 = alloca %"class.std::vector", align 8
   %9 = alloca %"class.std::vector", align 8
   %10 = alloca i64, align 8
@@ -15822,7 +15822,7 @@ _ZN4llvm21ValueMapConstIteratorINS_8DenseMapINS_18ValueMapCallbackVHIPKNS_5Value
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17updateCallProfilePN4llvm8FunctionERKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEERKNS0_12ProfileCountERKNS_8CallBaseEPNS_18ProfileSummaryInfoEPNS_18BlockFrequencyInfoE(ptr noundef nonnull %0, ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(57) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #1 {
+define internal fastcc void @_ZL17updateCallProfilePN4llvm8FunctionERKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEERKNS0_12ProfileCountERKNS_8CallBaseEPNS_18ProfileSummaryInfoEPNS_18BlockFrequencyInfoE(ptr noundef nonnull %0, ptr noundef nonnull readonly align 8 captures(address_is_null) dereferenceable(57) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #1 {
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !678
   %9 = icmp eq i32 %8, 1

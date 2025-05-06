@@ -121,7 +121,7 @@ declare void @CommandCounterIncrement() local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @ExecRefreshMatView(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @ExecRefreshMatView(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i8, ptr %4, align 4, !range !4, !noundef !5
   %6 = trunc nuw i8 %5 to i1

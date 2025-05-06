@@ -1806,7 +1806,7 @@ declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr n
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_write_hdr_to_func(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @stbi_write_hdr_to_func(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #5 {
   %7 = alloca %struct.stbi__write_context, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7) #26
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -1820,7 +1820,7 @@ define range(i32 0, 2) i32 @stbi_write_hdr_to_func(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_write_hdr(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @stbi_write_hdr(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #5 {
   %6 = alloca %struct.stbi__write_context, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6) #26
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -6147,7 +6147,7 @@ stbiw__jpg_writeBits.exit:                        ; preds = %375, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_write_jpg_to_func(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @stbi_write_jpg_to_func(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #5 {
   %8 = alloca %struct.stbi__write_context, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %8) #26
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -6161,7 +6161,7 @@ define range(i32 0, 2) i32 @stbi_write_jpg_to_func(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_write_jpg(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @stbi_write_jpg(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #5 {
   %7 = alloca %struct.stbi__write_context, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7) #26
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16

@@ -8545,7 +8545,7 @@ _ZN4llvm15SmallVectorImplIN5clang12ast_matchers10BoundNodesEE5clearEv.exit63: ; 
 declare void @_ZN5clang12ast_matchers11MatchFinder13MatchCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL10seenBeforePKN5clang4StmtES2_S2_(ptr noundef nonnull %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @_ZL10seenBeforePKN5clang4StmtES2_S2_(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2) unnamed_addr #4 {
   %4 = alloca %"class.llvm::iterator_range.1328", align 8
   %5 = alloca %"struct.clang::ConstStmtIterator", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #18, !noalias !694

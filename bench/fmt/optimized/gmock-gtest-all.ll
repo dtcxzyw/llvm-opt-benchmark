@@ -4749,7 +4749,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i8 0, ptr %274, align 8, !tbaa !13
   %304 = getelementptr inbounds nuw i8, ptr %260, i64 72
   store i32 %286, ptr %304, align 8, !tbaa !185
-  %305 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.51, ptr noundef %190, ptr noundef null, ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperINS0_12_GLOBAL__N_111FailureTestEE6dummy_E, ptr noundef null, ptr noundef null, ptr noundef nonnull %260)
+  %305 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.51, ptr noundef readonly %190, ptr noundef null, ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperINS0_12_GLOBAL__N_111FailureTestEE6dummy_E, ptr noundef null, ptr noundef null, ptr noundef nonnull %260)
           to label %306 unwind label %335
 
 306:                                              ; preds = %302
@@ -5279,7 +5279,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7testing8internal34RegisterTypeParameterizedTestSuiteEPKcNS0_12CodeLocationE(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7testing8internal34RegisterTypeParameterizedTestSuiteEPKcNS0_12CodeLocationE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"struct.testing::internal::CodeLocation", align 8
   %5 = load atomic i8, ptr @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance acquire, align 8
@@ -6699,7 +6699,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %.body.thread5.i
 
 "_ZZN7testing12RegisterTestITpTnRiJEZNS_8internal34TypeParameterizedTestSuiteRegistry22CheckForInstantiationsEvE3$_0EEPNS_8TestInfoEPKcS8_S8_S8_S8_iT0_EN11FactoryImplC2ES4_.exit.i": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i
-  %272 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.51, ptr noundef %188, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperINS0_12_GLOBAL__N_111FailureTestEE6dummy_E, ptr noundef null, ptr noundef null, ptr noundef nonnull %233)
+  %272 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.51, ptr noundef readonly %188, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperINS0_12_GLOBAL__N_111FailureTestEE6dummy_E, ptr noundef null, ptr noundef null, ptr noundef nonnull %233)
           to label %273 unwind label %.body.i
 
 273:                                              ; preds = %"_ZZN7testing12RegisterTestITpTnRiJEZNS_8internal34TypeParameterizedTestSuiteRegistry22CheckForInstantiationsEvE3$_0EEPNS_8TestInfoEPKcS8_S8_S8_S8_iT0_EN11FactoryImplC2ES4_.exit.i"
@@ -29817,7 +29817,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef readonly captures(none) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
@@ -68076,7 +68076,7 @@ _ZN7testing8internal12UnitTestImpl26RegisterParameterizedTestsEv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN7testing8internal12UnitTestImpl12GetTestSuiteEPKcS3_PFvvES5_(ptr noundef nonnull align 8 dereferenceable(601) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN7testing8internal12UnitTestImpl12GetTestSuiteEPKcS3_PFvvES5_(ptr noundef nonnull align 8 dereferenceable(601) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -94907,7 +94907,7 @@ declare i32 @regcomp(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7testing8internal8GTestLogC2ENS0_16GTestLogSeverityEPKci(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7testing8internal8GTestLogC2ENS0_16GTestLogSeverityEPKci(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   store i32 %1, ptr %0, align 4, !tbaa !1676
   %6 = icmp eq i32 %1, 0
@@ -97597,7 +97597,7 @@ define dso_local void @_ZN7testing8internal24HasNewFatalFailureHelper20ReportTes
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN7testing8internal20TypedTestSuitePState25VerifyRegisteredTestNamesEPKcS3_iS3_(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef returned %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN7testing8internal20TypedTestSuitePState25VerifyRegisteredTestNamesEPKcS3_iS3_(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef returned %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca i64, align 8
@@ -102851,7 +102851,7 @@ define internal fastcc void @_ZN7testing8internalL24LogElementMatcherPairVecERKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7testing8internal15LogWithLocationENS0_11LogSeverityEPKciRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7testing8internal15LogWithLocationENS0_11LogSeverityEPKciRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

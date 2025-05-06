@@ -3148,13 +3148,13 @@ _ZN10duckdb_lz4L29LZ4_decompress_unsafe_genericEPKhPhimS1_m.exit: ; preds = %22,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN10duckdb_lz432LZ4_decompress_safe_forceExtDictEPKcPciiPKvm(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, i64 noundef %5) local_unnamed_addr #1 {
+define noundef i32 @_ZN10duckdb_lz432LZ4_decompress_safe_forceExtDictEPKcPciiPKvm(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i64 noundef %5) local_unnamed_addr #1 {
   %7 = tail call fastcc noundef i32 @_ZN10duckdb_lz4L22LZ4_decompress_genericEPKcPciiNS_18earlyEnd_directiveENS_14dict_directiveEPKhS6_m(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 0, i32 noundef 2, ptr noundef %1, ptr noundef %4, i64 noundef %5)
   ret i32 %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN10duckdb_lz440LZ4_decompress_safe_partial_forceExtDictEPKcPciiiPKvm(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, i64 noundef %6) local_unnamed_addr #1 {
+define noundef i32 @_ZN10duckdb_lz440LZ4_decompress_safe_partial_forceExtDictEPKcPciiiPKvm(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, i64 noundef %6) local_unnamed_addr #1 {
   %8 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %9 = tail call fastcc noundef i32 @_ZN10duckdb_lz4L22LZ4_decompress_genericEPKcPciiNS_18earlyEnd_directiveENS_14dict_directiveEPKhS6_m(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %8, i32 noundef 1, i32 noundef 2, ptr noundef %1, ptr noundef %5, i64 noundef %6)
   ret i32 %9
@@ -3256,7 +3256,7 @@ define noundef i32 @_ZN10duckdb_lz428LZ4_decompress_safe_continueEPNS_18LZ4_stre
   %34 = load ptr, ptr %0, align 8, !tbaa !49
   %35 = sub nsw i64 0, %7
   %36 = getelementptr inbounds i8, ptr %2, i64 %35
-  %37 = tail call fastcc noundef i32 @_ZN10duckdb_lz4L22LZ4_decompress_genericEPKcPciiNS_18earlyEnd_directiveENS_14dict_directiveEPKhS6_m(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %36, ptr noundef %34, i64 noundef range(i64 1, 0) %27)
+  %37 = tail call fastcc noundef i32 @_ZN10duckdb_lz4L22LZ4_decompress_genericEPKcPciiNS_18earlyEnd_directiveENS_14dict_directiveEPKhS6_m(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %36, ptr noundef readonly %34, i64 noundef range(i64 1, 0) %27)
   br label %38
 
 38:                                               ; preds = %29, %33, %22
@@ -3280,7 +3280,7 @@ define noundef i32 @_ZN10duckdb_lz428LZ4_decompress_safe_continueEPNS_18LZ4_stre
   %48 = sub i64 0, %7
   %49 = getelementptr inbounds i8, ptr %18, i64 %48
   store ptr %49, ptr %0, align 8, !tbaa !49
-  %50 = tail call fastcc noundef i32 @_ZN10duckdb_lz4L22LZ4_decompress_genericEPKcPciiNS_18earlyEnd_directiveENS_14dict_directiveEPKhS6_m(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 2, ptr noundef %2, ptr noundef nonnull %49, i64 noundef %7)
+  %50 = tail call fastcc noundef i32 @_ZN10duckdb_lz4L22LZ4_decompress_genericEPKcPciiNS_18earlyEnd_directiveENS_14dict_directiveEPKhS6_m(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 2, ptr noundef %2, ptr noundef nonnull readonly %49, i64 noundef %7)
   %51 = icmp slt i32 %50, 1
   br i1 %51, label %55, label %52
 
@@ -3763,7 +3763,7 @@ _ZN10duckdb_lz419LZ4_decompress_fastEPKcPci.exit.thread: ; preds = %186, %211, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN10duckdb_lz429LZ4_decompress_safe_usingDictEPKcPciiS1_i(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address) %4, i32 noundef %5) local_unnamed_addr #1 {
+define noundef i32 @_ZN10duckdb_lz429LZ4_decompress_safe_usingDictEPKcPciiS1_i(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address) %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp eq i32 %5, 0
   br i1 %7, label %8, label %10
 
@@ -3793,7 +3793,7 @@ define noundef i32 @_ZN10duckdb_lz429LZ4_decompress_safe_usingDictEPKcPciiS1_i(p
   br label %25
 
 23:                                               ; preds = %10
-  %24 = tail call fastcc noundef i32 @_ZN10duckdb_lz4L22LZ4_decompress_genericEPKcPciiNS_18earlyEnd_directiveENS_14dict_directiveEPKhS6_m(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 0, i32 noundef 2, ptr noundef %1, ptr noundef %4, i64 noundef %11)
+  %24 = tail call fastcc noundef i32 @_ZN10duckdb_lz4L22LZ4_decompress_genericEPKcPciiNS_18earlyEnd_directiveENS_14dict_directiveEPKhS6_m(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 0, i32 noundef 2, ptr noundef %1, ptr noundef readonly %4, i64 noundef %11)
   br label %25
 
 25:                                               ; preds = %23, %19, %16, %8
@@ -3802,7 +3802,7 @@ define noundef i32 @_ZN10duckdb_lz429LZ4_decompress_safe_usingDictEPKcPciiS1_i(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN10duckdb_lz437LZ4_decompress_safe_partial_usingDictEPKcPciiiS1_i(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address) %5, i32 noundef %6) local_unnamed_addr #1 {
+define noundef i32 @_ZN10duckdb_lz437LZ4_decompress_safe_partial_usingDictEPKcPciiiS1_i(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(address) %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = icmp eq i32 %6, 0
   br i1 %8, label %9, label %12
 
@@ -3835,7 +3835,7 @@ define noundef i32 @_ZN10duckdb_lz437LZ4_decompress_safe_partial_usingDictEPKcPc
 
 26:                                               ; preds = %12
   %27 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
-  %28 = tail call fastcc noundef i32 @_ZN10duckdb_lz4L22LZ4_decompress_genericEPKcPciiNS_18earlyEnd_directiveENS_14dict_directiveEPKhS6_m(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %27, i32 noundef 1, i32 noundef 2, ptr noundef %1, ptr noundef %5, i64 noundef %13)
+  %28 = tail call fastcc noundef i32 @_ZN10duckdb_lz4L22LZ4_decompress_genericEPKcPciiNS_18earlyEnd_directiveENS_14dict_directiveEPKhS6_m(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %27, i32 noundef 1, i32 noundef 2, ptr noundef %1, ptr noundef readonly %5, i64 noundef %13)
   br label %29
 
 29:                                               ; preds = %26, %22, %19, %9

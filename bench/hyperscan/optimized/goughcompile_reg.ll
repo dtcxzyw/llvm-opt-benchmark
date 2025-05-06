@@ -188,7 +188,7 @@ $_ZTSN5boost21checked_array_deleterINS_18default_color_typeEEE = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3ue212assign_slotsERN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEERKNS_4GreyE(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(292) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN3ue212assign_slotsERN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEERKNS_4GreyE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(292) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::container::vec_iterator.316", align 8
   %4 = alloca %"class.boost::container::vec_iterator.318", align 8
   %5 = alloca i32, align 4
@@ -315,7 +315,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN3u
   store ptr %55, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %14, i64 136
   store i64 0, ptr %59, align 8
-  invoke fastcc void @_ZN3ue2L8fill_auxERKN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEEPNS_12_GLOBAL__N_113GoughGraphAuxE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %14)
+  invoke fastcc void @_ZN3ue2L8fill_auxERKN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEEPNS_12_GLOBAL__N_113GoughGraphAuxE(ptr noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %14)
           to label %60 unwind label %595
 
 60:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -1239,7 +1239,7 @@ _ZN3ue2L14is_block_localERKN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectio
 
 _ZN3ue2L14is_block_localERKN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEEPNS_11GoughSSAVarERKNS_12_GLOBAL__N_113GoughGraphAuxE.exit.thread.i.i: ; preds = %.critedge46.i.i.i, %.noexc54.i.i, %_ZN3ue2L14is_block_localERKN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEEPNS_11GoughSSAVarERKNS_12_GLOBAL__N_113GoughGraphAuxE.exit.i.i, %_ZN3ue28containsISt3mapIPKNS_11GoughSSAVarEN5boost6detail14edge_desc_implINS5_17bidirectional_tagEmEESt4lessIS4_ESaISt4pairIKS4_S9_EEEEEbRKT_RKNSH_8key_typeE.exit.i.i.i, %_ZNKSt8_Rb_treeIPKN3ue211GoughSSAVarESt4pairIKS3_N5boost6detail14edge_desc_implINS6_17bidirectional_tagEmEEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i.i.i.i, %_ZN3ue28containsISt3mapIPKNS_11GoughSSAVarESt3setImSt4lessImESaImEES6_IS4_ESaISt4pairIKS4_S9_EEEEEbRKT_RKNSG_8key_typeE.exit.thread.i.i.i, %_ZN3ue28containsISt3mapIPKNS_11GoughSSAVarESt3setImSt4lessImESaImEES6_IS4_ESaISt4pairIKS4_S9_EEEEEbRKT_RKNSG_8key_typeE.exit.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #22
-  invoke fastcc void @_ZN3ue2L11live_duringEPNS_11GoughSSAVarERKN5boost14adjacency_listINS2_4vecSES4_NS2_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS2_5listSEEERKNS_12_GLOBAL__N_113GoughGraphAuxE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull %289, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(144) %14)
+  invoke fastcc void @_ZN3ue2L11live_duringEPNS_11GoughSSAVarERKN5boost14adjacency_listINS2_4vecSES4_NS2_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS2_5listSEEERKNS_12_GLOBAL__N_113GoughGraphAuxE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull %289, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(144) %14)
           to label %388 unwind label %562
 
 388:                                              ; preds = %_ZN3ue2L14is_block_localERKN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEEPNS_11GoughSSAVarERKNS_12_GLOBAL__N_113GoughGraphAuxE.exit.thread.i.i

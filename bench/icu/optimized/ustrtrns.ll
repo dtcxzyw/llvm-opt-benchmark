@@ -309,7 +309,7 @@ declare i32 @u_terminateUChars_77(ptr noundef, i32 noundef, i32 noundef, ptr nou
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @u_strFromUTF32_77(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address) %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define noundef ptr @u_strFromUTF32_77(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readonly captures(address) %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call ptr @u_strFromUTF32WithSub_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, ptr noundef null, ptr noundef %5)
   ret ptr %7
 }
@@ -582,7 +582,7 @@ define noundef ptr @u_strToUTF32WithSub_77(ptr noundef %0, i32 noundef %1, ptr n
 declare i32 @u_terminateUChar32s_77(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @u_strToUTF32_77(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address) %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define noundef ptr @u_strToUTF32_77(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readonly captures(address) %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call ptr @u_strToUTF32WithSub_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, ptr noundef null, ptr noundef %5)
   ret ptr %7
 }
@@ -1404,7 +1404,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
 declare i32 @utf8_nextCharSafeBody_77(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @u_strFromUTF8_77(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define noundef ptr @u_strFromUTF8_77(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, ptr noundef null, ptr noundef %5)
   ret ptr %7
 }
@@ -2846,7 +2846,7 @@ define internal fastcc noundef nonnull ptr @_ZL11_appendUTF8Phi(ptr noundef writ
 declare i32 @u_terminateChars_77(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @u_strToUTF8_77(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define noundef ptr @u_strToUTF8_77(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call ptr @u_strToUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, ptr noundef null, ptr noundef %5)
   ret ptr %7
 }

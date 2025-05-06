@@ -282,7 +282,7 @@ declare dso_local i32 @security_kernel_post_read_file(ptr noundef, ptr noundef, 
 declare dso_local void @vfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @kernel_read_file_from_path(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, i64 noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) #0 align 16 {
+define dso_local i64 @kernel_read_file_from_path(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5) #0 align 16 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %18, label %8
 
@@ -317,7 +317,7 @@ declare dso_local ptr @filp_open(ptr noundef, i32 noundef, i16 noundef zeroext) 
 declare dso_local void @fput(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @kernel_read_file_from_path_initns(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, i64 noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) #0 align 16 {
+define dso_local i64 @kernel_read_file_from_path_initns(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5) #0 align 16 {
   %7 = alloca %struct.path, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
   %8 = icmp eq ptr %0, null
@@ -365,7 +365,7 @@ declare dso_local ptr @file_open_root(ptr noundef, ptr noundef, i32 noundef, i16
 declare dso_local void @path_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @kernel_read_file_from_fd(i32 noundef %0, i64 noundef %1, ptr noundef captures(none) %2, i64 noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) #0 align 16 {
+define dso_local i64 @kernel_read_file_from_fd(i32 noundef %0, i64 noundef %1, ptr noundef captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5) #0 align 16 {
   %7 = tail call i64 @__fdget(i32 noundef %0) #7
   %8 = and i64 %7, -4
   %9 = inttoptr i64 %8 to ptr

@@ -7420,7 +7420,7 @@ define void @_ZN12SdfGpuPlugin17faceDataToTextureER9MeshModel(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12SdfGpuPlugin8TraceRayEPK7QActioniRKN3vcg6Point3IfEEP9MeshModel(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12SdfGpuPlugin8TraceRayEPK7QActioniRKN3vcg6Point3IfEEP9MeshModel(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.vcg::Box3", align 8
   %7 = icmp sgt i32 %2, 0
   br i1 %7, label %.lr.ph, label %._crit_edge

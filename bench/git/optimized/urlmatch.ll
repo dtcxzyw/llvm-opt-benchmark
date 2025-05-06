@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.26 = private unnamed_addr constant [30 x i8] c"strbuf_setlen() beyond buffer\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @url_normalize(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @url_normalize(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @url_normalize_1(ptr noundef %0, ptr noundef %1, i8 noundef signext 0)
   ret ptr %3
 }

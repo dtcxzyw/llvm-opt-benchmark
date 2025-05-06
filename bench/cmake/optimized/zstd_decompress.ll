@@ -652,16 +652,16 @@ default.unreachable:                              ; preds = %90, %77
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i64 @ZSTD_getFrameHeader(ptr noundef writeonly captures(none) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #7 {
+define dso_local i64 @ZSTD_getFrameHeader(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #7 {
   %4 = tail call i64 @ZSTD_getFrameHeader_advanced(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 0)
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i64 @ZSTD_getFrameContentSize(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 {
+define dso_local i64 @ZSTD_getFrameContentSize(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = alloca %struct.ZSTD_frameHeader, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #15
-  %4 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1, i32 noundef 0)
+  %4 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %3, ptr noundef readonly %0, i64 noundef %1, i32 noundef 0)
   %.not = icmp eq i64 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %6 = load i32, ptr %5, align 4
@@ -763,7 +763,7 @@ define dso_local i64 @ZSTD_findDecompressedSize(ptr noundef %0, i64 noundef %1) 
 
 17:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #15
-  %18 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %4, ptr noundef nonnull %.03273, i64 noundef %.04072, i32 noundef 0)
+  %18 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %4, ptr noundef nonnull readonly %.03273, i64 noundef %.04072, i32 noundef 0)
   %.not.i = icmp eq i64 %18, 0
   %19 = load i32, ptr %5, align 4
   %20 = icmp eq i32 %19, 1
@@ -819,10 +819,10 @@ define dso_local i64 @ZSTD_findFrameCompressedSize(ptr noundef %0, i64 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i64 @ZSTD_getDecompressedSize(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 {
+define dso_local i64 @ZSTD_getDecompressedSize(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = alloca %struct.ZSTD_frameHeader, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #15
-  %4 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1, i32 noundef 0)
+  %4 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %3, ptr noundef readonly %0, i64 noundef %1, i32 noundef 0)
   %.not.i = icmp eq i64 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %6 = load i32, ptr %5, align 4
@@ -867,7 +867,7 @@ readSkippableFrameSize.exit:                      ; preds = %7
 
 15:                                               ; preds = %7, %3
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #15
-  %16 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %4, ptr noundef %1, i64 noundef %2, i32 noundef 0)
+  %16 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %4, ptr noundef readonly %1, i64 noundef %2, i32 noundef 0)
   %17 = icmp ult i64 %16, -119
   br i1 %17, label %21, label %18
 
@@ -1044,7 +1044,7 @@ define dso_local i64 @ZSTD_decompressionMargin(ptr noundef %0, i64 noundef %1) l
   %12 = load i64, ptr %5, align 8, !tbaa !55
   %13 = load i64, ptr %6, align 8, !tbaa !61
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #15
-  %14 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %4, ptr noundef %.02953, i64 noundef %.03152, i32 noundef 0)
+  %14 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %4, ptr noundef readonly %.02953, i64 noundef %.03152, i32 noundef 0)
   %15 = icmp ult i64 %14, -119
   br i1 %15, label %16, label %.thread
 
@@ -2210,7 +2210,7 @@ ZSTD_copyRawBlock.exit.thread:                    ; preds = %114, %110, %ZSTD_fr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -119, 1) i64 @ZSTD_decodeFrameHeader(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i64 -119, 1) i64 @ZSTD_decodeFrameHeader(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 29928
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 30104
@@ -2820,11 +2820,11 @@ define dso_local i32 @ZSTD_getDictID_fromDict(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @ZSTD_getDictID_fromFrame(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 {
+define dso_local i32 @ZSTD_getDictID_fromFrame(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = alloca %struct.ZSTD_frameHeader, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
-  %4 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1, i32 noundef 0)
+  %4 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %3, ptr noundef readonly %0, i64 noundef %1, i32 noundef 0)
   %5 = icmp ult i64 %4, -119
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %7 = load i32, ptr %6, align 4
@@ -3904,10 +3904,10 @@ define dso_local i64 @ZSTD_estimateDStreamSize(i64 noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i64 -119, 2147972897) i64 @ZSTD_estimateDStreamSize_fromFrame(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 {
+define dso_local range(i64 -119, 2147972897) i64 @ZSTD_estimateDStreamSize_fromFrame(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = alloca %struct.ZSTD_frameHeader, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #15
-  %4 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1, i32 noundef 0)
+  %4 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %3, ptr noundef readonly %0, i64 noundef %1, i32 noundef 0)
   %5 = icmp ult i64 %4, -119
   br i1 %5, label %6, label %15
 

@@ -4896,7 +4896,7 @@ if.end:                                           ; preds = %_ZN4node11Environme
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node13GetNodeReportEPNS_11EnvironmentEPKcS3_N2v85LocalINS4_5ValueEEERSo(ptr noundef captures(address_is_null) %env, ptr noundef %message, ptr noundef %trigger, ptr %error.coerce, ptr noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #3 {
+define dso_local void @_ZN4node13GetNodeReportEPNS_11EnvironmentEPKcS3_N2v85LocalINS4_5ValueEEERSo(ptr noundef readonly captures(address_is_null) %env, ptr noundef %message, ptr noundef %trigger, ptr %error.coerce, ptr noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #3 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
@@ -11379,7 +11379,7 @@ _ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZZNS_6reportL15WriteNodeReportEPN2v87IsolateES2_PKcSA_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSoNS6_5LocalINS6_5ValueEEEbENK3$_0clEPNS_6worker6WorkerEEUlS2_E_E4CallES2_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef captures(address_is_null) %args) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZZNS_6reportL15WriteNodeReportEPN2v87IsolateES2_PKcSA_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSoNS6_5LocalINS6_5ValueEEEbENK3$_0clEPNS_6worker6WorkerEEUlS2_E_E4CallES2_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef readonly captures(address_is_null) %args) unnamed_addr #3 align 2 {
 entry:
   %os.i = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11389,7 +11389,7 @@ entry:
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os.i) #24
   %0 = load ptr, ptr %callback_, align 8
   %1 = load ptr, ptr %0, align 8
-  call void @_ZN4node13GetNodeReportEPNS_11EnvironmentEPKcS3_N2v85LocalINS4_5ValueEEERSo(ptr noundef %args, ptr noundef nonnull @.str.168, ptr noundef %1, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %os.i)
+  call void @_ZN4node13GetNodeReportEPNS_11EnvironmentEPKcS3_N2v85LocalINS4_5ValueEEERSo(ptr noundef readonly %args, ptr noundef nonnull @.str.168, ptr noundef %1, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %os.i)
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %3 = load ptr, ptr %2, align 8
   call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #24

@@ -1288,7 +1288,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %.crite
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Mio_CollectRootsNewDefault2(i32 noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef ptr @Mio_CollectRootsNewDefault2(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr (...) @Abc_FrameReadLibGen() #30
   %5 = tail call ptr @Mio_CollectRootsNew2(ptr noundef %4, i32 noundef %0, ptr noundef %1, i32 noundef %2)
   ret ptr %5
@@ -2838,7 +2838,7 @@ Mio_CellDelayAve.exit:                            ; preds = %256, %246
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Mio_CollectRootsNewDefault(i32 noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef ptr @Mio_CollectRootsNewDefault(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr (...) @Abc_FrameReadLibGen() #30
   %5 = tail call ptr @Mio_CollectRootsNew(ptr noundef %4, i32 noundef %0, ptr noundef %1, i32 noundef %2)
   ret ptr %5

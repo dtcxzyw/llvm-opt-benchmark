@@ -1047,7 +1047,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF16EPPKhS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm25ConvertUTF8toUTF32PartialEPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(address) %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm25ConvertUTF8toUTF32PartialEPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef readnone captures(address) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call fastcc noundef i32 @_ZN4llvmL22ConvertUTF8toUTF32ImplEPPKhS1_PPjS3_NS_15ConversionFlagsEh(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext 1)
   ret i32 %6
 }
@@ -1425,7 +1425,7 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit91: ; preds = %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF32EPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(address) %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF32EPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef readnone captures(address) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call fastcc noundef i32 @_ZN4llvmL22ConvertUTF8toUTF32ImplEPPKhS1_PPjS3_NS_15ConversionFlagsEh(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext 0)
   ret i32 %6
 }

@@ -14476,7 +14476,7 @@ Vec_IntFree.exit62:                               ; preds = %Vec_IntFree.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Gia_ManComputeDistance(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #4 {
+define noalias noundef ptr @Gia_ManComputeDistance(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %6 = load ptr, ptr %5, align 8, !tbaa !187
   %.not = icmp eq ptr %6, null

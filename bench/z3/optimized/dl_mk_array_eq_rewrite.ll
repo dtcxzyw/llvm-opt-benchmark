@@ -1515,7 +1515,7 @@ _ZN16basic_union_find5mergeEjj.exit:              ; preds = %_ZNK16basic_union_f
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog19mk_array_eq_rewrite7replaceEP4exprS2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(84) %0, ptr noundef readonly captures(address, ret: address, provenance) %1, ptr noundef %2, ptr noundef captures(address) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN7datalog19mk_array_eq_rewrite7replaceEP4exprS2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(84) %0, ptr noundef readonly captures(address, ret: address, provenance) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.ptr_vector.2, align 8
   %6 = icmp eq ptr %1, %3
   br i1 %6, label %56, label %7

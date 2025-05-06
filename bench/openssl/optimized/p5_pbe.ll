@@ -177,13 +177,13 @@ declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PKCS5_pbe_set0_algor(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @PKCS5_pbe_set0_algor(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = tail call i32 @PKCS5_pbe_set0_algor_ex(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef null)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @PKCS5_pbe_set_ex(i32 noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define ptr @PKCS5_pbe_set_ex(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = tail call ptr @X509_ALGOR_new() #5
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9
@@ -213,7 +213,7 @@ declare ptr @X509_ALGOR_new() local_unnamed_addr #2
 declare void @X509_ALGOR_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @PKCS5_pbe_set(i32 noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #1 {
+define ptr @PKCS5_pbe_set(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = tail call ptr @X509_ALGOR_new() #5
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8
@@ -225,7 +225,7 @@ define ptr @PKCS5_pbe_set(i32 noundef %0, i32 noundef %1, ptr noundef captures(a
   br label %PKCS5_pbe_set_ex.exit
 
 8:                                                ; preds = %4
-  %9 = tail call i32 @PKCS5_pbe_set0_algor_ex(ptr noundef nonnull %5, i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef null)
+  %9 = tail call i32 @PKCS5_pbe_set0_algor_ex(ptr noundef nonnull %5, i32 noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef null)
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %10, label %PKCS5_pbe_set_ex.exit
 

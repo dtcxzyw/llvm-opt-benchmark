@@ -11156,7 +11156,7 @@ _ZN4llvm3isaIN5clang12FunctionDeclENS1_10MSGuidDeclEJNS1_25UnnamedGlobalConstant
 declare { i64, ptr } @_ZNK5clang7APValue13getLValueBaseEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK5clang4Expr21isIntegerConstantExprERKNS_10ASTContextEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5clang4Expr21isIntegerConstantExprERKNS_10ASTContextEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::APValue", align 8
   %5 = alloca %class.anon.522, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #30
@@ -12343,7 +12343,7 @@ _ZN4llvm5APIntD2Ev.exit191:                       ; preds = %358, %364, %367
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang4Expr22getIntegerConstantExprERKNS_10ASTContextEPNS_14SourceLocationE(ptr dead_on_unwind noalias writable sret(%"class.std::optional.458") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(23216) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK5clang4Expr22getIntegerConstantExprERKNS_10ASTContextEPNS_14SourceLocationE(ptr dead_on_unwind noalias writable sret(%"class.std::optional.458") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(23216) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::APValue", align 8
   %6 = alloca %"class.llvm::APSInt", align 8
   %7 = alloca %"struct.clang::Expr::EvalResult", align 8
@@ -38865,7 +38865,7 @@ _ZN12_GLOBAL__N_114CallStackFrame15pushTempVersionEv.exit: ; preds = %2, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL12EvaluateStmtRN12_GLOBAL__N_110StmtResultERNS_8EvalInfoEPKN5clang4StmtEPKNS4_10SwitchCaseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(968) %1, ptr noundef %2, ptr noundef captures(address) %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL12EvaluateStmtRN12_GLOBAL__N_110StmtResultERNS_8EvalInfoEPKN5clang4StmtEPKNS4_10SwitchCaseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(968) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 {
   %5 = alloca %"class.clang::APValue", align 8
   %6 = alloca %"class.clang::APValue", align 8
   %7 = alloca %"class.clang::APValue", align 8
@@ -45506,7 +45506,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclENS2_9CharUnitsENS_1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL16EvaluateLoopBodyRN12_GLOBAL__N_110StmtResultERNS_8EvalInfoEPKN5clang4StmtEPKNS4_10SwitchCaseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(968) %1, ptr noundef %2, ptr noundef captures(address) %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL16EvaluateLoopBodyRN12_GLOBAL__N_110StmtResultERNS_8EvalInfoEPKN5clang4StmtEPKNS4_10SwitchCaseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(968) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 {
   %5 = alloca %"class.clang::APValue", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %7 = load i32, ptr %6, align 8, !tbaa !628

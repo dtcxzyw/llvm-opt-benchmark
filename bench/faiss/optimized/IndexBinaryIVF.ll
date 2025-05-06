@@ -2631,7 +2631,7 @@ define void @_ZN5faiss14IndexBinaryIVF19set_direct_map_typeENS_9DirectMap4TypeE(
 declare noundef double @_ZN5faiss12getmillisecsEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5faiss14IndexBinaryIVF18search_preassignedElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(240) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8, ptr noundef %9) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5faiss14IndexBinaryIVF18search_preassignedElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(240) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8, ptr noundef readonly %9) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %11 = alloca ptr, align 8
   %12 = alloca i64, align 8
   %13 = alloca ptr, align 8

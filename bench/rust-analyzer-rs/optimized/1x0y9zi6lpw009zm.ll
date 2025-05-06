@@ -1958,7 +1958,7 @@ define internal fastcc noundef ptr @"_ZN115_$LT$core..iter..adapters..filter_map
   br i1 %20, label %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hae444c55c3d9c563E.exit.thread.i.i.i.i", label %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hae444c55c3d9c563E.exit.i.i.i.i"
 
 "_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hae444c55c3d9c563E.exit.i.i.i.i": ; preds = %"_ZN3hir9semantics19Semantics$LT$DB$GT$33find_nodes_at_offset_with_descend28_$u7b$$u7b$closure$u7d$$u7d$17h266cdeac51494ae3E.llvm.17050508828239973313.exit.i.i.i.i.i"
-  %21 = call fastcc noundef ptr @"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h3a22d4e511dde580E"(ptr nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %15), !noalias !881
+  %21 = call fastcc noundef ptr @"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h3a22d4e511dde580E"(ptr nonnull readonly align 8 dereferenceable(16) %4, ptr noundef nonnull %15), !noalias !881
   %22 = icmp eq ptr %21, null
   br i1 %22, label %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hae444c55c3d9c563E.exit.thread.i.i.i.i", label %"_ZN4core3ptr128drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h39308a0c4897c306E.exit.sink.split.i"
 
@@ -1971,7 +1971,7 @@ define internal fastcc noundef ptr @"_ZN115_$LT$core..iter..adapters..filter_map
   br i1 %.not.i.i.i.i, label %"_ZN4core3ptr128drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h39308a0c4897c306E.exit.sink.split.i", label %14
 
 24:                                               ; preds = %8
-  %25 = tail call fastcc noundef ptr @"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h3a22d4e511dde580E"(ptr nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %7), !noalias !866
+  %25 = tail call fastcc noundef ptr @"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h3a22d4e511dde580E"(ptr nonnull readonly align 8 dereferenceable(16) %4, ptr noundef nonnull %7), !noalias !866
   %26 = icmp eq ptr %25, null
   br i1 %26, label %10, label %_ZN4core4iter6traits8iterator8Iterator8find_map17h0222e7589cd0f27bE.exit
 

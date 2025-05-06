@@ -1328,7 +1328,7 @@ _ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9co
   br label %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE12emplace_backIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEERS3_DpOT_.exit.i
 
 192:                                              ; preds = %164
-  invoke fastcc void @_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE17_M_realloc_insertIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %153, ptr %169, ptr %.val21.i, i64 %.val22.i, i8 %.0.i.i.i, i32 %131)
+  invoke fastcc void @_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE17_M_realloc_insertIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %153, ptr %169, ptr readonly %.val21.i, i64 %.val22.i, i8 %.0.i.i.i, i32 %131)
           to label %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE12emplace_backIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEERS3_DpOT_.exit.i unwind label %.loopexit99
 
 _ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE12emplace_backIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEERS3_DpOT_.exit.i: ; preds = %192, %_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvRS4_PT_DpOT0_.exit.i.i
@@ -2031,7 +2031,7 @@ _ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE16_Temporar
 
 214:                                              ; preds = %50
   %215 = getelementptr inbounds i8, ptr %.val27.i.i.i, i64 %57
-  invoke fastcc void @_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE17_M_realloc_insertIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr %215, ptr %.val27.i, i64 %.val28.i, i8 %.0.i.i.i, i32 %2)
+  invoke fastcc void @_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE17_M_realloc_insertIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr %215, ptr readonly %.val27.i, i64 %.val28.i, i8 %.0.i.i.i, i32 %2)
           to label %216 unwind label %389
 
 216:                                              ; preds = %214, %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE16_Temporary_valueD2Ev.exit.i.i.i, %_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvRS4_PT_DpOT0_.exit.i.i.i

@@ -1358,7 +1358,7 @@ fdt_get_property_by_offset_.exit:                 ; preds = %fdt_get_property_by
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @fdt_get_property_namelen(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define ptr @fdt_get_property_namelen(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i8, ptr %6, align 1, !tbaa !3
   %8 = zext i8 %7 to i32
@@ -1598,7 +1598,7 @@ fdt_next_property_offset.exit:                    ; preds = %94
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @fdt_get_property(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define ptr @fdt_get_property(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i8, ptr %5, align 1, !tbaa !3
   %7 = zext i8 %6 to i32
@@ -1640,7 +1640,7 @@ fdt_get_property_namelen.exit:                    ; preds = %24, %25, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @fdt_getprop_namelen(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define ptr @fdt_getprop_namelen(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
   %7 = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull %6)
@@ -1879,7 +1879,7 @@ fdt_get_property_by_offset_.exit.thread:          ; preds = %8, %.thread, %fdt_g
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @fdt_getprop(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define ptr @fdt_getprop(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #10
   %7 = trunc i64 %6 to i32

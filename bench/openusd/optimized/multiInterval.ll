@@ -2060,7 +2060,7 @@ _ZNSt3setIN32pxrInternal_v0_24__pxrReserved__10GfIntervalESt4lessIS1_ESaIS1_EED2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__15GfMultiInterval9IntersectERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__15GfMultiInterval9IntersectERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMultiInterval", align 8
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__15GfMultiInterval13GetComplementEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMultiInterval") align 8 %3, ptr noundef nonnull align 8 dereferenceable(48) %1)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -2109,7 +2109,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__15GfMultiInterval9IntersectERK
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMultiInterval", align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__15GfMultiIntervalC1ERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
-  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__15GfMultiInterval13GetComplementEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMultiInterval") align 8 %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
+  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__15GfMultiInterval13GetComplementEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMultiInterval") align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(48) %4)
           to label %.noexc unwind label %23
 
 .noexc:                                           ; preds = %2

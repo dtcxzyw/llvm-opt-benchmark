@@ -1167,7 +1167,7 @@ copy_address_wmem.exit63:                         ; preds = %42
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef ptr @conversation_new_strat(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef ptr @conversation_new_strat(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -3744,7 +3744,7 @@ conversation_lookup_no_ports.exit:                ; preds = %559, %576
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef ptr @conversation_create_from_template(ptr noundef nonnull readonly captures(ret: address, provenance) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @conversation_create_from_template(ptr noundef nonnull readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   br label %6

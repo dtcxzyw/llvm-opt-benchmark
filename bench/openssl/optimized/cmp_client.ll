@@ -383,7 +383,7 @@ declare i32 @ossl_cmp_ctx_set1_newChain(ptr noundef, ptr noundef) local_unnamed_
 declare void @OSSL_STACK_OF_X509_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @OSSL_CMP_try_certreq(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @OSSL_CMP_try_certreq(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
@@ -799,7 +799,7 @@ ossl_cmp_exchange_error.exit:                     ; preds = %105, %108, %111
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @cert_response(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 -1, 1) %2, ptr noundef nonnull captures(none) %3, ptr noundef captures(address_is_null) %4, i32 noundef range(i32 -2147483647, -2147483648) %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @cert_response(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 -1, 1) %2, ptr noundef nonnull captures(none) %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef range(i32 -2147483647, -2147483648) %5) unnamed_addr #0 {
   %7 = alloca [1024 x i8], align 16
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4

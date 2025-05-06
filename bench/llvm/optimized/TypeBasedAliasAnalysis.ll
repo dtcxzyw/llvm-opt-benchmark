@@ -982,7 +982,7 @@ define dso_local noundef ptr @_ZN4llvm6MDNode18getMostGenericTBAAEPS0_S1_(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL15matchAccessTagsPKN4llvm6MDNodeES2_PS2_(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZL15matchAccessTagsPKN4llvm6MDNodeES2_PS2_(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #1 {
   %4 = alloca %"class.llvm::SmallSetVector", align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.llvm::SmallSetVector", align 8
@@ -1437,8 +1437,8 @@ _ZL18getLeastCommonTypePKN4llvm6MDNodeES2_.exit.thread51: ; preds = %50, %_ZL18g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm9AAMDNodes5mergeERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.llvm::AAMDNodes") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) local_unnamed_addr #1 align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
+define dso_local void @_ZNK4llvm9AAMDNodes5mergeERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.llvm::AAMDNodes") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) local_unnamed_addr #1 align 2 {
+  store i64 0, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8, !tbaa !87
   %5 = load ptr, ptr %2, align 8, !tbaa !87
   %6 = tail call fastcc noundef zeroext i1 @_ZL15matchAccessTagsPKN4llvm6MDNodeES2_PS2_(ptr noundef %4, ptr noundef %5, ptr noundef nonnull %0)

@@ -4032,14 +4032,14 @@ _ZNSt10shared_ptrIN5clang25PreprocessorOutputOptionsEEaSERKS2_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang18CompilerInvocationC2ERKNS_21CowCompilerInvocationE(ptr noundef nonnull align 8 captures(address) dereferenceable(192) initializes((0, 192)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(192) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang18CompilerInvocationC2ERKNS_21CowCompilerInvocationE(ptr noundef nonnull align 8 captures(address) dereferenceable(192) initializes((0, 192)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %1) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %0, i8 0, i64 192, i1 false)
   %3 = tail call noundef nonnull align 8 dereferenceable(192) ptr @_ZN5clang22CompilerInvocationBase16deep_copy_assignERKS0_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(192) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(192) ptr @_ZN5clang18CompilerInvocationaSERKNS_21CowCompilerInvocationE(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(192) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(192) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(192) ptr @_ZN5clang18CompilerInvocationaSERKNS_21CowCompilerInvocationE(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(192) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(192) ptr @_ZN5clang22CompilerInvocationBase16deep_copy_assignERKS0_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(192) %1)
   ret ptr %0
 }
@@ -148176,7 +148176,7 @@ define internal fastcc void @_ZL20parseAnalyzerConfigsRN5clang15AnalyzerOptionsE
   %14 = alloca %"class.clang::DiagnosticBuilder", align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %17 = tail call fastcc { ptr, i64 } @_ZL15getStringOptionRN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEEENS_9StringRefESA_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr nonnull @.str.312, i64 4, ptr nonnull @.str.387, i64 4)
+  %17 = tail call fastcc { ptr, i64 } @_ZL15getStringOptionRN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEEENS_9StringRefESA_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr nonnull @.str.312, i64 4, ptr nonnull readonly @.str.387, i64 4)
   %18 = extractvalue { ptr, i64 } %17, 0
   %19 = extractvalue { ptr, i64 } %17, 1
   store ptr %18, ptr %16, align 8, !tbaa !484
@@ -148546,56 +148546,56 @@ _ZL10initOptionRN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 340
   call fastcc void @_ZL10initOptionRN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEEEPN5clang17DiagnosticsEngineERjNS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %183, ptr nonnull @.str.375, i64 30, i32 noundef 5)
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %185 = call fastcc { ptr, i64 } @_ZL15getStringOptionRN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEEENS_9StringRefESA_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr nonnull @.str.376, i64 7, ptr nonnull @.str.28, i64 0)
+  %185 = call fastcc { ptr, i64 } @_ZL15getStringOptionRN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEEENS_9StringRefESA_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr nonnull @.str.376, i64 7, ptr nonnull readonly @.str.28, i64 0)
   %186 = extractvalue { ptr, i64 } %185, 0
   %187 = extractvalue { ptr, i64 } %185, 1
   store ptr %186, ptr %184, align 8, !tbaa !484
   %.sroa.4.0..sroa_idx.i276 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i64 %187, ptr %.sroa.4.0..sroa_idx.i276, align 8, !tbaa !379
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %189 = call fastcc { ptr, i64 } @_ZL15getStringOptionRN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEEENS_9StringRefESA_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr nonnull @.str.377, i64 14, ptr nonnull @.str.388, i64 18)
+  %189 = call fastcc { ptr, i64 } @_ZL15getStringOptionRN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEEENS_9StringRefESA_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr nonnull @.str.377, i64 14, ptr nonnull readonly @.str.388, i64 18)
   %190 = extractvalue { ptr, i64 } %189, 0
   %191 = extractvalue { ptr, i64 } %189, 1
   store ptr %190, ptr %188, align 8, !tbaa !484
   %.sroa.4.0..sroa_idx.i277 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store i64 %191, ptr %.sroa.4.0..sroa_idx.i277, align 8, !tbaa !379
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %193 = call fastcc { ptr, i64 } @_ZL15getStringOptionRN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEEENS_9StringRefESA_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr nonnull @.str.378, i64 19, ptr nonnull @.str.389, i64 16)
+  %193 = call fastcc { ptr, i64 } @_ZL15getStringOptionRN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEEENS_9StringRefESA_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr nonnull @.str.378, i64 19, ptr nonnull readonly @.str.389, i64 16)
   %194 = extractvalue { ptr, i64 } %193, 0
   %195 = extractvalue { ptr, i64 } %193, 1
   store ptr %194, ptr %192, align 8, !tbaa !484
   %.sroa.4.0..sroa_idx.i278 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i64 %195, ptr %.sroa.4.0..sroa_idx.i278, align 8, !tbaa !379
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %197 = call fastcc { ptr, i64 } @_ZL15getStringOptionRN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEEENS_9StringRefESA_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr nonnull @.str.379, i64 10, ptr nonnull @.str.28, i64 0)
+  %197 = call fastcc { ptr, i64 } @_ZL15getStringOptionRN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEEENS_9StringRefESA_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr nonnull @.str.379, i64 10, ptr nonnull readonly @.str.28, i64 0)
   %198 = extractvalue { ptr, i64 } %197, 0
   %199 = extractvalue { ptr, i64 } %197, 1
   store ptr %198, ptr %196, align 8, !tbaa !484
   %.sroa.4.0..sroa_idx.i279 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store i64 %199, ptr %.sroa.4.0..sroa_idx.i279, align 8, !tbaa !379
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %201 = call fastcc { ptr, i64 } @_ZL15getStringOptionRN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEEENS_9StringRefESA_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr nonnull @.str.380, i64 19, ptr nonnull @.str.390, i64 5)
+  %201 = call fastcc { ptr, i64 } @_ZL15getStringOptionRN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEEENS_9StringRefESA_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr nonnull @.str.380, i64 19, ptr nonnull readonly @.str.390, i64 5)
   %202 = extractvalue { ptr, i64 } %201, 0
   %203 = extractvalue { ptr, i64 } %201, 1
   store ptr %202, ptr %200, align 8, !tbaa !484
   %.sroa.4.0..sroa_idx.i280 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store i64 %203, ptr %.sroa.4.0..sroa_idx.i280, align 8, !tbaa !379
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %205 = call fastcc { ptr, i64 } @_ZL15getStringOptionRN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEEENS_9StringRefESA_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr nonnull @.str.381, i64 12, ptr nonnull @.str.391, i64 11)
+  %205 = call fastcc { ptr, i64 } @_ZL15getStringOptionRN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEEENS_9StringRefESA_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr nonnull @.str.381, i64 12, ptr nonnull readonly @.str.391, i64 11)
   %206 = extractvalue { ptr, i64 } %205, 0
   %207 = extractvalue { ptr, i64 } %205, 1
   store ptr %206, ptr %204, align 8, !tbaa !484
   %.sroa.4.0..sroa_idx.i281 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store i64 %207, ptr %.sroa.4.0..sroa_idx.i281, align 8, !tbaa !379
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %209 = call fastcc { ptr, i64 } @_ZL15getStringOptionRN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEEENS_9StringRefESA_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr nonnull @.str.382, i64 20, ptr nonnull @.str.392, i64 22)
+  %209 = call fastcc { ptr, i64 } @_ZL15getStringOptionRN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEEENS_9StringRefESA_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr nonnull @.str.382, i64 20, ptr nonnull readonly @.str.392, i64 22)
   %210 = extractvalue { ptr, i64 } %209, 0
   %211 = extractvalue { ptr, i64 } %209, 1
   store ptr %210, ptr %208, align 8, !tbaa !484
   %.sroa.4.0..sroa_idx.i282 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store i64 %211, ptr %.sroa.4.0..sroa_idx.i282, align 8, !tbaa !379
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %213 = call fastcc { ptr, i64 } @_ZL15getStringOptionRN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEEENS_9StringRefESA_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr nonnull @.str.383, i64 16, ptr nonnull @.str.28, i64 0)
+  %213 = call fastcc { ptr, i64 } @_ZL15getStringOptionRN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEEENS_9StringRefESA_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr nonnull @.str.383, i64 16, ptr nonnull readonly @.str.28, i64 0)
   %214 = extractvalue { ptr, i64 } %213, 0
   %215 = extractvalue { ptr, i64 } %213, 1
   store ptr %214, ptr %212, align 8, !tbaa !484
@@ -148635,7 +148635,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread614:      ; preds = %_ZL10initOptionRN4l
   %224 = phi ptr [ @.str.394, %222 ], [ @.str.395, %221 ]
   %225 = phi i64 [ 8, %222 ], [ 17, %221 ]
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %227 = call fastcc { ptr, i64 } @_ZL15getStringOptionRN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEEENS_9StringRefESA_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr nonnull @.str.384, i64 3, ptr nonnull %224, i64 %225)
+  %227 = call fastcc { ptr, i64 } @_ZL15getStringOptionRN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEEENS_9StringRefESA_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr nonnull @.str.384, i64 3, ptr nonnull readonly %224, i64 %225)
   %228 = extractvalue { ptr, i64 } %227, 0
   %229 = extractvalue { ptr, i64 } %227, 1
   store ptr %228, ptr %226, align 8, !tbaa !484

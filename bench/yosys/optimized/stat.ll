@@ -12330,7 +12330,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116hierarchy_workerERSt3mapIN5Yosys5RTLIL8IdStringENS_10statdata_tESt4lessIS3_ESaISt4pairIKS3_S4_EEES3_ib(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %1, i32 %.0.val, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116hierarchy_workerERSt3mapIN5Yosys5RTLIL8IdStringENS_10statdata_tESt4lessIS3_ESaISt4pairIKS3_S4_EEES3_ib(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1, i32 %.0.val, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::tuple.365", align 8
   %6 = alloca %"class.std::tuple.368", align 1
   %7 = alloca %"class.std::map.124", align 8

@@ -15286,7 +15286,7 @@ default.unreachable:                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7), !noalias !3682
   %40 = icmp ne ptr %.sroa.1.8.copyload, null
   tail call void @llvm.assume(i1 %40)
-  call fastcc void @_ZN5typst11foundations7context1_15__ComemoSurface6styles17h1b0cc1729ca67c0eE(ptr noalias noundef align 8 captures(none) dereferenceable(40) %7, ptr nonnull %.sroa.1.8.copyload, ptr %.sroa.3.8.copyload), !noalias !3687
+  call fastcc void @_ZN5typst11foundations7context1_15__ComemoSurface6styles17h1b0cc1729ca67c0eE(ptr noalias noundef align 8 captures(none) dereferenceable(40) %7, ptr nonnull readonly %.sroa.1.8.copyload, ptr %.sroa.3.8.copyload), !noalias !3687
   %41 = load i64, ptr %7, align 8, !range !95, !noalias !3682, !noundef !12
   %42 = icmp eq i64 %41, -9223372036854775808
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 8

@@ -236,13 +236,13 @@ declare ptr @PEM_ASN1_read_bio(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PEM_bytes_read_bio(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PEM_bytes_read_bio(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = tail call fastcc i32 @pem_bytes_read_bio_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef 2)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @pem_bytes_read_bio_flags(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6, i32 noundef range(i32 2, 4) %7) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pem_bytes_read_bio_flags(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6, i32 noundef range(i32 2, 4) %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca %struct.evp_cipher_info_st, align 8
   %11 = alloca ptr, align 8
@@ -568,13 +568,13 @@ pem_free.exit39:                                  ; preds = %.thread58, %148, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PEM_bytes_read_bio_secmem(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PEM_bytes_read_bio_secmem(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = tail call fastcc i32 @pem_bytes_read_bio_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef 3)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PEM_ASN1_write(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7, ptr noundef %8) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PEM_ASN1_write(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = tail call ptr @BIO_s_file() #10
   %11 = tail call ptr @BIO_new(ptr noundef %10) #10
   %12 = icmp eq ptr %11, null
@@ -588,7 +588,7 @@ define range(i32 0, 2) i32 @PEM_ASN1_write(ptr noundef captures(address_is_null)
 
 14:                                               ; preds = %9
   %15 = tail call i64 @BIO_ctrl(ptr noundef nonnull %11, i32 noundef 106, i64 noundef 0, ptr noundef %2) #10
-  %16 = tail call fastcc range(i32 0, 2) i32 @PEM_ASN1_write_bio_internal(ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef nonnull %11, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8)
+  %16 = tail call fastcc range(i32 0, 2) i32 @PEM_ASN1_write_bio_internal(ptr noundef readonly %0, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef nonnull %11, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef readonly %7, ptr noundef %8)
   %17 = tail call i32 @BIO_free(ptr noundef nonnull %11) #10
   br label %18
 
@@ -598,7 +598,7 @@ define range(i32 0, 2) i32 @PEM_ASN1_write(ptr noundef captures(address_is_null)
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PEM_ASN1_write_bio(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7, ptr noundef %8) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PEM_ASN1_write_bio(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = tail call fastcc i32 @PEM_ASN1_write_bio_internal(ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8)
   ret i32 %10
 }
@@ -830,7 +830,7 @@ define internal fastcc range(i32 0, 2) i32 @PEM_ASN1_write_bio_internal(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PEM_ASN1_write_bio_ctx(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef captures(address_is_null) %8, ptr noundef %9) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PEM_ASN1_write_bio_ctx(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef readonly captures(address_is_null) %8, ptr noundef %9) local_unnamed_addr #0 {
   %11 = tail call fastcc i32 @PEM_ASN1_write_bio_internal(ptr noundef null, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %9)
   ret i32 %11
 }

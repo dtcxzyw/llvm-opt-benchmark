@@ -541,7 +541,7 @@ _ZN6marisa12scoped_arrayINS_3KeyEED2Ev.exit:      ; preds = %.preheader.preheade
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6marisa6Keyset9push_backEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6marisa6Keyset9push_backEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %.preheader.preheader
 

@@ -2447,7 +2447,7 @@ declare noundef zeroext i1 @_Z16dtPointInPolygonPKfS0_i(ptr noundef, ptr noundef
 declare noundef zeroext i1 @_Z28dtClosestHeightPointTrianglePKfS0_S0_S0_Rf(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(100) %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) initializes((0, 12)) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
+define void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(100) %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) initializes((0, 12)) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca [3 x ptr], align 16
   %7 = alloca float, align 4
   %8 = alloca float, align 4

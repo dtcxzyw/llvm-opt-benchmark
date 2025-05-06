@@ -1512,7 +1512,7 @@ define internal fastcc noundef ptr @"_ZN115_$LT$core..iter..adapters..take_while
 27:                                               ; preds = %26, %.thread11.i.i
   %28 = phi ptr [ null, %.thread11.i.i ], [ %15, %26 ]
   %29 = phi ptr [ %9, %.thread11.i.i ], [ %.pre.i.i.i, %26 ]
-  %30 = invoke fastcc { i64, ptr } @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hf42a31cda131ec00E"(ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull align 1 dereferenceable(1) %3, ptr noundef %.0.i.i, ptr noundef nonnull %29)
+  %30 = invoke fastcc { i64, ptr } @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hf42a31cda131ec00E"(ptr nonnull readonly align 8 dereferenceable(32) %0, ptr nonnull align 1 dereferenceable(1) %3, ptr noundef %.0.i.i, ptr noundef nonnull %29)
           to label %.noexc unwind label %.body
 
 .noexc:                                           ; preds = %27
@@ -1681,7 +1681,7 @@ define internal fastcc noundef ptr @"_ZN115_$LT$core..iter..adapters..take_while
 27:                                               ; preds = %26, %.thread11.i.i
   %28 = phi ptr [ null, %.thread11.i.i ], [ %15, %26 ]
   %29 = phi ptr [ %9, %.thread11.i.i ], [ %.pre.i.i.i, %26 ]
-  %30 = invoke fastcc { i64, ptr } @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hf42a31cda131ec00E"(ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull align 1 dereferenceable(1) %3, ptr noundef %.0.i.i, ptr noundef nonnull %29)
+  %30 = invoke fastcc { i64, ptr } @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hf42a31cda131ec00E"(ptr nonnull readonly align 8 dereferenceable(32) %0, ptr nonnull align 1 dereferenceable(1) %3, ptr noundef %.0.i.i, ptr noundef nonnull %29)
           to label %.noexc unwind label %.body
 
 .noexc:                                           ; preds = %27

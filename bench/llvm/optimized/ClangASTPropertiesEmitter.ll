@@ -4787,7 +4787,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit25.i:              ; preds = %53, %52, %_ZN4llvmp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115ASTPropsEmitter9Validator12validateTypeEN5clang6tblgen12PropertyTypeENS3_13WrappedRecordE(ptr %0, ptr captures(address_is_null) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115ASTPropsEmitter9Validator12validateTypeEN5clang6tblgen12PropertyTypeENS3_13WrappedRecordE(ptr %0, ptr readonly captures(address_is_null) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8

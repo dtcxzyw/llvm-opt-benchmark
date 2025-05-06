@@ -10399,7 +10399,7 @@ get_specified_uuid.exit:                          ; preds = %137, %.critedge.i
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 8) %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef nonnull readonly captures(none) %6) unnamed_addr #1 {
+define internal fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 8) %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef nonnull readonly captures(none) %6) unnamed_addr #1 {
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
   %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %2)

@@ -2833,7 +2833,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %.thread, %_ZN4llvm1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN4llvm16InstCombinerImpl20replaceInInstructionEPNS_5ValueES2_S2_j(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1088) %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN4llvm16InstCombinerImpl20replaceInInstructionEPNS_5ValueES2_S2_j(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1088) %0, ptr noundef %1, ptr noundef readonly captures(address) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8

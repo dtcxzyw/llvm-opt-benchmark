@@ -1882,10 +1882,10 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
 
 if.then12:                                        ; preds = %do.end
   %all_connections_.i = getelementptr inbounds nuw i8, ptr %11, i64 32
-  tail call fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %all_connections_.i, ptr nonnull %retval.i12.0.i)
+  tail call fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %all_connections_.i, ptr nonnull readonly %retval.i12.0.i)
   %12 = load ptr, ptr %connectionsList_, align 8
   %active_connections_.i = getelementptr inbounds nuw i8, ptr %12, i64 80
-  tail call fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %active_connections_.i, ptr nonnull %retval.i12.0.i)
+  tail call fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %active_connections_.i, ptr nonnull readonly %retval.i12.0.i)
   br label %if.end15
 
 if.end15:                                         ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then12, %do.end
@@ -6427,10 +6427,10 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %all_connections_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 32
-  tail call fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %all_connections_.i.i, ptr nonnull align 8 dereferenceable(1848) %1)
+  tail call fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %all_connections_.i.i, ptr nonnull readonly align 8 dereferenceable(1848) %1)
   %3 = load ptr, ptr %connectionsList_.i, align 8
   %active_connections_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  tail call fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %active_connections_.i.i, ptr nonnull align 8 dereferenceable(1848) %1)
+  tail call fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %active_connections_.i.i, ptr nonnull readonly align 8 dereferenceable(1848) %1)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
@@ -7560,10 +7560,10 @@ if.end.thread.i:                                  ; preds = %entry
 
 if.end.i:                                         ; preds = %entry
   %all_connections_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %all_connections_.i.i, ptr nonnull align 8 dereferenceable(1848) %1)
+  call fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %all_connections_.i.i, ptr nonnull readonly align 8 dereferenceable(1848) %1)
   %6 = load ptr, ptr %connectionsList_.i, align 8
   %active_connections_.i.i = getelementptr inbounds nuw i8, ptr %6, i64 80
-  call fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %active_connections_.i.i, ptr nonnull align 8 dereferenceable(1848) %1)
+  call fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %active_connections_.i.i, ptr nonnull readonly align 8 dereferenceable(1848) %1)
   %.pr.i = load ptr, ptr %connectionsList_.i, align 8
   %last_message_start_.i = getelementptr inbounds nuw i8, ptr %1, i64 1824
   store i64 0, ptr %last_message_start_.i, align 8

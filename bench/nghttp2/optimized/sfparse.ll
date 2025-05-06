@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.parser_number = private unnamed_addr constant [3 x i64] [i64 10, i64 100, i64 1000], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2, 1) i32 @sfparse_parser_param(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @sfparse_parser_param(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !3
   %6 = and i32 %5, 3
@@ -279,7 +279,7 @@ define internal fastcc range(i32 -1, 1) i32 @parser_key(ptr noundef captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @parser_bare_item(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parser_bare_item(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !10
   %4 = load i8, ptr %3, align 1, !tbaa !12
   switch i8 %4, label %parser_token.exit [
@@ -504,7 +504,7 @@ parser_token.exit:                                ; preds = %19, %._crit_edge.i,
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2, 1) i32 @sfparse_parser_inner_list(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @sfparse_parser_inner_list(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !3
   %5 = and i32 %4, 3
@@ -616,7 +616,7 @@ parser_skip_params.exit:                          ; preds = %.preheader, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2, 1) i32 @sfparse_parser_dict(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @sfparse_parser_dict(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !3
   switch i32 %5, label %25 [
@@ -801,7 +801,7 @@ parser_skip_inner_list.exit:                      ; preds = %23, %.preheader, %p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2, 1) i32 @sfparse_parser_list(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @sfparse_parser_list(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !3
   switch i32 %4, label %24 [
@@ -957,7 +957,7 @@ parser_skip_inner_list.exit:                      ; preds = %.preheader, %parser
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2, 1) i32 @sfparse_parser_item(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @sfparse_parser_item(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !3
   switch i32 %4, label %18 [

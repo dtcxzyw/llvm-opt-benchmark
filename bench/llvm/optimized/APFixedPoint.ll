@@ -7568,7 +7568,7 @@ _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %50, %51
 declare noundef i32 @_ZN4llvm7APFloat7convertERKNS_12fltSemanticsENS_12RoundingModeEPb(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 1, i8 noundef signext, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12APFixedPoint15getFromIntValueERKNS_6APSIntERKNS_19FixedPointSemanticsEPb(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::APFixedPoint") align 8 captures(none) initializes((0, 13), (16, 20)) %0, ptr noundef nonnull align 8 dereferenceable(13) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12APFixedPoint15getFromIntValueERKNS_6APSIntERKNS_19FixedPointSemanticsEPb(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::APFixedPoint") align 8 captures(none) initializes((0, 13), (16, 20)) %0, ptr noundef nonnull align 8 dereferenceable(13) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APFixedPoint", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8

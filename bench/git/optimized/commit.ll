@@ -4048,7 +4048,7 @@ declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr 
 declare void @strbuf_insert(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @parse_signed_commit(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address) %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @parse_signed_commit(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address) %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
   %6 = load ptr, ptr @the_repository, align 8, !tbaa !4
@@ -4391,7 +4391,7 @@ define dso_local i32 @check_commit_signature(ptr noundef %0, ptr noundef initial
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
   %10 = call ptr @repo_get_commit_buffer(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %3)
   %11 = load i64, ptr %3, align 8, !tbaa !82
-  %12 = call i32 @parse_buffer_signed_by_header(ptr noundef nonnull %10, i64 noundef %11, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %9)
+  %12 = call i32 @parse_buffer_signed_by_header(ptr noundef nonnull %10, i64 noundef %11, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef readnone %9)
   %13 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !12
@@ -4978,7 +4978,7 @@ define dso_local void @free_commit_extra_headers(ptr noundef captures(address_is
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @commit_tree(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define dso_local i32 @commit_tree(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #24
@@ -5012,7 +5012,7 @@ free_commit_extra_headers.exit:                   ; preds = %.lr.ph.i, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @commit_tree_extended(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef captures(address_is_null) %8) local_unnamed_addr #0 {
+define dso_local i32 @commit_tree_extended(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef readonly captures(address_is_null) %8) local_unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca %struct.strbuf, align 8
   %12 = alloca %struct.strbuf, align 8

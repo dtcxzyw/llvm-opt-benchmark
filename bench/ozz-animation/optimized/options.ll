@@ -3249,7 +3249,7 @@ define internal void @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrerD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 3) i32 @_ZN3ozz7options16ParseCommandLineEiPKPKcS2_S2_(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN3ozz7options16ParseCommandLineEiPKPKcS2_S2_(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8, !tbaa !20
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %6, label %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit

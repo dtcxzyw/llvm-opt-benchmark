@@ -2561,7 +2561,7 @@ zend_dump_class_fetch_type.exit:                  ; preds = %50, %48, %2, %9, %8
 }
 
 ; Function Attrs: cold nounwind uwtable
-define dso_local void @zend_dump_op_line(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #7 {
+define dso_local void @zend_dump_op_line(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #7 {
   %6 = and i32 %3, 32
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %12, label %7
@@ -2657,7 +2657,7 @@ define hidden void @zend_dump_op_array_name(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_dump_op_array(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address) %3) local_unnamed_addr #0 {
+define dso_local void @zend_dump_op_array(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address) %3) local_unnamed_addr #0 {
   %5 = and i32 %1, 12
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %9, label %6

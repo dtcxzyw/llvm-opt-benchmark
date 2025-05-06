@@ -2257,7 +2257,7 @@ define internal fastcc void @set_operstate(ptr noundef %0, i8 noundef zeroext %1
 declare dso_local void @dev_set_group(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @rtmsg_ifinfo_build_skb(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(address_is_null) %8) local_unnamed_addr #0 align 16 {
+define dso_local ptr @rtmsg_ifinfo_build_skb(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(address_is_null) %8) local_unnamed_addr #0 align 16 {
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %11 = load ptr, ptr %10, align 8
   %12 = tail call fastcc i64 @if_nlmsg_size(ptr noundef %1, i32 noundef 0)
@@ -3175,7 +3175,7 @@ define dso_local void @rtmsg_ifinfo_send(ptr noundef %0, ptr noundef readonly ca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @rtmsg_ifinfo(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 align 16 {
+define dso_local void @rtmsg_ifinfo(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 1304
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 1
@@ -3212,7 +3212,7 @@ define dso_local void @rtmsg_ifinfo(i32 noundef %0, ptr noundef %1, i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @rtmsg_ifinfo_newnet(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local void @rtmsg_ifinfo_newnet(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 1304
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 1

@@ -200,7 +200,7 @@ define dso_local void @_ZN4absl10FormatTimeB5cxx11ENS_4TimeE(ptr dead_on_unwind 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl9ParseTimeESt17basic_string_viewIcSt11char_traitsIcEES3_PNS_4TimeEPNSt7__cxx1112basic_stringIcS2_SaIcEEE(i64 %0, ptr captures(address_is_null) %1, i64 %2, ptr captures(address) %3, ptr noundef writeonly captures(none) %4, ptr noundef captures(address) %5) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_ZN4absl9ParseTimeESt17basic_string_viewIcSt11char_traitsIcEES3_PNS_4TimeEPNSt7__cxx1112basic_stringIcS2_SaIcEEE(i64 %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr readonly captures(address) %3, ptr noundef writeonly captures(none) %4, ptr noundef captures(address) %5) local_unnamed_addr #4 {
   %7 = tail call ptr @_ZN4absl13time_internal4cctz13utc_time_zoneEv()
   %8 = tail call noundef zeroext i1 @_ZN4absl9ParseTimeESt17basic_string_viewIcSt11char_traitsIcEES3_NS_8TimeZoneEPNS_4TimeEPNSt7__cxx1112basic_stringIcS2_SaIcEEE(i64 %0, ptr %1, i64 %2, ptr %3, ptr %7, ptr noundef %4, ptr noundef %5)
   ret i1 %8
@@ -663,7 +663,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %_ZN
 declare noundef zeroext i1 @_ZN4absl13time_internal4cctz6detail5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKNS1_9time_zoneEPNSt6chrono10time_pointINSE_3_V212system_clockENSE_8durationIlSt5ratioILl1ELl1EEEEEEPNSI_IlSJ_ILl1ELl1000000000000000EEEEPS8_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPNS_4TimeEPNSt7__cxx1112basic_stringIcS2_SaIcEEE(i64 %0, ptr captures(address) %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(address) %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4absl13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPNS_4TimeEPNSt7__cxx1112basic_stringIcS2_SaIcEEE(i64 %0, ptr readonly captures(address) %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(address) %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = tail call ptr @_ZN4absl13time_internal4cctz13utc_time_zoneEv()
   %6 = tail call noundef zeroext i1 @_ZN4absl9ParseTimeESt17basic_string_viewIcSt11char_traitsIcEES3_NS_8TimeZoneEPNS_4TimeEPNSt7__cxx1112basic_stringIcS2_SaIcEEE(i64 24, ptr nonnull @_ZN4absl12RFC3339_fullE, i64 %0, ptr %1, ptr %5, ptr noundef %2, ptr noundef %3)
   ret i1 %6

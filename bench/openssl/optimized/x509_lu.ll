@@ -791,7 +791,7 @@ define noalias ptr @X509_OBJECT_new() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_STORE_CTX_get_by_subject(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_STORE_CTX_get_by_subject(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call i32 @ossl_x509_store_ctx_get_by_subject(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3)
   %6 = icmp sgt i32 %5, 0
   %7 = zext i1 %6 to i32

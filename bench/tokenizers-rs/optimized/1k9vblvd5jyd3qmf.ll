@@ -333,7 +333,7 @@ define hidden void @"_ZN114_$LT$serde..__private..de..missing_field..MissingFiel
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h6792486709f7a852E(ptr noalias noundef writeonly sret([440 x i8]) align 8 captures(none) dereferenceable(440) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noundef nonnull captures(address) %2, ptr noundef captures(address) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h6792486709f7a852E(ptr noalias noundef writeonly sret([440 x i8]) align 8 captures(none) dereferenceable(440) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noundef nonnull readonly captures(address) %2, ptr noundef readnone captures(address) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { ptr, [2 x i64] }, align 8
   %6 = alloca { i32, [5 x i32] }, align 8
   %7 = alloca { i32, [5 x i32] }, align 8
@@ -566,7 +566,7 @@ define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h6792486
 101:                                              ; preds = %98
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !32
-  invoke fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17h3045570c2f987011E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull align 16 dereferenceable(960) %17, ptr noundef nonnull %2, ptr noundef %3)
+  invoke fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17h3045570c2f987011E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull align 16 dereferenceable(960) %17, ptr noundef nonnull readonly %2, ptr noundef readnone %3)
           to label %103 unwind label %30, !noalias !16
 
 102:                                              ; preds = %98
@@ -1308,7 +1308,7 @@ _ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h2e0eac9e2aa082cfE.exit: 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17hd6155a3a1c3c835dE(ptr noalias noundef writeonly sret([440 x i8]) align 8 captures(none) dereferenceable(440) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noundef nonnull captures(address) %2, ptr noundef captures(address) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17hd6155a3a1c3c835dE(ptr noalias noundef writeonly sret([440 x i8]) align 8 captures(none) dereferenceable(440) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noundef nonnull readonly captures(address) %2, ptr noundef readnone captures(address) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { ptr, [2 x i64] }, align 8
   %6 = alloca { i32, [5 x i32] }, align 8
   %7 = alloca { i32, [5 x i32] }, align 8
@@ -1541,7 +1541,7 @@ define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17hd6155a3
 101:                                              ; preds = %98
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !92
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !92
-  invoke fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17h574448070dfe278dE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull align 16 dereferenceable(960) %17, ptr noundef nonnull %2, ptr noundef %3)
+  invoke fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17h574448070dfe278dE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull align 16 dereferenceable(960) %17, ptr noundef nonnull readonly %2, ptr noundef readnone %3)
           to label %103 unwind label %30, !noalias !76
 
 102:                                              ; preds = %98

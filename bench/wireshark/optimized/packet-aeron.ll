@@ -1769,7 +1769,7 @@ proto_item_set_generated.exit.i149:               ; preds = %692, %689, %673
   %715 = call ptr @proto_tree_add_item(ptr noundef %685, i32 noundef %713, ptr noundef %0, i32 noundef %714, i32 noundef 8, i32 noundef -2147483648)
   %716 = load i32, ptr @hf_aeron_rtt_receiver_id, align 4
   %717 = call ptr @proto_tree_add_item(ptr noundef %685, i32 noundef %716, ptr noundef %0, i32 noundef %680, i32 noundef 8, i32 noundef -2147483648)
-  call fastcc void @aeron_stream_report(ptr noundef %0, ptr noundef %1, ptr noundef %685, ptr noundef %677, ptr noundef %.0)
+  call fastcc void @aeron_stream_report(ptr noundef %0, ptr noundef %1, ptr noundef %685, ptr noundef %677, ptr noundef readonly %.0)
   call void @proto_item_set_len(ptr noundef %683, i32 noundef %671)
   %.not.i150 = icmp eq i32 %671, 40
   br i1 %.not.i150, label %dissect_aeron_rtt.exit.thread164, label %718

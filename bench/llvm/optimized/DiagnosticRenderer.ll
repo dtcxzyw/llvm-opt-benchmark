@@ -588,7 +588,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EED2Ev.ex
   store i32 0, ptr %177, align 8, !tbaa !27
   %178 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 4, ptr %178, align 4, !tbaa !28
-  call fastcc void @_ZL19mapDiagnosticRangesN5clang13FullSourceLocEN4llvm8ArrayRefINS_15CharSourceRangeEEERNS1_15SmallVectorImplIS3_EE(i32 %.sroa.03.0.copyload, ptr %.sroa.25.0.copyload, ptr %173, i64 %175, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  call fastcc void @_ZL19mapDiagnosticRangesN5clang13FullSourceLocEN4llvm8ArrayRefINS_15CharSourceRangeEEERNS1_15SmallVectorImplIS3_EE(i32 %.sroa.03.0.copyload, ptr %.sroa.25.0.copyload, ptr readonly %173, i64 %175, ptr noundef nonnull align 8 dereferenceable(16) %10)
   %179 = load ptr, ptr %0, align 8, !tbaa !3
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 32
   %181 = load ptr, ptr %180, align 8
@@ -830,7 +830,7 @@ _ZN5clang18DiagnosticRenderer20emitModuleBuildStackERKNS_13SourceManagerE.exit: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang18DiagnosticRenderer9emitCaretENS_13FullSourceLocENS_17DiagnosticsEngine5LevelEN4llvm8ArrayRefINS_15CharSourceRangeEEENS5_INS_9FixItHintEEE(ptr noundef nonnull align 8 dereferenceable(36) %0, i32 %1, ptr %2, i32 noundef %3, ptr captures(address) %4, i64 %5, ptr noundef readonly byval(%"class.llvm::ArrayRef.11") align 8 captures(none) %6) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang18DiagnosticRenderer9emitCaretENS_13FullSourceLocENS_17DiagnosticsEngine5LevelEN4llvm8ArrayRefINS_15CharSourceRangeEEENS5_INS_9FixItHintEEE(ptr noundef nonnull align 8 dereferenceable(36) %0, i32 %1, ptr %2, i32 noundef %3, ptr readonly captures(address) %4, i64 %5, ptr noundef readonly byval(%"class.llvm::ArrayRef.11") align 8 captures(none) %6) local_unnamed_addr #1 align 2 {
   %8 = alloca %"class.llvm::SmallVector.119", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #18
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -936,7 +936,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang14SourceLocationELb1EE9push_backES2_.ex
   store ptr %23, ptr %13, align 8, !tbaa !25
   store i32 0, ptr %24, align 8, !tbaa !27
   store i32 4, ptr %25, align 4, !tbaa !28
-  call fastcc void @_ZL19mapDiagnosticRangesN5clang13FullSourceLocEN4llvm8ArrayRefINS_15CharSourceRangeEEERNS1_15SmallVectorImplIS3_EE(i32 %.sroa.083.099, ptr nonnull %2, ptr %4, i64 %5, ptr noundef nonnull align 8 dereferenceable(16) %13)
+  call fastcc void @_ZL19mapDiagnosticRangesN5clang13FullSourceLocEN4llvm8ArrayRefINS_15CharSourceRangeEEERNS1_15SmallVectorImplIS3_EE(i32 %.sroa.083.099, ptr nonnull %2, ptr readonly %4, i64 %5, ptr noundef nonnull align 8 dereferenceable(16) %13)
   br i1 %.not7.i.i.i.i, label %"_ZN4llvm8count_ifIRNS_8ArrayRefIN5clang15CharSourceRangeEEEZL31checkRangesForMacroArgExpansionNS2_13FullSourceLocES4_E3$_0EEDaOT_T0_.exit.thread.i", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang14SourceLocationELb1EE9push_backES2_.exit, %.lr.ph.i.i.i.i
@@ -2550,7 +2550,7 @@ _ZN4llvm13SmallDenseMapIN5clang6FileIDENS1_14SourceLocationELj4ENS_12DenseMapInf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang18DiagnosticRenderer24emitSingleMacroExpansionENS_13FullSourceLocENS_17DiagnosticsEngine5LevelEN4llvm8ArrayRefINS_15CharSourceRangeEEE(ptr noundef nonnull align 8 dereferenceable(36) %0, i32 %1, ptr %2, i32 %3, ptr captures(address) %4, i64 %5) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang18DiagnosticRenderer24emitSingleMacroExpansionENS_13FullSourceLocENS_17DiagnosticsEngine5LevelEN4llvm8ArrayRefINS_15CharSourceRangeEEE(ptr noundef nonnull align 8 dereferenceable(36) %0, i32 %1, ptr %2, i32 %3, ptr readonly captures(address) %4, i64 %5) local_unnamed_addr #1 align 2 {
   %7 = alloca %"class.clang::FullSourceLoc", align 8
   %8 = alloca %"class.llvm::SmallVector.119", align 8
   %9 = alloca %"class.llvm::SmallString", align 8

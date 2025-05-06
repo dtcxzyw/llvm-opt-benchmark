@@ -648,7 +648,7 @@ get_ext_ver_info.exit:                            ; preds = %38, %._crit_edge.i
   br i1 %64, label %65, label %84
 
 65:                                               ; preds = %.lr.ph46.i
-  %66 = tail call fastcc ptr @find_update_path(ptr noundef nonnull %.0122, ptr noundef nonnull %61, ptr noundef nonnull %.1.i, i1 noundef zeroext true, i1 noundef zeroext true)
+  %66 = tail call fastcc ptr @find_update_path(ptr noundef nonnull readonly %.0122, ptr noundef nonnull %61, ptr noundef nonnull readonly %.1.i, i1 noundef zeroext true, i1 noundef zeroext true)
   %67 = icmp eq ptr %66, null
   br i1 %67, label %84, label %68
 

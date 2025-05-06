@@ -1706,8 +1706,8 @@ if.end750.i:                                      ; preds = %sulp.exit491.i, %su
 if.end754.i:                                      ; preds = %if.end598.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ka.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %kb.i.i)
-  %call.i492.i = call fastcc double @b2d(ptr noundef nonnull %call583.i, ptr noundef %ka.i.i)
-  %call1.i.i = call fastcc double @b2d(ptr noundef %bs.4.i, ptr noundef %kb.i.i)
+  %call.i492.i = call fastcc double @b2d(ptr noundef nonnull readonly %call583.i, ptr noundef %ka.i.i)
+  %call1.i.i = call fastcc double @b2d(ptr noundef readonly %bs.4.i, ptr noundef %kb.i.i)
   %147 = load i32, ptr %ka.i.i, align 4
   %148 = load i32, ptr %kb.i.i, align 4
   %sub.i493.i = sub nsw i32 %147, %148

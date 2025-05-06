@@ -5854,7 +5854,7 @@ _ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL33annotateNonNullAndDereferenceablePN4llvm8CallInstENS_8ArrayRefIjEEPNS_5ValueERKNS_10DataLayoutE(ptr noundef %0, ptr captures(address) %1, i64 %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(496) %4) unnamed_addr #1 {
+define internal fastcc void @_ZL33annotateNonNullAndDereferenceablePN4llvm8CallInstENS_8ArrayRefIjEEPNS_5ValueERKNS_10DataLayoutE(ptr noundef %0, ptr readonly captures(address) %1, i64 %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(496) %4) unnamed_addr #1 {
   %6 = alloca %"struct.llvm::SimplifyQuery", align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8

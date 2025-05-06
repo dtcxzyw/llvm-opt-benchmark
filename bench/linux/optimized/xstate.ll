@@ -1212,7 +1212,7 @@ define dso_local void @copy_xstate_to_uabi_buf(ptr writeonly captures(none) %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -22, 1) i32 @copy_uabi_from_kernel_to_xstate(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -22, 1) i32 @copy_uabi_from_kernel_to_xstate(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 align 16 {
   %4 = tail call fastcc i32 @copy_uabi_to_xstate(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef %2)
   ret i32 %4
 }

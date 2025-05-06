@@ -3669,7 +3669,7 @@ _ZN6icu_773LSRD2Ev.exit20:                        ; preds = %75, %78
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uloc_acceptLanguage_77(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @uloc_acceptLanguage_77(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.(anonymous namespace)::LocaleFromTag", align 8
   %9 = alloca %"class.icu_77::Locale::ConvertingIterator", align 8
   %10 = alloca %"class.(anonymous namespace)::LocaleFromTag", align 8
@@ -4013,7 +4013,7 @@ define internal void @_ZN6icu_776Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_11
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uloc_acceptLanguageFromHTTP_77(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @uloc_acceptLanguageFromHTTP_77(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.icu_77::LocalePriorityList", align 8
   %8 = alloca %"class.icu_77::StringPiece", align 8
   %9 = alloca %"class.icu_77::LocalePriorityList::Iterator", align 8

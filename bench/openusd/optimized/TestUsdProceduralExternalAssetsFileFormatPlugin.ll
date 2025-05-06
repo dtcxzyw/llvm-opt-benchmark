@@ -1068,7 +1068,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__59Test_UsdProceduralExternalAssetsFileFormatPlugin_FileFormat21_GenerateDynamicLayerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr.15") align 8 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(113) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__59Test_UsdProceduralExternalAssetsFileFormatPlugin_FileFormat21_GenerateDynamicLayerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr.15") align 8 %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(113) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticHelper", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2633,7 +2633,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEE10_RemoveRefEPKNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__59Test_UsdProceduralExternalAssetsFileFormatPlugin_FileFormat4ReadEPNS_8SdfLayerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 captures(address) dereferenceable(113) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 zeroext %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__59Test_UsdProceduralExternalAssetsFileFormatPlugin_FileFormat4ReadEPNS_8SdfLayerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(113) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 zeroext %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr.15", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.20", align 8
@@ -3091,7 +3091,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__59Test_UsdProceduralExternalAssetsFileFormatPlugin_FileFormat28GetExternalAssetDependenciesB5cxx11ERKNS_8SdfLayerE(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(113) %1, ptr noundef nonnull align 8 dereferenceable(557) %2) unnamed_addr #1 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__59Test_UsdProceduralExternalAssetsFileFormatPlugin_FileFormat28GetExternalAssetDependenciesB5cxx11ERKNS_8SdfLayerE(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(113) %1, ptr noundef nonnull align 8 dereferenceable(557) %2) unnamed_addr #1 align 2 {
   %4 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer11GetRealPathB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(557) %2)
   tail call void @_ZNK32pxrInternal_v0_24__pxrReserved__59Test_UsdProceduralExternalAssetsFileFormatPlugin_FileFormat22_GetIncludedLayerPathsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::set") align 8 %0, ptr noundef nonnull align 8 dereferenceable(113) %1, ptr noundef nonnull align 8 dereferenceable(32) %4)
   ret void

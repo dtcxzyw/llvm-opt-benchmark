@@ -6039,7 +6039,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp11X3DImporter24FindNodeElement_FromNodeEP18X3DNodeElementBaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11X3DElemTypePS2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6Assimp11X3DImporter24FindNodeElement_FromNodeEP18X3DNodeElementBaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11X3DElemTypePS2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, %3
@@ -6095,7 +6095,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp11X3DImporter15FindNodeElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11X3DElemTypePP18X3DNodeElementBase(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(120) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6Assimp11X3DImporter15FindNodeElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11X3DElemTypePP18X3DNodeElementBase(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(120) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.01317 = load ptr, ptr %5, align 8
   %.not.not18 = icmp eq ptr %.01317, null

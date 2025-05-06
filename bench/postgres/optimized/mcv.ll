@@ -2282,7 +2282,7 @@ define dso_local double @mcv_combine_selectivities(double noundef %0, double nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @mcv_clauselist_selectivity(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, ptr noundef readnone captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef captures(none) initializes((0, 8)) %7, ptr noundef captures(none) initializes((0, 8)) %8) local_unnamed_addr #0 {
+define dso_local double @mcv_clauselist_selectivity(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, ptr noundef readnone captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef captures(none) initializes((0, 8)) %7, ptr noundef captures(none) initializes((0, 8)) %8) local_unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 112

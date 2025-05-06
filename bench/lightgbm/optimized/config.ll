@@ -16312,7 +16312,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %.val.i = load ptr, ptr %.sroa.01.013.i, align 8, !tbaa !14
   call void @llvm.experimental.noalias.scope.decl(metadata !229)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #28, !noalias !232
-  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef %.val.i, i8 noundef signext 44)
+  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef readonly %.val.i, i8 noundef signext 44)
           to label %.noexc.i unwind label %210
 
 .noexc.i:                                         ; preds = %126

@@ -764,12 +764,12 @@ define hidden void @OGLContext_GetExtensionInfo(ptr noundef %0, ptr noundef capt
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %32 = tail call zeroext i8 @OGLContext_IsExtensionAvailable(ptr noundef %11, ptr noundef nonnull @.str.30)
+  %32 = tail call zeroext i8 @OGLContext_IsExtensionAvailable(ptr noundef readonly %11, ptr noundef nonnull @.str.30)
   %.not.i = icmp eq i8 %32, 0
   br i1 %.not.i, label %OGLContext_IsFBObjectExtensionAvailable.exit.thread, label %33
 
 33:                                               ; preds = %31
-  %34 = tail call zeroext i8 @OGLContext_IsExtensionAvailable(ptr noundef %11, ptr noundef nonnull @.str.31)
+  %34 = tail call zeroext i8 @OGLContext_IsExtensionAvailable(ptr noundef readonly %11, ptr noundef nonnull @.str.31)
   %.not8.i = icmp eq i8 %34, 0
   br i1 %.not8.i, label %OGLContext_IsFBObjectExtensionAvailable.exit.thread, label %35
 

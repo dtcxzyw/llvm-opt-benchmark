@@ -4976,7 +4976,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4
 
 21:                                               ; preds = %10
   %22 = load ptr, ptr %.pn21, align 8, !tbaa !49
-  %23 = call fastcc noundef zeroext i1 @"_ZZN4mold7Counter5printEvENK3$_0clEPS0_S2_"(ptr noundef %14, ptr noundef %22)
+  %23 = call fastcc noundef zeroext i1 @"_ZZN4mold7Counter5printEvENK3$_0clEPS0_S2_"(ptr noundef readonly %14, ptr noundef %22)
   br i1 %23, label %.lr.ph.i.preheader, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS3_5printEvE3$_0EEEvT_T0_.exit"
 
 .lr.ph.i.preheader:                               ; preds = %21
@@ -5274,7 +5274,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_
   %28 = getelementptr inbounds nuw ptr, ptr %.sroa.011.012.i, i64 %27
   %.val.i = load ptr, ptr %23, align 8, !tbaa !49
   %29 = load ptr, ptr %28, align 8, !tbaa !49
-  %30 = tail call fastcc noundef zeroext i1 @"_ZZN4mold7Counter5printEvENK3$_0clEPS0_S2_"(ptr noundef %29, ptr noundef %.val.i)
+  %30 = tail call fastcc noundef zeroext i1 @"_ZZN4mold7Counter5printEvENK3$_0clEPS0_S2_"(ptr noundef %29, ptr noundef readonly %.val.i)
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %32 = xor i64 %27, -1
   %33 = add nsw i64 %.013.i, %32
@@ -5310,7 +5310,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_
   %44 = getelementptr inbounds nuw ptr, ptr %.sroa.011.012.i57, i64 %43
   %.val.i60 = load ptr, ptr %38, align 8, !tbaa !49
   %45 = load ptr, ptr %44, align 8, !tbaa !49
-  %46 = tail call fastcc noundef zeroext i1 @"_ZZN4mold7Counter5printEvENK3$_0clEPS0_S2_"(ptr noundef %.val.i60, ptr noundef %45)
+  %46 = tail call fastcc noundef zeroext i1 @"_ZZN4mold7Counter5printEvENK3$_0clEPS0_S2_"(ptr noundef readonly %.val.i60, ptr noundef %45)
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %48 = xor i64 %43, -1
   %49 = add nsw i64 %.013.i56, %48
@@ -6945,7 +6945,7 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
 14:                                               ; preds = %.lr.ph.i
   %.0.val.i = load ptr, ptr %.024.i, align 8, !tbaa !49
   %15 = load ptr, ptr %.sroa.016.022.i, align 8, !tbaa !49
-  %16 = tail call fastcc noundef zeroext i1 @"_ZZN4mold7Counter5printEvENK3$_0clEPS0_S2_"(ptr noundef %15, ptr noundef %.0.val.i)
+  %16 = tail call fastcc noundef zeroext i1 @"_ZZN4mold7Counter5printEvENK3$_0clEPS0_S2_"(ptr noundef %15, ptr noundef readonly %.0.val.i)
   %.sink.in.i = select i1 %16, ptr %.sroa.016.022.i, ptr %.024.i
   %.sroa.016.1.idx.i = select i1 %16, i64 8, i64 0
   %.sroa.016.1.i = getelementptr inbounds nuw i8, ptr %.sroa.016.022.i, i64 %.sroa.016.1.idx.i
@@ -7001,7 +7001,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEE
   %.0.i = phi ptr [ %42, %41 ], [ %.0.i.ph, %.outer ]
   %.0.val.i84 = load ptr, ptr %.0.i, align 8, !tbaa !49
   %30 = load ptr, ptr %.sroa.024.0.i.ph, align 8, !tbaa !49
-  %31 = tail call fastcc noundef zeroext i1 @"_ZZN4mold7Counter5printEvENK3$_0clEPS0_S2_"(ptr noundef %.0.val.i84, ptr noundef %30)
+  %31 = tail call fastcc noundef zeroext i1 @"_ZZN4mold7Counter5printEvENK3$_0clEPS0_S2_"(ptr noundef readonly %.0.val.i84, ptr noundef %30)
   %32 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -8
   br i1 %31, label %33, label %38
 
@@ -7057,7 +7057,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_
   %57 = getelementptr inbounds nuw ptr, ptr %.sroa.011.012.i, i64 %56
   %.val.i = load ptr, ptr %52, align 8, !tbaa !49
   %58 = load ptr, ptr %57, align 8, !tbaa !49
-  %59 = tail call fastcc noundef zeroext i1 @"_ZZN4mold7Counter5printEvENK3$_0clEPS0_S2_"(ptr noundef %58, ptr noundef %.val.i)
+  %59 = tail call fastcc noundef zeroext i1 @"_ZZN4mold7Counter5printEvENK3$_0clEPS0_S2_"(ptr noundef %58, ptr noundef readonly %.val.i)
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %61 = xor i64 %56, -1
   %62 = add nsw i64 %.013.i, %61
@@ -7093,7 +7093,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_
   %73 = getelementptr inbounds nuw ptr, ptr %.sroa.011.012.i94, i64 %72
   %.val.i97 = load ptr, ptr %67, align 8, !tbaa !49
   %74 = load ptr, ptr %73, align 8, !tbaa !49
-  %75 = tail call fastcc noundef zeroext i1 @"_ZZN4mold7Counter5printEvENK3$_0clEPS0_S2_"(ptr noundef %.val.i97, ptr noundef %74)
+  %75 = tail call fastcc noundef zeroext i1 @"_ZZN4mold7Counter5printEvENK3$_0clEPS0_S2_"(ptr noundef readonly %.val.i97, ptr noundef %74)
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %77 = xor i64 %72, -1
   %78 = add nsw i64 %.013.i93, %77

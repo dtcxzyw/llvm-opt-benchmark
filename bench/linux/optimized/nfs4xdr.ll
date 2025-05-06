@@ -7116,7 +7116,7 @@ define internal i32 @nfs4_xdr_dec_link(ptr readnone captures(none) %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs4_xdr_enc_symlink(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) #0 align 16 {
+define internal void @nfs4_xdr_enc_symlink(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 align 16 {
   tail call void @nfs4_xdr_enc_create(ptr poison, ptr noundef %1, ptr noundef %2)
   ret void
 }
@@ -7128,7 +7128,7 @@ define internal i32 @nfs4_xdr_dec_symlink(ptr readnone captures(none) %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs4_xdr_enc_create(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) #0 align 16 {
+define internal void @nfs4_xdr_enc_create(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
@@ -8897,7 +8897,7 @@ encode_putfh.exit:                                ; preds = %27, %31
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs4_xdr_dec_server_caps(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) #0 align 16 {
+define internal i32 @nfs4_xdr_dec_server_caps(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) #0 align 16 {
   %4 = alloca [3 x i32], align 4
   %5 = alloca %struct.compound_hdr, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12

@@ -769,7 +769,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @parseXDotF(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
+define noundef ptr @parseXDotF(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @parseXDotFOn(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef null)
   ret ptr %4
 }

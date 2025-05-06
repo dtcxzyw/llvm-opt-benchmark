@@ -1203,7 +1203,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 469:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #13
-  call fastcc void @_ZL11clearModuleRN4llvm6ModuleE(ptr noundef nonnull align 8 dereferenceable(841) %2)
+  call fastcc void @_ZL11clearModuleRN4llvm6ModuleE(ptr noundef nonnull readonly align 8 dereferenceable(841) %2)
   br label %_ZL18maybeHandleGlobalsRN4llvm6ModuleE.exit
 
 470:                                              ; preds = %465, %458, %454, %451

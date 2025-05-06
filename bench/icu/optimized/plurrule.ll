@@ -681,7 +681,7 @@ define void @_ZN6icu_7711PluralRulesC2ER10UErrorCode(ptr noundef nonnull writeon
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7711PluralRulesC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 28)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(28) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7711PluralRulesC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 28)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(28) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6icu_7711PluralRulesE, i64 16), ptr %0, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
@@ -3524,7 +3524,7 @@ define noundef i32 @_ZN6icu_7711PluralRules19getAllKeywordValuesERKNS_13UnicodeS
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7711PluralRules10getSamplesERKNS_13UnicodeStringEPdiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 align 2 {
+define noundef i32 @_ZN6icu_7711PluralRules10getSamplesERKNS_13UnicodeStringEPdiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 align 2 {
   %6 = load i32, ptr %4, align 4, !tbaa !13
   %7 = icmp slt i32 %6, 1
   br i1 %7, label %8, label %_ZNK6icu_7711PluralRules15rulesForKeywordERKNS_13UnicodeStringE.exit.thread

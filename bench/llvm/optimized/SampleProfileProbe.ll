@@ -8729,7 +8729,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15unique_functionIFvNS_9StringRefENS_3AnyER
 declare noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4llvm6detail18UniqueFunctionBaseIvJNS_9StringRefENS_3AnyERKNS_17PreservedAnalysesEEE8CallImplIZNS_19PseudoProbeVerifier17registerCallbacksERNS_28PassInstrumentationCallbacksEE3$_0EEvPvS2_RS3_S6_"(ptr noundef readonly captures(none) %0, ptr captures(address_is_null) %1, i64 %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, ptr nonnull readnone align 8 captures(none) %4) #1 align 2 {
+define internal void @"_ZN4llvm6detail18UniqueFunctionBaseIvJNS_9StringRefENS_3AnyERKNS_17PreservedAnalysesEEE8CallImplIZNS_19PseudoProbeVerifier17registerCallbacksERNS_28PassInstrumentationCallbacksEE3$_0EEvPvS2_RS3_S6_"(ptr noundef readonly captures(none) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, ptr nonnull readnone align 8 captures(none) %4) #1 align 2 {
   %6 = alloca %"class.llvm::Any", align 8
   %7 = load i64, ptr %3, align 8, !tbaa !115
   %8 = inttoptr i64 %7 to ptr
@@ -8751,7 +8751,7 @@ define internal void @"_ZN4llvm6detail18UniqueFunctionBaseIvJNS_9StringRefENS_3A
   br label %_ZN4llvm3AnyC2ERKS0_.exit.i
 
 _ZN4llvm3AnyC2ERKS0_.exit.i:                      ; preds = %13, %9
-  call void @_ZN4llvm19PseudoProbeVerifier12runAfterPassENS_9StringRefENS_3AnyE(ptr noundef nonnull align 8 dereferenceable(24) %.val, ptr %1, i64 %2, ptr noundef nonnull %6)
+  call void @_ZN4llvm19PseudoProbeVerifier12runAfterPassENS_9StringRefENS_3AnyE(ptr noundef nonnull align 8 dereferenceable(24) %.val, ptr readonly %1, i64 %2, ptr noundef nonnull %6)
   %14 = load ptr, ptr %6, align 8, !tbaa !115
   %.not.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i, label %"_ZZN4llvm19PseudoProbeVerifier17registerCallbacksERNS_28PassInstrumentationCallbacksEENK3$_0clENS_9StringRefENS_3AnyERKNS_17PreservedAnalysesE.exit", label %_ZNKSt14default_deleteIN4llvm3Any11StorageBaseEEclEPS2_.exit.i.i.i

@@ -631,7 +631,7 @@ pmix_bfrops_base_tma_argv_free.exit:              ; preds = %1, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @PMIx_Argv_split_inter(ptr noundef captures(address_is_null) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #6 {
+define ptr @PMIx_Argv_split_inter(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #6 {
   %4 = tail call fastcc ptr @pmix_bfrops_base_tma_argv_split_inter(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2)
   ret ptr %4
 }
@@ -946,14 +946,14 @@ pmix_bfrops_base_tma_argv_append_nosize.exit93:   ; preds = %105
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @PMIx_Argv_split_with_empty(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
-  %3 = tail call fastcc ptr @pmix_bfrops_base_tma_argv_split_inter(ptr noundef %0, i32 noundef %1, i1 noundef zeroext true)
+define ptr @PMIx_Argv_split_with_empty(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
+  %3 = tail call fastcc ptr @pmix_bfrops_base_tma_argv_split_inter(ptr noundef readonly %0, i32 noundef %1, i1 noundef zeroext true)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @PMIx_Argv_split(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
-  %3 = tail call fastcc ptr @pmix_bfrops_base_tma_argv_split_inter(ptr noundef %0, i32 noundef %1, i1 noundef zeroext false)
+define ptr @PMIx_Argv_split(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
+  %3 = tail call fastcc ptr @pmix_bfrops_base_tma_argv_split_inter(ptr noundef readonly %0, i32 noundef %1, i1 noundef zeroext false)
   ret ptr %3
 }
 

@@ -3623,7 +3623,7 @@ define dso_local range(i32 0, 2) i32 @object_aclcheck(i32 noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @object_aclcheck_ext(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @object_aclcheck_ext(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i64 @object_aclmask_ext(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4)
   %.not = icmp eq i64 %6, 0
   %. = zext i1 %.not to i32
@@ -3631,7 +3631,7 @@ define dso_local range(i32 0, 2) i32 @object_aclcheck_ext(i32 noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @object_aclmask_ext(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 {
+define internal fastcc i64 @object_aclmask_ext(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
@@ -3987,7 +3987,7 @@ define dso_local range(i32 0, 2) i32 @pg_attribute_aclcheck(i32 noundef %0, i16 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @pg_attribute_aclcheck_ext(i32 noundef %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @pg_attribute_aclcheck_ext(i32 noundef %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i64 @pg_attribute_aclmask_ext(i32 noundef %0, i16 noundef signext %1, i32 noundef %2, i64 noundef %3, ptr noundef %4)
   %.not = icmp eq i64 %6, 0
   %. = zext i1 %.not to i32
@@ -4370,7 +4370,7 @@ define dso_local range(i32 0, 2) i32 @pg_class_aclcheck(i32 noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @pg_class_aclcheck_ext(i32 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @pg_class_aclcheck_ext(i32 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i64 @pg_class_aclmask_ext(i32 noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef 1, ptr noundef %3)
   %.not = icmp eq i64 %5, 0
   %. = zext i1 %.not to i32

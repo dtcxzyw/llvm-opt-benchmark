@@ -26882,7 +26882,7 @@ define internal i32 @add_named_array(ptr noundef %0, ptr readnone captures(none)
   br i1 %22, label %23, label %55
 
 23:                                               ; preds = %.thread
-  %24 = call ptr @md_alloc(i32 noundef 0, ptr noundef nonnull %3)
+  %24 = call ptr @md_alloc(i32 noundef 0, ptr noundef nonnull readonly %3)
   %25 = icmp ugt ptr %24, inttoptr (i64 -4096 to ptr)
   br i1 %25, label %26, label %29
 

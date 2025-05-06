@@ -6856,7 +6856,7 @@ _ZNSt10shared_ptrIN4node6worker7MessageEED2Ev.exit48: ; preds = %_ZN9__gnu_cxx27
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 0, 258) i16 @_ZN4node6worker15MessagePortData8DispatchESt10shared_ptrINS0_7MessageEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(address) dereferenceable(152) %this, ptr noundef readonly captures(none) %message, ptr noundef %error) local_unnamed_addr #6 align 2 {
+define dso_local range(i16 0, 258) i16 @_ZN4node6worker15MessagePortData8DispatchESt10shared_ptrINS0_7MessageEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(152) %this, ptr noundef readonly captures(none) %message, ptr noundef %error) local_unnamed_addr #6 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.372", align 8
   %group_ = getelementptr inbounds nuw i8, ptr %this, i64 136

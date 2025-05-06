@@ -4278,7 +4278,7 @@ define internal range(i32 0, 272) i32 @snd_pcm_poll(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @snd_pcm_ioctl(ptr noundef captures(address_is_null) %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @snd_pcm_ioctl(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = and i32 %1, 65280
   %5 = icmp eq i32 %4, 16640
   br i1 %5, label %6, label %13
@@ -4298,7 +4298,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @snd_pcm_ioctl(ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @snd_pcm_ioctl_compat(ptr noundef captures(address_is_null) %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @snd_pcm_ioctl_compat(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = and i64 %2, 4294967295
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -5684,7 +5684,7 @@ define internal noundef i32 @snd_pcm_do_stop(ptr noundef %0, i32 %1) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @snd_pcm_post_stop(ptr noundef captures(address) %0, i32 noundef %1) #0 align 16 {
+define internal void @snd_pcm_post_stop(ptr noundef readonly captures(address) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
@@ -5778,7 +5778,7 @@ define internal noundef i32 @snd_pcm_do_suspend(ptr noundef %0, i32 %1) #0 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @snd_pcm_post_suspend(ptr noundef captures(address) %0, i32 %1) #0 align 16 {
+define internal void @snd_pcm_post_suspend(ptr noundef readonly captures(address) %0, i32 %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @snd_pcm_trigger_tstamp(ptr noundef %0)
@@ -5896,7 +5896,7 @@ define internal void @snd_pcm_undo_pause(ptr noundef %0, i32 noundef %1) #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @snd_pcm_post_pause(ptr noundef captures(address) %0, i32 noundef %1) #0 align 16 {
+define internal void @snd_pcm_post_pause(ptr noundef readonly captures(address) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @snd_pcm_trigger_tstamp(ptr noundef %0)
@@ -7514,7 +7514,7 @@ declare dso_local ptr @snd_sgbuf_get_page(ptr noundef, i64 noundef) local_unname
 declare dso_local i64 @__snd_pcm_lib_xfer(ptr noundef, ptr noundef, i1 noundef zeroext, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @snd_pcm_common_ioctl(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @snd_pcm_common_ioctl(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
@@ -10098,7 +10098,7 @@ define internal void @snd_pcm_undo_resume(ptr noundef %0, i32 %1) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @snd_pcm_post_resume(ptr noundef captures(address) %0, i32 %1) #0 align 16 {
+define internal void @snd_pcm_post_resume(ptr noundef readonly captures(address) %0, i32 %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @snd_pcm_trigger_tstamp(ptr noundef %0)

@@ -1922,7 +1922,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17ICFLoopSafetyInfo21isGuaranteedT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm17ICFLoopSafetyInfo24doesNotWriteMemoryBeforeEPKNS_10BasicBlockEPKNS_4LoopE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm17ICFLoopSafetyInfo24doesNotWriteMemoryBeforeEPKNS_10BasicBlockEPKNS_4LoopE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::SmallPtrSet.28", align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !34

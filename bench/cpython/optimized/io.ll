@@ -958,7 +958,7 @@ coeff_to_string.exit133:                          ; preds = %138, %129
   %153 = getelementptr i8, ptr %.3, i64 %.099
   %154 = tail call i64 @mpd_msword(ptr noundef nonnull %1) #18
   %155 = tail call i32 @mpd_word_digits(i64 noundef %154) #18
-  %156 = tail call fastcc ptr @word_to_string(ptr noundef %.3, i64 noundef %154, i32 noundef %155, ptr noundef %153)
+  %156 = tail call fastcc ptr @word_to_string(ptr noundef %.3, i64 noundef %154, i32 noundef %155, ptr noundef readnone %153)
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %158 = load i64, ptr %157, align 8, !tbaa !3
   %159 = add i64 %158, -2
@@ -975,7 +975,7 @@ coeff_to_string.exit133:                          ; preds = %138, %129
   %163 = load ptr, ptr %161, align 8, !tbaa !28
   %164 = getelementptr i64, ptr %163, i64 %.015.i
   %165 = load i64, ptr %164, align 8, !tbaa !29
-  %166 = tail call fastcc ptr @word_to_string(ptr noundef %.01314.i, i64 noundef %165, i32 noundef 19, ptr noundef %153)
+  %166 = tail call fastcc ptr @word_to_string(ptr noundef %.01314.i, i64 noundef %165, i32 noundef 19, ptr noundef readnone %153)
   %167 = add nsw i64 %.015.i, -1
   %.not.i135 = icmp eq i64 %.015.i, 0
   br i1 %.not.i135, label %coeff_to_string.exit127, label %162, !llvm.loop !36

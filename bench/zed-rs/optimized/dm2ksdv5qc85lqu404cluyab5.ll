@@ -8834,9 +8834,9 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h731a2365e7d544c7E"(ptr dead_on_unwind noalias noundef writable writeonly sret([224 x i8]) align 8 captures(none) dereferenceable(224) %0, ptr noalias noundef align 8 dereferenceable(3376) %1, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(16) %2) unnamed_addr #2 {
+define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h731a2365e7d544c7E"(ptr dead_on_unwind noalias noundef writable writeonly sret([224 x i8]) align 8 captures(none) dereferenceable(224) %0, ptr noalias noundef align 8 dereferenceable(3376) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(16) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17h4014ee68b448e603E.llvm.933925041898046037"(ptr noalias noundef nonnull sret([224 x i8]) align 8 captures(none) dereferenceable(224) %0, ptr noalias noundef nonnull align 8 dereferenceable(3368) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
+  tail call void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17h4014ee68b448e603E.llvm.933925041898046037"(ptr noalias noundef nonnull sret([224 x i8]) align 8 captures(none) dereferenceable(224) %0, ptr noalias noundef nonnull align 8 dereferenceable(3368) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
   ret void
 }
 
@@ -9475,9 +9475,9 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h238c014a4b2ed7ccE.llvm.9339250
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hb3574c1c2f45ce00E"(ptr dead_on_unwind noalias noundef writable writeonly sret([224 x i8]) align 8 captures(none) dereferenceable(224) %0, ptr noalias noundef align 8 dereferenceable(6720) %1, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(16) %2) unnamed_addr #2 {
+define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hb3574c1c2f45ce00E"(ptr dead_on_unwind noalias noundef writable writeonly sret([224 x i8]) align 8 captures(none) dereferenceable(224) %0, ptr noalias noundef align 8 dereferenceable(6720) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(16) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 6712
-  tail call void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17hd2774b1d5030ee7dE.llvm.933925041898046037"(ptr noalias noundef nonnull sret([224 x i8]) align 8 captures(none) dereferenceable(224) %0, ptr noalias noundef nonnull align 8 dereferenceable(6712) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
+  tail call void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17hd2774b1d5030ee7dE.llvm.933925041898046037"(ptr noalias noundef nonnull sret([224 x i8]) align 8 captures(none) dereferenceable(224) %0, ptr noalias noundef nonnull align 8 dereferenceable(6712) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4)
   ret void
 }
 
@@ -15612,7 +15612,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h74d0270ece762983E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 4 dereferenceable(8) %1, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h74d0270ece762983E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 4 dereferenceable(8) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(8) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !noundef !24
   %6 = icmp eq ptr %5, null
@@ -15661,7 +15661,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h571ce6069c37b02dE.exit: ; pred
   br i1 %.not.not.not.i11.not.not.not, label %22, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h571ce6069c37b02dE.exit
 
 22:                                               ; preds = %20
-  %23 = tail call fastcc noundef zeroext i1 @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d8914ec4185cc64E"(ptr nonnull readonly align 4 dereferenceable(8) %1, ptr nonnull align 8 dereferenceable(8) %2, ptr noalias noundef readonly align 8 dereferenceable(120) %21), !noalias !4696
+  %23 = tail call fastcc noundef zeroext i1 @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d8914ec4185cc64E"(ptr nonnull readonly align 4 dereferenceable(8) %1, ptr nonnull readonly align 8 dereferenceable(8) %2, ptr noalias noundef readonly align 8 dereferenceable(120) %21), !noalias !4696
   br i1 %23, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h571ce6069c37b02dE.exit, label %20
 }
 
@@ -17200,14 +17200,14 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h779d842a0892129bE.llvm.933925041898046037"(ptr dead_on_unwind noalias noundef writable writeonly sret([224 x i8]) align 8 captures(none) dereferenceable(224) %0, ptr noalias noundef align 8 dereferenceable(3368) %1, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(16) %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %3) unnamed_addr #0 {
-  tail call void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17h4014ee68b448e603E.llvm.933925041898046037"(ptr noalias noundef nonnull sret([224 x i8]) align 8 captures(none) dereferenceable(224) %0, ptr noalias noundef nonnull align 8 dereferenceable(3368) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
+define hidden void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h779d842a0892129bE.llvm.933925041898046037"(ptr dead_on_unwind noalias noundef writable writeonly sret([224 x i8]) align 8 captures(none) dereferenceable(224) %0, ptr noalias noundef align 8 dereferenceable(3368) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(16) %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %3) unnamed_addr #0 {
+  tail call void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17h4014ee68b448e603E.llvm.933925041898046037"(ptr noalias noundef nonnull sret([224 x i8]) align 8 captures(none) dereferenceable(224) %0, ptr noalias noundef nonnull align 8 dereferenceable(3368) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h890b6599f5c56646E.llvm.933925041898046037"(ptr dead_on_unwind noalias noundef writable writeonly sret([224 x i8]) align 8 captures(none) dereferenceable(224) %0, ptr noalias noundef align 8 dereferenceable(6712) %1, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(16) %2, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %3) unnamed_addr #0 {
-  tail call void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17hd2774b1d5030ee7dE.llvm.933925041898046037"(ptr noalias noundef nonnull sret([224 x i8]) align 8 captures(none) dereferenceable(224) %0, ptr noalias noundef nonnull align 8 dereferenceable(6712) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
+define hidden void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h890b6599f5c56646E.llvm.933925041898046037"(ptr dead_on_unwind noalias noundef writable writeonly sret([224 x i8]) align 8 captures(none) dereferenceable(224) %0, ptr noalias noundef align 8 dereferenceable(6712) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(16) %2, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(8) %3) unnamed_addr #0 {
+  tail call void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17hd2774b1d5030ee7dE.llvm.933925041898046037"(ptr noalias noundef nonnull sret([224 x i8]) align 8 captures(none) dereferenceable(224) %0, ptr noalias noundef nonnull align 8 dereferenceable(6712) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
   ret void
 }
 
@@ -28248,13 +28248,13 @@ _ZN4core3ops8function6FnOnce9call_once17h949721deb76981ddE.exit.thread.i10: ; pr
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h39d3982f5188583cE.llvm.933925041898046037"(ptr dead_on_unwind noalias noundef writable writeonly sret([224 x i8]) align 8 captures(none) dereferenceable(224) %0, ptr noalias noundef align 8 dereferenceable(3368) %1, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(16) %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %3) unnamed_addr #0 {
+define hidden void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h39d3982f5188583cE.llvm.933925041898046037"(ptr dead_on_unwind noalias noundef writable writeonly sret([224 x i8]) align 8 captures(none) dereferenceable(224) %0, ptr noalias noundef align 8 dereferenceable(3368) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(16) %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %3) unnamed_addr #0 {
   tail call void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17h4014ee68b448e603E.llvm.933925041898046037"(ptr noalias noundef nonnull sret([224 x i8]) align 8 captures(none) dereferenceable(224) %0, ptr noalias noundef nonnull align 8 dereferenceable(3368) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3ce3000d50b08e73E.llvm.933925041898046037"(ptr dead_on_unwind noalias noundef writable writeonly sret([224 x i8]) align 8 captures(none) dereferenceable(224) %0, ptr noalias noundef align 8 dereferenceable(6712) %1, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(16) %2, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %3) unnamed_addr #0 {
+define hidden void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3ce3000d50b08e73E.llvm.933925041898046037"(ptr dead_on_unwind noalias noundef writable writeonly sret([224 x i8]) align 8 captures(none) dereferenceable(224) %0, ptr noalias noundef align 8 dereferenceable(6712) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(16) %2, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(8) %3) unnamed_addr #0 {
   tail call void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17hd2774b1d5030ee7dE.llvm.933925041898046037"(ptr noalias noundef nonnull sret([224 x i8]) align 8 captures(none) dereferenceable(224) %0, ptr noalias noundef nonnull align 8 dereferenceable(6712) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
   ret void
 }
@@ -52276,7 +52276,7 @@ define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN4core4iter8adapt
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17h4014ee68b448e603E.llvm.933925041898046037"(ptr dead_on_unwind noalias noundef writable writeonly sret([224 x i8]) align 8 captures(none) dereferenceable(224) %0, ptr noalias noundef align 8 dereferenceable(3368) %1, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(16) %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17h4014ee68b448e603E.llvm.933925041898046037"(ptr dead_on_unwind noalias noundef writable writeonly sret([224 x i8]) align 8 captures(none) dereferenceable(224) %0, ptr noalias noundef align 8 dereferenceable(3368) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(16) %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [224 x i8], align 8
   %6 = alloca [1472 x i8], align 8
   %7 = alloca [224 x i8], align 8
@@ -52365,7 +52365,7 @@ common.resume:                                    ; preds = %21, %53, %67, %35
   %37 = load i8, ptr %10, align 1, !range !2326, !alias.scope !17393, !noalias !17386, !noundef !24
   %38 = icmp ne i8 %37, 2
   tail call void @llvm.assume(i1 %38)
-  call fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h8c98345784cbf0f6E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(224) %5, ptr nonnull %2, ptr nonnull readonly %3, ptr noalias noundef nonnull align 8 dereferenceable(1472) %9), !noalias !17394
+  call fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h8c98345784cbf0f6E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(224) %5, ptr nonnull readonly %2, ptr nonnull readonly %3, ptr noalias noundef nonnull align 8 dereferenceable(1472) %9), !noalias !17394
   %39 = load i8, ptr %5, align 8, !range !2326, !alias.scope !17395, !noalias !17398, !noundef !24
   %40 = icmp eq i8 %39, 2
   br i1 %40, label %41, label %52
@@ -53402,7 +53402,7 @@ common.resume:                                    ; preds = %26, %58, %72, %42
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17hd2774b1d5030ee7dE.llvm.933925041898046037"(ptr dead_on_unwind noalias noundef writable writeonly sret([224 x i8]) align 8 captures(none) dereferenceable(224) %0, ptr noalias noundef align 8 dereferenceable(6712) %1, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(16) %2, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17hd2774b1d5030ee7dE.llvm.933925041898046037"(ptr dead_on_unwind noalias noundef writable writeonly sret([224 x i8]) align 8 captures(none) dereferenceable(224) %0, ptr noalias noundef align 8 dereferenceable(6712) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(16) %2, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [224 x i8], align 8
   %6 = alloca [3144 x i8], align 8
   %7 = alloca [224 x i8], align 8
@@ -53530,7 +53530,7 @@ common.resume:                                    ; preds = %.body, %.body21, %.
   %44 = load i64, ptr %1, align 8, !range !123, !alias.scope !17910, !noalias !17903, !noundef !24
   %45 = icmp ne i64 %44, 2
   tail call void @llvm.assume(i1 %45)
-  call fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h1c6bc5ac7d41d683E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(224) %5, ptr nonnull %2, ptr nonnull %3, ptr noalias noundef nonnull align 8 dereferenceable(3144) %1), !noalias !17911
+  call fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h1c6bc5ac7d41d683E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(224) %5, ptr nonnull readonly %2, ptr nonnull readonly %3, ptr noalias noundef nonnull align 8 dereferenceable(3144) %1), !noalias !17911
   %46 = load i8, ptr %5, align 8, !range !2326, !alias.scope !17912, !noalias !17915, !noundef !24
   %47 = icmp eq i8 %46, 2
   br i1 %47, label %48, label %64

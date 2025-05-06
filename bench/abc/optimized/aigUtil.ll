@@ -560,7 +560,7 @@ define void @Aig_ObjCleanData_rec(ptr noundef captures(none) initializes((40, 48
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Aig_ObjCollectMulti_rec(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
+define void @Aig_ObjCollectMulti_rec(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr i8, ptr %0, i64 24
   br label %tailrecurse
 

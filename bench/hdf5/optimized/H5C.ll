@@ -1195,7 +1195,7 @@ define range(i32 -1, 1) i32 @H5C_flush_to_min_clean(ptr noundef %0) local_unname
 declare i32 @H5C__make_space_in_cache(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5C_set_cache_auto_resize_config(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5C_set_cache_auto_resize_config(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @H5C_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1, !range !7

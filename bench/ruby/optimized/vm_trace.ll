@@ -511,24 +511,24 @@ rb_threadptr_add_event_hook.exit:                 ; preds = %5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_thread_remove_event_hook(i64 noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
+define dso_local i32 @rb_thread_remove_event_hook(i64 noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %4 = load ptr, ptr %3, align 8, !tbaa !33
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #5
   %6 = getelementptr i8, ptr %4, i64 48
   %.val = load ptr, ptr %6, align 8, !tbaa !39
-  %7 = tail call fastcc i32 @remove_event_hook(ptr %.val, ptr noundef %5, ptr noundef %1, i64 noundef 36)
+  %7 = tail call fastcc i32 @remove_event_hook(ptr readonly %.val, ptr noundef readnone %5, ptr noundef readnone %1, i64 noundef 36)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_thread_remove_event_hook_with_data(i64 noundef %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @rb_thread_remove_event_hook_with_data(i64 noundef %0, ptr noundef readnone captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %5 = load ptr, ptr %4, align 8, !tbaa !33
   %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #5
   %7 = getelementptr i8, ptr %5, i64 48
   %.val = load ptr, ptr %7, align 8, !tbaa !39
-  %8 = tail call fastcc i32 @remove_event_hook(ptr %.val, ptr noundef %6, ptr noundef %1, i64 noundef %2)
+  %8 = tail call fastcc i32 @remove_event_hook(ptr readonly %.val, ptr noundef readnone %6, ptr noundef readnone %1, i64 noundef %2)
   ret i32 %8
 }
 
@@ -902,7 +902,7 @@ clean_hooks_check.exit:                           ; preds = %._crit_edge, %102, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_remove_event_hook_with_data(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @rb_remove_event_hook_with_data(ptr noundef readnone captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %4 = load ptr, ptr %3, align 8, !tbaa !33
   %5 = getelementptr i8, ptr %4, i64 48
@@ -2794,7 +2794,7 @@ define dso_local noundef i64 @rb_tracepoint_disable(i64 noundef %0) #0 {
   %16 = tail call ptr @rb_check_typeddata(i64 noundef %13, ptr noundef nonnull @ruby_threadptr_data_type) #5
   %17 = getelementptr i8, ptr %15, i64 48
   %.val.i = load ptr, ptr %17, align 8, !tbaa !39
-  %18 = tail call fastcc i32 @remove_event_hook(ptr %.val.i, ptr noundef %16, ptr noundef nonnull @tp_call_trace, i64 noundef %0)
+  %18 = tail call fastcc i32 @remove_event_hook(ptr readonly %.val.i, ptr noundef readnone %16, ptr noundef nonnull readnone @tp_call_trace, i64 noundef %0)
   br label %remove_event_hook.exit
 
 19:                                               ; preds = %8

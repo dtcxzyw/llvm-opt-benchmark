@@ -37327,7 +37327,7 @@ _ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream13appendNonNull
   %17 = load i32, ptr %nonNullCount_.i18, align 4
   %add.i19 = add nsw i32 %17, 1
   store i32 %add.i19, ptr %nonNullCount_.i18, align 4
-  call fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream6appendINS0_9TimestampEEEvN5folly5RangeIPKT_EE(ptr noundef nonnull align 8 dereferenceable(281) %stream, ptr nonnull align 8 dereferenceable(16) %value, ptr nonnull %add.ptr.i.i)
+  call fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream6appendINS0_9TimestampEEEvN5folly5RangeIPKT_EE(ptr noundef nonnull align 8 dereferenceable(281) %stream, ptr nonnull readonly align 8 dereferenceable(16) %value, ptr nonnull readonly %add.ptr.i.i)
   %inc12 = add nuw nsw i32 %i7.022, 1
   %exitcond.not = icmp eq i32 %inc12, %total.0.lcssa.i
   br i1 %exitcond.not, label %for.end13, label %for.body10, !llvm.loop !296
@@ -73355,7 +73355,7 @@ _ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream13appendNonNull
   %306 = load i32, ptr %nonNullCount_.i439, align 4
   %add.i440 = add nsw i32 %306, 1
   store i32 %add.i440, ptr %nonNullCount_.i439, align 4
-  call fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream6appendINS0_9TimestampEEEvN5folly5RangeIPKT_EE(ptr noundef nonnull align 8 dereferenceable(281) %stream, ptr nonnull align 8 dereferenceable(16) %value.i208.i, ptr nonnull %add.ptr.i.i433)
+  call fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream6appendINS0_9TimestampEEEvN5folly5RangeIPKT_EE(ptr noundef nonnull align 8 dereferenceable(281) %stream, ptr nonnull readonly align 8 dereferenceable(16) %value.i208.i, ptr nonnull readonly %add.ptr.i.i433)
   %indvars.iv.next839 = add nuw i64 %indvars.iv838, 1
   %exitcond842.not = icmp eq i64 %indvars.iv.next839, %umax841
   br i1 %exitcond842.not, label %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE9EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKiEEPNS3_12VectorStreamERNS0_7ScratchE.exit.i, label %for.body11.i222.i, !llvm.loop !608
@@ -81354,7 +81354,7 @@ for.body.i.i2369:                                 ; preds = %for.body.i.i2369, %
   %idxprom.i.i2371 = sext i32 %878 to i64
   %arrayidx.i.i2372 = getelementptr inbounds %"struct.facebook::velox::Timestamp", ptr %874, i64 %idxprom.i.i2371
   %add.ptr.i.i.i.i2373 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i2372, i64 16
-  tail call fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream6appendINS0_9TimestampEEEvN5folly5RangeIPKT_EE(ptr noundef nonnull align 8 dereferenceable(281) %871, ptr nonnull align 8 dereferenceable(16) %arrayidx.i.i2372, ptr nonnull %add.ptr.i.i.i.i2373)
+  tail call fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream6appendINS0_9TimestampEEEvN5folly5RangeIPKT_EE(ptr noundef nonnull align 8 dereferenceable(281) %871, ptr nonnull readonly align 8 dereferenceable(16) %arrayidx.i.i2372, ptr nonnull readonly %add.ptr.i.i.i.i2373)
   %indvars.iv.next68.i.i = add nuw i64 %indvars.iv67.i.i, 1
   %exitcond70.not.i.i = icmp eq i64 %indvars.iv.next68.i.i, %umax.i.i
   br i1 %exitcond70.not.i.i, label %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_119serializeFlatVectorILNS0_8TypeKindE9EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKiEEPNS3_12VectorStreamERNS0_7ScratchE.exit, label %for.body.i.i2369, !llvm.loop !644
@@ -81425,7 +81425,7 @@ for.body.i29.i:                                   ; preds = %.noexc37.i, %for.bo
   %idxprom.i32.i = sext i32 %884 to i64
   %arrayidx.i33.i = getelementptr inbounds %"struct.facebook::velox::Timestamp", ptr %874, i64 %idxprom.i32.i
   %add.ptr.i.i.i34.i = getelementptr inbounds nuw i8, ptr %arrayidx.i33.i, i64 16
-  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream6appendINS0_9TimestampEEEvN5folly5RangeIPKT_EE(ptr noundef nonnull align 8 dereferenceable(281) %871, ptr nonnull align 8 dereferenceable(16) %arrayidx.i33.i, ptr nonnull %add.ptr.i.i.i34.i)
+  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream6appendINS0_9TimestampEEEvN5folly5RangeIPKT_EE(ptr noundef nonnull align 8 dereferenceable(281) %871, ptr nonnull readonly align 8 dereferenceable(16) %arrayidx.i33.i, ptr nonnull readonly %add.ptr.i.i.i34.i)
           to label %.noexc37.i unwind label %lpad.loopexit.i
 
 .noexc37.i:                                       ; preds = %for.body.i29.i
@@ -81672,7 +81672,7 @@ for.body18.i.i:                                   ; preds = %for.inc26.i.i, %for
   %idxprom23.i.i = sext i32 %898 to i64
   %arrayidx24.i.i = getelementptr inbounds %"struct.facebook::velox::Timestamp", ptr %874, i64 %idxprom23.i.i
   %add.ptr.i.i41.i.i = getelementptr inbounds nuw i8, ptr %arrayidx24.i.i, i64 16
-  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream6appendINS0_9TimestampEEEvN5folly5RangeIPKT_EE(ptr noundef nonnull align 8 dereferenceable(281) %871, ptr nonnull align 8 dereferenceable(16) %arrayidx24.i.i, ptr nonnull %add.ptr.i.i41.i.i)
+  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream6appendINS0_9TimestampEEEvN5folly5RangeIPKT_EE(ptr noundef nonnull align 8 dereferenceable(281) %871, ptr nonnull readonly align 8 dereferenceable(16) %arrayidx24.i.i, ptr nonnull readonly %add.ptr.i.i41.i.i)
           to label %for.inc26.i.i unwind label %lpad.loopexit.i.i
 
 for.inc26.i.i:                                    ; preds = %for.body18.i.i

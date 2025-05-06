@@ -356,7 +356,7 @@ declare i32 @BIO_get_init(ptr noundef) local_unnamed_addr #0
 declare ptr @BIO_get_data(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4node6crypto7NodeBIO4ReadEP6bio_stPci(ptr noundef %bio, ptr noundef captures(address_is_null) %out, i32 noundef %len) #3 align 2 {
+define dso_local noundef i32 @_ZN4node6crypto7NodeBIO4ReadEP6bio_stPci(ptr noundef %bio, ptr noundef writeonly captures(address_is_null) %out, i32 noundef %len) #3 align 2 {
 entry:
   tail call void @BIO_clear_flags(ptr noundef %bio, i32 noundef 15) #16
   %call.i = tail call ptr @BIO_get_data(ptr noundef %bio) #16
@@ -956,7 +956,7 @@ _ZN4node6crypto7NodeBIO5WriteEP6bio_stPKci.exit:  ; preds = %entry
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4node6crypto7NodeBIO4GetsEP6bio_stPci(ptr noundef %bio, ptr noundef captures(address_is_null) %out, i32 noundef %size) #3 align 2 {
+define dso_local noundef i32 @_ZN4node6crypto7NodeBIO4GetsEP6bio_stPci(ptr noundef %bio, ptr noundef writeonly captures(address_is_null) %out, i32 noundef %size) #3 align 2 {
 entry:
   %call.i = tail call ptr @BIO_get_data(ptr noundef %bio) #16
   %cmp.not.i = icmp eq ptr %call.i, null

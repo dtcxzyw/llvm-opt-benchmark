@@ -2728,7 +2728,7 @@ declare void @_ZN12PhaseChaitin14lower_pressureEP5BlockjR3LRGP8IndexSetRNS_8Pres
 declare void @_ZN12PhaseChaitin14raise_pressureEP5BlockR3LRGRNS_8PressureES5_(ptr noundef nonnull align 8 dereferenceable(364), ptr noundef, ptr noundef nonnull align 8 dereferenceable(168), ptr noundef nonnull align 4 dereferenceable(20), ptr noundef nonnull align 4 dereferenceable(20)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8PhaseCFG13set_next_callEP5BlockP4NodeR9VectorSet(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8PhaseCFG13set_next_callEP5BlockP4NodeR9VectorSet(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = lshr i32 %6, 5
@@ -2801,7 +2801,7 @@ _ZN9VectorSet8test_setEj.exit:                    ; preds = %4, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8PhaseCFG20needed_for_next_callEP5BlockP4NodeR9VectorSet(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8PhaseCFG20needed_for_next_callEP5BlockP4NodeR9VectorSet(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -2984,7 +2984,7 @@ _ZN7RegMask2ORERKS_.exit:                         ; preds = %.lr.ph.i, %_ZN5Bloc
   br i1 %89, label %74, label %_ZN8PhaseCFG20needed_for_next_callEP5BlockP4NodeR9VectorSet.exit, !llvm.loop !30
 
 90:                                               ; preds = %82
-  tail call void @_ZN8PhaseCFG13set_next_callEP5BlockP4NodeR9VectorSet(ptr noundef nonnull readonly align 8 dereferenceable(160) %0, ptr noundef nonnull %1, ptr noundef nonnull %75, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  tail call void @_ZN8PhaseCFG13set_next_callEP5BlockP4NodeR9VectorSet(ptr noundef nonnull readonly align 8 dereferenceable(160) %0, ptr noundef nonnull readnone %1, ptr noundef nonnull %75, ptr noundef nonnull align 8 dereferenceable(32) %6)
   br label %_ZN8PhaseCFG20needed_for_next_callEP5BlockP4NodeR9VectorSet.exit
 
 _ZN8PhaseCFG20needed_for_next_callEP5BlockP4NodeR9VectorSet.exit: ; preds = %87, %90, %66, %_ZN7RegMask2ORERKS_.exit
@@ -4192,7 +4192,7 @@ _ZNK5Block4headEv.exit217:                        ; preds = %382, %._crit_edge27
   br i1 %439, label %424, label %_ZN8PhaseCFG20needed_for_next_callEP5BlockP4NodeR9VectorSet.exit, !llvm.loop !30
 
 440:                                              ; preds = %432
-  call void @_ZN8PhaseCFG13set_next_callEP5BlockP4NodeR9VectorSet(ptr noundef nonnull readonly align 8 dereferenceable(160) %0, ptr noundef nonnull %1, ptr noundef nonnull %425, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  call void @_ZN8PhaseCFG13set_next_callEP5BlockP4NodeR9VectorSet(ptr noundef nonnull readonly align 8 dereferenceable(160) %0, ptr noundef nonnull readnone %1, ptr noundef nonnull %425, ptr noundef nonnull align 8 dereferenceable(32) %3)
   br label %_ZN8PhaseCFG20needed_for_next_callEP5BlockP4NodeR9VectorSet.exit
 
 _ZN8PhaseCFG20needed_for_next_callEP5BlockP4NodeR9VectorSet.exit: ; preds = %437, %_ZNK5Block4headEv.exit217, %440

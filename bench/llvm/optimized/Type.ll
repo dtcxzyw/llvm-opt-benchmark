@@ -26664,7 +26664,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit39: ; preds = %_ZN4llvm16FoldingS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang18ObjCObjectTypeImpl7ProfileERN4llvm16FoldingSetNodeIDE(ptr noundef nonnull align 16 captures(address) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(144) %1) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang18ObjCObjectTypeImpl7ProfileERN4llvm16FoldingSetNodeIDE(ptr noundef nonnull readonly align 16 captures(address) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(144) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8, !tbaa !374
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -26890,7 +26890,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit23: ; preds = %_ZN4llvm16FoldingS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang17ObjCTypeParamType7ProfileERN4llvm16FoldingSetNodeIDE(ptr noundef nonnull align 16 captures(address) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(144) %1) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang17ObjCTypeParamType7ProfileERN4llvm16FoldingSetNodeIDE(ptr noundef nonnull readonly align 16 captures(address) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(144) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !518
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8

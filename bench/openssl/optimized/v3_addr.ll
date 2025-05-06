@@ -230,7 +230,7 @@ define range(i32 0, 65536) i32 @X509v3_addr_get_afi(ptr noundef readonly capture
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509v3_addr_add_inherit(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509v3_addr_add_inherit(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = tail call fastcc ptr @make_IPAddressFamily(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %21, label %6
@@ -391,9 +391,9 @@ declare ptr @ASN1_NULL_new() local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509v3_addr_add_prefix(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509v3_addr_add_prefix(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
-  %7 = tail call fastcc ptr @make_IPAddressFamily(ptr noundef %0, i32 noundef %1, ptr noundef %2)
+  %7 = tail call fastcc ptr @make_IPAddressFamily(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2)
   %8 = icmp eq ptr %7, null
   br i1 %8, label %make_prefix_or_range.exit.thread, label %9
 
@@ -551,9 +551,9 @@ define internal fastcc range(i32 0, 2) i32 @make_addressPrefix(ptr noundef nonnu
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509v3_addr_add_range(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509v3_addr_add_range(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
-  %7 = tail call fastcc ptr @make_IPAddressFamily(ptr noundef %0, i32 noundef %1, ptr noundef %2)
+  %7 = tail call fastcc ptr @make_IPAddressFamily(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2)
   %8 = icmp eq ptr %7, null
   br i1 %8, label %make_prefix_or_range.exit.thread, label %9
 
@@ -951,7 +951,7 @@ range_should_be_prefix.exit.thread:               ; preds = %47, %34, %.critedge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 17) i32 @X509v3_addr_get_range(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #5 {
+define range(i32 0, 17) i32 @X509v3_addr_get_range(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #5 {
   %switch.selectcmp.i = icmp eq i32 %1, 2
   %switch.select.i = select i1 %switch.selectcmp.i, i32 16, i32 0
   %switch.selectcmp2.i = icmp eq i32 %1, 1
@@ -2015,7 +2015,7 @@ define internal ptr @v2i_IPAddrBlocks(ptr readnone captures(none) %0, ptr readno
   br i1 %60, label %61, label %83
 
 61:                                               ; preds = %58
-  %62 = call fastcc ptr @make_IPAddressFamily(ptr noundef nonnull %8, i32 noundef %.095130144155, ptr noundef %.094132143157)
+  %62 = call fastcc ptr @make_IPAddressFamily(ptr noundef nonnull %8, i32 noundef %.095130144155, ptr noundef readonly %.094132143157)
   %63 = icmp eq ptr %62, null
   br i1 %63, label %79, label %64
 

@@ -39,7 +39,7 @@ define void @png_error(ptr noalias noundef %0, ptr noundef %1) local_unnamed_add
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal fastcc void @png_default_error(ptr noalias noundef captures(address_is_null) %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @png_default_error(ptr noalias noundef readonly captures(address_is_null) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load ptr, ptr @stderr, align 8, !tbaa !22
   %.not = icmp eq ptr %1, null
   %4 = select i1 %.not, ptr @.str.5, ptr %1

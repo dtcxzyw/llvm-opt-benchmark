@@ -551,7 +551,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14WarningHandler10addWarningESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, i64 %1, ptr captures(address) %2) local_unnamed_addr #0 align 2 {
+define void @_ZN14WarningHandler10addWarningESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, i64 %1, ptr readonly captures(address) %2) local_unnamed_addr #0 align 2 {
   %4 = load i8, ptr %0, align 8, !tbaa !54, !range !55, !noundef !56
   %5 = trunc nuw i8 %4 to i1
   %. = select i1 %5, i64 8, i64 12
@@ -565,7 +565,7 @@ define void @_ZN14WarningHandler10addWarningESt17basic_string_viewIcSt11char_tra
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14WarningHandler8addErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, i64 %1, ptr captures(address) %2) local_unnamed_addr #0 align 2 {
+define void @_ZN14WarningHandler8addErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, i64 %1, ptr readonly captures(address) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4, !tbaa !35
   %6 = add nsw i32 %5, 1
@@ -575,7 +575,7 @@ define void @_ZN14WarningHandler8addErrorESt17basic_string_viewIcSt11char_traits
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14WarningHandler7addNoteESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, i64 %1, ptr captures(address) %2) local_unnamed_addr #0 align 2 {
+define void @_ZN14WarningHandler7addNoteESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, i64 %1, ptr readonly captures(address) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !35
   %6 = add nsw i32 %5, 1
@@ -827,7 +827,7 @@ declare void @_ZNSt10filesystem7__cxx114path14_M_split_cmptsEv(ptr noundef nonnu
 declare void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_Z22warning_error_and_exitP14WarningHandlerPKciRKNSt10filesystem7__cxx114pathEi(ptr noundef nonnull captures(none) %0, ptr noundef captures(address) %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %3, i32 noundef %4) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_Z22warning_error_and_exitP14WarningHandlerPKciRKNSt10filesystem7__cxx114pathEi(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %3, i32 noundef %4) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   tail call void @_ZN14WarningHandler8addErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 %6, ptr nonnull %1)
   tail call fastcc void @_ZL24check_warning_error_implRK14WarningHandleriRKNSt10filesystem7__cxx114pathEi(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef %4) #16
@@ -999,7 +999,7 @@ _ZNKSt10filesystem7__cxx114path6stringEv.exit:    ; preds = %._crit_edge.i.i.i.i
   %33 = load i32, ptr %32, align 4, !tbaa !35
   %34 = add nsw i32 %33, 1
   store i32 %34, ptr %32, align 4, !tbaa !35
-  invoke void @_ZN14WarningHandler11addLowLevelESt17basic_string_viewIcSt11char_traitsIcEE11WarningType(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 %29, ptr %27, i32 noundef %.10.i)
+  invoke void @_ZN14WarningHandler11addLowLevelESt17basic_string_viewIcSt11char_traitsIcEE11WarningType(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 %29, ptr readonly %27, i32 noundef %.10.i)
           to label %_ZN14WarningHandler10addWarningESt17basic_string_viewIcSt11char_traitsIcEE.exit unwind label %50
 
 _ZN14WarningHandler10addWarningESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %26
@@ -1169,7 +1169,7 @@ _ZNKSt10filesystem7__cxx114path6stringEv.exit:    ; preds = %._crit_edge.i.i.i.i
   %33 = load i32, ptr %32, align 4, !tbaa !35
   %34 = add nsw i32 %33, 1
   store i32 %34, ptr %32, align 4, !tbaa !35
-  invoke void @_ZN14WarningHandler11addLowLevelESt17basic_string_viewIcSt11char_traitsIcEE11WarningType(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 %29, ptr %27, i32 noundef %.10.i)
+  invoke void @_ZN14WarningHandler11addLowLevelESt17basic_string_viewIcSt11char_traitsIcEE11WarningType(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 %29, ptr readonly %27, i32 noundef %.10.i)
           to label %_ZN14WarningHandler10addWarningESt17basic_string_viewIcSt11char_traitsIcEE.exit unwind label %50
 
 _ZN14WarningHandler10addWarningESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %26

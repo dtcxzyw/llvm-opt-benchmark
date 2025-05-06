@@ -8051,7 +8051,7 @@ define noundef i64 @_ZN2c43yml4Tree4moveEPS1_mmm(ptr noundef nonnull align 8 cap
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN2c43yml4Tree9duplicateEPKS1_mmm(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
+define noundef i64 @_ZN2c43yml4Tree9duplicateEPKS1_mmm(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = alloca [31 x i8], align 16
   %7 = alloca %"struct.c4::yml::Location", align 8
   %8 = alloca [29 x i8], align 16
@@ -8545,7 +8545,7 @@ define noundef i64 @_ZN2c43yml4Tree9duplicateEmmm(ptr noundef nonnull align 8 ca
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN2c43yml4Tree18duplicate_childrenEPKS1_mmm(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
+define noundef i64 @_ZN2c43yml4Tree18duplicate_childrenEPKS1_mmm(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = alloca [31 x i8], align 16
   %7 = alloca %"struct.c4::yml::Location", align 8
   %8 = alloca [29 x i8], align 16
@@ -8691,7 +8691,7 @@ define void @_ZN2c43yml4Tree18duplicate_contentsEmm(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2c43yml4Tree18duplicate_contentsEPKS1_mm(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
+define void @_ZN2c43yml4Tree18duplicate_contentsEPKS1_mm(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = alloca [31 x i8], align 16
   %6 = alloca %"struct.c4::yml::Location", align 8
   %7 = alloca [29 x i8], align 16
@@ -8817,7 +8817,7 @@ define noundef i64 @_ZN2c43yml4Tree25duplicate_children_no_repEmmm(ptr noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN2c43yml4Tree25duplicate_children_no_repEPKS1_mmm(ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(256) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
+define noundef i64 @_ZN2c43yml4Tree25duplicate_children_no_repEPKS1_mmm(ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(256) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = alloca [29 x i8], align 16
   %7 = alloca %"struct.c4::yml::Location", align 8
   %8 = alloca [31 x i8], align 16

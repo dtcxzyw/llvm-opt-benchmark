@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__const.CreateRoundtripXForm.States = private unnamed_addr constant [4 x double] [double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsDetectBlackPoint(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsDetectBlackPoint(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 %3) local_unnamed_addr #0 {
   %5 = tail call i32 @cmsGetDeviceClass(ptr noundef %1) #7
   switch i32 %5, label %7 [
     i32 1852662636, label %6

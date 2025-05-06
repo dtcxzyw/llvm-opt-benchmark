@@ -3176,7 +3176,7 @@ define { <2 x float>, float } @NcNormalizeYxy(<2 x float> %0, float %1) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable
-define { <2 x float>, float } @pxr_nc_1_0_YxyToRGB(ptr noundef captures(address_is_null) %0, <2 x float> %1, float %2) local_unnamed_addr #12 {
+define { <2 x float>, float } @pxr_nc_1_0_YxyToRGB(ptr noundef readonly captures(address_is_null) %0, <2 x float> %1, float %2) local_unnamed_addr #12 {
   %.sroa.03.0.vec.extract.i = extractelement <2 x float> %1, i64 0
   %.sroa.03.4.vec.extract.i = extractelement <2 x float> %1, i64 1
   %4 = fmul float %.sroa.03.0.vec.extract.i, %.sroa.03.4.vec.extract.i

@@ -60828,7 +60828,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @ws_manuf_lookup_str(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define ptr @ws_manuf_lookup_str(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @ws_manuf_lookup(ptr noundef %0, ptr noundef %1, ptr noundef null)
   ret ptr %3
 }

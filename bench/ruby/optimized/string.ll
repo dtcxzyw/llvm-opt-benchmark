@@ -2234,15 +2234,15 @@ str_capacity.exit:                                ; preds = %19, %24, %27
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @rb_str_new(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #1 {
+define dso_local noundef i64 @rb_str_new(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %4 = tail call nonnull ptr @rb_ascii8bit_encoding() #29
-  %5 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %3, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %4)
+  %5 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %3, ptr noundef readonly %0, i64 noundef %1, ptr noundef nonnull %4)
   ret i64 %5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @rb_usascii_str_new(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #1 {
+define dso_local noundef i64 @rb_usascii_str_new(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %4 = tail call nonnull ptr @rb_usascii_encoding() #29
   %5 = tail call fastcc i64 @str_enc_new(i64 noundef %3, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %4)
@@ -2391,7 +2391,7 @@ RSTRING_PTR.exit46:                               ; preds = %ruby_nonempty_memcp
 declare nonnull ptr @rb_usascii_encoding() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @rb_utf8_str_new(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #1 {
+define dso_local noundef i64 @rb_utf8_str_new(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %4 = tail call nonnull ptr @rb_utf8_encoding() #29
   %5 = tail call fastcc i64 @str_enc_new(i64 noundef %3, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %4)
@@ -2401,14 +2401,14 @@ define dso_local noundef i64 @rb_utf8_str_new(ptr noundef captures(address_is_nu
 declare nonnull ptr @rb_utf8_encoding() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @rb_enc_str_new(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local noundef i64 @rb_enc_str_new(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %5 = tail call fastcc i64 @str_enc_new(i64 noundef %4, ptr noundef %0, i64 noundef %1, ptr noundef %2)
   ret i64 %5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @rb_str_new_cstr(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
+define dso_local noundef i64 @rb_str_new_cstr(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %2, label %must_not_null.exit
 
@@ -2421,12 +2421,12 @@ must_not_null.exit:                               ; preds = %1
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #31
   %5 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %6 = tail call nonnull ptr @rb_ascii8bit_encoding() #29
-  %7 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %5, ptr noundef nonnull %0, i64 noundef %4, ptr noundef nonnull %6)
+  %7 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %5, ptr noundef nonnull readonly %0, i64 noundef %4, ptr noundef nonnull %6)
   ret i64 %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @rb_usascii_str_new_cstr(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
+define dso_local noundef i64 @rb_usascii_str_new_cstr(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = tail call nonnull ptr @rb_usascii_encoding() #29
   %3 = getelementptr i8, ptr %2, i64 20
   %.val.i = load i32, ptr %3, align 4, !tbaa !14
@@ -2439,14 +2439,14 @@ define dso_local noundef i64 @rb_usascii_str_new_cstr(ptr noundef captures(addre
   unreachable
 
 rb_enc_str_new_cstr.exit:                         ; preds = %1
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #31
+  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #31
   %7 = load i64, ptr @rb_cString, align 8, !tbaa !26
-  %8 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %7, ptr noundef nonnull %0, i64 noundef %6, ptr noundef nonnull %2)
+  %8 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %7, ptr noundef nonnull readonly %0, i64 noundef %6, ptr noundef nonnull %2)
   ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @rb_enc_str_new_cstr(ptr noundef nonnull captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local noundef i64 @rb_enc_str_new_cstr(ptr noundef nonnull readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %1, i64 20
   %.val = load i32, ptr %3, align 4, !tbaa !14
   %.not = icmp eq i32 %.val, 1
@@ -2460,12 +2460,12 @@ define dso_local noundef i64 @rb_enc_str_new_cstr(ptr noundef nonnull captures(a
 6:                                                ; preds = %2
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #31
   %8 = load i64, ptr @rb_cString, align 8, !tbaa !26
-  %9 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %8, ptr noundef nonnull %0, i64 noundef %7, ptr noundef nonnull %1)
+  %9 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %8, ptr noundef nonnull readonly %0, i64 noundef %7, ptr noundef nonnull %1)
   ret i64 %9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @rb_utf8_str_new_cstr(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
+define dso_local noundef i64 @rb_utf8_str_new_cstr(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = tail call nonnull ptr @rb_utf8_encoding() #29
   %3 = getelementptr i8, ptr %2, i64 20
   %.val.i = load i32, ptr %3, align 4, !tbaa !14
@@ -2478,9 +2478,9 @@ define dso_local noundef i64 @rb_utf8_str_new_cstr(ptr noundef captures(address_
   unreachable
 
 rb_enc_str_new_cstr.exit:                         ; preds = %1
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #31
+  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #31
   %7 = load i64, ptr @rb_cString, align 8, !tbaa !26
-  %8 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %7, ptr noundef nonnull %0, i64 noundef %6, ptr noundef nonnull %2)
+  %8 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %7, ptr noundef nonnull readonly %0, i64 noundef %6, ptr noundef nonnull %2)
   ret i64 %8
 }
 
@@ -3264,7 +3264,7 @@ search_nonascii.exit:                             ; preds = %.lr.ph.i
 .critedge:                                        ; preds = %29, %31, %34, %37, %40, %43, %46, %search_nonascii.exit, %8
   %49 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %50 = tail call nonnull ptr @rb_ascii8bit_encoding() #29
-  %51 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %49, ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %50)
+  %51 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %49, ptr noundef nonnull readonly %0, i64 noundef %1, ptr noundef nonnull %50)
   br label %rb_str_initialize.exit
 
 search_nonascii.exit.thread:                      ; preds = %46, %._crit_edge.i, %search_nonascii.exit, %10
@@ -3276,7 +3276,7 @@ search_nonascii.exit.thread:                      ; preds = %46, %._crit_edge.i,
 
 54:                                               ; preds = %search_nonascii.exit.thread
   %55 = load i64, ptr @rb_cString, align 8, !tbaa !26
-  %56 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %55, ptr noundef nonnull %0, i64 noundef %1, ptr noundef %2)
+  %56 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %55, ptr noundef nonnull readonly %0, i64 noundef %1, ptr noundef %2)
   br label %rb_str_initialize.exit
 
 57:                                               ; preds = %search_nonascii.exit.thread
@@ -3380,7 +3380,7 @@ search_nonascii.exit60:                           ; preds = %.lr.ph.i57
 
 search_nonascii.exit60.thread:                    ; preds = %95, %._crit_edge.i47, %search_nonascii.exit60, %57
   %98 = load i64, ptr @rb_cString, align 8, !tbaa !26
-  %99 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %98, ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %52)
+  %99 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %98, ptr noundef nonnull readonly %0, i64 noundef %1, ptr noundef nonnull %52)
   br label %rb_str_initialize.exit
 
 rb_enc_asciicompat.exit.thread:                   ; preds = %78, %80, %83, %86, %89, %92, %95, %58, %search_nonascii.exit60, %rb_enc_asciicompat.exit
@@ -4436,7 +4436,7 @@ RB_FL_UNSET.exit:                                 ; preds = %18, %RB_FL_ABLE.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @rb_str_new_with_class(i64 noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #1 {
+define dso_local noundef i64 @rb_str_new_with_class(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = tail call i64 @rb_obj_class(i64 noundef %0) #29
   %5 = inttoptr i64 %0 to ptr
   %6 = load i64, ptr %5, align 8, !tbaa !7
@@ -8336,7 +8336,7 @@ RSTRING_PTR.exit:                                 ; preds = %25, %29
   %30 = getelementptr i8, ptr %.sroa.2.0.i, i64 %1
   %31 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %32 = tail call nonnull ptr @rb_ascii8bit_encoding() #29
-  %33 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %31, ptr noundef %30, i64 noundef %2, ptr noundef nonnull %32)
+  %33 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %31, ptr noundef readonly %30, i64 noundef %2, ptr noundef nonnull %32)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #29
   store ptr %4, ptr %5, align 8, !tbaa !91
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %5) #29, !srcloc !209
@@ -11807,7 +11807,7 @@ RSTRING_PTR.exit:                                 ; preds = %1, %6
   %8 = load i64, ptr %7, align 8, !tbaa !12
   %9 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %10 = tail call nonnull ptr @rb_ascii8bit_encoding() #29
-  %11 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %9, ptr noundef %.sroa.2.0.i, i64 noundef %8, ptr noundef nonnull %10)
+  %11 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %9, ptr noundef readonly %.sroa.2.0.i, i64 noundef %8, ptr noundef nonnull %10)
   tail call fastcc void @rb_enc_cr_str_copy_for_substr(i64 noundef %11, i64 noundef %0)
   %12 = tail call fastcc i64 @str_succ(i64 noundef %11)
   ret i64 %11
@@ -12604,7 +12604,7 @@ RSTRING_PTR.exit119:                              ; preds = %RSTRING_PTR.exit, %
 .preheader.split.us:                              ; preds = %.preheader, %103
   %94 = phi i8 [ %104, %103 ], [ %85, %.preheader ]
   %95 = load i64, ptr @rb_cString, align 8, !tbaa !26
-  %96 = call fastcc noundef i64 @str_enc_new(i64 noundef %95, ptr noundef nonnull %8, i64 noundef 1, ptr noundef %20)
+  %96 = call fastcc noundef i64 @str_enc_new(i64 noundef %95, ptr noundef nonnull readonly %8, i64 noundef 1, ptr noundef %20)
   %97 = inttoptr i64 %96 to ptr
   %98 = load i64, ptr %97, align 8, !tbaa !7
   %99 = and i64 %98, -3145729
@@ -12624,7 +12624,7 @@ RSTRING_PTR.exit119:                              ; preds = %RSTRING_PTR.exit, %
 .preheader.split:                                 ; preds = %.preheader, %113
   %105 = phi i8 [ %114, %113 ], [ %85, %.preheader ]
   %106 = load i64, ptr @rb_cString, align 8, !tbaa !26
-  %107 = call fastcc noundef i64 @str_enc_new(i64 noundef %106, ptr noundef nonnull %8, i64 noundef 1, ptr noundef %20)
+  %107 = call fastcc noundef i64 @str_enc_new(i64 noundef %106, ptr noundef nonnull readonly %8, i64 noundef 1, ptr noundef %20)
   %108 = inttoptr i64 %107 to ptr
   %109 = load i64, ptr %108, align 8, !tbaa !7
   %110 = and i64 %109, -3145729
@@ -15841,7 +15841,7 @@ RSTRING_PTR.exit:                                 ; preds = %11, %16
   %.1.lcssa = phi i64 [ %.0132, %RSTRING_PTR.exit ], [ %40, %39 ], [ %25, %24 ]
   %71 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %72 = tail call nonnull ptr @rb_ascii8bit_encoding() #29
-  %73 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %71, ptr noundef null, i64 noundef %.1.lcssa, ptr noundef nonnull %72)
+  %73 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %71, ptr noundef readonly null, i64 noundef %.1.lcssa, ptr noundef nonnull %72)
   %74 = load i64, ptr %12, align 8, !tbaa !7, !noalias !428
   %75 = and i64 %74, 8192
   %.not.i.i161 = icmp eq i64 %75, 0
@@ -16067,7 +16067,7 @@ rb_enc_asciicompat.exit173.thread:                ; preds = %._crit_edge191, %rb
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_str_split(i64 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
+define dso_local i64 @rb_str_split(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   store i64 %0, ptr %3, align 8, !tbaa !26
@@ -16102,10 +16102,10 @@ rb_string_value.exit:                             ; preds = %rbimpl_RB_TYPE_P_fa
   unreachable
 
 rb_str_new_cstr.exit:                             ; preds = %rb_string_value.exit
-  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #31
+  %16 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #31
   %17 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %18 = tail call nonnull ptr @rb_ascii8bit_encoding() #29
-  %19 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %17, ptr noundef nonnull %1, i64 noundef %16, ptr noundef nonnull %18)
+  %19 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %17, ptr noundef nonnull readonly %1, i64 noundef %16, ptr noundef nonnull %18)
   store i64 %19, ptr %4, align 8, !tbaa !26
   %20 = call i64 @rb_str_split_m(i32 noundef 1, ptr noundef nonnull %4, i64 noundef %.0..0.1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
@@ -17716,7 +17716,7 @@ rb_enc_asciicompat.exit:                          ; preds = %31
 33:                                               ; preds = %rb_enc_asciicompat.exit
   %34 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %35 = tail call nonnull ptr @rb_ascii8bit_encoding() #29
-  %36 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %34, ptr noundef nonnull @rb_str_ellipsize.ellipsis, i64 noundef %.037, ptr noundef nonnull %35)
+  %36 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %34, ptr noundef nonnull readonly @rb_str_ellipsize.ellipsis, i64 noundef %.037, ptr noundef nonnull %35)
   %37 = tail call i64 @rb_enc_associate(i64 noundef %36, ptr noundef nonnull %5) #29
   br label %65
 
@@ -18138,7 +18138,7 @@ rb_str_cat.exit:                                  ; preds = %rb_str_buf_new.exit
 
 147:                                              ; preds = %.loopexit
   %148 = load i64, ptr @rb_cString, align 8, !tbaa !26
-  %149 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %148, ptr noundef %.1260546, i64 noundef %.1229, ptr noundef %0)
+  %149 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %148, ptr noundef readonly %.1260546, i64 noundef %.1229, ptr noundef %0)
   %150 = tail call i64 @rb_yield(i64 noundef %149) #29
   %151 = load i64, ptr %24, align 8, !tbaa !7, !noalias !490
   %152 = and i64 %151, 8192
@@ -18374,7 +18374,7 @@ rb_str_cat.exit348:                               ; preds = %234, %238
   %241 = ptrtoint ptr %.2261 to i64
   %242 = sub i64 %.pre-phi, %241
   %243 = load i64, ptr @rb_cString, align 8, !tbaa !26
-  %244 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %243, ptr noundef %.2261, i64 noundef %242, ptr noundef %0)
+  %244 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %243, ptr noundef readonly %.2261, i64 noundef %242, ptr noundef %0)
   %245 = tail call i64 @rb_yield(i64 noundef %244) #29
   tail call fastcc void @str_mod_check(i64 noundef %1, ptr noundef %.sroa.5.0.i, i64 noundef %26)
   %246 = tail call fastcc i64 @str_compat_and_valid(i64 noundef %245, ptr noundef %0)
@@ -18580,7 +18580,7 @@ rb_str_cat.exit360:                               ; preds = %rb_str_buf_new.exit
 
 337:                                              ; preds = %.loopexit428
   %338 = load i64, ptr @rb_cString, align 8, !tbaa !26
-  %339 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %338, ptr noundef %.6265452, i64 noundef %.1, ptr noundef %0)
+  %339 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %338, ptr noundef readonly %.6265452, i64 noundef %.1, ptr noundef %0)
   %340 = tail call i64 @rb_yield(i64 noundef %339) #29
   %341 = load i64, ptr %24, align 8, !tbaa !7, !noalias !503
   %342 = and i64 %341, 8192
@@ -18741,7 +18741,7 @@ rb_str_cat.exit379:                               ; preds = %392, %rb_str_buf_ne
   %406 = ptrtoint ptr %.6265.lcssa481 to i64
   %407 = sub i64 %405, %406
   %408 = load i64, ptr @rb_cString, align 8, !tbaa !26
-  %409 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %408, ptr noundef %.6265.lcssa481, i64 noundef %407, ptr noundef %0)
+  %409 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %408, ptr noundef readonly %.6265.lcssa481, i64 noundef %407, ptr noundef %0)
   %410 = tail call i64 @rb_yield(i64 noundef %409) #29
   tail call fastcc void @str_mod_check(i64 noundef %1, ptr noundef %.sroa.5.0.i, i64 noundef %26)
   %411 = tail call fastcc i64 @str_compat_and_valid(i64 noundef %410, ptr noundef %0)
@@ -23638,7 +23638,7 @@ RSTRING_END.exit:                                 ; preds = %1, %11
   %12 = getelementptr i8, ptr %.sroa.5.0.i, i64 %.sroa.3.0.i
   %13 = tail call ptr @rb_enc_get(i64 noundef %0) #29
   %14 = load i64, ptr @rb_cString, align 8, !tbaa !26
-  %15 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %14, ptr noundef %.sroa.5.0.i, i64 noundef 0, ptr noundef %13)
+  %15 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %14, ptr noundef readonly %.sroa.5.0.i, i64 noundef 0, ptr noundef %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #29
   %16 = tail call i32 @rb_enc_get_index(i64 noundef %0) #29
   %17 = icmp eq i32 %16, -1
@@ -24246,7 +24246,7 @@ RSTRING_PTR.exit:                                 ; preds = %case_option_single_
   %35 = load i64, ptr %34, align 8, !tbaa !12
   %36 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %37 = tail call nonnull ptr @rb_ascii8bit_encoding() #29
-  %38 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %36, ptr noundef %.sroa.2.0.i, i64 noundef %35, ptr noundef nonnull %37)
+  %38 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %36, ptr noundef readonly %.sroa.2.0.i, i64 noundef %35, ptr noundef nonnull %37)
   %39 = load i64, ptr %6, align 8, !tbaa !7
   %40 = trunc i64 %39 to i32
   %41 = lshr i32 %40, 22
@@ -24313,7 +24313,7 @@ case_option_single_p.exit.thread18:               ; preds = %25, %case_option_si
   %66 = load i64, ptr %65, align 8, !tbaa !12
   %67 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %68 = tail call nonnull ptr @rb_ascii8bit_encoding() #29
-  %69 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %67, ptr noundef null, i64 noundef %66, ptr noundef nonnull %68)
+  %69 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %67, ptr noundef readonly null, i64 noundef %66, ptr noundef nonnull %68)
   call fastcc void @rb_str_ascii_casemap(i64 noundef %2, i64 noundef %69, ptr noundef %4, ptr noundef %14)
   br label %upcase_single.exit
 
@@ -24402,7 +24402,7 @@ RSTRING_PTR.exit:                                 ; preds = %case_option_single_
   %35 = load i64, ptr %34, align 8, !tbaa !12
   %36 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %37 = tail call nonnull ptr @rb_ascii8bit_encoding() #29
-  %38 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %36, ptr noundef %.sroa.2.0.i, i64 noundef %35, ptr noundef nonnull %37)
+  %38 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %36, ptr noundef readonly %.sroa.2.0.i, i64 noundef %35, ptr noundef nonnull %37)
   %39 = load i64, ptr %6, align 8, !tbaa !7
   %40 = trunc i64 %39 to i32
   %41 = lshr i32 %40, 22
@@ -24469,7 +24469,7 @@ case_option_single_p.exit.thread18:               ; preds = %25, %case_option_si
   %66 = load i64, ptr %65, align 8, !tbaa !12
   %67 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %68 = tail call nonnull ptr @rb_ascii8bit_encoding() #29
-  %69 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %67, ptr noundef null, i64 noundef %66, ptr noundef nonnull %68)
+  %69 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %67, ptr noundef readonly null, i64 noundef %66, ptr noundef nonnull %68)
   call fastcc void @rb_str_ascii_casemap(i64 noundef %2, i64 noundef %69, ptr noundef %4, ptr noundef %14)
   br label %downcase_single.exit
 
@@ -24540,7 +24540,7 @@ RSTRING_PTR.exit.thread:                          ; preds = %22, %RSTRING_PTR.ex
 26:                                               ; preds = %RSTRING_PTR.exit.thread
   %27 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %28 = tail call nonnull ptr @rb_ascii8bit_encoding() #29
-  %29 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %27, ptr noundef null, i64 noundef %20, ptr noundef nonnull %28)
+  %29 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %27, ptr noundef readonly null, i64 noundef %20, ptr noundef nonnull %28)
   call fastcc void @rb_str_ascii_casemap(i64 noundef %2, i64 noundef %29, ptr noundef %4, ptr noundef %14)
   br label %32
 
@@ -24616,7 +24616,7 @@ RSTRING_PTR.exit.thread:                          ; preds = %22, %RSTRING_PTR.ex
 29:                                               ; preds = %RSTRING_PTR.exit.thread
   %30 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %31 = tail call nonnull ptr @rb_ascii8bit_encoding() #29
-  %32 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %30, ptr noundef null, i64 noundef %20, ptr noundef nonnull %31)
+  %32 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %30, ptr noundef readonly null, i64 noundef %20, ptr noundef nonnull %31)
   call fastcc void @rb_str_ascii_casemap(i64 noundef %2, i64 noundef %32, ptr noundef %4, ptr noundef %14)
   br label %35
 
@@ -25230,7 +25230,7 @@ get_encoding.exit:                                ; preds = %9, %15
   %18 = load i64, ptr %3, align 8, !tbaa !12
   %19 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %20 = tail call nonnull ptr @rb_ascii8bit_encoding() #29
-  %21 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %19, ptr noundef null, i64 noundef %18, ptr noundef nonnull %20)
+  %21 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %19, ptr noundef readonly null, i64 noundef %18, ptr noundef nonnull %20)
   %22 = load i64, ptr %2, align 8, !tbaa !7, !noalias !626
   %23 = and i64 %22, 8192
   %.not.i.i = icmp eq i64 %23, 0
@@ -25795,10 +25795,10 @@ RSTRING_PTR.exit:                                 ; preds = %rb_string_value_cst
   unreachable
 
 rb_str_new_cstr.exit:                             ; preds = %74
-  %81 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #31
+  %81 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %77) #31
   %82 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %83 = call nonnull ptr @rb_ascii8bit_encoding() #29
-  %84 = call fastcc noundef i64 @str_enc_new(i64 noundef %82, ptr noundef nonnull %77, i64 noundef %81, ptr noundef nonnull %83)
+  %84 = call fastcc noundef i64 @str_enc_new(i64 noundef %82, ptr noundef nonnull readonly %77, i64 noundef %81, ptr noundef nonnull %83)
   call void @rb_free_tmp_buffer(ptr noundef nonnull %6) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #29
   ret i64 %84
@@ -29505,7 +29505,7 @@ RSTRING_PTR.exit102:                              ; preds = %114, %119
   %121 = load i64, ptr %5, align 8, !tbaa !26
   %122 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %123 = call nonnull ptr @rb_ascii8bit_encoding() #29
-  %124 = call fastcc noundef i64 @str_enc_new(i64 noundef %122, ptr noundef %120, i64 noundef %121, ptr noundef nonnull %123)
+  %124 = call fastcc noundef i64 @str_enc_new(i64 noundef %122, ptr noundef readonly %120, i64 noundef %121, ptr noundef nonnull %123)
   call fastcc void @rb_enc_cr_str_copy_for_substr(i64 noundef %124, i64 noundef %2)
   %.pre114 = load i64, ptr %5, align 8, !tbaa !26
   br label %125
@@ -29702,11 +29702,11 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %.thread16.i, %get_p
   %57 = tail call fastcc i64 @str_duplicate(i64 noundef %56, i64 noundef %0)
   %58 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %59 = tail call nonnull ptr @rb_ascii8bit_encoding() #29
-  %60 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %58, ptr noundef null, i64 noundef 0, ptr noundef nonnull %59)
+  %60 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %58, ptr noundef readonly null, i64 noundef 0, ptr noundef nonnull %59)
   tail call void @rb_enc_copy(i64 noundef %60, i64 noundef %0) #29
   %61 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %62 = tail call nonnull ptr @rb_ascii8bit_encoding() #29
-  %63 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %61, ptr noundef null, i64 noundef 0, ptr noundef nonnull %62)
+  %63 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %61, ptr noundef readonly null, i64 noundef 0, ptr noundef nonnull %62)
   tail call void @rb_enc_copy(i64 noundef %63, i64 noundef %0) #29
   %64 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %57, i64 noundef %60, i64 noundef %63) #29
   br label %65
@@ -29855,11 +29855,11 @@ rb_str_sublen.exit:                               ; preds = %rbimpl_RB_TYPE_P_fa
 75:                                               ; preds = %rb_str_sublen.exit, %30
   %76 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %77 = tail call nonnull ptr @rb_ascii8bit_encoding() #29
-  %78 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %76, ptr noundef null, i64 noundef 0, ptr noundef nonnull %77)
+  %78 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %76, ptr noundef readonly null, i64 noundef 0, ptr noundef nonnull %77)
   tail call void @rb_enc_copy(i64 noundef %78, i64 noundef %0) #29
   %79 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %80 = tail call nonnull ptr @rb_ascii8bit_encoding() #29
-  %81 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %79, ptr noundef null, i64 noundef 0, ptr noundef nonnull %80)
+  %81 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %79, ptr noundef readonly null, i64 noundef 0, ptr noundef nonnull %80)
   tail call void @rb_enc_copy(i64 noundef %81, i64 noundef %0) #29
   %82 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %83 = tail call fastcc i64 @str_duplicate(i64 noundef %82, i64 noundef %0)
@@ -30432,7 +30432,7 @@ rb_str_succ.exit:                                 ; preds = %1, %7
   %9 = load i64, ptr %8, align 8, !tbaa !12
   %10 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %11 = tail call nonnull ptr @rb_ascii8bit_encoding() #29
-  %12 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %10, ptr noundef %.sroa.2.0.i.i, i64 noundef %9, ptr noundef nonnull %11)
+  %12 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %10, ptr noundef readonly %.sroa.2.0.i.i, i64 noundef %9, ptr noundef nonnull %11)
   tail call fastcc void @rb_enc_cr_str_copy_for_substr(i64 noundef %12, i64 noundef %2)
   %13 = tail call fastcc i64 @str_succ(i64 noundef %12)
   %14 = tail call i64 @rb_str_intern(i64 noundef %12) #29
@@ -30987,7 +30987,7 @@ RB_FL_ABLE.exit.i.i:                              ; preds = %121
   %135 = load ptr, ptr %134, align 8, !tbaa !19
   %136 = load i64, ptr %22, align 8, !tbaa !12
   %137 = tail call nonnull ptr @rb_ascii8bit_encoding() #29
-  %138 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %133, ptr noundef %135, i64 noundef %136, ptr noundef nonnull %137)
+  %138 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %133, ptr noundef readonly %135, i64 noundef %136, ptr noundef nonnull %137)
   tail call void @rb_enc_copy(i64 noundef %138, i64 noundef %6) #29
   %139 = inttoptr i64 %138 to ptr
   %140 = load i64, ptr %139, align 8, !tbaa !7
@@ -32436,7 +32436,7 @@ define internal fastcc i64 @split_string(i64 noundef %0, i64 noundef %1, i64 nou
   %.1 = phi i64 [ %17, %.preheader28 ], [ %4, %12 ]
   %13 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %14 = tail call nonnull ptr @rb_ascii8bit_encoding() #29
-  %15 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %13, ptr noundef null, i64 noundef 0, ptr noundef nonnull %14)
+  %15 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %13, ptr noundef readonly null, i64 noundef 0, ptr noundef nonnull %14)
   tail call void @rb_enc_copy(i64 noundef %15, i64 noundef %1) #29
   %16 = tail call i64 @rb_ary_push(i64 noundef %0, i64 noundef %15) #29
   %17 = add nsw i64 %.1, -1
@@ -32447,7 +32447,7 @@ define internal fastcc i64 @split_string(i64 noundef %0, i64 noundef %1, i64 nou
   %.2 = phi i64 [ %23, %.preheader ], [ %4, %12 ]
   %19 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %20 = tail call nonnull ptr @rb_ascii8bit_encoding() #29
-  %21 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %19, ptr noundef null, i64 noundef 0, ptr noundef nonnull %20)
+  %21 = tail call fastcc noundef i64 @str_enc_new(i64 noundef %19, ptr noundef readonly null, i64 noundef 0, ptr noundef nonnull %20)
   tail call void @rb_enc_copy(i64 noundef %21, i64 noundef %1) #29
   %22 = tail call i64 @rb_yield(i64 noundef %21) #29
   %23 = add nsw i64 %.2, -1
@@ -33791,7 +33791,7 @@ RSTRING_END.exit:                                 ; preds = %14, %18
   %56 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %57 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %58 = call nonnull ptr @rb_ascii8bit_encoding() #29
-  %59 = call fastcc noundef i64 @str_enc_new(i64 noundef %57, ptr noundef nonnull %56, i64 noundef %54, ptr noundef nonnull %58)
+  %59 = call fastcc noundef i64 @str_enc_new(i64 noundef %57, ptr noundef nonnull readonly %56, i64 noundef %54, ptr noundef nonnull %58)
   %.pre76 = load i64, ptr %5, align 8, !tbaa !26
   %.pre77 = inttoptr i64 %.pre76 to ptr
   br label %.loopexit
@@ -33800,7 +33800,7 @@ RSTRING_END.exit:                                 ; preds = %14, %18
   %.045.lcssa81 = phi i64 [ %54, %._crit_edge ], [ 0, %RSTRING_END.exit ]
   %60 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %61 = call nonnull ptr @rb_ascii8bit_encoding() #29
-  %62 = call fastcc noundef i64 @str_enc_new(i64 noundef %60, ptr noundef null, i64 noundef %.045.lcssa81, ptr noundef nonnull %61)
+  %62 = call fastcc noundef i64 @str_enc_new(i64 noundef %60, ptr noundef readonly null, i64 noundef %.045.lcssa81, ptr noundef nonnull %61)
   %63 = inttoptr i64 %62 to ptr
   %64 = load i64, ptr %63, align 8, !tbaa !7, !noalias !899
   %65 = and i64 %64, 8192
@@ -34344,7 +34344,7 @@ rb_enc_asciicompat.exit:                          ; preds = %173
 rb_enc_asciicompat.exit.thread:                   ; preds = %173, %rb_enc_asciicompat.exit
   %175 = load i64, ptr @rb_cString, align 8, !tbaa !26
   %176 = call nonnull ptr @rb_ascii8bit_encoding() #29
-  %177 = call fastcc noundef i64 @str_enc_new(i64 noundef %175, ptr noundef %.sroa.2.0.i183, i64 noundef %90, ptr noundef nonnull %176)
+  %177 = call fastcc noundef i64 @str_enc_new(i64 noundef %175, ptr noundef readonly %.sroa.2.0.i183, i64 noundef %90, ptr noundef nonnull %176)
   store i64 %177, ptr %5, align 8, !tbaa !26
   %178 = call i64 @rb_enc_from_encoding(ptr noundef nonnull %.0122) #29
   %179 = call i64 @rb_str_encode(i64 noundef %177, i64 noundef %178, i32 noundef 0, i64 noundef 4) #29

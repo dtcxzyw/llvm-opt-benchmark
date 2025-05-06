@@ -790,7 +790,7 @@ define internal fastcc ptr @find_candidate(ptr noundef %0, ptr noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__dma_request_channel(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) #1 align 16 {
+define dso_local ptr @__dma_request_channel(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) #1 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @dma_list_mutex) #12
   %5 = load ptr, ptr @dma_device_list, align 8
   %6 = icmp eq ptr %5, @dma_device_list
@@ -1039,7 +1039,7 @@ declare dso_local i32 @sysfs_create_link(ptr noundef, ptr noundef, ptr noundef) 
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @dma_request_chan_by_mask(ptr noundef captures(address_is_null) %0) #1 align 16 {
+define dso_local ptr @dma_request_chan_by_mask(ptr noundef readonly captures(address_is_null) %0) #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %19, label %3
 

@@ -288,7 +288,7 @@ define internal noundef i32 @exp_pdu_data_orig_frame_num_populate_data(ptr nound
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef ptr @export_pdu_create_common_tags(ptr noundef %0, ptr noundef captures(address_is_null) %1, i16 noundef zeroext %2) local_unnamed_addr #5 {
+define noundef ptr @export_pdu_create_common_tags(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i16 noundef zeroext %2) local_unnamed_addr #5 {
   %4 = tail call ptr @export_pdu_create_tags(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef nonnull @__const.export_pdu_create_common_tags.common_exp_pdu_items)
   ret ptr %4
 }

@@ -1428,7 +1428,7 @@ define hidden noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initial
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6syntax7parsing9reparsing19incremental_reparse17h6d84efd87720696eE(ptr noalias noundef writeonly sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %2, ptr noundef nonnull %3, ptr noundef captures(address) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN6syntax7parsing9reparsing19incremental_reparse17h6d84efd87720696eE(ptr noalias noundef writeonly sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %2, ptr noundef nonnull %3, ptr noundef readnone captures(address) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { {} }, align 1
   %7 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8

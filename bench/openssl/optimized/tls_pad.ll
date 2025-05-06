@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [40 x i8] c"../openssl/ssl/record/methods/tls_pad.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ssl3_cbc_remove_padding_and_mac(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, i64 noundef %5, i64 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ssl3_cbc_remove_padding_and_mac(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, i64 noundef %5, i64 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = add i64 %6, 1
   %10 = load i64, ptr %0, align 8, !tbaa !3
   %11 = icmp ugt i64 %9, %10
@@ -210,7 +210,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl3_cbc_copy_mac(ptr noundef captur
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls1_cbc_remove_padding_and_mac(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, i64 noundef %5, i64 noundef %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls1_cbc_remove_padding_and_mac(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, i64 noundef %5, i64 noundef %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = icmp ne i64 %5, 1
   %11 = zext i1 %10 to i64
   %12 = add i64 %6, %11

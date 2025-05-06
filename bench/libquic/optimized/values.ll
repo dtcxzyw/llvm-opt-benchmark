@@ -1591,7 +1591,7 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %52 = load ptr, ptr %10, align 8, !tbaa !42
   %53 = load i64, ptr %33, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #27
-  %54 = invoke noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %.01254, ptr %52, i64 %53, ptr noundef nonnull %6)
+  %54 = invoke noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull readonly align 8 dereferenceable(64) %.01254, ptr %52, i64 %53, ptr noundef nonnull %6)
           to label %.noexc17 unwind label %80
 
 .noexc17:                                         ; preds = %48
@@ -1622,7 +1622,7 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %66 = load i64, ptr %33, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %62, ptr %5, align 8, !tbaa !3, !alias.scope !83
-  invoke void @_ZN4base15DictionaryValue23SetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %.01254, ptr %65, i64 %66, ptr noundef nonnull %5)
+  invoke void @_ZN4base15DictionaryValue23SetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %.01254, ptr readonly %65, i64 %66, ptr noundef nonnull %5)
           to label %67 unwind label %72
 
 67:                                               ; preds = %64
@@ -1804,10 +1804,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %_ZN
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4base15DictionaryValue13GetDictionaryENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN4base15DictionaryValue13GetDictionaryENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
-  %6 = call noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
+  %6 = call noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
   br i1 %6, label %7, label %_ZNK4base15DictionaryValue13GetDictionaryENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKS0_.exit
 
 7:                                                ; preds = %4
@@ -1832,7 +1832,7 @@ _ZNK4base15DictionaryValue13GetDictionaryENS_16BasicStringPieceINSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4base15DictionaryValue23SetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr captures(address_is_null) %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4base15DictionaryValue23SetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unique_ptr", align 8
   store ptr %3, ptr %5, align 8, !tbaa !3, !alias.scope !87
   invoke void @_ZN4base15DictionaryValue23SetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
@@ -2001,7 +2001,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4base15DictionaryValue3SetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr captures(address_is_null) %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4base15DictionaryValue3SetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unique_ptr", align 8
   store ptr %3, ptr %5, align 8, !tbaa !3, !alias.scope !93
   invoke void @_ZN4base15DictionaryValue3SetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
@@ -2041,7 +2041,7 @@ _ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit7: ; preds = %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4base15DictionaryValue10SetBooleanENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEb(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr captures(address_is_null) %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4base15DictionaryValue10SetBooleanENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEb(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readonly captures(address_is_null) %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   invoke void @_ZN4base16FundamentalValueC1Eb(ptr noundef nonnull align 8 dereferenceable(24) %6, i1 noundef zeroext %3)
@@ -2050,7 +2050,7 @@ define void @_ZN4base15DictionaryValue10SetBooleanENS_16BasicStringPieceINSt7__c
 7:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !3, !alias.scope !96
-  invoke void @_ZN4base15DictionaryValue3SetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
+  invoke void @_ZN4base15DictionaryValue3SetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readonly %1, i64 %2, ptr noundef nonnull %5)
           to label %8 unwind label %13
 
 8:                                                ; preds = %7
@@ -2095,7 +2095,7 @@ _ZN4base15DictionaryValue3SetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4base15DictionaryValue10SetIntegerENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEi(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr captures(address_is_null) %1, i64 %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4base15DictionaryValue10SetIntegerENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEi(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readonly captures(address_is_null) %1, i64 %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   invoke void @_ZN4base16FundamentalValueC1Ei(ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %3)
@@ -2104,7 +2104,7 @@ define void @_ZN4base15DictionaryValue10SetIntegerENS_16BasicStringPieceINSt7__c
 7:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !3, !alias.scope !99
-  invoke void @_ZN4base15DictionaryValue3SetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
+  invoke void @_ZN4base15DictionaryValue3SetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readonly %1, i64 %2, ptr noundef nonnull %5)
           to label %8 unwind label %13
 
 8:                                                ; preds = %7
@@ -2149,7 +2149,7 @@ _ZN4base15DictionaryValue3SetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4base15DictionaryValue9SetDoubleENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEd(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr captures(address_is_null) %1, i64 %2, double noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4base15DictionaryValue9SetDoubleENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEd(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readonly captures(address_is_null) %1, i64 %2, double noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   invoke void @_ZN4base16FundamentalValueC1Ed(ptr noundef nonnull align 8 dereferenceable(24) %6, double noundef %3)
@@ -2158,7 +2158,7 @@ define void @_ZN4base15DictionaryValue9SetDoubleENS_16BasicStringPieceINSt7__cxx
 7:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !3, !alias.scope !102
-  invoke void @_ZN4base15DictionaryValue3SetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
+  invoke void @_ZN4base15DictionaryValue3SetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readonly %1, i64 %2, ptr noundef nonnull %5)
           to label %8 unwind label %13
 
 8:                                                ; preds = %7
@@ -2203,7 +2203,7 @@ _ZN4base15DictionaryValue3SetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4base15DictionaryValue9SetStringENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr captures(address_is_null) %1, i64 %2, ptr readonly captures(address_is_null) %3, i64 %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4base15DictionaryValue9SetStringENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr readonly captures(address_is_null) %3, i64 %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::unique_ptr", align 8
   %7 = alloca i64, align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2286,7 +2286,7 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 31:                                               ; preds = %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %9, ptr %6, align 8, !tbaa !3, !alias.scope !108
-  invoke void @_ZN4base15DictionaryValue3SetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %6)
+  invoke void @_ZN4base15DictionaryValue3SetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readonly %1, i64 %2, ptr noundef nonnull %6)
           to label %32 unwind label %37
 
 32:                                               ; preds = %31
@@ -2389,7 +2389,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4base15DictionaryValue9SetStringENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKNS3_ItNS_20string16_char_traitsESaItEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr captures(address_is_null) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4base15DictionaryValue9SetStringENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKNS3_ItNS_20string16_char_traitsESaItEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
   invoke void @_ZN4base11StringValueC1ERKNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -2398,7 +2398,7 @@ define void @_ZN4base15DictionaryValue9SetStringENS_16BasicStringPieceINSt7__cxx
 7:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !3, !alias.scope !111
-  invoke void @_ZN4base15DictionaryValue3SetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
+  invoke void @_ZN4base15DictionaryValue3SetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readonly %1, i64 %2, ptr noundef nonnull %5)
           to label %8 unwind label %13
 
 8:                                                ; preds = %7
@@ -2538,7 +2538,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4base15DictionaryValue30SetBooleanWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEb(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr captures(address_is_null) %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4base15DictionaryValue30SetBooleanWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEb(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readonly captures(address_is_null) %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   invoke void @_ZN4base16FundamentalValueC1Eb(ptr noundef nonnull align 8 dereferenceable(24) %6, i1 noundef zeroext %3)
@@ -2547,7 +2547,7 @@ define void @_ZN4base15DictionaryValue30SetBooleanWithoutPathExpansionENS_16Basi
 7:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !3, !alias.scope !120
-  invoke void @_ZN4base15DictionaryValue23SetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
+  invoke void @_ZN4base15DictionaryValue23SetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readonly %1, i64 %2, ptr noundef nonnull %5)
           to label %8 unwind label %13
 
 8:                                                ; preds = %7
@@ -2592,7 +2592,7 @@ _ZN4base15DictionaryValue23SetWithoutPathExpansionENS_16BasicStringPieceINSt7__c
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4base15DictionaryValue30SetIntegerWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEi(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr captures(address_is_null) %1, i64 %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4base15DictionaryValue30SetIntegerWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEi(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readonly captures(address_is_null) %1, i64 %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   invoke void @_ZN4base16FundamentalValueC1Ei(ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %3)
@@ -2601,7 +2601,7 @@ define void @_ZN4base15DictionaryValue30SetIntegerWithoutPathExpansionENS_16Basi
 7:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !3, !alias.scope !123
-  invoke void @_ZN4base15DictionaryValue23SetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
+  invoke void @_ZN4base15DictionaryValue23SetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readonly %1, i64 %2, ptr noundef nonnull %5)
           to label %8 unwind label %13
 
 8:                                                ; preds = %7
@@ -2646,7 +2646,7 @@ _ZN4base15DictionaryValue23SetWithoutPathExpansionENS_16BasicStringPieceINSt7__c
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4base15DictionaryValue29SetDoubleWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEd(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr captures(address_is_null) %1, i64 %2, double noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4base15DictionaryValue29SetDoubleWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEd(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readonly captures(address_is_null) %1, i64 %2, double noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   invoke void @_ZN4base16FundamentalValueC1Ed(ptr noundef nonnull align 8 dereferenceable(24) %6, double noundef %3)
@@ -2655,7 +2655,7 @@ define void @_ZN4base15DictionaryValue29SetDoubleWithoutPathExpansionENS_16Basic
 7:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !3, !alias.scope !126
-  invoke void @_ZN4base15DictionaryValue23SetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
+  invoke void @_ZN4base15DictionaryValue23SetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readonly %1, i64 %2, ptr noundef nonnull %5)
           to label %8 unwind label %13
 
 8:                                                ; preds = %7
@@ -2700,7 +2700,7 @@ _ZN4base15DictionaryValue23SetWithoutPathExpansionENS_16BasicStringPieceINSt7__c
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4base15DictionaryValue29SetStringWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr captures(address_is_null) %1, i64 %2, ptr readonly captures(address_is_null) %3, i64 %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4base15DictionaryValue29SetStringWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr readonly captures(address_is_null) %3, i64 %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::unique_ptr", align 8
   %7 = alloca i64, align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2783,7 +2783,7 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 31:                                               ; preds = %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %9, ptr %6, align 8, !tbaa !3, !alias.scope !132
-  invoke void @_ZN4base15DictionaryValue23SetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %6)
+  invoke void @_ZN4base15DictionaryValue23SetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readonly %1, i64 %2, ptr noundef nonnull %6)
           to label %32 unwind label %37
 
 32:                                               ; preds = %31
@@ -2886,7 +2886,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4base15DictionaryValue29SetStringWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKNS3_ItNS_20string16_char_traitsESaItEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr captures(address_is_null) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4base15DictionaryValue29SetStringWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKNS3_ItNS_20string16_char_traitsESaItEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
   invoke void @_ZN4base11StringValueC1ERKNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -2895,7 +2895,7 @@ define void @_ZN4base15DictionaryValue29SetStringWithoutPathExpansionENS_16Basic
 7:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !3, !alias.scope !135
-  invoke void @_ZN4base15DictionaryValue23SetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
+  invoke void @_ZN4base15DictionaryValue23SetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readonly %1, i64 %2, ptr noundef nonnull %5)
           to label %8 unwind label %13
 
 8:                                                ; preds = %7
@@ -2940,7 +2940,7 @@ _ZN4base15DictionaryValue23SetWithoutPathExpansionENS_16BasicStringPieceINSt7__c
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
@@ -3029,7 +3029,7 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %33 = phi i64 [ 0, %.thread.i ], [ %.pre56, %29 ]
   %34 = phi ptr [ %12, %.thread.i ], [ %.pre55, %29 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #27
-  %35 = invoke noundef zeroext i1 @_ZNK4base15DictionaryValue23GetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %.01352, ptr %34, i64 %33, ptr noundef nonnull %6)
+  %35 = invoke noundef zeroext i1 @_ZNK4base15DictionaryValue23GetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull readonly align 8 dereferenceable(64) %.01352, ptr readonly %34, i64 %33, ptr noundef nonnull %6)
           to label %.noexc unwind label %46
 
 .noexc:                                           ; preds = %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit
@@ -3226,7 +3226,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK4base15DictionaryValue33GetDictionaryWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, ptr captures(address_is_null) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK4base15DictionaryValue33GetDictionaryWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
   %6 = call noundef zeroext i1 @_ZNK4base15DictionaryValue23GetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
@@ -3431,13 +3431,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPNS_5ValueE(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPNS_5ValueE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 align 2 {
   %5 = tail call noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef %3)
   ret i1 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK4base15DictionaryValue10GetBooleanENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK4base15DictionaryValue10GetBooleanENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
   %6 = call noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
@@ -3458,7 +3458,7 @@ define noundef zeroext i1 @_ZNK4base15DictionaryValue10GetBooleanENS_16BasicStri
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK4base15DictionaryValue10GetIntegerENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPi(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK4base15DictionaryValue10GetIntegerENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPi(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
   %6 = call noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
@@ -3479,7 +3479,7 @@ define noundef zeroext i1 @_ZNK4base15DictionaryValue10GetIntegerENS_16BasicStri
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK4base15DictionaryValue9GetDoubleENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPd(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK4base15DictionaryValue9GetDoubleENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPd(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
   %6 = call noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
@@ -3500,7 +3500,7 @@ define noundef zeroext i1 @_ZNK4base15DictionaryValue9GetDoubleENS_16BasicString
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK4base15DictionaryValue9GetStringENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS7_(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK4base15DictionaryValue9GetStringENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS7_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
   %6 = call noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
@@ -3521,7 +3521,7 @@ define noundef zeroext i1 @_ZNK4base15DictionaryValue9GetStringENS_16BasicString
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK4base15DictionaryValue9GetStringENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPNS3_ItNS_20string16_char_traitsESaItEEE(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK4base15DictionaryValue9GetStringENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPNS3_ItNS_20string16_char_traitsESaItEEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
   %6 = call noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
@@ -3542,7 +3542,7 @@ define noundef zeroext i1 @_ZNK4base15DictionaryValue9GetStringENS_16BasicString
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK4base15DictionaryValue14GetStringASCIIENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS7_(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK4base15DictionaryValue14GetStringASCIIENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS7_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.base::BasicStringPiece", align 8
@@ -3553,7 +3553,7 @@ define noundef zeroext i1 @_ZNK4base15DictionaryValue14GetStringASCIIENS_16Basic
   store i64 0, ptr %9, align 8, !tbaa !38
   store i8 0, ptr %8, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
-  %10 = invoke noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
+  %10 = invoke noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
           to label %.noexc unwind label %18
 
 .noexc:                                           ; preds = %4
@@ -3648,7 +3648,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %_ZN
 declare noundef zeroext i1 @_ZN4base13IsStringASCIIERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK4base15DictionaryValue9GetBinaryENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_11BinaryValueE(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK4base15DictionaryValue9GetBinaryENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_11BinaryValueE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
   %6 = call noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
@@ -3676,10 +3676,10 @@ define noundef zeroext i1 @_ZNK4base15DictionaryValue9GetBinaryENS_16BasicString
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4base15DictionaryValue9GetBinaryENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPNS_11BinaryValueE(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN4base15DictionaryValue9GetBinaryENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPNS_11BinaryValueE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
-  %6 = call noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
+  %6 = call noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
   br i1 %6, label %7, label %_ZNK4base15DictionaryValue9GetBinaryENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_11BinaryValueE.exit
 
 7:                                                ; preds = %4
@@ -3704,7 +3704,7 @@ _ZNK4base15DictionaryValue9GetBinaryENS_16BasicStringPieceINSt7__cxx1112basic_st
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK4base15DictionaryValue13GetDictionaryENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK4base15DictionaryValue13GetDictionaryENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
   %6 = call noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
@@ -3732,7 +3732,7 @@ define noundef zeroext i1 @_ZNK4base15DictionaryValue13GetDictionaryENS_16BasicS
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK4base15DictionaryValue7GetListENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_9ListValueE(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK4base15DictionaryValue7GetListENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_9ListValueE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
   %6 = call noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
@@ -3760,10 +3760,10 @@ define noundef zeroext i1 @_ZNK4base15DictionaryValue7GetListENS_16BasicStringPi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4base15DictionaryValue7GetListENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPNS_9ListValueE(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN4base15DictionaryValue7GetListENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPNS_9ListValueE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
-  %6 = call noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
+  %6 = call noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
   br i1 %6, label %7, label %_ZNK4base15DictionaryValue7GetListENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_9ListValueE.exit
 
 7:                                                ; preds = %4
@@ -3788,13 +3788,13 @@ _ZNK4base15DictionaryValue7GetListENS_16BasicStringPieceINSt7__cxx1112basic_stri
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4base15DictionaryValue23GetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPNS_5ValueE(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, ptr captures(address_is_null) %1, i64 %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN4base15DictionaryValue23GetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPNS_5ValueE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 align 2 {
   %5 = tail call noundef zeroext i1 @_ZNK4base15DictionaryValue23GetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef %3)
   ret i1 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK4base15DictionaryValue30GetBooleanWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, ptr captures(address_is_null) %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK4base15DictionaryValue30GetBooleanWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
   %6 = call noundef zeroext i1 @_ZNK4base15DictionaryValue23GetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
@@ -3815,7 +3815,7 @@ define noundef zeroext i1 @_ZNK4base15DictionaryValue30GetBooleanWithoutPathExpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK4base15DictionaryValue30GetIntegerWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPi(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, ptr captures(address_is_null) %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK4base15DictionaryValue30GetIntegerWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPi(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
   %6 = call noundef zeroext i1 @_ZNK4base15DictionaryValue23GetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
@@ -3836,7 +3836,7 @@ define noundef zeroext i1 @_ZNK4base15DictionaryValue30GetIntegerWithoutPathExpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK4base15DictionaryValue29GetDoubleWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPd(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, ptr captures(address_is_null) %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK4base15DictionaryValue29GetDoubleWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPd(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
   %6 = call noundef zeroext i1 @_ZNK4base15DictionaryValue23GetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
@@ -3857,7 +3857,7 @@ define noundef zeroext i1 @_ZNK4base15DictionaryValue29GetDoubleWithoutPathExpan
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK4base15DictionaryValue29GetStringWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS7_(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, ptr captures(address_is_null) %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK4base15DictionaryValue29GetStringWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS7_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
   %6 = call noundef zeroext i1 @_ZNK4base15DictionaryValue23GetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
@@ -3878,7 +3878,7 @@ define noundef zeroext i1 @_ZNK4base15DictionaryValue29GetStringWithoutPathExpan
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK4base15DictionaryValue29GetStringWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPNS3_ItNS_20string16_char_traitsESaItEEE(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, ptr captures(address_is_null) %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK4base15DictionaryValue29GetStringWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPNS3_ItNS_20string16_char_traitsESaItEEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
   %6 = call noundef zeroext i1 @_ZNK4base15DictionaryValue23GetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
@@ -3899,10 +3899,10 @@ define noundef zeroext i1 @_ZNK4base15DictionaryValue29GetStringWithoutPathExpan
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4base15DictionaryValue33GetDictionaryWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, ptr captures(address_is_null) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN4base15DictionaryValue33GetDictionaryWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
-  %6 = call noundef zeroext i1 @_ZNK4base15DictionaryValue23GetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
+  %6 = call noundef zeroext i1 @_ZNK4base15DictionaryValue23GetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr readonly %1, i64 %2, ptr noundef nonnull %5)
   br i1 %6, label %7, label %_ZNK4base15DictionaryValue33GetDictionaryWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKS0_.exit
 
 7:                                                ; preds = %4
@@ -3927,7 +3927,7 @@ _ZNK4base15DictionaryValue33GetDictionaryWithoutPathExpansionENS_16BasicStringPi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK4base15DictionaryValue27GetListWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_9ListValueE(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, ptr captures(address_is_null) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK4base15DictionaryValue27GetListWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_9ListValueE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
   %6 = call noundef zeroext i1 @_ZNK4base15DictionaryValue23GetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
@@ -3955,10 +3955,10 @@ define noundef zeroext i1 @_ZNK4base15DictionaryValue27GetListWithoutPathExpansi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4base15DictionaryValue27GetListWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPNS_9ListValueE(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, ptr captures(address_is_null) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN4base15DictionaryValue27GetListWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPNS_9ListValueE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
-  %6 = call noundef zeroext i1 @_ZNK4base15DictionaryValue23GetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull %5)
+  %6 = call noundef zeroext i1 @_ZNK4base15DictionaryValue23GetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr readonly %1, i64 %2, ptr noundef nonnull %5)
   br i1 %6, label %7, label %_ZNK4base15DictionaryValue27GetListWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_9ListValueE.exit
 
 7:                                                ; preds = %4
@@ -4105,7 +4105,7 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %46 = load ptr, ptr %9, align 8, !tbaa !42
   %47 = load i64, ptr %43, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
-  %48 = invoke noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %46, i64 %47, ptr noundef nonnull %5)
+  %48 = invoke noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %46, i64 %47, ptr noundef nonnull %5)
           to label %.noexc15 unwind label %61
 
 .noexc15:                                         ; preds = %41
@@ -4503,7 +4503,7 @@ define noundef zeroext i1 @_ZN4base15DictionaryValue10RemovePathENS_16BasicStrin
   %17 = extractvalue { ptr, i64 } %16, 0
   %18 = extractvalue { ptr, i64 } %16, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
-  %19 = call noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %17, i64 %18, ptr noundef nonnull %5)
+  %19 = call noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %17, i64 %18, ptr noundef nonnull %5)
   br i1 %19, label %20, label %_ZN4base15DictionaryValue13GetDictionaryENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPS0_.exit.thread
 
 20:                                               ; preds = %15
@@ -4795,7 +4795,7 @@ define void @_ZN4base15DictionaryValue15MergeDictionaryEPKS0_(ptr noundef nonnul
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %21 = load i64, ptr %20, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #27
-  %22 = invoke noundef zeroext i1 @_ZNK4base15DictionaryValue23GetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %19, i64 %21, ptr noundef nonnull %4)
+  %22 = invoke noundef zeroext i1 @_ZNK4base15DictionaryValue23GetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr readonly %19, i64 %21, ptr noundef nonnull %4)
           to label %.noexc unwind label %31
 
 .noexc:                                           ; preds = %17
@@ -4843,7 +4843,7 @@ define void @_ZN4base15DictionaryValue15MergeDictionaryEPKS0_(ptr noundef nonnul
 43:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %42, ptr %3, align 8, !tbaa !3, !alias.scope !169
-  invoke void @_ZN4base15DictionaryValue23SetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %36, i64 %38, ptr noundef nonnull %3)
+  invoke void @_ZN4base15DictionaryValue23SetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readonly %36, i64 %38, ptr noundef nonnull %3)
           to label %44 unwind label %49
 
 44:                                               ; preds = %43

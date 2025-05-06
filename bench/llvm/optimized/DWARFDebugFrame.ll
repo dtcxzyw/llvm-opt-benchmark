@@ -1906,7 +1906,7 @@ _ZN4llvm13DIDumpOptionsD2Ev.exit25:               ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm5dwarflsERNS_11raw_ostreamERKNS0_17RegisterLocationsE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #3 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm5dwarflsERNS_11raw_ostreamERKNS0_17RegisterLocationsE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #3 {
 _ZN4llvm13DIDumpOptionsC2ERKS0_.exit:
   %2 = alloca %"struct.llvm::DIDumpOptions", align 8
   %3 = alloca %"struct.llvm::DIDumpOptions", align 8

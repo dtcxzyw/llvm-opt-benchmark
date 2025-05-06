@@ -7500,7 +7500,7 @@ define internal fastcc void @expert_someip_payload_config_error(ptr noundef %0, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_someip_payload_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i32 noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7, i32 noundef range(i32 -1, 1) %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_someip_payload_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i32 noundef %5, ptr noundef %6, ptr noundef readonly captures(address_is_null) %7, i32 noundef range(i32 -1, 1) %8) unnamed_addr #0 {
   %10 = alloca i64, align 8
   %11 = alloca i32, align 4
   %12 = alloca i64, align 8

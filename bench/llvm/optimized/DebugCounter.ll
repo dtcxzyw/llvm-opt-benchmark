@@ -2202,7 +2202,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_12DebugCounter11CounterInfoENS_12DenseMa
 declare void @llvm.debugtrap() #6
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define dso_local void @_ZNK4llvm12DebugCounter4dumpEv(ptr noundef nonnull align 8 captures(address) dereferenceable(99) %0) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZNK4llvm12DebugCounter4dumpEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(99) %0) local_unnamed_addr #7 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #6
   tail call void @_ZNK4llvm12DebugCounter5printERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(99) %0, ptr noundef nonnull align 8 dereferenceable(48) %2)
   ret void

@@ -4633,7 +4633,7 @@ return:                                           ; preds = %for.inc.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 3) i32 @_ZN3re217ParseUnicodeGroupEPN4absl7debian211string_viewENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE(ptr noundef %s, i32 noundef %parse_flags, ptr noundef %cc, ptr noundef captures(address_is_null) %status) local_unnamed_addr #9 {
+define noundef range(i32 0, 3) i32 @_ZN3re217ParseUnicodeGroupEPN4absl7debian211string_viewENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE(ptr noundef %s, i32 noundef %parse_flags, ptr noundef %cc, ptr noundef writeonly captures(address_is_null) %status) local_unnamed_addr #9 {
 entry:
   %c = alloca i32, align 4
   %and.i = and i32 %parse_flags, 1024
@@ -5322,7 +5322,7 @@ if.end86:                                         ; preds = %for.body9, %for.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3re26Regexp10ParseState16ParseCCCharacterEPN4absl7debian211string_viewEPiS4_PNS_12RegexpStatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef captures(none) %s, ptr noundef %rp, ptr %whole_class.coerce0, i64 %whole_class.coerce1, ptr noundef captures(address_is_null) %status) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZN3re26Regexp10ParseState16ParseCCCharacterEPN4absl7debian211string_viewEPiS4_PNS_12RegexpStatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef captures(none) %s, ptr noundef %rp, ptr %whole_class.coerce0, i64 %whole_class.coerce1, ptr noundef writeonly captures(address_is_null) %status) local_unnamed_addr #9 align 2 {
 entry:
   %length_.i = getelementptr inbounds nuw i8, ptr %s, i64 8
   %0 = load i64, ptr %length_.i, align 8
@@ -5408,7 +5408,7 @@ return:                                           ; preds = %if.then15.i, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3re2L11ParseEscapeEPN4absl7debian211string_viewEPiPNS_12RegexpStatusEi(ptr noundef captures(none) %s, ptr noundef writeonly captures(none) %rp, ptr noundef captures(address_is_null) %status, i32 noundef %rune_max) unnamed_addr #9 {
+define internal fastcc noundef zeroext i1 @_ZN3re2L11ParseEscapeEPN4absl7debian211string_viewEPiPNS_12RegexpStatusEi(ptr noundef captures(none) %s, ptr noundef writeonly captures(none) %rp, ptr noundef writeonly captures(address_is_null) %status, i32 noundef %rune_max) unnamed_addr #9 {
 entry:
   %c = alloca i32, align 4
   %c1 = alloca i32, align 4
@@ -5736,7 +5736,7 @@ return:                                           ; preds = %if.end78, %if.end13
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3re26Regexp10ParseState12ParseCCRangeEPN4absl7debian211string_viewEPNS_9RuneRangeES4_PNS_12RegexpStatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef captures(none) %s, ptr noundef %rr, ptr %whole_class.coerce0, i64 %whole_class.coerce1, ptr noundef captures(address_is_null) %status) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZN3re26Regexp10ParseState12ParseCCRangeEPN4absl7debian211string_viewEPNS_9RuneRangeES4_PNS_12RegexpStatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef captures(none) %s, ptr noundef %rr, ptr %whole_class.coerce0, i64 %whole_class.coerce1, ptr noundef writeonly captures(address_is_null) %status) local_unnamed_addr #9 align 2 {
 entry:
   %os.sroa.0.0.copyload = load ptr, ptr %s, align 8
   %os.sroa.3.0.s.sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 8
@@ -5806,7 +5806,7 @@ return:                                           ; preds = %if.else, %if.end13,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3re26Regexp10ParseState14ParseCharClassEPN4absl7debian211string_viewEPPS0_PNS_12RegexpStatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef %s, ptr noundef writeonly captures(none) %out_re, ptr noundef captures(address_is_null) %status) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN3re26Regexp10ParseState14ParseCharClassEPN4absl7debian211string_viewEPPS0_PNS_12RegexpStatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef %s, ptr noundef writeonly captures(none) %out_re, ptr noundef writeonly captures(address_is_null) %status) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %r = alloca i32, align 4
   %rr = alloca %"struct.re2::RuneRange", align 4

@@ -96,7 +96,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.88 = private unnamed_addr constant [2 x i8] c"!\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Cudd_DumpBlif(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Cudd_DumpBlif(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %10 = load i32, ptr %9, align 8, !tbaa !3
   %11 = sext i32 %10 to i64

@@ -2285,7 +2285,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder5alignENS0_9Align
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder5embedEPKvm(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder5embedEPKvm(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) unnamed_addr #3 align 2 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !46
@@ -2366,7 +2366,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder5embedEPKvm(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder14embedDataArrayENS0_6TypeIdEPKvmm(ptr noundef nonnull align 8 dereferenceable(410) %0, i8 noundef zeroext %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, i64 noundef %4) unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder14embedDataArrayENS0_6TypeIdEPKvmm(ptr noundef nonnull align 8 dereferenceable(410) %0, i8 noundef zeroext %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, i64 noundef %4) unnamed_addr #3 align 2 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !46

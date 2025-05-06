@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [4 x i8] c"%lu\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define ptr @cJSONUtils_FindPointerFromObjectTo(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
+define ptr @cJSONUtils_FindPointerFromObjectTo(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -184,7 +184,7 @@ declare i32 @cJSON_IsObject(ptr noundef) local_unnamed_addr #2
 declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define ptr @cJSONUtils_GetPointer(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define ptr @cJSONUtils_GetPointer(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @get_item_from_pointer(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret ptr %3
 }
@@ -429,7 +429,7 @@ get_array_item.exit.thread:                       ; preds = %36, %.critedge2, %.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define ptr @cJSONUtils_GetPointerCaseSensitive(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define ptr @cJSONUtils_GetPointerCaseSensitive(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @get_item_from_pointer(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret ptr %3
 }

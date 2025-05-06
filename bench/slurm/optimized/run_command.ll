@@ -857,7 +857,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #2
 declare void @track_script_reset_cpid(i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @run_command_poll_child(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef captures(address_is_null) %8) local_unnamed_addr #0 {
+define dso_local ptr @run_command_poll_child(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef writeonly captures(address_is_null) %8) local_unnamed_addr #0 {
   %10 = alloca %struct.pollfd, align 4
   %11 = alloca %struct.timeval, align 8
   %12 = alloca ptr, align 8

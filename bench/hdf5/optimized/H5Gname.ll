@@ -463,7 +463,7 @@ define noundef i32 @H5G_name_reset(ptr noundef writeonly captures(none) %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5G_get_name(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5G_get_name(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #2 {
   %6 = load i8, ptr @H5G_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %7 = trunc nuw i8 %6 to i1
   %8 = load i8, ptr @H5_libterm_g, align 1, !range !7

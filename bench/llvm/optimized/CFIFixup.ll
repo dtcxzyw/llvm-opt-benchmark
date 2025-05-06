@@ -728,7 +728,7 @@ _ZN4llvm11SmallVectorI10BlockFlagsLj32EED2Ev.exit: ; preds = %_ZN4llvm13SmallDen
 
 _ZL16cloneCfiPrologueRK14InsertionPointS1_.exit.i: ; preds = %.lr.ph.i.i, %239
   %248 = load ptr, ptr %53, align 8, !tbaa !147
-  call fastcc void @"_ZZL16cloneCfiPrologueRK14InsertionPointS1_ENK3$_0clEN4llvm26MachineInstrBundleIteratorINS3_12MachineInstrELb0EEES6_"(ptr nonnull %242, ptr nonnull readonly align 8 dereferenceable(16) %10, ptr %248, ptr %55)
+  call fastcc void @"_ZZL16cloneCfiPrologueRK14InsertionPointS1_ENK3$_0clEN4llvm26MachineInstrBundleIteratorINS3_12MachineInstrELb0EEES6_"(ptr nonnull %242, ptr nonnull readonly align 8 dereferenceable(16) %10, ptr %248, ptr readnone %55)
   store ptr %.sroa.032.046, ptr %236, align 8
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %236, i64 8
   store ptr %241, ptr %.sroa.42.0..sroa_idx.i, align 8

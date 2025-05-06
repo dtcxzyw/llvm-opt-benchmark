@@ -5549,7 +5549,7 @@ _ZN6rustls5enums11ContentType8to_array17h256b0a0bbe671cb1E.exit: ; preds = %51, 
   store i40 %.sroa.01.0.insert.insert, ptr %10, align 8, !noalias !1100
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %9), !noalias !1100
   store i8 1, ptr %8, align 1, !noalias !1100
-  invoke fastcc void @_ZN9aws_lc_rs4aead11unbound_key10UnboundKey24seal_in_place_append_tag17h675a4f40e4b635f6E(ptr noalias noundef align 1 captures(none) dereferenceable(13) %9, ptr %.val, ptr %.val32, ptr noalias noundef align 1 captures(none) dereferenceable(13) %8, ptr noalias noundef nonnull readonly align 1 %10, ptr noalias noundef nonnull align 8 dereferenceable(24) %14)
+  invoke fastcc void @_ZN9aws_lc_rs4aead11unbound_key10UnboundKey24seal_in_place_append_tag17h675a4f40e4b635f6E(ptr noalias noundef align 1 captures(none) dereferenceable(13) %9, ptr %.val, ptr readonly %.val32, ptr noalias noundef align 1 captures(none) dereferenceable(13) %8, ptr noalias noundef nonnull readonly align 1 %10, ptr noalias noundef nonnull align 8 dereferenceable(24) %14)
           to label %.noexc34 unwind label %.thread.loopexit.split-lp
 
 .noexc34:                                         ; preds = %59
@@ -5957,7 +5957,7 @@ _ZN6rustls5enums11ContentType8to_array17h256b0a0bbe671cb1E.exit: ; preds = %51, 
   store i40 %.sroa.01.0.insert.insert, ptr %10, align 8, !noalias !1194
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %9), !noalias !1194
   store i8 1, ptr %8, align 1, !noalias !1194
-  invoke fastcc void @_ZN9aws_lc_rs4aead11unbound_key10UnboundKey24seal_in_place_append_tag17h675a4f40e4b635f6E(ptr noalias noundef align 1 captures(none) dereferenceable(13) %9, ptr %.val, ptr %.val32, ptr noalias noundef align 1 captures(none) dereferenceable(13) %8, ptr noalias noundef nonnull readonly align 1 %10, ptr noalias noundef nonnull align 8 dereferenceable(24) %14)
+  invoke fastcc void @_ZN9aws_lc_rs4aead11unbound_key10UnboundKey24seal_in_place_append_tag17h675a4f40e4b635f6E(ptr noalias noundef align 1 captures(none) dereferenceable(13) %9, ptr %.val, ptr readonly %.val32, ptr noalias noundef align 1 captures(none) dereferenceable(13) %8, ptr noalias noundef nonnull readonly align 1 %10, ptr noalias noundef nonnull align 8 dereferenceable(24) %14)
           to label %.noexc34 unwind label %.thread.loopexit.split-lp
 
 .noexc34:                                         ; preds = %59

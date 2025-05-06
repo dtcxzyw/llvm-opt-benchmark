@@ -1063,7 +1063,7 @@ define dso_local noundef zeroext i1 @ipv6_chk_acast_addr(ptr noundef readonly ca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @ipv6_chk_acast_addr_src(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext i1 @ipv6_chk_acast_addr_src(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = tail call i32 @__ipv6_addr_type(ptr noundef %2) #6
   %5 = and i32 %4, 32
   %6 = icmp eq i32 %5, 0

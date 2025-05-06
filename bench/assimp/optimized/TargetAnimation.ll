@@ -560,7 +560,7 @@ define hidden void @_ZN6Assimp21TargetAnimationHelper28SetFixedMainAnimationChan
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp21TargetAnimationHelper7ProcessEPSt6vectorI11aiVectorKeySaIS2_EE(ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(28) %0, ptr noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp21TargetAnimationHelper7ProcessEPSt6vectorI11aiVectorKeySaIS2_EE(ptr noundef nonnull readonly align 8 captures(address_is_null) dereferenceable(28) %0, ptr noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector", align 8
   %4 = alloca %"class.Assimp::KeyIterator", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #16

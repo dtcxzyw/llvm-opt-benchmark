@@ -1130,7 +1130,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__17ArchIsAppCrash
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__24ArchLogFatalProcessStateEPKcS1_S1_(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__24ArchLogFatalProcessStateEPKcS1_S1_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 {
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L26_ArchLogProcessStateHelperEbPKcS1_S1_(i1 noundef zeroext true, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret void
 }
@@ -1661,7 +1661,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L29_FinishLoggingFatalStackTraceEPKcS1_S1_b
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__26ArchLogCurrentProcessStateEPKcS1_S1_(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__26ArchLogCurrentProcessStateEPKcS1_S1_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 {
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L26_ArchLogProcessStateHelperEbPKcS1_S1_(i1 noundef zeroext false, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret void
 }

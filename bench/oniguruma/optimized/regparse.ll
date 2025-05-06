@@ -17871,7 +17871,7 @@ declare i32 @onigenc_with_ascii_strncmp(ptr noundef, ptr noundef, ptr noundef, p
 declare ptr @onigenc_step(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -205, 1) i32 @or_code_range_buf(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef range(i32 0, 2) %2, ptr noundef captures(address_is_null) %3, i32 noundef range(i32 0, 2) %4, ptr noundef nonnull captures(none) initializes((0, 8)) %5) unnamed_addr #2 {
+define internal fastcc range(i32 -205, 1) i32 @or_code_range_buf(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef range(i32 0, 2) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef range(i32 0, 2) %4, ptr noundef nonnull captures(none) initializes((0, 8)) %5) unnamed_addr #2 {
   store ptr null, ptr %5, align 8, !tbaa !113
   %7 = icmp eq ptr %1, null
   %8 = icmp eq ptr %3, null

@@ -791,7 +791,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 declare noundef i32 @_Z12tMPI_WaitalliPP9tmpi_req_P12tmpi_status_(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z24gmx_pme_send_coordinatesP10t_forcerecPK9t_commrecPA3_KfN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEEffblbbbbP20GpuEventSynchronizerbP13gmx_wallcycle(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr %3, ptr readnone captures(none) %4, float noundef %5, float noundef %6, i1 noundef zeroext %7, i64 noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12, ptr noundef %13, i1 noundef zeroext %14, ptr noundef %15) local_unnamed_addr #0 {
+define void @_Z24gmx_pme_send_coordinatesP10t_forcerecPK9t_commrecPA3_KfN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEEffblbbbbP20GpuEventSynchronizerbP13gmx_wallcycle(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr %3, ptr readnone captures(none) %4, float noundef %5, float noundef %6, i1 noundef zeroext %7, i64 noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12, ptr noundef %13, i1 noundef zeroext %14, ptr noundef %15) local_unnamed_addr #0 {
   %17 = icmp eq ptr %15, null
   br i1 %17, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %18
 

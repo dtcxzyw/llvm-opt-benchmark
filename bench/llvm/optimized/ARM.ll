@@ -1230,7 +1230,7 @@ _ZN4llvm9StringRefC2EPKc.exit83:                  ; preds = %30, %26, %_ZN4llvm9
 
 35:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit83
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #16
-  call void @_ZN5clang6driver5tools3arm10getARMArchB5cxx11EN4llvm9StringRefERKNS3_6TripleE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr %.sroa.0193.0, i64 %.sroa.8194.0, ptr noundef nonnull align 8 dereferenceable(56) %3)
+  call void @_ZN5clang6driver5tools3arm10getARMArchB5cxx11EN4llvm9StringRefERKNS3_6TripleE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr readonly %.sroa.0193.0, i64 %.sroa.8194.0, ptr noundef nonnull align 8 dereferenceable(56) %3)
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %37 = load i64, ptr %36, align 8, !tbaa !123
   %38 = icmp eq i64 %37, 0
@@ -2200,7 +2200,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i64 } @_ZN5clang6driver5tools3arm17getARMCPUForMArchEN4llvm9StringRefERKNS3_6TripleE(ptr captures(address_is_null) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(56) %2) local_unnamed_addr #0 {
+define dso_local { ptr, i64 } @_ZN5clang6driver5tools3arm17getARMCPUForMArchEN4llvm9StringRefERKNS3_6TripleE(ptr readonly captures(address_is_null) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(56) %2) local_unnamed_addr #0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
   call void @_ZN5clang6driver5tools3arm10getARMArchB5cxx11EN4llvm9StringRefERKNS3_6TripleE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(56) %2)
@@ -2244,7 +2244,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6driver5tools3arm15getARMTargetCPUB5cxx11EN4llvm9StringRefES4_RKNS3_6TripleE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr %1, i64 %2, ptr captures(address_is_null) %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(56) %5) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang6driver5tools3arm15getARMTargetCPUB5cxx11EN4llvm9StringRefES4_RKNS3_6TripleE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr %1, i64 %2, ptr readonly captures(address_is_null) %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(56) %5) local_unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca i64, align 8
@@ -2406,7 +2406,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 71:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #16
-  call void @_ZN5clang6driver5tools3arm10getARMArchB5cxx11EN4llvm9StringRefERKNS3_6TripleE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(56) %5)
+  call void @_ZN5clang6driver5tools3arm10getARMArchB5cxx11EN4llvm9StringRefERKNS3_6TripleE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr readonly %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(56) %5)
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %73 = load i64, ptr %72, align 8, !tbaa !123
   %74 = icmp eq i64 %73, 0

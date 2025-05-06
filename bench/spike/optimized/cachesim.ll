@@ -1508,7 +1508,7 @@ tailrecurse:                                      ; preds = %.split, %._crit_edg
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14fa_cache_sim_tC2EmmPKc(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 12), (24, 48)) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14fa_cache_sim_tC2EmmPKc(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 12), (24, 48)) %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN11cache_sim_tC2EmmmPKc(ptr noundef nonnull align 8 dereferenceable(153) %0, i64 noundef 1, i64 noundef %1, i64 noundef %2, ptr noundef %3)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV14fa_cache_sim_t, i64 16), ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168

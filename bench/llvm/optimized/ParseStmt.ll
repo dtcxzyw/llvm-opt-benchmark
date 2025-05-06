@@ -254,7 +254,7 @@ $_ZN4llvm12function_refIFN5clang12ActionResultIPNS1_4ExprELb1EEES4_EE11callback_
 @_ZTVN5clang25PrettyDeclStackTraceEntryE = external unnamed_addr constant { [5 x ptr] }, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 1, 0) i64 @_ZN5clang6Parser14ParseStatementEPNS_14SourceLocationENS0_17ParsedStmtContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 1, 0) i64 @_ZN5clang6Parser14ParseStatementEPNS_14SourceLocationENS0_17ParsedStmtContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallVector", align 8
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %4) #16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -288,7 +288,7 @@ _ZN4llvm11SmallVectorIPN5clang4StmtELj32EED2Ev.exit: ; preds = %.critedge, %12
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang6Parser27ParseStatementOrDeclarationERN4llvm11SmallVectorIPNS_4StmtELj32EEENS0_17ParsedStmtContextEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(272) %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang6Parser27ParseStatementOrDeclarationERN4llvm11SmallVectorIPNS_4StmtELj32EEENS0_17ParsedStmtContextEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(272) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::ParsedAttributes", align 8
   %6 = alloca %"class.clang::ParsedAttributes", align 8
   %7 = alloca %"class.clang::ParsedAttributes", align 8
@@ -682,7 +682,7 @@ _ZN5clang16ParsedAttributesD2Ev.exit:             ; preds = %_ZN5clang13Attribut
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang6Parser42ParseStatementOrDeclarationAfterAttributesERN4llvm11SmallVectorIPNS_4StmtELj32EEENS0_17ParsedStmtContextEPNS_14SourceLocationERNS_16ParsedAttributesESB_(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(272) %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(144) %5) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang6Parser42ParseStatementOrDeclarationAfterAttributesERN4llvm11SmallVectorIPNS_4StmtELj32EEENS0_17ParsedStmtContextEPNS_14SourceLocationERNS_16ParsedAttributesESB_(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(272) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(144) %5) local_unnamed_addr #0 align 2 {
   %7 = alloca i16, align 2
   %8 = alloca i16, align 2
   %9 = alloca %"class.clang::SourceLocation", align 4
@@ -7071,7 +7071,7 @@ _ZN5clang6Parser10ParseScopeD2Ev.exit139:         ; preds = %_ZN5clang6Parser10P
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang6Parser20ParseSwitchStatementEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang6Parser20ParseSwitchStatementEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SmallVector", align 8
   %4 = alloca i16, align 2
   %5 = alloca i16, align 2
@@ -7456,7 +7456,7 @@ _ZN5clang6Parser10ParseScopeD2Ev.exit25:          ; preds = %176, %169, %_ZN5cla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang6Parser19ParseWhileStatementEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang6Parser19ParseWhileStatementEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SmallVector", align 8
   %4 = alloca i16, align 2
   %5 = alloca %"class.clang::DiagnosticBuilder", align 8
@@ -8621,7 +8621,7 @@ _ZN5clang6Parser10ParseScopeD2Ev.exit44:          ; preds = %_ZN5clang6Parser10P
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang6Parser17ParseForStatementEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang6Parser17ParseForStatementEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SmallVector", align 8
   %4 = alloca i16, align 2
   %5 = alloca %"class.clang::CharSourceRange", align 8
@@ -12239,7 +12239,7 @@ declare void @_ZN5clang6Parser20HandlePragmaMSPragmaEv(ptr noundef nonnull align
 declare void @_ZN5clang6Parser22HandlePragmaMSVtorDispEv(ptr noundef nonnull align 8 dereferenceable(2936)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang6Parser19ParsePragmaLoopHintERN4llvm11SmallVectorIPNS_4StmtELj32EEENS0_17ParsedStmtContextEPNS_14SourceLocationERNS_16ParsedAttributesE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(272) %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef nonnull align 8 dereferenceable(144) %4) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang6Parser19ParsePragmaLoopHintERN4llvm11SmallVectorIPNS_4StmtELj32EEENS0_17ParsedStmtContextEPNS_14SourceLocationERNS_16ParsedAttributesE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(272) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef nonnull align 8 dereferenceable(144) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::ParsedAttributes", align 8
   %7 = alloca %"struct.clang::LoopHint", align 8
   %8 = alloca [4 x %"class.llvm::PointerUnion.1499"], align 16

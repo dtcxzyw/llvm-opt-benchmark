@@ -8220,7 +8220,7 @@ _ZN2cv9BitStream9jputShortEi.exit:                ; preds = %2, %_ZN2cv9BitStrea
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv17AVIWriteContainer14putStreamBytesEPKhi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
+define void @_ZN2cv17AVIWriteContainer14putStreamBytesEPKhi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !153
   tail call void @_ZN2cv9BitStream8putBytesEPKhi(ptr noundef nonnull align 8 dereferenceable(569) %4, ptr noundef %1, i32 noundef %2)
   ret void

@@ -385,7 +385,7 @@ do_pk8pkey_fp.exit:                               ; preds = %10, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @d2i_PKCS8PrivateKey_fp(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @d2i_PKCS8PrivateKey_fp(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @BIO_new_fp(ptr noundef %0, i32 noundef 0) #4
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8

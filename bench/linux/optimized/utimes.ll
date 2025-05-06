@@ -195,7 +195,7 @@ declare dso_local void @mnt_drop_write(ptr noundef) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -2147483648, 2147483648) i64 @do_utimes(i32 noundef %0, ptr noundef %1, ptr noundef captures(address) %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @do_utimes(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(address) %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.path, align 8
   %6 = icmp eq ptr %1, null
   %7 = icmp ne i32 %0, -100

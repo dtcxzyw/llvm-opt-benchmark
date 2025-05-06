@@ -17592,7 +17592,7 @@ define hidden void @"_ZN4core3ptr368drop_in_place$LT$regex_automata..util..pool.
 .body:                                            ; preds = %1
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf5cac4fdafd81dc2E"(ptr nonnull %.val, ptr nonnull %.val2) #29
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf5cac4fdafd81dc2E"(ptr nonnull %.val, ptr nonnull readonly %.val2) #29
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke fastcc void @"_ZN4core3ptr209drop_in_place$LT$alloc..vec..Vec$LT$regex_automata..util..pool..inner..CacheLine$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$$GT$$GT$17h690e067c7d8333a6E"(ptr noalias noundef align 8 dereferenceable(24) %5) #29
           to label %.body3 unwind label %39
@@ -18972,7 +18972,7 @@ common.resume:                                    ; preds = %151, %137, %122, %8
 48:                                               ; preds = %44
   %49 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h196ee24e8f5dbd53E"(ptr nonnull %.val, ptr nonnull %.val1) #29
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h196ee24e8f5dbd53E"(ptr nonnull %.val, ptr nonnull readonly %.val1) #29
   br label %common.resume
 
 50:                                               ; preds = %44

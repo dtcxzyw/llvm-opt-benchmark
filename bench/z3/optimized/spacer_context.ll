@@ -2220,7 +2220,7 @@ _ZN6vectorIN6spacer10derivation7premiseELb1EjE7destroyEv.exit: ; preds = %1, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6spacer10derivation11add_premiseERNS_16pred_transformerEjP4exprbPK10ptr_vectorI3appE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(472) %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6spacer10derivation11add_premiseERNS_16pred_transformerEjP4exprbPK10ptr_vectorI3appE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(472) %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.spacer::derivation::premise", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #28
@@ -9617,7 +9617,7 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit.
 declare void @_ZN9var_substclEP4exprjPKS1_(ptr dead_on_unwind writable sret(%class.obj_ref) align 8, ptr noundef nonnull align 8 dereferenceable(545), ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6spacer5lemma8mk_instsER10ref_vectorI4expr11ast_managerEPS2_(ptr noundef nonnull align 8 dereferenceable(109) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6spacer5lemma8mk_instsER10ref_vectorI4expr11ast_managerEPS2_(ptr noundef nonnull align 8 dereferenceable(109) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.obj_ref, align 8
   %5 = icmp eq ptr %2, null
   br i1 %5, label %6, label %9
@@ -39584,7 +39584,7 @@ _ZlsRSo6symbol.exit7:                             ; preds = %_ZStlsISt11char_tra
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6spacer7context15get_cover_deltaEiP9func_declS2_(ptr dead_on_unwind noalias writable sret(%class.obj_ref) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(712) %1, i32 noundef %2, ptr noundef captures(address) %3, ptr noundef readonly captures(address) %4) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN6spacer7context15get_cover_deltaEiP9func_declS2_(ptr dead_on_unwind noalias writable sret(%class.obj_ref) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(712) %1, i32 noundef %2, ptr noundef readonly captures(address) %3, ptr noundef readonly captures(address) %4) local_unnamed_addr #3 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %8 = load i32, ptr %7, align 4, !tbaa !513
@@ -59871,7 +59871,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %.loopexit
   %413 = trunc nuw i8 %412 to i1
   %414 = load ptr, ptr %17, align 8, !tbaa !632
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #28
-  invoke void @_ZN6spacer10derivation7premiseC2ERNS_16pred_transformerEjP4exprbPK10ptr_vectorI3appE(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(472) %394, i32 noundef %362, ptr noundef nonnull %404, i1 noundef zeroext %413, ptr noundef %414)
+  invoke void @_ZN6spacer10derivation7premiseC2ERNS_16pred_transformerEjP4exprbPK10ptr_vectorI3appE(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(472) %394, i32 noundef %362, ptr noundef nonnull %404, i1 noundef zeroext %413, ptr noundef readonly %414)
           to label %.noexc192 unwind label %.loopexit304
 
 .noexc192:                                        ; preds = %409

@@ -562,7 +562,7 @@ define dso_local ptr @lookupKeyWrite(ptr noundef %0, ptr noundef %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @lookupKeyWriteWithDictEntry(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local ptr @lookupKeyWriteWithDictEntry(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @lookupKey(ptr noundef %0, ptr noundef %1, i32 noundef 8, ptr noundef %2)
   ret ptr %4
 }
@@ -4883,7 +4883,7 @@ getExpire.exit:                                   ; preds = %dbFindExpires.exit.
   %72 = load ptr, ptr %3, align 8, !tbaa !104
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %74 = load ptr, ptr %73, align 8, !tbaa !105
-  tail call void @setExpireWithDictEntry(ptr noundef nonnull %0, ptr noundef %71, ptr noundef %74, i64 noundef %.0.i, ptr noundef null)
+  tail call void @setExpireWithDictEntry(ptr noundef nonnull readonly %0, ptr noundef %71, ptr noundef %74, i64 noundef %.0.i, ptr noundef null)
   br label %75
 
 75:                                               ; preds = %70, %64
@@ -5001,7 +5001,7 @@ dbFindExpires.exit:                               ; preds = %12, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @setExpire(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local void @setExpire(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   tail call void @setExpireWithDictEntry(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef null)
   ret void
 }
@@ -5163,7 +5163,7 @@ getExpire.exit:                                   ; preds = %dbFindExpires.exit.
   %76 = load ptr, ptr %10, align 8, !tbaa !104
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load ptr, ptr %77, align 8, !tbaa !105
-  call void @setExpireWithDictEntry(ptr noundef nonnull %0, ptr noundef %23, ptr noundef %78, i64 noundef %.0.i64, ptr noundef null)
+  call void @setExpireWithDictEntry(ptr noundef nonnull readonly %0, ptr noundef %23, ptr noundef %78, i64 noundef %.0.i64, ptr noundef null)
   br label %79
 
 79:                                               ; preds = %75, %70
@@ -5559,7 +5559,7 @@ getExpire.exit:                                   ; preds = %dbFindExpires.exit.
   br i1 %.not98, label %169, label %168
 
 168:                                              ; preds = %166
-  call void @setExpireWithDictEntry(ptr noundef nonnull %0, ptr noundef %.0.lcssa, ptr noundef %100, i64 noundef %.0.i107, ptr noundef null)
+  call void @setExpireWithDictEntry(ptr noundef nonnull readonly %0, ptr noundef %.0.lcssa, ptr noundef %100, i64 noundef %.0.i107, ptr noundef null)
   br label %169
 
 169:                                              ; preds = %168, %166

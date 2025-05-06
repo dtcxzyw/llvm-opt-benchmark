@@ -4880,7 +4880,7 @@ define internal void @nexthop_net_exit_batch(ptr noundef readonly captures(addre
 declare dso_local void @__init_rwsem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @remove_nexthop(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 align 16 {
+define internal fastcc void @remove_nexthop(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 align 16 {
   %4 = tail call fastcc i32 @call_nexthop_notifiers(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef null)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 584
   tail call void @rb_erase(ptr noundef %1, ptr noundef nonnull %5) #13
@@ -5860,7 +5860,7 @@ declare dso_local void @skb_trim(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare dso_local void @kfree_skb_reason(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @remove_nexthop_from_groups(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 align 16 {
+define internal fastcc void @remove_nexthop_from_groups(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.netlink_ext_ack, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %6 = load ptr, ptr %5, align 8

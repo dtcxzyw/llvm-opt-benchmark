@@ -1296,13 +1296,13 @@ define range(i32 -173, 1) i32 @wc_GenerateSeed(ptr noundef captures(address_is_n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -209, 1) i32 @wc_RNG_GenerateByte(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -209, 1) i32 @wc_RNG_GenerateByte(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @wc_RNG_GenerateBlock(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 1) i32 @wc_RNG_HealthTest(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_RNG_HealthTest(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = tail call i32 @wc_RNG_HealthTest_ex(i32 noundef %0, ptr noundef null, i32 noundef 0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef null, i32 poison)
   ret i32 %8
 }

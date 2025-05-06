@@ -2055,7 +2055,7 @@ define dso_local void @_ZN4llvm16getIRPGOFuncNameB5cxx11ERKNS_8FunctionEb(ptr de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvmL18getIRPGOObjectNameB5cxx11ERKNS_12GlobalObjectEbPNS_6MDNodeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i1 noundef zeroext %2, ptr noundef captures(address_is_null) %3) unnamed_addr #1 {
+define internal fastcc void @_ZN4llvmL18getIRPGOObjectNameB5cxx11ERKNS_12GlobalObjectEbPNS_6MDNodeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i1 noundef zeroext %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::optional", align 8
   br i1 %2, label %33, label %7
@@ -10021,7 +10021,7 @@ define dso_local void @_ZN4llvm13ValueProfData13serializeFromERKNS_15InstrProfRe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15ValueProfRecord13deserializeToERNS_15InstrProfRecordEPNS_15InstrProfSymtabE(ptr noundef nonnull align 4 captures(address) dereferenceable(12) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(56) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm15ValueProfRecord13deserializeToERNS_15InstrProfRecordEPNS_15InstrProfSymtabE(ptr noundef nonnull readonly align 4 captures(address) dereferenceable(12) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(56) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = load i32, ptr %0, align 4, !tbaa !538
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !540
@@ -10224,7 +10224,7 @@ _ZN4llvm30getValueProfRecordNumValueDataEPNS_15ValueProfRecordE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13ValueProfData13deserializeToERNS_15InstrProfRecordEPNS_15InstrProfSymtabE(ptr noundef nonnull align 4 captures(address) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(56) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm13ValueProfData13deserializeToERNS_15InstrProfRecordEPNS_15InstrProfSymtabE(ptr noundef nonnull readonly align 4 captures(address) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(56) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !548
   %.not = icmp eq i32 %5, 0

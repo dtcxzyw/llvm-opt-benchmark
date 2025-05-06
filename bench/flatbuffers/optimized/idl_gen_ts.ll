@@ -30061,7 +30061,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11flatbuffers12_GLOBAL__N_116ImportDefinitionESt4lessIS5_ESaISt4pairIKS5_S8_EEE12emplace_hintIJSB_IS5_S8_EEEESt17_Rb_tree_iteratorISD_ESt23_Rb_tree_const_iteratorISD_EDpOT_.exit
 
 .thread20.i.i:                                    ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N11flatbuffers12_GLOBAL__N_116ImportDefinitionEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE24_M_get_insert_unique_posERS7_.exit.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit22.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit45.i.i.i
-  tail call fastcc void @_ZN11flatbuffers12_GLOBAL__N_116ImportDefinitionD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %35) #27
+  tail call fastcc void @_ZN11flatbuffers12_GLOBAL__N_116ImportDefinitionD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(208) %35) #27
   %225 = load ptr, ptr %26, align 8, !tbaa !16
   %226 = icmp eq ptr %225, %27
   br i1 %226, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i11.i.i
@@ -30087,7 +30087,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11flatbuffers12_G
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11flatbuffers12_GLOBAL__N_116ImportDefinitionEED2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(240) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11flatbuffers12_GLOBAL__N_116ImportDefinitionEED2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(240) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call fastcc void @_ZN11flatbuffers12_GLOBAL__N_116ImportDefinitionD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %2) #27
   %3 = load ptr, ptr %0, align 8, !tbaa !16
@@ -32768,7 +32768,7 @@ define internal fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_
   %.0.val = load ptr, ptr %3, align 8, !tbaa !184
   %4 = getelementptr inbounds nuw i8, ptr %.02, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %.02, i64 64
-  tail call fastcc void @_ZN11flatbuffers12_GLOBAL__N_116ImportDefinitionD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %5) #27
+  tail call fastcc void @_ZN11flatbuffers12_GLOBAL__N_116ImportDefinitionD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(208) %5) #27
   %6 = load ptr, ptr %4, align 8, !tbaa !16
   %7 = getelementptr inbounds nuw i8, ptr %.02, i64 48
   %8 = icmp eq ptr %6, %7

@@ -455,7 +455,7 @@ define void @_ZN11OpenImageIO6v3_1_08DeepDataC2EOS1_(ptr noundef nonnull writeon
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11OpenImageIO6v3_1_08DeepDataC2ERKS1_NS0_4spanIKNS0_8TypeDescELm18446744073709551615EEE(ptr noundef nonnull align 8 captures(address) dereferenceable(20) initializes((0, 20)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(20) %1, ptr %2, i64 %3) unnamed_addr #5 align 2 {
+define void @_ZN11OpenImageIO6v3_1_08DeepDataC2ERKS1_NS0_4spanIKNS0_8TypeDescELm18446744073709551615EEE(ptr noundef nonnull align 8 captures(address) dereferenceable(20) initializes((0, 20)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(20) %1, ptr %2, i64 %3) unnamed_addr #5 align 2 {
   %5 = alloca %"class.OpenImageIO::v3_1_0::span.30", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)

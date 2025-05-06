@@ -400,7 +400,7 @@ define internal fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make
   %.val = load ptr, ptr %10, align 8, !tbaa !25
   %11 = getelementptr i8, ptr %.tr140168, i64 24
   %.val15 = load i64, ptr %11, align 8, !tbaa !26
-  tail call fastcc void @_ZN12_GLOBAL__N_125CommentASTToHTMLConverter30appendToResultWithHTMLEscapingEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %.val, i64 %.val15)
+  tail call fastcc void @_ZN12_GLOBAL__N_125CommentASTToHTMLConverter30appendToResultWithHTMLEscapingEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr readonly %.val, i64 %.val15)
   br label %_ZN12_GLOBAL__N_125CommentASTToHTMLConverter25visitInlineCommandCommentEPKN5clang8comments20InlineCommandCommentE.exit
 
 12:                                               ; preds = %5
@@ -1952,7 +1952,7 @@ define internal fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make
   %.val = load ptr, ptr %24, align 8, !tbaa !25
   %25 = getelementptr i8, ptr %1, i64 24
   %.val15 = load i64, ptr %25, align 8, !tbaa !26
-  tail call fastcc void @_ZN12_GLOBAL__N_124CommentASTToXMLConverter29appendToResultWithXMLEscapingEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr %.val, i64 %.val15)
+  tail call fastcc void @_ZN12_GLOBAL__N_124CommentASTToXMLConverter29appendToResultWithXMLEscapingEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly %.val, i64 %.val15)
   br label %_ZN12_GLOBAL__N_124CommentASTToXMLConverter25visitInlineCommandCommentEPKN5clang8comments20InlineCommandCommentE.exit
 
 26:                                               ; preds = %19

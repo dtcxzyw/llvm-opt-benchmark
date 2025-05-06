@@ -23924,7 +23924,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @llama_chat_apply_template(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z25common_chat_format_singleB5cxx11PK21common_chat_templatesRKSt6vectorI15common_chat_msgSaIS3_EERKS3_bb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef captures(address_is_null) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(208) %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z25common_chat_format_singleB5cxx11PK21common_chat_templatesRKSt6vectorI15common_chat_msgSaIS3_EERKS3_bb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(208) %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = alloca %struct.common_chat_templates_inputs, align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -24810,7 +24810,7 @@ declare void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strE
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #8 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z26common_chat_format_exampleB5cxx11PK21common_chat_templatesb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef captures(address_is_null) %1, i1 noundef zeroext %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z26common_chat_format_exampleB5cxx11PK21common_chat_templatesb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct.common_chat_templates_inputs, align 8
   %5 = alloca %struct.common_chat_params, align 8
   %6 = zext i1 %2 to i8

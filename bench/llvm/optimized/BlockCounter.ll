@@ -247,7 +247,7 @@ _ZNK5clang4ento12BlockCounter13getNumVisitedEPKNS_17StackFrameContextEj.exit: ; 
   store i32 %3, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !46
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %32, ptr %33, align 8, !tbaa !49, !noalias !46
-  %34 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_18CountKeyEjEEE12add_internalERKSt4pairIS3_jEPNS_11ImutAVLTreeIS4_EE(ptr noundef nonnull align 8 dereferenceable(81) %10, ptr noundef nonnull align 8 dereferenceable(20) %9, ptr noundef %1), !noalias !46
+  %34 = call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_18CountKeyEjEEE12add_internalERKSt4pairIS3_jEPNS_11ImutAVLTreeIS4_EE(ptr noundef nonnull align 8 dereferenceable(81) %10, ptr noundef nonnull align 8 dereferenceable(20) %9, ptr noundef readonly %1), !noalias !46
   call fastcc void @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_18CountKeyEjEEE13markImmutableEPNS_11ImutAVLTreeIS4_EE(ptr noundef %34), !noalias !46
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %.val.i.i.i = load ptr, ptr %35, align 8, !tbaa !37, !noalias !46

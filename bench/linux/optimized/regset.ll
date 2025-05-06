@@ -286,7 +286,7 @@ declare dso_local i32 @copy_uabi_from_kernel_to_xstate(ptr noundef, ptr noundef,
 declare dso_local void @vfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @convert_from_fxsr(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef captures(address) %1) local_unnamed_addr #1 align 16 {
+define dso_local void @convert_from_fxsr(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 3024
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64

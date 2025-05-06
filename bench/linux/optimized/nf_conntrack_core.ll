@@ -990,7 +990,7 @@ define dso_local noundef zeroext i1 @nf_ct_delete(ptr noundef %0, i32 %1, i32 %2
 declare dso_local void @nf_ct_helper_destroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @nf_conntrack_find_get(ptr noundef captures(address) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
+define dso_local ptr @nf_conntrack_find_get(ptr noundef readonly captures(address) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.siphash_key_t, align 8
   %5 = alloca i64, align 8
   tail call void @__rcu_read_lock() #17

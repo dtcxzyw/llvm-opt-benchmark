@@ -951,7 +951,7 @@ rb_array_len.exit.i:                              ; preds = %79, %76
   %.02433.i.us = phi i64 [ %91, %90 ], [ 0, %rb_array_len.exit.i ]
   %83 = call i64 @rb_ary_entry(i64 noundef %71, i64 noundef %.02433.i.us) #24
   %84 = call ptr @host_str(i64 noundef %83, ptr noundef nonnull %8, i64 noundef 1025, ptr noundef nonnull %6)
-  %85 = call fastcc i32 @numeric_getaddrinfo(ptr noundef %84, ptr noundef %.0.i, ptr noundef nonnull %2, ptr noundef nonnull %7)
+  %85 = call fastcc i32 @numeric_getaddrinfo(ptr noundef %84, ptr noundef %.0.i, ptr noundef nonnull readonly %2, ptr noundef nonnull %7)
   %.not117 = icmp eq i32 %85, 0
   br i1 %.not117, label %.thread82.split.us, label %90
 
@@ -975,7 +975,7 @@ rb_array_len.exit.i:                              ; preds = %79, %76
   %.02532.i = phi ptr [ %.2.i, %101 ], [ %88, %.thread82.split.us ]
   %92 = call i64 @rb_ary_entry(i64 noundef %71, i64 noundef %.02433.i) #24
   %93 = call ptr @host_str(i64 noundef %92, ptr noundef nonnull %8, i64 noundef 1025, ptr noundef nonnull %6)
-  %94 = call fastcc i32 @numeric_getaddrinfo(ptr noundef %93, ptr noundef %.0.i, ptr noundef nonnull %2, ptr noundef nonnull %7)
+  %94 = call fastcc i32 @numeric_getaddrinfo(ptr noundef %93, ptr noundef %.0.i, ptr noundef nonnull readonly %2, ptr noundef nonnull %7)
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %.preheader.i, label %101
 

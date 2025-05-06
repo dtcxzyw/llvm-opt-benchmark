@@ -732,7 +732,7 @@ int_x509_param_set1.exit:                         ; preds = %20, %16, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !25
   %5 = or i64 %4, 1

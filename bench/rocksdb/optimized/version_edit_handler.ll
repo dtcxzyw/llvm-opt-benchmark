@@ -10906,7 +10906,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %13, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb14ManifestTailer17OnColumnFamilyAddERNS_11VersionEditEPPNS_16ColumnFamilyDataE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 captures(address) %0, ptr noundef nonnull align 8 dereferenceable(1080) %1, ptr noundef nonnull align 8 dereferenceable(504) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb14ManifestTailer17OnColumnFamilyAddERNS_11VersionEditEPPNS_16ColumnFamilyDataE(ptr dead_on_unwind noalias writable writeonly sret(%"class.rocksdb::Status") align 8 captures(address) %0, ptr noundef nonnull align 8 dereferenceable(1080) %1, ptr noundef nonnull align 8 dereferenceable(504) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 1017
   %6 = load i8, ptr %5, align 1, !tbaa !746
   %7 = icmp eq i8 %6, 0

@@ -3689,7 +3689,7 @@ _ZNSt13unordered_mapIPKN4cvc58internal9ProofNodeEbSt4hashIS4_ESt8equal_toIS4_ESa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal4expr16containsSubproofEPNS0_9ProofNodeES3_(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal4expr16containsSubproofEPNS0_9ProofNodeES3_(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unordered_set.90", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48

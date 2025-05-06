@@ -229,7 +229,7 @@ declare ptr @php_dom_get_attribute_node(ptr noundef, ptr noundef, i64 noundef) l
 declare ptr @xmlHasProp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @php_dom_named_node_map_get_named_item_into_zval(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @php_dom_named_node_map_get_named_item_into_zval(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @php_dom_named_node_map_get_named_item(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
@@ -272,7 +272,7 @@ define hidden void @zim_DOMNamedNodeMap_getNamedItem(ptr noundef readonly captur
   %14 = getelementptr inbounds i8, ptr %13, i64 -24
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   %16 = load ptr, ptr %3, align 8, !tbaa !66
-  %17 = call ptr @php_dom_named_node_map_get_named_item(ptr noundef %15, ptr noundef %16, i1 noundef zeroext true)
+  %17 = call ptr @php_dom_named_node_map_get_named_item(ptr noundef readonly %15, ptr noundef %16, i1 noundef zeroext true)
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %21, label %18
 

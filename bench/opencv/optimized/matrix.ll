@@ -2088,7 +2088,7 @@ _ZN2cv3Mat6createEiii.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3MatC2EiPKii(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 64)) %0, i32 noundef %1, ptr noundef captures(address) %2, i32 noundef %3) unnamed_addr #1 align 2 {
+define void @_ZN2cv3MatC2EiPKii(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 64)) %0, i32 noundef %1, ptr noundef readonly captures(address) %2, i32 noundef %3) unnamed_addr #1 align 2 {
   store i32 1124007936, ptr %0, align 8, !tbaa !61
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2104,7 +2104,7 @@ define void @_ZN2cv3MatC2EiPKii(ptr noundef nonnull align 8 dereferenceable(96) 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3Mat6createEiPKii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, ptr noundef captures(address) %2, i32 noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3Mat6createEiPKii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, ptr noundef readonly captures(address) %2, i32 noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca [32 x i32], align 16
@@ -2618,7 +2618,7 @@ _ZN2cv3Mat6addrefEv.exit:                         ; preds = %210, %213
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3MatC2EiPKiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 64)) %0, i32 noundef %1, ptr noundef captures(address) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #1 align 2 {
+define void @_ZN2cv3MatC2EiPKiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 64)) %0, i32 noundef %1, ptr noundef readonly captures(address) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #1 align 2 {
   store i32 1124007936, ptr %0, align 8, !tbaa !61
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4967,7 +4967,7 @@ _ZN2cv3Mat6addrefEv.exit:                         ; preds = %_ZN2cv3Mat20updateC
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3MatC2EiPKiiPvPKm(ptr noundef nonnull align 8 dereferenceable(96) initializes((4, 64)) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) unnamed_addr #1 align 2 {
+define void @_ZN2cv3MatC2EiPKiiPvPKm(ptr noundef nonnull align 8 dereferenceable(96) initializes((4, 64)) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #1 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4990,7 +4990,7 @@ define void @_ZN2cv3MatC2EiPKiiPvPKm(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3MatC2ERKSt6vectorIiSaIiEEiPvPKm(ptr noundef nonnull align 8 dereferenceable(96) initializes((4, 64)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) unnamed_addr #1 align 2 {
+define void @_ZN2cv3MatC2ERKSt6vectorIiSaIiEEiPvPKm(ptr noundef nonnull align 8 dereferenceable(96) initializes((4, 64)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #1 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5021,7 +5021,7 @@ define void @_ZN2cv3MatC2ERKSt6vectorIiSaIiEEiPvPKm(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3MatC2ERKS0_PKNS_5RangeE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 64)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(96) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3MatC2ERKS0_PKNS_5RangeE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 64)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5315,7 +5315,7 @@ _ZN2cv3Mat20updateContinuityFlagEv.exit:          ; preds = %89, %._crit_edge.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3MatC2ERKS0_RKSt6vectorINS_5RangeESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 64)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3MatC2ERKS0_RKSt6vectorINS_5RangeESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 64)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

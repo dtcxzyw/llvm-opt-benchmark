@@ -14956,7 +14956,7 @@ define void @_ZN12ProfileModel17illegalCharactersEv(ptr dead_on_unwind noalias w
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define noundef i32 @_ZN12ProfileModel21importProfilesFromZipE7QStringPiP5QListIS0_E(ptr noundef align 8 dereferenceable_or_null(104) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN12ProfileModel21importProfilesFromZipE7QStringPiP5QListIS0_E(ptr noundef align 8 dereferenceable_or_null(104) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QTemporaryDir, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8

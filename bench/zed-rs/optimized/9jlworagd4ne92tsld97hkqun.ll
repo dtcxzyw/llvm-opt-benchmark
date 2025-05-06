@@ -4765,7 +4765,7 @@ define hidden noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$cor
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17hb43ae4d48aae940bE.llvm.13868838322926104849"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17hb43ae4d48aae940bE.llvm.13868838322926104849"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !11
   store i64 0, ptr %3, align 8
@@ -4781,7 +4781,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17hb43ae4d48aae9
   %8 = phi i64 [ 0, %.lr.ph.i ], [ %24, %23 ]
   %9 = getelementptr inbounds ptr, ptr %6, i64 %8
   %.val1.i = load ptr, ptr %9, align 8, !alias.scope !906, !noalias !903, !nonnull !11, !noundef !11
-  %10 = invoke fastcc noundef zeroext i1 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h184c500bfd4f9db5E"(ptr nonnull %1, ptr nonnull %.val1.i)
+  %10 = invoke fastcc noundef zeroext i1 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h184c500bfd4f9db5E"(ptr nonnull readonly %1, ptr nonnull %.val1.i)
           to label %.noexc unwind label %.thread
 
 .thread:                                          ; preds = %7
@@ -4834,7 +4834,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17hb43ae4d48aae9
   %26 = load ptr, ptr %25, align 8, !noalias !917, !nonnull !11, !noundef !11
   %27 = getelementptr inbounds ptr, ptr %26, i64 %.sroa.7.3
   %.val1.i4 = load ptr, ptr %27, align 8, !alias.scope !920, !noalias !917, !nonnull !11, !noundef !11
-  %28 = invoke fastcc noundef zeroext i1 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h184c500bfd4f9db5E"(ptr nonnull %1, ptr nonnull %.val1.i4)
+  %28 = invoke fastcc noundef zeroext i1 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h184c500bfd4f9db5E"(ptr nonnull readonly %1, ptr nonnull %.val1.i4)
           to label %.noexc6 unwind label %45
 
 .noexc6:                                          ; preds = %.lr.ph.i3

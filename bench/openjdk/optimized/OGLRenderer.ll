@@ -658,7 +658,7 @@ define hidden void @OGLRenderer_FillAAParallelogram(ptr noundef readnone capture
 declare float @llvm.fmuladd.f32(float, float, float) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLRenderer_FillAAParallelogramInnerOuter(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, float noundef %12, float noundef %13) local_unnamed_addr #0 {
+define hidden void @OGLRenderer_FillAAParallelogramInnerOuter(ptr noundef readnone captures(address_is_null) %0, ptr noundef readnone captures(address_is_null) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, float noundef %12, float noundef %13) local_unnamed_addr #0 {
   %15 = icmp eq ptr %0, null
   %16 = icmp eq ptr %1, null
   %or.cond = or i1 %15, %16
@@ -807,7 +807,7 @@ define hidden void @OGLRenderer_FillAAParallelogramInnerOuter(ptr noundef captur
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLRenderer_DrawAAParallelogram(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9) local_unnamed_addr #0 {
+define hidden void @OGLRenderer_DrawAAParallelogram(ptr noundef readnone captures(address_is_null) %0, ptr noundef readnone captures(address_is_null) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9) local_unnamed_addr #0 {
   %11 = icmp eq ptr %0, null
   %12 = icmp eq ptr %1, null
   %or.cond3 = or i1 %11, %12

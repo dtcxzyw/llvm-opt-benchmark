@@ -652,7 +652,7 @@ default.unreachable:                              ; preds = %122
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @qoi_write(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
+define dso_local i32 @qoi_write(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = alloca i32, align 4
   %5 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
@@ -705,7 +705,7 @@ declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #6
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @qoi_read(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #4 {
+define dso_local noalias noundef ptr @qoi_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.1)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %27, label %5

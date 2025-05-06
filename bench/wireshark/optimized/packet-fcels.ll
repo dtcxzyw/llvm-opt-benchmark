@@ -1274,11 +1274,11 @@ define internal i32 @dissect_fcels(ptr noundef %0, ptr noundef %1, ptr noundef %
   ]
 
 157:                                              ; preds = %156
-  call fastcc void @dissect_fcels_logi(ptr noundef %0, ptr noundef %2, ptr noundef %.0281, i8 noundef zeroext 3)
+  call fastcc void @dissect_fcels_logi(ptr noundef %0, ptr noundef readnone %2, ptr noundef %.0281, i8 noundef zeroext 3)
   br label %dissect_fcels_prli.exit
 
 158:                                              ; preds = %156
-  call fastcc void @dissect_fcels_logi(ptr noundef %0, ptr noundef %2, ptr noundef %.0281, i8 noundef zeroext 4)
+  call fastcc void @dissect_fcels_logi(ptr noundef %0, ptr noundef readnone %2, ptr noundef %.0281, i8 noundef zeroext 4)
   br label %dissect_fcels_prli.exit
 
 159:                                              ; preds = %156
@@ -1326,11 +1326,11 @@ define internal i32 @dissect_fcels(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %dissect_fcels_prli.exit
 
 170:                                              ; preds = %156
-  call fastcc void @dissect_fcels_logi(ptr noundef %0, ptr noundef %2, ptr noundef %.0281, i8 noundef zeroext 80)
+  call fastcc void @dissect_fcels_logi(ptr noundef %0, ptr noundef readnone %2, ptr noundef %.0281, i8 noundef zeroext 80)
   br label %dissect_fcels_prli.exit
 
 171:                                              ; preds = %156
-  call fastcc void @dissect_fcels_logi(ptr noundef %0, ptr noundef %2, ptr noundef %.0281, i8 noundef zeroext 81)
+  call fastcc void @dissect_fcels_logi(ptr noundef %0, ptr noundef readnone %2, ptr noundef %.0281, i8 noundef zeroext 81)
   br label %dissect_fcels_prli.exit
 
 172:                                              ; preds = %156
@@ -1338,11 +1338,11 @@ define internal i32 @dissect_fcels(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %dissect_fcels_prli.exit
 
 173:                                              ; preds = %156
-  call fastcc void @dissect_fcels_farp(ptr noundef %0, ptr noundef %2, ptr noundef %.0281)
+  call fastcc void @dissect_fcels_farp(ptr noundef %0, ptr noundef readnone %2, ptr noundef %.0281)
   br label %dissect_fcels_prli.exit
 
 174:                                              ; preds = %156
-  call fastcc void @dissect_fcels_farp(ptr noundef %0, ptr noundef %2, ptr noundef %.0281)
+  call fastcc void @dissect_fcels_farp(ptr noundef %0, ptr noundef readnone %2, ptr noundef %.0281)
   br label %dissect_fcels_prli.exit
 
 175:                                              ; preds = %156

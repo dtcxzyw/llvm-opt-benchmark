@@ -1210,13 +1210,13 @@ wc_HmacSizeByType.exit:                           ; preds = %9, %switch.lookup, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_HKDF_Expand(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #2 {
+define i32 @wc_HKDF_Expand(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #2 {
   %8 = tail call i32 @wc_HKDF_Expand_ex(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef null, i32 poison)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_HKDF(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7, i32 noundef %8) local_unnamed_addr #2 {
+define i32 @wc_HKDF(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef writeonly captures(address_is_null) %7, i32 noundef %8) local_unnamed_addr #2 {
   %10 = alloca [64 x i8], align 16
   %11 = alloca [1 x %struct.Hmac], align 16
   %12 = alloca [64 x i8], align 16

@@ -283,7 +283,7 @@ declare i32 @getpid() local_unnamed_addr #9
 declare ptr @pmix_tmp_directory() local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, -1) i32 @pmix_output_open(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
+define range(i32 0, -1) i32 @pmix_output_open(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = tail call fastcc i32 @do_open(i32 noundef -1, ptr noundef %0)
   ret i32 %2
 }
@@ -470,7 +470,7 @@ define internal fastcc range(i32 0, -1) i32 @do_open(i32 noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, -1) i32 @pmix_output_reopen(i32 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 {
+define range(i32 0, -1) i32 @pmix_output_reopen(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = tail call fastcc i32 @do_open(i32 noundef %0, ptr noundef %1)
   ret i32 %3
 }

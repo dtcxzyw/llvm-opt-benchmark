@@ -16963,7 +16963,7 @@ _ZN26MLSceneGLSharedDataContext20doneCurrentGLContextEP10QGLContext.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN26MLSceneGLSharedDataContext7addViewEP10QGLContext(ptr noundef nonnull align 8 captures(address) dereferenceable(168) %0, ptr noundef %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN26MLSceneGLSharedDataContext7addViewEP10QGLContext(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(168) %0, ptr noundef %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.MLRenderingData, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8

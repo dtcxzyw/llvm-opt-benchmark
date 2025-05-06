@@ -28859,7 +28859,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h414c88ad8f59f4e2E(ptr noal
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h478922da2abc89ceE.exit.i": ; preds = %114
   %.0.sroa.speculated.i13.i = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.i79, i64 1)
   %117 = sub i64 %.0.sroa.speculated.i.i, %.0148
-  invoke fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h5a2d94674e7b4a3aE(ptr noalias noundef nonnull align 8 %53, i64 noundef %117, i64 noundef %.0.sroa.speculated.i13.i, ptr %.val)
+  invoke fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h5a2d94674e7b4a3aE(ptr noalias noundef nonnull align 8 %53, i64 noundef %117, i64 noundef %.0.sroa.speculated.i13.i, ptr readonly %.val)
           to label %_ZN4core5slice4sort20provide_sorted_batch17h733e4fcd20c5eba3E.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .loopexit88:                                      ; preds = %104, %98, %.noexc45, %.preheader.i
@@ -30064,7 +30064,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17he0ba1a8be77fa193E.exit: ; preds
 53:                                               ; preds = %48
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 32
   call void @llvm.assume(i1 %26)
-  %55 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd38445f543f6ce27E"(ptr nonnull %.val, ptr noalias noundef readonly align 8 dereferenceable(32) %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %51)
+  %55 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd38445f543f6ce27E"(ptr nonnull readonly %.val, ptr noalias noundef readonly align 8 dereferenceable(32) %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %51)
           to label %.noexc43 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc43:                                         ; preds = %53
@@ -30089,7 +30089,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17he0ba1a8be77fa193E.exit: ; preds
   %.13.i = phi i64 [ %59, %58 ], [ 2, %.lr.ph.preheader.i ]
   %56 = getelementptr inbounds { i8, [31 x i8] }, ptr %51, i64 %.13.i
   %gep.i = getelementptr { i8, [31 x i8] }, ptr %invariant.gep.i, i64 %.13.i
-  %57 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd38445f543f6ce27E"(ptr nonnull %.val, ptr noalias noundef readonly align 8 dereferenceable(32) %56, ptr noalias noundef readonly align 8 dereferenceable(32) %gep.i)
+  %57 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd38445f543f6ce27E"(ptr nonnull readonly %.val, ptr noalias noundef readonly align 8 dereferenceable(32) %56, ptr noalias noundef readonly align 8 dereferenceable(32) %gep.i)
           to label %.noexc44 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc44:                                         ; preds = %.lr.ph.i
@@ -30104,7 +30104,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17he0ba1a8be77fa193E.exit: ; preds
   %.06.i = phi i64 [ %63, %62 ], [ 2, %.lr.ph7.preheader.i ]
   %60 = getelementptr inbounds { i8, [31 x i8] }, ptr %51, i64 %.06.i
   %gep18.i = getelementptr { i8, [31 x i8] }, ptr %invariant.gep17.i, i64 %.06.i
-  %61 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd38445f543f6ce27E"(ptr nonnull %.val, ptr noalias noundef readonly align 8 dereferenceable(32) %60, ptr noalias noundef readonly align 8 dereferenceable(32) %gep18.i)
+  %61 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd38445f543f6ce27E"(ptr nonnull readonly %.val, ptr noalias noundef readonly align 8 dereferenceable(32) %60, ptr noalias noundef readonly align 8 dereferenceable(32) %gep18.i)
           to label %.noexc45 unwind label %.loopexit.split-lp.loopexit
 
 .noexc45:                                         ; preds = %.lr.ph7.i
@@ -30207,7 +30207,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17he0ba1a8be77fa193E.exit: ; preds
   call void @llvm.experimental.noalias.scope.decl(metadata !10371)
   %81 = getelementptr { i8, [31 x i8] }, ptr %51, i64 %.sroa.01.04.i.i
   %82 = getelementptr i8, ptr %81, i64 -32
-  %83 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd38445f543f6ce27E"(ptr nonnull %.val, ptr noalias noundef readonly align 8 dereferenceable(32) %81, ptr noalias noundef readonly align 8 dereferenceable(32) %82)
+  %83 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd38445f543f6ce27E"(ptr nonnull readonly %.val, ptr noalias noundef readonly align 8 dereferenceable(32) %81, ptr noalias noundef readonly align 8 dereferenceable(32) %82)
           to label %.noexc49 unwind label %.loopexit84
 
 .noexc49:                                         ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h22363a8060229c3dE.exit.i.i"
@@ -30232,7 +30232,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17he0ba1a8be77fa193E.exit: ; preds
   %.sroa.5.08.i.i.i = phi ptr [ %87, %90 ], [ %82, %84 ]
   %86 = add i64 %.sroa.4.09.i.i.i, -1
   %87 = getelementptr inbounds { i8, [31 x i8] }, ptr %51, i64 %86
-  %88 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd38445f543f6ce27E"(ptr nonnull %.val, ptr noalias noundef readonly align 8 dereferenceable(32) %7, ptr noalias noundef readonly align 8 dereferenceable(32) %87)
+  %88 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd38445f543f6ce27E"(ptr nonnull readonly %.val, ptr noalias noundef readonly align 8 dereferenceable(32) %7, ptr noalias noundef readonly align 8 dereferenceable(32) %87)
           to label %89 unwind label %91
 
 89:                                               ; preds = %.lr.ph.i.i.i
@@ -30528,7 +30528,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h7ee7728882885153E.exit: ; preds = %_
   %.sroa.18.026.i = phi ptr [ %191, %.lr.ph29.i ], [ %208, %207 ]
   %204 = getelementptr inbounds i8, ptr %.sroa.10.027.i, i64 -32
   %205 = getelementptr inbounds i8, ptr %.sroa.18.026.i, i64 -32
-  %206 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd38445f543f6ce27E"(ptr nonnull %.val, ptr noalias noundef readonly align 8 dereferenceable(32) %204, ptr noalias noundef readonly align 8 dereferenceable(32) %205)
+  %206 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd38445f543f6ce27E"(ptr nonnull readonly %.val, ptr noalias noundef readonly align 8 dereferenceable(32) %204, ptr noalias noundef readonly align 8 dereferenceable(32) %205)
           to label %207 unwind label %.loopexit14.i
 
 207:                                              ; preds = %203
@@ -30549,7 +30549,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h7ee7728882885153E.exit: ; preds = %_
   %.02823.i = phi ptr [ %191, %.lr.ph.i65 ], [ %219, %216 ]
   %.sroa.0.222.i = phi ptr [ %16, %.lr.ph.i65 ], [ %222, %216 ]
   %.sroa.18.321.i = phi ptr [ %190, %.lr.ph.i65 ], [ %217, %216 ]
-  %215 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd38445f543f6ce27E"(ptr nonnull %.val, ptr noalias noundef readonly align 8 dereferenceable(32) %.02823.i, ptr noalias noundef readonly align 8 dereferenceable(32) %.sroa.0.222.i)
+  %215 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd38445f543f6ce27E"(ptr nonnull readonly %.val, ptr noalias noundef readonly align 8 dereferenceable(32) %.02823.i, ptr noalias noundef readonly align 8 dereferenceable(32) %.sroa.0.222.i)
           to label %216 unwind label %.loopexit.split-lp.i
 
 216:                                              ; preds = %214
@@ -30624,7 +30624,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h7ee7728882885153E.exit: ; preds = %_
   call void @llvm.experimental.noalias.scope.decl(metadata !10412)
   %241 = getelementptr { i8, [31 x i8] }, ptr %0, i64 %.sroa.01.04.i
   %242 = getelementptr i8, ptr %241, i64 -32
-  %243 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd38445f543f6ce27E"(ptr nonnull %.val33, ptr noalias noundef readonly align 8 dereferenceable(32) %241, ptr noalias noundef readonly align 8 dereferenceable(32) %242)
+  %243 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd38445f543f6ce27E"(ptr nonnull readonly %.val33, ptr noalias noundef readonly align 8 dereferenceable(32) %241, ptr noalias noundef readonly align 8 dereferenceable(32) %242)
   br i1 %243, label %244, label %_ZN4core5slice4sort11insert_tail17h803b4c0371e17978E.exit.i
 
 244:                                              ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h22363a8060229c3dE.exit.i"
@@ -30646,7 +30646,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h7ee7728882885153E.exit: ; preds = %_
   %.sroa.5.08.i.i = phi ptr [ %247, %250 ], [ %242, %244 ]
   %246 = add nsw i64 %.sroa.4.09.i.i, -1
   %247 = getelementptr inbounds { i8, [31 x i8] }, ptr %0, i64 %246
-  %248 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd38445f543f6ce27E"(ptr nonnull %.val33, ptr noalias noundef readonly align 8 dereferenceable(32) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %247)
+  %248 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hd38445f543f6ce27E"(ptr nonnull readonly %.val33, ptr noalias noundef readonly align 8 dereferenceable(32) %4, ptr noalias noundef readonly align 8 dereferenceable(32) %247)
           to label %249 unwind label %251
 
 249:                                              ; preds = %.lr.ph.i.i
@@ -77894,7 +77894,7 @@ define hidden { ptr, i64 } @"_ZN97_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$cor
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i64 } @"_ZN97_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h46deac67a1e71049E"(ptr noundef nonnull %0, ptr noundef captures(address) %1) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden { ptr, i64 } @"_ZN97_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h46deac67a1e71049E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #15 personality ptr @rust_eh_personality {
 "_ZN4ecow3vec15EcoVec$LT$T$GT$13with_capacity17h50ab655fdcdcda1eE.llvm.4930786928582598558.exit":
   %2 = alloca { ptr, i64, {} }, align 8
   %3 = icmp ne ptr %1, null
@@ -80453,7 +80453,7 @@ common.resume:                                    ; preds = %.body, %13
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i64 } @"_ZN97_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h7eb692c86e552283E"(ptr noundef nonnull %0, ptr noundef captures(address) %1) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden { ptr, i64 } @"_ZN97_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h7eb692c86e552283E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #15 personality ptr @rust_eh_personality {
 "_ZN4ecow3vec15EcoVec$LT$T$GT$13with_capacity17h5d0ce86e4bb9ef8bE.llvm.4930786928582598558.exit":
   %2 = alloca { ptr, i64, {} }, align 8
   %3 = icmp ne ptr %1, null

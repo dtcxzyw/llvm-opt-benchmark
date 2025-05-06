@@ -1384,7 +1384,7 @@ http_payload_subdissector.exit:                   ; preds = %addresses_equal.exi
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_http_tls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal i32 @dissect_http_tls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #21
   %6 = call fastcc ptr @get_http_conversation_data(ptr noundef %1, ptr noundef nonnull %5)
@@ -2482,7 +2482,7 @@ define internal noundef zeroext i1 @dissect_http_heur_tcp(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @dissect_http_heur_tls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @dissect_http_heur_tls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -2507,7 +2507,7 @@ define internal noundef zeroext i1 @dissect_http_heur_tls(ptr noundef %0, ptr no
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %15 = load i8, ptr %14, align 1, !range !9, !noundef !10
   %16 = trunc nuw i8 %15 to i1
-  %17 = tail call fastcc i32 @dissect_http_on_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %12, i1 noundef zeroext %16, ptr noundef nonnull %3)
+  %17 = tail call fastcc i32 @dissect_http_on_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %12, i1 noundef zeroext %16, ptr noundef nonnull readonly %3)
   br label %dissect_http_tls.exit
 
 dissect_http_tls.exit:                            ; preds = %.split.i, %.split11.i
@@ -2546,7 +2546,7 @@ dissect_http_tls.exit:                            ; preds = %.split.i, %.split11
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %29 = load i8, ptr %28, align 1, !range !9, !noundef !10
   %30 = trunc nuw i8 %29 to i1
-  %31 = call fastcc i32 @dissect_http_on_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %26, i1 noundef zeroext %30, ptr noundef nonnull %3)
+  %31 = call fastcc i32 @dissect_http_on_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %26, i1 noundef zeroext %30, ptr noundef nonnull readonly %3)
   br label %dissect_http_tls.exit26
 
 dissect_http_tls.exit26:                          ; preds = %.split.i25, %.split11.i23
@@ -2616,7 +2616,7 @@ define internal fastcc ptr @get_http_conversation_data(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_http_on_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_http_on_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %.thread

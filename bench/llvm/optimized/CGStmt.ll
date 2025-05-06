@@ -22854,7 +22854,7 @@ _ZN4llvm11SmallVectorIPKN5clang7VarDeclELj16EED2Ev.exit: ; preds = %172, %182
 declare void @_ZN5clang7CodeGen15CodeGenFunctionD1Ev(ptr noundef nonnull align 8 dereferenceable(6496)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction28GenerateCapturedStmtArgumentERKNS_12CapturedStmtE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::CodeGen::Address") align 8 captures(none) initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction28GenerateCapturedStmtArgumentERKNS_12CapturedStmtE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::CodeGen::Address") align 8 captures(none) initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::CodeGen::LValue", align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4) #19
   call void @_ZN5clang7CodeGen15CodeGenFunction18InitCapturedStructERKNS_12CapturedStmtE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::LValue") align 8 %4, ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
@@ -23980,7 +23980,7 @@ declare void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 der
 declare void @_ZN5clang7APValue24DestroyDataAndMakeUninitEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 3) i32 @_ZL24CollectStatementsForCasePKN5clang4StmtEPKNS_10SwitchCaseERbRN4llvm15SmallVectorImplIS2_EE(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 3) i32 @_ZL24CollectStatementsForCasePKN5clang4StmtEPKNS_10SwitchCaseERbRN4llvm15SmallVectorImplIS2_EE(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 {
   %.not145148 = icmp eq ptr %0, null
   br i1 %.not145148, label %tailrecurse.outer._crit_edge, label %.lr.ph
 

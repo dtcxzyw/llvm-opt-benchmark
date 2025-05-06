@@ -1157,7 +1157,7 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSetD2Ev(ptr noundef n
   %9 = getelementptr inbounds nuw i8, ptr %.val1, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !67
   %11 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
-  invoke fastcc void @"_ZN6google8protobuf8internal12ExtensionSet7ForEachISt17_Rb_tree_iteratorISt4pairIKiNS2_9ExtensionEEEZNS2_D1EvE3$_0EET0_T_SC_SB_"(ptr %10, ptr nonnull %11)
+  invoke fastcc void @"_ZN6google8protobuf8internal12ExtensionSet7ForEachISt17_Rb_tree_iteratorISt4pairIKiNS2_9ExtensionEEEZNS2_D1EvE3$_0EET0_T_SC_SB_"(ptr %10, ptr nonnull readonly %11)
           to label %"_ZN6google8protobuf8internal12ExtensionSet7ForEachIZNS2_D1EvE3$_0EET_S5_.exit" unwind label %.loopexit.split-lp
 
 12:                                               ; preds = %4
@@ -10983,7 +10983,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_111SizeOfUnionIPNS1_12ExtensionSet8KeyV
   %62 = getelementptr inbounds nuw i8, ptr %.val10, i64 24
   %63 = load ptr, ptr %62, align 8, !tbaa !67, !noalias !146
   %64 = getelementptr inbounds nuw i8, ptr %.val10, i64 8
-  call fastcc void @"_ZN6google8protobuf8internal12ExtensionSet7ForEachISt17_Rb_tree_iteratorISt4pairIKiNS2_9ExtensionEEEZNS2_9MergeFromEPKNS0_11MessageLiteERKS2_E3$_0EET0_T_SH_SG_"(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %63, ptr nonnull %64, ptr noundef nonnull byval(%class.anon.15) align 8 %4)
+  call fastcc void @"_ZN6google8protobuf8internal12ExtensionSet7ForEachISt17_Rb_tree_iteratorISt4pairIKiNS2_9ExtensionEEEZNS2_9MergeFromEPKNS0_11MessageLiteERKS2_E3$_0EET0_T_SH_SG_"(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %63, ptr nonnull readonly %64, ptr noundef nonnull byval(%class.anon.15) align 8 %4)
   br label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNS2_9MergeFromEPKNS0_11MessageLiteERKS2_E3$_0EET_SA_.exit"
 
 65:                                               ; preds = %57
@@ -24573,7 +24573,7 @@ define hidden noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet49Internal
   %12 = getelementptr inbounds nuw i8, ptr %.val4, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !67, !noalias !268
   %14 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
-  call fastcc void @"_ZN6google8protobuf8internal12ExtensionSet7ForEachISt17_Rb_tree_iteratorISt4pairIKiNS2_9ExtensionEEEZNKS2_49InternalSerializeMessageSetWithCachedSizesToArrayEPKNS0_11MessageLiteEPhPNS0_2io19EpsCopyOutputStreamEE3$_0EET0_T_SJ_SI_"(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %13, ptr nonnull %14, ptr noundef nonnull byval(%class.anon.18) align 8 %5)
+  call fastcc void @"_ZN6google8protobuf8internal12ExtensionSet7ForEachISt17_Rb_tree_iteratorISt4pairIKiNS2_9ExtensionEEEZNKS2_49InternalSerializeMessageSetWithCachedSizesToArrayEPKNS0_11MessageLiteEPhPNS0_2io19EpsCopyOutputStreamEE3$_0EET0_T_SJ_SI_"(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %13, ptr nonnull readonly %14, ptr noundef nonnull byval(%class.anon.18) align 8 %5)
   %.pre = load ptr, ptr %6, align 8, !tbaa !267
   br label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_49InternalSerializeMessageSetWithCachedSizesToArrayEPKNS0_11MessageLiteEPhPNS0_2io19EpsCopyOutputStreamEE3$_0EET_SC_.exit"
 

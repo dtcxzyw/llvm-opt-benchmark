@@ -2739,7 +2739,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen2hq13HQStreamCodec14generateHeaderERN5folly10IOBufQueueEmRKNS_11HTTPMessageEbPNS_14HTTPHeaderSizeERKNS2_8OptionalINS_11HTTPHeadersEEE(ptr noundef nonnull align 16 dereferenceable(536) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 %stream, ptr noundef nonnull align 8 dereferenceable(616) %msg, i1 zeroext %0, ptr noundef captures(address_is_null) %size, ptr noundef nonnull align 8 dereferenceable(40) %extraHeaders) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq13HQStreamCodec14generateHeaderERN5folly10IOBufQueueEmRKNS_11HTTPMessageEbPNS_14HTTPHeaderSizeERKNS2_8OptionalINS_11HTTPHeadersEEE(ptr noundef nonnull align 16 dereferenceable(536) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 %stream, ptr noundef nonnull align 8 dereferenceable(616) %msg, i1 zeroext %0, ptr noundef writeonly captures(address_is_null) %size, ptr noundef nonnull align 8 dereferenceable(40) %extraHeaders) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Optional.117", align 8
   store i8 0, ptr %agg.tmp, align 8
@@ -3001,7 +3001,7 @@ ehcleanup44:                                      ; preds = %ehcleanup, %lpad
 declare noundef zeroext i16 @_ZNK8proxygen11HTTPMessage13getStatusCodeEv(ptr noundef nonnull align 8 dereferenceable(616)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen2hq13HQStreamCodec19generatePushPromiseERN5folly10IOBufQueueEmRKNS_11HTTPMessageEmbPNS_14HTTPHeaderSizeE(ptr noundef nonnull align 16 dereferenceable(536) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 %stream, ptr noundef nonnull align 8 dereferenceable(616) %msg, i64 noundef %pushId, i1 zeroext %0, ptr noundef captures(address_is_null) %size) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq13HQStreamCodec19generatePushPromiseERN5folly10IOBufQueueEmRKNS_11HTTPMessageEmbPNS_14HTTPHeaderSizeE(ptr noundef nonnull align 16 dereferenceable(536) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 %stream, ptr noundef nonnull align 8 dereferenceable(616) %msg, i64 noundef %pushId, i1 zeroext %0, ptr noundef writeonly captures(address_is_null) %size) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Optional.117", align 8
   %ref.tmp25 = alloca %"class.folly::Optional.119", align 8

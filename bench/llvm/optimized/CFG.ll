@@ -5985,14 +5985,14 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang3CFG4dumpERKNS_11LangOptionsEb(ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(849) %1, i1 noundef zeroext %2) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZNK5clang3CFG4dumpERKNS_11LangOptionsEb(ptr noundef nonnull readonly align 8 captures(address_is_null) dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(849) %1, i1 noundef zeroext %2) local_unnamed_addr #2 align 2 {
   %4 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #26
   tail call void @_ZNK5clang3CFG5printERN4llvm11raw_ostreamERKNS_11LangOptionsEb(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(849) %1, i1 noundef zeroext %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang3CFG5printERN4llvm11raw_ostreamERKNS_11LangOptionsEb(ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(849) %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZNK5clang3CFG5printERN4llvm11raw_ostreamERKNS_11LangOptionsEb(ptr noundef nonnull readonly align 8 captures(address_is_null) dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(849) %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 {
   %5 = alloca %"class.(anonymous namespace)::StmtPrinterHelper", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #26
   call fastcc void @_ZN12_GLOBAL__N_117StmtPrinterHelperC2EPKN5clang3CFGERKNS1_11LangOptionsE(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(849) %2)
@@ -7677,14 +7677,14 @@ _ZN4llvm4findIRN5clang3CFGEPKNS1_8CFGBlockEEEDaOT_RKT0_.exit: ; preds = %14, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang8CFGBlock4dumpEPKNS_3CFGERKNS_11LangOptionsEb(ptr noundef nonnull align 8 captures(address) dereferenceable(120) %0, ptr noundef captures(address_is_null) %1, ptr noundef nonnull align 8 dereferenceable(849) %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZNK5clang8CFGBlock4dumpEPKNS_3CFGERKNS_11LangOptionsEb(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(120) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull align 8 dereferenceable(849) %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 {
   %5 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #26
   tail call void @_ZNK5clang8CFGBlock5printERN4llvm11raw_ostreamEPKNS_3CFGERKNS_11LangOptionsEb(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(849) %2, i1 noundef zeroext %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang8CFGBlock5printERN4llvm11raw_ostreamEPKNS_3CFGERKNS_11LangOptionsEb(ptr noundef nonnull align 8 captures(address) dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef captures(address_is_null) %2, ptr noundef nonnull align 8 dereferenceable(849) %3, i1 noundef zeroext %4) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZNK5clang8CFGBlock5printERN4llvm11raw_ostreamEPKNS_3CFGERKNS_11LangOptionsEb(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull align 8 dereferenceable(849) %3, i1 noundef zeroext %4) local_unnamed_addr #2 align 2 {
   %6 = alloca %"class.(anonymous namespace)::StmtPrinterHelper", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #26
   call fastcc void @_ZN12_GLOBAL__N_117StmtPrinterHelperC2EPKN5clang3CFGERKNS1_11LangOptionsE(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(849) %3)
@@ -7728,14 +7728,14 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %11, %13
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define dso_local void @_ZNK5clang8CFGBlock4dumpEv(ptr noundef nonnull align 8 captures(address) dereferenceable(120) %0) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZNK5clang8CFGBlock4dumpEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(120) %0) local_unnamed_addr #7 align 2 {
   %2 = alloca %"class.clang::LangOptions", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8, !tbaa !69
   call void @llvm.lifetime.start.p0(i64 856, ptr nonnull %2) #26
   call void @_ZN5clang11LangOptionsC1Ev(ptr noundef nonnull align 8 dereferenceable(849) %2) #26
   %5 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #26
-  call void @_ZNK5clang8CFGBlock5printERN4llvm11raw_ostreamEPKNS_3CFGERKNS_11LangOptionsEb(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(849) %2, i1 noundef zeroext false)
+  call void @_ZNK5clang8CFGBlock5printERN4llvm11raw_ostreamEPKNS_3CFGERKNS_11LangOptionsEb(ptr noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef readonly %4, ptr noundef nonnull align 8 dereferenceable(849) %2, i1 noundef zeroext false)
   call void @_ZN5clang11LangOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(849) %2) #26
   call void @llvm.lifetime.end.p0(i64 856, ptr nonnull %2) #26
   ret void

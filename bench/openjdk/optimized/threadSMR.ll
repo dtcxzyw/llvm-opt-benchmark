@@ -2088,7 +2088,7 @@ _ZN19ThreadScanHashtableD2Ev.exit:                ; preds = %_ZN19ThreadScanHash
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ThreadsSMRSupport13remove_threadEP10JavaThread(ptr noundef captures(address) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN17ThreadsSMRSupport13remove_threadEP10JavaThread(ptr noundef readnone captures(address) %0) local_unnamed_addr #1 align 2 {
   %2 = load volatile ptr, ptr @_ZN17ThreadsSMRSupport17_java_thread_listE, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %3 = tail call noundef ptr @_ZN11ThreadsList13remove_threadEPS_P10JavaThread(ptr noundef %2, ptr noundef %0)

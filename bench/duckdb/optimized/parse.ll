@@ -4761,7 +4761,7 @@ _ZN10duckdb_re2L15LookupPerlGroupERKNS_11StringPieceE.exit.thread: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 0, 3) i32 @_ZN10duckdb_re217ParseUnicodeGroupEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #9 {
+define hidden noundef range(i32 0, 3) i32 @_ZN10duckdb_re217ParseUnicodeGroupEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #9 {
   %5 = alloca i32, align 4
   %6 = alloca %"class.duckdb_re2::StringPiece", align 8
   %7 = alloca %"class.duckdb_re2::StringPiece", align 8
@@ -5437,7 +5437,7 @@ _ZN10duckdb_re216CharClassBuilderD2Ev.exit:       ; preds = %76
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re26Regexp10ParseState16ParseCCCharacterEPNS_11StringPieceEPiRKS2_PNS_12RegexpStatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #9 align 2 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re26Regexp10ParseState16ParseCCCharacterEPNS_11StringPieceEPiRKS2_PNS_12RegexpStatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !97
   %8 = icmp eq i64 %7, 0
@@ -5512,7 +5512,7 @@ _ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN10duckdb_re2L11ParseEscapeEPNS_11StringPieceEPiPNS_12RegexpStatusEi(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) unnamed_addr #9 {
+define internal fastcc noundef zeroext i1 @_ZN10duckdb_re2L11ParseEscapeEPNS_11StringPieceEPiPNS_12RegexpStatusEi(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) unnamed_addr #9 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = load ptr, ptr %0, align 8, !tbaa !93
@@ -5835,7 +5835,7 @@ _ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re26Regexp10ParseState12ParseCCRangeEPNS_11StringPieceEPNS_9RuneRangeERKS2_PNS_12RegexpStatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #9 align 2 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re26Regexp10ParseState12ParseCCRangeEPNS_11StringPieceEPNS_9RuneRangeERKS2_PNS_12RegexpStatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 align 2 {
   %.sroa.030.0.copyload = load ptr, ptr %1, align 8, !tbaa !17
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !97
@@ -6019,7 +6019,7 @@ _ZN10duckdb_re26Regexp10ParseState16ParseCCCharacterEPNS_11StringPieceEPiRKS2_PN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re26Regexp10ParseState14ParseCharClassEPNS_11StringPieceEPPS0_PNS_12RegexpStatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re26Regexp10ParseState14ParseCharClassEPNS_11StringPieceEPPS0_PNS_12RegexpStatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.duckdb_re2::StringPiece", align 8
   %6 = alloca i32, align 4
   %7 = alloca %"struct.duckdb_re2::RuneRange", align 4

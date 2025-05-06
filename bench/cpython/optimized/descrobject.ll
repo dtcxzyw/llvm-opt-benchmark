@@ -2276,7 +2276,7 @@ descr_new.exit.thread:                            ; preds = %34, %31, %29, %16, 
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @method_vectorcall_VARARGS(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal ptr @method_vectorcall_VARARGS(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %6 = load ptr, ptr %5, align 8, !tbaa !63
   %7 = and i64 %2, 9223372036854775807
@@ -2459,7 +2459,7 @@ Py_XDECREF.exit:                                  ; preds = %47, %44, %42, %Py_D
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @method_vectorcall_FASTCALL(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal ptr @method_vectorcall_FASTCALL(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %6 = load ptr, ptr %5, align 8, !tbaa !63
   %7 = and i64 %2, 9223372036854775807
@@ -2549,7 +2549,7 @@ method_enter_call.exit.thread:                    ; preds = %_Py_EnterRecursiveC
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @method_vectorcall_NOARGS(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal ptr @method_vectorcall_NOARGS(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %6 = load ptr, ptr %5, align 8, !tbaa !63
   %7 = and i64 %2, 9223372036854775807
@@ -2619,7 +2619,7 @@ Py_DECREF.exit:                                   ; preds = %_Py_EnterRecursiveC
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @method_vectorcall_O(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal ptr @method_vectorcall_O(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %6 = load ptr, ptr %5, align 8, !tbaa !63
   %7 = and i64 %2, 9223372036854775807

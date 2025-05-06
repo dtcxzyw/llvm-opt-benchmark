@@ -2629,7 +2629,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %66, %64, %29, %27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17PredicateExpander17expandCheckPseudoERNS_11raw_ostreamENS_8ArrayRefIPKNS_6RecordEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr captures(address) %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17PredicateExpander17expandCheckPseudoERNS_11raw_ostreamENS_8ArrayRefIPKNS_6RecordEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %6 = load i8, ptr %5, align 2, !tbaa !67, !range !19, !noundef !20
   %7 = trunc nuw i8 %6 to i1

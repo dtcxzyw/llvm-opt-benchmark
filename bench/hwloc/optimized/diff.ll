@@ -665,7 +665,7 @@ hwloc_append_diff.exit.i:                         ; preds = %299, %296
 declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @hwloc_diff_trees(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 1) i32 @hwloc_diff_trees(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #4 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load i32, ptr %6, align 8, !tbaa !97
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 48

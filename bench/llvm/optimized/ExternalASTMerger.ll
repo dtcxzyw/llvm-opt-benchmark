@@ -1337,7 +1337,7 @@ _ZNSt8_Rb_treeIPKN5clang11DeclContextESt4pairIKS3_NS0_17ExternalASTMerger8DCOrig
 declare noundef ptr @_ZN5clang11ASTImporter11MapImportedEPNS_4DeclES2_(ptr noundef nonnull align 8 dereferenceable(280360), ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang17ExternalASTMergerC2ERKNS0_14ImporterTargetEN4llvm8ArrayRefINS0_14ImporterSourceEEE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 40), (48, 52), (56, 64)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr captures(address) %2, i64 %3) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang17ExternalASTMergerC2ERKNS0_14ImporterTargetEN4llvm8ArrayRefINS0_14ImporterSourceEEE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 40), (48, 52), (56, 64)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr readonly captures(address) %2, i64 %3) unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8, !tbaa !467
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12

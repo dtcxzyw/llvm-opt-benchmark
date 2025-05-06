@@ -8970,7 +8970,7 @@ switch.edge.i.i25:                                ; preds = %64
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hd5df30f36b16af3cE(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 256)) %1, ptr captures(address_is_null) %.0.val) unnamed_addr #0 {
+define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hd5df30f36b16af3cE(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 256)) %1, ptr readonly captures(address_is_null) %.0.val) unnamed_addr #0 {
   %3 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %3)
   %4 = getelementptr i8, ptr %0, i64 112
@@ -12099,7 +12099,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc6220719
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_general17h79bfd1939346bdf4E(ptr noalias noundef nonnull align 8 captures(none) %0, i64 noundef range(i64 0, 33) %1, ptr captures(address_is_null) %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_general17h79bfd1939346bdf4E(ptr noalias noundef nonnull align 8 captures(none) %0, i64 noundef range(i64 0, 33) %1, ptr readonly captures(address_is_null) %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [3072 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 3072, ptr nonnull %4)
@@ -12116,10 +12116,10 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
 9:                                                ; preds = %6
   %10 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %10)
-  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hd5df30f36b16af3cE(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %4, ptr nonnull %.0.val)
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hd5df30f36b16af3cE(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %4, ptr nonnull readonly %.0.val)
   %11 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %0, i64 %7
   %12 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %4, i64 %7
-  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hd5df30f36b16af3cE(ptr noundef %11, ptr noundef %12, ptr nonnull %.0.val)
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hd5df30f36b16af3cE(ptr noundef %11, ptr noundef %12, ptr nonnull readonly %.0.val)
   br label %16
 
 13:                                               ; preds = %6
@@ -12177,7 +12177,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   %.sroa.0.0.val.i.i = load i64, ptr %33, align 8, !alias.scope !2956, !noalias !2950
   %34 = getelementptr i8, ptr %.sroa.0.010.i.i, i64 56
   %.sroa.0.0.val25.i.i = load double, ptr %34, align 8, !alias.scope !2956, !noalias !2950
-  %35 = invoke fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hf2dfb36cffd1461fE"(ptr nonnull %.0.val, i64 %.sroa.06.0.val.i.i, double %.sroa.06.0.val24.i.i, i64 %.sroa.0.0.val.i.i, double %.sroa.0.0.val25.i.i)
+  %35 = invoke fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hf2dfb36cffd1461fE"(ptr nonnull readonly %.0.val, i64 %.sroa.06.0.val.i.i, double %.sroa.06.0.val24.i.i, i64 %.sroa.0.0.val.i.i, double %.sroa.0.0.val25.i.i)
           to label %.noexc.i unwind label %.loopexit.i, !noalias !2950
 
 .noexc.i:                                         ; preds = %29
@@ -12191,7 +12191,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   %.sroa.013.0.val.i.i = load i64, ptr %38, align 8, !alias.scope !2956, !noalias !2950
   %39 = getelementptr i8, ptr %.sroa.013.07.i.i, i64 56
   %.sroa.013.0.val28.i.i = load double, ptr %39, align 8, !alias.scope !2956, !noalias !2950
-  %40 = invoke fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hf2dfb36cffd1461fE"(ptr nonnull %.0.val, i64 %.sroa.015.0.val.i.i, double %.sroa.015.0.val27.i.i, i64 %.sroa.013.0.val.i.i, double %.sroa.013.0.val28.i.i)
+  %40 = invoke fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hf2dfb36cffd1461fE"(ptr nonnull readonly %.0.val, i64 %.sroa.015.0.val.i.i, double %.sroa.015.0.val27.i.i, i64 %.sroa.013.0.val.i.i, double %.sroa.013.0.val28.i.i)
           to label %.noexc26.i unwind label %.loopexit.i, !noalias !2950
 
 .noexc26.i:                                       ; preds = %.noexc.i
@@ -12288,7 +12288,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   %.val19.i.i = load i64, ptr %78, align 8, !alias.scope !2953, !noalias !2975
   %79 = getelementptr i8, ptr %75, i64 -8
   %.val20.i.i = load double, ptr %79, align 8, !alias.scope !2953, !noalias !2975
-  %80 = call fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hf2dfb36cffd1461fE"(ptr nonnull %.0.val, i64 %.val17.i.i, double %.val18.i.i, i64 %.val19.i.i, double %.val20.i.i), !noalias !2950
+  %80 = call fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hf2dfb36cffd1461fE"(ptr nonnull readonly %.0.val, i64 %.val17.i.i, double %.val18.i.i, i64 %.val19.i.i, double %.val20.i.i), !noalias !2950
   br i1 %80, label %.preheader, label %_ZN4core5slice4sort6shared9smallsort11insert_tail17ha4acad00a705cb89E.llvm.5303619711544356246.exit.i
 
 .preheader:                                       ; preds = %.noexc28.i, %86
@@ -12303,7 +12303,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   %.val14.i.i = load i64, ptr %83, align 8, !alias.scope !2953, !noalias !2975
   %84 = getelementptr i8, ptr %.sroa.5.0.i.i, i64 -72
   %.val15.i.i = load double, ptr %84, align 8, !alias.scope !2953, !noalias !2975
-  %85 = invoke fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hf2dfb36cffd1461fE"(ptr nonnull %.0.val, i64 %.val17.i.i, double %.val18.i.i, i64 %.val14.i.i, double %.val15.i.i)
+  %85 = invoke fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hf2dfb36cffd1461fE"(ptr nonnull readonly %.0.val, i64 %.val17.i.i, double %.val18.i.i, i64 %.val14.i.i, double %.val15.i.i)
           to label %86 unwind label %88, !noalias !2975
 
 86:                                               ; preds = %82
@@ -18767,7 +18767,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h7c19ed3706567cf9E.exit: ; preds =
   %.sroa.0.0.i.i35 = phi ptr [ %124, %.noexc.i ], [ %75, %116 ]
   %121 = getelementptr inbounds i8, ptr %.sroa.13.0.i, i64 -96
   %122 = getelementptr inbounds i8, ptr %.sroa.7.0.i, i64 -96
-  %123 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull %.val, ptr noalias noundef readonly align 8 dereferenceable(96) %122, ptr noalias noundef readonly align 8 dereferenceable(96) %121)
+  %123 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull readonly %.val, ptr noalias noundef readonly align 8 dereferenceable(96) %122, ptr noalias noundef readonly align 8 dereferenceable(96) %121)
           to label %.noexc.i unwind label %.loopexit.i
 
 .noexc.i:                                         ; preds = %.preheader
@@ -18788,7 +18788,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h7c19ed3706567cf9E.exit: ; preds =
   %.sroa.13.1.i = phi ptr [ %138, %.noexc24.i ], [ %89, %116 ]
   %.sroa.0.0.i34 = phi ptr [ %135, %.noexc24.i ], [ %2, %116 ]
   %.sroa.0.02.i.i = phi ptr [ %137, %.noexc24.i ], [ %117, %116 ]
-  %132 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull %.val, ptr noalias noundef readonly align 8 dereferenceable(96) %.sroa.0.02.i.i, ptr noalias noundef readonly align 8 dereferenceable(96) %.sroa.0.0.i34)
+  %132 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull readonly %.val, ptr noalias noundef readonly align 8 dereferenceable(96) %.sroa.0.02.i.i, ptr noalias noundef readonly align 8 dereferenceable(96) %.sroa.0.0.i34)
           to label %.noexc24.i unwind label %.loopexit.split-lp.i
 
 .noexc24.i:                                       ; preds = %.lr.ph.i.i
@@ -25853,11 +25853,11 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h12
   %28 = getelementptr inbounds nuw i64, ptr %2, i64 %.sroa.12.0.lcssa
   %29 = icmp ne ptr %.val29, null
   call void @llvm.assume(i1 %29)
-  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable17hcb5ad358b3583244E(ptr noundef nonnull align 8 %.sroa.0.0.ph.lcssa110, ptr noundef nonnull align 8 %2, ptr noundef %28, ptr nonnull %.val29)
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable17hcb5ad358b3583244E(ptr noundef nonnull align 8 %.sroa.0.0.ph.lcssa110, ptr noundef nonnull align 8 %2, ptr noundef %28, ptr nonnull readonly %.val29)
   %30 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.ph.lcssa110, i64 %22
   %31 = getelementptr inbounds nuw i64, ptr %2, i64 %22
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 64
-  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable17hcb5ad358b3583244E(ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr nonnull %.val29)
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable17hcb5ad358b3583244E(ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr nonnull readonly %.val29)
   br label %100
 
 33:                                               ; preds = %25
@@ -26613,10 +26613,10 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h28
 25:                                               ; preds = %21
   %26 = icmp ne ptr %.val29, null
   call void @llvm.assume(i1 %26)
-  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h94d8e5d35eedaf29E(ptr noundef nonnull align 8 %.sroa.0.0.ph.lcssa91, ptr noundef nonnull align 8 %2, ptr nonnull %.val29)
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h94d8e5d35eedaf29E(ptr noundef nonnull align 8 %.sroa.0.0.ph.lcssa91, ptr noundef nonnull align 8 %2, ptr nonnull readonly %.val29)
   %27 = getelementptr inbounds nuw { { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.0.ph.lcssa91, i64 %22
   %28 = getelementptr inbounds nuw { { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { { i64, ptr, {} }, i64 } }, ptr %2, i64 %22
-  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h94d8e5d35eedaf29E(ptr noundef %27, ptr noundef %28, ptr nonnull %.val29)
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h94d8e5d35eedaf29E(ptr noundef %27, ptr noundef %28, ptr nonnull readonly %.val29)
   br label %32
 
 29:                                               ; preds = %21
@@ -30853,10 +30853,10 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h8b
   %26 = icmp ne ptr %.val29, null
   call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph.lcssa89, i64 96
-  %28 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull %.val29, ptr noalias noundef readonly align 8 dereferenceable(96) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %.sroa.0.0.ph.lcssa89), !noalias !6171
+  %28 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull readonly %.val29, ptr noalias noundef readonly align 8 dereferenceable(96) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %.sroa.0.0.ph.lcssa89), !noalias !6171
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph.lcssa89, i64 288
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph.lcssa89, i64 192
-  %31 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull %.val29, ptr noalias noundef readonly align 8 dereferenceable(96) %29, ptr noalias noundef readonly align 8 dereferenceable(96) %30), !noalias !6171
+  %31 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull readonly %.val29, ptr noalias noundef readonly align 8 dereferenceable(96) %29, ptr noalias noundef readonly align 8 dereferenceable(96) %30), !noalias !6171
   %32 = zext i1 %28 to i64
   %33 = getelementptr inbounds nuw { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, ptr %.sroa.0.0.ph.lcssa89, i64 %32
   %34 = xor i1 %28, true
@@ -30866,15 +30866,15 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h8b
   %38 = getelementptr inbounds nuw { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, ptr %.sroa.0.0.ph.lcssa89, i64 %37
   %39 = select i1 %31, i64 2, i64 3
   %40 = getelementptr inbounds nuw { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, ptr %.sroa.0.0.ph.lcssa89, i64 %39
-  %41 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull %.val29, ptr noalias noundef readonly align 8 dereferenceable(96) %38, ptr noalias noundef readonly align 8 dereferenceable(96) %33), !noalias !6171
-  %42 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull %.val29, ptr noalias noundef readonly align 8 dereferenceable(96) %40, ptr noalias noundef readonly align 8 dereferenceable(96) %36), !noalias !6171
+  %41 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull readonly %.val29, ptr noalias noundef readonly align 8 dereferenceable(96) %38, ptr noalias noundef readonly align 8 dereferenceable(96) %33), !noalias !6171
+  %42 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull readonly %.val29, ptr noalias noundef readonly align 8 dereferenceable(96) %40, ptr noalias noundef readonly align 8 dereferenceable(96) %36), !noalias !6171
   %..i.i = select i1 %41, ptr %38, ptr %33
   %.sroa.01.0.i.i = select i1 %42, ptr %36, ptr %40
   %.sroa.05.0.i.i = select i1 %42, ptr %38, ptr %36
   %.sroa.02.0.i.i = select i1 %41, ptr %33, ptr %.sroa.05.0.i.i
   %.sroa.09.0.i.i = select i1 %41, ptr %36, ptr %38
   %.sroa.06.0.i.i = select i1 %42, ptr %40, ptr %.sroa.09.0.i.i
-  %43 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull %.val29, ptr noalias noundef readonly align 8 dereferenceable(96) %.sroa.06.0.i.i, ptr noalias noundef readonly align 8 dereferenceable(96) %.sroa.02.0.i.i), !noalias !6171
+  %43 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull readonly %.val29, ptr noalias noundef readonly align 8 dereferenceable(96) %.sroa.06.0.i.i, ptr noalias noundef readonly align 8 dereferenceable(96) %.sroa.02.0.i.i), !noalias !6171
   %.sroa.010.0.i.i = select i1 %43, ptr %.sroa.06.0.i.i, ptr %.sroa.02.0.i.i
   %.sroa.011.0.i.i = select i1 %43, ptr %.sroa.02.0.i.i, ptr %.sroa.06.0.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(96) %..i.i, i64 96, i1 false), !alias.scope !6173
@@ -30887,10 +30887,10 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h8b
   %47 = getelementptr inbounds nuw { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, ptr %.sroa.0.0.ph.lcssa89, i64 %22
   %48 = getelementptr inbounds nuw { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, ptr %2, i64 %22
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 96
-  %50 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull %.val29, ptr noalias noundef readonly align 8 dereferenceable(96) %49, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %47), !noalias !6171
+  %50 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull readonly %.val29, ptr noalias noundef readonly align 8 dereferenceable(96) %49, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %47), !noalias !6171
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 288
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 192
-  %53 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull %.val29, ptr noalias noundef readonly align 8 dereferenceable(96) %51, ptr noalias noundef readonly align 8 dereferenceable(96) %52), !noalias !6171
+  %53 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull readonly %.val29, ptr noalias noundef readonly align 8 dereferenceable(96) %51, ptr noalias noundef readonly align 8 dereferenceable(96) %52), !noalias !6171
   %54 = zext i1 %50 to i64
   %55 = getelementptr inbounds nuw { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, ptr %47, i64 %54
   %56 = xor i1 %50, true
@@ -30900,15 +30900,15 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h8b
   %60 = getelementptr inbounds nuw { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, ptr %47, i64 %59
   %61 = select i1 %53, i64 2, i64 3
   %62 = getelementptr inbounds nuw { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, ptr %47, i64 %61
-  %63 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull %.val29, ptr noalias noundef readonly align 8 dereferenceable(96) %60, ptr noalias noundef readonly align 8 dereferenceable(96) %55), !noalias !6171
-  %64 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull %.val29, ptr noalias noundef readonly align 8 dereferenceable(96) %62, ptr noalias noundef readonly align 8 dereferenceable(96) %58), !noalias !6171
+  %63 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull readonly %.val29, ptr noalias noundef readonly align 8 dereferenceable(96) %60, ptr noalias noundef readonly align 8 dereferenceable(96) %55), !noalias !6171
+  %64 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull readonly %.val29, ptr noalias noundef readonly align 8 dereferenceable(96) %62, ptr noalias noundef readonly align 8 dereferenceable(96) %58), !noalias !6171
   %..i26.i = select i1 %63, ptr %60, ptr %55
   %.sroa.01.0.i27.i = select i1 %64, ptr %58, ptr %62
   %.sroa.05.0.i28.i = select i1 %64, ptr %60, ptr %58
   %.sroa.02.0.i29.i = select i1 %63, ptr %55, ptr %.sroa.05.0.i28.i
   %.sroa.09.0.i30.i = select i1 %63, ptr %58, ptr %60
   %.sroa.06.0.i31.i = select i1 %64, ptr %62, ptr %.sroa.09.0.i30.i
-  %65 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull %.val29, ptr noalias noundef readonly align 8 dereferenceable(96) %.sroa.06.0.i31.i, ptr noalias noundef readonly align 8 dereferenceable(96) %.sroa.02.0.i29.i), !noalias !6171
+  %65 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull readonly %.val29, ptr noalias noundef readonly align 8 dereferenceable(96) %.sroa.06.0.i31.i, ptr noalias noundef readonly align 8 dereferenceable(96) %.sroa.02.0.i29.i), !noalias !6171
   %.sroa.010.0.i32.i = select i1 %65, ptr %.sroa.06.0.i31.i, ptr %.sroa.02.0.i29.i
   %.sroa.011.0.i33.i = select i1 %65, ptr %.sroa.02.0.i29.i, ptr %.sroa.06.0.i31.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %48, ptr noundef nonnull align 8 dereferenceable(96) %..i26.i, i64 96, i1 false), !alias.scope !6173
@@ -30967,13 +30967,13 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h8b
   %.sroa.017.05.i.i = phi ptr [ %80, %75 ], [ %98, %.noexc34.i ]
   %.sroa.018.04.i.i = phi i64 [ 0, %75 ], [ %86, %.noexc34.i ]
   %86 = add nuw nsw i64 %.sroa.018.04.i.i, 1
-  %87 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull %.val29, ptr noalias noundef readonly align 8 dereferenceable(96) %.sroa.06.09.i.i, ptr noalias noundef readonly align 8 dereferenceable(96) %.sroa.0.010.i.i)
+  %87 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull readonly %.val29, ptr noalias noundef readonly align 8 dereferenceable(96) %.sroa.06.09.i.i, ptr noalias noundef readonly align 8 dereferenceable(96) %.sroa.0.010.i.i)
           to label %.noexc.i unwind label %.loopexit.i
 
 .noexc.i:                                         ; preds = %85
   %..i23.i.i = select i1 %87, ptr %.sroa.06.09.i.i, ptr %.sroa.0.010.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.010.08.i.i, ptr noundef nonnull align 8 dereferenceable(96) %..i23.i.i, i64 96, i1 false), !alias.scope !6173, !noalias !6174
-  %88 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull %.val29, ptr noalias noundef readonly align 8 dereferenceable(96) %.sroa.015.06.i.i, ptr noalias noundef readonly align 8 dereferenceable(96) %.sroa.013.07.i.i)
+  %88 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull readonly %.val29, ptr noalias noundef readonly align 8 dereferenceable(96) %.sroa.015.06.i.i, ptr noalias noundef readonly align 8 dereferenceable(96) %.sroa.013.07.i.i)
           to label %.noexc34.i unwind label %.loopexit.i
 
 .noexc34.i:                                       ; preds = %.noexc.i
@@ -31063,7 +31063,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h8b
   %123 = getelementptr inbounds { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, ptr %116, i64 %.sroa.014.010.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %123, ptr noundef nonnull align 8 dereferenceable(96) %122, i64 96, i1 false), !alias.scope !6173
   %124 = getelementptr inbounds i8, ptr %123, i64 -96
-  %125 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull %.val29, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %123, ptr noalias noundef readonly align 8 dereferenceable(96) %124)
+  %125 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull readonly %.val29, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %123, ptr noalias noundef readonly align 8 dereferenceable(96) %124)
   br i1 %125, label %126, label %_ZN4core5slice4sort6shared9smallsort11insert_tail17ha74e6f70ae1791bcE.llvm.5303619711544356246.exit.i
 
 126:                                              ; preds = %.noexc36.i
@@ -31080,7 +31080,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h8b
 
 129:                                              ; preds = %127
   %130 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 -96
-  %131 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull %.val29, ptr noalias noundef readonly align 8 dereferenceable(96) %8, ptr noalias noundef readonly align 8 dereferenceable(96) %130)
+  %131 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull readonly %.val29, ptr noalias noundef readonly align 8 dereferenceable(96) %8, ptr noalias noundef readonly align 8 dereferenceable(96) %130)
           to label %132 unwind label %134, !noalias !6194
 
 132:                                              ; preds = %129
@@ -31194,7 +31194,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h17b9f636
   %.sroa.19.113.i = phi ptr [ %.sroa.19.0.i, %.lr.ph.i ], [ %170, %168 ]
   %.sroa.5.112.i = phi ptr [ %.sroa.5.0.i, %.lr.ph.i ], [ %174, %168 ]
   %.sroa.11.111.i = phi i64 [ %.sroa.11.0.i, %.lr.ph.i ], [ %173, %168 ]
-  %169 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull %.val30, ptr noalias noundef readonly align 8 dereferenceable(96) %.sroa.5.112.i, ptr noalias noundef readonly align 8 dereferenceable(96) %160), !noalias !6210
+  %169 = call fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h89b9d9dc7d992c8aE"(ptr nonnull readonly %.val30, ptr noalias noundef readonly align 8 dereferenceable(96) %.sroa.5.112.i, ptr noalias noundef readonly align 8 dereferenceable(96) %160), !noalias !6210
   %170 = getelementptr inbounds i8, ptr %.sroa.19.113.i, i64 -96
   %.sroa.01.0.i.i36 = select i1 %169, ptr %2, ptr %170
   %171 = getelementptr inbounds { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, ptr %.sroa.01.0.i.i36, i64 %.sroa.11.111.i
@@ -31408,10 +31408,10 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h90
 25:                                               ; preds = %21
   %26 = icmp ne ptr %.val29, null
   call void @llvm.assume(i1 %26)
-  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h3030c0787687d4c0E(ptr noundef nonnull align 8 %.sroa.0.0.ph.lcssa91, ptr noundef nonnull align 8 %2, ptr nonnull %.val29)
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h3030c0787687d4c0E(ptr noundef nonnull align 8 %.sroa.0.0.ph.lcssa91, ptr noundef nonnull align 8 %2, ptr nonnull readonly %.val29)
   %27 = getelementptr inbounds nuw { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, ptr %.sroa.0.0.ph.lcssa91, i64 %22
   %28 = getelementptr inbounds nuw { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, ptr %2, i64 %22
-  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h3030c0787687d4c0E(ptr noundef %27, ptr noundef %28, ptr nonnull %.val29)
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h3030c0787687d4c0E(ptr noundef %27, ptr noundef %28, ptr nonnull readonly %.val29)
   br label %32
 
 29:                                               ; preds = %21
@@ -36579,10 +36579,10 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hf8
 25:                                               ; preds = %21
   %26 = icmp ne ptr %.val29, null
   call void @llvm.assume(i1 %26)
-  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h19d3313bdcfa5ac8E(ptr noundef nonnull align 8 %.sroa.0.0.ph.lcssa91, ptr noundef nonnull align 8 %2, ptr nonnull %.val29)
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h19d3313bdcfa5ac8E(ptr noundef nonnull align 8 %.sroa.0.0.ph.lcssa91, ptr noundef nonnull align 8 %2, ptr nonnull readonly %.val29)
   %27 = getelementptr inbounds nuw { { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.0.ph.lcssa91, i64 %22
   %28 = getelementptr inbounds nuw { { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { { i64, ptr, {} }, i64 } }, ptr %2, i64 %22
-  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h19d3313bdcfa5ac8E(ptr noundef %27, ptr noundef %28, ptr nonnull %.val29)
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h19d3313bdcfa5ac8E(ptr noundef %27, ptr noundef %28, ptr nonnull readonly %.val29)
   br label %32
 
 29:                                               ; preds = %21
@@ -51598,7 +51598,7 @@ _ZN4core5slice4sort6shared9smallsort11insert_tail17hf9cd5cae3fd06d54E.llvm.53036
   %46 = getelementptr inbounds { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { i64, ptr, {} }, i64 }, { i32, i16, [1 x i16] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] } } }, ptr %.sroa.0.0109, i64 %41
   %47 = getelementptr inbounds { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { i64, ptr, {} }, i64 }, { i32, i16, [1 x i16] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] } } }, ptr %.sroa.0.0109, i64 %43
   tail call void @llvm.assume(i1 %35)
-  %48 = tail call fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5751c1a9d02d00d5E"(ptr nonnull %.val26, ptr noalias noundef readonly align 8 dereferenceable(112) %46, ptr noalias noundef readonly align 8 dereferenceable(112) %47)
+  %48 = tail call fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5751c1a9d02d00d5E"(ptr nonnull readonly %.val26, ptr noalias noundef readonly align 8 dereferenceable(112) %46, ptr noalias noundef readonly align 8 dereferenceable(112) %47)
   %49 = zext i1 %48 to i64
   %50 = add nuw i64 %41, %49
   br label %51
@@ -51608,7 +51608,7 @@ _ZN4core5slice4sort6shared9smallsort11insert_tail17hf9cd5cae3fd06d54E.llvm.53036
   %52 = getelementptr inbounds { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { i64, ptr, {} }, i64 }, { i32, i16, [1 x i16] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] } } }, ptr %.sroa.0.0109, i64 %.sroa.0.02.i.i
   %53 = getelementptr inbounds { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { i64, ptr, {} }, i64 }, { i32, i16, [1 x i16] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] } } }, ptr %.sroa.0.0109, i64 %.sroa.04.0.i.i
   tail call void @llvm.assume(i1 %35)
-  %54 = tail call fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5751c1a9d02d00d5E"(ptr nonnull %.val26, ptr noalias noundef readonly align 8 dereferenceable(112) %52, ptr noalias noundef readonly align 8 dereferenceable(112) %53)
+  %54 = tail call fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5751c1a9d02d00d5E"(ptr nonnull readonly %.val26, ptr noalias noundef readonly align 8 dereferenceable(112) %52, ptr noalias noundef readonly align 8 dereferenceable(112) %53)
   br i1 %54, label %55, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17hdf8473f47b869f27E.exit.i
 
 55:                                               ; preds = %51
@@ -51653,7 +51653,7 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17hdf8473f47b869f27E.exit.i: ; pr
   %66 = getelementptr inbounds { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { i64, ptr, {} }, i64 }, { i32, i16, [1 x i16] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] } } }, ptr %.sroa.0.0109, i64 %61
   %67 = getelementptr inbounds { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { i64, ptr, {} }, i64 }, { i32, i16, [1 x i16] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] } } }, ptr %.sroa.0.0109, i64 %63
   tail call void @llvm.assume(i1 %35)
-  %68 = tail call fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5751c1a9d02d00d5E"(ptr nonnull %.val26, ptr noalias noundef readonly align 8 dereferenceable(112) %66, ptr noalias noundef readonly align 8 dereferenceable(112) %67)
+  %68 = tail call fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5751c1a9d02d00d5E"(ptr nonnull readonly %.val26, ptr noalias noundef readonly align 8 dereferenceable(112) %66, ptr noalias noundef readonly align 8 dereferenceable(112) %67)
   %69 = zext i1 %68 to i64
   %70 = add nuw i64 %61, %69
   br label %71
@@ -51663,7 +51663,7 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17hdf8473f47b869f27E.exit.i: ; pr
   %72 = getelementptr inbounds { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { i64, ptr, {} }, i64 }, { i32, i16, [1 x i16] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] } } }, ptr %.sroa.0.0109, i64 %.sroa.0.02.i14.i
   %73 = getelementptr inbounds { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { i64, ptr, {} }, i64 }, { i32, i16, [1 x i16] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] } } }, ptr %.sroa.0.0109, i64 %.sroa.04.0.i15.i
   tail call void @llvm.assume(i1 %35)
-  %74 = tail call fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5751c1a9d02d00d5E"(ptr nonnull %.val26, ptr noalias noundef readonly align 8 dereferenceable(112) %72, ptr noalias noundef readonly align 8 dereferenceable(112) %73)
+  %74 = tail call fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5751c1a9d02d00d5E"(ptr nonnull readonly %.val26, ptr noalias noundef readonly align 8 dereferenceable(112) %72, ptr noalias noundef readonly align 8 dereferenceable(112) %73)
   br i1 %74, label %75, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17hdf8473f47b869f27E.exit17.i
 
 75:                                               ; preds = %71
@@ -51773,7 +51773,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h6251887df0063ac3E.exit: ; preds
 
 111:                                              ; preds = %117, %.lr.ph.i.i33
   %.sroa.01.034.i.i = phi ptr [ %.sroa.01.0.ph.i.i, %.lr.ph.i.i33 ], [ %118, %117 ]
-  %112 = invoke fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5751c1a9d02d00d5E"(ptr nonnull %.val27, ptr noalias noundef readonly align 8 dereferenceable(112) %.sroa.01.034.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %.sroa.0.0109)
+  %112 = invoke fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5751c1a9d02d00d5E"(ptr nonnull readonly %.val27, ptr noalias noundef readonly align 8 dereferenceable(112) %.sroa.01.034.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %.sroa.0.0109)
           to label %116 unwind label %.loopexit.split-lp.i.i
 
 ._crit_edge.i.i:                                  ; preds = %117, %116, %.outer.i.i
@@ -51819,7 +51819,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h6251887df0063ac3E.exit: ; preds
 
 122:                                              ; preds = %120
   tail call void @llvm.assume(i1 %109)
-  %123 = invoke fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5751c1a9d02d00d5E"(ptr nonnull %.val27, ptr noalias noundef readonly align 8 dereferenceable(112) %121, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %.sroa.0.0109)
+  %123 = invoke fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5751c1a9d02d00d5E"(ptr nonnull readonly %.val27, ptr noalias noundef readonly align 8 dereferenceable(112) %121, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %.sroa.0.0109)
           to label %124 unwind label %.loopexit.i.i
 
 124:                                              ; preds = %122
@@ -55298,7 +55298,7 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
   %.val21.i.i = load i64, ptr %32, align 8, !alias.scope !13898
   %33 = getelementptr i8, ptr %29, i64 56
   %.val22.i.i = load double, ptr %33, align 8, !alias.scope !13898
-  %34 = tail call fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hf2dfb36cffd1461fE"(ptr nonnull %.val30, i64 %.val19.i.i, double %.val20.i.i, i64 %.val21.i.i, double %.val22.i.i), !noalias !13898
+  %34 = tail call fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hf2dfb36cffd1461fE"(ptr nonnull readonly %.val30, i64 %.val19.i.i, double %.val20.i.i, i64 %.val21.i.i, double %.val22.i.i), !noalias !13898
   %35 = zext i1 %34 to i64
   %36 = add nuw i64 %23, %35
   br label %37
@@ -55316,7 +55316,7 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
   %.val16.i.i = load i64, ptr %42, align 8, !alias.scope !13898
   %43 = getelementptr i8, ptr %39, i64 56
   %.val17.i.i = load double, ptr %43, align 8, !alias.scope !13898
-  %44 = tail call fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hf2dfb36cffd1461fE"(ptr nonnull %.val30, i64 %.val14.i.i, double %.val15.i.i, i64 %.val16.i.i, double %.val17.i.i), !noalias !13898
+  %44 = tail call fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hf2dfb36cffd1461fE"(ptr nonnull readonly %.val30, i64 %.val14.i.i, double %.val15.i.i, i64 %.val16.i.i, double %.val17.i.i), !noalias !13898
   br i1 %44, label %45, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h13f69aefcdd92ce8E.exit.i
 
 45:                                               ; preds = %37
@@ -55370,7 +55370,7 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17h13f69aefcdd92ce8E.exit.i: ; pr
   %.val21.i23.i = load i64, ptr %60, align 8, !alias.scope !13907
   %61 = getelementptr i8, ptr %57, i64 56
   %.val22.i24.i = load double, ptr %61, align 8, !alias.scope !13907
-  %62 = tail call fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hf2dfb36cffd1461fE"(ptr nonnull %.val30, i64 %.val19.i21.i, double %.val20.i22.i, i64 %.val21.i23.i, double %.val22.i24.i), !noalias !13907
+  %62 = tail call fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hf2dfb36cffd1461fE"(ptr nonnull readonly %.val30, i64 %.val19.i21.i, double %.val20.i22.i, i64 %.val21.i23.i, double %.val22.i24.i), !noalias !13907
   %63 = zext i1 %62 to i64
   %64 = add nuw i64 %51, %63
   br label %65
@@ -55388,7 +55388,7 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17h13f69aefcdd92ce8E.exit.i: ; pr
   %.val16.i18.i = load i64, ptr %70, align 8, !alias.scope !13907
   %71 = getelementptr i8, ptr %67, i64 56
   %.val17.i19.i = load double, ptr %71, align 8, !alias.scope !13907
-  %72 = tail call fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hf2dfb36cffd1461fE"(ptr nonnull %.val30, i64 %.val14.i16.i, double %.val15.i17.i, i64 %.val16.i18.i, double %.val17.i19.i), !noalias !13907
+  %72 = tail call fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hf2dfb36cffd1461fE"(ptr nonnull readonly %.val30, i64 %.val14.i16.i, double %.val15.i17.i, i64 %.val16.i18.i, double %.val17.i19.i), !noalias !13907
   br i1 %72, label %73, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h13f69aefcdd92ce8E.exit25.i
 
 73:                                               ; preds = %65
@@ -55552,7 +55552,7 @@ _ZN4core5slice4sort8unstable8heapsort8heapsort17h64aebf52eb26bd6aE.exit: ; preds
   %.val3.i.i.i = load i64, ptr %124, align 8, !alias.scope !13928, !noalias !13935, !noundef !4
   %125 = getelementptr i8, ptr %.sroa.13.170.i.i, i64 56
   %.val4.i.i.i = load double, ptr %125, align 8, !alias.scope !13928, !noalias !13935
-  %126 = invoke fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hf2dfb36cffd1461fE"(ptr nonnull %.val31, i64 %.val3.i.i.i, double %.val4.i.i.i, i64 %.val5.i13.pre.i.i, double %.val6.i14.pre.i.i)
+  %126 = invoke fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hf2dfb36cffd1461fE"(ptr nonnull readonly %.val31, i64 %.val3.i.i.i, double %.val4.i.i.i, i64 %.val5.i13.pre.i.i, double %.val6.i14.pre.i.i)
           to label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h1aadc6446e9de610E.exit.i.i" unwind label %.loopexit.i.i, !noalias !13926
 
 "_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h1aadc6446e9de610E.exit.i.i": ; preds = %.lr.ph72.i.i
@@ -55570,7 +55570,7 @@ _ZN4core5slice4sort8unstable8heapsort8heapsort17h64aebf52eb26bd6aE.exit: ; preds
   %.sroa.23.1.lcssa.i.i = phi i64 [ %.sroa.23.0.lcssa.i.i, %.preheader.i.i ], [ %129, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h1aadc6446e9de610E.exit.i.i" ]
   %132 = icmp ne ptr %.val31, null
   tail call void @llvm.assume(i1 %132)
-  %133 = invoke fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hf2dfb36cffd1461fE"(ptr nonnull %.val31, i64 %.sroa.4.0.copyload.i.i, double %.sroa.548.0.copyload.i.i, i64 %.val5.i13.pre.i.i, double %.val6.i14.pre.i.i)
+  %133 = invoke fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hf2dfb36cffd1461fE"(ptr nonnull readonly %.val31, i64 %.sroa.4.0.copyload.i.i, double %.sroa.548.0.copyload.i.i, i64 %.val5.i13.pre.i.i, double %.val6.i14.pre.i.i)
           to label %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h1b45f9b61f3aebecE.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !13926
 
 134:                                              ; preds = %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h1aadc6446e9de610E.exit21.i.i", %.lr.ph.i.i34
@@ -55581,7 +55581,7 @@ _ZN4core5slice4sort8unstable8heapsort8heapsort17h64aebf52eb26bd6aE.exit: ; preds
   %.val3.i17.i.i = load i64, ptr %135, align 8, !alias.scope !13928, !noalias !13939, !noundef !4
   %136 = getelementptr i8, ptr %.sroa.028.064.i.i, i64 120
   %.val4.i18.i.i = load double, ptr %136, align 8, !alias.scope !13928, !noalias !13939
-  %137 = invoke fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hf2dfb36cffd1461fE"(ptr nonnull %.val31, i64 %.val3.i17.i.i, double %.val4.i18.i.i, i64 %.val5.i19.i.i, double %.val6.i20.i.i)
+  %137 = invoke fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hf2dfb36cffd1461fE"(ptr nonnull readonly %.val31, i64 %.val3.i17.i.i, double %.val4.i18.i.i, i64 %.val5.i19.i.i, double %.val6.i20.i.i)
           to label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h1aadc6446e9de610E.exit21.i.i" unwind label %.loopexit.split-lp.loopexit.i.i, !noalias !13926
 
 "_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h1aadc6446e9de610E.exit21.i.i": ; preds = %134

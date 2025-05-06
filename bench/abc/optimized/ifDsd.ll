@@ -2906,7 +2906,7 @@ define range(i32 0, 2) i32 @If_DsdManCheckNonDec_rec(ptr noundef readonly captur
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @If_DsdManPrint_rec(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(none) %4) local_unnamed_addr #13 {
+define void @If_DsdManPrint_rec(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef captures(none) %4) local_unnamed_addr #13 {
   %6 = and i32 %2, 1
   %.not = icmp eq i32 %6, 0
   %7 = select i1 %.not, ptr @.str.11, ptr @.str.10
@@ -3109,7 +3109,7 @@ Abc_TtPrintHexRev.exit:                           ; preds = %..loopexit_crit_edg
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: nofree nounwind uwtable
-define void @If_DsdManPrintOne(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #13 {
+define void @If_DsdManPrintOne(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #13 {
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #39
   store i32 0, ptr %6, align 4, !tbaa !40
@@ -12119,7 +12119,7 @@ Abc_TtEqual.exit:                                 ; preds = %.lr.ph.i
   %75 = and i32 %74, 1
   %76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.18, i32 noundef %75) #39
   %77 = and i32 %41, -2
-  call void @If_DsdManPrint_rec(ptr noundef %51, ptr noundef readonly %0, i32 noundef %77, ptr noundef %3, ptr noundef nonnull %6)
+  call void @If_DsdManPrint_rec(ptr noundef %51, ptr noundef readonly %0, i32 noundef %77, ptr noundef readonly %3, ptr noundef nonnull %6)
   %fputc.i = call i32 @fputc(i32 10, ptr %51)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #39
   %putchar27 = call i32 @putchar(i32 10)

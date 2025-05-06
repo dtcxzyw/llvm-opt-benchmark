@@ -8195,7 +8195,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesReader19lookupObjCClassInfoEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.clang::api_notes::APINotesReader::VersionedInfo") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr captures(address) %2, i64 %3) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesReader19lookupObjCClassInfoEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.clang::api_notes::APINotesReader::VersionedInfo") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #2 align 2 {
   %5 = alloca %"class.llvm::OnDiskChainedHashTable<clang::api_notes::(anonymous namespace)::ContextInfoTableInfo>::iterator", align 8
   %6 = alloca %"class.llvm::SmallVector.181", align 8
   %7 = load ptr, ptr %1, align 8, !tbaa !475
@@ -9166,7 +9166,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesReader22lookupObjCProtocolInfoEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.clang::api_notes::APINotesReader::VersionedInfo") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr captures(address) %2, i64 %3) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesReader22lookupObjCProtocolInfoEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.clang::api_notes::APINotesReader::VersionedInfo") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #2 align 2 {
   %5 = alloca %"class.llvm::OnDiskChainedHashTable<clang::api_notes::(anonymous namespace)::ContextInfoTableInfo>::iterator", align 8
   %6 = alloca %"class.llvm::SmallVector.181", align 8
   %7 = load ptr, ptr %1, align 8, !tbaa !475

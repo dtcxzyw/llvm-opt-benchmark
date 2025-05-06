@@ -126,7 +126,7 @@ define hidden void @"_ZN13generic_array25ArrayBuilder$LT$T$C$N$GT$13iter_positio
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noalias noundef align 8 ptr @"_ZN16wasmtime_environ8tunables1_88_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..tunables..Tunables$GT$9serialize17hd47627bf9463f2f8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden noalias noundef align 8 ptr @"_ZN16wasmtime_environ8tunables1_88_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..tunables..Tunables$GT$9serialize17hd47627bf9463f2f8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %.val114 = load i64, ptr %0, align 8, !noundef !11
   %.val1.i = load ptr, ptr %1, align 8, !alias.scope !12, !noalias !17, !nonnull !11, !align !19, !noundef !11
   %3 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 16

@@ -6520,7 +6520,7 @@ _ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE.exit
 declare noundef ptr @_ZN4llvm13VectorBuilder21createSimpleReductionEjPNS_4TypeENS_8ArrayRefIPNS_5ValueEEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef, ptr, i64, ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm15createReductionERNS_13IRBuilderBaseERKNS_20RecurrenceDescriptorEPNS_5ValueEPNS_7PHINodeE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(164) %1, ptr noundef %2, ptr noundef captures(address) %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @_ZN4llvm15createReductionERNS_13IRBuilderBaseERKNS_20RecurrenceDescriptorEPNS_5ValueEPNS_7PHINodeE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(164) %1, ptr noundef %2, ptr noundef readonly captures(address) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i32, ptr %5, align 8, !tbaa !368
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96

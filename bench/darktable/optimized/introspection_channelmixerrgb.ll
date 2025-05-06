@@ -756,7 +756,7 @@ declare void @dt_gui_presets_update_autoapply(ptr noundef, ptr noundef, i32 noun
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @illuminant_to_xy(i32 noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, float noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #10 {
+define internal fastcc void @illuminant_to_xy(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, float noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #10 {
   %9 = alloca float, align 4
   %10 = alloca float, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #27

@@ -2935,7 +2935,7 @@ define dso_local ptr @_PyType_Name(ptr noundef readonly captures(none) %0) local
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyType_GetFullyQualifiedName(ptr noundef captures(address) %0, i8 noundef signext %1) local_unnamed_addr #1 {
+define hidden ptr @_PyType_GetFullyQualifiedName(ptr noundef readonly captures(address) %0, i8 noundef signext %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load i64, ptr %3, align 8, !tbaa !108
   %5 = and i64 %4, 512
@@ -3176,7 +3176,7 @@ declare i32 @_PyUnicode_Equal(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyType_GetFullyQualifiedName(ptr noundef captures(address) %0) local_unnamed_addr #1 {
+define dso_local ptr @PyType_GetFullyQualifiedName(ptr noundef readonly captures(address) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @_PyType_GetFullyQualifiedName(ptr noundef %0, i8 noundef signext 46)
   ret ptr %2
 }
@@ -5765,7 +5765,7 @@ type_qualname.exit:                               ; preds = %5, %10, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyType_GetModuleName(ptr noundef captures(address) %0) local_unnamed_addr #1 {
+define dso_local ptr @PyType_GetModuleName(ptr noundef readonly captures(address) %0) local_unnamed_addr #1 {
   %2 = tail call fastcc ptr @type_module(ptr noundef %0)
   ret ptr %2
 }
@@ -5951,7 +5951,7 @@ define dso_local ptr @PyType_GetModuleByDef(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @PyType_GetBaseByToken(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 2) i32 @PyType_GetBaseByToken(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4
 
@@ -15928,7 +15928,7 @@ Py_INCREF.exit:                                   ; preds = %8, %5, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_PySuper_Lookup(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #1 {
+define dso_local ptr @_PySuper_Lookup(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = tail call fastcc ptr @supercheck(ptr noundef %0, ptr noundef %1)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %Py_DECREF.exit, label %7
@@ -18154,8 +18154,8 @@ type_mro_impl.exit:                               ; preds = %2, %4, %8, %11, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @type___subclasses__(ptr noundef captures(address) %0, ptr readnone captures(none) %1) #1 {
-  %3 = tail call ptr @_PyType_GetSubclasses(ptr noundef %0)
+define internal ptr @type___subclasses__(ptr noundef readonly captures(address) %0, ptr readnone captures(none) %1) #1 {
+  %3 = tail call ptr @_PyType_GetSubclasses(ptr noundef readonly %0)
   ret ptr %3
 }
 
@@ -19764,7 +19764,7 @@ type_set_bases_unlocked.exit:                     ; preds = %9, %15, %check_set_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @type_get_module(ptr noundef captures(address) %0, ptr readnone captures(none) %1) #1 {
+define internal ptr @type_get_module(ptr noundef readonly captures(address) %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call fastcc ptr @type_module(ptr noundef %0)
   ret ptr %3
 }

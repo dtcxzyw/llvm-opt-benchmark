@@ -1486,7 +1486,7 @@ define range(i32 -2, 1) i32 @ossl_aria_set_encrypt_key(ptr noundef readonly capt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -2, 1) i32 @ossl_aria_set_decrypt_key(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @ossl_aria_set_decrypt_key(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @ossl_aria_set_encrypt_key(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %150

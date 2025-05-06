@@ -618,7 +618,7 @@ define hidden i32 @cmsGetSupportedIntentsTHR(ptr noundef %0, i32 noundef %1, ptr
 declare ptr @_cmsContextGetClientChunk(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @cmsGetSupportedIntents(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden i32 @cmsGetSupportedIntents(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @cmsGetSupportedIntentsTHR(ptr noundef null, i32 noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }

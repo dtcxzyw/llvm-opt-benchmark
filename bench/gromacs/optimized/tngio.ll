@@ -1644,7 +1644,7 @@ declare i32 @tng_residue_atom_add(ptr noundef, ptr noundef, ptr noundef, ptr nou
 declare i32 @tng_molecule_cnt_set(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z26gmx_tng_prepare_md_writingP18gmx_tng_trajectoryPK10gmx_mtop_tPK10t_inputrec(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define void @_Z26gmx_tng_prepare_md_writingP18gmx_tng_trajectoryPK10gmx_mtop_tPK10t_inputrec(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   tail call void @_Z16gmx_tng_add_mtopP18gmx_tng_trajectoryPK10gmx_mtop_t(ptr noundef %0, ptr noundef %1)
   tail call fastcc void @_ZL21set_writing_intervalsP18gmx_tng_trajectorybPK10t_inputrec(ptr noundef %0, i1 noundef zeroext false, ptr noundef %2)
   %4 = load ptr, ptr %0, align 8, !tbaa !41
@@ -2931,7 +2931,7 @@ declare i32 @tng_num_frames_get(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @tng_util_time_of_frame_get(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z23gmx_prepare_tng_writingRKNSt10filesystem7__cxx114pathEcPP18gmx_tng_trajectoryS6_iPK10gmx_mtop_tN3gmx8ArrayRefIKiEEPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 noundef signext %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(none) initializes((0, 8)) %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %6, ptr noundef %7) local_unnamed_addr #0 {
+define void @_Z23gmx_prepare_tng_writingRKNSt10filesystem7__cxx114pathEcPP18gmx_tng_trajectoryS6_iPK10gmx_mtop_tN3gmx8ArrayRefIKiEEPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 noundef signext %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(none) initializes((0, 8)) %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca double, align 8
   %10 = alloca double, align 8
   %11 = alloca i64, align 8

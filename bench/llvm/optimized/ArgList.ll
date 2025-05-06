@@ -1368,7 +1368,7 @@ _ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit: ; preds = %.lr.ph.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3opt7ArgList10addAllArgsERNS_11SmallVectorIPKcLj16EEENS_8ArrayRefINS0_12OptSpecifierEEE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr captures(address) %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3opt7ArgList10addAllArgsERNS_11SmallVectorIPKcLj16EEENS_8ArrayRefINS0_12OptSpecifierEEE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #0 align 2 {
   tail call void @_ZNK4llvm3opt7ArgList16AddAllArgsExceptERNS_11SmallVectorIPKcLj16EEENS_8ArrayRefINS0_12OptSpecifierEEES9_(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr %2, i64 %3, ptr null, i64 0)
   ret void
 }
@@ -2758,14 +2758,14 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit: ; preds = %_ZNSt7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK4llvm3opt12InputArgList9MakeIndexENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr captures(address_is_null) %1, i64 %2, ptr captures(address_is_null) %3, i64 %4) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZNK4llvm3opt12InputArgList9MakeIndexENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr readonly captures(address_is_null) %3, i64 %4) local_unnamed_addr #0 align 2 {
   %6 = tail call noundef i32 @_ZNK4llvm3opt12InputArgList9MakeIndexENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr %1, i64 %2)
   %7 = tail call noundef i32 @_ZNK4llvm3opt12InputArgList9MakeIndexENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr %3, i64 %4)
   ret i32 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4llvm3opt12InputArgList16MakeArgStringRefENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr captures(address_is_null) %1, i64 %2) unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZNK4llvm3opt12InputArgList16MakeArgStringRefENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr readonly captures(address_is_null) %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef i32 @_ZNK4llvm3opt12InputArgList9MakeIndexENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr %1, i64 %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = zext i32 %4 to i64
@@ -3138,7 +3138,7 @@ _ZNSt10unique_ptrIN4llvm3opt3ArgESt14default_deleteIS2_EED2Ev.exit: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4llvm3opt14DerivedArgList17MakePositionalArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, ptr %2, ptr %3, ptr captures(address_is_null) %4, i64 %5) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZNK4llvm3opt14DerivedArgList17MakePositionalArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, ptr %2, ptr %3, ptr readonly captures(address_is_null) %4, i64 %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.std::unique_ptr", align 8
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -3321,7 +3321,7 @@ _ZNSt10unique_ptrIN4llvm3opt3ArgESt14default_deleteIS2_EED2Ev.exit: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4llvm3opt14DerivedArgList15MakeSeparateArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, ptr %2, ptr %3, ptr captures(address_is_null) %4, i64 %5) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZNK4llvm3opt14DerivedArgList15MakeSeparateArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, ptr %2, ptr %3, ptr readonly captures(address_is_null) %4, i64 %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.std::unique_ptr", align 8
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -3389,8 +3389,8 @@ _ZNK4llvm3opt6Option7getNameEv.exit:              ; preds = %_ZNK4llvm3opt8OptTa
   %.sroa.speculated4.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %46, i64 %45)
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 %.sroa.speculated4.i.i.i.i.i
   %48 = sub i64 %46, %.sroa.speculated4.i.i.i.i.i
-  %49 = tail call noundef i32 @_ZNK4llvm3opt12InputArgList9MakeIndexENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(352) %10, ptr %47, i64 %48)
-  %50 = tail call noundef i32 @_ZNK4llvm3opt12InputArgList9MakeIndexENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(352) %10, ptr %4, i64 %5)
+  %49 = tail call noundef i32 @_ZNK4llvm3opt12InputArgList9MakeIndexENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(352) %10, ptr readonly %47, i64 %48)
+  %50 = tail call noundef i32 @_ZNK4llvm3opt12InputArgList9MakeIndexENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(352) %10, ptr readonly %4, i64 %5)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 184
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #18
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #18

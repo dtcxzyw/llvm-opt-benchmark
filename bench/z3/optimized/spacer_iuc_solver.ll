@@ -2403,7 +2403,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE8containsEPS0
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6spacer10iuc_solver8is_proxyEP4exprR7obj_refI3app11ast_managerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(398) %0, ptr noundef captures(address) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN6spacer10iuc_solver8is_proxyEP4exprR7obj_refI3app11ast_managerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(398) %0, ptr noundef readonly captures(address) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 65535

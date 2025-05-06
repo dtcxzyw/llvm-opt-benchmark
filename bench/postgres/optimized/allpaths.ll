@@ -39,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.make_rel_from_joinlist = private unnamed_addr constant [23 x i8] c"make_rel_from_joinlist\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @make_one_rel(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @make_one_rel(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %5 = load ptr, ptr %4, align 8
@@ -4003,7 +4003,7 @@ declare void @set_baserel_size_estimates(ptr noundef, ptr noundef) local_unnamed
 declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @subquery_is_pushdown_safe(ptr noundef readonly captures(address) %0, ptr noundef captures(address) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @subquery_is_pushdown_safe(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -4415,7 +4415,7 @@ declare ptr @make_tlist_from_pathtarget(ptr noundef) local_unnamed_addr #2
 declare ptr @create_subqueryscan_path(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @recurse_pushdown_safe(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
+define internal fastcc zeroext i1 @recurse_pushdown_safe(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %26, %3

@@ -6970,7 +6970,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK18llama_model_loader15get_tensor_metaEPKc(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 align 2 {
+define noundef ptr @_ZNK18llama_model_loader15get_tensor_metaEPKc(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 align 2 {
   %3 = tail call noundef ptr @_ZNK18llama_model_loader10get_weightEPKc(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef %1)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
@@ -6989,7 +6989,7 @@ define noundef ptr @_ZNK18llama_model_loader15get_tensor_metaEPKc(ptr noundef no
 define noundef nonnull ptr @_ZNK18llama_model_loader19require_tensor_metaERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load ptr, ptr %1, align 8, !tbaa !3
-  %5 = tail call noundef ptr @_ZNK18llama_model_loader10get_weightEPKc(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef %4)
+  %5 = tail call noundef ptr @_ZNK18llama_model_loader10get_weightEPKc(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef readonly %4)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %_ZNK18llama_model_loader15get_tensor_metaEPKc.exit.thread, label %_ZNK18llama_model_loader15get_tensor_metaEPKc.exit
 
@@ -7067,7 +7067,7 @@ define noundef ptr @_ZNK18llama_model_loader17check_tensor_dimsERKNSt7__cxx1112b
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = load ptr, ptr %1, align 8, !tbaa !3
-  %10 = tail call noundef ptr @_ZNK18llama_model_loader10get_weightEPKc(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef %9)
+  %10 = tail call noundef ptr @_ZNK18llama_model_loader10get_weightEPKc(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef readonly %9)
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %_ZNK18llama_model_loader15get_tensor_metaEPKc.exit.thread, label %_ZNK18llama_model_loader15get_tensor_metaEPKc.exit
 

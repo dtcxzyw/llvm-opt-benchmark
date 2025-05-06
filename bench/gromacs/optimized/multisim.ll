@@ -1233,7 +1233,7 @@ _Z9isMainSimPK14gmx_multisim_t.exit:              ; preds = %4, %3, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z24logInitialMultisimStatusPK14gmx_multisim_tPK9t_commrecRKN3gmx8MDLoggerEbii(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z24logInitialMultisimStatusPK14gmx_multisim_tPK9t_commrecRKN3gmx8MDLoggerEbii(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.gmx::LogEntryWriter", align 8
   %8 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %9 = alloca %"class.gmx::LogEntryWriter", align 8

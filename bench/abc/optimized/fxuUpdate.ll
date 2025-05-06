@@ -626,7 +626,7 @@ define internal fastcc void @Fxu_UpdateMatrixSingleClean(ptr noundef %0, ptr %.2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Fxu_UpdateDoublePairs(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @Fxu_UpdateDoublePairs(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8, !tbaa !73
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4

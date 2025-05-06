@@ -964,7 +964,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEENS1_IPmS6_EEET0_T
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ZXing10BigInteger8MultiplyERKS0_S2_RS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(32) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 1)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ZXing10BigInteger8MultiplyERKS0_S2_RS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 1)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !22
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1322,7 +1322,7 @@ _ZNSt6vectorImSaImEE5clearEv.exit:                ; preds = %19, %15, %_ZNSt6vec
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ZXing10BigInteger6DivideERKS0_S2_RS0_S3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 1)) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ZXing10BigInteger6DivideERKS0_S2_RS0_S3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 1)) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector", align 8
   %6 = alloca %"class.std::vector", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8

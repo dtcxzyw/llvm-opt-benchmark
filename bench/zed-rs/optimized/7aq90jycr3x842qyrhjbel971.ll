@@ -1549,7 +1549,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h3ea
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h8c43439e3b3d8277E.llvm.13117562262406010975"(ptr noundef align 1 %0, ptr captures(address_is_null) %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h8c43439e3b3d8277E.llvm.13117562262406010975"(ptr noundef align 1 %0, ptr readonly captures(address_is_null) %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %"_ZN13outline_panel12OutlinePanel26should_replace_active_item28_$u7b$$u7b$closure$u7d$$u7d$17h1547d5c774e51573E.llvm.13117562262406010975.exit", label %6
 

@@ -1521,7 +1521,7 @@ declare void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr
 declare void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden { i64, i64 } @_ZNK6google8protobuf10TextFormat13ParseInfoTree16GetLocationRangeEPKNS0_15FieldDescriptorEi(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %0, ptr noundef captures(address) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden { i64, i64 } @_ZNK6google8protobuf10TextFormat13ParseInfoTree16GetLocationRangeEPKNS0_15FieldDescriptorEi(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   tail call void @_ZN6google8protobuf15CheckFieldIndexEPKNS0_15FieldDescriptorEi(ptr noundef %1, i32 noundef %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !18
@@ -1586,7 +1586,7 @@ _ZN6google8protobuf10FindOrNullISt3mapIPKNS0_15FieldDescriptorESt6vectorINS0_10T
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK6google8protobuf10TextFormat13ParseInfoTree16GetTreeForNestedEPKNS0_15FieldDescriptorEi(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %0, ptr noundef captures(address) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK6google8protobuf10TextFormat13ParseInfoTree16GetTreeForNestedEPKNS0_15FieldDescriptorEi(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   tail call void @_ZN6google8protobuf15CheckFieldIndexEPKNS0_15FieldDescriptorEi(ptr noundef %1, i32 noundef %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8, !tbaa !18

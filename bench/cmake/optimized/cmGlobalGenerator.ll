@@ -22037,7 +22037,7 @@ declare void @_ZN10cmPolicies16GetPolicyWarningB5cxx11ENS_8PolicyIDE(ptr dead_on
 declare void @_ZN10cmMakefile16RemoveDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2880), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK17cmGlobalGenerator26GetLanguageOutputExtensionB5cxx11ERK12cmSourceFile(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(1834) %1, ptr noundef nonnull align 8 dereferenceable(370) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK17cmGlobalGenerator26GetLanguageOutputExtensionB5cxx11ERK12cmSourceFile(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1834) %1, ptr noundef nonnull align 8 dereferenceable(370) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #31
@@ -23143,7 +23143,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK17cmGlobalGenerator10IgnoreFileEPKc(ptr noundef nonnull align 8 captures(address) dereferenceable(1834) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK17cmGlobalGenerator10IgnoreFileEPKc(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1834) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -37272,7 +37272,7 @@ _ZN2cm6appendISt6vectorIP17cmGeneratorTargetSaIS3_EES1_ISt10unique_ptrIS2_St14de
 
 49:                                               ; preds = %.noexc8
   %50 = getelementptr inbounds nuw i8, ptr %36, i64 128
-  invoke fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPP17cmGeneratorTargetSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EEEvT_SG_T0_"(ptr %36, ptr nonnull %50, ptr nonnull %1)
+  invoke fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPP17cmGeneratorTargetSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EEEvT_SG_T0_"(ptr %36, ptr nonnull %50, ptr nonnull readonly %1)
           to label %.noexc9 unwind label %.loopexit.split-lp
 
 .noexc9:                                          ; preds = %49
@@ -37372,7 +37372,7 @@ _ZNKSt3mapIPK17cmGeneratorTargetmSt4lessIS2_ESaISt4pairIKS2_mEEE11lower_boundERS
   br i1 %.not.i.i.i.i, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPP17cmGeneratorTargetSt6vectorIS3_SaIS3_EEEEZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EvT_SD_T0_.exit", label %.lr.ph.i.i.i.i.i.i.i.preheader.i.preheader.i.i.i.i, !llvm.loop !1530
 
 80:                                               ; preds = %.noexc8
-  invoke fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPP17cmGeneratorTargetSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EEEvT_SG_T0_"(ptr %36, ptr nonnull %38, ptr nonnull %1)
+  invoke fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPP17cmGeneratorTargetSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EEEvT_SG_T0_"(ptr %36, ptr nonnull %38, ptr nonnull readonly %1)
           to label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPP17cmGeneratorTargetSt6vectorIS3_SaIS3_EEEEZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EvT_SD_T0_.exit" unwind label %.loopexit.split-lp
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIP17cmGeneratorTargetSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
@@ -75484,7 +75484,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.09.i.i.i = phi i64 [ %18, %16 ], [ %22, %19 ]
   %20 = getelementptr inbounds ptr, ptr %0, i64 %.09.i.i.i
   %21 = load ptr, ptr %20, align 8, !tbaa !281
-  tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP17cmGeneratorTargetSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EEEvT_T0_SH_T1_T2_"(ptr %0, i64 noundef %.09.i.i.i, i64 noundef %14, ptr noundef %21, ptr %3)
+  tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP17cmGeneratorTargetSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EEEvT_T0_SH_T1_T2_"(ptr %0, i64 noundef %.09.i.i.i, i64 noundef %14, ptr noundef %21, ptr readonly %3)
   %.not.i.i.i = icmp eq i64 %.09.i.i.i, 0
   %22 = add nsw i64 %.09.i.i.i, -1
   br i1 %.not.i.i.i, label %.lr.ph.i9.i, label %19, !llvm.loop !2213
@@ -75498,7 +75498,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %26 = ptrtoint ptr %23 to i64
   %27 = sub i64 %26, %5
   %28 = ashr exact i64 %27, 3
-  tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP17cmGeneratorTargetSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EEEvT_T0_SH_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %28, ptr noundef %24, ptr %3)
+  tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP17cmGeneratorTargetSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EEEvT_T0_SH_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %28, ptr noundef %24, ptr readonly %3)
   %29 = icmp sgt i64 %27, 8
   br i1 %29, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPP17cmGeneratorTargetSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNK17cmGlobalGenerator31GetLocalGeneratorTargetsInOrderEP16cmLocalGeneratorE3$_0EEEvT_SG_SG_T0_.exit", !llvm.loop !2214
 

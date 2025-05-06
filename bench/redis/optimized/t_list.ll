@@ -55,7 +55,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.32 = private unnamed_addr constant [37 x i8] c"o->encoding == OBJ_ENCODING_LISTPACK\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @listTypeTryConversion(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local void @listTypeTryConversion(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
   tail call fastcc void @listTypeTryConversionRaw(ptr noundef %0, i32 noundef %1, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef %2, ptr noundef %3)
   ret void
 }
@@ -324,7 +324,7 @@ listTypeTryConvertListpack.exit:                  ; preds = %121, %99, %56, %13,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @listTypeTryConversionAppend(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local void @listTypeTryConversionAppend(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #0 {
   tail call fastcc void @listTypeTryConversionRaw(ptr noundef %0, i32 noundef 1, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5)
   ret void
 }
@@ -1598,7 +1598,7 @@ define dso_local void @pushGenericCommand(ptr noundef %0, i32 noundef %1, i32 no
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %26 = load i32, ptr %25, align 8, !tbaa !86
   %27 = add nsw i32 %26, -1
-  tail call fastcc void @listTypeTryConversionRaw(ptr noundef %.034, i32 noundef 1, ptr noundef %24, i32 noundef 2, i32 noundef %27, ptr noundef null, ptr noundef null)
+  tail call fastcc void @listTypeTryConversionRaw(ptr noundef %.034, i32 noundef 1, ptr noundef readonly %24, i32 noundef 2, i32 noundef %27, ptr noundef null, ptr noundef null)
   %28 = load i32, ptr %25, align 8, !tbaa !86
   %29 = icmp sgt i32 %28, 2
   br i1 %29, label %.lr.ph, label %._crit_edge
@@ -1763,7 +1763,7 @@ define dso_local void @linsertCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 24:                                               ; preds = %22
   %25 = load ptr, ptr %3, align 8, !tbaa !83
-  tail call fastcc void @listTypeTryConversionRaw(ptr noundef nonnull %20, i32 noundef 1, ptr noundef %25, i32 noundef 4, i32 noundef 4, ptr noundef null, ptr noundef null)
+  tail call fastcc void @listTypeTryConversionRaw(ptr noundef nonnull %20, i32 noundef 1, ptr noundef readonly %25, i32 noundef 4, i32 noundef 4, ptr noundef null, ptr noundef null)
   %26 = tail call noalias dereferenceable_or_null(32) ptr @zmalloc(i64 noundef 32) #12
   store ptr %20, ptr %26, align 8, !tbaa !57
   %27 = load i32, ptr %20, align 8
@@ -2242,7 +2242,7 @@ define dso_local void @lsetCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 19:                                               ; preds = %12
   %20 = load ptr, ptr %3, align 8, !tbaa !83
-  call fastcc void @listTypeTryConversionRaw(ptr noundef nonnull %8, i32 noundef 1, ptr noundef %20, i32 noundef 3, i32 noundef 3, ptr noundef null, ptr noundef null)
+  call fastcc void @listTypeTryConversionRaw(ptr noundef nonnull %8, i32 noundef 1, ptr noundef readonly %20, i32 noundef 3, i32 noundef 3, ptr noundef null, ptr noundef null)
   %21 = load i64, ptr %2, align 8, !tbaa !12
   %22 = trunc i64 %21 to i32
   %23 = call i32 @listTypeReplaceAtIndex(ptr noundef nonnull %8, i32 noundef %22, ptr noundef %15)
@@ -2285,7 +2285,7 @@ define dso_local void @lsetCommand(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @listPopRangeAndReplyWithKey(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
+define dso_local void @listPopRangeAndReplyWithKey(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = load i32, ptr %1, align 8
   %9 = lshr i32 %8, 4
   %10 = and i32 %9, 15
@@ -3954,7 +3954,7 @@ define dso_local void @lmoveHandlePush(ptr noundef %0, ptr noundef %1, ptr nound
 
 12:                                               ; preds = %7, %5
   %.0 = phi ptr [ %2, %5 ], [ %8, %7 ]
-  call fastcc void @listTypeTryConversionRaw(ptr noundef %.0, i32 noundef 1, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null)
+  call fastcc void @listTypeTryConversionRaw(ptr noundef %.0, i32 noundef 1, ptr noundef nonnull readonly %6, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null)
   call void @listTypePush(ptr noundef %.0, ptr noundef %3, i32 noundef %4)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8, !tbaa !73

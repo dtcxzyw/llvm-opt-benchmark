@@ -4140,7 +4140,7 @@ Vec_IntFree.exit40:                               ; preds = %Vec_IntFree.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Emb_ManFindDistances(ptr noundef captures(none) initializes((64, 72)) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
+define ptr @Emb_ManFindDistances(ptr noundef captures(none) initializes((64, 72)) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %4, align 4, !tbaa !103
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64

@@ -251,7 +251,7 @@ declare ptr @CTLOG_new_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef) lo
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CTLOG_new_from_base64(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CTLOG_new_from_base64(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @CTLOG_new_from_base64_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null, ptr noundef null)
   ret i32 %4
 }

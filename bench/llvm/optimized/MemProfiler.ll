@@ -5125,7 +5125,7 @@ declare noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef 
 declare noundef i64 @_ZN4llvm7memprof20IndexedMemProfRecord7getGUIDENS_9StringRefE(ptr, i64) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7memprof17computeUndriftMapERNS_6ModuleEPNS_22IndexedInstrProfReaderERKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias writable sret(%"class.llvm::DenseMap.170") align 8 initializes((0, 20)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(841) %1, ptr noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %3) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm7memprof17computeUndriftMapERNS_6ModuleEPNS_22IndexedInstrProfReaderERKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias writable sret(%"class.llvm::DenseMap.170") align 8 initializes((0, 20)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(841) %1, ptr noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %3) local_unnamed_addr #1 {
   %5 = alloca %"class.llvm::DenseMap.139", align 8
   %6 = alloca %"class.llvm::DenseMap.139", align 8
   %7 = alloca %class.anon.240, align 8

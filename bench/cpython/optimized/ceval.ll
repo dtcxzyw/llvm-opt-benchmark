@@ -2249,7 +2249,7 @@ declare ptr @_PyDict_LoadBuiltinsFromGlobals(ptr noundef) local_unnamed_addr #3
 declare ptr @_PyFunction_FromConstructor(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyEval_Vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #2 {
+define hidden ptr @_PyEval_Vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #2 {
   %7 = alloca [8 x %union._PyStackRef], align 16
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %8

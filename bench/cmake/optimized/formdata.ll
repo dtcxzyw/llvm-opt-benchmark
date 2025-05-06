@@ -1269,7 +1269,7 @@ declare void @llvm.va_end.p0(ptr) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @curl_formget(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define dso_local i32 @curl_formget(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.curl_mimepart, align 8
   %5 = alloca [8192 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 440, ptr nonnull %4) #7

@@ -355,7 +355,7 @@ define dso_local void @onig_free(ptr noundef %0) local_unnamed_addr #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @onig_compile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #6 {
+define dso_local i32 @onig_compile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #6 {
   %5 = alloca %struct.OptNode, align 4
   %6 = alloca %struct.OptEnv, align 8
   %7 = alloca ptr, align 8
@@ -5309,7 +5309,7 @@ define dso_local i32 @onig_initialize(ptr noundef readonly captures(none) %0, i3
 declare void @onig_warning(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @onig_new_without_alloc(ptr noundef initializes((0, 456)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #6 {
+define dso_local i32 @onig_new_without_alloc(ptr noundef initializes((0, 456)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #6 {
   %8 = load i32, ptr @OnigDefaultCaseFoldFlag, align 4, !tbaa !4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(456) %0, i8 0, i64 456, i1 false)
   %.b.i = load i1, ptr @onig_inited, align 4
@@ -5376,7 +5376,7 @@ onig_reg_init.exit.thread:                        ; preds = %.lr.ph.i.i, %14, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @onig_new(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #6 {
+define dso_local i32 @onig_new(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #6 {
   %calloc = tail call dereferenceable_or_null(456) ptr @calloc(i64 1, i64 456)
   store ptr %calloc, ptr %0, align 8, !tbaa !172
   %8 = icmp eq ptr %calloc, null

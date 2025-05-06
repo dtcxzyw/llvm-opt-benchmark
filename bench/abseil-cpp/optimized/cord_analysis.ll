@@ -22,7 +22,7 @@ $_ZNSt10_HashtableIPKN4absl13cord_internal7CordRepES4_SaIS4_ENSt8__detail9_Ident
 $_ZNSt10_HashtableIPKN4absl13cord_internal7CordRepES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE = comdat any
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4absl13cord_internal23GetEstimatedMemoryUsageEPKNS0_7CordRepE(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @_ZN4absl13cord_internal23GetEstimatedMemoryUsageEPKNS0_7CordRepE(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = alloca %"struct.absl::cord_internal::(anonymous namespace)::RawUsage", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
   store i64 0, ptr %2, align 8, !tbaa !4
@@ -110,7 +110,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_117GetEstimatedUsageILNS1_4ModeE1EEEmPKNS0_7
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4absl13cord_internal32GetEstimatedFairShareMemoryUsageEPKNS0_7CordRepE(ptr noundef captures(address) %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_ZN4absl13cord_internal32GetEstimatedFairShareMemoryUsageEPKNS0_7CordRepE(ptr noundef readonly captures(address) %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::cord_internal::(anonymous namespace)::RawUsage.0", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
   store double 0.000000e+00, ptr %2, align 8, !tbaa !24

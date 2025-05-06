@@ -2022,7 +2022,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit54.thread: ; preds = %97
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm21ResourcePriorityQueue16regPressureDeltaEPNS_5SUnitEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr noundef captures(address_is_null) %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZN4llvm21ResourcePriorityQueue16regPressureDeltaEPNS_5SUnitEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -2192,7 +2192,7 @@ define dso_local noundef i32 @_ZN4llvm21ResourcePriorityQueue16SUSchedulingCostE
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load i16, ptr %38, align 8, !tbaa !277
   %40 = zext i16 %39 to i32
-  %41 = tail call noundef i32 @_ZN4llvm21ResourcePriorityQueue19rawRegPressureDeltaEPNS_5SUnitEj(ptr noundef nonnull readonly align 8 dereferenceable(200) %0, ptr noundef nonnull %1, i32 noundef %40)
+  %41 = tail call noundef i32 @_ZN4llvm21ResourcePriorityQueue19rawRegPressureDeltaEPNS_5SUnitEj(ptr noundef nonnull readonly align 8 dereferenceable(200) %0, ptr noundef nonnull readonly %1, i32 noundef %40)
   %42 = add nsw i32 %41, %.03251.i
   %43 = getelementptr inbounds nuw i8, ptr %.03450.i, i64 8
   %.not40.i = icmp eq ptr %43, %35

@@ -4061,7 +4061,7 @@ declare void @_Z18grpc_error_set_intN4absl12lts_202407226StatusEN9grpc_core17Sta
 declare void @_Z18grpc_status_createN4absl12lts_2024072210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKN9grpc_core13DebugLocationEmPNS0_6StatusE(ptr dead_on_unwind writable sret(%"class.absl::lts_20240722::Status") align 8, i32 noundef, i64, ptr, ptr noundef nonnull align 1 dereferenceable(1), i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16notify_on_lockedP7grpc_fdPP12grpc_closureS2_(ptr noundef captures(address) %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16notify_on_lockedP7grpc_fdPP12grpc_closureS2_(ptr noundef readonly captures(address) %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.grpc_core::DebugLocation", align 1
   %5 = alloca %"class.absl::lts_20240722::Status", align 8
   %6 = alloca %"class.absl::lts_20240722::Status", align 8

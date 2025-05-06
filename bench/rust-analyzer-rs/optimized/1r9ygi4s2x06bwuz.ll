@@ -5039,7 +5039,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h663587dce7207450E(ptr noal
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7fa60fdd173b4d65E.exit.i": ; preds = %78
   %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 range(i64 0, 10) %.sroa.0.0.i75, i64 1)
   %84 = sub i64 %.0.sroa.speculated.i.i, %.0133
-  invoke fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h8d4cadd0bf3bc4afE(ptr noalias noundef nonnull align 8 %51, i64 noundef %84, i64 noundef %.0.sroa.speculated.i13.i, ptr %.val)
+  invoke fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h8d4cadd0bf3bc4afE(ptr noalias noundef nonnull align 8 %51, i64 noundef %84, i64 noundef %.0.sroa.speculated.i13.i, ptr readonly %.val)
           to label %_ZN4core5slice4sort20provide_sorted_batch17h093e6af9d2c5a113E.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .loopexit83:                                      ; preds = %.noexc48, %68, %.preheader.i
@@ -9392,7 +9392,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17heb2c968258649565E(ptr noal
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haf1ef8b2e2b25c90E.exit.i": ; preds = %114
   %.0.sroa.speculated.i13.i = call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 range(i64 0, 10) %.sroa.0.0.i115, i64 1)
   %120 = sub i64 %.0.sroa.speculated.i.i, %.0173
-  invoke fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17hf22423571945c21aE(ptr noalias noundef nonnull align 8 %75, i64 noundef %120, i64 noundef %.0.sroa.speculated.i13.i, ptr %.val)
+  invoke fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17hf22423571945c21aE(ptr noalias noundef nonnull align 8 %75, i64 noundef %120, i64 noundef %.0.sroa.speculated.i13.i, ptr readonly %.val)
           to label %_ZN4core5slice4sort20provide_sorted_batch17h689e4831ed680ddeE.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .loopexit123:                                     ; preds = %.noexc48, %104, %.preheader.i
@@ -10135,7 +10135,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17h6ce42844f83b8
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17h3260c94635ee0a46E(ptr noalias noundef nonnull align 8 %0, i64 noundef range(i64 21, 0) %1, ptr captures(address_is_null) %.0.val) unnamed_addr #13 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17h3260c94635ee0a46E(ptr noalias noundef nonnull align 8 %0, i64 noundef range(i64 21, 0) %1, ptr readonly captures(address_is_null) %.0.val) unnamed_addr #13 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { { i64, [1 x i64] }, { i64, [1 x i64] }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -10782,7 +10782,7 @@ _ZN4core5slice4sort26insertion_sort_shift_right17h3a212801b1c5b880E.exit: ; pred
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17ha74cf5c6bd040697E(ptr noalias noundef nonnull align 8 %0, i64 noundef range(i64 21, 0) %1, ptr captures(address_is_null) %.0.val) unnamed_addr #13 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17ha74cf5c6bd040697E(ptr noalias noundef nonnull align 8 %0, i64 noundef range(i64 21, 0) %1, ptr readonly captures(address_is_null) %.0.val) unnamed_addr #13 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { { i64, [1 x i64] }, { i64, [1 x i64] }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 } }, align 8

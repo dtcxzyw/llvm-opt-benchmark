@@ -3986,7 +3986,7 @@ define internal noundef range(i32 -22, 1) i32 @percpu_alloc_setup(ptr noundef %0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @pcpu_embed_first_chunk(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #7 section ".init.text" align 16 {
+define dso_local i32 @pcpu_embed_first_chunk(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #7 section ".init.text" align 16 {
   %6 = tail call fastcc ptr @pcpu_build_alloc_info(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) #28
   %7 = icmp ugt ptr %6, inttoptr (i64 -4096 to ptr)
   br i1 %7, label %8, label %11
@@ -4928,7 +4928,7 @@ define weak dso_local void @pcpu_populate_pte(i64 noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @pcpu_page_first_chunk(i64 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #7 section ".init.text" align 16 {
+define dso_local i32 @pcpu_page_first_chunk(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #7 section ".init.text" align 16 {
   %3 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !15

@@ -4601,7 +4601,7 @@ define internal fastcc range(i32 -22, 100) i32 @IDAStopTest1(ptr noundef nonnull
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -99, -2) i32 @IDAHandleFailure(ptr noundef nonnull captures(address_is_null) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -99, -2) i32 @IDAHandleFailure(ptr noundef nonnull readonly captures(address_is_null) %0, i32 noundef %1) unnamed_addr #0 {
   switch i32 %1, label %38 [
     i32 -3, label %3
     i32 -4, label %8

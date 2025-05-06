@@ -1049,7 +1049,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly15debugger_detail20GlobalThreadPoolList20unregisterThreadPoolEPNS_18ThreadPoolListHookE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef captures(address) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly15debugger_detail20GlobalThreadPoolList20unregisterThreadPoolEPNS_18ThreadPoolListHookE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca %"struct.folly::SharedMutexImpl<false>::WaitForever", align 1
@@ -5539,7 +5539,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly18ThreadPoolListHookD2Ev(ptr noundef nonnull align 1 captures(address) dereferenceable(1) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly18ThreadPoolListHookD2Ev(ptr noundef nonnull readnone align 1 captures(address) dereferenceable(1) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN5folly15debugger_detail20GlobalThreadPoolList8instanceEvE3ret acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %_ZN5folly15debugger_detail20GlobalThreadPoolList8instanceEv.exit, !prof !7

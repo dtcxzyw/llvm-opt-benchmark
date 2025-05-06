@@ -3251,7 +3251,7 @@ declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @test_wolfSSL_client_server_nofail_ex(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local void @test_wolfSSL_client_server_nofail_ex(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.func_args, align 8
   %5 = alloca %struct.func_args, align 8
   %6 = alloca %struct.tcp_ready, align 8

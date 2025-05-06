@@ -1336,7 +1336,7 @@ define dso_local void @sgl_free_order(ptr noundef %0, i32 noundef %1) #3 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @sgl_alloc(i64 noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) #3 align 16 {
+define dso_local ptr @sgl_alloc(i64 noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #3 align 16 {
   %4 = tail call ptr @sgl_alloc_order(i64 noundef %0, i32 noundef 0, i1 noundef zeroext false, i32 noundef %1, ptr noundef %2)
   ret ptr %4
 }

@@ -471,7 +471,7 @@ define dso_local range(i32 -1, 1) i32 @jobacctinfo_unpack(ptr noundef captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @jobacctinfo_create(ptr noundef captures(address_is_null) %0) #0 {
+define dso_local ptr @jobacctinfo_create(ptr noundef readonly captures(address_is_null) %0) #0 {
   %2 = alloca %struct.assoc_mgr_lock_t, align 4
   %3 = alloca %struct.jobacct_id_t, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
@@ -506,7 +506,7 @@ define dso_local ptr @jobacctinfo_create(ptr noundef captures(address_is_null) %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2, ptr noundef nonnull align 4 dereferenceable(28) @__const._jobacctinfo_2_stats_tres_usage.locks, i64 28, i1 false)
   call void @assoc_mgr_lock(ptr noundef nonnull %2) #10
   %16 = load i32, ptr @g_tres_count, align 4
-  call fastcc void @_init_tres_usage(ptr noundef %7, ptr noundef nonnull %.010, i32 noundef %16)
+  call fastcc void @_init_tres_usage(ptr noundef %7, ptr noundef nonnull readonly %.010, i32 noundef %16)
   call void @assoc_mgr_unlock(ptr noundef nonnull %2) #10
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %2) #10
   br label %17
@@ -1292,7 +1292,7 @@ _jobacct_shutdown_test.exit:                      ; preds = %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, ptr noundef nonnull align 4 dereferenceable(28) @__const._jobacctinfo_2_stats_tres_usage.locks, i64 28, i1 false)
   call void @assoc_mgr_lock(ptr noundef nonnull %5) #10
   %30 = load i32, ptr @g_tres_count, align 4
-  call fastcc void @_init_tres_usage(ptr noundef %21, ptr noundef nonnull %.010.i, i32 noundef %30)
+  call fastcc void @_init_tres_usage(ptr noundef %21, ptr noundef nonnull readonly %.010.i, i32 noundef %30)
   call void @assoc_mgr_unlock(ptr noundef nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5) #10
   br label %jobacctinfo_create.exit

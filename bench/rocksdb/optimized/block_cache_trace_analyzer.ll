@@ -3136,7 +3136,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb23BlockCacheTraceAnalyzer22WriteMissRatioTimelineEm(ptr noundef nonnull align 8 captures(address) dereferenceable(1049088) %0, i64 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb23BlockCacheTraceAnalyzer22WriteMissRatioTimelineEm(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1049088) %0, i64 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::map<std::__cxx11::basic_string<char>, std::map<unsigned long, double>>>, std::_Select1st<std::pair<const unsigned long, std::map<std::__cxx11::basic_string<char>, std::map<unsigned long, double>>>>, std::less<unsigned long>>::_Auto_node", align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -7298,7 +7298,7 @@ _ZNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb23BlockCacheTraceAnalyzer17WriteMissTimelineEm(ptr noundef nonnull align 8 captures(address) dereferenceable(1049088) %0, i64 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb23BlockCacheTraceAnalyzer17WriteMissTimelineEm(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1049088) %0, i64 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::map<std::__cxx11::basic_string<char>, std::map<unsigned long, unsigned long>>>, std::_Select1st<std::pair<const unsigned long, std::map<std::__cxx11::basic_string<char>, std::map<unsigned long, unsigned long>>>>, std::less<unsigned long>>::_Auto_node", align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -25090,7 +25090,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb23BlockCacheTraceAnalyzer30WritePercentAccessSummaryStatsEv(ptr noundef nonnull align 8 captures(address) dereferenceable(1049088) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb23BlockCacheTraceAnalyzer30WritePercentAccessSummaryStatsEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1049088) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::map.269", align 8
   %4 = alloca i64, align 8
@@ -25925,7 +25925,7 @@ _ZNSt8_Rb_treeIN7rocksdb17TableReaderCallerESt4pairIKS1_St3mapINSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb23BlockCacheTraceAnalyzer38WriteDetailedPercentAccessSummaryStatsENS_17TableReaderCallerE(ptr noundef nonnull align 8 captures(address) dereferenceable(1049088) %0, i8 noundef signext %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb23BlockCacheTraceAnalyzer38WriteDetailedPercentAccessSummaryStatsENS_17TableReaderCallerE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1049088) %0, i8 noundef signext %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -28365,7 +28365,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb23BlockCacheTraceAnalyzer28WriteAccessCountSummaryStatsERKSt6vectorImSaImEEb(ptr noundef nonnull align 8 captures(address) dereferenceable(1049088) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb23BlockCacheTraceAnalyzer28WriteAccessCountSummaryStatsERKSt6vectorImSaImEEb(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1049088) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca i8, align 1
   %6 = alloca %"class.std::map.132", align 8
@@ -32036,7 +32036,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb23BlockCacheTraceAnalyzer19PrintBlockSizeStatsEv(ptr noundef nonnull align 8 captures(address) dereferenceable(1049088) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb23BlockCacheTraceAnalyzer19PrintBlockSizeStatsEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1049088) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca %"struct.rocksdb::HistogramStat", align 8
@@ -32587,7 +32587,7 @@ _ZNSt8_Rb_treeIN7rocksdb9TraceTypeESt4pairIKS1_NS0_13HistogramStatEESt10_Select1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb23BlockCacheTraceAnalyzer21PrintAccessCountStatsEbjj(ptr noundef nonnull align 8 captures(address) dereferenceable(1049088) %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb23BlockCacheTraceAnalyzer21PrintAccessCountStatsEbjj(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1049088) %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -35874,7 +35874,7 @@ _ZNSt8_Rb_treeIN7rocksdb17TableReaderCallerESt4pairIKS1_mESt10_Select1stIS4_ESt4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb23BlockCacheTraceAnalyzer25PrintDataBlockAccessStatsEv(ptr noundef nonnull align 8 captures(address) dereferenceable(1049088) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb23BlockCacheTraceAnalyzer25PrintDataBlockAccessStatsEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1049088) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.rocksdb::HistogramStat", align 8
   %3 = alloca %"class.std::map.368", align 8
   %4 = alloca %"struct.rocksdb::HistogramStat", align 8

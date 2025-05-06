@@ -3945,7 +3945,7 @@ _ZN4llvm10successorsEPNS_11InstructionE.exit:     ; preds = %_ZN4llvm10successor
 declare noundef i32 @_ZNK4llvm11Instruction16getNumSuccessorsEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8GVNHoist11checkSafetyENS_14iterator_rangeIPNS_6CHIArgEEEPNS_10BasicBlockENS0_7InsKindERNS_15SmallVectorImplIS2_EE(ptr noundef nonnull align 8 dereferenceable(581) %0, ptr readonly captures(address) %1, ptr readnone captures(address) %2, ptr noundef captures(address) %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %5) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm8GVNHoist11checkSafetyENS_14iterator_rangeIPNS_6CHIArgEEEPNS_10BasicBlockENS0_7InsKindERNS_15SmallVectorImplIS2_EE(ptr noundef nonnull align 8 dereferenceable(581) %0, ptr readonly captures(address) %1, ptr readnone captures(address) %2, ptr noundef readonly captures(address) %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %5) local_unnamed_addr #1 align 2 {
   %7 = alloca i32, align 4
   %8 = alloca %"struct.llvm::CHIArg", align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #23

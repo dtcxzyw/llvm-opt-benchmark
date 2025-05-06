@@ -937,7 +937,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @xhash_pop(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @xhash_pop(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   %5 = tail call fastcc ptr @xhash_find(ptr noundef %0, ptr noundef %1, i32 noundef %2)
@@ -1107,7 +1107,7 @@ define dso_local ptr @xhash_pop(ptr noundef captures(address_is_null) %0, ptr no
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @xhash_pop_str(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @xhash_pop_str(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
   %4 = trunc i64 %3 to i32
   %5 = tail call ptr @xhash_pop(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %4)
@@ -1115,7 +1115,7 @@ define dso_local ptr @xhash_pop_str(ptr noundef captures(address_is_null) %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @xhash_delete(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @xhash_delete(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -1139,7 +1139,7 @@ define dso_local void @xhash_delete(ptr noundef captures(address_is_null) %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @xhash_delete_str(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local void @xhash_delete_str(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
   %4 = trunc i64 %3 to i32
   %5 = icmp ne ptr %0, null
@@ -1148,7 +1148,7 @@ define dso_local void @xhash_delete_str(ptr noundef captures(address_is_null) %0
   br i1 %or.cond3.i, label %7, label %xhash_delete.exit
 
 7:                                                ; preds = %2
-  %8 = tail call ptr @xhash_pop(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %4)
+  %8 = tail call ptr @xhash_pop(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i32 noundef %4)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null

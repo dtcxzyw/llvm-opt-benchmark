@@ -2421,7 +2421,7 @@ _zend_hash_get_valid_pos.exit:                    ; preds = %80, %85, %_zend_has
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @zend_array_dup(ptr noundef captures(address) %0) local_unnamed_addr #6 {
+define dso_local noundef ptr @zend_array_dup(ptr noundef readonly captures(address) %0) local_unnamed_addr #6 {
   %2 = tail call noalias ptr @_emalloc_56() #29
   store i32 1, ptr %2, align 4, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -5287,7 +5287,7 @@ define dso_local void @zend_hash_iterators_advance(ptr noundef readnone captures
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_hash_add_or_update(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef captures(address) %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @zend_hash_add_or_update(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef readonly captures(address) %2, i32 noundef %3) local_unnamed_addr #0 {
   switch i32 %3, label %11 [
     i32 2, label %5
     i32 8, label %7
@@ -6119,7 +6119,7 @@ _zend_hash_add_or_update_i.exit:                  ; preds = %49, %zend_string_eq
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_hash_str_add_or_update(ptr noundef captures(address) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address) %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local ptr @zend_hash_str_add_or_update(ptr noundef captures(address) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address) %3, i32 noundef %4) local_unnamed_addr #0 {
   switch i32 %4, label %12 [
     i32 2, label %6
     i32 8, label %8
@@ -10696,7 +10696,7 @@ zend_hash_iterators_clamp_max.exit:               ; preds = %112, %102, %.crited
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_hash_destroy(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define dso_local void @zend_hash_destroy(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !tbaa !27
   %.not = icmp eq i32 %3, 0

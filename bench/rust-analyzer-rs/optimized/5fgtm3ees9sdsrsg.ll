@@ -62893,7 +62893,7 @@ common.resume:                                    ; preds = %24, %68, %86, %54
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb105e7cd9efb2e3cE.exit.i.i.i": ; preds = %53, %48, %"_ZN11ide_assists8handlers18expand_glob_import18find_imported_defs28_$u7b$$u7b$closure$u7d$$u7d$17he9927e9f928fb54eE.exit.i.i.i.i"
   store ptr %39, ptr %7, align 8, !alias.scope !19539, !noalias !19540
   store i8 %38, ptr %8, align 8, !alias.scope !19539, !noalias !19540
-  call fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hfb48896805707c23E"(ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %4, ptr %.val25, ptr %.val26, ptr noalias noundef nonnull align 8 dereferenceable(16) %7), !noalias !19557
+  call fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hfb48896805707c23E"(ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %4, ptr readonly %.val25, ptr %.val26, ptr noalias noundef nonnull align 8 dereferenceable(16) %7), !noalias !19557
   %56 = load i8, ptr %4, align 4, !range !4163, !alias.scope !19558, !noalias !19561, !noundef !4
   %57 = icmp eq i8 %56, 21
   br i1 %57, label %58, label %67

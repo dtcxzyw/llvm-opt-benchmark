@@ -2232,7 +2232,7 @@ declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #2
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_CRMF_ENCRYPTEDVALUE_get1_encCert(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @OSSL_CRMF_ENCRYPTEDVALUE_get1_encCert(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8

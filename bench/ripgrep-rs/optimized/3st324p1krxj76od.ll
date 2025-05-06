@@ -717,7 +717,7 @@ define hidden void @_ZN8grep_cli7pattern20patterns_from_reader17hfc3a2fa92e33206
   %91 = sub nuw i64 %.sroa.5.0.i.i.i, %89
   %92 = add i64 %89, %.2.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !108
-  invoke fastcc void @"_ZN4bstr2io10BufReadExt13for_byte_line28_$u7b$$u7b$closure$u7d$$u7d$17hd09d2836e348918aE"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %10, ptr nonnull align 8 dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 1 %.sroa.019.0.i.i.i, i64 noundef %89)
+  invoke fastcc void @"_ZN4bstr2io10BufReadExt13for_byte_line28_$u7b$$u7b$closure$u7d$$u7d$17hd09d2836e348918aE"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %10, ptr nonnull readonly align 8 dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 1 %.sroa.019.0.i.i.i, i64 noundef %89)
           to label %93 unwind label %.loopexit.i.i.i
 
 93:                                               ; preds = %88
@@ -777,7 +777,7 @@ _ZN3std2io7BufRead10read_until17hff45a5ece3df6773E.exit.i.i.i: ; preds = %103
 118:                                              ; preds = %115
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !108
   %119 = load ptr, ptr %34, align 8, !noalias !108, !nonnull !4, !noundef !4
-  invoke fastcc void @"_ZN4bstr2io10BufReadExt13for_byte_line28_$u7b$$u7b$closure$u7d$$u7d$17hd09d2836e348918aE"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %8, ptr nonnull align 8 dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 1 %119, i64 noundef %116)
+  invoke fastcc void @"_ZN4bstr2io10BufReadExt13for_byte_line28_$u7b$$u7b$closure$u7d$$u7d$17hd09d2836e348918aE"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %8, ptr nonnull readonly align 8 dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 1 %119, i64 noundef %116)
           to label %120 unwind label %.loopexit.split-lp.loopexit.i.i.i
 
 120:                                              ; preds = %118

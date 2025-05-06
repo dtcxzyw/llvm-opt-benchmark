@@ -512,7 +512,7 @@ define internal fastcc void @__blk_trace_remove(ptr noundef %0) unnamed_addr #0 
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @blk_trace_setup(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @blk_trace_setup(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) #0 align 16 {
   %6 = alloca %struct.blk_user_trace_setup, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 840
   tail call void @mutex_lock(ptr noundef nonnull %7) #21

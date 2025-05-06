@@ -6525,7 +6525,7 @@ define dso_local range(i64 0, 548682072065) i64 @hugetlb_mask_last_page(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @huge_pte_alloc(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef ptr @huge_pte_alloc(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 64
@@ -6712,7 +6712,7 @@ declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #3 sectio
 declare dso_local i32 @copy_user_large_folio(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @move_hugetlb_page_tables(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local i32 @move_hugetlb_page_tables(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -8314,7 +8314,7 @@ define dso_local void @__hugetlb_zap_end(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @unmap_hugepage_range(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address) %3, i32 %4) local_unnamed_addr #0 align 16 {
+define dso_local void @unmap_hugepage_range(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef readnone captures(address) %3, i32 %4) local_unnamed_addr #0 align 16 {
   %6 = alloca %struct.mmu_notifier_range, align 8
   %7 = alloca %struct.mmu_gather, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #22
@@ -10844,7 +10844,7 @@ define dso_local ptr @hugetlb_follow_page_mask(ptr noundef readonly captures(add
 declare dso_local i32 @try_grab_page(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @hugetlb_change_protection(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local i64 @hugetlb_change_protection(ptr noundef readonly captures(address) %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8

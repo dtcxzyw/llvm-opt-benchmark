@@ -1113,7 +1113,7 @@ define internal fastcc void @__rate_control_send_low(ptr noundef readonly captur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @rate_control_get_rate(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @rate_control_get_rate(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2432

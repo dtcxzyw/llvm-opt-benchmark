@@ -6900,7 +6900,7 @@ add_extra_padding.exit:                           ; preds = %._crit_edge, %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_struct_ldlm_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef range(i32 1, 7) %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_struct_ldlm_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef range(i32 1, 7) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
   %8 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8)

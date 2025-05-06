@@ -2115,7 +2115,7 @@ define internal fastcc void @decFinalize(ptr noundef %0, ptr noundef readonly ca
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberAbs(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberAbs(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca %struct.decNumber, align 4
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #18
@@ -2174,7 +2174,7 @@ decStatus.exit:                                   ; preds = %16, %20, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, i8 noundef zeroext range(i8 0, -127) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #4 {
+define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, i8 noundef zeroext range(i8 0, -127) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #4 {
   %7 = alloca i32, align 4
   %8 = alloca [31 x i16], align 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #18
@@ -2260,7 +2260,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
   store i32 %53, ptr %54, align 4, !tbaa !9
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %56 = load i32, ptr %2, align 4, !tbaa !10
-  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef nonnull %55, i32 noundef %56, ptr noundef nonnull %7, ptr noundef nonnull %5)
+  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %55, i32 noundef %56, ptr noundef nonnull %7, ptr noundef nonnull %5)
   %57 = load i8, ptr %51, align 4, !tbaa !4
   %58 = xor i8 %57, %4
   store i8 %58, ptr %51, align 4, !tbaa !4
@@ -2364,7 +2364,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %110, ptr %111, align 4, !tbaa !9
   %112 = load i32, ptr %1, align 4, !tbaa !10
-  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef nonnull %40, i32 noundef %112, ptr noundef nonnull %7, ptr noundef nonnull %5)
+  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %40, i32 noundef %112, ptr noundef nonnull %7, ptr noundef nonnull %5)
   %113 = load i32, ptr %111, align 4, !tbaa !9
   %114 = sub nsw i32 %107, %113
   %115 = icmp slt i32 %114, 0
@@ -2550,7 +2550,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %210, ptr %211, align 4, !tbaa !9
   %212 = getelementptr inbounds nuw i8, ptr %.1253, i64 10
-  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef nonnull %212, i32 noundef %198, ptr noundef nonnull %7, ptr noundef nonnull %5)
+  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %212, i32 noundef %198, ptr noundef nonnull %7, ptr noundef nonnull %5)
   %213 = icmp sgt i32 %205, 0
   br i1 %213, label %214, label %220
 
@@ -2916,7 +2916,7 @@ decGetDigits.exit348:                             ; preds = %367, %369, %352, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberAdd(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberAdd(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
   store i32 0, ptr %5, align 4, !tbaa !16
@@ -3210,7 +3210,7 @@ define dso_local noundef ptr @decNumberAnd(ptr noundef returned %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberCompare(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberCompare(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
   store i32 0, ptr %5, align 4, !tbaa !16
@@ -3224,7 +3224,7 @@ define dso_local noundef ptr @decNumberCompare(ptr noundef returned %0, ptr noun
   br i1 %.not116.i, label %12, label %decCompareOp.exit
 
 12:                                               ; preds = %4
-  %13 = tail call fastcc i32 @decCompare(ptr noundef nonnull %1, ptr noundef nonnull %2, i8 noundef zeroext 0)
+  %13 = tail call fastcc i32 @decCompare(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, i8 noundef zeroext 0)
   %14 = icmp eq i32 %13, -2147483648
   br i1 %14, label %.thread9, label %.thread.i
 
@@ -3249,7 +3249,7 @@ define dso_local noundef ptr @decNumberCompare(ptr noundef returned %0, ptr noun
   br label %decCompareOp.exit.thread
 
 decCompareOp.exit:                                ; preds = %4
-  %22 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef readonly %3, ptr noundef nonnull %5)
+  %22 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, ptr noundef readonly %3, ptr noundef nonnull %5)
   %.pr.pre = load i32, ptr %5, align 4, !tbaa !16
   %.not = icmp eq i32 %.pr.pre, 0
   br i1 %.not, label %decCompareOp.exit.thread, label %23
@@ -3290,7 +3290,7 @@ decCompareOp.exit.thread:                         ; preds = %21, %19, %.thread.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @decCompareOp(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, i8 noundef zeroext range(i8 1, 9) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #4 {
+define internal fastcc noundef ptr @decCompareOp(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, i8 noundef zeroext range(i8 1, 9) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #4 {
   %7 = alloca i32, align 4
   %8 = icmp eq i8 %4, 4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3613,7 +3613,7 @@ decUnitCompare.exit:                              ; preds = %75, %71, %70, %35, 
   store i32 %145, ptr %146, align 4, !tbaa !9
   %147 = getelementptr inbounds nuw i8, ptr %140, i64 10
   %148 = load i32, ptr %140, align 4, !tbaa !10
-  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef readonly %3, ptr noundef nonnull %147, i32 noundef %148, ptr noundef nonnull %7, ptr noundef nonnull %5)
+  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef readonly %3, ptr noundef nonnull readonly %147, i32 noundef %148, ptr noundef nonnull %7, ptr noundef nonnull %5)
   call fastcc void @decFinalize(ptr noundef %0, ptr noundef %3, ptr noundef %7, ptr noundef %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #18
   br label %149
@@ -3623,7 +3623,7 @@ decUnitCompare.exit:                              ; preds = %75, %71, %70, %35, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberCompareSignal(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberCompareSignal(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3636,7 +3636,7 @@ define dso_local noundef ptr @decNumberCompareSignal(ptr noundef returned %0, pt
   br i1 %.not116.i, label %12, label %decCompareOp.exit
 
 12:                                               ; preds = %4
-  %13 = tail call fastcc i32 @decCompare(ptr noundef nonnull %1, ptr noundef nonnull %2, i8 noundef zeroext 0)
+  %13 = tail call fastcc i32 @decCompare(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, i8 noundef zeroext 0)
   %14 = icmp eq i32 %13, -2147483648
   br i1 %14, label %.thread9, label %.thread.i
 
@@ -3662,7 +3662,7 @@ define dso_local noundef ptr @decNumberCompareSignal(ptr noundef returned %0, pt
 
 decCompareOp.exit:                                ; preds = %4
   store i32 1073741952, ptr %5, align 4, !tbaa !16
-  %22 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef readonly %3, ptr noundef nonnull %5)
+  %22 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, ptr noundef readonly %3, ptr noundef nonnull %5)
   %.pr.pre = load i32, ptr %5, align 4, !tbaa !16
   %.not = icmp eq i32 %.pr.pre, 0
   br i1 %.not, label %decCompareOp.exit.thread, label %23
@@ -3703,7 +3703,7 @@ decCompareOp.exit.thread:                         ; preds = %21, %19, %.thread.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberCompareTotal(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberCompareTotal(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
   store i32 0, ptr %5, align 4, !tbaa !16
@@ -3747,7 +3747,7 @@ decStatus.exit:                                   ; preds = %8, %12, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberCompareTotalMag(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberCompareTotalMag(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = ptrtoint ptr %2 to i64
   %6 = ptrtoint ptr %1 to i64
   %7 = alloca i32, align 4
@@ -4089,7 +4089,7 @@ define dso_local noundef ptr @decNumberCopy(ptr noundef returned writeonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberDivide(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberDivide(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
   store i32 0, ptr %5, align 4, !tbaa !16
@@ -4133,7 +4133,7 @@ decStatus.exit:                                   ; preds = %8, %12, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @decDivideOp(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, i8 noundef zeroext range(i8 16, -127) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #4 {
+define internal fastcc noundef ptr @decDivideOp(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, i8 noundef zeroext range(i8 16, -127) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #4 {
   %7 = alloca [17 x i16], align 16
   %8 = alloca [25 x i16], align 16
   %9 = alloca i32, align 4
@@ -4208,7 +4208,7 @@ define internal fastcc noundef ptr @decDivideOp(ptr noundef returned %0, ptr nou
   store i32 %43, ptr %44, align 4, !tbaa !9
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %46 = load i32, ptr %1, align 4, !tbaa !10
-  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef nonnull %45, i32 noundef %46, ptr noundef nonnull %9, ptr noundef nonnull %5)
+  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %45, i32 noundef %46, ptr noundef nonnull %9, ptr noundef nonnull %5)
   br label %56
 
 47:                                               ; preds = %38
@@ -4411,7 +4411,7 @@ thread-pre-split:                                 ; preds = %91, %96
   store i8 %12, ptr %146, align 4, !tbaa !4
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %125, ptr %147, align 4, !tbaa !9
-  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef nonnull %.ptr556, i32 noundef %123, ptr noundef nonnull %9, ptr noundef nonnull %5)
+  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %.ptr556, i32 noundef %123, ptr noundef nonnull %9, ptr noundef nonnull %5)
   call fastcc void @decFinalize(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %9, ptr noundef %5)
   br label %.thread651.thread
 
@@ -5202,7 +5202,7 @@ select.unfold:                                    ; preds = %496, %501
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberDivideInteger(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberDivideInteger(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
   store i32 0, ptr %5, align 4, !tbaa !16
@@ -5246,7 +5246,7 @@ decStatus.exit:                                   ; preds = %8, %12, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberExp(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberExp(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #18
   store i32 0, ptr %4, align 4, !tbaa !16
@@ -5336,7 +5336,7 @@ decStatus.exit:                                   ; preds = %.thread, %39, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #4 {
+define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #4 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca %struct.decContext, align 4
@@ -5858,7 +5858,7 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
   %266 = load i32, ptr %265, align 4, !tbaa !9
   %267 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %266, ptr %267, align 4, !tbaa !9
-  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %7, ptr noundef nonnull %249, i32 noundef %260, ptr noundef nonnull %6, ptr noundef nonnull %3)
+  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %7, ptr noundef nonnull readonly %249, i32 noundef %260, ptr noundef nonnull %6, ptr noundef nonnull %3)
   call fastcc void @decFinalize(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %6, ptr noundef %3)
   br label %decNumberCopy.exit
 
@@ -5904,7 +5904,7 @@ decNumberCopy.exit:                               ; preds = %188, %165, %259
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberFMA(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef captures(address) %3, ptr noundef %4) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberFMA(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(address) %3, ptr noundef %4) local_unnamed_addr #4 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.decContext, align 4
   %8 = alloca [5 x %struct.decNumber], align 16
@@ -6181,7 +6181,7 @@ decStatus.exit:                                   ; preds = %.thread.thread, %13
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #4 {
+define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #4 {
   %6 = alloca i32, align 4
   %7 = alloca [49 x i16], align 16
   %8 = alloca [10 x i32], align 16
@@ -7012,7 +7012,7 @@ decGetDigits.exit:                                ; preds = %.lr.ph118, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberLn(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberLn(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #18
   store i32 0, ptr %4, align 4, !tbaa !16
@@ -7102,7 +7102,7 @@ decStatus.exit:                                   ; preds = %.thread, %39, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @decLnOp(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #4 {
+define internal fastcc noundef ptr @decLnOp(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #4 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [4 x %struct.decNumber], align 16
@@ -7526,7 +7526,7 @@ decNumberFromInt32.exit206:                       ; preds = %.lr.ph.i200, %175, 
   %197 = load i32, ptr %67, align 4, !tbaa !9
   store i32 %197, ptr %170, align 4, !tbaa !9
   %198 = load i32, ptr %1, align 4, !tbaa !10
-  call fastcc void @decSetCoeff(ptr noundef nonnull %.0, ptr noundef nonnull readonly %11, ptr noundef nonnull %52, i32 noundef %198, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  call fastcc void @decSetCoeff(ptr noundef nonnull %.0, ptr noundef nonnull readonly %11, ptr noundef nonnull readonly %52, i32 noundef %198, ptr noundef nonnull %6, ptr noundef nonnull %5)
   store i32 0, ptr %170, align 4, !tbaa !9
   %199 = call fastcc i32 @decGetInt(ptr noundef nonnull %.0)
   %200 = icmp slt i32 %199, 10
@@ -7632,8 +7632,8 @@ decNumberFromUInt32.exit.i224:                    ; preds = %.lr.ph.i226, %228, 
   store i32 -1999998, ptr %244, align 4, !tbaa !30
   br label %.outer
 
-.outer:                                           ; preds = %314, %decNumberFromUInt32.exit.i224
-  %spec.select180.sink275 = phi i32 [ %spec.select180, %314 ], [ 9, %decNumberFromUInt32.exit.i224 ]
+.outer:                                           ; preds = %312, %decNumberFromUInt32.exit.i224
+  %spec.select180.sink275 = phi i32 [ %spec.select180, %312 ], [ 9, %decNumberFromUInt32.exit.i224 ]
   store i32 %spec.select180.sink275, ptr %11, align 4, !tbaa !25
   %245 = load i32, ptr %1, align 4, !tbaa !10
   %246 = add nsw i32 %245, %spec.select180.sink275
@@ -7641,7 +7641,7 @@ decNumberFromUInt32.exit.i224:                    ; preds = %.lr.ph.i226, %228, 
   %247 = icmp eq i32 %spec.select180.sink275, %89
   br label %248
 
-248:                                              ; preds = %.outer, %312
+248:                                              ; preds = %.outer, %310
   %249 = load i8, ptr %141, align 4, !tbaa !4
   %250 = xor i8 %249, -128
   store i8 %250, ptr %141, align 4, !tbaa !4
@@ -7677,7 +7677,7 @@ decNumberFromUInt32.exit.i224:                    ; preds = %.lr.ph.i226, %228, 
   %269 = load i32, ptr %2, align 4, !tbaa !25
   %270 = add nsw i32 %268, %269
   %.not173.not = icmp sgt i32 %266, %270
-  br i1 %.not173.not, label %271, label %312
+  br i1 %.not173.not, label %271, label %310
 
 271:                                              ; preds = %._crit_edge, %263
   %272 = phi i32 [ %.pre259, %._crit_edge ], [ %264, %263 ]
@@ -7689,154 +7689,152 @@ decNumberFromUInt32.exit.i224:                    ; preds = %.lr.ph.i226, %228, 
   %276 = icmp eq i16 %275, 0
   %277 = icmp eq i32 %272, 1
   %or.cond = and i1 %277, %276
-  br i1 %or.cond, label %278, label %303
+  br i1 %or.cond, label %278, label %301
 
 278:                                              ; preds = %274
   %279 = load i8, ptr %141, align 4, !tbaa !4
   %280 = and i8 %279, 112
   %281 = icmp eq i8 %280, 0
-  br i1 %281, label %282, label %303
+  br i1 %281, label %282, label %301
 
 282:                                              ; preds = %278
   %283 = load i8, ptr %13, align 4, !tbaa !4
-  %284 = load i8, ptr %233, align 4, !tbaa !4
-  %285 = or i8 %284, %283
-  %286 = and i8 %285, 48
-  %.not116.i = icmp eq i8 %286, 0
-  br i1 %.not116.i, label %287, label %decCompareOp.exit
+  %284 = and i8 %283, 48
+  %.not116.i = icmp eq i8 %284, 0
+  br i1 %.not116.i, label %285, label %decCompareOp.exit
 
-287:                                              ; preds = %282
-  %288 = call fastcc i32 @decCompare(ptr noundef nonnull %1, ptr noundef nonnull %9, i8 noundef zeroext 0)
-  %289 = icmp eq i32 %288, -2147483648
-  br i1 %289, label %decCompareOp.exit.thread265, label %.thread.i233
+285:                                              ; preds = %282
+  %286 = call fastcc i32 @decCompare(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %9, i8 noundef zeroext 0)
+  %287 = icmp eq i32 %286, -2147483648
+  br i1 %287, label %decCompareOp.exit.thread265, label %.thread.i233
 
-decCompareOp.exit.thread265:                      ; preds = %287
-  %290 = load i32, ptr %5, align 4, !tbaa !16
-  %291 = or i32 %290, 16
-  store i32 %291, ptr %5, align 4, !tbaa !16
+decCompareOp.exit.thread265:                      ; preds = %285
+  %288 = load i32, ptr %5, align 4, !tbaa !16
+  %289 = or i32 %288, 16
+  store i32 %289, ptr %5, align 4, !tbaa !16
   br label %decCompareOp.exit.thread264
 
-.thread.i233:                                     ; preds = %287
-  %292 = icmp eq i32 %288, 0
-  %293 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i8 0, ptr %293, align 4, !tbaa !4
-  %294 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 0, ptr %294, align 4, !tbaa !9
+.thread.i233:                                     ; preds = %285
+  %290 = icmp eq i32 %286, 0
+  %291 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i8 0, ptr %291, align 4, !tbaa !4
+  %292 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  store i32 0, ptr %292, align 4, !tbaa !9
   store i32 1, ptr %10, align 4, !tbaa !10
-  %295 = getelementptr inbounds nuw i8, ptr %10, i64 10
-  store i16 0, ptr %295, align 2, !tbaa !11
-  br i1 %292, label %decCompareOp.exit.thread264, label %296
+  %293 = getelementptr inbounds nuw i8, ptr %10, i64 10
+  store i16 0, ptr %293, align 2, !tbaa !11
+  br i1 %290, label %decCompareOp.exit.thread264, label %294
 
-296:                                              ; preds = %.thread.i233
-  store i16 1, ptr %295, align 2, !tbaa !11
-  %297 = icmp slt i32 %288, 0
-  br i1 %297, label %298, label %decCompareOp.exit.thread
+294:                                              ; preds = %.thread.i233
+  store i16 1, ptr %293, align 2, !tbaa !11
+  %295 = icmp slt i32 %286, 0
+  br i1 %295, label %296, label %decCompareOp.exit.thread
 
-298:                                              ; preds = %296
-  store i8 -128, ptr %293, align 4, !tbaa !4
+296:                                              ; preds = %294
+  store i8 -128, ptr %291, align 4, !tbaa !4
   br label %decCompareOp.exit.thread
 
 decCompareOp.exit:                                ; preds = %282
-  %299 = call fastcc ptr @decNaNs(ptr noundef nonnull %10, ptr noundef nonnull %1, ptr noundef nonnull %9, ptr noundef nonnull readonly %11, ptr noundef nonnull %5)
+  %297 = call fastcc ptr @decNaNs(ptr noundef nonnull %10, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %9, ptr noundef nonnull readonly %11, ptr noundef nonnull %5)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 10
   %.pre260 = load i16, ptr %.phi.trans.insert, align 2, !tbaa !11
-  %300 = icmp eq i16 %.pre260, 0
-  br i1 %300, label %decCompareOp.exit.thread264, label %decCompareOp.exit.thread
+  %298 = icmp eq i16 %.pre260, 0
+  br i1 %298, label %decCompareOp.exit.thread264, label %decCompareOp.exit.thread
 
 decCompareOp.exit.thread264:                      ; preds = %.thread.i233, %decCompareOp.exit.thread265, %decCompareOp.exit
   store i32 0, ptr %142, align 4, !tbaa !9
   br label %.loopexit
 
-decCompareOp.exit.thread:                         ; preds = %298, %296, %decCompareOp.exit
-  %301 = load i32, ptr %3, align 4, !tbaa !16
-  %302 = or i32 %301, 2080
-  store i32 %302, ptr %3, align 4, !tbaa !16
+decCompareOp.exit.thread:                         ; preds = %296, %294, %decCompareOp.exit
+  %299 = load i32, ptr %3, align 4, !tbaa !16
+  %300 = or i32 %299, 2080
+  store i32 %300, ptr %3, align 4, !tbaa !16
   br label %.loopexit
 
-303:                                              ; preds = %278, %274
-  %304 = icmp eq i32 %.pre258, 1
-  %or.cond277 = select i1 %257, i1 %304, i1 false
-  br i1 %or.cond277, label %305, label %312
+301:                                              ; preds = %278, %274
+  %302 = icmp eq i32 %.pre258, 1
+  %or.cond277 = select i1 %257, i1 %302, i1 false
+  br i1 %or.cond277, label %303, label %310
 
-305:                                              ; preds = %303
-  %306 = load i8, ptr %169, align 4, !tbaa !4
-  %307 = and i8 %306, 112
-  %308 = icmp eq i8 %307, 0
-  br i1 %308, label %309, label %312
+303:                                              ; preds = %301
+  %304 = load i8, ptr %169, align 4, !tbaa !4
+  %305 = and i8 %304, 112
+  %306 = icmp eq i8 %305, 0
+  br i1 %306, label %307, label %310
 
-309:                                              ; preds = %305
-  %310 = load i32, ptr %142, align 4, !tbaa !9
-  %311 = sub nsw i32 %310, %89
-  store i32 %311, ptr %170, align 4, !tbaa !9
-  br label %312
+307:                                              ; preds = %303
+  %308 = load i32, ptr %142, align 4, !tbaa !9
+  %309 = sub nsw i32 %308, %89
+  store i32 %309, ptr %170, align 4, !tbaa !9
+  br label %310
 
-312:                                              ; preds = %303, %305, %309, %263
-  %313 = call fastcc ptr @decAddOp(ptr noundef nonnull %.0147, ptr noundef nonnull %.0147, ptr noundef nonnull %.0, ptr noundef nonnull %11, i8 noundef zeroext 0, ptr noundef %5)
-  br i1 %247, label %248, label %314
+310:                                              ; preds = %301, %303, %307, %263
+  %311 = call fastcc ptr @decAddOp(ptr noundef nonnull %.0147, ptr noundef nonnull %.0147, ptr noundef nonnull %.0, ptr noundef nonnull %11, i8 noundef zeroext 0, ptr noundef %5)
+  br i1 %247, label %248, label %312
 
-314:                                              ; preds = %312
-  %315 = shl nsw i32 %spec.select180.sink275, 1
-  %spec.select180 = call i32 @llvm.smin.i32(i32 %315, i32 %89)
+312:                                              ; preds = %310
+  %313 = shl nsw i32 %spec.select180.sink275, 1
+  %spec.select180 = call i32 @llvm.smin.i32(i32 %313, i32 %89)
   br label %.outer
 
 .loopexit:                                        ; preds = %271, %decCompareOp.exit.thread264, %decCompareOp.exit.thread
   store i32 1, ptr %6, align 4, !tbaa !16
-  %316 = load i16, ptr %.ptr17.i.i, align 2, !tbaa !11
-  %317 = icmp eq i16 %316, 0
-  br i1 %317, label %318, label %.loopexit._crit_edge
+  %314 = load i16, ptr %.ptr17.i.i, align 2, !tbaa !11
+  %315 = icmp eq i16 %314, 0
+  br i1 %315, label %316, label %.loopexit._crit_edge
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
   %.pre261 = load i8, ptr %141, align 4, !tbaa !4
   %.pre263 = load i32, ptr %.0147, align 4, !tbaa !10
-  br label %325
+  br label %323
 
-318:                                              ; preds = %.loopexit
-  %319 = load i32, ptr %.0147, align 4, !tbaa !10
-  %320 = icmp eq i32 %319, 1
+316:                                              ; preds = %.loopexit
+  %317 = load i32, ptr %.0147, align 4, !tbaa !10
+  %318 = icmp eq i32 %317, 1
   %.pre262 = load i8, ptr %141, align 4, !tbaa !4
-  br i1 %320, label %321, label %325
+  br i1 %318, label %319, label %323
 
-321:                                              ; preds = %318
-  %322 = and i8 %.pre262, 112
-  %323 = icmp eq i8 %322, 0
-  br i1 %323, label %324, label %325
+319:                                              ; preds = %316
+  %320 = and i8 %.pre262, 112
+  %321 = icmp eq i8 %320, 0
+  br i1 %321, label %322, label %323
 
-324:                                              ; preds = %321
+322:                                              ; preds = %319
   store i32 0, ptr %6, align 4, !tbaa !16
-  br label %325
+  br label %323
 
-325:                                              ; preds = %.loopexit._crit_edge, %324, %321, %318
-  %326 = phi i32 [ %.pre263, %.loopexit._crit_edge ], [ 1, %324 ], [ 1, %321 ], [ %319, %318 ]
-  %327 = phi i8 [ %.pre261, %.loopexit._crit_edge ], [ %.pre262, %324 ], [ %.pre262, %321 ], [ %.pre262, %318 ]
-  %328 = load i32, ptr %2, align 4, !tbaa !25
-  store i32 %328, ptr %11, align 4, !tbaa !25
-  %329 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %327, ptr %329, align 4, !tbaa !4
-  %330 = load i32, ptr %142, align 4, !tbaa !9
-  %331 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %330, ptr %331, align 4, !tbaa !9
-  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %11, ptr noundef nonnull %.ptr17.i.i, i32 noundef %326, ptr noundef nonnull %6, ptr noundef nonnull %3)
+323:                                              ; preds = %.loopexit._crit_edge, %322, %319, %316
+  %324 = phi i32 [ %.pre263, %.loopexit._crit_edge ], [ 1, %322 ], [ 1, %319 ], [ %317, %316 ]
+  %325 = phi i8 [ %.pre261, %.loopexit._crit_edge ], [ %.pre262, %322 ], [ %.pre262, %319 ], [ %.pre262, %316 ]
+  %326 = load i32, ptr %2, align 4, !tbaa !25
+  store i32 %326, ptr %11, align 4, !tbaa !25
+  %327 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %325, ptr %327, align 4, !tbaa !4
+  %328 = load i32, ptr %142, align 4, !tbaa !9
+  %329 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %328, ptr %329, align 4, !tbaa !9
+  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %11, ptr noundef nonnull readonly %.ptr17.i.i, i32 noundef %324, ptr noundef nonnull %6, ptr noundef nonnull %3)
   call fastcc void @decFinalize(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %6, ptr noundef %3)
   br label %decNumberCopy.exit
 
-decNumberCopy.exit:                               ; preds = %325, %133
-  %.0146 = phi ptr [ null, %133 ], [ %.1, %325 ]
+decNumberCopy.exit:                               ; preds = %323, %133
+  %.0146 = phi ptr [ null, %133 ], [ %.1, %323 ]
   %.not176 = icmp eq ptr %.1149, null
-  br i1 %.not176, label %333, label %332
+  br i1 %.not176, label %331, label %330
 
-332:                                              ; preds = %decNumberCopy.exit
+330:                                              ; preds = %decNumberCopy.exit
   call void @free(ptr noundef nonnull %.1149) #18
-  br label %333
+  br label %331
 
-333:                                              ; preds = %332, %decNumberCopy.exit
+331:                                              ; preds = %330, %decNumberCopy.exit
   %.not177 = icmp eq ptr %.0146, null
-  br i1 %.not177, label %.thread238, label %334
+  br i1 %.not177, label %.thread238, label %332
 
-334:                                              ; preds = %333
+332:                                              ; preds = %331
   call void @free(ptr noundef nonnull %.0146) #18
   br label %.thread238
 
-.thread238:                                       ; preds = %.lr.ph.i, %20, %49, %58, %63, %75, %83, %109, %23, %25, %334, %333
+.thread238:                                       ; preds = %.lr.ph.i, %20, %49, %58, %63, %75, %83, %109, %23, %25, %332, %331
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %12) #18
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %11) #18
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #18
@@ -7849,7 +7847,7 @@ decNumberCopy.exit:                               ; preds = %325, %133
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberLogB(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberLogB(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca %struct.decNumber, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -8140,7 +8138,7 @@ decNumberFromInt32.exit51:                        ; preds = %86, %decNumberFromU
   %117 = getelementptr inbounds nuw i8, ptr %4, i64 10
   store i16 0, ptr %117, align 2, !tbaa !11
   store i32 0, ptr %116, align 4, !tbaa !9
-  %118 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %2, i8 noundef zeroext 0, ptr noundef %5)
+  %118 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull readonly %7, ptr noundef nonnull %2, i8 noundef zeroext 0, ptr noundef %5)
   %119 = load i32, ptr %5, align 4, !tbaa !16
   %.not.i = icmp eq i32 %119, 0
   br i1 %.not.i, label %decNumberPlus.exit, label %120
@@ -8565,7 +8563,7 @@ decNumberCopy.exit:                               ; preds = %.lr.ph.i, %.decNumb
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberPlus(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberPlus(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca %struct.decNumber, align 4
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #18
@@ -8621,7 +8619,7 @@ decStatus.exit:                                   ; preds = %13, %17, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberLog10(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberLog10(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca [3 x %struct.decNumber], align 16
@@ -8709,7 +8707,7 @@ define dso_local noundef ptr @decNumberLog10(ptr noundef returned %0, ptr nounde
   %51 = load i32, ptr %26, align 4, !tbaa !9
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %51, ptr %52, align 4, !tbaa !9
-  call fastcc void @decSetCoeff(ptr noundef nonnull %8, ptr noundef nonnull readonly %9, ptr noundef nonnull %45, i32 noundef %.pre111, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  call fastcc void @decSetCoeff(ptr noundef nonnull %8, ptr noundef nonnull readonly %9, ptr noundef nonnull readonly %45, i32 noundef %.pre111, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %53 = load i32, ptr %11, align 4, !tbaa !16
   %54 = and i32 %53, 32
   %.not83 = icmp eq i32 %54, 0
@@ -8813,7 +8811,7 @@ decNumberFromUInt32.exit.i:                       ; preds = %.lr.ph.i, %82, %.lr
   store i8 %88, ptr %89, align 4, !tbaa !4
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %90, align 4, !tbaa !9
-  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %2, ptr noundef nonnull %55, i32 noundef %87, ptr noundef nonnull %10, ptr noundef nonnull %4)
+  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %2, ptr noundef nonnull readonly %55, i32 noundef %87, ptr noundef nonnull %10, ptr noundef nonnull %4)
   call fastcc void @decFinalize(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %10, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #18
@@ -9058,7 +9056,7 @@ decStatus.exit:                                   ; preds = %.thread102.thread, 
 declare ptr @decContextDefault(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberMax(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberMax(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
   store i32 0, ptr %5, align 4, !tbaa !16
@@ -9102,7 +9100,7 @@ decStatus.exit:                                   ; preds = %8, %12, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberMaxMag(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberMaxMag(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
   store i32 0, ptr %5, align 4, !tbaa !16
@@ -9146,7 +9144,7 @@ decStatus.exit:                                   ; preds = %8, %12, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberMin(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberMin(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
   store i32 0, ptr %5, align 4, !tbaa !16
@@ -9190,7 +9188,7 @@ decStatus.exit:                                   ; preds = %8, %12, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberMinMag(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberMinMag(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
   store i32 0, ptr %5, align 4, !tbaa !16
@@ -9234,7 +9232,7 @@ decStatus.exit:                                   ; preds = %8, %12, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberMinus(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberMinus(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca %struct.decNumber, align 4
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #18
@@ -9290,7 +9288,7 @@ decStatus.exit:                                   ; preds = %13, %17, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberNextMinus(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberNextMinus(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca %struct.decNumber, align 4
   %5 = alloca %struct.decContext, align 4
   %6 = alloca i32, align 4
@@ -9426,7 +9424,7 @@ define internal fastcc void @decSetMaxValue(ptr noundef writeonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberNextPlus(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberNextPlus(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca %struct.decNumber, align 4
   %5 = alloca %struct.decContext, align 4
   %6 = alloca i32, align 4
@@ -9524,7 +9522,7 @@ decStatus.exit:                                   ; preds = %37, %35, %39
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberNextToward(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberNextToward(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca %struct.decNumber, align 4
   %6 = alloca %struct.decContext, align 4
   %7 = alloca i32, align 4
@@ -9731,7 +9729,7 @@ decStatus.exit:                                   ; preds = %81, %85, %.thread50
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @decCompare(ptr noundef captures(address) %0, ptr noundef captures(address) %1, i8 noundef zeroext range(i8 0, 2) %2) unnamed_addr #4 {
+define internal fastcc i32 @decCompare(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, i8 noundef zeroext range(i8 0, 2) %2) unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %5 = load i16, ptr %4, align 2, !tbaa !11
   %6 = icmp eq i16 %5, 0
@@ -10278,7 +10276,7 @@ define dso_local noundef ptr @decNumberOr(ptr noundef returned %0, ptr noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberMultiply(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberMultiply(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
   store i32 0, ptr %5, align 4, !tbaa !16
@@ -10322,7 +10320,7 @@ decStatus.exit:                                   ; preds = %8, %12, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberPower(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberPower(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca %struct.decContext, align 4
@@ -10830,7 +10828,7 @@ split.thread:                                     ; preds = %218, %226, %split
   store i32 %250, ptr %251, align 4, !tbaa !9
   %252 = getelementptr inbounds nuw i8, ptr %.0163, i64 10
   %253 = load i32, ptr %.0163, align 4, !tbaa !10
-  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef nonnull %252, i32 noundef %253, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %252, i32 noundef %253, ptr noundef nonnull %5, ptr noundef nonnull %6)
   call fastcc void @decFinalize(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %6)
   br label %254
 
@@ -11223,7 +11221,7 @@ define internal fastcc i32 @decGetInt(ptr noundef readonly captures(none) %0) un
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberQuantize(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberQuantize(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
   store i32 0, ptr %5, align 4, !tbaa !16
@@ -11267,7 +11265,7 @@ decStatus.exit:                                   ; preds = %8, %12, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @decQuantizeOp(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, i8 noundef zeroext range(i8 0, 2) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #4 {
+define internal fastcc noundef ptr @decQuantizeOp(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, i8 noundef zeroext range(i8 0, 2) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #4 {
   %7 = alloca i32, align 4
   %8 = alloca %struct.decContext, align 4
   %9 = load i32, ptr %3, align 4, !tbaa !25
@@ -11448,7 +11446,7 @@ define internal fastcc noundef ptr @decQuantizeOp(ptr noundef returned %0, ptr n
   store i8 %14, ptr %96, align 4, !tbaa !4
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %86, ptr %97, align 4, !tbaa !9
-  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull %74, i32 noundef %.pre, ptr noundef nonnull %7, ptr noundef nonnull %5)
+  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %74, i32 noundef %.pre, ptr noundef nonnull %7, ptr noundef nonnull %5)
   %98 = load i32, ptr %7, align 4, !tbaa !16
   call fastcc void @decApplyRound(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %98, ptr noundef %5)
   store i32 0, ptr %7, align 4, !tbaa !16
@@ -11533,13 +11531,13 @@ decNumberCopy.exit:                               ; preds = %.lr.ph.i, %90, %110
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberNormalize(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberNormalize(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = tail call ptr @decNumberReduce(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberReduce(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberReduce(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -11567,7 +11565,7 @@ define dso_local noundef ptr @decNumberReduce(ptr noundef returned %0, ptr nound
   store i32 %15, ptr %16, align 4, !tbaa !9
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %18 = load i32, ptr %1, align 4, !tbaa !10
-  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef readonly %2, ptr noundef nonnull %17, i32 noundef %18, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef readonly %2, ptr noundef nonnull readonly %17, i32 noundef %18, ptr noundef nonnull %5, ptr noundef nonnull %4)
   call fastcc void @decFinalize(ptr noundef %0, ptr noundef %2, ptr noundef %5, ptr noundef %4)
   %19 = call fastcc ptr @decTrim(ptr noundef %0, ptr noundef %2, i8 noundef zeroext 1, i8 noundef zeroext 0, ptr noundef %6)
   br label %20
@@ -11780,7 +11778,7 @@ define internal fastcc noundef ptr @decTrim(ptr noundef returned %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberRescale(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberRescale(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
   store i32 0, ptr %5, align 4, !tbaa !16
@@ -11824,7 +11822,7 @@ decStatus.exit:                                   ; preds = %8, %12, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberRemainder(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberRemainder(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
   store i32 0, ptr %5, align 4, !tbaa !16
@@ -11868,7 +11866,7 @@ decStatus.exit:                                   ; preds = %8, %12, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberRemainderNear(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberRemainderNear(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
   store i32 0, ptr %5, align 4, !tbaa !16
@@ -11912,7 +11910,7 @@ decStatus.exit:                                   ; preds = %8, %12, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberRotate(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberRotate(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = ptrtoint ptr %0 to i64
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
@@ -12485,7 +12483,7 @@ define dso_local noundef ptr @decNumberSameQuantum(ptr noundef returned writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberScaleB(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberScaleB(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
@@ -12606,7 +12604,7 @@ decStatus.exit:                                   ; preds = %48, %52, %.thread45
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberShift(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberShift(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
   store i32 0, ptr %5, align 4, !tbaa !16
@@ -12889,7 +12887,7 @@ decGetDigits.exit:                                ; preds = %45, %43, %49, %47, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberSquareRoot(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberSquareRoot(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = ptrtoint ptr %1 to i64
   %5 = alloca %struct.decContext, align 4
   %6 = alloca %struct.decContext, align 4
@@ -13238,7 +13236,7 @@ decNumberCopy.exit260:                            ; preds = %.decNumberCopy.exit
   store i32 0, ptr %8, align 4, !tbaa !16
   store i32 %174, ptr %154, align 4, !tbaa !9
   %175 = load i32, ptr %.0194, align 4, !tbaa !10
-  call fastcc void @decSetCoeff(ptr noundef nonnull %.0194, ptr noundef nonnull readonly %6, ptr noundef nonnull %156, i32 noundef %175, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @decSetCoeff(ptr noundef nonnull %.0194, ptr noundef nonnull readonly %6, ptr noundef nonnull readonly %156, i32 noundef %175, ptr noundef nonnull %8, ptr noundef nonnull %11)
   call fastcc void @decFinalize(ptr noundef nonnull %.0194, ptr noundef nonnull %6, ptr noundef %8, ptr noundef %11)
   %176 = load i32, ptr %11, align 4, !tbaa !16
   %177 = and i32 %176, 512
@@ -13324,11 +13322,11 @@ decNumberCopy.exit260:                            ; preds = %.decNumberCopy.exit
   br i1 %.not116.i, label %226, label %224
 
 224:                                              ; preds = %207
-  %225 = call fastcc ptr @decNaNs(ptr noundef nonnull %.0193, ptr noundef nonnull %.0195, ptr noundef nonnull %.0193, ptr noundef nonnull readonly %5, ptr noundef nonnull %10)
+  %225 = call fastcc ptr @decNaNs(ptr noundef nonnull %.0193, ptr noundef nonnull readonly %.0195, ptr noundef nonnull readonly %.0193, ptr noundef nonnull readonly %5, ptr noundef nonnull %10)
   br label %decCompareOp.exit
 
 226:                                              ; preds = %207
-  %227 = call fastcc i32 @decCompare(ptr noundef nonnull %.0195, ptr noundef nonnull %.0193, i8 noundef zeroext 0)
+  %227 = call fastcc i32 @decCompare(ptr noundef nonnull readonly %.0195, ptr noundef nonnull readonly %.0193, i8 noundef zeroext 0)
   %228 = icmp eq i32 %227, -2147483648
   br i1 %228, label %229, label %.thread.i273
 
@@ -13370,11 +13368,11 @@ decCompareOp.exit:                                ; preds = %224, %229, %.thread
   br i1 %.not116.i274, label %246, label %244
 
 244:                                              ; preds = %237
-  %245 = call fastcc ptr @decNaNs(ptr noundef nonnull %.0193, ptr noundef nonnull %.0193, ptr noundef nonnull %.0195, ptr noundef nonnull readonly %5, ptr noundef nonnull %10)
+  %245 = call fastcc ptr @decNaNs(ptr noundef nonnull %.0193, ptr noundef nonnull readonly %.0193, ptr noundef nonnull readonly %.0195, ptr noundef nonnull readonly %5, ptr noundef nonnull %10)
   br label %decCompareOp.exit276
 
 246:                                              ; preds = %237
-  %247 = call fastcc i32 @decCompare(ptr noundef nonnull %.0193, ptr noundef nonnull %.0195, i8 noundef zeroext 0)
+  %247 = call fastcc i32 @decCompare(ptr noundef nonnull readonly %.0193, ptr noundef nonnull readonly %.0195, i8 noundef zeroext 0)
   %248 = icmp eq i32 %247, -2147483648
   br i1 %248, label %249, label %.thread.i275
 
@@ -13867,7 +13865,7 @@ decStatus.exit:                                   ; preds = %.thread319.thread, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberSubtract(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberSubtract(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
   store i32 0, ptr %5, align 4, !tbaa !16
@@ -13911,7 +13909,7 @@ decStatus.exit:                                   ; preds = %8, %12, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberToIntegralExact(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberToIntegralExact(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.decNumber, align 4
   %6 = alloca %struct.decContext, align 4
@@ -14068,7 +14066,7 @@ define dso_local noundef ptr @decNumberToIntegralExact(ptr noundef returned %0, 
   store i16 0, ptr %75, align 2, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #18
   store i32 0, ptr %4, align 4, !tbaa !16
-  %76 = call fastcc ptr @decQuantizeOp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %6, i8 noundef zeroext 1, ptr noundef %4)
+  %76 = call fastcc ptr @decQuantizeOp(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %5, ptr noundef nonnull %6, i8 noundef zeroext 1, ptr noundef %4)
   %77 = load i32, ptr %4, align 4, !tbaa !16
   %.not.i = icmp eq i32 %77, 0
   br i1 %.not.i, label %decNumberQuantize.exit, label %78
@@ -14150,7 +14148,7 @@ decNumberCopy.exit32:                             ; preds = %.lr.ph.i, %.lr.ph.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @decNumberToIntegralValue(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(none) %2) local_unnamed_addr #4 {
+define dso_local noundef ptr @decNumberToIntegralValue(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef captures(none) %2) local_unnamed_addr #4 {
   %4 = alloca %struct.decContext, align 4
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !46
@@ -15050,7 +15048,7 @@ define internal fastcc i32 @decUnitAddSub(ptr noundef readonly captures(address)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @decUnitCompare(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 715827883) %3, i32 noundef %4) unnamed_addr #4 {
+define internal fastcc range(i32 -2147483648, 2) i32 @decUnitCompare(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 715827883) %3, i32 noundef %4) unnamed_addr #4 {
   %6 = alloca [25 x i16], align 16
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %6) #18
   %7 = icmp eq i32 %4, 0

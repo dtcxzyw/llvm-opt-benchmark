@@ -737,16 +737,16 @@ default.unreachable:                              ; preds = %90, %77
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN11duckdb_zstd19ZSTD_getFrameHeaderEPNS_16ZSTD_frameHeaderEPKvm(ptr noundef writeonly captures(none) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #7 {
+define noundef i64 @_ZN11duckdb_zstd19ZSTD_getFrameHeaderEPNS_16ZSTD_frameHeaderEPKvm(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #7 {
   %4 = tail call noundef i64 @_ZN11duckdb_zstd28ZSTD_getFrameHeader_advancedEPNS_16ZSTD_frameHeaderEPKvmNS_13ZSTD_format_eE(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 0)
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN11duckdb_zstd24ZSTD_getFrameContentSizeEPKvm(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 {
+define noundef i64 @_ZN11duckdb_zstd24ZSTD_getFrameContentSizeEPKvm(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = alloca %"struct.duckdb_zstd::ZSTD_frameHeader", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #17
-  %4 = call noundef i64 @_ZN11duckdb_zstd28ZSTD_getFrameHeader_advancedEPNS_16ZSTD_frameHeaderEPKvmNS_13ZSTD_format_eE(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1, i32 noundef 0)
+  %4 = call noundef i64 @_ZN11duckdb_zstd28ZSTD_getFrameHeader_advancedEPNS_16ZSTD_frameHeaderEPKvmNS_13ZSTD_format_eE(ptr noundef nonnull %3, ptr noundef readonly %0, i64 noundef %1, i32 noundef 0)
   %.not = icmp eq i64 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %6 = load i32, ptr %5, align 4
@@ -848,7 +848,7 @@ define noundef i64 @_ZN11duckdb_zstd25ZSTD_findDecompressedSizeEPKvm(ptr noundef
 
 17:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #17
-  %18 = call noundef i64 @_ZN11duckdb_zstd28ZSTD_getFrameHeader_advancedEPNS_16ZSTD_frameHeaderEPKvmNS_13ZSTD_format_eE(ptr noundef nonnull %4, ptr noundef nonnull %.03273, i64 noundef %.04072, i32 noundef 0)
+  %18 = call noundef i64 @_ZN11duckdb_zstd28ZSTD_getFrameHeader_advancedEPNS_16ZSTD_frameHeaderEPKvmNS_13ZSTD_format_eE(ptr noundef nonnull %4, ptr noundef nonnull readonly %.03273, i64 noundef %.04072, i32 noundef 0)
   %.not.i = icmp eq i64 %18, 0
   %19 = load i32, ptr %5, align 4
   %20 = icmp eq i32 %19, 1
@@ -904,10 +904,10 @@ define noundef i64 @_ZN11duckdb_zstd28ZSTD_findFrameCompressedSizeEPKvm(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN11duckdb_zstd24ZSTD_getDecompressedSizeEPKvm(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 {
+define noundef i64 @_ZN11duckdb_zstd24ZSTD_getDecompressedSizeEPKvm(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = alloca %"struct.duckdb_zstd::ZSTD_frameHeader", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #17
-  %4 = call noundef i64 @_ZN11duckdb_zstd28ZSTD_getFrameHeader_advancedEPNS_16ZSTD_frameHeaderEPKvmNS_13ZSTD_format_eE(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1, i32 noundef 0)
+  %4 = call noundef i64 @_ZN11duckdb_zstd28ZSTD_getFrameHeader_advancedEPNS_16ZSTD_frameHeaderEPKvmNS_13ZSTD_format_eE(ptr noundef nonnull %3, ptr noundef readonly %0, i64 noundef %1, i32 noundef 0)
   %.not.i = icmp eq i64 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %6 = load i32, ptr %5, align 4
@@ -1131,7 +1131,7 @@ define noundef i64 @_ZN11duckdb_zstd24ZSTD_decompressionMarginEPKvm(ptr noundef 
   %12 = load i64, ptr %5, align 8, !tbaa !69
   %13 = load i64, ptr %6, align 8, !tbaa !71
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #17
-  %14 = call noundef i64 @_ZN11duckdb_zstd28ZSTD_getFrameHeader_advancedEPNS_16ZSTD_frameHeaderEPKvmNS_13ZSTD_format_eE(ptr noundef nonnull %4, ptr noundef %.02953, i64 noundef %.03152, i32 noundef 0)
+  %14 = call noundef i64 @_ZN11duckdb_zstd28ZSTD_getFrameHeader_advancedEPNS_16ZSTD_frameHeaderEPKvmNS_13ZSTD_format_eE(ptr noundef nonnull %4, ptr noundef readonly %.02953, i64 noundef %.03152, i32 noundef 0)
   %15 = icmp ult i64 %14, -119
   br i1 %15, label %16, label %.thread
 
@@ -2274,7 +2274,7 @@ _ZN11duckdb_zstdL17ZSTD_copyRawBlockEPvmPKvm.exit.thread: ; preds = %114, %110, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i64 -119, 1) i64 @_ZN11duckdb_zstdL22ZSTD_decodeFrameHeaderEPNS_11ZSTD_DCtx_sEPKvm(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef range(i64 -119, 1) i64 @_ZN11duckdb_zstdL22ZSTD_decodeFrameHeaderEPNS_11ZSTD_DCtx_sEPKvm(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 29928
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 30104
@@ -2890,11 +2890,11 @@ define noundef i32 @_ZN11duckdb_zstd23ZSTD_getDictID_fromDictEPKvm(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN11duckdb_zstd24ZSTD_getDictID_fromFrameEPKvm(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 {
+define noundef i32 @_ZN11duckdb_zstd24ZSTD_getDictID_fromFrameEPKvm(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = alloca %"struct.duckdb_zstd::ZSTD_frameHeader", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
-  %4 = call noundef i64 @_ZN11duckdb_zstd28ZSTD_getFrameHeader_advancedEPNS_16ZSTD_frameHeaderEPKvmNS_13ZSTD_format_eE(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1, i32 noundef 0)
+  %4 = call noundef i64 @_ZN11duckdb_zstd28ZSTD_getFrameHeader_advancedEPNS_16ZSTD_frameHeaderEPKvmNS_13ZSTD_format_eE(ptr noundef nonnull %3, ptr noundef readonly %0, i64 noundef %1, i32 noundef 0)
   %5 = icmp ult i64 %4, -119
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %7 = load i32, ptr %6, align 4
@@ -4096,10 +4096,10 @@ define noundef i64 @_ZN11duckdb_zstd24ZSTD_estimateDStreamSizeEm(i64 noundef %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i64 -119, 2147972905) i64 @_ZN11duckdb_zstd34ZSTD_estimateDStreamSize_fromFrameEPKvm(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 {
+define noundef range(i64 -119, 2147972905) i64 @_ZN11duckdb_zstd34ZSTD_estimateDStreamSize_fromFrameEPKvm(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = alloca %"struct.duckdb_zstd::ZSTD_frameHeader", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #17
-  %4 = call noundef i64 @_ZN11duckdb_zstd28ZSTD_getFrameHeader_advancedEPNS_16ZSTD_frameHeaderEPKvmNS_13ZSTD_format_eE(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1, i32 noundef 0)
+  %4 = call noundef i64 @_ZN11duckdb_zstd28ZSTD_getFrameHeader_advancedEPNS_16ZSTD_frameHeaderEPKvmNS_13ZSTD_format_eE(ptr noundef nonnull %3, ptr noundef readonly %0, i64 noundef %1, i32 noundef 0)
   %5 = icmp ult i64 %4, -119
   br i1 %5, label %6, label %17
 

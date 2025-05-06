@@ -9134,7 +9134,7 @@ define hidden { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h7b2cab6f1228e1a9E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noundef nonnull captures(address) %1, ptr noundef captures(address) %2) unnamed_addr #0 {
+define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h7b2cab6f1228e1a9E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noundef nonnull readonly captures(address) %1, ptr noundef readnone captures(address) %2) unnamed_addr #0 {
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h9f6c75c9dda7777bE.llvm.10085540174115877777"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef %2)
   ret void
 }
@@ -9211,7 +9211,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hcfbd19b4a9310653E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noundef nonnull captures(address) %1, ptr noundef captures(address) %2) unnamed_addr #0 {
+define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hcfbd19b4a9310653E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noundef nonnull readonly captures(address) %1, ptr noundef readnone captures(address) %2) unnamed_addr #0 {
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h6487b0a58630d79bE.llvm.10085540174115877777"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef %2)
   ret void
 }

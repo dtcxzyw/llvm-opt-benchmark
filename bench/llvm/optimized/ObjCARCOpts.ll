@@ -2272,7 +2272,7 @@ _ZN12_GLOBAL__N_110ObjCARCOpt17OptimizeWeakCallsERN4llvm8FunctionE.exit: ; preds
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %668, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %23, i8 0, i64 20, i1 false)
-  %739 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110ObjCARCOpt5VisitERN4llvm8FunctionERNS1_8DenseMapIPKNS1_10BasicBlockENS_7BBStateENS1_12DenseMapInfoIS7_vEENS1_6detail12DenseMapPairIS7_S8_EEEERNS1_13BlotMapVectorIPNS1_5ValueENS1_7objcarc6RRInfoEEERNS4_ISI_SK_NS9_ISI_vEENSC_ISI_SK_EEEE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(20) %23, ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(20) %21)
+  %739 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110ObjCARCOpt5VisitERN4llvm8FunctionERNS1_8DenseMapIPKNS1_10BasicBlockENS_7BBStateENS1_12DenseMapInfoIS7_vEENS1_6detail12DenseMapPairIS7_S8_EEEERNS1_13BlotMapVectorIPNS1_5ValueENS1_7objcarc6RRInfoEEERNS4_ISI_SK_NS9_ISI_vEENSC_ISI_SK_EEEE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull readonly align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(20) %23, ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(20) %21)
   %740 = load i8, ptr %669, align 8, !tbaa !78, !range !54, !noundef !55
   %741 = trunc nuw i8 %740 to i1
   br i1 %741, label %1991, label %742

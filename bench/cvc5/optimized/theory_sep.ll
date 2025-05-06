@@ -24743,7 +24743,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb0EE6eqNodeIL
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory3sep9TheorySep15sharesRootLabelENS0_12NodeTemplateILb1EEES5_(ptr noundef nonnull align 8 captures(address) dereferenceable(1824) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory3sep9TheorySep15sharesRootLabelENS0_12NodeTemplateILb1EEES5_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1824) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.54", align 8
   %5 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %6 = alloca %"class.std::vector.54", align 8

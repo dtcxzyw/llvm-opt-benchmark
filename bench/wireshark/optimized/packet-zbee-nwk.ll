@@ -2328,7 +2328,7 @@ define internal noundef zeroext i1 @dissect_zbip_beacon_heur(ptr noundef %0, ptr
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @dissect_zbee_nwk_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #1 {
+define internal noundef zeroext i1 @dissect_zbee_nwk_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #1 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %28, label %6
 

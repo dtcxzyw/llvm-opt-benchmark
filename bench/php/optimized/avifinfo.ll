@@ -218,7 +218,7 @@ define internal void @AvifInfoInternalForwardSkip(ptr noundef captures(none) %0,
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 4) i32 @AvifInfoGetFeatures(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 4) i32 @AvifInfoGetFeatures(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.AvifInfoInternalForward, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
   store ptr %0, ptr %4, align 8, !tbaa !4

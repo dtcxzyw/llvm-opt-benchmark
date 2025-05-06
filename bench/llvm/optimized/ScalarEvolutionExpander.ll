@@ -19026,7 +19026,7 @@ define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIPKN4llvm4LoopEPKNS1
   %.0.val17 = load ptr, ptr %10, align 8
   %.val = load ptr, ptr %0, align 8
   %.val18 = load ptr, ptr %7, align 8
-  %11 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %5, ptr %.0.val, ptr %.0.val17, ptr %.val, ptr %.val18)
+  %11 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %5, ptr readonly %.0.val, ptr %.0.val17, ptr readonly %.val, ptr %.val18)
   br i1 %11, label %12, label %26
 
 12:                                               ; preds = %9
@@ -19071,7 +19071,7 @@ _ZSt13move_backwardIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES9_ET0_T_SB_SA_.exit: ; 
   %.0.val13.i = load ptr, ptr %.pn30, align 8
   %27 = getelementptr i8, ptr %.pn30, i64 8
   %.0.val1114.i = load ptr, ptr %27, align 8
-  %28 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %4, ptr %.sroa.0.0.copyload.i, ptr %.sroa.5.0.copyload.i, ptr %.0.val13.i, ptr %.0.val1114.i)
+  %28 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %4, ptr readonly %.sroa.0.0.copyload.i, ptr %.sroa.5.0.copyload.i, ptr readonly %.0.val13.i, ptr %.0.val1114.i)
   br i1 %28, label %.lr.ph.i.preheader, label %_ZSt25__unguarded_linear_insertIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LoopCompareEEEEvT_T0_.exit
 
 .lr.ph.i.preheader:                               ; preds = %26
@@ -19220,7 +19220,7 @@ define internal fastcc void @_ZSt22__merge_without_bufferIPSt4pairIPKN4llvm4Loop
   %.val42 = load ptr, ptr %.tr82, align 8
   %18 = getelementptr i8, ptr %.tr82, i64 8
   %.val43 = load ptr, ptr %18, align 8
-  %19 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %9, ptr %.val, ptr %.val41, ptr %.val42, ptr %.val43)
+  %19 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %9, ptr readonly %.val, ptr %.val41, ptr readonly %.val42, ptr %.val43)
   br i1 %19, label %20, label %.loopexit
 
 20:                                               ; preds = %16
@@ -19263,7 +19263,7 @@ _ZSt7advanceIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEElEvRT_T0_.exit.i: ; preds = %_Z
   %.val13.i = load ptr, ptr %36, align 8
   %.val14.i = load ptr, ptr %29, align 8
   %.val15.i = load ptr, ptr %33, align 8
-  %37 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %8, ptr %.val.i, ptr %.val13.i, ptr %.val14.i, ptr %.val15.i)
+  %37 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %8, ptr readonly %.val.i, ptr %.val13.i, ptr readonly %.val14.i, ptr %.val15.i)
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %39 = xor i64 %34, -1
   %40 = add nsw i64 %.01119.i, %39
@@ -19309,7 +19309,7 @@ _ZSt7advanceIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEElEvRT_T0_.exit.i50: ; preds = %
   %.val14.i57 = load ptr, ptr %52, align 8
   %53 = getelementptr i8, ptr %52, i64 8
   %.val15.i58 = load ptr, ptr %53, align 8
-  %54 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %7, ptr %.val.i55, ptr %.val13.i56, ptr %.val14.i57, ptr %.val15.i58)
+  %54 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %7, ptr readonly %.val.i55, ptr %.val13.i56, ptr readonly %.val14.i57, ptr %.val15.i58)
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %56 = xor i64 %51, -1
   %57 = add nsw i64 %.01119.i52, %56
@@ -19643,7 +19643,7 @@ _ZSt4moveIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES9_ET0_T_SB_SA_.exit: ; preds = %.
   %.018.val.i = load ptr, ptr %.01825.i, align 8
   %29 = getelementptr i8, ptr %.01825.i, i64 8
   %.018.val23.i = load ptr, ptr %29, align 8
-  %30 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %12, ptr %.019.val.i, ptr %.019.val22.i, ptr %.018.val.i, ptr %.018.val23.i)
+  %30 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %12, ptr readonly %.019.val.i, ptr %.019.val22.i, ptr readonly %.018.val.i, ptr %.018.val23.i)
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %.lr.ph.i
@@ -19790,7 +19790,7 @@ _ZSt4moveIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES9_ET0_T_SB_SA_.exit74: ; preds = 
   %.024.val32.i = load ptr, ptr %89, align 8
   %.026.val.i = load ptr, ptr %.026.i75.ph, align 8
   %.026.val33.i = load ptr, ptr %87, align 8
-  %90 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %11, ptr %.024.val.i, ptr %.024.val32.i, ptr %.026.val.i, ptr %.026.val33.i)
+  %90 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %11, ptr readonly %.024.val.i, ptr %.024.val32.i, ptr readonly %.026.val.i, ptr %.026.val33.i)
   %91 = getelementptr inbounds i8, ptr %.0.i, i64 -16
   %92 = getelementptr inbounds i8, ptr %.0.i, i64 -8
   br i1 %90, label %93, label %113
@@ -19872,7 +19872,7 @@ _ZSt7advanceIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEElEvRT_T0_.exit.i: ; preds = %_Z
   %.val13.i = load ptr, ptr %128, align 8
   %.val14.i = load ptr, ptr %121, align 8
   %.val15.i = load ptr, ptr %125, align 8
-  %129 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %10, ptr %.val.i, ptr %.val13.i, ptr %.val14.i, ptr %.val15.i)
+  %129 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %10, ptr readonly %.val.i, ptr %.val13.i, ptr readonly %.val14.i, ptr %.val15.i)
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %131 = xor i64 %126, -1
   %132 = add nsw i64 %.01119.i, %131
@@ -19918,7 +19918,7 @@ _ZSt7advanceIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEElEvRT_T0_.exit.i87: ; preds = %
   %.val14.i94 = load ptr, ptr %144, align 8
   %145 = getelementptr i8, ptr %144, i64 8
   %.val15.i95 = load ptr, ptr %145, align 8
-  %146 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %9, ptr %.val.i92, ptr %.val13.i93, ptr %.val14.i94, ptr %.val15.i95)
+  %146 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %9, ptr readonly %.val.i92, ptr %.val13.i93, ptr readonly %.val14.i94, ptr %.val15.i95)
   %147 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %148 = xor i64 %143, -1
   %149 = add nsw i64 %.01119.i89, %148
@@ -20173,7 +20173,7 @@ _ZSt12__move_mergeIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES9_N9__gnu_cxx5__ops15_It
   %.018.val.i43 = load ptr, ptr %.01831.i39, align 8
   %98 = getelementptr i8, ptr %.01831.i39, i64 8
   %.018.val22.i44 = load ptr, ptr %98, align 8
-  %99 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %6, ptr %.019.val.i41, ptr %.019.val21.i42, ptr %.018.val.i43, ptr %.018.val22.i44)
+  %99 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %6, ptr readonly %.019.val.i41, ptr %.019.val21.i42, ptr readonly %.018.val.i43, ptr %.018.val22.i44)
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %.lr.ph.i37

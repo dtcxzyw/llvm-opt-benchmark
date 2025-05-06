@@ -2118,7 +2118,7 @@ _ZNSt10unique_ptrIN4llvm11StringErrorESt14default_deleteIS1_EED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm11GlobPattern5matchENS_9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr captures(address) %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm11GlobPattern5matchENS_9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 align 2 {
   %.sroa.08.0.copyload = load ptr, ptr %0, align 8, !tbaa !16
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.29.0.copyload = load i64, ptr %.sroa.29.0..sroa_idx, align 8, !tbaa !17

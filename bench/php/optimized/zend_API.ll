@@ -16633,7 +16633,7 @@ zend_check_arg_send_type.exit.thread:             ; preds = %.lr.ph.split, %82, 
 declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #25
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @zend_fcall_info_args(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @zend_fcall_info_args(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = tail call i32 @zend_fcall_info_args_ex(ptr noundef %0, ptr noundef null, ptr noundef %1)
   ret i32 %3
 }
@@ -16924,7 +16924,7 @@ define dso_local void @zend_fcall_info_argn(ptr noundef captures(none) %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @zend_fcall_info_call(ptr noundef initializes((24, 32)) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #2 {
+define dso_local i32 @zend_fcall_info_call(ptr noundef initializes((24, 32)) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca %struct._zval_struct, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #34
   %.not = icmp ne ptr %2, null
@@ -16941,7 +16941,7 @@ define dso_local i32 @zend_fcall_info_call(ptr noundef initializes((24, 32)) %0,
   %12 = load ptr, ptr %11, align 8, !tbaa !292
   store i32 0, ptr %9, align 8, !tbaa !117
   store ptr null, ptr %11, align 8, !tbaa !292
-  %13 = call range(i32 -1, 1) i32 @zend_fcall_info_args_ex(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %3)
+  %13 = call range(i32 -1, 1) i32 @zend_fcall_info_args_ex(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull readonly %3)
   br label %14
 
 14:                                               ; preds = %8, %4

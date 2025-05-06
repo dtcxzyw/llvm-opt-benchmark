@@ -2440,7 +2440,7 @@ declare dso_local void @__module_get(ptr noundef) local_unnamed_addr #0
 declare dso_local void @module_put(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -37, 2) i32 @posix_lock_file(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) #1 align 16 {
+define dso_local range(i32 -37, 2) i32 @posix_lock_file(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
   %6 = tail call fastcc i32 @posix_lock_inode(ptr noundef %5, ptr noundef %1, ptr noundef %2), !range !49
@@ -6584,7 +6584,7 @@ flock_to_posix_lock.exit.thread:                  ; preds = %7, %60, %52, %43, %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @vfs_lock_file(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #1 align 16 {
+define dso_local i32 @vfs_lock_file(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %0

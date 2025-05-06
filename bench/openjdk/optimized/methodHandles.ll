@@ -763,7 +763,7 @@ declare ptr @_ZN16SystemDictionary22find_field_handle_typeEP6SymbolP5KlassP10Jav
 declare void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13MethodHandles15init_MemberNameE6HandleS0_P10JavaThread(ptr captures(address_is_null) %0, ptr readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN13MethodHandles15init_MemberNameE6HandleS0_P10JavaThread(ptr readonly captures(address_is_null) %0, ptr readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.fieldDescriptor, align 8
   %5 = alloca %class.CallInfo, align 8
   %6 = alloca %class.CallInfo, align 8
@@ -2447,7 +2447,7 @@ declare noundef ptr @_ZN11StringTable6lookupEP6Symbol(ptr noundef) local_unnamed
 declare noundef ptr @_ZN15java_lang_Class16primitive_mirrorE9BasicType(i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @_ZN13MethodHandles18resolve_MemberNameE6HandleP5KlassibP10JavaThread(ptr captures(address_is_null, ret: address, provenance) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden ptr @_ZN13MethodHandles18resolve_MemberNameE6HandleP5KlassibP10JavaThread(ptr readonly captures(address_is_null, ret: address, provenance) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.Handle, align 8
   %7 = alloca %class.CallInfo, align 8
   %8 = alloca %class.LinkInfo, align 8

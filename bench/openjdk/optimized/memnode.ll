@@ -743,7 +743,7 @@ _ZNK12MergeMemNode9memory_atEj.exit:              ; preds = %3, %44, %31, %23, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN7MemNode21optimize_memory_chainEP4NodePK7TypePtrS1_P8PhaseGVN(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN7MemNode21optimize_memory_chainEP4NodePK7TypePtrS1_P8PhaseGVN(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, -23
@@ -2093,7 +2093,7 @@ define hidden noundef zeroext i1 @_ZN7MemNode23detect_ptr_independenceEP4NodeP12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK8LoadNode23find_previous_arraycopyEP11PhaseValuesP4NodeRS3_b(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, i1 noundef zeroext %4) unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK8LoadNode23find_previous_arraycopyEP11PhaseValuesP4NodeRS3_b(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, i1 noundef zeroext %4) unnamed_addr #1 align 2 {
   %6 = load ptr, ptr %3, align 8
   %7 = tail call noundef ptr @_ZNK7MemNode21find_array_copy_cloneEP4NodeS1_(ptr nonnull align 8 poison, ptr noundef %2, ptr noundef %6)
   %.not = icmp eq ptr %7, null
@@ -11351,7 +11351,7 @@ define hidden { ptr, i8 } @_ZNK25MergePrimitiveArrayStores23find_adjacent_def_st
   br i1 %11, label %12, label %_ZNK25MergePrimitiveArrayStores14find_def_storeEPK9StoreNode.exit
 
 12:                                               ; preds = %2
-  %13 = tail call noundef i32 @_ZN25MergePrimitiveArrayStores19cfg_status_for_pairEPK9StoreNodeS2_(ptr noundef nonnull %1, ptr noundef %spec.select.i.i.i)
+  %13 = tail call noundef i32 @_ZN25MergePrimitiveArrayStores19cfg_status_for_pairEPK9StoreNodeS2_(ptr noundef nonnull readonly %1, ptr noundef %spec.select.i.i.i)
   %14 = icmp eq i32 %13, 2
   %15 = icmp eq i32 %13, 1
   %16 = zext i1 %15 to i8
@@ -11428,7 +11428,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %2, %16
   br i1 %31, label %32, label %_ZNK25MergePrimitiveArrayStores14find_def_storeEPK9StoreNode.exit.i
 
 32:                                               ; preds = %.lr.ph
-  %33 = tail call noundef i32 @_ZN25MergePrimitiveArrayStores19cfg_status_for_pairEPK9StoreNodeS2_(ptr noundef nonnull %.020, ptr noundef %spec.select.i.i.i.i)
+  %33 = tail call noundef i32 @_ZN25MergePrimitiveArrayStores19cfg_status_for_pairEPK9StoreNodeS2_(ptr noundef nonnull readonly %.020, ptr noundef %spec.select.i.i.i.i)
   %34 = icmp eq i32 %33, 2
   %35 = icmp eq i32 %33, 1
   %36 = zext i1 %35 to i8
@@ -12804,7 +12804,7 @@ _ZNK25MergePrimitiveArrayStores29find_use_store_unidirectionalEPK9StoreNode.exit
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZNK25MergePrimitiveArrayStores14find_def_storeEPK9StoreNode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(address) %1) local_unnamed_addr #1 align 2 {
+define hidden { ptr, i8 } @_ZNK25MergePrimitiveArrayStores14find_def_storeEPK9StoreNode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -12818,7 +12818,7 @@ define hidden { ptr, i8 } @_ZNK25MergePrimitiveArrayStores14find_def_storeEPK9St
   br i1 %11, label %12, label %_ZNK25MergePrimitiveArrayStores29find_def_store_unidirectionalEPK9StoreNode.exit
 
 12:                                               ; preds = %2
-  %13 = tail call noundef i32 @_ZN25MergePrimitiveArrayStores19cfg_status_for_pairEPK9StoreNodeS2_(ptr noundef nonnull %1, ptr noundef %spec.select.i.i)
+  %13 = tail call noundef i32 @_ZN25MergePrimitiveArrayStores19cfg_status_for_pairEPK9StoreNodeS2_(ptr noundef nonnull readonly %1, ptr noundef %spec.select.i.i)
   %14 = icmp eq i32 %13, 2
   %15 = icmp eq i32 %13, 1
   %16 = zext i1 %15 to i8
@@ -12875,7 +12875,7 @@ define hidden { ptr, i8 } @_ZNK25MergePrimitiveArrayStores29find_use_store_unidi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZNK25MergePrimitiveArrayStores29find_def_store_unidirectionalEPK9StoreNode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(address) %1) local_unnamed_addr #1 align 2 {
+define hidden { ptr, i8 } @_ZNK25MergePrimitiveArrayStores29find_def_store_unidirectionalEPK9StoreNode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8

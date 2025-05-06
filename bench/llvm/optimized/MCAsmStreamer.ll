@@ -5056,7 +5056,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %13, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer17emitXCOFFCInfoSymEN4llvm9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr captures(address) %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer17emitXCOFFCInfoSymEN4llvm9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr readonly captures(address) %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca [8 x i8], align 8
   %7 = alloca ptr, align 8
   %8 = alloca %"class.llvm::FormattedNumber", align 8
@@ -6337,7 +6337,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %37, %35
 _ZN4llvm11raw_ostreamlsEPKc.exit14.i:             ; preds = %45, %43, %_ZN4llvm11raw_ostreamlsEPKc.exit.i
   %.sroa.11.0.i = phi i64 [ %.sroa.speculated.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit.i ], [ %2, %43 ], [ %2, %45 ]
   %48 = load ptr, ptr %24, align 8, !tbaa !295
-  tail call fastcc void @_ZNK12_GLOBAL__N_113MCAsmStreamer17PrintQuotedStringEN4llvm9StringRefERNS1_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr nonnull %1, i64 %.sroa.11.0.i, ptr noundef nonnull align 8 dereferenceable(48) %48)
+  tail call fastcc void @_ZNK12_GLOBAL__N_113MCAsmStreamer17PrintQuotedStringEN4llvm9StringRefERNS1_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr nonnull readonly %1, i64 %.sroa.11.0.i, ptr noundef nonnull align 8 dereferenceable(48) %48)
   br label %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.exit.thread"
 
 _ZL17isPrintableStringN4llvm9StringRefE.exit.thread.i: ; preds = %.lr.ph.i.i, %_ZL17isPrintableStringN4llvm9StringRefE.exit.i
@@ -6676,7 +6676,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit29.i:             ; preds = %201, %200, %198, %_
   %.sroa.11.1.i = phi i64 [ %.sroa.speculated.i22.i, %_ZN4llvm11raw_ostreamlsEPKc.exit21.i ], [ %2, %198 ], [ %2, %200 ], [ %2, %201 ]
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %205 = load ptr, ptr %204, align 8, !tbaa !295
-  tail call fastcc void @_ZNK12_GLOBAL__N_113MCAsmStreamer17PrintQuotedStringEN4llvm9StringRefERNS1_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr %1, i64 %.sroa.11.1.i, ptr noundef nonnull align 8 dereferenceable(48) %205)
+  tail call fastcc void @_ZNK12_GLOBAL__N_113MCAsmStreamer17PrintQuotedStringEN4llvm9StringRefERNS1_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr readonly %1, i64 %.sroa.11.1.i, ptr noundef nonnull align 8 dereferenceable(48) %205)
   br label %"_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.exit.thread"
 
 "_ZZN12_GLOBAL__N_113MCAsmStreamer9emitBytesEN4llvm9StringRefEENK3$_0clES2_.exit.thread": ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit14.i, %101, %103, %"_ZZL13PrintByteListN4llvm9StringRefERNS_11raw_ostreamENS_9MCAsmInfo20AsmCharLiteralSyntaxEENK3$_0clIZZL13PrintByteListS0_S2_S4_ENK3$_2clIZL13PrintByteListS0_S2_S4_E3$_3EEDaT_EUlhE_EEDaRKSA_.exit.i.i", %_ZN4llvm11raw_ostreamlsEPKc.exit29.i
@@ -7786,7 +7786,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit4:                ; preds = %32, %34
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer17emitFileDirectiveEN4llvm9StringRefE(ptr noundef nonnull align 8 captures(none) dereferenceable(752) %0, ptr captures(address) %1, i64 %2) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer17emitFileDirectiveEN4llvm9StringRefE(ptr noundef nonnull align 8 captures(none) dereferenceable(752) %0, ptr readonly captures(address) %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %5 = load ptr, ptr %4, align 8, !tbaa !295
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -7818,7 +7818,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer17emitFileDirectiveEN4llvm9StringRefES2_S2_S2_(ptr noundef nonnull align 8 captures(none) dereferenceable(752) %0, ptr captures(address) %1, i64 %2, ptr captures(address) %3, i64 %4, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %5, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %6) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer17emitFileDirectiveEN4llvm9StringRefES2_S2_S2_(ptr noundef nonnull align 8 captures(none) dereferenceable(752) %0, ptr readonly captures(address) %1, i64 %2, ptr readonly captures(address) %3, i64 %4, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %5, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %6) unnamed_addr #0 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %9 = load ptr, ptr %8, align 8, !tbaa !295
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -7953,7 +7953,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit29:               ; preds = %71, %73
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer9emitIdentEN4llvm9StringRefE(ptr noundef nonnull align 8 captures(none) dereferenceable(752) %0, ptr captures(address) %1, i64 %2) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer9emitIdentEN4llvm9StringRefE(ptr noundef nonnull align 8 captures(none) dereferenceable(752) %0, ptr readonly captures(address) %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %5 = load ptr, ptr %4, align 8, !tbaa !295
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -9779,7 +9779,7 @@ _ZN4llvm11raw_ostreamlsEc.exit18:                 ; preds = %60, %62
 declare void @_ZN4llvm10MCStreamer23emitCVDefRangeDirectiveENS_8ArrayRefISt4pairIPKNS_8MCSymbolES5_EEENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(296), ptr, i64, ptr, i64) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer23emitCVDefRangeDirectiveEN4llvm8ArrayRefISt4pairIPKNS1_8MCSymbolES6_EEENS1_8codeview25DefRangeRegisterRelHeaderE(ptr noundef nonnull align 8 captures(none) dereferenceable(752) %0, ptr captures(address) %1, i64 %2, i64 %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer23emitCVDefRangeDirectiveEN4llvm8ArrayRefISt4pairIPKNS1_8MCSymbolES6_EEENS1_8codeview25DefRangeRegisterRelHeaderE(ptr noundef nonnull align 8 captures(none) dereferenceable(752) %0, ptr readonly captures(address) %1, i64 %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = lshr i64 %3, 16
   tail call fastcc void @_ZN12_GLOBAL__N_113MCAsmStreamer21PrintCVDefRangePrefixEN4llvm8ArrayRefISt4pairIPKNS1_8MCSymbolES6_EEE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr %1, i64 %2)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -9864,7 +9864,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit9:                ; preds = %47, %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer23emitCVDefRangeDirectiveEN4llvm8ArrayRefISt4pairIPKNS1_8MCSymbolES6_EEENS1_8codeview30DefRangeSubfieldRegisterHeaderE(ptr noundef nonnull align 8 captures(none) dereferenceable(752) %0, ptr captures(address) %1, i64 %2, i64 %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer23emitCVDefRangeDirectiveEN4llvm8ArrayRefISt4pairIPKNS1_8MCSymbolES6_EEENS1_8codeview30DefRangeSubfieldRegisterHeaderE(ptr noundef nonnull align 8 captures(none) dereferenceable(752) %0, ptr readonly captures(address) %1, i64 %2, i64 %3) unnamed_addr #0 align 2 {
   tail call fastcc void @_ZN12_GLOBAL__N_113MCAsmStreamer21PrintCVDefRangePrefixEN4llvm8ArrayRefISt4pairIPKNS1_8MCSymbolES6_EEE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr %1, i64 %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %6 = load ptr, ptr %5, align 8, !tbaa !295
@@ -9923,7 +9923,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit5:                ; preds = %31, %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer23emitCVDefRangeDirectiveEN4llvm8ArrayRefISt4pairIPKNS1_8MCSymbolES6_EEENS1_8codeview22DefRangeRegisterHeaderE(ptr noundef nonnull align 8 captures(none) dereferenceable(752) %0, ptr captures(address) %1, i64 %2, i32 %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer23emitCVDefRangeDirectiveEN4llvm8ArrayRefISt4pairIPKNS1_8MCSymbolES6_EEENS1_8codeview22DefRangeRegisterHeaderE(ptr noundef nonnull align 8 captures(none) dereferenceable(752) %0, ptr readonly captures(address) %1, i64 %2, i32 %3) unnamed_addr #0 align 2 {
   tail call fastcc void @_ZN12_GLOBAL__N_113MCAsmStreamer21PrintCVDefRangePrefixEN4llvm8ArrayRefISt4pairIPKNS1_8MCSymbolES6_EEE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr %1, i64 %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %6 = load ptr, ptr %5, align 8, !tbaa !295
@@ -9958,7 +9958,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %15, %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer23emitCVDefRangeDirectiveEN4llvm8ArrayRefISt4pairIPKNS1_8MCSymbolES6_EEENS1_8codeview29DefRangeFramePointerRelHeaderE(ptr noundef nonnull align 8 captures(none) dereferenceable(752) %0, ptr captures(address) %1, i64 %2, i32 %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer23emitCVDefRangeDirectiveEN4llvm8ArrayRefISt4pairIPKNS1_8MCSymbolES6_EEENS1_8codeview29DefRangeFramePointerRelHeaderE(ptr noundef nonnull align 8 captures(none) dereferenceable(752) %0, ptr readonly captures(address) %1, i64 %2, i32 %3) unnamed_addr #0 align 2 {
   tail call fastcc void @_ZN12_GLOBAL__N_113MCAsmStreamer21PrintCVDefRangePrefixEN4llvm8ArrayRefISt4pairIPKNS1_8MCSymbolES6_EEE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr %1, i64 %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %6 = load ptr, ptr %5, align 8, !tbaa !295
@@ -14307,7 +14307,7 @@ _ZN12_GLOBAL__N_113MCAsmStreamer9emitLabelEPN4llvm8MCSymbolENS1_5SMLocE.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer21emitDwarfLineEndEntryEPN4llvm9MCSectionEPNS1_8MCSymbolES5_(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr readnone captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer21emitDwarfLineEndEntryEPN4llvm9MCSectionEPNS1_8MCSymbolES5_(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr readnone captures(none) %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !329
   %.not = icmp eq ptr %3, null
@@ -16141,7 +16141,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #15
 declare void @_ZN4llvm16MCDwarfLineTable10tryGetFileERNS_9StringRefES2_St8optionalINS_3MD59MD5ResultEES3_IS1_Etj(ptr dead_on_unwind writable sret(%"class.llvm::Expected") align 8, ptr noundef nonnull align 8 dereferenceable(560), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef byval(%"class.std::optional.214") align 8, ptr noundef byval(%"class.std::optional.220") align 8, i16 noundef zeroext, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_113MCAsmStreamer23printDwarfFileDirectiveEjN4llvm9StringRefES2_St8optionalINS1_3MD59MD5ResultEES3_IS2_EbRNS1_19raw_svector_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(752) %0, i32 noundef %1, ptr captures(address) %2, i64 %3, ptr %4, i64 %5, ptr noundef byval(%"class.std::optional.214") align 8 %6, ptr noundef readonly byval(%"class.std::optional.220") align 8 captures(none) %7, i1 noundef zeroext %8, ptr noundef nonnull align 8 dereferenceable(56) %9) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_113MCAsmStreamer23printDwarfFileDirectiveEjN4llvm9StringRefES2_St8optionalINS1_3MD59MD5ResultEES3_IS2_EbRNS1_19raw_svector_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(752) %0, i32 noundef %1, ptr readonly captures(address) %2, i64 %3, ptr %4, i64 %5, ptr noundef byval(%"class.std::optional.214") align 8 %6, ptr noundef readonly byval(%"class.std::optional.220") align 8 captures(none) %7, i1 noundef zeroext %8, ptr noundef nonnull align 8 dereferenceable(56) %9) unnamed_addr #0 align 2 {
   %11 = alloca %"class.llvm::SmallString", align 8
   %12 = alloca %"class.llvm::Twine", align 8
   %13 = alloca %"class.llvm::Twine", align 8

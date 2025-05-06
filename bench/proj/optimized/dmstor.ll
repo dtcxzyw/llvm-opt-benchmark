@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [9 x i8] c"NnEeSsWw\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_Z6dmstorPKcPPc(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define noundef double @_Z6dmstorPKcPPc(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call noundef ptr @_Z18pj_get_default_ctxv()
   %4 = tail call noundef double @_Z10dmstor_ctxP6pj_ctxPKcPPc(ptr noundef %3, ptr noundef %0, ptr noundef %1)
   ret double %4

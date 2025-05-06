@@ -63,7 +63,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvSt4lessIS5_ESaIS
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN15cmDynamicLoader11OpenLibraryEPKc(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN15cmDynamicLoader11OpenLibraryEPKc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -158,7 +158,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
-  %37 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120cmDynamicLoaderCache12GetCacheFileEPKcRPv(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %37 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120cmDynamicLoaderCache12GetCacheFileEPKcRPv(ptr noundef nonnull readonly %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
   br i1 %37, label %38, label %95
 
 38:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -332,7 +332,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvSt4lessIS5_ESaIS
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #18
   %96 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %96, ptr %6, align 8, !tbaa !14
-  %97 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %97 = call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #18
   store i64 %97, ptr %2, align 8, !tbaa !17
   %98 = icmp ugt i64 %97, 15
@@ -358,7 +358,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvSt4lessIS5_ESaIS
   br label %105
 
 104:                                              ; preds = %._crit_edge.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %101, ptr nonnull align 1 %0, i64 %97, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %101, ptr nonnull readonly align 1 %0, i64 %97, i1 false)
   br label %105
 
 105:                                              ; preds = %104, %102, %._crit_edge.i.i.i

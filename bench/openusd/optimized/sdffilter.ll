@@ -70869,7 +70869,7 @@ _ZNSt14_Function_base13_Base_managerIPFNSt7__cxx1112basic_stringIcSt11char_trait
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI18CheckedTransformerC1ISt3mapIS5_NS7_12_GLOBAL__N_110OutputTypeESt4lessIS5_ESaISt4pairIKS5_SE_EEEPFS5_S5_EEET_T0_EUlvE_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   %.val = load ptr, ptr %1, align 8
-  tail call fastcc void @_ZZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI18CheckedTransformerC1ISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_110OutputTypeESt4lessISA_ESaISt4pairIKSA_SC_EEEPFSA_SA_EEET_T0_ENKUlvE_clB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %.val)
+  tail call fastcc void @_ZZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI18CheckedTransformerC1ISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_110OutputTypeESt4lessISA_ESaISt4pairIKSA_SC_EEEPFSA_SA_EEET_T0_ENKUlvE_clB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val)
   ret void
 }
 
@@ -72409,7 +72409,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EED2Ev.ex
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI18CheckedTransformerC1ISt3mapIS5_NS7_12_GLOBAL__N_17SortKeyESt4lessIS5_ESaISt4pairIKS5_SE_EEEPFS5_S5_EEET_T0_EUlvE_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   %.val = load ptr, ptr %1, align 8
-  tail call fastcc void @_ZZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI18CheckedTransformerC1ISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_17SortKeyESt4lessISA_ESaISt4pairIKSA_SC_EEEPFSA_SA_EEET_T0_ENKUlvE_clB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %.val)
+  tail call fastcc void @_ZZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI18CheckedTransformerC1ISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_17SortKeyESt4lessISA_ESaISt4pairIKSA_SC_EEEPFSA_SA_EEET_T0_ENKUlvE_clB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val)
   ret void
 }
 

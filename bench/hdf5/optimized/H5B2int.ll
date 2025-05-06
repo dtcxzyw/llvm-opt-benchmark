@@ -3541,7 +3541,7 @@ declare i32 @H5AC_unpin_entry(ptr noundef) local_unnamed_addr #2
 declare ptr @H5FL_fac_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5B2__delete_node(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5B2__delete_node(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = load i8, ptr @H5B2_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %8 = trunc nuw i8 %7 to i1
   %9 = load i8, ptr @H5_libterm_g, align 1, !range !7

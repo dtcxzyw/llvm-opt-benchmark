@@ -871,7 +871,7 @@ declare ptr @mpool_realloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_bcomp_scanbuf(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #0 {
+define i32 @cli_bcomp_scanbuf(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
   %9 = alloca [3 x i8], align 1

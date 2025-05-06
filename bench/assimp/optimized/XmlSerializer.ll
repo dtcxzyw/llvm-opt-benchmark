@@ -5055,7 +5055,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit32:                  ; preds = %_ZNSt7__cxx1112basi
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4D3MF13XmlSerializer15addObjectToNodeEP6aiNodePNS0_6ObjectE12aiMatrix4x4tIfE(ptr noundef nonnull align 8 captures(address) dereferenceable(136) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly byval(%class.aiMatrix4x4t) align 8 captures(none) %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4D3MF13XmlSerializer15addObjectToNodeEP6aiNodePNS0_6ObjectE12aiMatrix4x4tIfE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly byval(%class.aiMatrix4x4t) align 8 captures(none) %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %.sroa.4 = alloca %class.aiMatrix4x4t, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #28
@@ -5358,7 +5358,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit:           ; preds = %_ZNSt6vectorIjSaIjE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noalias noundef ptr @_ZN6Assimp4D3MF13XmlSerializer8ReadMeshERN4pugi8xml_nodeE(ptr noundef nonnull align 8 captures(address) dereferenceable(136) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef ptr @_ZN6Assimp4D3MF13XmlSerializer8ReadMeshERN4pugi8xml_nodeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.pugi::xml_node_iterator", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

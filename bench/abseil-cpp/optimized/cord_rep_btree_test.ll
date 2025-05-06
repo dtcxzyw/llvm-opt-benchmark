@@ -41008,7 +41008,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #33
   %349 = load ptr, ptr %7, align 8, !tbaa !466
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false), !alias.scope !1202
-  invoke fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdgesEPKNS0_12CordRepBtreeERSt6vectorIPNS0_7CordRepESaIS7_EE(ptr noundef %349, ptr noundef nonnull align 8 dereferenceable(24) %15)
+  invoke fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdgesEPKNS0_12CordRepBtreeERSt6vectorIPNS0_7CordRepESaIS7_EE(ptr noundef readonly %349, ptr noundef nonnull align 8 dereferenceable(24) %15)
           to label %_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdgesEPKNS0_12CordRepBtreeE.exit unwind label %350
 
 350:                                              ; preds = %348
@@ -45763,7 +45763,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #33
   %395 = load ptr, ptr %7, align 8, !tbaa !466
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false), !alias.scope !1303
-  invoke fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdgesEPKNS0_12CordRepBtreeERSt6vectorIPNS0_7CordRepESaIS7_EE(ptr noundef %395, ptr noundef nonnull align 8 dereferenceable(24) %15)
+  invoke fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdgesEPKNS0_12CordRepBtreeERSt6vectorIPNS0_7CordRepESaIS7_EE(ptr noundef readonly %395, ptr noundef nonnull align 8 dereferenceable(24) %15)
           to label %_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdgesEPKNS0_12CordRepBtreeE.exit unwind label %396
 
 396:                                              ; preds = %394
@@ -47219,7 +47219,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22) #33
   %370 = load ptr, ptr %14, align 8, !tbaa !466
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false), !alias.scope !1327
-  invoke fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdgesEPKNS0_12CordRepBtreeERSt6vectorIPNS0_7CordRepESaIS7_EE(ptr noundef %370, ptr noundef nonnull align 8 dereferenceable(24) %22)
+  invoke fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdgesEPKNS0_12CordRepBtreeERSt6vectorIPNS0_7CordRepESaIS7_EE(ptr noundef readonly %370, ptr noundef nonnull align 8 dereferenceable(24) %22)
           to label %_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdgesEPKNS0_12CordRepBtreeE.exit unwind label %371
 
 371:                                              ; preds = %369
@@ -48854,7 +48854,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22) #33
   %421 = load ptr, ptr %14, align 8, !tbaa !466
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false), !alias.scope !1357
-  invoke fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdgesEPKNS0_12CordRepBtreeERSt6vectorIPNS0_7CordRepESaIS7_EE(ptr noundef %421, ptr noundef nonnull align 8 dereferenceable(24) %22)
+  invoke fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdgesEPKNS0_12CordRepBtreeERSt6vectorIPNS0_7CordRepESaIS7_EE(ptr noundef readonly %421, ptr noundef nonnull align 8 dereferenceable(24) %22)
           to label %_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdgesEPKNS0_12CordRepBtreeE.exit unwind label %422
 
 422:                                              ; preds = %420
@@ -53026,7 +53026,7 @@ _ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_23ElementsAreArrayMa
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #33
   %207 = load ptr, ptr %6, align 8, !tbaa !466
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false), !alias.scope !1454
-  invoke fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdgesEPKNS0_12CordRepBtreeERSt6vectorIPNS0_7CordRepESaIS7_EE(ptr noundef %207, ptr noundef nonnull align 8 dereferenceable(24) %17)
+  invoke fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdgesEPKNS0_12CordRepBtreeERSt6vectorIPNS0_7CordRepESaIS7_EE(ptr noundef readonly %207, ptr noundef nonnull align 8 dereferenceable(24) %17)
           to label %_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdgesEPKNS0_12CordRepBtreeE.exit unwind label %208
 
 208:                                              ; preds = %_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_23ElementsAreArrayMatcherIPN4absl13cord_internal7CordRepEEEEENS0_29PredicateFormatterFromMatcherIT_EES9_.exit
@@ -55438,7 +55438,7 @@ _ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_23ElementsAreArrayMa
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #33
   %207 = load ptr, ptr %6, align 8, !tbaa !466
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false), !alias.scope !1528
-  invoke fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdgesEPKNS0_12CordRepBtreeERSt6vectorIPNS0_7CordRepESaIS7_EE(ptr noundef %207, ptr noundef nonnull align 8 dereferenceable(24) %17)
+  invoke fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdgesEPKNS0_12CordRepBtreeERSt6vectorIPNS0_7CordRepESaIS7_EE(ptr noundef readonly %207, ptr noundef nonnull align 8 dereferenceable(24) %17)
           to label %_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdgesEPKNS0_12CordRepBtreeE.exit unwind label %208
 
 208:                                              ; preds = %_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_23ElementsAreArrayMatcherIPN4absl13cord_internal7CordRepEEEEENS0_29PredicateFormatterFromMatcherIT_EES9_.exit
@@ -56419,7 +56419,7 @@ _ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_23ElementsAreArrayMa
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #33
   %207 = load ptr, ptr %6, align 8, !tbaa !466
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false), !alias.scope !1540
-  invoke fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdgesEPKNS0_12CordRepBtreeERSt6vectorIPNS0_7CordRepESaIS7_EE(ptr noundef %207, ptr noundef nonnull align 8 dereferenceable(24) %17)
+  invoke fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdgesEPKNS0_12CordRepBtreeERSt6vectorIPNS0_7CordRepESaIS7_EE(ptr noundef readonly %207, ptr noundef nonnull align 8 dereferenceable(24) %17)
           to label %_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdgesEPKNS0_12CordRepBtreeE.exit unwind label %208
 
 208:                                              ; preds = %_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_23ElementsAreArrayMatcherIPN4absl13cord_internal7CordRepEEEEENS0_29PredicateFormatterFromMatcherIT_EES9_.exit
@@ -57100,7 +57100,7 @@ _ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_23ElementsAreArrayMa
   store ptr %storemerge, ptr %27, align 8, !tbaa !777, !alias.scope !1554
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false), !alias.scope !1560
-  invoke fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdgesEPKNS0_12CordRepBtreeERSt6vectorIPNS0_7CordRepESaIS7_EE(ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(24) %15)
+  invoke fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdgesEPKNS0_12CordRepBtreeERSt6vectorIPNS0_7CordRepESaIS7_EE(ptr noundef readonly %.0.i, ptr noundef nonnull align 8 dereferenceable(24) %15)
           to label %_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdgesEPKNS0_12CordRepBtreeE.exit unwind label %115
 
 115:                                              ; preds = %_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_23ElementsAreArrayMatcherIPN4absl13cord_internal7CordRepEEEEENS0_29PredicateFormatterFromMatcherIT_EES9_.exit

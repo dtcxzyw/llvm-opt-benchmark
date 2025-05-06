@@ -649,7 +649,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2bv6solver15check_bool_evalEPN3euf5enodeE(ptr noundef nonnull align 8 dereferenceable(640) %0, ptr noundef captures(address) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN2bv6solver15check_bool_evalEPN3euf5enodeE(ptr noundef nonnull align 8 dereferenceable(640) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.ref_vector, align 8
   %4 = alloca %class.obj_ref, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #20
@@ -861,7 +861,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2bv6solver13check_bv_evalEPN3euf5enodeE(ptr noundef nonnull align 8 dereferenceable(640) %0, ptr noundef captures(address) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN2bv6solver13check_bv_evalEPN3euf5enodeE(ptr noundef nonnull align 8 dereferenceable(640) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.ref_vector, align 8
   %4 = alloca %class.obj_ref, align 8
   %5 = alloca %class.obj_ref, align 8

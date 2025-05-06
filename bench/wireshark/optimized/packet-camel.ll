@@ -3687,31 +3687,31 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_camel(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal i32 @dissect_camel(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = tail call fastcc i32 @dissect_camel_all(i32 noundef 4, ptr noundef nonnull @.str.1200, ptr noundef nonnull @.str.1474, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_camel_v1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal i32 @dissect_camel_v1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = tail call fastcc i32 @dissect_camel_all(i32 noundef 1, ptr noundef nonnull @.str.1678, ptr noundef nonnull @.str.1679, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_camel_v2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal i32 @dissect_camel_v2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = tail call fastcc i32 @dissect_camel_all(i32 noundef 2, ptr noundef nonnull @.str.1680, ptr noundef nonnull @.str.1681, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_camel_v3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal i32 @dissect_camel_v3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = tail call fastcc i32 @dissect_camel_all(i32 noundef 3, ptr noundef nonnull @.str.1682, ptr noundef nonnull @.str.1683, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_camel_v4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal i32 @dissect_camel_v4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = tail call fastcc i32 @dissect_camel_all(i32 noundef 4, ptr noundef nonnull @.str.1684, ptr noundef nonnull @.str.1685, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   ret i32 %5
 }

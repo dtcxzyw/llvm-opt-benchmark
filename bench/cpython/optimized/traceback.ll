@@ -1587,7 +1587,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @PyFile_WriteString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @_Py_DisplaySourceLine(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @_Py_DisplaySourceLine(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = tail call fastcc i32 @display_source_line(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5)
   ret i32 %7
 }
@@ -2832,7 +2832,7 @@ declare ptr @PySys_GetObject(ptr noundef) local_unnamed_addr #1
 declare i64 @PyLong_AsLongAndOverflow(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @PyTraceBack_Print(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyTraceBack_Print(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @_PyTraceBack_Print(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %1)
   ret i32 %3
 }

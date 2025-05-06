@@ -1583,7 +1583,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hf9298e7ef478e9beE(ptr noalia
   %19 = landingpad { ptr, i32 }
           cleanup
           catch ptr null
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed980d487db3608aE"(ptr nonnull %.val.i.i.i.i.i, ptr nonnull %.val1.i.i.i.i.i) #30, !noalias !209
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed980d487db3608aE"(ptr nonnull %.val.i.i.i.i.i, ptr nonnull readonly %.val1.i.i.i.i.i) #30, !noalias !209
   br label %.body.i.i.i.i
 
 20:                                               ; preds = %15
@@ -1759,7 +1759,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h5893717aee2a120dE.llvm.65464
 30:                                               ; preds = %27
   %31 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed980d487db3608aE"(ptr nonnull %.val.i.i.i.i.i, ptr nonnull %.val1.i.i.i.i.i) #30, !noalias !277
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed980d487db3608aE"(ptr nonnull %.val.i.i.i.i.i, ptr nonnull readonly %.val1.i.i.i.i.i) #30, !noalias !277
   br label %.body.i.i.i
 
 32:                                               ; preds = %27
@@ -1898,7 +1898,7 @@ define hidden void @_ZN3std9panicking3try7do_call17he3c6a2e873760be0E.llvm.65464
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed980d487db3608aE"(ptr nonnull %.val.i.i.i.i, ptr nonnull %.val1.i.i.i.i) #30, !noalias !315
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed980d487db3608aE"(ptr nonnull %.val.i.i.i.i, ptr nonnull readonly %.val1.i.i.i.i) #30, !noalias !315
   br label %.body.i.i.i
 
 21:                                               ; preds = %16

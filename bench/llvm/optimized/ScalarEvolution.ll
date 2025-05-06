@@ -11641,7 +11641,7 @@ _ZN4llvm11SmallVectorIPKNS_4SCEVELj4EEC2IS3_vEENS_8ArrayRefIT_EE.exit1528: ; pre
   %1308 = load i32, ptr %1189, align 8, !tbaa !26
   %1309 = zext i32 %1308 to i64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #31
-  %1310 = call noundef nonnull ptr @_ZN4llvm15ScalarEvolution21getDefiningScopeBoundENS_8ArrayRefIPKNS_4SCEVEEERb(ptr noundef nonnull readonly align 8 dereferenceable(1344) %0, ptr %1307, i64 %1309, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %1310 = call noundef nonnull ptr @_ZN4llvm15ScalarEvolution21getDefiningScopeBoundENS_8ArrayRefIPKNS_4SCEVEEERb(ptr noundef nonnull readonly align 8 dereferenceable(1344) %0, ptr readonly %1307, i64 %1309, ptr noundef nonnull align 1 dereferenceable(1) %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #31
   %1311 = load ptr, ptr %1216, align 8, !tbaa !114
   %1312 = load ptr, ptr %1311, align 8, !tbaa !117
@@ -25847,7 +25847,7 @@ _ZN4llvm5APInt8clearBitEj.exit:                   ; preds = %22, %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm15ScalarEvolution35getStrengthenedNoWrapFlagsFromBinOpEPKNS_25OverflowingBinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 align 2 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm15ScalarEvolution35getStrengthenedNoWrapFlagsFromBinOpEPKNS_25OverflowingBinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1
   %5 = and i8 %4, 2
@@ -27428,7 +27428,7 @@ _ZN4llvm15ScalarEvolution11getConstantEPNS_4TypeEmb.exit: ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull ptr @_ZN4llvm15ScalarEvolution21getDefiningScopeBoundENS_8ArrayRefIPKNS_4SCEVEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1344) %0, ptr captures(address) %1, i64 %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef nonnull ptr @_ZN4llvm15ScalarEvolution21getDefiningScopeBoundENS_8ArrayRefIPKNS_4SCEVEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1344) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #1 align 2 {
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #31
   %5 = call noundef ptr @_ZN4llvm15ScalarEvolution21getDefiningScopeBoundENS_8ArrayRefIPKNS_4SCEVEEERb(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -30562,7 +30562,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %13, %16
   %24 = phi i64 [ %23, %._crit_edge.loopexit ], [ 0, %_ZNK4llvm4User8operandsEv.exit ]
   %25 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %7, %_ZNK4llvm4User8operandsEv.exit ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #31
-  %26 = call noundef nonnull ptr @_ZN4llvm15ScalarEvolution21getDefiningScopeBoundENS_8ArrayRefIPKNS_4SCEVEEERb(ptr noundef nonnull readonly align 8 dereferenceable(1344) %0, ptr %25, i64 %24, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  %26 = call noundef nonnull ptr @_ZN4llvm15ScalarEvolution21getDefiningScopeBoundENS_8ArrayRefIPKNS_4SCEVEEERb(ptr noundef nonnull readonly align 8 dereferenceable(1344) %0, ptr readonly %25, i64 %24, ptr noundef nonnull align 1 dereferenceable(1) %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #31
   %27 = call noundef zeroext i1 @_ZN4llvm15ScalarEvolution33isGuaranteedToTransferExecutionToEPKNS_11InstructionES3_(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef nonnull %26, ptr noundef nonnull %1)
   %28 = load ptr, ptr %4, align 8, !tbaa !25
@@ -54325,7 +54325,7 @@ _ZN4llvm13ConstantRangeD2Ev.exit21:               ; preds = %_ZN4llvm5APIntD2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15ScalarEvolution20getRangeViaFactoringEPKNS_4SCEVES3_RKNS_5APIntE(ptr dead_on_unwind noalias writable sret(%"class.llvm::ConstantRange") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1344) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef nonnull align 8 dereferenceable(12) %4) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm15ScalarEvolution20getRangeViaFactoringEPKNS_4SCEVES3_RKNS_5APIntE(ptr dead_on_unwind noalias writable sret(%"class.llvm::ConstantRange") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1344) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef nonnull align 8 dereferenceable(12) %4) local_unnamed_addr #1 align 2 {
   %6 = alloca %struct.SelectPattern, align 8
   %7 = alloca %struct.SelectPattern, align 8
   %8 = alloca %"class.llvm::ConstantRange", align 8
@@ -86123,7 +86123,7 @@ _ZNK4llvm4SCEV7getTypeEv.exit44:                  ; preds = %104, %108, %110, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm15ScalarEvolution29isKnownPredicateViaNoOverflowENS_12CmpPredicateEPKNS_4SCEVES4_(ptr noundef nonnull align 8 dereferenceable(1344) %0, i64 %1, ptr noundef captures(address) %2, ptr noundef captures(address) %3) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm15ScalarEvolution29isKnownPredicateViaNoOverflowENS_12CmpPredicateEPKNS_4SCEVES4_(ptr noundef nonnull align 8 dereferenceable(1344) %0, i64 %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(address) %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8
   %.sroa.021.0.extract.trunc = trunc i64 %1 to i32
@@ -137944,7 +137944,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_4SCEVES4_NS_12DenseMapInfoIS4_vEENS_6de
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZZZN4llvm15ScalarEvolution10LoopGuards16collectFromBlockERS0_RS1_PKNS_10BasicBlockES6_RNS_15SmallPtrSetImplIS6_EEjENK3$_0clENS_7CmpInst9PredicateEPKNS_4SCEVESF_RNS_8DenseMapISF_SF_NS_12DenseMapInfoISF_vEENS_6detail12DenseMapPairISF_SF_EEEEENKUlSF_SF_E0_clESF_SF_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(address_is_null, ret: address, provenance) %1, ptr noundef captures(address_is_null) %2) unnamed_addr #2 align 2 {
+define internal fastcc noundef ptr @"_ZZZN4llvm15ScalarEvolution10LoopGuards16collectFromBlockERS0_RS1_PKNS_10BasicBlockES6_RNS_15SmallPtrSetImplIS6_EEjENK3$_0clENS_7CmpInst9PredicateEPKNS_4SCEVESF_RNS_8DenseMapISF_SF_NS_12DenseMapInfoISF_vEENS_6detail12DenseMapPairISF_SF_EEEEENKUlSF_SF_E0_clESF_SF_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #2 align 2 {
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8
@@ -138078,7 +138078,7 @@ _ZN4llvm5APIntD2Ev.exit8:                         ; preds = %_ZN4llvm5APIntD2Ev.
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZZZN4llvm15ScalarEvolution10LoopGuards16collectFromBlockERS0_RS1_PKNS_10BasicBlockES6_RNS_15SmallPtrSetImplIS6_EEjENK3$_0clENS_7CmpInst9PredicateEPKNS_4SCEVESF_RNS_8DenseMapISF_SF_NS_12DenseMapInfoISF_vEENS_6detail12DenseMapPairISF_SF_EEEEENKUlSF_SF_E_clESF_SF_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(address_is_null, ret: address, provenance) %1, ptr noundef captures(address_is_null) %2) unnamed_addr #2 align 2 {
+define internal fastcc noundef ptr @"_ZZZN4llvm15ScalarEvolution10LoopGuards16collectFromBlockERS0_RS1_PKNS_10BasicBlockES6_RNS_15SmallPtrSetImplIS6_EEjENK3$_0clENS_7CmpInst9PredicateEPKNS_4SCEVESF_RNS_8DenseMapISF_SF_NS_12DenseMapInfoISF_vEENS_6detail12DenseMapPairISF_SF_EEEEENKUlSF_SF_E_clESF_SF_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #2 align 2 {
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8

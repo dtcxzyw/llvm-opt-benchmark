@@ -2096,7 +2096,7 @@ define void @ggml_backend_load_all() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ggml_backend_load_all_from_path(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @ggml_backend_load_all_from_path(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   tail call fastcc void @_ZL22ggml_backend_load_bestPKcbS0_(ptr noundef nonnull @.str.4, ptr noundef %0)
   tail call fastcc void @_ZL22ggml_backend_load_bestPKcbS0_(ptr noundef nonnull @.str.5, ptr noundef %0)
   tail call fastcc void @_ZL22ggml_backend_load_bestPKcbS0_(ptr noundef nonnull @.str.6, ptr noundef %0)

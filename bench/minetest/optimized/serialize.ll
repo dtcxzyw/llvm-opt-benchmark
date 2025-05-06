@@ -2015,7 +2015,7 @@ unreachable:                                      ; preds = %invoke.cont21, %inv
 declare noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z27serializeJsonStringIfNeededB5cxx11St17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i64 %s.coerce0, ptr captures(address) %s.coerce1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z27serializeJsonStringIfNeededB5cxx11St17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i64 %s.coerce0, ptr readonly captures(address) %s.coerce1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
   %cmp37.not = icmp eq i64 %s.coerce0, 0

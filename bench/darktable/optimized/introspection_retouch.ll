@@ -615,7 +615,7 @@ rt_get_mask_point_group.exit.thread:              ; preds = %31, %.preheader.i, 
 declare void @dt_bauhaus_slider_set(ptr noundef, float noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @gui_changed(ptr noundef captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
+define void @gui_changed(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %5 = load ptr, ptr %4, align 8, !tbaa !60
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 704
@@ -1567,7 +1567,7 @@ define void @cleanup_pipe(ptr noundef readnone captures(none) %0, ptr noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_update(ptr noundef captures(address) %0) local_unnamed_addr #1 {
+define void @gui_update(ptr noundef readonly captures(address) %0) local_unnamed_addr #1 {
   %2 = alloca %struct._GdkRGBA, align 8
   %3 = alloca [256 x i8], align 16
   %4 = alloca [300 x %struct.dt_iop_retouch_form_data_t], align 16

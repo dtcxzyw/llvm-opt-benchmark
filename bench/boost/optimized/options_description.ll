@@ -424,7 +424,7 @@ define void @_ZN5boost15program_options18option_descriptionC2Ev(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost15program_options18option_descriptionC2EPKcPKNS0_14value_semanticE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost15program_options18option_descriptionC2EPKcPKNS0_14value_semanticE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost15program_options18option_descriptionE, i64 16), ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1194,7 +1194,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost15program_options18option_descriptionC2EPKcPKNS0_14value_semanticES3_(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost15program_options18option_descriptionC2EPKcPKNS0_14value_semanticES3_(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost15program_options18option_descriptionE, i64 16), ptr %0, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8

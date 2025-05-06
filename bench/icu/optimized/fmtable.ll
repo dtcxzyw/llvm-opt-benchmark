@@ -892,7 +892,7 @@ _ZN6icu_7711Formattable4initEv.exit:              ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7711FormattableC2EPKS0_i(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 16), (24, 44), (48, 58)) %0, ptr noundef captures(address) %1, i32 noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7711FormattableC2EPKS0_i(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 16), (24, 44), (48, 58)) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7711FormattableE, i64 16), ptr %0, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -971,7 +971,7 @@ _ZN6icu_7711Formattable4initEv.exit:              ; preds = %3
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.noexc ]
   %29 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %1, i64 %indvars.iv.i
   %30 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %.ptr21.i, i64 %indvars.iv.i
-  %31 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN6icu_7711FormattableaSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %30, ptr noundef nonnull align 8 dereferenceable(112) %29)
+  %31 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN6icu_7711FormattableaSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %30, ptr noundef nonnull readonly align 8 dereferenceable(112) %29)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i
@@ -1007,7 +1007,7 @@ _ZN6icu_77L15createArrayCopyEPKNS_11FormattableEi.exit: ; preds = %.noexc, %.loo
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7711FormattableC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 16), (24, 44), (48, 58)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(112) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7711FormattableC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 16), (24, 44), (48, 58)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(112) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7711FormattableE, i64 16), ptr %0, align 8, !tbaa !24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %3, align 8, !tbaa !24
@@ -1935,7 +1935,7 @@ define void @_ZN6icu_7711Formattable9setStringERKNS_13UnicodeStringE(ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7711Formattable8setArrayEPKS0_i(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0, ptr noundef captures(address) %1, i32 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7711Formattable8setArrayEPKS0_i(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6icu_7711Formattable7disposeEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 4, ptr %4, align 8, !tbaa !16
@@ -2001,7 +2001,7 @@ define void @_ZN6icu_7711Formattable8setArrayEPKS0_i(ptr noundef nonnull align 8
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %25 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %1, i64 %indvars.iv.i
   %26 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %.ptr21.i, i64 %indvars.iv.i
-  %27 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN6icu_7711FormattableaSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %26, ptr noundef nonnull align 8 dereferenceable(112) %25)
+  %27 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN6icu_7711FormattableaSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %26, ptr noundef nonnull readonly align 8 dereferenceable(112) %25)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN6icu_77L15createArrayCopyEPKNS_11FormattableEi.exit, label %.lr.ph.i, !llvm.loop !27

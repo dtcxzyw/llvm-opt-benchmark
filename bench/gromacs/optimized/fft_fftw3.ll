@@ -32,7 +32,7 @@ $__clang_call_terminate = comdat any
 @.str.5 = private unnamed_addr constant [43 x i8] c"FFT plan mismatch - bad plan or direction.\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 13) i32 @_Z15gmx_fft_init_1dPP7gmx_fftii(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef range(i32 0, 13) i32 @_Z15gmx_fft_init_1dPP7gmx_fftii(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef i32 @_Z20gmx_fft_init_many_1dPP7gmx_fftiii(ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %2)
   ret i32 %4
 }
@@ -436,7 +436,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #11
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 13) i32 @_Z20gmx_fft_init_1d_realPP7gmx_fftii(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef range(i32 0, 13) i32 @_Z20gmx_fft_init_1d_realPP7gmx_fftii(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef i32 @_Z25gmx_fft_init_many_1d_realPP7gmx_fftiii(ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %2)
   ret i32 %4
 }

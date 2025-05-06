@@ -8801,7 +8801,7 @@ _ZNKSt8functionIFN12_GLOBAL__N_113DocumentationEPKN4llvm6RecordEEEclES5_.exit.i.
   %191 = load ptr, ptr %98, align 8, !tbaa !163, !noalias !300
   store ptr %191, ptr %187, align 8, !tbaa !163, !noalias !300
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, i8 0, i64 24, i1 false), !noalias !300
-  call fastcc void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN12_GLOBAL__N_115DocumentedGroupEEEvT_S5_(ptr noundef %184, ptr noundef %186), !noalias !300
+  call fastcc void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN12_GLOBAL__N_115DocumentedGroupEEEvT_S5_(ptr noundef readonly %184, ptr noundef readnone %186), !noalias !300
   %.not.i.i.i.i.i.i39.i.i.i = icmp eq ptr %184, null
   br i1 %.not.i.i.i.i.i.i39.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_115DocumentedGroupESaIS1_EEaSEOS3_.exit.i.i.i.i, label %192
 

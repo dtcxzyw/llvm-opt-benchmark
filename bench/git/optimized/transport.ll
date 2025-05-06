@@ -2748,7 +2748,7 @@ declare i32 @repo_config_get_string(ptr noundef, ptr noundef, ptr noundef) local
 declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_one_push_report(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, i32 noundef range(i32 -2147483645, -2147483648) %5) unnamed_addr #1 {
+define internal fastcc void @print_one_push_report(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, i32 noundef range(i32 -2147483645, -2147483648) %5) unnamed_addr #1 {
   %7 = alloca %struct.strbuf, align 8
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %8, label %14
@@ -2943,7 +2943,7 @@ define internal fastcc void @print_one_push_report(ptr noundef nonnull %0, ptr n
   br i1 %.not52.i, label %95, label %94
 
 94:                                               ; preds = %90
-  tail call fastcc void @print_ref_status(i8 noundef signext 45, ptr noundef nonnull @.str.62, ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 -2147483645, -2147483648) %5)
+  tail call fastcc void @print_ref_status(i8 noundef signext 45, ptr noundef nonnull @.str.62, ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef readonly %3, i32 noundef %4, i32 noundef range(i32 -2147483645, -2147483648) %5)
   br label %print_ok_ref_status.exit
 
 95:                                               ; preds = %90
@@ -2966,7 +2966,7 @@ define internal fastcc void @print_one_push_report(ptr noundef nonnull %0, ptr n
   %102 = phi ptr [ %100, %98 ], [ @.str.64, %96 ]
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %104 = load ptr, ptr %103, align 8, !tbaa !8
-  tail call fastcc void @print_ref_status(i8 noundef signext 42, ptr noundef nonnull %102, ptr noundef nonnull %0, ptr noundef %104, ptr noundef null, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 -2147483645, -2147483648) %5)
+  tail call fastcc void @print_ref_status(i8 noundef signext 42, ptr noundef nonnull %102, ptr noundef nonnull %0, ptr noundef %104, ptr noundef null, ptr noundef readonly %3, i32 noundef %4, i32 noundef range(i32 -2147483645, -2147483648) %5)
   br label %print_ok_ref_status.exit
 
 105:                                              ; preds = %95
@@ -2993,7 +2993,7 @@ define internal fastcc void @print_one_push_report(ptr noundef nonnull %0, ptr n
   %112 = load ptr, ptr %111, align 8, !tbaa !102
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %114 = load ptr, ptr %113, align 8, !tbaa !8
-  call fastcc void @print_ref_status(i8 noundef signext %.038.i, ptr noundef %112, ptr noundef nonnull %0, ptr noundef %114, ptr noundef %.0.i, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 -2147483645, -2147483648) %5)
+  call fastcc void @print_ref_status(i8 noundef signext %.038.i, ptr noundef %112, ptr noundef nonnull %0, ptr noundef %114, ptr noundef %.0.i, ptr noundef readonly %3, i32 noundef %4, i32 noundef range(i32 -2147483645, -2147483648) %5)
   call void @strbuf_release(ptr noundef nonnull %7) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #21
   br label %print_ok_ref_status.exit

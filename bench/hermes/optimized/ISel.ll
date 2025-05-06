@@ -48697,7 +48697,7 @@ do.end:                                           ; preds = %_ZN4llvh12DenseMapB
 declare noundef ptr @_ZN6hermes10BasicBlock13getTerminatorEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc7HBCISel8generateEPNS_11InstructionEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef %ii, ptr noundef captures(address) %next) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3hbc7HBCISel8generateEPNS_11InstructionEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef %ii, ptr noundef readnone captures(address) %next) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(656) ptr @_ZNK6hermes8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(304) %0) #19

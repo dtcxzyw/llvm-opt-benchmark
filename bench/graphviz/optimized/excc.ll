@@ -228,7 +228,7 @@ define noundef nonnull ptr @exopname(i64 noundef %0) local_unnamed_addr #0 {
 declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @exdump(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #2 {
+define void @exdump(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.Excc_t, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
   store ptr %0, ptr %4, align 8, !tbaa !3

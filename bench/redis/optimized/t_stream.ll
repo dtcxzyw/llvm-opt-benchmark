@@ -3524,7 +3524,7 @@ lpGetIntegerIfValid.exit39:                       ; preds = %55, %61
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @streamEntryExists(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @streamEntryExists(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.streamIterator, align 8
   %4 = alloca %struct.streamID, align 8
   %5 = alloca i64, align 8
@@ -3566,7 +3566,7 @@ streamCompareID.exit.thread:                      ; preds = %11, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @streamDeleteItem(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @streamDeleteItem(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.streamIterator, align 8
   %4 = alloca %struct.streamID, align 8
   %5 = alloca i64, align 8
@@ -4499,7 +4499,7 @@ define dso_local void @streamPropagateConsumerCreation(ptr noundef readonly capt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @streamReplyWithRange(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6, ptr noundef %7, i32 noundef %8, ptr noundef readonly captures(address_is_null) %9, ptr noundef captures(address_is_null) %10) local_unnamed_addr #0 {
+define dso_local i64 @streamReplyWithRange(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6, ptr noundef %7, i32 noundef %8, ptr noundef readonly captures(address_is_null) %9, ptr noundef captures(address_is_null) %10) local_unnamed_addr #0 {
   %12 = alloca %struct.streamIterator, align 8
   %13 = alloca i64, align 8
   %14 = alloca %struct.streamID, align 8
@@ -5336,7 +5336,7 @@ define dso_local range(i32 -1, 1) i32 @streamParseIDOrReply(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @streamParseStrictIDOrReply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @streamParseStrictIDOrReply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = tail call i32 @streamGenericParseIDOrReply(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 1, ptr noundef %4)
   ret i32 %6
 }
@@ -10119,7 +10119,7 @@ streamLookupConsumer.exit:                        ; preds = %172, %184, %187, %1
   %233 = load ptr, ptr %14, align 8, !tbaa !54
   %234 = load ptr, ptr %25, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 648, ptr nonnull %2) #17
-  call void @streamIteratorStart(ptr noundef nonnull %2, ptr noundef %234, ptr noundef nonnull %12, ptr noundef nonnull %12, i32 noundef 0)
+  call void @streamIteratorStart(ptr noundef nonnull %2, ptr noundef %234, ptr noundef nonnull readonly %12, ptr noundef nonnull readonly %12, i32 noundef 0)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
   %235 = call i32 @streamIteratorGetID(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
@@ -10653,7 +10653,7 @@ streamIncrID.exit.thread:                         ; preds = %streamIncrID.exit.t
   store i64 %152, ptr %139, align 8, !tbaa !22
   %153 = load ptr, ptr %76, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 648, ptr nonnull %2) #17
-  call void @streamIteratorStart(ptr noundef nonnull %2, ptr noundef %153, ptr noundef nonnull %11, ptr noundef nonnull %11, i32 noundef 0)
+  call void @streamIteratorStart(ptr noundef nonnull %2, ptr noundef %153, ptr noundef nonnull readonly %11, ptr noundef nonnull readonly %11, i32 noundef 0)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
   %154 = call i32 @streamIteratorGetID(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
@@ -11137,7 +11137,7 @@ define dso_local void @xdelCommand(ptr noundef %0) local_unnamed_addr #0 {
   %47 = getelementptr %struct.streamID, ptr %.053, i64 %indvars.iv80
   %48 = getelementptr i8, ptr %47, i64 -32
   call void @llvm.lifetime.start.p0(i64 648, ptr nonnull %4) #17
-  call void @streamIteratorStart(ptr noundef nonnull %4, ptr noundef %19, ptr noundef %48, ptr noundef %48, i32 noundef 0)
+  call void @streamIteratorStart(ptr noundef nonnull %4, ptr noundef %19, ptr noundef readonly %48, ptr noundef readonly %48, i32 noundef 0)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
   %49 = call i32 @streamIteratorGetID(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)

@@ -2890,7 +2890,7 @@ _ZN4llvh11raw_ostreamlsEc.exit13:                 ; preds = %if.then.i8, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree27ArrowFunctionExpressionNodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef captures(address) %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree27ArrowFunctionExpressionNodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_async = getelementptr inbounds nuw i8, ptr %node, i64 129
   %0 = load i8, ptr %_async, align 1
@@ -3194,7 +3194,7 @@ if.end35:                                         ; preds = %if.then.i16.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 3) i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.8.val, ptr noundef captures(address) %parent, ptr noundef %child, i32 noundef range(i32 0, 3) %childPosition) unnamed_addr #7 align 2 {
+define internal fastcc noundef range(i32 0, 3) i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(i8 %this.8.val, ptr noundef readonly captures(address) %parent, ptr noundef readonly %child, i32 noundef range(i32 0, 3) %childPosition) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %parent, i64 16
   %0 = load i32, ptr %kind_.i.i.i.i.i.i.i, align 8
@@ -4659,7 +4659,7 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree16ForStatementNodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef captures(address) %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree16ForStatementNodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %OutBufEnd.i5.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5722,7 +5722,7 @@ declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamls
 declare noundef i64 @_ZN6hermes14numberToStringEdPcm(double noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree22SequenceExpressionNodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef captures(address) %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree22SequenceExpressionNodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_expressions = getelementptr inbounds nuw i8, ptr %node, i64 48
   %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 56
@@ -6128,7 +6128,7 @@ _ZN4llvh11raw_ostreamlsEc.exit32:                 ; preds = %if.then.i27, %if.en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree17NewExpressionNodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef captures(address) %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree17NewExpressionNodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %OutBufEnd.i5.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6466,7 +6466,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree18CallExpressionNodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef captures(address) %node) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree18CallExpressionNodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
 entry:
   %_callee = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_callee, align 8

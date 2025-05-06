@@ -1179,7 +1179,7 @@ _ZN4Copy14disjoint_wordsEPKP12HeapWordImplPS1_m.exit: ; preds = %2, %38, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11klassVtable17initialize_vtableEP13GrowableArrayIP13InstanceKlassE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11klassVtable17initialize_vtableEP13GrowableArrayIP13InstanceKlassE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.methodHandle, align 8
   %4 = alloca %class.methodHandle, align 8
   %5 = load ptr, ptr %0, align 8
@@ -3508,7 +3508,7 @@ define hidden void @_ZN11klassItableC2EP13InstanceKlass(ptr noundef nonnull writ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11klassItable17initialize_itableEP13GrowableArrayIP6MethodE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11klassItable17initialize_itableEP13GrowableArrayIP6MethodE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 164
   %5 = load i32, ptr %4, align 4

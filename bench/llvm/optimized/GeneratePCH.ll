@@ -605,7 +605,7 @@ define dso_local void @_ZN5clang12PCHGenerator6anchorEv(ptr nonnull readnone ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang21CXX20ModulesGeneratorC2ERNS_12PreprocessorERNS_19InMemoryModuleCacheEN4llvm9StringRefEbb(ptr noundef nonnull align 8 dereferenceable(3802) initializes((0, 9), (16, 32)) %0, ptr noundef nonnull align 8 dereferenceable(3288) %1, ptr noundef nonnull align 1 %2, ptr captures(address_is_null) %3, i64 %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang21CXX20ModulesGeneratorC2ERNS_12PreprocessorERNS_19InMemoryModuleCacheEN4llvm9StringRefEbb(ptr noundef nonnull align 8 dereferenceable(3802) initializes((0, 9), (16, 32)) %0, ptr noundef nonnull align 8 dereferenceable(3288) %1, ptr noundef nonnull align 1 %2, ptr readonly captures(address_is_null) %3, i64 %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::StringRef", align 8
   %9 = alloca %"class.std::shared_ptr", align 8
   %10 = alloca %"class.llvm::ArrayRef", align 8

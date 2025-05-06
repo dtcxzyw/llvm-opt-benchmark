@@ -1336,7 +1336,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm19MachineTraceMetrics8Ensemble21getProcR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19MachineTraceMetrics8Ensemble22computeHeightResourcesEPKNS_17MachineBasicBlockE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(440) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm19MachineTraceMetrics8Ensemble22computeHeightResourcesEPKNS_17MachineBasicBlockE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(440) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !220
@@ -3357,7 +3357,7 @@ _ZN12_GLOBAL__N_110LoopBoundsD2Ev.exit:           ; preds = %_ZN4llvm14iterator_
   %455 = getelementptr inbounds nuw i8, ptr %454, i64 88
   %456 = load i32, ptr %455, align 8, !tbaa !212
   %457 = mul i32 %456, %450
-  %458 = call noundef ptr @_ZN4llvm19MachineTraceMetrics12getResourcesEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(400) %454, ptr noundef nonnull %440)
+  %458 = call noundef ptr @_ZN4llvm19MachineTraceMetrics12getResourcesEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(400) %454, ptr noundef nonnull readonly %440)
   %459 = load i32, ptr %458, align 4, !tbaa !265
   %460 = getelementptr inbounds nuw i8, ptr %453, i64 28
   store i32 %459, ptr %460, align 4, !tbaa !327

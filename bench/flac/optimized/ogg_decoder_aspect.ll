@@ -319,7 +319,7 @@ define hidden void @FLAC__ogg_decoder_aspect_set_seek_parameters(ptr noundef %0,
 declare i32 @ogg_stream_reset_serialno(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 9) i32 @FLAC__ogg_decoder_aspect_read_callback_wrapper(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(address_is_null) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define hidden range(i32 0, 9) i32 @FLAC__ogg_decoder_aspect_read_callback_wrapper(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = load i64, ptr %2, align 8, !tbaa !52
@@ -885,7 +885,7 @@ define internal fastcc range(i32 0, 9) i32 @process_page_(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 10) i32 @FLAC__ogg_decoder_aspect_skip_link(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define hidden range(i32 0, 10) i32 @FLAC__ogg_decoder_aspect_skip_link(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8

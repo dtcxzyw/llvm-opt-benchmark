@@ -3295,7 +3295,7 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef 
 declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @xml_dump_group(i64 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local void @xml_dump_group(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.H5O_info2_t, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -4578,7 +4578,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
+define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.h5tools_str_t, align 8
   %5 = alloca %struct.h5tools_context_t, align 8
   %6 = alloca %struct.h5tool_format_t, align 8

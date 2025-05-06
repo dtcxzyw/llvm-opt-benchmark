@@ -1150,7 +1150,7 @@ define internal void @_ZN12_GLOBAL__N_119GenericTaintCheckerD2Ev(ptr noundef non
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %6, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi ptr [ %10, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %7, %6 ]
-  tail call fastcc void @_ZNSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEED2Ev(ptr noundef nonnull align 8 dereferenceable(216) %.05.i.i.i.i.i.i.i.i.i) #20
+  tail call fastcc void @_ZNSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(216) %.05.i.i.i.i.i.i.i.i.i) #20
   %10 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i, i64 216
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, %9
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !75
@@ -1190,7 +1190,7 @@ _ZNSt14_Optional_baseIN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericT
 
 .lr.ph.i.i.i.i.i.i.i.i.i2:                        ; preds = %20, %.lr.ph.i.i.i.i.i.i.i.i.i2
   %.05.i.i.i.i.i.i.i.i.i3 = phi ptr [ %24, %.lr.ph.i.i.i.i.i.i.i.i.i2 ], [ %21, %20 ]
-  tail call fastcc void @_ZNSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEED2Ev(ptr noundef nonnull align 8 dereferenceable(216) %.05.i.i.i.i.i.i.i.i.i3) #20
+  tail call fastcc void @_ZNSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(216) %.05.i.i.i.i.i.i.i.i.i3) #20
   %24 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i3, i64 216
   %.not.i.i.i.i.i.i.i.i.i4 = icmp eq ptr %24, %23
   br i1 %.not.i.i.i.i.i.i.i.i.i4, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i5, label %.lr.ph.i.i.i.i.i.i.i.i.i2, !llvm.loop !75
@@ -4638,7 +4638,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit701: ;
   %1111 = getelementptr inbounds nuw i8, ptr %218, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1110, ptr noundef nonnull align 8 dereferenceable(20) %1111, i64 20, i1 false)
   %1112 = getelementptr inbounds nuw i8, ptr %217, i64 64
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1112, ptr noundef nonnull align 8 dereferenceable(152) %220)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1112, ptr noundef nonnull readonly align 8 dereferenceable(152) %220)
   %1113 = getelementptr inbounds nuw i8, ptr %217, i64 216
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %223) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %224) #20
@@ -4766,7 +4766,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit704: ;
   %1161 = getelementptr inbounds nuw i8, ptr %223, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1160, ptr noundef nonnull align 8 dereferenceable(20) %1161, i64 20, i1 false)
   %1162 = getelementptr inbounds nuw i8, ptr %217, i64 280
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1162, ptr noundef nonnull align 8 dereferenceable(152) %225)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1162, ptr noundef nonnull readonly align 8 dereferenceable(152) %225)
   %1163 = getelementptr inbounds nuw i8, ptr %217, i64 432
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %228) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %229) #20
@@ -4894,7 +4894,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit707: ;
   %1211 = getelementptr inbounds nuw i8, ptr %228, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1210, ptr noundef nonnull align 8 dereferenceable(20) %1211, i64 20, i1 false)
   %1212 = getelementptr inbounds nuw i8, ptr %217, i64 496
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1212, ptr noundef nonnull align 8 dereferenceable(152) %230)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1212, ptr noundef nonnull readonly align 8 dereferenceable(152) %230)
   %1213 = getelementptr inbounds nuw i8, ptr %217, i64 648
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %233) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %234) #20
@@ -5022,7 +5022,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit710: ;
   %1261 = getelementptr inbounds nuw i8, ptr %233, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1260, ptr noundef nonnull align 8 dereferenceable(20) %1261, i64 20, i1 false)
   %1262 = getelementptr inbounds nuw i8, ptr %217, i64 712
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1262, ptr noundef nonnull align 8 dereferenceable(152) %235)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1262, ptr noundef nonnull readonly align 8 dereferenceable(152) %235)
   %1263 = getelementptr inbounds nuw i8, ptr %217, i64 864
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %238) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %239) #20
@@ -5150,7 +5150,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit713: ;
   %1311 = getelementptr inbounds nuw i8, ptr %238, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1310, ptr noundef nonnull align 8 dereferenceable(20) %1311, i64 20, i1 false)
   %1312 = getelementptr inbounds nuw i8, ptr %217, i64 928
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1312, ptr noundef nonnull align 8 dereferenceable(152) %240)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1312, ptr noundef nonnull readonly align 8 dereferenceable(152) %240)
   %1313 = getelementptr inbounds nuw i8, ptr %217, i64 1080
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %243) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %244) #20
@@ -5278,7 +5278,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit716: ;
   %1361 = getelementptr inbounds nuw i8, ptr %243, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1360, ptr noundef nonnull align 8 dereferenceable(20) %1361, i64 20, i1 false)
   %1362 = getelementptr inbounds nuw i8, ptr %217, i64 1144
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1362, ptr noundef nonnull align 8 dereferenceable(152) %245)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1362, ptr noundef nonnull readonly align 8 dereferenceable(152) %245)
   %1363 = getelementptr inbounds nuw i8, ptr %217, i64 1296
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %248) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %249) #20
@@ -5408,7 +5408,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit719: ;
   %1411 = getelementptr inbounds nuw i8, ptr %248, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1410, ptr noundef nonnull align 8 dereferenceable(20) %1411, i64 20, i1 false)
   %1412 = getelementptr inbounds nuw i8, ptr %217, i64 1360
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1412, ptr noundef nonnull align 8 dereferenceable(152) %250)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1412, ptr noundef nonnull readonly align 8 dereferenceable(152) %250)
   %1413 = getelementptr inbounds nuw i8, ptr %217, i64 1512
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %253) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %254) #20
@@ -5538,7 +5538,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit721: ;
   %1461 = getelementptr inbounds nuw i8, ptr %253, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1460, ptr noundef nonnull align 8 dereferenceable(20) %1461, i64 20, i1 false)
   %1462 = getelementptr inbounds nuw i8, ptr %217, i64 1576
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1462, ptr noundef nonnull align 8 dereferenceable(152) %255)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1462, ptr noundef nonnull readonly align 8 dereferenceable(152) %255)
   %1463 = getelementptr inbounds nuw i8, ptr %217, i64 1728
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %258) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %259) #20
@@ -5660,7 +5660,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit723: ;
   %1510 = getelementptr inbounds nuw i8, ptr %258, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1509, ptr noundef nonnull align 8 dereferenceable(20) %1510, i64 20, i1 false)
   %1511 = getelementptr inbounds nuw i8, ptr %217, i64 1792
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1511, ptr noundef nonnull align 8 dereferenceable(152) %260)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1511, ptr noundef nonnull readonly align 8 dereferenceable(152) %260)
   %1512 = getelementptr inbounds nuw i8, ptr %217, i64 1944
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %263) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %264) #20
@@ -5782,7 +5782,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit726: ;
   %1559 = getelementptr inbounds nuw i8, ptr %263, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1558, ptr noundef nonnull align 8 dereferenceable(20) %1559, i64 20, i1 false)
   %1560 = getelementptr inbounds nuw i8, ptr %217, i64 2008
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1560, ptr noundef nonnull align 8 dereferenceable(152) %265)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1560, ptr noundef nonnull readonly align 8 dereferenceable(152) %265)
   %1561 = getelementptr inbounds nuw i8, ptr %217, i64 2160
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %268) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %269) #20
@@ -5910,7 +5910,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit729: ;
   %1609 = getelementptr inbounds nuw i8, ptr %268, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1608, ptr noundef nonnull align 8 dereferenceable(20) %1609, i64 20, i1 false)
   %1610 = getelementptr inbounds nuw i8, ptr %217, i64 2224
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1610, ptr noundef nonnull align 8 dereferenceable(152) %270)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1610, ptr noundef nonnull readonly align 8 dereferenceable(152) %270)
   %1611 = getelementptr inbounds nuw i8, ptr %217, i64 2376
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %273) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %274) #20
@@ -6038,7 +6038,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit732: ;
   %1659 = getelementptr inbounds nuw i8, ptr %273, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1658, ptr noundef nonnull align 8 dereferenceable(20) %1659, i64 20, i1 false)
   %1660 = getelementptr inbounds nuw i8, ptr %217, i64 2440
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1660, ptr noundef nonnull align 8 dereferenceable(152) %275)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1660, ptr noundef nonnull readonly align 8 dereferenceable(152) %275)
   %1661 = getelementptr inbounds nuw i8, ptr %217, i64 2592
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %278) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %279) #20
@@ -6168,7 +6168,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit735: ;
   %1709 = getelementptr inbounds nuw i8, ptr %278, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1708, ptr noundef nonnull align 8 dereferenceable(20) %1709, i64 20, i1 false)
   %1710 = getelementptr inbounds nuw i8, ptr %217, i64 2656
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1710, ptr noundef nonnull align 8 dereferenceable(152) %280)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1710, ptr noundef nonnull readonly align 8 dereferenceable(152) %280)
   %1711 = getelementptr inbounds nuw i8, ptr %217, i64 2808
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %283) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %284) #20
@@ -6298,7 +6298,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit738: ;
   %1759 = getelementptr inbounds nuw i8, ptr %283, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1758, ptr noundef nonnull align 8 dereferenceable(20) %1759, i64 20, i1 false)
   %1760 = getelementptr inbounds nuw i8, ptr %217, i64 2872
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1760, ptr noundef nonnull align 8 dereferenceable(152) %285)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1760, ptr noundef nonnull readonly align 8 dereferenceable(152) %285)
   %1761 = getelementptr inbounds nuw i8, ptr %217, i64 3024
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %288) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %289) #20
@@ -6428,7 +6428,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit741: ;
   %1809 = getelementptr inbounds nuw i8, ptr %288, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1808, ptr noundef nonnull align 8 dereferenceable(20) %1809, i64 20, i1 false)
   %1810 = getelementptr inbounds nuw i8, ptr %217, i64 3088
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1810, ptr noundef nonnull align 8 dereferenceable(152) %290)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1810, ptr noundef nonnull readonly align 8 dereferenceable(152) %290)
   %1811 = getelementptr inbounds nuw i8, ptr %217, i64 3240
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %293) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %294) #20
@@ -6558,7 +6558,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit744: ;
   %1859 = getelementptr inbounds nuw i8, ptr %293, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1858, ptr noundef nonnull align 8 dereferenceable(20) %1859, i64 20, i1 false)
   %1860 = getelementptr inbounds nuw i8, ptr %217, i64 3304
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1860, ptr noundef nonnull align 8 dereferenceable(152) %295)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1860, ptr noundef nonnull readonly align 8 dereferenceable(152) %295)
   %1861 = getelementptr inbounds nuw i8, ptr %217, i64 3456
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %298) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %299) #20
@@ -6686,7 +6686,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit747: ;
   %1909 = getelementptr inbounds nuw i8, ptr %298, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1908, ptr noundef nonnull align 8 dereferenceable(20) %1909, i64 20, i1 false)
   %1910 = getelementptr inbounds nuw i8, ptr %217, i64 3520
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1910, ptr noundef nonnull align 8 dereferenceable(152) %300)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1910, ptr noundef nonnull readonly align 8 dereferenceable(152) %300)
   %1911 = getelementptr inbounds nuw i8, ptr %217, i64 3672
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %303) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %304) #20
@@ -6814,7 +6814,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit750: ;
   %1959 = getelementptr inbounds nuw i8, ptr %303, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1958, ptr noundef nonnull align 8 dereferenceable(20) %1959, i64 20, i1 false)
   %1960 = getelementptr inbounds nuw i8, ptr %217, i64 3736
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1960, ptr noundef nonnull align 8 dereferenceable(152) %305)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1960, ptr noundef nonnull readonly align 8 dereferenceable(152) %305)
   %1961 = getelementptr inbounds nuw i8, ptr %217, i64 3888
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %308) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %309) #20
@@ -6944,7 +6944,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit753: ;
   %2009 = getelementptr inbounds nuw i8, ptr %308, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2008, ptr noundef nonnull align 8 dereferenceable(20) %2009, i64 20, i1 false)
   %2010 = getelementptr inbounds nuw i8, ptr %217, i64 3952
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2010, ptr noundef nonnull align 8 dereferenceable(152) %310)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2010, ptr noundef nonnull readonly align 8 dereferenceable(152) %310)
   %2011 = getelementptr inbounds nuw i8, ptr %217, i64 4104
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %313) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %314) #20
@@ -7074,7 +7074,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit756: ;
   %2059 = getelementptr inbounds nuw i8, ptr %313, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2058, ptr noundef nonnull align 8 dereferenceable(20) %2059, i64 20, i1 false)
   %2060 = getelementptr inbounds nuw i8, ptr %217, i64 4168
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2060, ptr noundef nonnull align 8 dereferenceable(152) %315)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2060, ptr noundef nonnull readonly align 8 dereferenceable(152) %315)
   %2061 = getelementptr inbounds nuw i8, ptr %217, i64 4320
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %318) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %319) #20
@@ -7204,7 +7204,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit759: ;
   %2109 = getelementptr inbounds nuw i8, ptr %318, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2108, ptr noundef nonnull align 8 dereferenceable(20) %2109, i64 20, i1 false)
   %2110 = getelementptr inbounds nuw i8, ptr %217, i64 4384
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2110, ptr noundef nonnull align 8 dereferenceable(152) %320)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2110, ptr noundef nonnull readonly align 8 dereferenceable(152) %320)
   %2111 = getelementptr inbounds nuw i8, ptr %217, i64 4536
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %323) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %324) #20
@@ -7332,7 +7332,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit762: ;
   %2159 = getelementptr inbounds nuw i8, ptr %323, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2158, ptr noundef nonnull align 8 dereferenceable(20) %2159, i64 20, i1 false)
   %2160 = getelementptr inbounds nuw i8, ptr %217, i64 4600
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2160, ptr noundef nonnull align 8 dereferenceable(152) %325)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2160, ptr noundef nonnull readonly align 8 dereferenceable(152) %325)
   %2161 = getelementptr inbounds nuw i8, ptr %217, i64 4752
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %328) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %329) #20
@@ -7460,7 +7460,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit768: ;
   %2209 = getelementptr inbounds nuw i8, ptr %328, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2208, ptr noundef nonnull align 8 dereferenceable(20) %2209, i64 20, i1 false)
   %2210 = getelementptr inbounds nuw i8, ptr %217, i64 4816
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2210, ptr noundef nonnull align 8 dereferenceable(152) %330)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2210, ptr noundef nonnull readonly align 8 dereferenceable(152) %330)
   %2211 = getelementptr inbounds nuw i8, ptr %217, i64 4968
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %333) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %334) #20
@@ -7610,7 +7610,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit774: ;
   %2267 = getelementptr inbounds nuw i8, ptr %333, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2266, ptr noundef nonnull align 8 dereferenceable(20) %2267, i64 20, i1 false)
   %2268 = getelementptr inbounds nuw i8, ptr %217, i64 5032
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2268, ptr noundef nonnull align 8 dereferenceable(152) %335)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2268, ptr noundef nonnull readonly align 8 dereferenceable(152) %335)
   %2269 = getelementptr inbounds nuw i8, ptr %217, i64 5184
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %340) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %341) #20
@@ -7760,7 +7760,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit780: ;
   %2325 = getelementptr inbounds nuw i8, ptr %340, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2324, ptr noundef nonnull align 8 dereferenceable(20) %2325, i64 20, i1 false)
   %2326 = getelementptr inbounds nuw i8, ptr %217, i64 5248
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2326, ptr noundef nonnull align 8 dereferenceable(152) %342)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2326, ptr noundef nonnull readonly align 8 dereferenceable(152) %342)
   %2327 = getelementptr inbounds nuw i8, ptr %217, i64 5400
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %347) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %348) #20
@@ -7910,7 +7910,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit786: ;
   %2383 = getelementptr inbounds nuw i8, ptr %347, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2382, ptr noundef nonnull align 8 dereferenceable(20) %2383, i64 20, i1 false)
   %2384 = getelementptr inbounds nuw i8, ptr %217, i64 5464
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2384, ptr noundef nonnull align 8 dereferenceable(152) %349)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2384, ptr noundef nonnull readonly align 8 dereferenceable(152) %349)
   %2385 = getelementptr inbounds nuw i8, ptr %217, i64 5616
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %354) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %355) #20
@@ -8060,7 +8060,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit792: ;
   %2441 = getelementptr inbounds nuw i8, ptr %354, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2440, ptr noundef nonnull align 8 dereferenceable(20) %2441, i64 20, i1 false)
   %2442 = getelementptr inbounds nuw i8, ptr %217, i64 5680
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2442, ptr noundef nonnull align 8 dereferenceable(152) %356)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2442, ptr noundef nonnull readonly align 8 dereferenceable(152) %356)
   %2443 = getelementptr inbounds nuw i8, ptr %217, i64 5832
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %361) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %362) #20
@@ -8210,7 +8210,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit798: ;
   %2499 = getelementptr inbounds nuw i8, ptr %361, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2498, ptr noundef nonnull align 8 dereferenceable(20) %2499, i64 20, i1 false)
   %2500 = getelementptr inbounds nuw i8, ptr %217, i64 5896
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2500, ptr noundef nonnull align 8 dereferenceable(152) %363)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2500, ptr noundef nonnull readonly align 8 dereferenceable(152) %363)
   %2501 = getelementptr inbounds nuw i8, ptr %217, i64 6048
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %368) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %369) #20
@@ -8360,7 +8360,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit804: ;
   %2557 = getelementptr inbounds nuw i8, ptr %368, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2556, ptr noundef nonnull align 8 dereferenceable(20) %2557, i64 20, i1 false)
   %2558 = getelementptr inbounds nuw i8, ptr %217, i64 6112
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2558, ptr noundef nonnull align 8 dereferenceable(152) %370)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2558, ptr noundef nonnull readonly align 8 dereferenceable(152) %370)
   %2559 = getelementptr inbounds nuw i8, ptr %217, i64 6264
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %375) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %376) #20
@@ -8512,7 +8512,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit810: ;
   %2615 = getelementptr inbounds nuw i8, ptr %375, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2614, ptr noundef nonnull align 8 dereferenceable(20) %2615, i64 20, i1 false)
   %2616 = getelementptr inbounds nuw i8, ptr %217, i64 6328
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2616, ptr noundef nonnull align 8 dereferenceable(152) %377)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2616, ptr noundef nonnull readonly align 8 dereferenceable(152) %377)
   %2617 = getelementptr inbounds nuw i8, ptr %217, i64 6480
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %382) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %383) #20
@@ -8664,7 +8664,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit815: ;
   %2673 = getelementptr inbounds nuw i8, ptr %382, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2672, ptr noundef nonnull align 8 dereferenceable(20) %2673, i64 20, i1 false)
   %2674 = getelementptr inbounds nuw i8, ptr %217, i64 6544
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2674, ptr noundef nonnull align 8 dereferenceable(152) %384)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2674, ptr noundef nonnull readonly align 8 dereferenceable(152) %384)
   %2675 = getelementptr inbounds nuw i8, ptr %217, i64 6696
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %389) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %390) #20
@@ -8808,7 +8808,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit820: ;
   %2730 = getelementptr inbounds nuw i8, ptr %389, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2729, ptr noundef nonnull align 8 dereferenceable(20) %2730, i64 20, i1 false)
   %2731 = getelementptr inbounds nuw i8, ptr %217, i64 6760
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2731, ptr noundef nonnull align 8 dereferenceable(152) %391)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2731, ptr noundef nonnull readonly align 8 dereferenceable(152) %391)
   %2732 = getelementptr inbounds nuw i8, ptr %217, i64 6912
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %396) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %397) #20
@@ -8952,7 +8952,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit825: ;
   %2787 = getelementptr inbounds nuw i8, ptr %396, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2786, ptr noundef nonnull align 8 dereferenceable(20) %2787, i64 20, i1 false)
   %2788 = getelementptr inbounds nuw i8, ptr %217, i64 6976
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2788, ptr noundef nonnull align 8 dereferenceable(152) %398)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2788, ptr noundef nonnull readonly align 8 dereferenceable(152) %398)
   %2789 = getelementptr inbounds nuw i8, ptr %217, i64 7128
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %403) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %404) #20
@@ -9096,7 +9096,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit830: ;
   %2844 = getelementptr inbounds nuw i8, ptr %403, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2843, ptr noundef nonnull align 8 dereferenceable(20) %2844, i64 20, i1 false)
   %2845 = getelementptr inbounds nuw i8, ptr %217, i64 7192
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2845, ptr noundef nonnull align 8 dereferenceable(152) %405)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2845, ptr noundef nonnull readonly align 8 dereferenceable(152) %405)
   %2846 = getelementptr inbounds nuw i8, ptr %217, i64 7344
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %410) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %411) #20
@@ -9240,7 +9240,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit836: ;
   %2901 = getelementptr inbounds nuw i8, ptr %410, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2900, ptr noundef nonnull align 8 dereferenceable(20) %2901, i64 20, i1 false)
   %2902 = getelementptr inbounds nuw i8, ptr %217, i64 7408
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2902, ptr noundef nonnull align 8 dereferenceable(152) %412)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2902, ptr noundef nonnull readonly align 8 dereferenceable(152) %412)
   %2903 = getelementptr inbounds nuw i8, ptr %217, i64 7560
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %417) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %418) #20
@@ -9390,7 +9390,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit842: ;
   %2959 = getelementptr inbounds nuw i8, ptr %417, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2958, ptr noundef nonnull align 8 dereferenceable(20) %2959, i64 20, i1 false)
   %2960 = getelementptr inbounds nuw i8, ptr %217, i64 7624
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2960, ptr noundef nonnull align 8 dereferenceable(152) %419)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %2960, ptr noundef nonnull readonly align 8 dereferenceable(152) %419)
   %2961 = getelementptr inbounds nuw i8, ptr %217, i64 7776
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %424) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %425) #20
@@ -9540,7 +9540,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit848: ;
   %3017 = getelementptr inbounds nuw i8, ptr %424, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3016, ptr noundef nonnull align 8 dereferenceable(20) %3017, i64 20, i1 false)
   %3018 = getelementptr inbounds nuw i8, ptr %217, i64 7840
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3018, ptr noundef nonnull align 8 dereferenceable(152) %426)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3018, ptr noundef nonnull readonly align 8 dereferenceable(152) %426)
   %3019 = getelementptr inbounds nuw i8, ptr %217, i64 7992
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %431) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %432) #20
@@ -9690,7 +9690,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit854: ;
   %3075 = getelementptr inbounds nuw i8, ptr %431, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3074, ptr noundef nonnull align 8 dereferenceable(20) %3075, i64 20, i1 false)
   %3076 = getelementptr inbounds nuw i8, ptr %217, i64 8056
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3076, ptr noundef nonnull align 8 dereferenceable(152) %433)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3076, ptr noundef nonnull readonly align 8 dereferenceable(152) %433)
   %3077 = getelementptr inbounds nuw i8, ptr %217, i64 8208
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %438) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %439) #20
@@ -9840,7 +9840,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit860: ;
   %3133 = getelementptr inbounds nuw i8, ptr %438, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3132, ptr noundef nonnull align 8 dereferenceable(20) %3133, i64 20, i1 false)
   %3134 = getelementptr inbounds nuw i8, ptr %217, i64 8272
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3134, ptr noundef nonnull align 8 dereferenceable(152) %440)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3134, ptr noundef nonnull readonly align 8 dereferenceable(152) %440)
   %3135 = getelementptr inbounds nuw i8, ptr %217, i64 8424
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %445) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %446) #20
@@ -9990,7 +9990,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7
   %3191 = getelementptr inbounds nuw i8, ptr %445, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3190, ptr noundef nonnull align 8 dereferenceable(20) %3191, i64 20, i1 false)
   %3192 = getelementptr inbounds nuw i8, ptr %217, i64 8488
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3192, ptr noundef nonnull align 8 dereferenceable(152) %447)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3192, ptr noundef nonnull readonly align 8 dereferenceable(152) %447)
   %3193 = getelementptr inbounds nuw i8, ptr %217, i64 8640
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %452) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %453) #20
@@ -10198,7 +10198,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit872: ;
   %3260 = getelementptr inbounds nuw i8, ptr %452, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3259, ptr noundef nonnull align 8 dereferenceable(20) %3260, i64 20, i1 false)
   %3261 = getelementptr inbounds nuw i8, ptr %217, i64 8704
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3261, ptr noundef nonnull align 8 dereferenceable(152) %454)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3261, ptr noundef nonnull readonly align 8 dereferenceable(152) %454)
   %3262 = getelementptr inbounds nuw i8, ptr %217, i64 8856
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %459) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %460) #20
@@ -10352,7 +10352,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit878: ;
   %3318 = getelementptr inbounds nuw i8, ptr %459, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3317, ptr noundef nonnull align 8 dereferenceable(20) %3318, i64 20, i1 false)
   %3319 = getelementptr inbounds nuw i8, ptr %217, i64 8920
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3319, ptr noundef nonnull align 8 dereferenceable(152) %461)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3319, ptr noundef nonnull readonly align 8 dereferenceable(152) %461)
   %3320 = getelementptr inbounds nuw i8, ptr %217, i64 9072
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %466) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %467) #20
@@ -10504,7 +10504,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit884: ;
   %3376 = getelementptr inbounds nuw i8, ptr %466, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3375, ptr noundef nonnull align 8 dereferenceable(20) %3376, i64 20, i1 false)
   %3377 = getelementptr inbounds nuw i8, ptr %217, i64 9136
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3377, ptr noundef nonnull align 8 dereferenceable(152) %468)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3377, ptr noundef nonnull readonly align 8 dereferenceable(152) %468)
   %3378 = getelementptr inbounds nuw i8, ptr %217, i64 9288
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %473) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %474) #20
@@ -10656,7 +10656,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit890: ;
   %3434 = getelementptr inbounds nuw i8, ptr %473, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3433, ptr noundef nonnull align 8 dereferenceable(20) %3434, i64 20, i1 false)
   %3435 = getelementptr inbounds nuw i8, ptr %217, i64 9352
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3435, ptr noundef nonnull align 8 dereferenceable(152) %475)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3435, ptr noundef nonnull readonly align 8 dereferenceable(152) %475)
   %3436 = getelementptr inbounds nuw i8, ptr %217, i64 9504
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %480) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %481) #20
@@ -10808,7 +10808,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit896: ;
   %3492 = getelementptr inbounds nuw i8, ptr %480, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3491, ptr noundef nonnull align 8 dereferenceable(20) %3492, i64 20, i1 false)
   %3493 = getelementptr inbounds nuw i8, ptr %217, i64 9568
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3493, ptr noundef nonnull align 8 dereferenceable(152) %482)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3493, ptr noundef nonnull readonly align 8 dereferenceable(152) %482)
   %3494 = getelementptr inbounds nuw i8, ptr %217, i64 9720
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %487) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %488) #20
@@ -10958,7 +10958,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit902: ;
   %3550 = getelementptr inbounds nuw i8, ptr %487, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3549, ptr noundef nonnull align 8 dereferenceable(20) %3550, i64 20, i1 false)
   %3551 = getelementptr inbounds nuw i8, ptr %217, i64 9784
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3551, ptr noundef nonnull align 8 dereferenceable(152) %489)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3551, ptr noundef nonnull readonly align 8 dereferenceable(152) %489)
   %3552 = getelementptr inbounds nuw i8, ptr %217, i64 9936
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %494) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %495) #20
@@ -11110,7 +11110,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit908: ;
   %3608 = getelementptr inbounds nuw i8, ptr %494, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3607, ptr noundef nonnull align 8 dereferenceable(20) %3608, i64 20, i1 false)
   %3609 = getelementptr inbounds nuw i8, ptr %217, i64 10000
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3609, ptr noundef nonnull align 8 dereferenceable(152) %496)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3609, ptr noundef nonnull readonly align 8 dereferenceable(152) %496)
   %3610 = getelementptr inbounds nuw i8, ptr %217, i64 10152
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %501) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %502) #20
@@ -11260,7 +11260,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit914: ;
   %3666 = getelementptr inbounds nuw i8, ptr %501, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3665, ptr noundef nonnull align 8 dereferenceable(20) %3666, i64 20, i1 false)
   %3667 = getelementptr inbounds nuw i8, ptr %217, i64 10216
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3667, ptr noundef nonnull align 8 dereferenceable(152) %503)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3667, ptr noundef nonnull readonly align 8 dereferenceable(152) %503)
   %3668 = getelementptr inbounds nuw i8, ptr %217, i64 10368
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %508) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %509) #20
@@ -11410,7 +11410,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit920: ;
   %3724 = getelementptr inbounds nuw i8, ptr %508, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3723, ptr noundef nonnull align 8 dereferenceable(20) %3724, i64 20, i1 false)
   %3725 = getelementptr inbounds nuw i8, ptr %217, i64 10432
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3725, ptr noundef nonnull align 8 dereferenceable(152) %510)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3725, ptr noundef nonnull readonly align 8 dereferenceable(152) %510)
   %3726 = getelementptr inbounds nuw i8, ptr %217, i64 10584
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %515) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %516) #20
@@ -11560,7 +11560,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit926: ;
   %3782 = getelementptr inbounds nuw i8, ptr %515, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3781, ptr noundef nonnull align 8 dereferenceable(20) %3782, i64 20, i1 false)
   %3783 = getelementptr inbounds nuw i8, ptr %217, i64 10648
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3783, ptr noundef nonnull align 8 dereferenceable(152) %517)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3783, ptr noundef nonnull readonly align 8 dereferenceable(152) %517)
   %3784 = getelementptr inbounds nuw i8, ptr %217, i64 10800
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %522) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %523) #20
@@ -11712,7 +11712,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit932: ;
   %3840 = getelementptr inbounds nuw i8, ptr %522, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3839, ptr noundef nonnull align 8 dereferenceable(20) %3840, i64 20, i1 false)
   %3841 = getelementptr inbounds nuw i8, ptr %217, i64 10864
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3841, ptr noundef nonnull align 8 dereferenceable(152) %524)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3841, ptr noundef nonnull readonly align 8 dereferenceable(152) %524)
   %3842 = getelementptr inbounds nuw i8, ptr %217, i64 11016
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %529) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %530) #20
@@ -11864,7 +11864,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit938: ;
   %3898 = getelementptr inbounds nuw i8, ptr %529, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3897, ptr noundef nonnull align 8 dereferenceable(20) %3898, i64 20, i1 false)
   %3899 = getelementptr inbounds nuw i8, ptr %217, i64 11080
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3899, ptr noundef nonnull align 8 dereferenceable(152) %531)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3899, ptr noundef nonnull readonly align 8 dereferenceable(152) %531)
   %3900 = getelementptr inbounds nuw i8, ptr %217, i64 11232
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %536) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %537) #20
@@ -12014,7 +12014,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7
   %3956 = getelementptr inbounds nuw i8, ptr %536, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3955, ptr noundef nonnull align 8 dereferenceable(20) %3956, i64 20, i1 false)
   %3957 = getelementptr inbounds nuw i8, ptr %217, i64 11296
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3957, ptr noundef nonnull align 8 dereferenceable(152) %538)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %3957, ptr noundef nonnull readonly align 8 dereferenceable(152) %538)
   %3958 = getelementptr inbounds nuw i8, ptr %217, i64 11448
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %543) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %544) #20
@@ -12218,7 +12218,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit952: ;
   %4025 = getelementptr inbounds nuw i8, ptr %543, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4024, ptr noundef nonnull align 8 dereferenceable(20) %4025, i64 20, i1 false)
   %4026 = getelementptr inbounds nuw i8, ptr %217, i64 11512
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4026, ptr noundef nonnull align 8 dereferenceable(152) %545)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4026, ptr noundef nonnull readonly align 8 dereferenceable(152) %545)
   %4027 = getelementptr inbounds nuw i8, ptr %217, i64 11664
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %550) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %551) #20
@@ -12372,7 +12372,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit958: ;
   %4083 = getelementptr inbounds nuw i8, ptr %550, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4082, ptr noundef nonnull align 8 dereferenceable(20) %4083, i64 20, i1 false)
   %4084 = getelementptr inbounds nuw i8, ptr %217, i64 11728
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4084, ptr noundef nonnull align 8 dereferenceable(152) %552)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4084, ptr noundef nonnull readonly align 8 dereferenceable(152) %552)
   %4085 = getelementptr inbounds nuw i8, ptr %217, i64 11880
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %557) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %558) #20
@@ -12526,7 +12526,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit964: ;
   %4141 = getelementptr inbounds nuw i8, ptr %557, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4140, ptr noundef nonnull align 8 dereferenceable(20) %4141, i64 20, i1 false)
   %4142 = getelementptr inbounds nuw i8, ptr %217, i64 11944
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4142, ptr noundef nonnull align 8 dereferenceable(152) %559)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4142, ptr noundef nonnull readonly align 8 dereferenceable(152) %559)
   %4143 = getelementptr inbounds nuw i8, ptr %217, i64 12096
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %564) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %565) #20
@@ -12678,7 +12678,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit970: ;
   %4199 = getelementptr inbounds nuw i8, ptr %564, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4198, ptr noundef nonnull align 8 dereferenceable(20) %4199, i64 20, i1 false)
   %4200 = getelementptr inbounds nuw i8, ptr %217, i64 12160
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4200, ptr noundef nonnull align 8 dereferenceable(152) %566)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4200, ptr noundef nonnull readonly align 8 dereferenceable(152) %566)
   %4201 = getelementptr inbounds nuw i8, ptr %217, i64 12312
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %571) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %572) #20
@@ -12830,7 +12830,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit976: ;
   %4257 = getelementptr inbounds nuw i8, ptr %571, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4256, ptr noundef nonnull align 8 dereferenceable(20) %4257, i64 20, i1 false)
   %4258 = getelementptr inbounds nuw i8, ptr %217, i64 12376
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4258, ptr noundef nonnull align 8 dereferenceable(152) %573)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4258, ptr noundef nonnull readonly align 8 dereferenceable(152) %573)
   %4259 = getelementptr inbounds nuw i8, ptr %217, i64 12528
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %578) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %579) #20
@@ -12980,7 +12980,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit982: ;
   %4315 = getelementptr inbounds nuw i8, ptr %578, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4314, ptr noundef nonnull align 8 dereferenceable(20) %4315, i64 20, i1 false)
   %4316 = getelementptr inbounds nuw i8, ptr %217, i64 12592
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4316, ptr noundef nonnull align 8 dereferenceable(152) %580)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4316, ptr noundef nonnull readonly align 8 dereferenceable(152) %580)
   %4317 = getelementptr inbounds nuw i8, ptr %217, i64 12744
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %585) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %586) #20
@@ -13130,7 +13130,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit988: ;
   %4373 = getelementptr inbounds nuw i8, ptr %585, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4372, ptr noundef nonnull align 8 dereferenceable(20) %4373, i64 20, i1 false)
   %4374 = getelementptr inbounds nuw i8, ptr %217, i64 12808
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4374, ptr noundef nonnull align 8 dereferenceable(152) %587)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4374, ptr noundef nonnull readonly align 8 dereferenceable(152) %587)
   %4375 = getelementptr inbounds nuw i8, ptr %217, i64 12960
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %592) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %593) #20
@@ -13280,7 +13280,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit994: ;
   %4431 = getelementptr inbounds nuw i8, ptr %592, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4430, ptr noundef nonnull align 8 dereferenceable(20) %4431, i64 20, i1 false)
   %4432 = getelementptr inbounds nuw i8, ptr %217, i64 13024
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4432, ptr noundef nonnull align 8 dereferenceable(152) %594)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4432, ptr noundef nonnull readonly align 8 dereferenceable(152) %594)
   %4433 = getelementptr inbounds nuw i8, ptr %217, i64 13176
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %599) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %600) #20
@@ -13430,7 +13430,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1000: 
   %4489 = getelementptr inbounds nuw i8, ptr %599, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4488, ptr noundef nonnull align 8 dereferenceable(20) %4489, i64 20, i1 false)
   %4490 = getelementptr inbounds nuw i8, ptr %217, i64 13240
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4490, ptr noundef nonnull align 8 dereferenceable(152) %601)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4490, ptr noundef nonnull readonly align 8 dereferenceable(152) %601)
   %4491 = getelementptr inbounds nuw i8, ptr %217, i64 13392
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %606) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %607) #20
@@ -13580,7 +13580,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1006: 
   %4547 = getelementptr inbounds nuw i8, ptr %606, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4546, ptr noundef nonnull align 8 dereferenceable(20) %4547, i64 20, i1 false)
   %4548 = getelementptr inbounds nuw i8, ptr %217, i64 13456
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4548, ptr noundef nonnull align 8 dereferenceable(152) %608)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4548, ptr noundef nonnull readonly align 8 dereferenceable(152) %608)
   %4549 = getelementptr inbounds nuw i8, ptr %217, i64 13608
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %613) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %614) #20
@@ -13730,7 +13730,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1012: 
   %4605 = getelementptr inbounds nuw i8, ptr %613, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4604, ptr noundef nonnull align 8 dereferenceable(20) %4605, i64 20, i1 false)
   %4606 = getelementptr inbounds nuw i8, ptr %217, i64 13672
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4606, ptr noundef nonnull align 8 dereferenceable(152) %615)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4606, ptr noundef nonnull readonly align 8 dereferenceable(152) %615)
   %4607 = getelementptr inbounds nuw i8, ptr %217, i64 13824
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %620) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %621) #20
@@ -13880,7 +13880,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1018: 
   %4663 = getelementptr inbounds nuw i8, ptr %620, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4662, ptr noundef nonnull align 8 dereferenceable(20) %4663, i64 20, i1 false)
   %4664 = getelementptr inbounds nuw i8, ptr %217, i64 13888
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4664, ptr noundef nonnull align 8 dereferenceable(152) %622)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4664, ptr noundef nonnull readonly align 8 dereferenceable(152) %622)
   %4665 = getelementptr inbounds nuw i8, ptr %217, i64 14040
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %627) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %628) #20
@@ -14030,7 +14030,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1024: 
   %4721 = getelementptr inbounds nuw i8, ptr %627, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4720, ptr noundef nonnull align 8 dereferenceable(20) %4721, i64 20, i1 false)
   %4722 = getelementptr inbounds nuw i8, ptr %217, i64 14104
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4722, ptr noundef nonnull align 8 dereferenceable(152) %629)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4722, ptr noundef nonnull readonly align 8 dereferenceable(152) %629)
   %4723 = getelementptr inbounds nuw i8, ptr %217, i64 14256
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %634) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %635) #20
@@ -14180,7 +14180,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1030: 
   %4779 = getelementptr inbounds nuw i8, ptr %634, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4778, ptr noundef nonnull align 8 dereferenceable(20) %4779, i64 20, i1 false)
   %4780 = getelementptr inbounds nuw i8, ptr %217, i64 14320
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4780, ptr noundef nonnull align 8 dereferenceable(152) %636)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4780, ptr noundef nonnull readonly align 8 dereferenceable(152) %636)
   %4781 = getelementptr inbounds nuw i8, ptr %217, i64 14472
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %641) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %642) #20
@@ -14330,7 +14330,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1036: 
   %4837 = getelementptr inbounds nuw i8, ptr %641, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4836, ptr noundef nonnull align 8 dereferenceable(20) %4837, i64 20, i1 false)
   %4838 = getelementptr inbounds nuw i8, ptr %217, i64 14536
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4838, ptr noundef nonnull align 8 dereferenceable(152) %643)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4838, ptr noundef nonnull readonly align 8 dereferenceable(152) %643)
   %4839 = getelementptr inbounds nuw i8, ptr %217, i64 14688
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %648) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %649) #20
@@ -14480,7 +14480,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1042: 
   %4895 = getelementptr inbounds nuw i8, ptr %648, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4894, ptr noundef nonnull align 8 dereferenceable(20) %4895, i64 20, i1 false)
   %4896 = getelementptr inbounds nuw i8, ptr %217, i64 14752
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4896, ptr noundef nonnull align 8 dereferenceable(152) %650)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4896, ptr noundef nonnull readonly align 8 dereferenceable(152) %650)
   %4897 = getelementptr inbounds nuw i8, ptr %217, i64 14904
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %655) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %656) #20
@@ -14630,7 +14630,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1048: 
   %4953 = getelementptr inbounds nuw i8, ptr %655, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4952, ptr noundef nonnull align 8 dereferenceable(20) %4953, i64 20, i1 false)
   %4954 = getelementptr inbounds nuw i8, ptr %217, i64 14968
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4954, ptr noundef nonnull align 8 dereferenceable(152) %657)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %4954, ptr noundef nonnull readonly align 8 dereferenceable(152) %657)
   %4955 = getelementptr inbounds nuw i8, ptr %217, i64 15120
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %662) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %663) #20
@@ -14782,7 +14782,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1054: 
   %5011 = getelementptr inbounds nuw i8, ptr %662, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5010, ptr noundef nonnull align 8 dereferenceable(20) %5011, i64 20, i1 false)
   %5012 = getelementptr inbounds nuw i8, ptr %217, i64 15184
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5012, ptr noundef nonnull align 8 dereferenceable(152) %664)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5012, ptr noundef nonnull readonly align 8 dereferenceable(152) %664)
   %5013 = getelementptr inbounds nuw i8, ptr %217, i64 15336
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %669) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %670) #20
@@ -14934,7 +14934,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7
   %5069 = getelementptr inbounds nuw i8, ptr %669, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5068, ptr noundef nonnull align 8 dereferenceable(20) %5069, i64 20, i1 false)
   %5070 = getelementptr inbounds nuw i8, ptr %217, i64 15400
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5070, ptr noundef nonnull align 8 dereferenceable(152) %671)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5070, ptr noundef nonnull readonly align 8 dereferenceable(152) %671)
   %5071 = getelementptr inbounds nuw i8, ptr %217, i64 15552
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %676) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %677) #20
@@ -15138,7 +15138,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7
   %5138 = getelementptr inbounds nuw i8, ptr %676, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5137, ptr noundef nonnull align 8 dereferenceable(20) %5138, i64 20, i1 false)
   %5139 = getelementptr inbounds nuw i8, ptr %217, i64 15616
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5139, ptr noundef nonnull align 8 dereferenceable(152) %678)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5139, ptr noundef nonnull readonly align 8 dereferenceable(152) %678)
   %5140 = getelementptr inbounds nuw i8, ptr %217, i64 15768
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %683) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %684) #20
@@ -15342,7 +15342,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1076: 
   %5207 = getelementptr inbounds nuw i8, ptr %683, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5206, ptr noundef nonnull align 8 dereferenceable(20) %5207, i64 20, i1 false)
   %5208 = getelementptr inbounds nuw i8, ptr %217, i64 15832
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5208, ptr noundef nonnull align 8 dereferenceable(152) %685)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5208, ptr noundef nonnull readonly align 8 dereferenceable(152) %685)
   %5209 = getelementptr inbounds nuw i8, ptr %217, i64 15984
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %690) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %691) #20
@@ -15494,7 +15494,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1082: 
   %5265 = getelementptr inbounds nuw i8, ptr %690, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5264, ptr noundef nonnull align 8 dereferenceable(20) %5265, i64 20, i1 false)
   %5266 = getelementptr inbounds nuw i8, ptr %217, i64 16048
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5266, ptr noundef nonnull align 8 dereferenceable(152) %692)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5266, ptr noundef nonnull readonly align 8 dereferenceable(152) %692)
   %5267 = getelementptr inbounds nuw i8, ptr %217, i64 16200
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %697) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %698) #20
@@ -15646,7 +15646,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1088: 
   %5323 = getelementptr inbounds nuw i8, ptr %697, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5322, ptr noundef nonnull align 8 dereferenceable(20) %5323, i64 20, i1 false)
   %5324 = getelementptr inbounds nuw i8, ptr %217, i64 16264
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5324, ptr noundef nonnull align 8 dereferenceable(152) %699)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5324, ptr noundef nonnull readonly align 8 dereferenceable(152) %699)
   %5325 = getelementptr inbounds nuw i8, ptr %217, i64 16416
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %704) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %705) #20
@@ -15796,7 +15796,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1094: 
   %5381 = getelementptr inbounds nuw i8, ptr %704, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5380, ptr noundef nonnull align 8 dereferenceable(20) %5381, i64 20, i1 false)
   %5382 = getelementptr inbounds nuw i8, ptr %217, i64 16480
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5382, ptr noundef nonnull align 8 dereferenceable(152) %706)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5382, ptr noundef nonnull readonly align 8 dereferenceable(152) %706)
   %5383 = getelementptr inbounds nuw i8, ptr %217, i64 16632
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %711) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %712) #20
@@ -15948,7 +15948,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1100: 
   %5439 = getelementptr inbounds nuw i8, ptr %711, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5438, ptr noundef nonnull align 8 dereferenceable(20) %5439, i64 20, i1 false)
   %5440 = getelementptr inbounds nuw i8, ptr %217, i64 16696
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5440, ptr noundef nonnull align 8 dereferenceable(152) %713)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5440, ptr noundef nonnull readonly align 8 dereferenceable(152) %713)
   %5441 = getelementptr inbounds nuw i8, ptr %217, i64 16848
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %718) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %719) #20
@@ -16100,7 +16100,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1106: 
   %5497 = getelementptr inbounds nuw i8, ptr %718, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5496, ptr noundef nonnull align 8 dereferenceable(20) %5497, i64 20, i1 false)
   %5498 = getelementptr inbounds nuw i8, ptr %217, i64 16912
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5498, ptr noundef nonnull align 8 dereferenceable(152) %720)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5498, ptr noundef nonnull readonly align 8 dereferenceable(152) %720)
   %5499 = getelementptr inbounds nuw i8, ptr %217, i64 17064
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %725) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %726) #20
@@ -16250,7 +16250,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1112: 
   %5555 = getelementptr inbounds nuw i8, ptr %725, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5554, ptr noundef nonnull align 8 dereferenceable(20) %5555, i64 20, i1 false)
   %5556 = getelementptr inbounds nuw i8, ptr %217, i64 17128
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5556, ptr noundef nonnull align 8 dereferenceable(152) %727)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5556, ptr noundef nonnull readonly align 8 dereferenceable(152) %727)
   %5557 = getelementptr inbounds nuw i8, ptr %217, i64 17280
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %732) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %733) #20
@@ -16392,7 +16392,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1118: 
   %5611 = getelementptr inbounds nuw i8, ptr %732, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5610, ptr noundef nonnull align 8 dereferenceable(20) %5611, i64 20, i1 false)
   %5612 = getelementptr inbounds nuw i8, ptr %217, i64 17344
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5612, ptr noundef nonnull align 8 dereferenceable(152) %734)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5612, ptr noundef nonnull readonly align 8 dereferenceable(152) %734)
   %5613 = getelementptr inbounds nuw i8, ptr %217, i64 17496
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %739) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %740) #20
@@ -16534,7 +16534,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1124: 
   %5667 = getelementptr inbounds nuw i8, ptr %739, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5666, ptr noundef nonnull align 8 dereferenceable(20) %5667, i64 20, i1 false)
   %5668 = getelementptr inbounds nuw i8, ptr %217, i64 17560
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5668, ptr noundef nonnull align 8 dereferenceable(152) %741)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5668, ptr noundef nonnull readonly align 8 dereferenceable(152) %741)
   %5669 = getelementptr inbounds nuw i8, ptr %217, i64 17712
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %746) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %747) #20
@@ -16679,7 +16679,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1130: 
   %5724 = getelementptr inbounds nuw i8, ptr %746, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5723, ptr noundef nonnull align 8 dereferenceable(20) %5724, i64 20, i1 false)
   %5725 = getelementptr inbounds nuw i8, ptr %217, i64 17776
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5725, ptr noundef nonnull align 8 dereferenceable(152) %748)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5725, ptr noundef nonnull readonly align 8 dereferenceable(152) %748)
   %5726 = getelementptr inbounds nuw i8, ptr %217, i64 17928
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %753) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %754) #20
@@ -16824,7 +16824,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1136: 
   %5781 = getelementptr inbounds nuw i8, ptr %753, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5780, ptr noundef nonnull align 8 dereferenceable(20) %5781, i64 20, i1 false)
   %5782 = getelementptr inbounds nuw i8, ptr %217, i64 17992
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5782, ptr noundef nonnull align 8 dereferenceable(152) %755)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5782, ptr noundef nonnull readonly align 8 dereferenceable(152) %755)
   %5783 = getelementptr inbounds nuw i8, ptr %217, i64 18144
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %760) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %761) #20
@@ -16969,7 +16969,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1142: 
   %5838 = getelementptr inbounds nuw i8, ptr %760, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5837, ptr noundef nonnull align 8 dereferenceable(20) %5838, i64 20, i1 false)
   %5839 = getelementptr inbounds nuw i8, ptr %217, i64 18208
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5839, ptr noundef nonnull align 8 dereferenceable(152) %762)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5839, ptr noundef nonnull readonly align 8 dereferenceable(152) %762)
   %5840 = getelementptr inbounds nuw i8, ptr %217, i64 18360
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %767) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %768) #20
@@ -17114,7 +17114,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1148: 
   %5895 = getelementptr inbounds nuw i8, ptr %767, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5894, ptr noundef nonnull align 8 dereferenceable(20) %5895, i64 20, i1 false)
   %5896 = getelementptr inbounds nuw i8, ptr %217, i64 18424
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5896, ptr noundef nonnull align 8 dereferenceable(152) %769)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5896, ptr noundef nonnull readonly align 8 dereferenceable(152) %769)
   %5897 = getelementptr inbounds nuw i8, ptr %217, i64 18576
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %774) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %775) #20
@@ -17256,7 +17256,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1154: 
   %5951 = getelementptr inbounds nuw i8, ptr %774, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5950, ptr noundef nonnull align 8 dereferenceable(20) %5951, i64 20, i1 false)
   %5952 = getelementptr inbounds nuw i8, ptr %217, i64 18640
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5952, ptr noundef nonnull align 8 dereferenceable(152) %776)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %5952, ptr noundef nonnull readonly align 8 dereferenceable(152) %776)
   %5953 = getelementptr inbounds nuw i8, ptr %217, i64 18792
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %781) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %782) #20
@@ -17398,7 +17398,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1160: 
   %6007 = getelementptr inbounds nuw i8, ptr %781, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6006, ptr noundef nonnull align 8 dereferenceable(20) %6007, i64 20, i1 false)
   %6008 = getelementptr inbounds nuw i8, ptr %217, i64 18856
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6008, ptr noundef nonnull align 8 dereferenceable(152) %783)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6008, ptr noundef nonnull readonly align 8 dereferenceable(152) %783)
   %6009 = getelementptr inbounds nuw i8, ptr %217, i64 19008
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %788) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %789) #20
@@ -17540,7 +17540,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1166: 
   %6063 = getelementptr inbounds nuw i8, ptr %788, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6062, ptr noundef nonnull align 8 dereferenceable(20) %6063, i64 20, i1 false)
   %6064 = getelementptr inbounds nuw i8, ptr %217, i64 19072
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6064, ptr noundef nonnull align 8 dereferenceable(152) %790)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6064, ptr noundef nonnull readonly align 8 dereferenceable(152) %790)
   %6065 = getelementptr inbounds nuw i8, ptr %217, i64 19224
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %795) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %796) #20
@@ -17682,7 +17682,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1172: 
   %6119 = getelementptr inbounds nuw i8, ptr %795, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6118, ptr noundef nonnull align 8 dereferenceable(20) %6119, i64 20, i1 false)
   %6120 = getelementptr inbounds nuw i8, ptr %217, i64 19288
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6120, ptr noundef nonnull align 8 dereferenceable(152) %797)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6120, ptr noundef nonnull readonly align 8 dereferenceable(152) %797)
   %6121 = getelementptr inbounds nuw i8, ptr %217, i64 19440
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %802) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %803) #20
@@ -17824,7 +17824,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1178: 
   %6175 = getelementptr inbounds nuw i8, ptr %802, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6174, ptr noundef nonnull align 8 dereferenceable(20) %6175, i64 20, i1 false)
   %6176 = getelementptr inbounds nuw i8, ptr %217, i64 19504
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6176, ptr noundef nonnull align 8 dereferenceable(152) %804)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6176, ptr noundef nonnull readonly align 8 dereferenceable(152) %804)
   %6177 = getelementptr inbounds nuw i8, ptr %217, i64 19656
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %809) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %810) #20
@@ -17966,7 +17966,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1184: 
   %6231 = getelementptr inbounds nuw i8, ptr %809, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6230, ptr noundef nonnull align 8 dereferenceable(20) %6231, i64 20, i1 false)
   %6232 = getelementptr inbounds nuw i8, ptr %217, i64 19720
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6232, ptr noundef nonnull align 8 dereferenceable(152) %811)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6232, ptr noundef nonnull readonly align 8 dereferenceable(152) %811)
   %6233 = getelementptr inbounds nuw i8, ptr %217, i64 19872
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %816) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %817) #20
@@ -18108,7 +18108,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1190: 
   %6287 = getelementptr inbounds nuw i8, ptr %816, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6286, ptr noundef nonnull align 8 dereferenceable(20) %6287, i64 20, i1 false)
   %6288 = getelementptr inbounds nuw i8, ptr %217, i64 19936
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6288, ptr noundef nonnull align 8 dereferenceable(152) %818)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6288, ptr noundef nonnull readonly align 8 dereferenceable(152) %818)
   %6289 = getelementptr inbounds nuw i8, ptr %217, i64 20088
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %823) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %824) #20
@@ -18250,7 +18250,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1196: 
   %6343 = getelementptr inbounds nuw i8, ptr %823, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6342, ptr noundef nonnull align 8 dereferenceable(20) %6343, i64 20, i1 false)
   %6344 = getelementptr inbounds nuw i8, ptr %217, i64 20152
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6344, ptr noundef nonnull align 8 dereferenceable(152) %825)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6344, ptr noundef nonnull readonly align 8 dereferenceable(152) %825)
   %6345 = getelementptr inbounds nuw i8, ptr %217, i64 20304
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %830) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %831) #20
@@ -18392,7 +18392,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1202: 
   %6399 = getelementptr inbounds nuw i8, ptr %830, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6398, ptr noundef nonnull align 8 dereferenceable(20) %6399, i64 20, i1 false)
   %6400 = getelementptr inbounds nuw i8, ptr %217, i64 20368
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6400, ptr noundef nonnull align 8 dereferenceable(152) %832)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6400, ptr noundef nonnull readonly align 8 dereferenceable(152) %832)
   %6401 = getelementptr inbounds nuw i8, ptr %217, i64 20520
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %837) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %838) #20
@@ -18534,7 +18534,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1208: 
   %6455 = getelementptr inbounds nuw i8, ptr %837, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6454, ptr noundef nonnull align 8 dereferenceable(20) %6455, i64 20, i1 false)
   %6456 = getelementptr inbounds nuw i8, ptr %217, i64 20584
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6456, ptr noundef nonnull align 8 dereferenceable(152) %839)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6456, ptr noundef nonnull readonly align 8 dereferenceable(152) %839)
   %6457 = getelementptr inbounds nuw i8, ptr %217, i64 20736
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %844) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %845) #20
@@ -18676,7 +18676,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1214: 
   %6511 = getelementptr inbounds nuw i8, ptr %844, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6510, ptr noundef nonnull align 8 dereferenceable(20) %6511, i64 20, i1 false)
   %6512 = getelementptr inbounds nuw i8, ptr %217, i64 20800
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6512, ptr noundef nonnull align 8 dereferenceable(152) %846)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6512, ptr noundef nonnull readonly align 8 dereferenceable(152) %846)
   %6513 = getelementptr inbounds nuw i8, ptr %217, i64 20952
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %851) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %852) #20
@@ -18818,7 +18818,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1220: 
   %6567 = getelementptr inbounds nuw i8, ptr %851, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6566, ptr noundef nonnull align 8 dereferenceable(20) %6567, i64 20, i1 false)
   %6568 = getelementptr inbounds nuw i8, ptr %217, i64 21016
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6568, ptr noundef nonnull align 8 dereferenceable(152) %853)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6568, ptr noundef nonnull readonly align 8 dereferenceable(152) %853)
   %6569 = getelementptr inbounds nuw i8, ptr %217, i64 21168
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %858) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %859) #20
@@ -18960,7 +18960,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1226: 
   %6623 = getelementptr inbounds nuw i8, ptr %858, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6622, ptr noundef nonnull align 8 dereferenceable(20) %6623, i64 20, i1 false)
   %6624 = getelementptr inbounds nuw i8, ptr %217, i64 21232
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6624, ptr noundef nonnull align 8 dereferenceable(152) %860)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6624, ptr noundef nonnull readonly align 8 dereferenceable(152) %860)
   %6625 = getelementptr inbounds nuw i8, ptr %217, i64 21384
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %865) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %866) #20
@@ -19102,7 +19102,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1232: 
   %6679 = getelementptr inbounds nuw i8, ptr %865, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6678, ptr noundef nonnull align 8 dereferenceable(20) %6679, i64 20, i1 false)
   %6680 = getelementptr inbounds nuw i8, ptr %217, i64 21448
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6680, ptr noundef nonnull align 8 dereferenceable(152) %867)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6680, ptr noundef nonnull readonly align 8 dereferenceable(152) %867)
   %6681 = getelementptr inbounds nuw i8, ptr %217, i64 21600
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %872) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %873) #20
@@ -19244,7 +19244,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1238: 
   %6735 = getelementptr inbounds nuw i8, ptr %872, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6734, ptr noundef nonnull align 8 dereferenceable(20) %6735, i64 20, i1 false)
   %6736 = getelementptr inbounds nuw i8, ptr %217, i64 21664
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6736, ptr noundef nonnull align 8 dereferenceable(152) %874)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6736, ptr noundef nonnull readonly align 8 dereferenceable(152) %874)
   %6737 = getelementptr inbounds nuw i8, ptr %217, i64 21816
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %879) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %880) #20
@@ -19389,7 +19389,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1244: 
   %6792 = getelementptr inbounds nuw i8, ptr %879, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6791, ptr noundef nonnull align 8 dereferenceable(20) %6792, i64 20, i1 false)
   %6793 = getelementptr inbounds nuw i8, ptr %217, i64 21880
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6793, ptr noundef nonnull align 8 dereferenceable(152) %881)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6793, ptr noundef nonnull readonly align 8 dereferenceable(152) %881)
   %6794 = getelementptr inbounds nuw i8, ptr %217, i64 22032
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %886) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %887) #20
@@ -19534,7 +19534,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1250: 
   %6849 = getelementptr inbounds nuw i8, ptr %886, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6848, ptr noundef nonnull align 8 dereferenceable(20) %6849, i64 20, i1 false)
   %6850 = getelementptr inbounds nuw i8, ptr %217, i64 22096
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6850, ptr noundef nonnull align 8 dereferenceable(152) %888)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6850, ptr noundef nonnull readonly align 8 dereferenceable(152) %888)
   %6851 = getelementptr inbounds nuw i8, ptr %217, i64 22248
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %893) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %894) #20
@@ -19682,7 +19682,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1256: 
   %6907 = getelementptr inbounds nuw i8, ptr %893, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6906, ptr noundef nonnull align 8 dereferenceable(20) %6907, i64 20, i1 false)
   %6908 = getelementptr inbounds nuw i8, ptr %217, i64 22312
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6908, ptr noundef nonnull align 8 dereferenceable(152) %895)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6908, ptr noundef nonnull readonly align 8 dereferenceable(152) %895)
   %6909 = getelementptr inbounds nuw i8, ptr %217, i64 22464
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %900) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %901) #20
@@ -19830,7 +19830,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1262: 
   %6965 = getelementptr inbounds nuw i8, ptr %900, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6964, ptr noundef nonnull align 8 dereferenceable(20) %6965, i64 20, i1 false)
   %6966 = getelementptr inbounds nuw i8, ptr %217, i64 22528
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6966, ptr noundef nonnull align 8 dereferenceable(152) %902)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %6966, ptr noundef nonnull readonly align 8 dereferenceable(152) %902)
   %6967 = getelementptr inbounds nuw i8, ptr %217, i64 22680
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %907) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %908) #20
@@ -19978,7 +19978,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7
   %7023 = getelementptr inbounds nuw i8, ptr %907, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7022, ptr noundef nonnull align 8 dereferenceable(20) %7023, i64 20, i1 false)
   %7024 = getelementptr inbounds nuw i8, ptr %217, i64 22744
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7024, ptr noundef nonnull align 8 dereferenceable(152) %909)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7024, ptr noundef nonnull readonly align 8 dereferenceable(152) %909)
   %7025 = getelementptr inbounds nuw i8, ptr %217, i64 22896
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %914) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %915) #20
@@ -20180,7 +20180,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1276: 
   %7092 = getelementptr inbounds nuw i8, ptr %914, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7091, ptr noundef nonnull align 8 dereferenceable(20) %7092, i64 20, i1 false)
   %7093 = getelementptr inbounds nuw i8, ptr %217, i64 22960
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7093, ptr noundef nonnull align 8 dereferenceable(152) %916)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7093, ptr noundef nonnull readonly align 8 dereferenceable(152) %916)
   %7094 = getelementptr inbounds nuw i8, ptr %217, i64 23112
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %921) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %922) #20
@@ -20325,7 +20325,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7
   %7149 = getelementptr inbounds nuw i8, ptr %921, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7148, ptr noundef nonnull align 8 dereferenceable(20) %7149, i64 20, i1 false)
   %7150 = getelementptr inbounds nuw i8, ptr %217, i64 23176
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7150, ptr noundef nonnull align 8 dereferenceable(152) %923)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7150, ptr noundef nonnull readonly align 8 dereferenceable(152) %923)
   %7151 = getelementptr inbounds nuw i8, ptr %217, i64 23328
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %928) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %929) #20
@@ -20524,7 +20524,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1290: 
   %7217 = getelementptr inbounds nuw i8, ptr %928, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7216, ptr noundef nonnull align 8 dereferenceable(20) %7217, i64 20, i1 false)
   %7218 = getelementptr inbounds nuw i8, ptr %217, i64 23392
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7218, ptr noundef nonnull align 8 dereferenceable(152) %930)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7218, ptr noundef nonnull readonly align 8 dereferenceable(152) %930)
   %7219 = getelementptr inbounds nuw i8, ptr %217, i64 23544
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %935) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %936) #20
@@ -20672,7 +20672,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1296: 
   %7275 = getelementptr inbounds nuw i8, ptr %935, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7274, ptr noundef nonnull align 8 dereferenceable(20) %7275, i64 20, i1 false)
   %7276 = getelementptr inbounds nuw i8, ptr %217, i64 23608
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7276, ptr noundef nonnull align 8 dereferenceable(152) %937)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7276, ptr noundef nonnull readonly align 8 dereferenceable(152) %937)
   %7277 = getelementptr inbounds nuw i8, ptr %217, i64 23760
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %942) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %943) #20
@@ -20817,7 +20817,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1302: 
   %7332 = getelementptr inbounds nuw i8, ptr %942, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7331, ptr noundef nonnull align 8 dereferenceable(20) %7332, i64 20, i1 false)
   %7333 = getelementptr inbounds nuw i8, ptr %217, i64 23824
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7333, ptr noundef nonnull align 8 dereferenceable(152) %944)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7333, ptr noundef nonnull readonly align 8 dereferenceable(152) %944)
   %7334 = getelementptr inbounds nuw i8, ptr %217, i64 23976
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %949) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %950) #20
@@ -20965,7 +20965,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1308: 
   %7390 = getelementptr inbounds nuw i8, ptr %949, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7389, ptr noundef nonnull align 8 dereferenceable(20) %7390, i64 20, i1 false)
   %7391 = getelementptr inbounds nuw i8, ptr %217, i64 24040
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7391, ptr noundef nonnull align 8 dereferenceable(152) %951)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7391, ptr noundef nonnull readonly align 8 dereferenceable(152) %951)
   %7392 = getelementptr inbounds nuw i8, ptr %217, i64 24192
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %956) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %957) #20
@@ -21110,7 +21110,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1311: 
   %7447 = getelementptr inbounds nuw i8, ptr %956, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7446, ptr noundef nonnull align 8 dereferenceable(20) %7447, i64 20, i1 false)
   %7448 = getelementptr inbounds nuw i8, ptr %217, i64 24256
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7448, ptr noundef nonnull align 8 dereferenceable(152) %958)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7448, ptr noundef nonnull readonly align 8 dereferenceable(152) %958)
   %7449 = getelementptr inbounds nuw i8, ptr %217, i64 24408
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %963) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %964) #20
@@ -21237,7 +21237,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1314: 
   %7497 = getelementptr inbounds nuw i8, ptr %963, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7496, ptr noundef nonnull align 8 dereferenceable(20) %7497, i64 20, i1 false)
   %7498 = getelementptr inbounds nuw i8, ptr %217, i64 24472
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7498, ptr noundef nonnull align 8 dereferenceable(152) %965)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7498, ptr noundef nonnull readonly align 8 dereferenceable(152) %965)
   %7499 = getelementptr inbounds nuw i8, ptr %217, i64 24624
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %969) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %970) #20
@@ -21364,7 +21364,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1316: 
   %7547 = getelementptr inbounds nuw i8, ptr %969, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7546, ptr noundef nonnull align 8 dereferenceable(20) %7547, i64 20, i1 false)
   %7548 = getelementptr inbounds nuw i8, ptr %217, i64 24688
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7548, ptr noundef nonnull align 8 dereferenceable(152) %971)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7548, ptr noundef nonnull readonly align 8 dereferenceable(152) %971)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %975) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %976) #20
   store ptr @.str.117, ptr %976, align 8, !tbaa !55
@@ -21489,7 +21489,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1318: 
   %7597 = getelementptr inbounds nuw i8, ptr %975, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7596, ptr noundef nonnull align 8 dereferenceable(20) %7597, i64 20, i1 false)
   %7598 = getelementptr inbounds nuw i8, ptr %217, i64 24904
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7598, ptr noundef nonnull align 8 dereferenceable(152) %977)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7598, ptr noundef nonnull readonly align 8 dereferenceable(152) %977)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %981) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %982) #20
   store ptr @.str.118, ptr %982, align 8, !tbaa !55
@@ -21614,7 +21614,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1320: 
   %7647 = getelementptr inbounds nuw i8, ptr %981, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7646, ptr noundef nonnull align 8 dereferenceable(20) %7647, i64 20, i1 false)
   %7648 = getelementptr inbounds nuw i8, ptr %217, i64 25120
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7648, ptr noundef nonnull align 8 dereferenceable(152) %983)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7648, ptr noundef nonnull readonly align 8 dereferenceable(152) %983)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %987) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %988) #20
   store ptr @.str.119, ptr %988, align 8, !tbaa !55
@@ -21739,7 +21739,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1323: 
   %7697 = getelementptr inbounds nuw i8, ptr %987, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7696, ptr noundef nonnull align 8 dereferenceable(20) %7697, i64 20, i1 false)
   %7698 = getelementptr inbounds nuw i8, ptr %217, i64 25336
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7698, ptr noundef nonnull align 8 dereferenceable(152) %989)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7698, ptr noundef nonnull readonly align 8 dereferenceable(152) %989)
   %7699 = getelementptr inbounds nuw i8, ptr %217, i64 25488
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %993) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %994) #20
@@ -21869,7 +21869,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7
   %7748 = getelementptr inbounds nuw i8, ptr %993, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7747, ptr noundef nonnull align 8 dereferenceable(20) %7748, i64 20, i1 false)
   %7749 = getelementptr inbounds nuw i8, ptr %217, i64 25552
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7749, ptr noundef nonnull align 8 dereferenceable(152) %995)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7749, ptr noundef nonnull readonly align 8 dereferenceable(152) %995)
   %7750 = getelementptr inbounds nuw i8, ptr %217, i64 25704
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %999) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1000) #20
@@ -22053,7 +22053,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7
   %7810 = getelementptr inbounds nuw i8, ptr %999, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7809, ptr noundef nonnull align 8 dereferenceable(20) %7810, i64 20, i1 false)
   %7811 = getelementptr inbounds nuw i8, ptr %217, i64 25768
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7811, ptr noundef nonnull align 8 dereferenceable(152) %1001)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7811, ptr noundef nonnull readonly align 8 dereferenceable(152) %1001)
   %7812 = getelementptr inbounds nuw i8, ptr %217, i64 25920
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1005) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1006) #20
@@ -22237,7 +22237,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1336: 
   %7872 = getelementptr inbounds nuw i8, ptr %1005, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7871, ptr noundef nonnull align 8 dereferenceable(20) %7872, i64 20, i1 false)
   %7873 = getelementptr inbounds nuw i8, ptr %217, i64 25984
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7873, ptr noundef nonnull align 8 dereferenceable(152) %1007)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7873, ptr noundef nonnull readonly align 8 dereferenceable(152) %1007)
   %7874 = getelementptr inbounds nuw i8, ptr %217, i64 26136
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1011) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1012) #20
@@ -22367,7 +22367,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7
   %7923 = getelementptr inbounds nuw i8, ptr %1011, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7922, ptr noundef nonnull align 8 dereferenceable(20) %7923, i64 20, i1 false)
   %7924 = getelementptr inbounds nuw i8, ptr %217, i64 26200
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7924, ptr noundef nonnull align 8 dereferenceable(152) %1013)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7924, ptr noundef nonnull readonly align 8 dereferenceable(152) %1013)
   %7925 = getelementptr inbounds nuw i8, ptr %217, i64 26352
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1017) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1018) #20
@@ -22551,7 +22551,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1344: 
   %7985 = getelementptr inbounds nuw i8, ptr %1017, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7984, ptr noundef nonnull align 8 dereferenceable(20) %7985, i64 20, i1 false)
   %7986 = getelementptr inbounds nuw i8, ptr %217, i64 26416
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7986, ptr noundef nonnull align 8 dereferenceable(152) %1019)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %7986, ptr noundef nonnull readonly align 8 dereferenceable(152) %1019)
   %7987 = getelementptr inbounds nuw i8, ptr %217, i64 26568
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1023) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1024) #20
@@ -22678,7 +22678,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1347: 
   %8035 = getelementptr inbounds nuw i8, ptr %1023, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8034, ptr noundef nonnull align 8 dereferenceable(20) %8035, i64 20, i1 false)
   %8036 = getelementptr inbounds nuw i8, ptr %217, i64 26632
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %8036, ptr noundef nonnull align 8 dereferenceable(152) %1025)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %8036, ptr noundef nonnull readonly align 8 dereferenceable(152) %1025)
   %8037 = getelementptr inbounds nuw i8, ptr %217, i64 26784
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1029) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1030) #20
@@ -22805,7 +22805,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit1350: 
   %8085 = getelementptr inbounds nuw i8, ptr %1029, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8084, ptr noundef nonnull align 8 dereferenceable(20) %8085, i64 20, i1 false)
   %8086 = getelementptr inbounds nuw i8, ptr %217, i64 26848
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %8086, ptr noundef nonnull align 8 dereferenceable(152) %1031)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %8086, ptr noundef nonnull readonly align 8 dereferenceable(152) %1031)
   %8087 = getelementptr inbounds nuw i8, ptr %217, i64 27000
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1035) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1036) #20
@@ -22932,7 +22932,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7
   %8135 = getelementptr inbounds nuw i8, ptr %1035, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8134, ptr noundef nonnull align 8 dereferenceable(20) %8135, i64 20, i1 false)
   %8136 = getelementptr inbounds nuw i8, ptr %217, i64 27064
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %8136, ptr noundef nonnull align 8 dereferenceable(152) %1037)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %8136, ptr noundef nonnull readonly align 8 dereferenceable(152) %1037)
   %8137 = getelementptr inbounds nuw i8, ptr %216, i64 8
   store i64 0, ptr %8137, align 8
   %8138 = call noalias noundef nonnull dereferenceable(27216) ptr @_Znwm(i64 noundef 27216) #21
@@ -39409,7 +39409,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7
   %14170 = getelementptr inbounds nuw i8, ptr %1042, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %14169, ptr noundef nonnull align 8 dereferenceable(20) %14170, i64 20, i1 false)
   %14171 = getelementptr inbounds nuw i8, ptr %1041, i64 64
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %14171, ptr noundef nonnull align 8 dereferenceable(152) %1044)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %14171, ptr noundef nonnull readonly align 8 dereferenceable(152) %1044)
   call fastcc void @_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %216, ptr noundef nonnull align 8 dereferenceable(216) %1041)
   %14172 = getelementptr inbounds nuw i8, ptr %1041, i64 160
   %14173 = load ptr, ptr %14172, align 8, !tbaa !80
@@ -39742,7 +39742,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7
   %14298 = getelementptr inbounds nuw i8, ptr %1049, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %14297, ptr noundef nonnull align 8 dereferenceable(20) %14298, i64 20, i1 false)
   %14299 = getelementptr inbounds nuw i8, ptr %1048, i64 64
-  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %14299, ptr noundef nonnull align 8 dereferenceable(152) %1051)
+  call fastcc void @_ZN12_GLOBAL__N_116GenericTaintRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %14299, ptr noundef nonnull readonly align 8 dereferenceable(152) %1051)
   call fastcc void @_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %216, ptr noundef nonnull align 8 dereferenceable(216) %1048)
   %14300 = getelementptr inbounds nuw i8, ptr %1048, i64 160
   %14301 = load ptr, ptr %14300, align 8, !tbaa !80
@@ -42123,7 +42123,7 @@ _ZN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_116GenericTaintRuleEEC2EOSt16in
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %15322, %.lr.ph.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi ptr [ %15328, %.lr.ph.i.i.i.i.i.i.i.i ], [ %15323, %15322 ]
-  call fastcc void @_ZNSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEED2Ev(ptr noundef nonnull align 8 dereferenceable(216) %.05.i.i.i.i.i.i.i.i) #20
+  call fastcc void @_ZNSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(216) %.05.i.i.i.i.i.i.i.i) #20
   %15328 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i, i64 216
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %15328, %15325
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !75
@@ -43783,7 +43783,7 @@ _ZNK12_GLOBAL__N_122GenericTaintRuleParser18parseConfigurationERKNSt7__cxx1112ba
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK12_GLOBAL__N_122GenericTaintRuleParser18parseConfigurationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEONS_18TaintConfigurationE.exit, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %15982, %.lr.ph.i.i.i.i ], [ %.val690, %_ZNK12_GLOBAL__N_122GenericTaintRuleParser18parseConfigurationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEONS_18TaintConfigurationE.exit ]
-  call fastcc void @_ZNSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEED2Ev(ptr noundef nonnull align 8 dereferenceable(216) %.05.i.i.i.i) #20
+  call fastcc void @_ZNSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(216) %.05.i.i.i.i) #20
   %15982 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 216
   %.not.i.i.i.i3868 = icmp eq ptr %15982, %.val688
   br i1 %.not.i.i.i.i3868, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !75
@@ -43835,7 +43835,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 .lr.ph.i.i.i.i3872:                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.lr.ph.i.i.i.i3872
   %.05.i.i.i.i3873 = phi ptr [ %15997, %.lr.ph.i.i.i.i3872 ], [ %15995, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  call fastcc void @_ZNSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEED2Ev(ptr noundef nonnull align 8 dereferenceable(216) %.05.i.i.i.i3873) #20
+  call fastcc void @_ZNSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(216) %.05.i.i.i.i3873) #20
   %15997 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i3873, i64 216
   %.not.i.i.i.i3874 = icmp eq ptr %15997, %15996
   br i1 %.not.i.i.i.i3874, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i3877, label %.lr.ph.i.i.i.i3872, !llvm.loop !75
@@ -44440,7 +44440,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIN5clang4ento15CallDescriptionE
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i.i ], [ %.val.i.i, %.lr.ph.i.i.i.i.i.i.i ]
-  tail call fastcc void @_ZNSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEED2Ev(ptr noundef nonnull align 8 dereferenceable(216) %.05.i.i.i.i.i) #20
+  tail call fastcc void @_ZNSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(216) %.05.i.i.i.i.i) #20
   %34 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 216
   %.not.i.i.i.i.i = icmp eq ptr %34, %4
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.loopexit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !75
@@ -44489,7 +44489,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8op
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %5, %.lr.ph.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi ptr [ %9, %.lr.ph.i.i.i.i.i.i.i.i ], [ %6, %5 ]
-  tail call fastcc void @_ZNSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEED2Ev(ptr noundef nonnull align 8 dereferenceable(216) %.05.i.i.i.i.i.i.i.i) #20
+  tail call fastcc void @_ZNSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(216) %.05.i.i.i.i.i.i.i.i) #20
   %9 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i, i64 216
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, %8
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !75
@@ -46173,7 +46173,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIN5clang4ento15CallDescriptionE
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i ], [ %.val.i, %.lr.ph.i.i.i.i.i.i ]
-  tail call fastcc void @_ZNSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEED2Ev(ptr noundef nonnull align 8 dereferenceable(216) %.05.i.i.i.i) #20
+  tail call fastcc void @_ZNSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(216) %.05.i.i.i.i) #20
   %37 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 216
   %.not.i.i.i.i = icmp eq ptr %37, %5
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEES6_EvT_S8_RSaIT0_E.exit.i.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !75

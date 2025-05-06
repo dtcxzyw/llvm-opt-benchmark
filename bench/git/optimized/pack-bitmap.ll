@@ -2062,7 +2062,7 @@ define dso_local noundef ptr @prepare_bitmap_walk(ptr noundef %0, i32 noundef %1
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %13 = tail call fastcc i32 @filter_bitmap(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %12)
+  %13 = tail call fastcc i32 @filter_bitmap(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull readonly %12)
   %.not.i.not = icmp eq i32 %13, 0
   br i1 %.not.i.not, label %14, label %301
 
@@ -3077,7 +3077,7 @@ declare void @reset_revision_walk() local_unnamed_addr #2
 declare void @bitmap_and_not(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @filter_bitmap(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @filter_bitmap(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
   %5 = alloca %struct.ewah_iterator, align 8
   %6 = alloca i64, align 8
   %.not = icmp eq ptr %3, null
@@ -3107,7 +3107,7 @@ define internal fastcc range(i32 -1, 1) i32 @filter_bitmap(ptr noundef captures(
   br i1 %.not46, label %.thread, label %14
 
 14:                                               ; preds = %13
-  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef 3)
+  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef 3)
   br label %.thread
 
 15:                                               ; preds = %7
@@ -3294,8 +3294,8 @@ filter_bitmap_blob_limit.exit:                    ; preds = %94, %.critedge.i
   br i1 %.not44, label %.thread, label %103
 
 103:                                              ; preds = %102
-  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef 2)
-  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef 3)
+  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef 2)
+  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef 3)
   br label %.thread
 
 104:                                              ; preds = %7
@@ -3318,21 +3318,21 @@ filter_bitmap_blob_limit.exit:                    ; preds = %94, %.critedge.i
   br i1 %cond.i, label %.thread.i, label %111
 
 .thread.i:                                        ; preds = %110
-  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
+  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef 1)
   br label %.thread24.i
 
 111:                                              ; preds = %110
-  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef 4)
+  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef 4)
   %cond21.i = icmp eq i32 %107, 1
   br i1 %cond21.i, label %.thread24.i, label %112
 
 112:                                              ; preds = %111
-  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
+  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef 1)
   %cond22.i = icmp eq i32 %107, 2
   br i1 %cond22.i, label %113, label %filter_bitmap_object_type.exit
 
 .thread24.i:                                      ; preds = %111, %.thread.i
-  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef 2)
+  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef 2)
   br label %113
 
 113:                                              ; preds = %.thread24.i, %112
@@ -3340,7 +3340,7 @@ filter_bitmap_blob_limit.exit:                    ; preds = %94, %.critedge.i
 
 filter_bitmap_object_type.exit:                   ; preds = %112, %113
   %.sink.i = phi i32 [ 3, %113 ], [ 2, %112 ]
-  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %.sink.i)
+  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %.sink.i)
   br label %.thread
 
 114:                                              ; preds = %.lr.ph
@@ -7266,7 +7266,7 @@ define internal void @show_commit(ptr readnone captures(none) %0, ptr readnone c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @show_object(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2) #0 {
+define internal void @show_object(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr %2, align 8, !tbaa !190
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = tail call fastcc i32 @bitmap_position(ptr noundef %4, ptr noundef nonnull %5)

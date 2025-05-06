@@ -3339,7 +3339,7 @@ declare noundef ptr @_ZN15CountedLoopNode23is_canonical_loop_entryEv(ptr noundef
 declare noundef i32 @_ZN4Node12replace_edgeEPS_S0_P8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK7PhiNode24is_unsafe_data_referenceEP4Node(ptr noundef nonnull align 8 captures(address) dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK7PhiNode24is_unsafe_data_referenceEP4Node(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.Node_List, align 8
   %4 = alloca %class.VectorSet, align 8
   %5 = tail call noundef i32 @_ZNK7PhiNode22simple_data_loop_checkEP4Node(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1)
@@ -9682,7 +9682,7 @@ _ZL16get_convert_typeP4NodePK4Type.exit561:       ; preds = %_ZL16get_convert_ty
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN7PhiNode12is_data_loopEP10RegionNodeP4NodePK8PhaseGVN(ptr noundef nonnull align 8 captures(address) dereferenceable(88) %0, ptr noundef captures(address) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN7PhiNode12is_data_loopEP10RegionNodeP4NodePK8PhaseGVN(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %0, ptr noundef captures(address) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 127

@@ -1218,7 +1218,7 @@ _ZL10find_valuePKc.exit77.i.i.i:                  ; preds = %.lr.ph.i67.i.i.i
   store i32 -1, ptr %383, align 8, !tbaa !75
   %384 = getelementptr inbounds nuw i8, ptr %259, i64 72
   store ptr %195, ptr %384, align 8, !tbaa !76
-  %385 = invoke fastcc noundef zeroext i1 @_ZL19read_lambda_compvecPKcP12lambda_vec_tPK19lambda_components_tPS3_PS0_S0_(ptr noundef nonnull %.0917.i69.i.i.i, ptr noundef nonnull %381, ptr noundef nonnull %195, ptr noundef null, ptr noundef null, ptr noundef %325)
+  %385 = invoke fastcc noundef zeroext i1 @_ZL19read_lambda_compvecPKcP12lambda_vec_tPK19lambda_components_tPS3_PS0_S0_(ptr noundef nonnull %.0917.i69.i.i.i, ptr noundef nonnull readonly %381, ptr noundef nonnull %195, ptr noundef null, ptr noundef null, ptr noundef %325)
           to label %.noexc206 unwind label %.loopexit.split-lp754.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc206:                                        ; preds = %.noexc205
@@ -1650,7 +1650,7 @@ _ZL15lambda_vec_copyP12lambda_vec_tPKS_.exit.i.i: ; preds = %487, %.noexc216
 _ZL10find_valuePKc.exit.i102.i.i:                 ; preds = %.lr.ph.i.i95.i.i
   %531 = getelementptr inbounds nuw i8, ptr %496, i64 16
   %532 = load ptr, ptr %531, align 8, !tbaa !76
-  %533 = invoke fastcc noundef zeroext i1 @_ZL19read_lambda_compvecPKcP12lambda_vec_tPK19lambda_components_tPS3_PS0_S0_(ptr noundef nonnull %.0917.i.i97.i.i, ptr noundef nonnull %496, ptr noundef %532, ptr noundef null, ptr noundef null, ptr noundef %491)
+  %533 = invoke fastcc noundef zeroext i1 @_ZL19read_lambda_compvecPKcP12lambda_vec_tPK19lambda_components_tPS3_PS0_S0_(ptr noundef nonnull %.0917.i.i97.i.i, ptr noundef nonnull readonly %496, ptr noundef %532, ptr noundef null, ptr noundef null, ptr noundef %491)
           to label %.noexc219 unwind label %.loopexit.split-lp754.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc219:                                        ; preds = %_ZL10find_valuePKc.exit.i102.i.i

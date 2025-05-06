@@ -1235,7 +1235,7 @@ cf_ssl_scache_sesssion_ldestroy.exit.i89.i:       ; preds = %117, %113
   br label %cf_scache_add_session.exit
 
 124:                                              ; preds = %87, %.thread.i
-  %125 = call fastcc i32 @cf_ssl_add_peer(ptr noundef nonnull %1, ptr noundef nonnull %7, ptr noundef %2, ptr noundef %44, ptr noundef %5)
+  %125 = call fastcc i32 @cf_ssl_add_peer(ptr noundef nonnull %1, ptr noundef nonnull readonly %7, ptr noundef %2, ptr noundef %44, ptr noundef %5)
   %126 = icmp eq i32 %125, 0
   %127 = load ptr, ptr %5, align 8
   %128 = icmp ne ptr %127, null
@@ -2275,7 +2275,7 @@ define hidden i32 @Curl_ssl_scache_add_obj(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cf_ssl_add_peer(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %4) unnamed_addr #0 {
+define internal fastcc i32 @cf_ssl_add_peer(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
   store ptr null, ptr %6, align 8, !tbaa !161

@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [13 x i8] c"}]}(*end C*)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @QuadTree_get_supernodes(ptr noundef captures(address_is_null) %0, double noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) initializes((0, 4)) %4, ptr noundef captures(none) initializes((0, 4)) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef captures(none) initializes((0, 8)) %9) local_unnamed_addr #0 {
+define void @QuadTree_get_supernodes(ptr noundef readonly captures(address_is_null) %0, double noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) initializes((0, 4)) %4, ptr noundef captures(none) initializes((0, 4)) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef captures(none) initializes((0, 8)) %9) local_unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8, !tbaa !3
   store double 0.000000e+00, ptr %9, align 8, !tbaa !13
@@ -1626,7 +1626,7 @@ QuadTree_new_in_quadrant.exit155:                 ; preds = %.lr.ph.i148, %127
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @QuadTree_print(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
+define void @QuadTree_print(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %3
 
@@ -1977,7 +1977,7 @@ draw_polygon.exit:                                ; preds = %4, %176
 }
 
 ; Function Attrs: nounwind uwtable
-define void @QuadTree_get_nearest(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) initializes((0, 8)) %4) local_unnamed_addr #0 {
+define void @QuadTree_get_nearest(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) initializes((0, 8)) %4) local_unnamed_addr #0 {
   store double -1.000000e+00, ptr %4, align 8, !tbaa !13
   tail call fastcc void @QuadTree_get_nearest_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, ptr noundef %3, i1 noundef zeroext true)
   tail call fastcc void @QuadTree_get_nearest_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, ptr noundef %3, i1 noundef zeroext false)

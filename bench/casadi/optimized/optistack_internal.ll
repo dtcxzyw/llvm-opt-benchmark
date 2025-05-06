@@ -6422,7 +6422,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i56
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit569: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i568, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i567
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %43) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42) #27
-  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %.noexc582 unwind label %1302
 
 .noexc582:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit569
@@ -8496,7 +8496,7 @@ _ZNKSt3mapIPN6casadi6MXNodeENS0_7MetaConESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(176) ptr @_ZNK6casadi8OptiNode8meta_conERKNS_2MXE(ptr noundef nonnull align 8 captures(address, ret: address, provenance) dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(176) ptr @_ZNK6casadi8OptiNode8meta_conERKNS_2MXE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
   tail call void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %3 = tail call noundef ptr @_ZNK6casadi2MX3getEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -8826,7 +8826,7 @@ _ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit
 28:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #27
   call void @_ZNK6casadi8OptiNode8g_lookupEx(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %6, ptr noundef nonnull align 8 dereferenceable(1160) %1, i64 noundef %2)
-  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %1, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %1, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %.noexc unwind label %213
 
 .noexc:                                           ; preds = %28
@@ -10175,7 +10175,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130: ; preds = %_Z
 
 237:                                              ; preds = %.lr.ph, %254
   %.sroa.0149.0200 = phi ptr [ %232, %.lr.ph ], [ %255, %254 ]
-  tail call void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %1, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0149.0200)
+  tail call void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %1, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0149.0200)
   %238 = tail call noundef ptr @_ZNK6casadi2MX3getEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0149.0200)
   %239 = load ptr, ptr %235, align 8, !tbaa !66
   %.not10.i.i.i.i = icmp eq ptr %239, null
@@ -28827,7 +28827,7 @@ _ZNK6casadi8OptiNode7has_conERKNS_2MXE.exit:      ; preds = %_ZNKSt8_Rb_treeIPN6
 
 27:                                               ; preds = %_ZNK6casadi8OptiNode7has_conERKNS_2MXE.exit
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %12) #27
-  tail call void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %1), !noalias !586
+  tail call void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %1), !noalias !586
   %28 = tail call noundef ptr @_ZNK6casadi2MX3getEv(ptr noundef nonnull align 8 dereferenceable(8) %1), !noalias !586
   %29 = load ptr, ptr %17, align 8, !tbaa !66, !noalias !586
   %.not10.i.i.i.i.i = icmp eq ptr %29, null
@@ -29426,7 +29426,7 @@ _ZN6casadi7MetaVarD2Ev.exit115:                   ; preds = %_ZNKSt7__cxx1112bas
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6casadi8OptiNode12get_meta_conERKNS_2MXE(ptr dead_on_unwind noalias writable sret(%"struct.casadi::MetaCon") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1160) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #4 align 2 {
-  tail call void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  tail call void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %4 = tail call noundef ptr @_ZNK6casadi2MX3getEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %6 = load ptr, ptr %5, align 8, !tbaa !66
@@ -29699,7 +29699,7 @@ _ZNK6casadi8OptiNode7has_conERKNS_2MXE.exit:      ; preds = %_ZNKSt8_Rb_treeIPN6
 
 19:                                               ; preds = %_ZNK6casadi8OptiNode7has_conERKNS_2MXE.exit
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %6) #27
-  tail call void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %1, ptr noundef nonnull align 8 dereferenceable(8) %2), !noalias !601
+  tail call void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %1, ptr noundef nonnull align 8 dereferenceable(8) %2), !noalias !601
   %20 = tail call noundef ptr @_ZNK6casadi2MX3getEv(ptr noundef nonnull align 8 dereferenceable(8) %2), !noalias !601
   %21 = load ptr, ptr %9, align 8, !tbaa !66, !noalias !601
   %.not10.i.i.i.i.i = icmp eq ptr %21, null
@@ -29933,8 +29933,8 @@ _ZN6casadi7MetaVarD2Ev.exit:                      ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi8OptiNode4dualERKNS_2MXE(ptr dead_on_unwind noalias writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(1160) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #4 align 2 {
-  tail call void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
+define void @_ZNK6casadi8OptiNode4dualERKNS_2MXE(ptr dead_on_unwind noalias writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1160) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #4 align 2 {
+  tail call void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %4 = tail call noundef ptr @_ZNK6casadi2MX3getEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %6 = load ptr, ptr %5, align 8, !tbaa !66
@@ -31354,7 +31354,7 @@ _ZNSt3mapIPN6casadi6MXNodeENS0_7MetaVarESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findER
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(176) ptr @_ZN6casadi8OptiNode8meta_conERKNS_2MXE(ptr noundef nonnull align 8 captures(address, ret: address, provenance) dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(176) ptr @_ZN6casadi8OptiNode8meta_conERKNS_2MXE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
   tail call void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %3 = tail call noundef ptr @_ZNK6casadi2MX3getEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -34257,7 +34257,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit546: ; preds = %_Z
   %.12091460 = phi i64 [ 0, %.lr.ph1461 ], [ %577, %_ZNK6casadi13GenericMatrixINS_2MXEE3nnzEv.exit581 ]
   %.02171459 = phi i64 [ 0, %.lr.ph1461 ], [ %581, %_ZNK6casadi13GenericMatrixINS_2MXEE3nnzEv.exit581 ]
   %537 = getelementptr inbounds nuw %"class.casadi::MX", ptr %536, i64 %.02171459
-  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %537)
+  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %537)
           to label %.noexc558 unwind label %589
 
 .noexc558:                                        ; preds = %535
@@ -34535,7 +34535,7 @@ _ZN6casadi2MXaSERKS0_.exit600:                    ; preds = %_ZN6casadi6veccatER
 
 650:                                              ; preds = %.lr.ph1468, %_ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backERKS1_.exit
   %.sroa.01368.01467 = phi ptr [ %625, %.lr.ph1468 ], [ %966, %_ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backERKS1_.exit ]
-  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
+  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
           to label %.noexc616 unwind label %717
 
 .noexc616:                                        ; preds = %650
@@ -34580,7 +34580,7 @@ _ZNSt8_Rb_treeIPN6casadi6MXNodeESt4pairIKS2_NS0_7MetaConEESt10_Select1stIS6_ESt4
 
 665:                                              ; preds = %661
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #27
-  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
+  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
           to label %.noexc631 unwind label %719
 
 .noexc631:                                        ; preds = %665
@@ -34620,7 +34620,7 @@ _ZNSt8_Rb_treeIPN6casadi6MXNodeESt4pairIKS2_NS0_7MetaConEESt10_Select1stIS6_ESt4
   %.sroa.0.0.i.i.i630 = phi ptr [ %628, %_ZNSt8_Rb_treeIPN6casadi6MXNodeESt4pairIKS2_NS0_7MetaConEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i628 ], [ %628, %.noexc632 ], [ %spec.select.i.i.i629, %672 ]
   %677 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i630, i64 64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #27
-  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
+  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
           to label %.noexc646 unwind label %721
 
 .noexc646:                                        ; preds = %676
@@ -34693,7 +34693,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backEOS1_.exit: ; preds = %.noexc650, %69
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #27
-  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
+  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
           to label %.noexc664 unwind label %717
 
 .noexc664:                                        ; preds = %_ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backEOS1_.exit
@@ -34796,7 +34796,7 @@ _ZNSt8_Rb_treeIPN6casadi6MXNodeESt4pairIKS2_NS0_7MetaConEESt10_Select1stIS6_ESt4
 
 730:                                              ; preds = %661
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #27
-  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
+  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
           to label %.noexc681 unwind label %929
 
 .noexc681:                                        ; preds = %730
@@ -34836,7 +34836,7 @@ _ZNSt8_Rb_treeIPN6casadi6MXNodeESt4pairIKS2_NS0_7MetaConEESt10_Select1stIS6_ESt4
   %.sroa.0.0.i.i.i680 = phi ptr [ %628, %_ZNSt8_Rb_treeIPN6casadi6MXNodeESt4pairIKS2_NS0_7MetaConEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i678 ], [ %628, %.noexc682 ], [ %spec.select.i.i.i679, %737 ]
   %742 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i680, i64 64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #27
-  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
+  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
           to label %.noexc696 unwind label %931
 
 .noexc696:                                        ; preds = %741
@@ -34909,7 +34909,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backEOS1_.exit704: ; preds = %.noexc702, 
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #27
-  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
+  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
           to label %.noexc717 unwind label %717
 
 .noexc717:                                        ; preds = %_ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backEOS1_.exit704
@@ -34971,7 +34971,7 @@ _ZNSt8_Rb_treeIPN6casadi6MXNodeESt4pairIKS2_NS0_7MetaConEESt10_Select1stIS6_ESt4
 
 _ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backERKS1_.exit723: ; preds = %.noexc721, %781
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #27
-  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
+  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
           to label %.noexc736 unwind label %940
 
 .noexc736:                                        ; preds = %_ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backERKS1_.exit723
@@ -35011,7 +35011,7 @@ _ZNSt8_Rb_treeIPN6casadi6MXNodeESt4pairIKS2_NS0_7MetaConEESt10_Select1stIS6_ESt4
   %.sroa.0.0.i.i.i735 = phi ptr [ %628, %_ZNSt8_Rb_treeIPN6casadi6MXNodeESt4pairIKS2_NS0_7MetaConEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i733 ], [ %628, %.noexc737 ], [ %spec.select.i.i.i734, %788 ]
   %793 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i735, i64 80
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #27
-  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
+  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
           to label %.noexc751 unwind label %942
 
 .noexc751:                                        ; preds = %792
@@ -35084,7 +35084,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backEOS1_.exit759: ; preds = %.noexc757, 
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %43) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #27
-  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
+  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
           to label %.noexc772 unwind label %717
 
 .noexc772:                                        ; preds = %_ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backEOS1_.exit759
@@ -35146,7 +35146,7 @@ _ZNSt8_Rb_treeIPN6casadi6MXNodeESt4pairIKS2_NS0_7MetaConEESt10_Select1stIS6_ESt4
 
 _ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backERKS1_.exit778: ; preds = %.noexc776, %832
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #27
-  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
+  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
           to label %.noexc791 unwind label %951
 
 .noexc791:                                        ; preds = %_ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backERKS1_.exit778
@@ -35186,7 +35186,7 @@ _ZNSt8_Rb_treeIPN6casadi6MXNodeESt4pairIKS2_NS0_7MetaConEESt10_Select1stIS6_ESt4
   %.sroa.0.0.i.i.i790 = phi ptr [ %628, %_ZNSt8_Rb_treeIPN6casadi6MXNodeESt4pairIKS2_NS0_7MetaConEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i788 ], [ %628, %.noexc792 ], [ %spec.select.i.i.i789, %839 ]
   %844 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i790, i64 88
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #27
-  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
+  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
           to label %.noexc806 unwind label %953
 
 .noexc806:                                        ; preds = %843
@@ -35259,7 +35259,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backEOS1_.exit814: ; preds = %.noexc812, 
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %45) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #27
-  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
+  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
           to label %.noexc827 unwind label %717
 
 .noexc827:                                        ; preds = %_ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backEOS1_.exit814
@@ -35322,7 +35322,7 @@ _ZNSt8_Rb_treeIPN6casadi6MXNodeESt4pairIKS2_NS0_7MetaConEESt10_Select1stIS6_ESt4
 _ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backERKS1_.exit833: ; preds = %.noexc831, %883
   %.sroa.0.0.copyload.i834 = load ptr, ptr %624, align 8
   %.sroa.2.0.copyload.i836 = load i32, ptr %.sroa.2.0..sroa_idx.i.i601, align 8
-  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
+  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
           to label %.noexc851 unwind label %962
 
 .noexc851:                                        ; preds = %_ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backERKS1_.exit833
@@ -35369,7 +35369,7 @@ _ZNSt8_Rb_treeIPN6casadi6MXNodeESt4pairIKS2_NS0_7MetaConEESt10_Select1stIS6_ESt4
           to label %_ZNK6casadi13GenericMatrixINS_2MXEE5numelEv.exit unwind label %962
 
 _ZNK6casadi13GenericMatrixINS_2MXEE5numelEv.exit: ; preds = %.noexc854
-  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
+  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
           to label %.noexc868 unwind label %964
 
 .noexc868:                                        ; preds = %_ZNK6casadi13GenericMatrixINS_2MXEE5numelEv.exit
@@ -35413,7 +35413,7 @@ _ZNSt8_Rb_treeIPN6casadi6MXNodeESt4pairIKS2_NS0_7MetaConEESt10_Select1stIS6_ESt4
   br i1 %911, label %927, label %912
 
 912:                                              ; preds = %908
-  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
+  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01368.01467)
           to label %.noexc883 unwind label %964
 
 .noexc883:                                        ; preds = %912
@@ -50477,7 +50477,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit222: ; preds = %_Z
 386:                                              ; preds = %385
   call void @_ZN6casadi7MetaConD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %37) #27
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %37) #27
-  call void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  call void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %387 = call noundef ptr @_ZNK6casadi2MX3getEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %388 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %389 = load ptr, ptr %388, align 8, !tbaa !66
@@ -50561,7 +50561,7 @@ _ZN6casadi8OptiNode8meta_conERKNS_2MXE.exit:      ; preds = %386, %_ZNSt8_Rb_tre
           to label %424 unwind label %512
 
 424:                                              ; preds = %422
-  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %.noexc235 unwind label %514
 
 .noexc235:                                        ; preds = %424
@@ -50693,7 +50693,7 @@ _ZNSt6vectorISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi
           to label %462 unwind label %528
 
 462:                                              ; preds = %_ZNSt6vectorISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeESt4lessIS6_ESaISt4pairIKS6_S8_EEESaISF_EED2Ev.exit
-  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  invoke void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %.noexc257 unwind label %530
 
 .noexc257:                                        ; preds = %462
@@ -52627,7 +52627,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericT
   br i1 %.not299, label %165, label %73
 
 73:                                               ; preds = %71
-  tail call void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %1, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0265.0304)
+  tail call void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %1, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0265.0304)
   %74 = tail call noundef ptr @_ZNK6casadi2MX3getEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0265.0304)
   %75 = load ptr, ptr %50, align 8, !tbaa !66
   %.not10.i.i.i.i = icmp eq ptr %75, null
@@ -54652,7 +54652,7 @@ define void @_ZN6casadi8OptiNode13solve_prepareEv(ptr noundef nonnull align 8 de
 
 56:                                               ; preds = %.lr.ph, %52
   %.sroa.0331.0369 = phi ptr [ %47, %.lr.ph ], [ %53, %52 ]
-  tail call void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0331.0369)
+  tail call void @_ZNK6casadi8OptiNode14assert_has_conERKNS_2MXE(ptr noundef nonnull readonly align 8 dereferenceable(1160) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0331.0369)
   %57 = tail call noundef ptr @_ZNK6casadi2MX3getEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0331.0369)
   %58 = load ptr, ptr %50, align 8, !tbaa !66
   %.not10.i.i.i.i = icmp eq ptr %58, null

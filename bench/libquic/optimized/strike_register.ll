@@ -1678,7 +1678,7 @@ _ZNSt3setIjSt4lessIjESaIjEED2Ev.exit92:           ; preds = %_ZNSt3setIjSt4lessI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3net14StrikeRegister12ValidateTreeEjiRKSt6vectorISt4pairIjbESaIS3_EERKSt3setIjSt4lessIjESaIjEESE_PSC_SF_(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %4, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3net14StrikeRegister12ValidateTreeEjiRKSt6vectorISt4pairIjbESaIS3_EERKSt3setIjSt4lessIjESaIjEESE_PSC_SF_(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %4, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca i32, align 4
   %10 = alloca %"class.logging::LogMessage", align 8
   %11 = alloca i32, align 4

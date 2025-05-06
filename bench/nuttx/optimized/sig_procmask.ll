@@ -85,7 +85,7 @@ declare zeroext i1 @nxsig_unmask_pendingsignal() local_unnamed_addr #1
 declare i32 @sched_unlock() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @sigprocmask(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @sigprocmask(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.sigset_s, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %5

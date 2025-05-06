@@ -467,7 +467,7 @@ get_endlist.exit:                                 ; preds = %get_frags.exit
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc ptr @get_endlist(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc ptr @get_endlist(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
   store ptr null, ptr %4, align 8
@@ -490,7 +490,7 @@ define internal fastcc ptr @get_endlist(ptr noundef %0, ptr noundef %1, ptr noun
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #18
-  %16 = call fastcc i32 @rlc_channel_assign(ptr noundef %15, i32 noundef %14, ptr noundef nonnull %0, ptr noundef %2)
+  %16 = call fastcc i32 @rlc_channel_assign(ptr noundef %15, i32 noundef %14, ptr noundef nonnull %0, ptr noundef readonly %2)
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %rlc_channel_create.exit, label %17
 
@@ -647,7 +647,7 @@ define internal i32 @dissect_rlc_pcch(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_rlc_ccch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal i32 @dissect_rlc_ccch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 35, ptr noundef nonnull @.str.126)
@@ -698,7 +698,7 @@ define internal i32 @dissect_rlc_ccch(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_rlc_ctch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal i32 @dissect_rlc_ctch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 35, ptr noundef nonnull @.str.126)
@@ -738,7 +738,7 @@ define internal i32 @dissect_rlc_ctch(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_rlc_dcch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal i32 @dissect_rlc_dcch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 35, ptr noundef nonnull @.str.126)
@@ -808,7 +808,7 @@ define internal i32 @dissect_rlc_dcch(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_rlc_ps_dtch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal i32 @dissect_rlc_ps_dtch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 35, ptr noundef nonnull @.str.126)
@@ -880,7 +880,7 @@ define internal i32 @dissect_rlc_ps_dtch(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_rlc_dch_unknown(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal i32 @dissect_rlc_dch_unknown(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 35, ptr noundef nonnull @.str.126)
@@ -1037,7 +1037,7 @@ declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnam
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @dissect_rlc_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @dissect_rlc_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0)
   %6 = icmp slt i32 %5, 12
   br i1 %6, label %128, label %7
@@ -1809,7 +1809,7 @@ declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unname
 declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_rlc_um(i32 noundef range(i32 3, 9) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc void @dissect_rlc_um(i32 noundef range(i32 3, 9) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #0 {
   %7 = alloca %struct.rlc_channel, align 4
   %8 = alloca [16 x %struct.rlc_li], align 16
   %9 = alloca i32, align 4
@@ -2173,7 +2173,7 @@ proto_item_set_hidden.exit:                       ; preds = %132, %129, %128, %1
   %210 = getelementptr [64 x i32], ptr %209, i64 0, i64 %193
   %211 = load i32, ptr %210, align 4
   store i32 %211, ptr %161, align 4
-  %212 = call fastcc ptr @get_endlist(ptr noundef %2, ptr noundef nonnull %7, ptr noundef %5)
+  %212 = call fastcc ptr @get_endlist(ptr noundef %2, ptr noundef nonnull %7, ptr noundef readonly %5)
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 24
   %214 = load ptr, ptr %213, align 8
   store ptr %163, ptr %214, align 8
@@ -2213,8 +2213,8 @@ rlc_channel_assign.exit.thread.i:                 ; preds = %203, %197, %181
   %229 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert160.i, i64 8
   %230 = load ptr, ptr %229, align 8
   %231 = trunc i32 %221 to i16
-  call fastcc void @add_fragment(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %230, i16 noundef zeroext %.0121150.i, i16 noundef zeroext range(i16 0, 128) %35, i16 noundef zeroext %165, i16 noundef zeroext %231, i1 noundef zeroext true, ptr noundef %5)
-  %232 = call fastcc ptr @get_reassembled_data(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %4, i16 noundef zeroext range(i16 0, 128) %35, i16 noundef zeroext %165, ptr noundef %5)
+  call fastcc void @add_fragment(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %230, i16 noundef zeroext %.0121150.i, i16 noundef zeroext range(i16 0, 128) %35, i16 noundef zeroext %165, i16 noundef zeroext %231, i1 noundef zeroext true, ptr noundef readonly %5)
+  %232 = call fastcc ptr @get_reassembled_data(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %4, i16 noundef zeroext range(i16 0, 128) %35, i16 noundef zeroext %165, ptr noundef readonly %5)
   br label %233
 
 233:                                              ; preds = %228, %._crit_edge163.i
@@ -2264,8 +2264,8 @@ rlc_channel_assign.exit.thread.i:                 ; preds = %203, %197, %181
   %256 = load ptr, ptr %255, align 8
   %257 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert160.i, i64 2
   %258 = load i16, ptr %257, align 2
-  call fastcc void @add_fragment(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %256, i16 noundef zeroext %.0121150.i, i16 noundef zeroext range(i16 0, 128) %35, i16 noundef zeroext %165, i16 noundef zeroext %258, i1 noundef zeroext true, ptr noundef %5)
-  %259 = call fastcc ptr @get_reassembled_data(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %4, i16 noundef zeroext range(i16 0, 128) %35, i16 noundef zeroext %165, ptr noundef %5)
+  call fastcc void @add_fragment(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %256, i16 noundef zeroext %.0121150.i, i16 noundef zeroext range(i16 0, 128) %35, i16 noundef zeroext %165, i16 noundef zeroext %258, i1 noundef zeroext true, ptr noundef readonly %5)
+  %259 = call fastcc ptr @get_reassembled_data(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %4, i16 noundef zeroext range(i16 0, 128) %35, i16 noundef zeroext %165, ptr noundef readonly %5)
   br label %260
 
 260:                                              ; preds = %254, %240
@@ -2318,7 +2318,7 @@ rlc_channel_assign.exit.thread.i:                 ; preds = %203, %197, %181
 279:                                              ; preds = %276
   %280 = call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %269)
   %281 = trunc i32 %280 to i16
-  call fastcc void @add_fragment(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %4, i16 noundef zeroext %.0121.lcssa.i, i16 noundef zeroext range(i16 0, 128) %35, i16 noundef zeroext %.lcssa.i, i16 noundef zeroext %281, i1 noundef zeroext false, ptr noundef %5)
+  call fastcc void @add_fragment(i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %4, i16 noundef zeroext %.0121.lcssa.i, i16 noundef zeroext range(i16 0, 128) %35, i16 noundef zeroext %.lcssa.i, i16 noundef zeroext %281, i1 noundef zeroext false, ptr noundef readonly %5)
   br i1 %.0118.lcssa.i, label %.thread148.i, label %285
 
 .thread148.i:                                     ; preds = %279
@@ -2578,7 +2578,7 @@ declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 n
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc zeroext i1 @rlc_is_duplicate(i32 noundef range(i32 1, 3) %0, ptr noundef %1, i16 noundef zeroext range(i16 0, 4096) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 {
+define internal fastcc zeroext i1 @rlc_is_duplicate(i32 noundef range(i32 1, 3) %0, ptr noundef %1, i16 noundef zeroext range(i16 0, 4096) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca %struct.rlc_seqlist, align 8
   %7 = alloca %struct.rlc_seq, align 8
   %8 = alloca %struct.nstime_t, align 8
@@ -3121,7 +3121,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare ptr @g_list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @add_fragment(i32 noundef range(i32 1, 3) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i16 noundef zeroext range(i16 0, 4096) %5, i16 noundef zeroext range(i16 0, 256) %6, i16 noundef zeroext %7, i1 noundef zeroext %8, ptr noundef captures(address_is_null) %9) unnamed_addr #0 {
+define internal fastcc void @add_fragment(i32 noundef range(i32 1, 3) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i16 noundef zeroext range(i16 0, 4096) %5, i16 noundef zeroext range(i16 0, 256) %6, i16 noundef zeroext %7, i1 noundef zeroext %8, ptr noundef readonly captures(address_is_null) %9) unnamed_addr #0 {
   %11 = alloca ptr, align 8
   %12 = alloca %struct.rlc_channel, align 4
   %13 = alloca %struct.rlc_frag, align 8
@@ -3352,7 +3352,7 @@ rlc_channel_assign.exit281:                       ; preds = %49, %89, %103
 145:                                              ; preds = %144
   %146 = load i32, ptr %58, align 4
   %147 = call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #18
-  %148 = call fastcc i32 @rlc_channel_assign(ptr noundef %147, i32 noundef %146, ptr noundef nonnull %2, ptr noundef %9)
+  %148 = call fastcc i32 @rlc_channel_assign(ptr noundef %147, i32 noundef %146, ptr noundef nonnull %2, ptr noundef readonly %9)
   %.not.i.i = icmp eq i32 %148, 0
   br i1 %.not.i.i, label %rlc_channel_create.exit.i, label %149
 
@@ -3535,7 +3535,7 @@ get_frags.exit:                                   ; preds = %142, %144, %rlc_cha
   %251 = getelementptr inbounds nuw i8, ptr %247, i64 32
   %252 = getelementptr inbounds nuw i8, ptr %247, i64 40
   %253 = getelementptr inbounds nuw i8, ptr %247, i64 4
-  %254 = call fastcc i32 @rlc_channel_assign(ptr noundef nonnull %253, i32 noundef range(i32 1, 3) %0, ptr noundef %2, ptr noundef %9)
+  %254 = call fastcc i32 @rlc_channel_assign(ptr noundef nonnull %253, i32 noundef range(i32 1, 3) %0, ptr noundef %2, ptr noundef readonly %9)
   store i16 %7, ptr %251, align 8
   %255 = call ptr @wmem_file_scope()
   %256 = zext i16 %4 to i32
@@ -4412,7 +4412,7 @@ declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i
 declare void @mark_frame_as_depended_upon(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_rlc_am(i32 noundef range(i32 4, 9) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc void @dissect_rlc_am(i32 noundef range(i32 4, 9) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -4795,7 +4795,7 @@ proto_item_set_hidden.exit:                       ; preds = %184, %181, %180, %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @rlc_am_reassemble(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 4, 9) %5, i16 noundef zeroext range(i16 0, 4096) %6, i1 noundef zeroext %7, ptr noundef readonly captures(none) %8, i16 noundef zeroext range(i16 -1, 256) %9, i1 noundef zeroext %10, i1 noundef zeroext %11, ptr noundef captures(address_is_null) %12) unnamed_addr #0 {
+define internal fastcc void @rlc_am_reassemble(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 4, 9) %5, i16 noundef zeroext range(i16 0, 4096) %6, i1 noundef zeroext %7, ptr noundef readonly captures(none) %8, i16 noundef zeroext range(i16 -1, 256) %9, i1 noundef zeroext %10, i1 noundef zeroext %11, ptr noundef readonly captures(address_is_null) %12) unnamed_addr #0 {
   %14 = alloca %struct.rlc_channel, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #16
   %15 = zext nneg i16 %6 to i32

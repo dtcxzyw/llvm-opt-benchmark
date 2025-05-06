@@ -6435,7 +6435,7 @@ declare i32 @hex_to_bytes(ptr noundef, ptr noundef, i64 noundef) local_unnamed_a
 declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @for_each_loose_file_in_objdir_buf(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #1 {
+define dso_local i32 @for_each_loose_file_in_objdir_buf(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -6452,7 +6452,7 @@ define dso_local i32 @for_each_loose_file_in_objdir_buf(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @for_each_loose_file_in_objdir(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #1 {
+define dso_local i32 @for_each_loose_file_in_objdir(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = alloca %struct.strbuf, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @__const.index_mem.nbuf, i64 24, i1 false)
@@ -6462,7 +6462,7 @@ define dso_local i32 @for_each_loose_file_in_objdir(ptr noundef %0, ptr noundef 
 
 8:                                                ; preds = %8, %5
   %.012.i = phi i32 [ 0, %5 ], [ %10, %8 ]
-  %9 = call i32 @for_each_file_in_obj_subdir(i32 noundef %.012.i, ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %9 = call i32 @for_each_file_in_obj_subdir(i32 noundef %.012.i, ptr noundef nonnull %6, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4)
   %.not.i = icmp ne i32 %9, 0
   %10 = add nuw nsw i32 %.012.i, 1
   %exitcond.not.i = icmp eq i32 %10, 256
@@ -6476,7 +6476,7 @@ for_each_loose_file_in_objdir_buf.exit:           ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @for_each_loose_object(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define dso_local i32 @for_each_loose_object(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.strbuf, align 8
   %5 = load ptr, ptr @the_repository, align 8, !tbaa !9
   tail call void @prepare_alt_odb(ptr noundef %5)
@@ -6505,7 +6505,7 @@ define dso_local i32 @for_each_loose_object(ptr noundef captures(address_is_null
 
 15:                                               ; preds = %15, %11
   %.012.i.i = phi i32 [ 0, %11 ], [ %17, %15 ]
-  %16 = call i32 @for_each_file_in_obj_subdir(i32 noundef %.012.i.i, ptr noundef nonnull %4, ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef %1)
+  %16 = call i32 @for_each_file_in_obj_subdir(i32 noundef %.012.i.i, ptr noundef nonnull %4, ptr noundef readonly %0, ptr noundef readonly null, ptr noundef readonly null, ptr noundef %1)
   %.not.i.i = icmp ne i32 %16, 0
   %17 = add nuw nsw i32 %.012.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %17, 256

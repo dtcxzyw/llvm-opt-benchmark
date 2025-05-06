@@ -2015,7 +2015,7 @@ thread-pre-split:                                 ; preds = %405, %402
 
 443:                                              ; preds = %439, %.lr.ph.i187
   %.0.i = phi i32 [ %442, %439 ], [ -1, %.lr.ph.i187 ]
-  %444 = tail call fastcc ptr @createClient(ptr noundef null, i64 noundef 0, ptr noundef %434, i32 noundef %.0.i)
+  %444 = tail call fastcc ptr @createClient(ptr noundef null, i64 noundef 0, ptr noundef readonly %434, i32 noundef %.0.i)
   %445 = add nsw i32 %.024.i, 1
   %446 = icmp sgt i32 %.024.i, 63
   br i1 %446, label %447, label %449
@@ -4175,7 +4175,7 @@ define internal fastcc void @benchmark(ptr noundef %0, ptr noundef %1, i32 nound
 
 27:                                               ; preds = %23, %.lr.ph.i
   %.0.i = phi i32 [ %26, %23 ], [ -1, %.lr.ph.i ]
-  %28 = tail call fastcc ptr @createClient(ptr noundef null, i64 noundef 0, ptr noundef %18, i32 noundef %.0.i)
+  %28 = tail call fastcc ptr @createClient(ptr noundef null, i64 noundef 0, ptr noundef readonly %18, i32 noundef %.0.i)
   %29 = add nsw i32 %.024.i, 1
   %30 = icmp sgt i32 %.024.i, 63
   br i1 %30, label %31, label %33
@@ -5823,7 +5823,7 @@ resetClient.exit.i:                               ; preds = %279, %275
 
 312:                                              ; preds = %308, %.lr.ph.i.i
   %.0.i.i = phi i32 [ %311, %308 ], [ -1, %.lr.ph.i.i ]
-  %313 = call fastcc ptr @createClient(ptr noundef null, i64 noundef 0, ptr noundef nonnull %2, i32 noundef %.0.i.i)
+  %313 = call fastcc ptr @createClient(ptr noundef null, i64 noundef 0, ptr noundef nonnull readonly %2, i32 noundef %.0.i.i)
   %314 = add nsw i32 %.024.i.i, 1
   %315 = icmp sgt i32 %.024.i.i, 63
   br i1 %315, label %316, label %318

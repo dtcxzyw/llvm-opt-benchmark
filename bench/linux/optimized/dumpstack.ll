@@ -173,7 +173,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @show_ip(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #6 align 16 {
+define dso_local void @show_ip(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
@@ -186,7 +186,7 @@ define dso_local void @show_ip(ptr noundef captures(address) %0, ptr noundef %1)
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @show_iret_regs(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #6 align 16 {
+define dso_local void @show_iret_regs(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32

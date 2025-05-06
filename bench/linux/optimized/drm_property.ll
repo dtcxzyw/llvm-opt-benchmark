@@ -916,7 +916,7 @@ define dso_local ptr @drm_property_lookup_blob(ptr noundef %0, i32 noundef %1) #
 declare dso_local ptr @__drm_mode_object_find(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_property_replace_global_blob(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef %5) #0 align 16 {
+define dso_local i32 @drm_property_replace_global_blob(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5) #0 align 16 {
   %7 = icmp eq ptr %1, null
   br i1 %7, label %8, label %9, !prof !11
 

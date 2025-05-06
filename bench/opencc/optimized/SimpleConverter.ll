@@ -1164,7 +1164,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #3 align 2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @opencc_open(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
+define noundef ptr @opencc_open(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = tail call noundef ptr @_Z20opencc_open_internalPKc(ptr noundef %0)
   ret ptr %2
 }
@@ -1234,7 +1234,7 @@ define noundef i64 @opencc_convert_utf8_to_buffer(ptr noundef nonnull readonly c
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @opencc_convert_utf8(ptr noundef nonnull readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef ptr @opencc_convert_utf8(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #21
   invoke void @_ZNK6opencc15SimpleConverter7ConvertB5cxx11EPKcm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2)

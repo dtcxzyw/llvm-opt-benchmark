@@ -28225,7 +28225,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i32 0, ptr %238, align 4, !tbaa !732
   %239 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i23.i, i64 56
   store ptr null, ptr %239, align 8, !tbaa !735
-  %240 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_16NewGVN22setBasicExpressionInfoEPN4llvm11InstructionEPNS1_13GVNExpression15BasicExpressionE(ptr noundef nonnull align 8 dereferenceable(2536) %1, ptr noundef nonnull %2, ptr noundef nonnull %.0.i.i.i.i23.i)
+  %240 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_16NewGVN22setBasicExpressionInfoEPN4llvm11InstructionEPNS1_13GVNExpression15BasicExpressionE(ptr noundef nonnull align 8 dereferenceable(2536) %1, ptr noundef nonnull readonly %2, ptr noundef nonnull %.0.i.i.i.i23.i)
   %241 = load i32, ptr %237, align 8, !tbaa !737
   %242 = zext i32 %241 to i64
   %243 = shl nuw nsw i64 %242, 2
@@ -28337,7 +28337,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i32 0, ptr %303, align 4, !tbaa !732
   %304 = getelementptr inbounds nuw i8, ptr %.0.i.i.i31.i.i, i64 56
   store ptr null, ptr %304, align 8, !tbaa !735
-  %305 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_16NewGVN22setBasicExpressionInfoEPN4llvm11InstructionEPNS1_13GVNExpression15BasicExpressionE(ptr noundef nonnull align 8 dereferenceable(2536) %1, ptr noundef nonnull %2, ptr noundef nonnull %.0.i.i.i31.i.i)
+  %305 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_16NewGVN22setBasicExpressionInfoEPN4llvm11InstructionEPNS1_13GVNExpression15BasicExpressionE(ptr noundef nonnull align 8 dereferenceable(2536) %1, ptr noundef nonnull readonly %2, ptr noundef nonnull %.0.i.i.i31.i.i)
   %306 = load i32, ptr %302, align 8, !tbaa !737
   %307 = zext i32 %306 to i64
   %308 = shl nuw nsw i64 %307, 2

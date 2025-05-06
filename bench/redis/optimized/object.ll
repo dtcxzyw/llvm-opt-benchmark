@@ -2969,19 +2969,19 @@ declare i32 @strcoll(ptr noundef captures(none), ptr noundef captures(none)) loc
 declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @compareStringObjects(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
+define dso_local i32 @compareStringObjects(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @compareStringObjectsWithFlags(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @collateStringObjects(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
+define dso_local i32 @collateStringObjects(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @compareStringObjectsWithFlags(ptr noundef %0, ptr noundef %1, i32 noundef 2)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @equalStringObjects(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @equalStringObjects(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = and i32 %3, 240
   %5 = icmp eq i32 %4, 16
@@ -3002,7 +3002,7 @@ define dso_local range(i32 0, 2) i32 @equalStringObjects(ptr noundef %0, ptr nou
   br label %19
 
 16:                                               ; preds = %6, %2
-  %17 = tail call i32 @compareStringObjectsWithFlags(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 1)
+  %17 = tail call i32 @compareStringObjectsWithFlags(ptr noundef nonnull %0, ptr noundef readonly %1, i32 noundef 1)
   %18 = icmp eq i32 %17, 0
   br label %19
 

@@ -4528,7 +4528,7 @@ _ZN12_GLOBAL__N_119SCEVDbgValueBuilder19SCEVToIterCountExprERKN4llvm14SCEVAddRec
   store ptr %884, ptr %883, align 8, !tbaa !25
   store i32 0, ptr %885, align 8, !tbaa !26
   store i32 2, ptr %886, align 4, !tbaa !27
-  call fastcc void @_ZN12_GLOBAL__N_119SCEVDbgValueBuilder5cloneERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %32, ptr noundef nonnull align 8 dereferenceable(96) %31)
+  call fastcc void @_ZN12_GLOBAL__N_119SCEVDbgValueBuilder5cloneERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %32, ptr noundef nonnull readonly align 8 dereferenceable(96) %31)
   %.0.copyload.i.i.i.i.i.i.i.i.i105 = load i64, ptr %.024.val.i, align 8
   %1131 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i105, 4
   %1132 = icmp eq i64 %1131, 0
@@ -5303,7 +5303,7 @@ _ZNK4llvm5APInt12getSExtValueEv.exit.i.i:         ; preds = %1447, %1441
   br i1 %1463, label %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder19createIterCountExprEPKN4llvm4SCEVERKS0_RNS1_15ScalarEvolutionE.exit.i.i, label %1464
 
 1464:                                             ; preds = %1460
-  call fastcc void @_ZN12_GLOBAL__N_119SCEVDbgValueBuilder5cloneERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %.val68.i.i, ptr noundef nonnull align 8 dereferenceable(96) %32)
+  call fastcc void @_ZN12_GLOBAL__N_119SCEVDbgValueBuilder5cloneERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %.val68.i.i, ptr noundef nonnull readonly align 8 dereferenceable(96) %32)
   %1465 = getelementptr inbounds nuw i8, ptr %1452, i64 32
   %1466 = load ptr, ptr %1465, align 8, !tbaa !548
   %1467 = load ptr, ptr %1466, align 8, !tbaa !549
@@ -14562,13 +14562,13 @@ _ZSt4copyIPKPKN4llvm4SCEVEPS3_ET0_T_S8_S7_.exit31.i.thread.i.i: ; preds = %_ZSt4
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.013.i = phi i64 [ %177, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  call fastcc void @_ZN12_GLOBAL__N_111LSRInstance26GenerateReassociationsImplERNS_6LSRUseEjRKNS_7FormulaEjmb(ptr noundef nonnull align 8 dereferenceable(35728) %0, ptr noundef nonnull align 8 dereferenceable(2104) %151, i32 noundef %156, ptr noundef nonnull align 8 dereferenceable(112) %42, i32 noundef 0, i64 noundef %.013.i, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_111LSRInstance26GenerateReassociationsImplERNS_6LSRUseEjRKNS_7FormulaEjmb(ptr noundef nonnull align 8 dereferenceable(35728) %0, ptr noundef nonnull align 8 dereferenceable(2104) %151, i32 noundef %156, ptr noundef nonnull readonly align 8 dereferenceable(112) %42, i32 noundef 0, i64 noundef %.013.i, i1 noundef zeroext false)
   %177 = add nuw nsw i64 %.013.i, 1
   %.not.i = icmp eq i64 %177, %174
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !854
 
 178:                                              ; preds = %._crit_edge.i
-  call fastcc void @_ZN12_GLOBAL__N_111LSRInstance26GenerateReassociationsImplERNS_6LSRUseEjRKNS_7FormulaEjmb(ptr noundef nonnull align 8 dereferenceable(35728) %0, ptr noundef nonnull align 8 dereferenceable(2104) %151, i32 noundef %156, ptr noundef nonnull align 8 dereferenceable(112) %42, i32 noundef 0, i64 noundef -1, i1 noundef zeroext true)
+  call fastcc void @_ZN12_GLOBAL__N_111LSRInstance26GenerateReassociationsImplERNS_6LSRUseEjRKNS_7FormulaEjmb(ptr noundef nonnull align 8 dereferenceable(35728) %0, ptr noundef nonnull align 8 dereferenceable(2104) %151, i32 noundef %156, ptr noundef nonnull readonly align 8 dereferenceable(112) %42, i32 noundef 0, i64 noundef -1, i1 noundef zeroext true)
   br label %_ZN12_GLOBAL__N_111LSRInstance22GenerateReassociationsERNS_6LSRUseEjNS_7FormulaEj.exit
 
 _ZN12_GLOBAL__N_111LSRInstance22GenerateReassociationsERNS_6LSRUseEjNS_7FormulaEj.exit: ; preds = %._crit_edge.i, %178
@@ -15231,13 +15231,13 @@ _ZN12_GLOBAL__N_17FormulaC2ERKS0_.exit128.thread: ; preds = %405
 
 .lr.ph.i130:                                      ; preds = %.lr.ph.i130.preheader, %.lr.ph.i130
   %.010.i = phi i64 [ %425, %.lr.ph.i130 ], [ 0, %.lr.ph.i130.preheader ]
-  call fastcc void @_ZN12_GLOBAL__N_111LSRInstance27GenerateSymbolicOffsetsImplERNS_6LSRUseEjRKNS_7FormulaEmb(ptr noundef nonnull align 8 dereferenceable(35728) %0, ptr noundef nonnull align 8 dereferenceable(2104) %394, i32 noundef %399, ptr noundef nonnull align 8 dereferenceable(112) %44, i64 noundef %.010.i, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_111LSRInstance27GenerateSymbolicOffsetsImplERNS_6LSRUseEjRKNS_7FormulaEmb(ptr noundef nonnull align 8 dereferenceable(35728) %0, ptr noundef nonnull align 8 dereferenceable(2104) %394, i32 noundef %399, ptr noundef nonnull readonly align 8 dereferenceable(112) %44, i64 noundef %.010.i, i1 noundef zeroext false)
   %425 = add nuw nsw i64 %.010.i, 1
   %.not8.i = icmp eq i64 %425, %424
   br i1 %.not8.i, label %._crit_edge.i131, label %.lr.ph.i130, !llvm.loop !860
 
 426:                                              ; preds = %_ZN12_GLOBAL__N_17FormulaC2ERKS0_.exit128.thread, %._crit_edge.i131
-  call fastcc void @_ZN12_GLOBAL__N_111LSRInstance27GenerateSymbolicOffsetsImplERNS_6LSRUseEjRKNS_7FormulaEmb(ptr noundef nonnull align 8 dereferenceable(35728) %0, ptr noundef nonnull align 8 dereferenceable(2104) %394, i32 noundef %399, ptr noundef nonnull align 8 dereferenceable(112) %44, i64 noundef -1, i1 noundef zeroext true)
+  call fastcc void @_ZN12_GLOBAL__N_111LSRInstance27GenerateSymbolicOffsetsImplERNS_6LSRUseEjRKNS_7FormulaEmb(ptr noundef nonnull align 8 dereferenceable(35728) %0, ptr noundef nonnull align 8 dereferenceable(2104) %394, i32 noundef %399, ptr noundef nonnull readonly align 8 dereferenceable(112) %44, i64 noundef -1, i1 noundef zeroext true)
   br label %_ZN12_GLOBAL__N_111LSRInstance23GenerateSymbolicOffsetsERNS_6LSRUseEjNS_7FormulaE.exit
 
 _ZN12_GLOBAL__N_111LSRInstance23GenerateSymbolicOffsetsERNS_6LSRUseEjNS_7FormulaE.exit: ; preds = %_ZN12_GLOBAL__N_17FormulaC2ERKS0_.exit128.thread, %_ZN12_GLOBAL__N_17FormulaC2ERKS0_.exit128, %._crit_edge.i131, %426
@@ -20981,7 +20981,7 @@ _ZL34getAnyExtendConsideringPostIncUsesN4llvm8ArrayRefINS_11SmallPtrSetIPKNS_4Lo
   br i1 %.not.i89.i284, label %2669, label %2667
 
 2667:                                             ; preds = %._crit_edge124.i
-  %2668 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_113RegUseTracker24isRegUsedByUsesOtherThanEPKN4llvm4SCEVEm(ptr %.val71.i, i32 %.val72.i, ptr noundef nonnull %2666, i64 noundef range(i64 0, 4294967296) %.070496)
+  %2668 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_113RegUseTracker24isRegUsedByUsesOtherThanEPKN4llvm4SCEVEm(ptr readonly %.val71.i, i32 %.val72.i, ptr noundef nonnull %2666, i64 noundef range(i64 0, 4294967296) %.070496)
   br i1 %2668, label %.loopexit.i285, label %2669
 
 2669:                                             ; preds = %2667, %._crit_edge124.i
@@ -24698,7 +24698,7 @@ _ZNK12_GLOBAL__N_111LSRInstance29EstimateSearchSpaceComplexityEv.exit.i59: ; pre
   br i1 %466, label %467, label %.loopexit.i.i
 
 467:                                              ; preds = %462
-  %468 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_16LSRUse22HasFormulaWithSameRegsERKNS_7FormulaE(ptr noundef nonnull align 8 dereferenceable(2104) %.04326.i.i, ptr noundef nonnull align 8 dereferenceable(112) %.070196.i)
+  %468 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_16LSRUse22HasFormulaWithSameRegsERKNS_7FormulaE(ptr noundef nonnull align 8 dereferenceable(2104) %.04326.i.i, ptr noundef nonnull readonly align 8 dereferenceable(112) %.070196.i)
   br i1 %468, label %469, label %.loopexit.i.i
 
 469:                                              ; preds = %467
@@ -54826,7 +54826,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE18uninitialized_moveIPS
 declare noundef ptr @_ZN4llvm15ScalarEvolution19getNoopOrSignExtendEPKNS_4SCEVEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(1344), ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL16canFoldIVIncExprPKN4llvm4SCEVEPNS_11InstructionEPNS_5ValueERKNS_19TargetTransformInfoE(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZL16canFoldIVIncExprPKN4llvm4SCEVEPNS_11InstructionEPNS_5ValueERKNS_19TargetTransformInfoE(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(address) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i16, ptr %5, align 8, !tbaa !539
   %7 = icmp ne i16 %6, 0

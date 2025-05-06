@@ -12746,7 +12746,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_126ItaniumRecordLayoutBuilder18LayoutVirtualBasesEPKN5clang13CXXRecordDeclES4_(ptr noundef nonnull align 8 dereferenceable(896) %0, ptr noundef %1, ptr noundef nonnull captures(address) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_126ItaniumRecordLayoutBuilder18LayoutVirtualBasesEPKN5clang13CXXRecordDeclES4_(ptr noundef nonnull align 8 dereferenceable(896) %0, ptr noundef %1, ptr noundef nonnull readnone captures(address) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::pair.481", align 8
   %5 = alloca %"struct.std::pair.508", align 8
   %6 = icmp eq ptr %2, %1

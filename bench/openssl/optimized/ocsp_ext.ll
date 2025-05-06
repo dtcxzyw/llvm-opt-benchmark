@@ -314,7 +314,7 @@ define range(i32 0, 2) i32 @OCSP_SINGLERESP_add_ext(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OCSP_request_add1_nonce(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_request_add1_nonce(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = tail call fastcc i32 @ocsp_add1_nonce(ptr noundef nonnull %4, ptr noundef %1, i32 noundef %2)
   ret i32 %5
@@ -379,7 +379,7 @@ define internal fastcc range(i32 0, 2) i32 @ocsp_add1_nonce(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OCSP_basic_add1_nonce(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_basic_add1_nonce(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = tail call fastcc i32 @ocsp_add1_nonce(ptr noundef nonnull %4, ptr noundef %1, i32 noundef %2)
   ret i32 %5

@@ -6100,7 +6100,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryI4exprE12ob
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z12is_hint_atomP4exprS0_(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_Z12is_hint_atomP4exprS0_(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.ptr_buffer.56, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #22
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -6585,7 +6585,7 @@ _ZN6bufferIP4exprLb0ELj16EED2Ev.exit:             ; preds = %_ZN6bufferIbLb0ELj1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN10macro_util12is_poly_hintEP4exprP3appS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef readnone captures(address) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN10macro_util12is_poly_hintEP4exprP3appS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %0, ptr noundef %1, ptr noundef readonly captures(address) %2, ptr noundef readnone captures(address) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca %class.ptr_buffer.56, align 8
   store ptr %1, ptr %5, align 8, !tbaa !73
@@ -7202,7 +7202,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit16:       ; preds = %_ZN7obj_refI4expr11
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10macro_util18insert_quasi_macroEP3appjP4exprS3_bbbRNS_16macro_candidatesE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %0, ptr noundef captures(address) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, ptr noundef nonnull align 8 dereferenceable(64) %8) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10macro_util18insert_quasi_macroEP3appjP4exprS3_bbbRNS_16macro_candidatesE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, ptr noundef nonnull align 8 dereferenceable(64) %8) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca [2 x ptr], align 16
   %11 = alloca i32, align 4
   %12 = alloca %class.obj_ref.33, align 8
@@ -8276,7 +8276,7 @@ _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit: ; preds = %._crit_edge.i, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10macro_util25add_arith_macro_candidateEP3appjP4exprS3_bbRNS_16macro_candidatesE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %0, ptr noundef captures(address) %1, i32 noundef %2, ptr noundef %3, ptr noundef captures(address) %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef nonnull align 8 dereferenceable(64) %7) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10macro_util25add_arith_macro_candidateEP3appjP4exprS3_bbRNS_16macro_candidatesE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef %3, ptr noundef readnone captures(address) %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef nonnull align 8 dereferenceable(64) %7) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %class.obj_ref, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #22
   %10 = load ptr, ptr %0, align 8, !tbaa !108
@@ -8336,7 +8336,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %17, %19, %25
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10macro_util30collect_arith_macro_candidatesEP4exprS1_S1_jbRNS_16macro_candidatesE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address) %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(64) %6) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10macro_util30collect_arith_macro_candidatesEP4exprS1_S1_jbRNS_16macro_candidatesE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address) %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(64) %6) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca [2 x ptr], align 16
   %9 = alloca [2 x ptr], align 16
   %10 = alloca ptr, align 8
@@ -9280,7 +9280,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit154:      ; preds = %363, %369
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10macro_util30collect_arith_macro_candidatesEP4exprjRNS_16macro_candidatesE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef captures(address) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(64) %3) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN10macro_util30collect_arith_macro_candidatesEP4exprjRNS_16macro_candidatesE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(64) %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 65535
@@ -9395,12 +9395,12 @@ _ZNK11ast_manager5is_eqEPK4expr.exit.i:           ; preds = %17
   br i1 %37, label %"_ZZN10macro_util29collect_macro_candidates_coreEP4exprjRNS_16macro_candidatesEENK3$_1clES1_S1_.exit", label %38
 
 38:                                               ; preds = %32
-  %39 = call noundef zeroext i1 @_Z12is_hint_atomP4exprS0_(ptr noundef %34, ptr noundef %36)
+  %39 = call noundef zeroext i1 @_Z12is_hint_atomP4exprS0_(ptr noundef readonly %34, ptr noundef %36)
   br i1 %39, label %40, label %"_ZZN10macro_util29collect_macro_candidates_coreEP4exprjRNS_16macro_candidatesEENK3$_1clES1_S1_.exit"
 
 40:                                               ; preds = %38
   %41 = load i32, ptr %6, align 4, !tbaa !85
-  call void @_ZN10macro_util18insert_quasi_macroEP3appjP4exprS3_bbbRNS_16macro_candidatesE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef %34, i32 noundef %41, ptr noundef %36, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(64) %3)
+  call void @_ZN10macro_util18insert_quasi_macroEP3appjP4exprS3_bbbRNS_16macro_candidatesE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef readonly %34, i32 noundef %41, ptr noundef %36, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(64) %3)
   br label %"_ZZN10macro_util29collect_macro_candidates_coreEP4exprjRNS_16macro_candidatesEENK3$_1clES1_S1_.exit"
 
 "_ZZN10macro_util29collect_macro_candidates_coreEP4exprjRNS_16macro_candidatesEENK3$_1clES1_S1_.exit": ; preds = %40, %38, %32
@@ -9408,12 +9408,12 @@ _ZNK11ast_manager5is_eqEPK4expr.exit.i:           ; preds = %17
   br i1 %42, label %"_ZZN10macro_util29collect_macro_candidates_coreEP4exprjRNS_16macro_candidatesEENK3$_1clES1_S1_.exit7", label %43
 
 43:                                               ; preds = %"_ZZN10macro_util29collect_macro_candidates_coreEP4exprjRNS_16macro_candidatesEENK3$_1clES1_S1_.exit"
-  %44 = call noundef zeroext i1 @_Z12is_hint_atomP4exprS0_(ptr noundef %36, ptr noundef %34)
+  %44 = call noundef zeroext i1 @_Z12is_hint_atomP4exprS0_(ptr noundef readonly %36, ptr noundef %34)
   br i1 %44, label %45, label %"_ZZN10macro_util29collect_macro_candidates_coreEP4exprjRNS_16macro_candidatesEENK3$_1clES1_S1_.exit7"
 
 45:                                               ; preds = %43
   %46 = load i32, ptr %6, align 4, !tbaa !85
-  call void @_ZN10macro_util18insert_quasi_macroEP3appjP4exprS3_bbbRNS_16macro_candidatesE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef %36, i32 noundef %46, ptr noundef %34, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(64) %3)
+  call void @_ZN10macro_util18insert_quasi_macroEP3appjP4exprS3_bbbRNS_16macro_candidatesE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef readonly %36, i32 noundef %46, ptr noundef %34, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(64) %3)
   br label %"_ZZN10macro_util29collect_macro_candidates_coreEP4exprjRNS_16macro_candidatesEENK3$_1clES1_S1_.exit7"
 
 "_ZZN10macro_util29collect_macro_candidates_coreEP4exprjRNS_16macro_candidatesEENK3$_1clES1_S1_.exit7": ; preds = %17, %4, %_ZNK11ast_manager5is_eqEPK4expr.exit.i, %28, %45, %43, %"_ZZN10macro_util29collect_macro_candidates_coreEP4exprjRNS_16macro_candidatesEENK3$_1clES1_S1_.exit"
@@ -9534,7 +9534,7 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit16: ; preds = %_ZN11ast_manager7i
   br i1 %110, label %"_ZZN10macro_util29collect_macro_candidates_coreEP4exprjRNS_16macro_candidatesEENK3$_1clES1_S1_.exit18", label %112
 
 112:                                              ; preds = %111
-  %113 = invoke noundef zeroext i1 @_Z12is_hint_atomP4exprS0_(ptr noundef %91, ptr noundef %104)
+  %113 = invoke noundef zeroext i1 @_Z12is_hint_atomP4exprS0_(ptr noundef readonly %91, ptr noundef %104)
           to label %.noexc unwind label %118
 
 .noexc:                                           ; preds = %112
@@ -9542,7 +9542,7 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit16: ; preds = %_ZN11ast_manager7i
 
 114:                                              ; preds = %.noexc
   %115 = load i32, ptr %6, align 4, !tbaa !85
-  invoke void @_ZN10macro_util18insert_quasi_macroEP3appjP4exprS3_bbbRNS_16macro_candidatesE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef %91, i32 noundef %115, ptr noundef %104, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(64) %3)
+  invoke void @_ZN10macro_util18insert_quasi_macroEP3appjP4exprS3_bbbRNS_16macro_candidatesE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef readonly %91, i32 noundef %115, ptr noundef %104, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(64) %3)
           to label %"_ZZN10macro_util29collect_macro_candidates_coreEP4exprjRNS_16macro_candidatesEENK3$_1clES1_S1_.exit18" unwind label %118
 
 116:                                              ; preds = %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit
@@ -9564,7 +9564,7 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit16: ; preds = %_ZN11ast_manager7i
   br i1 %120, label %"_ZZN10macro_util29collect_macro_candidates_coreEP4exprjRNS_16macro_candidatesEENK3$_1clES1_S1_.exit21", label %122
 
 122:                                              ; preds = %121
-  %123 = invoke noundef zeroext i1 @_Z12is_hint_atomP4exprS0_(ptr noundef %93, ptr noundef %98)
+  %123 = invoke noundef zeroext i1 @_Z12is_hint_atomP4exprS0_(ptr noundef readonly %93, ptr noundef %98)
           to label %.noexc19 unwind label %118
 
 .noexc19:                                         ; preds = %122
@@ -9572,7 +9572,7 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit16: ; preds = %_ZN11ast_manager7i
 
 124:                                              ; preds = %.noexc19
   %125 = load i32, ptr %6, align 4, !tbaa !85
-  invoke void @_ZN10macro_util18insert_quasi_macroEP3appjP4exprS3_bbbRNS_16macro_candidatesE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef %93, i32 noundef %125, ptr noundef %98, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(64) %3)
+  invoke void @_ZN10macro_util18insert_quasi_macroEP3appjP4exprS3_bbbRNS_16macro_candidatesE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef readonly %93, i32 noundef %125, ptr noundef %98, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(64) %3)
           to label %"_ZZN10macro_util29collect_macro_candidates_coreEP4exprjRNS_16macro_candidatesEENK3$_1clES1_S1_.exit21" unwind label %118
 
 "_ZZN10macro_util29collect_macro_candidates_coreEP4exprjRNS_16macro_candidatesEENK3$_1clES1_S1_.exit21": ; preds = %.noexc19, %124, %121
@@ -9682,8 +9682,8 @@ _ZNK11ast_manager5is_eqEPK4expr.exit18.i:         ; preds = %_ZNK14bv_recognizer
   %173 = icmp ne i32 %156, 0
   %174 = icmp ne i32 %168, 2
   %.not26.i = select i1 %173, i1 true, i1 %174
-  call void @_ZN10macro_util30collect_arith_macro_candidatesEP4exprS1_S1_jbRNS_16macro_candidatesE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef %170, ptr noundef %172, ptr noundef nonnull %145, i32 noundef %146, i1 noundef zeroext %.not26.i, ptr noundef nonnull align 8 dereferenceable(64) %3)
-  call void @_ZN10macro_util30collect_arith_macro_candidatesEP4exprS1_S1_jbRNS_16macro_candidatesE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef %172, ptr noundef %170, ptr noundef nonnull %145, i32 noundef %146, i1 noundef zeroext %.not26.i, ptr noundef nonnull align 8 dereferenceable(64) %3)
+  call void @_ZN10macro_util30collect_arith_macro_candidatesEP4exprS1_S1_jbRNS_16macro_candidatesE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef %170, ptr noundef %172, ptr noundef nonnull readonly %145, i32 noundef %146, i1 noundef zeroext %.not26.i, ptr noundef nonnull align 8 dereferenceable(64) %3)
+  call void @_ZN10macro_util30collect_arith_macro_candidatesEP4exprS1_S1_jbRNS_16macro_candidatesE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef %172, ptr noundef %170, ptr noundef nonnull readonly %145, i32 noundef %146, i1 noundef zeroext %.not26.i, ptr noundef nonnull align 8 dereferenceable(64) %3)
   br label %_ZN10macro_util30collect_arith_macro_candidatesEP4exprjRNS_16macro_candidatesE.exit
 
 _ZN10macro_util30collect_arith_macro_candidatesEP4exprjRNS_16macro_candidatesE.exit: ; preds = %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.thread, %151, %_ZNK14bv_recognizers9is_bv_uleEPK4expr.exit.i.i, %_ZNK11ast_manager5is_eqEPK4expr.exit18.i
@@ -9692,7 +9692,7 @@ _ZN10macro_util30collect_arith_macro_candidatesEP4exprjRNS_16macro_candidatesE.e
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN10macro_util29collect_macro_candidates_coreEP4exprjRNS_16macro_candidatesEENK3$_0clES1_S1_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(address) %1, ptr noundef %2) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZN10macro_util29collect_macro_candidates_coreEP4exprjRNS_16macro_candidatesEENK3$_0clES1_S1_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(address) %1, ptr noundef %2) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.obj_ref, align 8
   %5 = load ptr, ptr %0, align 8, !tbaa !285
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8

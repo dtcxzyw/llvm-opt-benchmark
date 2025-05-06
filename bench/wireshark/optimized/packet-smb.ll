@@ -8705,7 +8705,7 @@ thread-pre-split.thread:                          ; preds = %79, %thread-pre-spl
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_open_file_response(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal i32 @dissect_open_file_response(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = alloca %struct.nstime_t, align 8
   %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %9 = load i32, ptr @hf_smb_word_count, align 4
@@ -8983,7 +8983,7 @@ thread-pre-split.thread:                          ; preds = %94, %thread-pre-spl
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_create_file_response(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal i32 @dissect_create_file_response(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -9052,7 +9052,7 @@ define internal i32 @dissect_create_file_response(ptr noundef %0, ptr noundef re
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_close_file_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal i32 @dissect_close_file_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = alloca %struct.nstime_t, align 8
   %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %9 = load i32, ptr @hf_smb_word_count, align 4
@@ -9128,7 +9128,7 @@ dissect_smb_UTIME.exit:                           ; preds = %23, %25
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_flush_file_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal i32 @dissect_flush_file_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -9898,7 +9898,7 @@ thread-pre-split.thread:                          ; preds = %75, %thread-pre-spl
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_read_file_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal i32 @dissect_read_file_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -10469,7 +10469,7 @@ proto_item_set_generated.exit65:                  ; preds = %15, %27, %52, %49, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_lock_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal i32 @dissect_lock_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -10656,7 +10656,7 @@ thread-pre-split.thread:                          ; preds = %71, %thread-pre-spl
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_create_temporary_response(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal i32 @dissect_create_temporary_response(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #19
   %.not = icmp eq ptr %5, null
@@ -10742,7 +10742,7 @@ get_unicode_or_ascii_string.exit:                 ; preds = %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_create_new_response(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal i32 @dissect_create_new_response(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -10789,7 +10789,7 @@ define internal i32 @dissect_create_new_response(ptr noundef %0, ptr noundef rea
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_seek_file_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal i32 @dissect_seek_file_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -10995,7 +10995,7 @@ define internal noundef i32 @dissect_unknown(ptr noundef %0, ptr readnone captur
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_read_raw_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal i32 @dissect_read_raw_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -11068,7 +11068,7 @@ define internal i32 @dissect_read_raw_request(ptr noundef %0, ptr noundef readon
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_read_mpx_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal i32 @dissect_read_mpx_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -11213,7 +11213,7 @@ dissect_file_data.exit:                           ; preds = %55, %57
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_write_raw_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal i32 @dissect_write_raw_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -11354,7 +11354,7 @@ define internal i32 @dissect_write_raw_response(ptr noundef %0, ptr readnone cap
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_write_mpx_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal i32 @dissect_write_mpx_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -11542,7 +11542,7 @@ define internal i32 @dissect_write_and_close_response(ptr noundef %0, ptr readno
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_set_information2_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal i32 @dissect_set_information2_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -11601,7 +11601,7 @@ define internal i32 @dissect_set_information2_request(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_query_information2_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal i32 @dissect_query_information2_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -15932,7 +15932,7 @@ dissect_transaction2_response_data.exit:          ; preds = %543, %541, %905, %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_copy_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal i32 @dissect_copy_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i16, align 2
@@ -16179,7 +16179,7 @@ thread-pre-split.thread:                          ; preds = %50, %thread-pre-spl
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_move_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal i32 @dissect_move_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i16, align 2
@@ -16404,7 +16404,7 @@ define internal noundef i32 @dissect_echo_response(ptr noundef %0, ptr readnone 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_write_and_close_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal i32 @dissect_write_and_close_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = alloca %struct.nstime_t, align 8
   %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %9 = load i32, ptr @hf_smb_word_count, align 4
@@ -18188,7 +18188,7 @@ thread-pre-split.thread:                          ; preds = %83, %thread-pre-spl
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_tree_connect_response(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal i32 @dissect_tree_connect_response(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -20260,31 +20260,31 @@ define internal i32 @dissect_query_information_disk_response(ptr noundef %0, ptr
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_search_dir_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal i32 @dissect_search_dir_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = tail call fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, i1 noundef zeroext false)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef i32 @dissect_search_dir_response(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal noundef i32 @dissect_search_dir_response(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readnone captures(address_is_null) %5) #0 {
   %7 = tail call fastcc i32 @dissect_search_find_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext false, ptr noundef %5)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_find_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal i32 @dissect_find_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = tail call fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, i1 noundef zeroext true)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef i32 @dissect_find_response(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal noundef i32 @dissect_find_response(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readnone captures(address_is_null) %5) #0 {
   %7 = tail call fastcc i32 @dissect_search_find_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext true, ptr noundef %5)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_find_close_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal i32 @dissect_find_close_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = tail call fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, i1 noundef zeroext true)
   ret i32 %7
 }
@@ -20372,7 +20372,7 @@ define internal i32 @dissect_find_close_response(ptr noundef %0, ptr readnone ca
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_nt_transaction_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal i32 @dissect_nt_transaction_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -20572,7 +20572,7 @@ define internal i32 @dissect_nt_transaction_request(ptr noundef %0, ptr noundef 
   %132 = select i1 %.not66.i, ptr null, ptr %131
   %133 = tail call i32 @dissect_smb2_ioctl_function(ptr noundef %0, ptr noundef %1, ptr noundef %129, i32 noundef %115, ptr noundef %132)
   %134 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %133)
-  %135 = tail call ptr @dissect_smb_fid(ptr noundef %0, ptr noundef %1, ptr noundef %129, i32 noundef %133, i32 noundef 2, i16 noundef zeroext %134, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %5)
+  %135 = tail call ptr @dissect_smb_fid(ptr noundef %0, ptr noundef %1, ptr noundef %129, i32 noundef %133, i32 noundef 2, i16 noundef zeroext %134, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull readonly %5)
   %136 = add i32 %133, 2
   %137 = load i32, ptr @hf_smb_nt_ioctl_isfsctl, align 4
   %138 = tail call ptr @proto_tree_add_item(ptr noundef %129, i32 noundef %137, ptr noundef %0, i32 noundef %136, i32 noundef 1, i32 noundef -2147483648)
@@ -20588,7 +20588,7 @@ define internal i32 @dissect_nt_transaction_request(ptr noundef %0, ptr noundef 
   %146 = tail call ptr @proto_tree_add_bitmask(ptr noundef %129, ptr noundef %0, i32 noundef %115, i32 noundef %144, i32 noundef %145, ptr noundef nonnull @dissect_nt_notify_completion_filter.flags, i32 noundef -2147483648)
   %147 = add i32 %.3, 15
   %148 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %147)
-  %149 = tail call ptr @dissect_smb_fid(ptr noundef %0, ptr noundef %1, ptr noundef %129, i32 noundef %147, i32 noundef 2, i16 noundef zeroext %148, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %5)
+  %149 = tail call ptr @dissect_smb_fid(ptr noundef %0, ptr noundef %1, ptr noundef %129, i32 noundef %147, i32 noundef 2, i16 noundef zeroext %148, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull readonly %5)
   %150 = add i32 %.3, 17
   %151 = load i32, ptr @hf_smb_nt_notify_watch_tree, align 4
   %152 = tail call ptr @proto_tree_add_item(ptr noundef %129, i32 noundef %151, ptr noundef %0, i32 noundef %150, i32 noundef 1, i32 noundef -2147483648)
@@ -20787,7 +20787,7 @@ dissect_nt_trans_setup_request.exit:              ; preds = %126, %130, %143
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_nt_transaction_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal i32 @dissect_nt_transaction_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = alloca ptr, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %9
@@ -21847,7 +21847,7 @@ thread-pre-split.thread:                          ; preds = %53, %thread-pre-spl
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_open_print_file_response(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal i32 @dissect_open_print_file_response(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -21894,7 +21894,7 @@ define internal i32 @dissect_open_print_file_response(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_write_print_file_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal i32 @dissect_write_print_file_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -21975,7 +21975,7 @@ dissect_file_data.exit:                           ; preds = %39, %41
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_close_print_file_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal i32 @dissect_close_print_file_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -28275,7 +28275,7 @@ thread-pre-split.thread:                          ; preds = %73, %thread-pre-spl
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_nt_trans_param_request(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef nonnull captures(address_is_null) %7, i32 noundef range(i32 0, 65536) %8, ptr noundef %9, ptr noundef %10) unnamed_addr #0 {
+define internal fastcc void @dissect_nt_trans_param_request(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef nonnull readonly captures(address_is_null) %7, i32 noundef range(i32 0, 65536) %8, ptr noundef %9, ptr noundef %10) unnamed_addr #0 {
   %12 = load i32, ptr @ett_smb_nt_trans_param, align 4
   %13 = tail call ptr @val_to_str_ext(i32 noundef %8, ptr noundef nonnull @nt_cmd_vals_ext, ptr noundef nonnull @.str.2730)
   %14 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef %4, i32 noundef %12, ptr noundef null, ptr noundef nonnull @.str.2677, ptr noundef %13)
@@ -28618,7 +28618,7 @@ define internal void @smb_dir_specific_rights(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_nt_trans_param_response(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef nonnull captures(address_is_null) %6) unnamed_addr #0 {
+define internal fastcc void @dissect_nt_trans_param_response(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef nonnull readonly captures(address_is_null) %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null

@@ -34433,7 +34433,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt17reference_wrapperIN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20findPathsToSubobjectRN5clang10ASTContextERKNS_15ASTRecordLayoutEPKNS_13CXXRecordDeclENS_9CharUnitsENS_13BaseSubobjectERN4llvm9SetVectorIS9_St6vectorIS9_SaIS9_EENSA_8DenseSetIS9_NSA_12DenseMapInfoIS9_vEEEELj0EEERNSt7__cxx114listISJ_SaISJ_EEE(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1, ptr noundef %2, i64 %3, ptr captures(address) %4, i64 %5, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) unnamed_addr #0 {
+define internal fastcc void @_ZL20findPathsToSubobjectRN5clang10ASTContextERKNS_15ASTRecordLayoutEPKNS_13CXXRecordDeclENS_9CharUnitsENS_13BaseSubobjectERN4llvm9SetVectorIS9_St6vectorIS9_SaIS9_EENSA_8DenseSetIS9_NSA_12DenseMapInfoIS9_vEEEELj0EEERNSt7__cxx114listISJ_SaISJ_EEE(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1, ptr noundef %2, i64 %3, ptr readnone captures(address) %4, i64 %5, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca %"class.clang::BaseSubobject", align 8

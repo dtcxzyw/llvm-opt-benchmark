@@ -3095,7 +3095,7 @@ define dso_local noundef zeroext i1 @_ZNK9CGContext11accept_typeEPK4Type(ptr nou
 declare noundef zeroext i1 @_ZNK4Type24is_volatile_struct_unionEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK9CGContext11in_conflictERK6Effect(ptr noundef nonnull align 8 captures(address) dereferenceable(216) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(74) %1) local_unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZNK9CGContext11in_conflictERK6Effect(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(216) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(74) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !80

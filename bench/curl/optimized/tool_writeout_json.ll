@@ -112,7 +112,7 @@ declare i32 @curlx_dyn_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @jsonWriteString(ptr noundef captures(none) %0, ptr noundef captures(address) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local void @jsonWriteString(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.dynbuf, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
   call void @curlx_dyn_init(ptr noundef nonnull %4, i64 noundef 100000) #6
@@ -254,7 +254,7 @@ define dso_local void @headerJSON(ptr noundef captures(none) %0, ptr noundef rea
   %30 = load ptr, ptr %29, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
   call void @curlx_dyn_init(ptr noundef nonnull %4, i64 noundef 100000) #6
-  %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #7
+  %31 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %30) #7
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
   %.not33.i = icmp eq i64 %31, 0
   br i1 %.not33.i, label %jsonquoted.exit.thread, label %.lr.ph.i

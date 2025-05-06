@@ -4077,7 +4077,7 @@ declare i32 @getDescription(ptr noundef, i32 noundef, ptr noundef, i32 noundef, 
 declare i32 @getTranslate(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL5printPDsiPKcS1_P10UErrorCode(ptr noundef captures(address_is_null) %0, i32 noundef range(i32 1, -2147483648) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL5printPDsiPKcS1_P10UErrorCode(ptr noundef readonly captures(address_is_null) %0, i32 noundef range(i32 1, -2147483648) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i32, align 4
   %7 = alloca %"class.icu_77::UnicodeString", align 8
   %8 = alloca %"class.icu_77::UnicodeString", align 8

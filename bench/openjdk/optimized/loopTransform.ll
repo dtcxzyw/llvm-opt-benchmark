@@ -5197,7 +5197,7 @@ _ZN14PredicateBlockC2EP4NodeN14Deoptimization11DeoptReasonE.exit8: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14PhaseIdealLoop47initialize_assertion_predicates_for_peeled_loopEPK14PredicateBlockP8LoopNodeiP4NodeS6_P13IdealLoopTreejRK9Node_List(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(address) %6, i32 noundef %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %8) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14PhaseIdealLoop47initialize_assertion_predicates_for_peeled_loopEPK14PredicateBlockP8LoopNodeiP4NodeS6_P13IdealLoopTreejRK9Node_List(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(address) %6, i32 noundef %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %8) local_unnamed_addr #0 align 2 {
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not57 = icmp eq ptr %11, null
@@ -7564,7 +7564,7 @@ _ZNK10Node_ArrayixEj.exit:                        ; preds = %_ZNK10Node_ArrayixE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14PhaseIdealLoop21clone_up_backedge_gooEP4NodeS1_S1_R9VectorSetR10Node_Stack(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef captures(address) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN14PhaseIdealLoop21clone_up_backedge_gooEP4NodeS1_S1_R9VectorSetR10Node_Stack(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef readonly captures(address) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5) local_unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -8122,7 +8122,7 @@ _ZN18ConstraintCastNodeC2EP4NodeS1_PK4TypeNS_14DependencyTypeEPK9TypeTuple.exit:
 declare noundef i32 @_ZN4Node12replace_edgeEPS_S0_P8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14PhaseIdealLoop45copy_assertion_predicates_to_main_loop_helperEPK14PredicateBlockP4NodeS4_P13IdealLoopTreeP8LoopNodejjjS4_S4_RK9Node_List(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address) %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %11) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14PhaseIdealLoop45copy_assertion_predicates_to_main_loop_helperEPK14PredicateBlockP4NodeS4_P13IdealLoopTreeP8LoopNodejjjS4_S4_RK9Node_List(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address) %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %11) local_unnamed_addr #0 align 2 {
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
@@ -9661,7 +9661,7 @@ declare void @_ZN8HaltNodeC1EP4NodeS1_PKcb(ptr noundef nonnull align 8 dereferen
 declare void @_ZN14PhaseIdealLoop16register_controlEP4NodeP13IdealLoopTreeS1_b(ptr noundef nonnull align 8 dereferenceable(237), ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14PhaseIdealLoop38copy_assertion_predicates_to_main_loopEP15CountedLoopNodeP4NodeS3_P13IdealLoopTreeP8LoopNodejjjS3_S3_RK9Node_List(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address) %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %11) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14PhaseIdealLoop38copy_assertion_predicates_to_main_loopEP15CountedLoopNodeP4NodeS3_P13IdealLoopTreeP8LoopNodejjjS3_S3_RK9Node_List(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address) %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %11) local_unnamed_addr #0 align 2 {
   %13 = alloca %class.Predicates, align 8
   %14 = load i8, ptr @UseLoopPredicate, align 1
   %15 = trunc i8 %14 to i1
@@ -10870,9 +10870,9 @@ _ZN4Node7set_reqEjPS_.exit254:                    ; preds = %706, %695, %_ZN4Nod
   %727 = load ptr, ptr %726, align 8
   call void @_ZN10PredicatesC2EP4Node(ptr noundef nonnull align 8 dereferenceable(136) %5, ptr noundef %727)
   %728 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  call void @_ZN14PhaseIdealLoop45copy_assertion_predicates_to_main_loop_helperEPK14PredicateBlockP4NodeS4_P13IdealLoopTreeP8LoopNodejjjS4_S4_RK9Node_List(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef nonnull %728, ptr noundef %715, ptr noundef %148, ptr noundef nonnull %.0180304, ptr noundef nonnull %.0179305, i32 noundef %269, i32 noundef %241, i32 noundef %249, ptr noundef nonnull %.0.i.i.i232, ptr noundef %720, ptr noundef nonnull readonly align 8 dereferenceable(28) %2)
+  call void @_ZN14PhaseIdealLoop45copy_assertion_predicates_to_main_loop_helperEPK14PredicateBlockP4NodeS4_P13IdealLoopTreeP8LoopNodejjjS4_S4_RK9Node_List(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef nonnull %728, ptr noundef %715, ptr noundef %148, ptr noundef nonnull readonly %.0180304, ptr noundef nonnull %.0179305, i32 noundef %269, i32 noundef %241, i32 noundef %249, ptr noundef nonnull %.0.i.i.i232, ptr noundef %720, ptr noundef nonnull readonly align 8 dereferenceable(28) %2)
   %729 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  call void @_ZN14PhaseIdealLoop45copy_assertion_predicates_to_main_loop_helperEPK14PredicateBlockP4NodeS4_P13IdealLoopTreeP8LoopNodejjjS4_S4_RK9Node_List(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef nonnull %729, ptr noundef %715, ptr noundef %148, ptr noundef nonnull %.0180304, ptr noundef nonnull %.0179305, i32 noundef %269, i32 noundef %241, i32 noundef %249, ptr noundef nonnull %.0.i.i.i232, ptr noundef %720, ptr noundef nonnull readonly align 8 dereferenceable(28) %2)
+  call void @_ZN14PhaseIdealLoop45copy_assertion_predicates_to_main_loop_helperEPK14PredicateBlockP4NodeS4_P13IdealLoopTreeP8LoopNodejjjS4_S4_RK9Node_List(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef nonnull %729, ptr noundef %715, ptr noundef %148, ptr noundef nonnull readonly %.0180304, ptr noundef nonnull %.0179305, i32 noundef %269, i32 noundef %241, i32 noundef %249, ptr noundef nonnull %.0.i.i.i232, ptr noundef %720, ptr noundef nonnull readonly align 8 dereferenceable(28) %2)
   %.pre = load ptr, ptr %6, align 8
   br label %_ZN14PhaseIdealLoop38copy_assertion_predicates_to_main_loopEP15CountedLoopNodeP4NodeS3_P13IdealLoopTreeP8LoopNodejjjS3_S3_RK9Node_List.exit
 
@@ -20407,7 +20407,7 @@ _ZNK14PhaseIdealLoop9is_memberEPK13IdealLoopTreeP4Node.exit: ; preds = %_ZNK14Ph
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK13IdealLoopTree18enqueue_data_nodesEP14PhaseIdealLoopR16Unique_Node_ListS3_(ptr noundef nonnull align 8 captures(address) dereferenceable(113) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull align 8 dereferenceable(68) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK13IdealLoopTree18enqueue_data_nodesEP14PhaseIdealLoopR16Unique_Node_ListS3_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(113) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull align 8 dereferenceable(68) %3) local_unnamed_addr #0 align 2 {
   tail call void @_ZNK13IdealLoopTree23collect_loop_core_nodesEP14PhaseIdealLoopR16Unique_Node_List(ptr noundef nonnull align 8 dereferenceable(113) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(68) %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i32, ptr %5, align 8

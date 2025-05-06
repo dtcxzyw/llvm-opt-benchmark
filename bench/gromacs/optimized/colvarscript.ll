@@ -20325,37 +20325,37 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %_ZN
 declare void @_ZNK11colvarvalue16to_simple_stringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN12colvarscript14set_result_intERKiPh(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN12colvarscript14set_result_intERKiPh(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef i32 @_ZN12colvarscript15set_result_textIiEEiRKT_Ph(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef %2)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN12colvarscript18set_result_int_vecERKSt6vectorIiSaIiEEPh(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN12colvarscript18set_result_int_vecERKSt6vectorIiSaIiEEPh(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef i32 @_ZN12colvarscript15set_result_textISt6vectorIiSaIiEEEEiRKT_Ph(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN12colvarscript19set_result_long_intERKlPh(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN12colvarscript19set_result_long_intERKlPh(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef i32 @_ZN12colvarscript15set_result_textIlEEiRKT_Ph(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN12colvarscript23set_result_long_int_vecERKSt6vectorIlSaIlEEPh(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN12colvarscript23set_result_long_int_vecERKSt6vectorIlSaIlEEPh(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef i32 @_ZN12colvarscript15set_result_textISt6vectorIlSaIlEEEEiRKT_Ph(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN12colvarscript15set_result_realERKdPh(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN12colvarscript15set_result_realERKdPh(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef i32 @_ZN12colvarscript15set_result_textIdEEiRKT_Ph(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN12colvarscript19set_result_real_vecERKSt6vectorIdSaIdEEPh(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN12colvarscript19set_result_real_vecERKSt6vectorIdSaIdEEPh(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef i32 @_ZN12colvarscript15set_result_textISt6vectorIdSaIdEEEEiRKT_Ph(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2)
   ret i32 0
 }
@@ -20463,7 +20463,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN12colvarscript22set_result_rvector_vecERKSt6vectorIN12colvarmodule7rvectorESaIS2_EEPh(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN12colvarscript22set_result_rvector_vecERKSt6vectorIN12colvarmodule7rvectorESaIS2_EEPh(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef i32 @_ZN12colvarscript15set_result_textISt6vectorIN12colvarmodule7rvectorESaIS3_EEEEiRKT_Ph(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2)
   ret i32 0
 }
@@ -20571,7 +20571,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN12colvarscript26set_result_colvarvalue_vecERKSt6vectorI11colvarvalueSaIS1_EEPh(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN12colvarscript26set_result_colvarvalue_vecERKSt6vectorI11colvarvalueSaIS1_EEPh(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef i32 @_ZN12colvarscript15set_result_textISt6vectorI11colvarvalueSaIS2_EEEEiRKT_Ph(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2)
   ret i32 0
 }

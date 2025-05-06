@@ -3572,7 +3572,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tc_chain_notify(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef range(i32 100, 103) %4, i1 noundef zeroext %5, ptr noundef captures(address_is_null) %6) unnamed_addr #0 align 16 {
+define internal fastcc void @tc_chain_notify(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef range(i32 100, 103) %4, i1 noundef zeroext %5, ptr noundef readonly captures(address_is_null) %6) unnamed_addr #0 align 16 {
   %8 = icmp eq ptr %1, null
   br i1 %8, label %12, label %9
 
@@ -5605,7 +5605,7 @@ define internal i32 @tc_new_tfilter(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @tc_del_tfilter(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal i32 @tc_del_tfilter(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca [17 x ptr], align 16
   %5 = alloca [16 x i8], align 16
   %6 = alloca i32, align 4
@@ -6036,7 +6036,7 @@ define internal i32 @tc_del_tfilter(ptr noundef captures(address_is_null) %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @tc_get_tfilter(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal i32 @tc_get_tfilter(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca [17 x ptr], align 16
   %5 = alloca [16 x i8], align 16
   %6 = alloca i32, align 4
@@ -6202,9 +6202,9 @@ define internal i32 @tc_get_tfilter(ptr noundef captures(address_is_null) %0, pt
   %100 = load i32, ptr %28, align 4
   %101 = call fastcc ptr @__tcf_block_find(ptr noundef %12, ptr noundef %80, i64 noundef %.ph, i32 noundef %99, i32 noundef %100, ptr noundef %2)
   %102 = icmp ugt ptr %101, inttoptr (i64 -4096 to ptr)
-  br i1 %102, label %.thread37.thread46, label %105
+  br i1 %102, label %.thread37.thread47, label %105
 
-.thread37.thread46:                               ; preds = %98
+.thread37.thread47:                               ; preds = %98
   %103 = ptrtoint ptr %101 to i64
   %104 = trunc i64 %103 to i32
   br label %190
@@ -6360,12 +6360,13 @@ define internal i32 @tc_get_tfilter(ptr noundef captures(address_is_null) %0, pt
 182:                                              ; preds = %175
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !22
   call fastcc void @tcf_proto_destroy(ptr noundef nonnull %123, i1 noundef zeroext %78, ptr noundef null)
+  %.pre45.pre = load ptr, ptr %7, align 8
   br label %.thread38
 
 .thread38:                                        ; preds = %179, %181, %130, %182, %.thread32
+  %.pre45 = phi ptr [ %.pre45.pre, %182 ], [ %80, %.thread32 ], [ %80, %130 ], [ %80, %181 ], [ %80, %179 ]
   %183 = phi i32 [ %174, %182 ], [ %174, %.thread32 ], [ -2, %130 ], [ %174, %181 ], [ %174, %179 ]
   call fastcc void @__tcf_chain_put(ptr noundef nonnull %117, i1 noundef zeroext false, i1 noundef zeroext false)
-  %.pre45 = load ptr, ptr %7, align 8
   br label %.thread37
 
 .thread37.thread.sink.split:                      ; preds = %96, %47
@@ -6392,10 +6393,10 @@ define internal i32 @tc_get_tfilter(ptr noundef captures(address_is_null) %0, pt
   call fastcc void @__tcf_block_put(ptr noundef nonnull %101, ptr noundef null, ptr noundef null, i1 noundef zeroext %78)
   br label %190
 
-190:                                              ; preds = %.thread37.thread46, %.thread37.thread, %189, %.thread37
-  %191 = phi i1 [ %185, %.thread37.thread ], [ %78, %189 ], [ %78, %.thread37 ], [ %78, %.thread37.thread46 ]
-  %192 = phi ptr [ %184, %.thread37.thread ], [ %186, %189 ], [ %186, %.thread37 ], [ %80, %.thread37.thread46 ]
-  %193 = phi i32 [ %.ph44, %.thread37.thread ], [ %187, %189 ], [ %187, %.thread37 ], [ %104, %.thread37.thread46 ]
+190:                                              ; preds = %.thread37.thread47, %.thread37.thread, %189, %.thread37
+  %191 = phi i1 [ %185, %.thread37.thread ], [ %78, %189 ], [ %78, %.thread37 ], [ %78, %.thread37.thread47 ]
+  %192 = phi ptr [ %184, %.thread37.thread ], [ %186, %189 ], [ %186, %.thread37 ], [ %80, %.thread37.thread47 ]
+  %193 = phi i32 [ %.ph44, %.thread37.thread ], [ %187, %189 ], [ %187, %.thread37 ], [ %104, %.thread37.thread47 ]
   %194 = icmp eq ptr %192, null
   br i1 %194, label %196, label %195
 
@@ -6976,7 +6977,7 @@ tcf_proto_destroy.exit34:                         ; preds = %277, %258
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @tc_ctl_chain(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal i32 @tc_ctl_chain(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca [16 x i8], align 16
   %5 = alloca [17 x ptr], align 16
   %6 = alloca i32, align 4
@@ -7408,7 +7409,7 @@ define internal i32 @tc_ctl_chain(ptr noundef captures(address_is_null) %0, ptr 
   %224 = load ptr, ptr %223, align 8
   %225 = getelementptr inbounds nuw i8, ptr %147, i64 64
   %226 = load i32, ptr %225, align 8
-  %227 = call fastcc i32 @tc_chain_fill_node(ptr noundef %222, ptr noundef %224, i32 noundef %226, ptr noundef %217, ptr noundef nonnull %218, ptr noundef %215, i32 noundef %213, i32 noundef %208, i16 noundef zeroext %209, i32 noundef 102, ptr noundef %2)
+  %227 = call fastcc i32 @tc_chain_fill_node(ptr noundef %222, ptr noundef %224, i32 noundef %226, ptr noundef %217, ptr noundef nonnull %218, ptr noundef %215, i32 noundef %213, i32 noundef %208, i16 noundef zeroext %209, i32 noundef 102, ptr noundef readonly %2)
   %228 = icmp slt i32 %227, 1
   br i1 %228, label %229, label %tc_chain_notify.exit
 
@@ -8056,7 +8057,7 @@ define internal fastcc ptr @tcf_chain_tp_find(ptr noundef nonnull %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @tcf_proto_create(ptr noundef %0, i32 noundef range(i32 1, 65536) %1, i32 noundef range(i32 0, -65535) %2, ptr noundef nonnull %3, i1 noundef zeroext %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 align 16 {
+define internal fastcc ptr @tcf_proto_create(ptr noundef %0, i32 noundef range(i32 1, 65536) %1, i32 noundef range(i32 0, -65535) %2, ptr noundef nonnull %3, i1 noundef zeroext %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 align 16 {
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %8 = tail call noalias align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 104) #15
   %9 = icmp eq ptr %8, null
@@ -8396,7 +8397,7 @@ define internal fastcc ptr @tcf_chain_tp_insert_unique(ptr noundef nonnull %0, p
 declare dso_local i32 @nla_strcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tfilter_notify(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef captures(address_is_null) %5, i32 noundef %6, ptr noundef %7, i32 noundef range(i32 44, 46) %8, i1 noundef zeroext %9, i1 noundef zeroext %10, ptr noundef captures(address_is_null) %11) unnamed_addr #0 align 16 {
+define internal fastcc i32 @tfilter_notify(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, ptr noundef %7, i32 noundef range(i32 44, 46) %8, i1 noundef zeroext %9, i1 noundef zeroext %10, ptr noundef readonly captures(address_is_null) %11) unnamed_addr #0 align 16 {
   %13 = icmp eq ptr %1, null
   br i1 %13, label %17, label %14
 
@@ -8955,7 +8956,7 @@ define internal fastcc i32 @tcf_fill_node(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tfilter_notify_chain(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6, ptr noundef captures(address_is_null) %7) unnamed_addr #0 align 16 {
+define internal fastcc void @tfilter_notify_chain(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6, ptr noundef readonly captures(address_is_null) %7) unnamed_addr #0 align 16 {
   %9 = tail call fastcc ptr @__tcf_get_next_proto(ptr noundef %6, ptr noundef null)
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %.preheader
@@ -9087,7 +9088,7 @@ define internal fastcc void @tcf_chain_tp_remove(ptr noundef nonnull readonly ca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tfilter_del_notify(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull %3, ptr noundef readonly captures(none) %4, ptr noundef captures(address_is_null) %5, i32 noundef %6, ptr noundef nonnull %7, ptr noundef %8, i1 noundef zeroext %9, ptr noundef %10) unnamed_addr #0 align 16 {
+define internal fastcc i32 @tfilter_del_notify(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, ptr noundef nonnull %7, ptr noundef %8, i1 noundef zeroext %9, ptr noundef %10) unnamed_addr #0 align 16 {
   %12 = icmp eq ptr %1, null
   br i1 %12, label %16, label %13
 

@@ -1373,7 +1373,7 @@ zipEntry.exit:                                    ; preds = %15, %20, %20, %20, 
   %.05992 = phi ptr [ %1, %.lr.ph ], [ %36, %zipRawEntryLengthSafe.exit ]
   %.06190 = phi i32 [ 0, %.lr.ph ], [ %37, %zipRawEntryLengthSafe.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #17
-  %30 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %0, i64 noundef range(i64 0, 4294967296) %7, ptr noundef nonnull %.05992, ptr noundef %4, i32 noundef 0)
+  %30 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull readnone %0, i64 noundef range(i64 0, 4294967296) %7, ptr noundef nonnull %.05992, ptr noundef %4, i32 noundef 0)
   %.not.i = icmp eq i32 %30, 0
   br i1 %.not.i, label %31, label %zipRawEntryLengthSafe.exit, !prof !24
 
@@ -1593,7 +1593,7 @@ define dso_local noundef ptr @__ziplistInsert(ptr noundef %0, ptr noundef %1, pt
 
 23:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #17
-  %24 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %0, i64 noundef range(i64 0, 4294967296) %10, ptr noundef nonnull %21, ptr noundef %7, i32 noundef 0)
+  %24 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull readnone %0, i64 noundef range(i64 0, 4294967296) %10, ptr noundef nonnull %21, ptr noundef %7, i32 noundef 0)
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %25, label %zipRawEntryLengthSafe.exit, !prof !24
 
@@ -2204,7 +2204,7 @@ define dso_local noundef ptr @ziplistIndex(ptr noundef %0, i32 noundef %1) local
 
 52:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #17
-  %53 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %0, i64 noundef range(i64 0, 4294967296) %6, ptr noundef nonnull %.254, ptr noundef %4, i32 noundef 0)
+  %53 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull readnone %0, i64 noundef range(i64 0, 4294967296) %6, ptr noundef nonnull %.254, ptr noundef %4, i32 noundef 0)
   %.not.i = icmp eq i32 %53, 0
   br i1 %.not.i, label %54, label %zipRawEntryLengthSafe.exit, !prof !24
 
@@ -2241,7 +2241,7 @@ zipRawEntryLengthSafe.exit:                       ; preds = %52
 
 65:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #17
-  %66 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %0, i64 noundef range(i64 0, 4294967296) %6, ptr noundef nonnull %.153, ptr noundef %3, i32 noundef 1)
+  %66 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull readnone %0, i64 noundef range(i64 0, 4294967296) %6, ptr noundef nonnull %.153, ptr noundef %3, i32 noundef 1)
   %.not.i68 = icmp eq i32 %66, 0
   br i1 %.not.i68, label %67, label %zipAssertValidEntry.exit, !prof !24
 
@@ -2260,7 +2260,7 @@ zipAssertValidEntry.exit:                         ; preds = %65
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ziplistNext(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local noundef ptr @ziplistNext(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = alloca %struct.zlentry, align 8
   %4 = load i32, ptr %0, align 4, !tbaa !5
   %5 = zext i32 %4 to i64
@@ -2370,7 +2370,7 @@ zipRawEntryLength.exit:                           ; preds = %16, %19, %27, %46, 
 
 60:                                               ; preds = %zipRawEntryLength.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #17
-  %61 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %0, i64 noundef range(i64 0, 4294967296) %5, ptr noundef nonnull %57, ptr noundef %3, i32 noundef 1)
+  %61 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull readnone %0, i64 noundef range(i64 0, 4294967296) %5, ptr noundef nonnull %57, ptr noundef %3, i32 noundef 1)
   %.not.i = icmp eq i32 %61, 0
   br i1 %.not.i, label %62, label %zipAssertValidEntry.exit, !prof !24
 
@@ -2389,7 +2389,7 @@ zipAssertValidEntry.exit:                         ; preds = %60
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ziplistPrev(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local ptr @ziplistPrev(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = alloca %struct.zlentry, align 8
   %4 = load i8, ptr %1, align 1, !tbaa !9
   %5 = icmp eq i8 %4, -1
@@ -2440,7 +2440,7 @@ define dso_local ptr @ziplistPrev(ptr noundef captures(address, ret: address, pr
   %29 = load i32, ptr %0, align 4, !tbaa !5
   %30 = zext i32 %29 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #17
-  %31 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %0, i64 noundef range(i64 0, 4294967296) %30, ptr noundef nonnull %28, ptr noundef %3, i32 noundef 1)
+  %31 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull readnone %0, i64 noundef range(i64 0, 4294967296) %30, ptr noundef nonnull %28, ptr noundef %3, i32 noundef 1)
   %.not.i = icmp eq i32 %31, 0
   br i1 %.not.i, label %32, label %zipAssertValidEntry.exit, !prof !24
 
@@ -3174,7 +3174,7 @@ zipLoadInteger.exit:                              ; preds = %71, %74, %76, %78, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ziplistFind(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #5 {
+define dso_local noundef ptr @ziplistFind(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = alloca i64, align 8
   %7 = alloca %struct.zlentry, align 8
   %8 = load i32, ptr %0, align 4, !tbaa !5
@@ -3397,7 +3397,7 @@ define dso_local i32 @ziplistLen(ptr noundef %0) local_unnamed_addr #5 {
   %.119 = phi i32 [ 0, %.lr.ph ], [ %22, %zipRawEntryLengthSafe.exit ]
   %.01318 = phi ptr [ %8, %.lr.ph ], [ %21, %zipRawEntryLengthSafe.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #17
-  %15 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %0, i64 noundef range(i64 0, 4294967296) %10, ptr noundef nonnull %.01318, ptr noundef %2, i32 noundef 0)
+  %15 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull readnone %0, i64 noundef range(i64 0, 4294967296) %10, ptr noundef nonnull %.01318, ptr noundef %2, i32 noundef 0)
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %16, label %zipRawEntryLengthSafe.exit, !prof !24
 
@@ -3756,7 +3756,7 @@ define dso_local range(i32 0, 2) i32 @ziplistValidateIntegrity(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ziplistRandomPair(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #5 {
+define dso_local void @ziplistRandomPair(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #5 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %5, label %6, !prof !24
 
@@ -3863,7 +3863,7 @@ define dso_local void @ziplistRandomPairs(ptr noundef %0, i32 noundef %1, ptr no
   %.119.i = phi i32 [ 0, %.lr.ph.i ], [ %34, %zipRawEntryLengthSafe.exit.i ]
   %.01318.i = phi ptr [ %20, %.lr.ph.i ], [ %33, %zipRawEntryLengthSafe.exit.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #17
-  %27 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %0, i64 noundef range(i64 0, 4294967296) %22, ptr noundef nonnull %.01318.i, ptr noundef %5, i32 noundef 0)
+  %27 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull readnone %0, i64 noundef range(i64 0, 4294967296) %22, ptr noundef nonnull %.01318.i, ptr noundef %5, i32 noundef 0)
   %.not.i.i = icmp eq i32 %27, 0
   br i1 %.not.i.i, label %28, label %zipRawEntryLengthSafe.exit.i, !prof !24
 
@@ -4113,7 +4113,7 @@ define dso_local i32 @ziplistRandomPairsUnique(ptr noundef %0, i32 noundef %1, p
   %.119.i = phi i32 [ 0, %.lr.ph.i ], [ %28, %zipRawEntryLengthSafe.exit.i ]
   %.01318.i = phi ptr [ %14, %.lr.ph.i ], [ %27, %zipRawEntryLengthSafe.exit.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #17
-  %21 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %0, i64 noundef range(i64 0, 4294967296) %16, ptr noundef nonnull %.01318.i, ptr noundef %5, i32 noundef 0)
+  %21 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull readnone %0, i64 noundef range(i64 0, 4294967296) %16, ptr noundef nonnull %.01318.i, ptr noundef %5, i32 noundef 0)
   %.not.i.i = icmp eq i32 %21, 0
   br i1 %.not.i.i, label %22, label %zipRawEntryLengthSafe.exit.i, !prof !24
 

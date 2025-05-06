@@ -30741,7 +30741,7 @@ _ZNSt3setISt4pairIN5Yosys5RTLIL8IdStringES3_ESt4lessIS4_ESaIS4_EED2Ev.exit: ; pr
 declare void @_ZN10SubCircuit6SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116SubCircuitSolver16userCompareNodesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_PvS8_S8_S9_RKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr noundef nonnull align 8 captures(address) dereferenceable(168) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, ptr noundef %3, ptr nonnull readnone align 8 captures(none) %4, ptr nonnull readnone align 8 captures(none) %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(48) %7) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116SubCircuitSolver16userCompareNodesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_PvS8_S8_S9_RKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(168) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, ptr noundef %3, ptr nonnull readnone align 8 captures(none) %4, ptr nonnull readnone align 8 captures(none) %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(48) %7) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca i64, align 8
   %10 = alloca %"class.std::tuple.277", align 8
   %11 = alloca %"class.std::tuple.280", align 1

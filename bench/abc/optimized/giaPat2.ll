@@ -3203,7 +3203,7 @@ Vec_IntFree.exit:                                 ; preds = %Hsh_VecManStop.exit
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define void @Min_ManTest3(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @Min_ManTest3(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #27
@@ -3415,19 +3415,22 @@ Vec_IntAlloc.exit.i:                              ; preds = %7, %1
   store i32 %15, ptr %14, align 4, !tbaa !35
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_IntStartNatural.exit, label %.lr.ph.i, !llvm.loop !83
+  br i1 %exitcond.not.i, label %Vec_IntStartNatural.exit.thread, label %.lr.ph.i, !llvm.loop !83
 
-Vec_IntStartNatural.exit:                         ; preds = %.lr.ph.i, %Vec_IntAlloc.exit.i
+Vec_IntStartNatural.exit.thread:                  ; preds = %.lr.ph.i
   tail call void @Min_ManTest3(ptr noundef nonnull %0, ptr noundef nonnull %4)
-  %16 = load ptr, ptr %12, align 8, !tbaa !32
-  %.not.i = icmp eq ptr %16, null
-  br i1 %.not.i, label %Vec_IntFree.exit, label %17
+  br label %16
 
-17:                                               ; preds = %Vec_IntStartNatural.exit
-  tail call void @free(ptr noundef nonnull %16) #27
+Vec_IntStartNatural.exit:                         ; preds = %Vec_IntAlloc.exit.i
+  tail call void @Min_ManTest3(ptr noundef nonnull %0, ptr noundef nonnull %4)
+  %.not.i = icmp eq ptr %11, null
+  br i1 %.not.i, label %Vec_IntFree.exit, label %16
+
+16:                                               ; preds = %Vec_IntStartNatural.exit.thread, %Vec_IntStartNatural.exit
+  tail call void @free(ptr noundef nonnull %11) #27
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %Vec_IntStartNatural.exit, %17
+Vec_IntFree.exit:                                 ; preds = %Vec_IntStartNatural.exit, %16
   tail call void @free(ptr noundef nonnull %4) #27
   ret void
 }

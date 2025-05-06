@@ -611,7 +611,7 @@ declare zeroext i1 @H5F_is_tmp_addr(ptr noundef, i64 noundef) local_unnamed_addr
 declare i32 @H5AC_unprotect(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF__man_dblock_new(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5HF__man_dblock_new(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4

@@ -4457,7 +4457,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.thread568:       ; preds = %1201, %1203, %_ZN4l
 
 1216:                                             ; preds = %._crit_edge775
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #21
-  %1217 = call fastcc noundef i64 @_ZL20computeSymbolMapSizemR6SymMapPj(i64 noundef %.pre786, ptr noundef nonnull align 8 dereferenceable(104) %78, ptr noundef nonnull %25)
+  %1217 = call fastcc noundef i64 @_ZL20computeSymbolMapSizemR6SymMapPj(i64 noundef %.pre786, ptr noundef nonnull readonly align 8 dereferenceable(104) %78, ptr noundef nonnull %25)
   call fastcc void @_ZL22writeSymbolTableHeaderRN4llvm11raw_ostreamENS_6object7Archive4KindEbmmm(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef 5, i1 noundef zeroext %6, i64 noundef %1217, i64 noundef 0, i64 noundef 0)
   %1218 = trunc i64 %.pre786 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24)
@@ -4775,7 +4775,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit339:   ; preds = %1338, %1337, %1335,
 
 1342:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit339
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #21
-  %1343 = call fastcc noundef i64 @_ZL20computeECSymbolsSizeR6SymMapPj(ptr noundef nonnull align 8 dereferenceable(104) %78, ptr noundef nonnull %16)
+  %1343 = call fastcc noundef i64 @_ZL20computeECSymbolsSizeR6SymMapPj(ptr noundef nonnull readonly align 8 dereferenceable(104) %78, ptr noundef nonnull %16)
   br i1 %6, label %_ZL3nowb.exit.i, label %1344
 
 1344:                                             ; preds = %1342
@@ -6134,7 +6134,7 @@ _ZN4llvm11SmallVectorIcLj0EED2Ev.exit461:         ; preds = %_ZN4llvm11SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i64 @_ZL18computeHeadersSizeN4llvm6object7Archive4KindEmmmmP6SymMap(i32 noundef %0, i64 noundef range(i64 -88686269585142075, 88686269585142076) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef captures(address) %5) unnamed_addr #0 {
+define internal fastcc noundef i64 @_ZL18computeHeadersSizeN4llvm6object7Archive4KindEmmmmP6SymMap(i32 noundef %0, i64 noundef range(i64 -88686269585142075, 88686269585142076) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly captures(address) %5) unnamed_addr #0 {
 switch.lookup:
   %6 = alloca %"class.llvm::SmallString.95", align 8
   %7 = alloca %"class.llvm::raw_svector_ostream", align 8

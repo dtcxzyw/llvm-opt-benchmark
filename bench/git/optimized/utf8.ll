@@ -1583,7 +1583,7 @@ declare ptr @__errno_location() local_unnamed_addr #14
 declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @reencode_string_len(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #4 {
+define dso_local ptr @reencode_string_len(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #4 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %29, label %6
 

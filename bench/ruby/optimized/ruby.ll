@@ -1299,7 +1299,7 @@ cmdline_options_init.exit:                        ; preds = %36, %38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1008) %6, i8 0, i64 1008, i1 false)
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %7) #25
   %49 = sext i32 %0 to i64
-  %50 = call fastcc i64 @proc_options(i64 noundef %49, ptr noundef %1, ptr noundef nonnull %10, i32 noundef 0)
+  %50 = call fastcc i64 @proc_options(i64 noundef %49, ptr noundef readonly %1, ptr noundef nonnull %10, i32 noundef 0)
   %51 = load i32, ptr %47, align 8, !tbaa !59
   %52 = and i32 %51, 3840
   %53 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !12

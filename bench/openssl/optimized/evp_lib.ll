@@ -165,7 +165,7 @@ define range(i32 -1, -2147483648) i32 @EVP_CIPHER_asn1_to_param(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @evp_cipher_asn1_to_param_ex(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @evp_cipher_asn1_to_param_ex(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.X509_algor_st, align 8
   %5 = icmp eq ptr %0, null
   br i1 %5, label %.thread.thread34.sink.split, label %6

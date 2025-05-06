@@ -1086,7 +1086,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZN8Settings11createLayerE13SettingsLayerSt17basic_string_viewIcSt11char_traitsIcEE(i32 noundef %sl, i64 %end_tag.coerce0, ptr captures(address_is_null) %end_tag.coerce1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZN8Settings11createLayerE13SettingsLayerSt17basic_string_viewIcSt11char_traitsIcEE(i32 noundef %sl, i64 %end_tag.coerce0, ptr readonly captures(address_is_null) %end_tag.coerce1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #30
   invoke void @_ZN8SettingsC2ESt17basic_string_viewIcSt11char_traitsIcEEP17SettingsHierarchyi(ptr noundef nonnull align 8 dereferenceable(236) %call, i64 %end_tag.coerce0, ptr %end_tag.coerce1, ptr noundef nonnull @_ZL11g_hierarchy, i32 noundef %sl)

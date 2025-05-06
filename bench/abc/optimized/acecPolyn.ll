@@ -3467,7 +3467,7 @@ Gia_PolynMergeConst.exit:                         ; preds = %Gia_PolynMergeConst
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_PolynBuild(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @Gia_PolynBuild(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #25

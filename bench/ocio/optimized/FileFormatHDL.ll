@@ -7120,7 +7120,7 @@ declare void @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev(ptr noundef nonnull align 8
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_114findHeaderItemERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EESt4lessIS7_ESaISt4pairIKS7_SA_EEES7_j(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %1, ptr readonly captures(none) %.0.val, i64 %.8.val, i32 noundef range(i32 1, 3) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_114findHeaderItemERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EESt4lessIS7_ESaISt4pairIKS7_SA_EEES7_j(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1, ptr readonly captures(none) %.0.val, i64 %.8.val, i32 noundef range(i32 1, 3) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16

@@ -1881,7 +1881,7 @@ define dso_local noundef ptr @_ZNK4llvm7IVUsers7getExprERKNS_11IVStrideUseE(ptr 
 declare noundef ptr @_ZN4llvm22normalizeForPostIncUseEPKNS_4SCEVERKNS_11SmallPtrSetIPKNS_4LoopELj2EEERNS_15ScalarEvolutionEb(ptr noundef, ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(1344), i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4llvm7IVUsers9getStrideERKNS_11IVStrideUseEPKNS_4LoopE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(488) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef captures(address) %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZNK4llvm7IVUsers9getStrideERKNS_11IVStrideUseEPKNS_4LoopE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(488) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !50
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72

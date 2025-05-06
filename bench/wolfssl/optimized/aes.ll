@@ -6132,7 +6132,7 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define range(i32 -226, 1) i32 @wc_GmacVerify(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #10 {
+define range(i32 -226, 1) i32 @wc_GmacVerify(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #10 {
   %9 = alloca [16 x i8], align 16
   %10 = alloca [1 x %struct.Aes], align 16
   call void @llvm.lifetime.start.p0(i64 848, ptr nonnull %10) #12

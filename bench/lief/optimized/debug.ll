@@ -278,7 +278,7 @@ define hidden void @mbedtls_debug_print_buf(ptr noundef readonly captures(addres
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_debug_print_ecp(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
+define hidden void @mbedtls_debug_print_ecp(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = alloca [512 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #9
   %8 = icmp eq ptr %0, null
@@ -428,7 +428,7 @@ define hidden void @mbedtls_debug_print_mpi(ptr noundef readonly captures(addres
 declare i64 @mbedtls_mpi_bitlen(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_debug_print_crt(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
+define hidden void @mbedtls_debug_print_crt(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = alloca [512 x i8], align 16
   %8 = alloca [3 x %struct.mbedtls_pk_debug_item], align 16
   %9 = alloca [16 x i8], align 16
@@ -547,7 +547,7 @@ debug_print_line_by_line.exit:                    ; preds = %31
 57:                                               ; preds = %52
   %58 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !41
-  call void @mbedtls_debug_print_mpi(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %9, ptr noundef %59)
+  call void @mbedtls_debug_print_mpi(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %9, ptr noundef %59)
   br label %78
 
 60:                                               ; preds = %52
@@ -569,10 +569,10 @@ debug_print_line_by_line.exit:                    ; preds = %31
 
 71:                                               ; preds = %65
   %72 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 512, ptr noundef nonnull @.str.6, ptr noundef nonnull %9) #9
-  call void @mbedtls_debug_print_mpi(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %7, ptr noundef %62)
+  call void @mbedtls_debug_print_mpi(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %7, ptr noundef %62)
   %73 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 512, ptr noundef nonnull @.str.7, ptr noundef nonnull %9) #9
   %74 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  call void @mbedtls_debug_print_mpi(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %74)
+  call void @mbedtls_debug_print_mpi(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %74)
   br label %mbedtls_debug_print_ecp.exit.i
 
 mbedtls_debug_print_ecp.exit.i:                   ; preds = %71, %65, %60
@@ -610,7 +610,7 @@ debug_print_pk.exit:                              ; preds = %.preheader.i, %78, 
 declare i32 @mbedtls_x509_crt_info(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_debug_printf_ecdh(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define hidden void @mbedtls_debug_printf_ecdh(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca [512 x i8], align 16
   %8 = alloca [512 x i8], align 16
   switch i32 %5, label %mbedtls_debug_printf_ecdh_internal.exit [
@@ -641,10 +641,10 @@ define hidden void @mbedtls_debug_printf_ecdh(ptr noundef captures(address_is_nu
 
 21:                                               ; preds = %15
   %22 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 512, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.16) #9
-  call void @mbedtls_debug_print_mpi(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %10)
+  call void @mbedtls_debug_print_mpi(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %10)
   %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 512, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.16) #9
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 240
-  call void @mbedtls_debug_print_mpi(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %24)
+  call void @mbedtls_debug_print_mpi(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %24)
   br label %mbedtls_debug_print_ecp.exit.i
 
 mbedtls_debug_print_ecp.exit.i:                   ; preds = %21, %15, %12, %9
@@ -673,10 +673,10 @@ mbedtls_debug_print_ecp.exit.i:                   ; preds = %21, %15, %12, %9
 
 37:                                               ; preds = %31
   %38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 512, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.17) #9
-  call void @mbedtls_debug_print_mpi(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %26)
+  call void @mbedtls_debug_print_mpi(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %26)
   %39 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 512, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.17) #9
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 288
-  call void @mbedtls_debug_print_mpi(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %40)
+  call void @mbedtls_debug_print_mpi(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %40)
   br label %mbedtls_debug_print_ecp.exit17.i
 
 mbedtls_debug_print_ecp.exit17.i:                 ; preds = %37, %31, %28, %25
@@ -685,7 +685,7 @@ mbedtls_debug_print_ecp.exit17.i:                 ; preds = %37, %31, %28, %25
 
 41:                                               ; preds = %6
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 320
-  tail call void @mbedtls_debug_print_mpi(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull @.str.18, ptr noundef nonnull %42)
+  tail call void @mbedtls_debug_print_mpi(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull @.str.18, ptr noundef nonnull %42)
   br label %mbedtls_debug_printf_ecdh_internal.exit
 
 mbedtls_debug_printf_ecdh_internal.exit:          ; preds = %6, %mbedtls_debug_print_ecp.exit.i, %mbedtls_debug_print_ecp.exit17.i, %41

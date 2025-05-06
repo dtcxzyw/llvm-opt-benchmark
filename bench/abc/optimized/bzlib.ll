@@ -2837,7 +2837,7 @@ BZ2_bzCompress.exit:                              ; preds = %.split68.us.i
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @BZ2_bzWriteClose(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #4 {
+define void @BZ2_bzWriteClose(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #4 {
   tail call void @BZ2_bzWriteClose64(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef null, ptr noundef %4, ptr noundef null)
   ret void
 }
@@ -4274,7 +4274,7 @@ BZ2_bzDecompressInit.exit:                        ; preds = %120, %100, %97, %65
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @BZ2_bzopen(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #4 {
+define noundef ptr @BZ2_bzopen(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = tail call fastcc ptr @bzopen_or_bzdopen(ptr noundef %0, i32 noundef -1, ptr noundef %1, i32 noundef 0)
   ret ptr %3
 }
@@ -4464,7 +4464,7 @@ BZ2_bzWriteOpen.exit:                             ; preds = %52, %67, %71, %74, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @BZ2_bzdopen(i32 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #4 {
+define noundef ptr @BZ2_bzdopen(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = tail call fastcc ptr @bzopen_or_bzdopen(ptr noundef null, i32 noundef %0, ptr noundef %1, i32 noundef 1)
   ret ptr %3
 }

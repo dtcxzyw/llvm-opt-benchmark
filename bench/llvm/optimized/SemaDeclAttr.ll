@@ -1026,7 +1026,7 @@ declare void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind 
 declare void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4Sema30checkStringLiteralArgumentAttrERKNS_10ParsedAttrEjRN4llvm9StringRefEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1, i32 noundef %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4Sema30checkStringLiteralArgumentAttrERKNS_10ParsedAttrEjRN4llvm9StringRefEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1, i32 noundef %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #1 align 2 {
   %6 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %7 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %8 = alloca %"class.clang::CanonicalDeclPtr", align 8
@@ -104893,7 +104893,6 @@ define internal fastcc void @_ZL20handleCapabilityAttrRN5clang4SemaEPNS_4DeclERK
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 5, ptr %6, align 8, !tbaa !1186
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #24
-  store i32 0, ptr %5, align 4, !tbaa !1232
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %8 = load ptr, ptr %7, align 8, !tbaa !1347
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8

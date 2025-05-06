@@ -2185,7 +2185,7 @@ _ZN4llvm4copyINS_8ArrayRefIjEESt20back_insert_iteratorINS_15SmallVectorImplIjEEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL21getDiagnosticsInGroupN5clang4diag6FlavorEPKN12_GLOBAL__N_113WarningOptionERN4llvm15SmallVectorImplIjEEPNS0_14CustomDiagInfoE(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef captures(address) %3) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @_ZL21getDiagnosticsInGroupN5clang4diag6FlavorEPKN12_GLOBAL__N_113WarningOptionERN4llvm15SmallVectorImplIjEEPNS0_14CustomDiagInfoE(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef readonly captures(address) %3) unnamed_addr #6 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %6 = load i16, ptr %5, align 2, !tbaa !164
   %.not = icmp eq i16 %6, 0

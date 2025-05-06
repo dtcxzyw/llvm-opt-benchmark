@@ -2130,7 +2130,7 @@ Dss_ObjHashKey.exit.thread:                       ; preds = %.critedge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Dss_ObjFindOrAdd(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #2 {
+define ptr @Dss_ObjFindOrAdd(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = tail call ptr @Dss_ObjHashLookup(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3)
   %6 = load i32, ptr %5, align 4, !tbaa !25
   %.not = icmp eq i32 %6, 0
@@ -2725,7 +2725,7 @@ Vec_PtrFreeP.exit:                                ; preds = %Vec_IntFreeP.exit23
 declare void @Mem_FlexStop(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Dss_ManPrint_rec(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(none) %4) local_unnamed_addr #6 {
+define void @Dss_ManPrint_rec(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef captures(none) %4) local_unnamed_addr #6 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 7
@@ -2908,7 +2908,7 @@ Abc_TtPrintHexRev.exit:                           ; preds = %..loopexit_crit_edg
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Dss_ManPrintOne(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #6 {
+define void @Dss_ManPrintOne(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #6 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #30
   store i32 0, ptr %5, align 4, !tbaa !25
@@ -4253,7 +4253,7 @@ Dss_ObjHashLookup.exit.thread:                    ; preds = %.critedge.i.i, %Dss
   %197 = and i32 %196, 63
   %198 = zext nneg i32 %197 to i64
   %199 = getelementptr inbounds nuw i64, ptr %9, i64 %198
-  %200 = tail call ptr @Dss_ObjHashLookup(ptr noundef nonnull readonly %0, i32 noundef 6, ptr noundef readonly %143, ptr noundef %199)
+  %200 = tail call ptr @Dss_ObjHashLookup(ptr noundef nonnull readonly %0, i32 noundef 6, ptr noundef readonly %143, ptr noundef readonly %199)
   %201 = load i32, ptr %200, align 4, !tbaa !25
   %.not.i47 = icmp eq i32 %201, 0
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4394,7 +4394,7 @@ define i32 @Dss_NtkRebuild(ptr noundef readonly captures(none) %0, ptr noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Dss_ManOperation(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #2 {
+define i32 @Dss_ManOperation(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #2 {
   %7 = alloca [12 x ptr], align 16
   %8 = alloca [12 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7) #30
@@ -5174,7 +5174,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 ._crit_edge285:                                   ; preds = %Dss_ObjSort.exit197.thread, %._crit_edge285.loopexit, %Dss_ObjSort.exit197
   %.0148378 = phi i32 [ %.0148385, %._crit_edge285.loopexit ], [ %.0148, %Dss_ObjSort.exit197 ], [ %.0148.ph, %Dss_ObjSort.exit197.thread ]
   %363 = phi ptr [ %.pre368, %._crit_edge285.loopexit ], [ %317, %Dss_ObjSort.exit197 ], [ %311, %Dss_ObjSort.exit197.thread ]
-  %364 = tail call ptr @Dss_ObjHashLookup(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef readonly %363, ptr noundef %5)
+  %364 = tail call ptr @Dss_ObjHashLookup(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef readonly %363, ptr noundef readonly %5)
   %365 = load i32, ptr %364, align 4, !tbaa !25
   %.not.i = icmp eq i32 %365, 0
   %366 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5193,7 +5193,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %374 = getelementptr i8, ptr %367, i64 4
   %.val.i = load i32, ptr %374, align 4, !tbaa !14
   store i32 %.val.i, ptr %364, align 4, !tbaa !25
-  %375 = tail call ptr @Dss_ObjCreate(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef readonly %363, ptr noundef %5)
+  %375 = tail call ptr @Dss_ObjCreate(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef readonly %363, ptr noundef readonly %5)
   br label %Dss_ObjFindOrAdd.exit
 
 Dss_ObjFindOrAdd.exit:                            ; preds = %368, %373
@@ -6834,7 +6834,7 @@ define void @Dau_DsdTest444() local_unnamed_addr #2 {
   %.val.i29 = load ptr, ptr %33, align 8, !tbaa !19
   %85 = getelementptr inbounds ptr, ptr %.val.i29, i64 %49
   %86 = load ptr, ptr %85, align 8, !tbaa !20
-  call void @Dss_ManPrint_rec(ptr noundef %76, ptr noundef readonly %17, ptr noundef %86, ptr noundef nonnull %12, ptr noundef nonnull %4)
+  call void @Dss_ManPrint_rec(ptr noundef %76, ptr noundef readonly %17, ptr noundef %86, ptr noundef nonnull readonly %12, ptr noundef nonnull %4)
   %fputc.i30 = call i32 @fputc(i32 10, ptr %76)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #30
   %87 = load ptr, ptr @stdout, align 8, !tbaa !31
@@ -6855,7 +6855,7 @@ define void @Dau_DsdTest444() local_unnamed_addr #2 {
   %.val.i34 = load ptr, ptr %97, align 8, !tbaa !19
   %98 = getelementptr inbounds ptr, ptr %.val.i34, i64 %64
   %99 = load ptr, ptr %98, align 8, !tbaa !20
-  call void @Dss_ManPrint_rec(ptr noundef %87, ptr noundef readonly %17, ptr noundef %99, ptr noundef nonnull %13, ptr noundef nonnull %3)
+  call void @Dss_ManPrint_rec(ptr noundef %87, ptr noundef readonly %17, ptr noundef %99, ptr noundef nonnull readonly %13, ptr noundef nonnull %3)
   %fputc.i35 = call i32 @fputc(i32 10, ptr %87)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #30
   %100 = call i32 @Dss_ManMerge(ptr noundef %17, ptr noundef nonnull %24, ptr noundef nonnull %11, ptr noundef nonnull %14, i32 noundef 2, i32 noundef 6, ptr noundef nonnull %15, ptr poison)
@@ -6921,7 +6921,7 @@ define void @Dau_DsdTest444() local_unnamed_addr #2 {
   %.val.i44 = load ptr, ptr %138, align 8, !tbaa !19
   %139 = getelementptr inbounds ptr, ptr %.val.i44, i64 %112
   %140 = load ptr, ptr %139, align 8, !tbaa !20
-  call void @Dss_ManPrint_rec(ptr noundef %126, ptr noundef nonnull readonly %17, ptr noundef %140, ptr noundef nonnull %16, ptr noundef nonnull %1)
+  call void @Dss_ManPrint_rec(ptr noundef %126, ptr noundef nonnull readonly %17, ptr noundef %140, ptr noundef nonnull readonly %16, ptr noundef nonnull %1)
   %fputc.i45 = call i32 @fputc(i32 10, ptr %126)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #30
   call void @Dss_ManFree(ptr noundef nonnull %17)

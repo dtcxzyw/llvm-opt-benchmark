@@ -190,7 +190,7 @@ define hidden void @hb_ot_tags_from_script(i32 noundef %0, ptr noundef writeonly
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_ot_tags_from_script_and_language(i32 noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #0 {
+define hidden void @hb_ot_tags_from_script_and_language(i32 noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = icmp eq ptr %1, null
   br i1 %7, label %8, label %13
 

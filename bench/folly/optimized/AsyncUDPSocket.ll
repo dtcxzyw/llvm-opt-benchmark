@@ -3836,7 +3836,7 @@ _ZNSt10unique_ptrIA_5iovecSt14default_deleteIS1_EED2Ev.exit52: ; preds = %_ZNSt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5folly14AsyncUDPSocket9writeImplENS_5RangeIPKNS_13SocketAddressEEEPmP5iovecmP7mmsghdrPKNS0_12WriteOptionsEPc(ptr noundef nonnull align 16 dereferenceable(768) %0, ptr %1, ptr %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7, ptr noundef %8) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN5folly14AsyncUDPSocket9writeImplENS_5RangeIPKNS_13SocketAddressEEEPmP5iovecmP7mmsghdrPKNS0_12WriteOptionsEPc(ptr noundef nonnull align 16 dereferenceable(768) %0, ptr %1, ptr %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef %8) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %struct.Initializer, align 1
   %11 = alloca %class.anon.204, align 1
   %12 = alloca %"class.folly::small_vector", align 8

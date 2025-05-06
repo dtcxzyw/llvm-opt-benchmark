@@ -7804,7 +7804,7 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUVPlanes8(ptr noundef %0, ptr nound
 declare i32 @jpeg_write_raw_data(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @tjCompressFromYUVPlanes(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @tjCompressFromYUVPlanes(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #26
   %.not = icmp eq ptr %0, null
@@ -9019,7 +9019,7 @@ declare void @jinit_downsampler(ptr noundef) local_unnamed_addr #8
 declare void @jcopy_sample_rows(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @tjEncodeYUVPlanes(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(address_is_null) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @tjEncodeYUVPlanes(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef readonly captures(address_is_null) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %14
 
@@ -9786,7 +9786,7 @@ tj3Get.exit44:                                    ; preds = %tj3Get.exit41
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @tjDecompressHeader2(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @tjDecompressHeader2(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #26
   %8 = call i32 @tjDecompressHeader3(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7)
@@ -9795,7 +9795,7 @@ define range(i32 -1, 1) i32 @tjDecompressHeader2(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @tjDecompressHeader(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @tjDecompressHeader(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #26
@@ -11263,7 +11263,7 @@ declare void @jpeg_calc_output_dimensions(ptr noundef) local_unnamed_addr #8
 declare i32 @jpeg_read_raw_data(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @tjDecompressToYUVPlanes(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @tjDecompressToYUVPlanes(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %12
 
@@ -12618,7 +12618,7 @@ define internal void @my_reset_marker_reader(ptr readnone captures(none) %0) #11
 declare void @jinit_master_decompress(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @tjDecodeYUVPlanes(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @tjDecodeYUVPlanes(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %14
 
@@ -13089,7 +13089,7 @@ tj3Init.exit:                                     ; preds = %2, %5, %16
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i64 @tj3TransformBufSize(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #13 {
+define i64 @tj3TransformBufSize(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #13 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -14695,7 +14695,7 @@ processFlags.exit:                                ; preds = %48, %63
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @tjLoadImage(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
+define noundef ptr @tjLoadImage(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
   %calloc.i = tail call dereferenceable_or_null(1904) ptr @calloc(i64 1, i64 1904)
   %7 = icmp eq ptr %calloc.i, null
   br i1 %7, label %tj3Init.exit.thread, label %tj3Init.exit
@@ -14798,7 +14798,7 @@ processFlags.exit:                                ; preds = %30, %45
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @tjSaveImage(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @tjSaveImage(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %calloc.i = tail call dereferenceable_or_null(1904) ptr @calloc(i64 1, i64 1904)
   %8 = icmp eq ptr %calloc.i, null
   br i1 %8, label %tj3Init.exit.thread, label %tj3Init.exit

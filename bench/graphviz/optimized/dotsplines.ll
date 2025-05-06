@@ -3224,7 +3224,7 @@ cloneGraph.exit.i:                                ; preds = %1289, %1244
   %1671 = fcmp olt double %1670, 5.000000e+00
   %1672 = select i1 %1671, double 5.000000e+00, double %1670
   %1673 = fsub double %1651, %1672
-  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef %0, ptr noundef nonnull readonly %47, ptr %1656, ptr noundef null, ptr noundef nonnull %.0180.i)
+  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef readonly %0, ptr noundef nonnull readonly %47, ptr %1656, ptr noundef null, ptr noundef nonnull %.0180.i)
   %.sroa.022.0.copyload.i.i = load double, ptr %7, align 8, !tbaa !70
   %.sroa.10.0.copyload.i.i = load double, ptr %.sroa.10.0..sroa_idx.i.i, align 8, !tbaa !70
   store i32 4, ptr %586, align 8, !tbaa !186
@@ -3269,7 +3269,7 @@ cloneGraph.exit.i:                                ; preds = %1289, %1244
 makeFlatEnd.exit.i:                               ; preds = %1692, %1636
   %1696 = getelementptr i8, ptr %1583, i64 16
   %.val.i102.i = load ptr, ptr %1696, align 8, !tbaa !16
-  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull %0, ptr noundef nonnull readonly %47, ptr %.val.i102.i, ptr noundef null, ptr noundef nonnull %.0180.i)
+  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %47, ptr %.val.i102.i, ptr noundef null, ptr noundef nonnull %.0180.i)
   %.sroa.022.0.copyload.i103.i = load double, ptr %8, align 8, !tbaa !70
   %.sroa.10.0.copyload.i105.i = load double, ptr %.sroa.10.0..sroa_idx.i104.i, align 8, !tbaa !70
   store i32 4, ptr %589, align 8, !tbaa !186
@@ -4182,7 +4182,7 @@ makeLineEdge.exit.thread.i:                       ; preds = %2027, %._crit_edge.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30) #22
   %2139 = getelementptr i8, ptr %2136, i64 16
   %.val.i478 = load ptr, ptr %2139, align 8, !tbaa !16
-  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef %0, ptr noundef nonnull readonly %47, ptr %.val.i478, ptr noundef null, ptr noundef nonnull %.0286.i)
+  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef readonly %0, ptr noundef nonnull readonly %47, ptr %.val.i478, ptr noundef null, ptr noundef nonnull %.0286.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 32, i1 false), !tbaa.struct !205
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30) #22
   %.sroa.0777.0.copyload.i = load double, ptr %27, align 8, !tbaa !70
@@ -4508,7 +4508,7 @@ straight_len.exit.i:                              ; preds = %2285, %2280, %2277,
   %.1295907.i = phi i32 [ %2307, %.thread.i486 ], [ %.1295.i, %._crit_edge1222.i ]
   %.1297906.i = phi i32 [ 0, %.thread.i486 ], [ %2310, %._crit_edge1222.i ]
   %.1309905.i = phi i1 [ true, %.thread.i486 ], [ %.03081032.i, %._crit_edge1222.i ]
-  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef %0, ptr noundef nonnull readonly %47, ptr %2313, ptr noundef nonnull %.12871035.i, ptr noundef %2312)
+  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef readonly %0, ptr noundef nonnull readonly %47, ptr %2313, ptr noundef nonnull %.12871035.i, ptr noundef %2312)
   %2314 = icmp eq i64 %2256, %2251
   br i1 %2314, label %2315, label %boxes_append.exit394.i
 
@@ -4594,7 +4594,7 @@ boxes_append.exit394.i:                           ; preds = %2332, %2311
   %2366 = getelementptr inbounds nuw i8, ptr %2365, i64 272
   %2367 = load ptr, ptr %2366, align 8, !tbaa !73
   %2368 = load ptr, ptr %2367, align 8, !tbaa !74
-  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef %0, ptr noundef nonnull readonly %47, ptr %2365, ptr noundef nonnull %.12871035.i, ptr noundef %2368)
+  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef readonly %0, ptr noundef nonnull readonly %47, ptr %2365, ptr noundef nonnull %.12871035.i, ptr noundef %2368)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false), !tbaa.struct !205
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32) #22
   %2369 = load i32, ptr %.12871035.i, align 8
@@ -4871,7 +4871,7 @@ straight_path.exit.i:                             ; preds = %2477, %2472, %point
   %2503 = getelementptr inbounds nuw i8, ptr %2502, i64 256
   %2504 = load ptr, ptr %2503, align 8, !tbaa !219
   %2505 = load ptr, ptr %2504, align 8, !tbaa !74
-  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef %0, ptr noundef nonnull readonly %47, ptr %2502, ptr noundef %2505, ptr noundef nonnull %.013.lcssa.i.i)
+  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef readonly %0, ptr noundef nonnull readonly %47, ptr %2502, ptr noundef %2505, ptr noundef nonnull %.013.lcssa.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 32, i1 false), !tbaa.struct !205
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34) #22
   %2506 = load ptr, ptr %2501, align 8, !tbaa !16
@@ -5159,7 +5159,7 @@ boxes_append.exit428.i:                           ; preds = %2634, %._crit_edge.
   store i64 %2646, ptr %557, align 8, !tbaa !210
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35) #22
   %.val373.i = load ptr, ptr %.lcssa.i, align 8, !tbaa !16
-  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef %0, ptr noundef nonnull readonly %47, ptr %.val373.i, ptr noundef nonnull %.1287.lcssa.i, ptr noundef null)
+  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef readonly %0, ptr noundef nonnull readonly %47, ptr %.val373.i, ptr noundef nonnull %.1287.lcssa.i, ptr noundef null)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 32, i1 false), !tbaa.struct !205
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35) #22
   %.sroa.0777.0.copyload784.i = load double, ptr %28, align 8, !tbaa !70
@@ -6830,7 +6830,7 @@ define internal fastcc void @makeSimpleFlat(ptr readonly captures(none) %.16.val
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @make_flat_bottom_edges(ptr noundef captures(address) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #1 {
+define internal fastcc void @make_flat_bottom_edges(ptr noundef readonly captures(address) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #1 {
   %9 = alloca %struct.pathend_t, align 8
   %10 = alloca %struct.pathend_t, align 8
   %11 = alloca [3 x %struct.boxf], align 16
@@ -6897,7 +6897,7 @@ define internal fastcc void @make_flat_bottom_edges(ptr noundef captures(address
   %61 = uitofp i32 %60 to double
   %62 = fdiv double %59, %61
   %63 = fdiv double %.0101, %61
-  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull %0, ptr noundef nonnull readonly %1, ptr nonnull %24, ptr noundef null, ptr noundef nonnull %6)
+  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr nonnull %24, ptr noundef null, ptr noundef nonnull %6)
   %.sroa.022.0.copyload.i = load double, ptr %9, align 8, !tbaa !70
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.10.0.copyload.i = load double, ptr %.sroa.10.0..sroa_idx.i, align 8, !tbaa !70
@@ -6947,7 +6947,7 @@ define internal fastcc void @make_flat_bottom_edges(ptr noundef captures(address
 makeBottomFlatEnd.exit:                           ; preds = %57, %87
   %91 = getelementptr i8, ptr %22, i64 16
   %.val.i110 = load ptr, ptr %91, align 8, !tbaa !16
-  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull %0, ptr noundef nonnull readonly %1, ptr %.val.i110, ptr noundef null, ptr noundef nonnull %6)
+  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr %.val.i110, ptr noundef null, ptr noundef nonnull %6)
   %.sroa.022.0.copyload.i111 = load double, ptr %10, align 8, !tbaa !70
   %.sroa.10.0..sroa_idx.i112 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sroa.10.0.copyload.i113 = load double, ptr %.sroa.10.0..sroa_idx.i112, align 8, !tbaa !70
@@ -7151,7 +7151,7 @@ makeBottomFlatEnd.exit119:                        ; preds = %makeBottomFlatEnd.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @makeFlatEnd(ptr noundef captures(address) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef nonnull initializes((0, 32), (48, 52)) %5, i1 noundef zeroext %6) unnamed_addr #1 {
+define internal fastcc void @makeFlatEnd(ptr noundef readonly captures(address) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef nonnull initializes((0, 32), (48, 52)) %5, i1 noundef zeroext %6) unnamed_addr #1 {
   %8 = alloca %struct.boxf, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #22
   %9 = getelementptr i8, ptr %3, i64 16

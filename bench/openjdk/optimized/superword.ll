@@ -8039,7 +8039,7 @@ _ZN7PairSet8add_pairEP4NodeS1_.exit:              ; preds = %143, %166
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9SuperWord47extend_pairset_with_more_pairs_by_following_useEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN9SuperWord47extend_pairset_with_more_pairs_by_following_useEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 127
@@ -8418,7 +8418,7 @@ _ZN7PairSet8add_pairEP4NodeS1_.exit:              ; preds = %194, %224
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9SuperWord47order_inputs_of_all_use_pairs_to_match_def_pairEP4NodeS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9SuperWord47order_inputs_of_all_use_pairs_to_match_def_pairEP4NodeS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 127

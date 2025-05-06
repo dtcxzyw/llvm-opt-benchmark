@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.timespec = type { i64, i64 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @lzma_stream_encoder_mt(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local i32 @lzma_stream_encoder_mt(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @lzma_strm_init(ptr noundef %0) #12
   %.not.not = icmp eq i32 %3, 0
   br i1 %.not.not, label %4, label %17

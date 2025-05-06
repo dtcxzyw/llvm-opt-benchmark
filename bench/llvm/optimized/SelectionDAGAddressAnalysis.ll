@@ -215,7 +215,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm15BaseIndexOffset15computeAliasingEPKNS_6SDNodeENS_12LocationSizeES3_S4_RKNS_12SelectionDAGERb(ptr noundef captures(address_is_null) %0, i64 %1, ptr noundef captures(address_is_null) %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(952) %4, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %5) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm15BaseIndexOffset15computeAliasingEPKNS_6SDNodeENS_12LocationSizeES3_S4_RKNS_12SelectionDAGERb(ptr noundef readonly captures(address_is_null) %0, i64 %1, ptr noundef readonly captures(address_is_null) %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(952) %4, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %5) local_unnamed_addr #2 align 2 {
   %7 = alloca %"class.llvm::BaseIndexOffset", align 8
   %8 = alloca %"class.llvm::BaseIndexOffset", align 8
   %9 = alloca i64, align 8

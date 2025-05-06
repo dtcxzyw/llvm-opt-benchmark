@@ -1678,7 +1678,7 @@ define internal fastcc ptr @bpf_prepare_filter(ptr noundef nonnull initializes((
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @bpf_prog_create_from_user(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, i1 noundef zeroext %3) #0 align 16 {
+define dso_local i32 @bpf_prog_create_from_user(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3) #0 align 16 {
   %5 = load i16, ptr %1, align 8
   %6 = zext i16 %5 to i64
   %7 = shl nuw nsw i64 %6, 3

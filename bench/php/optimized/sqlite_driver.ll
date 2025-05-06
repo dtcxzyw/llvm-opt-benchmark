@@ -467,7 +467,7 @@ declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #6
 declare i32 @sqlite3_create_function(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @php_sqlite3_func_callback(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) #0 {
+define internal void @php_sqlite3_func_callback(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %4 = tail call ptr @sqlite3_user_data(ptr noundef %0) #11
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   tail call fastcc void @do_callback(ptr noundef nonnull %5, i32 noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 0)
@@ -757,7 +757,7 @@ zend_fcc_addref.exit107:                          ; preds = %106, %109
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @php_sqlite3_func_step_callback(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) #0 {
+define internal void @php_sqlite3_func_step_callback(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %4 = tail call ptr @sqlite3_user_data(ptr noundef %0) #11
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   tail call fastcc void @do_callback(ptr noundef nonnull %5, i32 noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 1)

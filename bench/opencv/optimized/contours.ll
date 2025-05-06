@@ -3180,7 +3180,7 @@ declare void @cvReleaseMemStorage(ptr noundef) local_unnamed_addr #3
 declare void @cvFree_(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @cvFindContours(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i64 %6) local_unnamed_addr #0 {
+define noundef i32 @cvFindContours(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i64 %6) local_unnamed_addr #0 {
   %8 = tail call fastcc noundef i32 @_ZL19cvFindContours_ImplPvP12CvMemStoragePP5CvSeqiii7CvPointi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i64 %6, i32 noundef 1)
   ret i32 %8
 }

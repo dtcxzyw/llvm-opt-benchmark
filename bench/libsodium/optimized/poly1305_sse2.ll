@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @optblocker_u64 = internal global i64 0, align 8
 
 ; Function Attrs: nounwind ssp uwtable
-define internal noundef i32 @crypto_onetimeauth_poly1305_sse2(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #0 {
+define internal noundef i32 @crypto_onetimeauth_poly1305_sse2(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca %struct.poly1305_state_internal_t, align 64
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %5) #11
   call fastcc void @poly1305_init_ext(ptr noundef nonnull %5, ptr noundef %3, i64 noundef %2)
@@ -34,7 +34,7 @@ define internal noundef i32 @crypto_onetimeauth_poly1305_sse2(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal i32 @crypto_onetimeauth_poly1305_sse2_verify(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #0 {
+define internal i32 @crypto_onetimeauth_poly1305_sse2_verify(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca %struct.poly1305_state_internal_t, align 64
   %6 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
@@ -45,7 +45,7 @@ define internal i32 @crypto_onetimeauth_poly1305_sse2_verify(ptr noundef %0, ptr
   br i1 %.not.i, label %crypto_onetimeauth_poly1305_sse2.exit, label %8
 
 8:                                                ; preds = %4
-  call fastcc void @poly1305_blocks(ptr noundef nonnull %5, ptr noundef %1, i64 noundef %7)
+  call fastcc void @poly1305_blocks(ptr noundef nonnull %5, ptr noundef readonly %1, i64 noundef %7)
   %9 = getelementptr i8, ptr %1, i64 %7
   %10 = and i64 %2, 31
   br label %crypto_onetimeauth_poly1305_sse2.exit
@@ -67,7 +67,7 @@ define internal noundef i32 @crypto_onetimeauth_poly1305_sse2_init(ptr noundef i
 }
 
 ; Function Attrs: nofree norecurse nounwind ssp uwtable
-define internal noundef i32 @crypto_onetimeauth_poly1305_sse2_update(ptr noundef captures(address) %0, ptr noundef captures(address) %1, i64 noundef %2) #2 {
+define internal noundef i32 @crypto_onetimeauth_poly1305_sse2_update(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load i64, ptr %4, align 8
   %.not.i = icmp eq i64 %5, 0

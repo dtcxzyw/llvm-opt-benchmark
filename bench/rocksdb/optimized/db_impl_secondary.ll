@@ -21865,7 +21865,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb2DB14OpenAndCompactERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_PS6_RKNS_32CompactionServiceOptionsOverrideE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 captures(address) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(184) %5) local_unnamed_addr #4 align 2 {
+define void @_ZN7rocksdb2DB14OpenAndCompactERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_PS6_RKNS_32CompactionServiceOptionsOverrideE(ptr dead_on_unwind noalias writable writeonly sret(%"class.rocksdb::Status") align 8 captures(address) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(184) %5) local_unnamed_addr #4 align 2 {
   %7 = alloca %"struct.rocksdb::OpenAndCompactOptions", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #27
   store ptr null, ptr %7, align 8, !tbaa !1279

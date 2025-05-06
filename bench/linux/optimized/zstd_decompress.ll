@@ -619,13 +619,13 @@ default.unreachable8:                             ; preds = %95, %78
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local i64 @ZSTD_getFrameHeader(ptr noundef writeonly captures(none) initializes((0, 40)) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #7 align 16 {
+define dso_local i64 @ZSTD_getFrameHeader(ptr noundef writeonly captures(none) initializes((0, 40)) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #7 align 16 {
   %4 = tail call i64 @ZSTD_getFrameHeader_advanced(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 0)
   ret i64 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local i64 @ZSTD_getFrameContentSize(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 align 16 {
+define dso_local i64 @ZSTD_getFrameContentSize(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 align 16 {
   %3 = alloca %struct.ZSTD_frameHeader, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #10
   %4 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1, i32 noundef 0)
@@ -786,7 +786,7 @@ define dso_local i64 @ZSTD_findFrameCompressedSize(ptr noundef %0, i64 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local i64 @ZSTD_getDecompressedSize(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 align 16 {
+define dso_local i64 @ZSTD_getDecompressedSize(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 align 16 {
   %3 = alloca %struct.ZSTD_frameHeader, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #10
   %4 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1, i32 noundef 0)
@@ -1961,7 +1961,7 @@ define dso_local range(i64 -119, 4294967296) i64 @ZSTD_decompressContinue(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -119, 1) i64 @ZSTD_decodeFrameHeader(ptr noundef initializes((29928, 29968)) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -119, 1) i64 @ZSTD_decodeFrameHeader(ptr noundef initializes((29928, 29968)) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 29928
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 30088
@@ -2525,7 +2525,7 @@ define dso_local i32 @ZSTD_getDictID_fromDict(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local i32 @ZSTD_getDictID_fromFrame(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 align 16 {
+define dso_local i32 @ZSTD_getDictID_fromFrame(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 align 16 {
   %3 = alloca %struct.ZSTD_frameHeader, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #10
   %4 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1, i32 noundef 0)
@@ -3590,7 +3590,7 @@ define dso_local i64 @ZSTD_estimateDStreamSize(i64 noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local range(i64 -119, 2147972873) i64 @ZSTD_estimateDStreamSize_fromFrame(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 align 16 {
+define dso_local range(i64 -119, 2147972873) i64 @ZSTD_estimateDStreamSize_fromFrame(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 align 16 {
   %3 = alloca %struct.ZSTD_frameHeader, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #10
   %4 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1, i32 noundef 0)

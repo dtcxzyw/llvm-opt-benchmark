@@ -640,7 +640,7 @@ define i32 @dissect_thrift_t_i16(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_thrift_raw_i16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i1 noundef zeroext %5, i32 noundef %6, i32 noundef %7, ptr noundef captures(address_is_null) %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_raw_i16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i1 noundef zeroext %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(address_is_null) %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   store i32 %3, ptr %10, align 4
   %11 = load i32, ptr %4, align 8
@@ -748,7 +748,7 @@ define i32 @dissect_thrift_t_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_thrift_raw_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i1 noundef zeroext %5, i32 noundef %6, i32 noundef %7, ptr noundef captures(address_is_null) %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_raw_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i1 noundef zeroext %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(address_is_null) %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   store i32 %3, ptr %10, align 4
   %11 = load i32, ptr %4, align 8
@@ -856,7 +856,7 @@ define i32 @dissect_thrift_t_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_thrift_raw_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i1 noundef zeroext %5, i32 noundef %6, i32 noundef %7, ptr noundef captures(address_is_null) %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_raw_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i1 noundef zeroext %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(address_is_null) %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   store i32 %3, ptr %10, align 4
   %11 = load i32, ptr %4, align 8
@@ -1467,7 +1467,7 @@ define i32 @dissect_thrift_t_string_enc(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @dissect_thrift_t_raw_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef captures(address_is_null) %9) local_unnamed_addr #0 {
+define i32 @dissect_thrift_t_raw_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef readonly captures(address_is_null) %9) local_unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %11, label %12
 

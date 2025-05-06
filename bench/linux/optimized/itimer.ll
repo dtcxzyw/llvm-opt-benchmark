@@ -264,7 +264,7 @@ define dso_local void @clear_itimer() local_unnamed_addr #0 align 16 {
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @do_setitimer(i32 noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @do_setitimer(i32 noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 align 16 {
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !20
   %5 = inttoptr i64 %4 to ptr
   switch i32 %0, label %92 [

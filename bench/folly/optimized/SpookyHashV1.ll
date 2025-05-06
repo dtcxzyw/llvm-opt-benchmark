@@ -332,7 +332,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5folly4hash12SpookyHashV17Hash128EPKvmPmS4_(ptr noundef captures(address) %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 align 2 {
+define void @_ZN5folly4hash12SpookyHashV17Hash128EPKvmPmS4_(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [12 x i64], align 16
   %6 = icmp ult i64 %1, 192
   br i1 %6, label %7, label %.lr.ph.preheader

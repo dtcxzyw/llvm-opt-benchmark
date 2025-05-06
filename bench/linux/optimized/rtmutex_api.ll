@@ -1387,7 +1387,7 @@ define internal fastcc void @remove_waiter(ptr noundef %0, ptr noundef %1) unnam
 declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #4 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -110, 1) i32 @rt_mutex_wait_proxy_lock(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #1 section ".sched.text" align 16 {
+define dso_local noundef range(i32 -110, 1) i32 @rt_mutex_wait_proxy_lock(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #1 section ".sched.text" align 16 {
   tail call void @_raw_spin_lock_irq(ptr noundef %0) #11
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !6
   %5 = inttoptr i64 %4 to ptr

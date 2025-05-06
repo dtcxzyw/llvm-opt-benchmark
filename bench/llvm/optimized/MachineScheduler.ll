@@ -6719,7 +6719,7 @@ _ZN4llvm13ScheduleDAGMI14postProcessDAGEv.exit:   ; preds = %.lr.ph.i, %1
   %28 = load ptr, ptr %3, align 8, !tbaa !25
   %29 = load i32, ptr %18, align 8, !tbaa !26
   %30 = zext i32 %29 to i64
-  call void @_ZN4llvm13ScheduleDAGMI10initQueuesENS_8ArrayRefIPNS_5SUnitEEES4_(ptr noundef nonnull align 8 dereferenceable(5840) %0, ptr %25, i64 %27, ptr %28, i64 %30)
+  call void @_ZN4llvm13ScheduleDAGMI10initQueuesENS_8ArrayRefIPNS_5SUnitEEES4_(ptr noundef nonnull align 8 dereferenceable(5840) %0, ptr readonly %25, i64 %27, ptr readonly %28, i64 %30)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 3768
   %32 = load i8, ptr %31, align 8, !tbaa !398, !range !56, !noundef !57
   %33 = trunc nuw i8 %32 to i1
@@ -6911,7 +6911,7 @@ _ZNSt6vectorIN4llvm14PressureChangeESaIS1_EE5clearEv.exit: ; preds = %6, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17ScheduleDAGMILive10initQueuesENS_8ArrayRefIPNS_5SUnitEEES4_(ptr noundef nonnull align 8 captures(address) dereferenceable(5840) initializes((3344, 3360)) %0, ptr captures(address) %1, i64 %2, ptr captures(address) %3, i64 %4) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm17ScheduleDAGMILive10initQueuesENS_8ArrayRefIPNS_5SUnitEEES4_(ptr noundef nonnull align 8 captures(address) dereferenceable(5840) initializes((3344, 3360)) %0, ptr readonly captures(address) %1, i64 %2, ptr readonly captures(address) %3, i64 %4) local_unnamed_addr #1 align 2 {
   tail call void @_ZN4llvm13ScheduleDAGMI10initQueuesENS_8ArrayRefIPNS_5SUnitEEES4_(ptr noundef nonnull align 8 dereferenceable(3360) %0, ptr %1, i64 %2, ptr %3, i64 %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 3768
   %7 = load i8, ptr %6, align 8, !tbaa !398, !range !56, !noundef !57

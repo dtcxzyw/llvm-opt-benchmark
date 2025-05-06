@@ -1577,7 +1577,7 @@ ps_tocoordarray.exit:                             ; preds = %94, %.then.i, %skip
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ps_parser_to_fixed_array(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) #0 {
+define internal i32 @ps_parser_to_fixed_array(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !33
   %7 = load ptr, ptr %0, align 8, !tbaa !25

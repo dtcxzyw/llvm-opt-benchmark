@@ -5191,13 +5191,13 @@ define dso_local range(i32 0, 4) i32 @do_store_item(ptr noundef %0, i32 noundef 
 147:                                              ; preds = %142
   %148 = load i32, ptr %135, align 8, !tbaa !8
   %149 = add nsw i32 %148, -2
-  %150 = tail call fastcc i32 @_store_item_copy_chunks(ptr noundef nonnull %139, ptr noundef nonnull %19, i32 noundef %149)
+  %150 = tail call fastcc i32 @_store_item_copy_chunks(ptr noundef nonnull %139, ptr noundef nonnull readonly %19, i32 noundef %149)
   %151 = icmp eq i32 %150, -1
   br i1 %151, label %.thread.thread161, label %152
 
 152:                                              ; preds = %147
   %153 = load i32, ptr %133, align 8, !tbaa !8
-  %154 = tail call fastcc i32 @_store_item_copy_chunks(ptr noundef nonnull %139, ptr noundef nonnull %0, i32 noundef %153)
+  %154 = tail call fastcc i32 @_store_item_copy_chunks(ptr noundef nonnull %139, ptr noundef nonnull readonly %0, i32 noundef %153)
   %155 = icmp eq i32 %154, -1
   br i1 %155, label %.thread.thread161, label %_store_item_copy_data.exit
 
@@ -5212,13 +5212,13 @@ define dso_local range(i32 0, 4) i32 @do_store_item(ptr noundef %0, i32 noundef 
 161:                                              ; preds = %156
   %162 = load i32, ptr %133, align 8, !tbaa !8
   %163 = add nsw i32 %162, -2
-  %164 = tail call fastcc i32 @_store_item_copy_chunks(ptr noundef nonnull %139, ptr noundef nonnull %0, i32 noundef %163)
+  %164 = tail call fastcc i32 @_store_item_copy_chunks(ptr noundef nonnull %139, ptr noundef nonnull readonly %0, i32 noundef %163)
   %165 = icmp eq i32 %164, -1
   br i1 %165, label %.thread.thread161, label %166
 
 166:                                              ; preds = %161
   %167 = load i32, ptr %135, align 8, !tbaa !8
-  %168 = tail call fastcc i32 @_store_item_copy_chunks(ptr noundef nonnull %139, ptr noundef nonnull %19, i32 noundef %167)
+  %168 = tail call fastcc i32 @_store_item_copy_chunks(ptr noundef nonnull %139, ptr noundef nonnull readonly %19, i32 noundef %167)
   %169 = icmp eq i32 %168, -1
   br i1 %169, label %.thread.thread161, label %_store_item_copy_data.exit
 

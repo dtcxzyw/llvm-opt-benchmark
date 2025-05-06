@@ -26681,7 +26681,7 @@ define dso_local void @moduleFreeArgs(ptr noundef %0, i32 noundef %1) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @moduleFreeCommand(ptr noundef captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @moduleFreeCommand(ptr noundef readnone captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = load ptr, ptr %3, align 8, !tbaa !161
   %.not = icmp eq ptr %4, @RedisModuleCommandDispatcher
@@ -26881,7 +26881,7 @@ declare void @hdr_close(ptr noundef) local_unnamed_addr #1
 declare void @dictRelease(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @moduleUnregisterCommands(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define dso_local void @moduleUnregisterCommands(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 {
   tail call void @pauseAllIOThreads() #35
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 72), align 8, !tbaa !168
   %3 = tail call ptr @dictGetSafeIterator(ptr noundef %2) #35

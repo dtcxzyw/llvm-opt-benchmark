@@ -510,7 +510,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit.i.i.i.i.i: ; preds = %8, %2
           to label %11 unwind label %27
 
 11:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit.i.i.i.i.i
-  invoke void @_ZN17grpc_event_engine12experimental21RunEventEngineClosureEP12grpc_closureN4absl12lts_202407226StatusE(ptr noundef %.val, ptr noundef nonnull %3)
+  invoke void @_ZN17grpc_event_engine12experimental21RunEventEngineClosureEP12grpc_closureN4absl12lts_202407226StatusE(ptr noundef readonly %.val, ptr noundef nonnull %3)
           to label %12 unwind label %29
 
 12:                                               ; preds = %11

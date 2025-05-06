@@ -5723,7 +5723,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i27
 .critedge127.i:                                   ; preds = %1416, %.critedge125.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #27, !noalias !680
   %.val.i = load i64, ptr %962, align 8, !noalias !680
-  call fastcc void @_ZNK12_GLOBAL__N_117GlobalISelEmitter25createInstructionRendererESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERKNS3_15TreePatternNodeE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(1640) %0, ptr nonnull %295, ptr noundef nonnull align 8 dereferenceable(472) %28, i64 %.val.i), !noalias !680
+  call fastcc void @_ZNK12_GLOBAL__N_117GlobalISelEmitter25createInstructionRendererESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERKNS3_15TreePatternNodeE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull readonly align 8 dereferenceable(1640) %0, ptr nonnull %295, ptr noundef nonnull align 8 dereferenceable(472) %28, i64 %.val.i), !noalias !680
   %1419 = load i8, ptr %436, align 8, !noalias !683
   %1420 = trunc i8 %1419 to i1
   %.pre.i135 = load i64, ptr %6, align 8, !noalias !680
@@ -5754,7 +5754,7 @@ _ZN4llvm5ErrorD2Ev.exit35.i:                      ; preds = %_ZN4llvm8ExpectedIS
 ._crit_edge.i154:                                 ; preds = %_ZNK4llvm13CodeGenTarget14getInstructionEPKNS_6RecordE.exit.i, %_ZN4llvm5ErrorD2Ev.exit35.i
   %.sroa.010.0.lcssa.i = phi ptr [ %1424, %_ZN4llvm5ErrorD2Ev.exit35.i ], [ %1507, %_ZNK4llvm13CodeGenTarget14getInstructionEPKNS_6RecordE.exit.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #27, !noalias !680
-  call fastcc void @_ZNK12_GLOBAL__N_117GlobalISelEmitter26importExplicitDefRenderersESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERNS4_13BuildMIActionERKNS3_15TreePatternNodeEb(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(1640) %0, ptr nonnull %.sroa.010.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(472) %28, ptr noundef nonnull align 8 dereferenceable(184) %1426, ptr noundef nonnull readonly align 8 dereferenceable(184) %838, i1 noundef zeroext true), !noalias !680
+  call fastcc void @_ZNK12_GLOBAL__N_117GlobalISelEmitter26importExplicitDefRenderersESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERNS4_13BuildMIActionERKNS3_15TreePatternNodeEb(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull readonly align 8 dereferenceable(1640) %0, ptr nonnull %.sroa.010.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(472) %28, ptr noundef nonnull align 8 dereferenceable(184) %1426, ptr noundef nonnull readonly align 8 dereferenceable(184) %838, i1 noundef zeroext true), !noalias !680
   %1431 = load i8, ptr %437, align 8, !noalias !686
   %1432 = trunc i8 %1431 to i1
   br i1 %1432, label %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEED2Ev.exit.i, label %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEED2Ev.exit.thread.i
@@ -5956,7 +5956,7 @@ _ZNK4llvm13CodeGenTarget14getInstructionEPKNS_6RecordE.exit.i: ; preds = %1484, 
 
 _ZN4llvm5ErrorD2Ev.exit41.i:                      ; preds = %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEED2Ev.exit.i, %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEED2Ev.exit.thread.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #27, !noalias !680
-  call fastcc void @_ZNK12_GLOBAL__N_117GlobalISelEmitter26importExplicitUseRenderersESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERNS4_13BuildMIActionERKNS3_15TreePatternNodeE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(1640) %0, ptr nonnull %.sroa.010.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(472) %28, ptr noundef nonnull align 8 dereferenceable(184) %1426, ptr noundef nonnull readonly align 8 dereferenceable(184) %838), !noalias !680
+  call fastcc void @_ZNK12_GLOBAL__N_117GlobalISelEmitter26importExplicitUseRenderersESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERNS4_13BuildMIActionERKNS3_15TreePatternNodeE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull readonly align 8 dereferenceable(1640) %0, ptr nonnull %.sroa.010.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(472) %28, ptr noundef nonnull align 8 dereferenceable(184) %1426, ptr noundef nonnull readonly align 8 dereferenceable(184) %838), !noalias !680
   %1516 = load i8, ptr %438, align 8, !noalias !692
   %1517 = trunc i8 %1516 to i1
   br i1 %1517, label %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEED2Ev.exit48.i, label %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEED2Ev.exit48.thread.i
@@ -28370,7 +28370,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_117GlobalISelEmitter26importExplicitUseRenderersESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERNS4_13BuildMIActionERKNS3_15TreePatternNodeE(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(1640) %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(472) %3, ptr noundef nonnull align 8 dereferenceable(184) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %5) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_117GlobalISelEmitter26importExplicitUseRenderersESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERNS4_13BuildMIActionERKNS3_15TreePatternNodeE(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1640) %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(472) %3, ptr noundef nonnull align 8 dereferenceable(184) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %5) unnamed_addr #1 align 2 {
   %7 = alloca %"class.llvm::raw_string_ostream", align 8
   %8 = alloca %"class.llvm::raw_string_ostream", align 8
   %9 = alloca %"class.llvm::raw_string_ostream", align 8
@@ -30568,7 +30568,7 @@ _ZN4llvm5ErrorD2Ev.exit6:                         ; preds = %69, %_ZNK4llvm12Inf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_117GlobalISelEmitter37createAndImportSubInstructionRendererESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERKNS3_15TreePatternNodeEj(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(1640) %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(472) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %4, i32 noundef %5) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_117GlobalISelEmitter37createAndImportSubInstructionRendererESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERKNS3_15TreePatternNodeEj(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1640) %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(472) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %4, i32 noundef %5) unnamed_addr #1 align 2 {
   %7 = alloca i32, align 4
   %8 = alloca %"class.llvm::Expected.1229", align 8
   %9 = alloca i8, align 1
@@ -31018,7 +31018,7 @@ _ZNSt10unique_ptrIN4llvm2gi18CopySubRegRendererESt14default_deleteIS2_EED2Ev.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_117GlobalISelEmitter18importNodeRendererERN4llvm2gi11RuleMatcherERNS2_13BuildMIActionERKNS1_15TreePatternNodeERSt14_List_iteratorISt10unique_ptrINS2_11MatchActionESt14default_deleteISC_EEE(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(1640) %1, ptr noundef nonnull align 8 dereferenceable(472) %2, ptr noundef nonnull align 8 dereferenceable(184) %3, ptr noundef nonnull align 8 dereferenceable(184) %4, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %5) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_117GlobalISelEmitter18importNodeRendererERN4llvm2gi11RuleMatcherERNS2_13BuildMIActionERKNS1_15TreePatternNodeERSt14_List_iteratorISt10unique_ptrINS2_11MatchActionESt14default_deleteISC_EEE(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1640) %1, ptr noundef nonnull align 8 dereferenceable(472) %2, ptr noundef nonnull align 8 dereferenceable(184) %3, ptr noundef nonnull align 8 dereferenceable(184) %4, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %5) unnamed_addr #1 align 2 {
   %7 = alloca %"class.llvm::gi::LLTCodeGenOrTempType", align 8
   %8 = alloca %"class.llvm::raw_string_ostream", align 8
   %9 = alloca %"class.llvm::raw_string_ostream", align 8

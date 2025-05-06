@@ -2475,7 +2475,7 @@ oidread.exit.i.i:                                 ; preds = %80, %.split.loop.ex
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @pack_list_difference(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @pack_list_difference(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
   %.not23 = icmp eq ptr %0, null
   br i1 %.not23, label %common.ret30, label %.preheader.lr.ph
 

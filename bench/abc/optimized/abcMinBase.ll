@@ -1364,7 +1364,7 @@ Abc_ObjFaninNumberNew.exit:                       ; preds = %26
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NodeCollapseFunc(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define noundef ptr @Abc_NodeCollapseFunc(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8, !tbaa !30
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 256
   %8 = load ptr, ptr %7, align 8, !tbaa !33
@@ -1626,7 +1626,7 @@ declare ptr @Cudd_bddIte(ptr noundef, ptr noundef, ptr noundef, ptr noundef) loc
 declare void @Cudd_Deref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NodeCollapse(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NodeCollapse(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call ptr @Abc_NodeCollapseFunc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %21, label %8
@@ -2039,7 +2039,7 @@ define i32 @Abc_NodeCountAppearancesAll(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NodeCollapseFunc1(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define ptr @Abc_NodeCollapseFunc1(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8, !tbaa !30
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 256
   %8 = load ptr, ptr %7, align 8, !tbaa !33
@@ -2281,7 +2281,7 @@ declare ptr @Hop_Permute(ptr noundef, ptr noundef, i32 noundef, ptr noundef) loc
 declare ptr @Hop_Compose(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NodeCollapse1(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NodeCollapse1(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call ptr @Abc_NodeCollapseFunc1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %20, label %8
@@ -2565,7 +2565,7 @@ Abc_NodeCountAppearancesAll.exit:                 ; preds = %58, %54
   %.val80.us = load ptr, ptr %29, align 8, !tbaa !26
   %96 = getelementptr inbounds nuw ptr, ptr %.val80.us, i64 %indvars.iv133
   %97 = load ptr, ptr %96, align 8, !tbaa !27
-  %98 = tail call ptr @Abc_NodeCollapseFunc1(ptr noundef nonnull %37, ptr noundef %97, ptr noundef nonnull %22, ptr noundef %20, ptr noundef %21)
+  %98 = tail call ptr @Abc_NodeCollapseFunc1(ptr noundef nonnull readonly %37, ptr noundef %97, ptr noundef nonnull %22, ptr noundef %20, ptr noundef %21)
   %99 = icmp eq ptr %98, null
   br i1 %99, label %Abc_NodeCollapse1.exit108.us, label %100
 
@@ -2616,7 +2616,7 @@ Abc_NodeCollapse1.exit108.us:                     ; preds = %.critedge.i101.us, 
   %113 = getelementptr i8, ptr %111, i64 28
   %.val85 = load i32, ptr %113, align 4, !tbaa !39
   %114 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.val94, i32 noundef %.val86, i32 noundef %.val93, i32 noundef %.val85)
-  %115 = tail call ptr @Abc_NodeCollapseFunc1(ptr noundef nonnull %37, ptr noundef %111, ptr noundef nonnull %22, ptr noundef %20, ptr noundef %21)
+  %115 = tail call ptr @Abc_NodeCollapseFunc1(ptr noundef nonnull readonly %37, ptr noundef %111, ptr noundef nonnull %22, ptr noundef %20, ptr noundef %21)
   %116 = icmp eq ptr %115, null
   br i1 %116, label %Abc_NodeCollapse1.exit, label %117
 
@@ -3195,7 +3195,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge.thread, %
   %151 = getelementptr i8, ptr %149, i64 28
   %.val99 = load i32, ptr %151, align 4, !tbaa !39
   %152 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.val104, i32 noundef %.val100, i32 noundef %.val103, i32 noundef %.val99)
-  %153 = tail call ptr @Abc_NodeCollapseFunc(ptr noundef %143, ptr noundef %149, ptr noundef nonnull %125, ptr noundef %123, ptr noundef %124)
+  %153 = tail call ptr @Abc_NodeCollapseFunc(ptr noundef readonly %143, ptr noundef %149, ptr noundef nonnull %125, ptr noundef %123, ptr noundef %124)
   %154 = icmp eq ptr %153, null
   br i1 %154, label %Abc_NodeCollapse.exit, label %155
 

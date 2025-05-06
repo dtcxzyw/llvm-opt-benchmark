@@ -1567,7 +1567,7 @@ define dso_local void @intel_dpll_dump_hw_state(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_shared_dpll_state_verify(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_shared_dpll_state_verify(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -7327,7 +7327,7 @@ define internal noundef zeroext i1 @skl_ddi_dpll0_get_hw_state(ptr noundef %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 858993460) i32 @skl_ddi_pll_get_freq(ptr noundef captures(address_is_null) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #0 align 16 {
+define internal range(i32 0, 858993460) i32 @skl_ddi_pll_get_freq(ptr noundef readonly captures(address_is_null) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 32

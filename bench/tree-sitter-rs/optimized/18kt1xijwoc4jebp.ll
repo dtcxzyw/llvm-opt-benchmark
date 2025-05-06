@@ -33797,7 +33797,7 @@ define internal fastcc noundef i64 @_ZN15tree_sitter_cli8generate6render9Generat
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator17external_token_id17h99770f24502c546bE(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr nonnull captures(address) %.8.val, i64 %.16.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator17external_token_id17h99770f24502c546bE(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr nonnull readonly captures(address) %.8.val, i64 %.16.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = alloca { { { i64, ptr }, i64 } }, align 8

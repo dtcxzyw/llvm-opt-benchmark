@@ -326,7 +326,7 @@ simple_strtoull.exit1:                            ; preds = %47, %50
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @simple_strtoll(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) #0 align 16 {
+define dso_local i64 @simple_strtoll(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) #0 align 16 {
   %4 = tail call fastcc i64 @simple_strntoll(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef 2147483647)
   ret i64 %4
 }
@@ -5811,7 +5811,7 @@ widen_string.exit.thread.i86:                     ; preds = %2046
 
 2119:                                             ; preds = %widen_string.exit.thread.i86
   %2120 = load i64, ptr %3, align 8
-  %2121 = tail call fastcc ptr @number(ptr noundef %1, ptr noundef %2, i64 noundef %2120, i64 -263401754324475)
+  %2121 = tail call fastcc ptr @number(ptr noundef %1, ptr noundef readnone %2, i64 noundef %2120, i64 -263401754324475)
   br label %hex_string.exit
 
 2122:                                             ; preds = %widen_string.exit.thread.i86
@@ -6227,7 +6227,7 @@ widen_string.exit11.thread.i:                     ; preds = %2272
   %2373 = getelementptr i8, ptr %2371, i64 2
   store i8 40, ptr %2372, align 1
   %2374 = getelementptr inbounds nuw i8, ptr %8, i64 30
-  %2375 = call fastcc ptr @number(ptr noundef %2373, ptr noundef nonnull %2374, i64 noundef %2365, i64 -263401754326523)
+  %2375 = call fastcc ptr @number(ptr noundef %2373, ptr noundef nonnull readnone %2374, i64 noundef %2365, i64 -263401754326523)
   %2376 = getelementptr i8, ptr %2375, i64 1
   store i8 41, ptr %2375, align 1
   store i8 0, ptr %2376, align 1
@@ -6360,7 +6360,7 @@ fourcc_string.exit:                               ; preds = %2269, %2339, %2231,
 
 widen_string.exit.thread.i105:                    ; preds = %2379
   %2449 = load i64, ptr %3, align 8
-  %2450 = tail call fastcc ptr @number(ptr noundef %1, ptr noundef %2, i64 noundef %2449, i64 -263401754324475)
+  %2450 = tail call fastcc ptr @number(ptr noundef %1, ptr noundef readnone %2, i64 noundef %2449, i64 -263401754324475)
   br label %hex_string.exit
 
 2451:                                             ; preds = %5
@@ -6378,7 +6378,7 @@ widen_string.exit.thread.i105:                    ; preds = %2379
   ]
 
 2457:                                             ; preds = %2454
-  %2458 = tail call fastcc ptr @rtc_str(ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 %4, ptr noundef readonly %0)
+  %2458 = tail call fastcc ptr @rtc_str(ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, i64 %4, ptr noundef readonly %0)
   br label %hex_string.exit
 
 2459:                                             ; preds = %2454
@@ -11553,7 +11553,7 @@ widen_string.exit16:                              ; preds = %171, %164, %.loopex
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(write, inaccessiblemem: none)
-define internal fastcc ptr @pointer_string(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef captures(address) %1, ptr noundef %2, i64 %3) unnamed_addr #9 align 16 {
+define internal fastcc ptr @pointer_string(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1, ptr noundef %2, i64 %3) unnamed_addr #9 align 16 {
   %5 = and i64 %3, -280512904036353
   %6 = or disjoint i64 %5, 17729624997888
   %7 = shl i64 %3, 32
@@ -12556,7 +12556,7 @@ widen_string.exit.thread:                         ; preds = %5
   %97 = load i32, ptr %96, align 4
   %98 = add i32 %97, %.ph
   %99 = sext i32 %95 to i64
-  %100 = tail call fastcc ptr @number(ptr noundef %0, ptr noundef %1, i64 noundef %99, i64 -270411140955136)
+  %100 = tail call fastcc ptr @number(ptr noundef %0, ptr noundef readnone %1, i64 noundef %99, i64 -270411140955136)
   %101 = icmp ult ptr %100, %1
   br i1 %101, label %102, label %103
 
@@ -12567,7 +12567,7 @@ widen_string.exit.thread:                         ; preds = %5
 103:                                              ; preds = %102, %92
   %104 = getelementptr i8, ptr %100, i64 1
   %105 = sext i32 %98 to i64
-  %106 = tail call fastcc ptr @number(ptr noundef %104, ptr noundef %1, i64 noundef %105, i64 -270411140955648)
+  %106 = tail call fastcc ptr @number(ptr noundef %104, ptr noundef readnone %1, i64 noundef %105, i64 -270411140955648)
   %107 = icmp ult ptr %106, %1
   br i1 %107, label %108, label %date_str.exit
 
@@ -12580,7 +12580,7 @@ date_str.exit:                                    ; preds = %103, %108
   %110 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %111 = load i32, ptr %110, align 4
   %112 = sext i32 %111 to i64
-  %113 = tail call fastcc ptr @number(ptr noundef %109, ptr noundef %1, i64 noundef %112, i64 -270411140955648)
+  %113 = tail call fastcc ptr @number(ptr noundef %109, ptr noundef readnone %1, i64 noundef %112, i64 -270411140955648)
   br i1 %80, label %.thread6, label %114
 
 114:                                              ; preds = %date_str.exit
@@ -12605,7 +12605,7 @@ date_str.exit:                                    ; preds = %103, %108
   %123 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %124 = load i32, ptr %123, align 4
   %125 = sext i32 %124 to i64
-  %126 = tail call fastcc ptr @number(ptr noundef %122, ptr noundef %1, i64 noundef %125, i64 -270411140955648)
+  %126 = tail call fastcc ptr @number(ptr noundef %122, ptr noundef readnone %1, i64 noundef %125, i64 -270411140955648)
   %127 = icmp ult ptr %126, %1
   br i1 %127, label %128, label %129
 
@@ -12618,7 +12618,7 @@ date_str.exit:                                    ; preds = %103, %108
   %131 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %132 = load i32, ptr %131, align 4
   %133 = sext i32 %132 to i64
-  %134 = tail call fastcc ptr @number(ptr noundef %130, ptr noundef %1, i64 noundef %133, i64 -270411140955648)
+  %134 = tail call fastcc ptr @number(ptr noundef %130, ptr noundef readnone %1, i64 noundef %133, i64 -270411140955648)
   %135 = icmp ult ptr %134, %1
   br i1 %135, label %136, label %time_str.exit
 
@@ -12630,7 +12630,7 @@ time_str.exit:                                    ; preds = %129, %136
   %137 = getelementptr i8, ptr %134, i64 1
   %138 = load i32, ptr %2, align 4
   %139 = sext i32 %138 to i64
-  %140 = tail call fastcc ptr @number(ptr noundef %137, ptr noundef %1, i64 noundef %139, i64 -270411140955648)
+  %140 = tail call fastcc ptr @number(ptr noundef %137, ptr noundef readnone %1, i64 noundef %139, i64 -270411140955648)
   br label %.thread6
 
 .thread6:                                         ; preds = %72, %.thread, %65, %date_str.exit, %time_str.exit, %120

@@ -340,7 +340,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Yosys10LibertyAst4dumpEP8_IO_FILERSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESE_S9_S9_b(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef captures(none) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %3, ptr noundef readonly captures(none) %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Yosys10LibertyAst4dumpEP8_IO_FILERSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESE_S9_S9_b(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef captures(none) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %3, ptr noundef readonly captures(none) %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8

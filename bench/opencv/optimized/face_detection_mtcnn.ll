@@ -56583,7 +56583,7 @@ define internal void @_ZN2cv6detail13OCVCallHelperIN6custom12_GLOBAL__N_127OCVAc
   %.val3.i = load ptr, ptr %2, align 8, !tbaa !151
   %4 = tail call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv6detail6get_inINS_6GArrayIN6custom12_GLOBAL__N_14FaceEEEE3getERNS_11GCPUContextEi(ptr %.val.i, ptr %.val3.i, i32 noundef 1)
   %5 = tail call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv6detail7get_outINS_6GArrayIN6custom12_GLOBAL__N_14FaceEEEE3getERNS_11GCPUContextEi(ptr noundef nonnull align 8 dereferenceable(96) %0)
-  %6 = tail call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN6custom12_GLOBAL__N_14FaceESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %6 = tail call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN6custom12_GLOBAL__N_14FaceESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull readonly align 8 dereferenceable(24) %3)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.val.i.i.i = load ptr, ptr %7, align 8, !tbaa !533
   %.val8.i.i.i = load ptr, ptr %4, align 8, !tbaa !533

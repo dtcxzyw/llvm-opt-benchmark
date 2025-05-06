@@ -612,7 +612,7 @@ lv_font_manager_get_freetype_font.exit.thread:    ; preds = %21, %14, %lv_font_m
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_font_manager_delete_font(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
+define void @lv_font_manager_delete_font(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 

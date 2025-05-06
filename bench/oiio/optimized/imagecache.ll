@@ -47133,7 +47133,7 @@ define void @_ZN11OpenImageIO6v3_1_010ImageCache10invalidateEPNS0_14ImageCacheFi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11OpenImageIO6v3_1_010ImageCache5closeENS0_7ustringE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr captures(address) %1) local_unnamed_addr #5 align 2 {
+define void @_ZN11OpenImageIO6v3_1_010ImageCache5closeENS0_7ustringE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readonly captures(address) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !223
   tail call void @_ZN11OpenImageIO6v3_1_014ImageCacheImpl5closeENS0_7ustringE(ptr noundef nonnull align 64 dereferenceable(25240) %4, ptr %1)

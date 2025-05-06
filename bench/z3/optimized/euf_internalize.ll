@@ -1884,7 +1884,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backEOS2_.exit: ; preds = %33, %39
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3euf6solver16internalize_rootEP3appbRK10ptr_vectorINS_5enodeEE(ptr noundef nonnull align 8 dereferenceable(8456) %0, ptr noundef captures(address) %1, i1 noundef zeroext %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN3euf6solver16internalize_rootEP3appbRK10ptr_vectorINS_5enodeEE(ptr noundef nonnull align 8 dereferenceable(8456) %0, ptr noundef readonly captures(address) %1, i1 noundef zeroext %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.ptr_vector, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4

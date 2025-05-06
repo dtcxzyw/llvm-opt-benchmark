@@ -2129,7 +2129,7 @@ declare hidden noundef ptr @_Z13luaM_realloc_P9lua_StatePvmmh(ptr noundef, ptr n
 declare hidden noundef i32 @_Z9luaO_log2j(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL6rehashP9lua_StateP8LuaTablePK10lua_TValue(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL6rehashP9lua_StateP8LuaTablePK10lua_TValue(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = alloca [27 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 108, ptr nonnull %4) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(108) %4, i8 0, i64 108, i1 false), !tbaa !34

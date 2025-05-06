@@ -598,7 +598,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h8debc0be634e3abdE
 .thread12.i.i:                                    ; preds = %49
   %52 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc72bc52e63759de0E"(ptr nonnull %.fca.0.extract.i.i, ptr nonnull %.fca.1.extract.i.i) #22
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc72bc52e63759de0E"(ptr nonnull %.fca.0.extract.i.i, ptr nonnull readonly %.fca.1.extract.i.i) #22
   br label %.body
 
 53:                                               ; preds = %49

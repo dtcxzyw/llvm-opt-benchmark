@@ -34916,7 +34916,7 @@ _ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_17OMPNumTeamsClauseEEEbv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang7CodeGen15CGOpenMPRuntime35getNumThreadsExprForTargetDirectiveERNS0_15CodeGenFunctionERKNS_22OMPExecutableDirectiveERibPPN4llvm5ValueEPPKNS_4ExprE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3, i1 noundef zeroext %4, ptr noundef captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang7CodeGen15CGOpenMPRuntime35getNumThreadsExprForTargetDirectiveERNS0_15CodeGenFunctionERKNS_22OMPExecutableDirectiveERibPPN4llvm5ValueEPPKNS_4ExprE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3, i1 noundef zeroext %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"class.std::optional.1572", align 8
   %9 = alloca %"class.std::optional.1572", align 8
   %10 = alloca %"class.llvm::SmallVector.1807", align 8
@@ -76087,7 +76087,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_120MappableExprsHandler24DeferredDeviceP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_120MappableExprsHandler28generateInfoForComponentListEN5clang19OpenMPMapClauseKindEN4llvm8ArrayRefINS1_21OpenMPMapModifierKindEEENS4_INS1_24OpenMPMotionModifierKindEEENS4_INS1_27OMPClauseMappableExprCommon17MappableComponentEEERNS0_17MapCombinedInfoTyESD_RNS0_17StructRangeInfoTyEbbbPKNS1_9ValueDeclEbSI_PKNS1_4ExprENS4_ISB_EEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, i32 noundef %1, ptr %2, i64 %3, ptr captures(address) %4, i64 %5, ptr readonly captures(address) %.0.val, i64 %.8.val, ptr noundef nonnull align 8 dereferenceable(1128) %6, ptr noundef nonnull align 8 dereferenceable(1128) %7, ptr noundef nonnull align 8 dereferenceable(1338) %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, ptr noundef %12, i1 noundef zeroext %13, ptr noundef %14, ptr noundef %15, ptr readonly captures(address) %.0.val1, i64 %.8.val3, i1 noundef zeroext %16) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_120MappableExprsHandler28generateInfoForComponentListEN5clang19OpenMPMapClauseKindEN4llvm8ArrayRefINS1_21OpenMPMapModifierKindEEENS4_INS1_24OpenMPMotionModifierKindEEENS4_INS1_27OMPClauseMappableExprCommon17MappableComponentEEERNS0_17MapCombinedInfoTyESD_RNS0_17StructRangeInfoTyEbbbPKNS1_9ValueDeclEbSI_PKNS1_4ExprENS4_ISB_EEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, i32 noundef %1, ptr %2, i64 %3, ptr readonly captures(address) %4, i64 %5, ptr readonly captures(address) %.0.val, i64 %.8.val, ptr noundef nonnull align 8 dereferenceable(1128) %6, ptr noundef nonnull align 8 dereferenceable(1128) %7, ptr noundef nonnull align 8 dereferenceable(1338) %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, ptr noundef %12, i1 noundef zeroext %13, ptr noundef %14, ptr noundef %15, ptr readonly captures(address) %.0.val1, i64 %.8.val3, i1 noundef zeroext %16) unnamed_addr #0 align 2 {
   %18 = alloca %"class.clang::CodeGen::Address", align 8
   %19 = alloca %"class.llvm::Twine", align 8
   %20 = alloca %"class.llvm::Twine", align 8
@@ -98582,7 +98582,7 @@ define internal fastcc void @_ZSt16__insertion_sortIPN4llvm8ArrayRefIN5clang27OM
   %.0.val17 = load i64, ptr %9, align 8, !tbaa !28
   %.val18 = load ptr, ptr %0, align 8, !tbaa !3930
   %.val19 = load i64, ptr %6, align 8, !tbaa !28
-  %10 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr readonly %2, ptr %.0.val, i64 %.0.val17, ptr %.val18, i64 %.val19)
+  %10 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr readonly %2, ptr readonly %.0.val, i64 %.0.val17, ptr readonly %.val18, i64 %.val19)
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %8
@@ -98605,7 +98605,7 @@ define internal fastcc void @_ZSt16__insertion_sortIPN4llvm8ArrayRefIN5clang27OM
   %.0.val17.i = load ptr, ptr %.pn22, align 8, !tbaa !3930
   %19 = getelementptr i8, ptr %.pn22, i64 8
   %.0.val1218.i = load i64, ptr %19, align 8, !tbaa !28
-  %20 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr readonly %2, ptr %.sroa.0.0.copyload.i, i64 %.sroa.5.0.copyload.i, ptr %.0.val17.i, i64 %.0.val1218.i)
+  %20 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr readonly %2, ptr readonly %.sroa.0.0.copyload.i, i64 %.sroa.5.0.copyload.i, ptr readonly %.0.val17.i, i64 %.0.val1218.i)
   br i1 %20, label %.lr.ph.i, label %_ZSt25__unguarded_linear_insertIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEEvT_T0_.exit
 
 .lr.ph.i:                                         ; preds = %18, %.lr.ph.i
@@ -98616,7 +98616,7 @@ define internal fastcc void @_ZSt16__insertion_sortIPN4llvm8ArrayRefIN5clang27OM
   %.0.val.i = load ptr, ptr %.0.i, align 8, !tbaa !3930
   %21 = getelementptr i8, ptr %.020.i, i64 -8
   %.0.val12.i = load i64, ptr %21, align 8, !tbaa !28
-  %22 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr readonly %2, ptr %.sroa.0.0.copyload.i, i64 %.sroa.5.0.copyload.i, ptr %.0.val.i, i64 %.0.val12.i)
+  %22 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr readonly %2, ptr readonly %.sroa.0.0.copyload.i, i64 %.sroa.5.0.copyload.i, ptr readonly %.0.val.i, i64 %.0.val12.i)
   br i1 %22, label %.lr.ph.i, label %_ZSt25__unguarded_linear_insertIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEEvT_T0_.exit, !llvm.loop !4374
 
 _ZSt25__unguarded_linear_insertIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEEvT_T0_.exit: ; preds = %.lr.ph.i, %18
@@ -98666,7 +98666,7 @@ define internal fastcc void @_ZSt22__merge_without_bufferIPN4llvm8ArrayRefIN5cla
   %.val43 = load ptr, ptr %.tr84, align 8, !tbaa !3930
   %19 = getelementptr i8, ptr %.tr84, i64 8
   %.val44 = load i64, ptr %19, align 8, !tbaa !28
-  %20 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr readonly %5, ptr %.val41, i64 %.val42, ptr %.val43, i64 %.val44)
+  %20 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr readonly %5, ptr readonly %.val41, i64 %.val42, ptr readonly %.val43, i64 %.val44)
   br i1 %20, label %21, label %.loopexit
 
 21:                                               ; preds = %17
@@ -98704,7 +98704,7 @@ _ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComp
   %.val14.i = load i64, ptr %33, align 8, !tbaa !28
   %.val15.i = load ptr, ptr %26, align 8, !tbaa !3930
   %.val16.i = load i64, ptr %30, align 8, !tbaa !28
-  %34 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr readonly %5, ptr %.val13.i, i64 %.val14.i, ptr %.val15.i, i64 %.val16.i)
+  %34 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr readonly %5, ptr readonly %.val13.i, i64 %.val14.i, ptr readonly %.val15.i, i64 %.val16.i)
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %36 = xor i64 %31, -1
   %37 = add nsw i64 %.01120.i, %36
@@ -98747,7 +98747,7 @@ _ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComp
   %.val15.i58 = load ptr, ptr %49, align 8, !tbaa !3930
   %50 = getelementptr i8, ptr %49, i64 8
   %.val16.i59 = load i64, ptr %50, align 8, !tbaa !28
-  %51 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr readonly %5, ptr %.val13.i56, i64 %.val14.i57, ptr %.val15.i58, i64 %.val16.i59)
+  %51 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr readonly %5, ptr readonly %.val13.i56, i64 %.val14.i57, ptr readonly %.val15.i58, i64 %.val16.i59)
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %53 = xor i64 %48, -1
   %54 = add nsw i64 %.01120.i53, %53
@@ -99207,7 +99207,7 @@ _ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableCompone
   %.018.val.i = load ptr, ptr %.01825.i, align 8, !tbaa !3930
   %20 = getelementptr i8, ptr %.01825.i, i64 8
   %.018.val23.i = load i64, ptr %20, align 8, !tbaa !28
-  %21 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr readonly %9, ptr %.019.val.i, i64 %.019.val22.i, ptr %.018.val.i, i64 %.018.val23.i)
+  %21 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr readonly %9, ptr readonly %.019.val.i, i64 %.019.val22.i, ptr readonly %.018.val.i, i64 %.018.val23.i)
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %.lr.ph.i
@@ -99283,7 +99283,7 @@ _ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableCompone
   %.024.val32.i = load i64, ptr %44, align 8, !tbaa !28
   %.026.val.i = load ptr, ptr %.026.i71.ph, align 8, !tbaa !3930
   %.026.val33.i = load i64, ptr %42, align 8, !tbaa !28
-  %45 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr readonly %9, ptr %.024.val.i, i64 %.024.val32.i, ptr %.026.val.i, i64 %.026.val33.i)
+  %45 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr readonly %9, ptr readonly %.024.val.i, i64 %.024.val32.i, ptr readonly %.026.val.i, i64 %.026.val33.i)
   %46 = getelementptr inbounds i8, ptr %.0.i, i64 -16
   br i1 %45, label %47, label %51
 
@@ -99344,7 +99344,7 @@ _ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComp
   %.val14.i = load i64, ptr %71, align 8, !tbaa !28
   %.val15.i = load ptr, ptr %64, align 8, !tbaa !3930
   %.val16.i = load i64, ptr %68, align 8, !tbaa !28
-  %72 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr readonly %9, ptr %.val13.i, i64 %.val14.i, ptr %.val15.i, i64 %.val16.i)
+  %72 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr readonly %9, ptr readonly %.val13.i, i64 %.val14.i, ptr readonly %.val15.i, i64 %.val16.i)
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %74 = xor i64 %69, -1
   %75 = add nsw i64 %.01120.i, %74
@@ -99387,7 +99387,7 @@ _ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComp
   %.val15.i89 = load ptr, ptr %87, align 8, !tbaa !3930
   %88 = getelementptr i8, ptr %87, i64 8
   %.val16.i90 = load i64, ptr %88, align 8, !tbaa !28
-  %89 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr readonly %9, ptr %.val13.i87, i64 %.val14.i88, ptr %.val15.i89, i64 %.val16.i90)
+  %89 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr readonly %9, ptr readonly %.val13.i87, i64 %.val14.i88, ptr readonly %.val15.i89, i64 %.val16.i90)
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %91 = xor i64 %86, -1
   %92 = add nsw i64 %.01120.i84, %91
@@ -99454,7 +99454,7 @@ define internal fastcc void @_ZSt17__merge_sort_loopIPN4llvm8ArrayRefIN5clang27O
   %.018.val.i = load ptr, ptr %.01826.i, align 8, !tbaa !3930
   %14 = getelementptr i8, ptr %.01826.i, i64 8
   %.018.val22.i = load i64, ptr %14, align 8, !tbaa !28
-  %15 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr readonly %4, ptr %.019.val.i, i64 %.019.val21.i, ptr %.018.val.i, i64 %.018.val22.i)
+  %15 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr readonly %4, ptr readonly %.019.val.i, i64 %.019.val21.i, ptr readonly %.018.val.i, i64 %.018.val22.i)
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %.lr.ph.i
@@ -99527,7 +99527,7 @@ _ZSt12__move_mergeIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17Mappab
   %.018.val.i35 = load ptr, ptr %.01826.i31, align 8, !tbaa !3930
   %42 = getelementptr i8, ptr %.01826.i31, i64 8
   %.018.val22.i36 = load i64, ptr %42, align 8, !tbaa !28
-  %43 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr readonly %4, ptr %.019.val.i33, i64 %.019.val21.i34, ptr %.018.val.i35, i64 %.018.val22.i36)
+  %43 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr readonly %4, ptr readonly %.019.val.i33, i64 %.019.val21.i34, ptr readonly %.018.val.i35, i64 %.018.val22.i36)
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %.lr.ph.i29

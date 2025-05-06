@@ -4861,7 +4861,7 @@ declare void @dt_iop_color_picker_reset(ptr noundef, i32 noundef) local_unnamed_
 declare void @dt_dev_reprocess_center(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @color_picker_apply(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
+define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca [4 x float], align 16
   %5 = alloca [4 x float], align 16
   %6 = alloca [4 x float], align 16
@@ -5537,7 +5537,7 @@ define internal fastcc void @_init_sliders(ptr readonly captures(none) %.680.val
   store float %.reass.i, ptr %12, align 4, !tbaa !6
   store float 0x3FE4CCCCC0000000, ptr %13, align 8, !tbaa !6
   store float 0.000000e+00, ptr %14, align 4, !tbaa !6
-  call fastcc void @_build_dt_UCS_HSB_gradients(ptr noundef %6, ptr noundef %5, ptr noundef %34, ptr noundef readonly %35)
+  call fastcc void @_build_dt_UCS_HSB_gradients(ptr noundef %6, ptr noundef %5, ptr noundef readonly %34, ptr noundef readonly %35)
   %39 = load float, ptr %5, align 16, !tbaa !6
   %40 = load float, ptr %15, align 4, !tbaa !6
   %41 = load float, ptr %16, align 8, !tbaa !6
@@ -5595,7 +5595,7 @@ _draw_sliders_saturation_gradient.exit:           ; preds = %36
   store float %52, ptr %18, align 4, !tbaa !6
   store float 0x3FE4CCCCC0000000, ptr %19, align 8, !tbaa !6
   store float 0.000000e+00, ptr %20, align 4, !tbaa !6
-  call fastcc void @_build_dt_UCS_HSB_gradients(ptr noundef %4, ptr noundef %3, ptr noundef %59, ptr noundef readonly %60)
+  call fastcc void @_build_dt_UCS_HSB_gradients(ptr noundef %4, ptr noundef %3, ptr noundef readonly %59, ptr noundef readonly %60)
   %67 = load float, ptr %3, align 16, !tbaa !6
   %68 = load float, ptr %21, align 4, !tbaa !6
   %69 = load float, ptr %22, align 8, !tbaa !6
@@ -5645,7 +5645,7 @@ _draw_sliders_hue_gradient.exit:                  ; preds = %62
   %88 = fadd reassoc nsz arcp contract afn float %87, 0x3F50624DE0000000
   store float %88, ptr %45, align 8, !tbaa !6
   store float 0.000000e+00, ptr %46, align 4, !tbaa !6
-  call fastcc void @_build_dt_UCS_HSB_gradients(ptr noundef %2, ptr noundef %1, ptr noundef %83, ptr noundef readonly %84)
+  call fastcc void @_build_dt_UCS_HSB_gradients(ptr noundef %2, ptr noundef %1, ptr noundef readonly %83, ptr noundef readonly %84)
   %89 = load float, ptr %1, align 16, !tbaa !6
   %90 = load float, ptr %47, align 4, !tbaa !6
   %91 = load float, ptr %48, align 8, !tbaa !6

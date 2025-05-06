@@ -1609,7 +1609,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #8
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef double @_ZN8simdjson8internal10from_charsEPKcS2_(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define dso_local noundef double @_ZN8simdjson8internal10from_charsEPKcS2_(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %"struct.simdjson::internal::decimal", align 4
   %5 = load i8, ptr %0, align 1, !tbaa !4

@@ -3355,7 +3355,7 @@ define internal fastcc ptr @__free_percpu_irq(i32 noundef %0, ptr noundef readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @free_percpu_irq(i32 noundef %0, ptr noundef captures(address) %1) #1 align 16 {
+define dso_local void @free_percpu_irq(i32 noundef %0, ptr noundef readnone captures(address) %1) #1 align 16 {
   %3 = tail call ptr @irq_to_desc(i32 noundef %0) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %26, label %5
@@ -3399,7 +3399,7 @@ define dso_local void @free_percpu_irq(i32 noundef %0, ptr noundef captures(addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @free_percpu_nmi(i32 noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #1 align 16 {
+define dso_local void @free_percpu_nmi(i32 noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #1 align 16 {
   %3 = tail call ptr @irq_to_desc(i32 noundef %0) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %18, label %5

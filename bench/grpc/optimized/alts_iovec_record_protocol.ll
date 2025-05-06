@@ -776,7 +776,7 @@ _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %42, %41, %34, %33, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z54alts_iovec_record_protocol_privacy_integrity_unprotectP26alts_iovec_record_protocol5iovecPKS1_mS1_PPc(ptr noundef readonly captures(address_is_null) %0, ptr captures(address_is_null) %1, i64 %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly byval(%struct.iovec) align 8 captures(none) %5, ptr noundef %6) local_unnamed_addr #3 {
+define noundef i32 @_Z54alts_iovec_record_protocol_privacy_integrity_unprotectP26alts_iovec_record_protocol5iovecPKS1_mS1_PPc(ptr noundef readonly captures(address_is_null) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly byval(%struct.iovec) align 8 captures(none) %5, ptr noundef %6) local_unnamed_addr #3 {
   %8 = alloca i64, align 8
   %9 = icmp eq ptr %0, null
   br i1 %9, label %10, label %13

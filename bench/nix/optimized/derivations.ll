@@ -8980,7 +8980,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit5: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nixL25unparseDerivedPathMapNodeERKNS_14StoreDirConfigERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14DerivedPathMapISt3setIS8_St4lessIS8_ESaIS8_EEE9ChildNodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(96) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3nixL25unparseDerivedPathMapNodeERKNS_14StoreDirConfigERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14DerivedPathMapISt3setIS8_St4lessIS8_ESaIS8_EEE9ChildNodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, 1

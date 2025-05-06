@@ -8816,7 +8816,7 @@ define internal i32 @each_hash_iv(i64 noundef %0, i64 noundef %1, i64 noundef %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @iterate_over_shapes_with_callback(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @iterate_over_shapes_with_callback(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %43, %3

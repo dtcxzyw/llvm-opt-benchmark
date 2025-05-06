@@ -11734,7 +11734,7 @@ _ZN22JvmtiLocationEventMarkD2Ev.exit:             ; preds = %210, %208, %108
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11JvmtiExport27post_raw_field_modificationEP10JavaThreadP6MethodPhP5Klass6HandleP9_jfieldIDcP6jvalue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr captures(address_is_null) %4, ptr noundef %5, i8 noundef signext %6, ptr noundef captures(none) %7) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11JvmtiExport27post_raw_field_modificationEP10JavaThreadP6MethodPhP5Klass6HandleP9_jfieldIDcP6jvalue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr readonly captures(address_is_null) %4, ptr noundef %5, i8 noundef signext %6, ptr noundef captures(none) %7) local_unnamed_addr #1 align 2 {
   %9 = alloca %class.fieldDescriptor, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1139
   %11 = load i8, ptr %10, align 1
