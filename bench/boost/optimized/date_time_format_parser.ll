@@ -32,6 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.boost::log::v2_mt_posix::aux::anonymous::date_flags.135" = type { %"struct.boost::log::v2_mt_posix::aux::anonymous::time_flags.136" }
 %"struct.boost::log::v2_mt_posix::aux::anonymous::time_flags.136" = type { %"struct.boost::log::v2_mt_posix::aux::anonymous::common_flags.137" }
 %"struct.boost::log::v2_mt_posix::aux::anonymous::common_flags.137" = type { %"class.std::__cxx11::basic_string.126" }
+%"struct.boost::spirit::karma::uint_generator" = type { i8 }
 %"class.boost::spirit::karma::detail::output_iterator.216" = type { ptr }
 %"class.std::locale" = type { ptr }
 %struct.__mbstate_t = type { i32, %union.anon.208 }
@@ -64,6 +65,8 @@ $_ZN5boost3log11v2_mt_posix3aux22parse_date_time_formatIwEEvPKT_S6_RNS2_32date_t
 $_ZN5boost3log11v2_mt_posix3aux9anonymous12parse_formatIwNS3_10date_flagsINS3_10time_flagsINS3_12common_flagsINS2_32date_time_format_parser_callbackIwEEEEEEEES9_EEvPKT_SF_RT0_RT1_ = comdat any
 
 $_ZN5boost3log11v2_mt_posix3aux11put_integerIwEEvRNS2_22basic_ostringstreambufIT_St11char_traitsIS5_ESaIS5_EEEjjS5_ = comdat any
+
+$_ZN5boost6spirit5karma8generateIPwNS1_14uint_generatorIjLj10EEEjEEbRT_RKT0_RKT1_ = comdat any
 
 $_ZN5boost3log11v2_mt_posix3aux9anonymous10date_flagsINS3_12common_flagsINS2_27date_format_parser_callbackIcEEEEE5parseEPKcSB_RS7_ = comdat any
 
@@ -1522,22 +1525,20 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5boost3log11v2_mt_posix3aux11put_integerIwEEvRNS2_22basic_ostringstreambufIT_St11char_traitsIS5_ESaIS5_EEEjjS5_(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef %1, i32 noundef %2, i32 noundef signext %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  %6 = alloca %"class.boost::spirit::karma::detail::output_iterator.216", align 8
-  %7 = alloca [11 x i32], align 16
-  %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
-  store ptr %7, ptr %8, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
-  store ptr %8, ptr %6, align 8, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
+  %6 = alloca [11 x i32], align 16
+  %7 = alloca ptr, align 8
+  %8 = alloca %"struct.boost::spirit::karma::uint_generator", align 1
   store i32 %1, ptr %5, align 4, !tbaa !26
-  %9 = call noundef zeroext i1 @_ZN5boost6spirit5karma12int_inserterILj10ENS0_11unused_typeES3_E4callINS1_6detail15output_iteratorIPwN4mpl_4int_ILi0EEES3_EEjEEbRT_T0_RSF_i(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
-  %10 = load ptr, ptr %8, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  store ptr %6, ptr %7, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #10
+  store i8 0, ptr %8, align 1
+  %9 = call noundef zeroext i1 @_ZN5boost6spirit5karma8generateIPwNS1_14uint_generatorIjLj10EEEjEEbRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #10
+  %10 = load ptr, ptr %7, align 8, !tbaa !23
   %11 = ptrtoint ptr %10 to i64
-  %12 = ptrtoint ptr %7 to i64
+  %12 = ptrtoint ptr %6 to i64
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 2
   %15 = zext i32 %2 to i64
@@ -1547,17 +1548,17 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix3aux11put_integerIwEEvRNS2_22bas
 17:                                               ; preds = %4
   %18 = sub nuw nsw i64 %15, %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %20 = load i8, ptr %19, align 8, !tbaa !55, !range !34, !noundef !35
+  %20 = load i8, ptr %19, align 8, !tbaa !53, !range !34, !noundef !35
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %_ZN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEE6appendEmw.exit, label %22
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %24 = load ptr, ptr %23, align 8, !tbaa !59
+  %24 = load ptr, ptr %23, align 8, !tbaa !57
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !41
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %28 = load i64, ptr %27, align 8, !tbaa !60
+  %28 = load i64, ptr %27, align 8, !tbaa !58
   %spec.select.i.i = call noundef i64 @llvm.usub.sat.i64(i64 %28, i64 %26)
   %.not.i = icmp ugt i64 %18, %spec.select.i.i
   br i1 %.not.i, label %31, label %29, !prof !38
@@ -1568,22 +1569,22 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix3aux11put_integerIwEEvRNS2_22bas
 
 31:                                               ; preds = %22
   %32 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE14_M_replace_auxEmmmw(ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef %26, i64 noundef 0, i64 noundef %spec.select.i.i, i32 noundef signext %3)
-  store i8 1, ptr %19, align 8, !tbaa !55
+  store i8 1, ptr %19, align 8, !tbaa !53
   br label %_ZN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEE6appendEmw.exit
 
 _ZN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEE6appendEmw.exit: ; preds = %31, %29, %17, %4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %34 = load i8, ptr %33, align 8, !tbaa !55, !range !34, !noundef !35
+  %34 = load i8, ptr %33, align 8, !tbaa !53, !range !34, !noundef !35
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %_ZN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEE6appendEPKwm.exit, label %36
 
 36:                                               ; preds = %_ZN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEE6appendEmw.exit
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %38 = load ptr, ptr %37, align 8, !tbaa !59
+  %38 = load ptr, ptr %37, align 8, !tbaa !57
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i64, ptr %39, align 8, !tbaa !41
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %42 = load i64, ptr %41, align 8, !tbaa !60
+  %42 = load i64, ptr %41, align 8, !tbaa !58
   %spec.select.i.i8 = call noundef i64 @llvm.usub.sat.i64(i64 %42, i64 %40)
   %.not.i9 = icmp ugt i64 %14, %spec.select.i.i8
   br i1 %.not.i9, label %48, label %43, !prof !38
@@ -1598,18 +1599,149 @@ _ZN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEE
   unreachable
 
 _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6appendEPKwm.exit.i: ; preds = %43
-  %47 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_appendEPKwm(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull %7, i64 noundef %14)
+  %47 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_appendEPKwm(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull %6, i64 noundef %14)
   br label %_ZN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEE6appendEPKwm.exit
 
 48:                                               ; preds = %36
-  %49 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6appendEPKwm(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull %7, i64 noundef %spec.select.i.i8)
-  store i8 1, ptr %33, align 8, !tbaa !55
+  %49 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6appendEPKwm(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull %6, i64 noundef %spec.select.i.i8)
+  store i8 1, ptr %33, align 8, !tbaa !53
   br label %_ZN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEE6appendEPKwm.exit
 
 _ZN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEE6appendEPKwm.exit: ; preds = %_ZN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEE6appendEmw.exit, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6appendEPKwm.exit.i, %48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %6) #10
   ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6spirit5karma8generateIPwNS1_14uint_generatorIjLj10EEEjEEbRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #2 comdat {
+  %4 = alloca i32, align 4
+  %5 = alloca %"class.boost::spirit::karma::detail::output_iterator.216", align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  store ptr %0, ptr %5, align 8, !tbaa !59
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
+  %6 = load i32, ptr %2, align 4, !tbaa !26
+  store i32 %6, ptr %4, align 4, !tbaa !26
+  %7 = icmp ult i32 %6, 10
+  br i1 %7, label %_ZN5boost6spirit5karma12int_inserterILj10ENS0_11unused_typeES3_E4callINS1_6detail15output_iteratorIPwN4mpl_4int_ILi0EEES3_EEjEEbRT_T0_RSF_i.exit, label %8
+
+8:                                                ; preds = %3
+  %9 = udiv i32 %6, 10
+  %10 = urem i32 %9, 10
+  %11 = icmp ult i32 %6, 100
+  br i1 %11, label %62, label %12
+
+12:                                               ; preds = %8
+  %13 = udiv i32 %6, 100
+  %14 = urem i32 %13, 10
+  %15 = icmp ult i32 %6, 1000
+  br i1 %15, label %57, label %16
+
+16:                                               ; preds = %12
+  %17 = udiv i32 %6, 1000
+  %18 = urem i32 %17, 10
+  %19 = icmp ult i32 %6, 10000
+  br i1 %19, label %52, label %20
+
+20:                                               ; preds = %16
+  %21 = udiv i32 %6, 10000
+  %22 = urem i32 %21, 10
+  %23 = icmp ult i32 %6, 100000
+  br i1 %23, label %47, label %24
+
+24:                                               ; preds = %20
+  %25 = udiv i32 %6, 100000
+  %.lhs.trunc.i = trunc nuw i32 %25 to i16
+  %26 = urem i16 %.lhs.trunc.i, 10
+  %27 = udiv i16 %.lhs.trunc.i, 10
+  %28 = icmp ult i32 %6, 1000000
+  br i1 %28, label %41, label %29
+
+29:                                               ; preds = %24
+  %30 = urem i16 %27, 10
+  %31 = icmp ult i32 %6, 10000000
+  br i1 %31, label %35, label %32
+
+32:                                               ; preds = %29
+  %33 = udiv i16 %.lhs.trunc.i, 100
+  %.zext62.i = zext nneg i16 %33 to i32
+  %34 = call noundef zeroext i1 @_ZN5boost6spirit5karma12int_inserterILj10ENS0_11unused_typeES3_E4callINS1_6detail15output_iteratorIPwN4mpl_4int_ILi0EEES3_EEjEEbRT_T0_RSF_i(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %.zext62.i, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 7) #13
+  %.pre = load ptr, ptr %5, align 8, !tbaa !59
+  br label %35
+
+35:                                               ; preds = %32, %29
+  %36 = phi ptr [ %.pre, %32 ], [ %0, %29 ]
+  %37 = or disjoint i16 %30, 48
+  %38 = zext nneg i16 %37 to i32
+  %39 = load ptr, ptr %36, align 8, !tbaa !23
+  store i32 %38, ptr %39, align 4, !tbaa !43
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  store ptr %40, ptr %36, align 8, !tbaa !23
+  %.pre3 = load ptr, ptr %5, align 8, !tbaa !59
+  br label %41
+
+41:                                               ; preds = %35, %24
+  %42 = phi ptr [ %.pre3, %35 ], [ %0, %24 ]
+  %43 = or disjoint i16 %26, 48
+  %44 = zext nneg i16 %43 to i32
+  %45 = load ptr, ptr %42, align 8, !tbaa !23
+  store i32 %44, ptr %45, align 4, !tbaa !43
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  store ptr %46, ptr %42, align 8, !tbaa !23
+  %.pre4 = load ptr, ptr %5, align 8, !tbaa !59
+  br label %47
+
+47:                                               ; preds = %41, %20
+  %48 = phi ptr [ %.pre4, %41 ], [ %0, %20 ]
+  %49 = or disjoint i32 %22, 48
+  %50 = load ptr, ptr %48, align 8, !tbaa !23
+  store i32 %49, ptr %50, align 4, !tbaa !43
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  store ptr %51, ptr %48, align 8, !tbaa !23
+  %.pre5 = load ptr, ptr %5, align 8, !tbaa !59
+  br label %52
+
+52:                                               ; preds = %47, %16
+  %53 = phi ptr [ %.pre5, %47 ], [ %0, %16 ]
+  %54 = or disjoint i32 %18, 48
+  %55 = load ptr, ptr %53, align 8, !tbaa !23
+  store i32 %54, ptr %55, align 4, !tbaa !43
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
+  store ptr %56, ptr %53, align 8, !tbaa !23
+  %.pre6 = load ptr, ptr %5, align 8, !tbaa !59
+  br label %57
+
+57:                                               ; preds = %52, %12
+  %58 = phi ptr [ %.pre6, %52 ], [ %0, %12 ]
+  %59 = or disjoint i32 %14, 48
+  %60 = load ptr, ptr %58, align 8, !tbaa !23
+  store i32 %59, ptr %60, align 4, !tbaa !43
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
+  store ptr %61, ptr %58, align 8, !tbaa !23
+  %.pre7 = load ptr, ptr %5, align 8, !tbaa !59
+  br label %62
+
+62:                                               ; preds = %57, %8
+  %63 = phi ptr [ %.pre7, %57 ], [ %0, %8 ]
+  %64 = or disjoint i32 %10, 48
+  %65 = load ptr, ptr %63, align 8, !tbaa !23
+  store i32 %64, ptr %65, align 4, !tbaa !43
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
+  store ptr %66, ptr %63, align 8, !tbaa !23
+  %.pre8 = load ptr, ptr %5, align 8, !tbaa !59
+  br label %_ZN5boost6spirit5karma12int_inserterILj10ENS0_11unused_typeES3_E4callINS1_6detail15output_iteratorIPwN4mpl_4int_ILi0EEES3_EEjEEbRT_T0_RSF_i.exit
+
+_ZN5boost6spirit5karma12int_inserterILj10ENS0_11unused_typeES3_E4callINS1_6detail15output_iteratorIPwN4mpl_4int_ILi0EEES3_EEjEEbRT_T0_RSF_i.exit: ; preds = %3, %62
+  %67 = phi ptr [ %0, %3 ], [ %.pre8, %62 ]
+  %68 = urem i32 %6, 10
+  %69 = or disjoint i32 %68, 48
+  %70 = load ptr, ptr %67, align 8, !tbaa !23
+  store i32 %69, ptr %70, align 4, !tbaa !43
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  store ptr %71, ptr %67, align 8, !tbaa !23
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  ret i1 true
 }
 
 ; Function Attrs: nobuiltin nounwind
@@ -5900,7 +6032,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6spirit5karma12int_inser
 34:                                               ; preds = %30, %27
   %35 = or disjoint i16 %28, 48
   %36 = zext nneg i16 %35 to i32
-  %37 = load ptr, ptr %0, align 8, !tbaa !53
+  %37 = load ptr, ptr %0, align 8, !tbaa !59
   %38 = load ptr, ptr %37, align 8, !tbaa !23
   store i32 %36, ptr %38, align 4, !tbaa !43
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
@@ -5910,7 +6042,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6spirit5karma12int_inser
 40:                                               ; preds = %34, %22
   %41 = or disjoint i16 %24, 48
   %42 = zext nneg i16 %41 to i32
-  %43 = load ptr, ptr %0, align 8, !tbaa !53
+  %43 = load ptr, ptr %0, align 8, !tbaa !59
   %44 = load ptr, ptr %43, align 8, !tbaa !23
   store i32 %42, ptr %44, align 4, !tbaa !43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
@@ -5919,7 +6051,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6spirit5karma12int_inser
 
 46:                                               ; preds = %40, %18
   %47 = or disjoint i32 %20, 48
-  %48 = load ptr, ptr %0, align 8, !tbaa !53
+  %48 = load ptr, ptr %0, align 8, !tbaa !59
   %49 = load ptr, ptr %48, align 8, !tbaa !23
   store i32 %47, ptr %49, align 4, !tbaa !43
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
@@ -5928,7 +6060,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6spirit5karma12int_inser
 
 51:                                               ; preds = %46, %14
   %52 = or disjoint i32 %16, 48
-  %53 = load ptr, ptr %0, align 8, !tbaa !53
+  %53 = load ptr, ptr %0, align 8, !tbaa !59
   %54 = load ptr, ptr %53, align 8, !tbaa !23
   store i32 %52, ptr %54, align 4, !tbaa !43
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
@@ -5937,7 +6069,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6spirit5karma12int_inser
 
 56:                                               ; preds = %51, %10
   %57 = or disjoint i32 %12, 48
-  %58 = load ptr, ptr %0, align 8, !tbaa !53
+  %58 = load ptr, ptr %0, align 8, !tbaa !59
   %59 = load ptr, ptr %58, align 8, !tbaa !23
   store i32 %57, ptr %59, align 4, !tbaa !43
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
@@ -5946,7 +6078,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6spirit5karma12int_inser
 
 61:                                               ; preds = %56, %6
   %62 = or disjoint i32 %8, 48
-  %63 = load ptr, ptr %0, align 8, !tbaa !53
+  %63 = load ptr, ptr %0, align 8, !tbaa !59
   %64 = load ptr, ptr %63, align 8, !tbaa !23
   store i32 %62, ptr %64, align 4, !tbaa !43
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
@@ -5956,7 +6088,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6spirit5karma12int_inser
 66:                                               ; preds = %61, %4
   %67 = urem i32 %1, 10
   %68 = or disjoint i32 %67, 48
-  %69 = load ptr, ptr %0, align 8, !tbaa !53
+  %69 = load ptr, ptr %0, align 8, !tbaa !59
   %70 = load ptr, ptr %69, align 8, !tbaa !23
   store i32 %68, ptr %70, align 4, !tbaa !43
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
@@ -5993,6 +6125,7 @@ attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memo
 attributes #10 = { nounwind }
 attributes #11 = { builtin nounwind }
 attributes #12 = { noreturn }
+attributes #13 = { noinline "function-inline-cost-multiplier"="2" }
 
 !llvm.module.flags = !{!0, !1, !2}
 
@@ -6049,11 +6182,11 @@ attributes #12 = { noreturn }
 !50 = !{!49, !5, i64 8}
 !51 = distinct !{!51, !14}
 !52 = distinct !{!52, !14}
-!53 = !{!54, !5, i64 0}
-!54 = !{!"_ZTSN5boost6spirit5karma6detail15output_iteratorIPwN4mpl_4int_ILi0EEENS0_11unused_typeEEE", !5, i64 0}
-!55 = !{!56, !33, i64 80}
-!56 = !{!"_ZTSN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEEE", !57, i64 0, !58, i64 64, !6, i64 88}
-!57 = !{!"_ZTSSt15basic_streambufIwSt11char_traitsIwEE", !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !31, i64 56}
-!58 = !{!"_ZTSN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEE13storage_stateE", !5, i64 0, !10, i64 8, !33, i64 16}
-!59 = !{!56, !5, i64 64}
-!60 = !{!56, !10, i64 72}
+!53 = !{!54, !33, i64 80}
+!54 = !{!"_ZTSN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEEE", !55, i64 0, !56, i64 64, !6, i64 88}
+!55 = !{!"_ZTSSt15basic_streambufIwSt11char_traitsIwEE", !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !31, i64 56}
+!56 = !{!"_ZTSN5boost3log11v2_mt_posix3aux22basic_ostringstreambufIwSt11char_traitsIwESaIwEE13storage_stateE", !5, i64 0, !10, i64 8, !33, i64 16}
+!57 = !{!54, !5, i64 64}
+!58 = !{!54, !10, i64 72}
+!59 = !{!60, !5, i64 0}
+!60 = !{!"_ZTSN5boost6spirit5karma6detail15output_iteratorIPwN4mpl_4int_ILi0EEENS0_11unused_typeEEE", !5, i64 0}

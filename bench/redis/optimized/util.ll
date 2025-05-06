@@ -755,220 +755,271 @@ define dso_local noundef ptr @memmapchars(ptr noundef returned captures(ret: add
   ret ptr %0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define dso_local i32 @digits10(i64 noundef %0) local_unnamed_addr #13 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define dso_local range(i32 1, 21) i32 @digits10(i64 noundef %0) local_unnamed_addr #13 {
   %2 = icmp ult i64 %0, 10
-  br i1 %2, label %.loopexit, label %.lr.ph
+  br i1 %2, label %46, label %3
 
-.lr.ph:                                           ; preds = %1, %tailrecurse
-  %.tr19 = phi i64 [ %28, %tailrecurse ], [ %0, %1 ]
-  %accumulator.tr18 = phi i32 [ %29, %tailrecurse ], [ 0, %1 ]
-  %3 = icmp ult i64 %.tr19, 100
-  br i1 %3, label %.loopexit, label %4
+3:                                                ; preds = %1
+  %4 = icmp ult i64 %0, 100
+  br i1 %4, label %46, label %5
 
-4:                                                ; preds = %.lr.ph
-  %5 = icmp ult i64 %.tr19, 1000
-  br i1 %5, label %.loopexit, label %6
+5:                                                ; preds = %3
+  %6 = icmp ult i64 %0, 1000
+  br i1 %6, label %46, label %7
 
-6:                                                ; preds = %4
-  %7 = icmp ult i64 %.tr19, 1000000000000
-  br i1 %7, label %8, label %tailrecurse
+7:                                                ; preds = %5
+  %8 = icmp ult i64 %0, 1000000000000
+  br i1 %8, label %9, label %29
 
-8:                                                ; preds = %6
-  %9 = icmp samesign ult i64 %.tr19, 100000000
-  br i1 %9, label %10, label %20
+9:                                                ; preds = %7
+  %10 = icmp samesign ult i64 %0, 100000000
+  br i1 %10, label %11, label %21
 
-10:                                               ; preds = %8
-  %11 = icmp samesign ult i64 %.tr19, 1000000
-  br i1 %11, label %12, label %17
+11:                                               ; preds = %9
+  %12 = icmp samesign ult i64 %0, 1000000
+  br i1 %12, label %13, label %18
 
-12:                                               ; preds = %10
-  %13 = icmp samesign ult i64 %.tr19, 10000
-  br i1 %13, label %.loopexit, label %14
+13:                                               ; preds = %11
+  %14 = icmp samesign ult i64 %0, 10000
+  br i1 %14, label %46, label %15
 
-14:                                               ; preds = %12
-  %15 = icmp samesign ugt i64 %.tr19, 99999
-  %16 = select i1 %15, i32 6, i32 5
-  br label %.loopexit
+15:                                               ; preds = %13
+  %16 = icmp samesign ugt i64 %0, 99999
+  %17 = select i1 %16, i32 6, i32 5
+  br label %46
 
-17:                                               ; preds = %10
-  %18 = icmp samesign ugt i64 %.tr19, 9999999
-  %19 = select i1 %18, i32 8, i32 7
-  br label %.loopexit
+18:                                               ; preds = %11
+  %19 = icmp samesign ugt i64 %0, 9999999
+  %20 = select i1 %19, i32 8, i32 7
+  br label %46
 
-20:                                               ; preds = %8
-  %21 = icmp samesign ult i64 %.tr19, 10000000000
-  br i1 %21, label %22, label %25
+21:                                               ; preds = %9
+  %22 = icmp samesign ult i64 %0, 10000000000
+  br i1 %22, label %23, label %26
 
-22:                                               ; preds = %20
-  %23 = icmp samesign ugt i64 %.tr19, 999999999
-  %24 = select i1 %23, i32 10, i32 9
-  br label %.loopexit
+23:                                               ; preds = %21
+  %24 = icmp samesign ugt i64 %0, 999999999
+  %25 = select i1 %24, i32 10, i32 9
+  br label %46
 
-25:                                               ; preds = %20
-  %26 = icmp samesign ugt i64 %.tr19, 99999999999
-  %27 = select i1 %26, i32 12, i32 11
-  br label %.loopexit
+26:                                               ; preds = %21
+  %27 = icmp samesign ugt i64 %0, 99999999999
+  %28 = select i1 %27, i32 12, i32 11
+  br label %46
 
-tailrecurse:                                      ; preds = %6
-  %28 = udiv i64 %.tr19, 1000000000000
-  %29 = add i32 %accumulator.tr18, 12
-  %30 = icmp ult i64 %.tr19, 10000000000000
-  br i1 %30, label %.loopexit, label %.lr.ph
+29:                                               ; preds = %7
+  %30 = icmp ult i64 %0, 10000000000000
+  br i1 %30, label %digits10.exit, label %31
 
-.loopexit:                                        ; preds = %tailrecurse, %.lr.ph, %4, %1, %12, %25, %22, %17, %14
-  %accumulator.tr17 = phi i32 [ %accumulator.tr18, %14 ], [ %accumulator.tr18, %17 ], [ %accumulator.tr18, %22 ], [ %accumulator.tr18, %25 ], [ %accumulator.tr18, %12 ], [ 0, %1 ], [ %29, %tailrecurse ], [ %accumulator.tr18, %.lr.ph ], [ %accumulator.tr18, %4 ]
-  %.0 = phi i32 [ %16, %14 ], [ %19, %17 ], [ %24, %22 ], [ %27, %25 ], [ 4, %12 ], [ 1, %1 ], [ 1, %tailrecurse ], [ 2, %.lr.ph ], [ 3, %4 ]
-  %accumulator.ret.tr = add i32 %.0, %accumulator.tr17
-  ret i32 %accumulator.ret.tr
+31:                                               ; preds = %29
+  %32 = icmp ult i64 %0, 100000000000000
+  br i1 %32, label %digits10.exit, label %33
+
+33:                                               ; preds = %31
+  %34 = icmp ult i64 %0, 1000000000000000
+  br i1 %34, label %digits10.exit, label %35
+
+35:                                               ; preds = %33
+  %36 = icmp ult i64 %0, 1000000000000000000
+  br i1 %36, label %37, label %42
+
+37:                                               ; preds = %35
+  %38 = icmp samesign ult i64 %0, 10000000000000000
+  br i1 %38, label %digits10.exit, label %39
+
+39:                                               ; preds = %37
+  %40 = icmp samesign ugt i64 %0, 99999999999999999
+  %41 = select i1 %40, i32 6, i32 5
+  br label %digits10.exit
+
+42:                                               ; preds = %35
+  %43 = icmp ugt i64 %0, -8446744073709551617
+  %44 = select i1 %43, i32 8, i32 7
+  br label %digits10.exit
+
+digits10.exit:                                    ; preds = %29, %31, %33, %37, %39, %42
+  %.0.i = phi i32 [ %41, %39 ], [ %44, %42 ], [ 1, %29 ], [ 2, %31 ], [ 3, %33 ], [ 4, %37 ]
+  %45 = add nuw nsw i32 %.0.i, 12
+  br label %46
+
+46:                                               ; preds = %13, %5, %3, %1, %digits10.exit, %26, %23, %18, %15
+  %.0 = phi i32 [ %17, %15 ], [ %20, %18 ], [ %25, %23 ], [ %28, %26 ], [ %45, %digits10.exit ], [ 1, %1 ], [ 2, %3 ], [ 3, %5 ], [ 4, %13 ]
+  ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define dso_local i32 @sdigits10(i64 noundef %0) local_unnamed_addr #13 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define dso_local range(i32 1, 21) i32 @sdigits10(i64 noundef %0) local_unnamed_addr #13 {
   %2 = icmp slt i64 %0, 0
-  br i1 %2, label %3, label %35
+  br i1 %2, label %3, label %46
 
 3:                                                ; preds = %1
   %4 = sub i64 0, %0
   %5 = icmp ult i64 %4, 10
-  br i1 %5, label %digits10.exit, label %.lr.ph.i
+  br i1 %5, label %digits10.exit, label %6
 
-.lr.ph.i:                                         ; preds = %3, %tailrecurse.i
-  %.tr19.i = phi i64 [ %31, %tailrecurse.i ], [ %4, %3 ]
-  %accumulator.tr18.i = phi i32 [ %32, %tailrecurse.i ], [ 0, %3 ]
-  %6 = icmp ult i64 %.tr19.i, 100
-  br i1 %6, label %digits10.exit, label %7
+6:                                                ; preds = %3
+  %7 = icmp ult i64 %4, 100
+  br i1 %7, label %digits10.exit, label %8
 
-7:                                                ; preds = %.lr.ph.i
-  %8 = icmp ult i64 %.tr19.i, 1000
-  br i1 %8, label %digits10.exit, label %9
+8:                                                ; preds = %6
+  %9 = icmp ult i64 %4, 1000
+  br i1 %9, label %digits10.exit, label %10
 
-9:                                                ; preds = %7
-  %10 = icmp ult i64 %.tr19.i, 1000000000000
-  br i1 %10, label %11, label %tailrecurse.i
+10:                                               ; preds = %8
+  %11 = icmp ult i64 %4, 1000000000000
+  br i1 %11, label %12, label %32
 
-11:                                               ; preds = %9
-  %12 = icmp samesign ult i64 %.tr19.i, 100000000
-  br i1 %12, label %13, label %23
+12:                                               ; preds = %10
+  %13 = icmp samesign ult i64 %4, 100000000
+  br i1 %13, label %14, label %24
 
-13:                                               ; preds = %11
-  %14 = icmp samesign ult i64 %.tr19.i, 1000000
-  br i1 %14, label %15, label %20
+14:                                               ; preds = %12
+  %15 = icmp samesign ult i64 %4, 1000000
+  br i1 %15, label %16, label %21
 
-15:                                               ; preds = %13
-  %16 = icmp samesign ult i64 %.tr19.i, 10000
-  br i1 %16, label %digits10.exit, label %17
+16:                                               ; preds = %14
+  %17 = icmp samesign ult i64 %4, 10000
+  br i1 %17, label %digits10.exit, label %18
 
-17:                                               ; preds = %15
-  %18 = icmp samesign ugt i64 %.tr19.i, 99999
-  %19 = select i1 %18, i32 6, i32 5
+18:                                               ; preds = %16
+  %19 = icmp samesign ugt i64 %4, 99999
+  %20 = select i1 %19, i32 6, i32 5
   br label %digits10.exit
 
-20:                                               ; preds = %13
-  %21 = icmp samesign ugt i64 %.tr19.i, 9999999
-  %22 = select i1 %21, i32 8, i32 7
+21:                                               ; preds = %14
+  %22 = icmp samesign ugt i64 %4, 9999999
+  %23 = select i1 %22, i32 8, i32 7
   br label %digits10.exit
 
-23:                                               ; preds = %11
-  %24 = icmp samesign ult i64 %.tr19.i, 10000000000
-  br i1 %24, label %25, label %28
+24:                                               ; preds = %12
+  %25 = icmp samesign ult i64 %4, 10000000000
+  br i1 %25, label %26, label %29
 
-25:                                               ; preds = %23
-  %26 = icmp samesign ugt i64 %.tr19.i, 999999999
-  %27 = select i1 %26, i32 10, i32 9
+26:                                               ; preds = %24
+  %27 = icmp samesign ugt i64 %4, 999999999
+  %28 = select i1 %27, i32 10, i32 9
   br label %digits10.exit
 
-28:                                               ; preds = %23
-  %29 = icmp samesign ugt i64 %.tr19.i, 99999999999
-  %30 = select i1 %29, i32 12, i32 11
+29:                                               ; preds = %24
+  %30 = icmp samesign ugt i64 %4, 99999999999
+  %31 = select i1 %30, i32 12, i32 11
   br label %digits10.exit
 
-tailrecurse.i:                                    ; preds = %9
-  %31 = udiv i64 %.tr19.i, 1000000000000
-  %32 = add i32 %accumulator.tr18.i, 12
-  %33 = icmp ult i64 %.tr19.i, 10000000000000
-  br i1 %33, label %digits10.exit, label %.lr.ph.i
+32:                                               ; preds = %10
+  %33 = icmp ult i64 %4, 10000000000000
+  br i1 %33, label %digits10.exit, label %34
 
-digits10.exit:                                    ; preds = %.lr.ph.i, %7, %tailrecurse.i, %3, %15, %17, %20, %25, %28
-  %accumulator.tr17.i = phi i32 [ %accumulator.tr18.i, %17 ], [ %accumulator.tr18.i, %20 ], [ %accumulator.tr18.i, %25 ], [ %accumulator.tr18.i, %28 ], [ %accumulator.tr18.i, %15 ], [ 0, %3 ], [ %accumulator.tr18.i, %7 ], [ %accumulator.tr18.i, %.lr.ph.i ], [ %32, %tailrecurse.i ]
-  %.0.i = phi i32 [ %19, %17 ], [ %22, %20 ], [ %27, %25 ], [ %30, %28 ], [ 4, %15 ], [ 1, %3 ], [ 3, %7 ], [ 2, %.lr.ph.i ], [ 1, %tailrecurse.i ]
-  %accumulator.ret.tr.i = add i32 %accumulator.tr17.i, 1
-  %34 = add i32 %accumulator.ret.tr.i, %.0.i
-  br label %65
+34:                                               ; preds = %32
+  %35 = icmp ult i64 %4, 100000000000000
+  br i1 %35, label %digits10.exit, label %36
 
-35:                                               ; preds = %1
-  %36 = icmp samesign ult i64 %0, 10
-  br i1 %36, label %digits10.exit14, label %.lr.ph.i7
+36:                                               ; preds = %34
+  %37 = icmp ult i64 %4, 1000000000000000
+  br i1 %37, label %digits10.exit, label %38
 
-.lr.ph.i7:                                        ; preds = %35, %tailrecurse.i10
-  %.tr19.i8 = phi i64 [ %62, %tailrecurse.i10 ], [ %0, %35 ]
-  %accumulator.tr18.i9 = phi i32 [ %63, %tailrecurse.i10 ], [ 0, %35 ]
-  %37 = icmp ult i64 %.tr19.i8, 100
-  br i1 %37, label %digits10.exit14, label %38
-
-38:                                               ; preds = %.lr.ph.i7
-  %39 = icmp ult i64 %.tr19.i8, 1000
-  br i1 %39, label %digits10.exit14, label %40
+38:                                               ; preds = %36
+  %39 = icmp ult i64 %4, 1000000000000000000
+  br i1 %39, label %40, label %digits10.exit
 
 40:                                               ; preds = %38
-  %41 = icmp ult i64 %.tr19.i8, 1000000000000
-  br i1 %41, label %42, label %tailrecurse.i10
+  %41 = icmp samesign ult i64 %4, 10000000000000000
+  br i1 %41, label %digits10.exit, label %42
 
 42:                                               ; preds = %40
-  %43 = icmp samesign ult i64 %.tr19.i8, 100000000
-  br i1 %43, label %44, label %54
+  %43 = icmp samesign ugt i64 %4, 99999999999999999
+  %44 = select i1 %43, i32 18, i32 17
+  br label %digits10.exit
 
-44:                                               ; preds = %42
-  %45 = icmp samesign ult i64 %.tr19.i8, 1000000
-  br i1 %45, label %46, label %51
+digits10.exit:                                    ; preds = %32, %34, %36, %40, %42, %38, %3, %6, %8, %16, %18, %21, %26, %29
+  %.0.i = phi i32 [ %20, %18 ], [ %23, %21 ], [ %28, %26 ], [ %31, %29 ], [ 1, %3 ], [ 2, %6 ], [ 3, %8 ], [ 4, %16 ], [ %44, %42 ], [ 13, %32 ], [ 14, %34 ], [ 15, %36 ], [ 16, %40 ], [ 19, %38 ]
+  %45 = add nuw nsw i32 %.0.i, 1
+  br label %digits10.exit10
 
-46:                                               ; preds = %44
-  %47 = icmp samesign ult i64 %.tr19.i8, 10000
-  br i1 %47, label %digits10.exit14, label %48
+46:                                               ; preds = %1
+  %47 = icmp samesign ult i64 %0, 10
+  br i1 %47, label %digits10.exit10, label %48
 
 48:                                               ; preds = %46
-  %49 = icmp samesign ugt i64 %.tr19.i8, 99999
-  %50 = select i1 %49, i32 6, i32 5
-  br label %digits10.exit14
+  %49 = icmp samesign ult i64 %0, 100
+  br i1 %49, label %digits10.exit10, label %50
 
-51:                                               ; preds = %44
-  %52 = icmp samesign ugt i64 %.tr19.i8, 9999999
-  %53 = select i1 %52, i32 8, i32 7
-  br label %digits10.exit14
+50:                                               ; preds = %48
+  %51 = icmp samesign ult i64 %0, 1000
+  br i1 %51, label %digits10.exit10, label %52
 
-54:                                               ; preds = %42
-  %55 = icmp samesign ult i64 %.tr19.i8, 10000000000
-  br i1 %55, label %56, label %59
+52:                                               ; preds = %50
+  %53 = icmp samesign ult i64 %0, 1000000000000
+  br i1 %53, label %54, label %74
+
+54:                                               ; preds = %52
+  %55 = icmp samesign ult i64 %0, 100000000
+  br i1 %55, label %56, label %66
 
 56:                                               ; preds = %54
-  %57 = icmp samesign ugt i64 %.tr19.i8, 999999999
-  %58 = select i1 %57, i32 10, i32 9
-  br label %digits10.exit14
+  %57 = icmp samesign ult i64 %0, 1000000
+  br i1 %57, label %58, label %63
 
-59:                                               ; preds = %54
-  %60 = icmp samesign ugt i64 %.tr19.i8, 99999999999
-  %61 = select i1 %60, i32 12, i32 11
-  br label %digits10.exit14
+58:                                               ; preds = %56
+  %59 = icmp samesign ult i64 %0, 10000
+  br i1 %59, label %digits10.exit10, label %60
 
-tailrecurse.i10:                                  ; preds = %40
-  %62 = udiv i64 %.tr19.i8, 1000000000000
-  %63 = add i32 %accumulator.tr18.i9, 12
-  %64 = icmp ult i64 %.tr19.i8, 10000000000000
-  br i1 %64, label %digits10.exit14, label %.lr.ph.i7
+60:                                               ; preds = %58
+  %61 = icmp samesign ugt i64 %0, 99999
+  %62 = select i1 %61, i32 6, i32 5
+  br label %digits10.exit10
 
-digits10.exit14:                                  ; preds = %.lr.ph.i7, %38, %tailrecurse.i10, %35, %46, %48, %51, %56, %59
-  %accumulator.tr17.i11 = phi i32 [ %accumulator.tr18.i9, %48 ], [ %accumulator.tr18.i9, %51 ], [ %accumulator.tr18.i9, %56 ], [ %accumulator.tr18.i9, %59 ], [ %accumulator.tr18.i9, %46 ], [ 0, %35 ], [ %accumulator.tr18.i9, %38 ], [ %accumulator.tr18.i9, %.lr.ph.i7 ], [ %63, %tailrecurse.i10 ]
-  %.0.i12 = phi i32 [ %50, %48 ], [ %53, %51 ], [ %58, %56 ], [ %61, %59 ], [ 4, %46 ], [ 1, %35 ], [ 3, %38 ], [ 2, %.lr.ph.i7 ], [ 1, %tailrecurse.i10 ]
-  %accumulator.ret.tr.i13 = add i32 %.0.i12, %accumulator.tr17.i11
-  br label %65
+63:                                               ; preds = %56
+  %64 = icmp samesign ugt i64 %0, 9999999
+  %65 = select i1 %64, i32 8, i32 7
+  br label %digits10.exit10
 
-65:                                               ; preds = %digits10.exit14, %digits10.exit
-  %.0 = phi i32 [ %34, %digits10.exit ], [ %accumulator.ret.tr.i13, %digits10.exit14 ]
+66:                                               ; preds = %54
+  %67 = icmp samesign ult i64 %0, 10000000000
+  br i1 %67, label %68, label %71
+
+68:                                               ; preds = %66
+  %69 = icmp samesign ugt i64 %0, 999999999
+  %70 = select i1 %69, i32 10, i32 9
+  br label %digits10.exit10
+
+71:                                               ; preds = %66
+  %72 = icmp samesign ugt i64 %0, 99999999999
+  %73 = select i1 %72, i32 12, i32 11
+  br label %digits10.exit10
+
+74:                                               ; preds = %52
+  %75 = icmp samesign ult i64 %0, 10000000000000
+  br i1 %75, label %digits10.exit10, label %76
+
+76:                                               ; preds = %74
+  %77 = icmp samesign ult i64 %0, 100000000000000
+  br i1 %77, label %digits10.exit10, label %78
+
+78:                                               ; preds = %76
+  %79 = icmp samesign ult i64 %0, 1000000000000000
+  br i1 %79, label %digits10.exit10, label %80
+
+80:                                               ; preds = %78
+  %81 = icmp samesign ult i64 %0, 1000000000000000000
+  br i1 %81, label %82, label %digits10.exit10
+
+82:                                               ; preds = %80
+  %83 = icmp samesign ult i64 %0, 10000000000000000
+  br i1 %83, label %digits10.exit10, label %84
+
+84:                                               ; preds = %82
+  %85 = icmp samesign ugt i64 %0, 99999999999999999
+  %86 = select i1 %85, i32 18, i32 17
+  br label %digits10.exit10
+
+digits10.exit10:                                  ; preds = %74, %76, %78, %82, %84, %80, %71, %68, %63, %60, %58, %50, %48, %46, %digits10.exit
+  %.0 = phi i32 [ %45, %digits10.exit ], [ %62, %60 ], [ %65, %63 ], [ %70, %68 ], [ %73, %71 ], [ 1, %46 ], [ 2, %48 ], [ 3, %50 ], [ 4, %58 ], [ %86, %84 ], [ 13, %74 ], [ 14, %76 ], [ 15, %78 ], [ 16, %82 ], [ 19, %80 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define dso_local i32 @ll2string(ptr noundef writeonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #14 {
+define dso_local range(i32 0, 22) i32 @ll2string(ptr noundef writeonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #14 {
   %4 = icmp slt i64 %2, 0
   br i1 %4, label %5, label %11
 
@@ -993,7 +1044,7 @@ define dso_local i32 @ll2string(ptr noundef writeonly captures(none) %0, i64 nou
   br i1 %13, label %19, label %14
 
 14:                                               ; preds = %11
-  %15 = add nsw i32 %12, %.016
+  %15 = add nuw nsw i32 %12, %.016
   br label %19
 
 16:                                               ; preds = %5
@@ -1010,149 +1061,174 @@ define dso_local i32 @ll2string(ptr noundef writeonly captures(none) %0, i64 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define dso_local i32 @ull2string(ptr noundef writeonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #14 {
+define dso_local range(i32 0, 21) i32 @ull2string(ptr noundef writeonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #14 {
   %4 = icmp ult i64 %2, 10
-  br i1 %4, label %digits10.exit, label %.lr.ph.i
+  br i1 %4, label %digits10.exit, label %5
 
-.lr.ph.i:                                         ; preds = %3, %tailrecurse.i
-  %.tr19.i = phi i64 [ %30, %tailrecurse.i ], [ %2, %3 ]
-  %accumulator.tr18.i = phi i32 [ %31, %tailrecurse.i ], [ 0, %3 ]
-  %5 = icmp ult i64 %.tr19.i, 100
-  br i1 %5, label %digits10.exit, label %6
+5:                                                ; preds = %3
+  %6 = icmp ult i64 %2, 100
+  br i1 %6, label %digits10.exit, label %7
 
-6:                                                ; preds = %.lr.ph.i
-  %7 = icmp ult i64 %.tr19.i, 1000
-  br i1 %7, label %digits10.exit, label %8
+7:                                                ; preds = %5
+  %8 = icmp ult i64 %2, 1000
+  br i1 %8, label %digits10.exit, label %9
 
-8:                                                ; preds = %6
-  %9 = icmp ult i64 %.tr19.i, 1000000000000
-  br i1 %9, label %10, label %tailrecurse.i
+9:                                                ; preds = %7
+  %10 = icmp ult i64 %2, 1000000000000
+  br i1 %10, label %11, label %31
 
-10:                                               ; preds = %8
-  %11 = icmp samesign ult i64 %.tr19.i, 100000000
-  br i1 %11, label %12, label %22
+11:                                               ; preds = %9
+  %12 = icmp samesign ult i64 %2, 100000000
+  br i1 %12, label %13, label %23
 
-12:                                               ; preds = %10
-  %13 = icmp samesign ult i64 %.tr19.i, 1000000
-  br i1 %13, label %14, label %19
+13:                                               ; preds = %11
+  %14 = icmp samesign ult i64 %2, 1000000
+  br i1 %14, label %15, label %20
 
-14:                                               ; preds = %12
-  %15 = icmp samesign ult i64 %.tr19.i, 10000
-  br i1 %15, label %digits10.exit, label %16
+15:                                               ; preds = %13
+  %16 = icmp samesign ult i64 %2, 10000
+  br i1 %16, label %digits10.exit, label %17
 
-16:                                               ; preds = %14
-  %17 = icmp samesign ugt i64 %.tr19.i, 99999
-  %18 = select i1 %17, i32 6, i32 5
+17:                                               ; preds = %15
+  %18 = icmp samesign ugt i64 %2, 99999
+  %19 = select i1 %18, i32 6, i32 5
   br label %digits10.exit
 
-19:                                               ; preds = %12
-  %20 = icmp samesign ugt i64 %.tr19.i, 9999999
-  %21 = select i1 %20, i32 8, i32 7
+20:                                               ; preds = %13
+  %21 = icmp samesign ugt i64 %2, 9999999
+  %22 = select i1 %21, i32 8, i32 7
   br label %digits10.exit
 
-22:                                               ; preds = %10
-  %23 = icmp samesign ult i64 %.tr19.i, 10000000000
-  br i1 %23, label %24, label %27
+23:                                               ; preds = %11
+  %24 = icmp samesign ult i64 %2, 10000000000
+  br i1 %24, label %25, label %28
 
-24:                                               ; preds = %22
-  %25 = icmp samesign ugt i64 %.tr19.i, 999999999
-  %26 = select i1 %25, i32 10, i32 9
+25:                                               ; preds = %23
+  %26 = icmp samesign ugt i64 %2, 999999999
+  %27 = select i1 %26, i32 10, i32 9
   br label %digits10.exit
 
-27:                                               ; preds = %22
-  %28 = icmp samesign ugt i64 %.tr19.i, 99999999999
-  %29 = select i1 %28, i32 12, i32 11
+28:                                               ; preds = %23
+  %29 = icmp samesign ugt i64 %2, 99999999999
+  %30 = select i1 %29, i32 12, i32 11
   br label %digits10.exit
 
-tailrecurse.i:                                    ; preds = %8
-  %30 = udiv i64 %.tr19.i, 1000000000000
-  %31 = add i32 %accumulator.tr18.i, 12
-  %32 = icmp ult i64 %.tr19.i, 10000000000000
-  br i1 %32, label %digits10.exit, label %.lr.ph.i
+31:                                               ; preds = %9
+  %32 = icmp ult i64 %2, 10000000000000
+  br i1 %32, label %digits10.exit.i, label %33
 
-digits10.exit:                                    ; preds = %.lr.ph.i, %6, %tailrecurse.i, %3, %14, %16, %19, %24, %27
-  %accumulator.tr17.i = phi i32 [ %accumulator.tr18.i, %16 ], [ %accumulator.tr18.i, %19 ], [ %accumulator.tr18.i, %24 ], [ %accumulator.tr18.i, %27 ], [ %accumulator.tr18.i, %14 ], [ 0, %3 ], [ %accumulator.tr18.i, %6 ], [ %accumulator.tr18.i, %.lr.ph.i ], [ %31, %tailrecurse.i ]
-  %.0.i = phi i32 [ %18, %16 ], [ %21, %19 ], [ %26, %24 ], [ %29, %27 ], [ 4, %14 ], [ 1, %3 ], [ 3, %6 ], [ 2, %.lr.ph.i ], [ 1, %tailrecurse.i ]
-  %accumulator.ret.tr.i = add i32 %.0.i, %accumulator.tr17.i
-  %33 = zext i32 %accumulator.ret.tr.i to i64
-  %.not = icmp ugt i64 %1, %33
-  br i1 %.not, label %34, label %76
+33:                                               ; preds = %31
+  %34 = icmp ult i64 %2, 100000000000000
+  br i1 %34, label %digits10.exit.i, label %35
 
-34:                                               ; preds = %digits10.exit
-  %35 = add i32 %accumulator.ret.tr.i, -1
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %33
-  store i8 0, ptr %36, align 1, !tbaa !9
-  %37 = icmp ugt i64 %2, 99
-  br i1 %37, label %.lr.ph, label %._crit_edge
+35:                                               ; preds = %33
+  %36 = icmp ult i64 %2, 1000000000000000
+  br i1 %36, label %digits10.exit.i, label %37
 
-.lr.ph:                                           ; preds = %34, %.lr.ph
-  %.03038 = phi i64 [ %40, %.lr.ph ], [ %2, %34 ]
-  %.03137 = phi i32 [ %53, %.lr.ph ], [ %35, %34 ]
-  %38 = urem i64 %.03038, 100
-  %.tr = trunc nuw nsw i64 %38 to i32
-  %39 = shl nuw nsw i32 %.tr, 1
-  %40 = udiv i64 %.03038, 100
-  %41 = or disjoint i32 %39, 1
-  %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw [201 x i8], ptr @fixedpoint_d2string.digitsd, i64 0, i64 %42
-  %44 = load i8, ptr %43, align 1, !tbaa !9
-  %45 = zext i32 %.03137 to i64
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 %45
-  store i8 %44, ptr %46, align 1, !tbaa !9
-  %47 = zext nneg i32 %39 to i64
-  %48 = getelementptr inbounds nuw [201 x i8], ptr @fixedpoint_d2string.digitsd, i64 0, i64 %47
-  %49 = load i8, ptr %48, align 2, !tbaa !9
-  %50 = add i32 %.03137, -1
-  %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 %51
-  store i8 %49, ptr %52, align 1, !tbaa !9
-  %53 = add i32 %.03137, -2
-  %54 = icmp ugt i64 %.03038, 9999
-  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !33
+37:                                               ; preds = %35
+  %38 = icmp ult i64 %2, 1000000000000000000
+  br i1 %38, label %39, label %44
 
-._crit_edge:                                      ; preds = %.lr.ph, %34
-  %.031.lcssa = phi i32 [ %35, %34 ], [ %53, %.lr.ph ]
-  %.030.lcssa = phi i64 [ %2, %34 ], [ %40, %.lr.ph ]
-  %55 = icmp samesign ult i64 %.030.lcssa, 10
-  br i1 %55, label %56, label %61
+39:                                               ; preds = %37
+  %40 = icmp samesign ult i64 %2, 10000000000000000
+  br i1 %40, label %digits10.exit.i, label %41
 
-56:                                               ; preds = %._crit_edge
-  %57 = trunc nuw nsw i64 %.030.lcssa to i8
-  %58 = or disjoint i8 %57, 48
-  %59 = zext i32 %.031.lcssa to i64
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 %59
-  store i8 %58, ptr %60, align 1, !tbaa !9
-  br label %78
+41:                                               ; preds = %39
+  %42 = icmp samesign ugt i64 %2, 99999999999999999
+  %43 = select i1 %42, i32 6, i32 5
+  br label %digits10.exit.i
 
-61:                                               ; preds = %._crit_edge
-  %62 = trunc nuw nsw i64 %.030.lcssa to i32
-  %63 = shl nuw nsw i32 %62, 1
-  %64 = or disjoint i32 %63, 1
-  %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw [201 x i8], ptr @fixedpoint_d2string.digitsd, i64 0, i64 %65
-  %67 = load i8, ptr %66, align 1, !tbaa !9
-  %68 = zext i32 %.031.lcssa to i64
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 %68
-  store i8 %67, ptr %69, align 1, !tbaa !9
-  %70 = zext nneg i32 %63 to i64
-  %71 = getelementptr inbounds nuw [201 x i8], ptr @fixedpoint_d2string.digitsd, i64 0, i64 %70
-  %72 = load i8, ptr %71, align 2, !tbaa !9
-  %73 = add i32 %.031.lcssa, -1
-  %74 = zext i32 %73 to i64
+44:                                               ; preds = %37
+  %45 = icmp ugt i64 %2, -8446744073709551617
+  %46 = select i1 %45, i32 8, i32 7
+  br label %digits10.exit.i
+
+digits10.exit.i:                                  ; preds = %44, %41, %39, %35, %33, %31
+  %.0.i.i = phi i32 [ %43, %41 ], [ %46, %44 ], [ 1, %31 ], [ 2, %33 ], [ 3, %35 ], [ 4, %39 ]
+  %47 = add nuw nsw i32 %.0.i.i, 12
+  br label %digits10.exit
+
+digits10.exit:                                    ; preds = %3, %5, %7, %15, %17, %20, %25, %28, %digits10.exit.i
+  %.0.i = phi i32 [ %19, %17 ], [ %22, %20 ], [ %27, %25 ], [ %30, %28 ], [ %47, %digits10.exit.i ], [ 1, %3 ], [ 2, %5 ], [ 3, %7 ], [ 4, %15 ]
+  %48 = zext nneg i32 %.0.i to i64
+  %.not = icmp ugt i64 %1, %48
+  br i1 %.not, label %49, label %91
+
+49:                                               ; preds = %digits10.exit
+  %50 = add nsw i32 %.0.i, -1
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 %48
+  store i8 0, ptr %51, align 1, !tbaa !9
+  %52 = icmp ugt i64 %2, 99
+  br i1 %52, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %49, %.lr.ph
+  %.03036 = phi i64 [ %55, %.lr.ph ], [ %2, %49 ]
+  %.03135 = phi i32 [ %68, %.lr.ph ], [ %50, %49 ]
+  %53 = urem i64 %.03036, 100
+  %.tr = trunc nuw nsw i64 %53 to i32
+  %54 = shl nuw nsw i32 %.tr, 1
+  %55 = udiv i64 %.03036, 100
+  %56 = or disjoint i32 %54, 1
+  %57 = zext nneg i32 %56 to i64
+  %58 = getelementptr inbounds nuw [201 x i8], ptr @fixedpoint_d2string.digitsd, i64 0, i64 %57
+  %59 = load i8, ptr %58, align 1, !tbaa !9
+  %60 = zext i32 %.03135 to i64
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 %60
+  store i8 %59, ptr %61, align 1, !tbaa !9
+  %62 = zext nneg i32 %54 to i64
+  %63 = getelementptr inbounds nuw [201 x i8], ptr @fixedpoint_d2string.digitsd, i64 0, i64 %62
+  %64 = load i8, ptr %63, align 2, !tbaa !9
+  %65 = add i32 %.03135, -1
+  %66 = zext i32 %65 to i64
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 %66
+  store i8 %64, ptr %67, align 1, !tbaa !9
+  %68 = add i32 %.03135, -2
+  %69 = icmp ugt i64 %.03036, 9999
+  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !33
+
+._crit_edge:                                      ; preds = %.lr.ph, %49
+  %.031.lcssa = phi i32 [ %50, %49 ], [ %68, %.lr.ph ]
+  %.030.lcssa = phi i64 [ %2, %49 ], [ %55, %.lr.ph ]
+  %70 = icmp samesign ult i64 %.030.lcssa, 10
+  br i1 %70, label %71, label %76
+
+71:                                               ; preds = %._crit_edge
+  %72 = trunc nuw nsw i64 %.030.lcssa to i8
+  %73 = or disjoint i8 %72, 48
+  %74 = zext i32 %.031.lcssa to i64
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 %74
-  store i8 %72, ptr %75, align 1, !tbaa !9
-  br label %78
+  store i8 %73, ptr %75, align 1, !tbaa !9
+  br label %93
 
-76:                                               ; preds = %digits10.exit
+76:                                               ; preds = %._crit_edge
+  %77 = trunc nuw nsw i64 %.030.lcssa to i32
+  %78 = shl nuw nsw i32 %77, 1
+  %79 = or disjoint i32 %78, 1
+  %80 = zext nneg i32 %79 to i64
+  %81 = getelementptr inbounds nuw [201 x i8], ptr @fixedpoint_d2string.digitsd, i64 0, i64 %80
+  %82 = load i8, ptr %81, align 1, !tbaa !9
+  %83 = zext i32 %.031.lcssa to i64
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 %83
+  store i8 %82, ptr %84, align 1, !tbaa !9
+  %85 = zext nneg i32 %78 to i64
+  %86 = getelementptr inbounds nuw [201 x i8], ptr @fixedpoint_d2string.digitsd, i64 0, i64 %85
+  %87 = load i8, ptr %86, align 2, !tbaa !9
+  %88 = add i32 %.031.lcssa, -1
+  %89 = zext i32 %88 to i64
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 %89
+  store i8 %87, ptr %90, align 1, !tbaa !9
+  br label %93
+
+91:                                               ; preds = %digits10.exit
   %.not34 = icmp eq i64 %1, 0
-  br i1 %.not34, label %78, label %77
+  br i1 %.not34, label %93, label %92
 
-77:                                               ; preds = %76
+92:                                               ; preds = %91
   store i8 0, ptr %0, align 1, !tbaa !9
-  br label %78
+  br label %93
 
-78:                                               ; preds = %76, %77, %56, %61
-  %.0 = phi i32 [ %accumulator.ret.tr.i, %61 ], [ %accumulator.ret.tr.i, %56 ], [ 0, %77 ], [ 0, %76 ]
+93:                                               ; preds = %91, %92, %71, %76
+  %.0 = phi i32 [ %.0.i, %76 ], [ %.0.i, %71 ], [ 0, %92 ], [ 0, %91 ]
   ret i32 %.0
 }
 
@@ -1806,7 +1882,7 @@ double2ll.exit:                                   ; preds = %26
   br i1 %39, label %ll2string.exit, label %40
 
 40:                                               ; preds = %37
-  %41 = add nsw i32 %38, %.016.i
+  %41 = add nuw nsw i32 %38, %.016.i
   br label %ll2string.exit
 
 42:                                               ; preds = %31
@@ -1835,14 +1911,14 @@ declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 
 declare i32 @fpconv_dtoa(double noundef, ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, -2147483648) i32 @fixedpoint_d2string(ptr noundef writeonly captures(none) %0, i64 noundef %1, double noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define dso_local range(i32 0, 38) i32 @fixedpoint_d2string(ptr noundef writeonly captures(none) %0, i64 noundef %1, double noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = add i32 %3, -18
   %or.cond = icmp ult i32 %5, -17
   %6 = trunc i64 %1 to i32
   %7 = add nuw nsw i32 %3, 3
   %8 = icmp sgt i32 %7, %6
   %or.cond90 = select i1 %or.cond, i1 true, i1 %8
-  br i1 %or.cond90, label %114, label %9
+  br i1 %or.cond90, label %125, label %9
 
 9:                                                ; preds = %4
   %10 = fcmp oeq double %2, 0.000000e+00
@@ -1859,7 +1935,7 @@ define dso_local range(i32 0, -2147483648) i32 @fixedpoint_d2string(ptr noundef 
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 %16
   store i8 0, ptr %17, align 1, !tbaa !9
-  br label %116
+  br label %127
 
 18:                                               ; preds = %9
   %19 = zext nneg i32 %3 to i64
@@ -1872,7 +1948,7 @@ define dso_local range(i32 0, -2147483648) i32 @fixedpoint_d2string(ptr noundef 
 
 25:                                               ; preds = %18
   %26 = icmp ult i64 %1, 2
-  br i1 %26, label %114, label %27
+  br i1 %26, label %125, label %27
 
 27:                                               ; preds = %25
   %28 = sub i64 0, %23
@@ -1887,170 +1963,185 @@ define dso_local range(i32 0, -2147483648) i32 @fixedpoint_d2string(ptr noundef 
   %.172 = phi i64 [ %30, %27 ], [ %1, %18 ]
   %.1 = phi ptr [ %29, %27 ], [ %0, %18 ]
   %32 = icmp ult i64 %.175, 10
-  br i1 %32, label %digits10.exit, label %.lr.ph.i
+  br i1 %32, label %digits10.exit, label %33
 
-.lr.ph.i:                                         ; preds = %31, %tailrecurse.i
-  %.tr19.i = phi i64 [ %58, %tailrecurse.i ], [ %.175, %31 ]
-  %accumulator.tr18.i = phi i32 [ %59, %tailrecurse.i ], [ 0, %31 ]
-  %33 = icmp ult i64 %.tr19.i, 100
-  br i1 %33, label %digits10.exit, label %34
+33:                                               ; preds = %31
+  %34 = icmp ult i64 %.175, 100
+  br i1 %34, label %digits10.exit, label %35
 
-34:                                               ; preds = %.lr.ph.i
-  %35 = icmp ult i64 %.tr19.i, 1000
-  br i1 %35, label %digits10.exit, label %36
+35:                                               ; preds = %33
+  %36 = icmp ult i64 %.175, 1000
+  br i1 %36, label %digits10.exit, label %37
 
-36:                                               ; preds = %34
-  %37 = icmp ult i64 %.tr19.i, 1000000000000
-  br i1 %37, label %38, label %tailrecurse.i
+37:                                               ; preds = %35
+  %38 = icmp ult i64 %.175, 1000000000000
+  br i1 %38, label %39, label %59
 
-38:                                               ; preds = %36
-  %39 = icmp samesign ult i64 %.tr19.i, 100000000
-  br i1 %39, label %40, label %50
+39:                                               ; preds = %37
+  %40 = icmp samesign ult i64 %.175, 100000000
+  br i1 %40, label %41, label %51
 
-40:                                               ; preds = %38
-  %41 = icmp samesign ult i64 %.tr19.i, 1000000
-  br i1 %41, label %42, label %47
+41:                                               ; preds = %39
+  %42 = icmp samesign ult i64 %.175, 1000000
+  br i1 %42, label %43, label %48
 
-42:                                               ; preds = %40
-  %43 = icmp samesign ult i64 %.tr19.i, 10000
-  br i1 %43, label %digits10.exit, label %44
+43:                                               ; preds = %41
+  %44 = icmp samesign ult i64 %.175, 10000
+  br i1 %44, label %digits10.exit, label %45
 
-44:                                               ; preds = %42
-  %45 = icmp samesign ugt i64 %.tr19.i, 99999
-  %46 = select i1 %45, i32 6, i32 5
+45:                                               ; preds = %43
+  %46 = icmp samesign ugt i64 %.175, 99999
+  %47 = select i1 %46, i32 6, i32 5
   br label %digits10.exit
 
-47:                                               ; preds = %40
-  %48 = icmp samesign ugt i64 %.tr19.i, 9999999
-  %49 = select i1 %48, i32 8, i32 7
+48:                                               ; preds = %41
+  %49 = icmp samesign ugt i64 %.175, 9999999
+  %50 = select i1 %49, i32 8, i32 7
   br label %digits10.exit
 
-50:                                               ; preds = %38
-  %51 = icmp samesign ult i64 %.tr19.i, 10000000000
-  br i1 %51, label %52, label %55
+51:                                               ; preds = %39
+  %52 = icmp samesign ult i64 %.175, 10000000000
+  br i1 %52, label %53, label %56
 
-52:                                               ; preds = %50
-  %53 = icmp samesign ugt i64 %.tr19.i, 999999999
-  %54 = select i1 %53, i32 10, i32 9
+53:                                               ; preds = %51
+  %54 = icmp samesign ugt i64 %.175, 999999999
+  %55 = select i1 %54, i32 10, i32 9
   br label %digits10.exit
 
-55:                                               ; preds = %50
-  %56 = icmp samesign ugt i64 %.tr19.i, 99999999999
-  %57 = select i1 %56, i32 12, i32 11
+56:                                               ; preds = %51
+  %57 = icmp samesign ugt i64 %.175, 99999999999
+  %58 = select i1 %57, i32 12, i32 11
   br label %digits10.exit
 
-tailrecurse.i:                                    ; preds = %36
-  %58 = udiv i64 %.tr19.i, 1000000000000
-  %59 = add i32 %accumulator.tr18.i, 12
-  %60 = icmp ult i64 %.tr19.i, 10000000000000
-  br i1 %60, label %digits10.exit, label %.lr.ph.i
+59:                                               ; preds = %37
+  %60 = icmp ult i64 %.175, 10000000000000
+  br i1 %60, label %digits10.exit, label %61
 
-digits10.exit:                                    ; preds = %.lr.ph.i, %34, %tailrecurse.i, %31, %42, %44, %47, %52, %55
-  %accumulator.tr17.i = phi i32 [ %accumulator.tr18.i, %44 ], [ %accumulator.tr18.i, %47 ], [ %accumulator.tr18.i, %52 ], [ %accumulator.tr18.i, %55 ], [ %accumulator.tr18.i, %42 ], [ 0, %31 ], [ %accumulator.tr18.i, %34 ], [ %accumulator.tr18.i, %.lr.ph.i ], [ %59, %tailrecurse.i ]
-  %.0.i = phi i32 [ %46, %44 ], [ %49, %47 ], [ %54, %52 ], [ %57, %55 ], [ 4, %42 ], [ 1, %31 ], [ 3, %34 ], [ 2, %.lr.ph.i ], [ 1, %tailrecurse.i ]
-  %accumulator.ret.tr.i = add i32 %.0.i, %accumulator.tr17.i
-  %61 = zext i32 %accumulator.ret.tr.i to i64
-  %.not86 = icmp ugt i64 %.172, %61
-  br i1 %.not86, label %62, label %114
+61:                                               ; preds = %59
+  %62 = icmp ult i64 %.175, 100000000000000
+  br i1 %62, label %digits10.exit, label %63
 
-62:                                               ; preds = %digits10.exit
-  %63 = sub i32 %accumulator.ret.tr.i, %3
-  %64 = icmp slt i32 %63, 1
-  br i1 %64, label %65, label %66
+63:                                               ; preds = %61
+  %64 = icmp ult i64 %.175, 1000000000000000
+  br i1 %64, label %digits10.exit, label %65
 
-65:                                               ; preds = %62
+65:                                               ; preds = %63
+  %66 = icmp ult i64 %.175, 1000000000000000000
+  br i1 %66, label %67, label %digits10.exit
+
+67:                                               ; preds = %65
+  %68 = icmp samesign ult i64 %.175, 10000000000000000
+  br i1 %68, label %digits10.exit, label %69
+
+69:                                               ; preds = %67
+  %70 = icmp samesign ugt i64 %.175, 99999999999999999
+  %71 = select i1 %70, i32 18, i32 17
+  br label %digits10.exit
+
+digits10.exit:                                    ; preds = %59, %61, %63, %67, %69, %65, %31, %33, %35, %43, %45, %48, %53, %56
+  %.0.i = phi i32 [ %47, %45 ], [ %50, %48 ], [ %55, %53 ], [ %58, %56 ], [ 1, %31 ], [ 2, %33 ], [ 3, %35 ], [ 4, %43 ], [ %71, %69 ], [ 13, %59 ], [ 14, %61 ], [ 15, %63 ], [ 16, %67 ], [ 19, %65 ]
+  %72 = zext nneg i32 %.0.i to i64
+  %.not86 = icmp ugt i64 %.172, %72
+  br i1 %.not86, label %73, label %125
+
+73:                                               ; preds = %digits10.exit
+  %74 = sub nsw i32 %.0.i, %3
+  %75 = icmp slt i32 %74, 1
+  br i1 %75, label %76, label %77
+
+76:                                               ; preds = %73
   store i8 48, ptr %.1, align 1, !tbaa !9
-  br label %66
+  br label %77
 
-66:                                               ; preds = %65, %62
-  %.073 = phi i32 [ 1, %65 ], [ %63, %62 ]
-  %67 = zext nneg i32 %.073 to i64
-  %68 = getelementptr inbounds nuw i8, ptr %.1, i64 %67
-  store i8 46, ptr %68, align 1, !tbaa !9
-  %69 = add nuw nsw i32 %3, 1
-  %70 = add nuw nsw i32 %69, %.073
-  %71 = getelementptr inbounds nuw i8, ptr %68, i64 1
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %71, i8 48, i64 %19, i1 false)
-  %72 = add nuw i32 %.073, %3
-  %73 = icmp ugt i64 %.175, 99
-  br i1 %73, label %.lr.ph, label %._crit_edge
+77:                                               ; preds = %76, %73
+  %.073 = phi i32 [ 1, %76 ], [ %74, %73 ]
+  %78 = zext nneg i32 %.073 to i64
+  %79 = getelementptr inbounds nuw i8, ptr %.1, i64 %78
+  store i8 46, ptr %79, align 1, !tbaa !9
+  %80 = add nuw nsw i32 %3, 1
+  %81 = add nuw nsw i32 %80, %.073
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 1
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %82, i8 48, i64 %19, i1 false)
+  %83 = add nuw nsw i32 %.073, %3
+  %84 = icmp ugt i64 %.175, 99
+  br i1 %84, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %66, %.lr.ph
-  %.06994 = phi i32 [ %spec.select, %.lr.ph ], [ %72, %66 ]
-  %.293 = phi i64 [ %76, %.lr.ph ], [ %.175, %66 ]
-  %74 = urem i64 %.293, 100
-  %.tr = trunc nuw nsw i64 %74 to i32
-  %75 = shl nuw nsw i32 %.tr, 1
-  %76 = udiv i64 %.293, 100
-  %77 = or disjoint i32 %75, 1
-  %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds nuw [201 x i8], ptr @fixedpoint_d2string.digitsd, i64 0, i64 %78
-  %80 = load i8, ptr %79, align 1, !tbaa !9
-  %81 = sext i32 %.06994 to i64
-  %82 = getelementptr inbounds i8, ptr %.1, i64 %81
-  store i8 %80, ptr %82, align 1, !tbaa !9
-  %83 = zext nneg i32 %75 to i64
-  %84 = getelementptr inbounds nuw [201 x i8], ptr @fixedpoint_d2string.digitsd, i64 0, i64 %83
-  %85 = load i8, ptr %84, align 2, !tbaa !9
-  %86 = getelementptr i8, ptr %82, i64 -1
-  store i8 %85, ptr %86, align 1, !tbaa !9
-  %87 = add nsw i32 %.06994, -2
-  %88 = icmp eq i32 %87, %.073
-  %89 = add nsw i32 %.06994, -3
-  %spec.select = select i1 %88, i32 %89, i32 %87
-  %90 = icmp ugt i64 %.293, 9999
-  br i1 %90, label %.lr.ph, label %._crit_edge, !llvm.loop !44
+.lr.ph:                                           ; preds = %77, %.lr.ph
+  %.06992 = phi i32 [ %spec.select, %.lr.ph ], [ %83, %77 ]
+  %.291 = phi i64 [ %87, %.lr.ph ], [ %.175, %77 ]
+  %85 = urem i64 %.291, 100
+  %.tr = trunc nuw nsw i64 %85 to i32
+  %86 = shl nuw nsw i32 %.tr, 1
+  %87 = udiv i64 %.291, 100
+  %88 = or disjoint i32 %86, 1
+  %89 = zext nneg i32 %88 to i64
+  %90 = getelementptr inbounds nuw [201 x i8], ptr @fixedpoint_d2string.digitsd, i64 0, i64 %89
+  %91 = load i8, ptr %90, align 1, !tbaa !9
+  %92 = sext i32 %.06992 to i64
+  %93 = getelementptr inbounds i8, ptr %.1, i64 %92
+  store i8 %91, ptr %93, align 1, !tbaa !9
+  %94 = zext nneg i32 %86 to i64
+  %95 = getelementptr inbounds nuw [201 x i8], ptr @fixedpoint_d2string.digitsd, i64 0, i64 %94
+  %96 = load i8, ptr %95, align 2, !tbaa !9
+  %97 = getelementptr i8, ptr %93, i64 -1
+  store i8 %96, ptr %97, align 1, !tbaa !9
+  %98 = add nsw i32 %.06992, -2
+  %99 = icmp eq i32 %98, %.073
+  %100 = add nsw i32 %.06992, -3
+  %spec.select = select i1 %99, i32 %100, i32 %98
+  %101 = icmp ugt i64 %.291, 9999
+  br i1 %101, label %.lr.ph, label %._crit_edge, !llvm.loop !44
 
-._crit_edge:                                      ; preds = %.lr.ph, %66
-  %.2.lcssa = phi i64 [ %.175, %66 ], [ %76, %.lr.ph ]
-  %.069.lcssa = phi i32 [ %72, %66 ], [ %spec.select, %.lr.ph ]
-  %91 = icmp samesign ult i64 %.2.lcssa, 10
-  br i1 %91, label %92, label %97
+._crit_edge:                                      ; preds = %.lr.ph, %77
+  %.2.lcssa = phi i64 [ %.175, %77 ], [ %87, %.lr.ph ]
+  %.069.lcssa = phi i32 [ %83, %77 ], [ %spec.select, %.lr.ph ]
+  %102 = icmp samesign ult i64 %.2.lcssa, 10
+  br i1 %102, label %103, label %108
 
-92:                                               ; preds = %._crit_edge
-  %93 = trunc nuw nsw i64 %.2.lcssa to i8
-  %94 = or disjoint i8 %93, 48
-  %95 = sext i32 %.069.lcssa to i64
-  %96 = getelementptr inbounds i8, ptr %.1, i64 %95
-  store i8 %94, ptr %96, align 1, !tbaa !9
-  br label %110
+103:                                              ; preds = %._crit_edge
+  %104 = trunc nuw nsw i64 %.2.lcssa to i8
+  %105 = or disjoint i8 %104, 48
+  %106 = sext i32 %.069.lcssa to i64
+  %107 = getelementptr inbounds i8, ptr %.1, i64 %106
+  store i8 %105, ptr %107, align 1, !tbaa !9
+  br label %121
 
-97:                                               ; preds = %._crit_edge
-  %98 = trunc nuw nsw i64 %.2.lcssa to i32
-  %99 = shl nuw nsw i32 %98, 1
-  %100 = or disjoint i32 %99, 1
-  %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr inbounds nuw [201 x i8], ptr @fixedpoint_d2string.digitsd, i64 0, i64 %101
-  %103 = load i8, ptr %102, align 1, !tbaa !9
-  %104 = sext i32 %.069.lcssa to i64
-  %105 = getelementptr inbounds i8, ptr %.1, i64 %104
-  store i8 %103, ptr %105, align 1, !tbaa !9
-  %106 = zext nneg i32 %99 to i64
-  %107 = getelementptr inbounds nuw [201 x i8], ptr @fixedpoint_d2string.digitsd, i64 0, i64 %106
-  %108 = load i8, ptr %107, align 2, !tbaa !9
-  %109 = getelementptr i8, ptr %105, i64 -1
-  store i8 %108, ptr %109, align 1, !tbaa !9
-  br label %110
+108:                                              ; preds = %._crit_edge
+  %109 = trunc nuw nsw i64 %.2.lcssa to i32
+  %110 = shl nuw nsw i32 %109, 1
+  %111 = or disjoint i32 %110, 1
+  %112 = zext nneg i32 %111 to i64
+  %113 = getelementptr inbounds nuw [201 x i8], ptr @fixedpoint_d2string.digitsd, i64 0, i64 %112
+  %114 = load i8, ptr %113, align 1, !tbaa !9
+  %115 = sext i32 %.069.lcssa to i64
+  %116 = getelementptr inbounds i8, ptr %.1, i64 %115
+  store i8 %114, ptr %116, align 1, !tbaa !9
+  %117 = zext nneg i32 %110 to i64
+  %118 = getelementptr inbounds nuw [201 x i8], ptr @fixedpoint_d2string.digitsd, i64 0, i64 %117
+  %119 = load i8, ptr %118, align 2, !tbaa !9
+  %120 = getelementptr i8, ptr %116, i64 -1
+  store i8 %119, ptr %120, align 1, !tbaa !9
+  br label %121
 
-110:                                              ; preds = %97, %92
-  %111 = zext nneg i32 %70 to i64
-  %112 = getelementptr inbounds nuw i8, ptr %.1, i64 %111
-  store i8 0, ptr %112, align 1, !tbaa !9
-  %113 = add nuw nsw i32 %70, %.076
-  br label %116
+121:                                              ; preds = %108, %103
+  %122 = zext nneg i32 %81 to i64
+  %123 = getelementptr inbounds nuw i8, ptr %.1, i64 %122
+  store i8 0, ptr %123, align 1, !tbaa !9
+  %124 = add nuw nsw i32 %81, %.076
+  br label %127
 
-114:                                              ; preds = %digits10.exit, %25, %4
+125:                                              ; preds = %digits10.exit, %25, %4
   %.071 = phi i64 [ %1, %4 ], [ %1, %25 ], [ %.172, %digits10.exit ]
   %.068 = phi ptr [ %0, %4 ], [ %0, %25 ], [ %.1, %digits10.exit ]
   %.not87 = icmp eq i64 %.071, 0
-  br i1 %.not87, label %116, label %115
+  br i1 %.not87, label %127, label %126
 
-115:                                              ; preds = %114
+126:                                              ; preds = %125
   store i8 0, ptr %.068, align 1, !tbaa !9
-  br label %116
+  br label %127
 
-116:                                              ; preds = %114, %115, %110, %11
-  %.0 = phi i32 [ %15, %11 ], [ %113, %110 ], [ 0, %115 ], [ 0, %114 ]
+127:                                              ; preds = %125, %126, %121, %11
+  %.0 = phi i32 [ %15, %11 ], [ %124, %121 ], [ 0, %126 ], [ 0, %125 ]
   ret i32 %.0
 }
 
@@ -3519,7 +3610,7 @@ attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

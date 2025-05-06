@@ -105,98 +105,175 @@ entry:
   ret double %div21
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define noundef double @_ZN8QuantLib19ExponentialIntegral2SiEd(double noundef %x) local_unnamed_addr #3 {
 entry:
   %cmp = fcmp olt double %x, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.else
 
-common.ret26:                                     ; preds = %if.else18, %if.then3, %if.then
-  %common.ret26.op = phi double [ %fneg1, %if.then ], [ %div, %if.then3 ], [ %55, %if.else18 ]
-  ret double %common.ret26.op
-
 if.then:                                          ; preds = %entry
   %fneg = fneg double %x
-  %call = tail call noundef double @_ZN8QuantLib19ExponentialIntegral2SiEd(double noundef %fneg)
-  %fneg1 = fneg double %call
-  br label %common.ret26
+  %cmp2.i = fcmp ult double %x, -4.000000e+00
+  %mul.i35 = fmul double %x, %x
+  br i1 %cmp2.i, label %if.else18.i, label %if.then3.i
+
+if.then3.i:                                       ; preds = %if.then
+  %neg.i = fneg double %mul.i35
+  %0 = tail call double @llvm.fmuladd.f64(double %neg.i, double 0x3CC5CF42710CA3FA, double 0x3D68EB42E75AA806)
+  %1 = tail call double @llvm.fmuladd.f64(double %mul.i35, double %0, double 0xBDF845984D0E374D)
+  %2 = tail call double @llvm.fmuladd.f64(double %mul.i35, double %1, double 0x3E79522D26307C0C)
+  %3 = tail call double @llvm.fmuladd.f64(double %mul.i35, double %2, double 0xBEED92E003182CD3)
+  %4 = tail call double @llvm.fmuladd.f64(double %mul.i35, double %3, double 0x3F52EAA0858F5C66)
+  %5 = tail call double @llvm.fmuladd.f64(double %mul.i35, double %4, double 0xBFA743D346EF9169)
+  %6 = tail call double @llvm.fmuladd.f64(double %mul.i35, double %5, double 1.000000e+00)
+  %mul11.i = fmul double %6, %fneg
+  %7 = tail call double @llvm.fmuladd.f64(double %mul.i35, double 0x3CB723612D0C63A0, double 0x3D5FB352EF2F0F1F)
+  %8 = tail call double @llvm.fmuladd.f64(double %mul.i35, double %7, double 0x3DF68B6CFDA26513)
+  %9 = tail call double @llvm.fmuladd.f64(double %mul.i35, double %8, double 0x3E84E443BD2B518E)
+  %10 = tail call double @llvm.fmuladd.f64(double %mul.i35, double %9, double 0x3F0A2BD0A39EBC96)
+  %11 = tail call double @llvm.fmuladd.f64(double %mul.i35, double %10, double 0x3F84B7CF5608D6CE)
+  %12 = tail call double @llvm.fmuladd.f64(double %mul.i35, double %11, double 1.000000e+00)
+  %div.i = fdiv double %mul11.i, %12
+  br label %_ZN8QuantLib19ExponentialIntegral2SiEd.exit
+
+if.else18.i:                                      ; preds = %if.then
+  %div.i36 = fdiv double 1.000000e+00, %mul.i35
+  %neg.i37 = fneg double %div.i36
+  %13 = tail call double @llvm.fmuladd.f64(double %neg.i37, double 0x425CCB9F32015A9F, double 0x42920056EACB3E14)
+  %14 = tail call double @llvm.fmuladd.f64(double %div.i36, double %13, double 0x42A255A4371F69B7)
+  %15 = tail call double @llvm.fmuladd.f64(double %div.i36, double %14, double 0x428EA124B58C7628)
+  %16 = tail call double @llvm.fmuladd.f64(double %div.i36, double %15, double 0x4262A4595375C0B4)
+  %17 = tail call double @llvm.fmuladd.f64(double %div.i36, double %16, double 0x42243289F49E1625)
+  %18 = tail call double @llvm.fmuladd.f64(double %div.i36, double %17, double 0x41D551D1358D9DA3)
+  %19 = tail call double @llvm.fmuladd.f64(double %div.i36, double %18, double 0x4176AC737033607B)
+  %20 = tail call double @llvm.fmuladd.f64(double %div.i36, double %19, double 0x4107F962FBB07365)
+  %21 = tail call double @llvm.fmuladd.f64(double %div.i36, double %20, double 0x4087437F1D97AD21)
+  %22 = tail call double @llvm.fmuladd.f64(double %div.i36, double %21, double 1.000000e+00)
+  %23 = tail call double @llvm.fmuladd.f64(double %div.i36, double 0x42A449C6B1B09EDA, double 0x42AA18C661C84C34)
+  %24 = tail call double @llvm.fmuladd.f64(double %div.i36, double %23, double 0x4292694763B8BB01)
+  %25 = tail call double @llvm.fmuladd.f64(double %div.i36, double %24, double 0x42649EBF005EB07E)
+  %26 = tail call double @llvm.fmuladd.f64(double %div.i36, double %25, double 0x42255AE13A418D9C)
+  %27 = tail call double @llvm.fmuladd.f64(double %div.i36, double %26, double 0x41D5F9E0247B82BD)
+  %28 = tail call double @llvm.fmuladd.f64(double %div.i36, double %27, double 0x417708DDF043A2CE)
+  %29 = tail call double @llvm.fmuladd.f64(double %div.i36, double %28, double 0x41082749F9EBB1F1)
+  %30 = tail call double @llvm.fmuladd.f64(double %div.i36, double %29, double 0x4087537F1D97ACD1)
+  %31 = tail call double @llvm.fmuladd.f64(double %div.i36, double %30, double 1.000000e+00)
+  %mul20.i38 = fmul double %31, %fneg
+  %call20.i = tail call double @cos(double noundef %fneg) #21, !tbaa !3
+  %32 = fneg double %22
+  %neg22.i = fdiv double %32, %mul20.i38
+  %33 = tail call double @llvm.fmuladd.f64(double %neg22.i, double %call20.i, double 0x3FF921FB54442D18)
+  %34 = tail call double @llvm.fmuladd.f64(double %neg.i37, double 0x4273DDA8E1244B78, double 0x4297671EB93999FB)
+  %35 = tail call double @llvm.fmuladd.f64(double %div.i36, double %34, double 0x42B07656D15BE275)
+  %36 = tail call double @llvm.fmuladd.f64(double %div.i36, double %35, double 0x429B904D223E0960)
+  %37 = tail call double @llvm.fmuladd.f64(double %div.i36, double %36, double 0x426FBCD2B0A2F417)
+  %38 = tail call double @llvm.fmuladd.f64(double %div.i36, double %37, double 0x422FCE9DE77CB99A)
+  %39 = tail call double @llvm.fmuladd.f64(double %div.i36, double %38, double 0x41DEBDA0F3DDEDB5)
+  %40 = tail call double @llvm.fmuladd.f64(double %div.i36, double %39, double 0x417DCECCD145F373)
+  %41 = tail call double @llvm.fmuladd.f64(double %div.i36, double %40, double 0x410CB73973F89540)
+  %42 = tail call double @llvm.fmuladd.f64(double %div.i36, double %41, double 0x40896CC2F8D24845)
+  %43 = tail call double @llvm.fmuladd.f64(double %div.i36, double %42, double 1.000000e+00)
+  %44 = tail call double @llvm.fmuladd.f64(double %div.i36, double 0x42C22C938603268A, double 0x42C24605CD83C6D5)
+  %45 = tail call double @llvm.fmuladd.f64(double %div.i36, double %44, double 0x42A54FE857E62B52)
+  %46 = tail call double @llvm.fmuladd.f64(double %div.i36, double %45, double 0x42745A70E5A94255)
+  %47 = tail call double @llvm.fmuladd.f64(double %div.i36, double %46, double 0x423255A842662ED9)
+  %48 = tail call double @llvm.fmuladd.f64(double %div.i36, double %47, double 0x41E0A42B3D18FDE6)
+  %49 = tail call double @llvm.fmuladd.f64(double %div.i36, double %48, double 0x417F17A2A2A2A5FE)
+  %50 = tail call double @llvm.fmuladd.f64(double %div.i36, double %49, double 0x410D4D2605CEA8F1)
+  %51 = tail call double @llvm.fmuladd.f64(double %div.i36, double %50, double 0x40899CC2F8D24035)
+  %52 = tail call double @llvm.fmuladd.f64(double %div.i36, double %51, double 1.000000e+00)
+  %call24.i = tail call double @sin(double noundef %fneg) #21, !tbaa !3
+  %53 = fneg double %43
+  %54 = fmul double %div.i36, %53
+  %neg26.i = fdiv double %54, %52
+  %55 = tail call double @llvm.fmuladd.f64(double %neg26.i, double %call24.i, double %33)
+  br label %_ZN8QuantLib19ExponentialIntegral2SiEd.exit
+
+_ZN8QuantLib19ExponentialIntegral2SiEd.exit:      ; preds = %if.then3.i, %if.else18.i
+  %retval.0.i = phi double [ %div.i, %if.then3.i ], [ %55, %if.else18.i ]
+  %fneg1 = fneg double %retval.0.i
+  br label %return
 
 if.else:                                          ; preds = %entry
   %cmp2 = fcmp ugt double %x, 4.000000e+00
-  %mul.i = fmul double %x, %x
+  %mul.i22 = fmul double %x, %x
   br i1 %cmp2, label %if.else18, label %if.then3
 
 if.then3:                                         ; preds = %if.else
-  %neg = fneg double %mul.i
-  %0 = tail call double @llvm.fmuladd.f64(double %neg, double 0x3CC5CF42710CA3FA, double 0x3D68EB42E75AA806)
-  %1 = tail call double @llvm.fmuladd.f64(double %mul.i, double %0, double 0xBDF845984D0E374D)
-  %2 = tail call double @llvm.fmuladd.f64(double %mul.i, double %1, double 0x3E79522D26307C0C)
-  %3 = tail call double @llvm.fmuladd.f64(double %mul.i, double %2, double 0xBEED92E003182CD3)
-  %4 = tail call double @llvm.fmuladd.f64(double %mul.i, double %3, double 0x3F52EAA0858F5C66)
-  %5 = tail call double @llvm.fmuladd.f64(double %mul.i, double %4, double 0xBFA743D346EF9169)
-  %6 = tail call double @llvm.fmuladd.f64(double %mul.i, double %5, double 1.000000e+00)
-  %mul11 = fmul double %x, %6
-  %7 = tail call double @llvm.fmuladd.f64(double %mul.i, double 0x3CB723612D0C63A0, double 0x3D5FB352EF2F0F1F)
-  %8 = tail call double @llvm.fmuladd.f64(double %mul.i, double %7, double 0x3DF68B6CFDA26513)
-  %9 = tail call double @llvm.fmuladd.f64(double %mul.i, double %8, double 0x3E84E443BD2B518E)
-  %10 = tail call double @llvm.fmuladd.f64(double %mul.i, double %9, double 0x3F0A2BD0A39EBC96)
-  %11 = tail call double @llvm.fmuladd.f64(double %mul.i, double %10, double 0x3F84B7CF5608D6CE)
-  %12 = tail call double @llvm.fmuladd.f64(double %mul.i, double %11, double 1.000000e+00)
-  %div = fdiv double %mul11, %12
-  br label %common.ret26
+  %neg = fneg double %mul.i22
+  %56 = tail call double @llvm.fmuladd.f64(double %neg, double 0x3CC5CF42710CA3FA, double 0x3D68EB42E75AA806)
+  %57 = tail call double @llvm.fmuladd.f64(double %mul.i22, double %56, double 0xBDF845984D0E374D)
+  %58 = tail call double @llvm.fmuladd.f64(double %mul.i22, double %57, double 0x3E79522D26307C0C)
+  %59 = tail call double @llvm.fmuladd.f64(double %mul.i22, double %58, double 0xBEED92E003182CD3)
+  %60 = tail call double @llvm.fmuladd.f64(double %mul.i22, double %59, double 0x3F52EAA0858F5C66)
+  %61 = tail call double @llvm.fmuladd.f64(double %mul.i22, double %60, double 0xBFA743D346EF9169)
+  %62 = tail call double @llvm.fmuladd.f64(double %mul.i22, double %61, double 1.000000e+00)
+  %mul11 = fmul double %x, %62
+  %63 = tail call double @llvm.fmuladd.f64(double %mul.i22, double 0x3CB723612D0C63A0, double 0x3D5FB352EF2F0F1F)
+  %64 = tail call double @llvm.fmuladd.f64(double %mul.i22, double %63, double 0x3DF68B6CFDA26513)
+  %65 = tail call double @llvm.fmuladd.f64(double %mul.i22, double %64, double 0x3E84E443BD2B518E)
+  %66 = tail call double @llvm.fmuladd.f64(double %mul.i22, double %65, double 0x3F0A2BD0A39EBC96)
+  %67 = tail call double @llvm.fmuladd.f64(double %mul.i22, double %66, double 0x3F84B7CF5608D6CE)
+  %68 = tail call double @llvm.fmuladd.f64(double %mul.i22, double %67, double 1.000000e+00)
+  %div = fdiv double %mul11, %68
+  br label %return
 
 if.else18:                                        ; preds = %if.else
-  %div.i = fdiv double 1.000000e+00, %mul.i
-  %neg.i = fneg double %div.i
-  %13 = tail call double @llvm.fmuladd.f64(double %neg.i, double 0x425CCB9F32015A9F, double 0x42920056EACB3E14)
-  %14 = tail call double @llvm.fmuladd.f64(double %div.i, double %13, double 0x42A255A4371F69B7)
-  %15 = tail call double @llvm.fmuladd.f64(double %div.i, double %14, double 0x428EA124B58C7628)
-  %16 = tail call double @llvm.fmuladd.f64(double %div.i, double %15, double 0x4262A4595375C0B4)
-  %17 = tail call double @llvm.fmuladd.f64(double %div.i, double %16, double 0x42243289F49E1625)
-  %18 = tail call double @llvm.fmuladd.f64(double %div.i, double %17, double 0x41D551D1358D9DA3)
-  %19 = tail call double @llvm.fmuladd.f64(double %div.i, double %18, double 0x4176AC737033607B)
-  %20 = tail call double @llvm.fmuladd.f64(double %div.i, double %19, double 0x4107F962FBB07365)
-  %21 = tail call double @llvm.fmuladd.f64(double %div.i, double %20, double 0x4087437F1D97AD21)
-  %22 = tail call double @llvm.fmuladd.f64(double %div.i, double %21, double 1.000000e+00)
-  %23 = tail call double @llvm.fmuladd.f64(double %div.i, double 0x42A449C6B1B09EDA, double 0x42AA18C661C84C34)
-  %24 = tail call double @llvm.fmuladd.f64(double %div.i, double %23, double 0x4292694763B8BB01)
-  %25 = tail call double @llvm.fmuladd.f64(double %div.i, double %24, double 0x42649EBF005EB07E)
-  %26 = tail call double @llvm.fmuladd.f64(double %div.i, double %25, double 0x42255AE13A418D9C)
-  %27 = tail call double @llvm.fmuladd.f64(double %div.i, double %26, double 0x41D5F9E0247B82BD)
-  %28 = tail call double @llvm.fmuladd.f64(double %div.i, double %27, double 0x417708DDF043A2CE)
-  %29 = tail call double @llvm.fmuladd.f64(double %div.i, double %28, double 0x41082749F9EBB1F1)
-  %30 = tail call double @llvm.fmuladd.f64(double %div.i, double %29, double 0x4087537F1D97ACD1)
-  %31 = tail call double @llvm.fmuladd.f64(double %div.i, double %30, double 1.000000e+00)
-  %mul20.i = fmul double %x, %31
+  %div.i23 = fdiv double 1.000000e+00, %mul.i22
+  %neg.i24 = fneg double %div.i23
+  %69 = tail call double @llvm.fmuladd.f64(double %neg.i24, double 0x425CCB9F32015A9F, double 0x42920056EACB3E14)
+  %70 = tail call double @llvm.fmuladd.f64(double %div.i23, double %69, double 0x42A255A4371F69B7)
+  %71 = tail call double @llvm.fmuladd.f64(double %div.i23, double %70, double 0x428EA124B58C7628)
+  %72 = tail call double @llvm.fmuladd.f64(double %div.i23, double %71, double 0x4262A4595375C0B4)
+  %73 = tail call double @llvm.fmuladd.f64(double %div.i23, double %72, double 0x42243289F49E1625)
+  %74 = tail call double @llvm.fmuladd.f64(double %div.i23, double %73, double 0x41D551D1358D9DA3)
+  %75 = tail call double @llvm.fmuladd.f64(double %div.i23, double %74, double 0x4176AC737033607B)
+  %76 = tail call double @llvm.fmuladd.f64(double %div.i23, double %75, double 0x4107F962FBB07365)
+  %77 = tail call double @llvm.fmuladd.f64(double %div.i23, double %76, double 0x4087437F1D97AD21)
+  %78 = tail call double @llvm.fmuladd.f64(double %div.i23, double %77, double 1.000000e+00)
+  %79 = tail call double @llvm.fmuladd.f64(double %div.i23, double 0x42A449C6B1B09EDA, double 0x42AA18C661C84C34)
+  %80 = tail call double @llvm.fmuladd.f64(double %div.i23, double %79, double 0x4292694763B8BB01)
+  %81 = tail call double @llvm.fmuladd.f64(double %div.i23, double %80, double 0x42649EBF005EB07E)
+  %82 = tail call double @llvm.fmuladd.f64(double %div.i23, double %81, double 0x42255AE13A418D9C)
+  %83 = tail call double @llvm.fmuladd.f64(double %div.i23, double %82, double 0x41D5F9E0247B82BD)
+  %84 = tail call double @llvm.fmuladd.f64(double %div.i23, double %83, double 0x417708DDF043A2CE)
+  %85 = tail call double @llvm.fmuladd.f64(double %div.i23, double %84, double 0x41082749F9EBB1F1)
+  %86 = tail call double @llvm.fmuladd.f64(double %div.i23, double %85, double 0x4087537F1D97ACD1)
+  %87 = tail call double @llvm.fmuladd.f64(double %div.i23, double %86, double 1.000000e+00)
+  %mul20.i = fmul double %x, %87
   %call20 = tail call double @cos(double noundef %x) #21, !tbaa !3
-  %32 = fneg double %22
-  %neg22 = fdiv double %32, %mul20.i
-  %33 = tail call double @llvm.fmuladd.f64(double %neg22, double %call20, double 0x3FF921FB54442D18)
-  %34 = tail call double @llvm.fmuladd.f64(double %neg.i, double 0x4273DDA8E1244B78, double 0x4297671EB93999FB)
-  %35 = tail call double @llvm.fmuladd.f64(double %div.i, double %34, double 0x42B07656D15BE275)
-  %36 = tail call double @llvm.fmuladd.f64(double %div.i, double %35, double 0x429B904D223E0960)
-  %37 = tail call double @llvm.fmuladd.f64(double %div.i, double %36, double 0x426FBCD2B0A2F417)
-  %38 = tail call double @llvm.fmuladd.f64(double %div.i, double %37, double 0x422FCE9DE77CB99A)
-  %39 = tail call double @llvm.fmuladd.f64(double %div.i, double %38, double 0x41DEBDA0F3DDEDB5)
-  %40 = tail call double @llvm.fmuladd.f64(double %div.i, double %39, double 0x417DCECCD145F373)
-  %41 = tail call double @llvm.fmuladd.f64(double %div.i, double %40, double 0x410CB73973F89540)
-  %42 = tail call double @llvm.fmuladd.f64(double %div.i, double %41, double 0x40896CC2F8D24845)
-  %43 = tail call double @llvm.fmuladd.f64(double %div.i, double %42, double 1.000000e+00)
-  %44 = tail call double @llvm.fmuladd.f64(double %div.i, double 0x42C22C938603268A, double 0x42C24605CD83C6D5)
-  %45 = tail call double @llvm.fmuladd.f64(double %div.i, double %44, double 0x42A54FE857E62B52)
-  %46 = tail call double @llvm.fmuladd.f64(double %div.i, double %45, double 0x42745A70E5A94255)
-  %47 = tail call double @llvm.fmuladd.f64(double %div.i, double %46, double 0x423255A842662ED9)
-  %48 = tail call double @llvm.fmuladd.f64(double %div.i, double %47, double 0x41E0A42B3D18FDE6)
-  %49 = tail call double @llvm.fmuladd.f64(double %div.i, double %48, double 0x417F17A2A2A2A5FE)
-  %50 = tail call double @llvm.fmuladd.f64(double %div.i, double %49, double 0x410D4D2605CEA8F1)
-  %51 = tail call double @llvm.fmuladd.f64(double %div.i, double %50, double 0x40899CC2F8D24035)
-  %52 = tail call double @llvm.fmuladd.f64(double %div.i, double %51, double 1.000000e+00)
+  %88 = fneg double %78
+  %neg22 = fdiv double %88, %mul20.i
+  %89 = tail call double @llvm.fmuladd.f64(double %neg22, double %call20, double 0x3FF921FB54442D18)
+  %90 = tail call double @llvm.fmuladd.f64(double %neg.i24, double 0x4273DDA8E1244B78, double 0x4297671EB93999FB)
+  %91 = tail call double @llvm.fmuladd.f64(double %div.i23, double %90, double 0x42B07656D15BE275)
+  %92 = tail call double @llvm.fmuladd.f64(double %div.i23, double %91, double 0x429B904D223E0960)
+  %93 = tail call double @llvm.fmuladd.f64(double %div.i23, double %92, double 0x426FBCD2B0A2F417)
+  %94 = tail call double @llvm.fmuladd.f64(double %div.i23, double %93, double 0x422FCE9DE77CB99A)
+  %95 = tail call double @llvm.fmuladd.f64(double %div.i23, double %94, double 0x41DEBDA0F3DDEDB5)
+  %96 = tail call double @llvm.fmuladd.f64(double %div.i23, double %95, double 0x417DCECCD145F373)
+  %97 = tail call double @llvm.fmuladd.f64(double %div.i23, double %96, double 0x410CB73973F89540)
+  %98 = tail call double @llvm.fmuladd.f64(double %div.i23, double %97, double 0x40896CC2F8D24845)
+  %99 = tail call double @llvm.fmuladd.f64(double %div.i23, double %98, double 1.000000e+00)
+  %100 = tail call double @llvm.fmuladd.f64(double %div.i23, double 0x42C22C938603268A, double 0x42C24605CD83C6D5)
+  %101 = tail call double @llvm.fmuladd.f64(double %div.i23, double %100, double 0x42A54FE857E62B52)
+  %102 = tail call double @llvm.fmuladd.f64(double %div.i23, double %101, double 0x42745A70E5A94255)
+  %103 = tail call double @llvm.fmuladd.f64(double %div.i23, double %102, double 0x423255A842662ED9)
+  %104 = tail call double @llvm.fmuladd.f64(double %div.i23, double %103, double 0x41E0A42B3D18FDE6)
+  %105 = tail call double @llvm.fmuladd.f64(double %div.i23, double %104, double 0x417F17A2A2A2A5FE)
+  %106 = tail call double @llvm.fmuladd.f64(double %div.i23, double %105, double 0x410D4D2605CEA8F1)
+  %107 = tail call double @llvm.fmuladd.f64(double %div.i23, double %106, double 0x40899CC2F8D24035)
+  %108 = tail call double @llvm.fmuladd.f64(double %div.i23, double %107, double 1.000000e+00)
   %call24 = tail call double @sin(double noundef %x) #21, !tbaa !3
-  %53 = fneg double %43
-  %54 = fmul double %div.i, %53
-  %neg26 = fdiv double %54, %52
-  %55 = tail call double @llvm.fmuladd.f64(double %neg26, double %call24, double %33)
-  br label %common.ret26
+  %109 = fneg double %99
+  %110 = fmul double %div.i23, %109
+  %neg26 = fdiv double %110, %108
+  %111 = tail call double @llvm.fmuladd.f64(double %neg26, double %call24, double %89)
+  br label %return
+
+return:                                           ; preds = %if.else18, %if.then3, %_ZN8QuantLib19ExponentialIntegral2SiEd.exit
+  %retval.0 = phi double [ %fneg1, %_ZN8QuantLib19ExponentialIntegral2SiEd.exit ], [ %div, %if.then3 ], [ %111, %if.else18 ]
+  ret double %retval.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
@@ -2047,7 +2124,7 @@ declare double @llvm.copysign.f64(double, double) #20
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { mustprogress nofree nounwind memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
