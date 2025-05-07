@@ -302,7 +302,7 @@ define internal noundef i32 @_ZL6b_rrotP9lua_State(ptr noundef %0) #0 {
   %4 = tail call noundef i32 @_Z18luaL_checkunsignedP9lua_Statei(ptr noundef %0, i32 noundef 1)
   %5 = and i32 %3, 31
   %.not.i = icmp eq i32 %5, 0
-  %6 = tail call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 %3)
+  %6 = tail call i32 @llvm.fshr.i32(i32 %4, i32 %4, i32 %2)
   %.0.i = select i1 %.not.i, i32 %4, i32 %6
   tail call void @_Z16lua_pushunsignedP9lua_Statej(ptr noundef %0, i32 noundef %.0.i)
   ret i32 1
@@ -411,6 +411,9 @@ declare i32 @llvm.bswap.i32(i32) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshr.i32(i32, i32, i32) #3
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
