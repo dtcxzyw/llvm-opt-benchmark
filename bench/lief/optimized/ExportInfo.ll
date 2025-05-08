@@ -1400,57 +1400,57 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_ZN4LIEF5MachO9to_stringENS0_10ExportInfo4KINDE(i64 noundef %0) local_unnamed_addr #6 {
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %0, 1
-  %.add.i.i = select i1 %.not.i.i.i.i.i.i.i, i64 40, i64 8
-  %.add.i.i.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_10ExportInfo4KINDE.enums2str, i64 %.add.i.i
+  %.add.i.i.sroa.sel.v = select i1 %.not.i.i.i.i.i.i.i, i64 40, i64 8
+  %.add.i.i.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_10ExportInfo4KINDE.enums2str, i64 %.add.i.i.sroa.sel.v
   %2 = load i64, ptr %.add.i.i.sroa.sel, align 8, !tbaa !27
   %.not.i.i.i.i.i.i.i.i = icmp ult i64 %2, %0
-  %.idx.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 16, i64 0
-  %.add12.i.i = or disjoint i64 %.idx.i.i.i.i.i.i.i.i, %.add.i.i
-  %.not.i.i = icmp eq i64 %.add12.i.i, 56
+  %.not.i.i = and i1 %.not.i.i.i.i.i.i.i, %.not.i.i.i.i.i.i.i.i
   br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF5MachO10ExportInfo4KINDEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %3
 
 3:                                                ; preds = %1
-  %.ptr14.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_10ExportInfo4KINDE.enums2str, i64 %.add12.i.i
-  %4 = load i64, ptr %.ptr14.i.i, align 8, !tbaa !27
-  %.not15.i.i = icmp ult i64 %0, %4
-  br i1 %.not15.i.i, label %_ZNK6frozen3mapIN4LIEF5MachO10ExportInfo4KINDEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %5
+  %.idx.i.i.i.i.i.i.i.i.sroa.sel.idx = select i1 %.not.i.i.i.i.i.i.i.i, i64 16, i64 0
+  %4 = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_10ExportInfo4KINDE.enums2str, i64 %.idx.i.i.i.i.i.i.i.i.sroa.sel.idx
+  %.ptr14.i.i.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.add.i.i.sroa.sel.v
+  %5 = load i64, ptr %.ptr14.i.i.ptr, align 8, !tbaa !27
+  %.not15.i.i = icmp ult i64 %0, %5
+  br i1 %.not15.i.i, label %_ZNK6frozen3mapIN4LIEF5MachO10ExportInfo4KINDEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %6
 
-5:                                                ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %.ptr14.i.i, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !89
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %.ptr14.i.i.ptr, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !89
   br label %_ZNK6frozen3mapIN4LIEF5MachO10ExportInfo4KINDEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 
-_ZNK6frozen3mapIN4LIEF5MachO10ExportInfo4KINDEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %3, %1, %5
-  %8 = phi ptr [ %7, %5 ], [ @.str.7, %1 ], [ @.str.7, %3 ]
-  ret ptr %8
+_ZNK6frozen3mapIN4LIEF5MachO10ExportInfo4KINDEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %3, %1, %6
+  %9 = phi ptr [ %8, %6 ], [ @.str.7, %1 ], [ @.str.7, %3 ]
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_ZN4LIEF5MachO9to_stringENS0_10ExportInfo5FLAGSE(i64 noundef %0) local_unnamed_addr #6 {
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %0, 8
-  %.add.i.i = select i1 %.not.i.i.i.i.i.i.i, i64 40, i64 8
-  %.add.i.i.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_10ExportInfo5FLAGSE.enums2str, i64 %.add.i.i
+  %.add.i.i.sroa.sel.v = select i1 %.not.i.i.i.i.i.i.i, i64 40, i64 8
+  %.add.i.i.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_10ExportInfo5FLAGSE.enums2str, i64 %.add.i.i.sroa.sel.v
   %2 = load i64, ptr %.add.i.i.sroa.sel, align 8, !tbaa !20
   %.not.i.i.i.i.i.i.i.i = icmp ult i64 %2, %0
-  %.idx.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 16, i64 0
-  %.add12.i.i = or disjoint i64 %.idx.i.i.i.i.i.i.i.i, %.add.i.i
-  %.not.i.i = icmp eq i64 %.add12.i.i, 56
+  %.not.i.i = and i1 %.not.i.i.i.i.i.i.i, %.not.i.i.i.i.i.i.i.i
   br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF5MachO10ExportInfo5FLAGSEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %3
 
 3:                                                ; preds = %1
-  %.ptr14.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_10ExportInfo5FLAGSE.enums2str, i64 %.add12.i.i
-  %4 = load i64, ptr %.ptr14.i.i, align 8, !tbaa !20
-  %.not15.i.i = icmp ult i64 %0, %4
-  br i1 %.not15.i.i, label %_ZNK6frozen3mapIN4LIEF5MachO10ExportInfo5FLAGSEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %5
+  %.idx.i.i.i.i.i.i.i.i.sroa.sel.idx = select i1 %.not.i.i.i.i.i.i.i.i, i64 16, i64 0
+  %4 = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_10ExportInfo5FLAGSE.enums2str, i64 %.idx.i.i.i.i.i.i.i.i.sroa.sel.idx
+  %.ptr14.i.i.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.add.i.i.sroa.sel.v
+  %5 = load i64, ptr %.ptr14.i.i.ptr, align 8, !tbaa !20
+  %.not15.i.i = icmp ult i64 %0, %5
+  br i1 %.not15.i.i, label %_ZNK6frozen3mapIN4LIEF5MachO10ExportInfo5FLAGSEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %6
 
-5:                                                ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %.ptr14.i.i, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !91
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %.ptr14.i.i.ptr, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !91
   br label %_ZNK6frozen3mapIN4LIEF5MachO10ExportInfo5FLAGSEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 
-_ZNK6frozen3mapIN4LIEF5MachO10ExportInfo5FLAGSEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %3, %1, %5
-  %8 = phi ptr [ %7, %5 ], [ @.str.7, %1 ], [ @.str.7, %3 ]
-  ret ptr %8
+_ZNK6frozen3mapIN4LIEF5MachO10ExportInfo5FLAGSEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %3, %1, %6
+  %9 = phi ptr [ %8, %6 ], [ @.str.7, %1 ], [ @.str.7, %3 ]
+  ret ptr %9
 }
 
 declare noundef zeroext i1 @_ZNK4LIEF6ObjecteqERKS0_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
@@ -29759,43 +29759,43 @@ define linkonce_odr hidden ptr @_ZNK3fmt3v109formatterIN4LIEF5MachO10ExportInfo5
   %.sroa.0.0.copyload.i = load ptr, ptr %2, align 8
   %5 = load i64, ptr %1, align 8, !tbaa !20
   %.not.i.i.i.i.i.i.i.i = icmp ugt i64 %5, 8
-  %.add.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 40, i64 8
-  %.add.i.i.sroa.sel.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_10ExportInfo5FLAGSE.enums2str, i64 %.add.i.i.i
+  %.add.i.i.sroa.sel.v.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 40, i64 8
+  %.add.i.i.sroa.sel.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_10ExportInfo5FLAGSE.enums2str, i64 %.add.i.i.sroa.sel.v.i
   %6 = load i64, ptr %.add.i.i.sroa.sel.i, align 8, !tbaa !20
   %.not.i.i.i.i.i.i.i.i.i = icmp ult i64 %6, %5
-  %.idx.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 16, i64 0
-  %.add12.i.i.i = or disjoint i64 %.idx.i.i.i.i.i.i.i.i.i, %.add.i.i.i
-  %.not.i.i.i = icmp eq i64 %.add12.i.i.i, 56
+  %.not.i.i.i = and i1 %.not.i.i.i.i.i.i.i.i, %.not.i.i.i.i.i.i.i.i.i
   br i1 %.not.i.i.i, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit, label %7
 
 7:                                                ; preds = %3
-  %.ptr14.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_10ExportInfo5FLAGSE.enums2str, i64 %.add12.i.i.i
-  %8 = load i64, ptr %.ptr14.i.i.i, align 8, !tbaa !20
-  %.not15.i.i.i = icmp ult i64 %5, %8
+  %.idx.i.i.i.i.i.i.i.i.sroa.sel.idx.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 16, i64 0
+  %8 = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_10ExportInfo5FLAGSE.enums2str, i64 %.idx.i.i.i.i.i.i.i.i.sroa.sel.idx.i
+  %.ptr14.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %8, i64 %.add.i.i.sroa.sel.v.i
+  %9 = load i64, ptr %.ptr14.i.i.ptr.i, align 8, !tbaa !20
+  %.not15.i.i.i = icmp ult i64 %5, %9
   br i1 %.not15.i.i.i, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit, label %_ZN4LIEF5MachO9to_stringENS0_10ExportInfo5FLAGSE.exit
 
 _ZN4LIEF5MachO9to_stringENS0_10ExportInfo5FLAGSE.exit: ; preds = %7
-  %9 = getelementptr inbounds nuw i8, ptr %.ptr14.i.i.i, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !91
-  %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %11, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit
+  %10 = getelementptr inbounds nuw i8, ptr %.ptr14.i.i.ptr.i, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !91
+  %.not.i = icmp eq ptr %11, null
+  br i1 %.not.i, label %12, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit
 
-11:                                               ; preds = %_ZN4LIEF5MachO9to_stringENS0_10ExportInfo5FLAGSE.exit
+12:                                               ; preds = %_ZN4LIEF5MachO9to_stringENS0_10ExportInfo5FLAGSE.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #24
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.41) #24
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt3v1012format_errorE, i64 16), ptr %4, align 8, !tbaa !12
-  %12 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #24
-  %13 = load ptr, ptr @stderr, align 8, !tbaa !95
-  %14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.14, i32 noundef 40, ptr noundef %12) #28
+  %13 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #24
+  %14 = load ptr, ptr @stderr, align 8, !tbaa !95
+  %15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.14, i32 noundef 40, ptr noundef %13) #28
   call void @_ZSt9terminatev() #25
   unreachable
 
 _ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit: ; preds = %7, %3, %_ZN4LIEF5MachO9to_stringENS0_10ExportInfo5FLAGSE.exit
-  %15 = phi ptr [ %10, %_ZN4LIEF5MachO9to_stringENS0_10ExportInfo5FLAGSE.exit ], [ @.str.7, %3 ], [ @.str.7, %7 ]
-  %16 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #24
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
-  %18 = tail call ptr @_ZN3fmt3v106detail17copy_str_noinlineIcPKcNS0_8appenderEEET1_T0_S7_S6_(ptr noundef nonnull %15, ptr noundef nonnull %17, ptr %.sroa.0.0.copyload.i)
-  ret ptr %18
+  %16 = phi ptr [ %11, %_ZN4LIEF5MachO9to_stringENS0_10ExportInfo5FLAGSE.exit ], [ @.str.7, %3 ], [ @.str.7, %7 ]
+  %17 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #24
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
+  %19 = tail call ptr @_ZN3fmt3v106detail17copy_str_noinlineIcPKcNS0_8appenderEEET1_T0_S7_S6_(ptr noundef nonnull %16, ptr noundef nonnull %18, ptr %.sroa.0.0.copyload.i)
+  ret ptr %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -29815,43 +29815,43 @@ define linkonce_odr hidden ptr @_ZNK3fmt3v109formatterIN4LIEF5MachO10ExportInfo4
   %.sroa.0.0.copyload.i = load ptr, ptr %2, align 8
   %5 = load i64, ptr %1, align 8, !tbaa !27
   %.not.i.i.i.i.i.i.i.i = icmp ugt i64 %5, 1
-  %.add.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 40, i64 8
-  %.add.i.i.sroa.sel.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_10ExportInfo4KINDE.enums2str, i64 %.add.i.i.i
+  %.add.i.i.sroa.sel.v.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 40, i64 8
+  %.add.i.i.sroa.sel.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_10ExportInfo4KINDE.enums2str, i64 %.add.i.i.sroa.sel.v.i
   %6 = load i64, ptr %.add.i.i.sroa.sel.i, align 8, !tbaa !27
   %.not.i.i.i.i.i.i.i.i.i = icmp ult i64 %6, %5
-  %.idx.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 16, i64 0
-  %.add12.i.i.i = or disjoint i64 %.idx.i.i.i.i.i.i.i.i.i, %.add.i.i.i
-  %.not.i.i.i = icmp eq i64 %.add12.i.i.i, 56
+  %.not.i.i.i = and i1 %.not.i.i.i.i.i.i.i.i, %.not.i.i.i.i.i.i.i.i.i
   br i1 %.not.i.i.i, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit, label %7
 
 7:                                                ; preds = %3
-  %.ptr14.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_10ExportInfo4KINDE.enums2str, i64 %.add12.i.i.i
-  %8 = load i64, ptr %.ptr14.i.i.i, align 8, !tbaa !27
-  %.not15.i.i.i = icmp ult i64 %5, %8
+  %.idx.i.i.i.i.i.i.i.i.sroa.sel.idx.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 16, i64 0
+  %8 = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_10ExportInfo4KINDE.enums2str, i64 %.idx.i.i.i.i.i.i.i.i.sroa.sel.idx.i
+  %.ptr14.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %8, i64 %.add.i.i.sroa.sel.v.i
+  %9 = load i64, ptr %.ptr14.i.i.ptr.i, align 8, !tbaa !27
+  %.not15.i.i.i = icmp ult i64 %5, %9
   br i1 %.not15.i.i.i, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit, label %_ZN4LIEF5MachO9to_stringENS0_10ExportInfo4KINDE.exit
 
 _ZN4LIEF5MachO9to_stringENS0_10ExportInfo4KINDE.exit: ; preds = %7
-  %9 = getelementptr inbounds nuw i8, ptr %.ptr14.i.i.i, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !89
-  %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %11, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit
+  %10 = getelementptr inbounds nuw i8, ptr %.ptr14.i.i.ptr.i, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !89
+  %.not.i = icmp eq ptr %11, null
+  br i1 %.not.i, label %12, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit
 
-11:                                               ; preds = %_ZN4LIEF5MachO9to_stringENS0_10ExportInfo4KINDE.exit
+12:                                               ; preds = %_ZN4LIEF5MachO9to_stringENS0_10ExportInfo4KINDE.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #24
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.41) #24
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt3v1012format_errorE, i64 16), ptr %4, align 8, !tbaa !12
-  %12 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #24
-  %13 = load ptr, ptr @stderr, align 8, !tbaa !95
-  %14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.14, i32 noundef 40, ptr noundef %12) #28
+  %13 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #24
+  %14 = load ptr, ptr @stderr, align 8, !tbaa !95
+  %15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.14, i32 noundef 40, ptr noundef %13) #28
   call void @_ZSt9terminatev() #25
   unreachable
 
 _ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit: ; preds = %7, %3, %_ZN4LIEF5MachO9to_stringENS0_10ExportInfo4KINDE.exit
-  %15 = phi ptr [ %10, %_ZN4LIEF5MachO9to_stringENS0_10ExportInfo4KINDE.exit ], [ @.str.7, %3 ], [ @.str.7, %7 ]
-  %16 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #24
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
-  %18 = tail call ptr @_ZN3fmt3v106detail17copy_str_noinlineIcPKcNS0_8appenderEEET1_T0_S7_S6_(ptr noundef nonnull %15, ptr noundef nonnull %17, ptr %.sroa.0.0.copyload.i)
-  ret ptr %18
+  %16 = phi ptr [ %11, %_ZN4LIEF5MachO9to_stringENS0_10ExportInfo4KINDE.exit ], [ @.str.7, %3 ], [ @.str.7, %7 ]
+  %17 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #24
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
+  %19 = tail call ptr @_ZN3fmt3v106detail17copy_str_noinlineIcPKcNS0_8appenderEEET1_T0_S7_S6_(ptr noundef nonnull %16, ptr noundef nonnull %18, ptr %.sroa.0.0.copyload.i)
+  ret ptr %19
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #2
