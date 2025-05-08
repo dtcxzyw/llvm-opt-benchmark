@@ -503,17 +503,16 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
   %192 = load i8, ptr %175, align 1, !tbaa !31
   %193 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %194 = load i8, ptr %193, align 1, !tbaa !31
-  %195 = zext i8 %194 to i32
-  %196 = shl nuw nsw i32 %195, 8
-  %197 = getelementptr inbounds nuw i8, ptr %32, i64 13
-  %198 = load i16, ptr %197, align 1
-  %199 = zext i16 %198 to i32
-  %200 = shl nuw i32 %199, 16
-  %201 = or disjoint i32 %200, %196
-  %202 = getelementptr inbounds nuw i8, ptr %32, i64 15
-  store ptr %202, ptr %5, align 8, !tbaa !12
-  %.not179 = icmp eq i32 %201, 0
-  br i1 %.not179, label %207, label %203
+  %195 = getelementptr inbounds nuw i8, ptr %32, i64 13
+  %196 = load i8, ptr %195, align 1, !tbaa !31
+  %197 = getelementptr inbounds nuw i8, ptr %32, i64 14
+  %198 = load i8, ptr %197, align 1, !tbaa !31
+  %199 = getelementptr inbounds nuw i8, ptr %32, i64 15
+  store ptr %199, ptr %5, align 8, !tbaa !12
+  %200 = or i8 %196, %194
+  %201 = or i8 %200, %198
+  %202 = icmp eq i8 %201, 0
+  br i1 %202, label %207, label %203
 
 203:                                              ; preds = %191
   %204 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
@@ -538,8 +537,8 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
   br i1 %.not181, label %237, label %214
 
 214:                                              ; preds = %213
-  %215 = icmp ugt ptr %202, %7
-  %216 = ptrtoint ptr %202 to i64
+  %215 = icmp ugt ptr %199, %7
+  %216 = ptrtoint ptr %199 to i64
   %217 = sub i64 %136, %216
   %218 = icmp ult i64 %217, 2
   %or.cond225 = select i1 %215, i1 true, i1 %218
@@ -552,7 +551,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
   br label %.thread
 
 223:                                              ; preds = %214
-  %224 = load i16, ptr %202, align 1
+  %224 = load i16, ptr %199, align 1
   %225 = getelementptr inbounds nuw i8, ptr %32, i64 17
   store ptr %225, ptr %5, align 8, !tbaa !12
   %226 = icmp ugt ptr %225, %7
@@ -575,7 +574,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
   br label %237
 
 237:                                              ; preds = %213, %234
-  %238 = phi ptr [ %236, %234 ], [ %202, %213 ]
+  %238 = phi ptr [ %236, %234 ], [ %199, %213 ]
   %.0150 = phi i32 [ %235, %234 ], [ 32, %213 ]
   %239 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %.0150, ptr %239, align 4, !tbaa !30

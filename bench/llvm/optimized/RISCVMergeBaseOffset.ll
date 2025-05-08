@@ -325,13 +325,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt20
   %46 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %47 = load i32, ptr %46, align 8, !tbaa !175
   %48 = sext i32 %47 to i64
-  %49 = shl nsw i64 %48, 32
-  %50 = getelementptr inbounds nuw i8, ptr %35, i64 36
-  %51 = load i32, ptr %50, align 4, !tbaa !175
-  %52 = zext i32 %51 to i64
-  %53 = or disjoint i64 %49, %52
-  %.not39.i = icmp eq i64 %53, 0
-  br i1 %.not39.i, label %54, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %35, i64 36
+  %50 = load i32, ptr %49, align 4, !tbaa !175
+  %51 = zext i32 %50 to i64
+  %52 = or i64 %51, %48
+  %53 = icmp eq i64 %52, 0
+  br i1 %53, label %54, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread
 
 54:                                               ; preds = %45
   %55 = icmp eq i16 %32, 425
@@ -449,13 +448,12 @@ _ZNK4llvm19MachineRegisterInfo15use_instr_beginENS_8RegisterE.exit.i: ; preds = 
   %97 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %98 = load i32, ptr %97, align 8, !tbaa !175
   %99 = sext i32 %98 to i64
-  %100 = shl nsw i64 %99, 32
-  %101 = getelementptr inbounds nuw i8, ptr %90, i64 4
-  %102 = load i32, ptr %101, align 4, !tbaa !175
-  %103 = zext i32 %102 to i64
-  %104 = or disjoint i64 %100, %103
-  %.not44.i = icmp eq i64 %104, 0
-  br i1 %.not44.i, label %._ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit_crit_edge, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread
+  %100 = getelementptr inbounds nuw i8, ptr %90, i64 4
+  %101 = load i32, ptr %100, align 4, !tbaa !175
+  %102 = zext i32 %101 to i64
+  %103 = or i64 %102, %99
+  %104 = icmp eq i64 %103, 0
+  br i1 %104, label %._ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit_crit_edge, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread
 
 ._ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit_crit_edge: ; preds = %96
   %.phi.trans.insert201 = getelementptr inbounds nuw i8, ptr %.val, i64 48
@@ -633,7 +631,7 @@ _ZNK4llvm19MachineRegisterInfo15use_instr_beginENS_8RegisterE.exit68.i: ; preds 
   %167 = load i64, ptr %166, align 8, !tbaa !175
   %168 = add nsw i64 %167, %139
   %169 = trunc i64 %168 to i32
-  store i32 %169, ptr %50, align 4, !tbaa !175
+  store i32 %169, ptr %49, align 4, !tbaa !175
   %170 = lshr i64 %168, 32
   %171 = trunc nuw i64 %170 to i32
   store i32 %171, ptr %46, align 8, !tbaa !175
@@ -679,7 +677,7 @@ _ZNK4llvm19MachineRegisterInfo15use_instr_beginENS_8RegisterE.exit68.i: ; preds 
 
 _ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit56.thread.i: ; preds = %.preheader.i.i.i.i42.i, %154, %_ZNK4llvm19MachineRegisterInfo15use_instr_beginENS_8RegisterE.exit68.i, %135
   %199 = trunc i64 %139 to i32
-  store i32 %199, ptr %50, align 4, !tbaa !175
+  store i32 %199, ptr %49, align 4, !tbaa !175
   %200 = lshr i64 %139, 32
   %201 = trunc nuw i64 %200 to i32
   store i32 %201, ptr %46, align 8, !tbaa !175

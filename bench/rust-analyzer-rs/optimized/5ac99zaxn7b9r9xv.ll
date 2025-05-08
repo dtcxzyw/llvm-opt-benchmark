@@ -696,13 +696,13 @@ switch.lookup:
   %.sroa.411.0.insert.ext = zext i8 %.sroa.411.1 to i64
   %.sroa.411.0.insert.shift = shl nuw nsw i64 %.sroa.411.0.insert.ext, 8
   %61 = or disjoint i64 %.sroa.411.0.insert.shift, %.sroa.010.0
-  %62 = or disjoint i64 %.sroa.613.0.insert.shift, %.sroa.010.0
-  %or.cond.i = icmp eq i64 %62, 0
-  %.sroa.616.17.insert.insert.i = select i1 %or.cond.i, i64 5121, i64 %61
+  %62 = or i64 %.sroa.010.0, %.sroa.613.0.insert.ext
+  %63 = icmp eq i64 %62, 0
+  %.sroa.616.17.insert.insert.i = select i1 %63, i64 5121, i64 %61
   %.sroa.616.20.insert.insert.i = or disjoint i64 %.sroa.616.17.insert.insert.i, %.sroa.613.0.insert.shift
   tail call void @"_ZN6syntax3ast9token_ext60_$LT$impl$u20$syntax..ast..generated..tokens..ByteString$GT$5value28_$u7b$$u7b$closure$u7d$$u7d$17h23cce49a6197486aE.llvm.11162169574061779932"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.val, i64 noundef %60, i64 noundef %59, i64 %.sroa.616.20.insert.insert.i)
-  %63 = icmp eq ptr %.sroa.0.1.ph3645, %4
-  br i1 %63, label %.thread, label %7
+  %64 = icmp eq ptr %.sroa.0.1.ph3645, %4
+  br i1 %64, label %.thread, label %7
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -830,13 +830,13 @@ switch.lookup:
   %.sroa.411.0.insert.ext = zext i8 %.sroa.411.1 to i64
   %.sroa.411.0.insert.shift = shl nuw nsw i64 %.sroa.411.0.insert.ext, 8
   %61 = or disjoint i64 %.sroa.411.0.insert.shift, %.sroa.010.0
-  %62 = or disjoint i64 %.sroa.613.0.insert.shift, %.sroa.010.0
-  %or.cond.i = icmp eq i64 %62, 0
-  %.sroa.616.17.insert.insert.i = select i1 %or.cond.i, i64 5121, i64 %61
+  %62 = or i64 %.sroa.010.0, %.sroa.613.0.insert.ext
+  %63 = icmp eq i64 %62, 0
+  %.sroa.616.17.insert.insert.i = select i1 %63, i64 5121, i64 %61
   %.sroa.616.20.insert.insert.i = or disjoint i64 %.sroa.616.17.insert.insert.i, %.sroa.613.0.insert.shift
   tail call void @"_ZN6syntax3ast9token_ext56_$LT$impl$u20$syntax..ast..generated..tokens..String$GT$5value28_$u7b$$u7b$closure$u7d$$u7d$17h5d159828f4408856E.llvm.11162169574061779932"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.val, i64 noundef %60, i64 noundef %59, i64 %.sroa.616.20.insert.insert.i)
-  %63 = icmp eq ptr %.sroa.0.1.ph3645, %4
-  br i1 %63, label %.thread, label %7
+  %64 = icmp eq ptr %.sroa.0.1.ph3645, %4
+  br i1 %64, label %.thread, label %7
 }
 
 ; Function Attrs: nonlazybind uwtable

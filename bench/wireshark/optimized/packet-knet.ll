@@ -239,94 +239,91 @@ define internal i32 @dissect_knet_udp(ptr noundef %0, ptr noundef readonly captu
   br i1 %48, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %46, %dissect_knet_message.exit
-  %.040 = phi i32 [ %100, %dissect_knet_message.exit ], [ 0, %46 ]
-  %.139 = phi i32 [ %99, %dissect_knet_message.exit ], [ %.035, %46 ]
+  %.040 = phi i32 [ %98, %dissect_knet_message.exit ], [ 0, %46 ]
+  %.139 = phi i32 [ %97, %dissect_knet_message.exit ], [ %.035, %46 ]
   %49 = shl i32 %.139, 3
   %50 = add i32 %49, 12
   %51 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %50, i32 noundef 4)
-  %52 = zext i8 %51 to i32
-  %53 = shl nuw nsw i32 %52, 8
-  %54 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %49, i32 noundef 8)
-  %55 = zext i8 %54 to i32
-  %56 = or disjoint i32 %53, %55
-  %.not36 = icmp eq i32 %56, 0
-  br i1 %.not36, label %.critedge, label %57
+  %52 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %49, i32 noundef 8)
+  %53 = or i8 %52, %51
+  %54 = icmp eq i8 %53, 0
+  br i1 %54, label %.critedge, label %55
 
-57:                                               ; preds = %.lr.ph
+55:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %58 = load i32, ptr @hf_knet_message_tree, align 4
-  %59 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %58, ptr noundef %0, i32 noundef %.139, i32 noundef -1, i32 noundef 0)
-  %60 = load i32, ptr @ett_knet_message, align 4
-  %61 = tail call ptr @proto_item_add_subtree(ptr noundef %59, i32 noundef %60)
-  %62 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %50, i32 noundef 4)
-  %63 = zext i8 %62 to i32
-  %64 = shl nuw nsw i32 %63, 8
-  %65 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %49, i32 noundef 8)
-  %66 = zext i8 %65 to i32
-  %67 = or disjoint i32 %64, %66
-  %.not.i38 = icmp eq ptr %61, null
-  br i1 %.not.i38, label %.dissect_content_length.exit_crit_edge, label %68
+  %56 = load i32, ptr @hf_knet_message_tree, align 4
+  %57 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %56, ptr noundef %0, i32 noundef %.139, i32 noundef -1, i32 noundef 0)
+  %58 = load i32, ptr @ett_knet_message, align 4
+  %59 = tail call ptr @proto_item_add_subtree(ptr noundef %57, i32 noundef %58)
+  %60 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %50, i32 noundef 4)
+  %61 = zext i8 %60 to i32
+  %62 = shl nuw nsw i32 %61, 8
+  %63 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %49, i32 noundef 8)
+  %64 = zext i8 %63 to i32
+  %65 = or disjoint i32 %62, %64
+  %.not.i38 = icmp eq ptr %59, null
+  br i1 %.not.i38, label %.dissect_content_length.exit_crit_edge, label %66
 
-.dissect_content_length.exit_crit_edge:           ; preds = %57
+.dissect_content_length.exit_crit_edge:           ; preds = %55
   %.pre = add i32 %.139, 1
   br label %dissect_content_length.exit
 
-68:                                               ; preds = %57
-  %69 = load i32, ptr @hf_knet_msg_flags, align 4
-  %70 = add i32 %.139, 1
-  %71 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %61, i32 noundef %69, ptr noundef %0, i32 noundef %70, i32 noundef 1, i32 noundef 0)
-  %72 = load i32, ptr @ett_knet_message_flags, align 4
-  %73 = tail call ptr @proto_item_add_subtree(ptr noundef %71, i32 noundef %72)
-  %74 = load i32, ptr @hf_knet_msg_fs, align 4
-  %75 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %74, ptr noundef %0, i32 noundef %70, i32 noundef 1, i32 noundef 0)
-  %76 = load i32, ptr @hf_knet_msg_ff, align 4
-  %77 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %76, ptr noundef %0, i32 noundef %70, i32 noundef 1, i32 noundef 0)
-  %78 = load i32, ptr @hf_knet_msg_inorder, align 4
-  %79 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %78, ptr noundef %0, i32 noundef %70, i32 noundef 1, i32 noundef 0)
-  %80 = load i32, ptr @hf_knet_msg_reliable, align 4
-  %81 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %80, ptr noundef %0, i32 noundef %70, i32 noundef 1, i32 noundef 0)
-  %82 = load i32, ptr @hf_knet_content_length, align 4
-  %83 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %61, i32 noundef %82, ptr noundef %0, i32 noundef %.139, i32 noundef 2, i32 noundef %67)
+66:                                               ; preds = %55
+  %67 = load i32, ptr @hf_knet_msg_flags, align 4
+  %68 = add i32 %.139, 1
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %59, i32 noundef %67, ptr noundef %0, i32 noundef %68, i32 noundef 1, i32 noundef 0)
+  %70 = load i32, ptr @ett_knet_message_flags, align 4
+  %71 = tail call ptr @proto_item_add_subtree(ptr noundef %69, i32 noundef %70)
+  %72 = load i32, ptr @hf_knet_msg_fs, align 4
+  %73 = tail call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %72, ptr noundef %0, i32 noundef %68, i32 noundef 1, i32 noundef 0)
+  %74 = load i32, ptr @hf_knet_msg_ff, align 4
+  %75 = tail call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %74, ptr noundef %0, i32 noundef %68, i32 noundef 1, i32 noundef 0)
+  %76 = load i32, ptr @hf_knet_msg_inorder, align 4
+  %77 = tail call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %76, ptr noundef %0, i32 noundef %68, i32 noundef 1, i32 noundef 0)
+  %78 = load i32, ptr @hf_knet_msg_reliable, align 4
+  %79 = tail call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %78, ptr noundef %0, i32 noundef %68, i32 noundef 1, i32 noundef 0)
+  %80 = load i32, ptr @hf_knet_content_length, align 4
+  %81 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %59, i32 noundef %80, ptr noundef %0, i32 noundef %.139, i32 noundef 2, i32 noundef %65)
   br label %dissect_content_length.exit
 
-dissect_content_length.exit:                      ; preds = %.dissect_content_length.exit_crit_edge, %68
-  %.pre-phi = phi i32 [ %.pre, %.dissect_content_length.exit_crit_edge ], [ %70, %68 ]
-  %84 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.pre-phi)
-  %85 = and i8 %84, 16
-  %.not.i37 = icmp eq i8 %85, 0
-  br i1 %.not.i37, label %dissect_knet_message.exit, label %86
+dissect_content_length.exit:                      ; preds = %.dissect_content_length.exit_crit_edge, %66
+  %.pre-phi = phi i32 [ %.pre, %.dissect_content_length.exit_crit_edge ], [ %68, %66 ]
+  %82 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.pre-phi)
+  %83 = and i8 %82, 16
+  %.not.i37 = icmp eq i8 %83, 0
+  br i1 %.not.i37, label %dissect_knet_message.exit, label %84
 
-86:                                               ; preds = %dissect_content_length.exit
-  %87 = add i32 %.139, 2
-  %88 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %87)
-  %.not.i.i = icmp sgt i8 %88, -1
+84:                                               ; preds = %dissect_content_length.exit
+  %85 = add i32 %.139, 2
+  %86 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %85)
+  %.not.i.i = icmp sgt i8 %86, -1
   %spec.select.i.i = select i1 %.not.i.i, i32 1, i32 2
-  %89 = load i32, ptr @hf_knet_msg_reliable_message_number, align 4
-  %90 = tail call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %89, ptr noundef %0, i32 noundef %87, i32 noundef %spec.select.i.i, i32 noundef -2147483648)
-  %91 = add i32 %spec.select.i.i, %.139
+  %87 = load i32, ptr @hf_knet_msg_reliable_message_number, align 4
+  %88 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %87, ptr noundef %0, i32 noundef %85, i32 noundef %spec.select.i.i, i32 noundef -2147483648)
+  %89 = add i32 %spec.select.i.i, %.139
   br label %dissect_knet_message.exit
 
-dissect_knet_message.exit:                        ; preds = %dissect_content_length.exit, %86
-  %92 = phi i32 [ %91, %86 ], [ %.139, %dissect_content_length.exit ]
-  %93 = add i32 %92, 2
-  store i32 %93, ptr %5, align 4
-  %94 = sub i32 %67, %.139
-  %95 = add i32 %94, %93
-  tail call void @proto_item_set_len(ptr noundef %59, i32 noundef %95)
-  %96 = icmp ne i32 %.040, 0
-  %97 = call fastcc i32 @dissect_messageid(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %61, ptr noundef readonly %1, i1 noundef zeroext %96)
-  %98 = load i32, ptr %5, align 4
-  tail call fastcc void @dissect_payload(ptr noundef %0, i32 noundef %98, i32 noundef %97, ptr noundef %61, i32 noundef %67)
+dissect_knet_message.exit:                        ; preds = %dissect_content_length.exit, %84
+  %90 = phi i32 [ %89, %84 ], [ %.139, %dissect_content_length.exit ]
+  %91 = add i32 %90, 2
+  store i32 %91, ptr %5, align 4
+  %92 = sub i32 %65, %.139
+  %93 = add i32 %92, %91
+  tail call void @proto_item_set_len(ptr noundef %57, i32 noundef %93)
+  %94 = icmp ne i32 %.040, 0
+  %95 = call fastcc i32 @dissect_messageid(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %59, ptr noundef readonly %1, i1 noundef zeroext %94)
+  %96 = load i32, ptr %5, align 4
+  tail call fastcc void @dissect_payload(ptr noundef %0, i32 noundef %96, i32 noundef %95, ptr noundef %59, i32 noundef %65)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %99 = add i32 %93, %67
-  %100 = add i32 %.040, 1
-  %101 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %99)
-  %102 = icmp sgt i32 %101, 2
-  br i1 %102, label %.lr.ph, label %.critedge, !llvm.loop !6
+  %97 = add i32 %91, %65
+  %98 = add i32 %.040, 1
+  %99 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %97)
+  %100 = icmp sgt i32 %99, 2
+  br i1 %100, label %.lr.ph, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %.lr.ph, %dissect_knet_message.exit, %46
-  %103 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  ret i32 %103
+  %101 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  ret i32 %101
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
