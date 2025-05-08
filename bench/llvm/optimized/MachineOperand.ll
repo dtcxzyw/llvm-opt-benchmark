@@ -1725,7 +1725,7 @@ define dso_local i64 @_ZN4llvm10hash_valueERKNS_14MachineOperandE(ptr noundef no
   %46 = alloca %"struct.llvm::hashing::detail::hash_combine_recursive_helper", align 8
   %47 = load i32, ptr %0, align 8
   %48 = trunc i32 %47 to i8
-  switch i8 %48, label %425 [
+  switch i8 %48, label %429 [
     i8 0, label %49
     i8 1, label %65
     i8 2, label %80
@@ -1740,13 +1740,13 @@ define dso_local i64 @_ZN4llvm10hash_valueERKNS_14MachineOperandE(ptr noundef no
     i8 11, label %234
     i8 12, label %259
     i8 13, label %259
-    i8 14, label %315
-    i8 15, label %330
-    i8 20, label %345
-    i8 16, label %364
-    i8 17, label %379
-    i8 18, label %394
-    i8 19, label %409
+    i8 14, label %319
+    i8 15, label %334
+    i8 20, label %349
+    i8 16, label %368
+    i8 17, label %383
+    i8 18, label %398
+    i8 19, label %413
   ]
 
 49:                                               ; preds = %1
@@ -2132,286 +2132,293 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %_ZL16getMFIf
   %275 = lshr i32 %274, 5
   %276 = zext nneg i32 %275 to i64
   %.not.i.i.i = icmp ult i32 %274, 32
-  br i1 %.not.i.i.i, label %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit, label %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i
+  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.thread.i.i, label %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i
+
+_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i
+  %277 = getelementptr inbounds nuw i64, ptr null, i64 %276
+  br label %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit
 
 _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i
   %.idx = shl nuw nsw i64 %276, 3
-  %277 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %278 = load ptr, ptr %277, align 8, !tbaa !78
-  %279 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #24
+  %278 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %279 = load ptr, ptr %278, align 8, !tbaa !78
+  %280 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #24
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i
-  %.012.i.i.i.i.i.i.i.i.i.i = phi i64 [ %284, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %276, %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i ]
-  %.0811.i.i.i.i.i.i.i.i.i.i = phi ptr [ %283, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %279, %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i ]
-  %.0910.i.i.i.i.i.i.i.i.i.i = phi ptr [ %282, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %278, %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i ]
-  %280 = load i32, ptr %.0910.i.i.i.i.i.i.i.i.i.i, align 4, !tbaa !49
-  %281 = zext i32 %280 to i64
-  store i64 %281, ptr %.0811.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !45
-  %282 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i.i.i.i, i64 4
-  %283 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i.i.i.i, i64 8
-  %284 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i.i, -1
-  %285 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %285, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit.loopexit, !llvm.loop !256
+  %.012.i.i.i.i.i.i.i.i.i.i = phi i64 [ %285, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %276, %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i ]
+  %.0811.i.i.i.i.i.i.i.i.i.i = phi ptr [ %284, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %280, %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i ]
+  %.0910.i.i.i.i.i.i.i.i.i.i = phi ptr [ %283, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %279, %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i ]
+  %281 = load i32, ptr %.0910.i.i.i.i.i.i.i.i.i.i, align 4, !tbaa !49
+  %282 = zext i32 %281 to i64
+  store i64 %282, ptr %.0811.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !45
+  %283 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i.i.i.i, i64 4
+  %284 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i.i.i.i, i64 8
+  %285 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i.i, -1
+  %286 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %286, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit.loopexit, !llvm.loop !256
 
 _ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i
-  %286 = ptrtoint ptr %283 to i64
+  %287 = getelementptr inbounds nuw i64, ptr %280, i64 %276
+  %288 = ptrtoint ptr %284 to i64
   br label %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit
 
-_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit:     ; preds = %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit.loopexit, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %.sroa.0122.0 = phi ptr [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %279, %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit.loopexit ]
-  %.08.lcssa.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %286, %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit.loopexit ]
-  %287 = load i32, ptr %0, align 8
-  %288 = trunc i32 %287 to i8
-  %289 = and i32 %287, 255
-  %290 = icmp eq i32 %289, 0
-  %291 = lshr i32 %287, 8
-  %292 = and i32 %291, 4095
-  %293 = select i1 %290, i32 0, i32 %292
-  %294 = ptrtoint ptr %.sroa.0122.0 to i64
-  %295 = sub i64 %.08.lcssa.i.i.i.i.i.i.i.i.i.i, %294
-  %296 = tail call noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr %.sroa.0122.0, i64 %295) #22
+_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit:     ; preds = %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit.loopexit, %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.thread.i.i
+  %.sroa.8.0 = phi ptr [ %277, %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.thread.i.i ], [ %287, %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit.loopexit ]
+  %.sroa.0122.0 = phi ptr [ null, %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.thread.i.i ], [ %280, %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit.loopexit ]
+  %.08.lcssa.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.thread.i.i ], [ %288, %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit.loopexit ]
+  %289 = load i32, ptr %0, align 8
+  %290 = trunc i32 %289 to i8
+  %291 = and i32 %289, 255
+  %292 = icmp eq i32 %291, 0
+  %293 = lshr i32 %289, 8
+  %294 = and i32 %293, 4095
+  %295 = select i1 %292, i32 0, i32 %294
+  %296 = ptrtoint ptr %.sroa.0122.0 to i64
+  %297 = sub i64 %.08.lcssa.i.i.i.i.i.i.i.i.i.i, %296
+  %298 = tail call noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr %.sroa.0122.0, i64 %297) #22
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %19) #22
-  %297 = getelementptr inbounds nuw i8, ptr %19, i64 120
+  %299 = getelementptr inbounds nuw i8, ptr %19, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %19, i8 0, i64 120, i1 false)
-  store i64 -49064778989728563, ptr %297, align 8, !tbaa !253
-  %298 = getelementptr inbounds nuw i8, ptr %19, i64 64
-  %299 = getelementptr inbounds nuw i8, ptr %19, i64 1
-  store i8 %288, ptr %19, align 8
-  %300 = getelementptr inbounds nuw i8, ptr %19, i64 5
-  store i32 %293, ptr %299, align 1
+  store i64 -49064778989728563, ptr %299, align 8, !tbaa !253
+  %300 = getelementptr inbounds nuw i8, ptr %19, i64 64
+  %301 = getelementptr inbounds nuw i8, ptr %19, i64 1
+  store i8 %290, ptr %19, align 8
+  %302 = getelementptr inbounds nuw i8, ptr %19, i64 5
+  store i32 %295, ptr %301, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   store i64 0, ptr %18, align 8, !tbaa !45
-  %301 = call noundef ptr @_ZN4llvm7hashing6detail29hash_combine_recursive_helper12combine_dataImEEPcRmS4_S4_T_(ptr noundef nonnull align 8 dereferenceable(128) %19, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %300, ptr noundef nonnull %298, i64 noundef %296)
-  %302 = load i64, ptr %18, align 8, !tbaa !45
-  %303 = call i64 @_ZN4llvm7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %19, i64 noundef %302, ptr noundef %301, ptr noundef nonnull %298)
+  %303 = call noundef ptr @_ZN4llvm7hashing6detail29hash_combine_recursive_helper12combine_dataImEEPcRmS4_S4_T_(ptr noundef nonnull align 8 dereferenceable(128) %19, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %302, ptr noundef nonnull %300, i64 noundef %298)
+  %304 = load i64, ptr %18, align 8, !tbaa !45
+  %305 = call i64 @_ZN4llvm7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %19, i64 noundef %304, ptr noundef %303, ptr noundef nonnull %300)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %19) #22
   %.not.i.i.i75 = icmp eq ptr %.sroa.0122.0, null
-  br i1 %.not.i.i.i75, label %_ZNSt6vectorImSaImEED2Ev.exit, label %304
+  br i1 %.not.i.i.i75, label %_ZNSt6vectorImSaImEED2Ev.exit, label %306
 
-304:                                              ; preds = %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit
-  %.sroa.8.0.idx = shl nuw nsw i64 %276, 3
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0122.0, i64 noundef %.sroa.8.0.idx) #25
+306:                                              ; preds = %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit
+  %307 = ptrtoint ptr %.sroa.8.0 to i64
+  %308 = sub i64 %307, %296
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0122.0, i64 noundef %308) #25
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.thread: ; preds = %261, %259, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit
-  %305 = and i32 %47, 255
-  %306 = icmp eq i32 %305, 0
-  %307 = lshr i32 %47, 8
-  %308 = and i32 %307, 4095
-  %309 = select i1 %306, i32 0, i32 %308
+  %309 = and i32 %47, 255
+  %310 = icmp eq i32 %309, 0
+  %311 = lshr i32 %47, 8
+  %312 = and i32 %311, 4095
+  %313 = select i1 %310, i32 0, i32 %312
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %17) #22
-  %310 = getelementptr inbounds nuw i8, ptr %17, i64 120
+  %314 = getelementptr inbounds nuw i8, ptr %17, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %17, i8 0, i64 120, i1 false)
-  store i64 -49064778989728563, ptr %310, align 8, !tbaa !253
-  %311 = getelementptr inbounds nuw i8, ptr %17, i64 64
-  %312 = getelementptr inbounds nuw i8, ptr %17, i64 1
+  store i64 -49064778989728563, ptr %314, align 8, !tbaa !253
+  %315 = getelementptr inbounds nuw i8, ptr %17, i64 64
+  %316 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store i8 %48, ptr %17, align 8
-  %313 = getelementptr inbounds nuw i8, ptr %17, i64 5
-  store i32 %309, ptr %312, align 1
-  %314 = call i64 @_ZN4llvm7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %17, i64 noundef 0, ptr noundef nonnull %313, ptr noundef nonnull %311)
+  %317 = getelementptr inbounds nuw i8, ptr %17, i64 5
+  store i32 %313, ptr %316, align 1
+  %318 = call i64 @_ZN4llvm7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %17, i64 noundef 0, ptr noundef nonnull %317, ptr noundef nonnull %315)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %17) #22
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
-315:                                              ; preds = %1
-  %316 = and i32 %47, 255
-  %317 = icmp eq i32 %316, 0
-  %318 = lshr i32 %47, 8
-  %319 = and i32 %318, 4095
-  %320 = select i1 %317, i32 0, i32 %319
-  %321 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %322 = load ptr, ptr %321, align 8, !tbaa !78
+319:                                              ; preds = %1
+  %320 = and i32 %47, 255
+  %321 = icmp eq i32 %320, 0
+  %322 = lshr i32 %47, 8
+  %323 = and i32 %322, 4095
+  %324 = select i1 %321, i32 0, i32 %323
+  %325 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %326 = load ptr, ptr %325, align 8, !tbaa !78
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %16) #22
-  %323 = getelementptr inbounds nuw i8, ptr %16, i64 120
+  %327 = getelementptr inbounds nuw i8, ptr %16, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %16, i8 0, i64 120, i1 false)
-  store i64 -49064778989728563, ptr %323, align 8, !tbaa !253
-  %324 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  %325 = getelementptr inbounds nuw i8, ptr %16, i64 1
+  store i64 -49064778989728563, ptr %327, align 8, !tbaa !253
+  %328 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  %329 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store i8 14, ptr %16, align 8
-  %326 = getelementptr inbounds nuw i8, ptr %16, i64 5
-  store i32 %320, ptr %325, align 1
+  %330 = getelementptr inbounds nuw i8, ptr %16, i64 5
+  store i32 %324, ptr %329, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store i64 0, ptr %15, align 8, !tbaa !45
-  %327 = call noundef ptr @_ZN4llvm7hashing6detail29hash_combine_recursive_helper12combine_dataIPKNS_6MDNodeEEEPcRmS7_S7_T_(ptr noundef nonnull align 8 dereferenceable(128) %16, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %326, ptr noundef nonnull %324, ptr noundef %322)
-  %328 = load i64, ptr %15, align 8, !tbaa !45
-  %329 = call i64 @_ZN4llvm7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %16, i64 noundef %328, ptr noundef %327, ptr noundef nonnull %324)
+  %331 = call noundef ptr @_ZN4llvm7hashing6detail29hash_combine_recursive_helper12combine_dataIPKNS_6MDNodeEEEPcRmS7_S7_T_(ptr noundef nonnull align 8 dereferenceable(128) %16, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %330, ptr noundef nonnull %328, ptr noundef %326)
+  %332 = load i64, ptr %15, align 8, !tbaa !45
+  %333 = call i64 @_ZN4llvm7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %16, i64 noundef %332, ptr noundef %331, ptr noundef nonnull %328)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %16) #22
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
-330:                                              ; preds = %1
-  %331 = and i32 %47, 255
-  %332 = icmp eq i32 %331, 0
-  %333 = lshr i32 %47, 8
-  %334 = and i32 %333, 4095
-  %335 = select i1 %332, i32 0, i32 %334
-  %336 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %337 = load ptr, ptr %336, align 8, !tbaa !78
+334:                                              ; preds = %1
+  %335 = and i32 %47, 255
+  %336 = icmp eq i32 %335, 0
+  %337 = lshr i32 %47, 8
+  %338 = and i32 %337, 4095
+  %339 = select i1 %336, i32 0, i32 %338
+  %340 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %341 = load ptr, ptr %340, align 8, !tbaa !78
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %14) #22
-  %338 = getelementptr inbounds nuw i8, ptr %14, i64 120
+  %342 = getelementptr inbounds nuw i8, ptr %14, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %14, i8 0, i64 120, i1 false)
-  store i64 -49064778989728563, ptr %338, align 8, !tbaa !253
-  %339 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %340 = getelementptr inbounds nuw i8, ptr %14, i64 1
+  store i64 -49064778989728563, ptr %342, align 8, !tbaa !253
+  %343 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  %344 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store i8 15, ptr %14, align 8
-  %341 = getelementptr inbounds nuw i8, ptr %14, i64 5
-  store i32 %335, ptr %340, align 1
+  %345 = getelementptr inbounds nuw i8, ptr %14, i64 5
+  store i32 %339, ptr %344, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store i64 0, ptr %13, align 8, !tbaa !45
-  %342 = call noundef ptr @_ZN4llvm7hashing6detail29hash_combine_recursive_helper12combine_dataIPNS_8MCSymbolEEEPcRmS6_S6_T_(ptr noundef nonnull align 8 dereferenceable(128) %14, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %341, ptr noundef nonnull %339, ptr noundef %337)
-  %343 = load i64, ptr %13, align 8, !tbaa !45
-  %344 = call i64 @_ZN4llvm7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %14, i64 noundef %343, ptr noundef %342, ptr noundef nonnull %339)
+  %346 = call noundef ptr @_ZN4llvm7hashing6detail29hash_combine_recursive_helper12combine_dataIPNS_8MCSymbolEEEPcRmS6_S6_T_(ptr noundef nonnull align 8 dereferenceable(128) %14, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %345, ptr noundef nonnull %343, ptr noundef %341)
+  %347 = load i64, ptr %13, align 8, !tbaa !45
+  %348 = call i64 @_ZN4llvm7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %14, i64 noundef %347, ptr noundef %346, ptr noundef nonnull %343)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %14) #22
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
-345:                                              ; preds = %1
-  %346 = and i32 %47, 255
-  %347 = icmp eq i32 %346, 0
-  %348 = lshr i32 %47, 8
-  %349 = and i32 %348, 4095
-  %350 = select i1 %347, i32 0, i32 %349
-  %351 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %352 = load i32, ptr %351, align 8, !tbaa !78
-  %353 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %354 = load i32, ptr %353, align 4, !tbaa !78
+349:                                              ; preds = %1
+  %350 = and i32 %47, 255
+  %351 = icmp eq i32 %350, 0
+  %352 = lshr i32 %47, 8
+  %353 = and i32 %352, 4095
+  %354 = select i1 %351, i32 0, i32 %353
+  %355 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %356 = load i32, ptr %355, align 8, !tbaa !78
+  %357 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %358 = load i32, ptr %357, align 4, !tbaa !78
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12) #22
-  %355 = getelementptr inbounds nuw i8, ptr %12, i64 120
+  %359 = getelementptr inbounds nuw i8, ptr %12, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %12, i8 0, i64 120, i1 false)
-  store i64 -49064778989728563, ptr %355, align 8, !tbaa !253
-  %356 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %357 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  store i64 -49064778989728563, ptr %359, align 8, !tbaa !253
+  %360 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %361 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store i8 20, ptr %12, align 8
-  %358 = getelementptr inbounds nuw i8, ptr %12, i64 5
-  store i32 %350, ptr %357, align 1
+  %362 = getelementptr inbounds nuw i8, ptr %12, i64 5
+  store i32 %354, ptr %361, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store i64 0, ptr %11, align 8, !tbaa !45
-  %359 = call noundef ptr @_ZN4llvm7hashing6detail29hash_combine_recursive_helper12combine_dataIjEEPcRmS4_S4_T_(ptr noundef nonnull align 8 dereferenceable(128) %12, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %358, ptr noundef nonnull %356, i32 noundef %352)
-  %360 = load i64, ptr %11, align 8, !tbaa !45
+  %363 = call noundef ptr @_ZN4llvm7hashing6detail29hash_combine_recursive_helper12combine_dataIjEEPcRmS4_S4_T_(ptr noundef nonnull align 8 dereferenceable(128) %12, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %362, ptr noundef nonnull %360, i32 noundef %356)
+  %364 = load i64, ptr %11, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  store i64 %360, ptr %10, align 8, !tbaa !45
-  %361 = call noundef ptr @_ZN4llvm7hashing6detail29hash_combine_recursive_helper12combine_dataIjEEPcRmS4_S4_T_(ptr noundef nonnull align 8 dereferenceable(128) %12, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %359, ptr noundef nonnull %356, i32 noundef %354)
-  %362 = load i64, ptr %10, align 8, !tbaa !45
-  %363 = call i64 @_ZN4llvm7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %12, i64 noundef %362, ptr noundef %361, ptr noundef nonnull %356)
+  store i64 %364, ptr %10, align 8, !tbaa !45
+  %365 = call noundef ptr @_ZN4llvm7hashing6detail29hash_combine_recursive_helper12combine_dataIjEEPcRmS4_S4_T_(ptr noundef nonnull align 8 dereferenceable(128) %12, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %363, ptr noundef nonnull %360, i32 noundef %358)
+  %366 = load i64, ptr %10, align 8, !tbaa !45
+  %367 = call i64 @_ZN4llvm7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %12, i64 noundef %366, ptr noundef %365, ptr noundef nonnull %360)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12) #22
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
-364:                                              ; preds = %1
-  %365 = and i32 %47, 255
-  %366 = icmp eq i32 %365, 0
-  %367 = lshr i32 %47, 8
-  %368 = and i32 %367, 4095
-  %369 = select i1 %366, i32 0, i32 %368
-  %370 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %371 = load i32, ptr %370, align 8, !tbaa !78
+368:                                              ; preds = %1
+  %369 = and i32 %47, 255
+  %370 = icmp eq i32 %369, 0
+  %371 = lshr i32 %47, 8
+  %372 = and i32 %371, 4095
+  %373 = select i1 %370, i32 0, i32 %372
+  %374 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %375 = load i32, ptr %374, align 8, !tbaa !78
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #22
-  %372 = getelementptr inbounds nuw i8, ptr %9, i64 120
+  %376 = getelementptr inbounds nuw i8, ptr %9, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %9, i8 0, i64 120, i1 false)
-  store i64 -49064778989728563, ptr %372, align 8, !tbaa !253
-  %373 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  %374 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  store i64 -49064778989728563, ptr %376, align 8, !tbaa !253
+  %377 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  %378 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 16, ptr %9, align 8
-  %375 = getelementptr inbounds nuw i8, ptr %9, i64 5
-  store i32 %369, ptr %374, align 1
+  %379 = getelementptr inbounds nuw i8, ptr %9, i64 5
+  store i32 %373, ptr %378, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !45
-  %376 = call noundef ptr @_ZN4llvm7hashing6detail29hash_combine_recursive_helper12combine_dataIjEEPcRmS4_S4_T_(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %375, ptr noundef nonnull %373, i32 noundef %371)
-  %377 = load i64, ptr %8, align 8, !tbaa !45
-  %378 = call i64 @_ZN4llvm7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %9, i64 noundef %377, ptr noundef %376, ptr noundef nonnull %373)
+  %380 = call noundef ptr @_ZN4llvm7hashing6detail29hash_combine_recursive_helper12combine_dataIjEEPcRmS4_S4_T_(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %379, ptr noundef nonnull %377, i32 noundef %375)
+  %381 = load i64, ptr %8, align 8, !tbaa !45
+  %382 = call i64 @_ZN4llvm7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %9, i64 noundef %381, ptr noundef %380, ptr noundef nonnull %377)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #22
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
-379:                                              ; preds = %1
-  %380 = and i32 %47, 255
-  %381 = icmp eq i32 %380, 0
-  %382 = lshr i32 %47, 8
-  %383 = and i32 %382, 4095
-  %384 = select i1 %381, i32 0, i32 %383
-  %385 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %386 = load i32, ptr %385, align 8, !tbaa !78
+383:                                              ; preds = %1
+  %384 = and i32 %47, 255
+  %385 = icmp eq i32 %384, 0
+  %386 = lshr i32 %47, 8
+  %387 = and i32 %386, 4095
+  %388 = select i1 %385, i32 0, i32 %387
+  %389 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %390 = load i32, ptr %389, align 8, !tbaa !78
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #22
-  %387 = getelementptr inbounds nuw i8, ptr %7, i64 120
+  %391 = getelementptr inbounds nuw i8, ptr %7, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, i8 0, i64 120, i1 false)
-  store i64 -49064778989728563, ptr %387, align 8, !tbaa !253
-  %388 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %389 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  store i64 -49064778989728563, ptr %391, align 8, !tbaa !253
+  %392 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %393 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 17, ptr %7, align 8
-  %390 = getelementptr inbounds nuw i8, ptr %7, i64 5
-  store i32 %384, ptr %389, align 1
+  %394 = getelementptr inbounds nuw i8, ptr %7, i64 5
+  store i32 %388, ptr %393, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !45
-  %391 = call noundef ptr @_ZN4llvm7hashing6detail29hash_combine_recursive_helper12combine_dataIjEEPcRmS4_S4_T_(ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %390, ptr noundef nonnull %388, i32 noundef %386)
-  %392 = load i64, ptr %6, align 8, !tbaa !45
-  %393 = call i64 @_ZN4llvm7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %7, i64 noundef %392, ptr noundef %391, ptr noundef nonnull %388)
+  %395 = call noundef ptr @_ZN4llvm7hashing6detail29hash_combine_recursive_helper12combine_dataIjEEPcRmS4_S4_T_(ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %394, ptr noundef nonnull %392, i32 noundef %390)
+  %396 = load i64, ptr %6, align 8, !tbaa !45
+  %397 = call i64 @_ZN4llvm7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %7, i64 noundef %396, ptr noundef %395, ptr noundef nonnull %392)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #22
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
-394:                                              ; preds = %1
-  %395 = and i32 %47, 255
-  %396 = icmp eq i32 %395, 0
-  %397 = lshr i32 %47, 8
-  %398 = and i32 %397, 4095
-  %399 = select i1 %396, i32 0, i32 %398
-  %400 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %401 = load i32, ptr %400, align 8, !tbaa !78
+398:                                              ; preds = %1
+  %399 = and i32 %47, 255
+  %400 = icmp eq i32 %399, 0
+  %401 = lshr i32 %47, 8
+  %402 = and i32 %401, 4095
+  %403 = select i1 %400, i32 0, i32 %402
+  %404 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %405 = load i32, ptr %404, align 8, !tbaa !78
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #22
-  %402 = getelementptr inbounds nuw i8, ptr %5, i64 120
+  %406 = getelementptr inbounds nuw i8, ptr %5, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, i8 0, i64 120, i1 false)
-  store i64 -49064778989728563, ptr %402, align 8, !tbaa !253
-  %403 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %404 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  store i64 -49064778989728563, ptr %406, align 8, !tbaa !253
+  %407 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %408 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 18, ptr %5, align 8
-  %405 = getelementptr inbounds nuw i8, ptr %5, i64 5
-  store i32 %399, ptr %404, align 1
+  %409 = getelementptr inbounds nuw i8, ptr %5, i64 5
+  store i32 %403, ptr %408, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !45
-  %406 = call noundef ptr @_ZN4llvm7hashing6detail29hash_combine_recursive_helper12combine_dataIjEEPcRmS4_S4_T_(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %405, ptr noundef nonnull %403, i32 noundef %401)
-  %407 = load i64, ptr %4, align 8, !tbaa !45
-  %408 = call i64 @_ZN4llvm7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %5, i64 noundef %407, ptr noundef %406, ptr noundef nonnull %403)
+  %410 = call noundef ptr @_ZN4llvm7hashing6detail29hash_combine_recursive_helper12combine_dataIjEEPcRmS4_S4_T_(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %409, ptr noundef nonnull %407, i32 noundef %405)
+  %411 = load i64, ptr %4, align 8, !tbaa !45
+  %412 = call i64 @_ZN4llvm7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %5, i64 noundef %411, ptr noundef %410, ptr noundef nonnull %407)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #22
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
-409:                                              ; preds = %1
-  %410 = and i32 %47, 255
-  %411 = icmp eq i32 %410, 0
-  %412 = lshr i32 %47, 8
-  %413 = and i32 %412, 4095
-  %414 = select i1 %411, i32 0, i32 %413
-  %415 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.0.0.copyload.i = load ptr, ptr %415, align 8, !tbaa !252
+413:                                              ; preds = %1
+  %414 = and i32 %47, 255
+  %415 = icmp eq i32 %414, 0
+  %416 = lshr i32 %47, 8
+  %417 = and i32 %416, 4095
+  %418 = select i1 %415, i32 0, i32 %417
+  %419 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.0.0.copyload.i = load ptr, ptr %419, align 8, !tbaa !252
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #22
-  %416 = getelementptr inbounds nuw i8, ptr %3, i64 120
+  %420 = getelementptr inbounds nuw i8, ptr %3, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 120, i1 false)
-  store i64 -49064778989728563, ptr %416, align 8, !tbaa !253
-  %417 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %418 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  store i64 -49064778989728563, ptr %420, align 8, !tbaa !253
+  %421 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %422 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 19, ptr %3, align 8
-  %419 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  store i32 %414, ptr %418, align 1
+  %423 = getelementptr inbounds nuw i8, ptr %3, i64 5
+  store i32 %418, ptr %422, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !45
-  %420 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
-  %421 = tail call noundef i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKiEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %.sroa.0.0.copyload.i, ptr noundef %420)
-  %422 = call noundef ptr @_ZN4llvm7hashing6detail29hash_combine_recursive_helper12combine_dataImEEPcRmS4_S4_T_(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %419, ptr noundef nonnull %417, i64 noundef %421)
-  %423 = load i64, ptr %2, align 8, !tbaa !45
-  %424 = call i64 @_ZN4llvm7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %3, i64 noundef %423, ptr noundef %422, ptr noundef nonnull %417)
+  %424 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
+  %425 = tail call noundef i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKiEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %.sroa.0.0.copyload.i, ptr noundef %424)
+  %426 = call noundef ptr @_ZN4llvm7hashing6detail29hash_combine_recursive_helper12combine_dataImEEPcRmS4_S4_T_(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %423, ptr noundef nonnull %421, i64 noundef %425)
+  %427 = load i64, ptr %2, align 8, !tbaa !45
+  %428 = call i64 @_ZN4llvm7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %3, i64 noundef %427, ptr noundef %426, ptr noundef nonnull %421)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #22
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
-425:                                              ; preds = %1
+429:                                              ; preds = %1
   unreachable
 
-_ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit, %304, %409, %394, %379, %364, %345, %330, %315, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.thread, %234, %209, %_ZN4llvm9StringRefC2EPKc.exit, %165, %140, %125, %110, %95, %80, %65, %49
-  %.sroa.0.0 = phi i64 [ %424, %409 ], [ %408, %394 ], [ %393, %379 ], [ %378, %364 ], [ %363, %345 ], [ %344, %330 ], [ %329, %315 ], [ %314, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.thread ], [ %258, %234 ], [ %233, %209 ], [ %208, %_ZN4llvm9StringRefC2EPKc.exit ], [ %179, %165 ], [ %164, %140 ], [ %139, %125 ], [ %124, %110 ], [ %109, %95 ], [ %94, %80 ], [ %79, %65 ], [ %64, %49 ], [ %303, %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit ], [ %303, %304 ]
+_ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit, %306, %413, %398, %383, %368, %349, %334, %319, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.thread, %234, %209, %_ZN4llvm9StringRefC2EPKc.exit, %165, %140, %125, %110, %95, %80, %65, %49
+  %.sroa.0.0 = phi i64 [ %428, %413 ], [ %412, %398 ], [ %397, %383 ], [ %382, %368 ], [ %367, %349 ], [ %348, %334 ], [ %333, %319 ], [ %318, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.thread ], [ %258, %234 ], [ %233, %209 ], [ %208, %_ZN4llvm9StringRefC2EPKc.exit ], [ %179, %165 ], [ %164, %140 ], [ %139, %125 ], [ %124, %110 ], [ %109, %95 ], [ %94, %80 ], [ %79, %65 ], [ %64, %49 ], [ %305, %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit ], [ %305, %306 ]
   ret i64 %.sroa.0.0
 }
 

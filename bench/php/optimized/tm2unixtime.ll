@@ -233,25 +233,25 @@ do_range_limit.exit.i:                            ; preds = %103, %101
   %109 = load i64, ptr %56, align 8, !tbaa !4
   %110 = icmp slt i64 %109, 0
   %.pr46.pre = load i64, ptr %72, align 8, !tbaa !4
-  br i1 %.not.i38, label %.preheader.i, label %.preheader15.i
+  br i1 %.not.i38, label %.preheader.i, label %.preheader14.i
 
-.preheader15.i:                                   ; preds = %do_range_limit.exit.i
+.preheader14.i:                                   ; preds = %do_range_limit.exit.i
   br i1 %110, label %.lr.ph.i, label %do_range_limit_days_relative.exit
 
 .preheader.i:                                     ; preds = %do_range_limit.exit.i
   br i1 %110, label %dec_month.exit.i, label %do_range_limit_days_relative.exit
 
 dec_month.exit.i:                                 ; preds = %.preheader.i, %.critedge18.i
-  %111 = phi i64 [ %126, %.critedge18.i ], [ %.pr46.pre, %.preheader.i ]
-  %112 = phi i64 [ %125, %.critedge18.i ], [ %109, %.preheader.i ]
-  %.020.i = phi i64 [ %.1.i, %.critedge18.i ], [ %107, %.preheader.i ]
-  %.01019.i = phi i64 [ %.111.i, %.critedge18.i ], [ %108, %.preheader.i ]
-  %113 = add i64 %.01019.i, -1
+  %111 = phi i64 [ %127, %.critedge18.i ], [ %.pr46.pre, %.preheader.i ]
+  %112 = phi i64 [ %126, %.critedge18.i ], [ %109, %.preheader.i ]
+  %.019.i = phi i64 [ %.1.i, %.critedge18.i ], [ %107, %.preheader.i ]
+  %.01018.i = phi i64 [ %.111.i, %.critedge18.i ], [ %108, %.preheader.i ]
+  %113 = add i64 %.01018.i, -1
   %114 = icmp slt i64 %113, 1
-  %115 = add nsw i64 %.01019.i, 11
+  %115 = add nsw i64 %.01018.i, 11
   %.111.i = select i1 %114, i64 %115, i64 %113
   %116 = sext i1 %114 to i64
-  %.1.i = add i64 %.020.i, %116
+  %.1.i = add i64 %.019.i, %116
   %117 = and i64 %.1.i, 3
   %118 = icmp eq i64 %117, 0
   br i1 %118, label %119, label %.critedge.i
@@ -268,92 +268,92 @@ dec_month.exit.i:                                 ; preds = %.preheader.i, %.cri
   br label %.critedge18.i
 
 .critedge18.i:                                    ; preds = %.critedge.i, %119
-  %days_in_month_leap.pn14.i = phi ptr [ @days_in_month, %.critedge.i ], [ @days_in_month_leap, %119 ]
-  %.in.i = getelementptr inbounds [13 x i32], ptr %days_in_month_leap.pn14.i, i64 0, i64 %.111.i
-  %123 = load i32, ptr %.in.i, align 4, !tbaa !12
-  %124 = sext i32 %123 to i64
-  %125 = add i64 %112, %124
-  %126 = add i64 %111, -1
-  %127 = icmp slt i64 %125, 0
-  br i1 %127, label %dec_month.exit.i, label %do_range_limit_days_relative.exit.sink.split
+  %days_in_month.sink.i = phi ptr [ @days_in_month, %.critedge.i ], [ @days_in_month_leap, %119 ]
+  %123 = getelementptr inbounds [13 x i32], ptr %days_in_month.sink.i, i64 0, i64 %.111.i
+  %124 = load i32, ptr %123, align 4, !tbaa !12
+  %125 = sext i32 %124 to i64
+  %126 = add i64 %112, %125
+  %127 = add i64 %111, -1
+  %128 = icmp slt i64 %126, 0
+  br i1 %128, label %dec_month.exit.i, label %do_range_limit_days_relative.exit.sink.split
 
-.lr.ph.i:                                         ; preds = %.preheader15.i, %inc_month.exit.i
-  %128 = phi i64 [ %139, %inc_month.exit.i ], [ %.pr46.pre, %.preheader15.i ]
-  %129 = phi i64 [ %138, %inc_month.exit.i ], [ %109, %.preheader15.i ]
-  %.218.i = phi i64 [ %.3.i, %inc_month.exit.i ], [ %107, %.preheader15.i ]
-  %.21217.i = phi i64 [ %.313.i, %inc_month.exit.i ], [ %108, %.preheader15.i ]
-  %130 = and i64 %.218.i, 3
-  %131 = icmp eq i64 %130, 0
-  br i1 %131, label %132, label %.critedge20.i
+.lr.ph.i:                                         ; preds = %.preheader14.i, %inc_month.exit.i
+  %129 = phi i64 [ %141, %inc_month.exit.i ], [ %.pr46.pre, %.preheader14.i ]
+  %130 = phi i64 [ %140, %inc_month.exit.i ], [ %109, %.preheader14.i ]
+  %.217.i = phi i64 [ %.3.i, %inc_month.exit.i ], [ %107, %.preheader14.i ]
+  %.21216.i = phi i64 [ %.313.i, %inc_month.exit.i ], [ %108, %.preheader14.i ]
+  %131 = and i64 %.217.i, 3
+  %132 = icmp eq i64 %131, 0
+  br i1 %132, label %133, label %.critedge20.i
 
-132:                                              ; preds = %.lr.ph.i
-  %133 = srem i64 %.218.i, 100
-  %.not15.i = icmp ne i64 %133, 0
-  %134 = srem i64 %.218.i, 400
-  %135 = icmp eq i64 %134, 0
-  %or.cond25.i = or i1 %.not15.i, %135
+133:                                              ; preds = %.lr.ph.i
+  %134 = srem i64 %.217.i, 100
+  %.not15.i = icmp ne i64 %134, 0
+  %135 = srem i64 %.217.i, 400
+  %136 = icmp eq i64 %135, 0
+  %or.cond25.i = or i1 %.not15.i, %136
   br i1 %or.cond25.i, label %inc_month.exit.i, label %.critedge20.i
 
-.critedge20.i:                                    ; preds = %132, %.lr.ph.i
+.critedge20.i:                                    ; preds = %133, %.lr.ph.i
   br label %inc_month.exit.i
 
-inc_month.exit.i:                                 ; preds = %.critedge20.i, %132
-  %days_in_month_leap.pn.i = phi ptr [ @days_in_month, %.critedge20.i ], [ @days_in_month_leap, %132 ]
-  %.in16.i = getelementptr inbounds [13 x i32], ptr %days_in_month_leap.pn.i, i64 0, i64 %.21217.i
-  %136 = load i32, ptr %.in16.i, align 4, !tbaa !12
-  %137 = sext i32 %136 to i64
-  %138 = add i64 %129, %137
-  %139 = add i64 %128, -1
-  %140 = add i64 %.21217.i, 1
-  %141 = icmp sgt i64 %140, 12
-  %142 = add nsw i64 %.21217.i, -11
-  %.313.i = select i1 %141, i64 %142, i64 %140
-  %143 = zext i1 %141 to i64
-  %.3.i = add i64 %.218.i, %143
-  %144 = icmp slt i64 %138, 0
-  br i1 %144, label %.lr.ph.i, label %do_range_limit_days_relative.exit.sink.split
+inc_month.exit.i:                                 ; preds = %.critedge20.i, %133
+  %days_in_month.sink22.i = phi ptr [ @days_in_month, %.critedge20.i ], [ @days_in_month_leap, %133 ]
+  %137 = getelementptr inbounds [13 x i32], ptr %days_in_month.sink22.i, i64 0, i64 %.21216.i
+  %138 = load i32, ptr %137, align 4, !tbaa !12
+  %139 = sext i32 %138 to i64
+  %140 = add i64 %130, %139
+  %141 = add i64 %129, -1
+  %142 = add i64 %.21216.i, 1
+  %143 = icmp sgt i64 %142, 12
+  %144 = add nsw i64 %.21216.i, -11
+  %.313.i = select i1 %143, i64 %144, i64 %142
+  %145 = zext i1 %143 to i64
+  %.3.i = add i64 %.217.i, %145
+  %146 = icmp slt i64 %140, 0
+  br i1 %146, label %.lr.ph.i, label %do_range_limit_days_relative.exit.sink.split
 
 do_range_limit_days_relative.exit.sink.split:     ; preds = %inc_month.exit.i, %.critedge18.i
-  %.lcssa60.sink = phi i64 [ %125, %.critedge18.i ], [ %138, %inc_month.exit.i ]
-  %.lcssa59.sink = phi i64 [ %126, %.critedge18.i ], [ %139, %inc_month.exit.i ]
+  %.lcssa60.sink = phi i64 [ %126, %.critedge18.i ], [ %140, %inc_month.exit.i ]
+  %.lcssa59.sink = phi i64 [ %127, %.critedge18.i ], [ %141, %inc_month.exit.i ]
   store i64 %.lcssa60.sink, ptr %56, align 8, !tbaa !4
   store i64 %.lcssa59.sink, ptr %72, align 8, !tbaa !4
   br label %do_range_limit_days_relative.exit
 
-do_range_limit_days_relative.exit:                ; preds = %do_range_limit_days_relative.exit.sink.split, %.preheader15.i, %.preheader.i
-  %145 = phi i64 [ %.pr46.pre, %.preheader.i ], [ %.pr46.pre, %.preheader15.i ], [ %.lcssa59.sink, %do_range_limit_days_relative.exit.sink.split ]
-  %146 = icmp slt i64 %145, 0
-  br i1 %146, label %147, label %154
+do_range_limit_days_relative.exit:                ; preds = %do_range_limit_days_relative.exit.sink.split, %.preheader14.i, %.preheader.i
+  %147 = phi i64 [ %.pr46.pre, %.preheader.i ], [ %.pr46.pre, %.preheader14.i ], [ %.lcssa59.sink, %do_range_limit_days_relative.exit.sink.split ]
+  %148 = icmp slt i64 %147, 0
+  br i1 %148, label %149, label %156
 
-147:                                              ; preds = %do_range_limit_days_relative.exit
-  %.neg.i41 = xor i64 %145, -1
-  %148 = udiv i64 %.neg.i41, 12
-  %.neg24.i42 = xor i64 %148, -1
-  %149 = load i64, ptr %1, align 8, !tbaa !4
-  %150 = add i64 %149, %.neg24.i42
-  store i64 %150, ptr %1, align 8, !tbaa !4
-  %151 = mul nuw nsw i64 %148, 12
-  %152 = add nsw i64 %145, 12
-  %153 = add i64 %152, %151
-  store i64 %153, ptr %72, align 8, !tbaa !4
-  br label %154
+149:                                              ; preds = %do_range_limit_days_relative.exit
+  %.neg.i41 = xor i64 %147, -1
+  %150 = udiv i64 %.neg.i41, 12
+  %.neg24.i42 = xor i64 %150, -1
+  %151 = load i64, ptr %1, align 8, !tbaa !4
+  %152 = add i64 %151, %.neg24.i42
+  store i64 %152, ptr %1, align 8, !tbaa !4
+  %153 = mul nuw nsw i64 %150, 12
+  %154 = add nsw i64 %147, 12
+  %155 = add i64 %154, %153
+  store i64 %155, ptr %72, align 8, !tbaa !4
+  br label %156
 
-154:                                              ; preds = %147, %do_range_limit_days_relative.exit
-  %155 = phi i64 [ %153, %147 ], [ %145, %do_range_limit_days_relative.exit ]
-  %.fr.i40 = freeze i64 %155
+156:                                              ; preds = %149, %do_range_limit_days_relative.exit
+  %157 = phi i64 [ %155, %149 ], [ %147, %do_range_limit_days_relative.exit ]
+  %.fr.i40 = freeze i64 %157
   %.not.i39 = icmp slt i64 %.fr.i40, 12
-  br i1 %.not.i39, label %do_range_limit.exit43, label %156
+  br i1 %.not.i39, label %do_range_limit.exit43, label %158
 
-156:                                              ; preds = %154
-  %157 = udiv i64 %.fr.i40, 12
-  %158 = load i64, ptr %1, align 8, !tbaa !4
-  %159 = add i64 %158, %157
-  store i64 %159, ptr %1, align 8, !tbaa !4
-  %160 = urem i64 %.fr.i40, 12
-  store i64 %160, ptr %72, align 8, !tbaa !4
+158:                                              ; preds = %156
+  %159 = udiv i64 %.fr.i40, 12
+  %160 = load i64, ptr %1, align 8, !tbaa !4
+  %161 = add i64 %160, %159
+  store i64 %161, ptr %1, align 8, !tbaa !4
+  %162 = urem i64 %.fr.i40, 12
+  store i64 %162, ptr %72, align 8, !tbaa !4
   br label %do_range_limit.exit43
 
-do_range_limit.exit43:                            ; preds = %154, %156
+do_range_limit.exit43:                            ; preds = %156, %158
   ret void
 }
 
@@ -705,7 +705,7 @@ do_range_limit.exit.i:                            ; preds = %144, %141
   %161 = icmp sgt i64 %.lcssa7094, 0
   br i1 %161, label %.lr.ph, label %do_range_limit_days.exit.thread
 
-.lr.ph.i:                                         ; preds = %.thread50.i
+.lr.ph.i:                                         ; preds = %.critedge52.i
   %162 = icmp samesign ugt i64 %163, 1
   br i1 %162, label %.lr.ph, label %.lr.ph.i.do_range_limit_days.exit.loopexit63_crit_edge
 
@@ -717,30 +717,31 @@ do_range_limit.exit.i:                            ; preds = %144, %141
   %167 = sext i1 %165 to i64
   %.040.i = add i64 %149, %167
   %.039.i = select i1 %165, i64 12, i64 %166
-  %.040.fr.i = freeze i64 %.040.i
-  %168 = and i64 %.040.fr.i, 3
+  %168 = and i64 %.040.i, 3
   %169 = icmp eq i64 %168, 0
-  br i1 %169, label %170, label %.thread50.i
+  br i1 %169, label %170, label %.critedge50.i
 
 170:                                              ; preds = %.lr.ph
-  %171 = srem i64 %.040.fr.i, 100
+  %171 = srem i64 %.040.i, 100
   %.not48.i = icmp ne i64 %171, 0
-  %172 = srem i64 %.040.fr.i, 400
+  %172 = srem i64 %.040.i, 400
   %173 = icmp eq i64 %172, 0
   %or.cond54.i = or i1 %.not48.i, %173
-  %spec.select.i = select i1 %or.cond54.i, ptr @days_in_month_leap, ptr @days_in_month
-  br label %.thread50.i
+  br i1 %or.cond54.i, label %.critedge52.i, label %.critedge50.i
 
-.thread50.i:                                      ; preds = %170, %.lr.ph
-  %174 = phi ptr [ @days_in_month, %.lr.ph ], [ %spec.select.i, %170 ]
-  %.in.i = getelementptr inbounds nuw [13 x i32], ptr %174, i64 0, i64 %.039.i
-  %175 = load i32, ptr %.in.i, align 4, !tbaa !12
+.critedge50.i:                                    ; preds = %170, %.lr.ph
+  br label %.critedge52.i
+
+.critedge52.i:                                    ; preds = %.critedge50.i, %170
+  %days_in_month.sink.i = phi ptr [ @days_in_month, %.critedge50.i ], [ @days_in_month_leap, %170 ]
+  %174 = getelementptr inbounds nuw [13 x i32], ptr %days_in_month.sink.i, i64 0, i64 %.039.i
+  %175 = load i32, ptr %174, align 4, !tbaa !12
   %176 = sext i32 %175 to i64
   %177 = add i64 %164, %176
   %178 = icmp slt i64 %177, 1
   br i1 %178, label %.lr.ph.i, label %.lr.ph59.preheader.i
 
-.lr.ph59.preheader.i:                             ; preds = %.thread50.i
+.lr.ph59.preheader.i:                             ; preds = %.critedge52.i
   store i64 %177, ptr %121, align 8, !tbaa !4
   store i64 %166, ptr %71, align 8, !tbaa !4
   %179 = icmp samesign ult i64 %166, 13

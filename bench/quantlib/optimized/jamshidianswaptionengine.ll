@@ -1902,8 +1902,8 @@ invoke.cont298:                                   ; preds = %invoke.cont297
   %sub.ptr.lhs.cast.i279 = ptrtoint ptr %__first.addr.0.i.i.i.i.i to i64
   %sub.ptr.rhs.cast.i280 = ptrtoint ptr %fixedPayTimes.sroa.0.0 to i64
   %sub.ptr.sub.i281 = sub i64 %sub.ptr.lhs.cast.i279, %sub.ptr.rhs.cast.i280
-  %cmp303551.not = icmp eq ptr %__first.addr.0.i.i.i.i.i, %fixedPayTimes.sroa.0.0
-  br i1 %cmp303551.not, label %for.cond.cleanup, label %for.body.preheader
+  %cmp303550.not = icmp eq ptr %__first.addr.0.i.i.i.i.i, %fixedPayTimes.sroa.0.0
+  br i1 %cmp303550.not, label %for.cond.cleanup, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %invoke.cont298
   %sub.ptr.div.i282 = ashr exact i64 %sub.ptr.sub.i281, 3
@@ -1968,9 +1968,9 @@ ehcleanup301:                                     ; preds = %lpad296, %lpad293
   br label %ehcleanup405
 
 for.body:                                         ; preds = %for.body.preheader, %invoke.cont313
-  %i.0552 = phi i64 [ %inc, %invoke.cont313 ], [ 0, %for.body.preheader ]
+  %i.0551 = phi i64 [ %inc, %invoke.cont313 ], [ 0, %for.body.preheader ]
   %193 = load ptr, ptr %fixedPayDates, align 8, !tbaa !132
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %193, i64 %i.0552
+  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %193, i64 %i.0551
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp307) #27
   invoke void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp307)
           to label %invoke.cont309 unwind label %lpad308
@@ -1985,11 +1985,11 @@ invoke.cont312:                                   ; preds = %invoke.cont309
           to label %invoke.cont313 unwind label %lpad311
 
 invoke.cont313:                                   ; preds = %invoke.cont312
-  %add.ptr.i283 = getelementptr inbounds nuw double, ptr %fixedPayTimes.sroa.0.0, i64 %i.0552
+  %add.ptr.i283 = getelementptr inbounds nuw double, ptr %fixedPayTimes.sroa.0.0, i64 %i.0551
   store double %call314, ptr %add.ptr.i283, align 8, !tbaa !131
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp310) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp307) #27
-  %inc = add nuw i64 %i.0552, 1
+  %inc = add nuw i64 %i.0551, 1
   %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !134
 
@@ -2012,7 +2012,11 @@ ehcleanup317:                                     ; preds = %lpad311, %lpad308
 invoke.cont321:                                   ; preds = %for.cond.cleanup
   %196 = load double, ptr %nominal, align 8, !tbaa !115
   %cmp.not.i.i.i.i288 = icmp eq ptr %__first.addr.0.i.i.i.i.i, %fixedPayTimes.sroa.0.0
-  br i1 %cmp.not.i.i.i.i288, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %cond.true.i.i.i.i289
+  br i1 %cmp.not.i.i.i.i288, label %invoke.cont.i292.thread, label %cond.true.i.i.i.i289
+
+invoke.cont.i292.thread:                          ; preds = %invoke.cont321
+  %add.ptr.i.i.i295464 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i281
+  br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 cond.true.i.i.i.i289:                             ; preds = %invoke.cont321
   %cmp.i.i.i.i.i.i290 = icmp ugt i64 %sub.ptr.sub.i281, 9223372036854775800
@@ -2030,12 +2034,13 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i291: ; preds = %cond.t
           to label %if.then.i.i.i.i.i.i.i.i.i301 unwind label %lpad320
 
 if.then.i.i.i.i.i.i.i.i.i301:                     ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i291
+  %add.ptr.i.i.i295 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i6.i306, i64 %sub.ptr.sub.i281
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i6.i306, ptr align 8 %fixedPayTimes.sroa.0.0, i64 %sub.ptr.sub.i281, i1 false)
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
-_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont321, %if.then.i.i.i.i.i.i.i.i.i301
-  %cond.i.i.i.i293465 = phi ptr [ %call5.i.i.i.i2.i6.i306, %if.then.i.i.i.i.i.i.i.i.i301 ], [ null, %invoke.cont321 ]
-  %add.ptr.i.i.i295466 = getelementptr inbounds i8, ptr %cond.i.i.i.i293465, i64 %sub.ptr.sub.i281
+_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont.i292.thread, %if.then.i.i.i.i.i.i.i.i.i301
+  %add.ptr.i.i.i295466 = phi ptr [ %add.ptr.i.i.i295464, %invoke.cont.i292.thread ], [ %add.ptr.i.i.i295, %if.then.i.i.i.i.i.i.i.i.i301 ]
+  %cond.i.i.i.i293465 = phi ptr [ null, %invoke.cont.i292.thread ], [ %call5.i.i.i.i2.i6.i306, %if.then.i.i.i.i.i.i.i.i.i301 ]
   store double %196, ptr %finder, align 8, !tbaa !136
   %maturity_.i = getelementptr inbounds nuw i8, ptr %finder, i64 8
   store double %call279, ptr %maturity_.i, align 8, !tbaa !138
@@ -2112,11 +2117,11 @@ _ZNK8QuantLib20OneFactorAffineModel12discountBondEddd.exit: ; preds = %call.i.no
   %mul.i = fmul double %call335, %fneg.i
   %call5.i = call double @exp(double noundef %mul.i) #27, !tbaa !147
   %mul6.i = fmul double %call.i322, %call5.i
-  %cmp351554.not = icmp eq ptr %198, %199
-  br i1 %cmp351554.not, label %for.cond.cleanup352, label %for.body353.preheader
+  %cmp351553.not = icmp eq ptr %198, %199
+  br i1 %cmp351553.not, label %for.cond.cleanup352, label %for.body353.preheader
 
 for.body353.preheader:                            ; preds = %_ZNK8QuantLib20OneFactorAffineModel12discountBondEddd.exit
-  %umax558 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i317, i64 1)
+  %umax557 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i317, i64 1)
   br label %for.body353
 
 for.cond.cleanup352:                              ; preds = %invoke.cont384, %_ZNK8QuantLib20OneFactorAffineModel12discountBondEddd.exit
@@ -2261,10 +2266,10 @@ lpad342:                                          ; preds = %call.i.noexc, %invo
   br label %ehcleanup399
 
 for.body353:                                      ; preds = %for.body353.preheader, %invoke.cont384
-  %i349.0556 = phi i64 [ %inc391, %invoke.cont384 ], [ 0, %for.body353.preheader ]
-  %value.0555 = phi double [ %235, %invoke.cont384 ], [ 0.000000e+00, %for.body353.preheader ]
+  %i349.0555 = phi i64 [ %inc391, %invoke.cont384 ], [ 0, %for.body353.preheader ]
+  %value.0554 = phi double [ %235, %invoke.cont384 ], [ 0.000000e+00, %for.body353.preheader ]
   %225 = load ptr, ptr %fixedPayDates, align 8, !tbaa !132
-  %add.ptr.i367 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %225, i64 %i349.0556
+  %add.ptr.i367 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %225, i64 %i349.0555
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp357) #27
   invoke void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp357)
           to label %invoke.cont359 unwind label %lpad358
@@ -2345,12 +2350,12 @@ invoke.cont379:                                   ; preds = %.noexc388, %invoke.
 
 invoke.cont384:                                   ; preds = %invoke.cont379
   %233 = load ptr, ptr %amounts, align 8, !tbaa !129
-  %add.ptr.i390 = getelementptr inbounds nuw double, ptr %233, i64 %i349.0556
+  %add.ptr.i390 = getelementptr inbounds nuw double, ptr %233, i64 %i349.0555
   %234 = load double, ptr %add.ptr.i390, align 8, !tbaa !131
-  %235 = call double @llvm.fmuladd.f64(double %234, double %call385, double %value.0555)
-  %inc391 = add nuw i64 %i349.0556, 1
-  %exitcond559.not = icmp eq i64 %inc391, %umax558
-  br i1 %exitcond559.not, label %for.cond.cleanup352, label %for.body353, !llvm.loop !149
+  %235 = call double @llvm.fmuladd.f64(double %234, double %call385, double %value.0554)
+  %inc391 = add nuw i64 %i349.0555, 1
+  %exitcond558.not = icmp eq i64 %inc391, %umax557
+  br i1 %exitcond558.not, label %for.cond.cleanup352, label %for.body353, !llvm.loop !149
 
 lpad358:                                          ; preds = %for.body353
   %236 = landingpad { ptr, i32 }

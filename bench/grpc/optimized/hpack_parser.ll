@@ -3797,7 +3797,7 @@ _ZSt8exchangeIN9grpc_core16HpackParseResultES1_ET_RS2_OT0_.exit: ; preds = %_ZNK
 
 _ZN9grpc_core16HpackParseResultD2Ev.exit21:       ; preds = %132, %128, %126
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #32
-  br label %183
+  br label %185
 
 136:                                              ; preds = %_ZSt8exchangeIN9grpc_core16HpackParseResultES1_ET_RS2_OT0_.exit
   %137 = landingpad { ptr, i32 }
@@ -3871,47 +3871,52 @@ _ZNK9grpc_core16HpackParseResult16connection_errorEv.exit30.thread: ; preds = %_
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %_ZNK9grpc_core16HpackParseResult16connection_errorEv.exit30.thread
   %.not.i.i.i31 = icmp eq ptr %165, %163
-  br i1 %.not.i.i.i31, label %_ZNSt6vectorIhSaIhEEC2IPKhvEET_S5_RKS0_.exit, label %.noexc4.i
+  br i1 %.not.i.i.i31, label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i, label %.noexc4.i
 
-.noexc4.i:                                        ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %170 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %168) #35
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %170, ptr align 1 %163, i64 %168, i1 false)
+_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
+  %170 = getelementptr inbounds nuw i8, ptr null, i64 %168
   br label %_ZNSt6vectorIhSaIhEEC2IPKhvEET_S5_RKS0_.exit
 
-_ZNSt6vectorIhSaIhEEC2IPKhvEET_S5_RKS0_.exit:     ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i, %.noexc4.i
-  %.sroa.035.0 = phi ptr [ %170, %.noexc4.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %.sroa.11.0 = getelementptr inbounds nuw i8, ptr %.sroa.035.0, i64 %168
-  %171 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %172 = load ptr, ptr %171, align 8, !tbaa !16
-  %173 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %174 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %175 = load ptr, ptr %174, align 8, !tbaa !48
-  store ptr %.sroa.035.0, ptr %171, align 8, !tbaa !16
-  store ptr %.sroa.11.0, ptr %173, align 8, !tbaa !18
-  store ptr %.sroa.11.0, ptr %174, align 8, !tbaa !48
-  %.not.i.i.i.i.i32 = icmp eq ptr %172, null
-  br i1 %.not.i.i.i.i.i32, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %176
+.noexc4.i:                                        ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
+  %171 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %168) #35
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 %168
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %171, ptr align 1 %163, i64 %168, i1 false)
+  br label %_ZNSt6vectorIhSaIhEEC2IPKhvEET_S5_RKS0_.exit
 
-176:                                              ; preds = %_ZNSt6vectorIhSaIhEEC2IPKhvEET_S5_RKS0_.exit
-  %177 = ptrtoint ptr %175 to i64
-  %178 = ptrtoint ptr %172 to i64
-  %179 = sub i64 %177, %178
-  call void @_ZdlPvm(ptr noundef nonnull %172, i64 noundef %179) #34
+_ZNSt6vectorIhSaIhEEC2IPKhvEET_S5_RKS0_.exit:     ; preds = %.noexc4.i, %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i
+  %.sroa.035.0 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i ], [ %171, %.noexc4.i ]
+  %.sroa.11.0 = phi ptr [ %170, %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i ], [ %172, %.noexc4.i ]
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %174 = load ptr, ptr %173, align 8, !tbaa !16
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %176 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %177 = load ptr, ptr %176, align 8, !tbaa !48
+  store ptr %.sroa.035.0, ptr %173, align 8, !tbaa !16
+  store ptr %.sroa.11.0, ptr %175, align 8, !tbaa !18
+  store ptr %.sroa.11.0, ptr %176, align 8, !tbaa !48
+  %.not.i.i.i.i.i32 = icmp eq ptr %174, null
+  br i1 %.not.i.i.i.i.i32, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %178
+
+178:                                              ; preds = %_ZNSt6vectorIhSaIhEEC2IPKhvEET_S5_RKS0_.exit
+  %179 = ptrtoint ptr %177 to i64
+  %180 = ptrtoint ptr %174 to i64
+  %181 = sub i64 %179, %180
+  call void @_ZdlPvm(ptr noundef nonnull %174, i64 noundef %181) #34
   %.pre = load i64, ptr %148, align 8, !tbaa !24
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
-_ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %176, %_ZNSt6vectorIhSaIhEEC2IPKhvEET_S5_RKS0_.exit
-  %180 = phi i64 [ %.pre, %176 ], [ %149, %_ZNSt6vectorIhSaIhEEC2IPKhvEET_S5_RKS0_.exit ]
-  %181 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i64 %180, ptr %181, align 8, !tbaa !201
+_ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %178, %_ZNSt6vectorIhSaIhEEC2IPKhvEET_S5_RKS0_.exit
+  %182 = phi i64 [ %.pre, %178 ], [ %149, %_ZNSt6vectorIhSaIhEEC2IPKhvEET_S5_RKS0_.exit ]
+  %183 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i64 %182, ptr %183, align 8, !tbaa !201
   br label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit28.thread51
 
 _ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit28.thread51: ; preds = %150, %_ZNSt6vectorIhSaIhEED2Ev.exit, %_ZNK9grpc_core16HpackParseResult16connection_errorEv.exit30, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit28
-  %182 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  call void @_ZNK9grpc_core16HpackParseResult11MaterializeEv(ptr dead_on_unwind writable sret(%"class.absl::lts_20240722::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %182)
-  br label %183
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  call void @_ZNK9grpc_core16HpackParseResult11MaterializeEv(ptr dead_on_unwind writable sret(%"class.absl::lts_20240722::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %184)
+  br label %185
 
-183:                                              ; preds = %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit28.thread51, %_ZN9grpc_core16HpackParseResultD2Ev.exit21
+185:                                              ; preds = %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit28.thread51, %_ZN9grpc_core16HpackParseResultD2Ev.exit21
   ret void
 }
 

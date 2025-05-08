@@ -67208,77 +67208,77 @@ _ZNSt12_Vector_baseISt4pairImmESaIS1_EEC2EmRKS2_.exit.i.i: ; preds = %12
   br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintC2ERKS1_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !5598
 
 _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintC2ERKS1_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %2
-  %18 = phi ptr [ null, %2 ], [ %15, %.lr.ph.i.i.i.i.i.i ]
+  %.sink = phi ptr [ null, %2 ], [ %15, %.lr.ph.i.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %2 ], [ %17, %.lr.ph.i.i.i.i.i.i ]
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %20 = load i32, ptr %4, align 4, !tbaa !900
-  %switch.i = icmp eq i32 %20, 0
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %19 = load i32, ptr %4, align 4, !tbaa !900
+  %switch.i = icmp eq i32 %19, 0
   %..i = zext i1 %switch.i to i32
-  %21 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !5599
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i32 1, ptr %22, align 8, !tbaa !424, !noalias !5604
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  store i32 1, ptr %23, align 4, !tbaa !426, !noalias !5604
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !tbaa !7, !noalias !5604
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store i32 %.val.i, ptr %25, align 8, !tbaa !464, !noalias !5604
-  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %24, align 8, !tbaa !7, !noalias !5604
-  %26 = getelementptr inbounds nuw i8, ptr %21, i64 28
-  store i32 %..i, ptr %26, align 4, !tbaa !900, !noalias !5604
-  %27 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %28 = ptrtoint ptr %.0.lcssa.i.i.i.i.i.i to i64
-  %29 = ptrtoint ptr %18 to i64
-  %30 = sub i64 %28, %29
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false), !noalias !5604
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.0.lcssa.i.i.i.i.i.i, %18
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseISt4pairImmESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.thread.i.i.i.i, label %33
+  %20 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !5599
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store i32 1, ptr %21, align 8, !tbaa !424, !noalias !5604
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 12
+  store i32 1, ptr %22, align 4, !tbaa !426, !noalias !5604
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20, align 8, !tbaa !7, !noalias !5604
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  store i32 %.val.i, ptr %24, align 8, !tbaa !464, !noalias !5604
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %23, align 8, !tbaa !7, !noalias !5604
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 28
+  store i32 %..i, ptr %25, align 4, !tbaa !900, !noalias !5604
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %27 = ptrtoint ptr %.0.lcssa.i.i.i.i.i.i to i64
+  %28 = ptrtoint ptr %.sink to i64
+  %29 = sub i64 %27, %28
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false), !noalias !5604
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.0.lcssa.i.i.i.i.i.i, %.sink
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseISt4pairImmESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.thread.i.i.i.i, label %32
 
 _ZNSt12_Vector_baseISt4pairImmESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.thread.i.i.i.i: ; preds = %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintC2ERKS1_.exit
-  %31 = getelementptr inbounds nuw i8, ptr null, i64 %30
-  %32 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  store ptr %31, ptr %32, align 8, !tbaa !908, !noalias !5604
+  %30 = getelementptr inbounds nuw i8, ptr null, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 48
+  store ptr %30, ptr %31, align 8, !tbaa !908, !noalias !5604
   br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-33:                                               ; preds = %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintC2ERKS1_.exit
-  %34 = icmp ugt i64 %30, 9223372036854775792
-  br i1 %34, label %35, label %_ZNSt12_Vector_baseISt4pairImmESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.i.i.i.i, !prof !428
+32:                                               ; preds = %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintC2ERKS1_.exit
+  %33 = icmp ugt i64 %29, 9223372036854775792
+  br i1 %33, label %34, label %_ZNSt12_Vector_baseISt4pairImmESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.i.i.i.i, !prof !428
 
-35:                                               ; preds = %33
+34:                                               ; preds = %32
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #24, !noalias !5604
   unreachable
 
-_ZNSt12_Vector_baseISt4pairImmESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.i.i.i.i: ; preds = %33
-  %36 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #23, !noalias !5604
-  store ptr %36, ptr %27, align 8, !tbaa !907, !noalias !5604
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %30
-  %38 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  store ptr %37, ptr %38, align 8, !tbaa !908, !noalias !5604
-  %39 = add i64 %28, -16
-  %40 = sub i64 %39, %29
-  %41 = and i64 %40, -16
-  %42 = add i64 %41, 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %36, ptr align 8 %18, i64 %42, i1 false), !noalias !5604
-  %scevgep = getelementptr i8, ptr %36, i64 %42
+_ZNSt12_Vector_baseISt4pairImmESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.i.i.i.i: ; preds = %32
+  %35 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #23, !noalias !5604
+  store ptr %35, ptr %26, align 8, !tbaa !907, !noalias !5604
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %29
+  %37 = getelementptr inbounds nuw i8, ptr %20, i64 48
+  store ptr %36, ptr %37, align 8, !tbaa !908, !noalias !5604
+  %38 = add i64 %27, -16
+  %39 = sub i64 %38, %28
+  %40 = and i64 %39, -16
+  %41 = add i64 %40, 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %35, ptr align 8 %.sink, i64 %41, i1 false), !noalias !5604
+  %scevgep = getelementptr i8, ptr %35, i64 %41
   br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12_Vector_baseISt4pairImmESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairImmESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.thread.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairImmESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.thread.i.i.i.i ], [ %scevgep, %_ZNSt12_Vector_baseISt4pairImmESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.i.i.i.i ]
-  %43 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  store ptr %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %43, align 8, !tbaa !909, !noalias !5604
-  %44 = getelementptr inbounds nuw i8, ptr %21, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
-  store ptr %24, ptr %0, align 8, !tbaa !447
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %21, ptr %45, align 8, !tbaa !421
-  %.not.i.i.i.i = icmp eq ptr %18, null
-  br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintD2Ev.exit, label %46
+  %42 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  store ptr %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %42, align 8, !tbaa !909, !noalias !5604
+  %43 = getelementptr inbounds nuw i8, ptr %20, i64 56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)
+  store ptr %23, ptr %0, align 8, !tbaa !447
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %20, ptr %44, align 8, !tbaa !421
+  %.not.i.i.i.i = icmp eq ptr %.sink, null
+  br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintD2Ev.exit, label %45
 
-46:                                               ; preds = %_ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %11) #25
+45:                                               ; preds = %_ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink, i64 noundef %11) #25
   br label %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintD2Ev.exit
 
-_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintD2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %46
+_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintD2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %45
   ret void
 }
 

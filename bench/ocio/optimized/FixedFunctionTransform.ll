@@ -815,24 +815,48 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev26FixedFunctionTransformImpl9getPar
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %.not.i.i.i.i = icmp eq ptr %5, %6
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %10
+  br i1 %.not.i.i.i.i, label %.thread, label %11
 
-10:                                               ; preds = %2
-  %11 = icmp ugt i64 %9, 9223372036854775800
-  br i1 %11, label %.noexc.i.i, label %12, !prof !61
+.thread:                                          ; preds = %2
+  %10 = getelementptr inbounds i8, ptr null, i64 %9
+  br label %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
 
-.noexc.i.i:                                       ; preds = %10
+11:                                               ; preds = %2
+  %12 = icmp ugt i64 %9, 9223372036854775800
+  br i1 %12, label %.noexc.i.i, label %13, !prof !61
+
+.noexc.i.i:                                       ; preds = %11
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
-12:                                               ; preds = %10
-  %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #20
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %13, ptr align 8 %6, i64 %9, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1, ptr nonnull align 8 %13, i64 %9, i1 false)
-  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %9) #24
+13:                                               ; preds = %11
+  %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #20
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %9
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %14, ptr align 8 %6, i64 %9, i1 false)
+  br label %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
+
+_ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %.thread, %13
+  %16 = phi ptr [ %10, %.thread ], [ %15, %13 ]
+  %17 = phi ptr [ null, %.thread ], [ %14, %13 ]
+  %18 = ptrtoint ptr %16 to i64
+  %19 = ptrtoint ptr %17 to i64
+  %20 = sub i64 %18, %19
+  %.not.i.i.i.i.i = icmp eq ptr %16, %17
+  br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEPdET0_T_SA_S9_.exit, label %21
+
+21:                                               ; preds = %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1, ptr align 8 %17, i64 %20, i1 false)
+  br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEPdET0_T_SA_S9_.exit
+
+_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEPdET0_T_SA_S9_.exit: ; preds = %21, %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
+  %.not.i.i.i = icmp eq ptr %17, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %22
+
+22:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEPdET0_T_SA_S9_.exit
+  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %20) #24
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
-_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %2, %12
+_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEPdET0_T_SA_S9_.exit, %22
   ret void
 }
 

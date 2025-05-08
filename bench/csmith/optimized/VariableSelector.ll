@@ -5326,13 +5326,13 @@ define dso_local void @_ZN16VariableSelector18get_all_array_varsERSt6vectorIPK8V
 
 7:                                                ; preds = %1
   %8 = icmp ugt i64 %6, 9223372036854775800
-  br i1 %8, label %.noexc.i.i, label %.lr.ph, !prof !123
+  br i1 %8, label %.noexc.i.i, label %_ZNSt6vectorIP8VariableSaIS1_EEC2ERKS3_.exit, !prof !123
 
 .noexc.i.i:                                       ; preds = %7
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #24
   unreachable
 
-.lr.ph:                                           ; preds = %7
+_ZNSt6vectorIP8VariableSaIS1_EEC2ERKS3_.exit:     ; preds = %7
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #23
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %9, ptr align 8 %3, i64 %6, i1 false)
   %10 = lshr exact i64 %6, 3
@@ -5348,9 +5348,9 @@ define dso_local void @_ZN16VariableSelector18get_all_array_varsERSt6vectorIPK8V
 _ZNSt6vectorIP8VariableSaIS1_EED2Ev.exit:         ; preds = %1, %._crit_edge
   ret void
 
-13:                                               ; preds = %.lr.ph, %_ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit
-  %.015 = phi i64 [ 0, %.lr.ph ], [ %45, %_ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit ]
-  %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %.015
+13:                                               ; preds = %_ZNSt6vectorIP8VariableSaIS1_EEC2ERKS3_.exit, %_ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit
+  %.017 = phi i64 [ 0, %_ZNSt6vectorIP8VariableSaIS1_EEC2ERKS3_.exit ], [ %45, %_ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit ]
+  %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %.017
   %15 = load ptr, ptr %14, align 8, !tbaa !70
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %17 = load i8, ptr %16, align 8, !tbaa !139, !range !119, !noundef !120
@@ -5440,7 +5440,7 @@ _ZNSt6vectorIP8VariableSaIS1_EED2Ev.exit9:        ; preds = %_ZNSt6vectorIP8Vari
   resume { ptr, i32 } %lpad.phi
 
 _ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %22, %13
-  %45 = add nuw i64 %.015, 1
+  %45 = add nuw i64 %.017, 1
   %exitcond.not = icmp eq i64 %45, %umax
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !177
 }

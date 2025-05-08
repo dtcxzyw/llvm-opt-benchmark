@@ -1564,9 +1564,9 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt16allocator_tr
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZNSt6vectorIN8QuantLib4DateESaIS1_EED2Ev.exit, label %for.body.i.i.i.i.i, !llvm.loop !130
 
 _ZNSt6vectorIN8QuantLib4DateESaIS1_EED2Ev.exit:   ; preds = %for.body.i.i.i.i.i, %invoke.cont248
-  %cond.i.i.i.i202453 = phi ptr [ null, %invoke.cont248 ], [ %call5.i.i.i.i2.i6.i210, %for.body.i.i.i.i.i ]
+  %call5.i.i.i.i2.i6.i210.sink = phi ptr [ null, %invoke.cont248 ], [ %call5.i.i.i.i2.i6.i210, %for.body.i.i.i.i.i ]
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %invoke.cont248 ], [ %incdec.ptr.i.i.i.i.i206, %for.body.i.i.i.i.i ]
-  %add.ptr.i.i.i204454 = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i202453, i64 %sub.ptr.sub.i.i197
+  %add.ptr.i.i.i204 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i6.i210.sink, i64 %sub.ptr.sub.i.i197
   store double %119, ptr %finder, align 8, !tbaa !131
   %maturityDate_.i = getelementptr inbounds nuw i8, ptr %finder, i64 8
   store i64 %retval.sroa.0.0.copyload.i193, ptr %maturityDate_.i, align 8, !tbaa !30
@@ -1576,11 +1576,11 @@ _ZNSt6vectorIN8QuantLib4DateESaIS1_EED2Ev.exit:   ; preds = %for.body.i.i.i.i.i,
   %startIndex_.i = getelementptr inbounds nuw i8, ptr %finder, i64 24
   store i64 %sub.ptr.div.i, ptr %startIndex_.i, align 8, !tbaa !133
   %times_.i = getelementptr inbounds nuw i8, ptr %finder, i64 32
-  store ptr %cond.i.i.i.i202453, ptr %times_.i, align 8, !tbaa !125
+  store ptr %call5.i.i.i.i2.i6.i210.sink, ptr %times_.i, align 8, !tbaa !125
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %finder, i64 40
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !129
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %finder, i64 48
-  store ptr %add.ptr.i.i.i204454, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !134
+  store ptr %add.ptr.i.i.i204, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !134
   %amounts_.i = getelementptr inbounds nuw i8, ptr %finder, i64 56
   store ptr %amounts, ptr %amounts_.i, align 8, !tbaa !3
   %model_.i = getelementptr inbounds nuw i8, ptr %finder, i64 64

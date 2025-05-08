@@ -10335,21 +10335,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   store i64 0, ptr %36, align 8, !alias.scope !320
   %.idx.i.i = shl nuw nsw i64 %25, 3
   %.not.i.i.i.i.i = icmp eq i32 %3, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %37
+  br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIPN4llvm5ValueESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i, label %38
 
-37:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
-  %38 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i.i) #36, !noalias !320
-  store ptr %38, ptr %36, align 8, !tbaa !323, !alias.scope !320
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %38, ptr align 8 %2, i64 %.idx.i.i, i1 false), !noalias !320
+_ZNSt12_Vector_baseIPN4llvm5ValueESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
+  %37 = getelementptr inbounds nuw i8, ptr null, i64 %.idx.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i, %37
-  %.pn.i.i = phi ptr [ %38, %37 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i ]
-  %.sink.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 %.idx.i.i
-  %39 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store ptr %.sink.i.i, ptr %39, align 8, !tbaa !326, !alias.scope !320
-  %40 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr %.sink.i.i, ptr %40, align 8, !tbaa !327, !alias.scope !320
+38:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
+  %39 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i.i) #36, !noalias !320
+  store ptr %39, ptr %36, align 8, !tbaa !323, !alias.scope !320
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %39, ptr align 8 %2, i64 %.idx.i.i, i1 false), !noalias !320
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt12_Vector_baseIPN4llvm5ValueESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i, %38
+  %.sink.i.i = phi ptr [ %37, %_ZNSt12_Vector_baseIPN4llvm5ValueESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i ], [ %40, %38 ]
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  store ptr %.sink.i.i, ptr %41, align 8, !tbaa !326, !alias.scope !320
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store ptr %.sink.i.i, ptr %42, align 8, !tbaa !327, !alias.scope !320
   ret ptr %7
 }
 

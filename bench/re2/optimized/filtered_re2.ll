@@ -1096,13 +1096,18 @@ if.then.i.i.i.i:                                  ; preds = %if.end
 
 _ZNSt6vectorIPN3re23RE2ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i: ; preds = %if.end
   %cmp.not.i.i.i.i = icmp eq ptr %2, %1
-  br i1 %cmp.not.i.i.i.i, label %invoke.cont21.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIPN3re23RE2ESaIS2_EE11_M_allocateEm.exit.thread.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
+
+_ZNSt12_Vector_baseIPN3re23RE2ESaIS2_EE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIPN3re23RE2ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i
+  %add.ptr3.i.i.i = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i3
+  br label %invoke.cont21.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZNSt6vectorIPN3re23RE2ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i
   %call5.i.i.i.i1.i.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i3) #15
           to label %call5.i.i.i.i.noexc.i.i unwind label %_ZNSt12_Vector_baseIPN3re23RE2ESaIS2_EED2Ev.exit.i.i
 
 call5.i.i.i.i.noexc.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i1.i.i, i64 %sub.ptr.sub.i3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i1.i.i, ptr align 8 %1, i64 %sub.ptr.sub.i3, i1 false)
   br label %invoke.cont21.i
 
@@ -1114,9 +1119,9 @@ _ZNSt12_Vector_baseIPN3re23RE2ESaIS2_EED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i
   invoke void @__cxa_end_catch()
           to label %return unwind label %terminate.lpad.i
 
-invoke.cont21.i:                                  ; preds = %call5.i.i.i.i.noexc.i.i, %_ZNSt6vectorIPN3re23RE2ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i
-  %ref.tmp.sroa.0.0.i = phi ptr [ %call5.i.i.i.i1.i.i, %call5.i.i.i.i.noexc.i.i ], [ null, %_ZNSt6vectorIPN3re23RE2ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i ]
-  %ref.tmp.sroa.9.0.i = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0.0.i, i64 %sub.ptr.sub.i3
+invoke.cont21.i:                                  ; preds = %call5.i.i.i.i.noexc.i.i, %_ZNSt12_Vector_baseIPN3re23RE2ESaIS2_EE11_M_allocateEm.exit.thread.i.i.i
+  %ref.tmp.sroa.0.0.i = phi ptr [ null, %_ZNSt12_Vector_baseIPN3re23RE2ESaIS2_EE11_M_allocateEm.exit.thread.i.i.i ], [ %call5.i.i.i.i1.i.i, %call5.i.i.i.i.noexc.i.i ]
+  %ref.tmp.sroa.9.0.i = phi ptr [ %add.ptr3.i.i.i, %_ZNSt12_Vector_baseIPN3re23RE2ESaIS2_EE11_M_allocateEm.exit.thread.i.i.i ], [ %add.ptr.i.i.i, %call5.i.i.i.i.noexc.i.i ]
   store ptr %ref.tmp.sroa.0.0.i, ptr %this, align 8
   store ptr %ref.tmp.sroa.9.0.i, ptr %_M_finish.i, align 8
   store ptr %ref.tmp.sroa.9.0.i, ptr %_M_end_of_storage.i, align 8

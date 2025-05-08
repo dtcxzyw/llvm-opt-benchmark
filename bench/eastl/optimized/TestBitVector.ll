@@ -1609,7 +1609,11 @@ if.then:                                          ; preds = %entry
   %.pre15.i = ptrtoint ptr %.pre13.i to i64
   %.pre16.i = sub i64 %.pre14.i, %.pre15.i
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %.pre12.i, %.pre13.i
-  br i1 %tobool.not.i.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.preheader.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i, label %_ZN5eastl10VectorBaseImNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i, label %for.body.i.i.i.preheader.i.i.i.i.i
+
+_ZN5eastl10VectorBaseImNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i: ; preds = %if.then
+  %add.ptr4.i.i.i.i.i = getelementptr inbounds i8, ptr null, i64 %.pre16.i
+  br label %invoke.cont.i.i
 
 for.body.i.i.i.preheader.i.i.i.i.i:               ; preds = %if.then
   %call.i.i.i.i.i1.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %.pre16.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
@@ -1626,13 +1630,14 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i.not.i.i.i.i.i.i.i.i, label %invoke.cont.loopexit.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !8
 
 invoke.cont.loopexit.i.i:                         ; preds = %for.body.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i.i.i, i64 %.pre16.i
   %.pre.i.i = load ptr, ptr %this, align 8
   br label %invoke.cont.i.i
 
-invoke.cont.i.i:                                  ; preds = %invoke.cont.loopexit.i.i, %if.then
-  %1 = phi ptr [ %.pre13.i, %if.then ], [ %.pre.i.i, %invoke.cont.loopexit.i.i ]
-  %temp.sroa.0.0.i.i = phi ptr [ null, %if.then ], [ %call.i.i.i.i.i1.i.i.i, %invoke.cont.loopexit.i.i ]
-  %temp.sroa.11.0.i.i = getelementptr inbounds i8, ptr %temp.sroa.0.0.i.i, i64 %.pre16.i
+invoke.cont.i.i:                                  ; preds = %invoke.cont.loopexit.i.i, %_ZN5eastl10VectorBaseImNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i
+  %1 = phi ptr [ %.pre13.i, %_ZN5eastl10VectorBaseImNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i ], [ %.pre.i.i, %invoke.cont.loopexit.i.i ]
+  %temp.sroa.11.0.i.i = phi ptr [ %add.ptr4.i.i.i.i.i, %_ZN5eastl10VectorBaseImNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %invoke.cont.loopexit.i.i ]
+  %temp.sroa.0.0.i.i = phi ptr [ null, %_ZN5eastl10VectorBaseImNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i ], [ %call.i.i.i.i.i1.i.i.i, %invoke.cont.loopexit.i.i ]
   store ptr %temp.sroa.0.0.i.i, ptr %this, align 8
   store ptr %temp.sroa.11.0.i.i, ptr %mpEnd5.phi.trans.insert.i, align 8
   %mCapacityAllocator.i2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1673,7 +1678,12 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.then:                                          ; preds = %lor.lhs.false
   %cmp3 = icmp eq i64 %n, 0
-  br i1 %cmp3, label %invoke.cont.i, label %if.else
+  br i1 %cmp3, label %if.end13.thread, label %if.else
+
+if.end13.thread:                                  ; preds = %if.then
+  store ptr %.pre13, ptr %mpEnd5.phi.trans.insert, align 8
+  %mpEnd.i.i21 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  br label %_ZN5eastl10VectorBaseImNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i
 
 if.else:                                          ; preds = %entry, %if.then
   %cmp11 = icmp ult i64 %n, %.pre17
@@ -1689,9 +1699,16 @@ _ZN5eastl6vectorImNS_9allocatorEE6resizeEm.exit:  ; preds = %if.else
 if.end13:                                         ; preds = %if.else, %_ZN5eastl6vectorImNS_9allocatorEE6resizeEm.exit
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.pre-phi = phi i64 [ %.pre14, %if.else ], [ %.pre18, %_ZN5eastl6vectorImNS_9allocatorEE6resizeEm.exit ]
   %0 = phi ptr [ %.pre12, %if.else ], [ %add.ptr11.i, %_ZN5eastl6vectorImNS_9allocatorEE6resizeEm.exit ]
+  %mpEnd.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.pre-phi, %.pre15
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, %.pre13
-  br i1 %tobool.not.i.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.preheader.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %_ZN5eastl10VectorBaseImNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i, label %for.body.i.i.i.preheader.i.i.i.i
+
+_ZN5eastl10VectorBaseImNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i: ; preds = %if.end13.thread, %if.end13
+  %sub.ptr.sub.i.i.i.i.i.i.i26 = phi i64 [ 0, %if.end13.thread ], [ %sub.ptr.sub.i.i.i.i.i.i.i, %if.end13 ]
+  %mpEnd.i.i25 = phi ptr [ %mpEnd.i.i21, %if.end13.thread ], [ %mpEnd.i.i, %if.end13 ]
+  %add.ptr4.i.i.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i.i.i26
+  br label %invoke.cont.i
 
 for.body.i.i.i.preheader.i.i.i.i:                 ; preds = %if.end13
   %call.i.i.i.i.i1.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %sub.ptr.sub.i.i.i.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
@@ -1708,15 +1725,15 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i.not.i.i.i.i.i.i.i, label %invoke.cont.loopexit.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !8
 
 invoke.cont.loopexit.i:                           ; preds = %for.body.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %this, align 8
   br label %invoke.cont.i
 
-invoke.cont.i:                                    ; preds = %if.then, %invoke.cont.loopexit.i, %if.end13
-  %sub.ptr.sub.i.i.i.i.i.i.i25 = phi i64 [ %sub.ptr.sub.i.i.i.i.i.i.i, %if.end13 ], [ %sub.ptr.sub.i.i.i.i.i.i.i, %invoke.cont.loopexit.i ], [ 0, %if.then ]
-  %2 = phi ptr [ %.pre13, %if.end13 ], [ %.pre.i, %invoke.cont.loopexit.i ], [ %.pre13, %if.then ]
-  %temp.sroa.0.0.i = phi ptr [ null, %if.end13 ], [ %call.i.i.i.i.i1.i.i, %invoke.cont.loopexit.i ], [ null, %if.then ]
-  %mpEnd.i.i24 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %temp.sroa.11.0.i = getelementptr inbounds i8, ptr %temp.sroa.0.0.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i25
+invoke.cont.i:                                    ; preds = %invoke.cont.loopexit.i, %_ZN5eastl10VectorBaseImNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i
+  %mpEnd.i.i24 = phi ptr [ %mpEnd.i.i25, %_ZN5eastl10VectorBaseImNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ], [ %mpEnd.i.i, %invoke.cont.loopexit.i ]
+  %2 = phi ptr [ %.pre13, %_ZN5eastl10VectorBaseImNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ], [ %.pre.i, %invoke.cont.loopexit.i ]
+  %temp.sroa.11.0.i = phi ptr [ %add.ptr4.i.i.i.i, %_ZN5eastl10VectorBaseImNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ], [ %add.ptr.i.i.i.i, %invoke.cont.loopexit.i ]
+  %temp.sroa.0.0.i = phi ptr [ null, %_ZN5eastl10VectorBaseImNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ], [ %call.i.i.i.i.i1.i.i, %invoke.cont.loopexit.i ]
   store ptr %temp.sroa.0.0.i, ptr %this, align 8
   store ptr %temp.sroa.11.0.i, ptr %mpEnd.i.i24, align 8
   %mCapacityAllocator.i2.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -5927,7 +5944,11 @@ if.then:                                          ; preds = %entry
   %.pre15.i = ptrtoint ptr %.pre13.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %.pre14.i, %.pre15.i
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %.pre12.i, %.pre13.i
-  br i1 %tobool.not.i.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.preheader.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i, label %_ZN5eastl10VectorBaseIhNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i, label %for.body.i.i.i.preheader.i.i.i.i.i
+
+_ZN5eastl10VectorBaseIhNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i: ; preds = %if.then
+  %add.ptr4.i.i.i.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i
+  br label %invoke.cont.i.i
 
 for.body.i.i.i.preheader.i.i.i.i.i:               ; preds = %if.then
   %call.i.i.i.i.i1.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %sub.ptr.sub.i.i.i.i.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
@@ -5944,13 +5965,14 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i.not.i.i.i.i.i.i.i.i, label %invoke.cont.loopexit.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !15
 
 invoke.cont.loopexit.i.i:                         ; preds = %for.body.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i
   %.pre.i.i = load ptr, ptr %this, align 8
   br label %invoke.cont.i.i
 
-invoke.cont.i.i:                                  ; preds = %invoke.cont.loopexit.i.i, %if.then
-  %1 = phi ptr [ %.pre13.i, %if.then ], [ %.pre.i.i, %invoke.cont.loopexit.i.i ]
-  %temp.sroa.0.0.i.i = phi ptr [ null, %if.then ], [ %call.i.i.i.i.i1.i.i.i, %invoke.cont.loopexit.i.i ]
-  %temp.sroa.11.0.i.i = getelementptr inbounds i8, ptr %temp.sroa.0.0.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i
+invoke.cont.i.i:                                  ; preds = %invoke.cont.loopexit.i.i, %_ZN5eastl10VectorBaseIhNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i
+  %1 = phi ptr [ %.pre13.i, %_ZN5eastl10VectorBaseIhNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i ], [ %.pre.i.i, %invoke.cont.loopexit.i.i ]
+  %temp.sroa.11.0.i.i = phi ptr [ %add.ptr4.i.i.i.i.i, %_ZN5eastl10VectorBaseIhNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %invoke.cont.loopexit.i.i ]
+  %temp.sroa.0.0.i.i = phi ptr [ null, %_ZN5eastl10VectorBaseIhNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i ], [ %call.i.i.i.i.i1.i.i.i, %invoke.cont.loopexit.i.i ]
   store ptr %temp.sroa.0.0.i.i, ptr %this, align 8
   store ptr %temp.sroa.11.0.i.i, ptr %mpEnd5.phi.trans.insert.i, align 8
   %mCapacityAllocator.i2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -5990,7 +6012,12 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.then:                                          ; preds = %lor.lhs.false
   %cmp3 = icmp eq i64 %n, 0
-  br i1 %cmp3, label %invoke.cont.i, label %if.else
+  br i1 %cmp3, label %if.end12.thread, label %if.else
+
+if.end12.thread:                                  ; preds = %if.then
+  store ptr %.pre13, ptr %mpEnd5.phi.trans.insert, align 8
+  %mpEnd.i.i20 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  br label %_ZN5eastl10VectorBaseIhNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i
 
 if.else:                                          ; preds = %entry, %if.then
   %cmp10 = icmp ult i64 %n, %.pre16
@@ -6006,9 +6033,16 @@ _ZN5eastl6vectorIhNS_9allocatorEE6resizeEm.exit:  ; preds = %if.else
 if.end12:                                         ; preds = %if.else, %_ZN5eastl6vectorIhNS_9allocatorEE6resizeEm.exit
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.pre-phi = phi i64 [ %.pre14, %if.else ], [ %.pre17, %_ZN5eastl6vectorIhNS_9allocatorEE6resizeEm.exit ]
   %0 = phi ptr [ %.pre12, %if.else ], [ %add.ptr10.i, %_ZN5eastl6vectorIhNS_9allocatorEE6resizeEm.exit ]
+  %mpEnd.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.pre-phi, %.pre15
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, %.pre13
-  br i1 %tobool.not.i.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.preheader.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %_ZN5eastl10VectorBaseIhNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i, label %for.body.i.i.i.preheader.i.i.i.i
+
+_ZN5eastl10VectorBaseIhNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i: ; preds = %if.end12.thread, %if.end12
+  %sub.ptr.sub.i.i.i.i.i.i.i25 = phi i64 [ 0, %if.end12.thread ], [ %sub.ptr.sub.i.i.i.i.i.i.i, %if.end12 ]
+  %mpEnd.i.i24 = phi ptr [ %mpEnd.i.i20, %if.end12.thread ], [ %mpEnd.i.i, %if.end12 ]
+  %add.ptr4.i.i.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i.i.i25
+  br label %invoke.cont.i
 
 for.body.i.i.i.preheader.i.i.i.i:                 ; preds = %if.end12
   %call.i.i.i.i.i1.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %sub.ptr.sub.i.i.i.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
@@ -6025,15 +6059,15 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i.not.i.i.i.i.i.i.i, label %invoke.cont.loopexit.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !15
 
 invoke.cont.loopexit.i:                           ; preds = %for.body.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %this, align 8
   br label %invoke.cont.i
 
-invoke.cont.i:                                    ; preds = %if.then, %invoke.cont.loopexit.i, %if.end12
-  %sub.ptr.sub.i.i.i.i.i.i.i24 = phi i64 [ %sub.ptr.sub.i.i.i.i.i.i.i, %if.end12 ], [ %sub.ptr.sub.i.i.i.i.i.i.i, %invoke.cont.loopexit.i ], [ 0, %if.then ]
-  %2 = phi ptr [ %.pre13, %if.end12 ], [ %.pre.i, %invoke.cont.loopexit.i ], [ %.pre13, %if.then ]
-  %temp.sroa.0.0.i = phi ptr [ null, %if.end12 ], [ %call.i.i.i.i.i1.i.i, %invoke.cont.loopexit.i ], [ null, %if.then ]
-  %mpEnd.i.i23 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %temp.sroa.11.0.i = getelementptr inbounds i8, ptr %temp.sroa.0.0.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i24
+invoke.cont.i:                                    ; preds = %invoke.cont.loopexit.i, %_ZN5eastl10VectorBaseIhNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i
+  %mpEnd.i.i23 = phi ptr [ %mpEnd.i.i24, %_ZN5eastl10VectorBaseIhNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ], [ %mpEnd.i.i, %invoke.cont.loopexit.i ]
+  %2 = phi ptr [ %.pre13, %_ZN5eastl10VectorBaseIhNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ], [ %.pre.i, %invoke.cont.loopexit.i ]
+  %temp.sroa.11.0.i = phi ptr [ %add.ptr4.i.i.i.i, %_ZN5eastl10VectorBaseIhNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ], [ %add.ptr.i.i.i.i, %invoke.cont.loopexit.i ]
+  %temp.sroa.0.0.i = phi ptr [ null, %_ZN5eastl10VectorBaseIhNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ], [ %call.i.i.i.i.i1.i.i, %invoke.cont.loopexit.i ]
   store ptr %temp.sroa.0.0.i, ptr %this, align 8
   store ptr %temp.sroa.11.0.i, ptr %mpEnd.i.i23, align 8
   %mCapacityAllocator.i2.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -8272,7 +8306,11 @@ if.then:                                          ; preds = %entry
   %.pre15.i = ptrtoint ptr %.pre13.i to i64
   %.pre16.i = sub i64 %.pre14.i, %.pre15.i
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %.pre12.i, %.pre13.i
-  br i1 %tobool.not.i.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.preheader.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i, label %_ZN5eastl10VectorBaseIsNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i, label %for.body.i.i.i.preheader.i.i.i.i.i
+
+_ZN5eastl10VectorBaseIsNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i: ; preds = %if.then
+  %add.ptr4.i.i.i.i.i = getelementptr inbounds i8, ptr null, i64 %.pre16.i
+  br label %invoke.cont.i.i
 
 for.body.i.i.i.preheader.i.i.i.i.i:               ; preds = %if.then
   %call.i.i.i.i.i1.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %.pre16.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
@@ -8289,13 +8327,14 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i.not.i.i.i.i.i.i.i.i, label %invoke.cont.loopexit.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !21
 
 invoke.cont.loopexit.i.i:                         ; preds = %for.body.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i.i.i, i64 %.pre16.i
   %.pre.i.i = load ptr, ptr %this, align 8
   br label %invoke.cont.i.i
 
-invoke.cont.i.i:                                  ; preds = %invoke.cont.loopexit.i.i, %if.then
-  %1 = phi ptr [ %.pre13.i, %if.then ], [ %.pre.i.i, %invoke.cont.loopexit.i.i ]
-  %temp.sroa.0.0.i.i = phi ptr [ null, %if.then ], [ %call.i.i.i.i.i1.i.i.i, %invoke.cont.loopexit.i.i ]
-  %temp.sroa.11.0.i.i = getelementptr inbounds i8, ptr %temp.sroa.0.0.i.i, i64 %.pre16.i
+invoke.cont.i.i:                                  ; preds = %invoke.cont.loopexit.i.i, %_ZN5eastl10VectorBaseIsNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i
+  %1 = phi ptr [ %.pre13.i, %_ZN5eastl10VectorBaseIsNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i ], [ %.pre.i.i, %invoke.cont.loopexit.i.i ]
+  %temp.sroa.11.0.i.i = phi ptr [ %add.ptr4.i.i.i.i.i, %_ZN5eastl10VectorBaseIsNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %invoke.cont.loopexit.i.i ]
+  %temp.sroa.0.0.i.i = phi ptr [ null, %_ZN5eastl10VectorBaseIsNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i ], [ %call.i.i.i.i.i1.i.i.i, %invoke.cont.loopexit.i.i ]
   store ptr %temp.sroa.0.0.i.i, ptr %this, align 8
   store ptr %temp.sroa.11.0.i.i, ptr %mpEnd5.phi.trans.insert.i, align 8
   %mCapacityAllocator.i2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -8336,7 +8375,12 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.then:                                          ; preds = %lor.lhs.false
   %cmp3 = icmp eq i64 %n, 0
-  br i1 %cmp3, label %invoke.cont.i, label %if.else
+  br i1 %cmp3, label %if.end13.thread, label %if.else
+
+if.end13.thread:                                  ; preds = %if.then
+  store ptr %.pre13, ptr %mpEnd5.phi.trans.insert, align 8
+  %mpEnd.i.i21 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  br label %_ZN5eastl10VectorBaseIsNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i
 
 if.else:                                          ; preds = %entry, %if.then
   %cmp11 = icmp ult i64 %n, %.pre17
@@ -8352,9 +8396,16 @@ _ZN5eastl6vectorIsNS_9allocatorEE6resizeEm.exit:  ; preds = %if.else
 if.end13:                                         ; preds = %if.else, %_ZN5eastl6vectorIsNS_9allocatorEE6resizeEm.exit
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.pre-phi = phi i64 [ %.pre14, %if.else ], [ %.pre18, %_ZN5eastl6vectorIsNS_9allocatorEE6resizeEm.exit ]
   %0 = phi ptr [ %.pre12, %if.else ], [ %add.ptr11.i, %_ZN5eastl6vectorIsNS_9allocatorEE6resizeEm.exit ]
+  %mpEnd.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.pre-phi, %.pre15
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, %.pre13
-  br i1 %tobool.not.i.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.preheader.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %_ZN5eastl10VectorBaseIsNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i, label %for.body.i.i.i.preheader.i.i.i.i
+
+_ZN5eastl10VectorBaseIsNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i: ; preds = %if.end13.thread, %if.end13
+  %sub.ptr.sub.i.i.i.i.i.i.i26 = phi i64 [ 0, %if.end13.thread ], [ %sub.ptr.sub.i.i.i.i.i.i.i, %if.end13 ]
+  %mpEnd.i.i25 = phi ptr [ %mpEnd.i.i21, %if.end13.thread ], [ %mpEnd.i.i, %if.end13 ]
+  %add.ptr4.i.i.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i.i.i26
+  br label %invoke.cont.i
 
 for.body.i.i.i.preheader.i.i.i.i:                 ; preds = %if.end13
   %call.i.i.i.i.i1.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %sub.ptr.sub.i.i.i.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
@@ -8371,15 +8422,15 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i.not.i.i.i.i.i.i.i, label %invoke.cont.loopexit.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !21
 
 invoke.cont.loopexit.i:                           ; preds = %for.body.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %this, align 8
   br label %invoke.cont.i
 
-invoke.cont.i:                                    ; preds = %if.then, %invoke.cont.loopexit.i, %if.end13
-  %sub.ptr.sub.i.i.i.i.i.i.i25 = phi i64 [ %sub.ptr.sub.i.i.i.i.i.i.i, %if.end13 ], [ %sub.ptr.sub.i.i.i.i.i.i.i, %invoke.cont.loopexit.i ], [ 0, %if.then ]
-  %2 = phi ptr [ %.pre13, %if.end13 ], [ %.pre.i, %invoke.cont.loopexit.i ], [ %.pre13, %if.then ]
-  %temp.sroa.0.0.i = phi ptr [ null, %if.end13 ], [ %call.i.i.i.i.i1.i.i, %invoke.cont.loopexit.i ], [ null, %if.then ]
-  %mpEnd.i.i24 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %temp.sroa.11.0.i = getelementptr inbounds i8, ptr %temp.sroa.0.0.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i25
+invoke.cont.i:                                    ; preds = %invoke.cont.loopexit.i, %_ZN5eastl10VectorBaseIsNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i
+  %mpEnd.i.i24 = phi ptr [ %mpEnd.i.i25, %_ZN5eastl10VectorBaseIsNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ], [ %mpEnd.i.i, %invoke.cont.loopexit.i ]
+  %2 = phi ptr [ %.pre13, %_ZN5eastl10VectorBaseIsNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ], [ %.pre.i, %invoke.cont.loopexit.i ]
+  %temp.sroa.11.0.i = phi ptr [ %add.ptr4.i.i.i.i, %_ZN5eastl10VectorBaseIsNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ], [ %add.ptr.i.i.i.i, %invoke.cont.loopexit.i ]
+  %temp.sroa.0.0.i = phi ptr [ null, %_ZN5eastl10VectorBaseIsNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ], [ %call.i.i.i.i.i1.i.i, %invoke.cont.loopexit.i ]
   store ptr %temp.sroa.0.0.i, ptr %this, align 8
   store ptr %temp.sroa.11.0.i, ptr %mpEnd.i.i24, align 8
   %mCapacityAllocator.i2.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -10445,7 +10496,11 @@ if.then:                                          ; preds = %entry
   %.pre15.i = ptrtoint ptr %.pre13.i to i64
   %.pre16.i = sub i64 %.pre14.i, %.pre15.i
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %.pre12.i, %.pre13.i
-  br i1 %tobool.not.i.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.preheader.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i, label %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i, label %for.body.i.i.i.preheader.i.i.i.i.i
+
+_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i: ; preds = %if.then
+  %add.ptr4.i.i.i.i.i = getelementptr inbounds i8, ptr null, i64 %.pre16.i
+  br label %invoke.cont.i.i
 
 for.body.i.i.i.preheader.i.i.i.i.i:               ; preds = %if.then
   %call.i.i.i.i.i1.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %.pre16.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
@@ -10462,13 +10517,14 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i.not.i.i.i.i.i.i.i.i, label %invoke.cont.loopexit.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !27
 
 invoke.cont.loopexit.i.i:                         ; preds = %for.body.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i.i.i, i64 %.pre16.i
   %.pre.i.i = load ptr, ptr %this, align 8
   br label %invoke.cont.i.i
 
-invoke.cont.i.i:                                  ; preds = %invoke.cont.loopexit.i.i, %if.then
-  %1 = phi ptr [ %.pre13.i, %if.then ], [ %.pre.i.i, %invoke.cont.loopexit.i.i ]
-  %temp.sroa.0.0.i.i = phi ptr [ null, %if.then ], [ %call.i.i.i.i.i1.i.i.i, %invoke.cont.loopexit.i.i ]
-  %temp.sroa.11.0.i.i = getelementptr inbounds i8, ptr %temp.sroa.0.0.i.i, i64 %.pre16.i
+invoke.cont.i.i:                                  ; preds = %invoke.cont.loopexit.i.i, %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i
+  %1 = phi ptr [ %.pre13.i, %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i ], [ %.pre.i.i, %invoke.cont.loopexit.i.i ]
+  %temp.sroa.11.0.i.i = phi ptr [ %add.ptr4.i.i.i.i.i, %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %invoke.cont.loopexit.i.i ]
+  %temp.sroa.0.0.i.i = phi ptr [ null, %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i ], [ %call.i.i.i.i.i1.i.i.i, %invoke.cont.loopexit.i.i ]
   store ptr %temp.sroa.0.0.i.i, ptr %this, align 8
   store ptr %temp.sroa.11.0.i.i, ptr %mpEnd5.phi.trans.insert.i, align 8
   %mCapacityAllocator.i2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -10509,7 +10565,12 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.then:                                          ; preds = %lor.lhs.false
   %cmp3 = icmp eq i64 %n, 0
-  br i1 %cmp3, label %invoke.cont.i, label %if.else
+  br i1 %cmp3, label %if.end13.thread, label %if.else
+
+if.end13.thread:                                  ; preds = %if.then
+  store ptr %.pre13, ptr %mpEnd5.phi.trans.insert, align 8
+  %mpEnd.i.i21 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  br label %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i
 
 if.else:                                          ; preds = %entry, %if.then
   %cmp11 = icmp ult i64 %n, %.pre17
@@ -10525,9 +10586,16 @@ _ZN5eastl6vectorIiNS_9allocatorEE6resizeEm.exit:  ; preds = %if.else
 if.end13:                                         ; preds = %if.else, %_ZN5eastl6vectorIiNS_9allocatorEE6resizeEm.exit
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.pre-phi = phi i64 [ %.pre14, %if.else ], [ %.pre18, %_ZN5eastl6vectorIiNS_9allocatorEE6resizeEm.exit ]
   %0 = phi ptr [ %.pre12, %if.else ], [ %add.ptr11.i, %_ZN5eastl6vectorIiNS_9allocatorEE6resizeEm.exit ]
+  %mpEnd.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.pre-phi, %.pre15
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, %.pre13
-  br i1 %tobool.not.i.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.preheader.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i, label %for.body.i.i.i.preheader.i.i.i.i
+
+_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i: ; preds = %if.end13.thread, %if.end13
+  %sub.ptr.sub.i.i.i.i.i.i.i26 = phi i64 [ 0, %if.end13.thread ], [ %sub.ptr.sub.i.i.i.i.i.i.i, %if.end13 ]
+  %mpEnd.i.i25 = phi ptr [ %mpEnd.i.i21, %if.end13.thread ], [ %mpEnd.i.i, %if.end13 ]
+  %add.ptr4.i.i.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i.i.i26
+  br label %invoke.cont.i
 
 for.body.i.i.i.preheader.i.i.i.i:                 ; preds = %if.end13
   %call.i.i.i.i.i1.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %sub.ptr.sub.i.i.i.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
@@ -10544,15 +10612,15 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i.not.i.i.i.i.i.i.i, label %invoke.cont.loopexit.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !27
 
 invoke.cont.loopexit.i:                           ; preds = %for.body.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %this, align 8
   br label %invoke.cont.i
 
-invoke.cont.i:                                    ; preds = %if.then, %invoke.cont.loopexit.i, %if.end13
-  %sub.ptr.sub.i.i.i.i.i.i.i25 = phi i64 [ %sub.ptr.sub.i.i.i.i.i.i.i, %if.end13 ], [ %sub.ptr.sub.i.i.i.i.i.i.i, %invoke.cont.loopexit.i ], [ 0, %if.then ]
-  %2 = phi ptr [ %.pre13, %if.end13 ], [ %.pre.i, %invoke.cont.loopexit.i ], [ %.pre13, %if.then ]
-  %temp.sroa.0.0.i = phi ptr [ null, %if.end13 ], [ %call.i.i.i.i.i1.i.i, %invoke.cont.loopexit.i ], [ null, %if.then ]
-  %mpEnd.i.i24 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %temp.sroa.11.0.i = getelementptr inbounds i8, ptr %temp.sroa.0.0.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i25
+invoke.cont.i:                                    ; preds = %invoke.cont.loopexit.i, %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i
+  %mpEnd.i.i24 = phi ptr [ %mpEnd.i.i25, %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ], [ %mpEnd.i.i, %invoke.cont.loopexit.i ]
+  %2 = phi ptr [ %.pre13, %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ], [ %.pre.i, %invoke.cont.loopexit.i ]
+  %temp.sroa.11.0.i = phi ptr [ %add.ptr4.i.i.i.i, %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ], [ %add.ptr.i.i.i.i, %invoke.cont.loopexit.i ]
+  %temp.sroa.0.0.i = phi ptr [ null, %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ], [ %call.i.i.i.i.i1.i.i, %invoke.cont.loopexit.i ]
   store ptr %temp.sroa.0.0.i, ptr %this, align 8
   store ptr %temp.sroa.11.0.i, ptr %mpEnd.i.i24, align 8
   %mCapacityAllocator.i2.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -12646,7 +12714,11 @@ if.then:                                          ; preds = %entry
   %.pre15.i = ptrtoint ptr %.pre13.i to i64
   %.pre16.i = sub i64 %.pre14.i, %.pre15.i
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %.pre12.i, %.pre13.i
-  br i1 %tobool.not.i.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.preheader.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i, label %_ZN5eastl10VectorBaseIlNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i, label %for.body.i.i.i.preheader.i.i.i.i.i
+
+_ZN5eastl10VectorBaseIlNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i: ; preds = %if.then
+  %add.ptr4.i.i.i.i.i = getelementptr inbounds i8, ptr null, i64 %.pre16.i
+  br label %invoke.cont.i.i
 
 for.body.i.i.i.preheader.i.i.i.i.i:               ; preds = %if.then
   %call.i.i.i.i.i1.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %.pre16.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
@@ -12663,13 +12735,14 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i.not.i.i.i.i.i.i.i.i, label %invoke.cont.loopexit.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !33
 
 invoke.cont.loopexit.i.i:                         ; preds = %for.body.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i.i.i, i64 %.pre16.i
   %.pre.i.i = load ptr, ptr %this, align 8
   br label %invoke.cont.i.i
 
-invoke.cont.i.i:                                  ; preds = %invoke.cont.loopexit.i.i, %if.then
-  %1 = phi ptr [ %.pre13.i, %if.then ], [ %.pre.i.i, %invoke.cont.loopexit.i.i ]
-  %temp.sroa.0.0.i.i = phi ptr [ null, %if.then ], [ %call.i.i.i.i.i1.i.i.i, %invoke.cont.loopexit.i.i ]
-  %temp.sroa.11.0.i.i = getelementptr inbounds i8, ptr %temp.sroa.0.0.i.i, i64 %.pre16.i
+invoke.cont.i.i:                                  ; preds = %invoke.cont.loopexit.i.i, %_ZN5eastl10VectorBaseIlNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i
+  %1 = phi ptr [ %.pre13.i, %_ZN5eastl10VectorBaseIlNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i ], [ %.pre.i.i, %invoke.cont.loopexit.i.i ]
+  %temp.sroa.11.0.i.i = phi ptr [ %add.ptr4.i.i.i.i.i, %_ZN5eastl10VectorBaseIlNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %invoke.cont.loopexit.i.i ]
+  %temp.sroa.0.0.i.i = phi ptr [ null, %_ZN5eastl10VectorBaseIlNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i.i ], [ %call.i.i.i.i.i1.i.i.i, %invoke.cont.loopexit.i.i ]
   store ptr %temp.sroa.0.0.i.i, ptr %this, align 8
   store ptr %temp.sroa.11.0.i.i, ptr %mpEnd5.phi.trans.insert.i, align 8
   %mCapacityAllocator.i2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -12710,7 +12783,12 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.then:                                          ; preds = %lor.lhs.false
   %cmp3 = icmp eq i64 %n, 0
-  br i1 %cmp3, label %invoke.cont.i, label %if.else
+  br i1 %cmp3, label %if.end13.thread, label %if.else
+
+if.end13.thread:                                  ; preds = %if.then
+  store ptr %.pre13, ptr %mpEnd5.phi.trans.insert, align 8
+  %mpEnd.i.i21 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  br label %_ZN5eastl10VectorBaseIlNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i
 
 if.else:                                          ; preds = %entry, %if.then
   %cmp11 = icmp ult i64 %n, %.pre17
@@ -12726,9 +12804,16 @@ _ZN5eastl6vectorIlNS_9allocatorEE6resizeEm.exit:  ; preds = %if.else
 if.end13:                                         ; preds = %if.else, %_ZN5eastl6vectorIlNS_9allocatorEE6resizeEm.exit
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.pre-phi = phi i64 [ %.pre14, %if.else ], [ %.pre18, %_ZN5eastl6vectorIlNS_9allocatorEE6resizeEm.exit ]
   %0 = phi ptr [ %.pre12, %if.else ], [ %add.ptr11.i, %_ZN5eastl6vectorIlNS_9allocatorEE6resizeEm.exit ]
+  %mpEnd.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.pre-phi, %.pre15
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, %.pre13
-  br i1 %tobool.not.i.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.preheader.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %_ZN5eastl10VectorBaseIlNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i, label %for.body.i.i.i.preheader.i.i.i.i
+
+_ZN5eastl10VectorBaseIlNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i: ; preds = %if.end13.thread, %if.end13
+  %sub.ptr.sub.i.i.i.i.i.i.i26 = phi i64 [ 0, %if.end13.thread ], [ %sub.ptr.sub.i.i.i.i.i.i.i, %if.end13 ]
+  %mpEnd.i.i25 = phi ptr [ %mpEnd.i.i21, %if.end13.thread ], [ %mpEnd.i.i, %if.end13 ]
+  %add.ptr4.i.i.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i.i.i26
+  br label %invoke.cont.i
 
 for.body.i.i.i.preheader.i.i.i.i:                 ; preds = %if.end13
   %call.i.i.i.i.i1.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %sub.ptr.sub.i.i.i.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
@@ -12745,15 +12830,15 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i.not.i.i.i.i.i.i.i, label %invoke.cont.loopexit.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !33
 
 invoke.cont.loopexit.i:                           ; preds = %for.body.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %this, align 8
   br label %invoke.cont.i
 
-invoke.cont.i:                                    ; preds = %if.then, %invoke.cont.loopexit.i, %if.end13
-  %sub.ptr.sub.i.i.i.i.i.i.i25 = phi i64 [ %sub.ptr.sub.i.i.i.i.i.i.i, %if.end13 ], [ %sub.ptr.sub.i.i.i.i.i.i.i, %invoke.cont.loopexit.i ], [ 0, %if.then ]
-  %2 = phi ptr [ %.pre13, %if.end13 ], [ %.pre.i, %invoke.cont.loopexit.i ], [ %.pre13, %if.then ]
-  %temp.sroa.0.0.i = phi ptr [ null, %if.end13 ], [ %call.i.i.i.i.i1.i.i, %invoke.cont.loopexit.i ], [ null, %if.then ]
-  %mpEnd.i.i24 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %temp.sroa.11.0.i = getelementptr inbounds i8, ptr %temp.sroa.0.0.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i25
+invoke.cont.i:                                    ; preds = %invoke.cont.loopexit.i, %_ZN5eastl10VectorBaseIlNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i
+  %mpEnd.i.i24 = phi ptr [ %mpEnd.i.i25, %_ZN5eastl10VectorBaseIlNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ], [ %mpEnd.i.i, %invoke.cont.loopexit.i ]
+  %2 = phi ptr [ %.pre13, %_ZN5eastl10VectorBaseIlNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ], [ %.pre.i, %invoke.cont.loopexit.i ]
+  %temp.sroa.11.0.i = phi ptr [ %add.ptr4.i.i.i.i, %_ZN5eastl10VectorBaseIlNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ], [ %add.ptr.i.i.i.i, %invoke.cont.loopexit.i ]
+  %temp.sroa.0.0.i = phi ptr [ null, %_ZN5eastl10VectorBaseIlNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ], [ %call.i.i.i.i.i1.i.i, %invoke.cont.loopexit.i ]
   store ptr %temp.sroa.0.0.i, ptr %this, align 8
   store ptr %temp.sroa.11.0.i, ptr %mpEnd.i.i24, align 8
   %mCapacityAllocator.i2.i = getelementptr inbounds nuw i8, ptr %this, i64 16

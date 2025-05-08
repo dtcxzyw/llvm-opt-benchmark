@@ -7098,32 +7098,37 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 
 _ZNSt6vectorIN4mold12PluginSymbolESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i: ; preds = %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
   %.not.i.i.i = icmp eq i32 %1, 0
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4mold12PluginSymbolESaIS1_EEC2IPKS1_vEET_S7_RKS2_.exit, label %47
+  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN4mold12PluginSymbolESaIS1_EE11_M_allocateEm.exit.thread.i.i, label %48
 
-47:                                               ; preds = %_ZNSt6vectorIN4mold12PluginSymbolESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
-  %48 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #28
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %48, ptr align 8 %2, i64 %.idx, i1 false)
+_ZNSt12_Vector_baseIN4mold12PluginSymbolESaIS1_EE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIN4mold12PluginSymbolESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
+  %47 = getelementptr inbounds nuw i8, ptr null, i64 %.idx
   br label %_ZNSt6vectorIN4mold12PluginSymbolESaIS1_EEC2IPKS1_vEET_S7_RKS2_.exit
 
-_ZNSt6vectorIN4mold12PluginSymbolESaIS1_EEC2IPKS1_vEET_S7_RKS2_.exit: ; preds = %_ZNSt6vectorIN4mold12PluginSymbolESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i, %47
-  %.sroa.03.0 = phi ptr [ %48, %47 ], [ null, %_ZNSt6vectorIN4mold12PluginSymbolESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ]
-  %.sroa.9.0 = getelementptr inbounds nuw i8, ptr %.sroa.03.0, i64 %.idx
-  %49 = load ptr, ptr @_ZN4moldL14plugin_symbolsE, align 8, !tbaa !181
-  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4moldL14plugin_symbolsE, i64 16), align 8, !tbaa !500
+48:                                               ; preds = %_ZNSt6vectorIN4mold12PluginSymbolESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
+  %49 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #28
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %49, ptr align 8 %2, i64 %.idx, i1 false)
+  br label %_ZNSt6vectorIN4mold12PluginSymbolESaIS1_EEC2IPKS1_vEET_S7_RKS2_.exit
+
+_ZNSt6vectorIN4mold12PluginSymbolESaIS1_EEC2IPKS1_vEET_S7_RKS2_.exit: ; preds = %_ZNSt12_Vector_baseIN4mold12PluginSymbolESaIS1_EE11_M_allocateEm.exit.thread.i.i, %48
+  %.sroa.9.0 = phi ptr [ %47, %_ZNSt12_Vector_baseIN4mold12PluginSymbolESaIS1_EE11_M_allocateEm.exit.thread.i.i ], [ %50, %48 ]
+  %.sroa.03.0 = phi ptr [ null, %_ZNSt12_Vector_baseIN4mold12PluginSymbolESaIS1_EE11_M_allocateEm.exit.thread.i.i ], [ %49, %48 ]
+  %51 = load ptr, ptr @_ZN4moldL14plugin_symbolsE, align 8, !tbaa !181
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4moldL14plugin_symbolsE, i64 16), align 8, !tbaa !500
   store ptr %.sroa.03.0, ptr @_ZN4moldL14plugin_symbolsE, align 8, !tbaa !181
   store ptr %.sroa.9.0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4moldL14plugin_symbolsE, i64 8), align 8, !tbaa !179
   store ptr %.sroa.9.0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4moldL14plugin_symbolsE, i64 16), align 8, !tbaa !500
-  %.not.i.i.i.i.i = icmp eq ptr %49, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN4mold12PluginSymbolESaIS1_EED2Ev.exit, label %51
+  %.not.i.i.i.i.i = icmp eq ptr %51, null
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN4mold12PluginSymbolESaIS1_EED2Ev.exit, label %53
 
-51:                                               ; preds = %_ZNSt6vectorIN4mold12PluginSymbolESaIS1_EEC2IPKS1_vEET_S7_RKS2_.exit
-  %52 = ptrtoint ptr %50 to i64
-  %53 = ptrtoint ptr %49 to i64
-  %54 = sub i64 %52, %53
-  call void @_ZdlPvm(ptr noundef nonnull %49, i64 noundef %54) #26
+53:                                               ; preds = %_ZNSt6vectorIN4mold12PluginSymbolESaIS1_EEC2IPKS1_vEET_S7_RKS2_.exit
+  %54 = ptrtoint ptr %52 to i64
+  %55 = ptrtoint ptr %51 to i64
+  %56 = sub i64 %54, %55
+  call void @_ZdlPvm(ptr noundef nonnull %51, i64 noundef %56) #26
   br label %_ZNSt6vectorIN4mold12PluginSymbolESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN4mold12PluginSymbolESaIS1_EED2Ev.exit: ; preds = %51, %_ZNSt6vectorIN4mold12PluginSymbolESaIS1_EEC2IPKS1_vEET_S7_RKS2_.exit
+_ZNSt6vectorIN4mold12PluginSymbolESaIS1_EED2Ev.exit: ; preds = %53, %_ZNSt6vectorIN4mold12PluginSymbolESaIS1_EEC2IPKS1_vEET_S7_RKS2_.exit
   ret i32 0
 }
 

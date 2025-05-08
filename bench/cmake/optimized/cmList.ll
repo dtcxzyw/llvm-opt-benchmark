@@ -2294,46 +2294,57 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #33
   %.idx = shl nuw nsw i64 %2, 3
   %.not.i.i.i = icmp eq i64 %2, 0
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIlSaIlEEC2IPKlvEET_S5_RKS0_.exit, label %.noexc4.i
+  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.thread.i.i, label %.noexc4.i
 
-.noexc4.i:                                        ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %4 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #37
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr align 8 %1, i64 %.idx, i1 false)
+_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i
+  %4 = getelementptr inbounds nuw i8, ptr null, i64 %.idx
   br label %_ZNSt6vectorIlSaIlEEC2IPKlvEET_S5_RKS0_.exit
 
-_ZNSt6vectorIlSaIlEEC2IPKlvEET_S5_RKS0_.exit:     ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i, %.noexc4.i
-  %.sroa.09.0 = phi ptr [ %4, %.noexc4.i ], [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %.sroa.11.0 = getelementptr inbounds nuw i8, ptr %.sroa.09.0, i64 %.idx
+.noexc4.i:                                        ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i
+  %5 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #37
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr align 8 %1, i64 %.idx, i1 false)
+  br label %_ZNSt6vectorIlSaIlEEC2IPKlvEET_S5_RKS0_.exit
+
+_ZNSt6vectorIlSaIlEEC2IPKlvEET_S5_RKS0_.exit:     ; preds = %.noexc4.i, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.thread.i.i
+  %.sroa.11.0 = phi ptr [ %4, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.thread.i.i ], [ %6, %.noexc4.i ]
+  %.sroa.09.0 = phi ptr [ null, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.thread.i.i ], [ %5, %.noexc4.i ]
   invoke fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_119TransformSelectorAtEJSt6vectorIlSaIlEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %3, ptr %.sroa.09.0, ptr %.sroa.11.0)
-          to label %_ZNSt10unique_ptrIN12_GLOBAL__N_119TransformSelectorAtESt14default_deleteIS1_EED2Ev.exit unwind label %7
+          to label %_ZNSt10unique_ptrIN12_GLOBAL__N_119TransformSelectorAtESt14default_deleteIS1_EED2Ev.exit unwind label %12
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_119TransformSelectorAtESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorIlSaIlEEC2IPKlvEET_S5_RKS0_.exit
-  %5 = load ptr, ptr %3, align 8, !tbaa !106
-  store ptr %5, ptr %0, align 8, !tbaa !108
+  %7 = load ptr, ptr %3, align 8, !tbaa !106
+  store ptr %7, ptr %0, align 8, !tbaa !108
   %.not.i.i.i4 = icmp eq ptr %.sroa.09.0, null
-  br i1 %.not.i.i.i4, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %6
+  br i1 %.not.i.i.i4, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %8
 
-6:                                                ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_119TransformSelectorAtESt14default_deleteIS1_EED2Ev.exit
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.09.0, i64 noundef %.idx) #35
+8:                                                ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_119TransformSelectorAtESt14default_deleteIS1_EED2Ev.exit
+  %9 = ptrtoint ptr %.sroa.11.0 to i64
+  %10 = ptrtoint ptr %.sroa.09.0 to i64
+  %11 = sub i64 %9, %10
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.09.0, i64 noundef %11) #35
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
-_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_119TransformSelectorAtESt14default_deleteIS1_EED2Ev.exit, %6
+_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_119TransformSelectorAtESt14default_deleteIS1_EED2Ev.exit, %8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #33
   ret void
 
-7:                                                ; preds = %_ZNSt6vectorIlSaIlEEC2IPKlvEET_S5_RKS0_.exit
-  %8 = landingpad { ptr, i32 }
+12:                                               ; preds = %_ZNSt6vectorIlSaIlEEC2IPKlvEET_S5_RKS0_.exit
+  %13 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i6 = icmp eq ptr %.sroa.09.0, null
-  br i1 %.not.i.i.i6, label %.body, label %9
+  br i1 %.not.i.i.i6, label %.body, label %14
 
-9:                                                ; preds = %7
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.09.0, i64 noundef %.idx) #35
+14:                                               ; preds = %12
+  %15 = ptrtoint ptr %.sroa.11.0 to i64
+  %16 = ptrtoint ptr %.sroa.09.0 to i64
+  %17 = sub i64 %15, %16
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.09.0, i64 noundef %17) #35
   br label %.body
 
-.body:                                            ; preds = %9, %7
+.body:                                            ; preds = %14, %12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #33
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable

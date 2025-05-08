@@ -1459,17 +1459,21 @@ do.body255:                                       ; preds = %do.body248
   unreachable
 
 do.end259:                                        ; preds = %do.body248
-  br i1 %cmp.i.not, label %cond.end268, label %cond.true264
+  br i1 %cmp.i.not, label %cond.end, label %cond.true264
+
+cond.end:                                         ; preds = %do.end259
+  %add.ptr = getelementptr inbounds i8, ptr null, i64 %offset.0155
+  br label %cond.end268
 
 cond.true264:                                     ; preds = %do.end259
   %call262 = call noundef ptr @_ZNK2v812BackingStore4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %bs.sroa.0.0) #21
+  %add.ptr143 = getelementptr inbounds i8, ptr %call262, i64 %offset.0155
   %call266 = call noundef i64 @_ZNK2v812BackingStore10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %bs.sroa.0.0) #21
   br label %cond.end268
 
-cond.end268:                                      ; preds = %do.end259, %cond.true264
-  %call262.pn = phi ptr [ %call262, %cond.true264 ], [ null, %do.end259 ]
-  %cond269 = phi i64 [ %call266, %cond.true264 ], [ 0, %do.end259 ]
-  %add.ptr144 = getelementptr inbounds i8, ptr %call262.pn, i64 %offset.0155
+cond.end268:                                      ; preds = %cond.end, %cond.true264
+  %add.ptr144 = phi ptr [ %add.ptr143, %cond.true264 ], [ %add.ptr, %cond.end ]
+  %cond269 = phi i64 [ %call266, %cond.true264 ], [ 0, %cond.end ]
   %sub = sub i64 %cond269, %offset.0155
   %call277 = call ptr @_ZNK2v85Value8ToStringENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %call218, ptr %call2.i) #21
   %cmp.i.i592 = icmp eq ptr %call277, null

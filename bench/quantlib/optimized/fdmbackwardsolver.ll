@@ -5654,15 +5654,15 @@ lpad.i1636:                                       ; preds = %_ZNSt16allocator_tr
   br label %lpad301.body
 
 _ZN5boost10shared_ptrIN8QuantLib20FdmLinearOpCompositeEED2Ev.exit1665: ; preds = %_ZSt10_ConstructIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %.noexc1648
-  %cond.i.i.i.i16.i = phi ptr [ null, %.noexc1648 ], [ %call5.i.i.i.i2.i6.i1.i, %_ZSt10_ConstructIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
+  %call5.i.i.i.i2.i6.i1.sink.i = phi ptr [ null, %.noexc1648 ], [ %call5.i.i.i.i2.i6.i1.i, %_ZSt10_ConstructIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %.noexc1648 ], [ %incdec.ptr.i.i.i.i.i.i1643, %_ZSt10_ConstructIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
-  %add.ptr.i.i.i17.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i16.i, i64 %sub.ptr.sub.i.i.i1635
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i6.i1.sink.i, i64 %sub.ptr.sub.i.i.i1635
   %bcSet_.i1644 = getelementptr inbounds nuw i8, ptr %trBDF2, i64 64
-  store ptr %cond.i.i.i.i16.i, ptr %bcSet_.i1644, align 8, !tbaa !26
+  store ptr %call5.i.i.i.i2.i6.i1.sink.i, ptr %bcSet_.i1644, align 8, !tbaa !26
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %trBDF2, i64 72
   store ptr %__cur.0.lcssa.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i, align 8, !tbaa !28
   %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %trBDF2, i64 80
-  store ptr %add.ptr.i.i.i17.i, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !tbaa !29
+  store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !tbaa !29
   %relTol_.i1645 = getelementptr inbounds nuw i8, ptr %trBDF2, i64 88
   store double %592, ptr %relTol_.i1645, align 8, !tbaa !89
   %solverType_.i1646 = getelementptr inbounds nuw i8, ptr %trBDF2, i64 96

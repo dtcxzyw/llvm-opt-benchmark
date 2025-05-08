@@ -7573,21 +7573,21 @@ define linkonce_odr void @_ZN4CGAL10Properties14Property_arrayINS_12Surface_mesh
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE19Vertex_connectivityESaIS6_EEC2ERKS8_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !83
 
 _ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE19Vertex_connectivityESaIS6_EEC2ERKS8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %1
-  %16 = phi ptr [ null, %1 ], [ %12, %.lr.ph.i.i.i.i.i ]
+  %.sink = phi ptr [ null, %1 ], [ %12, %.lr.ph.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %1 ], [ %15, %.lr.ph.i.i.i.i.i ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 %8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %16, ptr %2, align 8
+  %16 = getelementptr inbounds i8, ptr %.sink, i64 %8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %.sink, ptr %2, align 8
   store ptr %.0.lcssa.i.i.i.i.i, ptr %3, align 8
-  store ptr %17, ptr %18, align 8
+  store ptr %16, ptr %17, align 8
   %.not.i.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE19Vertex_connectivityESaIS6_EED2Ev.exit, label %19
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE19Vertex_connectivityESaIS6_EED2Ev.exit, label %18
 
-19:                                               ; preds = %_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE19Vertex_connectivityESaIS6_EEC2ERKS8_.exit
+18:                                               ; preds = %_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE19Vertex_connectivityESaIS6_EEC2ERKS8_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %5) #38
   br label %_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE19Vertex_connectivityESaIS6_EED2Ev.exit
 
-_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE19Vertex_connectivityESaIS6_EED2Ev.exit: ; preds = %_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE19Vertex_connectivityESaIS6_EEC2ERKS8_.exit, %19
+_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE19Vertex_connectivityESaIS6_EED2Ev.exit: ; preds = %_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE19Vertex_connectivityESaIS6_EEC2ERKS8_.exit, %18
   ret void
 }
 
@@ -8530,21 +8530,21 @@ define linkonce_odr void @_ZN4CGAL10Properties14Property_arrayINS_12Surface_mesh
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE21Halfedge_connectivityESaIS6_EEC2ERKS8_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !102
 
 _ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE21Halfedge_connectivityESaIS6_EEC2ERKS8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %1
-  %15 = phi ptr [ null, %1 ], [ %12, %.lr.ph.i.i.i.i.i ]
+  %.sink = phi ptr [ null, %1 ], [ %12, %.lr.ph.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %1 ], [ %14, %.lr.ph.i.i.i.i.i ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 %8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %15, ptr %2, align 8
+  %15 = getelementptr inbounds i8, ptr %.sink, i64 %8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %.sink, ptr %2, align 8
   store ptr %.0.lcssa.i.i.i.i.i, ptr %3, align 8
-  store ptr %16, ptr %17, align 8
+  store ptr %15, ptr %16, align 8
   %.not.i.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE21Halfedge_connectivityESaIS6_EED2Ev.exit, label %18
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE21Halfedge_connectivityESaIS6_EED2Ev.exit, label %17
 
-18:                                               ; preds = %_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE21Halfedge_connectivityESaIS6_EEC2ERKS8_.exit
+17:                                               ; preds = %_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE21Halfedge_connectivityESaIS6_EEC2ERKS8_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %5) #38
   br label %_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE21Halfedge_connectivityESaIS6_EED2Ev.exit
 
-_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE21Halfedge_connectivityESaIS6_EED2Ev.exit: ; preds = %_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE21Halfedge_connectivityESaIS6_EEC2ERKS8_.exit, %18
+_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE21Halfedge_connectivityESaIS6_EED2Ev.exit: ; preds = %_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE21Halfedge_connectivityESaIS6_EEC2ERKS8_.exit, %17
   ret void
 }
 
@@ -9477,21 +9477,21 @@ define linkonce_odr void @_ZN4CGAL10Properties14Property_arrayINS_12Surface_mesh
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE17Face_connectivityESaIS6_EEC2ERKS8_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !121
 
 _ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE17Face_connectivityESaIS6_EEC2ERKS8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %1
-  %16 = phi ptr [ null, %1 ], [ %12, %.lr.ph.i.i.i.i.i ]
+  %.sink = phi ptr [ null, %1 ], [ %12, %.lr.ph.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %1 ], [ %15, %.lr.ph.i.i.i.i.i ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 %8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %16, ptr %2, align 8
+  %16 = getelementptr inbounds i8, ptr %.sink, i64 %8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %.sink, ptr %2, align 8
   store ptr %.0.lcssa.i.i.i.i.i, ptr %3, align 8
-  store ptr %17, ptr %18, align 8
+  store ptr %16, ptr %17, align 8
   %.not.i.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE17Face_connectivityESaIS6_EED2Ev.exit, label %19
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE17Face_connectivityESaIS6_EED2Ev.exit, label %18
 
-19:                                               ; preds = %_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE17Face_connectivityESaIS6_EEC2ERKS8_.exit
+18:                                               ; preds = %_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE17Face_connectivityESaIS6_EEC2ERKS8_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %5) #38
   br label %_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE17Face_connectivityESaIS6_EED2Ev.exit
 
-_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE17Face_connectivityESaIS6_EED2Ev.exit: ; preds = %_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE17Face_connectivityESaIS6_EEC2ERKS8_.exit, %19
+_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE17Face_connectivityESaIS6_EED2Ev.exit: ; preds = %_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE17Face_connectivityESaIS6_EEC2ERKS8_.exit, %18
   ret void
 }
 
@@ -10417,21 +10417,21 @@ define linkonce_odr void @_ZN4CGAL10Properties14Property_arrayINS_7Point_3INS_5E
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EEC2ERKS5_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !140
 
 _ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EEC2ERKS5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %1
-  %16 = phi ptr [ null, %1 ], [ %13, %.lr.ph.i.i.i.i.i ]
+  %.sink = phi ptr [ null, %1 ], [ %13, %.lr.ph.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %1 ], [ %15, %.lr.ph.i.i.i.i.i ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 %8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %16, ptr %2, align 8
+  %16 = getelementptr inbounds i8, ptr %.sink, i64 %8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %.sink, ptr %2, align 8
   store ptr %.0.lcssa.i.i.i.i.i, ptr %3, align 8
-  store ptr %17, ptr %18, align 8
+  store ptr %16, ptr %17, align 8
   %.not.i.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EED2Ev.exit, label %19
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EED2Ev.exit, label %18
 
-19:                                               ; preds = %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EEC2ERKS5_.exit
+18:                                               ; preds = %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EEC2ERKS5_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %5) #38
   br label %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EED2Ev.exit
 
-_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EEC2ERKS5_.exit, %19
+_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EEC2ERKS5_.exit, %18
   ret void
 }
 

@@ -58226,7 +58226,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonIS
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %3, i8 noundef zeroext 0)
-          to label %.noexc unwind label %26
+          to label %.noexc unwind label %31
 
 .noexc:                                           ; preds = %2
   store i8 8, ptr %0, align 8, !tbaa !17
@@ -58237,63 +58237,71 @@ define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonIS
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, %6
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEC2ERKS5_.exit.i.i.i.i, label %10
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %.thread.i.i.i.i, label %11
 
-10:                                               ; preds = %.noexc
-  %11 = icmp slt i64 %9, 0
-  br i1 %11, label %.noexc.i.i.i.i.i.i.i, label %12, !prof !1485
+.thread.i.i.i.i:                                  ; preds = %.noexc
+  %10 = getelementptr inbounds i8, ptr null, i64 %9
+  br label %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEC2ERKS5_.exit.i.i.i.i
 
-.noexc.i.i.i.i.i.i.i:                             ; preds = %10
+11:                                               ; preds = %.noexc
+  %12 = icmp slt i64 %9, 0
+  br i1 %12, label %.noexc.i.i.i.i.i.i.i, label %13, !prof !1485
+
+.noexc.i.i.i.i.i.i.i:                             ; preds = %11
   invoke void @_ZSt17__throw_bad_allocv() #34
-          to label %.noexc3 unwind label %26
+          to label %.noexc3 unwind label %31
 
 .noexc3:                                          ; preds = %.noexc.i.i.i.i.i.i.i
   unreachable
 
-12:                                               ; preds = %10
-  %13 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #33
-          to label %.noexc4 unwind label %26
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #33
+          to label %.noexc4 unwind label %31
 
-.noexc4:                                          ; preds = %12
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %13, ptr align 1 %6, i64 %9, i1 false)
+.noexc4:                                          ; preds = %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %9
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %14, ptr align 1 %6, i64 %9, i1 false)
   br label %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEC2ERKS5_.exit.i.i.i.i
 
-_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEC2ERKS5_.exit.i.i.i.i: ; preds = %.noexc4, %.noexc
-  %14 = phi ptr [ %13, %.noexc4 ], [ null, %.noexc ]
-  %15 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #33
-          to label %19 unwind label %16
-
-16:                                               ; preds = %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEC2ERKS5_.exit.i.i.i.i
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  %.not.i.i.i7.i.i.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i.i7.i.i.i.i, label %.body, label %18
-
-18:                                               ; preds = %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %9) #30
-  br label %.body
+_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEC2ERKS5_.exit.i.i.i.i: ; preds = %.noexc4, %.thread.i.i.i.i
+  %16 = phi ptr [ %10, %.thread.i.i.i.i ], [ %15, %.noexc4 ]
+  %17 = phi ptr [ null, %.thread.i.i.i.i ], [ %14, %.noexc4 ]
+  %18 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #33
+          to label %25 unwind label %19
 
 19:                                               ; preds = %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEC2ERKS5_.exit.i.i.i.i
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %21 = getelementptr inbounds i8, ptr %14, i64 %9
-  store ptr %14, ptr %15, align 8, !tbaa !799
-  %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %21, ptr %22, align 8, !tbaa !801
-  %23 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr %21, ptr %23, align 8, !tbaa !802
-  %24 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %24, ptr noundef nonnull align 8 dereferenceable(9) %20, i64 9, i1 false)
-  %25 = ptrtoint ptr %15 to i64
-  store i64 %25, ptr %3, align 8, !tbaa !13
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %.not.i.i.i7.i.i.i.i = icmp eq ptr %17, null
+  br i1 %.not.i.i.i7.i.i.i.i, label %.body, label %21
+
+21:                                               ; preds = %19
+  %22 = ptrtoint ptr %16 to i64
+  %23 = ptrtoint ptr %17 to i64
+  %24 = sub i64 %22, %23
+  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %24) #30
+  br label %.body
+
+25:                                               ; preds = %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEC2ERKS5_.exit.i.i.i.i
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store ptr %17, ptr %18, align 8, !tbaa !799
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store ptr %16, ptr %27, align 8, !tbaa !801
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store ptr %16, ptr %28, align 8, !tbaa !802
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %29, ptr noundef nonnull align 8 dereferenceable(9) %26, i64 9, i1 false)
+  %30 = ptrtoint ptr %18 to i64
+  store i64 %30, ptr %3, align 8, !tbaa !13
   ret void
 
-26:                                               ; preds = %12, %.noexc.i.i.i.i.i.i.i, %2
-  %27 = landingpad { ptr, i32 }
+31:                                               ; preds = %13, %.noexc.i.i.i.i.i.i.i, %2
+  %32 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %16, %18, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %17, %18 ], [ %17, %16 ]
+.body:                                            ; preds = %19, %21, %31
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %20, %21 ], [ %20, %19 ]
   tail call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -58493,7 +58501,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonIS
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %3, i8 noundef zeroext 0)
-          to label %.noexc unwind label %26
+          to label %.noexc unwind label %31
 
 .noexc:                                           ; preds = %2
   store i8 8, ptr %0, align 8, !tbaa !17
@@ -58504,63 +58512,71 @@ define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonIS
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, %6
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEC2ERKS5_.exit.i.i.i.i, label %10
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %.thread.i.i.i.i, label %11
 
-10:                                               ; preds = %.noexc
-  %11 = icmp slt i64 %9, 0
-  br i1 %11, label %.noexc.i.i.i.i.i.i.i, label %12, !prof !1485
+.thread.i.i.i.i:                                  ; preds = %.noexc
+  %10 = getelementptr inbounds i8, ptr null, i64 %9
+  br label %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEC2ERKS5_.exit.i.i.i.i
 
-.noexc.i.i.i.i.i.i.i:                             ; preds = %10
+11:                                               ; preds = %.noexc
+  %12 = icmp slt i64 %9, 0
+  br i1 %12, label %.noexc.i.i.i.i.i.i.i, label %13, !prof !1485
+
+.noexc.i.i.i.i.i.i.i:                             ; preds = %11
   invoke void @_ZSt17__throw_bad_allocv() #34
-          to label %.noexc3 unwind label %26
+          to label %.noexc3 unwind label %31
 
 .noexc3:                                          ; preds = %.noexc.i.i.i.i.i.i.i
   unreachable
 
-12:                                               ; preds = %10
-  %13 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #33
-          to label %.noexc4 unwind label %26
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #33
+          to label %.noexc4 unwind label %31
 
-.noexc4:                                          ; preds = %12
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %13, ptr align 1 %6, i64 %9, i1 false)
+.noexc4:                                          ; preds = %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %9
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %14, ptr align 1 %6, i64 %9, i1 false)
   br label %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEC2ERKS5_.exit.i.i.i.i
 
-_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEC2ERKS5_.exit.i.i.i.i: ; preds = %.noexc4, %.noexc
-  %14 = phi ptr [ %13, %.noexc4 ], [ null, %.noexc ]
-  %15 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #33
-          to label %19 unwind label %16
-
-16:                                               ; preds = %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEC2ERKS5_.exit.i.i.i.i
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  %.not.i.i.i7.i.i.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i.i7.i.i.i.i, label %.body, label %18
-
-18:                                               ; preds = %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %9) #30
-  br label %.body
+_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEC2ERKS5_.exit.i.i.i.i: ; preds = %.noexc4, %.thread.i.i.i.i
+  %16 = phi ptr [ %10, %.thread.i.i.i.i ], [ %15, %.noexc4 ]
+  %17 = phi ptr [ null, %.thread.i.i.i.i ], [ %14, %.noexc4 ]
+  %18 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #33
+          to label %25 unwind label %19
 
 19:                                               ; preds = %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEC2ERKS5_.exit.i.i.i.i
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %21 = getelementptr inbounds i8, ptr %14, i64 %9
-  store ptr %14, ptr %15, align 8, !tbaa !799
-  %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %21, ptr %22, align 8, !tbaa !801
-  %23 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr %21, ptr %23, align 8, !tbaa !802
-  %24 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %24, ptr noundef nonnull align 8 dereferenceable(9) %20, i64 9, i1 false)
-  %25 = ptrtoint ptr %15 to i64
-  store i64 %25, ptr %3, align 8, !tbaa !13
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %.not.i.i.i7.i.i.i.i = icmp eq ptr %17, null
+  br i1 %.not.i.i.i7.i.i.i.i, label %.body, label %21
+
+21:                                               ; preds = %19
+  %22 = ptrtoint ptr %16 to i64
+  %23 = ptrtoint ptr %17 to i64
+  %24 = sub i64 %22, %23
+  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %24) #30
+  br label %.body
+
+25:                                               ; preds = %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEC2ERKS5_.exit.i.i.i.i
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store ptr %17, ptr %18, align 8, !tbaa !799
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store ptr %16, ptr %27, align 8, !tbaa !801
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store ptr %16, ptr %28, align 8, !tbaa !802
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %29, ptr noundef nonnull align 8 dereferenceable(9) %26, i64 9, i1 false)
+  %30 = ptrtoint ptr %18 to i64
+  store i64 %30, ptr %3, align 8, !tbaa !13
   ret void
 
-26:                                               ; preds = %12, %.noexc.i.i.i.i.i.i.i, %2
-  %27 = landingpad { ptr, i32 }
+31:                                               ; preds = %13, %.noexc.i.i.i.i.i.i.i, %2
+  %32 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %16, %18, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %17, %18 ], [ %17, %16 ]
+.body:                                            ; preds = %19, %21, %31
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %20, %21 ], [ %20, %19 ]
   tail call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
   resume { ptr, i32 } %eh.lpad-body
 }

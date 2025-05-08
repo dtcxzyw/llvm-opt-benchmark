@@ -522,7 +522,11 @@ _ZNK8QuantLib23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEE12nextSeq
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %32 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %cmp.not.i.i.i.i = icmp eq ptr %33, %32
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit, label %cond.true.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %invoke.cont.i.thread, label %cond.true.i.i.i.i
+
+invoke.cont.i.thread:                             ; preds = %_ZNK8QuantLib23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEE12nextSequenceEv.exit
+  %add.ptr.i.i.i213 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i
+  br label %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
 
 cond.true.i.i.i.i:                                ; preds = %_ZNK8QuantLib23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEE12nextSequenceEv.exit
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775800
@@ -534,11 +538,13 @@ if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %cond.true.i.i.i.i
   %call5.i.i.i.i2.i6.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #24
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i6.i, i64 %sub.ptr.sub.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i6.i, ptr align 8 %32, i64 %sub.ptr.sub.i.i, i1 false)
   br label %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
 
-_ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %_ZNK8QuantLib23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEE12nextSequenceEv.exit, %if.then.i.i.i.i.i.i.i.i.i
-  %cond.i.i.i.i214 = phi ptr [ %call5.i.i.i.i2.i6.i, %if.then.i.i.i.i.i.i.i.i.i ], [ null, %_ZNK8QuantLib23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEE12nextSequenceEv.exit ]
+_ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %invoke.cont.i.thread, %if.then.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i215 = phi ptr [ %add.ptr.i.i.i213, %invoke.cont.i.thread ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
+  %cond.i.i.i.i214 = phi ptr [ null, %invoke.cont.i.thread ], [ %call5.i.i.i.i2.i6.i, %if.then.i.i.i.i.i.i.i.i.i ]
   %payoff_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %34 = load ptr, ptr %payoff_, align 8, !tbaa !18
   %cmp.not.i = icmp eq ptr %34, null
@@ -566,8 +572,8 @@ invoke.cont38:                                    ; preds = %_ZNSt6vectorIdSaIdE
 
 for.cond110.preheader:                            ; preds = %invoke.cont38
   %sub111 = add nsw i64 %sub.ptr.div.i.i.i, -1
-  %cmp112264.not = icmp eq i64 %sub111, 0
-  br i1 %cmp112264.not, label %cleanup, label %for.body113.lr.ph
+  %cmp112263.not = icmp eq i64 %sub111, 0
+  br i1 %cmp112263.not, label %cleanup, label %for.body113.lr.ph
 
 for.body113.lr.ph:                                ; preds = %for.cond110.preheader
   %diffProcess_121 = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -576,8 +582,8 @@ for.body113.lr.ph:                                ; preds = %for.cond110.prehead
 
 for.cond.preheader:                               ; preds = %invoke.cont38
   %sub = add nsw i64 %sub.ptr.div.i.i.i, -1
-  %cmp42267.not = icmp eq i64 %sub, 0
-  br i1 %cmp42267.not, label %cleanup, label %for.body.lr.ph
+  %cmp42266.not = icmp eq i64 %sub, 0
+  br i1 %cmp42266.not, label %cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %diffProcess_ = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -595,23 +601,23 @@ lpad37.loopexit:                                  ; preds = %invoke.cont48, %con
   br label %ehcleanup236
 
 lpad37.loopexit.split-lp.loopexit:                ; preds = %cond.false.i126, %invoke.cont122
-  %lpad.loopexit259 = landingpad { ptr, i32 }
+  %lpad.loopexit258 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup236
 
 ehcleanup236.thread:                              ; preds = %invoke.cont75, %invoke.cont81, %invoke.cont90, %invoke.cont97, %invoke.cont154, %invoke.cont161, %invoke.cont172, %invoke.cont179, %cond.false.i95, %cond.false.i99, %cond.false.i104, %cond.false.i110, %cond.false.i116, %cond.false.i135, %cond.false.i142, %cond.false.i148, %cond.false.i155, %cond.false.i161
-  %lpad.loopexit.split-lp260 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp259 = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i.i.i199
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end107
-  %i.0269 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %if.end107 ]
-  %log_asset_price.0268 = phi double [ %call27, %for.body.lr.ph ], [ %add108, %if.end107 ]
-  %add = add nuw i64 %i.0269, 1
+  %i.0268 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %if.end107 ]
+  %log_asset_price.0267 = phi double [ %call27, %for.body.lr.ph ], [ %add108, %if.end107 ]
+  %add = add nuw i64 %i.0268, 1
   %38 = load ptr, ptr %values_.i, align 8, !tbaa !40
   %arrayidx.i.i = getelementptr inbounds nuw double, ptr %38, i64 %add
   %39 = load double, ptr %arrayidx.i.i, align 8, !tbaa !41
-  %arrayidx.i.i87 = getelementptr inbounds nuw double, ptr %38, i64 %i.0269
+  %arrayidx.i.i87 = getelementptr inbounds nuw double, ptr %38, i64 %i.0268
   %40 = load double, ptr %arrayidx.i.i87, align 8, !tbaa !41
   %div = fdiv double %39, %40
   %call47 = tail call double @log(double noundef %div) #20, !tbaa !42
@@ -632,7 +638,7 @@ invoke.cont48:                                    ; preds = %.noexc91, %for.body
   %43 = load ptr, ptr %path, align 8, !tbaa !24
   %add.ptr.i.i92 = getelementptr inbounds nuw double, ptr %43, i64 %add
   %44 = load double, ptr %add.ptr.i.i92, align 8, !tbaa !41
-  %call53 = tail call double @exp(double noundef %log_asset_price.0268) #20, !tbaa !42
+  %call53 = tail call double @exp(double noundef %log_asset_price.0267) #20, !tbaa !42
   %vtable = load ptr, ptr %42, align 8, !tbaa !14
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 136
   %45 = load ptr, ptr %vfn, align 8
@@ -641,12 +647,12 @@ invoke.cont48:                                    ; preds = %.noexc91, %for.body
 
 invoke.cont54:                                    ; preds = %invoke.cont48
   %46 = load ptr, ptr %dt_.i, align 8, !tbaa !24
-  %add.ptr.i.i93 = getelementptr inbounds nuw double, ptr %46, i64 %i.0269
+  %add.ptr.i.i93 = getelementptr inbounds nuw double, ptr %46, i64 %i.0268
   %47 = load double, ptr %add.ptr.i.i93, align 8, !tbaa !41
   %mul58 = fmul double %call55, 2.000000e+00
   %mul59 = fmul double %call55, %mul58
   %mul60 = fmul double %mul59, %47
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %cond.i.i.i.i214, i64 %i.0269
+  %add.ptr.i = getelementptr inbounds nuw double, ptr %cond.i.i.i.i214, i64 %i.0268
   %48 = load double, ptr %add.ptr.i, align 8, !tbaa !41
   %sub62 = fsub double 1.000000e+00, %48
   %call63 = tail call double @log(double noundef %sub62) #20, !tbaa !42
@@ -655,7 +661,7 @@ invoke.cont54:                                    ; preds = %invoke.cont48
   %50 = tail call double @llvm.fmuladd.f64(double %call47, double %call47, double %neg)
   %call65 = tail call double @sqrt(double noundef %50) #20, !tbaa !42
   %add66 = fadd double %call47, %call65
-  %51 = tail call double @llvm.fmuladd.f64(double %add66, double 5.000000e-01, double %log_asset_price.0268)
+  %51 = tail call double @llvm.fmuladd.f64(double %add66, double 5.000000e-01, double %log_asset_price.0267)
   %cmp67 = fcmp ult double %51, %call35
   br i1 %cmp67, label %if.end107, label %if.then68
 
@@ -771,18 +777,18 @@ invoke.cont104:                                   ; preds = %invoke.cont97
   br label %if.then.i.i.i
 
 if.end107:                                        ; preds = %invoke.cont54
-  %add108 = fadd double %log_asset_price.0268, %call47
-  %exitcond275.not = icmp eq i64 %add, %sub
-  br i1 %exitcond275.not, label %if.then.i.i.i, label %for.body, !llvm.loop !76
+  %add108 = fadd double %log_asset_price.0267, %call47
+  %exitcond274.not = icmp eq i64 %add, %sub
+  br i1 %exitcond274.not, label %if.then.i.i.i, label %for.body, !llvm.loop !76
 
 for.body113:                                      ; preds = %for.body113.lr.ph, %if.end189
-  %i.1266 = phi i64 [ 0, %for.body113.lr.ph ], [ %add114, %if.end189 ]
-  %log_asset_price.1265 = phi double [ %call27, %for.body113.lr.ph ], [ %add190, %if.end189 ]
-  %add114 = add nuw i64 %i.1266, 1
+  %i.1265 = phi i64 [ 0, %for.body113.lr.ph ], [ %add114, %if.end189 ]
+  %log_asset_price.1264 = phi double [ %call27, %for.body113.lr.ph ], [ %add190, %if.end189 ]
+  %add114 = add nuw i64 %i.1265, 1
   %68 = load ptr, ptr %values_.i, align 8, !tbaa !40
   %arrayidx.i.i122 = getelementptr inbounds nuw double, ptr %68, i64 %add114
   %69 = load double, ptr %arrayidx.i.i122, align 8, !tbaa !41
-  %arrayidx.i.i124 = getelementptr inbounds nuw double, ptr %68, i64 %i.1266
+  %arrayidx.i.i124 = getelementptr inbounds nuw double, ptr %68, i64 %i.1265
   %70 = load double, ptr %arrayidx.i.i124, align 8, !tbaa !41
   %div119 = fdiv double %69, %70
   %call120 = tail call double @log(double noundef %div119) #20, !tbaa !42
@@ -803,7 +809,7 @@ invoke.cont122:                                   ; preds = %.noexc128, %for.bod
   %73 = load ptr, ptr %path, align 8, !tbaa !24
   %add.ptr.i.i130 = getelementptr inbounds nuw double, ptr %73, i64 %add114
   %74 = load double, ptr %add.ptr.i.i130, align 8, !tbaa !41
-  %call127 = tail call double @exp(double noundef %log_asset_price.1265) #20, !tbaa !42
+  %call127 = tail call double @exp(double noundef %log_asset_price.1264) #20, !tbaa !42
   %vtable128 = load ptr, ptr %72, align 8, !tbaa !14
   %vfn129 = getelementptr inbounds nuw i8, ptr %vtable128, i64 136
   %75 = load ptr, ptr %vfn129, align 8
@@ -812,12 +818,12 @@ invoke.cont122:                                   ; preds = %.noexc128, %for.bod
 
 invoke.cont130:                                   ; preds = %invoke.cont122
   %76 = load ptr, ptr %dt_.i131, align 8, !tbaa !24
-  %add.ptr.i.i132 = getelementptr inbounds nuw double, ptr %76, i64 %i.1266
+  %add.ptr.i.i132 = getelementptr inbounds nuw double, ptr %76, i64 %i.1265
   %77 = load double, ptr %add.ptr.i.i132, align 8, !tbaa !41
   %mul135 = fmul double %call131, 2.000000e+00
   %mul136 = fmul double %call131, %mul135
   %mul137 = fmul double %mul136, %77
-  %add.ptr.i133 = getelementptr inbounds nuw double, ptr %cond.i.i.i.i214, i64 %i.1266
+  %add.ptr.i133 = getelementptr inbounds nuw double, ptr %cond.i.i.i.i214, i64 %i.1265
   %78 = load double, ptr %add.ptr.i133, align 8, !tbaa !41
   %call139 = tail call double @log(double noundef %78) #20, !tbaa !42
   %79 = fneg double %call139
@@ -825,7 +831,7 @@ invoke.cont130:                                   ; preds = %invoke.cont122
   %80 = tail call double @llvm.fmuladd.f64(double %call120, double %call120, double %neg141)
   %call142 = tail call double @sqrt(double noundef %80) #20, !tbaa !42
   %sub143 = fsub double %call120, %call142
-  %81 = tail call double @llvm.fmuladd.f64(double %sub143, double 5.000000e-01, double %log_asset_price.1265)
+  %81 = tail call double @llvm.fmuladd.f64(double %sub143, double 5.000000e-01, double %log_asset_price.1264)
   %cmp145 = fcmp ugt double %81, %call35
   br i1 %cmp145, label %if.end189, label %if.then146
 
@@ -941,7 +947,7 @@ invoke.cont186:                                   ; preds = %invoke.cont179
   br label %if.then.i.i.i
 
 if.end189:                                        ; preds = %invoke.cont130
-  %add190 = fadd double %log_asset_price.1265, %call120
+  %add190 = fadd double %log_asset_price.1264, %call120
   %exitcond.not = icmp eq i64 %add114, %sub111
   br i1 %exitcond.not, label %if.then.i.i.i, label %for.body113, !llvm.loop !77
 
@@ -1119,7 +1125,10 @@ cleanup:                                          ; preds = %for.cond110.prehead
 
 if.then.i.i.i:                                    ; preds = %if.end189, %if.end107, %invoke.cont87, %invoke.cont104, %invoke.cont167, %invoke.cont186, %cleanup
   %retval.0225 = phi double [ 0.000000e+00, %cleanup ], [ %mul106, %invoke.cont104 ], [ %mul, %invoke.cont87 ], [ %mul188, %invoke.cont186 ], [ %mul169, %invoke.cont167 ], [ 0.000000e+00, %if.end107 ], [ 0.000000e+00, %if.end189 ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i214, i64 noundef %sub.ptr.sub.i.i) #23
+  %sub.ptr.lhs.cast.i.i194 = ptrtoint ptr %add.ptr.i.i.i215 to i64
+  %sub.ptr.rhs.cast.i.i195 = ptrtoint ptr %cond.i.i.i.i214 to i64
+  %sub.ptr.sub.i.i196 = sub i64 %sub.ptr.lhs.cast.i.i194, %sub.ptr.rhs.cast.i.i195
+  tail call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i214, i64 noundef %sub.ptr.sub.i.i196) #23
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %cleanup, %if.then.i.i.i
@@ -1127,17 +1136,20 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %cleanup, %if.then.i
   ret double %retval.0226
 
 ehcleanup236:                                     ; preds = %lpad37.loopexit, %lpad37.loopexit.split-lp.loopexit, %ehcleanup231, %lpad30
-  %.pn53.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %37, %lpad30 ], [ %.pn53.pn.pn.pn.pn, %ehcleanup231 ], [ %lpad.loopexit, %lpad37.loopexit ], [ %lpad.loopexit259, %lpad37.loopexit.split-lp.loopexit ]
+  %.pn53.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %37, %lpad30 ], [ %.pn53.pn.pn.pn.pn, %ehcleanup231 ], [ %lpad.loopexit, %lpad37.loopexit ], [ %lpad.loopexit258, %lpad37.loopexit.split-lp.loopexit ]
   %tobool.not.i.i.i198 = icmp eq ptr %cond.i.i.i.i214, null
   br i1 %tobool.not.i.i.i198, label %ehcleanup254, label %if.then.i.i.i199
 
 if.then.i.i.i199:                                 ; preds = %ehcleanup236.thread, %ehcleanup236
-  %.pn53.pn.pn.pn.pn.pn.pn279 = phi { ptr, i32 } [ %lpad.loopexit.split-lp260, %ehcleanup236.thread ], [ %.pn53.pn.pn.pn.pn.pn.pn, %ehcleanup236 ]
-  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i214, i64 noundef %sub.ptr.sub.i.i) #23
+  %.pn53.pn.pn.pn.pn.pn.pn278 = phi { ptr, i32 } [ %lpad.loopexit.split-lp259, %ehcleanup236.thread ], [ %.pn53.pn.pn.pn.pn.pn.pn, %ehcleanup236 ]
+  %sub.ptr.lhs.cast.i.i201 = ptrtoint ptr %add.ptr.i.i.i215 to i64
+  %sub.ptr.rhs.cast.i.i202 = ptrtoint ptr %cond.i.i.i.i214 to i64
+  %sub.ptr.sub.i.i203 = sub i64 %sub.ptr.lhs.cast.i.i201, %sub.ptr.rhs.cast.i.i202
+  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i214, i64 noundef %sub.ptr.sub.i.i203) #23
   br label %ehcleanup254
 
 ehcleanup254:                                     ; preds = %if.then.i.i.i199, %ehcleanup236, %ehcleanup24
-  %.pn53.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup24 ], [ %.pn53.pn.pn.pn.pn.pn.pn, %ehcleanup236 ], [ %.pn53.pn.pn.pn.pn.pn.pn279, %if.then.i.i.i199 ]
+  %.pn53.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup24 ], [ %.pn53.pn.pn.pn.pn.pn.pn, %ehcleanup236 ], [ %.pn53.pn.pn.pn.pn.pn.pn278, %if.then.i.i.i199 ]
   resume { ptr, i32 } %.pn53.pn.pn.pn.pn.pn.pn.pn
 
 unreachable:                                      ; preds = %invoke.cont214, %invoke.cont14

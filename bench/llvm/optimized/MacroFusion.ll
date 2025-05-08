@@ -598,7 +598,7 @@ declare noundef zeroext i1 @_ZN4llvm17ScheduleDAGInstrs7addEdgeEPNS_5SUnitERKNS_
 define dso_local void @_ZN4llvm28createMacroFusionDAGMutationENS_8ArrayRefIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS8_EEEb(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %0, ptr readonly captures(none) %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
   %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL17EnableMacroFusion, i64 120), align 8, !tbaa !34, !range !52, !noundef !53
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %7, label %17
+  br i1 %6, label %7, label %19
 
 7:                                                ; preds = %4
   %8 = xor i1 %3, true
@@ -609,26 +609,30 @@ define dso_local void @_ZN4llvm28createMacroFusionDAGMutationENS_8ArrayRefIPFbRK
   store i64 0, ptr %11, align 8, !noalias !65
   %.idx.i.i = shl nuw nsw i64 %2, 3
   %.not.i.i.i.i.i = icmp eq i64 %2, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_111MacroFusionESt14default_deleteIS1_EED2Ev.exit, label %12
+  br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIPFbRKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12MachineInstrERS8_ESaISC_EE11_M_allocateEm.exit.thread.i.i.i.i, label %13
 
-12:                                               ; preds = %7
-  %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i.i) #14, !noalias !65
-  store ptr %13, ptr %11, align 8, !tbaa !68, !noalias !65
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr readonly align 8 %1, i64 %.idx.i.i, i1 false), !noalias !65
+_ZNSt12_Vector_baseIPFbRKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12MachineInstrERS8_ESaISC_EE11_M_allocateEm.exit.thread.i.i.i.i: ; preds = %7
+  %12 = getelementptr inbounds nuw i8, ptr null, i64 %.idx.i.i
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_111MacroFusionESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN12_GLOBAL__N_111MacroFusionESt14default_deleteIS1_EED2Ev.exit: ; preds = %12, %7
-  %.pn.i = phi ptr [ %13, %12 ], [ null, %7 ]
-  %.sink.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 %.idx.i.i
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr %.sink.i, ptr %14, align 8, !tbaa !70, !noalias !65
-  %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %.sink.i, ptr %15, align 8, !tbaa !71, !noalias !65
-  %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i8 %9, ptr %16, align 8, !tbaa !72, !noalias !65
-  br label %17
+13:                                               ; preds = %7
+  %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i.i) #14, !noalias !65
+  store ptr %14, ptr %11, align 8, !tbaa !68, !noalias !65
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr readonly align 8 %1, i64 %.idx.i.i, i1 false), !noalias !65
+  br label %_ZNSt10unique_ptrIN12_GLOBAL__N_111MacroFusionESt14default_deleteIS1_EED2Ev.exit
 
-17:                                               ; preds = %4, %_ZNSt10unique_ptrIN12_GLOBAL__N_111MacroFusionESt14default_deleteIS1_EED2Ev.exit
+_ZNSt10unique_ptrIN12_GLOBAL__N_111MacroFusionESt14default_deleteIS1_EED2Ev.exit: ; preds = %13, %_ZNSt12_Vector_baseIPFbRKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12MachineInstrERS8_ESaISC_EE11_M_allocateEm.exit.thread.i.i.i.i
+  %.sink.i = phi ptr [ %12, %_ZNSt12_Vector_baseIPFbRKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12MachineInstrERS8_ESaISC_EE11_M_allocateEm.exit.thread.i.i.i.i ], [ %15, %13 ]
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store ptr %.sink.i, ptr %16, align 8, !tbaa !70, !noalias !65
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %.sink.i, ptr %17, align 8, !tbaa !71, !noalias !65
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store i8 %9, ptr %18, align 8, !tbaa !72, !noalias !65
+  br label %19
+
+19:                                               ; preds = %4, %_ZNSt10unique_ptrIN12_GLOBAL__N_111MacroFusionESt14default_deleteIS1_EED2Ev.exit
   %storemerge = phi ptr [ %10, %_ZNSt10unique_ptrIN12_GLOBAL__N_111MacroFusionESt14default_deleteIS1_EED2Ev.exit ], [ null, %4 ]
   store ptr %storemerge, ptr %0, align 8, !tbaa !78
   ret void

@@ -19919,7 +19919,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN4
 
 10:                                               ; preds = %3
   %11 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm23SmallVectorTemplateBaseINS_17OperandBundleDefTIPNS_5ValueEEELb0EE18growAndEmplaceBackIJRA5_KcPNS_11ConstantIntEEEERS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(5) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  br label %50
+  br label %51
 
 12:                                               ; preds = %3
   %13 = zext i32 %7 to i64
@@ -19994,24 +19994,24 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.experimental.noalias.scope.decl(metadata !1814)
   %42 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #27, !noalias !1814
   store ptr %42, ptr %41, align 8, !tbaa !1817, !alias.scope !1814
-  %43 = ptrtoint ptr %30 to i64
-  store i64 %43, ptr %42, align 8, !noalias !1814
-  %.sink.i.i = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %44 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  store ptr %.sink.i.i, ptr %44, align 8, !tbaa !1819, !alias.scope !1814
-  %45 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  store ptr %.sink.i.i, ptr %45, align 8, !tbaa !1820, !alias.scope !1814
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = ptrtoint ptr %30 to i64
+  store i64 %44, ptr %42, align 8, !noalias !1814
+  %45 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  store ptr %43, ptr %45, align 8, !tbaa !1819, !alias.scope !1814
+  %46 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  store ptr %43, ptr %46, align 8, !tbaa !1820, !alias.scope !1814
   %.pre9 = load ptr, ptr %0, align 8, !tbaa !602
   %.pre8 = load i32, ptr %6, align 8, !tbaa !603
-  %46 = add i32 %.pre8, 1
-  store i32 %46, ptr %6, align 8, !tbaa !603
-  %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw %"class.llvm::OperandBundleDefT", ptr %.pre9, i64 %47
-  %49 = getelementptr inbounds i8, ptr %48, i64 -56
-  br label %50
+  %47 = add i32 %.pre8, 1
+  store i32 %47, ptr %6, align 8, !tbaa !603
+  %48 = zext i32 %47 to i64
+  %49 = getelementptr inbounds nuw %"class.llvm::OperandBundleDefT", ptr %.pre9, i64 %48
+  %50 = getelementptr inbounds i8, ptr %49, i64 -56
+  br label %51
 
-50:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %10
-  %.0 = phi ptr [ %11, %10 ], [ %49, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+51:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %10
+  %.0 = phi ptr [ %11, %10 ], [ %50, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   ret ptr %.0
 }
 
@@ -21987,7 +21987,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN4
 
 10:                                               ; preds = %3
   %11 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm23SmallVectorTemplateBaseINS_17OperandBundleDefTIPNS_5ValueEEELb0EE18growAndEmplaceBackIJRA8_KcRA2_S3_EEERS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-  br label %48
+  br label %49
 
 12:                                               ; preds = %3
   %13 = zext i32 %7 to i64
@@ -22061,23 +22061,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.experimental.noalias.scope.decl(metadata !1847)
   %41 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27, !noalias !1847
   store ptr %41, ptr %40, align 8, !tbaa !1817, !alias.scope !1847
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !noalias !1847
-  %.sink.i.i = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %42 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  store ptr %.sink.i.i, ptr %42, align 8, !tbaa !1819, !alias.scope !1847
-  %43 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  store ptr %.sink.i.i, ptr %43, align 8, !tbaa !1820, !alias.scope !1847
+  %43 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  store ptr %42, ptr %43, align 8, !tbaa !1819, !alias.scope !1847
+  %44 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  store ptr %42, ptr %44, align 8, !tbaa !1820, !alias.scope !1847
   %.pre9 = load ptr, ptr %0, align 8, !tbaa !602
   %.pre8 = load i32, ptr %6, align 8, !tbaa !603
-  %44 = add i32 %.pre8, 1
-  store i32 %44, ptr %6, align 8, !tbaa !603
-  %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw %"class.llvm::OperandBundleDefT", ptr %.pre9, i64 %45
-  %47 = getelementptr inbounds i8, ptr %46, i64 -56
-  br label %48
+  %45 = add i32 %.pre8, 1
+  store i32 %45, ptr %6, align 8, !tbaa !603
+  %46 = zext i32 %45 to i64
+  %47 = getelementptr inbounds nuw %"class.llvm::OperandBundleDefT", ptr %.pre9, i64 %46
+  %48 = getelementptr inbounds i8, ptr %47, i64 -56
+  br label %49
 
-48:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %10
-  %.0 = phi ptr [ %11, %10 ], [ %47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+49:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %10
+  %.0 = phi ptr [ %11, %10 ], [ %48, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   ret ptr %.0
 }
 
@@ -26087,36 +26087,36 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.experimental.noalias.scope.decl(metadata !1916)
   %39 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #27, !noalias !1916
   store ptr %39, ptr %38, align 8, !tbaa !1817, !alias.scope !1916
-  %40 = ptrtoint ptr %27 to i64
-  store i64 %40, ptr %39, align 8, !noalias !1916
-  %.sink.i.i = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store ptr %.sink.i.i, ptr %41, align 8, !tbaa !1819, !alias.scope !1916
-  %42 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store ptr %.sink.i.i, ptr %42, align 8, !tbaa !1820, !alias.scope !1916
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = ptrtoint ptr %27 to i64
+  store i64 %41, ptr %39, align 8, !noalias !1916
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  store ptr %40, ptr %42, align 8, !tbaa !1819, !alias.scope !1916
+  %43 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  store ptr %40, ptr %43, align 8, !tbaa !1820, !alias.scope !1916
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_17OperandBundleDefTIPNS_5ValueEEELb0EE19moveElementsForGrowEPS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %8)
-  %43 = load i64, ptr %5, align 8, !tbaa !845
-  %44 = load ptr, ptr %0, align 8, !tbaa !602
-  %45 = icmp eq ptr %44, %7
-  br i1 %45, label %_ZN4llvm23SmallVectorTemplateBaseINS_17OperandBundleDefTIPNS_5ValueEEELb0EE21takeAllocationForGrowEPS4_m.exit, label %46
+  %44 = load i64, ptr %5, align 8, !tbaa !845
+  %45 = load ptr, ptr %0, align 8, !tbaa !602
+  %46 = icmp eq ptr %45, %7
+  br i1 %46, label %_ZN4llvm23SmallVectorTemplateBaseINS_17OperandBundleDefTIPNS_5ValueEEELb0EE21takeAllocationForGrowEPS4_m.exit, label %47
 
-46:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  call void @free(ptr noundef %44) #24
+47:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  call void @free(ptr noundef %45) #24
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_17OperandBundleDefTIPNS_5ValueEEELb0EE21takeAllocationForGrowEPS4_m.exit
 
-_ZN4llvm23SmallVectorTemplateBaseINS_17OperandBundleDefTIPNS_5ValueEEELb0EE21takeAllocationForGrowEPS4_m.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %46
+_ZN4llvm23SmallVectorTemplateBaseINS_17OperandBundleDefTIPNS_5ValueEEELb0EE21takeAllocationForGrowEPS4_m.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %47
   store ptr %8, ptr %0, align 8, !tbaa !602
-  %47 = trunc i64 %43 to i32
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %47, ptr %48, align 4, !tbaa !604
-  %49 = load i32, ptr %9, align 8, !tbaa !603
-  %50 = add i32 %49, 1
-  store i32 %50, ptr %9, align 8, !tbaa !603
-  %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %"class.llvm::OperandBundleDefT", ptr %8, i64 %51
-  %53 = getelementptr inbounds i8, ptr %52, i64 -56
+  %48 = trunc i64 %44 to i32
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %48, ptr %49, align 4, !tbaa !604
+  %50 = load i32, ptr %9, align 8, !tbaa !603
+  %51 = add i32 %50, 1
+  store i32 %51, ptr %9, align 8, !tbaa !603
+  %52 = zext i32 %51 to i64
+  %53 = getelementptr inbounds nuw %"class.llvm::OperandBundleDefT", ptr %8, i64 %52
+  %54 = getelementptr inbounds i8, ptr %53, i64 -56
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
-  ret ptr %53
+  ret ptr %54
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -26431,35 +26431,35 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.experimental.noalias.scope.decl(metadata !1922)
   %38 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27, !noalias !1922
   store ptr %38, ptr %37, align 8, !tbaa !1817, !alias.scope !1922
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !noalias !1922
-  %.sink.i.i = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %39 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store ptr %.sink.i.i, ptr %39, align 8, !tbaa !1819, !alias.scope !1922
-  %40 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store ptr %.sink.i.i, ptr %40, align 8, !tbaa !1820, !alias.scope !1922
+  %40 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  store ptr %39, ptr %40, align 8, !tbaa !1819, !alias.scope !1922
+  %41 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  store ptr %39, ptr %41, align 8, !tbaa !1820, !alias.scope !1922
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_17OperandBundleDefTIPNS_5ValueEEELb0EE19moveElementsForGrowEPS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %8)
-  %41 = load i64, ptr %5, align 8, !tbaa !845
-  %42 = load ptr, ptr %0, align 8, !tbaa !602
-  %43 = icmp eq ptr %42, %7
-  br i1 %43, label %_ZN4llvm23SmallVectorTemplateBaseINS_17OperandBundleDefTIPNS_5ValueEEELb0EE21takeAllocationForGrowEPS4_m.exit, label %44
+  %42 = load i64, ptr %5, align 8, !tbaa !845
+  %43 = load ptr, ptr %0, align 8, !tbaa !602
+  %44 = icmp eq ptr %43, %7
+  br i1 %44, label %_ZN4llvm23SmallVectorTemplateBaseINS_17OperandBundleDefTIPNS_5ValueEEELb0EE21takeAllocationForGrowEPS4_m.exit, label %45
 
-44:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  call void @free(ptr noundef %42) #24
+45:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  call void @free(ptr noundef %43) #24
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_17OperandBundleDefTIPNS_5ValueEEELb0EE21takeAllocationForGrowEPS4_m.exit
 
-_ZN4llvm23SmallVectorTemplateBaseINS_17OperandBundleDefTIPNS_5ValueEEELb0EE21takeAllocationForGrowEPS4_m.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %44
+_ZN4llvm23SmallVectorTemplateBaseINS_17OperandBundleDefTIPNS_5ValueEEELb0EE21takeAllocationForGrowEPS4_m.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %45
   store ptr %8, ptr %0, align 8, !tbaa !602
-  %45 = trunc i64 %41 to i32
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %45, ptr %46, align 4, !tbaa !604
-  %47 = load i32, ptr %9, align 8, !tbaa !603
-  %48 = add i32 %47, 1
-  store i32 %48, ptr %9, align 8, !tbaa !603
-  %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %"class.llvm::OperandBundleDefT", ptr %8, i64 %49
-  %51 = getelementptr inbounds i8, ptr %50, i64 -56
+  %46 = trunc i64 %42 to i32
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %46, ptr %47, align 4, !tbaa !604
+  %48 = load i32, ptr %9, align 8, !tbaa !603
+  %49 = add i32 %48, 1
+  store i32 %49, ptr %9, align 8, !tbaa !603
+  %50 = zext i32 %49 to i64
+  %51 = getelementptr inbounds nuw %"class.llvm::OperandBundleDefT", ptr %8, i64 %50
+  %52 = getelementptr inbounds i8, ptr %51, i64 -56
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
-  ret ptr %51
+  ret ptr %52
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)

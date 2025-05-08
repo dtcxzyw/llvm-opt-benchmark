@@ -2026,22 +2026,31 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %if.end.i
   %cmp.not.i.i.i.i = icmp eq i64 %idx.ext14.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
+
+_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i
+  %add.ptr5.i.i.i = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i
+  br label %_ZNSt6vectorIhSaIhEED2Ev.exit.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i.i) #18, !noalias !32
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i.i.i, ptr nonnull align 1 %add.ptr16.i, i64 %sub.ptr.sub.i.i.i.i.i, i1 false), !noalias !32
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit.i
 
-_ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i
-  %counter.sroa.0.0.i = phi ptr [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i ]
+_ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i.i
+  %counter.sroa.0.0.i = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i.i ], [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
+  %add.ptr7.i.i.i = phi ptr [ %add.ptr5.i.i.i, %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i.i ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
   %shl.i = shl nuw nsw i32 255, %conv.i
   %7 = load i8, ptr %counter.sroa.0.0.i, align 1, !noalias !32
   %8 = trunc i32 %shl.i to i8
   %9 = xor i8 %8, -1
   %conv22.i = and i8 %7, %9
   store i8 %conv22.i, ptr %counter.sroa.0.0.i, align 1, !noalias !32
-  %conv25.i = trunc i64 %sub.ptr.sub.i.i.i.i.i to i32
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr7.i.i.i to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %counter.sroa.0.0.i to i64
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
+  %conv25.i = trunc i64 %sub.ptr.sub.i.i to i32
   %call26.i = tail call ptr @BN_bin2bn(ptr noundef nonnull %counter.sroa.0.0.i, i32 noundef %conv25.i, ptr noundef null) #17, !noalias !32
   tail call void @_ZdlPv(ptr noundef nonnull %counter.sroa.0.0.i) #20, !noalias !32
   br label %_ZN4node6crypto12_GLOBAL__N_110GetCounterERKNS0_15AESCipherConfigE.exit

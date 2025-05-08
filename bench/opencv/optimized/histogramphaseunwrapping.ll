@@ -1073,14 +1073,14 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram15
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EED2Ev.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !57
 
 _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EED2Ev.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %3
-  %.sroa.0.0 = phi ptr [ null, %3 ], [ %18, %.lr.ph.i.i.i.i.i.i ]
+  %.sink = phi ptr [ null, %3 ], [ %18, %.lr.ph.i.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %3 ], [ %20, %.lr.ph.i.i.i.i.i.i ]
-  %.sroa.11.0 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 %13
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.0.0, ptr %0, align 8, !tbaa !48
-  store ptr %.0.lcssa.i.i.i.i.i.i, ptr %21, align 8, !tbaa !46
-  store ptr %.sroa.11.0, ptr %22, align 8, !tbaa !47
+  %21 = getelementptr inbounds nuw i8, ptr %.sink, i64 %13
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sink, ptr %0, align 8, !tbaa !48
+  store ptr %.0.lcssa.i.i.i.i.i.i, ptr %22, align 8, !tbaa !46
+  store ptr %21, ptr %23, align 8, !tbaa !47
   ret void
 }
 
@@ -2136,9 +2136,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge194, %21
   br label %.loopexit185
 
 .loopexit185:                                     ; preds = %.loopexit185.loopexit, %22
-  %.sroa.0.0.i = phi ptr [ null, %22 ], [ %36, %.loopexit185.loopexit ]
+  %.sink.i = phi ptr [ null, %22 ], [ %36, %.loopexit185.loopexit ]
   %.0.lcssa.i.i.i.i.i.i.i = phi i64 [ 0, %22 ], [ %39, %.loopexit185.loopexit ]
-  %40 = ptrtoint ptr %.sroa.0.0.i to i64
+  %40 = ptrtoint ptr %.sink.i to i64
   %41 = sub i64 %.0.lcssa.i.i.i.i.i.i.i, %40
   %42 = sdiv exact i64 %41, 12
   %43 = trunc i64 %42 to i32
@@ -2151,11 +2151,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge194, %21
   br label %49
 
 ._crit_edge:                                      ; preds = %.loopexit, %.loopexit185
-  %.not.i.i.i151 = icmp eq ptr %.sroa.0.0.i, null
+  %.not.i.i.i151 = icmp eq ptr %.sink.i, null
   br i1 %.not.i.i.i151, label %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EED2Ev.exit, label %46
 
 46:                                               ; preds = %._crit_edge
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.sink.i) #23
   br label %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EED2Ev.exit: ; preds = %._crit_edge, %46
@@ -2184,7 +2184,7 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE
 
 49:                                               ; preds = %.lr.ph191, %.loopexit
   %indvars.iv202 = phi i64 [ 0, %.lr.ph191 ], [ %indvars.iv.next203, %.loopexit ]
-  %50 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %.sroa.0.0.i, i64 %indvars.iv202
+  %50 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %.sink.i, i64 %indvars.iv202
   %51 = load i32, ptr %50, align 4, !tbaa !34
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %53 = load i32, ptr %52, align 4, !tbaa !36

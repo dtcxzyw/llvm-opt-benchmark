@@ -7324,86 +7324,90 @@ define noundef ptr @_ZN18llama_model_loader13create_tensorEP12ggml_contextRKNSt7
   %.not.i.i.i = icmp eq i64 %.sroa.2.0.copyload, 0
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.thread.i.i, label %.noexc3.i
 
+_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.thread.i.i: ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr null, i64 %.idx.i
+  br label %10
+
 .noexc3.i:                                        ; preds = %5
-  %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i) #36
-  store ptr %7, ptr %6, align 8, !tbaa !196
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %7, ptr align 8 %.sroa.0.0.copyload, i64 %.idx.i, i1 false)
-  br label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.thread.i.i
+  %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i) #36
+  store ptr %8, ptr %6, align 8, !tbaa !196
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %8, ptr align 8 %.sroa.0.0.copyload, i64 %.idx.i, i1 false)
+  br label %10
 
-_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.thread.i.i: ; preds = %5, %.noexc3.i
-  %.pn = phi ptr [ %7, %.noexc3.i ], [ null, %5 ]
-  %.sink = getelementptr inbounds nuw i8, ptr %.pn, i64 %.idx.i
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %.sink, ptr %8, align 8, !tbaa !199
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %.sink, ptr %9, align 8, !tbaa !193
-  %10 = and i32 %4, 1
-  %.not = icmp eq i32 %10, 0
-  %11 = invoke noundef ptr @_ZNK18llama_model_loader17check_tensor_dimsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIlSaIlEEb(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(24) %6, i1 noundef zeroext %.not)
-          to label %12 unwind label %20
+10:                                               ; preds = %.noexc3.i, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.thread.i.i
+  %.sink = phi ptr [ %7, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.thread.i.i ], [ %9, %.noexc3.i ]
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %.sink, ptr %11, align 8, !tbaa !199
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %.sink, ptr %12, align 8, !tbaa !193
+  %13 = and i32 %4, 1
+  %.not = icmp eq i32 %13, 0
+  %14 = invoke noundef ptr @_ZNK18llama_model_loader17check_tensor_dimsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIlSaIlEEb(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(24) %6, i1 noundef zeroext %.not)
+          to label %15 unwind label %23
 
-12:                                               ; preds = %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.thread.i.i
-  %13 = load ptr, ptr %6, align 8, !tbaa !196
-  %.not.i.i.i20 = icmp eq ptr %13, null
-  br i1 %.not.i.i.i20, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %14
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %6, align 8, !tbaa !196
+  %.not.i.i.i20 = icmp eq ptr %16, null
+  br i1 %.not.i.i.i20, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %17
 
-14:                                               ; preds = %12
-  %15 = load ptr, ptr %8, align 8, !tbaa !199
-  %16 = ptrtoint ptr %15 to i64
-  %17 = ptrtoint ptr %13 to i64
-  %18 = sub i64 %16, %17
-  call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %18) #33
+17:                                               ; preds = %15
+  %18 = load ptr, ptr %11, align 8, !tbaa !199
+  %19 = ptrtoint ptr %18 to i64
+  %20 = ptrtoint ptr %16 to i64
+  %21 = sub i64 %19, %20
+  call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %21) #33
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
-_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %12, %14
+_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %15, %17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
-  %19 = icmp eq ptr %11, null
-  br i1 %19, label %42, label %28
+  %22 = icmp eq ptr %14, null
+  br i1 %22, label %45, label %31
 
-20:                                               ; preds = %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.thread.i.i
-  %21 = landingpad { ptr, i32 }
+23:                                               ; preds = %10
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %22 = load ptr, ptr %6, align 8, !tbaa !196
-  %.not.i.i.i21 = icmp eq ptr %22, null
-  br i1 %.not.i.i.i21, label %_ZNSt6vectorIlSaIlEED2Ev.exit22, label %23
+  %25 = load ptr, ptr %6, align 8, !tbaa !196
+  %.not.i.i.i21 = icmp eq ptr %25, null
+  br i1 %.not.i.i.i21, label %_ZNSt6vectorIlSaIlEED2Ev.exit22, label %26
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %8, align 8, !tbaa !199
-  %25 = ptrtoint ptr %24 to i64
-  %26 = ptrtoint ptr %22 to i64
-  %27 = sub i64 %25, %26
-  call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %27) #33
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %11, align 8, !tbaa !199
+  %28 = ptrtoint ptr %27 to i64
+  %29 = ptrtoint ptr %25 to i64
+  %30 = sub i64 %28, %29
+  call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %30) #33
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit22
 
-_ZNSt6vectorIlSaIlEED2Ev.exit22:                  ; preds = %23, %20
+_ZNSt6vectorIlSaIlEED2Ev.exit22:                  ; preds = %26, %23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %24
 
-28:                                               ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit
-  %29 = and i32 %4, 2
-  %.not19 = icmp eq i32 %29, 0
-  %30 = call ptr @ggml_dup_tensor(ptr noundef %1, ptr noundef nonnull %11)
-  %31 = call ptr @ggml_get_name(ptr noundef nonnull %11)
-  %32 = call ptr @ggml_set_name(ptr noundef %30, ptr noundef %31)
-  br i1 %.not19, label %38, label %33
+31:                                               ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit
+  %32 = and i32 %4, 2
+  %.not19 = icmp eq i32 %32, 0
+  %33 = call ptr @ggml_dup_tensor(ptr noundef %1, ptr noundef nonnull %14)
+  %34 = call ptr @ggml_get_name(ptr noundef nonnull %14)
+  %35 = call ptr @ggml_set_name(ptr noundef %33, ptr noundef %34)
+  br i1 %.not19, label %41, label %36
 
-33:                                               ; preds = %28
-  %34 = call i64 @ggml_nbytes(ptr noundef nonnull %11)
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %36 = load i64, ptr %35, align 8, !tbaa !200
-  %37 = add i64 %36, %34
-  store i64 %37, ptr %35, align 8, !tbaa !200
-  br label %42
+36:                                               ; preds = %31
+  %37 = call i64 @ggml_nbytes(ptr noundef nonnull %14)
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %39 = load i64, ptr %38, align 8, !tbaa !200
+  %40 = add i64 %39, %37
+  store i64 %40, ptr %38, align 8, !tbaa !200
+  br label %45
 
-38:                                               ; preds = %28
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = load i32, ptr %39, align 8, !tbaa !80
-  %41 = add nsw i32 %40, 1
-  store i32 %41, ptr %39, align 8, !tbaa !80
-  br label %42
+41:                                               ; preds = %31
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %43 = load i32, ptr %42, align 8, !tbaa !80
+  %44 = add nsw i32 %43, 1
+  store i32 %44, ptr %42, align 8, !tbaa !80
+  br label %45
 
-42:                                               ; preds = %33, %38, %_ZNSt6vectorIlSaIlEED2Ev.exit
-  %.0 = phi ptr [ null, %_ZNSt6vectorIlSaIlEED2Ev.exit ], [ %30, %38 ], [ %30, %33 ]
+45:                                               ; preds = %36, %41, %_ZNSt6vectorIlSaIlEED2Ev.exit
+  %.0 = phi ptr [ null, %_ZNSt6vectorIlSaIlEED2Ev.exit ], [ %33, %41 ], [ %33, %36 ]
   ret ptr %.0
 }
 

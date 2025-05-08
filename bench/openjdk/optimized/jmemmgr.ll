@@ -157,75 +157,76 @@ define internal nonnull ptr @alloc_small(ptr noundef %0, i32 noundef %1, i64 nou
   %.061.lcssa = phi ptr [ null, %22 ], [ %.05973, %26 ]
   %29 = add i64 %.058, 24
   %30 = icmp eq ptr %.061.lcssa, null
-  %first_pool_slop.extra_pool_slop = select i1 %30, ptr @first_pool_slop, ptr @extra_pool_slop
-  %.0.in = getelementptr inbounds [2 x i64], ptr %first_pool_slop.extra_pool_slop, i64 0, i64 %24
+  %31 = getelementptr inbounds [2 x i64], ptr @first_pool_slop, i64 0, i64 %24
+  %32 = getelementptr inbounds [2 x i64], ptr @extra_pool_slop, i64 0, i64 %24
+  %.0.in = select i1 %30, ptr %31, ptr %32
   %.0 = load i64, ptr %.0.in, align 8
-  %31 = sub i64 999999976, %.058
-  %.1 = tail call i64 @llvm.umin.i64(i64 %.0, i64 %31)
-  %32 = add i64 %29, %.1
-  %33 = tail call ptr @jGetSmall(ptr noundef %0, i64 noundef %32) #6
-  %.not6774 = icmp eq ptr %33, null
+  %33 = sub i64 999999976, %.058
+  %.1 = tail call i64 @llvm.umin.i64(i64 %.0, i64 %33)
+  %34 = add i64 %29, %.1
+  %35 = tail call ptr @jGetSmall(ptr noundef %0, i64 noundef %34) #6
+  %.not6774 = icmp eq ptr %35, null
   br i1 %.not6774, label %.lr.ph77, label %._crit_edge78
 
-.lr.ph77:                                         ; preds = %._crit_edge, %43
-  %.275 = phi i64 [ %34, %43 ], [ %.1, %._crit_edge ]
-  %34 = lshr i64 %.275, 1
-  %35 = icmp ult i64 %.275, 100
-  br i1 %35, label %36, label %43
+.lr.ph77:                                         ; preds = %._crit_edge, %45
+  %.275 = phi i64 [ %36, %45 ], [ %.1, %._crit_edge ]
+  %36 = lshr i64 %.275, 1
+  %37 = icmp ult i64 %.275, 100
+  br i1 %37, label %38, label %45
 
-36:                                               ; preds = %.lr.ph77
-  %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  store i32 54, ptr %38, align 8
+38:                                               ; preds = %.lr.ph77
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 44
-  store i32 2, ptr %40, align 4
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
+  store i32 54, ptr %40, align 8
   %41 = load ptr, ptr %0, align 8
-  %42 = load ptr, ptr %41, align 8
-  tail call void %42(ptr noundef nonnull %0) #6
-  br label %43
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 44
+  store i32 2, ptr %42, align 4
+  %43 = load ptr, ptr %0, align 8
+  %44 = load ptr, ptr %43, align 8
+  tail call void %44(ptr noundef nonnull %0) #6
+  br label %45
 
-43:                                               ; preds = %36, %.lr.ph77
-  %44 = add i64 %29, %34
-  %45 = tail call ptr @jGetSmall(ptr noundef %0, i64 noundef %44) #6
-  %.not67 = icmp eq ptr %45, null
+45:                                               ; preds = %38, %.lr.ph77
+  %46 = add i64 %29, %36
+  %47 = tail call ptr @jGetSmall(ptr noundef %0, i64 noundef %46) #6
+  %.not67 = icmp eq ptr %47, null
   br i1 %.not67, label %.lr.ph77, label %._crit_edge78
 
-._crit_edge78:                                    ; preds = %43, %._crit_edge
-  %.2.lcssa = phi i64 [ %.1, %._crit_edge ], [ %34, %43 ]
-  %.lcssa68 = phi i64 [ %32, %._crit_edge ], [ %44, %43 ]
-  %.lcssa = phi ptr [ %33, %._crit_edge ], [ %45, %43 ]
-  %46 = getelementptr inbounds nuw i8, ptr %5, i64 152
-  %47 = load i64, ptr %46, align 8
-  %48 = add i64 %47, %.lcssa68
-  store i64 %48, ptr %46, align 8
-  %49 = add i64 %.2.lcssa, %.058
-  %50 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
+._crit_edge78:                                    ; preds = %45, %._crit_edge
+  %.2.lcssa = phi i64 [ %.1, %._crit_edge ], [ %36, %45 ]
+  %.lcssa68 = phi i64 [ %34, %._crit_edge ], [ %46, %45 ]
+  %.lcssa = phi ptr [ %35, %._crit_edge ], [ %47, %45 ]
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 152
+  %49 = load i64, ptr %48, align 8
+  %50 = add i64 %49, %.lcssa68
+  store i64 %50, ptr %48, align 8
+  %51 = add i64 %.2.lcssa, %.058
+  %52 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.lcssa, i8 0, i64 16, i1 false)
-  store i64 %49, ptr %50, align 8
-  br i1 %30, label %51, label %52
+  store i64 %51, ptr %52, align 8
+  br i1 %30, label %53, label %54
 
-51:                                               ; preds = %._crit_edge78
+53:                                               ; preds = %._crit_edge78
   store ptr %.lcssa, ptr %25, align 8
   br label %.loopexit
 
-52:                                               ; preds = %._crit_edge78
+54:                                               ; preds = %._crit_edge78
   store ptr %.lcssa, ptr %.061.lcssa, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %51, %52
-  %.160 = phi ptr [ %.lcssa, %51 ], [ %.lcssa, %52 ], [ %.05973, %.lr.ph ]
-  %53 = getelementptr inbounds nuw i8, ptr %.160, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.160, i64 8
-  %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %53, i64 %55
-  %57 = add i64 %55, %.058
-  store i64 %57, ptr %54, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %.160, i64 16
-  %59 = load i64, ptr %58, align 8
-  %60 = sub i64 %59, %.058
-  store i64 %60, ptr %58, align 8
-  ret ptr %56
+.loopexit:                                        ; preds = %.lr.ph, %53, %54
+  %.160 = phi ptr [ %.lcssa, %53 ], [ %.lcssa, %54 ], [ %.05973, %.lr.ph ]
+  %55 = getelementptr inbounds nuw i8, ptr %.160, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %.160, i64 8
+  %57 = load i64, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %55, i64 %57
+  %59 = add i64 %57, %.058
+  store i64 %59, ptr %56, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %.160, i64 16
+  %61 = load i64, ptr %60, align 8
+  %62 = sub i64 %61, %.058
+  store i64 %62, ptr %60, align 8
+  ret ptr %58
 }
 
 ; Function Attrs: nounwind uwtable

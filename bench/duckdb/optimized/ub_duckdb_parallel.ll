@@ -5161,196 +5161,196 @@ define noundef nonnull align 8 dereferenceable(224) ptr @_ZN6duckdb12MetaPipelin
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN6duckdb18PipelineBuildState20GetPipelineOperatorsERNS_8PipelineE.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !270
 
 _ZN6duckdb18PipelineBuildState20GetPipelineOperatorsERNS_8PipelineE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %3
-  %.sroa.023.0 = phi ptr [ null, %3 ], [ %17, %.lr.ph.i.i.i.i.i.i.i ]
+  %.sink = phi ptr [ null, %3 ], [ %17, %.lr.ph.i.i.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ null, %3 ], [ %20, %.lr.ph.i.i.i.i.i.i.i ]
-  %.sroa.8.0 = getelementptr inbounds nuw i8, ptr %.sroa.023.0, i64 %13
-  %21 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %22 = load ptr, ptr %21, align 8, !tbaa !269
-  %23 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %24 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store ptr %.sroa.023.0, ptr %21, align 8, !tbaa !269
-  store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %23, align 8, !tbaa !265
-  store ptr %.sroa.8.0, ptr %24, align 8, !tbaa !271
-  %.not.i.i.i.i.i.i.i11 = icmp eq ptr %22, null
-  br i1 %.not.i.i.i.i.i.i.i11, label %_ZNSt6vectorISt17reference_wrapperIN6duckdb16PhysicalOperatorEESaIS3_EED2Ev.exit, label %25
+  %21 = getelementptr inbounds nuw i8, ptr %.sink, i64 %13
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %23 = load ptr, ptr %22, align 8, !tbaa !269
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  store ptr %.sink, ptr %22, align 8, !tbaa !269
+  store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %24, align 8, !tbaa !265
+  store ptr %21, ptr %25, align 8, !tbaa !271
+  %.not.i.i.i.i.i.i.i11 = icmp eq ptr %23, null
+  br i1 %.not.i.i.i.i.i.i.i11, label %_ZNSt6vectorISt17reference_wrapperIN6duckdb16PhysicalOperatorEESaIS3_EED2Ev.exit, label %26
 
-25:                                               ; preds = %_ZN6duckdb18PipelineBuildState20GetPipelineOperatorsERNS_8PipelineE.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %22) #37
+26:                                               ; preds = %_ZN6duckdb18PipelineBuildState20GetPipelineOperatorsERNS_8PipelineE.exit
+  tail call void @_ZdlPv(ptr noundef nonnull %23) #37
   br label %_ZNSt6vectorISt17reference_wrapperIN6duckdb16PhysicalOperatorEESaIS3_EED2Ev.exit
 
-_ZNSt6vectorISt17reference_wrapperIN6duckdb16PhysicalOperatorEESaIS3_EED2Ev.exit: ; preds = %25, %_ZN6duckdb18PipelineBuildState20GetPipelineOperatorsERNS_8PipelineE.exit
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.sroa.0.0.copyload = load ptr, ptr %26, align 8, !tbaa !77
-  %27 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store ptr %.sroa.0.0.copyload, ptr %27, align 8, !tbaa !77
-  %28 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  store i64 0, ptr %28, align 8, !tbaa !130
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  %31 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN6duckdb8weak_ptrINS0_8PipelineELb1EEESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %29)
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %34 = load i64, ptr %33, align 8, !tbaa !272
-  %.not.not.i.i = icmp eq i64 %34, 0
-  br i1 %.not.not.i.i, label %35, label %42
+_ZNSt6vectorISt17reference_wrapperIN6duckdb16PhysicalOperatorEESaIS3_EED2Ev.exit: ; preds = %26, %_ZN6duckdb18PipelineBuildState20GetPipelineOperatorsERNS_8PipelineE.exit
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.sroa.0.0.copyload = load ptr, ptr %27, align 8, !tbaa !77
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  store ptr %.sroa.0.0.copyload, ptr %28, align 8, !tbaa !77
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  store i64 0, ptr %29, align 8, !tbaa !130
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 104
+  %32 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN6duckdb8weak_ptrINS0_8PipelineELb1EEESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %30)
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %35 = load i64, ptr %34, align 8, !tbaa !272
+  %.not.not.i.i = icmp eq i64 %35, 0
+  br i1 %.not.not.i.i, label %36, label %43
 
-35:                                               ; preds = %_ZNSt6vectorISt17reference_wrapperIN6duckdb16PhysicalOperatorEESaIS3_EED2Ev.exit
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  br label %37
+36:                                               ; preds = %_ZNSt6vectorISt17reference_wrapperIN6duckdb16PhysicalOperatorEESaIS3_EED2Ev.exit
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  br label %38
 
-37:                                               ; preds = %38, %35
-  %.sroa.06.0.in.i.i = phi ptr [ %36, %35 ], [ %.sroa.06.0.i.i, %38 ]
+38:                                               ; preds = %39, %36
+  %.sroa.06.0.in.i.i = phi ptr [ %37, %36 ], [ %.sroa.06.0.i.i, %39 ]
   %.sroa.06.0.i.i = load ptr, ptr %.sroa.06.0.in.i.i, align 8, !tbaa !132
   %.not.i.i = icmp eq ptr %.sroa.06.0.i.i, null
-  br i1 %.not.i.i, label %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_6vectorIS3_Lb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit.thread, label %38
+  br i1 %.not.i.i, label %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_6vectorIS3_Lb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit.thread, label %39
 
-38:                                               ; preds = %37
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !171
-  %41 = icmp eq ptr %1, %40
-  br i1 %41, label %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_6vectorIS3_Lb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit, label %37, !llvm.loop !273
+39:                                               ; preds = %38
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i, i64 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !171
+  %42 = icmp eq ptr %1, %41
+  br i1 %42, label %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_6vectorIS3_Lb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit, label %38, !llvm.loop !273
 
-42:                                               ; preds = %_ZNSt6vectorISt17reference_wrapperIN6duckdb16PhysicalOperatorEESaIS3_EED2Ev.exit
-  %43 = ptrtoint ptr %1 to i64
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %45 = load i64, ptr %44, align 8, !tbaa !111
-  %46 = urem i64 %43, %45
-  %47 = load ptr, ptr %32, align 8, !tbaa !110
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %46
-  %49 = load ptr, ptr %48, align 8, !tbaa !239
-  %.not.i.i.i.i = icmp eq ptr %49, null
-  br i1 %.not.i.i.i.i, label %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_6vectorIS3_Lb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit.thread, label %50
+43:                                               ; preds = %_ZNSt6vectorISt17reference_wrapperIN6duckdb16PhysicalOperatorEESaIS3_EED2Ev.exit
+  %44 = ptrtoint ptr %1 to i64
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %46 = load i64, ptr %45, align 8, !tbaa !111
+  %47 = urem i64 %44, %46
+  %48 = load ptr, ptr %33, align 8, !tbaa !110
+  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %47
+  %50 = load ptr, ptr %49, align 8, !tbaa !239
+  %.not.i.i.i.i = icmp eq ptr %50, null
+  br i1 %.not.i.i.i.i, label %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_6vectorIS3_Lb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit.thread, label %51
 
-50:                                               ; preds = %42
-  %51 = load ptr, ptr %49, align 8, !tbaa !132
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 40
-  %54 = load i64, ptr %53, align 8, !tbaa !240
-  %55 = icmp eq i64 %54, %43
-  %56 = load ptr, ptr %52, align 8
-  %57 = icmp eq ptr %1, %56
-  %58 = select i1 %55, i1 %57, i1 false
-  br i1 %58, label %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_6vectorIS3_Lb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit, label %.lr.ph.i.i.i.i
+51:                                               ; preds = %43
+  %52 = load ptr, ptr %50, align 8, !tbaa !132
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 40
+  %55 = load i64, ptr %54, align 8, !tbaa !240
+  %56 = icmp eq i64 %55, %44
+  %57 = load ptr, ptr %53, align 8
+  %58 = icmp eq ptr %1, %57
+  %59 = select i1 %56, i1 %58, i1 false
+  br i1 %59, label %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_6vectorIS3_Lb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit, label %.lr.ph.i.i.i.i
 
-59:                                               ; preds = %66
-  %60 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %61 = icmp eq i64 %68, %43
-  %62 = load ptr, ptr %60, align 8
-  %63 = icmp eq ptr %1, %62
-  %64 = select i1 %61, i1 %63, i1 false
-  br i1 %64, label %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_6vectorIS3_Lb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !242
+60:                                               ; preds = %67
+  %61 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %62 = icmp eq i64 %69, %44
+  %63 = load ptr, ptr %61, align 8
+  %64 = icmp eq ptr %1, %63
+  %65 = select i1 %62, i1 %64, i1 false
+  br i1 %65, label %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_6vectorIS3_Lb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !242
 
-.lr.ph.i.i.i.i:                                   ; preds = %50, %59
-  %.020.i.i.i.i = phi ptr [ %65, %59 ], [ %51, %50 ]
-  %65 = load ptr, ptr %.020.i.i.i.i, align 8, !tbaa !132
-  %.not18.i.i.i.i = icmp eq ptr %65, null
-  br i1 %.not18.i.i.i.i, label %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_6vectorIS3_Lb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit.thread, label %66
+.lr.ph.i.i.i.i:                                   ; preds = %51, %60
+  %.020.i.i.i.i = phi ptr [ %66, %60 ], [ %52, %51 ]
+  %66 = load ptr, ptr %.020.i.i.i.i, align 8, !tbaa !132
+  %.not18.i.i.i.i = icmp eq ptr %66, null
+  br i1 %.not18.i.i.i.i, label %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_6vectorIS3_Lb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit.thread, label %67
 
-66:                                               ; preds = %.lr.ph.i.i.i.i
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 40
-  %68 = load i64, ptr %67, align 8, !tbaa !240
-  %69 = urem i64 %68, %45
-  %.not19.i.i.i.i = icmp eq i64 %69, %46
-  br i1 %.not19.i.i.i.i, label %59, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !242
+67:                                               ; preds = %.lr.ph.i.i.i.i
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 40
+  %69 = load i64, ptr %68, align 8, !tbaa !240
+  %70 = urem i64 %69, %46
+  %.not19.i.i.i.i = icmp eq i64 %70, %47
+  br i1 %.not19.i.i.i.i, label %60, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !242
 
-..loopexit_crit_edge21.i.i.i.i:                   ; preds = %66
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %67
   br label %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_6vectorIS3_Lb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit.thread, !llvm.loop !242
 
-_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_6vectorIS3_Lb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit: ; preds = %59, %38, %50
-  %.sroa.06.1.i.i = phi ptr [ %51, %50 ], [ %.sroa.06.0.i.i, %38 ], [ %65, %59 ]
-  %70 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
+_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_6vectorIS3_Lb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit: ; preds = %60, %39, %51
+  %.sroa.06.1.i.i = phi ptr [ %52, %51 ], [ %.sroa.06.0.i.i, %39 ], [ %66, %60 ]
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #35
   store ptr %6, ptr %4, align 8, !tbaa !171
-  %71 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseISt17reference_wrapperIN6duckdb8PipelineEESt4pairIKS4_NS2_6vectorIS4_Lb1EEEESaIS9_ENS_10_Select1stENS2_17ReferenceEqualityIS3_EENS2_21ReferenceHashFunctionIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %32, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %72 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull align 8 dereferenceable(24) %70)
+  %72 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseISt17reference_wrapperIN6duckdb8PipelineEESt4pairIKS4_NS2_6vectorIS4_Lb1EEEESaIS9_ENS_10_Select1stENS2_17ReferenceEqualityIS3_EENS2_21ReferenceHashFunctionIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %33, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %73 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %72, ptr noundef nonnull align 8 dereferenceable(24) %71)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
   br label %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_6vectorIS3_Lb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit.thread
 
-_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_6vectorIS3_Lb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %37, %..loopexit_crit_edge21.i.i.i.i, %42, %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_6vectorIS3_Lb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit
-  br i1 %2, label %73, label %105
+_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_6vectorIS3_Lb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %38, %..loopexit_crit_edge21.i.i.i.i, %43, %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_6vectorIS3_Lb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit
+  br i1 %2, label %74, label %106
 
-73:                                               ; preds = %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_6vectorIS3_Lb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit.thread
+74:                                               ; preds = %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_6vectorIS3_Lb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #35
   store ptr %6, ptr %5, align 8, !tbaa !171
-  %74 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseISt17reference_wrapperIN6duckdb8PipelineEESt4pairIKS4_NS2_6vectorIS4_Lb1EEEESaIS9_ENS_10_Select1stENS2_17ReferenceEqualityIS3_EENS2_21ReferenceHashFunctionIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %32, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %76 = load ptr, ptr %75, align 8, !tbaa !173
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %78 = load ptr, ptr %77, align 8, !tbaa !174
-  %.not.i.i12 = icmp eq ptr %76, %78
-  br i1 %.not.i.i12, label %83, label %79
+  %75 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseISt17reference_wrapperIN6duckdb8PipelineEESt4pairIKS4_NS2_6vectorIS4_Lb1EEEESaIS9_ENS_10_Select1stENS2_17ReferenceEqualityIS3_EENS2_21ReferenceHashFunctionIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %33, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %77 = load ptr, ptr %76, align 8, !tbaa !173
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 16
+  %79 = load ptr, ptr %78, align 8, !tbaa !174
+  %.not.i.i12 = icmp eq ptr %77, %79
+  br i1 %.not.i.i12, label %84, label %80
 
-79:                                               ; preds = %73
-  %80 = ptrtoint ptr %1 to i64
-  store i64 %80, ptr %76, align 8
-  %81 = load ptr, ptr %75, align 8, !tbaa !173
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  store ptr %82, ptr %75, align 8, !tbaa !173
+80:                                               ; preds = %74
+  %81 = ptrtoint ptr %1 to i64
+  store i64 %81, ptr %77, align 8
+  %82 = load ptr, ptr %76, align 8, !tbaa !173
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  store ptr %83, ptr %76, align 8, !tbaa !173
   br label %_ZNSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE9push_backEOS3_.exit
 
-83:                                               ; preds = %73
-  %84 = load ptr, ptr %74, align 8, !tbaa !140
-  %85 = ptrtoint ptr %76 to i64
-  %86 = ptrtoint ptr %84 to i64
-  %87 = sub i64 %85, %86
-  %88 = icmp eq i64 %87, 9223372036854775800
-  br i1 %88, label %89, label %_ZNKSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
+84:                                               ; preds = %74
+  %85 = load ptr, ptr %75, align 8, !tbaa !140
+  %86 = ptrtoint ptr %77 to i64
+  %87 = ptrtoint ptr %85 to i64
+  %88 = sub i64 %86, %87
+  %89 = icmp eq i64 %88, 9223372036854775800
+  br i1 %89, label %90, label %_ZNKSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
 
-89:                                               ; preds = %83
+90:                                               ; preds = %84
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.19) #36
   unreachable
 
-_ZNKSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %83
-  %90 = ashr exact i64 %87, 3
-  %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %90, i64 1)
-  %91 = add nsw i64 %.sroa.speculated.i.i.i.i, %90
-  %92 = icmp ult i64 %91, %90
-  %93 = call i64 @llvm.umin.i64(i64 %91, i64 1152921504606846975)
-  %94 = select i1 %92, i64 1152921504606846975, i64 %93
-  %.not.i.i.i.i13 = icmp ne i64 %94, 0
+_ZNKSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %84
+  %91 = ashr exact i64 %88, 3
+  %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %91, i64 1)
+  %92 = add nsw i64 %.sroa.speculated.i.i.i.i, %91
+  %93 = icmp ult i64 %92, %91
+  %94 = call i64 @llvm.umin.i64(i64 %92, i64 1152921504606846975)
+  %95 = select i1 %93, i64 1152921504606846975, i64 %94
+  %.not.i.i.i.i13 = icmp ne i64 %95, 0
   call void @llvm.assume(i1 %.not.i.i.i.i13)
-  %95 = shl nuw nsw i64 %94, 3
-  %96 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %95) #38
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 %87
-  %98 = ptrtoint ptr %1 to i64
-  store i64 %98, ptr %97, align 8
-  %.not10.i.i.i.i.i.i.i = icmp eq ptr %84, %76
+  %96 = shl nuw nsw i64 %95, 3
+  %97 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %96) #38
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 %88
+  %99 = ptrtoint ptr %1 to i64
+  store i64 %99, ptr %98, align 8
+  %.not10.i.i.i.i.i.i.i = icmp eq ptr %85, %77
   br i1 %.not10.i.i.i.i.i.i.i, label %_ZNSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i14
 
 .lr.ph.i.i.i.i.i.i.i14:                           ; preds = %_ZNKSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i, %.lr.ph.i.i.i.i.i.i.i14
-  %.012.i.i.i.i.i.i.i = phi ptr [ %101, %.lr.ph.i.i.i.i.i.i.i14 ], [ %96, %_ZNKSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %.0911.i.i.i.i.i.i.i = phi ptr [ %100, %.lr.ph.i.i.i.i.i.i.i14 ], [ %84, %_ZNKSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %.012.i.i.i.i.i.i.i = phi ptr [ %102, %.lr.ph.i.i.i.i.i.i.i14 ], [ %97, %_ZNKSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %.0911.i.i.i.i.i.i.i = phi ptr [ %101, %.lr.ph.i.i.i.i.i.i.i14 ], [ %85, %_ZNKSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !274)
   call void @llvm.experimental.noalias.scope.decl(metadata !277)
-  %99 = load i64, ptr %.0911.i.i.i.i.i.i.i, align 8, !alias.scope !277, !noalias !274
-  store i64 %99, ptr %.012.i.i.i.i.i.i.i, align 8, !alias.scope !274, !noalias !277
-  %100 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i, i64 8
-  %101 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i.i15 = icmp eq ptr %100, %76
+  %100 = load i64, ptr %.0911.i.i.i.i.i.i.i, align 8, !alias.scope !277, !noalias !274
+  store i64 %100, ptr %.012.i.i.i.i.i.i.i, align 8, !alias.scope !274, !noalias !277
+  %101 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i.i.i15 = icmp eq ptr %101, %77
   br i1 %.not.i.i.i.i.i.i.i15, label %_ZNSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i14, !llvm.loop !180
 
 _ZNSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i14, %_ZNKSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
-  %.0.lcssa.i.i.i.i.i.i.i16 = phi ptr [ %96, %_ZNKSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %101, %.lr.ph.i.i.i.i.i.i.i14 ]
-  %102 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.i16, i64 8
-  %.not.i23.i.i.i = icmp eq ptr %84, null
-  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %103
+  %.0.lcssa.i.i.i.i.i.i.i16 = phi ptr [ %97, %_ZNKSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %102, %.lr.ph.i.i.i.i.i.i.i14 ]
+  %103 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.i16, i64 8
+  %.not.i23.i.i.i = icmp eq ptr %85, null
+  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %104
 
-103:                                              ; preds = %_ZNSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %84) #37
+104:                                              ; preds = %_ZNSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
+  call void @_ZdlPv(ptr noundef nonnull %85) #37
   br label %_ZNSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
-_ZNSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %103, %_ZNSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
-  store ptr %96, ptr %74, align 8, !tbaa !140
-  store ptr %102, ptr %75, align 8, !tbaa !173
-  %104 = getelementptr inbounds nuw %"class.std::reference_wrapper.196", ptr %96, i64 %94
-  store ptr %104, ptr %77, align 8, !tbaa !174
+_ZNSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %104, %_ZNSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
+  store ptr %97, ptr %75, align 8, !tbaa !140
+  store ptr %103, ptr %76, align 8, !tbaa !173
+  %105 = getelementptr inbounds nuw %"class.std::reference_wrapper.196", ptr %97, i64 %95
+  store ptr %105, ptr %78, align 8, !tbaa !174
   br label %_ZNSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE9push_backEOS3_.exit
 
-_ZNSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE9push_backEOS3_.exit: ; preds = %79, %_ZNSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
+_ZNSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE9push_backEOS3_.exit: ; preds = %80, %_ZNSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #35
-  br label %105
+  br label %106
 
-105:                                              ; preds = %_ZNSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE9push_backEOS3_.exit, %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_6vectorIS3_Lb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit.thread
+106:                                              ; preds = %_ZNSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE9push_backEOS3_.exit, %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb8PipelineEENS1_6vectorIS3_Lb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit.thread
   ret ptr %6
 }
 

@@ -771,23 +771,23 @@ _ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit: ; pre
   br i1 %.not.i.i.i.i.i67, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EEC2ERKS6_.exit, label %.lr.ph.i.i.i.i.i66, !llvm.loop !25
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EEC2ERKS6_.exit: ; preds = %.lr.ph.i.i.i.i.i66, %._crit_edge
-  %261 = phi ptr [ null, %._crit_edge ], [ %258, %.lr.ph.i.i.i.i.i66 ]
+  %.sink = phi ptr [ null, %._crit_edge ], [ %258, %.lr.ph.i.i.i.i.i66 ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %._crit_edge ], [ %260, %.lr.ph.i.i.i.i.i66 ]
-  %262 = getelementptr inbounds i8, ptr %261, i64 %254
-  %263 = load ptr, ptr %24, align 8
-  store ptr %261, ptr %18, align 8
+  %261 = getelementptr inbounds i8, ptr %.sink, i64 %254
+  %262 = load ptr, ptr %24, align 8
+  store ptr %.sink, ptr %18, align 8
   store ptr %.0.lcssa.i.i.i.i.i, ptr %46, align 8
-  store ptr %262, ptr %24, align 8
+  store ptr %261, ptr %24, align 8
   %.not.i.i.i68 = icmp eq ptr %251, null
-  br i1 %.not.i.i.i68, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EED2Ev.exit, label %264
+  br i1 %.not.i.i.i68, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EED2Ev.exit, label %263
 
-264:                                              ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EEC2ERKS6_.exit
-  %265 = ptrtoint ptr %263 to i64
-  %266 = sub i64 %265, %253
-  tail call void @_ZdlPvm(ptr noundef nonnull %251, i64 noundef %266) #12
+263:                                              ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EEC2ERKS6_.exit
+  %264 = ptrtoint ptr %262 to i64
+  %265 = sub i64 %264, %253
+  tail call void @_ZdlPvm(ptr noundef nonnull %251, i64 noundef %265) #12
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EED2Ev.exit
 
-_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EEC2ERKS6_.exit, %264
+_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EEC2ERKS6_.exit, %263
   ret void
 }
 
