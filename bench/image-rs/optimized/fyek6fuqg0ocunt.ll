@@ -39475,7 +39475,7 @@ default.unreachable92:                            ; preds = %3
   %.sroa.5.0.insert.ext.i = shl nuw nsw i32 %231, 8
   %.sroa.5.0.insert.shift.i = and i32 %.sroa.5.0.insert.ext.i, 65280
   %.sroa.6.0.insert.insert.i = or disjoint i32 %.sroa.5.0.insert.shift.i, %.sroa.6.0.insert.ext.i
-  %.sroa.5.0.insert.insert.i = or i32 %229, %.sroa.6.0.insert.insert.i
+  %.sroa.5.0.insert.insert.i = add nuw nsw i32 %.sroa.6.0.insert.insert.i, %229
   %.sroa.0.0.insert.insert.i = or i32 %.sroa.5.0.insert.insert.i, -16777216
   br label %453
 
@@ -39654,7 +39654,7 @@ default.unreachable92:                            ; preds = %3
   %.sroa.5.0.insert.ext.i57 = shl nuw nsw i32 %320, 8
   %.sroa.5.0.insert.shift.i58 = and i32 %.sroa.5.0.insert.ext.i57, 65280
   %.sroa.6.0.insert.insert.i56 = or disjoint i32 %.sroa.6.0.insert.ext.i54, %.sroa.5.0.insert.shift.i58
-  %.sroa.5.0.insert.insert.i59 = or i32 %318, %.sroa.6.0.insert.insert.i56
+  %.sroa.5.0.insert.insert.i59 = add nuw nsw i32 %.sroa.6.0.insert.insert.i56, %318
   %.sroa.0.0.insert.insert.i60 = or i32 %.sroa.5.0.insert.insert.i59, -16777216
   br label %453
 

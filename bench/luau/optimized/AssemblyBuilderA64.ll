@@ -2388,7 +2388,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643lsrENS1_11Regist
   %21 = shl nuw nsw i32 %20, 16
   %22 = or disjoint i32 %18, %21
   %23 = or disjoint i32 %22, %12
-  %24 = or i32 %23, 448799744
+  %24 = or disjoint i32 %23, 448799744
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %26 = load ptr, ptr %25, align 8, !tbaa !39
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
@@ -2433,7 +2433,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643asrENS1_11Regist
   %21 = shl nuw nsw i32 %20, 16
   %22 = or disjoint i32 %18, %21
   %23 = or disjoint i32 %22, %12
-  %24 = or i32 %23, 448800768
+  %24 = or disjoint i32 %23, 448800768
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %26 = load ptr, ptr %25, align 8, !tbaa !39
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
@@ -2478,7 +2478,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643rorENS1_11Regist
   %21 = shl nuw nsw i32 %20, 16
   %22 = or disjoint i32 %18, %21
   %23 = or disjoint i32 %22, %12
-  %24 = or i32 %23, 448801792
+  %24 = or disjoint i32 %23, 448801792
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %26 = load ptr, ptr %25, align 8, !tbaa !39
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
