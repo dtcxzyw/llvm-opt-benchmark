@@ -5741,7 +5741,7 @@ define i32 @tvb_unicode_strsize(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %14, label %.preheader, !llvm.loop !25
 
-14:                                               ; preds = %.preheader
+14:; preds = %.preheader
   ret i32 %11
 }
 
@@ -6940,7 +6940,7 @@ define ptr @tvb_get_stringz_enc(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 
 tvb_get_ascii_stringz.exit:                       ; preds = %13, %16
   %17 = tail call ptr @get_ascii_string(ptr noundef %0, ptr noundef %15, i32 noundef %14)
-  br label %214
+  br label %224
 
 18:                                               ; preds = %11
   %19 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
@@ -6954,7 +6954,7 @@ tvb_get_ascii_stringz.exit:                       ; preds = %13, %16
 
 tvb_get_utf_8_stringz.exit:                       ; preds = %18, %21
   %22 = tail call ptr @get_utf_8_string(ptr noundef %0, ptr noundef %20, i32 noundef %19)
-  br label %214
+  br label %224
 
 .preheader.i.i:                                   ; preds = %11, %.preheader.i.i
   %.0.i.i = phi i32 [ %26, %.preheader.i.i ], [ 0, %11 ]
@@ -6969,49 +6969,49 @@ tvb_get_utf_8_stringz.exit:                       ; preds = %18, %21
   br i1 %28, label %tvb_unicode_strsize.exit.i, label %.preheader.i.i, !llvm.loop !25
 
 tvb_unicode_strsize.exit.i:                       ; preds = %.preheader.i.i
-  %29 = and i32 %4, -1610612736
-  %30 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %26)
+  %31 = and i32 %4, -1610612736
+  %32 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %26)
   %.not.i148 = icmp eq ptr %3, null
-  br i1 %.not.i148, label %tvb_get_utf_16_stringz.exit, label %31
+  br i1 %.not.i148, label %tvb_get_utf_16_stringz.exit, label %33
 
-31:                                               ; preds = %tvb_unicode_strsize.exit.i
+33:                                               ; preds = %tvb_unicode_strsize.exit.i
   store i32 %26, ptr %3, align 4
   br label %tvb_get_utf_16_stringz.exit
 
-tvb_get_utf_16_stringz.exit:                      ; preds = %tvb_unicode_strsize.exit.i, %31
-  %32 = tail call ptr @get_utf_16_string(ptr noundef %0, ptr noundef %30, i32 noundef %26, i32 noundef range(i32 0, -1610612735) %29)
-  br label %214
+tvb_get_utf_16_stringz.exit:                      ; preds = %tvb_unicode_strsize.exit.i, %33
+  %34 = tail call ptr @get_utf_16_string(ptr noundef %0, ptr noundef %32, i32 noundef %26, i32 noundef range(i32 0, -1610612735) %31)
+  br label %224
 
 .preheader.i.i149:                                ; preds = %11, %.preheader.i.i149
   %.0.i.i150 = phi i32 [ %36, %.preheader.i.i149 ], [ 0, %11 ]
-  %33 = add i32 %.0.i.i150, %2
-  %34 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef nonnull %1, i32 noundef %33, i32 noundef 2)
-  %.val.i.i.i151 = load i8, ptr %34, align 1
-  %35 = getelementptr i8, ptr %34, i64 1
-  %.val2.i.i.i152 = load i8, ptr %35, align 1
+  %35 = add i32 %.0.i.i150, %2
+  %36 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef nonnull %1, i32 noundef %35, i32 noundef 2)
+  %.val.i.i.i151 = load i8, ptr %36, align 1
+  %37 = getelementptr i8, ptr %36, i64 1
+  %.val2.i.i.i152 = load i8, ptr %37, align 1
   %36 = add i32 %.0.i.i150, 2
   %37 = or i8 %.val2.i.i.i152, %.val.i.i.i151
   %38 = icmp eq i8 %37, 0
   br i1 %38, label %tvb_unicode_strsize.exit.i153, label %.preheader.i.i149, !llvm.loop !25
 
-tvb_unicode_strsize.exit.i153:                    ; preds = %.preheader.i.i149
+tvb_unicode_strsize.exit.i153:; preds = %.preheader.i.i149
   %39 = and i32 %4, -1610612736
   %40 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %36)
   %.not.i154 = icmp eq ptr %3, null
   br i1 %.not.i154, label %tvb_get_ucs_2_stringz.exit, label %41
 
-41:                                               ; preds = %tvb_unicode_strsize.exit.i153
+41:; preds = %tvb_unicode_strsize.exit.i153
   store i32 %36, ptr %3, align 4
   br label %tvb_get_ucs_2_stringz.exit
 
 tvb_get_ucs_2_stringz.exit:                       ; preds = %tvb_unicode_strsize.exit.i153, %41
-  %42 = tail call ptr @get_ucs_2_string(ptr noundef %0, ptr noundef %40, i32 noundef %36, i32 noundef range(i32 0, -1610612735) %39)
-  br label %214
+  %46 = tail call ptr @get_ucs_2_string(ptr noundef %0, ptr noundef %40, i32 noundef %36, i32 noundef range(i32 0, -1610612735) %39)
+  br label %224
 
 .preheader:                                       ; preds = %11, %.preheader
   %.0.i = phi i32 [ %52, %.preheader ], [ 0, %11 ]
-  %43 = add i32 %.0.i, %2
-  %44 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef nonnull %1, i32 noundef %43, i32 noundef 4)
+  %47 = add i32 %.0.i, %2
+  %48 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef nonnull %1, i32 noundef %47, i32 noundef 4)
   %45 = load i8, ptr %44, align 1
   %46 = getelementptr i8, ptr %44, i64 1
   %47 = load i8, ptr %46, align 1
@@ -7026,19 +7026,19 @@ tvb_get_ucs_2_stringz.exit:                       ; preds = %tvb_unicode_strsize
   %56 = icmp eq i8 %55, 0
   br i1 %56, label %57, label %.preheader, !llvm.loop !30
 
-57:                                               ; preds = %.preheader
+57:; preds = %.preheader
   %58 = and i32 %4, -1610612736
   %59 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %52)
   %.not15.i = icmp eq ptr %3, null
-  br i1 %.not15.i, label %tvb_get_ucs_4_stringz.exit, label %60
+  br i1 %.not15.i, label %tvb_get_ucs_4_stringz.exit, label %70
 
-60:                                               ; preds = %57
+70:                                               ; preds = %57
   store i32 %52, ptr %3, align 4
   br label %tvb_get_ucs_4_stringz.exit
 
-tvb_get_ucs_4_stringz.exit:                       ; preds = %57, %60
-  %61 = tail call ptr @get_ucs_4_string(ptr noundef %0, ptr noundef %59, i32 noundef %52, i32 noundef range(i32 0, -1610612735) %58)
-  br label %214
+tvb_get_ucs_4_stringz.exit:                       ; preds = %57, %70
+  %71 = tail call ptr @get_ucs_4_string(ptr noundef %0, ptr noundef %59, i32 noundef %52, i32 noundef range(i32 0, -1610612735) %58)
+  br label %224
 
 62:                                               ; preds = %11
   %63 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
@@ -7072,306 +7072,306 @@ tvb_get_stringz_unichar2.exit:                    ; preds = %67, %70
   %73 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
   %74 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %73)
   %.not.i157 = icmp eq ptr %3, null
-  br i1 %.not.i157, label %tvb_get_stringz_unichar2.exit158, label %75
+  br i1 %.not.i157, label %tvb_get_stringz_8859_1.exit, label %75
 
 75:                                               ; preds = %72
   store i32 %73, ptr %3, align 4
-  br label %tvb_get_stringz_unichar2.exit158
+  br label %tvb_get_stringz_8859_1.exit
 
-tvb_get_stringz_unichar2.exit158:                 ; preds = %72, %75
+tvb_get_stringz_8859_1.exit:                      ; preds = %72, %75
   %76 = tail call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %74, i32 noundef %73, ptr noundef nonnull @charset_table_iso_8859_3)
-  br label %214
+  br label %224
 
 77:                                               ; preds = %11
   %78 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
   %79 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %78)
-  %.not.i159 = icmp eq ptr %3, null
-  br i1 %.not.i159, label %tvb_get_stringz_unichar2.exit160, label %80
+  %.not.i158 = icmp eq ptr %3, null
+  br i1 %.not.i158, label %tvb_get_stringz_unichar2.exit, label %80
 
 80:                                               ; preds = %77
   store i32 %78, ptr %3, align 4
-  br label %tvb_get_stringz_unichar2.exit160
+  br label %tvb_get_stringz_unichar2.exit
 
-tvb_get_stringz_unichar2.exit160:                 ; preds = %77, %80
+tvb_get_stringz_unichar2.exit:                    ; preds = %77, %80
   %81 = tail call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %79, i32 noundef %78, ptr noundef nonnull @charset_table_iso_8859_4)
-  br label %214
+  br label %224
 
 82:                                               ; preds = %11
   %83 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
   %84 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %83)
-  %.not.i161 = icmp eq ptr %3, null
-  br i1 %.not.i161, label %tvb_get_stringz_unichar2.exit162, label %85
+  %.not.i159 = icmp eq ptr %3, null
+  br i1 %.not.i159, label %tvb_get_stringz_unichar2.exit160, label %85
 
 85:                                               ; preds = %82
   store i32 %83, ptr %3, align 4
-  br label %tvb_get_stringz_unichar2.exit162
+  br label %tvb_get_stringz_unichar2.exit160
 
-tvb_get_stringz_unichar2.exit162:                 ; preds = %82, %85
+tvb_get_stringz_unichar2.exit160:                 ; preds = %82, %85
   %86 = tail call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %84, i32 noundef %83, ptr noundef nonnull @charset_table_iso_8859_5)
-  br label %214
+  br label %224
 
 87:                                               ; preds = %11
   %88 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
   %89 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %88)
-  %.not.i163 = icmp eq ptr %3, null
-  br i1 %.not.i163, label %tvb_get_stringz_unichar2.exit164, label %90
+  %.not.i161 = icmp eq ptr %3, null
+  br i1 %.not.i161, label %tvb_get_stringz_unichar2.exit162, label %90
 
 90:                                               ; preds = %87
   store i32 %88, ptr %3, align 4
-  br label %tvb_get_stringz_unichar2.exit164
+  br label %tvb_get_stringz_unichar2.exit162
 
-tvb_get_stringz_unichar2.exit164:                 ; preds = %87, %90
+tvb_get_stringz_unichar2.exit162:                 ; preds = %87, %90
   %91 = tail call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %89, i32 noundef %88, ptr noundef nonnull @charset_table_iso_8859_6)
-  br label %214
+  br label %224
 
 92:                                               ; preds = %11
   %93 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
   %94 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %93)
-  %.not.i165 = icmp eq ptr %3, null
-  br i1 %.not.i165, label %tvb_get_stringz_unichar2.exit166, label %95
+  %.not.i163 = icmp eq ptr %3, null
+  br i1 %.not.i163, label %tvb_get_stringz_unichar2.exit164, label %95
 
 95:                                               ; preds = %92
   store i32 %93, ptr %3, align 4
-  br label %tvb_get_stringz_unichar2.exit166
+  br label %tvb_get_stringz_unichar2.exit164
 
-tvb_get_stringz_unichar2.exit166:                 ; preds = %92, %95
+tvb_get_stringz_unichar2.exit164:                 ; preds = %92, %95
   %96 = tail call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %94, i32 noundef %93, ptr noundef nonnull @charset_table_iso_8859_7)
-  br label %214
+  br label %224
 
 97:                                               ; preds = %11
   %98 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
   %99 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %98)
-  %.not.i167 = icmp eq ptr %3, null
-  br i1 %.not.i167, label %tvb_get_stringz_unichar2.exit168, label %100
+  %.not.i165 = icmp eq ptr %3, null
+  br i1 %.not.i165, label %tvb_get_stringz_unichar2.exit166, label %100
 
 100:                                              ; preds = %97
   store i32 %98, ptr %3, align 4
-  br label %tvb_get_stringz_unichar2.exit168
+  br label %tvb_get_stringz_unichar2.exit166
 
-tvb_get_stringz_unichar2.exit168:                 ; preds = %97, %100
+tvb_get_stringz_unichar2.exit166:                 ; preds = %97, %100
   %101 = tail call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %99, i32 noundef %98, ptr noundef nonnull @charset_table_iso_8859_8)
-  br label %214
+  br label %224
 
 102:                                              ; preds = %11
   %103 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
   %104 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %103)
-  %.not.i169 = icmp eq ptr %3, null
-  br i1 %.not.i169, label %tvb_get_stringz_unichar2.exit170, label %105
+  %.not.i167 = icmp eq ptr %3, null
+  br i1 %.not.i167, label %tvb_get_stringz_unichar2.exit168, label %105
 
 105:                                              ; preds = %102
   store i32 %103, ptr %3, align 4
-  br label %tvb_get_stringz_unichar2.exit170
+  br label %tvb_get_stringz_unichar2.exit168
 
-tvb_get_stringz_unichar2.exit170:                 ; preds = %102, %105
+tvb_get_stringz_unichar2.exit168:                 ; preds = %102, %105
   %106 = tail call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %104, i32 noundef %103, ptr noundef nonnull @charset_table_iso_8859_9)
-  br label %214
+  br label %224
 
 107:                                              ; preds = %11
   %108 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
   %109 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %108)
-  %.not.i171 = icmp eq ptr %3, null
-  br i1 %.not.i171, label %tvb_get_stringz_unichar2.exit172, label %110
+  %.not.i169 = icmp eq ptr %3, null
+  br i1 %.not.i169, label %tvb_get_stringz_unichar2.exit170, label %110
 
 110:                                              ; preds = %107
   store i32 %108, ptr %3, align 4
-  br label %tvb_get_stringz_unichar2.exit172
+  br label %tvb_get_stringz_unichar2.exit170
 
-tvb_get_stringz_unichar2.exit172:                 ; preds = %107, %110
+tvb_get_stringz_unichar2.exit170:                 ; preds = %107, %110
   %111 = tail call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %109, i32 noundef %108, ptr noundef nonnull @charset_table_iso_8859_10)
-  br label %214
+  br label %224
 
 112:                                              ; preds = %11
   %113 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
   %114 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %113)
-  %.not.i173 = icmp eq ptr %3, null
-  br i1 %.not.i173, label %tvb_get_stringz_unichar2.exit174, label %115
+  %.not.i171 = icmp eq ptr %3, null
+  br i1 %.not.i171, label %tvb_get_stringz_unichar2.exit172, label %115
 
 115:                                              ; preds = %112
   store i32 %113, ptr %3, align 4
-  br label %tvb_get_stringz_unichar2.exit174
+  br label %tvb_get_stringz_unichar2.exit172
 
-tvb_get_stringz_unichar2.exit174:                 ; preds = %112, %115
+tvb_get_stringz_unichar2.exit172:                 ; preds = %112, %115
   %116 = tail call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %114, i32 noundef %113, ptr noundef nonnull @charset_table_iso_8859_11)
-  br label %214
+  br label %224
 
 117:                                              ; preds = %11
   %118 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
   %119 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %118)
-  %.not.i175 = icmp eq ptr %3, null
-  br i1 %.not.i175, label %tvb_get_stringz_unichar2.exit176, label %120
+  %.not.i173 = icmp eq ptr %3, null
+  br i1 %.not.i173, label %tvb_get_stringz_unichar2.exit174, label %120
 
 120:                                              ; preds = %117
   store i32 %118, ptr %3, align 4
-  br label %tvb_get_stringz_unichar2.exit176
+  br label %tvb_get_stringz_unichar2.exit174
 
-tvb_get_stringz_unichar2.exit176:                 ; preds = %117, %120
+tvb_get_stringz_unichar2.exit174:                 ; preds = %117, %120
   %121 = tail call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %119, i32 noundef %118, ptr noundef nonnull @charset_table_iso_8859_13)
-  br label %214
+  br label %224
 
 122:                                              ; preds = %11
   %123 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
   %124 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %123)
-  %.not.i177 = icmp eq ptr %3, null
-  br i1 %.not.i177, label %tvb_get_stringz_unichar2.exit178, label %125
+  %.not.i175 = icmp eq ptr %3, null
+  br i1 %.not.i175, label %tvb_get_stringz_unichar2.exit176, label %125
 
 125:                                              ; preds = %122
   store i32 %123, ptr %3, align 4
-  br label %tvb_get_stringz_unichar2.exit178
+  br label %tvb_get_stringz_unichar2.exit176
 
-tvb_get_stringz_unichar2.exit178:                 ; preds = %122, %125
+tvb_get_stringz_unichar2.exit176:                 ; preds = %122, %125
   %126 = tail call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %124, i32 noundef %123, ptr noundef nonnull @charset_table_iso_8859_14)
-  br label %214
+  br label %224
 
 127:                                              ; preds = %11
   %128 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
   %129 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %128)
-  %.not.i179 = icmp eq ptr %3, null
-  br i1 %.not.i179, label %tvb_get_stringz_unichar2.exit180, label %130
+  %.not.i177 = icmp eq ptr %3, null
+  br i1 %.not.i177, label %tvb_get_stringz_unichar2.exit178, label %130
 
 130:                                              ; preds = %127
   store i32 %128, ptr %3, align 4
-  br label %tvb_get_stringz_unichar2.exit180
+  br label %tvb_get_stringz_unichar2.exit178
 
-tvb_get_stringz_unichar2.exit180:                 ; preds = %127, %130
+tvb_get_stringz_unichar2.exit178:                 ; preds = %127, %130
   %131 = tail call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %129, i32 noundef %128, ptr noundef nonnull @charset_table_iso_8859_15)
-  br label %214
+  br label %224
 
 132:                                              ; preds = %11
   %133 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
   %134 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %133)
-  %.not.i181 = icmp eq ptr %3, null
-  br i1 %.not.i181, label %tvb_get_stringz_unichar2.exit182, label %135
+  %.not.i179 = icmp eq ptr %3, null
+  br i1 %.not.i179, label %tvb_get_stringz_unichar2.exit180, label %135
 
 135:                                              ; preds = %132
   store i32 %133, ptr %3, align 4
-  br label %tvb_get_stringz_unichar2.exit182
+  br label %tvb_get_stringz_unichar2.exit180
 
-tvb_get_stringz_unichar2.exit182:                 ; preds = %132, %135
+tvb_get_stringz_unichar2.exit180:                 ; preds = %132, %135
   %136 = tail call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %134, i32 noundef %133, ptr noundef nonnull @charset_table_iso_8859_16)
-  br label %214
+  br label %224
 
 137:                                              ; preds = %11
   %138 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
   %139 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %138)
-  %.not.i183 = icmp eq ptr %3, null
-  br i1 %.not.i183, label %tvb_get_stringz_unichar2.exit184, label %140
+  %.not.i181 = icmp eq ptr %3, null
+  br i1 %.not.i181, label %tvb_get_stringz_unichar2.exit182, label %140
 
 140:                                              ; preds = %137
   store i32 %138, ptr %3, align 4
-  br label %tvb_get_stringz_unichar2.exit184
+  br label %tvb_get_stringz_unichar2.exit182
 
-tvb_get_stringz_unichar2.exit184:                 ; preds = %137, %140
+tvb_get_stringz_unichar2.exit182:                 ; preds = %137, %140
   %141 = tail call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %139, i32 noundef %138, ptr noundef nonnull @charset_table_cp1250)
-  br label %214
+  br label %224
 
 142:                                              ; preds = %11
   %143 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
   %144 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %143)
-  %.not.i185 = icmp eq ptr %3, null
-  br i1 %.not.i185, label %tvb_get_stringz_unichar2.exit186, label %145
+  %.not.i183 = icmp eq ptr %3, null
+  br i1 %.not.i183, label %tvb_get_stringz_unichar2.exit184, label %145
 
 145:                                              ; preds = %142
   store i32 %143, ptr %3, align 4
-  br label %tvb_get_stringz_unichar2.exit186
+  br label %tvb_get_stringz_unichar2.exit184
 
-tvb_get_stringz_unichar2.exit186:                 ; preds = %142, %145
+tvb_get_stringz_unichar2.exit184:                 ; preds = %142, %145
   %146 = tail call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %144, i32 noundef %143, ptr noundef nonnull @charset_table_cp1251)
-  br label %214
+  br label %224
 
 147:                                              ; preds = %11
   %148 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
   %149 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %148)
-  %.not.i187 = icmp eq ptr %3, null
-  br i1 %.not.i187, label %tvb_get_stringz_unichar2.exit188, label %150
+  %.not.i185 = icmp eq ptr %3, null
+  br i1 %.not.i185, label %tvb_get_stringz_unichar2.exit186, label %150
 
 150:                                              ; preds = %147
   store i32 %148, ptr %3, align 4
-  br label %tvb_get_stringz_unichar2.exit188
+  br label %tvb_get_stringz_unichar2.exit186
 
-tvb_get_stringz_unichar2.exit188:                 ; preds = %147, %150
+tvb_get_stringz_unichar2.exit186:                 ; preds = %147, %150
   %151 = tail call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %149, i32 noundef %148, ptr noundef nonnull @charset_table_cp1252)
-  br label %214
+  br label %224
 
 152:                                              ; preds = %11
   %153 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
   %154 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %153)
-  %.not.i189 = icmp eq ptr %3, null
-  br i1 %.not.i189, label %tvb_get_stringz_unichar2.exit190, label %155
+  %.not.i187 = icmp eq ptr %3, null
+  br i1 %.not.i187, label %tvb_get_stringz_unichar2.exit188, label %155
 
 155:                                              ; preds = %152
   store i32 %153, ptr %3, align 4
-  br label %tvb_get_stringz_unichar2.exit190
+  br label %tvb_get_stringz_unichar2.exit188
 
-tvb_get_stringz_unichar2.exit190:                 ; preds = %152, %155
+tvb_get_stringz_unichar2.exit188:                 ; preds = %152, %155
   %156 = tail call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %154, i32 noundef %153, ptr noundef nonnull @charset_table_mac_roman)
-  br label %214
+  br label %224
 
 157:                                              ; preds = %11
   %158 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
   %159 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %158)
-  %.not.i191 = icmp eq ptr %3, null
-  br i1 %.not.i191, label %tvb_get_stringz_unichar2.exit192, label %160
+  %.not.i189 = icmp eq ptr %3, null
+  br i1 %.not.i189, label %tvb_get_stringz_unichar2.exit190, label %160
 
 160:                                              ; preds = %157
   store i32 %158, ptr %3, align 4
-  br label %tvb_get_stringz_unichar2.exit192
+  br label %tvb_get_stringz_unichar2.exit190
 
-tvb_get_stringz_unichar2.exit192:                 ; preds = %157, %160
+tvb_get_stringz_unichar2.exit190:                 ; preds = %157, %160
   %161 = tail call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %159, i32 noundef %158, ptr noundef nonnull @charset_table_cp437)
-  br label %214
+  br label %224
 
 162:                                              ; preds = %11
   %163 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
   %164 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %163)
-  %.not.i193 = icmp eq ptr %3, null
-  br i1 %.not.i193, label %tvb_get_stringz_unichar2.exit194, label %165
+  %.not.i191 = icmp eq ptr %3, null
+  br i1 %.not.i191, label %tvb_get_stringz_unichar2.exit192, label %165
 
 165:                                              ; preds = %162
   store i32 %163, ptr %3, align 4
-  br label %tvb_get_stringz_unichar2.exit194
+  br label %tvb_get_stringz_unichar2.exit192
 
-tvb_get_stringz_unichar2.exit194:                 ; preds = %162, %165
+tvb_get_stringz_unichar2.exit192:                 ; preds = %162, %165
   %166 = tail call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %164, i32 noundef %163, ptr noundef nonnull @charset_table_cp855)
-  br label %214
+  br label %224
 
 167:                                              ; preds = %11
   %168 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
   %169 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %168)
-  %.not.i195 = icmp eq ptr %3, null
-  br i1 %.not.i195, label %tvb_get_stringz_unichar2.exit196, label %170
+  %.not.i193 = icmp eq ptr %3, null
+  br i1 %.not.i193, label %tvb_get_stringz_unichar2.exit194, label %170
 
 170:                                              ; preds = %167
   store i32 %168, ptr %3, align 4
-  br label %tvb_get_stringz_unichar2.exit196
+  br label %tvb_get_stringz_unichar2.exit194
 
-tvb_get_stringz_unichar2.exit196:                 ; preds = %167, %170
+tvb_get_stringz_unichar2.exit194:                 ; preds = %167, %170
   %171 = tail call ptr @get_unichar2_string(ptr noundef %0, ptr noundef %169, i32 noundef %168, ptr noundef nonnull @charset_table_cp866)
-  br label %214
+  br label %224
 
 172:                                              ; preds = %11
   %173 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
   %174 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %173)
-  %.not.i197 = icmp eq ptr %3, null
-  br i1 %.not.i197, label %tvb_get_iso_646_stringz.exit, label %175
+  %.not.i195 = icmp eq ptr %3, null
+  br i1 %.not.i195, label %tvb_get_stringz_unichar2.exit196, label %175
 
 175:                                              ; preds = %172
   store i32 %173, ptr %3, align 4
-  br label %tvb_get_iso_646_stringz.exit
+  br label %tvb_get_stringz_unichar2.exit196
 
-tvb_get_iso_646_stringz.exit:                     ; preds = %172, %175
+tvb_get_stringz_unichar2.exit196:                 ; preds = %172, %175
   %176 = tail call ptr @get_iso_646_string(ptr noundef %0, ptr noundef %174, i32 noundef %173, ptr noundef nonnull @charset_table_iso_646_basic)
-  br label %214
+  br label %224
 
 177:                                              ; preds = %11, %11, %11
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.19) #18
   unreachable
 
-178:                                              ; preds = %11
+180:                                              ; preds = %11
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.20) #18
   unreachable
 
-179:                                              ; preds = %11
-  %180 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
+tvb_get_stringz_unichar2.exit198:                 ; preds = %11
+  %181 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
   %181 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %180)
   %.not.i198 = icmp eq ptr %3, null
   br i1 %.not.i198, label %tvb_get_nonascii_unichar2_stringz.exit, label %182
@@ -7380,79 +7380,79 @@ tvb_get_iso_646_stringz.exit:                     ; preds = %172, %175
   store i32 %180, ptr %3, align 4
   br label %tvb_get_nonascii_unichar2_stringz.exit
 
-tvb_get_nonascii_unichar2_stringz.exit:           ; preds = %179, %182
+185:                                              ; preds = %179, %182
   %183 = tail call ptr @get_nonascii_unichar2_string(ptr noundef %0, ptr noundef %181, i32 noundef %180, ptr noundef nonnull @charset_table_ebcdic)
   br label %214
 
-184:                                              ; preds = %11
-  %185 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
+tvb_get_iso_646_stringz.exit:                     ; preds = %11
+  %186 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
   %186 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %185)
   %.not.i199 = icmp eq ptr %3, null
   br i1 %.not.i199, label %tvb_get_nonascii_unichar2_stringz.exit200, label %187
 
 187:                                              ; preds = %184
   store i32 %185, ptr %3, align 4
-  br label %tvb_get_nonascii_unichar2_stringz.exit200
+  br label %188
 
-tvb_get_nonascii_unichar2_stringz.exit200:        ; preds = %184, %187
+188:                                              ; preds = %184, %187
   %188 = tail call ptr @get_nonascii_unichar2_string(ptr noundef %0, ptr noundef %186, i32 noundef %185, ptr noundef nonnull @charset_table_ebcdic_cp037)
   br label %214
 
 189:                                              ; preds = %11
   %190 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
   %191 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %190)
-  %.not.i201 = icmp eq ptr %3, null
-  br i1 %.not.i201, label %tvb_get_nonascii_unichar2_stringz.exit202, label %192
+  %.not.i200 = icmp eq ptr %3, null
+  br i1 %.not.i200, label %tvb_get_nonascii_unichar2_stringz.exit, label %192
 
 192:                                              ; preds = %189
   store i32 %190, ptr %3, align 4
-  br label %tvb_get_nonascii_unichar2_stringz.exit202
+  br label %tvb_get_nonascii_unichar2_stringz.exit
 
-tvb_get_nonascii_unichar2_stringz.exit202:        ; preds = %189, %192
+tvb_get_nonascii_unichar2_stringz.exit:           ; preds = %189, %192
   %193 = tail call ptr @get_nonascii_unichar2_string(ptr noundef %0, ptr noundef %191, i32 noundef %190, ptr noundef nonnull @charset_table_ebcdic_cp500)
-  br label %214
+  br label %224
 
 194:                                              ; preds = %11
   %195 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
   %196 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %195)
-  %.not.i203 = icmp eq ptr %3, null
-  br i1 %.not.i203, label %tvb_get_t61_stringz.exit, label %197
+  %.not.i201 = icmp eq ptr %3, null
+  br i1 %.not.i201, label %tvb_get_nonascii_unichar2_stringz.exit202, label %197
 
 197:                                              ; preds = %194
   store i32 %195, ptr %3, align 4
-  br label %tvb_get_t61_stringz.exit
+  br label %tvb_get_nonascii_unichar2_stringz.exit202
 
-tvb_get_t61_stringz.exit:                         ; preds = %194, %197
+tvb_get_nonascii_unichar2_stringz.exit202:        ; preds = %194, %197
   %198 = tail call ptr @get_t61_string(ptr noundef %0, ptr noundef %196, i32 noundef %195)
-  br label %214
+  br label %224
 
 199:                                              ; preds = %11
   %200 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
   %201 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %200)
-  %.not.i204 = icmp eq ptr %3, null
-  br i1 %.not.i204, label %tvb_get_gb18030_stringz.exit, label %202
+  %.not.i203 = icmp eq ptr %3, null
+  br i1 %.not.i203, label %tvb_get_nonascii_unichar2_stringz.exit204, label %202
 
 202:                                              ; preds = %199
   store i32 %200, ptr %3, align 4
-  br label %tvb_get_gb18030_stringz.exit
+  br label %tvb_get_nonascii_unichar2_stringz.exit204
 
-tvb_get_gb18030_stringz.exit:                     ; preds = %199, %202
+tvb_get_nonascii_unichar2_stringz.exit204:        ; preds = %199, %202
   %203 = tail call ptr @get_gb18030_string(ptr noundef %0, ptr noundef %201, i32 noundef %200)
-  br label %214
+  br label %224
 
 204:                                              ; preds = %11
   %205 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
   %206 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %205)
   %.not.i205 = icmp eq ptr %3, null
-  br i1 %.not.i205, label %tvb_get_euc_kr_stringz.exit, label %207
+  br i1 %.not.i205, label %tvb_get_t61_stringz.exit, label %207
 
 207:                                              ; preds = %204
   store i32 %205, ptr %3, align 4
-  br label %tvb_get_euc_kr_stringz.exit
+  br label %tvb_get_t61_stringz.exit
 
-tvb_get_euc_kr_stringz.exit:                      ; preds = %204, %207
+tvb_get_t61_stringz.exit:                         ; preds = %204, %207
   %208 = tail call ptr @get_euc_kr_string(ptr noundef %0, ptr noundef %206, i32 noundef %205)
-  br label %214
+  br label %224
 
 209:                                              ; preds = %11
   %210 = tail call i32 @tvb_strsize(ptr noundef nonnull %1, i32 noundef %2)
@@ -7465,11 +7465,11 @@ tvb_get_euc_kr_stringz.exit:                      ; preds = %204, %207
   br label %tvb_get_dect_standard_8bits_stringz.exit
 
 tvb_get_dect_standard_8bits_stringz.exit:         ; preds = %209, %212
-  %213 = tail call ptr @get_t61_string(ptr noundef %0, ptr noundef %211, i32 noundef %210)
-  br label %214
+  %223 = tail call ptr @get_t61_string(ptr noundef %0, ptr noundef %211, i32 noundef %210)
+  br label %224
 
-214:                                              ; preds = %tvb_get_dect_standard_8bits_stringz.exit, %tvb_get_euc_kr_stringz.exit, %tvb_get_gb18030_stringz.exit, %tvb_get_t61_stringz.exit, %tvb_get_nonascii_unichar2_stringz.exit202, %tvb_get_nonascii_unichar2_stringz.exit200, %tvb_get_nonascii_unichar2_stringz.exit, %tvb_get_iso_646_stringz.exit, %tvb_get_stringz_unichar2.exit196, %tvb_get_stringz_unichar2.exit194, %tvb_get_stringz_unichar2.exit192, %tvb_get_stringz_unichar2.exit190, %tvb_get_stringz_unichar2.exit188, %tvb_get_stringz_unichar2.exit186, %tvb_get_stringz_unichar2.exit184, %tvb_get_stringz_unichar2.exit182, %tvb_get_stringz_unichar2.exit180, %tvb_get_stringz_unichar2.exit178, %tvb_get_stringz_unichar2.exit176, %tvb_get_stringz_unichar2.exit174, %tvb_get_stringz_unichar2.exit172, %tvb_get_stringz_unichar2.exit170, %tvb_get_stringz_unichar2.exit168, %tvb_get_stringz_unichar2.exit166, %tvb_get_stringz_unichar2.exit164, %tvb_get_stringz_unichar2.exit162, %tvb_get_stringz_unichar2.exit160, %tvb_get_stringz_unichar2.exit158, %tvb_get_stringz_unichar2.exit, %tvb_get_stringz_8859_1.exit, %tvb_get_ucs_4_stringz.exit, %tvb_get_ucs_2_stringz.exit, %tvb_get_utf_16_stringz.exit, %tvb_get_utf_8_stringz.exit, %tvb_get_ascii_stringz.exit
-  %.0 = phi ptr [ %17, %tvb_get_ascii_stringz.exit ], [ %208, %tvb_get_euc_kr_stringz.exit ], [ %203, %tvb_get_gb18030_stringz.exit ], [ %198, %tvb_get_t61_stringz.exit ], [ %193, %tvb_get_nonascii_unichar2_stringz.exit202 ], [ %188, %tvb_get_nonascii_unichar2_stringz.exit200 ], [ %183, %tvb_get_nonascii_unichar2_stringz.exit ], [ %176, %tvb_get_iso_646_stringz.exit ], [ %171, %tvb_get_stringz_unichar2.exit196 ], [ %166, %tvb_get_stringz_unichar2.exit194 ], [ %161, %tvb_get_stringz_unichar2.exit192 ], [ %156, %tvb_get_stringz_unichar2.exit190 ], [ %151, %tvb_get_stringz_unichar2.exit188 ], [ %146, %tvb_get_stringz_unichar2.exit186 ], [ %141, %tvb_get_stringz_unichar2.exit184 ], [ %136, %tvb_get_stringz_unichar2.exit182 ], [ %131, %tvb_get_stringz_unichar2.exit180 ], [ %126, %tvb_get_stringz_unichar2.exit178 ], [ %121, %tvb_get_stringz_unichar2.exit176 ], [ %116, %tvb_get_stringz_unichar2.exit174 ], [ %111, %tvb_get_stringz_unichar2.exit172 ], [ %106, %tvb_get_stringz_unichar2.exit170 ], [ %101, %tvb_get_stringz_unichar2.exit168 ], [ %96, %tvb_get_stringz_unichar2.exit166 ], [ %91, %tvb_get_stringz_unichar2.exit164 ], [ %86, %tvb_get_stringz_unichar2.exit162 ], [ %81, %tvb_get_stringz_unichar2.exit160 ], [ %76, %tvb_get_stringz_unichar2.exit158 ], [ %71, %tvb_get_stringz_unichar2.exit ], [ %66, %tvb_get_stringz_8859_1.exit ], [ %61, %tvb_get_ucs_4_stringz.exit ], [ %42, %tvb_get_ucs_2_stringz.exit ], [ %32, %tvb_get_utf_16_stringz.exit ], [ %22, %tvb_get_utf_8_stringz.exit ], [ %213, %tvb_get_dect_standard_8bits_stringz.exit ]
+224:                                              ; preds = %tvb_get_dect_standard_8bits_stringz.exit, %tvb_get_euc_kr_stringz.exit, %tvb_get_gb18030_stringz.exit, %tvb_get_t61_stringz.exit, %tvb_get_nonascii_unichar2_stringz.exit202, %tvb_get_nonascii_unichar2_stringz.exit200, %tvb_get_nonascii_unichar2_stringz.exit, %tvb_get_iso_646_stringz.exit, %tvb_get_stringz_unichar2.exit196, %tvb_get_stringz_unichar2.exit194, %tvb_get_stringz_unichar2.exit192, %tvb_get_stringz_unichar2.exit190, %tvb_get_stringz_unichar2.exit188, %tvb_get_stringz_unichar2.exit186, %tvb_get_stringz_unichar2.exit184, %tvb_get_stringz_unichar2.exit182, %tvb_get_stringz_unichar2.exit180, %tvb_get_stringz_unichar2.exit178, %tvb_get_stringz_unichar2.exit176, %tvb_get_stringz_unichar2.exit174, %tvb_get_stringz_unichar2.exit172, %tvb_get_stringz_unichar2.exit170, %tvb_get_stringz_unichar2.exit168, %tvb_get_stringz_unichar2.exit166, %tvb_get_stringz_unichar2.exit164, %tvb_get_stringz_unichar2.exit162, %tvb_get_stringz_unichar2.exit160, %tvb_get_stringz_unichar2.exit158, %tvb_get_stringz_unichar2.exit, %tvb_get_stringz_8859_1.exit, %tvb_get_ucs_4_stringz.exit, %tvb_get_ucs_2_stringz.exit, %tvb_get_utf_16_stringz.exit, %tvb_get_utf_8_stringz.exit, %tvb_get_ascii_stringz.exit
+  %.0 = phi ptr [ %17, %tvb_get_ascii_stringz.exit ], [ %208, %tvb_get_euc_kr_stringz.exit ], [ %203, %tvb_get_gb18030_stringz.exit ], [ %198, %tvb_get_t61_stringz.exit ], [ %193, %tvb_get_nonascii_unichar2_stringz.exit202 ], [ %188, %tvb_get_nonascii_unichar2_stringz.exit200 ], [ %183, %tvb_get_nonascii_unichar2_stringz.exit ], [ %176, %tvb_get_iso_646_stringz.exit ], [ %171, %tvb_get_stringz_unichar2.exit196 ], [ %166, %tvb_get_stringz_unichar2.exit194 ], [ %161, %tvb_get_stringz_unichar2.exit192 ], [ %156, %tvb_get_stringz_unichar2.exit190 ], [ %151, %tvb_get_stringz_unichar2.exit188 ], [ %146, %tvb_get_stringz_unichar2.exit186 ], [ %141, %tvb_get_stringz_unichar2.exit184 ], [ %136, %tvb_get_stringz_unichar2.exit182 ], [ %131, %tvb_get_stringz_unichar2.exit180 ], [ %126, %tvb_get_stringz_unichar2.exit178 ], [ %121, %tvb_get_stringz_unichar2.exit176 ], [ %116, %tvb_get_stringz_unichar2.exit174 ], [ %111, %tvb_get_stringz_unichar2.exit172 ], [ %106, %tvb_get_stringz_unichar2.exit170 ], [ %101, %tvb_get_stringz_unichar2.exit168 ], [ %96, %tvb_get_stringz_unichar2.exit166 ], [ %91, %tvb_get_stringz_unichar2.exit164 ], [ %86, %tvb_get_stringz_unichar2.exit162 ], [ %81, %tvb_get_stringz_unichar2.exit160 ], [ %76, %tvb_get_stringz_unichar2.exit158 ], [ %71, %tvb_get_stringz_unichar2.exit ], [ %66, %tvb_get_stringz_8859_1.exit ], [ %71, %tvb_get_ucs_4_stringz.exit ], [ %46, %tvb_get_ucs_2_stringz.exit ], [ %34, %tvb_get_utf_16_stringz.exit ], [ %22, %tvb_get_utf_8_stringz.exit ], [ %223, %tvb_get_dect_standard_8bits_stringz.exit ]
   ret ptr %.0
 }
 

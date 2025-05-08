@@ -2324,8 +2324,8 @@ define linkonce_odr dso_local { ptr, i64 } @_ZN4mold12InputSectionINS_4M68KEE12g
   %15 = load ptr, ptr %5, align 8, !tbaa !280
   %.idx = shl nuw nsw i64 %11, 12
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
-  %.idx29 = shl nuw nsw i64 %8, 20
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx29
+  %.idx28 = shl nuw nsw i64 %8, 20
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx28
   %18 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %17, i64 %14
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 14
   %20 = load i8, ptr %19, align 1, !tbaa !258
@@ -2342,11 +2342,11 @@ define linkonce_odr dso_local { ptr, i64 } @_ZN4mold12InputSectionINS_4M68KEE12g
   %or.cond = or i1 %28, %switch
   br i1 %or.cond, label %188, label %29
 
-29:                                               ; preds = %3
+27:                                               ; preds = %3
   %30 = icmp eq i16 %26, -1
   br i1 %30, label %31, label %56
 
-31:                                               ; preds = %29
+31:; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 696
   %33 = ptrtoint ptr %18 to i64
   %34 = ptrtoint ptr %15 to i64
@@ -2373,27 +2373,27 @@ define linkonce_odr dso_local { ptr, i64 } @_ZN4mold12InputSectionINS_4M68KEE12g
   %55 = or disjoint i64 %51, %54
   br label %_ZN4mold10ObjectFileINS_4M68KEE9get_shndxERKNS_6ElfSymIS1_EE.exit
 
-56:                                               ; preds = %29
-  %57 = icmp eq i8 %20, -1
-  %58 = zext i16 %26 to i64
-  %spec.select.i = select i1 %57, i64 0, i64 %58
+52:                                               ; preds = %29
+  %53 = icmp eq i8 %20, -1
+  %54 = zext i16 %26 to i64
+  %spec.select.i = select i1 %53, i64 0, i64 %54
   br label %_ZN4mold10ObjectFileINS_4M68KEE9get_shndxERKNS_6ElfSymIS1_EE.exit
 
-_ZN4mold10ObjectFileINS_4M68KEE9get_shndxERKNS_6ElfSymIS1_EE.exit: ; preds = %31, %56
+_ZN4mold10ObjectFileINS_4M68KEE9get_shndxERKNS_6ElfSymIS1_EE.exit: ; preds = %31, %52
   %.0.i = phi i64 [ %55, %31 ], [ %spec.select.i, %56 ]
-  %59 = getelementptr inbounds nuw i8, ptr %4, i64 352
-  %60 = load ptr, ptr %59, align 8, !tbaa !381
-  %61 = getelementptr inbounds nuw %"class.std::unique_ptr.327", ptr %60, i64 %.0.i
-  %62 = load ptr, ptr %61, align 8, !tbaa !384
-  %.not = icmp eq ptr %62, null
-  br i1 %.not, label %188, label %63
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 352
+  %56 = load ptr, ptr %55, align 8, !tbaa !381
+  %57 = getelementptr inbounds nuw %"class.std::unique_ptr.327", ptr %56, i64 %.0.i
+  %58 = load ptr, ptr %57, align 8, !tbaa !384
+  %.not = icmp eq ptr %58, null
+  br i1 %.not, label %188, label %59
 
-63:                                               ; preds = %_ZN4mold10ObjectFileINS_4M68KEE9get_shndxERKNS_6ElfSymIS1_EE.exit
-  %64 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  %65 = load i8, ptr %64, align 1
-  %66 = and i8 %65, 15
-  %67 = icmp eq i8 %66, 3
-  %68 = getelementptr inbounds nuw i8, ptr %18, i64 4
+59:                                               ; preds = %_ZN4mold10ObjectFileINS_4M68KEE9get_shndxERKNS_6ElfSymIS1_EE.exit
+  %60 = getelementptr inbounds nuw i8, ptr %18, i64 12
+  %61 = load i8, ptr %60, align 1
+  %62 = and i8 %61, 15
+  %63 = icmp eq i8 %62, 3
+  %64 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %69 = load i8, ptr %68, align 1, !tbaa !258
   %70 = zext i8 %69 to i64
   %71 = shl nuw nsw i64 %70, 24
@@ -2413,7 +2413,7 @@ _ZN4mold10ObjectFileINS_4M68KEE9get_shndxERKNS_6ElfSymIS1_EE.exit: ; preds = %31
   %85 = or disjoint i64 %81, %84
   br i1 %67, label %86, label %137
 
-86:                                               ; preds = %63
+86:; preds = %59
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %88 = load i8, ptr %87, align 1, !tbaa !258
   %89 = zext i8 %88 to i32
@@ -2445,7 +2445,7 @@ _ZN4mold10ObjectFileINS_4M68KEE9get_shndxERKNS_6ElfSymIS1_EE.exit: ; preds = %31
   %115 = icmp sgt i64 %114, 0
   br i1 %115, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i, label %_ZN4mold16MergeableSectionINS_4M68KEE12get_fragmentEl.exit
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i: ; preds = %86, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i:; preds = %86, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i
   %.013.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i ], [ %114, %86 ]
   %.sroa.011.012.i.i.i = phi ptr [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i ], [ %108, %86 ]
   %116 = lshr i64 %.013.i.i.i, 1
@@ -2461,7 +2461,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEE
   %124 = icmp sgt i64 %.1.i.i.i, 0
   br i1 %124, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i, label %_ZN4mold16MergeableSectionINS_4M68KEE12get_fragmentEl.exit, !llvm.loop !390
 
-_ZN4mold16MergeableSectionINS_4M68KEE12get_fragmentEl.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i, %86
+_ZN4mold16MergeableSectionINS_4M68KEE12get_fragmentEl.exit:; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i, %86
   %.sroa.011.0.lcssa.i.i.i = phi ptr [ %108, %86 ], [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i ]
   %125 = getelementptr inbounds i8, ptr %.sroa.011.0.lcssa.i.i.i, i64 -4
   %126 = ptrtoint ptr %125 to i64
@@ -2477,8 +2477,8 @@ _ZN4mold16MergeableSectionINS_4M68KEE12get_fragmentEl.exit: ; preds = %_ZSt7adva
   %136 = load ptr, ptr %131, align 8, !tbaa !394
   br label %188
 
-137:                                              ; preds = %63
-  %138 = getelementptr inbounds nuw i8, ptr %62, i64 48
+137:; preds = %63
+  %138 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %139 = load ptr, ptr %138, align 8, !tbaa !386
   %140 = getelementptr inbounds nuw i8, ptr %62, i64 56
   %141 = load ptr, ptr %140, align 8, !tbaa !388
@@ -2489,7 +2489,7 @@ _ZN4mold16MergeableSectionINS_4M68KEE12get_fragmentEl.exit: ; preds = %_ZSt7adva
   %146 = icmp sgt i64 %145, 0
   br i1 %146, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i17, label %_ZN4mold16MergeableSectionINS_4M68KEE12get_fragmentEl.exit24
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i17: ; preds = %137, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i17
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i17:; preds = %137, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i17
   %.013.i.i.i18 = phi i64 [ %.1.i.i.i23, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i17 ], [ %145, %137 ]
   %.sroa.011.012.i.i.i19 = phi ptr [ %.sroa.011.1.i.i.i22, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i17 ], [ %139, %137 ]
   %147 = lshr i64 %.013.i.i.i18, 1
@@ -2505,13 +2505,13 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEE
   %155 = icmp sgt i64 %.1.i.i.i23, 0
   br i1 %155, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i17, label %_ZN4mold16MergeableSectionINS_4M68KEE12get_fragmentEl.exit24, !llvm.loop !390
 
-_ZN4mold16MergeableSectionINS_4M68KEE12get_fragmentEl.exit24: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i17, %137
+_ZN4mold16MergeableSectionINS_4M68KEE12get_fragmentEl.exit24:; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i17, %137
   %.sroa.011.0.lcssa.i.i.i14 = phi ptr [ %139, %137 ], [ %.sroa.011.1.i.i.i22, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i17 ]
   %156 = getelementptr inbounds i8, ptr %.sroa.011.0.lcssa.i.i.i14, i64 -4
   %157 = ptrtoint ptr %156 to i64
   %158 = sub i64 %157, %142
   %159 = ashr exact i64 %158, 2
-  %160 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %161 = load ptr, ptr %160, align 8, !tbaa !391
   %162 = getelementptr inbounds nuw ptr, ptr %161, i64 %159
   %163 = getelementptr inbounds nuw i8, ptr %139, i64 %158

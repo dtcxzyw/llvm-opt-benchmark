@@ -98,11 +98,11 @@ define dso_local range(i32 -13, 1) i32 @fdt_resize(ptr noundef readonly captures
   %.not.i = icmp eq i32 %20, 804389138
   %..i = select i1 %.not.i, i32 0, i32 -9
   %.0.i = select i1 %21, i32 -7, i32 %..i
-  br i1 %.not.i, label %22, label %127
+  br i1 %.not.i, label %22, label %133
 
 22:                                               ; preds = %3
   %23 = icmp slt i32 %2, 0
-  br i1 %23, label %127, label %24
+  br i1 %23, label %133, label %24
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -181,12 +181,12 @@ define dso_local range(i32 -13, 1) i32 @fdt_resize(ptr noundef readonly captures
   %98 = zext i8 %97 to i64
   %99 = or disjoint i64 %95, %98
   %100 = icmp samesign ugt i64 %81, %99
-  br i1 %100, label %127, label %101
+  br i1 %100, label %133, label %101
 
 101:                                              ; preds = %24
   %102 = zext nneg i32 %2 to i64
   %103 = icmp samesign ugt i64 %81, %102
-  br i1 %103, label %127, label %104
+  br i1 %103, label %133, label %104
 
 104:                                              ; preds = %101
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 %99
@@ -225,11 +225,11 @@ define dso_local range(i32 -13, 1) i32 @fdt_resize(ptr noundef readonly captures
   %125 = icmp eq i8 %124, 0
   br i1 %125, label %127, label %126
 
-126:                                              ; preds = %112
+126: ; preds = %112
   store i32 %rev.i.i, ptr %114, align 4
-  br label %127
+  br label %133
 
-127:                                              ; preds = %112, %126, %101, %24, %22, %3
+133:                                              ; preds = %112, %126, %101, %24, %22, %3
   %.1 = phi i32 [ %.0.i, %3 ], [ -3, %22 ], [ -13, %24 ], [ -3, %101 ], [ 0, %126 ], [ 0, %112 ]
   ret i32 %.1
 }
@@ -275,26 +275,26 @@ define dso_local range(i32 -9, 1) i32 @fdt_add_reservemap_entry(ptr noundef capt
   br i1 %33, label %fdt_sw_probe_memrsv_.exit.thread, label %fdt_sw_probe_memrsv_.exit.thread18
 
 fdt_sw_probe_memrsv_.exit:                        ; preds = %3
-  %34 = icmp eq i32 %20, -804389139
-  %.0.i.i = select i1 %34, i32 -7, i32 -9
+  %40 = icmp eq i32 %20, -804389139
+  %.0.i.i = select i1 %40, i32 -7, i32 -9
   br label %fdt_sw_probe_memrsv_.exit.thread18
 
 fdt_sw_probe_memrsv_.exit.thread:                 ; preds = %21
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load i8, ptr %35, align 1
-  %37 = zext i8 %36 to i32
-  %38 = shl nuw i32 %37, 24
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %40 = load i8, ptr %39, align 1
-  %41 = zext i8 %40 to i32
-  %42 = shl nuw nsw i32 %41, 16
-  %43 = or disjoint i32 %42, %38
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %45 = load i8, ptr %44, align 1
-  %46 = zext i8 %45 to i32
-  %47 = shl nuw nsw i32 %46, 8
-  %48 = or disjoint i32 %43, %47
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %42 = load i8, ptr %41, align 1
+  %43 = zext i8 %42 to i32
+  %44 = shl nuw i32 %43, 24
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %46 = load i8, ptr %45, align 1
+  %47 = zext i8 %46 to i32
+  %48 = shl nuw nsw i32 %47, 16
+  %49 = or disjoint i32 %48, %44
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %51 = load i8, ptr %50, align 1
+  %52 = zext i8 %51 to i32
+  %53 = shl nuw nsw i32 %52, 8
+  %54 = or disjoint i32 %49, %53
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
   %52 = or disjoint i32 %48, %51
@@ -321,7 +321,7 @@ fdt_sw_probe_memrsv_.exit.thread:                 ; preds = %21
   %73 = icmp ugt i64 %54, %72
   br i1 %73, label %fdt_sw_probe_memrsv_.exit.thread18, label %74
 
-74:                                               ; preds = %fdt_sw_probe_memrsv_.exit.thread
+74:; preds = %fdt_sw_probe_memrsv_.exit.thread
   %75 = getelementptr inbounds i8, ptr %0, i64 %53
   %76 = tail call noundef i64 @llvm.bswap.i64(i64 %1)
   store i64 %76, ptr %75, align 8
@@ -329,8 +329,8 @@ fdt_sw_probe_memrsv_.exit.thread:                 ; preds = %21
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i64 %77, ptr %78, align 8
   %79 = trunc nuw i64 %54 to i32
-  %rev.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %79)
-  store i32 %rev.i.i, ptr %35, align 4
+  %82 = tail call noundef i32 @llvm.bswap.i32(i32 %79)
+  store i32 %82, ptr %41, align 4
   br label %fdt_sw_probe_memrsv_.exit.thread18
 
 fdt_sw_probe_memrsv_.exit.thread18:               ; preds = %fdt_sw_probe_memrsv_.exit, %21, %fdt_sw_probe_memrsv_.exit.thread, %74
@@ -376,26 +376,26 @@ define dso_local range(i32 -9, 1) i32 @fdt_finish_reservemap(ptr noundef capture
   br i1 %31, label %fdt_sw_probe_memrsv_.exit.thread.i, label %fdt_add_reservemap_entry.exit.thread
 
 fdt_sw_probe_memrsv_.exit.i:                      ; preds = %1
-  %32 = icmp eq i32 %18, -804389139
-  %.0.i.i.i = select i1 %32, i32 -7, i32 -9
+  %38 = icmp eq i32 %18, -804389139
+  %.0.i.i.i = select i1 %38, i32 -7, i32 -9
   br label %fdt_add_reservemap_entry.exit.thread
 
 fdt_sw_probe_memrsv_.exit.thread.i:               ; preds = %19
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
-  %36 = shl nuw i32 %35, 24
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %38 = load i8, ptr %37, align 1
-  %39 = zext i8 %38 to i32
-  %40 = shl nuw nsw i32 %39, 16
-  %41 = or disjoint i32 %40, %36
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %43 = load i8, ptr %42, align 1
-  %44 = zext i8 %43 to i32
-  %45 = shl nuw nsw i32 %44, 8
-  %46 = or disjoint i32 %41, %45
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %40 = load i8, ptr %39, align 1
+  %41 = zext i8 %40 to i32
+  %42 = shl nuw i32 %41, 24
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %44 = load i8, ptr %43, align 1
+  %45 = zext i8 %44 to i32
+  %46 = shl nuw nsw i32 %45, 16
+  %47 = or disjoint i32 %46, %42
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %49 = load i8, ptr %48, align 1
+  %50 = zext i8 %49 to i32
+  %51 = shl nuw nsw i32 %50, 8
+  %52 = or disjoint i32 %47, %51
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   %50 = or disjoint i32 %46, %49
@@ -422,7 +422,7 @@ fdt_sw_probe_memrsv_.exit.thread.i:               ; preds = %19
   %71 = icmp ugt i64 %52, %70
   br i1 %71, label %fdt_add_reservemap_entry.exit.thread, label %72
 
-72:                                               ; preds = %fdt_sw_probe_memrsv_.exit.thread.i
+72:; preds = %fdt_sw_probe_memrsv_.exit.thread.i
   %73 = getelementptr inbounds i8, ptr %0, i64 %51
   %74 = trunc nuw i64 %52 to i32
   %rev.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %74)

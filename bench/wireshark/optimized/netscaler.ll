@@ -3576,16 +3576,16 @@ nstrace_ensure_buflen.exit1135:                   ; preds = %1356
   br label %1376
 
 1376:                                             ; preds = %1373, %1365
-  %1377 = phi i32 [ %1375, %1373 ], [ %1364, %1365 ]
-  %1378 = add i32 %1377, %.19851300
-  br label %1379
+  %.3987 = phi i32 [ %1375, %1373 ], [ %1364, %1365 ]
+  %1378 = add i32 %.3987, %.19851300
+  br label %._crit_edge
 
-1379:                                             ; preds = %1376, %1352, %1302, %1355
+._crit_edge:                                      ; preds = %1376, %1352, %1302, %1355
   %.3987 = phi i32 [ %1378, %1376 ], [ %1354, %1352 ], [ %1297, %1302 ], [ %.0990., %1355 ]
   %1380 = icmp ult i32 %.3987, %.0990
   br i1 %1380, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %1379, %20
+._crit_edge:; preds = %1379, %20
   %1381 = zext i32 %.0990 to i64
   %1382 = load i64, ptr %18, align 8
   %1383 = add i64 %1382, %1381
@@ -3595,38 +3595,38 @@ nstrace_ensure_buflen.exit1135:                   ; preds = %1356
   %spec.select1156 = tail call i64 @llvm.umin.i64(i64 %1385, i64 8192)
   %spec.select = trunc nuw nsw i64 %spec.select1156 to i32
   %.not = icmp eq i64 %1384, %1383
-  br i1 %.not, label %.critedge, label %1386
+  br i1 %.not, label %.critedge, label %1383
 
-1386:                                             ; preds = %._crit_edge
-  %1387 = load ptr, ptr %6, align 8
-  %1388 = load ptr, ptr %1387, align 8
-  %1389 = getelementptr inbounds nuw i8, ptr %1387, i64 8
-  %1390 = load i32, ptr %1389, align 8
-  %1391 = load ptr, ptr %0, align 8
-  %1392 = tail call i32 @file_read(ptr noundef %1388, i32 noundef %1390, ptr noundef %1391)
-  %1393 = icmp slt i32 %1392, 0
-  br i1 %1393, label %1394, label %1397
+1383:                                             ; preds = %._crit_edge
+  %1384 = load ptr, ptr %6, align 8
+  %1385 = load ptr, ptr %1384, align 8
+  %1386 = getelementptr inbounds nuw i8, ptr %1384, i64 8
+  %1387 = load i32, ptr %1386, align 8
+  %1388 = load ptr, ptr %0, align 8
+  %1389 = tail call i32 @file_read(ptr noundef %1385, i32 noundef %1387, ptr noundef %1388)
+  %1390 = icmp slt i32 %1389, 0
+  br i1 %1390, label %1391, label %1394
 
-1394:                                             ; preds = %1386
-  %1395 = load ptr, ptr %0, align 8
-  %1396 = tail call i32 @file_error(ptr noundef %1395, ptr noundef %3)
-  store i32 %1396, ptr %2, align 4
+1391:                                             ; preds = %1383
+  %1392 = load ptr, ptr %0, align 8
+  %1393 = tail call i32 @file_error(ptr noundef %1392, ptr noundef %3)
+  store i32 %1393, ptr %2, align 4
   br label %.critedge
 
-1397:                                             ; preds = %1386
-  %1398 = icmp eq i32 %1392, 0
-  br i1 %1398, label %1399, label %nstrace_read_page.exit
+1394:                                             ; preds = %1383
+  %1395 = icmp eq i32 %1389, 0
+  br i1 %1395, label %1396, label %nstrace_read_page.exit
 
-1399:                                             ; preds = %1397
+1396:                                             ; preds = %1394
   store i32 0, ptr %2, align 4
   br label %.critedge
 
-nstrace_read_page.exit:                           ; preds = %1397
-  %1400 = getelementptr inbounds nuw i8, ptr %1387, i64 28
-  store i32 %1392, ptr %1400, align 4
+nstrace_read_page.exit:                           ; preds = %1394
+  %1397 = getelementptr inbounds nuw i8, ptr %1384, i64 28
+  store i32 %1389, ptr %1397, align 4
   br label %20, !llvm.loop !13
 
-.critedge:                                        ; preds = %._crit_edge, %1399, %1394, %1328, %nstrace_ensure_buflen.exit1129, %1286, %.thread1152, %nstrace_ensure_buflen.exit1135, %nstrace_ensure_buflen.exit1131, %nstrace_ensure_buflen.exit, %1181, %1197, %1245, %1265, %1094, %1110, %1155, %1175, %1005, %1021, %1068, %1088, %919, %935, %979, %999, %833, %849, %893, %913, %750, %766, %807, %827, %667, %683, %724, %744, %587, %603, %641, %661, %491, %507, %561, %581, %398, %414, %465, %485, %303, %319, %372, %392, %211, %227, %277, %297, %118, %134, %185, %205, %28, %44, %92, %112
+.critedge:                                        ; preds = %._crit_edge, %1396, %1391, %1328, %nstrace_ensure_buflen.exit1129, %1286, %.thread1152, %nstrace_ensure_buflen.exit1135, %nstrace_ensure_buflen.exit1131, %nstrace_ensure_buflen.exit, %1181, %1197, %1245, %1265, %1094, %1110, %1155, %1175, %1005, %1021, %1068, %1088, %919, %935, %979, %999, %833, %849, %893, %913, %750, %766, %807, %827, %667, %683, %724, %744, %587, %603, %641, %661, %491, %507, %561, %581, %398, %414, %465, %485, %303, %319, %372, %392, %211, %227, %277, %297, %118, %134, %185, %205, %28, %44, %92, %112
   %.3 = phi i1 [ false, %28 ], [ false, %44 ], [ false, %92 ], [ true, %112 ], [ false, %118 ], [ false, %134 ], [ false, %185 ], [ true, %205 ], [ false, %211 ], [ false, %227 ], [ false, %277 ], [ true, %297 ], [ false, %303 ], [ false, %319 ], [ false, %372 ], [ true, %392 ], [ false, %398 ], [ false, %414 ], [ false, %465 ], [ true, %485 ], [ false, %491 ], [ false, %507 ], [ false, %561 ], [ true, %581 ], [ false, %587 ], [ false, %603 ], [ false, %641 ], [ true, %661 ], [ false, %667 ], [ false, %683 ], [ false, %724 ], [ true, %744 ], [ false, %750 ], [ false, %766 ], [ false, %807 ], [ true, %827 ], [ false, %833 ], [ false, %849 ], [ false, %893 ], [ true, %913 ], [ false, %919 ], [ false, %935 ], [ false, %979 ], [ true, %999 ], [ false, %1005 ], [ false, %1021 ], [ false, %1068 ], [ true, %1088 ], [ false, %1094 ], [ false, %1110 ], [ false, %1155 ], [ true, %1175 ], [ false, %1181 ], [ false, %1197 ], [ false, %1245 ], [ true, %1265 ], [ false, %nstrace_ensure_buflen.exit ], [ false, %nstrace_ensure_buflen.exit1131 ], [ false, %nstrace_ensure_buflen.exit1135 ], [ false, %.thread1152 ], [ false, %1286 ], [ false, %nstrace_ensure_buflen.exit1129 ], [ false, %1328 ], [ false, %1394 ], [ false, %1399 ], [ false, %._crit_edge ]
   ret i1 %.3
 }

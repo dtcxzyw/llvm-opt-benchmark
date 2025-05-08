@@ -930,8 +930,8 @@ define hidden noundef zeroext i1 @_ZN4UTF813is_legal_utf8EPKhib(ptr noundef read
   %.not = icmp slt i32 %.075.lcssa, %1
   br i1 %.not, label %.lr.ph90, label %._crit_edge91
 
-.lr.ph90:                                         ; preds = %._crit_edge, %98
-  %.188 = phi i32 [ %99, %98 ], [ %.075.lcssa, %._crit_edge ]
+.lr.ph90:                                         ; preds = %._crit_edge, %99
+  %.188 = phi i32 [ %100, %98 ], [ %.075.lcssa, %._crit_edge ]
   %30 = sext i32 %.188 to i64
   %31 = getelementptr inbounds i8, ptr %0, i64 %30
   %32 = load i8, ptr %31, align 1
@@ -940,7 +940,7 @@ define hidden noundef zeroext i1 @_ZN4UTF813is_legal_utf8EPKhib(ptr noundef read
 
 34:                                               ; preds = %.lr.ph90
   %35 = icmp sgt i8 %32, -1
-  br i1 %35, label %98, label %36
+  br i1 %35, label %99, label %36
 
 36:                                               ; preds = %34
   %37 = add nsw i32 %.188, 5
@@ -979,7 +979,7 @@ _ZN4UTF826is_supplementary_characterEPKh.exit:    ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %31, i64 5
   %59 = load i8, ptr %58, align 1
   %60 = icmp slt i8 %59, -64
-  br i1 %60, label %98, label %.thread
+  br i1 %60, label %99, label %.thread
 
 _ZN4UTF826is_supplementary_characterEPKh.exit.thread: ; preds = %36
   %61 = lshr i8 %32, 4
@@ -1021,45 +1021,45 @@ _ZN4UTF826is_supplementary_characterEPKh.exit.thread: ; preds = %36
 
 .thread:                                          ; preds = %53, %49, %45, %40, %_ZN4UTF826is_supplementary_characterEPKh.exit, %_ZN4UTF826is_supplementary_characterEPKh.exit.thread
   %.tr = zext i8 %32 to i32
-  %79 = shl nuw nsw i32 %.tr, 12
-  %80 = add nsw i32 %.188, 2
-  %81 = icmp slt i32 %80, %1
-  br i1 %81, label %82, label %._crit_edge91
+  %80 = shl nuw nsw i32 %.tr, 12
+  %81 = add nsw i32 %.188, 2
+  %82 = icmp slt i32 %81, %1
+  br i1 %82, label %83, label %._crit_edge91
 
-82:                                               ; preds = %.thread
-  %83 = getelementptr i8, ptr %31, i64 1
-  %84 = load i8, ptr %83, align 1
-  %85 = zext i8 %84 to i32
-  %86 = and i32 %85, 192
-  %87 = icmp eq i32 %86, 128
-  br i1 %87, label %88, label %._crit_edge91
+83:                                               ; preds = %.thread
+  %84 = getelementptr i8, ptr %31, i64 1
+  %85 = load i8, ptr %84, align 1
+  %86 = zext i8 %85 to i32
+  %87 = and i32 %86, 192
+  %88 = icmp eq i32 %87, 128
+  br i1 %88, label %89, label %._crit_edge91
 
-88:                                               ; preds = %82
-  %89 = sext i32 %80 to i64
-  %90 = getelementptr inbounds i8, ptr %0, i64 %89
-  %91 = load i8, ptr %90, align 1
-  %92 = icmp slt i8 %91, -64
-  br i1 %92, label %93, label %._crit_edge91
+89:                                               ; preds = %83
+  %90 = sext i32 %81 to i64
+  %91 = getelementptr inbounds i8, ptr %0, i64 %90
+  %92 = load i8, ptr %91, align 1
+  %93 = icmp slt i8 %92, -64
+  br i1 %93, label %94, label %._crit_edge91
 
-93:                                               ; preds = %88
-  %94 = shl nuw nsw i32 %85, 6
-  %95 = and i32 %94, 2048
-  %.masked = and i32 %79, 61440
-  %96 = or disjoint i32 %95, %.masked
-  %97 = icmp ne i32 %96, 0
-  %or.cond8 = select i1 %2, i1 true, i1 %97
-  br i1 %or.cond8, label %98, label %._crit_edge91
+94:                                               ; preds = %89
+  %95 = shl nuw nsw i32 %86, 6
+  %96 = and i32 %95, 2048
+  %.masked = and i32 %80, 61440
+  %97 = or disjoint i32 %96, %.masked
+  %98 = icmp ne i32 %97, 0
+  %or.cond8 = select i1 %2, i1 true, i1 %98
+  br i1 %or.cond8, label %99, label %._crit_edge91
 
 default.unreachable:                              ; preds = %_ZN4UTF826is_supplementary_characterEPKh.exit.thread
   unreachable
 
-98:                                               ; preds = %_ZN4UTF826is_supplementary_characterEPKh.exit, %74, %93, %34
-  %.2 = phi i32 [ %.188, %34 ], [ %80, %93 ], [ %65, %74 ], [ %37, %_ZN4UTF826is_supplementary_characterEPKh.exit ]
-  %99 = add nsw i32 %.2, 1
-  %.not117 = icmp slt i32 %99, %1
+99:                                               ; preds = %_ZN4UTF826is_supplementary_characterEPKh.exit, %74, %94, %34
+  %.2 = phi i32 [ %.188, %34 ], [ %81, %93 ], [ %65, %74 ], [ %37, %_ZN4UTF826is_supplementary_characterEPKh.exit ]
+  %100 = add nsw i32 %.2, 1
+  %.not117 = icmp slt i32 %100, %1
   br i1 %.not117, label %.lr.ph90, label %._crit_edge91, !llvm.loop !17
 
-._crit_edge91:                                    ; preds = %.lr.ph90, %_ZN4UTF826is_supplementary_characterEPKh.exit.thread, %_ZN4UTF826is_supplementary_characterEPKh.exit.thread, %_ZN4UTF826is_supplementary_characterEPKh.exit.thread, %_ZN4UTF826is_supplementary_characterEPKh.exit.thread, %_ZN4UTF826is_supplementary_characterEPKh.exit.thread, %74, %67, %62, %93, %88, %82, %.thread, %98, %._crit_edge
+._crit_edge91:                                    ; preds = %.lr.ph90, %_ZN4UTF826is_supplementary_characterEPKh.exit.thread, %_ZN4UTF826is_supplementary_characterEPKh.exit.thread, %_ZN4UTF826is_supplementary_characterEPKh.exit.thread, %_ZN4UTF826is_supplementary_characterEPKh.exit.thread, %_ZN4UTF826is_supplementary_characterEPKh.exit.thread, %74, %67, %62, %93, %88, %82, %.thread, %99, %._crit_edge
   %.lcssa = phi i1 [ true, %._crit_edge ], [ true, %98 ], [ false, %.thread ], [ false, %82 ], [ false, %88 ], [ false, %93 ], [ false, %62 ], [ false, %67 ], [ false, %74 ], [ false, %_ZN4UTF826is_supplementary_characterEPKh.exit.thread ], [ false, %_ZN4UTF826is_supplementary_characterEPKh.exit.thread ], [ false, %_ZN4UTF826is_supplementary_characterEPKh.exit.thread ], [ false, %_ZN4UTF826is_supplementary_characterEPKh.exit.thread ], [ false, %_ZN4UTF826is_supplementary_characterEPKh.exit.thread ], [ false, %.lr.ph90 ]
   ret i1 %.lcssa
 }

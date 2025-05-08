@@ -509,7 +509,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
   %198 = load i8, ptr %197, align 1, !tbaa !31
   %199 = getelementptr inbounds nuw i8, ptr %32, i64 15
   store ptr %199, ptr %5, align 8, !tbaa !12
-  %200 = or i8 %196, %194
+  %201 = or i8 %196, %194
   %201 = or i8 %200, %198
   %202 = icmp eq i8 %201, 0
   br i1 %202, label %207, label %203

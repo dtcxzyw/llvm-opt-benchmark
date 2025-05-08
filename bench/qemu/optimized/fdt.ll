@@ -110,12 +110,12 @@ define dso_local range(i32 -19, 2147483647) i32 @fdt_ro_probe_(ptr noundef %0) l
   %92 = icmp eq i8 %91, 0
   br i1 %92, label %95, label %93
 
-93:                                               ; preds = %80, %60
+93: ; preds = %80, %60
   %94 = icmp ult i32 %19, 2147483647
   %. = select i1 %94, i32 %19, i32 -8
   br label %95
 
-95:                                               ; preds = %22, %93, %80, %60, %40, %1
+95:; preds = %22, %93, %80, %60, %40, %1
   %.0 = phi i32 [ -19, %1 ], [ -10, %40 ], [ -10, %60 ], [ -7, %80 ], [ %., %93 ], [ -9, %22 ]
   ret i32 %.0
 }

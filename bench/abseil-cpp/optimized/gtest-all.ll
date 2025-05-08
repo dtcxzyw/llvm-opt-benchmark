@@ -24981,50 +24981,50 @@ define dso_local void @_ZN7testing8internal7PrintToEoPSo(i64 noundef %0, i64 nou
   %4 = alloca [40 x i8], align 16
   %5 = or i64 %1, %0
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %7, label %.lr.ph.preheader
+  br i1 %6, label %7, label %8
 
-7:                                                ; preds = %3
-  %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.76, i64 noundef 1)
-  br label %28
+6:                                                ; preds = %3
+  %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.76, i64 noundef 1)
+  br label %29
 
-.lr.ph.preheader:                                 ; preds = %3
+8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #59
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 39
   store i8 0, ptr %9, align 1, !tbaa !28
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.024 = phi ptr [ %22, %.lr.ph ], [ %9, %.lr.ph.preheader ]
-  %.01823 = phi i64 [ %11, %.lr.ph ], [ %1, %.lr.ph.preheader ]
-  %.01922 = phi i64 [ %19, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %10 = urem i64 %.01823, 10
-  %11 = udiv i64 %.01823, 10
-  %12 = mul nuw nsw i64 %10, 6
-  %13 = urem i64 %.01922, 10
-  %14 = add nuw nsw i64 %12, %13
-  %15 = udiv i64 %.01922, 10
-  %16 = mul nuw i64 %10, 1844674407370955161
-  %17 = add nuw i64 %16, %15
-  %.lhs.trunc = trunc nuw nsw i64 %14 to i8
-  %18 = udiv i8 %.lhs.trunc, 10
-  %.zext = zext nneg i8 %18 to i64
-  %19 = add i64 %17, %.zext
-  %20 = urem i8 %.lhs.trunc, 10
-  %21 = or disjoint i8 %20, 48
-  %22 = getelementptr inbounds i8, ptr %.024, i64 -1
-  store i8 %21, ptr %22, align 1, !tbaa !28
-  %23 = icmp ugt i64 %.01823, 9
-  %24 = icmp ne i64 %19, 0
-  %25 = select i1 %23, i1 true, i1 %24
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !516
+.lr.ph:                                           ; preds = %8, %.lr.ph
+  %.024 = phi ptr [ %23, %.lr.ph ], [ %9, %.lr.ph.preheader ]
+  %.01823 = phi i64 [ %12, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %.01922 = phi i64 [ %20, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %11 = urem i64 %.01823, 10
+  %12 = udiv i64 %.01823, 10
+  %13 = mul nuw nsw i64 %11, 6
+  %14 = urem i64 %.01922, 10
+  %15 = add nuw nsw i64 %13, %14
+  %16 = udiv i64 %.01922, 10
+  %17 = mul nuw i64 %11, 1844674407370955161
+  %18 = add nuw i64 %17, %16
+  %.lhs.trunc = trunc nuw nsw i64 %15 to i8
+  %19 = udiv i8 %.lhs.trunc, 10
+  %.zext = zext nneg i8 %19 to i64
+  %20 = add i64 %18, %.zext
+  %21 = urem i8 %.lhs.trunc, 10
+  %22 = or disjoint i8 %21, 48
+  %23 = getelementptr inbounds i8, ptr %.024, i64 -1
+  store i8 %22, ptr %23, align 1, !tbaa !28
+  %24 = icmp ugt i64 %.01823, 9
+  %25 = icmp ne i64 %20, 0
+  %26 = select i1 %24, i1 true, i1 %25
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !516
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %26 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #59
+  %26 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #59
   %27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %22, i64 noundef %26)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #59
-  br label %28
+  br label %29
 
-28:                                               ; preds = %._crit_edge, %7
+29:                                               ; preds = %._crit_edge, %6
   ret void
 }
 
@@ -25053,28 +25053,28 @@ define dso_local void @_ZN7testing8internal7PrintToEnPSo(i64 noundef %0, i64 nou
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %.lr.ph.preheader.i
 
-12:                                               ; preds = %9
-  %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.76, i64 noundef 1)
+11:                                               ; preds = %9
+  %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.76, i64 noundef 1)
   br label %_ZN7testing8internal7PrintToEoPSo.exit
 
-.lr.ph.preheader.i:                               ; preds = %9
+13:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #59
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 39
   store i8 0, ptr %14, align 1, !tbaa !28
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+.lr.ph.i: ; preds = %.lr.ph.i, %13
   %.024.i = phi ptr [ %27, %.lr.ph.i ], [ %14, %.lr.ph.preheader.i ]
   %.01823.i = phi i64 [ %16, %.lr.ph.i ], [ %.0.off64, %.lr.ph.preheader.i ]
-  %.01922.i = phi i64 [ %24, %.lr.ph.i ], [ %.0.off0, %.lr.ph.preheader.i ]
+  %.024.i = phi i64 [ %24, %.lr.ph.i ], [ %.0.off0, %.lr.ph.preheader.i ]
   %15 = urem i64 %.01823.i, 10
   %16 = udiv i64 %.01823.i, 10
   %17 = mul nuw nsw i64 %15, 6
   %18 = urem i64 %.01922.i, 10
-  %19 = add nuw nsw i64 %17, %18
-  %20 = udiv i64 %.01922.i, 10
+  %19 = add nuw nsw i64 %16, %18
+  %21 = udiv i64 %.01922.i, 10
   %21 = mul nuw i64 %15, 1844674407370955161
-  %22 = add nuw i64 %21, %20
+  %22 = add nuw i64 %22, %20
   %.lhs.trunc.i = trunc nuw nsw i64 %19 to i8
   %23 = udiv i8 %.lhs.trunc.i, 10
   %.zext.i = zext nneg i8 %23 to i64
@@ -25088,13 +25088,13 @@ define dso_local void @_ZN7testing8internal7PrintToEnPSo(i64 noundef %0, i64 nou
   %30 = select i1 %28, i1 true, i1 %29
   br i1 %30, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !516
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i
+._crit_edge.i:; preds = %.lr.ph.i
   %31 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #59
   %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %27, i64 noundef %31)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #59
   br label %_ZN7testing8internal7PrintToEoPSo.exit
 
-_ZN7testing8internal7PrintToEoPSo.exit:           ; preds = %12, %._crit_edge.i
+_ZN7testing8internal7PrintToEoPSo.exit:           ; preds = %11, %._crit_edge.i
   ret void
 }
 

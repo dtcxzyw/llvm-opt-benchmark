@@ -54248,7 +54248,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Pms(ptr noundef readonly cap
   tail call void (...) @Extra_UtilGetoptReset() #32
   %4 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.642) #32
   %.not = icmp eq i32 %4, -1
-  br i1 %.not, label %5, label %82
+  br i1 %.not, label %5, label %84
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -54258,7 +54258,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Pms(ptr noundef readonly cap
 
 9:                                                ; preds = %5
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.3291)
-  br label %83
+  br label %85
 
 10:                                               ; preds = %5
   %11 = getelementptr i8, ptr %7, i64 16
@@ -54343,49 +54343,49 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Pms(ptr noundef readonly cap
   %58 = sdiv exact i64 %57, 12
   %59 = trunc i64 %58 to i32
   %.val3.i.i38 = load i64, ptr %25, align 4
-  %60 = trunc i64 %.val3.i.i38 to i32
-  %61 = and i32 %60, 536870911
-  %62 = sub nsw i32 %59, %61
-  %63 = lshr i32 %60, 29
-  %64 = and i32 %63, 1
-  %65 = or i32 %62, %64
+  %61 = trunc i64 %.val3.i.i38 to i32
+  %62 = and i32 %61, 536870911
+  %63 = sub nsw i32 %59, %62
+  %64 = lshr i32 %61, 29
+  %65 = and i32 %64, 1
+  %65 = or i32 %63, %64
   %66 = icmp ne i32 %65, 0
   %67 = zext i1 %66 to i32
   %68 = add nuw nsw i32 %.043, %67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %69 = getelementptr i8, ptr %54, i64 16
-  %.val30 = load i32, ptr %69, align 8, !tbaa !47
-  %70 = getelementptr i8, ptr %54, i64 72
-  %.val31 = load ptr, ptr %70, align 8, !tbaa !59
-  %71 = getelementptr i8, ptr %.val31, i64 4
-  %.val31.val = load i32, ptr %71, align 4, !tbaa !42
-  %72 = sub nsw i32 %.val31.val, %.val30
-  %73 = sext i32 %72 to i64
-  %74 = icmp slt i64 %indvars.iv.next, %73
-  br i1 %74, label %.lr.ph, label %.critedge, !llvm.loop !856
+  %71 = getelementptr i8, ptr %54, i64 16
+  %.val30 = load i32, ptr %71, align 8, !tbaa !47
+  %72 = getelementptr i8, ptr %54, i64 72
+  %.val31 = load ptr, ptr %72, align 8, !tbaa !59
+  %73 = getelementptr i8, ptr %.val31, i64 4
+  %.val31.val = load i32, ptr %73, align 4, !tbaa !42
+  %74 = sub nsw i32 %.val31.val, %.val30
+  %75 = sext i32 %74 to i64
+  %76 = icmp slt i64 %indvars.iv.next, %75
+  br i1 %76, label %.lr.ph, label %.critedge, !llvm.loop !856
 
 .critedge:                                        ; preds = %.lr.ph, %37, %10
   %.0.lcssa = phi i32 [ 0, %10 ], [ %68, %37 ], [ %.043, %.lr.ph ]
   %putchar = tail call i32 @putchar(i32 10)
-  %75 = load ptr, ptr %6, align 8, !tbaa !60
-  %76 = getelementptr i8, ptr %75, i64 16
-  %.val28 = load i32, ptr %76, align 8, !tbaa !47
-  %77 = getelementptr i8, ptr %75, i64 72
-  %.val29 = load ptr, ptr %77, align 8, !tbaa !59
-  %78 = getelementptr i8, ptr %.val29, i64 4
-  %.val29.val = load i32, ptr %78, align 4, !tbaa !42
-  %79 = add i32 %.val28, %.0.lcssa
-  %80 = sub i32 %.val29.val, %79
-  %81 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3299, i32 noundef %.0.lcssa, i32 noundef %80)
-  br label %83
+  %77 = load ptr, ptr %6, align 8, !tbaa !60
+  %78 = getelementptr i8, ptr %77, i64 16
+  %.val28 = load i32, ptr %78, align 8, !tbaa !47
+  %79 = getelementptr i8, ptr %77, i64 72
+  %.val29 = load ptr, ptr %79, align 8, !tbaa !59
+  %80 = getelementptr i8, ptr %.val29, i64 4
+  %.val29.val = load i32, ptr %80, align 4, !tbaa !42
+  %81 = add i32 %.val28, %.0.lcssa
+  %82 = sub i32 %.val29.val, %81
+  %83 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3299, i32 noundef %.0.lcssa, i32 noundef %82)
+  br label %85
 
-82:                                               ; preds = %3
+84:                                               ; preds = %3
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3300)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3301)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.552)
-  br label %83
+  br label %85
 
-83:                                               ; preds = %82, %.critedge, %9
+85:                                               ; preds = %84, %.critedge, %9
   %.022 = phi i32 [ 1, %82 ], [ 1, %9 ], [ 0, %.critedge ]
   ret i32 %.022
 }
