@@ -149,29 +149,29 @@ _ZNK6frozen3mapIN4LIEF5MachO15DyldBindingInfo5CLASSEPKcLm4ESt4lessIS4_EE4findIS4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_ZN4LIEF5MachO9to_stringENS0_15DyldBindingInfo4TYPEE(i64 noundef %0) local_unnamed_addr #2 {
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %0, 2
-  %.add.i.i = select i1 %.not.i.i.i.i.i.i.i, i64 40, i64 8
-  %.add.i.i.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_15DyldBindingInfo4TYPEE.enums2str, i64 %.add.i.i
+  %.add.i.i.sroa.sel.v = select i1 %.not.i.i.i.i.i.i.i, i64 40, i64 8
+  %.add.i.i.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_15DyldBindingInfo4TYPEE.enums2str, i64 %.add.i.i.sroa.sel.v
   %2 = load i64, ptr %.add.i.i.sroa.sel, align 8, !tbaa !28
   %.not.i.i.i.i.i.i.i.i = icmp ult i64 %2, %0
-  %.idx.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 16, i64 0
-  %.add12.i.i = or disjoint i64 %.idx.i.i.i.i.i.i.i.i, %.add.i.i
-  %.not.i.i = icmp eq i64 %.add12.i.i, 56
+  %.not.i.i = and i1 %.not.i.i.i.i.i.i.i, %.not.i.i.i.i.i.i.i.i
   br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF5MachO15DyldBindingInfo4TYPEEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %3
 
 3:                                                ; preds = %1
-  %.ptr14.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_15DyldBindingInfo4TYPEE.enums2str, i64 %.add12.i.i
-  %4 = load i64, ptr %.ptr14.i.i, align 8, !tbaa !28
-  %.not15.i.i = icmp ult i64 %0, %4
-  br i1 %.not15.i.i, label %_ZNK6frozen3mapIN4LIEF5MachO15DyldBindingInfo4TYPEEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %5
+  %.idx.i.i.i.i.i.i.i.i.sroa.sel.idx = select i1 %.not.i.i.i.i.i.i.i.i, i64 16, i64 0
+  %4 = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_15DyldBindingInfo4TYPEE.enums2str, i64 %.idx.i.i.i.i.i.i.i.i.sroa.sel.idx
+  %.ptr14.i.i.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.add.i.i.sroa.sel.v
+  %5 = load i64, ptr %.ptr14.i.i.ptr, align 8, !tbaa !28
+  %.not15.i.i = icmp ult i64 %0, %5
+  br i1 %.not15.i.i, label %_ZNK6frozen3mapIN4LIEF5MachO15DyldBindingInfo4TYPEEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %6
 
-5:                                                ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %.ptr14.i.i, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !36
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %.ptr14.i.i.ptr, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !36
   br label %_ZNK6frozen3mapIN4LIEF5MachO15DyldBindingInfo4TYPEEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 
-_ZNK6frozen3mapIN4LIEF5MachO15DyldBindingInfo4TYPEEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %3, %1, %5
-  %8 = phi ptr [ %7, %5 ], [ @.str.4, %1 ], [ @.str.4, %3 ]
-  ret ptr %8
+_ZNK6frozen3mapIN4LIEF5MachO15DyldBindingInfo4TYPEEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %3, %1, %6
+  %9 = phi ptr [ %8, %6 ], [ @.str.4, %1 ], [ @.str.4, %3 ]
+  ret ptr %9
 }
 
 declare noundef zeroext i1 @_ZNK4LIEF6ObjecteqERKS0_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
